@@ -1,51 +1,51 @@
 ---
-title: Metodtips för poddsäkerhet
+title: Metod tips för Pod-säkerhet
 titleSuffix: Azure Kubernetes Service
-description: Lär dig metodtips för utvecklare för hur du skyddar poddar i Azure Kubernetes Service (AKS)
+description: Lär dig metod tips för utvecklare för att skydda poddar i Azure Kubernetes service (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
 ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804392"
 ---
-# <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metodtips för pod-säkerhet i Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metod tips för Pod-säkerhet i Azure Kubernetes service (AKS)
 
-När du utvecklar och kör program i Azure Kubernetes Service (AKS) är säkerheten för dina poddar en viktig faktor. Dina program bör utformas för principen om minsta antal privilegier som krävs. Att hålla privata data säkra är top of mind för kunderna. Du vill inte ha autentiseringsuppgifter som databasanslutningssträngar, nycklar eller hemligheter och certifikat som exponeras för omvärlden där en angripare kan dra nytta av dessa hemligheter för skadliga ändamål. Lägg inte till dem i koden eller bädda in dem i behållaravbildningar. Den här metoden skulle skapa en risk för exponering och begränsa möjligheten att rotera dessa autentiseringsuppgifter eftersom behållaravbildningarna måste återskapas.
+När du utvecklar och kör program i Azure Kubernetes service (AKS) är säkerheten för din poddar en viktig faktor. Dina program bör vara utformade för principen om minst antal privilegier som krävs. Att skydda privata data är framför allt för kunderna. Du vill inte ha autentiseringsuppgifter, t. ex. databas anslutnings strängar, nycklar eller hemligheter och certifikat som exponeras för den utanför världen, där en angripare kan utnyttja dessa hemligheter i skadliga syfte. Lägg inte till dem i din kod eller bädda in dem i behållar avbildningarna. Den här metoden skulle skapa en risk för exponering och begränsa möjligheten att rotera dessa autentiseringsuppgifter eftersom behållar avbildningarna måste återskapas.
 
-Den här artikeln om metodtips fokuserar på hur du skyddar poddar i AKS. Lär dig att:
+I den här artikeln fokuserar vi på hur du skyddar poddar i AKS. Lär dig att:
 
 > [!div class="checklist"]
-> * Använd pod säkerhetskontext för att begränsa åtkomsten till processer och tjänster eller eskalering av privilegier
-> * Autentisera med andra Azure-resurser med hjälp av pod-hanterade identiteter
-> * Begära och hämta autentiseringsuppgifter från ett digitalt valv som Azure Key Vault
+> * Använd Pod säkerhets kontext för att begränsa åtkomsten till processer och tjänster eller behörighets eskalering
+> * Autentisera med andra Azure-resurser med Pod-hanterade identiteter
+> * Begär och hämta autentiseringsuppgifter från ett digitalt valv som Azure Key Vault
 
-Du kan också läsa metodtipsen för [klustersäkerhet][best-practices-cluster-security] och hantering av [behållaravbildning][best-practices-container-image-management].
+Du kan också läsa metod tips för [kluster säkerhet][best-practices-cluster-security] och för [hantering av behållar avbildningar][best-practices-container-image-management].
 
-## <a name="secure-pod-access-to-resources"></a>Säker pod-åtkomst till resurser
+## <a name="secure-pod-access-to-resources"></a>Skydda Pod åtkomst till resurser
 
-**Vägledning om bästa praxis** – Om du vill köra som en annan användare eller grupp och begränsa åtkomsten till de underliggande nodprocesserna och nodtjänsterna definierar du säkerhetskontextinställningar för pod. Tilldela det minsta antalet privilegier som krävs.
+**Rekommendationer om bästa praxis** – att köra som en annan användare eller grupp och begränsa åtkomsten till de underliggande nodernas processer och tjänster, definiera Pod säkerhets kontext inställningar. Tilldela det lägsta antalet behörigheter som krävs.
 
-För att dina program ska fungera korrekt ska poddar köras som en definierad användare eller grupp och inte som *root*. För `securityContext` en pod eller behållare kan du definiera inställningar som *runAsUser* eller *fsGroup* att anta lämpliga behörigheter. Tilldela endast de användar- eller gruppbehörigheter som krävs och använd inte säkerhetskontexten som ett sätt att anta ytterligare behörigheter. *RunAsUser,* eskalering av privilegier och andra Linux-funktioner är endast tillgängliga på Linux-noder och poddar.
+För att dina program ska kunna köras korrekt ska poddar köras som en definierad användare eller grupp och inte som *rot*. Med `securityContext` POD eller container kan du definiera inställningar som *runAsUser* eller *fsGroup* för att anta lämpliga behörigheter. Tilldela bara de nödvändiga användar-eller grupp behörigheterna och Använd inte säkerhets kontexten som ett sätt att anta ytterligare behörigheter. *RunAsUser*, behörighets eskalering och andra inställningar för Linux-funktioner är bara tillgängliga på Linux-noder och poddar.
 
-När du kör som en icke-rotanvändare kan behållare inte binda till de privilegierade portarna under 1024. I det här fallet kan Kubernetes Services användas för att dölja det faktum att en app körs på en viss port.
+När du kör som en icke-rot användare kan behållare inte bindas till de privilegierade portarna under 1024. I det här scenariot kan Kubernetes-tjänster användas för att dölja det faktum att en app körs på en viss port.
 
-En säkerhetskontext för pod kan också definiera ytterligare funktioner eller behörigheter för åtkomst till processer och tjänster. Följande gemensamma säkerhetskontextdefinitioner kan ställas in:
+En POD säkerhets kontext kan också definiera ytterligare funktioner eller behörigheter för åtkomst till processer och tjänster. Följande definitioner av vanliga säkerhets kontexter kan anges:
 
-* **allowPrivilegeEscalation** definierar om podden kan anta rotprivilegier. *root* Utforma dina program så att den här inställningen alltid är inställd på *false*.
-* **Linux-funktioner** gör att podn kan komma åt underliggande nodprocesser. Var försiktig med att tilldela dessa funktioner. Tilldela det minsta antalet privilegier som behövs. Mer information finns i [Linux-funktioner][linux-capabilities].
-* **SELinux-etiketter** är en Linux-kärnsäkerhetsmodul som låter dig definiera åtkomstprinciper för tjänster, processer och filsystemåtkomst. Tilldela återigen det minsta antalet privilegier som behövs. Mer information finns [i SELinux-alternativ i Kubernetes][selinux-labels]
+* **allowPrivilegeEscalation** definierar om Pod kan anta *rot* privilegier. Utforma dina program så att den här inställningen alltid är inställd på *falskt*.
+* **Linux-funktioner** låter Pod komma åt underliggande noder. Ta hand om att tilldela dessa funktioner. Tilldela det lägsta antalet behörigheter som krävs. Mer information finns i [Linux-funktioner][linux-capabilities].
+* **SELinux-etiketter** är en Linux-modul för kernel-säkerhet som gör att du kan definiera åtkomst principer för tjänster, processer och fil åtkomst program. Ange det lägsta antalet behörigheter som krävs. Mer information finns i [SELinux-alternativ i Kubernetes][selinux-labels]
 
-I följande exempel pod YAML-manifest anger säkerhetskontextinställningar för att definiera:
+I följande exempel Pod YAML manifest anges säkerhets kontext inställningar för att definiera:
 
-* Pod körs som användar-ID *1000* och en del av grupp-ID *2000*
+* Pod körs som användar-ID *1000* och del av grupp-ID *2000*
 * Det går inte att eskalera privilegier att använda`root`
-* Tillåter Linux-funktioner att komma åt nätverksgränssnitt och värdens realtidsklocka (maskinvara)
+* Ger Linux-funktioner åtkomst till nätverks gränssnitt och värdens real tids klocka (maskin vara)
 
 ```yaml
 apiVersion: v1
@@ -64,46 +64,46 @@ spec:
         add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
-Arbeta med klusteroperatorn för att avgöra vilka säkerhetskontextinställningar du behöver. Försök att utforma dina program för att minimera ytterligare behörigheter och komma åt pod kräver. Det finns ytterligare säkerhetsfunktioner för att begränsa åtkomsten med AppArmor och seccomp (secure computing) som kan implementeras av klusteroperatörer. Mer information finns i [Säker behållaråtkomst till resurser][apparmor-seccomp].
+Arbeta med din kluster operatör för att fastställa vilka säkerhets kontext inställningar du behöver. Försök att utforma dina program för att minimera ytterligare behörigheter och åtkomst till Pod kräver. Det finns ytterligare säkerhetsfunktioner för att begränsa åtkomsten med hjälp av AppArmor och seccomp (säker data behandling) som kan implementeras av kluster operatörer. Mer information finns i [skydda container åtkomst till resurser][apparmor-seccomp].
 
-## <a name="limit-credential-exposure"></a>Begränsa exponeringen för autentiseringsuppgifter
+## <a name="limit-credential-exposure"></a>Begränsa exponering för autentiseringsuppgifter
 
-**Vägledning för bästa praxis** – Definiera inte autentiseringsuppgifter i programkoden. Använd hanterade identiteter för Azure-resurser för att låta din pod-begäran åtkomst till andra resurser. Ett digitalt valv, till exempel Azure Key Vault, bör också användas för att lagra och hämta digitala nycklar och autentiseringsuppgifter. Pod-hanterade identiteter är endast avsedda att användas med Linux-poddar och behållaravbildningar.
+**Vägledning för bästa praxis** – definiera inte autentiseringsuppgifter i program koden. Använd hanterade identiteter för Azure-resurser för att låta din POD begära åtkomst till andra resurser. Ett digitalt valv, till exempel Azure Key Vault, bör också användas för att lagra och hämta digitala nycklar och autentiseringsuppgifter. Pod-hanterade identiteter är endast avsedd för användning med Linux-poddar och behållar avbildningar.
 
-Undvik användningen av fasta eller delade autentiseringsuppgifter om du vill begränsa risken för att autentiseringsuppgifter exponeras i programkoden. Autentiseringsuppgifter eller nycklar ska inte inkluderas direkt i koden. Om dessa autentiseringsuppgifter visas måste programmet uppdateras och distribueras om. Ett bättre tillvägagångssätt är att ge poddar sin egen identitet och sätt att autentisera sig själva, eller automatiskt hämta autentiseringsuppgifter från ett digitalt valv.
+Undvik att använda fasta eller delade autentiseringsuppgifter om du vill begränsa risken för att autentiseringsuppgifter exponeras i program koden. Autentiseringsuppgifter eller nycklar får inte inkluderas direkt i din kod. Om autentiseringsuppgifterna exponeras måste programmet uppdateras och omdistribueras. En bättre metod är att ge poddar sin egen identitet och sitt sätt att autentisera sig själva eller automatiskt hämta autentiseringsuppgifter från ett digitalt valv.
 
 Med följande [associerade AKS-projekt med öppen källkod][aks-associated-projects] kan du automatiskt autentisera poddar eller begära autentiseringsuppgifter och nycklar från ett digitalt valv:
 
 * Hanterade identiteter för Azure-resurser och
 * Azure Key Vault FlexVol-drivrutin
 
-Associerade AKS-projekt med öppen källkod stöds inte av teknisk Azure-support. De tillhandahålls för att samla in feedback och buggar från vårt samhälle. Dessa projekt rekommenderas inte för produktionsanvändning.
+Associerade AKS-projekt med öppen källkod stöds inte av teknisk support för Azure. De erbjuds att samla in feedback och buggar från vår community. Dessa projekt rekommenderas inte för produktions användning.
 
-### <a name="use-pod-managed-identities"></a>Använda pod-hanterade identiteter
+### <a name="use-pod-managed-identities"></a>Använda Pod-hanterade identiteter
 
-En hanterad identitet för Azure-resurser gör att en pod autentiserar sig mot Azure-tjänster som stöder den, till exempel Lagring eller SQL. Podden tilldelas en Azure Identity som låter dem autentisera till Azure Active Directory och ta emot en digital token. Den här digitala token kan visas för andra Azure-tjänster som kontrollerar om podden har behörighet att komma åt tjänsten och utföra de nödvändiga åtgärderna. Den här metoden innebär att inga hemligheter krävs för databasanslutningssträngar, till exempel. Det förenklade arbetsflödet för pod-hanterad identitet visas i följande diagram:
+En hanterad identitet för Azure-resurser gör att en POD autentiseras mot Azure-tjänster som stöder den, till exempel Storage eller SQL. Pod tilldelas en Azure-identitet som gör att de kan autentiseras för att Azure Active Directory och ta emot en digital token. Den här digitala token kan visas för andra Azure-tjänster som kontrollerar om Pod har behörighet att komma åt tjänsten och utföra de åtgärder som krävs. Den här metoden innebär att inga hemligheter krävs för databas anslutnings strängar, till exempel. Det förenklade arbets flödet för Pod-hanterad identitet visas i följande diagram:
 
-![Förenklat arbetsflöde för pod-hanterad identitet i Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
+![Förenklat arbets flöde för Pod-hanterad identitet i Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
 
-Med en hanterad identitet behöver din programkod inte innehålla autentiseringsuppgifter för att komma åt en tjänst, till exempel Azure Storage. När varje pod autentiserar med sin egen identitet, så att du kan granska och granska åtkomsten. Om ditt program ansluter till andra Azure-tjänster använder du hanterade identiteter för att begränsa återanvändning av autentiseringsuppgifter och risk för exponering.
+Med en hanterad identitet behöver program koden inte innehålla autentiseringsuppgifter för att få åtkomst till en tjänst, t. ex. Azure Storage. Som varje Pod autentiseras med sin egen identitet, så att du kan granska och granska åtkomst. Om ditt program ansluter till andra Azure-tjänster kan du använda hanterade identiteter för att begränsa åter användning av autentiseringsuppgifter och risk för exponering.
 
-Mer information om pod-identiteter finns i [Konfigurera ett AKS-kluster för att använda pod-hanterade identiteter och med dina program][aad-pod-identity]
+Mer information om Pod-identiteter finns i [Konfigurera ett AKS-kluster för att använda Pod hanterade identiteter och med dina program][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Använda Azure Key Vault med FlexVol
 
-Hanterade pod-identiteter fungerar bra för att autentisera mot stöd för Azure-tjänster. För dina egna tjänster eller program utan hanterade identiteter för Azure-resurser autentiserar du fortfarande med autentiseringsuppgifter eller nycklar. Ett digitalt valv kan användas för att lagra dessa autentiseringsuppgifter.
+Hanterade Pod-identiteter fungerar bra för att autentisera mot stöd för Azure-tjänster. För dina egna tjänster eller program utan hanterade identiteter för Azure-resurser kan du fortfarande autentisera med hjälp av autentiseringsuppgifter eller nycklar. Ett digitalt valv kan användas för att lagra dessa autentiseringsuppgifter.
 
-När program behöver en autentiseringsuppgifter kommunicerar de med det digitala valvet, hämtar de senaste autentiseringsuppgifterna och ansluter sedan till den tjänst som krävs. Azure Key Vault kan vara det här digitala valvet. Det förenklade arbetsflödet för att hämta en autentiseringsuppgifter från Azure Key Vault med pod-hanterade identiteter visas i följande diagram:
+När program behöver en autentiseringsuppgift kommunicerar de med det digitala valvet, hämtar de senaste autentiseringsuppgifterna och ansluter sedan till den tjänst som krävs. Azure Key Vault kan vara det här digitala valvet. Det förenklade arbets flödet för att hämta autentiseringsuppgifter från Azure Key Vault med Pod-hanterade identiteter visas i följande diagram:
 
-![Förenklat arbetsflöde för att hämta en autentiseringsuppgifter från Key Vault med hjälp av en hanterad pod-identitet](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
+![Förenklat arbets flöde för att hämta autentiseringsuppgifter från Key Vault med en POD-hanterad identitet](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
-Med Key Vault lagrar och roterar du regelbundet hemligheter som autentiseringsuppgifter, lagringskontonycklar eller certifikat. Du kan integrera Azure Key Vault med ett AKS-kluster med hjälp av ett FlexVolume. FlexVolume-drivrutinen gör att AKS-klustret internt kan hämta autentiseringsuppgifter från Key Vault och på ett säkert sätt bara tillhandahålla dem till den begärande podden. Arbeta med klusteroperatorn för att distribuera Key Vault FlexVol-drivrutinen till AKS-noderna. Du kan använda en pod-hanterad identitet för att begära åtkomst till Key Vault och hämta de autentiseringsuppgifter du behöver via FlexVolume-drivrutinen.
+Med Key Vault kan du lagra och regelbundet rotera hemligheter som autentiseringsuppgifter, lagrings konto nycklar eller certifikat. Du kan integrera Azure Key Vault med ett AKS-kluster med hjälp av en FlexVolume. Med FlexVolume-drivrutinen kan AKS-klustret Hämta autentiseringsuppgifter från Key Vault och på ett säkert sätt förse dem med den begär ande pod. Arbeta med kluster operatören för att distribuera Key Vault FlexVol-drivrutinen till AKS-noderna. Du kan använda en POD-hanterad identitet för att begära åtkomst till Key Vault och hämta de autentiseringsuppgifter du behöver via FlexVolume-drivrutinen.
 
-Azure Key Vault med FlexVol är avsett för användning med program och tjänster som körs på Linux-poddar och noder.
+Azure Key Vault med FlexVol är avsedd för användning med program och tjänster som körs på Linux-poddar och-noder.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln fokuserade på hur du säkrar dina poddar. Information om hur du implementerar några av dessa områden finns i följande artiklar:
+Den här artikeln fokuserar på hur du skyddar din poddar. Information om hur du implementerar vissa av dessa områden finns i följande artiklar:
 
 * [Använda hanterade identiteter för Azure-resurser med AKS][aad-pod-identity]
 * [Integrera Azure Key Vault med AKS][aks-keyvault-flexvol]

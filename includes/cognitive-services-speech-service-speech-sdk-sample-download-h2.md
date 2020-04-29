@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: dapine
 ms.openlocfilehash: 7a00361581071ddf54893c42246b8c7ad4ac5722
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80656725"
 ---
-## <a name="sample-source-code"></a>Exempel på källkod
+## <a name="sample-source-code"></a>Exempel käll kod
 
 :::row:::
     :::column span="3":::
-        Tal-SDK har aktivt en stor uppsättning exempel i en databas med öppen källkod. För exempelkällkoddatabasen besöker du <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech <span class="docon docon-navigate-external x-hidden-focus"> </span>SDK på GitHub </a>. Det finns exempel för C#, C++, Java, Python, Objective-C, Swift, JavaScript, UWP, Unity och Xamarin.
+        Tal-SDK: n hanterar aktivt en stor uppsättning exempel i en databas med öppen källkod. För exempel käll kods lager finns besök <a href="https://aka.ms/csspeech/samples" target="_blank">Microsoft Cognitive Services Speech SDK på GitHub <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Det finns exempel för C#, C++, Java, python, mål-C, Swift, Java Script, UWP, Unity och Xamarin.
     :::column-end:::
     :::column:::
         <br>

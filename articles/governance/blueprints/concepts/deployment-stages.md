@@ -1,63 +1,63 @@
 ---
 title: Faser i en skissdistribution
-description: Lär dig vilka säkerhets- och artefaktrelaterade steg som Azure Blueprints-tjänsterna går igenom när du skapar en skisstilldelning.
+description: Lär dig mer om säkerhets-och artefakt relaterade steg som Azure Forms-tjänsterna går igenom när du skapar en skiss tilldelning.
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.openlocfilehash: 61d19c84cd659b9df3a272c5c2743944e51df06e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80677314"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Faser i en skissdistribution
 
-När en skiss distribueras vidtas en serie åtgärder av Azure Blueprints-tjänsten för att distribuera de resurser som definierats i skissen. Den här artikeln innehåller information om vad varje steg innebär.
+När en skiss distribueras vidtas en serie åtgärder av tjänsten Azure-ritningar för att distribuera de resurser som definierats i skissen. Den här artikeln innehåller information om vad varje steg omfattar.
 
-Skissdistribution utlöses genom att tilldela en skiss till en prenumeration eller [uppdatera en befintlig tilldelning](../how-to/update-existing-assignments.md). Under distributionen tar Azure Blueprints följande steg på hög nivå:
+Skiss distribution utlöses genom att tilldela en skiss till en prenumeration eller [Uppdatera en befintlig tilldelning](../how-to/update-existing-assignments.md). Under distributionen tar Azure-ritningar följande steg på hög nivå:
 
 > [!div class="checklist"]
-> - Azure Blueprints beviljade ägarrättigheter
-> - Skisstilldelningsobjektet skapas
-> - Valfritt - Azure Blueprints skapar **systemtilldelade** hanterade identitet
-> - Den hanterade identiteten distribuerar skissartefakter
-> - Azure Blueprints-tjänsten och **systemtilldelade** hanterade identitetsrättigheter återkallas
+> - Azure-skisser beviljade ägar rättigheter
+> - Skiss tilldelnings objekt skapas
+> - Valfria – Azure-ritningar skapar **systemtilldelad** hanterad identitet
+> - Den hanterade identiteten distribuerar skiss artefakter
+> - Azure-ritningar tjänst **-och systemtilldelade** hanterade identitets rättigheter återkallas
 
-## <a name="azure-blueprints-granted-owner-rights"></a>Azure Blueprints beviljade ägarrättigheter
+## <a name="azure-blueprints-granted-owner-rights"></a>Azure-skisser beviljade ägar rättigheter
 
-Azure Blueprints-tjänstens huvudnamn beviljas ägarrättigheter till den tilldelade prenumerationen eller prenumerationerna när en [systemtilldelad hanterad identitetshanterad](../../../active-directory/managed-identities-azure-resources/overview.md) identitet används. Den beviljade rollen gör att Azure Blueprints kan skapa och senare återkalla den **systemtilldelade** hanterade identiteten. Om du använder en **användartilldelad hanterad** identitet får inte Azure Blueprints-tjänstens huvudnamn och behöver inte ägarrättigheter för prenumerationen.
+Tjänstens huvud namn för Azure-ritningar beviljas ägar rättigheter till den tilldelade prenumerationen eller prenumerationen när en [systemtilldelad hanterad identitets](../../../active-directory/managed-identities-azure-resources/overview.md) hanterad identitet används. Med den beviljade rollen kan Azure-ritningar skapa och senare återkalla den **systemtilldelade** hanterade identiteten. Om du använder en **användardefinierad** hanterad identitet, så får inte tjänstens huvud namn för Azure-ritningar och saknar ägar rättigheter för prenumerationen.
 
-Rättigheterna beviljas automatiskt om tilldelningen görs via portalen. Men om tilldelningen görs via REST API, bevilja rättigheterna måste göras med ett separat API-anrop. Azure Blueprints AppId `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`är , men tjänstens huvudnamn varierar beroende på klient. Använd [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) och REST-slutpunktstjänstPrincipprinciper för att hämta [tjänstens](/graph/api/resources/serviceprincipal) huvudnamn. Ge sedan Azure Blueprints _rollen Ägare_ via [Portalen,](../../../role-based-access-control/role-assignments-portal.md) [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), Azure [PowerShell,](../../../role-based-access-control/role-assignments-powershell.md) [REST API](../../../role-based-access-control/role-assignments-rest.md)eller en Resource [Manager-mall](../../../role-based-access-control/role-assignments-template.md).
+Rättigheterna beviljas automatiskt om tilldelningen görs via portalen. Men om tilldelningen görs via REST API måste beviljandet av rättigheterna göras med ett separat API-anrop. Azure-skisserna AppId `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`är, men tjänstens huvud namn varierar beroende på klient. Använd [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) och rest Endpoint [service princip ALS](/graph/api/resources/serviceprincipal) för att hämta tjänstens huvud namn. Sedan tilldelar du Azure-resurserna _ägar_ rollen via [portalen](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md)eller en [Resource Manager-mall](../../../role-based-access-control/role-assignments-template.md).
 
-Azure Blueprints-tjänsten distribuerar inte resurserna direkt.
+Tjänsten Azure-ritningar distribuerar inte resurserna direkt.
 
-## <a name="the-blueprint-assignment-object-is-created"></a>Skisstilldelningsobjektet skapas
+## <a name="the-blueprint-assignment-object-is-created"></a>Skiss tilldelnings objekt skapas
 
-En användare, grupp eller tjänsthuvudnamn tilldelar en skiss till en prenumeration. Tilldelningsobjektet finns på prenumerationsnivå där skissen tilldelades. Resurser som skapas av distributionen görs inte i samband med den distribuerande entiteten.
+En användare, grupp eller tjänstens huvud namn tilldelar en skiss till en prenumeration. Tilldelnings objekt finns på den prenumerations nivå där skissen tilldelades. Resurser som skapas av distributionen sker inte i samband med distributionen av entiteten.
 
-När du skapar skisstilldelningen väljs typen av [hanterad identitet.](../../../active-directory/managed-identities-azure-resources/overview.md) Standard är en **systemtilldelad hanterad** identitet. En **användartilldelad hanterad** identitet kan väljas. När du använder en **användartilldelad hanterad** identitet måste den definieras och beviljas behörigheter innan skisstilldelningen skapas. Både de inbyggda rollerna [ägare](../../../role-based-access-control/built-in-roles.md#owner) och `blueprintAssignment/write` [skissoperator](../../../role-based-access-control/built-in-roles.md#blueprint-operator) har nödvändig behörighet för att skapa en tilldelning som använder en **användartilldelad hanterad** identitet.
+När du skapar skiss tilldelningen väljs typen av [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) . Standardvärdet är en hanterad identitet som **tilldelats av systemet** . Du kan välja en **användare som tilldelats** en hanterad identitet. När du använder en **användardefinierad** hanterad identitet måste den definieras och beviljas behörighet innan skiss tilldelningen skapas. Både den inbyggda rollen [ägare](../../../role-based-access-control/built-in-roles.md#owner) och [skiss](../../../role-based-access-control/built-in-roles.md#blueprint-operator) har den behörighet som krävs `blueprintAssignment/write` för att skapa en tilldelning som använder en **användardefinierad** hanterad identitet.
 
-## <a name="optional---azure-blueprints-creates-system-assigned-managed-identity"></a>Valfritt - Azure Blueprints skapar systemtilldelade hanterade identitet
+## <a name="optional---azure-blueprints-creates-system-assigned-managed-identity"></a>Valfria – Azure-ritningar skapar systemtilldelad hanterad identitet
 
-När [systemtilldelade hanterade identitet väljs](../../../active-directory/managed-identities-azure-resources/overview.md) under tilldelning skapar Azure Blueprints identiteten och ger den hanterade identiteten [ägarrollen.](../../../role-based-access-control/built-in-roles.md#owner) Om en [befintlig tilldelning uppgraderas](../how-to/update-existing-assignments.md)använder Azure Blueprints den tidigare skapade hanterade identiteten.
+När [systemtilldelad hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) väljs under tilldelningen skapar Azure-ritningar identiteten och tilldelar den hanterade identitet rollen som [ägare](../../../role-based-access-control/built-in-roles.md#owner) . Om en [befintlig tilldelning uppgraderas](../how-to/update-existing-assignments.md)använder Azure-ritningar den tidigare skapade hanterade identiteten.
 
-Den hanterade identiteten som är relaterad till skisstilldelningen används för att distribuera eller distribuera om de resurser som definierats i skissen. Den här designen undviker att tilldelningar oavsiktligt stör varandra.
-Den här designen stöder också [resurslåsningsfunktionen](./resource-locking.md) genom att styra säkerheten för varje distribuerad resurs från skissen.
+Den hanterade identiteten som är relaterad till skiss tilldelningen används för att distribuera eller distribuera om de resurser som definierats i skissen. Den här designen förhindrar tilldelningar oavsiktligt störa varandra.
+Den här designen stöder även [resurs låsnings](./resource-locking.md) funktionen genom att kontrol lera säkerheten för varje distribuerad resurs från skissen.
 
-## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>Den hanterade identiteten distribuerar skissartefakter
+## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>Den hanterade identiteten distribuerar skiss artefakter
 
-Den hanterade identiteten utlöser sedan Resource Manager-distributionerna för artefakterna i skissen i den definierade [sekvenseringsordningen](./sequencing-order.md). Ordern kan justeras för att säkerställa artefakter beroende på andra artefakter distribueras i rätt ordning.
+Den hanterade identiteten utlöser sedan Resource Manager-distributionerna av artefakterna i skissen i den definierade [ordningsföljds ordningen](./sequencing-order.md). Ordningen kan justeras så att artefakter som är beroende av andra artefakter distribueras i rätt ordning.
 
-Ett åtkomstfel av en distribution är ofta resultatet av åtkomstnivån som beviljas den hanterade identiteten. Azure Blueprints-tjänsten hanterar säkerhetslivscykeln för den **systemtilldelade** hanterade identiteten. Användaren är dock ansvarig för att hantera rättigheter och livscykel för en **användartilldelad hanterad** identitet.
+Ett åtkomst problem av en distribution är ofta resultatet av åtkomst nivån som beviljats till den hanterade identiteten. Tjänsten Azure-ritningar hanterar säkerhets livs cykeln för den **systemtilldelade** hanterade identiteten. Användaren är dock ansvarig för att hantera rättigheterna och livs cykeln för en **användardefinierad** hanterad identitet.
 
-## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Skisstjänst och systemtilldelade hanterade identitetsrättigheter återkallas
+## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Skiss tjänst och systemtilldelade hanterade identitets rättigheter återkallas
 
-När distributionerna har slutförts återkallar Azure Blueprints rättigheterna för den **systemtilldelade** hanterade identiteten från prenumerationen. Azure Blueprints-tjänsten återkallar sedan sina rättigheter från prenumerationen. Borttagning av rättigheter förhindrar att Azure Blueprints blir permanent ägare i en prenumeration.
+När distributionen har slutförts återkallar Azure-ritningar rättigheterna för den **systemtilldelade** hanterade identiteten från prenumerationen. Tjänsten Azure-ritningar återkallar sedan sina rättigheter från prenumerationen. Rights Removal förhindrar att Azure-ritningar blir permanenta ägare till en prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
-- Lär dig att anpassa [ordningsföljden för skisssekvensering](sequencing-order.md).
-- Ta reda på hur du använder [skiss resurs låsning](resource-locking.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
-- Lös problem under tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

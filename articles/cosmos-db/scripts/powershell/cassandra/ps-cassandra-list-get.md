@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att lista och hämta Azure Cosmos DB Cassandra API-resurser
-description: Azure PowerShell-skript - Azure Cosmos DB-lista och hämta åtgärder för Cassandra API
+title: PowerShell-skript för att visa och hämta Azure Cosmos DB API för Cassandra resurser
+description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för API för Cassandra
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: cf29bae8b2aa011593e4d9acb45bad71a6ad0167
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365702"
 ---
-# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Lista och hämta nyckelområden och tabeller för Azure Cosmos DB - Cassandra API
+# <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Lista och hämta disk utrymme och tabeller för Azure Cosmos DB-API för Cassandra
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,13 +36,13 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Få-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Visar Cosmos DB-konton eller får ett angivet Cosmos DB-konto. |
-| [Hämta-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspace) | Visar Cosmos DB Cassandra API Keyspaces i ett konto, eller får ett angivet Cosmos DB Cassandra API Keyspace i ett konto. |
-| [Hämta-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratable) | Visar Cosmos DB Cassandra API-tabeller i ett Keyspace eller får en angiven Cosmos DB Cassandra API-tabell i ett Keyspace. |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Listar Cosmos DB konton eller hämtar ett angivet Cosmos DB-konto. |
+| [Get-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspace) | Visar en lista över Cosmos DB API för Cassandra-tecken i ett konto eller hämtar ett angivet Cosmos DB API för Cassandra-tecken i ett konto. |
+| [Get-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratable) | Listar Cosmos DB API för Cassandra tabeller i ett tecken eller hämtar en angiven Cosmos DB API för Cassandra tabell i ett tecken utrymme. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

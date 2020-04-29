@@ -1,20 +1,20 @@
 ---
 title: Underordnade resurser i mallar
-description: Beskriver hur du anger namn och typ för underordnade resurser i en Azure Resource Manager-mall.
+description: Beskriver hur du anger namn och typ för underordnade resurser i en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743830"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Ange namn och typ för underordnade resurser
 
-Underordnade resurser är resurser som bara finns inom ramen för en annan resurs. Ett tillägg [för virtuella datorer](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) kan till exempel inte finnas utan en [virtuell dator](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). Tilläggsresursen är underordnad den virtuella datorn.
+Underordnade resurser är resurser som bara finns inom kontexten för en annan resurs. Det kan till exempel finnas ett [tillägg för virtuell dator](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) utan en [virtuell dator](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). Tilläggs resursen är en underordnad till den virtuella datorn.
 
-I en Resource Manager-mall kan du ange den underordnade resursen antingen inom den överordnade resursen eller utanför den överordnade resursen. I följande exempel visas den underordnade resurs som ingår i egenskapen resurser för den överordnade resursen.
+I en Resource Manager-mall kan du ange den underordnade resursen antingen i den överordnade resursen eller utanför den överordnade resursen. I följande exempel visas den underordnade resurs som ingår i egenskapen Resources för den överordnade resursen.
 
 ```json
 "resources": [
@@ -27,7 +27,7 @@ I en Resource Manager-mall kan du ange den underordnade resursen antingen inom d
 ]
 ```
 
-I nästa exempel visas den underordnade resursen utanför den överordnade resursen. Du kan använda den här metoden om den överordnade resursen inte distribueras i samma mall, eller om du vill använda [kopia](copy-resources.md) för att skapa mer än en underordnad resurs.
+I nästa exempel visas den underordnade resursen utanför den överordnade resursen. Du kan använda den här metoden om den överordnade resursen inte har distribuerats i samma mall, eller om du vill använda [Kopiera](copy-resources.md) för att skapa fler än en underordnad resurs.
 
 ```json
 "resources": [
@@ -40,18 +40,18 @@ I nästa exempel visas den underordnade resursen utanför den överordnade resur
 ]
 ```
 
-De värden som du anger för resursnamnet och resurstypen varierar beroende på om den underordnade resursen har definierats inom eller utanför den överordnade resursen.
+Värdena som du anger för resurs namn och typ varierar beroende på om den underordnade resursen definieras i eller utanför den överordnade resursen.
 
-## <a name="within-parent-resource"></a>Inom överordnad resurs
+## <a name="within-parent-resource"></a>I överordnad resurs
 
-När du definieras inom den överordnade resurstypen formaterar du typ- och namnvärdena som ett enda ord utan snedstreck.
+När du har definierat i den överordnade resurs typen formaterar du typ-och namn värden som ett enda ord utan snedstreck.
 
 ```json
 "type": "{child-resource-type}",
 "name": "{child-resource-name}",
 ```
 
-I följande exempel visas ett virtuellt nätverk och med ett undernät. Observera att undernätet ingår i resursmatrisen för det virtuella nätverket. Namnet är inställt på **Undernät1** och typen är inställd på **undernät**. Den underordnade resursen markeras som beroende av den överordnade resursen eftersom den överordnade resursen måste finnas innan den underordnade resursen kan distribueras.
+I följande exempel visas ett virtuellt nätverk och ett undernät. Observera att under nätet ingår i Resources-matrisen för det virtuella nätverket. Namnet anges till **Subnet1** och typen anges till **undernät**. Den underordnade resursen är markerad som beroende av den överordnade resursen eftersom den överordnade resursen måste finnas innan den underordnade resursen kan distribueras.
 
 ```json
 "resources": [
@@ -85,20 +85,20 @@ I följande exempel visas ett virtuellt nätverk och med ett undernät. Observer
 ]
 ```
 
-Den fullständiga resurstypen är fortfarande **Microsoft.Network/virtualNetworks/subnät**. Du anger inte **Microsoft.Network/virtualNetworks/** eftersom det antas från den överordnade resurstypen.
+Den fullständiga resurs typen är fortfarande **Microsoft. Network/virtualNetworks/subnets**. Du tillhandahåller inte **Microsoft. Network/virtualNetworks/** eftersom det antas från den överordnade resurs typen.
 
-Det underordnade resursnamnet är inställt **på Undernät1,** men det fullständiga namnet innehåller det överordnade namnet. Du anger inte **VNet1** eftersom det antas från den överordnade resursen.
+Det underordnade resurs namnet är inställt på **Subnet1** men det fullständiga namnet innehåller det överordnade namnet. Du kan inte ange **VNet1** eftersom den antas från den överordnade resursen.
 
-## <a name="outside-parent-resource"></a>Extern överordnad resurs
+## <a name="outside-parent-resource"></a>Utanför överordnad resurs
 
-När du definieras utanför den överordnade resursen formaterar du typen och med snedstreck för att inkludera den överordnade typen och namnet.
+När du definierar utanför den överordnade resursen formaterar du typ och med snedstreck för att inkludera den överordnade typen och namnet.
 
 ```json
 "type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-I följande exempel visas ett virtuellt nätverk och ett undernät som båda har definierats på rotnivå. Observera att undernätet inte ingår i resursmatrisen för det virtuella nätverket. Namnet är inställt på **VNet1/Subnet1** och typen är inställd på **Microsoft.Network/virtualNetworks/undernät**. Den underordnade resursen markeras som beroende av den överordnade resursen eftersom den överordnade resursen måste finnas innan den underordnade resursen kan distribueras.
+I följande exempel visas ett virtuellt nätverk och undernät som båda definieras på rotnivå. Observera att under nätet inte ingår i Resources-matrisen för det virtuella nätverket. Namnet är inställt på **VNet1/Subnet1** och typen anges till **Microsoft. Network/virtualNetworks/subnets**. Den underordnade resursen är markerad som beroende av den överordnade resursen eftersom den överordnade resursen måste finnas innan den underordnade resursen kan distribueras.
 
 ```json
 "resources": [
@@ -132,6 +132,6 @@ I följande exempel visas ett virtuellt nätverk och ett undernät som båda har
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Skapa mallar](template-syntax.md).
+* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md).
 
-* Mer information om resursnamnets format när resursen refereras till finns i [referensfunktionen](template-functions-resource.md#reference).
+* Mer information om formatet på resurs namnet när du refererar till resursen finns i [referens funktionen](template-functions-resource.md#reference).

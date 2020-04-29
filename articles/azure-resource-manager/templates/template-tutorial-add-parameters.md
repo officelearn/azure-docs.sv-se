@@ -1,48 +1,48 @@
 ---
-title: Självstudiekurs - lägg till parametrar i mallen
-description: Lägg till parametrar i azure Resource Manager-mallen för att göra den återanvändbar.
+title: Självstudie – lägga till parametrar till mallen
+description: Lägg till parametrar till din Azure Resource Manager-mall så att den kan användas igen.
 author: mumian
 ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80437820"
 ---
-# <a name="tutorial-add-parameters-to-your-arm-template"></a>Självstudiekurs: Lägg till parametrar i ARM-mallen
+# <a name="tutorial-add-parameters-to-your-arm-template"></a>Självstudie: lägga till parametrar i ARM-mallen
 
-I föregående [självstudie har](template-tutorial-add-resource.md)du lärt dig hur du lägger till ett lagringskonto i mallen och distribuerar det. I den här självstudien får du lära dig hur du förbättrar AZURE Resource Manager (ARM) genom att lägga till parametrar. Den här självstudien tar cirka **14 minuter** att slutföra.
+I den [föregående själv studie kursen](template-tutorial-add-resource.md)har du lärt dig hur du lägger till ett lagrings konto i mallen och distribuerar det. I den här självstudien får du lära dig hur du förbättrar mallen för Azure Resource Manager (ARM) genom att lägga till parametrar. Den här självstudien tar cirka **14 minuter** att slutföra.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi rekommenderar att du slutför [självstudien om resurser,](template-tutorial-add-resource.md)men det är inte nödvändigt.
+Vi rekommenderar att du slutför [självstudien om resurser](template-tutorial-add-resource.md), men det är inget krav.
 
-Du måste ha Visual Studio-kod med tillägget Resource Manager Tools och antingen Azure PowerShell eller Azure CLI. Mer information finns i [mallverktyg](template-tutorial-create-first-template.md#get-tools).
+Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Mall för granskning
+## <a name="review-template"></a>Granska mall
 
-I slutet av föregående självstudie hade mallen följande JSON:
+I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
-Du kanske har märkt att det finns ett problem med den här mallen. Lagringskontonamnet är hårdkodat. Du kan bara använda den här mallen för att distribuera samma lagringskonto varje gång. Om du vill distribuera ett lagringskonto med ett annat namn måste du skapa en ny mall, vilket uppenbarligen inte är ett praktiskt sätt att automatisera distributionerna.
+Du kanske har lagt märke till att det finns ett problem med den här mallen. Lagrings konto namnet är hårdkodat. Du kan bara använda den här mallen för att distribuera samma lagrings konto varje gång. Om du vill distribuera ett lagrings konto med ett annat namn måste du skapa en ny mall, vilket uppenbart inte är ett praktiskt sätt att automatisera dina distributioner.
 
-## <a name="make-template-reusable"></a>Gör mallen återanvändbar
+## <a name="make-template-reusable"></a>Gör mall åter användning
 
-Om du vill göra mallen återanvändbar ska vi lägga till en parameter som du kan använda för att skicka in ett lagringskontonamn. Den markerade JSON i följande exempel visar vad som har ändrats i mallen. Parametern **storageName** identifieras som en sträng. Maxlängden är inställd på 24 tecken för att förhindra namn som är för långa.
+Lägg till en parameter som du kan använda för att skicka in ett lagrings konto namn om du vill att mallen ska kunna användas. Den markerade JSON i följande exempel visar vad som har ändrats i mallen. Parametern **storageName** identifieras som en sträng. Max längden är 24 tecken för att förhindra namn som är för långa.
 
-Kopiera hela filen och ersätt mallen med dess innehåll.
+Kopiera hela filen och ersätt din mall med dess innehåll.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
-Nu distribuerar vi mallen. I följande exempel distribueras mallen med Azure CLI eller PowerShell. Observera att du anger lagringskontonamnet som ett av värdena i distributionskommandot. Ange samma namn som du använde i föregående självstudie för lagringskontots namn.
+Nu ska vi distribuera mallen. I följande exempel distribueras mallen med Azure CLI eller PowerShell. Lägg märke till att du anger namnet på lagrings kontot som ett av värdena i distributions kommandot. För lagrings konto namnet anger du samma namn som du använde i föregående självstudie.
 
-Om du inte har skapat resursgruppen läser du [Skapa resursgrupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **variabeln templateFile** till sökvägen till mallfilen, vilket visas i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
+Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -56,7 +56,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -68,27 +68,27 @@ az deployment group create \
 
 ---
 
-## <a name="understand-resource-updates"></a>Förstå resursuppdateringar
+## <a name="understand-resource-updates"></a>Förstå resurs uppdateringar
 
-I föregående avsnitt har du distribuerat ett lagringskonto med samma namn som du hade skapat tidigare. Du kanske undrar hur resursen påverkas av omfördelningen.
+I föregående avsnitt har du distribuerat ett lagrings konto med samma namn som du skapade tidigare. Du kanske undrar hur resursen påverkas av omdistributionen.
 
-Om resursen redan finns och ingen ändring identifieras i egenskaperna vidtas ingen åtgärd. Om resursen redan finns och en egenskap har ändrats uppdateras resursen. Om resursen inte finns skapas den.
+Om resursen redan finns och ingen ändring har identifierats i egenskaperna vidtas ingen åtgärd. Om resursen redan finns och en egenskap har ändrats, uppdateras resursen. Om resursen inte finns skapas den.
 
-Det här sättet att hantera uppdateringar innebär att mallen kan innehålla alla resurser du behöver för en Azure-lösning. Du kan distribuera om mallen på ett säkert sätt och veta att resurser bara ändras eller skapas när det behövs. Om du till exempel har lagt till filer i ditt lagringskonto kan du distribuera om lagringskontot utan att förlora dessa filer.
+Det här sättet att hantera uppdateringar innebär att din mall kan innehålla alla resurser du behöver för en Azure-lösning. Du kan på ett säkert sätt distribuera om mallen och se att resurserna ändras eller skapas endast när det behövs. Om du till exempel har lagt till filer till ditt lagrings konto kan du distribuera om lagrings kontot utan att förlora dessa filer.
 
 ## <a name="customize-by-environment"></a>Anpassa efter miljö
 
-Med parametrar kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö. Du kan till exempel klara olika värden baserat på om du distribuerar till en miljö för utveckling, test och produktion.
+Med parametrar kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö. Du kan till exempel skicka olika värden baserat på om du distribuerar till en miljö för utveckling, testning och produktion.
 
-Den tidigare mallen har alltid distribuerat ett Standard_LRS lagringskonto. Du kanske vill ha flexibiliteten att distribuera olika SKU:er beroende på miljö. I följande exempel visas de ändringar som ska läggas till en parameter för SKU. Kopiera hela filen och klistra in över mallen.
+Den tidigare mallen har alltid distribuerat ett Standard_LRS lagrings konto. Du kanske vill ha flexibiliteten att distribuera olika SKU: er beroende på miljön. I följande exempel visas ändringarna för att lägga till en parameter för SKU. Kopiera hela filen och klistra in den över din mall.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
-**Parametern storageSKU** har ett standardvärde. Det här värdet används när ett värde inte anges under distributionen. Den har också en lista över tillåtna värden. Dessa värden matchar de värden som behövs för att skapa ett lagringskonto. Du vill inte att användare av mallen ska passera i SKU:er som inte fungerar.
+**StorageSKU** -parametern har ett standardvärde. Det här värdet används när ett värde inte anges under distributionen. Den innehåller också en lista över tillåtna värden. Värdena matchar de värden som behövs för att skapa ett lagrings konto. Du vill inte att användare av mallen ska skicka in SKU: er som inte fungerar.
 
 ## <a name="redeploy-template"></a>Distribuera om mallen
 
-Du är redo att sätta in igen. Eftersom standard-SKU:n är inställd **på Standard_LRS**behöver du inte ange något värde för den parametern.
+Du är redo att distribuera igen. Eftersom standard-SKU: n är inställt på **Standard_LRS**, behöver du inte ange ett värde för den parametern.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -113,9 +113,9 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Om distributionen misslyckades använder du **felsökningsväxeln** med distributionskommandot för att visa felsökningsloggarna.  Du kan också använda **den utförliga** växeln för att visa de fullständiga felsökningsloggarna.
+> Om distributionen misslyckades använder du **fel söknings** växeln med kommandot distribution för att visa fel söknings loggarna.  Du kan också använda **utförlig** växeln för att visa fullständiga fel söknings loggar.
 
-Om du vill se flexibiliteten i mallen ska vi distribuera igen. Den här gången ställer SKU-parametern till **Standard_GRS**. Du kan antingen skicka in ett nytt namn för att skapa ett annat lagringskonto eller använda samma namn för att uppdatera ditt befintliga lagringskonto. Båda alternativen fungerar.
+Låt oss distribuera igen för att se hur flexibel din mall är. Den här gången angav SKU-parametern till **Standard_GRS**. Du kan antingen skicka ett nytt namn för att skapa ett annat lagrings konto eller använda samma namn för att uppdatera ditt befintliga lagrings konto. Båda alternativen fungerar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -140,7 +140,7 @@ az deployment group create \
 
 ---
 
-Slutligen ska vi köra ytterligare ett test och se vad som händer när du passerar i en SKU som inte är en av de tillåtna värdena. I det här fallet testar vi scenariot där en användare av mallen tycker **att grundläggande** är en av de SKU: er.
+Slutligen ska vi köra ytterligare ett test och se vad som händer när du skickar en SKU som inte är ett av de tillåtna värdena. I det här fallet testar vi scenariot där en användare av mallen tror att **Basic** är en av SKU: erna.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -165,22 +165,22 @@ az deployment group create \
 
 ---
 
-Kommandot misslyckas omedelbart med ett felmeddelande som anger vilka värden som tillåts. Resource Manager identifierar felet innan distributionen startar.
+Kommandot Miss lyckas omedelbart med ett fel meddelande som anger vilka värden som tillåts. Resource Manager identifierar felet innan distributionen startar.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går vidare till nästa självstudiekurs behöver du inte ta bort resursgruppen.
+Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
 
-Om du slutar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resursgruppen.
+Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
 
-1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
+1. Från Azure Portal väljer du **resurs grupp** på den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
 3. Välj resursgruppens namn.
-4. Välj **Ta bort resursgrupp** på den övre menyn.
+4. Välj **ta bort resurs grupp** på den översta menyn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har förbättrat mallen som skapades i den [första självstudien](template-tutorial-create-first-template.md) genom att lägga till parametrar. I nästa självstudiekurs får du lära dig mer om mallfunktioner.
+Du har förbättrat mallen som skapades i den [första självstudien](template-tutorial-create-first-template.md) genom att lägga till parametrar. I nästa självstudie får du lära dig mer om mall funktioner.
 
 > [!div class="nextstepaction"]
-> [Lägga till mallfunktioner](template-tutorial-add-functions.md)
+> [Lägg till mall funktioner](template-tutorial-add-functions.md)

@@ -1,6 +1,6 @@
 ---
-title: Använda IDENTITY för att skapa surrogatnycklar
-description: Rekommendationer och exempel för att använda egenskapen IDENTITY för att skapa surrogatnycklar på tabeller i Synapse SQL-pool.
+title: Använda identitet för att skapa surrogat nycklar
+description: Rekommendationer och exempel för att använda identitets egenskapen för att skapa surrogat nycklar i tabeller i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,25 +12,25 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742633"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Använda IDENTITY för att skapa surrogatnycklar i Synapse SQL-pool
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Använda identitet för att skapa surrogat nycklar i Synapse SQL-pool
 
-Rekommendationer och exempel för att använda egenskapen IDENTITY för att skapa surrogatnycklar på tabeller i Synapse SQL-pool.
+Rekommendationer och exempel för att använda identitets egenskapen för att skapa surrogat nycklar i tabeller i Synapse SQL-pool.
 
-## <a name="what-is-a-surrogate-key"></a>Vad är en surrogatnyckel
+## <a name="what-is-a-surrogate-key"></a>Vad är en surrogat nyckel?
 
-En surrogatnyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabelldata. Datamodellerare gillar att skapa surrogatnycklar på sina tabeller när de utformar datalagermodeller. Du kan använda egenskapen IDENTITY för att uppnå detta mål enkelt och effektivt utan att påverka belastningsprestanda.  
+En surrogat nyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabell data. Data modellerare som skapar surrogat nycklar i sina tabeller när de utformar data lager modeller. Du kan använda identitets egenskapen för att uppnå det här målet enkelt och effektivt utan att påverka belastnings prestanda.  
 
-## <a name="creating-a-table-with-an-identity-column"></a>Skapa en tabell med en IDENTITETSKOLUMN
+## <a name="creating-a-table-with-an-identity-column"></a>Skapa en tabell med en identitets kolumn
 
-Egenskapen IDENTITY är utformad för att skala ut över alla distributioner i Synapse SQL-poolen utan att påverka belastningsprestanda. Därför är genomförandet av IDENTITY inriktad på att uppnå dessa mål.
+IDENTITETS egenskapen är utformad för att skala ut över alla distributioner i SQL-poolen Synapse utan att påverka belastnings prestandan. Därför orienteras implementeringen av identitet mot att uppnå dessa mål.
 
-Du kan definiera en tabell som att ha egenskapen IDENTITY när du först skapar tabellen med syntax som liknar följande uttryck:
+Du kan definiera en tabell som har egenskapen IDENTITY när du först skapar tabellen med hjälp av syntaxen som liknar följande uttryck:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -44,13 +44,13 @@ WITH
 ;
 ```
 
-Du kan `INSERT..SELECT` sedan använda för att fylla i tabellen.
+Du kan sedan använda `INSERT..SELECT` för att fylla tabellen.
 
-I det här avsnittet beskrivs nyanserna i implementeringen som hjälper dig att förstå dem mer fullständigt.  
+I den här återstoden av det här avsnittet beskrivs olika delarna för implementeringen för att hjälpa dig att förstå dem helt.  
 
-### <a name="allocation-of-values"></a>Fördelning av värden
+### <a name="allocation-of-values"></a>Allokering av värden
 
-Egenskapen IDENTITY garanterar inte den ordning i vilken surrogatvärdena allokeras, vilket återspeglar beteendet för SQL Server och Azure SQL Database. Men i Synapse SQL-pool är frånvaron av en garanti mer uttalad.
+IDENTITETS egenskapen garanterar inte i vilken ordning surrogat värden allokeras, vilket återspeglar beteendet för SQL Server och Azure SQL Database. Men i Synapse SQL-poolen är frånvaron av en garanti mer uttalad.
 
 Följande exempel är en illustration:
 
@@ -77,34 +77,34 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-I föregående exempel landade två rader i fördelning 1. Den första raden har surrogatvärdet `C1`1 i kolumnen och den andra raden har surrogatvärdet 61. Båda dessa värden genererades av egenskapen IDENTITY. Fördelningen av värdena är dock inte sammanhängande. Det här beteendet är avsiktligt.
+I föregående exempel är två rader som landats i distribution 1. Den första raden har surrogat värdet 1 i kolumnen `C1`och den andra raden har surrogat värdet 61. Båda värdena genererades av identitets egenskapen. Allokeringen av värdena är dock inte sammanhängande. Det här beteendet är avsiktligt.
 
-### <a name="skewed-data"></a>Skeva data
+### <a name="skewed-data"></a>Skevade data
 
-Intervallet med värden för datatypen fördelas jämnt över distributionerna. Om en distribuerad tabell lider av skeva data kan det värdeintervall som är tillgängligt för datatypen vara uttömt i förtid. Om till exempel alla data hamnar i en enda fördelning har tabellen i själva verket endast åtkomst till en sixtieth av datatypens värden. Därför är egenskapen IDENTITY begränsad `INT` `BIGINT` till och endast datatyper.
+Intervallet av värden för data typen sprids jämnt över distributionerna. Om en distribuerad tabell lider av skevade data kan det förfallna intervallet av värden som är tillgängliga för data typen vara förbrukat för tidigt. Om till exempel alla data avslutas i en enda distribution, så har tabellen i praktiken bara åtkomst till en-sixtieth av värdena för data typen. Av den anledningen är identitets egenskapen begränsad till `INT` och `BIGINT` endast data typer.
 
-### <a name="selectinto"></a>Välj.. I
+### <a name="selectinto"></a>Välj... IKRAFTTRÄDANDE
 
-När en befintlig IDENTITETskolumn markeras i en ny tabell ärver den nya kolumnen egenskapen IDENTITY, såvida inte något av följande villkor är sant:
+När en befintlig identitets kolumn väljs i en ny tabell ärver den nya kolumnen identitets egenskapen, om inte något av följande villkor är uppfyllt:
 
-- SELECT-satsen innehåller en koppling.
-- Flera SELECT-satser får sällskap med hjälp av UNION.
-- KOLUMNEN IDENTITET visas mer än en gång i SELECT-listan.
-- KOLUMNEN IDENTITET är en del av ett uttryck.
+- SELECT-instruktionen innehåller en koppling.
+- Flera SELECT-uttryck är anslutna med hjälp av UNION.
+- IDENTITETS kolumnen visas mer än en tid i SELECT-listan.
+- IDENTITETS kolumnen är en del av ett uttryck.
 
-Om något av dessa villkor är sant skapas kolumnen INTE NULL i stället för att ärva egenskapen IDENTITY.
+Om något av dessa villkor är uppfyllt, skapas kolumnen inte NULL i stället för att ärva identitets egenskapen.
 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-CREATE TABLE AS SELECT (CTAS) följer samma SQL Server-beteende som dokumenteras för SELECT.. I. Du kan dock inte ange en IDENTITETsegenskap i kolumndefinitionen för den `CREATE TABLE` del av uttrycket. Du kan inte heller använda funktionen `SELECT` IDENTITET i den del av CTAS. Om du vill fylla i `CREATE TABLE` en tabell måste `INSERT..SELECT` du använda för att definiera tabellen följt av för att fylla i den.
+CREATE TABLE AS SELECT (CTAS) följer samma SQL Server beteende som dokumenteras för SELECT. Ikraftträdande. Du kan dock inte ange en identitets egenskap i kolumn definitionen för-instruktionens `CREATE TABLE` del. Du kan inte heller använda funktionen IDENTITY i den `SELECT` del av CTAs. För att fylla i en tabell måste du använda `CREATE TABLE` för att definiera tabellen följt av `INSERT..SELECT` för att fylla i den.
 
-## <a name="explicitly-inserting-values-into-an-identity-column"></a>Infoga värden uttryckligen i en IDENTITETskolumn
+## <a name="explicitly-inserting-values-into-an-identity-column"></a>Infoga värden explicit i en identitets kolumn
 
-Synapse SQL-pool stöder `SET IDENTITY_INSERT <your table> ON|OFF` syntax. Du kan använda den här syntaxen för att uttryckligen infoga värden i kolumnen IDENTITET.
+Synapse SQL-pool `SET IDENTITY_INSERT <your table> ON|OFF` stöder syntax. Du kan använda den här syntaxen för att explicit infoga värden i identitets kolumnen.
 
-Många datamodellerare gillar att använda fördefinierade negativa värden för vissa rader i sina dimensioner. Ett exempel är raden -1 eller "okänd medlem".
+Många data modellerare som använder fördefinierade negativa värden för vissa rader i deras dimensioner. Ett exempel är raden-1 eller "okänd medlem".
 
-Nästa skript visar hur du uttryckligen lägger till den här raden med hjälp av SET IDENTITY_INSERT:
+Nästa skript visar hur du lägger till den här raden explicit genom att använda SET IDENTITY_INSERT:
 
 ```sql
 SET IDENTITY_INSERT dbo.T1 ON;
@@ -125,11 +125,11 @@ FROM    dbo.T1
 
 ## <a name="loading-data"></a>Läsa in data
 
-Förekomsten av egenskapen IDENTITY har vissa konsekvenser för din datainläsningskod. I det här avsnittet beskrivs några grundläggande mönster för att läsa in data i tabeller med hjälp av IDENTITY.
+Förekomsten av egenskapen IDENTITY har vissa följder för din data inläsnings kod. I det här avsnittet beskrivs några grundläggande mönster för att läsa in data i tabeller med hjälp av identitet.
 
-Om du vill läsa in data i en tabell och generera en surrogatnyckel med hjälp av IDENTITY skapar du tabellen och använder sedan INSERT.. MARKERA ELLER INFOGA.. VÄRDEN för att utföra belastningen.
+Om du vill läsa in data i en tabell och generera en surrogat nyckel med hjälp av identitet skapar du tabellen och använder sedan INSERT.. Välj eller infoga.. VÄRDEN för att utföra belastningen.
 
-I följande exempel framhäver det grundläggande mönstret:
+I följande exempel visas ett grundläggande mönster:
 
 ```sql
 --CREATE TABLE with IDENTITY
@@ -158,16 +158,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE]
-> Det går inte att `CREATE TABLE AS SELECT` använda för närvarande när data läses in i en tabell med en IDENTITETskolumn.
+> Det går inte att använda `CREATE TABLE AS SELECT` för närvarande när data läses in i en tabell med en identitets kolumn.
 >
 
-Mer information om hur du läser in data finns i [Designa extrahera, läsa in och transformera (ELT) för Synapse SQL-pool](design-elt-data-loading.md) och [läs in metodtips](guidance-for-loading-data.md).
+Mer information om hur du läser in data finns i [utforma extrahera, läsa in och transformera (ELT) för SYNAPSE SQL-pool](design-elt-data-loading.md) och [läsa in bästa praxis](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Systemvyer
 
-Du kan använda [katalogvyn sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att identifiera en kolumn som har egenskapen IDENTITY.
+Du kan använda vyn [sys. identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Catalog för att identifiera en kolumn som har egenskapen Identity.
 
-För att hjälpa dig att bättre förstå databasschemat visar det här exemplet hur du integrerar sys.identity_column" med andra systemkatalogvyer:
+För att hjälpa dig att bättre förstå databasschemat, visar det här exemplet hur du integrerar sys. identity_column "med andra system katalog visningar:
 
 ```sql
 SELECT  sm.name
@@ -189,15 +189,15 @@ AND     tb.name = 'T1'
 
 ## <a name="limitations"></a>Begränsningar
 
-Egenskapen IDENTITY kan inte användas:
+Det går inte att använda identitets egenskapen:
 
-- När kolumndatatypen inte är INT eller BIGINT
-- När kolumnen också är distributionsnyckeln
+- När kolumn data typen inte är INT eller BIGINT
+- När kolumnen också är distributions nyckeln
 - När tabellen är en extern tabell
 
-Följande relaterade funktioner stöds inte i Synapse SQL-pool:
+Följande relaterade funktioner stöds inte i Synapse SQL-poolen:
 
-- [IDENTITET()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [IDENTITET ()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -206,22 +206,22 @@ Följande relaterade funktioner stöds inte i Synapse SQL-pool:
 
 ## <a name="common-tasks"></a>Vanliga åtgärder
 
-Det här avsnittet innehåller en del exempelkod som du kan använda för att utföra vanliga uppgifter när du arbetar med IDENTITETskolumner.
+Det här avsnittet innehåller exempel kod som du kan använda för att utföra vanliga uppgifter när du arbetar med identitets kolumner.
 
-Kolumn C1 är IDENTITETen i alla följande aktiviteter.
+Kolumn C1 är IDENTITETen i alla följande uppgifter.
 
-### <a name="find-the-highest-allocated-value-for-a-table"></a>Hitta det högsta tilldelade värdet för en tabell
+### <a name="find-the-highest-allocated-value-for-a-table"></a>Hitta det högsta allokerade värdet för en tabell
 
-Använd `MAX()` funktionen för att bestämma det högsta värdet som allokerats för en distribuerad tabell:
+Använd `MAX()` funktionen för att fastställa det högsta tilldelade värdet för en distribuerad tabell:
 
 ```sql
 SELECT MAX(C1)
 FROM dbo.T1
 ```
 
-### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Hitta fröet och öka för egenskapen IDENTITY
+### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Hitta dirigering och ökning för identitets egenskapen
 
-Du kan använda katalogvyerna för att identifiera identitetssteg och såddkonfigurationsvärden för en tabell med hjälp av följande fråga:
+Du kan använda katalogvyer för att identifiera identitets öknings-och Dirigerings konfigurations värden för en tabell med hjälp av följande fråga:
 
 ```sql
 SELECT  sm.name
@@ -241,6 +241,6 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över tabell](sql-data-warehouse-tables-overview.md)
-- [SKAPA TABELL (Egenskap för Transact-SQL)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Tabell översikt](sql-data-warehouse-tables-overview.md)
+- [CREATE TABLE (Transact-SQL) identitet (egenskap)](/sql/t-sql/statements/create-table-transact-sql-identity-property?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

@@ -1,6 +1,6 @@
 ---
-title: Resursklasser för arbetsbelastningshantering
-description: Vägledning för hur du använder resursklasser för att hantera samtidighet och beräkningsresurser för frågor i Azure Synapse Analytics.
+title: Resurs klasser för hantering av arbets belastning
+description: Vägledning för att använda resurs klasser för att hantera samtidighet och beräknings resurser för frågor i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,125 +12,125 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743260"
 ---
-# <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Arbetsbelastningshantering med resursklasser i Azure Synapse Analytics
+# <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Arbets belastnings hantering med resurs klasser i Azure Synapse Analytics
 
-Vägledning för hur du använder resursklasser för att hantera minne och samtidighet för Synapse SQL-poolfrågor i Azure Synapse.  
+Vägledning för att använda resurs klasser för att hantera minne och samtidighet för Synapse i Azure Synapse.  
 
-## <a name="what-are-resource-classes"></a>Vad är resursklasser
+## <a name="what-are-resource-classes"></a>Vad är resurs klasser
 
-Prestandakapaciteten för en fråga bestäms av användarens resursklass.  Resursklasser är förutbestämda resursgränser i Synapse SQL-pool som styr beräkningsresurser och samtidighet för frågekörning. Resursklasser kan hjälpa dig att konfigurera resurser för dina frågor genom att ange begränsningar för antalet frågor som körs samtidigt och på de beräkningsresurser som tilldelats varje fråga.  Det finns en avvägning mellan minne och samtidighet.
+Prestanda kapaciteten för en fråga bestäms av användarens resurs klass.  Resurs klasser är i förväg bestämda resurs gränser i Synapse SQL-pool som styr beräknings resurser och samtidighet för frågekörningen. Resurs klasser kan hjälpa dig att konfigurera resurser för dina frågor genom att ange gränser för antalet frågor som körs samtidigt och på beräknings resurserna som tilldelas varje fråga.  Det finns en kompromiss mellan minne och samtidighet.
 
-- Mindre resursklasser minskar maximalt minne per fråga, men ökar samtidigheten.
-- Större resursklasser ökar det maximala minnet per fråga, men minskar samtidigheten.
+- Mindre resurs klasser minskar högsta mängd minne per fråga, men ökar samtidigheten.
+- Större resurs klasser ökar det maximala minnet per fråga, men minskar samtidigheten.
 
-Det finns två typer av resursklasser:
+Det finns två typer av resurs klasser:
 
-- Statiska resursklasser, som är väl lämpade för ökad samtidighet på en datauppsättningsstorlek som är fast.
-- Dynamiska resursklasser, som är väl lämpade för datauppsättningar som växer i storlek och behöver ökad prestanda när servicenivån skalas upp.
+- Statiska resurs klasser, som lämpar sig väl för ökad samtidighet i en data uppsättnings storlek som har åtgärd ATS.
+- Dynamiska resurs klasser, som lämpar sig väl för data uppsättningar som växer och behöver bättre prestanda när tjänste nivån skalas upp.
 
-Resursklasser använder samtidighetsplatser för att mäta resursförbrukning.  [Samtidighetsplatser](#concurrency-slots) förklaras senare i den här artikeln.
+Resurs klasser använder samtidiga platser för att mäta resursförbrukning.  [Samtidiga platser](#concurrency-slots) beskrivs senare i den här artikeln.
 
-- Om du vill visa resursutnyttjandet för resursklasserna finns i Begränsningar för [minne och samtidighet](memory-concurrency-limits.md).
-- Om du vill justera resursklassen kan du köra frågan under en annan användare eller [ändra den aktuella användarens resursklassmedlemskap.](#change-a-users-resource-class)
+- Om du vill visa resursutnyttjande för resurs klasserna, se [minnes-och samtidiga gränser](memory-concurrency-limits.md).
+- Du kan ändra resurs klassen genom att köra frågan under en annan användare eller [ändra den aktuella användarens resurs klass](#change-a-users-resource-class) medlemskap.
 
-### <a name="static-resource-classes"></a>Statiska resursklasser
+### <a name="static-resource-classes"></a>Statiska resurs klasser
 
-Statiska resursklasser allokerar samma mängd minne oavsett aktuell prestandanivå, som mäts i [informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Eftersom frågor får samma minnesallokering oavsett prestandanivå, tillåter [skalning av informationslagret](quickstart-scale-compute-portal.md) fler frågor att köra inom en resursklass.  Statiska resursklasser är idealiska om datavolymen är känd och konstant.
+Statiska resurs klasser allokerar samma mängd minne oavsett den aktuella prestanda nivån, som mäts i [informations lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Eftersom frågor får samma minnesallokering oavsett prestanda nivå kan du [skala ut data lagret](quickstart-scale-compute-portal.md) för att köra fler frågor i en resurs klass.  Statiska resurs klasser är idealiska om data volymen är känd och konstant.
 
-De statiska resursklasserna implementeras med dessa fördefinierade databasroller:
+De statiska resurs klasserna implementeras med följande fördefinierade databas roller:
 
-- statiskrc10
-- statiskrc20
-- statiskrc30
-- statiskrc40
-- statiskrc50
-- statiskrc60
-- statiskrc70
-- statiskrc80
+- staticrc10
+- staticrc20
+- staticrc30
+- staticrc40
+- staticrc50
+- staticrc60
+- staticrc70
+- staticrc80
 
-### <a name="dynamic-resource-classes"></a>Dynamiska resursklasser
+### <a name="dynamic-resource-classes"></a>Dynamiska resurs klasser
 
-Dynamiska resursklasser allokerar en varierande mängd minne beroende på den aktuella servicenivån. Statiska resursklasser är bra för högre samtidighet och statiska datavolymer, men dynamiska resursklasser är bättre lämpade för en växande eller varierande mängd data.  När du skalar upp till en större servicenivå får dina frågor automatiskt mer minne.  
+Dynamiska resurs klasser allokerar en varierande mängd minne beroende på aktuell tjänste nivå. Även om statiska resurs klasser är fördelaktiga för högre samtidiga och statiska data volymer, passar dynamiska resurs klasser bättre för en växande eller varierande mängd data.  När du skalar upp till en större service nivå får dina frågor automatiskt mer minne.  
 
-De dynamiska resursklasserna implementeras med dessa fördefinierade databasroller:
+De dynamiska resurs klasserna implementeras med följande fördefinierade databas roller:
 
-- smallrc (sn)
-- mediumrc (mediumrc)
-- largerc (större)
-- xlargerc (olikartade)
+- smallrc
+- mediumrc
+- largerc
+- xlargerc
 
-Minnesallokeringen för varje resursklass är följande.
+Minnes tilldelningen för varje resurs klass är följande.
 
-| Servicenivå  | smallrc (sn)           | mediumrc (mediumrc)               | largerc (större)                | xlargerc (olikartade)               |
+| Service nivå  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
-| DW100c (på andra)         | 25 %               | 25 %                    | 25 %                    | 70 %                    |
-| DW200c (på andra)         | 12.5%             | 12.5%                  | 22%                    | 70 %                    |
-| DW300c (på andra)         | 8 %                | 10 %                    | 22%                    | 70 %                    |
-| DW400c (på andra)         | 6.25%             | 10 %                    | 22%                    | 70 %                    |
-| DW500c         | 5 %                | 10 %                    | 22%                    | 70 %                    |
-| DW1000c till<br> DW30000c | 3 %       | 10 %                    | 22%                    | 70 %                    |
+| DW100c         | 25 %               | 25 %                    | 25 %                    | 70 %                    |
+| DW200c         | 12,5%             | 12,5%                  | 22.2                    | 70 %                    |
+| DW300c         | 8 %                | 10 %                    | 22.2                    | 70 %                    |
+| DW400c         | 6,25%             | 10 %                    | 22.2                    | 70 %                    |
+| DW500c         | 5 %                | 10 %                    | 22.2                    | 70 %                    |
+| DW1000c till<br> DW30000c | 3 %       | 10 %                    | 22.2                    | 70 %                    |
 
-### <a name="default-resource-class"></a>Standardresursklass
+### <a name="default-resource-class"></a>Standard resurs klass
 
-Som standard är varje användare medlem i den dynamiska resursklassen **smallrc**.
+Som standard är varje användare medlem i den dynamiska resurs klassen **smallrc**.
 
-Tjänstadministratörens resursklass är fast vid smallrc och kan inte ändras.  Tjänstadministratören är den användare som skapades under etableringsprocessen.  Tjänstadministratören i det här sammanhanget är den inloggning som anges för "Server admin-inloggning" när du skapar en ny Synapse SQL-pool med en ny server.
+Tjänst administratörens resurs klass är fast i smallrc och kan inte ändras.  Tjänst administratören är den användare som skapas under etablerings processen.  Tjänst administratören i den här kontexten är den inloggning som anges för "server admin-inloggning" när en ny Synapse-SQL-pool skapas med en ny server.
 
 > [!NOTE]
-> Användare eller grupper som definieras som Active Directory-administratör är också tjänstadministratörer.
+> Användare eller grupper som definieras som Active Directory administratör är också tjänst administratörer.
 >
 >
 
-## <a name="resource-class-operations"></a>Resursklassåtgärder
+## <a name="resource-class-operations"></a>Resurs klass åtgärder
 
-Resursklasser är utformade för att förbättra prestanda för datahantering och manipuleringsaktiviteter. Komplexa frågor kan också dra nytta av att köras under en stor resursklass. Frågeprestanda för stora kopplingar och sorter kan till exempel förbättras när resursklassen är tillräckligt stor för att frågan ska kunna köras i minnet.
+Resurs klasser är utformade för att förbättra prestandan för data hanterings-och Manipulerings aktiviteter. Komplexa frågor kan också dra nytta av att köra under en stor resurs klass. Till exempel kan fråga om prestanda för stora kopplingar och sorteringar förbättra när resurs klassen är tillräckligt stor för att frågan ska kunna köras i minnet.
 
-### <a name="operations-governed-by-resource-classes"></a>Åtgärder som styrs av resursklasser
+### <a name="operations-governed-by-resource-classes"></a>Åtgärder som styrs av resurs klasser
 
-Dessa åtgärder styrs av resursklasser:
+Dessa åtgärder styrs av resurs klasser:
 
-- INFOGA-MARKERA, UPPDATERA, TA BORT
-- SELECT (vid fråga användartabeller)
-- ALTER INDEX - ÅTERSKAPA ELLER OMORGANISERA
-- ÄNDRA OMBYGGNAD AV TABELLEN
+- INFOGA-VÄLJ, UPPDATERA, TA BORT
+- Välj (när du frågar efter användar tabeller)
+- ÄNDRA INDEX-återskapa eller ordna om
+- ÄNDRA TABELL ÅTERUPPBYGGNAD
 - CREATE INDEX
-- SKAPA KLUSTRADE COLUMNSTORE-INDEX
-- SKAPA TABELL SOM SELECT (CTAS)
+- SKAPA GRUPPERAT COLUMNSTORE-INDEX
+- CREATE TABLE SOM SELECT (CTAS)
 - Läsa in data
-- Datarörelseåtgärder utförda av Data Movement Service (DMS)
+- Data flyttnings åtgärder som utförs av data flytt tjänsten (DMS)
 
 > [!NOTE]  
-> SELECT-satser för dynamiska hanteringsvyer (DMV: er) eller andra systemvyer styrs inte av någon av samtidighetsgränserna. Du kan övervaka systemet oavsett hur många frågor som körs på det.
+> SELECT-instruktioner i vyer för dynamisk hantering (DMV: er) eller andra systemvyer styrs inte av någon av samtidiga begränsningarna. Du kan övervaka systemet oavsett hur många frågor som körs på den.
 >
 >
 
-### <a name="operations-not-governed-by-resource-classes"></a>Åtgärder som inte styrs av resursklasser
+### <a name="operations-not-governed-by-resource-classes"></a>Åtgärder som inte styrs av resurs klasser
 
-Vissa frågor körs alltid i smallrc-resursklassen även om användaren är medlem i en större resursklass. Dessa undantagna frågor räknas inte in i samtidighetsgränsen. Om gränsen för samtidighet till exempel är 16 kan många användare välja från systemvyer utan att påverka tillgängliga samtidighetsplatser.
+Vissa frågor körs alltid i resurs klassen smallrc även om användaren är medlem i en större resurs klass. Dessa undantags frågor räknas inte mot samtidighets gränsen. Om samtidigheten till exempel är 16 kan många användare välja från systemvyer utan att de tillgängliga samtidiga platserna påverkas.
 
-Följande satser är undantagna från resursklasser och körs alltid i smallrc:
+Följande instruktioner är undantagna från resurs klasser och körs alltid i smallrc:
 
-- SKAPA ELLER SLÄPP TABELL
-- ALTER TABELL ... VÄXLA, DELA ELLER SAMMANFOGA PARTITION
-- ÄNDRA INAKTIVERA INDEX
+- Skapa eller ta bort tabell
+- ÄNDRA TABELL... Växla, dela eller sammanfoga PARTITION
+- ÄNDRA INDEX INAKTIVERA
 - DROP INDEX
-- SKAPA, UPPDATERA ELLER SLÄPPA STATISTIK
-- TRUNKERA TABELL
-- ÄNDRA TILLSTÅND
+- SKAPA, uppdatera eller släppa statistik
+- TRUNCATE TABLE
+- ÄNDRA AUKTORISERING
 - SKAPA INLOGGNING
-- SKAPA, ÄNDRA eller SLÄPP ANVÄNDARE
-- SKAPA, ÄNDRA ELLER SLÄPP-PROCEDUREN
-- SKAPA ELLER SLÄPP-VY
+- SKAPA, ändra eller släppa användare
+- SKAPA, ändra eller ta bort procedur
+- Skapa eller släppa vy
 - INFOGA VÄRDEN
-- VÄLJ från systemvyer och DMV:er
-- Förklara
-- Dbcc
+- Välj från systemvyer och DMV: er
+- Vad
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQL DW
@@ -139,18 +139,18 @@ Removed as these two are not confirmed / supported under SQL DW
 - REDISTRIBUTE
 -->
 
-## <a name="concurrency-slots"></a>Platser för samtidighet
+## <a name="concurrency-slots"></a>Samtidiga platser
 
-Samtidighetsplatser är ett praktiskt sätt att spåra de resurser som är tillgängliga för frågekörning. De är som biljetter som du köper för att boka platser på en konsert eftersom sittplatser är begränsad. Det totala antalet samtidighetsplatser per informationslager bestäms av servicenivån. Innan en fråga kan börja köras måste den kunna reservera tillräckligt med samtidighetsplatser. När en fråga är klar släpper den sina samtidighetsplatser.  
+Samtidiga platser är ett bekvämt sätt att spåra resurserna som är tillgängliga för frågekörningen. De är som biljetter som du köper till att reservera platser i en konsert eftersom platsen är begränsad. Det totala antalet samtidiga platser per informations lager fastställs av Service nivån. Innan en fråga kan börja köra måste den kunna reservera tillräckligt många samtidiga platser. När en fråga har slutförts släpper den sina samtidiga platser.  
 
-- En fråga som körs med 10 samtidighetsplatser kan komma åt 5 gånger fler beräkningsresurser än en fråga som körs med 2 samtidighetsplatser.
-- Om varje fråga kräver 10 samtidighetsplatser och det finns 40 samtidighetsplatser, kan endast 4 frågor köras samtidigt.
+- En fråga som kör med 10 samtidiga platser kan komma åt 5 gånger mer beräknings resurser än en fråga som körs med 2 samtidiga platser.
+- Om varje fråga kräver 10 samtidiga platser och det finns 40 concurrency-kortplatser kan endast 4 frågor köras samtidigt.
 
-Endast resursstyrda frågor förbrukar samtidighetsplatser. Systemfrågor och vissa triviala frågor förbrukar inte några platser. Det exakta antalet samtidighetsplatser som förbrukas bestäms av frågans resursklass.
+Endast resurs reglerade frågor förbrukar samtidiga platser. System frågor och vissa enkla frågor använder inte några platser. Det exakta antalet förbrukade concurrency-platser bestäms av frågans resurs klass.
 
-## <a name="view-the-resource-classes"></a>Visa resursklasserna
+## <a name="view-the-resource-classes"></a>Visa resurs klasserna
 
-Resursklasser implementeras som fördefinierade databasroller. Det finns två typer av resursklasser: dynamiska och statiska. Om du vill visa en lista över resursklasserna använder du följande fråga:
+Resurs klasser implementeras som fördefinierade databas roller. Det finns två typer av resurs klasser: dynamiska och statiska. Om du vill visa en lista över resurs klasser använder du följande fråga:
 
 ```sql
 SELECT name
@@ -158,96 +158,96 @@ FROM   sys.database_principals
 WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 ```
 
-## <a name="change-a-users-resource-class"></a>Ändra en användares resursklass
+## <a name="change-a-users-resource-class"></a>Ändra en användares resurs klass
 
-Resursklasser implementeras genom att användare tilldelas databasroller. När en användare kör en fråga körs frågan med användarens resursklass. Om en användare till exempel är medlem i rollen staticrc10-databas körs deras frågor med små mängder minne. Om en databasanvändare är medlem i databasrollerna xlargerc eller staticrc80 körs deras frågor med stora mängder minne.
+Resurs klasser implementeras genom att tilldela användare till databas roller. När en användare kör en fråga körs frågan med användarens resurs klass. Om en användare till exempel är medlem i databas rollen staticrc10, körs frågorna med små mängder minne. Om en databas användare är medlem i databas rollerna xlargerc eller staticrc80, körs frågorna med stora mängder minne.
 
-Om du vill öka en användares resursklass använder [du sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att lägga till användaren i en databasroll för en stor resursklass.  Nedanstående kod lägger till en användare i rollen largerc databas.  Varje begäran får 22% av systemminnet.
+Om du vill öka en användares resurs klass använder du [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att lägga till användaren till en databas roll för en stor resurs klass.  Koden nedan lägger till en användare i largerc-databas rollen.  Varje begäran får 22% av system minnet.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Om du vill minska resursklassen använder [du sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Om "loaduser" inte är medlem eller andra resursklasser går de in i standardresursklassen smallrc med ett minnesbidrag på 3 %.  
+Om du vill minska resurs klassen använder du [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Om ' loaduser ' inte är en medlem eller någon annan resurs klass hamnar de i standard resurs klassen smallrc med 3% minnes tilldelning.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
-## <a name="resource-class-precedence"></a>Resursklassprioritet
+## <a name="resource-class-precedence"></a>Resurs klass prioritet
 
-Användare kan vara medlemmar i flera resursklasser. När en användare tillhör mer än en resursklass:
+Användare kan vara medlemmar i flera resurs klasser. När en användare tillhör fler än en resurs klass:
 
-- Dynamiska resursklasser har företräde framför statiska resursklasser. Om en användare till exempel är medlem i både mediumrc(dynamic) och staticrc80 (static) körs frågor med mediumrc.
-- Större resursklasser har företräde framför mindre resursklasser. Om en användare till exempel är medlem i mediumrc och largerc körs frågor med largerc. På samma sätt, om en användare är medlem i både staticrc20 och statirc80, körs frågor med staticrc80-resursallokeringar.
+- Dynamiska resurs klasser prioriteras över statiska resurs klasser. Om en användare till exempel är medlem i både mediumrc (dynamisk) och staticrc80 (statisk), körs frågor med mediumrc.
+- Större resurs klasser prioriteras framför mindre resurs klasser. Om en användare till exempel är medlem i mediumrc och largerc, kör frågor med largerc. Om en användare däremot är medlem i både staticrc20 och statirc80, körs frågor med staticrc80 resurs tilldelningar.
 
 ## <a name="recommendations"></a>Rekommendationer
 
 >[!NOTE]
->Överväg att utnyttja funktioner för hantering av arbetsbelastningar[(arbetsbelastningsisolering,](sql-data-warehouse-workload-isolation.md) [klassificering](sql-data-warehouse-workload-classification.md) och [betydelse)](sql-data-warehouse-workload-importance.md)för mer kontroll över din arbetsbelastning och förutsägbara prestanda.  
+>Överväg att använda funktioner för hantering av arbets belastning ([arbets belastnings isolering](sql-data-warehouse-workload-isolation.md), [klassificering](sql-data-warehouse-workload-classification.md) och [prioritet](sql-data-warehouse-workload-importance.md)) för mer kontroll över din arbets belastning och förutsägbar prestanda.  
 >
 >
 
-Vi rekommenderar att du skapar en användare som är dedikerad till att köra en viss typ av fråga eller inläsningsåtgärd. Ge användaren en permanent resursklass i stället för att ändra resursklassen ofta. Statiska resursklasser ger större övergripande kontroll över arbetsbelastningen, så vi föreslår att du använder statiska resursklasser innan du överväger dynamiska resursklasser.
+Vi rekommenderar att du skapar en användare som är dedikerad för att köra en särskild typ av fråga eller inläsnings åtgärd. Ge den användaren en permanent resurs klass i stället för att ändra resurs klassen regelbundet. Statiska resurs klasser ger bättre övergripande kontroll över arbets belastningen, så vi rekommenderar att du använder statiska resurs klasser innan du överväger dynamiska resurs klasser.
 
-### <a name="resource-classes-for-load-users"></a>Resursklasser för inläsningsanvändare
+### <a name="resource-classes-for-load-users"></a>Resurs klasser för inläsning av användare
 
-`CREATE TABLE`använder grupperade columnstore-index som standard. Att komprimera data till ett columnstore-index är en minnesintensiv åtgärd och minnestrycket kan minska indexkvaliteten. Minnestryck kan leda till att du behöver en högre resursklass när data läses in. Om du vill vara att säkerställa att belastningen har tillräckligt med minne kan du skapa en användare som är avsedd för att köra laster och tilldela användaren till en högre resursklass.
+`CREATE TABLE`använder grupperade columnstore-index som standard. Komprimering av data i ett columnstore-index är en minnes intensiv åtgärd och minnes belastningen kan minska index kvaliteten. Minnes belastning kan leda till att en högre resurs klass krävs vid inläsning av data. För att säkerställa att belastningen har tillräckligt med minne, kan du skapa en användare som är avsedd för att köra belastningar och tilldela användaren till en högre resurs klass.
 
-Det minne som behövs för att bearbeta belastningar effektivt beror på vilken typ av tabell som läses in och datastorleken. Mer information om minneskrav finns i [Maximera radgruppskvaliteten](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Vilken mängd minne som krävs för att bearbeta belastningarna beror på vilken tabell som lästs in och data storleken. Mer information om minnes krav finns i [maximera radgrupps-kvalitet](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-När du har bestämt minneskravet väljer du om du vill tilldela inläsningsanvändaren till en statisk eller dynamisk resursklass.
+När du har fastställt minnes kravet väljer du om du vill tilldela inläsnings användaren till en statisk eller dynamisk resurs klass.
 
-- Använd en statisk resursklass när tabellminneskraven ligger inom ett visst intervall. Laster körs med lämpligt minne. När du skalar informationslagret behöver inte lasterna mer minne. Med hjälp av en statisk resursklass förblir minnesallokeringarna konstanta. Den här konsekvensen sparar minne och gör att fler frågor kan köras samtidigt. Vi rekommenderar att nya lösningar använder de statiska resursklasserna först eftersom dessa ger större kontroll.
-- Använd en dynamisk resursklass när kraven på tabellminne varierar kraftigt. Belastningar kan kräva mer minne än den aktuella DWU- eller cDWU-nivån ger. Skalning av informationslagret ger mer minne att läsa in åtgärder, vilket gör att belastningen kan fungera snabbare.
+- Använd en statisk resurs klass när kraven på tabell minnet ligger inom ett angivet intervall. Läser in körning med lämpligt minne. När du skalar data lagret behöver inte belastningarna mer minne. Genom att använda en statisk resurs klass förblir minnes tilldelningen konstant. Den här konsekvensen sparar minne och gör att fler frågor kan köras samtidigt. Vi rekommenderar att nya lösningar använder de statiska resurs klasserna först eftersom dessa ger större kontroll.
+- Använd en dynamisk resurs klass när kraven på tabell minne varierar mycket. Belastningar kan kräva mer minne än den aktuella DWU-eller cDWU-nivån. Skalning av informations lagret lägger till mer minne för att läsa in åtgärder, vilket gör att belastningen kan utföras snabbare.
 
-### <a name="resource-classes-for-queries"></a>Resursklasser för frågor
+### <a name="resource-classes-for-queries"></a>Resurs klasser för frågor
 
-Vissa frågor är beräkningsintensiva och andra inte.  
+Vissa frågor är beräknings intensiva och andra inte.  
 
-- Välj en dynamisk resursklass när frågor är komplexa, men behöver inte hög samtidighet.  Att generera dagliga eller veckovisa rapporter är till exempel ett tillfälligt behov av resurser. Om rapporterna bearbetar stora mängder data ger skalning av informationslagret mer minne till användarens befintliga resursklass.
-- Välj en statisk resursklass när resursförväntningarna varierar under dagen. En statisk resursklass fungerar till exempel bra när informationslagret efterfrågas av många. När du skalar informationslagret ändras inte mängden minne som allokerats till användaren. Därför kan fler frågor köras parallellt på systemet.
+- Välj en dynamisk resurs klass när frågor är komplexa, men behöver inte hög samtidighet.  Till exempel är det ett tillfälligt behov av resurser att generera dagliga eller vecko Visa rapporter. Om rapporterna bearbetar stora mängder data ger data lagret mer minne till användarens befintliga resurs klass.
+- Välj en statisk resurs klass när resurs förväntningarna varierar under dagen. En statisk resurs klass fungerar till exempel bra om data lagret efter frågas av många personer. När du skalar data lagret ändras inte mängden minne som allokerats till användaren. Det innebär att fler frågor kan köras parallellt i systemet.
 
-Korrekt minnesbidrag beror på många faktorer, till exempel mängden data som efterfrågas, tabellschemanas art och olika kopplingar, val och grupppredikater. I allmänhet kan allokering av mer minne frågor slutföras snabbare, men minskar den totala samtidigheten. Om samtidighet inte är ett problem skadar inte överallokering av minne dataflödet.
+Lämpliga minnes anslag är beroende av många faktorer, till exempel mängden data som frågas, tabell schemannas beskaffenhet och olika kopplingar, väljer och grupperar predikat. I allmänhet kan du allokera mer minne för att utföra snabbare frågor, men minskar den övergripande samtidigheten. Om samtidighet inte är ett problem skadar överallokerat minne inte data flödet.
 
-Om du vill justera prestanda använder du olika resursklasser. I nästa avsnitt visas en lagrad procedur som hjälper dig att ta reda på den bästa resursklassen.
+Använd olika resurs klasser för att justera prestanda. Nästa avsnitt innehåller en lagrad procedur som hjälper dig att avgöra den bästa resurs klassen.
 
-## <a name="example-code-for-finding-the-best-resource-class"></a>Exempelkod för att hitta den bästa resursklassen
+## <a name="example-code-for-finding-the-best-resource-class"></a>Exempel kod för att hitta den bästa resurs klassen
 
-Du kan använda följande angivna lagrade procedur för att räkna ut samtidighet och minnesbidrag per resursklass vid en viss SLO och den bästa resursklassen för minnesintensiva CCI-åtgärder på icke-partitionerad CCI-tabell i en viss resursklass:
+Du kan använda följande angivna lagrade procedur för att ta reda på samtidighet och minnes tilldelning per resurs klass vid en viss service nivå mål och den bästa resurs klassen för minnes intensiva åtgärder på en icke-partitionerad CCI-tabell i en viss resurs klass:
 
-Här är syftet med denna lagrade procedur:
+Här är syftet med den här lagrade proceduren:
 
-1. För att se samtidighet och minne bidrag per resurs klass vid en viss SLO. Användaren måste ange NULL för både schema och tabellnamn som visas i det här exemplet.  
-2. Om du vill se den bästa resursklassen för de minnesintensiva CCI-åtgärderna (inläsning, kopieringstabell, återskapa index osv.) i icke-partitionerad CCI-tabell i en viss resursklass. Den lagrade proc använder tabellschema för att ta reda på det nödvändiga minnesbidraget.
+1. För att se samtidighet och minnes tilldelning per resurs klass vid en viss service nivå mål. Användaren måste ange NULL för både schema och TableName, vilket visas i det här exemplet.  
+2. För att se den bästa resurs klassen för de minnes intensiva CCI-åtgärderna (belastning, kopiera tabell, återskapa index osv.) i en icke-partitionerad CCI-tabell i en specifik resurs klass. Den lagrade proceduren använder Table schema för att ta reda på vilken minnes tilldelning som krävs.
 
-### <a name="dependencies--restrictions"></a>Beroenden & begränsningar
+### <a name="dependencies--restrictions"></a>Beroende & begränsningar
 
-- Den här lagrade proceduren är inte utformad för att beräkna minneskravet för en partitionerad cci-tabell.
-- Den här lagrade proceduren tar inte hänsyn till minneskrav för SELECT-delen av CTAS/INSERT-SELECT och förutsätter att det är en SELECT.
-- Den här lagrade proceduren använder en temporär tabell som är tillgänglig i sessionen där den här lagrade proceduren skapades.
-- Den här lagrade proceduren beror på aktuella erbjudanden (till exempel maskinvarukonfiguration, DMS-konfiguration) och om något av det ändras fungerar inte den här lagrade processen korrekt.  
-- Den här lagrade proceduren beror på befintliga samtidighetsbegränsningserbjudanden och om dessa ändras fungerar inte den här lagrade proceduren korrekt.  
-- Den här lagrade proceduren beror på befintliga resursklasserbjudanden och om dessa ändras fungerar inte den här lagrade proceduren korrekt.  
+- Den här lagrade proceduren är inte utformad för att beräkna minnes kravet för en partitionerad CCI-tabell.
+- Den här lagrade proceduren tar inte hänsyn till minnes kraven för SELECT-delen av CTAS/INSERT-SELECT och förutsätter att det är ett val.
+- Den här lagrade proceduren använder en temporär tabell som är tillgänglig i den session där den lagrade proceduren skapades.
+- Den här lagrade proceduren beror på aktuella erbjudanden (t. ex. maskin varu konfiguration, DMS-konfiguration) och om någon av dessa ändringar inte fungerar som den ska.  
+- Den här lagrade proceduren beror på befintliga samtidiga gräns erbjudanden och om dessa ändringar inte fungerar på rätt sätt fungerar inte den här lagrade proceduren.  
+- Den här lagrade proceduren är beroende av befintliga resurs klass erbjudanden och om den här ändringen så fungerar inte den här lagrade proceduren som den ska.  
 
 >[!NOTE]  
->Om du inte får utdata efter att ha kört lagrad procedur med parametrar som tillhandahålls, kan det finnas två fall.
+>Om du inte får utdata när du har kört den lagrade proceduren med angivna parametrar, kan det finnas två fall.
 >
->1. Antingen DW-parametern innehåller ett ogiltigt SLO-värde
->2. Eller så finns det ingen matchande resursklass för cci-åtgärden i tabellen.
+>1. En DW-parameter innehåller ett ogiltigt värde för service nivå mål
+>2. Eller så finns det ingen matchande resurs klass för åtgärden CCI i tabellen.
 >
->På DW100c är till exempel det högsta tillgängliga minnesbidraget 1 GB och om tabellschemat är tillräckligt brett för att passera kravet på 1 GB.
+>I DW100c är till exempel den högsta tillgängliga minnes tilldelningen 1 GB och om Table schema är tillräckligt bred för att överskrida kravet på 1 GB.
 
 ### <a name="usage-example"></a>Exempel på användning
 
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU:Antingen tillhandahålla en NULL-parameter för att extrahera den nuvarande DWU från DW DB eller tillhandahålla någon DWU som stöds i form av "DW100c"
-2. @SCHEMA_NAME:Ange ett schemanamn för tabellen
-3. @TABLE_NAME:Ange ett tabellnamn för räntan
+1. @DWU:Ange antingen en NULL-parameter för att extrahera den aktuella DWU från DW DB eller ange eventuella DWU som stöds i formatet "DW100c"
+2. @SCHEMA_NAME:Ange ett schema namn för tabellen
+3. @TABLE_NAME:Ange ett tabell namn för intresset
 
-Exempel som kör den här lagrade processen:
+Exempel som kör den här lagrade proceduren:
 
 ```sql
 EXEC dbo.prc_workload_management_by_DWU 'DW2000c', 'dbo', 'Table1';  
@@ -256,7 +256,7 @@ EXEC dbo.prc_workload_management_by_DWU 'DW6000c', NULL, NULL;
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
 
-Följande sats skapar Tabell1 som används i föregående exempel.
+Följande instruktion skapar Table1 som används i föregående exempel.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
 ### <a name="stored-procedure-definition"></a>Definition av lagrad procedur
@@ -592,4 +592,4 @@ GO
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar databasanvändare och säkerhet finns [i Skydda en databas i SQL Analytics](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra indexkvaliteten i klustrade columnstore finns i [Minnesoptimeringar för columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Mer information om hur du hanterar databas användare och säkerhet finns i [skydda en databas i SQL Analytics](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index kvalitet finns i [minnes optimeringar för columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).

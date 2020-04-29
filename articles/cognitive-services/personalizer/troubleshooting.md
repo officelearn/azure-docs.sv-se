@@ -1,122 +1,122 @@
 ---
-title: Felsökning - Personalizer
-description: Den här artikeln innehåller svar på vanliga felsökningsfrågor om Personalizer.
+title: Fel sökning – Personanpassare
+description: Den här artikeln innehåller svar på vanliga fel söknings frågor om Personanpassare.
 ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.author: diberry
 ms.openlocfilehash: 904953f028eb31afe42cf477ac05be43e8b72a4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80336019"
 ---
-# <a name="personalizer-troubleshooting"></a>Felsökning av personalizer
+# <a name="personalizer-troubleshooting"></a>Fel sökning av personanpassa
 
-Den här artikeln innehåller svar på vanliga felsökningsfrågor om Personalizer.
+Den här artikeln innehåller svar på vanliga fel söknings frågor om Personanpassare.
 
-## <a name="transaction-errors"></a>Transaktionsfel
+## <a name="transaction-errors"></a>Transaktions fel
 
 <details>
-<summary><b>Jag får ett HTTP 429 (för många begäranden) svar från tjänsten. Vad kan jag göra?</b></summary>
+<summary><b>Jag får ett svar för HTTP 429 (för många begär Anden) från tjänsten. Vad kan jag göra?</b></summary>
 
-**Svar**: Om du valde en kostnadsfri prisnivå när du skapade Personalizer-instansen finns det en kvotgräns för antalet Rank-begäranden som tillåts. Granska din API-anropshastighet för Rank API (i fönstret Mått i Azure-portalen för din Personalizer-resurs) och justera prisnivån (i fönstret Prisnivå) om samtalsvolymen förväntas öka utöver tröskelvärdet för vald prisnivå.
+**Svar**: om du har valt en kostnads fri pris nivå när du skapade personanpassa instansen, finns det en kvot gräns för antalet ranknings begär Anden som tillåts. Granska API-anrops frekvensen för rang-API: n (i fönstret mått i Azure Portal för din personanpassa resurs) och justera pris nivån (i fönstret pris nivå) om din anrops volym förväntas öka efter tröskelvärdet för den valda pris nivån.
 
 </details>
 
 <details>
-<summary><b>Jag får ett 5xx fel på Rank eller Reward API: er. Vad ska jag göra?</b></summary>
+<summary><b>Jag får ett 5xx-fel vid rang-eller belönings-API: er. Vad ska jag göra?</b></summary>
 
-**Svar**: Dessa frågor bör vara öppna. Om de fortsätter kontaktar du supporten genom att välja **Ny supportbegäran** i avsnittet **Support + felsökning** i Azure-portalen för din Personalizer-resurs.
+**Svar**: de här problemen bör vara transparenta. Om de fortsätter kan du kontakta supporten genom att välja **ny supportbegäran** i avsnittet **support och fel sökning** i Azure Portal för din personanpassa resurs.
 
 </details>
 
-## <a name="learning-loop"></a>Lärande loop
+## <a name="learning-loop"></a>Inlärnings slinga
 
 <details>
 <summary>
-<b>Inlärningsslingan uppnår inte en 100% matchning till systemet utan Personalizer. Hur åtgärdar jag detta?</b></summary>
+<b>Inlärnings slingan inte uppnår en 100%-matchning till systemet utan någon personligt tillverkare. Hur gör jag för att åtgärda detta?</b></summary>
 
-**Svar**: Anledningarna till att du inte uppnår ditt mål med inlärningsslingan:
-* Det finns inte tillräckligt med funktioner som skickas med Rank API-anrop
-* Buggar i de funktioner som skickas - till exempel skicka icke-aggregerade funktionsdata som tidsstämplar till Rank API
-* Buggar med loopbearbetning – till exempel att inte skicka belöningsdata till Reward API för händelser
+**Svar**: anledningen till att du inte uppnår ditt mål med inlärnings slingan:
+* Inte tillräckligt med funktioner som skickas med rang-API-anrop
+* Buggar i de funktioner som skickas – till exempel skicka icke-aggregerade funktions data, till exempel tidsstämplar till Range-API
+* Buggar med loop-bearbetning – till exempel att inte skicka belönings data till belönings-API för händelser
 
-För att åtgärda det måste du ändra bearbetningen genom att antingen ändra de funktioner som skickas till loopen eller se till att belöningen är en korrekt utvärdering av kvaliteten på rankens svar.
+För att åtgärda detta måste du ändra bearbetningen genom att antingen ändra de funktioner som skickats till slingan, eller se till att belöningen är en korrekt utvärdering av kvaliteten på rangens svar.
 
 </details>
 
 <details>
 <summary>
-<b>Inlärningsslingan verkar inte lära sig. Hur åtgärdar jag detta?</b></summary>
+<b>Inlärnings slingan verkar inte lära sig. Hur gör jag för att åtgärda detta?</b></summary>
 
-**Svar**: Inlärningsslingan behöver några tusen belöningssamtal innan Rank-samtal prioriterar effektivt.
+**Svar**: inlärnings slingan behöver några tusen belönings samtal innan ranknings anropen prioriteras effektivt.
 
-Om du är osäker på hur din utbildningsloop för närvarande beter sig kör du en [offlineutvärdering](concepts-offline-evaluation.md)och tillämpar den korrigerade inlärningsprincipen.
-
-</details>
-
-<details>
-<summary><b>Jag får rank resultat med alla samma sannolikheter för alla objekt. Hur vet jag att Personalizer lär sig?</b></summary>
-
-**Svar:** Personalizer returnerar samma sannolikheter i ett Rank API-resultat när det just har startat och har en _tom_ modell, eller när du återställer Personalizer Loop, och din modell är fortfarande inom din **modell uppdateringsfrekvensperiod.**
-
-När den nya uppdateringsperioden börjar används den uppdaterade modellen och sannolikheterna ändras.
+Om du är osäker på hur din inlärnings slinga för närvarande fungerar, kör du en [offline-utvärdering](concepts-offline-evaluation.md)och tillämpar den korrigerade inlärnings principen.
 
 </details>
 
 <details>
-<summary><b>Inlärningsslingan lärde sig men verkar inte lära sig längre, och kvaliteten på Rank resultaten är inte så bra. Vad ska jag göra?</b></summary>
+<summary><b>Jag vill få ranknings resultat med samma sannolikhet för alla objekt. Hur gör jag för att vet du att personanpassa är inlärning?</b></summary>
+
+**Svar**: en personanpassare returnerar samma sannolikhet i ett rang-API-resultat när den precis har startat och har en _Tom_ modell, eller när du återställer en egen loop och din modell fortfarande ligger inom **modell uppdateringens frekvens** period.
+
+När den nya uppdaterings perioden börjar används den uppdaterade modellen och du ser sannolikheten för ändringen.
+
+</details>
+
+<details>
+<summary><b>Inlärnings-slingan var inlärning men verkar inte längre, och kvaliteten på ranknings resultatet är inte så bra. Vad ska jag göra?</b></summary>
 
 **Svar:**
-* Kontrollera att du har slutfört och tillämpat en utvärdering i Azure-portalen för den Personalizer-resursen (utbildningsloop).
-* Se till att alla belöningar skickas, via belönings-API:et, och bearbetas.
+* Se till att du har slutfört och tillämpat en utvärdering i Azure Portal för denna personanpassa resurs (inlärnings slinga).
+* Se till att alla förmåner skickas, via belönings-API: et och bearbetas.
 
 </details>
 
 
 <details>
-<summary><b>Hur vet jag att lärslingan uppdateras regelbundet och används för att få mina data att göra mål?</b></summary>
+<summary><b>Hur gör jag för att vet du att inlärnings slingan uppdateras regelbundet och används för att räkna data?</b></summary>
 
-**Svar**: Du kan hitta den tid då modellen senast uppdaterades på sidan **Modell- och utbildningsinställningar** i Azure-portalen. Om du ser en gammal tidsstämpel beror det sannolikt på att du inte skickar rank- och belöningssamtalen. Om tjänsten inte har några inkommande data uppdateras inte inlärningen. Om lärorikloopen inte uppdateras tillräckligt ofta kan du redigera loopens **modelluppdateringsfrekvens**.
+**Svar**: du kan se tiden då modellen senast uppdaterades på sidan modell- **och inlärnings inställningar** i Azure Portal. Om du ser en gammal tidsstämpel är det troligt att du inte skickar rang-och belönings samtal. Om tjänsten inte har några inkommande data uppdateras inte inlärningen. Om inlärnings-slingan inte uppdateras tillräckligt ofta kan du redigera **uppdaterings frekvensen**för loopen.
 
 </details>
 
 ## <a name="offline-evaluations"></a>Offlineutvärderingar
 
 <details>
-<summary><b>En offlineutvärderings funktionsvikt returnerar en lång lista med hundratals eller tusentals objekt. Vad hände?</b></summary>
+<summary><b>En offline-utvärderings funktions prioritet returnerar en lång lista med hundratals eller tusentals objekt. Vad hände?</b></summary>
 
-**Svar**: Detta beror vanligtvis på tidsstämplar, användar-ID eller några andra finkorniga funktioner som skickas in.
+**Svar**: Detta beror vanligt vis på tidsstämplar, användar-ID: n eller några andra detaljerade funktioner som skickas i.
 
 </details>
 
 <details>
-<summary><b>Jag skapade en offline utvärdering och det lyckades nästan omedelbart. Varför är det så? Ser jag inga resultat?</b></summary>
+<summary><b>Jag skapade en offline-utvärdering och den lyckades nästan omedelbart. Varför är det? Jag ser inga resultat?</b></summary>
 
-**Svar**: Offlineutvärderingen använder tränade modelldata från händelserna under den tidsperioden. Om du inte har skickat några data under tidsperioden mellan utvärderingens start- och sluttid fylls de utan några resultat. Skicka in en ny offlineutvärdering genom att välja ett tidsintervall med händelser som du vet skickades till Personalizer.
+**Svar**: offline-utvärderingen använder de tränade modell data från händelserna under den tids perioden. Om du inte skickade några data under tids perioden mellan start-och slut tiden för utvärderingen, slutförs det utan några resultat. Skicka en ny offline-utvärdering genom att välja ett tidsintervall med händelser som du vet har skickats till Personanpassaren.
 
 </details>
 
 
-## <a name="learning-policy"></a>Utbildningspolitik
+## <a name="learning-policy"></a>Utbildnings princip
 
 <details>
-<summary><b>Hur importerar jag en utbildningspolitik?</b></summary>
+<summary><b>Hur gör jag för att importera en utbildnings princip?</b></summary>
 
-**Svar**: Läs mer om [begrepp för lärande och](concept-active-learning.md#understand-learning-policy-settings) hur du [tillämpar](how-to-manage-model.md) en ny inlärningspolicy. Om du inte vill välja en utbildningsprincip kan du använda [offlineutvärderingen](how-to-offline-evaluation.md) för att föreslå en utbildningspolitik, baserat på dina aktuella händelser.
+**Svar**: Lär dig mer om [begrepp för inlärnings principer](concept-active-learning.md#understand-learning-policy-settings) och [hur du använder](how-to-manage-model.md) en ny utbildnings princip. Om du inte vill välja en utbildnings princip kan du använda [offline-utvärderingen](how-to-offline-evaluation.md) för att föreslå en utbildnings princip baserat på dina aktuella händelser.
 
 </details>
 
 ## <a name="security"></a>Säkerhet
 
 <details>
-<summary><b>API-nyckeln för min loop har komprometterats. Vad kan jag göra?</b></summary>
+<summary><b>API-nyckeln för min slinga har komprometterats. Vad kan jag göra?</b></summary>
 
-**Svar**: Du kan återskapa en nyckel efter att ha bytt dina klienter för att använda den andra nyckeln. Med två nycklar kan du sprida nyckeln på ett lat sätt utan att behöva ha några driftstopp. Vi rekommenderar att du gör detta på en vanlig cykel som en säkerhetsåtgärd.
+**Svar**: du kan återskapa en nyckel när du har bytt ut klienterna så att de använder den andra nyckeln. Med två nycklar kan du sprida nyckeln på ett Lazy sätt utan att behöva ha några drift avbrott. Vi rekommenderar att du gör detta på ett regelbundet sätt som ett säkerhets mått.
 
 </details>
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera uppdateringsfrekvensen för modellen](how-to-settings.md#model-update-frequency)
+[Konfigurera modell uppdaterings frekvensen](how-to-settings.md#model-update-frequency)

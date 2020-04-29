@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att lista och hämta åtgärder för Azure Cosmos DB Gremlin API
-description: Azure PowerShell-skript - Azure Cosmos DB-lista och få åtgärder för Gremlin API
+title: PowerShell-skript för att visa och hämta åtgärder för Azure Cosmos DB Gremlin-API
+description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för Gremlin-API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: bd764dce0bc55582125bdb4e6ffd86dec924390b
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366053"
 ---
-# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Lista och hämta databaser och diagram för Azure Cosmos DB - Gremlin API
+# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Lista och hämta databaser och diagram för Azure Cosmos DB-Gremlin-API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,13 +36,13 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Få-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Visar Cosmos DB-konton eller får ett angivet Cosmos DB-konto. |
-| [Få-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Visar Cosmos DB Gremlin API-databaser i ett konto eller får en angiven Cosmos DB Gremlin API-databas i ett konto. |
-| [Få-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Visar Cosmos DB Gremlin API-grafer i en databas eller får en angiven Cosmos DB Gremlin API-tabell i en databas. |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Listar Cosmos DB konton eller hämtar ett angivet Cosmos DB-konto. |
+| [Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Listar Cosmos DB Gremlin API-databaser i ett konto eller hämtar en angiven Cosmos DB Gremlin-API-databas i ett konto. |
+| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Visar en lista över Cosmos DB Gremlin API-diagram i en databas eller hämtar en angiven Cosmos DB Gremlin API-tabell i en databas. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

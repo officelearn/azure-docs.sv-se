@@ -1,6 +1,6 @@
 ---
-title: Identitet och modultvilling för Azure IoT Hub -modul (Python)
-description: Lär dig hur du skapar modulidentitet och uppdateringsmodultvilling med IoT SDK:er för Python.
+title: Azure IoT Hub-modulens identitet och modul, dubbla (python)
+description: 'Lär dig att skapa modul identitet och uppdatera modul dubbla med IoT SDK: er för python.'
 author: chrissie926
 ms.service: iot-hub
 services: iot-hub
@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
 ms.openlocfilehash: f846af548913e0cb3e872560e4b8438da306a255
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756923"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Komma igång med IoT Hub-modulidentitet och modultvilling (Python)
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Kom igång med IoT Hub-modulens identitet och modul, dubbla (python)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Modulidentiteter och modultvillingar](iot-hub-devguide-module-twins.md) liknar Azure IoT Hub-enhetsidentiteter och enhetstvillingar, men ger finare granularitet. Azure IoT Hub-enhetsidentiteter och enhetstvillingar möjliggör ett backend-program för att konfigurera en enhet och ger synlighet på enhetens villkor, men modulidentiteter och modultvillingar tillhandahåller dessa funktioner för enskilda komponenter på en enhet. På kompatibla enheter med flera komponenter, till exempel operativsystembaserade enheter eller enheter för inbyggd programvara, möjliggör de isolerad konfiguration och villkor för varje komponent.
+> [Modul identiteter och modulernas dubblare](iot-hub-devguide-module-twins.md) liknar Azure IoT Hub enhets identiteter och enheter, men ger bättre granularitet. Även om Azure IoT Hub enhets identiteter och enhet är dubbla, gör det möjligt att konfigurera en enhet och tillhandahålla synlighet på enhetens villkor, modulens identiteter och modulerna ger dessa funktioner för enskilda komponenter i en enhet. På enheter med flera komponenter, till exempel operativ systembaserade enheter eller inbyggda enheter, kan de isolera konfiguration och villkor för varje komponent.
 >
 
-I slutet av den här självstudien har du tre Python-appar:
+I slutet av den här självstudien har du tre python-appar:
 
-* **CreateModule**, som skapar en enhetsidentitet, en modulidentitet och tillhörande säkerhetsnycklar för att ansluta enheten och modulklienter.
+* **CreateModule**, som skapar en enhets identitet, en modul identitet och tillhör ande säkerhets nycklar för att ansluta dina enhets-och modul klienter.
 
-* **UpdateModuleTwinDesiredProperties**, som skickar uppdaterade modul dubbla önskade egenskaper till din IoT Hub.
+* **UpdateModuleTwinDesiredProperties**, som skickar uppdaterad modul dubbla önskade egenskaper till din IoT Hub.
 
-* **ReceiveModuleTwinDesiredPropertiesPatch**, som tar emot modulen dubbla önskade egenskaper patch på din enhet.
+* **ReceiveModuleTwinDesiredPropertiesPatch**, som tar emot modulen med den dubbla önskade egenskaps korrigeringen på enheten.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -41,31 +41,31 @@ I slutet av den här självstudien har du tre Python-appar:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutningssträngen för IoT-hubb
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
-I den här artikeln skapar du en backend-tjänst som lägger till en enhet i identitetsregistret och sedan lägger till en modul på den enheten. Den här tjänsten kräver **registerskrivningsbehörighet** (som även inkluderar **registerläsning**). Du kan också skapa en tjänst som lägger till önskade egenskaper i modultvillingen för den nyskapade modulen. Den här tjänsten behöver **tjänstens anslutningsbehörighet.** Även om det finns standardprinciper för delad åtkomst som ger dessa behörigheter individuellt, skapar du i det här avsnittet en anpassad princip för delad åtkomst som innehåller båda dessa behörigheter.
+I den här artikeln skapar du en server dels tjänst som lägger till en enhet i identitets registret och lägger sedan till en modul till den enheten. Den här tjänsten kräver **Skriv** behörighet för registret (som även innehåller **register läsning**). Du skapar också en tjänst som lägger till önskade egenskaper i modulen för den nyligen skapade modulen. Tjänsten måste ha behörighet för **tjänst anslutning** . Även om det finns standard principer för delad åtkomst som beviljar dessa behörigheter individuellt, i det här avsnittet skapar du en anpassad princip för delad åtkomst som innehåller båda dessa behörigheter.
 
 [!INCLUDE [iot-hub-include-find-service-regrw-connection-string](../../includes/iot-hub-include-find-service-regrw-connection-string.md)]
 
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Skapa en enhetsidentitet och en modulidentitet i IoT Hub
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Skapa en enhets identitet och en modul identitet i IoT Hub
 
-I det här avsnittet skapar du en Python-tjänstapp som skapar en enhetsidentitet och en modulidentitet i identitetsregistret i IoT-hubben. En enhet eller modul kan inte ansluta till IoT-hubb om den inte har en post i identitetsregistret. Mer information finns [i Förstå identitetsregistret i IoT-hubben](iot-hub-devguide-identity-registry.md). När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel för både enheten och modulen. Enheten och modulen använder dessa värden för att identifiera sig vid överföring av enhet-till-moln-meddelanden till IoT Hub. ID:n är skiftlägeskänsliga.
+I det här avsnittet skapar du en python-tjänsteapp som skapar en enhets identitet och en modul identitet i identitets registret i din IoT-hubb. En enhet eller modul kan inte ansluta till IoT Hub om den inte har en post i identitets registret. Mer information finns i [förstå identitets registret i din IoT-hubb](iot-hub-devguide-identity-registry.md). När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel för både enheten och modulen. Enheten och modulen använder dessa värden för att identifiera sig vid överföring av enhet-till-moln-meddelanden till IoT Hub. ID:n är skiftlägeskänsliga.
 
-1. Kör följande kommando för att installera **azure-iot-hub-paketet** i kommandotolken:
+1. Kör följande kommando i kommando tolken för att installera paketet **Azure-IoT-Hub** :
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-1. I kommandotolken kör du följande kommando för att installera **msrest-paketet.** Du behöver det här paketet för att fånga **httpoperationerror** undantag.
+1. Kör följande kommando i kommando tolken för att installera **msrest** -paketet. Du behöver det här paketet för att kunna fånga **HTTPOperationError** -undantag.
 
     ```cmd/sh
     pip install msrest
     ```
 
-1. Skapa en fil med namnet **CreateModule.py** i arbetskatalogen med hjälp av en textredigerare.
+1. Skapa en fil med namnet **CreateModule.py** i din arbets katalog med hjälp av en text redigerare.
 
-1. Lägg till följande kod i Python-filen. Ersätt *YourIoTHubConnectionString* med anslutningssträngen som du kopierade i [Hämta anslutningssträngen för IoT-hubben](#get-the-iot-hub-connection-string).
+1. Lägg till följande kod i python-filen. Ersätt *YourIoTHubConnectionString* med anslutnings strängen som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
 
     ```python
     import sys
@@ -122,31 +122,31 @@ I det här avsnittet skapar du en Python-tjänstapp som skapar en enhetsidentite
         print("IoTHubRegistryManager sample stopped")
     ```
 
-1. Kör följande kommando i kommandotolken:
+1. Kör följande kommando i kommando tolken:
 
     ```cmd/sh
     python CreateModule.py
     ```
 
-Denna app skapar en enhetsidentitet med ID **myFirstDevice** och en modul identitet med ID **myFirstModule** under enheten **myFirstDevice**. (Om enhets- eller modul-ID:t redan finns i identitetsregistret hämtar koden helt enkelt den befintliga enhets- eller modulinformationen.) Appen visar ID och primärnyckel för varje identitet.
+Den här appen skapar en enhets identitet med ID **t myfirstdevice** och en modul identitet med ID **MyFirstModule** under enhet **t myfirstdevice**. (Om enhets-ID: t redan finns i identitets registret hämtar koden bara den befintliga enhets-eller modulens information.) Appen visar ID och primär nyckel för varje identitet.
 
 > [!NOTE]
-> IoT Hub-identitetsregistret lagrar enhets- och modulidentiteter endast för att skydda åtkomsten till IoT Hub. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om ditt program behöver lagra andra enhetsspecifika metadata bör det använda ett programspecifikt datalager. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns [i Förstå identitetsregistret i IoT-hubben](iot-hub-devguide-identity-registry.md).
+> IoT Hub-identitetsregistret lagrar enhets- och modulidentiteter endast för att skydda åtkomsten till IoT Hub. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om ditt program behöver lagra andra enhetsspecifika metadata bör det använda ett programspecifikt datalager. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns i [förstå identitets registret i din IoT-hubb](iot-hub-devguide-identity-registry.md).
 >
 
-## <a name="update-the-module-twin-using-python-service-sdk"></a>Uppdatera modultvillingen med Python-tjänsten SDK
+## <a name="update-the-module-twin-using-python-service-sdk"></a>Uppdatera modul dubbla med python-tjänst-SDK
 
-I det här avsnittet skapar du en Python-tjänstapp som uppdaterar modulen twin önskade egenskaper.
+I det här avsnittet skapar du en python-tjänsteapp som uppdaterar modulen med de dubbla önskade egenskaperna.
 
-1. Kör följande kommando för att installera **azure-iot-hub-paketet** i kommandotolken. Du kan hoppa över det här steget om du har installerat **azure-iot-hub-paketet** i föregående avsnitt.
+1. Kör följande kommando i kommando tolken för att installera paketet **Azure-IoT-Hub** . Du kan hoppa över det här steget om du har installerat **Azure-IoT-Hub-** paketet i föregående avsnitt.
 
     ```cmd/sh
     pip install azure-iot-hub
     ```
 
-1. Skapa en fil med namnet **UpdateModuleTwinDesiredProperties.py** i arbetskatalogen med hjälp av en textredigerare.
+1. Skapa en fil med namnet **UpdateModuleTwinDesiredProperties.py** i din arbets katalog med hjälp av en text redigerare.
 
-1. Lägg till följande kod i Python-filen. Ersätt *YourIoTHubConnectionString* med anslutningssträngen som du kopierade i [Hämta anslutningssträngen för IoT-hubben](#get-the-iot-hub-connection-string).
+1. Lägg till följande kod i python-filen. Ersätt *YourIoTHubConnectionString* med anslutnings strängen som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
 
     ```python
     import sys
@@ -182,23 +182,23 @@ I det här avsnittet skapar du en Python-tjänstapp som uppdaterar modulen twin 
         print ( "IoTHubRegistryManager sample stopped" )
     ```
 
-## <a name="get-updates-on-the-device-side"></a>Få uppdateringar på enhetens sida
+## <a name="get-updates-on-the-device-side"></a>Hämta uppdateringar på enhets Sidan
 
-I det här avsnittet skapar du en Python-app för att få modulen twin önskade egenskaper uppdatering på din enhet.
+I det här avsnittet skapar du en python-app för att hämta modulen med de dubbla önskade egenskaperna uppdatera på enheten.
 
-1. Hämta din modulanslutningssträng. I [Azure-portalen](https://portal.azure.com/)navigerar du till din IoT-hubb och väljer **IoT-enheter** i den vänstra rutan. Välj **myFirstDevice** från listan över enheter och öppna den. Under **Modulidentiteter**väljer du **myFirstModule**. Kopiera modulens anslutningssträng. Du behöver det i ett följande steg.
+1. Hämta anslutnings strängen för din modul. I [Azure Portal](https://portal.azure.com/)navigerar du till din IoT Hub och väljer **IoT-enheter** i den vänstra rutan. Välj **t myfirstdevice** i listan över enheter och öppna den. Under **modul identiteter**väljer du **myFirstModule**. Kopiera modulens anslutningssträng. Du behöver den i ett av följande steg.
 
    ![Information om Azure-portalmodulen](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-1. Kör följande kommando för att installera **azure-iot-device-paketet i** kommandotolken:
+1. Kör följande kommando i kommando tolken för att installera paketet **Azure-IoT-Device** :
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-1. Skapa en fil med namnet **ReceiveModuleTwinDesiredPropertiesPatch.py** i arbetskatalogen med hjälp av en textredigerare.
+1. Skapa en fil med namnet **ReceiveModuleTwinDesiredPropertiesPatch.py** i din arbets katalog med hjälp av en text redigerare.
 
-1. Lägg till följande kod i Python-filen. Ersätt *DinModuleConnectionString* med den modulanslutningssträng som du kopierade i steg 1.
+1. Lägg till följande kod i python-filen. Ersätt *YourModuleConnectionString* med den modulens anslutnings sträng som du kopierade i steg 1.
 
     ```python
     import time
@@ -239,29 +239,29 @@ I det här avsnittet skapar du en Python-app för att få modulen twin önskade 
 
 ## <a name="run-the-apps"></a>Kör apparna
 
-I det här avsnittet kör du appen **ReceiveModuleTwinDesiredPropertiesPatch-enhet** och kör sedan serviceappen **UpdateModuleTwinDesiredProperties** för att uppdatera önskade egenskaper för din modul.
+I det här avsnittet kör du **ReceiveModuleTwinDesiredPropertiesPatch** Device-appen och kör sedan **UpdateModuleTwinDesiredProperties** -tjänstens app för att uppdatera önskade egenskaper för modulen.
 
-1. Öppna en kommandotolk och kör enhetsappen:
+1. Öppna en kommando tolk och kör enhets appen:
 
     ```cmd/sh
     python ReceiveModuleTwinDesiredPropertiesPatch.py
     ```
 
-   ![Inledande utdata för enhetsapp](./media/iot-hub-python-python-module-twin-getstarted/device-1.png)
+   ![Första utdata för enhets app](./media/iot-hub-python-python-module-twin-getstarted/device-1.png)
 
-1. Öppna en separat kommandotolk och kör tjänstappen:
+1. Öppna en separat kommando tolk och kör tjänst appen:
 
     ```cmd/sh
     python UpdateModuleTwinDesiredProperties.py
     ```
 
-    Observera att egenskapen **TelemetryInterval** visas i den uppdaterade modultvillingen i tjänstapputdata:
+    Observera att den önskade egenskapen **TelemetryInterval** visas i den uppdaterade modulen i din tjänsts app-utdata:
 
-   ![Utdata för tjänstappar](./media/iot-hub-python-python-module-twin-getstarted/service.png)
+   ![Utdata för service-app](./media/iot-hub-python-python-module-twin-getstarted/service.png)
 
-    Samma egenskap visas i den önskade egenskapskorrigeringen som tas emot i enhetsapputdata:
+    Samma egenskap visas i den önskade egenskaper-korrigeringen som tas emot i enhetens app-utdata:
 
-   ![Enhetsapputdata visar önskad egenskapskorrigering](./media/iot-hub-python-python-module-twin-getstarted/device-2.png)
+   ![Enhetens app-utdata visar önskade egenskaper-korrigering](./media/iot-hub-python-python-module-twin-getstarted/device-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 5cb345ef2d20f75066e90f9e6478be27f925b1b0
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673319"
 ---
-### <a name="retrieve-the-azure-storage-connection-string"></a>Hämta anslutningssträngen för Azure Storage
+### <a name="retrieve-the-azure-storage-connection-string"></a>Hämta Azure Storage anslutnings sträng
 
-Tidigare har du skapat ett Azure Storage-konto som ska användas av funktionsappen. Anslutningssträngen för det här kontot lagras säkert i appinställningar i Azure. Genom att hämta inställningen till filen *local.settings.json* kan du använda den anslutningsskrivningen till en lagringskö i samma konto när du kör funktionen lokalt. 
+Tidigare skapade du ett Azure Storage-konto som ska användas av Function-appen. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. Genom att Hämta inställningen till den *lokala. Settings. JSON* -filen kan du använda den för att skriva till en lagrings kö i samma konto när funktionen körs lokalt. 
 
-1. Från projektets rot kör du följande `<app_name>` kommando och ersätter med namnet på funktionsappen från föregående snabbstart. Det här kommandot skriver över alla befintliga värden i filen.
+1. Kör följande kommando från roten i projektet och Ersätt `<app_name>` med namnet på din Function-app från föregående snabb start. Det här kommandot skriver över alla befintliga värden i filen.
 
     ```
     func azure functionapp fetch-app-settings <app_name>
     ```
     
-1. Öppna *local.settings.json* och leta `AzureWebJobsStorage`reda på värdet med namnet , som är anslutningssträngen för lagringskonto. Du använder `AzureWebJobsStorage` namnet och anslutningssträngen i andra avsnitt i den här artikeln.
+1. Öppna *Local. Settings. JSON* och leta upp värdet `AzureWebJobsStorage`med namnet, som är anslutnings strängen för lagrings kontot. Du använder namnet `AzureWebJobsStorage` och anslutnings strängen i andra avsnitt i den här artikeln.
 
 > [!IMPORTANT]
-> Eftersom *local.settings.json* innehåller hemligheter som hämtats från Azure, utesluter du alltid den här filen från källkontrollen. *Gitignore-filen* som skapats med ett lokalt funktionsprojekt utesluter filen som standard.
+> Eftersom *Local. Settings. JSON* innehåller hemligheter som hämtats från Azure, ska du alltid utesluta den här filen från käll kontroll. Filen *. gitignore* som skapas med ett lokalt Functions-projekt utesluter filen som standard.

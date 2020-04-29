@@ -1,38 +1,38 @@
 ---
-title: Dispositionsrendering
-description: Förklarar hur du gör markeringsdispositionsåtergivning
+title: Konturrendering
+description: Förklarar hur du gör markerings kon tur åter givning
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 8b52dbe8cd12e51c42677ce37acbd57ad551ec50
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680835"
 ---
-# <a name="outline-rendering"></a>Dispositionsrendering
+# <a name="outline-rendering"></a>Konturrendering
 
-Markerade objekt kan markeras visuellt genom att lägga till dispositionsrendering via [komponenten Hierarkisk tillståndsöversidosättning](../../overview/features/override-hierarchical-state.md). I det här kapitlet beskrivs hur globala parametrar för dispositionsrendering ändras via klient-API:et.
+De valda objekten kan markeras visuellt genom att lägga till dispositions åter givning via [komponenten för åsidosättning av hierarkiskt tillstånd](../../overview/features/override-hierarchical-state.md). I det här kapitlet beskrivs hur globala parametrar för dispositions åter givning ändras via klient-API: et.
 
-Dispositionsegenskaper är en global inställning. Alla objekt som använder konturåtergivning använder samma inställning - det går inte att använda en konturfärg per objekt.
+Dispositions egenskaper är en global inställning. Alla objekt som använder dispositions åter givning använder samma inställning – det går inte att använda en linje färg per objekt.
 
 ## <a name="parameters-for-outlinesettings"></a>Parametrar för`OutlineSettings`
 
-Klassen `OutlineSettings` innehåller inställningarna som är relaterade till globala dispositionsegenskaper. Det exponerar följande medlemmar:
+Klassen `OutlineSettings` innehåller inställningar som rör globala dispositions egenskaper. Den exponerar följande medlemmar:
 
 | Parameter      | Typ    | Beskrivning                                             |
 |----------------|---------|---------------------------------------------------------|
-| `Color`          | Färg4Ub | Den färg som används för att rita dispositionen. Alfadelen ignoreras.         |
-| `PulseRateHz`    | float   | Den hastighet med vilken konturen svänger per sekund|
-| `PulseIntensity` | float   | Intensiteten i konturpulseffekten. Måste vara mellan 0,0 för ingen pulserande och 1,0 för full pulserande. Intensitet anger implicit den minsta opaciteten `MinOpacity = 1.0 - PulseIntensity`för dispositionen som . |
+| `Color`          | Color4Ub | Färgen som används för att rita konturen. Alfa delen ignoreras.         |
+| `PulseRateHz`    | float   | Den hastighet med vilken kon tur variationer per sekund|
+| `PulseIntensity` | float   | Intensiteten för kon tur pulsen. Måste vara mellan 0,0 för ingen pulsning och 1,0 för hel pulsning. Intensitet anger den minsta opaciteten för konturen som `MinOpacity = 1.0 - PulseIntensity`. |
 
-![Konturer](./media/outlines.png) Effekten av `color` att ändra parametern från gult (vänster) till magenta (mitten) och `pulseIntensity` från 0 till 0,8 (höger).
+![Beskriver](./media/outlines.png) effekterna av att ändra `color` parametern från gult (vänster) till Magenta (mitt) och `pulseIntensity` från 0 till 0,8 (höger).
 
 ## <a name="example"></a>Exempel
 
-Följande kod visar ett exempel för att ange dispositionsparametrar via API:et:
+Följande kod visar ett exempel på hur du ställer in dispositions parametrar via API: et:
 
 ``` cs
 void SetOutlineParameters(AzureSession session)
@@ -46,8 +46,8 @@ void SetOutlineParameters(AzureSession session)
 
 ## <a name="performance"></a>Prestanda
 
-Dispositionsrendering kan ha en betydande inverkan på renderingsprestanda. Den här effekten varierar beroende på rumslig relation mellan markerade och icke-markerade objekt för en viss ram.
+Kon tur åter givning kan ha en betydande inverkan på åter givnings prestanda. Den här effekten varierar beroende på förhållandet mellan valda och icke-valda objekt för en viss ram.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Åsidosättkomponent för hierarkiskt tillstånd](../../overview/features/override-hierarchical-state.md)
+* [Åsidosättande komponent för hierarkiskt tillstånd](../../overview/features/override-hierarchical-state.md)

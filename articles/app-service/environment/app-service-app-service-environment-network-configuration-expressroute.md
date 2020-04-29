@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure ExpressRoute v1
-description: Nätverkskonfiguration för App Service Environment för PowerApps med Azure ExpressRoute. Det här dokumentet tillhandahålls endast för kunder som använder den äldre v1 ASE.
+description: Nätverks konfiguration för App Service-miljön för PowerApps med Azure ExpressRoute. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
 author: stefsch
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
@@ -8,139 +8,139 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804443"
 ---
-# <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Information om nätverkskonfiguration för App Service Environment för PowerApps med Azure ExpressRoute
+# <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Nätverks konfigurations information för App Service-miljön för PowerApps med Azure ExpressRoute
 
-Kunder kan ansluta en [Azure ExpressRoute-krets][ExpressRoute] till sin virtuella nätverksinfrastruktur för att utöka sitt lokala nätverk till Azure. App Service Environment skapas i ett undernät till den [virtuella nätverksinfrastrukturen.][virtualnetwork] Appar som körs på App Service Environment upprättar säkra anslutningar till backend-resurser som endast är tillgängliga via ExpressRoute-anslutningen.  
+Kunder kan ansluta en [Azure ExpressRoute][ExpressRoute] -krets till sin virtuella nätverks infrastruktur för att utöka sitt lokala nätverk till Azure. App Service-miljön skapas i ett undernät av den [virtuella nätverks][virtualnetwork] infrastrukturen. Appar som körs på App Service-miljön upprätta säkra anslutningar till Server dels resurser som endast är tillgängliga via ExpressRoute-anslutningen.  
 
-App Service Environment kan skapas i följande scenarier:
-- Virtuella nätverk i Azure Resource Manager.
-- Klassiska virtuella nätverk för distributionsmodell.
-- Virtuella nätverk som använder offentliga adressintervall eller RFC1918-adressutrymmen (det vill ha privata adresser). 
+App Service-miljön kan skapas i följande scenarier:
+- Azure Resource Manager virtuella nätverk.
+- Klassiska virtuella nätverk för distributions modeller.
+- Virtuella nätverk som använder offentliga adress intervall eller RFC1918 adress utrymmen (dvs. privata adresser). 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="required-network-connectivity"></a>Nödvändig nätverksanslutning
+## <a name="required-network-connectivity"></a>Nödvändig nätverks anslutning
 
-App Service Environment har krav på nätverksanslutning som till en början kanske inte uppfylls i ett virtuellt nätverk som är anslutet till ExpressRoute.
+App Service-miljön har krav på nätverks anslutning som inlednings vis inte är uppfyllda i ett virtuellt nätverk som är anslutet till ExpressRoute.
 
-App Service Environment kräver följande inställningar för nätverksanslutning för att fungera korrekt:
+App Service-miljön kräver följande inställningar för nätverks anslutning för att fungera korrekt:
 
-* Utgående nätverksanslutning till Azure Storage-slutpunkter över hela världen på både port 80 och port 443. Dessa slutpunkter finns i samma region som App Service Environment och även andra Azure-regioner. Azure Storage-slutpunkter matchas under följande DNS-domäner: table.core.windows.net, blob.core.windows.net, queue.core.windows.net och file.core.windows.net.  
+* Utgående nätverks anslutning till Azure Storage slut punkter över hela världen både på port 80 och port 443. Dessa slut punkter finns i samma region som App Service-miljön och även andra Azure-regioner. Azure Storage slut punkter matchas enligt följande DNS-domäner: table.core.windows.net, blob.core.windows.net, queue.core.windows.net och file.core.windows.net.  
 
-* Utgående nätverksanslutning till Azure Files-tjänsten på port 445.
+* Utgående nätverks anslutning till Azure Files tjänsten på port 445.
 
-* Utgående nätverksanslutning till Azure SQL Database-slutpunkter som finns i samma region som App Service Environment. SLUTpunkter för SQL-databas matchas under domänen database.windows.net, vilket kräver öppen åtkomst till portarna 1433, 11000-11999 och 14000-14999. Mer information om SQL Database V12-portanvändning finns i [Portar utöver 1433 för ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+* Utgående nätverks anslutning till Azure SQL Database slut punkter som finns i samma region som App Service-miljön. SQL Database-slutpunkter matchas under database.windows.net-domänen, vilket kräver öppen åtkomst till portarna 1433, 11000-11999 och 14000-14999. Mer information om SQL Database V12 port Usage finns i [portar utöver 1433 för ADO.NET 4,5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
 
-* Utgående nätverksanslutning till slutpunkterna för Azure-hanteringsplan (både Azure classic deployment model och Azure Resource Manager-slutpunkter). Anslutningen till dessa slutpunkter omfattar management.core.windows.net och management.azure.com domäner. 
+* Utgående nätverks anslutning till Azure Management – plan-slutpunkter (både den klassiska Azure-distributions modellen och Azure Resource Manager slut punkter). Anslutningarna till dessa slut punkter omfattar management.core.windows.net-och management.azure.com-domäner. 
 
-* Utgående nätverksanslutning till ocsp.msocsp.com, mscrl.microsoft.com och crl.microsoft.com domäner. Anslutning till dessa domäner behövs för att stödja TLS-funktioner.
+* Utgående nätverks anslutning till ocsp.msocsp.com-, mscrl.microsoft.com-och crl.microsoft.com-domäner. Anslutning till de här domänerna krävs för att stödja TLS-funktioner.
 
-* DNS-konfigurationen för det virtuella nätverket måste kunna lösa alla slutpunkter och domäner som nämns i den här artikeln. Om slutpunkterna inte kan lösas misslyckas skapandet av App Service Environment. Alla befintliga App Service-miljöer markeras som felaktiga.
+* DNS-konfigurationen för det virtuella nätverket måste kunna matcha alla slut punkter och domäner som nämns i den här artikeln. Om slut punkterna inte kan matchas Miss lyckas App Service-miljön skapandet. Alla befintliga App Service-miljön har marker ATS som felaktiga.
 
 * Utgående åtkomst på port 53 krävs för kommunikation med DNS-servrar.
 
-* Om det finns en anpassad DNS-server i andra änden av en VPN-gateway måste DNS-servern kunna nås från undernätet som innehåller App Service Environment. 
+* Om det finns en anpassad DNS-server i den andra änden av en VPN-gateway, måste DNS-servern kunna bli nåbar från det undernät som innehåller App Service-miljön. 
 
-* Den utgående nätverkssökvägen kan inte färdas genom interna företagsproxyservrar och kan inte tvingas in lokalt. Dessa åtgärder ändrar den gällande NAT-adressen för utgående nätverkstrafik från App Service Environment. Ändringar i NAT-adressen för utgående nätverkstrafik i App Service Environment orsakar anslutningsfel till många av slutpunkterna. Det går inte att skapa App Service Environment. Alla befintliga App Service-miljöer markeras som felaktiga.
+* Den utgående nätverks Sök vägen kan inte färdas via interna företags proxyservrar och kan inte tvingas tunnel trafik lokalt. De här åtgärderna ändrar den effektiva NAT-adressen för utgående nätverks trafik från App Service-miljön. Ändringar av NAT-adressen för App Service-miljön utgående nätverks trafik orsakar anslutnings fel till många av slut punkterna. Det gick inte att skapa App Service-miljön. Alla befintliga App Service-miljön har marker ATS som felaktiga.
 
-* Inkommande nätverksåtkomst till nödvändiga portar för App Service Environment måste tillåtas. Mer information finns [i Så här styr du inkommande trafik till App Service Environment][requiredports].
+* Inkommande nätverks åtkomst till nödvändiga portar för App Service-miljön måste tillåtas. Mer information finns i [så här styr du inkommande trafik till App Service-miljön][requiredports].
 
-För att uppfylla DNS-kraven kontrollerar du att en giltig DNS-infrastruktur är konfigurerad och underhållen för det virtuella nätverket. Om DNS-konfigurationen ändras efter att App Service Environment har skapats kan utvecklare tvinga App Service Environment att hämta den nya DNS-konfigurationen. Du kan utlösa en rullande miljö omstart genom att använda **ikonen Starta om** under App Service Environment management i [Azure-portalen][NewPortal]. Omstarten gör att miljön hämtar den nya DNS-konfigurationen.
+För att uppfylla DNS-kraven kontrollerar du att en giltig DNS-infrastruktur har kon figurer ATS och underhålls för det virtuella nätverket. Om DNS-konfigurationen ändras efter att App Service-miljön har skapats kan utvecklare tvinga App Service-miljön att hämta den nya DNS-konfigurationen. Du kan utlösa en rullande miljö omstart genom att använda ikonen **starta om** under App Service-miljön hantering i [Azure Portal][NewPortal]. Omstarten gör att miljön hämtar den nya DNS-konfigurationen.
 
-Konfigurera en [nätverkssäkerhetsgrupp (NSG)][NetworkSecurityGroups] i undernätet för apptjänstmiljö för att uppfylla kraven för inkommande nätverksåtkomst. NSG ger den åtkomst som krävs [för att styra inkommande trafik till App Service Environment][requiredports].
+Konfigurera en [nätverks säkerhets grupp (NSG)][NetworkSecurityGroups] i App Service-miljön under nätet för att uppfylla kraven för inkommande nätverks åtkomst. NSG ger den åtkomst som krävs [för att kontrol lera inkommande trafik till App Service-miljön][requiredports].
 
-## <a name="outbound-network-connectivity"></a>Utgående nätverksanslutning
+## <a name="outbound-network-connectivity"></a>Utgående nätverks anslutning
 
-Som standard annonserar en nyskapade ExpressRoute-krets en standardväg som tillåter utgående internetanslutning. App Service Environment kan använda den här konfigurationen för att ansluta till andra Azure-slutpunkter.
+En nyligen skapad ExpressRoute-krets annonserar som standard en standard väg som tillåter utgående Internet anslutning. App Service-miljön kan använda den här konfigurationen för att ansluta till andra Azure-slutpunkter.
 
-En gemensam kundkonfiguration är att definiera sin egen standardväg (0.0.0.0/0), vilket tvingar utgående internettrafik att flöda lokalt. Det här trafikflödet bryter alltid App Service Environment. Den utgående trafiken blockeras antingen lokalt eller NAT'd till en oigenkännlig uppsättning adresser som inte längre fungerar med olika Azure-slutpunkter.
+En vanlig kund konfiguration är att definiera sin egen standard väg (0.0.0.0/0), vilket tvingar utgående Internet trafik att flöda lokalt. Det här trafikflödet bryts App Service-miljön. Utgående trafik blockeras antingen lokalt eller NAT till en okänd uppsättning adresser som inte längre fungerar med olika Azure-slutpunkter.
 
-Lösningen är att definiera en (eller flera) användardefinierade vägar (UDRs) i undernätet som innehåller App Service Environment. En UDR definierar undernätsspecifika vägar som uppfylls i stället för standardvägen.
+Lösningen är att definiera en (eller flera) användardefinierade vägar (UDR) på det undernät som innehåller App Service-miljön. En UDR definierar de undernät-/regionsspecifika vägar som följer i stället för standard vägen.
 
 Använd om möjligt följande konfiguration:
 
-* ExpressRoute-konfigurationen annonserar 0.0.0.0/0. Som standard finns konfigurationskraftstunnlar all utgående trafik lokalt.
-* Den UDR som används på undernätet som innehåller App Service Environment definierar 0.0.0.0/0 med nästa hoptyp av internet. Ett exempel på den här konfigurationen beskrivs senare i den här artikeln.
+* ExpressRoute-konfigurationen annonserar 0.0.0.0/0. Som standard tunnlar konfigurations tvång all utgående trafik lokalt.
+* UDR som tillämpas på det undernät som innehåller App Service-miljön definierar 0.0.0.0/0 med en nästa hopp typ av Internet. Ett exempel på den här konfigurationen beskrivs längre fram i den här artikeln.
 
-Den kombinerade effekten av den här konfigurationen är att UDR på undernätsnivå har företräde framför ExpressRoute-krafttunnelen. Utgående internet från App Service Environment garanteras.
+Den kombinerade påverkan av den här konfigurationen är att UDR på under näts nivån prioriteras över ExpressRoute-tunneln. Utgående Internet åtkomst från App Service-miljön garanteras.
 
 > [!IMPORTANT]
-> De vägar som definieras i en UDR måste vara tillräckligt specifika för att ha företräde framför alla vägar som annonseras av ExpressRoute-konfigurationen. I exemplet som beskrivs i nästa avsnitt används det breda adressintervallet 0.0.0.0/0. Det här intervallet kan av misstag åsidosättas av ruttannonser som använder mer specifika adressintervall.
+> Vägarna som definieras i en UDR måste vara tillräckligt bestämda för att prioriteras för alla vägar som annonseras av ExpressRoute-konfigurationen. I exemplet som beskrivs i nästa avsnitt används det breda adress intervallet 0.0.0.0/0. Det här intervallet kan oavsiktligt åsidosättas av väg annonseringar som använder mer exakta adress intervall.
 > 
-> App Service Environment stöds inte med ExpressRoute-konfigurationer som korsannonserar vägar från den offentliga peering-sökvägen till den privata peering-sökvägen. ExpressRoute-konfigurationer som har konfigurerad offentlig peering tar emot vägannonser från Microsoft för en stor uppsättning Microsoft Azure IP-adressintervall. Om dessa adressintervall korsannonseras på den privata peering-sökvägen, tvingas alla utgående nätverkspaket från undernätet för App Service-miljön tunnel till kundens lokala nätverksinfrastruktur. Det här nätverksflödet stöds för närvarande inte med App Service Environment. En lösning är att stoppa korsannonseringsvägar från den offentliga peering-vägen till den privata peering-vägen.
+> App Service-miljön stöds inte med ExpressRoute-konfigurationer som passerar vägar från den offentliga peering-vägen till den privata peering-sökvägen. ExpressRoute konfigurationer med offentlig peering konfigurerad ta emot väg annonseringar från Microsoft för en stor uppsättning Microsoft Azure IP-adressintervall. Om de här adress intervallen är över-annonserade på den privata peering-sökvägen tvingas alla utgående nätverks paket från App Service-miljön under nätet att tunnlas till kundens lokala nätverks infrastruktur. Det här nätverks flödet stöds inte för närvarande med App Service-miljön. En lösning är att stoppa kors annonserings vägar från den offentliga peering-vägen till den privata peering-sökvägen.
 > 
 > 
 
-Bakgrundsinformation om användardefinierade vägar finns i [Routning av virtuell nätverkstrafik][UDROverview].  
+Bakgrunds information om användardefinierade vägar finns i [trafik dirigering i virtuella nätverk][UDROverview].  
 
-Mer information om hur du skapar och konfigurerar användardefinierade vägar finns i [Dirigera nätverkstrafik med en vägtabell med hjälp av PowerShell][UDRHowTo].
+Information om hur du skapar och konfigurerar användardefinierade vägar finns i [dirigera nätverks trafik med en routningstabell med hjälp av PowerShell][UDRHowTo].
 
 ## <a name="udr-configuration"></a>UDR-konfiguration
 
-Det här avsnittet visar ett exempel på UDR-konfiguration för App Service Environment.
+I det här avsnittet visas ett exempel på en UDR-konfiguration för App Service-miljön.
 
 ### <a name="prerequisites"></a>Krav
 
-* Installera Azure PowerShell från [sidan Azure Downloads][AzureDownloads]. Välj en nedladdning med ett datum i juni 2015 eller senare. Under **Kommandoradsverktyg** > **Windows PowerShell**väljer du **Installera** för att installera de senaste PowerShell-cmdlets.
+* Installera Azure PowerShell från [sidan för Azure-nedladdningar][AzureDownloads]. Välj en nedladdning med datumet juni 2015 eller senare. Under **kommando rads verktyg** > **Windows PowerShell**väljer du **Installera** för att installera de senaste PowerShell-cmdletarna.
 
-* Skapa ett unikt undernät som endast kan användas av App Service Environment. Det unika undernätet säkerställer att de UDR som tillämpas på undernätet endast är öppna utgående trafik för App Service Environment.
+* Skapa ett unikt undernät för exklusiv användning av App Service-miljön. Det unika under nätet säkerställer att UDR som tillämpas på under nätet bara öppnar utgående trafik för App Service-miljön.
 
 > [!IMPORTANT]
-> Distribuera endast App Service Environment när du har slutfört konfigurationsstegen. Stegen säkerställer att utgående nätverksanslutning är tillgänglig innan du försöker distribuera App Service Environment.
+> Distribuera bara App Service-miljön när du har slutfört konfigurations stegen. Stegen ser till att utgående nätverks anslutning är tillgänglig innan du försöker distribuera App Service-miljön.
 
-### <a name="step-1-create-a-route-table"></a>Steg 1: Skapa en rutttabell
+### <a name="step-1-create-a-route-table"></a>Steg 1: skapa en routningstabell
 
-Skapa en vägtabell med namnet **DirectInternetRouteTable** i regionen Västra USA Azure, som visas i det här kodavsnittet:
+Skapa en routningstabell med namnet **DirectInternetRouteTable** i Azure-regionen USA, västra, som du ser i det här kodfragmentet:
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>Steg 2: Skapa rutter i tabellen
+### <a name="step-2-create-routes-in-the-table"></a>Steg 2: skapa vägar i tabellen
 
-Lägg till vägar till rutttabellen för att aktivera utgående internetåtkomst.  
+Lägg till vägar i routningstabellen för att aktivera utgående Internet åtkomst.  
 
-Konfigurera utgående åtkomst till internet. Definiera en väg för 0.0.0.0/0 som visas i det här kodavsnittet:
+Konfigurera utgående åtkomst till Internet. Definiera en väg för 0.0.0.0/0 som visas i det här kodfragmentet:
 
 `Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet`
 
-0.0.0.0/0 är ett brett adressintervall. Intervallet åsidosätts av adressintervall som annonseras av ExpressRoute och som är mer specifika. En UDR med en 0.0.0.0/0-rutt bör användas tillsammans med en ExpressRoute-konfiguration som endast annonserar 0.0.0.0/0. 
+0.0.0.0/0 är ett brett adress intervall. Intervallet åsidosätts av adress intervall som annonseras av ExpressRoute som är mer exakta. En UDR med router 0.0.0.0/0 bör användas tillsammans med en ExpressRoute-konfiguration som endast annonserar 0.0.0.0/0. 
 
-Som ett alternativ kan du hämta en aktuell, omfattande lista över CIDR-intervall som används av Azure. XML-filen för alla Azure IP-adressintervall är tillgänglig från [Microsoft Download Center][DownloadCenterAddressRanges].  
+Alternativt kan du hämta en aktuell, fullständig lista över CIDR-intervall som används av Azure. XML-filen för alla Azure IP-adressintervall är tillgänglig från [Microsoft Download Center][DownloadCenterAddressRanges].  
 
 > [!NOTE]
 >
-> Azure IP-adressintervallen ändras med tiden. Användardefinierade vägar behöver regelbundna manuella uppdateringar för att synkroniseras.
+> Azure IP-adressintervall ändras med tiden. Användardefinierade vägar kräver periodiska manuella uppdateringar som ska synkroniseras.
 >
-> En enda UDR har en övre standardgräns på 100 vägar. Du måste "sammanfatta" Azure IP-adressintervall för att passa inom 100-route-gränsen. UDR-definierade rutter måste vara mer specifika än rutter som annonseras av din ExpressRoute-anslutning.
+> En enda UDR har en övre standard gräns på 100 vägar. Du måste sammanfatta Azure IP-adressintervall så att de passar inom 100-flödes gränsen. UDR vägar måste vara mer exakta än vägar som annonseras av din ExpressRoute-anslutning.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>Steg 3: Koppla tabellen till undernätet
+### <a name="step-3-associate-the-table-to-the-subnet"></a>Steg 3: koppla tabellen till under nätet
 
-Associera flödestabellen till undernätet där du tänker distribuera App Service Environment. Det här kommandot associerar **directinternetroutetable-tabellen** till **ASESubnet-undernätet** som innehåller App Service Environment.
+Koppla routningstabellen till det undernät där du tänker distribuera App Service-miljön. Det här kommandot kopplar **DirectInternetRouteTable** -tabellen till **ASESubnet** -undernätet som innehåller App Service-miljön.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>Steg 4: Testa och bekräfta rutten
+### <a name="step-4-test-and-confirm-the-route"></a>Steg 4: testa och bekräfta vägen
 
-När flödestabellen är bunden till undernätet testar och bekräftar du rutten.
+När routningstabellen är kopplad till under nätet testar du och bekräftar vägen.
 
-Distribuera en virtuell dator i undernätet och bekräfta följande villkor:
+Distribuera en virtuell dator till under nätet och bekräfta följande villkor:
 
-* Utgående trafik till Azure- och icke-Azure-slutpunkter som beskrivs i den här artikeln rinner **inte** nedför ExpressRoute-kretsen. Om utgående trafik från undernätet tvingar tunnel lokalt misslyckas alltid skapandet av App Service Environment.
-* DNS-sökning för slutpunkterna som beskrivs i den här artikeln löser sig korrekt. 
+* Utgående trafik till de Azure-och icke-Azure-slutpunkter som beskrivs i den här artikeln flödar **inte** ned ExpressRoute-kretsen. Om utgående trafik från under nätet har Tvingad tunnel trafik lokalt, så Miss lyckas App Service-miljön skapandet.
+* DNS-sökningar för de slut punkter som beskrivs i den här artikeln är korrekt lösta. 
 
-När du har slutfört konfigurationsstegen och bekräftat vägen tar du bort den virtuella datorn. Undernätet måste vara "tomt" när App Service Environment skapas.
+När du har slutfört konfigurations stegen och bekräftat vägen, tar du bort den virtuella datorn. Under nätet måste vara tomt när App Service-miljön skapas.
 
-Nu är du redo att distribuera App Service Environment!
+Nu är du redo att distribuera App Service-miljön!
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer om du vill komma igång med App Service Environment för PowerApps finns i [Introduktion till App Service Environment][IntroToAppServiceEnvironment].
+För att komma igång med App Service-miljön för PowerApps, se [Introduktion till App Service-miljön][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 

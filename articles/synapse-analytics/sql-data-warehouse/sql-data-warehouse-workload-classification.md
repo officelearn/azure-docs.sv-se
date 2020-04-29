@@ -1,6 +1,6 @@
 ---
 title: Arbetsbelastningsklassificering
-description: Vägledning för hur du använder klassificering för att hantera samtidighet, betydelse och beräkningsresurser för frågor i Azure Synapse Analytics.
+description: Vägledning för att använda klassificering för att hantera samtidighets-, prioritets-och beräknings resurser för frågor i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,71 +12,71 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: e7aa0c402878c994aabe4e12d811a99e300d7e67
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743650"
 ---
-# <a name="azure-synapse-analytics-workload-classification"></a>Klassificering av Azure Synapse Analytics-arbetsbelastning
+# <a name="azure-synapse-analytics-workload-classification"></a>Azure Synapse Analytics-arbetsbelastnings klassificering
 
-I den här artikeln beskrivs arbetsbelastningsklassificeringsprocessen för att tilldela en arbetsbelastningsgrupp och vikten till inkommande begäranden med Synapse SQL-pooler i Azure Synapse.
+Den här artikeln beskriver processen för arbets belastnings klassificering för att tilldela en arbets belastnings grupp och prioritet för inkommande begär Anden med Synapse SQL-pooler i Azure Synapse.
 
 ## <a name="classification"></a>Klassificering
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-Klassificering av arbetsbelastningshantering gör att arbetsbelastningsprinciper kan tillämpas på begäranden genom att tilldela [resursklasser](resource-classes-for-workload-management.md#what-are-resource-classes) och [betydelse](sql-data-warehouse-workload-importance.md).
+Klassificeringen av arbets belastnings hantering gör att arbets belastnings principer kan tillämpas på begär Anden genom att tilldela [resurs klasser](resource-classes-for-workload-management.md#what-are-resource-classes) och [prioritet](sql-data-warehouse-workload-importance.md).
 
-Det finns många sätt att klassificera datalagringsarbetsbelastningar, men den enklaste och vanligaste klassificeringen är inläsning och fråga. Du läser in data med infoga, uppdatera och ta bort satser.  Du frågar data med hjälp av val. En datalagringslösning har ofta en arbetsbelastningsprincip för inläsningsaktivitet, till exempel tilldela en högre resursklass med fler resurser. En annan arbetsbelastningsprincip kan gälla för frågor, till exempel lägre prioritet jämfört med belastningsaktiviteter.
+Det finns många sätt att klassificera data lager arbets belastningar, den enklaste och mest vanliga klassificeringen är load och fråga. Du läser in data med INSERT-, Update-och Delete-instruktioner.  Du frågar data med hjälp av väljer. En data lager lösning har ofta en arbets belastnings princip för belastnings aktiviteter, till exempel att tilldela en högre resurs klass till fler resurser. En annan arbets belastnings princip kan gälla för frågor, till exempel lägre prioritet jämfört med inläsnings aktiviteter.
 
-Du kan också underklassificera dina inläsnings- och frågearbetsbelastningar. Underklassificering ger dig mer kontroll över dina arbetsbelastningar. Frågearbetsbelastningar kan till exempel bestå av kubuppdateringar, instrumentpanelsfrågor eller ad hoc-frågor. Du kan klassificera var och en av dessa frågearbetsbelastningar med olika resursklasser eller prioritetsinställningar. Belastning kan också dra nytta av underklassificering. Stora omvandlingar kan tilldelas större resursklasser. Större vikt kan användas för att säkerställa att viktiga försäljningsdata laddas före väderdata eller ett socialt dataflöde.
+Du kan också underklassificera dina belastnings-och fråga-arbetsbelastningar. Med underindelning får du mer kontroll över dina arbets belastningar. Fråge arbets belastningar kan till exempel bestå av kub uppdateringar, frågor om instrument paneler eller ad hoc-frågor. Du kan klassificera var och en av dessa frågor arbets belastningar med olika resurs klasser eller prioritets inställningar. Belastningen kan också dra nytta av underindelning. Stora transformeringar kan tilldelas till större resurs klasser. Högre prioritet kan användas för att se till att viktiga försäljnings data är inläsning före väder data eller sociala data flöden.
 
-Alla uttalanden klassificeras inte eftersom de inte kräver resurser eller behöver betydelse för att påverka körningen.  DBCC-kommandon, BEGIN-, COMMIT- och ROLLBACK-TRANSAKTIONssatser klassificeras inte.
+Alla instruktioner klassificeras inte eftersom de inte kräver resurser eller är viktiga för att påverka körningen.  DBCC-kommandon, BEGIN, COMMIT och ROLLBACK TRANSACTION-instruktioner klassificeras inte.
 
-## <a name="classification-process"></a>Klassificeringsprocess
+## <a name="classification-process"></a>Klassificerings process
 
-Klassificering för Synapse SQL-pool i Azure Synapse uppnås idag genom att tilldela användare till en roll som har en motsvarande resursklass tilldelad med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Möjligheten att karakterisera begäranden utöver en inloggning till en resursklass är begränsad med den här funktionen. En rikare metod för klassificering är nu tillgänglig med syntaxen [SKAPA ARBETSBELASTNINGSKLASSIFICER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Med den här syntaxen kan Synapse SQL-poolanvändare tilldela prioritet och `workload_group` hur mycket systemresurser som tilldelas en begäran via parametern.
+Klassificering för Synapse SQL-pool i Azure Synapse uppnås idag genom att tilldela användare till en roll som har en motsvarande resurs klass som är tilldelad till den med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Möjligheten att karakterisera begär Anden utöver en inloggning till en resurs klass är begränsad till den här funktionen. En bättre metod för klassificering är nu tillgänglig med [klassificerings metoden skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Med den här syntaxen kan Synapse användare i SQL-pool tilldela prioritet och hur mycket system resurser som tilldelas en begäran `workload_group` via parametern.
 
 > [!NOTE]
-> Klassificeringen utvärderas per begäran. Flera begäranden i en enda session kan klassificeras på olika sätt.
+> Klassificeringen utvärderas per begäran. Flera begär anden i en enda session kan klassificeras på olika sätt.
 
-## <a name="classification-weighting"></a>Klassificering viktning
+## <a name="classification-weighting"></a>Klassificerings viktning
 
-Som en del av klassificeringsprocessen finns viktning på plats för att avgöra vilken arbetsbelastningsgrupp som har tilldelats.  Viktningen går som följer:
+Som en del av klassificerings processen är viktningen på plats för att avgöra vilken arbets belastnings grupp som tilldelas.  Viktningen ser ut så här:
 
-|Parameter för klassificerare |Vikt   |
+|Klassificerings parameter |Vikt   |
 |---------------------|---------|
-|MEDLEMSNAMN:ANVÄNDARE      |64       |
-|MEDLEMSNAMN:ROLL      |32       |
+|MEMBERNAME: ANVÄNDARE      |64       |
+|MEMBERNAME: ROLL      |32       |
 |WLM_LABEL            |16       |
 |WLM_CONTEXT          |8        |
 |START_TIME/END_TIME  |4        |
 
-Parametern `membername` är obligatorisk.  Men om det angivna medlemsnamnet är en databasanvändare i stället för en databasroll är viktningen för användaren högre och klassificeraren väljs därför.
+`membername` Parametern är obligatorisk.  Men om det angivna membername är en databas användare i stället för en databas roll, är viktningen för användaren högre och därmed att klassificeraren väljs.
 
-Om en användare är medlem i flera roller med olika resursklasser som tilldelats eller matchas i flera klassificerare, får användaren den högsta resursklasstilldelningen.  Det här beteendet är förenligt med befintliga resursklasstilldelningsbeteende.
+Om en användare är medlem i flera roller med olika resurs klasser tilldelade eller matchade i flera klassificerare får användaren den högsta resurs klass tilldelningen.  Detta beteende är konsekvent med tilldelnings beteendet för den befintliga resurs klassen.
 
-## <a name="system-classifiers"></a>Systemklassificerare
+## <a name="system-classifiers"></a>System klassificerare
 
-Arbetsbelastningsklassificering har systemarbetsbelastningsklassificerare. Systemklassificerarna mappar befintliga resursklassrollmedlemskap till resursklassresursallollollollollollollollos med normal betydelse. Systemklassificerare kan inte tas bort. Om du vill visa systemklassificerare kan du köra nedanstående fråga:
+Arbets belastnings klassificeringen har system arbets belastnings klassificerare. System-klassificeraren mappar befintliga roll medlemskap i resurs klass till resurs klass resurs tilldelningar med normal prioritet. Det går inte att släppa system klassificerare. Om du vill visa system klassificerare kan du köra nedanstående fråga:
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <= 12
 ```
 
-## <a name="mixing-resource-class-assignments-with-classifiers"></a>Blanda resursklasstilldelningar med klassificerare
+## <a name="mixing-resource-class-assignments-with-classifiers"></a>Blanda resurs klass tilldelningar med klassificerare
 
-Systemklassificerare som skapats för din räkning ger en enkel sökväg att migrera till arbetsbelastningsklassificering. Med hjälp av resursklassrollmappningar med klassificeringsprioritet kan det leda till felklassificering när du börjar skapa nya klassificerare med betydelse.
+System klassificerare som skapats för din räkning ger en enkel sökväg för att migrera till arbets belastnings klassificering. Genom att använda mappningar av resurs klass rollen med klassificerings prioritet kan det leda till att du börjar med att skapa nya klassificerare som är viktiga.
 
 Föreställ dig följande scenario:
 
-- Ett befintligt informationslager har en databasanvändare DBAUser som tilldelats rollen större resursklass. Resursklasstilldelningen gjordes med sp_addrolemember.
-- Informationslagret uppdateras nu med arbetsbelastningshantering.
-- För att testa den nya klassificeringsyntaxen har databasrollen DBARole (som DBAUser är medlem i), en klassificerare som skapats för dem som mappar dem till mediumrc och hög prioritet.
-- När DBAUser loggar in och kör en fråga tilldelas frågan till largerc. Eftersom en användare har företräde framför ett rollmedlemskap.
+- Ett befintligt informations lager har en databas användare som tilldelats rollen largerc resurs klass. Tilldelningen av resurs klassen utfördes med sp_addrolemember.
+- Data lagret har nu uppdaterats med hantering av arbets belastning.
+- För att testa den nya klassificerings syntaxen, databas rollen DBARole (som DBAUser är medlem i), har en klassificerare som skapats för dem att mappa dem till mediumrc och hög prioritet.
+- När DBAUser loggar in och kör en fråga, tilldelas frågan till largerc. Eftersom en användare prioriteras över ett roll medlemskap.
 
-För att förenkla felsökningen av felklassificering rekommenderar vi att du tar bort rollmappningar för resursklass när du skapar arbetsbelastningsklassificerare.  Koden nedan returnerar befintliga medlemskap i resursklassrollen.  Kör [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för varje medlemsnamn som returneras från motsvarande resursklass.
+För att under lätta fel sökningen av fel klassificering rekommenderar vi att du tar bort mappningar av resurs klass roller när du skapar arbets belastnings klassificerare.  Koden nedan returnerar befintliga roll medlemskap i resurs klass.  Kör [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för varje medlems namn som returneras från motsvarande resurs klass.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -92,7 +92,7 @@ sp_droprolemember '[Resource Class]', membername
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du skapar en klassificerare finns i [CREATE WORKLOAD CLASSIFIER (Transact-SQL).](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
-- Se snabbstarten om hur du skapar en arbetsbelastningsklassificerare [Skapa en arbetsbelastningsklassificerare](quickstart-create-a-workload-classifier-tsql.md).
-- Se hur du gör-artiklar för att [konfigurera arbetsbelastningsbetydning](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) om du vill visa frågor och den tilldelade betydelsen.
+- Mer information om hur du skapar en klassificerare finns i [create klassificerare för arbets belastning (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- Se snabb start för hur du skapar en arbets belastnings klassificering [skapa en arbets belastnings klassificering](quickstart-create-a-workload-classifier-tsql.md).
+- Se instruktions artiklar för att [Konfigurera arbets belastnings prioritet](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbets belastnings hantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Se [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att visa frågor och prioriteten som tilldelats.

@@ -1,26 +1,26 @@
 ---
-title: Uppgradera service fabric-körningen i Azure
+title: Uppgradera Service Fabric runtime i Azure
 description: I den här guiden får du lära dig hur du använder PowerShell och uppgraderar körningen för ett Service Fabric-kluster med Azure som värd.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: a21de9d76a010b01da95b050a521178d8808bbdf
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756069"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudie: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
-Den här självstudien är del fyra i en serie och visar hur du uppgraderar Service Fabric-körningen på ett Azure Service Fabric-kluster. Den här självstudiedelen är skriven för Service Fabric-kluster som körs på Azure och gäller inte för fristående Service Fabric-kluster.
+Den här självstudien är del fyra i en serie och visar hur du uppgraderar Service Fabric runtime på ett Azure Service Fabric-kluster. Den här själv studie kursen är skriven för Service Fabric kluster som körs på Azure och som inte gäller för fristående Service Fabric-kluster.
 
 > [!WARNING]
 > För den delen av kursen krävs PowerShell. Stöd för uppgradering av klusterkörning finns inte i Azure CLI-verktygen ännu. Ett kluster kan också uppgraderas på portalen. Mer information finns i [Uppgradera till ett Azure Service Fabric-kluster](service-fabric-cluster-upgrade.md).
 
-Om klustret redan kör den senaste Service Fabric-körningen behöver du inte göra det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
+Om klustret redan kör den senaste Service Fabric körningen behöver du inte göra det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * läser klusterversionen
@@ -44,7 +44,7 @@ Innan du börjar den här självstudien:
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
-* Konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2019](https://www.visualstudio.com) och **Azure-utveckling,** **ASP.NET och webbutveckling**och **.NET Core-arbetsbelastningar för utveckling av plattformar.**  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
+* Konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2019](https://www.visualstudio.com) och **Azure-utveckling**, **ASP.net och webb utveckling**, och **.net Core plattforms oberoende utvecklings** arbets belastningar.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -58,14 +58,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>Hämta körningsversion
 
-När du har anslutit till Azure, valt prenumerationen som innehåller Service Fabric-klustret, kan du hämta körningsversionen av klustret.
+När du har anslutit till Azure, valt den prenumeration som innehåller Service Fabric klustret, kan du hämta kör tids versionen av klustret.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Du kan också få en lista över alla kluster i prenumerationen med följande exempel:
+Eller så får du bara en lista över alla kluster i din prenumeration med följande exempel:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion

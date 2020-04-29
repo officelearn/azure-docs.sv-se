@@ -1,24 +1,24 @@
 ---
 title: Få information om en konverterad modell
-description: Beskrivning av alla modellkonverteringsparametrar
+description: Beskrivning av alla modell konverterings parametrar
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
 ms.openlocfilehash: d5f843add0649682bae8c472bc50b6beea33bf93
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681524"
 ---
 # <a name="get-information-about-a-converted-model"></a>Få information om en konverterad modell
 
-Den arrAsset-fil som produceras av konverteringstjänsten är endast avsedd för konsumtion av renderingstjänsten. Det kan dock finnas tillfällen när du vill komma åt information om en modell utan att starta en återgivningssession. Därför placerar konverteringstjänsten en JSON-fil bredvid arrAsset-filen i utdatabehållaren. Om en fil `buggy.gltf` till exempel konverteras innehåller utdatabehållaren en fil som anropas `buggy.info.json` bredvid den konverterade tillgången `buggy.arrAsset`. Den innehåller information om källmodellen, den konverterade modellen och om själva konverteringen.
+Den arrAsset-fil som skapas av konverterings tjänsten är enbart avsedd att användas av åter givnings tjänsten. Det kan dock finnas tillfällen när du vill komma åt information om en modell utan att starta en rendering-session. Därför placerar konverterings tjänsten en JSON-fil bredvid filen arrAsset i behållaren utdata. Om en fil `buggy.gltf` exempelvis konverteras innehåller behållaren utdata en fil med namnet `buggy.info.json` bredvid den konverterade till gången. `buggy.arrAsset` Den innehåller information om käll modellen, den konverterade modellen och om konverteringen.
 
-## <a name="example-info-file"></a>Exempel *på informationsfil*
+## <a name="example-info-file"></a>Exempel på *informations* fil
 
-Här är ett exempel *info* fil som produceras `buggy.gltf`genom att konvertera en fil som heter:
+Här är ett exempel på en *informations* fil som skapas genom att `buggy.gltf`konvertera en fil med namnet:
 
 ```JSON
 {
@@ -73,59 +73,59 @@ Här är ett exempel *info* fil som produceras `buggy.gltf`genom att konvertera 
 }
 ```
 
-## <a name="information-in-the-info-file"></a>Information i informationsfilen
+## <a name="information-in-the-info-file"></a>Information i informations filen
 
-### <a name="the-files-section"></a>Avsnittet *filer*
+### <a name="the-files-section"></a>Avsnittet *Files*
 
-Det här avsnittet innehåller de angivna filnamnen.
+Det här avsnittet innehåller de angivna fil namnen.
 
-* `input`: Namnet på källfilen.
-* `output`: Namnet på utdatafilen när användaren har angett ett icke-standardnamn.
+* `input`: Namnet på käll filen.
+* `output`: Namnet på utdatafilen, när användaren har angett ett namn som inte är standard.
 
 ### <a name="the-conversionsettings-section"></a>Avsnittet *conversionSettings*
 
-Det här avsnittet innehåller en kopia av [de ConversionSettings](configure-model-conversion.md#settings-file) som angavs när modellen konverterades.
+Det här avsnittet innehåller en kopia av den [ConversionSettings](configure-model-conversion.md#settings-file) som angavs när modellen konverterades.
 
 ### <a name="the-inputinfo-section"></a>Avsnittet *inputInfo*
 
-I det här avsnittet beskrivs information om källfilformatet.
+I det här avsnittet registreras information om käll fils formatet.
 
-* `sourceAssetExtension`: Källfilens filnamnstillägg.
-* `sourceAssetFormat`: En beskrivning av källfilformatet.
-* `sourceAssetFormatVersion`: Versionen av källfilformatet.
-* `sourceAssetGenerator`: Namnet på verktyget som genererade källfilen, om tillgängligt.
+* `sourceAssetExtension`: Käll filens fil namns tillägg.
+* `sourceAssetFormat`: En beskrivning av käll fils formatet.
+* `sourceAssetFormatVersion`: Versionen av käll fils formatet.
+* `sourceAssetGenerator`: Namnet på det verktyg som skapade käll filen, om det är tillgängligt.
 
 ### <a name="the-inputstatistics-section"></a>Avsnittet *inputStatistics*
 
-Det här avsnittet innehåller information om källscenen. Det finns ofta avvikelser mellan värdena i det här avsnittet och motsvarande värden i verktyget som skapade källmodellen. Sådana skillnader förväntas, eftersom modellen ändras under export- och konverteringsstegen.
+Det här avsnittet innehåller information om käll scenen. Det kommer ofta att finnas skillnader mellan värdena i det här avsnittet och motsvarande värden i verktyget som skapade käll modellen. Sådana skillnader förväntas, eftersom modellen ändras under export-och konverterings stegen.
 
-* `numMeshes`: Antalet maskdelar, där varje del kan referera till ett enda material.
-* `numFaces`: Det totala antalet _trianglar_ i hela modellen. Observera att nätet trianguleras under konverteringen.
+* `numMeshes`: Antalet nät delar, där varje del kan referera till ett enskilt material.
+* `numFaces`: Det totala antalet _trianglar_ i hela modellen. Observera att nätet är triangulated under konverteringen.
 * `numVertices`: Det totala antalet hörn i hela modellen.
 * `numMaterial`: Det totala antalet material i hela modellen.
-* `numFacesSmallestMesh`: Antalet trianglar i modellens minsta nät.
-* `numFacesBiggestMesh`: Antalet trianglar i modellens största nät.
-* `numNodes`: Antalet noder i modellens scendiagram.
-* `numMeshUsagesInScene`: Antalet gånger noder refererar till maskor. Mer än en nod kan referera till samma nät.
-* `maxNodeDepth`: Det maximala djupet av noderna i scendiagrammet.
+* `numFacesSmallestMesh`: Antalet trianglar i det minsta nätet i modellen.
+* `numFacesBiggestMesh`: Antalet trianglar i modellens största maskor.
+* `numNodes`: Antalet noder i modellens scen diagram.
+* `numMeshUsagesInScene`: Antalet gånger som noder refererar till maskor. Mer än en nod kan referera till samma nät.
+* `maxNodeDepth`: Det maximala djupet för noderna i scen diagrammet.
 
-### <a name="the-outputinfo-section"></a>*Avsnittet outputInfo*
+### <a name="the-outputinfo-section"></a>Avsnittet *outputInfo*
 
-I det här avsnittet beskrivs allmän information om den genererade utdata.
+I det här avsnittet registreras allmän information om genererade utdata.
 
-* `conversionToolVersion`: Version av modellkonverteraren.
-* `conversionHash`: En hash-av data i arrAsset som kan bidra till rendering. Kan användas för att förstå om konverteringstjänsten har gett ett annat resultat när den körs på samma fil igen.
+* `conversionToolVersion`: Modell konverterarens version.
+* `conversionHash`: En hash av data i arrAsset som kan bidra till åter givning. Kan användas för att förstå om konverterings tjänsten har genererat ett annat resultat när den körs igen på samma fil.
 
 ### <a name="the-outputstatistics-section"></a>Avsnittet *outputStatistics*
 
-I det här avsnittet visas information som beräknas från den konverterade tillgången.
+I det här avsnittet registreras information som beräknas från den konverterade till gången.
 
-* `numMeshPartsCreated`: Antalet maskor i arrAsset. Det kan `numMeshes` skilja `inputStatistics` sig från i avsnittet, eftersom instancing påverkas av konverteringsprocessen.
+* `numMeshPartsCreated`: Antalet maskor i arrAsset. Den kan skilja sig `numMeshes` från i `inputStatistics` avsnittet, eftersom indelningen påverkas av konverterings processen.
 * `numMeshPartsInstanced`: Antalet maskor som återanvänds i arrAsset.
-* `recenteringOffset`: När `recenterToOrigin` alternativet i [ConversionSettings](configure-model-conversion.md) är aktiverat är det här värdet den översättning som skulle flytta den konverterade modellen tillbaka till sin ursprungliga position.
+* `recenteringOffset`: När `recenterToOrigin` alternativet i [ConversionSettings](configure-model-conversion.md) har Aktiver ATS är det här värdet översättningen som flyttar den konverterade modellen tillbaka till dess ursprungliga plats.
 * `boundingBox`: Modellens gränser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Modellkonvertering](model-conversion.md)
+* [Modell konvertering](model-conversion.md)
 * [Konfigurera modellkonverteringen](configure-model-conversion.md)

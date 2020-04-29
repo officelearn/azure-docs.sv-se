@@ -1,60 +1,60 @@
 ---
-title: Självstudiekurs - lägg till variabel i mallen
+title: Självstudie – Lägg till variabel till mall
 description: Lägg till variabler i Azure Resource Manager-mallen för att förenkla syntaxen.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: b1df86e5b593edec784de21e21a4399274d820bb
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80411690"
 ---
-# <a name="tutorial-add-variables-to-your-arm-template"></a>Självstudiekurs: Lägga till variabler i ARM-mallen
+# <a name="tutorial-add-variables-to-your-arm-template"></a>Självstudie: Lägg till variabler i ARM-mallen
 
-I den här självstudien får du lära dig hur du lägger till en variabel i din AZURE Resource Manager-mall (ARM). Variabler förenklar mallarna genom att du kan skriva ett uttryck en gång och återanvända det i hela mallen. Den här självstudien tar **7 minuter** att slutföra.
+I den här självstudien får du lära dig hur du lägger till en variabel i din Azure Resource Manager-mall (ARM). Variabler fören klar dina mallar genom att göra det möjligt att skriva ett uttryck en gång och återanvända det i hela mallen. Den här självstudien tar **7 minuter** att slutföra.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi rekommenderar att du slutför [självstudien om funktioner,](template-tutorial-add-functions.md)men det är inte nödvändigt.
+Vi rekommenderar att du slutför [självstudien om functions](template-tutorial-add-functions.md), men det är inte obligatoriskt.
 
-Du måste ha Visual Studio-kod med tillägget Resource Manager Tools och antingen Azure PowerShell eller Azure CLI. Mer information finns i [mallverktyg](template-tutorial-create-first-template.md#get-tools).
+Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Mall för granskning
+## <a name="review-template"></a>Granska mall
 
-I slutet av föregående självstudie hade mallen följande JSON:
+I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
-Parametern för lagringskontonamnet är svår att använda eftersom du måste ange ett unikt namn. Om du har slutfört tidigare tutorials i den här serien, är du förmodligen trött på att gissa ett unikt namn. Du löser problemet genom att lägga till en variabel som skapar ett unikt namn för lagringskontot.
+Parametern för lagrings konto namnet är svår att använda eftersom du måste ange ett unikt namn. Om du har slutfört de tidigare självstudierna i den här serien är du förmodligen trött på att gissa ett unikt namn. Du löser problemet genom att lägga till en variabel som skapar ett unikt namn för lagrings kontot.
 
 ## <a name="use-variable"></a>Använd variabel
 
-I följande exempel markeras ändringarna för att lägga till en variabel i mallen som skapar ett unikt lagringskontonamn. Kopiera hela filen och ersätt mallen med dess innehåll.
+I följande exempel visas ändringarna för att lägga till en variabel i mallen som skapar ett unikt lagrings konto namn. Kopiera hela filen och ersätt din mall med dess innehåll.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
-Observera att den innehåller en variabel med namnet **uniqueStorageName**. Den här variabeln använder fyra funktioner för att konstruera ett strängvärde.
+Observera att det innehåller en variabel med namnet **uniqueStorageName**. Den här variabeln använder fyra funktioner för att skapa ett sträng värde.
 
-Du är redan bekant med [parametrarna](template-functions-deployment.md#parameters) funktionen, så vi kommer inte att undersöka det.
+Du är redan bekant med [parameter](template-functions-deployment.md#parameters) funktionen, så vi kommer inte att undersöka den.
 
-Du är också bekant med [resursgruppsfunktionen.](template-functions-resource.md#resourcegroup) I det här fallet får du **id-egenskapen** i stället för platsegenskapen, som visas i föregående självstudie. **location** Egenskapen **id** returnerar resursgruppens fullständiga identifierare, inklusive prenumerations-ID och resursgruppsnamn.
+Du är också bekant med funktionen [resourceGroup](template-functions-resource.md#resourcegroup) . I det här fallet får du egenskapen **ID** i stället för egenskapen **location** , som du ser i den föregående själv studie kursen. Egenskapen **ID** returnerar resurs gruppens fullständiga identifierare, inklusive PRENUMERATIONS-ID och resurs grupps namn.
 
-Funktionen [uniqueString](template-functions-string.md#uniquestring) skapar ett hash-värde med 13 tecken. Det returnerade värdet bestäms av de parametrar du skickar in. För den här självstudien använder du resursgrupp-ID:et som indata för hash-värdet. Det innebär att du kan distribuera den här mallen till olika resursgrupper och få ett annat unikt strängvärde. Du får dock samma värde om du distribuerar till samma resursgrupp.
+Funktionen [uniqueString](template-functions-string.md#uniquestring) skapar en 13-siffrig hash-värde. Det returnerade värdet bestäms av de parametrar som du skickar i. I den här självstudien använder du resurs gruppens ID som inmatad för hash-värdet. Det innebär att du kan distribuera den här mallen till olika resurs grupper och hämta ett annat unikt sträng värde. Men du får samma värde om du distribuerar till samma resurs grupp.
 
-[Concat-funktionen](template-functions-string.md#concat) tar värden och kombinerar dem. För den här variabeln tar den strängen från parametern och strängen från funktionen uniqueString och kombinerar dem till en sträng.
+Funktionen [concat](template-functions-string.md#concat) tar värden och kombinerar dem. För den här variabeln tar den strängen från parametern och strängen från uniqueString-funktionen och kombinerar dem till en sträng.
 
-Med parametern **storagePrefix** kan du skicka in ett prefix som hjälper dig att identifiera lagringskonton. Du kan skapa en egen namngivningskonvention som gör det enklare att identifiera lagringskonton efter distribution från en lång lista med resurser.
+Med parametern **storagePrefix** kan du skicka ett prefix som hjälper dig att identifiera lagrings konton. Du kan skapa en egen namngivnings konvention som gör det lättare att identifiera lagrings konton efter distribution från en lång lista med resurser.
 
-Observera slutligen att lagringsnamnet nu är inställt på variabeln i stället för en parameter.
+Lägg slutligen märke till att lagrings namnet nu är inställt på variabeln i stället för en parameter.
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
-Nu distribuerar vi mallen. Det är enklare att distribuera den här mallen än de tidigare mallarna eftersom du bara anger prefixet för lagringsnamnet.
+Nu ska vi distribuera mallen. Att distribuera den här mallen är enklare än tidigare mallar eftersom du bara anger prefixet för lagrings namnet.
 
-Om du inte har skapat resursgruppen läser du [Skapa resursgrupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **variabeln templateFile** till sökvägen till mallfilen, vilket visas i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
+Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -69,7 +69,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -82,31 +82,31 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Om distributionen misslyckades använder du **felsökningsväxeln** med distributionskommandot för att visa felsökningsloggarna.  Du kan också använda **den utförliga** växeln för att visa de fullständiga felsökningsloggarna.
+> Om distributionen misslyckades använder du **fel söknings** växeln med kommandot distribution för att visa fel söknings loggarna.  Du kan också använda **utförlig** växeln för att visa fullständiga fel söknings loggar.
 
 ## <a name="verify-deployment"></a>Verifiera distributionen
 
-Du kan verifiera distributionen genom att utforska resursgruppen från Azure-portalen.
+Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **Resursgrupper**på den vänstra menyn .
-1. Välj den resursgrupp som du har distribuerat till.
-1. Du ser att en lagringskontoresurs har distribuerats. Namnet på lagringskontot är **lagra** plus en sträng med slumpmässiga tecken.
+1. Välj **resurs grupper**på den vänstra menyn.
+1. Välj den resurs grupp som du har distribuerat till.
+1. Du ser att en lagrings konto resurs har distribuerats. Namnet på lagrings kontot är **lagrat** plus en sträng med slumpmässiga tecken.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går vidare till nästa självstudiekurs behöver du inte ta bort resursgruppen.
+Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
 
-Om du slutar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resursgruppen.
+Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
 
-1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
+1. Från Azure Portal väljer du **resurs grupp** på den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
 3. Välj resursgruppens namn.
-4. Välj **Ta bort resursgrupp** på den övre menyn.
+4. Välj **ta bort resurs grupp** på den översta menyn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till en variabel som skapar ett unikt namn för ett lagringskonto. I nästa självstudiekurs returnerar du ett värde från det distribuerade lagringskontot.
+I den här självstudien har du lagt till en variabel som skapar ett unikt namn för ett lagrings konto. I nästa självstudie returnerar du ett värde från det distribuerade lagrings kontot.
 
 > [!div class="nextstepaction"]
-> [Lägga till utdata](template-tutorial-add-outputs.md)
+> [Lägg till utdata](template-tutorial-add-outputs.md)

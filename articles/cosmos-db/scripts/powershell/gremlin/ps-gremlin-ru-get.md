@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att få dataflöde (RU/s) för Azure Cosmos DB Gremlin API
-description: Azure PowerShell-skript - Azure Cosmos DB Get Throughput (RU/s) för Gremlin API
+title: PowerShell-skript för att hämta data flöde (RU/s) för Azure Cosmos DB Gremlin-API
+description: Azure PowerShell script-Azure Cosmos DB hämta data flöde (RU/s) för Gremlin-API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: fa376aff9c127d5792da9e0489079ca3a1c67cf2
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366032"
 ---
-# <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Hämta dataflöde (RU/s) för en databas eller ett diagram för Azure Cosmos DB - Gremlin API
+# <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Hämta data flöde (RU/s) för en databas eller graf för Azure Cosmos DB-Gremlin-API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,12 +36,12 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Få-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Hämtar dataflödesvärdet för den angivna Gremlin API-databasen. |
-| [Få-AzCosmosDBGremlinGrafThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Hämtar dataflödesvärdet för det angivna Gremlin API Graph. |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Hämtar data flöde svärdet för den angivna Gremlin API-databasen. |
+| [Get-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Hämtar data flöde svärdet för det angivna Gremlin API-diagrammet. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

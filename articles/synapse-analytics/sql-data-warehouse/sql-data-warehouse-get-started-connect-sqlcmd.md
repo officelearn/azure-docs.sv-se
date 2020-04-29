@@ -1,6 +1,6 @@
 ---
-title: Anslut med sqlcmd
-description: Använd kommandoradsverktyget sqlcmd för att ansluta till och fråga en Synapse SQL-pool.
+title: Anslut med SQLCMD
+description: Använd kommando rads verktyget sqlcmd för att ansluta till och fråga en Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,31 +12,31 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 02157ca0d32d2347e50cc84a5c52e9c47b0f33b5
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745196"
 ---
-# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Ansluta till Synapse SQL-pool med sqlcmd
+# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Ansluta till Synapse SQL-pool med SQLCMD
 
 > [!div class="op_single_selector"]
 >
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Använd kommandoradsverktyget [sqlcmd][sqlcmd] för att ansluta till och fråga en SQL-pool.  
+Använd kommando rads verktyget [SQLCMD] [SQLCMD] för att ansluta till och fråga en SQL-pool.  
 
 ## <a name="1-connect"></a>1. Anslut
 
-Om du vill komma igång med [sqlcmd][sqlcmd] öppnar du kommandotolken och anger **sqlcmd** följt av anslutningssträngen för SQL-pooldatabasen. Anslutningssträngen kräver följande parametrar:
+Kom igång med [SQLCMD] [SQLCMD] genom att öppna kommando tolken och ange **SQLCMD** följt av anslutnings STRÄNGEN för SQL-adresspoolen. Anslutningssträngen kräver följande parametrar:
 
 * **Server (-S):** Server i formatet `<`servernamn`>`. database.windows.net
 * **Databas (-d):** Databasens namn.
-* **Aktivera citerade identifierare (-I):** Citerade identifierare måste vara aktiverade för att ansluta till en SQL-poolinstans.
+* **Aktivera citerade identifierare (-I):** Identifierare med citat tecken måste vara aktiverade för att ansluta till en instans i SQL-poolen.
 
 Om du vill använda SQL Server-autentisering måste du lägga till användarnamn/lösenordsparametrar:
 
@@ -62,7 +62,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > [!NOTE]
 > Du måste [aktivera Azure Active Directory-autentisering](sql-data-warehouse-authentication.md) för att kunna autentisera med Active Directory.
 
-## <a name="2-query"></a>2. Fråga
+## <a name="2-query"></a>2. fråga
 
 Du kan utfärda alla Transact-SQL-uttryck som stöds mot instansen efter anslutning.  I det här exemplet skickas frågor i interaktivt läge.
 
@@ -85,4 +85,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om vilka alternativ som finns i sqlcmd finns i [sqlcmd-dokumentationen](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Mer information om tillgängliga alternativ i SQLCMD finns i [SQLCMD-dokumentationen](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

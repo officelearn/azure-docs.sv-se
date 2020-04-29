@@ -1,56 +1,56 @@
 ---
-title: Ställa in ett Unity-projekt från grunden
-description: I artikeln beskrivs hur du konfigurerar ett tomt Unity-projekt för användning med Azure Remote Rendering.
+title: Konfigurera ett Unity-projekt från grunden
+description: Förklarar hur du konfigurerar ett tomt Unit-projekt för användning med Azure Remote rendering.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
 ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679599"
 ---
-# <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Självstudiekurs: Ställa in ett Unity-projekt från grunden
+# <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Självstudie: Konfigurera ett Unity-projekt från grunden
 
 I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Konfigurera ett scratch Unity-projekt för ARR.
-> * Skapa och stoppa renderingssessioner.
+> * Konfigurera ett Scratch Unity-projekt för ARR.
+> * Skapa och stoppa åter givnings sessioner.
 > * Återanvända befintliga sessioner.
 > * Ansluta och koppla från sessioner.
-> * Laddar modeller i en renderingssession.
-> * Visar anslutningsstatistik.
+> * Läser in modeller till en åter givnings session.
+> * Visar anslutnings statistik.
 
 ## <a name="prerequisites"></a>Krav
 
-För den här guiden behöver du:
+För den här självstudien behöver du:
 
-* Din kontoinformation (konto-ID, kontonyckel, prenumerations-ID). Om du inte har ett konto [skapar du ett konto](../../how-tos/create-an-account.md).
-* Windows SDK 10.0.18362.0 [(hämta)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* Den senaste versionen av Visual Studio 2019 [(hämtad)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(ladda ner)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(ladda ner)](https://unity3d.com/get-unity/download)
-  * Installera dessa moduler i Unity:
-    * **UWP** – Stöd för universal windows-plattformsbygge
-    * **IL2CPP** - Stöd för Windows Build (IL2CPP)
+* Din konto information (konto-ID, konto nyckel, prenumerations-ID). [Skapa ett konto](../../how-tos/create-an-account.md)om du inte har något konto.
+* Windows SDK 10.0.18362.0 [(Hämta)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* Den senaste versionen av Visual Studio 2019 [(Hämta)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* GIT [(nedladdning)](https://git-scm.com/downloads)
+* Unity 2019.3.1 [(Hämta)](https://unity3d.com/get-unity/download)
+  * Installera de här modulerna i Unity:
+    * **UWP** -stöd för Build-universell Windows-plattform
+    * **IL2CPP** – stöd för Windows-build (IL2CPP)
 
 > [!TIP]
-> [ARR-exempeldatabasen](https://github.com/Azure/azure-remote-rendering) innehåller förberedda Unity-projekt för alla självstudier. Du kan använda dessa projekt som referens.
+> [Databasen arr samples](https://github.com/Azure/azure-remote-rendering) innehåller för beredda Unity-projekt för alla självstudier. Du kan använda dessa projekt som referens.
 
 ## <a name="create-a-new-unity-project"></a>Skapa ett nytt Unity-projekt
 
 Skapa ett nytt projekt från Unity Hub.
-I det här exemplet antar vi att projektet skapas i en mapp som heter `RemoteRendering`.
+I det här exemplet antar vi att projektet skapas i en mapp med namnet `RemoteRendering`.
 
-![nytt projektfönster](media/new-project.png)
+![nytt projekt fönster](media/new-project.png)
 
 ## <a name="configure-the-projects-manifest"></a>Konfigurera projektets manifest
 
-Du måste ändra `Packages/manifest.json` filen som finns i enhetsprojektmappen. Öppna filen i en textredigerare och lägg till raderna nedan:
+Du måste ändra filen `Packages/manifest.json` som finns i din Unity Project-mapp. Öppna filen i en text redigerare och Lägg till raderna i listan nedan:
 
 ```json
 {
@@ -69,81 +69,81 @@ Du måste ändra `Packages/manifest.json` filen som finns i enhetsprojektmappen.
 }
 ```
 
-Det universella renderingspipellinepaketet är valfritt men rekommenderas av prestandaskäl.
-När du har ändrat och sparat manifestet uppdateras Unity automatiskt. Bekräfta att paketen har lästs in i *projektfönstret:*
+Paketet för Universal rendering-pipeline är valfritt men rekommenderas av prestanda skäl.
+När du har ändrat och sparat manifestet uppdateras Unity automatiskt. Bekräfta att paketen har lästs in i *projekt* fönstret:
 
-![bekräfta paketimport](media/confirm-packages.png)
+![bekräfta paket importer](media/confirm-packages.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Se till att du har den senaste versionen av paketet
 
-Följande steg säkerställer att projektet använder den senaste versionen av fjärrrenderingspaketet.
-1. Välj paketet i projektfönstret och klicka på ![paketikonen: Välja paketikonen](media/package-icons.png)
-1. Klicka på "Visa i pakethanteraren" ![i inspektören: paketinspektör](media/package-properties.png)
-1. På sidan pakethanterare för fjärrrenderingspaket, se om uppdateringsknappen är tillgänglig. Om så är fallet uppdateras paketet till den senaste tillgängliga versionen genom att klicka på det: ![ARR-paketet i pakethanteraren](media/package-manager.png)
-1. Ibland kan uppdatering av paketet leda till fel i konsolen. Om detta inträffar kan du prova att stänga och öppna projektet igen.
+Följande steg säkerställer att ditt projekt använder den senaste versionen av Remote rendering-paketet.
+1. Välj paketet i fönstret projekt och klicka på paket ikonen: ![välja paket ikonen](media/package-icons.png)
+1. I kontrollen klickar du på "Visa i paket hanteraren": ![paket kontroll](media/package-properties.png)
+1. På sidan Package Manager för Remote rendering Package, se om uppdaterings knappen är tillgänglig. Om så är fallet uppdaterar paketet till den senaste tillgängliga versionen: ![arr-paketet i paket hanteraren](media/package-manager.png)
+1. Ibland kan det leda till fel i-konsolen vid uppdatering av paketet. Om detta inträffar kan du försöka stänga och öppna projektet igen.
 
 ## <a name="configure-the-camera"></a>Konfigurera kameran
 
-Välj noden **Huvudkamera.**
+Välj den **primära Camera** -noden.
 
-1. Återställ dess *transformering:*
+1. Återställ dess *transformering*:
 
-    ![återställa kameratransformering](media/camera-reset-transform.png)
+    ![Återställ kamera omvandling](media/camera-reset-transform.png)
 
-1. Ange **rensa flaggor** till *enfärgad*
+1. Ange **Rensa flaggor** till *solid färg*
 
 1. Ange **bakgrund** till *svart*
 
-1. Ställ in **urklippsplan** på *Nära = 0,3* och *Långt = 20*. Detta innebär rendering kommer klipp geometri som är närmare än 30 cm eller längre än 20 meter.
+1. Ställ in **urklipps planen** till *nära = 0,3* och *mycket = 20*. Det innebär att rendera kommer att vara en klipps geometri som är närmare än 30 cm eller längre än 20 meter.
 
-    ![Unity-kameraegenskaper](media/camera-properties.png)
+    ![Egenskaper för Unity-kamera](media/camera-properties.png)
 
-## <a name="adjust-the-project-settings"></a>Justera projektinställningarna
+## <a name="adjust-the-project-settings"></a>Justera projekt inställningarna
 
-1. Öppna *Redigera > Projektinställningar...*
-1. Välj Kvalitet i listan till vänster.
-1. Ändra **standardkvalitetsnivån** till *låg*
+1. Öppna *redigera > projekt inställningar...*
+1. I listan till vänster väljer du kvalitet.
+1. Ändra **standard kvalitets nivån** till *låg*
 
-    ![ändra inställningar för projektkvalitet](media/settings-quality.png)
+    ![Ändra inställningar för projekt kvalitet](media/settings-quality.png)
 
-1. Välj **Grafik** till vänster.
-1. Ändra inställningen **skriptåtergivningspipeline** till *HybridRenderingPipeline*. Hoppa över det här steget om universalåtergivningspipelinen inte används.
+1. Välj **grafik** till vänster.
+1. Ändra inställningen för inställnings **pipelinen för skript åter givning** till *HybridRenderingPipeline*. Hoppa över det här steget om den universella rendera pipelinen inte används.
 
-    ![ändra inställningar](media/settings-graphics-lwrp.png) för projektgrafik Ibland fyller användargränssnittet inte i listan över tillgängliga pipelinetyper från paketen, i vilket fall HybridRenderingPipeline-tillgången måste dras in i fältet manuellt: ändra inställningar för projektgrafik från paketen, i vilket fall *HybridRenderingPipeline-tillgången* måste dras in i fältet manuellt: ![ändra inställningar för projektgrafik](media/hybrid-rendering-pipeline.png)
-1. Välj **Spelare** till vänster.
-1. Välj **fliken Inställningar för universella inställningar för Windows Platform**
-1. Ändra **XR-inställningarna** för att ![stödja Windows Mixed Reality: spelarinställningar](media/xr-player-settings.png)
-1. Välj inställningarna som i skärmbilden ovan:
-    1. Aktivera **virtual reality-stöd**
-    1. Ange **djupformat** till *16-bitars djup*
-    1. Aktivera **djupbuffertdelning**
-    1. Ange **stereorenderingsläge** på *single pass-instans*
+    ![ändra inställningarna](media/settings-graphics-lwrp.png) för Project Graphics ibland-gränssnittet fyller inte i listan över tillgängliga pipelin typer från paketen. i så fall måste *HybridRenderingPipeline* -till gången dras till fältet manuellt: ![ändra inställningarna för Project-grafik](media/hybrid-rendering-pipeline.png)
+1. Välj **spelare** till vänster.
+1. Välj fliken **universell Windows-plattform inställningar**
+1. Ändra **XR-inställningarna** så att de stöder Windows Mixed ![Reality: Player-inställningar](media/xr-player-settings.png)
+1. Välj inställningarna som i skärm bilden ovan:
+    1. Aktivera **virtuell verklighet som stöds**
+    1. Ange **djup formatet** *16-bitars djup*
+    1. Aktivera **delning av djup buffert**
+    1. Ställ in **stereo åter givnings läge** på *en enskild pass instans*
 
-1. Expandera **Publiceringsinställningarna** i samma fönster ovanför *XR-inställningar*
-1. Bläddra ned till **Funktioner** och välj:
-    * **InternetClient (InternetClient)**
+1. I samma fönster, över *XR-inställningar*, expanderar du **publicerings inställningar**
+1. Rulla ned till **funktioner** och välj:
+    * **InternetClient**
     * **InternetClientServer**
     * **SpatialPerception**
     * Valfritt för utveckling: **PrivateNetworkClientServer**
 
-      Det här alternativet behövs om du vill ansluta enhetsfjärrfelsökaren till enheten.
+      Det här alternativet behövs om du vill ansluta enhetens fjärrfelsökning till enheten.
 
-1. Aktivera **Holografiska** och **stationära enheter i** **enhetsfamiljer som stöds**
+1. I **enhets familjer som stöds**aktiverar du **Holographic** och **Desktop**
 
-1. Om du vill använda Verktygslådan för mixed reality läser du [MRTK-dokumentationen](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview)för mer information om rekommenderade inställningar och funktioner.
+1. Om du vill använda verktyget för Mixad verklighet läser du [MRTK-dokumentationen](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview)för mer information om rekommenderade inställningar och funktioner.
 
-## <a name="validate-project-setup"></a>Validera projektinställningar
+## <a name="validate-project-setup"></a>Verifiera projekt konfiguration
 
-Utför följande steg för att verifiera att projektinställningarna är korrekta.
+Utför följande steg för att kontrol lera att projekt inställningarna är korrekta.
 
-1. Välj posten ValidateProject på Fjärrrenderingsmenyn i verktygsfältet Enhetsredigerare.
-1. Använd fönstret Valideraprojekt för att kontrollera och åtgärda projektinställningarna där det behövs.
+1. Välj posten ValidateProject på RemoteRendering-menyn i verktygsfältet i Unity Editor.
+1. Använd fönstret ValidateProject för att söka efter och åtgärda projekt inställningar där det behövs.
 
-    ![Validering av unity-redigerare](media/arr-unity-validation.png)
+    ![Project-validering av Unit Editor](media/arr-unity-validation.png)
 
-## <a name="create-a-script-to-initialize-azure-remote-rendering"></a>Skapa ett skript för att initiera Azure Remote Rendering
+## <a name="create-a-script-to-initialize-azure-remote-rendering"></a>Skapa ett skript för att initiera Azure Remote rendering
 
-Skapa ett [nytt skript](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) och ge det namnet **RemoteRendering**. Öppna skriptfilen och ersätt hela innehållet med koden nedan:
+Skapa ett [nytt skript](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) och ge det namnet **RemoteRendering**. Öppna skript filen och ersätt hela innehållet med koden nedan:
 
 ```csharp
 using System.Collections;
@@ -290,39 +290,39 @@ public class RemoteRendering : MonoBehaviour
 }
 ```
 
-Det här skriptet initierar Azure Remote Rendering, talar om för vilket kameraobjekt som ska användas för rendering och placerar en **knappen Skapa session** i visningsområdet när *uppspelningsläget* är aktiverat.
+Det här skriptet initierar Azure-fjärrrendering, anger vilket Camera-objekt som ska användas för åter givning och placerar knappen **Skapa session** i visnings området när *uppspelnings läget* är aktiverat.
 
 > [!CAUTION]
-> Om du ändrar skriptet och sparar det medan uppspelningsläget är aktivt i Unity kan unity frysas och du tvingas stänga av det via Aktivitetshanteraren. Stoppa därför alltid uppspelningsläget innan du redigerar *RemoteRendering-skriptet.*
+> Att ändra skriptet och spara det medan uppspelnings läget är aktivt i Unity kan resultera i uppsatta upplåsningar och du tvingas stänga ned det via aktivitets hanteraren. Stoppa därför alltid uppspelnings läget innan du redigerar *RemoteRendering* -skriptet.
 
-## <a name="test-azure-remote-rendering-session-creation"></a>Testa skapandet av Azure Remote Rendering-session
+## <a name="test-azure-remote-rendering-session-creation"></a>Testa genereringen av Azure fjärrrendering-sessionen
 
-Skapa ett nytt GameObject i scenen och lägg till *RemoteRendering-komponenten* i den. Fyll i rätt *kontodomän,* *konto-ID*och *kontonyckel* för ditt fjärråtergivningskonto:
+Skapa en ny GameObject i scenen och Lägg till *RemoteRendering* -komponenten till den. Fyll i lämplig *konto domän*, *konto-ID*och *konto nyckel* för fjärråter givnings kontot:
 
-![Egenskaper för fjärrrenderingskomponent](media/remote-rendering-component.png)
+![Egenskaper för fjärråter givnings komponent](media/remote-rendering-component.png)
 
-Starta programmet i redigeraren (**tryck på Spela upp** eller CTRL+P). Du bör se knappen **Skapa session** visas i visningsområdet. Klicka på den för att starta din första ARR-session:
+Starta programmet i redigeraren (**Tryck på Play** eller Ctrl + P). Du bör se knappen **Skapa session** visas i visnings området. Starta din första ARR-session genom att klicka på den:
 
 ![Skapa en första session](media/test-create.png)
 
-Om detta misslyckas kontrollerar du att du har angett dina kontouppgifter korrekt i egenskaperna för RemoteRendering-komponenten. Annars visas ett meddelande i konsolfönstret som visar det sessions-ID som tilldelats *Starting* dig och anger att sessionen för närvarande är i starttillståndet:
+Om detta Miss lyckas, se till att du har angett konto informationen korrekt i egenskaperna för RemoteRendering-komponenten. Annars visas ett meddelande i konsol fönstret som visar det sessions-ID som tilldelats dig och som anger att sessionen för närvarande är i *Start* läge:
 
-![Startutdata för session](media/create-session-output.png)
+![Session som startar utdata](media/create-session-output.png)
 
-Nu etablerar Azure en server åt dig och startar en virtuell fjärrrenderingsdator. Detta tar vanligtvis **3 till 5 minuter.** När den virtuella datorn är klar `OnSessionStatusChanged` körs vårt Unity-skripts motringning och den nya sessionsstatusen skrivs ut:
+I det här läget har Azure etablering av en server för dig och start av en virtuell dator för virtuell åter givning. Detta tar vanligt vis **3 till 5 minuter**. När den virtuella datorn är klar körs vårt Unity `OnSessionStatusChanged` -skript återanrop och kommer att skriva ut den nya sessionens status:
 
-![Sessionsklar utmatning](media/create-session-output-2.png)
+![Redo utdata för session](media/create-session-output-2.png)
 
-Nu gäller det! För närvarande kommer inget mer att hända. För att förhindra avgifter bör du alltid stoppa sessioner när de inte behövs längre. I det här exemplet kan du antingen göra detta genom att klicka på knappen **Stoppa session** eller genom att stoppa Unity-simuleringen. På grund av egenskapen **Auto-Stop Session** på komponenten *ARRServiceUnity,* som är aktiverat som standard, stoppas sessionen automatiskt åt dig. Om allt misslyckas kan sessionen pågå så länge som *MaxLeaseTime* innan den stängs av av servern på grund av krascher eller anslutningsproblem.
+Detta! För tiden är inget fler att ske. För att förhindra avgifter bör du alltid stoppa sessioner när de inte behövs längre. I det här exemplet kan du antingen göra detta genom att klicka på knappen **Stoppa session** eller genom att stoppa Unity-simuleringen. På grund av egenskapen **auto-stop session** på *ARRServiceUnity* -komponenten, som är aktive ras, stoppas sessionen automatiskt åt dig. Om allting Miss lyckas, på grund av krascher eller anslutnings problem, kan sessionen köras så länge din *MaxLeaseTime* innan den stängs av av servern.
 
 > [!NOTE]
-> Om du stoppar en session får du omedelbar verkan och kan inte ångras. När du har stoppats måste du skapa en ny session, med samma startomkostnader.
+> Att stoppa en session börjar gälla omedelbart och kan inte återställas. När du har stoppat måste du skapa en ny session med samma start kostnad.
 
 ## <a name="reusing-sessions"></a>Återanvända sessioner
 
-Att skapa en ny session är tyvärr en tidskrävande åtgärd. Därför bör man försöka skapa sessioner sällan, och återanvända dem när det är möjligt.
+Att skapa en ny session är tyvärr en tids krävande åtgärd. Därför bör ett försök att skapa sessioner sällan och återanvända dem när det är möjligt.
 
-Infoga följande kod i *RemoteRendering-skriptet* och ta bort de gamla versionerna av dubblettfunktionerna:
+Infoga följande kod i *RemoteRendering* -skriptet och ta bort de gamla versionerna av de duplicerade funktionerna:
 
 ```csharp
     public string SessionId = null;
@@ -413,24 +413,24 @@ Infoga följande kod i *RemoteRendering-skriptet* och ta bort de gamla versioner
 ```
 
 > [!CAUTION]
-> Innan du kör den här koden måste du inaktivera alternativet **Automatisk stoppsession** i RemoteRendering-komponenten. Annars stoppas varje session som du skapar automatiskt när du stoppar simuleringen, och försök att återanvända den misslyckas.
+> Innan du kör den här koden ser du till att inaktivera alternativet för att **stoppa automatiskt** i RemoteRendering-komponenten. Annars stoppas varje session som du skapar automatiskt när du stoppar simuleringen och om du försöker att återanvända den kommer att Miss lyckas.
 
-När du trycker på *Spela*upp får du nu tre knappar i visningsområdet: **Skapa session,** **Öppna sessioner**för frågor och Använd **befintlig session**. Den första knappen skapar alltid en ny session. Den andra knappen frågar vilka *aktiva* sessioner som finns. Om du inte angav ett sessions-ID manuellt för att försöka använda, väljer den här åtgärden automatiskt sessions-ID för framtida bruk. Den tredje knappen försöker ansluta till en befintlig session. Antingen en som du har angett manuellt via komponentegenskapen *Sessions-ID* eller en som hittades av *Query Active Sessions*.
+När du trycker på *Play*får du nu tre knappar i visnings området: **Skapa session**, **fråga aktiva sessioner**och **Använd den befintliga sessionen**. Den första knappen skapar alltid en ny session. Den andra knappen frågar vilka *aktiva* sessioner som finns. Om du inte manuellt angett ett sessions-ID för att försöka använda, kommer den här åtgärden automatiskt att välja sessions-ID för framtida användning. Den tredje knappen försöker ansluta till en befintlig session. Antingen en som du angav manuellt via komponent egenskapen *sessions-ID* , eller en som upptäckts av *fråga aktiva sessioner*.
 
-Funktionen **AutoStartSessionAsync** används för att simulera knapptryckningar utanför redigeraren.
+Funktionen **AutoStartSessionAsync** används för att simulera knappens tryck utanför redigeraren.
 
 > [!TIP]
-> Det är möjligt att öppna sessioner som har stoppats, upphört att gälla eller är i feltillstånd. Även om de inte längre kan användas för rendering kan du fråga efter deras uppgifter när du har öppnat en inaktiv session. Koden ovan kontrollerar en sessions `ARRService_OnSessionStarted`status i , för att automatiskt stoppa när sessionen har blivit oanvändbar.
+> Det går att öppna sessioner som har stoppats, som har upphört att gälla eller som är i fel tillstånd. Även om de inte kan användas för rendering längre, kan du fråga efter information när du har öppnat en inaktiv session. Koden ovan kontrollerar en sessions status i `ARRService_OnSessionStarted`, för att stoppa automatiskt när sessionen har blivit oanvändbar.
 
-Med den här funktionen kan du nu skapa och återanvända sessioner, vilket bör förbättra utvecklingsarbetsflödet avsevärt.
+Med den här funktionen kan du nu skapa och återanvända sessioner, vilket bör förbättra ditt utvecklings arbets flöde avsevärt.
 
-Vanligtvis utlöses skapandet av en session utanför klientprogrammet på grund av den tid som krävs för att snurra upp servern.
+Normalt utlöses skapandet av en session utanför klient programmet på grund av den tid det tar att sätta upp servern.
 
 ## <a name="connect-to-an-active-session"></a>Ansluta till en aktiv session
 
-Hittills har vi skapat eller öppnat sessioner. Nästa steg är att *ansluta* till en session. När den är ansluten kommer renderingsservern att producera bilder och skicka en videoström till vårt program.
+Hittills har vi skapat eller öppnat sessioner. Nästa steg är att *ansluta* till en session. När du är ansluten skapar åter givnings servern avbildningar och skickar en video ström till vårt program.
 
-Infoga följande kod i *RemoteRendering-skriptet* och ta bort de gamla versionerna av dubblettfunktionerna:
+Infoga följande kod i *RemoteRendering* -skriptet och ta bort de gamla versionerna av de duplicerade funktionerna:
 
 ```csharp
     private bool isConnected = false;
@@ -553,23 +553,23 @@ Infoga följande kod i *RemoteRendering-skriptet* och ta bort de gamla versioner
 #endif
 ```
 
-Så här testar du den här funktionen:
+Testa den här funktionen:
 
-1. Tryck **på Spela** i enighet.
+1. Tryck på **Play** i Unity.
 1. Öppna en session:
-    1. Om du redan har en session trycker du på **Fråga aktiva sessioner** och sedan använder befintlig **session**.
+    1. Om du redan har en session trycker du på **fråga aktiva sessioner** och **använder sedan den befintliga sessionen**.
     1. Annars trycker du på **Skapa session**.
 1. Tryck på **Anslut**.
-1. Efter några sekunder ska konsolutgången skriva ut att du är ansluten.
-1. För tillfället får inget annat hända.
-1. Tryck på **Koppla från** eller stoppa Unitys uppspelningsläge.
+1. Efter några sekunder bör konsolens utdata skrivas ut som du är ansluten.
+1. För närvarande bör inget annat inträffa.
+1. Tryck på **Koppla från** eller stoppa uppunionens uppspelnings läge.
 
 >[!NOTE]
-> Flera användare kan *öppna* en session för att fråga sin information, men bara en användare kan *anslutas* till en session åt gången. Om en annan användare redan är ansluten misslyckas anslutningen med ett **handskakningsfel**.
+> Flera användare kan *Öppna* en session för att fråga dess information, men bara en användare kan vara *ansluten* till en session i taget. Om en annan användare redan är ansluten fungerar inte anslutningen med ett **hand skaknings fel**.
 
-## <a name="load-a-model"></a>Ladda en modell
+## <a name="load-a-model"></a>Läs in en modell
 
-Infoga följande kod i *RemoteRendering-skriptet* och ta bort de gamla versionerna av dubblettfunktionerna:
+Infoga följande kod i *RemoteRendering* -skriptet och ta bort de gamla versionerna av de duplicerade funktionerna:
 
 ```csharp
 
@@ -724,20 +724,20 @@ Infoga följande kod i *RemoteRendering-skriptet* och ta bort de gamla versioner
 #endif
 ```
 
-När du nu trycker på play, öppnar en session och ansluter till den visas knappen **Läs in modell.** När du har klickat på den visar konsolens utgång belastningsförloppet och när den når 100 % bör du se modellen för en motor visas:
+När du nu trycker på Play, öppnar en session och ansluter till den, visas knappen **Läs in modell** . När du har klickat på den visas inläsnings förloppet i konsolens utdata och när den når 100% bör modellen för en motor visas:
 
 ![Modell som läses in i redigeraren](media/model-loaded-replace-me.png)
 
-[WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) är en viktig komponent som används för [hologramstabilitet](https://docs.microsoft.com/windows/mixed-reality/hologram-stability). Det kommer dock bara att ha effekt när den distribueras på en mixed reality-enhet.
+[WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html) är en viktig komponent som används för [hologram stabilitet](https://docs.microsoft.com/windows/mixed-reality/hologram-stability). Den kommer dock endast att ha en inverkan när den distribueras på en enhet med Mixad verklighet.
 
 > [!TIP]
-> Om du har följt [snabbstarten: Konvertera en modell för rendering](../../quickstarts/convert-model.md)vet du redan hur du konverterar dina egna modeller. Allt du behöver göra nu för att återge det är att placera URI till en konverterad modell i egenskapen *Modellnamn.*
+> Om du följde [snabb starten: konvertera en modell för åter givning](../../quickstarts/convert-model.md)vet du redan hur du konverterar dina egna modeller. Allt du behöver göra nu för att rendera det, är att skicka URI till en konverterad modell till egenskapen *modell namn* .
 
-## <a name="display-frame-statistics"></a>Visa bildrutestatistik
+## <a name="display-frame-statistics"></a>Visa ram statistik
 
-Azure Remote Rendering spårar olika information om anslutningens kvalitet. För ett snabbt sätt att visa denna information gör du följande:
+Azure-fjärrrenderingen spårar olika uppgifter om anslutningens kvalitet. För ett snabbt sätt att visa den här informationen gör du följande:
 
-Skapa ett [nytt skript](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) och ge det namnet **RemoteFrameStats**. Öppna skriptfilen och ersätt hela innehållet med koden nedan:
+Skapa ett [nytt skript](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) och ge det namnet **RemoteFrameStats**. Öppna skript filen och ersätt hela innehållet med koden nedan:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -778,29 +778,29 @@ public class RemoteFrameStats : MonoBehaviour
 }
 ```
 
-Skapa en GameObject och namnge den *FrameStats*. Fäst den som en underordnad nod på *huvudkameraobjektet* och ställ in dess position på **x = 0, y = 0, z = 0,325**. Lägg till **RemoteFrameStats-komponenten** i objektet.
+Skapa en GameObject och ge den namnet *FrameStats*. Koppla den som en underordnad nod till *huvud kamerans* objekt och ange dess position till **x = 0, y = 0, z = 0,325**. Lägg till **RemoteFrameStats** -komponenten i objektet.
 
-Lägg till ett **objekt för ett användargränssnitt > Canvas-objektet** i *FrameStats-objektet* och ange dess egenskaper så här:
+Lägg till ett **användar gränssnitt >** ett underordnat objekt för arbets ytan till *FrameStats* -objektet och ange dess egenskaper så här:
 
-![egenskaper för arbetsyta](media/framestats-canvas.png)
+![egenskaper för arbets yta](media/framestats-canvas.png)
 
-Lägg till ett **användargränssnitt > textobjekt** som underordnad på arbetsytan och ange dess egenskaper så här:
+Lägg till ett **gränssnitt > text** objekt som underordnat arbets ytan och ange dess egenskaper så här:
 
-![textegenskaper](media/framestats-text.png)
+![text egenskaper](media/framestats-text.png)
 
-Markera *FrameStats-objektet* och fyll i **framestats-fältet** genom att klicka på cirkelikonen och markera **textobjektet:**
+Välj *FrameStats* -objektet och fyll i **fältet FrameStats** genom att klicka på cirkel-ikonen och markera objektet **text** :
 
-![ange textegenskap](media/framestats-set-text.png)
+![anger text egenskap](media/framestats-set-text.png)
 
-När texten är ansluten till fjärrsessionen ska den nu visa direktuppspelningsstatistiken:
+När du nu är ansluten till fjärrsessionen ska texten Visa strömmande statistik:
 
-![ram statistik utdata](media/framestats-output.png)
+![Frame statistik-utdata](media/framestats-output.png)
 
-Koden inaktiverar statistikuppdateringen utanför redigeraren eftersom en huvudlåst textruta skulle vara distraherande. En mer sofistikerad implementering finns i [Quickstart-projektet.](../../quickstarts/render-model.md)
+Koden inaktiverar statistik uppdateringen utanför redigeraren som en huvud låst text ruta skulle vara störande. En mer avancerad implementering finns i [snabb starts](../../quickstarts/render-model.md) projektet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig alla nödvändiga åtgärder för att ta ett tomt Unity-projekt och få det att fungera med Azure Remote Rendering. I nästa handledning kommer vi att ta en närmare titt på hur man arbetar med avlägsna enheter.
+I den här självstudien har du lärt dig alla steg som krävs för att ta ett tomt Unity-projekt och få det att arbeta med Azure Remote rendering. I nästa självstudie tar vi en närmare titt på hur du arbetar med fjärrentiteter.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Arbeta med fjärrenheter i Unity](working-with-remote-entities.md)
+> [Självstudie: arbeta med fjär entiteter i enhet](working-with-remote-entities.md)

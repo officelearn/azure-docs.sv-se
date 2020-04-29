@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 2b2c043e70aac14c7fc6f0b58aae257624b05d13
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673260"
 ---
-I ett Java-projekt definieras bindningarna som bindande anteckningar på funktionsmetoden. *Filen function.json* skapas sedan automatiskt baserat på dessa anteckningar.
+I ett Java-projekt definieras bindningarna som bindnings anteckningar i funktions metoden. Filen *Function. JSON* genereras sedan automatiskt baserat på dessa anteckningar.
 
-Bläddra till platsen för din _funktionskod under src/main/java_, öppna *function.java-projektfilen* och lägg till följande parameter i metoddefinitionen: `run`
+Bläddra till platsen för funktions koden under _src/main/Java_, öppna filen *Function. java* -projekt och Lägg till följande parameter i `run` metod definitionen:
 
 ```java
 @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
 ```
 
-Parametern `msg` är [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) en typ som representerar en samling strängar som skrivs som meddelanden till en utdatabindning när funktionen är klar. I det här fallet är utdata en lagringskö med namnet `outqueue`. Anslutningssträngen för lagringskontot `connection` anges med metoden. I stället för själva anslutningssträngen skickar du programinställningen som innehåller anslutningssträngen för lagringskonto.
+`msg` Parametern är en [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) typ som representerar en samling strängar som skrivs som meddelanden till en utgående bindning när funktionen slutförs. I det här fallet är utdata en lagrings kö med `outqueue`namnet. Anslutnings strängen för lagrings kontot anges av- `connection` metoden. I stället för själva anslutnings strängen skickar du den program inställning som innehåller anslutnings strängen för lagrings kontot.
 
-Metoddefinitionen `run` ska nu se ut som följande exempel:  
+`run` Metod definitionen bör nu se ut som i följande exempel:  
 
 ```java
 @FunctionName("HttpTrigger-Java")

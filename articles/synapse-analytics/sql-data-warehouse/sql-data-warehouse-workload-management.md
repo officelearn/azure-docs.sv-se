@@ -1,6 +1,6 @@
 ---
 title: Arbetsbelastningshantering
-description: Vägledning för implementering av arbetsbelastningshantering i Azure Synapse Analytics.
+description: Vägledning för att implementera arbets belastnings hantering i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,47 +12,47 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: dd867d4aa9a9ef5ed73e78a46826a8cd5239039b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744237"
 ---
-# <a name="what-is-workload-management"></a>Vad är arbetsbelastningshantering?
+# <a name="what-is-workload-management"></a>Vad är arbets belastnings hantering?
 
-Om du kör blandade arbetsbelastningar kan det innebära resursutmaningar på upptagna system.  Lösningsarkitekter söker efter sätt att separera klassiska datalagringsaktiviteter (till exempel inläsning, transformering och frågedata) för att säkerställa att det finns tillräckligt med resurser för att träffa SLA:er.  
+Att köra blandade arbets belastningar kan medföra resurs utmaningar på upptagna system.  Lösnings arkitekter söker efter olika klassiska data lager aktiviteter (till exempel att läsa in, transformera och fråga data) för att se till att det finns tillräckligt med resurser för att kunna trycka service avtal.  
 
-Fysisk serverisolering kan leda till fickor av infrastruktur som är underutnyttjade, överbokade eller i ett tillstånd där cacheminnen ständigt primas med maskinvarustart och stopp.  Ett framgångsrikt arbetsbelastningshanteringssystem hanterar effektivt resurser, säkerställer mycket effektivt resursutnyttjande och maximerar avkastningen på investeringen (ROI).
+Den fysiska server isoleringen kan leda till en infrastruktur som är underutnyttjad, förbokad eller i ett tillstånd där cacheminnen ständigt definieras med maskin vara som startar och stoppar.  Ett lyckat hanterings schema för arbets belastningen hanterar resurser, garanterar mycket effektiv resursutnyttjande och maximerar avkastningen på investeringen (ROI).
 
-En datalagerarbetsbelastning refererar till alla operationer som framkommer i relation till ett informationslager. Djupet och bredden på dessa komponenter beror på tidslagerets mognadsnivå.  Datalagrets arbetsbelastning omfattar:
+Ett informations lager arbets belastning avser alla åtgärder som utförs i förhållande till ett informations lager. Djupet och bredden på dessa komponenter är beroende av data lagrets förfallo nivå.  Arbets belastningen för informations lagret omfattar:
 
-- Hela processen med att läsa in data i lagret
-- Utföra analys och rapportering av informationslager
-- Hantera data i informationslagret
-- Exportera data från informationslagret
+- Hela processen med att läsa in data till lagret
+- Utföra analys och rapportering av data lager
+- Hantera data i informations lagret
+- Exportera data från data lagret
 
-Prestandakapaciteten för ett informationslager bestäms av [informationslagerenheterna](what-is-a-data-warehouse-unit-dwu-cdwu.md).
+Prestanda kapaciteten för ett informations lager bestäms av [data lager enheterna](what-is-a-data-warehouse-unit-dwu-cdwu.md).
 
-- Om du vill visa de resurser som allokerats för alla prestandaprofiler finns i [Begränsningar för minne och samtidighet](memory-concurrency-limits.md).
-- Om du vill justera kapaciteten kan du [skala upp eller ned](quickstart-scale-compute-portal.md).
+- Om du vill visa de resurser som har allokerats för alla prestanda profiler, se [minnes-och samtidiga gränser](memory-concurrency-limits.md).
+- För att justera kapaciteten kan du [skala upp eller ned](quickstart-scale-compute-portal.md).
 
-## <a name="workload-management-concepts"></a>Begrepp för hantering av arbetsbelastningar
+## <a name="workload-management-concepts"></a>Koncept för arbets belastnings hantering
 
-Tidigare har du för SQL Analytics i Azure Synapse hanterat frågeprestanda via [resursklasser](resource-classes-for-workload-management.md).  Resursklasser som tillåts för att tilldela minne till en fråga baserat på rollmedlemskap.  Den primära utmaningen med resursklasser är att det, när de väl har konfigurerats, inte fanns någon styrning eller förmåga att kontrollera arbetsbelastningen.  
+För SQL Analytics i Azure Synapse har du tidigare hanterat frågeresultaten genom [resurs klasser](resource-classes-for-workload-management.md).  Resurs klasser som tillåts att tilldela minne till en fråga baserat på roll medlemskap.  Den primära utmaningen med resurs klasser är att, när den har kon figurer ATS, inte har någon styrning eller möjlighet att styra arbets belastningen.  
 
-Om du till exempel beviljade ett ad hoc-användarrollmedlemskap till smallrc tillåts användaren att förbruka 100 % av minnet i systemet.  Med resursklasser finns det inget sätt att reservera och se till att resurser är tillgängliga för kritiska arbetsbelastningar.
+Om du till exempel beviljar ett ad hoc användar roll medlemskap till smallrc tillåts användaren att använda 100% av minnet i systemet.  Med resurs klasser finns det inget sätt att reservera och se till att resurserna är tillgängliga för kritiska arbets belastningar.
 
-Hantering av Synapse SQL-poolarbetsbelastning i Azure Synapse består av tre högnivåbegrepp: [arbetsbelastningsklassificering,](sql-data-warehouse-workload-classification.md) [arbetsbelastningsbetydelse](sql-data-warehouse-workload-importance.md) och [arbetsbelastningsisolering](sql-data-warehouse-workload-isolation.md).  Dessa funktioner ger dig mer kontroll över hur din arbetsbelastning använder systemresurser.
+Synapse SQL-poolens arbets belastnings hantering i Azure Synapse består av tre koncept på hög nivå: [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md), [arbets belastning](sql-data-warehouse-workload-importance.md) och arbets belastnings [isolering](sql-data-warehouse-workload-isolation.md).  Med de här funktionerna får du mer kontroll över hur arbets belastningen använder system resurser.
 
-Arbetsbelastningsklassificering är konceptet att tilldela en begäran till en arbetsbelastningsgrupp och ange prioritetsnivåer.  Historiskt sett har detta uppdrag gjorts via rollmedlemskap med hjälp av [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Detta kan nu göras via [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Klassificeringsfunktionen ger en rikare uppsättning alternativ som etikett, session och tid för att klassificera begäranden.
+Arbets belastnings klassificering är begreppet att tilldela en begäran till en arbets belastnings grupp och ange prioritets nivåer.  Tidigare genomfördes den här tilldelningen via roll medlemskap med hjälp av [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Nu kan du göra det via [CLASSIFER skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Klassificerings funktionen ger en mer omfattande uppsättning alternativ, till exempel etikett, session och tid för klassificering av begär Anden.
 
-Arbetsbelastningsbetydelse påverkar i vilken ordning en begäran får åtkomst till resurser.  På ett upptaget system har en begäran med större betydelse först åtkomst till resurser.  Betydelse kan också säkerställa ordnad åtkomst till lås.
+Arbets belastnings prioriteten påverkar i vilken ordning en begäran får åtkomst till resurser.  På ett upptaget system har en begäran med högre prioritet först åtkomst till resurser.  Prioriteten kan också se till att åtkomsten till lås har beställts.
 
-Arbetsbelastningsisolering reserverar resurser för en arbetsbelastningsgrupp.  Resurser som reserverats i en arbetsbelastningsgrupp lagras uteslutande för den arbetsbelastningsgruppen för att säkerställa körning.  Arbetsbelastningsgrupper kan du också definiera hur mycket resurser som tilldelas per begäran, ungefär som resursklasser gör.  Arbetsbelastningsgrupper ger dig möjlighet att reservera eller begränsa mängden resurser som en uppsättning begäranden kan använda.  Slutligen är arbetsbelastningsgrupper en mekanism för att tillämpa regler, till exempel tidsgränsen för frågor, på begäranden.  
+Arbets belastnings isolering reserverar resurser för en arbets belastnings grupp.  Resurser som är reserverade i en arbets belastnings grupp hålls exklusivt för den arbets belastnings gruppen för att säkerställa körningen.  Med arbets belastnings grupper kan du också definiera mängden resurser som tilldelas per begäran, ungefär som resurs klasser gör.  Arbets belastnings grupper ger dig möjlighet att reservera eller lägga till en mängd resurser som en uppsättning begär Anden kan förbruka.  Slutligen är arbets belastnings grupper en mekanism för att tillämpa regler, t. ex. tids gräns för frågor, för förfrågningar.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om arbetsbelastningsklassificering finns i [Arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).  
-- Mer information om arbetsbelastningsisolering finns i [Arbetsbelastningsisolering](sql-data-warehouse-workload-isolation.md).  
-- Mer information om arbetsbelastningsbetydning finns i [Arbetsbelastningsbetydning](sql-data-warehouse-workload-importance.md).  
-- Mer information om övervakning av arbetsbelastningshantering finns i [Övervakning av arbetsbelastningshanteringsportalen](sql-data-warehouse-workload-management-portal-monitor.md).  
+- Mer information om arbets belastnings klassificering finns i avsnittet om [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md).  
+- Mer information om arbets belastnings isolering finns i [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md).  
+- Mer information om arbets belastnings prioritet finns i [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md).  
+- Mer information om övervakning av arbets belastnings hantering finns i [hanteringsportal övervakning av arbets belastningar](sql-data-warehouse-workload-management-portal-monitor.md).  

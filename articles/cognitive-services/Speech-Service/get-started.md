@@ -1,7 +1,7 @@
 ---
 title: Prova Speech Service kostnadsfritt
 titleSuffix: Azure Cognitive Services
-description: Det är enkelt och prisvärt att komma igång med taltjänsten. Det finns två alternativ tillgängliga gratis så att du kan upptäcka vad tjänsten kan göra och avgöra om det är rätt för dina behov.
+description: Kom igång med Speech service är enkelt och prisvärt. Det finns två tillgängliga alternativ kostnads fritt så att du kan identifiera vad tjänsten kan göra och bestämma om den passar dina behov.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,89 +12,89 @@ ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
 ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80656133"
 ---
-# <a name="try-the-speech-service-for-free"></a>Prova taltjänsten gratis''
+# <a name="try-the-speech-service-for-free"></a>Prova röst tjänsten utan kostnad
 
-I den här artikeln väljer du ett alternativ för att enkelt testa taltjänsten utan kostnad så att du kan upptäcka vad tjänsten kan göra och bestämma om det är rätt för dina behov. Välj ett av följande två alternativ beroende på din situation och användningsfall:
+I den här artikeln väljer du ett alternativ för att enkelt testa röst tjänsten kostnads fritt så att du kan identifiera vad tjänsten kan göra och bestämma om den passar dina behov. Välj något av de två följande alternativen beroende på din situation och användnings fall:
 
-- [Alternativ 1:](#no-card)Få omedelbart **kostnadsfria API-nycklar** utan att ange någon kreditkortsinformation (du måste ha ett befintligt Azure-konto). Den **kostnadsfria utvärderingsversionen** varar i 30 dagar och data raderas i slutet. Det här alternativet är bäst för snabb experiment med tjänsten.
-- [Alternativ 2:](#new-resource)Skapa en ny talresurs i Azure utan kostnad med hjälp av en **kostnadsfri prenumeration** (kreditkortsinformation krävs). Ett **gratisabonnemang** har huvudsakligen strängare räntegränser än en betald prenumeration. Det här alternativet är bäst om du vill testa tjänsten, men också planerar att uppgradera till en betald prenumeration i framtiden och inte vill förlora data.
+- [Alternativ 1](#no-card): Hämta omedelbart **utvärderings** -API-nycklar utan att ange någon kreditkorts information (du måste ha ett befintligt Azure-konto). Den **kostnads fria utvärderings versionen** varar 30 dagar och data tas bort i slutet. Det här alternativet är bäst för snabb experimentering med tjänsten.
+- [Alternativ 2](#new-resource): skapa en ny tal resurs i Azure, utan kostnad med en **kostnads fri prenumeration** (kreditkorts information krävs). En **kostnads fri prenumeration** har huvudsakligen en snävare pris begränsning än en betald prenumeration. Det här alternativet är bäst om du vill testa tjänsten, men även planera att uppgradera till en betald prenumeration i framtiden och inte vill förlora data.
 
-## <a name="try-the-speech-service-without-credit-card-info"></a><a id="no-card"></a>Prova taltjänsten utan kreditkortsinformation
+## <a name="try-the-speech-service-without-credit-card-info"></a><a id="no-card"></a>Prova tjänsten Speech service utan kreditkorts information
 
-Slutför följande steg för att aktivera en 30-dagars kostnadsfri utvärderingsversion och få API-nycklar. Provperioden börjar omedelbart när följande steg är klara.
+Utför följande steg för att aktivera en 30-dagars kostnads fri utvärderings version och hämta API-nycklar. Utvärderings perioden startar omedelbart när följande steg har slutförts.
 
-1. Gå till [Prova kognitiv tjänst](https://azure.microsoft.com/try/cognitive-services/).
-1. Välj fliken **Tal-API:er.**
+1. Gå till [testa kognitiva tjänster](https://azure.microsoft.com/try/cognitive-services/).
+1. Välj fliken **Speech-API: er** .
 1. Välj **Hämta API-nyckel**.
 
-Du kommer att få faktureringsalternativ. Välj det kostnadsfria alternativet och läs och godkänn sedan användaravtalet. Du kommer att presenteras med nycklar som du kan använda för att prova taltjänsten gratis i 30 dagar.
+Du kommer att visas med fakturerings alternativ. Välj alternativet gratis och Läs och godkänn användar avtalet. Du kommer att visas med nycklar som du kan använda för att prova röst tjänsten kostnads fritt i 30 dagar.
 
-## <a name="try-the-speech-service-by-creating-an-azure-resource"></a><a id="new-resource"></a>Prova taltjänsten genom att skapa en Azure-resurs
+## <a name="try-the-speech-service-by-creating-an-azure-resource"></a><a id="new-resource"></a>Prova röst tjänsten genom att skapa en Azure-resurs
 
-För följande steg behöver du både ett Microsoft-konto och ett Azure-konto. Om du inte har ett Microsoft-konto kan du registrera dig för ett kostnadsfritt på [Microsoft-kontoportalen](https://account.microsoft.com/account). Välj **Logga in med Microsoft** och välj sedan Skapa ett **Microsoft-konto**när du blir ombedd att logga in . Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
+För följande steg behöver du både ett Microsoft-konto och ett Azure-konto. Om du inte har en Microsoft-konto kan du registrera dig för en kostnads fri avgift på [Microsoft-konto portalen](https://account.microsoft.com/account). Välj **Logga in med Microsoft** och välj sedan **skapa en Microsoft-konto**när du uppmanas att logga in. Följ stegen för att skapa och verifiera din nya Microsoft-konto.
 
-När du har ett Microsoft-konto går du till [sidan för Azure-registrering,](https://azure.microsoft.com/free/ai/)väljer **Startfritt**och skapar ett nytt Azure-konto med ett Microsoft-konto.
+När du har en Microsoft-konto går du till [sidan för Azure-registrering](https://azure.microsoft.com/free/ai/), väljer **Starta kostnads fritt**och skapar ett nytt Azure-konto med hjälp av en Microsoft-konto.
 
 > [!NOTE]
-> Taltjänsten har två tjänstnivåer: kostnadsfri och prenumeration, som har olika begränsningar och fördelar. När du registrerar dig för ett kostnadsfritt Azure-konto levereras det med 200 USD i tjänstkredit som du kan använda mot en betald taltjänstprenumeration som är giltig i upp till 30 dagar.
+> Tjänsten Speech har två tjänst nivåer: kostnads fri och prenumeration, som har olika begränsningar och fördelar. När du registrerar dig för ett kostnads fritt Azure-konto levereras det med $200 i service kredit som du kan använda mot en betald Speech service-prenumeration, som är giltig i upp till 30 dagar.
 >
-> Om du använder den kostnadsfria taltjänstnivån med låg volym kan du behålla den här kostnadsfria prenumerationen även efter att din kostnadsfria prov- eller tjänstkredit har gått ut.
+> Om du använder den kostnads fria, låga tal Service nivån kan du behålla den här kostnads fria prenumerationen även efter att din kostnads fria utvärderings version eller service kredit upphör att gälla.
 >
-> Mer information finns i [Cognitive Services prissättning - Taltjänst](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Mer information finns i [Cognitive Services priss igenkännings tjänst](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="create-the-resource"></a>Skapa resursen
 
-Så här lägger du till en taltjänstresurs (kostnadsfri eller betald nivå) i ditt Azure-konto:
+Så här lägger du till en tjänst resurs (kostnads fri eller betald) till ditt Azure-konto:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Microsoft-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med din Microsoft-konto.
 
-1. Välj **Skapa en resurs** längst upp till vänster i portalen. Om du inte ser **Skapa en resurs**kan du alltid hitta den genom att välja den komprimerade menyn längst upp till vänster:
+1. Välj **skapa en resurs** längst upp till vänster i portalen. Om du inte ser **skapa en resurs**, kan du alltid hitta den genom att välja menyn komprimerad i det övre vänstra hörnet:
 
-   ![komprimerad navigeringsknapp](media/index/collapsed-nav.png)
+   ![minimerad navigerings knapp](media/index/collapsed-nav.png)
 
-1. Skriv "tal" i sökrutan i fönstret **Nytt** och tryck på RETUR.
+1. Skriv "tal" i rutan Sök i det **nya** fönstret och tryck på RETUR.
 
-1. Välj **Tal**i sökresultaten .
+1. I Sök resultaten väljer du **tal**.
 
-   ![ta ett talsökresultat](media/index/speech-search.png)
+   ![tal Sök Resultat](media/index/speech-search.png)
 
-1. Välj **Skapa**och sedan:
+1. Välj **skapa**och sedan:
 
-   - Ge ett unikt namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer som är knutna till samma tjänst.
-   - Välj den Azure-prenumeration som den nya resursen är associerad med för att avgöra hur avgifterna faktureras.
+   - Ange ett unikt namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer som är kopplade till samma tjänst.
+   - Välj den Azure-prenumeration som den nya resursen är kopplad till för att avgöra hur avgifterna faktureras.
    - Välj den [region](regions.md) där resursen ska användas.
-   - Välj antingen en kostnadsfri (F0) eller betald (S0) prisnivå. Om du vill ha fullständig information om pris- och användningskvoter för varje nivå väljer du **Visa fullständig prisinformation**.
-   - Skapa en ny resursgrupp för den här Talprenumerationen eller tilldela prenumerationen till en befintlig resursgrupp. Resursgrupper hjälper dig att hålla ordning på dina olika Azure-prenumerationer.
-   - Välj **Skapa**. Detta tar dig till distributionsöversikten och visar meddelanden om förlopp för distributionen.
+   - Välj antingen en kostnads fri (F0) eller betald (S0) pris nivå. Om du vill ha fullständig information om priser och användnings kvoter för varje nivå väljer du **Visa fullständig pris information**.
+   - Skapa en ny resurs grupp för den här tal prenumerationen eller tilldela prenumerationen till en befintlig resurs grupp. Med resurs grupper kan du hålla dina olika Azure-prenumerationer organiserade.
+   - Välj **Skapa**. Detta tar dig till distributions översikten och visar meddelanden om distributions förlopp.
 
 > [!NOTE]
-> Du kan skapa ett obegränsat antal prenumerationer på standardnivå i en eller flera regioner. Du kan dock bara skapa en prenumeration på en kostnadsfri nivå. Modelldistributioner på den kostnadsfria nivån som förblir oanvända i 7 dagar inaktiveras automatiskt.
+> Du kan skapa ett obegränsat antal prenumerationer på standard nivå i en eller flera regioner. Du kan dock bara skapa en prenumeration på den kostnads fria nivån. Modell distributioner på den kostnads fria nivån som fortsätter att vara oanvända i 7 dagar inaktive ras automatiskt.
 
-Det tar en stund att distribuera den nya talresursen. När distributionen är klar väljer du **Gå till resurs** och väljer alternativ i det vänstra navigeringsfönstret **för** att visa prenumerationsnycklarna för taltjänsten. Varje prenumeration har två nycklar. Du kan använda någon av tangenterna i programmet. Om du snabbt vill kopiera/klistra in en nyckel till kodredigeraren eller på annan plats markerar du kopieringsknappen bredvid varje tangent, byter fönster för att klistra in innehållet i Urklipp till önskad plats.
+Det tar en stund att distribuera den nya tal resursen. När distributionen är klar väljer **du gå till resurs** och i det vänstra navigerings fönstret väljer du **nycklar** för att Visa prenumerations nycklar för din röst tjänst. Varje prenumeration har två nycklar. Du kan använda någon av nycklarna i ditt program. Om du snabbt vill kopiera eller klistra in en nyckel i kod redigeraren eller på en annan plats, väljer du kopierings knappen bredvid varje nyckel, växlar fönster för att klistra in innehållet i Urklipp till önskad plats.
 
 > [!IMPORTANT]
-> Dessa prenumerationsnycklar används för att komma åt ditt Cognitive Service API. Dela inte dina nycklar. Lagra dem säkert, till exempel med hjälp av Azure Key Vault. Vi rekommenderar också att du återskapar dessa nycklar regelbundet. Endast en nyckel är nödvändig för att ringa ett API-anrop. När du återskapar den första nyckeln kan du använda den andra nyckeln för fortsatt åtkomst till tjänsten.
+> Dessa prenumerations nycklar används för att få åtkomst till ditt kognitiva tjänst-API. Dela inte dina nycklar. Lagra dem på ett säkert sätt – till exempel med hjälp av Azure Key Vault. Vi rekommenderar också att du återskapar nycklarna regelbundet. Endast en nyckel krävs för att göra ett API-anrop. När du återskapar den första nyckeln kan du använda den andra nyckeln för fortsatt åtkomst till tjänsten.
 
-## <a name="switch-to-a-new-subscription"></a>Byta till en ny prenumeration
+## <a name="switch-to-a-new-subscription"></a>Växla till en ny prenumeration
 
-Om du vill växla från en prenumeration till en annan, till exempel när din kostnadsfria utvärderingsperiod går ut eller när du publicerar ditt program, ersätter du regionen och prenumerationsnyckeln i koden med regionen och prenumerationsnyckeln för den nya Azure-resursen.
+Om du vill växla från en prenumeration till en annan, till exempel när din kostnads fria utvärderings version upphör att gälla eller när du publicerar programmet, ersätter du region och prenumerations nyckel i koden med region och prenumerations nyckel för den nya Azure-resursen.
 
 ## <a name="about-regions"></a>Om regioner
 
-- Om programmet använder en [Tal-SDK](speech-sdk.md)anger du `westus`regionkoden, till exempel när du skapar en talkonfiguration.
-- Om programmet använder en av taltjänstens [REST-API:er](rest-apis.md)är regionen en del av slutpunkts-URI som du använder när du gör begäranden.
-- Nycklar som skapas för en region är endast giltiga i den regionen. Om du försöker använda dem med andra regioner uppstår autentiseringsfel.
+- Om programmet använder ett [tal-SDK](speech-sdk.md)anger du regions koden, till exempel `westus`när du skapar en tal konfiguration.
+- Om ditt program använder en av de olika tal tjänstens [REST-API: er](rest-apis.md)är regionen en del av slut punkts-URI: n som du använder när du gör förfrågningar.
+- Nycklar som skapats för en region är bara giltiga i den regionen. Om du försöker använda dem med andra regioner resulterar det i autentiseringsfel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fyll i en av våra 10-minuters snabbstarter eller kolla in våra SDK-prover:
+Slutför en av våra snabb starter på 10 minuter eller kolla våra SDK-exempel:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Känna igen tal i C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> [Tal SDK-exempel](speech-sdk.md#sample-source-code)
+> [Snabb start: identifiera tal i C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+> -[exempel för tal-SDK](speech-sdk.md#sample-source-code)

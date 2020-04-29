@@ -1,56 +1,56 @@
 ---
-title: Sent skede omprojection
-description: Information om late stage reprojection och hur man använder den.
+title: Omprojektion av sena steg
+description: Information om omprojektion av sena steg och hur du använder den.
 author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
 ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680991"
 ---
-# <a name="late-stage-reprojection"></a>Sent skede omprojection
+# <a name="late-stage-reprojection"></a>Omprojektion av sena steg
 
-*LSR (Late Stage Reprojection)* är en maskinvarufunktion som hjälper till att stabilisera hologram när användaren flyttar.
+LSR ( *sent Stage reprojection* ) är en maskin varu funktion som hjälper till att stabilisera hologram när användaren rör sig.
 
-Statiska modeller förväntas visuellt behålla sin position när du flyttar runt dem. Om de verkar vara instabila kan det här beteendet antyder LSR-problem. Tänk på att ytterligare dynamiska omformningar, till exempel animeringar eller explosionsvyer, kan dölja detta beteende.
+Statiska modeller förväntas visuellt bevara deras position när du flyttar runt dem. Om de verkar vara instabila kan detta inträffa i LSR-problem. Observera att ytterligare dynamiska transformeringar, t. ex. animationer och explosions visningar, kan maskera detta beteende.
 
-Du kan välja mellan två olika LSR-lägen, nämligen **Planar LSR** eller **Djup LSR**. Vilken som är aktiv avgörs av om klientprogrammet skickar en djupbuffert.
+Du kan välja mellan två olika LSR-lägen, nämligen plan **LSR** eller **djup LSR**. Vilken som är aktiv bestäms av om klient programmet skickar en djup buffert.
 
-Båda LSR-lägena förbättrar hologramstabiliteten, även om de har sina distinkta begränsningar. Börja med att försöka Djup LSR, eftersom det är utan tvekan att ge bättre resultat i de flesta fall.
+Båda LSR-lägena förbättrar hologram stabiliteten, även om de har olika begränsningar. Börja med att testa djupet LSR, eftersom det är utan tvekan ger bättre resultat i de flesta fall.
 
 ## <a name="choose-lsr-mode-in-unity"></a>Välj LSR-läge i Unity
 
-Gå till *Fil > Build Settings i*Unity-redigeraren . Välj *Spelarinställningar* längst ned till vänster och kontrollera sedan under *Player > XR-inställningar > Virtual Reality-SDK:er > Windows Mixed Reality* om Aktivera **djupbuffertdelning** är markerat:
+I Unity-redigeraren går du till *fil > versions inställningar*. Välj *Player-inställningar* längst ned till vänster och kontrol lera sedan under *spelare > XR inställningar > Virtual verklighet sdk: er > Windows Mixed Reality* , om **Aktivera delning av djup buffert** är markerat:
 
-![Alternativ flagga för djupbuffertdelning](./media/unity-depth-buffer-sharing-enabled.png)
+![Flagga för delning av djup buffert aktive rad](./media/unity-depth-buffer-sharing-enabled.png)
 
-Om så är det använder appen Djup LSR, annars används Planar LSR.
+I så fall använder appen djup LSR, annars används Planning LSR.
 
 ## <a name="depth-lsr"></a>Djup LSR
 
-För att djup LSR ska fungera måste klientprogrammet tillhandahålla en giltig djupbuffert som innehåller all relevant geometri att tänka på under LSR.
+För att djupet LSR ska fungera måste klient programmet tillhandahålla en giltig djup buffert som innehåller alla relevanta geometrier att överväga under LSR.
 
-Djup LSR försöker stabilisera videoramen baserat på innehållet i den medföljande djupbufferten. Innehåll som inte har renderats till det, till exempel genomskinliga objekt, kan därför inte justeras av LSR och kan visa instabilitet och omprojectionartefakter.
+Djup LSR försöker stabilisera video ramen baserat på innehållet i den angivna djup bufferten. Som en följd av detta kan innehåll som inte har renderas till den, till exempel transparenta objekt, inte justeras av LSR och kan visa instabilitets-och omprojektions artefakter.
 
-## <a name="planar-lsr"></a>Planar LSR
+## <a name="planar-lsr"></a>Plan-LSR
 
-Planar LSR har inte djupinformation per pixel, som Djup LSR gör. I stället projektets allt innehåll på nytt baserat på ett plan som du måste ange varje bildruta.
+Plan-LSR har ingen djup information per bild punkt, eftersom djupet LSR gör. I stället projiceras allt innehåll på grund av ett plan som du måste ange varje ram.
 
-Planar LSR projekteter de objekt som bäst ligger nära det medföljande planet. Ju längre bort ett objekt är, desto mer instabilt kommer det att se ut. Djup LSR är bättre på att omprojektera objekt på olika djup, men Planar LSR kan fungera bättre för innehåll som är väl anpassat till ett plan.
+Plan LSR reprojicerar objekten på bästa sätt som ligger nära det angivna planet. Det ytterligare bort ett objekt är, desto mer instabilt kommer att se ut. Även om djupet LSR är bättre vid omprojektering av objekt vid olika djup, kan plan LSR fungera bättre för innehåll som justeras väl med ett plan.
 
-### <a name="configure-planar-lsr-in-unity"></a>Konfigurera Planar LSR i Unity
+### <a name="configure-planar-lsr-in-unity"></a>Konfigurera plan LSR i Unity
 
-Planet parametrar härleds från en så kallad *fokuspunkt*, `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`som du måste ge varje bildruta genom . Mer information finns i [API:et](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) för Unity Focus Point. Om du inte anger en fokuspunkt väljs en reservpunkt åt dig. Men att automatisk återgång leder ofta till suboptimala resultat.
+Plan parametrarna härleds från en så kallad *fokus punkt*, som du måste ange för varje bild ruta `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. Se [API för Unity Focus Point](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) för mer information. Om du inte anger en fokus punkt väljs en återställnings punkt åt dig. Den automatiska återställningen leder ofta till underoptimala resultat.
 
-Du kan beräkna fokuspunkten själv, men det kan vara klokt att basera den på den som beräknas av fjärråtergivningsvärden. Ring `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` för att få det. Du uppmanas att tillhandahålla en koordinatram där du kan uttrycka fokuspunkten. I de flesta fall vill du bara `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` ge resultatet härifrån.
+Du kan beräkna fokus punkten själv, men det kan vara bra att basera det på den som beräknas av värden för fjärrrendering. Anropa `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` för att hämta det. Du uppmanas att ange en koordinat-ram där du vill uttrycka fokus punkten. I de flesta fall vill du bara ge resultatet från `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` här.
 
-Vanligtvis både klienten och värden återge innehåll som den andra sidan inte är medveten om, till exempel gränssnittselement på klienten. Därför kan det vara meningsfullt att kombinera fjärrfokuspunkten med en lokalt beräknad.
+Vanligt vis kan både klienten och värden återge innehåll som den andra sidan inte är medveten om, till exempel GRÄNSSNITTs element på klienten. Därför kan det vara klokt att kombinera fjär fokus punkten med en lokalt Beräknad.
 
-Fokuspunkterna som beräknas i två på varandra följande ramar kan vara helt olika. Att bara använda dem som det är kan leda till hologram som verkar hoppa runt. För att förhindra detta är det tillrådligt att interpolera mellan föregående och aktuella fokuspunkter.
+Fokus punkterna som beräknas i två efterföljande ramar kan vara helt olika. Genom att använda dem som de är kan det leda till att hologram tycks hoppa runt. För att förhindra det här beteendet är interpolating mellan föregående och aktuella fokus punkter lämpligt.
 
 ## <a name="next-steps"></a>Nästa steg
 

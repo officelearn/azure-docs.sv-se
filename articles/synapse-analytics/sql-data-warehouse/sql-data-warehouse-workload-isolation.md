@@ -1,6 +1,6 @@
 ---
 title: Arbetsbelastningsisolering
-description: Vägledning för att ange arbetsbelastningsisolering med arbetsbelastningsgrupper i Azure Synapse Analytics.
+description: Vägledning för att ställa in arbets belastnings isolering med arbets belastnings grupper i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,82 +12,82 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 5d81dc1f4da6e952061496fa348d0f8e87b00b81
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742970"
 ---
-# <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Isolering av Azure Synapse Analytics-arbetsbelastningsgrupp (förhandsversion)
+# <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Isolering av arbets belastnings grupper i Azure Synapse Analytics (för hands version)
 
-I den här artikeln beskrivs hur arbetsbelastningsgrupper kan användas för att konfigurera arbetsbelastningsisolering, innehålla resurser och tillämpa körningsregler för körning av frågor.
+Den här artikeln förklarar hur arbets belastnings grupper kan användas för att konfigurera arbets belastnings isolering, innehåller resurser och tillämpa körnings regler för frågekörningen.
 
-## <a name="workload-groups"></a>Arbetsbelastningsgrupper
+## <a name="workload-groups"></a>Arbets belastnings grupper
 
-Arbetsbelastningsgrupper är behållare för en uppsättning begäranden och är grunden för hur arbetsbelastningshantering, inklusive arbetsbelastningsisolering, konfigureras på ett system.  Arbetsbelastningsgrupper skapas med syntaxen [SKAPA ARBETSBELASTNINGSGRUPP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  En enkel konfiguration för arbetsbelastningshantering kan hantera databelastningar och användarfrågor.  En arbetsbelastningsgrupp `wgDataLoads` med namnet definierar till exempel arbetsbelastningsaspekter för data som läses in i systemet. Dessutom definierar en `wgUserQueries` arbetsbelastningsgrupp med namnet arbetsbelastningsaspekter för användare som kör frågor för att läsa data från systemet.
+Arbets belastnings grupper är behållare för en uppsättning begär Anden och är grunden för hur arbets belastnings hantering, inklusive arbets belastnings isolering, är konfigurerat på ett system.  Arbets belastnings grupper skapas med hjälp av syntaxen [skapa arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  En enkel konfiguration av arbets belastnings hantering kan hantera data inläsningar och användar frågor.  Till exempel kan en arbets belastnings `wgDataLoads` grupp som heter definiera arbets belastnings aspekter för data som läses in i systemet. Dessutom definierar en arbets belastnings `wgUserQueries` grupp som heter arbets belastnings aspekter för användare som kör frågor för att läsa data från systemet.
 
-I följande avsnitt markeras hur arbetsbelastningsgrupper ger möjlighet att definiera isolering, inneslutning, begäran om resursdefinition och följa körningsregler.
+I följande avsnitt ser du hur arbets belastnings grupper ger möjlighet att definiera isolering, inne slutning, begär resurs definition och följa körnings regler.
 
 ## <a name="workload-isolation"></a>Arbetsbelastningsisolering
 
-Arbetsbelastningsisolering innebär att resurser reserveras, exklusivt, för en arbetsbelastningsgrupp.  Arbetsbelastningsisolering uppnås genom att konfigurera parametern MIN_PERCENTAGE_RESOURCE till större än noll i syntaxen [SKAPA ARBETSBELASTNINGSGRUPP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  För kontinuerlig körning arbetsbelastningar som behöver följa snäva SLA, isolering säkerställer resurser är alltid tillgängliga för arbetsbelastningen gruppen.
+Arbets belastnings isolering innebär att resurser är reserverade, exklusivt, för en arbets belastnings grupp.  Arbets belastnings isolering uppnås genom att konfigurera parametern MIN_PERCENTAGE_RESOURCE till större än noll i syntaxen [skapa arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  För kontinuerliga körnings arbets belastningar som behöver följa tätt service avtal säkerställer isolering att resurser alltid är tillgängliga för arbets belastnings gruppen.
 
-Konfigurera arbetsbelastningsisolering definierar implicit en garanterad nivå av samtidighet. En arbetsbelastningsgrupp med `MIN_PERCENTAGE_RESOURCE` en uppsättning till `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 30 % och inställd på 2 % garanteras till exempel 15 samtidighet.  Nivån på samtidigheten garanteras eftersom 15-2% platser av resurser är reserverade inom arbetsbelastningsgruppen hela tiden (oavsett hur `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` är konfigurerad).  Om `REQUEST_MAX_RESOURCE_GRANT_PERCENT` är `REQUEST_MIN_RESOURCE_GRANT_PERCENT` större än och `CAP_PERCENTAGE_RESOURCE` är större än `MIN_PERCENTAGE_RESOURCE` ytterligare resurser läggs till per begäran.  Om `REQUEST_MAX_RESOURCE_GRANT_PERCENT` `REQUEST_MIN_RESOURCE_GRANT_PERCENT` och är `CAP_PERCENTAGE_RESOURCE` lika `MIN_PERCENTAGE_RESOURCE`och är större än är ytterligare samtidighet möjlig.  Tänk på nedanstående metod för att fastställa garanterad samtidighet:
+Konfiguration av arbets belastnings isolering definierar implicit en garanterad nivå av samtidighet. En arbets belastnings grupp med en `MIN_PERCENTAGE_RESOURCE` angiven till 30% och `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 2% garanterar till exempel 15 samtidighet.  Nivån av samtidighet garanteras eftersom 15-2% fack vara reserveras inom arbets belastnings gruppen hela tiden (oavsett hur `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` konfigureras).  Om `REQUEST_MAX_RESOURCE_GRANT_PERCENT` är större än `REQUEST_MIN_RESOURCE_GRANT_PERCENT` och `CAP_PERCENTAGE_RESOURCE` är större än `MIN_PERCENTAGE_RESOURCE` det att ytterligare resurser läggs till per begäran.  Om `REQUEST_MAX_RESOURCE_GRANT_PERCENT` och `REQUEST_MIN_RESOURCE_GRANT_PERCENT` är lika och `CAP_PERCENTAGE_RESOURCE` är större än `MIN_PERCENTAGE_RESOURCE`, är det möjligt med ytterligare samtidighet.  Överväg nedanstående metod för att fastställa garanterad samtidighet:
 
-[Garanterad samtidighet] =`MIN_PERCENTAGE_RESOURCE`[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`] / [ ]
-
-> [!NOTE]
-> Det finns specifika lägsta möjliga värden på servicenivå för min_percentage_resource.  Mer information finns i [Effektiva värden](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values) för mer information.
-
-I avsaknad av arbetsbelastningsisolering fungerar begäranden i den [delade resurspoolen.](#shared-pool-resources)  Tillgång till resurser i den delade poolen garanteras inte och tilldelas på [en viktig](sql-data-warehouse-workload-importance.md) grund.
-
-Konfigurera arbetsbelastningsisolering bör göras med försiktighet eftersom resurserna allokeras till arbetsbelastningsgruppen även om det inte finns några aktiva begäranden i arbetsbelastningsgruppen. Överkonfigurering isolering kan leda till minskad total systemanvändning.
-
-Användare bör undvika en lösning för arbetsbelastningshantering som konfigurerar 100 % arbetsbelastningsisolering: 100 % isolering uppnås när summan av min_percentage_resource som konfigurerats för alla arbetsbelastningsgrupper är lika med 100 %.  Den här typen av konfiguration är alltför restriktiv och stel, vilket ger lite utrymme för resursbegäranden som av misstag är felklassificerade. Det finns en bestämmelse som tillåter en begäran att köra från arbetsbelastningsgrupper som inte har konfigurerats för isolering. De resurser som allokeras till den här begäran visas som en nolla i systemens DMV:er och lånar en liten resursbidragsnivå från systemreserverade resurser.
+[Garanterad samtidighet]`MIN_PERCENTAGE_RESOURCE`= []`REQUEST_MIN_RESOURCE_GRANT_PERCENT`/[]
 
 > [!NOTE]
-> För att säkerställa optimal resursutnyttjande bör du överväga en lösning för arbetsbelastningshantering som utnyttjar viss isolering för att säkerställa att SLA:er uppfylls och blandas med delade resurser som används baserat på [arbetsbelastningsbetydning.](sql-data-warehouse-workload-importance.md)
+> Det finns vissa lägsta möjliga värde för min_percentage_resource på service nivå.  Mer information finns i de [effektiva värdena](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values) för mer information.
 
-## <a name="workload-containment"></a>Arbetsbelastningsinneslutning
+Vid frånvaro av arbets belastnings isolering används förfrågningar i den [delade poolen](#shared-pool-resources) med resurser.  Åtkomst till resurser i den delade poolen är inte garanterad och tilldelas [prioritet](sql-data-warehouse-workload-importance.md) .
 
-Arbetsbelastningsinneslutning avser att begränsa mängden resurser som en arbetsbelastningsgrupp kan använda.  Arbetsbelastningsinneslutning uppnås genom att konfigurera parametern CAP_PERCENTAGE_RESOURCE till mindre än 100 i syntaxen [SKAPA ARBETSBELASTNINGSGRUPP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Tänk på det scenario där användarna behöver läsåtkomst till systemet så att de kan köra en vad händer om-analys via ad hoc-frågor.  Dessa typer av begäranden kan ha en negativ inverkan på andra arbetsbelastningar som körs på systemet.  Konfigurera inneslutning säkerställer att mängden resurser är begränsad.
+Konfigurering av arbets belastnings isolering bör göras med försiktighet när resurserna allokeras till arbets belastnings gruppen även om det inte finns några aktiva begär anden i arbets belastnings gruppen. Överkonfigurerad isolering kan leda till försämrad övergripande system användning.
 
-Konfigurera arbetsbelastning inneslutning implicit definierar en maximal nivå av samtidighet.  Med en CAP_PERCENTAGE_RESOURCE inställd på 60 % och en REQUEST_MIN_RESOURCE_GRANT_PERCENT inställd på 1 % tillåts upp till en 60-samtidighetsnivå för arbetsbelastningsgruppen.  Tänk på den metod som anges nedan för att fastställa den maximala samtidigheten:
-
-[Max Concurrency]`CAP_PERCENTAGE_RESOURCE`= [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`] / [ ]
+Användare bör undvika en lösning för hantering av arbets belastning som konfigurerar 100% arbets belastnings isolering: 100% isolering uppnås när summan av min_percentage_resource som kon figurer ATS för alla arbets belastnings grupper är lika med 100%.  Den här typen av konfiguration är mer restriktiv och stel och lämnar lite utrymme för resurs begär Anden som oavsiktligt felklassificeras. Det finns en regel för att tillåta att en begäran körs från arbets belastnings grupper som inte har kon figurer ATS för isolering. Resurserna som allokeras till den här begäran visas som noll i system-DMV: er och låna en smallrc resurs tilldelning från system reserverade resurser.
 
 > [!NOTE]
-> Den effektiva CAP_PERCENTAGE_RESOURCE för en arbetsbelastningsgrupp når inte 100 % när arbetsbelastningsgrupper med MIN_PERCENTAGE_RESOURCE på en nivå som är större än noll skapas.  Se [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för effektiva körningsvärden.
+> För att säkerställa optimal resursutnyttjande bör du överväga en lösning för hantering av arbets belastning som utnyttjar viss isolering för att säkerställa att service avtal är uppfyllda och blandat med delade resurser som nås baserat på [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md).
 
-## <a name="resources-per-request-definition"></a>Resurser per definition av begäran
+## <a name="workload-containment"></a>Arbets belastnings inne slutning
 
-Arbetsbelastningsgrupper tillhandahåller en mekanism för att definiera den minsta och högsta mängden resurser som allokeras per begäran med REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT parametrar i syntaxen [skapa arbetsbelastningsgrupp.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Resurser i det här fallet är CPU och minne.  Konfigurera dessa värden avgör hur mycket resurser och vilken nivå av samtidighet kan uppnås på systemet.
+Arbets belastnings inne slutning syftar till att begränsa den mängd resurser som en arbets belastnings grupp kan använda.  Arbets belastnings inne slutning uppnås genom att konfigurera parametern CAP_PERCENTAGE_RESOURCE till mindre än 100 i syntaxen [skapa arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Tänk dig ett scenario där användarna behöver Läs behörighet till systemet så att de kan köra en konsekvens analys via Ad hoc-frågor.  Dessa typer av begär Anden kan ha en negativ inverkan på andra arbets belastningar som körs på systemet.  Genom att konfigurera inne slutning ser du till att mängden resurser är begränsad.
 
-> [!NOTE]
-> REQUEST_MAX_RESOURCE_GRANT_PERCENT är en valfri parameter som standard till samma värde som anges för REQUEST_MIN_RESOURCE_GRANT_PERCENT.
+Konfigurera arbets belastnings inne slutningen definierar en maximal nivå för samtidighet.  Med en CAP_PERCENTAGE_RESOURCE inställd på 60% och en REQUEST_MIN_RESOURCE_GRANT_PERCENT inställd på 1%, tillåts upp till en 60-samtidighets nivå för arbets belastnings gruppen.  Överväg den metod som beskrivs nedan för att fastställa högsta samtidighet:
 
-Som att välja en resursklass anger konfigurera REQUEST_MIN_RESOURCE_GRANT_PERCENT värdet för de resurser som används av en begäran.  Mängden resurser som anges av det angivna värdet garanteras för allokering till begäran innan den påbörjar körningen.  För kunder som migrerar från resursklasser till arbetsbelastningsgrupper bör du överväga att följa hur [du](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) mappar från resursklasser till arbetsbelastningsgrupper som utgångspunkt.
-
-Genom att konfigurera REQUEST_MAX_RESOURCE_GRANT_PERCENT till ett värde som är större än REQUEST_MIN_RESOURCE_GRANT_PERCENT kan systemet allokera mer resurser per begäran.  När du schemalägger en begäran bestämmer systemet den faktiska resursallokeringen till begäran, som är mellan REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT, baserat på resurstillgänglighet i delad pool och aktuell belastning på systemet.  Resurserna måste finnas i den [delade resurspoolen](#shared-pool-resources) när frågan schemaläggs.  
+[Max samtidighet] =`CAP_PERCENTAGE_RESOURCE`[]/`REQUEST_MIN_RESOURCE_GRANT_PERCENT`[]
 
 > [!NOTE]
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT har effektiva värden som är beroende av de effektiva MIN_PERCENTAGE_RESOURCE och CAP_PERCENTAGE_RESOURCE värdena.  Se [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för effektiva körningsvärden.
+> Den effektiva CAP_PERCENTAGE_RESOURCE av en arbets belastnings grupp når inte 100% när arbets belastnings grupper med MIN_PERCENTAGE_RESOURCE på en högre nivå än noll skapas.  Se [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för effektiva körnings värden.
 
-## <a name="execution-rules"></a>Regler för utförande
+## <a name="resources-per-request-definition"></a>Resurs per begär ande definition
 
-På ad hoc-rapporteringssystem kan kunder av misstag köra skenande frågor som allvarligt påverkar andras produktivitet.  Systemadministratörer tvingas spendera tid på att döda skenande frågor för att frigöra systemresurser.  Arbetsbelastningsgrupper erbjuder möjligheten att konfigurera en tidsgränsen för frågekörning för att avbryta frågor som har överskridit det angivna värdet.  Regeln konfigureras genom att `QUERY_EXECUTION_TIMEOUT_SEC` ange parametern i syntaxen [SKAPA ARBETSBELASTNINGSGRUPP.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Arbets belastnings grupper tillhandahåller en mekanism för att definiera den minsta och högsta mängden resurser som tilldelas per begäran med REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT parametrar i [create arbets belastnings gruppens](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.  Resurser i det här fallet är CPU och minne.  Genom att konfigurera dessa värden bestäms hur mycket resurser och vilken nivå av samtidighet som kan uppnås i systemet.
 
-## <a name="shared-pool-resources"></a>Delade poolresurser
+> [!NOTE]
+> REQUEST_MAX_RESOURCE_GRANT_PERCENT är en valfri parameter som är standardvärdet för samma värde som anges för REQUEST_MIN_RESOURCE_GRANT_PERCENT.
 
-Delade poolresurser är de resurser som inte har konfigurerats för isolering.  Arbetsbelastningsgrupper med en MIN_PERCENTAGE_RESOURCE inställd på noll hävstångsresurser i den delade poolen för att köra begäranden.  Arbetsbelastningsgrupper med en CAP_PERCENTAGE_RESOURCE större än MIN_PERCENTAGE_RESOURCE också använt delade resurser.  Mängden resurser som är tillgängliga i den delade poolen beräknas på följande sätt.
+På samma sätt som du väljer en resurs klass, konfigurera REQUEST_MIN_RESOURCE_GRANT_PERCENT anger värdet för de resurser som används av en begäran.  Mängden resurser som anges av Set-värdet garanteras för allokering till begäran innan den börjar köras.  För kunder som migrerar från resurs klasser till arbets belastnings grupper kan du [överväga att följa artikeln artikeln](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) att mappa från resurs klasser till arbets belastnings grupper som en start punkt.
 
-[Delad pool] = 100 `MIN_PERCENTAGE_RESOURCE` - [summan av alla arbetsbelastningsgrupper]
+Om du konfigurerar REQUEST_MAX_RESOURCE_GRANT_PERCENT till ett värde som är större än REQUEST_MIN_RESOURCE_GRANT_PERCENT kan systemet allokera fler resurser per begäran.  Vid schemaläggning av en begäran fastställer systemet faktisk resursallokering till begäran, vilket är mellan REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT, baserat på resurs tillgänglighet i delad pool och aktuell belastning på systemet.  Resurserna måste finnas i den [delade poolen](#shared-pool-resources) med resurser när frågan har schemalagts.  
 
-Tillgång till resurser i den delade poolen fördelas på [en viktig](sql-data-warehouse-workload-importance.md) grund.  Begäranden med samma prioritetsnivå kommer att få tillgång till delade poolresurser på grundval av första in/först ut.
+> [!NOTE]
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT har effektiva värden som är beroende av de effektiva MIN_PERCENTAGE_RESOURCE och CAP_PERCENTAGE_RESOURCE värden.  Se [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för effektiva körnings värden.
+
+## <a name="execution-rules"></a>Körnings regler
+
+På ad hoc-rapporterings system kan kunder oavsiktligt köra överliggande frågor som kraftigt påverkar produktiviteten hos andra.  System administratörer tvingas ägna tid åt att lägga ner frågor om att frigöra system resurser.  Arbets belastnings grupper ger möjlighet att konfigurera en tids gräns regel för frågekörningen för att avbryta frågor som har överskridit det angivna värdet.  Regeln konfigureras genom att ange `QUERY_EXECUTION_TIMEOUT_SEC` parametern i [skapa arbets belastnings gruppens](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.
+
+## <a name="shared-pool-resources"></a>Delade pool resurser
+
+Resurser för delad pool är de resurser som inte är konfigurerade för isolering.  Arbets belastnings grupper med MIN_PERCENTAGE_RESOURCE inställd på noll utnyttjar resurser i den delade poolen för att köra begär Anden.  Arbets belastnings grupper med en CAP_PERCENTAGE_RESOURCE större än MIN_PERCENTAGE_RESOURCE också använt delade resurser.  Mängden resurser som är tillgängliga i den delade poolen beräknas på följande sätt.
+
+[Delad pool] = 100-[summan av `MIN_PERCENTAGE_RESOURCE` alla arbets belastnings grupper]
+
+Åtkomst till resurser i den delade poolen allokeras på grund av [prioritet](sql-data-warehouse-workload-importance.md) .  Begär Anden med samma prioritets nivå kommer att få åtkomst till Shared pool-resurser först in/först ut.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabbstart: konfigurera arbetsbelastningsisolering](quickstart-configure-workload-isolation-tsql.md)
-- [SKAPA ARBETSBELASTNINGSGRUPP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Konvertera resursklasser till arbetsbelastningsgrupper](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
-- [Övervakning av arbetsbelastningshanteringsportalen](sql-data-warehouse-workload-management-portal-monitor.md).  
+- [Snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-tsql.md)
+- [SKAPA ARBETS BELASTNINGS GRUPP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Konvertera resurs klasser till arbets belastnings grupper](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
+- [Övervakning av arbets belastnings hanteringsportal](sql-data-warehouse-workload-management-portal-monitor.md).  

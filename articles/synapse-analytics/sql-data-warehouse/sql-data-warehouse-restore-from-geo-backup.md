@@ -1,6 +1,6 @@
 ---
-title: Återställa ett informationslager från en geo-säkerhetskopiering
-description: Så här guidar du för att geo-återställa en SQL-pool.
+title: Återställa ett informations lager från en geo-säkerhetskopiering
+description: Instruktions guide för geo-återställning av en SQL-pool.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,38 +12,38 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745077"
 ---
-# <a name="geo-restore-for-sql-pool"></a>Geoåterställning för SQL-pool
+# <a name="geo-restore-for-sql-pool"></a>Geo-återställning för SQL-pool
 
-I den här artikeln lär du dig att återställa din SQL-pool från en geo-säkerhetskopiering via Azure portal och PowerShell.
+I den här artikeln får du lära dig att återställa SQL-poolen från en geo-säkerhetskopiering via Azure Portal och PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verifiera din DTU-kapacitet.** Varje SQL-pool är värd för en SQL-server (till exempel myserver.database.windows.net) som har en DTU-standardkvot. Kontrollera att SQL-servern har tillräckligt med återstående DTU-kvot för databasen som återställs. Mer information om hur du beräknar DTU som behövs eller begär mer DTU finns i [Begär en DTU-kvotändring](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifiera din DTU-kapacitet.** Varje SQL-pool finns på en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot. Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Återställa från en geografisk Azure-region via PowerShell
 
-Om du vill återställa från en geo-säkerhetskopiering använder du cmdleten [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Om du vill återställa från en geo-säkerhets kopiering använder du cmdleten [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 > [!NOTE]
-> Du kan utföra en geo-återställning till Gen2! Om du vill göra det anger du ett Gen2 ServiceObjectiveName (t.ex.**c**
+> Du kan utföra en geo-återställning till Gen2! Det gör du genom att ange en Gen2-ServiceObjectiveName (t. ex. DW1000**c**) som en valfri parameter.
 >
 
-1. Innan du börjar, se till att [installera Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Innan du börjar ska du se till att [installera Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Öppna PowerShell.
 3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
-4. Välj den prenumeration som innehåller det informationslager som ska återställas.
-5. Hämta det informationslager som du vill återställa.
-6. Skapa återställningsbegäran för informationslagret.
-7. Kontrollera status för det geoåterda datalager.
-8. Informationsstället när återställningen har slutförts finns i [Konfigurera databasen efter återställning]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+4. Välj den prenumeration som innehåller det data lager som ska återställas.
+5. Hämta det data lager som du vill återställa.
+6. Skapa en begäran om återställning av data lagret.
+7. Kontrol lera statusen för det geo-återställda informations lagret.
+8. Information om hur du konfigurerar ditt informations lager när återställningen har slutförts finns i [Konfigurera din databas efter återställning]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -70,32 +70,32 @@ $GeoRestoredDatabase = Restore-AzSqlDatabase –FromGeoBackup -ResourceGroupName
 $GeoRestoredDatabase.status
 ```
 
-Den återställda databasen är TDE-aktiverad om källdatabasen är TDE-aktiverad.
+Den återställda databasen kommer att TDEs om käll databasen är TDE-aktive rad.
 
-## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Återställa från en geografisk Azure-region via Azure-portalen
+## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Återställa från en geografisk region i Azure via Azure Portal
 
-Följ stegen nedan för att återställa en SQL-pool från en geo-backup:
+Följ stegen som beskrivs nedan för att återställa en SQL-pool från en geo-säkerhets kopiering:
 
-1. Logga in på ditt [Azure-portalkonto.](https://portal.azure.com/)
-2. Klicka på **+ Skapa en resurs**.
+1. Logga in på ditt [Azure Portal](https://portal.azure.com/) -konto.
+2. Klicka på **+ skapa en resurs**.
 
-   ![Nya DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Ny DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Klicka på **Databaser** och sedan **Azure Synapse Analytics (tidigare SQL DW) **.
+3. Klicka på **databaser** och sedan * * Azure Synapse Analytics (tidigare SQL DW) * *.
 
-   ![Nya DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![Ny DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
-4. Fyll i den information som **begärs** på fliken Grunderna och klicka på **Nästa: Ytterligare inställningar**.
+4. Fyll i informationen som begärs på fliken **grundläggande** och klicka på **Nästa: ytterligare inställningar**.
 
    ![Grundläggande inställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
-5. För **Använd befintlig dataparameter** väljer du **Säkerhetskopiering** och väljer lämplig säkerhetskopiering i alternativen för rullning nedåt. Klicka på **Granska + Skapa**.
+5. Om du vill **använda befintlig data** parameter väljer du **säkerhets kopiering** och väljer lämplig säkerhets kopia från rullnings List alternativen. Klicka på **Granska + skapa**.
 
    ![säkerhetskopiering](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
-6. När informationslagret har återställts kontrollerar du att **statusen** är online.
+6. När data lagret har återställts kontrollerar du att **statusen** är online.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)

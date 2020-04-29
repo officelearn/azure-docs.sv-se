@@ -1,43 +1,43 @@
 ---
-title: Sky reflektioner
-description: Beskriver hur du ställer in miljökartor för himmelsreflektioner
+title: Reflektioner av himmel
+description: Beskriver hur du konfigurerar miljö kartor för himmelsblå-reflektioner
 author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: 7316df7bcf78e3a154510e69116c288b2b293d4c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680614"
 ---
-# <a name="sky-reflections"></a>Sky reflektioner
+# <a name="sky-reflections"></a>Reflektioner av himmel
 
-I Azure Remote Rendering används en himmelsstruktur för att tända objekt realistiskt. För augmented reality-applikationer bör denna textur likna din verkliga omgivning, för att göra objekt verkar övertygande. I den här artikeln beskrivs hur du ändrar himmelsstrukturen.
+I Azure Remote rendering används en himmel-textur för att lätta objekt realistiska. För förhöjda verklighets program bör den här texturen likna din verkliga miljö, för att göra objekt övertygande. I den här artikeln beskrivs hur du ändrar luft rummets struktur.
 
 > [!NOTE]
-> Himlen konsistens kallas också en *miljö karta*. Dessa termer används omväxlande.
+> Den himmelsblå texturen kallas även för en *miljö karta*. Dessa villkor används utbytbart.
 
-## <a name="object-lighting"></a>Objektbelysning
+## <a name="object-lighting"></a>Objekt belysning
 
-Azure Remote Rendering använder *fysiskt baserad rendering* (PBR) för realistiska belysningsberäkningar. Även om du kan lägga till [ljuskällor](lights.md) till din scen, med hjälp av en bra himmel konsistens har störst inverkan.
+Med Azure Remote rendering används PBR ( *fysiskt baserad åter givning* ) för realistiska belysnings beräkningar. Även om du kan lägga till [ljusa källor](lights.md) i din scen, har den största effekten att använda en lämplig luft rummets struktur.
 
-Bilderna nedan visar resultaten av belysning olika ytor endast med en himmel konsistens:
+Bilderna nedan visar resultat av ljus olika ytor med en himmel-struktur:
 
-| Strävhet  | 0                                        | 0.25                                          | 0,5                                          | 0,75                                          | 1                                          |
+| Grovhet  | 0                                        | 0.25                                          | 0,5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| Icke-metall  | ![Dielektriska0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
-| Metall      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+| Icke-metall  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
+| BMR      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
 
-Mer information om ljusmodellen finns [materials](../../concepts/materials.md) i materialkapitlet.
+Mer information om belysnings modellen finns i kapitlet om [material](../../concepts/materials.md) .
 
 > [!IMPORTANT]
-> Azure Remote Rendering använder himmelsstrukturen endast för belysningsmodeller. Det gör inte himlen som en bakgrund, eftersom Augmented Reality applikationer redan har en ordentlig bakgrund - den verkliga världen.
+> Azure fjärrrendering använder endast den himmelsblå texturen för belysnings modeller. Den återger inte luft rummet som en bakgrund eftersom förhöjda verklighets program redan har en korrekt bakgrund – den verkliga världen.
 
-## <a name="changing-the-sky-texture"></a>Ändra himmelsstrukturen
+## <a name="changing-the-sky-texture"></a>Ändra luft rummets struktur
 
-För att ändra miljökartan behöver du bara läsa in en `SkyReflectionSettings` [textur](../../concepts/textures.md) och ändra sessionens:
+Om du vill ändra miljö kartan behöver du bara [läsa in en struktur](../../concepts/textures.md) och ändra sessionens `SkyReflectionSettings`:
 
 ``` cs
 LoadTextureAsync _skyTextureLoad = null;
@@ -66,54 +66,54 @@ void ChangeEnvironmentMap(AzureSession session)
 }
 ```
 
-Observera att `LoadTextureFromSASAsync` varianten används ovan eftersom en inbyggd textur läses in. Vid inläsning från [länkade blob-lagringar](../../how-tos/create-an-account.md#link-storage-accounts)använder du varianten. `LoadTextureAsync`
+Observera att `LoadTextureFromSASAsync` varianten används ovan eftersom en inbyggd textur har lästs in. Om du läser in från [länkade BLOB-lagringar](../../how-tos/create-an-account.md#link-storage-accounts)använder du `LoadTextureAsync` varianten.
 
-## <a name="sky-texture-types"></a>Textningstyper för sky
+## <a name="sky-texture-types"></a>Typer av luft rummets struktur
 
-Du kan använda både *[kubmappar](https://en.wikipedia.org/wiki/Cube_mapping)* och *2D-texturer* som miljökartor.
+Du kan använda både *[cubemaps](https://en.wikipedia.org/wiki/Cube_mapping)* -och *2D-texturer* som miljö kartor.
 
-Alla texturer måste vara i ett [texturformat som stöds](../../concepts/textures.md#supported-texture-formats). Du behöver inte ange mipmaps för himmelsstrukturer.
+Alla texturer måste vara i ett [textur format som stöds](../../concepts/textures.md#supported-texture-formats). Du behöver inte ange mipmaps för himmelsblå texturer.
 
-### <a name="cube-environment-maps"></a>Kubmiljökartor
+### <a name="cube-environment-maps"></a>Kub miljö kartor
 
-Som referens, här är en oförpackad kubkarta:
+För referens är här en cubemap som inte är figursatt:
 
-![En oförpackad kubkarta](media/Cubemap-example.png)
+![En figursatt cubemap](media/Cubemap-example.png)
 
-`AzureSession.Actions.LoadTextureAsync` /  Använd `LoadTextureFromSASAsync` `TextureType.CubeMap` med för att ladda kubmappstexturer.
+`AzureSession.Actions.LoadTextureAsync` /  Använd `LoadTextureFromSASAsync` med `TextureType.CubeMap` för att läsa in cubemap texturer.
 
-### <a name="sphere-environment-maps"></a>Sfäriska miljökartor
+### <a name="sphere-environment-maps"></a>Sfär miljö kartor
 
-När du använder en 2D-textur som en miljökarta måste bilden vara i [sfäriskt koordinatutrymme](https://en.wikipedia.org/wiki/Spherical_coordinate_system).
+När du använder en 2D-struktur som en miljö karta måste bilden vara i [sfäriskt koordinat utrymme](https://en.wikipedia.org/wiki/Spherical_coordinate_system).
 
-![En himmelsbild i sfäriska koordinater](media/spheremap-example.png)
+![En himmel-bild i sfäriska koordinater](media/spheremap-example.png)
 
-Använd `AzureSession.Actions.LoadTextureAsync` `TextureType.Texture2D` med för att läsa in sfäriska miljökartor.
+Använd `AzureSession.Actions.LoadTextureAsync` med `TextureType.Texture2D` för att läsa in sfäriska miljö kartor.
 
-## <a name="built-in-environment-maps"></a>Inbyggda miljökartor
+## <a name="built-in-environment-maps"></a>Inbyggda miljö kartor
 
-Azure Remote Rendering innehåller några inbyggda miljömappningar som alltid är tillgängliga. Alla inbyggda miljökartor är kubkartor.
+Azure Remote rendering innehåller några inbyggda miljö kartor som alltid är tillgängliga. Alla inbyggda miljö kartor är cubemaps.
 
-|Identifierare                         | Beskrivning                                              | Illustration                                                      |
+|Identifierare                         | Beskrivning                                              | Exemplet                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Olika randljus, ljus inomhus basbelysning    | ![Autoshop (bilhandel)](media/autoshop.png)
-|builtin://BoilerRoom               | Ljus inomhusljusinställning, flera fönsterlampor      | ![BoilerRoom (Kanter)](media/boiler-room.png)
-|builtin://ColorfulStudio           | Varierande färgade lampor i medelljus inomhusmiljö  | ![ColorfulStudio](media/colorful-studio.png)
-|builtin://Hangar                   | Måttligt ljust omgivande hallljus                     | ![SmallHangar (småhängar)](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Dim inomhusinställning med ljus-mörk kontrast              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Dagsljus i omgivande rum, ljust fönsterområde ljus     | ![Lebombo (på andra sätt)](media/lebombo.png)
-|builtin://SataraNight              | Mörk natthimmel och mark med många omgivande ljus   | ![SataraNatt](media/satara-night.png)
-|builtin://SunnyVondelpark          | Starkt solljus och skuggkontrast                      | ![SunnyVondelpark (500)](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Klart himmelsljus med måttlig markbelysning            | ![Syferfontein (syferfontein)](media/syferfontein.png)
+|builtin://Autoshop                 | Olika rand lampor, ljus inomhus bas belysning    | ![Shoppa](media/autoshop.png)
+|builtin://BoilerRoom               | Ljus inomhus-inställning, flera fönster lampor      | ![BoilerRoom](media/boiler-room.png)
+|builtin://ColorfulStudio           | Variera färg lampor i mellanliggande inlednings inställning  | ![ColorfulStudio](media/colorful-studio.png)
+|builtin://Hangar                   | Måttligt ljus omgivnings ljus                     | ![SmallHangar](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Dim-inlednings inställning med ljust mörk kontrast              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Dagtid, ljust fönster Area ljust     | ![Lebombo](media/lebombo.png)
+|builtin://SataraNight              | Mörkt natt himmel och mark med många omgivande lampor   | ![SataraNight](media/satara-night.png)
+|builtin://SunnyVondelpark          | Ljus solljus och skugga kontrast                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Ta bort luft rummets ljus med måttlig belysning            | ![Syferfontein](media/syferfontein.png)
 |builtin://TearsOfSteelBridge       | Måttligt varierande sol och skugga                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Kvällssolnedgångsljus närmar sig skymning                    | ![VenedigSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Ljusa, frodiga-gröna och vita ljustoner, nedtonad mark | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | Dagtid med starkt omgivande markljus                 | ![Vinterströmmen](media/winter-river.png)
-|builtin://DefaultSky               | Samma som TearsOfSteelBridge                               | ![StandardSky](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Kväll solnedgång tänd Dusk                    | ![VeniceSunset](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Ljusa, Lush och vita ljusa toner, nedtonad mark | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Dagtid med ljust omgivande underlag                 | ![WinterRiver](media/winter-river.png)
+|builtin://DefaultSky               | Samma som TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Cykellyktor](../../overview/features/lights.md)
+* [Lampor](../../overview/features/lights.md)
 * [Material](../../concepts/materials.md)
-* [Texturer](../../concepts/textures.md)
-* [Kommandoradsverktyget TexConv](../../resources/tools/tex-conv.md)
+* [Bakgrunder](../../concepts/textures.md)
+* [Kommando rads verktyget TexConv](../../resources/tools/tex-conv.md)

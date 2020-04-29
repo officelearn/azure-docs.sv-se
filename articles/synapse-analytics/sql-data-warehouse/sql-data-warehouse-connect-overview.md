@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Synapse SQL-pool
-description: Anslut till SQL-poolen.
+title: Anslut till Synapse SQL-pool
+description: Anslut till SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,21 +12,21 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e5c015751e8b0aeed7bd84086cc4f65c234fdb41
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745314"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Ansluta till Synapse SQL-pool
+# <a name="connect-to-synapse-sql-pool"></a>Anslut till Synapse SQL-pool
 
-Anslut till SQL-poolen.
+Anslut till SQL-pool.
 
 ## <a name="find-your-server-name"></a>Hitta servernamnet
 
-Servernamnet i följande exempel är sqlpoolservername.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
+Server namnet i följande exempel är sqlpoolservername.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
 
-1. Gå till [Azure-portalen](https://portal.azure.com).
+1. Gå till [Azure Portal](https://portal.azure.com).
 2. Klicka på **Azure Synapse Analytics**.
 3. Klicka på den SQL-pool som du vill ansluta till.
 4. Leta upp det fullständiga servernamnet.
@@ -35,9 +35,9 @@ Servernamnet i följande exempel är sqlpoolservername.database.windows.net. Fö
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivrutiner och anslutningssträngar som stöds
 
-SQL-poolen stöder [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). För att hitta den senaste versionen och dokumentationen, klicka på en av de föregående drivrutinerna.
+SQL-poolen stöder [ADO.net](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [php](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Du hittar den senaste versionen och dokumentationen genom att klicka på någon av de föregående driv rutinerna.
 
-Om du vill generera anslutningssträngen automatiskt för drivrutinen som du använder från Azure-portalen klickar du på **anslutningssträngarna Visa databas** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
+För att automatiskt generera anslutnings strängen för den driv rutin som du använder från Azure Portal, klickar du på **Visa databas anslutnings strängar** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
 
 > [!NOTE]
 > Det kan vara bra att ange en tidsgräns på 300 sekunder för anslutningen så att den inte bryts vid korta perioder av inaktivitet.
@@ -68,7 +68,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="connection-settings"></a>Inställningar för anslutning
 
-SQL-poolen standardiserar vissa inställningar när anslutningen skapas och objekt skapas. Dessa inställningar kan inte åsidosättas. Det gäller exempelvis:
+SQL-poolen standardiserar vissa inställningar under anslutning och objekt skapande. Dessa inställningar kan inte åsidosättas. Det gäller exempelvis:
 
 | Databasinställning | Värde |
 |:--- |:--- |
@@ -79,4 +79,4 @@ SQL-poolen standardiserar vissa inställningar när anslutningen skapas och obje
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio](sql-data-warehouse-query-visual-studio.md). Mer information om autentiseringsalternativ finns i [Autentisering till Azure Synapse Analytics](sql-data-warehouse-authentication.md).
+Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio](sql-data-warehouse-query-visual-studio.md). Mer information om autentiseringsalternativ finns i [autentisering till Azure Synapse Analytics](sql-data-warehouse-authentication.md).

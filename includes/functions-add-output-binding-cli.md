@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 121f6ffa5c1a7c903e59be8a5bc3e1e1db0834fc
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673356"
 ---
-## <a name="add-an-output-binding-definition-to-the-function"></a>Lägga till en utdatabindningsdefinition i funktionen
+## <a name="add-an-output-binding-definition-to-the-function"></a>Lägg till en definition för utgående bindning i funktionen
 
-Även om en funktion bara kan ha en utlösare kan den ha flera indata- och utdatabindningar, vilket gör att du kan ansluta till andra Azure-tjänster och resurser utan att skriva anpassad integrationskod. 
+Även om en funktion bara kan ha en utlösare, kan den ha flera indata-och utgående bindningar, vilket gör att du kan ansluta till andra Azure-tjänster och-resurser utan att skriva anpassad integrerings kod. 
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-Du deklarerar dessa bindningar i *filen function.json* i funktionsmappen. Från föregående snabbstart innehåller *filen function.json* i mappen *HttpExample* två `bindings` bindningar i samlingen:  
+Du deklarerar dessa bindningar i *Function. JSON* -filen i mappen function. I den tidigare snabb starten innehåller din *Function. JSON* -fil i mappen *HttpExample* två bindningar i `bindings` samlingen:  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -32,33 +32,33 @@ Du deklarerar dessa bindningar i *filen function.json* i funktionsmappen. Från 
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript, programming-language-powershell, programming-language-typescript"  
-Varje bindning har minst en typ, en riktning och ett namn. I exemplet ovan är den första `httpTrigger` bindningen `in`av typen med riktningen . För `in` riktningen `name` anger namnet på en indataparameter som skickas till funktionen när den anropas av utlösaren.  
+Varje bindning har minst en typ, en riktning och ett namn. I exemplet ovan är den första bindningen av typen `httpTrigger` med riktningen. `in` I `in` riktningen `name` anger du namnet på en indataparameter som skickas till funktionen när den anropas av utlösaren.  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Den andra bindningen i `res`samlingen heter . Den `http` här bindningen`out`är en utdatabindning ( ) som används för att skriva HTTP-svaret. 
+Den andra bindningen i samlingen heter `res`. Den `http` här bindningen är en utgående`out`bindning () som används för att skriva http-svaret. 
 
-Om du vill skriva till en Azure `out` Storage-kö från den här funktionen lägger du till en bindning av typen `queue` med namnet `msg`, som visas i koden nedan:
+Om du vill skriva till en Azure Storage kö från den här funktionen `out` lägger du till `queue` en bindning av `msg`typen med namnet, som du ser i koden nedan:
 
 :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"  
-Den andra bindningen i `http` samlingen är `out`av typen riktning `name` `$return` , i vilket fall specialvärdet anger att denna bindning använder funktionens returvärde i stället för att tillhandahålla en indataparameter.
+Den andra bindningen i samlingen är av typen `http` med riktningen `out`, i så fall är den särskilda `name` av `$return` anger att den här bindningen använder funktionens retur värde istället för att ange en indataparameter.
 
-Om du vill skriva till en Azure `out` Storage-kö från den här funktionen lägger du till en bindning av typen `queue` med namnet `msg`, som visas i koden nedan:
+Om du vill skriva till en Azure Storage kö från den här funktionen `out` lägger du till `queue` en bindning av `msg`typen med namnet, som du ser i koden nedan:
 
 :::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"  
-Den andra bindningen i `res`samlingen heter . Den `http` här bindningen`out`är en utdatabindning ( ) som används för att skriva HTTP-svaret. 
+Den andra bindningen i samlingen heter `res`. Den `http` här bindningen är en utgående`out`bindning () som används för att skriva http-svaret. 
 
-Om du vill skriva till en Azure `out` Storage-kö från den här funktionen lägger du till en bindning av typen `queue` med namnet `msg`, som visas i koden nedan:
+Om du vill skriva till en Azure Storage kö från den här funktionen `out` lägger du till `queue` en bindning av `msg`typen med namnet, som du ser i koden nedan:
 
 :::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-I det `msg` här fallet ges till funktionen som ett utdataargument. För `queue` en typ måste du också ange `queueName` namnet på kön i och ange *namnet* på Azure Storage-anslutningen (från *local.settings.json)* i `connection`. 
+I det här fallet `msg` anges funktionen som ett argument för utdata. För en `queue` typ måste du också ange namnet på kön i `queueName` och ange *namnet* på Azure Storage anslutning (från *Local. Settings. JSON*) i `connection`. 
 ::: zone-end  

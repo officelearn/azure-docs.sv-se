@@ -1,19 +1,19 @@
 ---
-title: Referens för import- och exportdata - QnA Maker
-description: Förstå hur typerna av webbadresser används för att importera och skapa QnA-par.
+title: Importera och exportera data referens – QnA Maker
+description: 'Förstå hur olika typer av URL: er används för att importera och skapa QnA-par.'
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: e4a423ef9478cd39181c6440801f9fe954dc896c
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804251"
 ---
-# <a name="import-and-export-data-reference"></a>Referens för import- och exportdata
+# <a name="import-and-export-data-reference"></a>Importera och exportera data referens
 
-Granska den här import- och exportreferensen för att få bästa resultat för säkerhetskopiering, lagring och ersättning av kunskapsbasen.
+Läs den här import-och export referensen för att få bästa möjliga resultat för din kunskaps bas säkerhets kopiering, lagring och ersättning.
 
-## <a name="import-and-export-knowledge-base"></a>Kunskapsbas för import och export
+## <a name="import-and-export-knowledge-base"></a>Importera och exportera kunskaps bas
 
-**TSV- och XLS-filer**, från exporterade kunskapsbaser, kan endast användas genom att importera filerna från sidan **Inställningar** i QnA Maker-portalen. De kan inte användas som datakällor när kunskapsbasen skapas eller från funktionen **+ Lägg till fil** eller + Lägg till **URL** på sidan **Inställningar.**
+**TSV-och XLS-filer**, från exporterade kunskaps baser, kan bara användas genom att importera filerna från sidan **Inställningar** på QNA Maker portalen. De kan inte användas som data källor när du skapar kunskaps basen eller från **+ Lägg till fil** eller **+ Lägg till URL** -funktionen på sidan **Inställningar** .

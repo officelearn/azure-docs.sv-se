@@ -1,27 +1,27 @@
 ---
-title: Använda holografisk ommottering och fjärrrendering i Unity
-description: Så här kan förhandsversionen av Holographic Remoting användas i kombination med Azure Remote Rendering
+title: Använda Holographic-fjärrstyrning och Remote Rendering i Unity
+description: Hur Holographic för fjärrhantering kan användas i kombination med Azure-fjärrrendering
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/23/2020
 ms.topic: how-to
 ms.openlocfilehash: ac47a2922e92233f0acabf75817a712671306bc1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681212"
 ---
-# <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Använda holografisk ommottering och fjärrrendering i Unity
+# <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Använda Holographic-fjärrstyrning och Remote Rendering i Unity
 
-[Holografisk ommotsättning](https://docs.microsoft.com/windows/mixed-reality/holographic-remoting-player) och Azure Remote Rendering är ömsesidigt uteslutande inom ett program. [Unity play-läget](https://docs.microsoft.com/windows/mixed-reality/unity-play-mode) är därför inte heller tillgängligt.
+[Holographic fjärr kommunikation](https://docs.microsoft.com/windows/mixed-reality/holographic-remoting-player) och Azure fjärrrendering är ömsesidigt uteslutande i ett program. Enhets [uppspelnings läget](https://docs.microsoft.com/windows/mixed-reality/unity-play-mode) är inte heller tillgängligt.
 
-För varje körning av Unity-redigeraren kan endast en av de två användas. Om du vill använda den andra startar du om Unity först.
+För varje körning av Unity-redigeraren går det bara att använda en av de två. Om du vill använda den andra måste du först starta om den.
 
-## <a name="use-unity-play-mode-to-preview-on-hololens-2"></a>Använd Unity-spelläge för att förhandsgranska på Hololens 2
+## <a name="use-unity-play-mode-to-preview-on-hololens-2"></a>Använd enhets förhands visnings läge för för hands versionen på HoloLens 2
 
- Unity play-läge kan fortfarande användas, till exempel för att testa programmets användargränssnitt. Det är dock viktigt att ARR aldrig initieras. Annars kommer det att krascha.
+ Enhets uppspelnings läget kan fortfarande användas, till exempel för att testa programmets användar gränssnitt. Det är dock viktigt att ARR aldrig initieras. Annars kommer den att krascha.
 
-## <a name="use-a-wmr-vr-headset-to-preview-on-desktop"></a>Använda ett WMR VR-headset för att förhandsgranska på datorn
+## <a name="use-a-wmr-vr-headset-to-preview-on-desktop"></a>Använd ett WMR VR-headset för att förhandsgranska på Skriv bordet
 
-Om det finns ett Windows Mixed Reality VR-headset kan det användas för att förhandsgranska inuti Unity. I det här fallet är det bra att initiera ARR, men det kommer inte att vara möjligt att ansluta till en session medan WMR-headsetet används.
+Om det finns ett headset i Windows Mixed Reality kan du använda det för att för hands versionen av enheten. I det här fallet är det bra att initiera ARR, men det går inte att ansluta till en session medan WMR-headsetet används.

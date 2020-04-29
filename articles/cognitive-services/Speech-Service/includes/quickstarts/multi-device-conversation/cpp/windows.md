@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
 ms.openlocfilehash: 015986ffa687142cf20ca18cff175ac6c5952a11
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671859"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure Speech-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Från Visual Studio, öppna källfilen **helloworld.cpp**.
+1. Öppna käll filen **HelloWorld. cpp**från Visual Studio.
 
-1. Ersätt all kod med följande utdrag:
+1. Ersätt all kod med följande kodfragment:
 
     ```cpp
     #include "pch.h"
@@ -201,27 +201,27 @@ Innan du börjar måste du:
 
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Välj Spara**alla** **på** > menyraden .
+1. Välj **Arkiv** > **Spara alla**på Meny raden.
 
 ## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Skapa och kör programmet för att skapa en ny konversation
 
-1. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden bör nu kompileras utan fel.
+1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Välj **Felsökning** > **Starta felsökning** (eller tryck på <kbd>F5)</kbd>för att starta **helloworld-programmet.**
+1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på <kbd>F5</kbd>).
 
-1. När meddelandet `Started transcribing` visas kan du börja tala. Du ser transkriptionerna visas när du talar
-    - Om du delar konversationskoden med de andra och de går med i konversationen ser du även deras transkriptioner.
+1. När du ser `Started transcribing` meddelandet visas kan du börja prata. Du ser att avskrifterna visas när du pratar
+    - Om du delar konversations koden med de andra och de ansluter till konversationen visas även deras avskrifter.
 
-1. När du har talat klart trycker du på <kbd>Ctrl+C</kbd> på tangentbordet för att stoppa ljudinspelningen.
+1. När du har talat klart trycker du på <kbd>CTRL + C</kbd> på tangent bordet för att stoppa ljud fångsten.
 
     > [!NOTE]
-    > Du kan se ett meddelande från Visual `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` Studio om ett undantag som liknar: Du kan ignorera detta på ett säkert sätt.
+    > Du kan se ett meddelande från Visual Studio om ett undantag som liknar: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` du kan ignorera detta.
     > <br/> <br/>
     > Tryck på <kbd>F5</kbd> för att fortsätta.
 
-## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Skapa och kör programmet för att delta i en befintlig konversation
+## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Skapa och kör programmet för att ansluta till en befintlig konversation
 
-1. Kopiera och klistra in följande funktion i din `int main()` **helloworld.cpp** strax före funktionen:
+1. Kopiera och klistra in följande funktion i din **HelloWorld. cpp** precis innan `int main()` funktionen:
 
     ```cpp
     void JoinExistingConversation(const std::string& conversationId)
@@ -274,7 +274,7 @@ Innan du börjar måste du:
     }
     ```
 
-2. Ersätt `StartNewConversation();` i `int main()` din funktion med:
+2. Ersätt `StartNewConversation();` i din `int main()` funktion med:
 
     ```cpp
     // Set this to the conversation you want to join
@@ -283,23 +283,23 @@ Innan du börjar måste du:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-4. Gå tillbaka till Visual `YourConversationId` Studio `int main()` och ersätt i din funktion med konversations-ID från föregående steg.
+4. Gå tillbaka till Visual Studio och Ersätt `YourConversationId` i din `int main()` funktion med Konversations-ID: t från föregående steg.
 
-5. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden ska kompileras utan fel.
+5. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
 
-6. Välj **Felsökning** > **Starta felsökning** (eller tryck på <kbd>F5)</kbd>för att starta **helloworld-programmet.**
+6. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på <kbd>F5</kbd>).
 
-7. När meddelandet `Started transcribing` visas kan du börja tala. Du kommer att se transkriptionerna visas när du talar.
-    - Om du går tillbaka till din webbläsare, bör du se dina transkriptioner visas där när du talar också.
+7. När du ser `Started transcribing` meddelandet visas kan du börja prata. Du ser att avskrifterna visas när du talar.
+    - Om du går tillbaka till din webbläsare bör du se att dina avskrifter visas där du talar också.
 
-8.  När du har talat klart trycker du på <kbd>Ctrl+C</kbd> för att stoppa ljudinspelningen och avslutar konversationen.
+8.  När du har talat klart trycker du på <kbd>CTRL + C</kbd> för att stoppa ljud fångsten och avsluta konversationen.
 
     > [!NOTE]
-    > Du kan se ett meddelande från Visual `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` Studio om ett undantag som liknar: Du kan ignorera detta på ett säkert sätt.
+    > Du kan se ett meddelande från Visual Studio om ett undantag som liknar: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` du kan ignorera detta.
     > <br/> <br/>
     > Tryck på <kbd>F5</kbd> för att fortsätta.
 
-9. Gå tillbaka till webbläsaren och avsluta konversationen med hjälp av stängningsknappen i det övre högra hörnet.
+9. Gå tillbaka till webbläsaren och avsluta konversationen med hjälp av avslutnings knappen i det övre högra hörnet.
 
 ## <a name="next-steps"></a>Nästa steg
 

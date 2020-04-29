@@ -1,6 +1,6 @@
 ---
 title: Konfigurera en WAF
-description: Lär dig hur du konfigurerar en brandvägg för webbprogram (WAF) framför apptjänstmiljön, antingen med Azure Application Gateway eller en WAF från tredje part.
+description: Lär dig hur du konfigurerar en brand vägg för webbaserade program (WAF) framför dina App Service-miljön, antingen med Azure Application Gateway eller WAF från tredje part.
 author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 987228c5cf0f5231006726718684528a777e92fd
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804477"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
@@ -71,7 +71,7 @@ Om du klickar på fliken **Tjänster** kan du konfigurera WAF för de tjänster 
 ![Lägga till tjänster att hantera][ManagementAddServices]
 
 > [!NOTE]
-> Beroende på hur dina program är konfigurerade och vilka funktioner som används i apptjänstmiljön måste du vidarebefordra trafik för andra TCP-portar än 80 och 443, till exempel om du har IP TLS-konfiguration för en App Service-app. En lista över nätverksportar som används i App Service-miljöer finns i [avsnittet om nätverksportar i dokumentationen om hur du kontrollerar inkommande trafik](app-service-app-service-environment-control-inbound-traffic.md).
+> Beroende på hur dina program har kon figurer ATS och vilka funktioner som används i App Service-miljön måste du vidarebefordra trafik för andra TCP-portar än 80 och 443, om du till exempel har en IP-TLS-installation för en App Service-app. En lista över nätverksportar som används i App Service-miljöer finns i [avsnittet om nätverksportar i dokumentationen om hur du kontrollerar inkommande trafik](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 

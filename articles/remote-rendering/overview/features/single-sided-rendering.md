@@ -1,43 +1,43 @@
 ---
 title: Enkelsidig rendering
-description: Beskriver enkelsidiga renderingsinställningar och användningsfall
+description: Beskriver inställningar och användnings fall för Enkels idiga åter givning
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80682018"
 ---
 # <a name="single-sided-rendering"></a>Enkelsidig rendering
 
-De flesta renderare använder [back-face culling](https://en.wikipedia.org/wiki/Back-face_culling) för att förbättra prestanda. Men när maskor skärs upp med [skurna plan,](cut-planes.md)användare kommer ofta att titta på baksidan av trianglar. Om dessa trianglar gallras bort, ser resultatet inte övertygande.
+De flesta åter givnings programmen använder [backend-culling](https://en.wikipedia.org/wiki/Back-face_culling) för att förbättra prestandan. När maskorna klipps av öppen med [Klipp ut plan](cut-planes.md)kommer användarna ofta att titta på bak sidan av trianglar. Om dessa trianglar är slaktade, ser inte resultatet ut som övertygande.
 
-Sättet att på ett tillförlitligt sätt förhindra detta problem, är att göra trianglar *dubbelsidiga*. Eftersom du inte använder utgallring i baksidan har prestandakonsekvenser, växlar Azure Remote Rendering som standard endast till dubbelsidig rendering för nät som korsar med ett utklippt plan.
+Sättet att förhindra det här problemet på ett tillförlitligt sätt är att rendera trianglar *dubbels idiga*. Eftersom det inte går att använda backend-culling har prestanda effekter, som standard växlar Azure-fjärrrendering endast till dubbels idig åter givning för maskor som skärs med ett klipp plan.
 
-Med inställningen *för enkelsidig återgivning* kan du anpassa det här beteendet.
+Med inställningen med *Enkels idig åter givning* kan du anpassa det här beteendet.
 
 > [!CAUTION]
-> Den ensidiga renderingsinställningen är en experimentell funktion. Det kan tas bort igen i framtiden. Ändra inte standardinställningen, om det inte verkligen löser ett kritiskt problem i ditt program.
+> Inställningen för Enkels idig rendering är en experimentell funktion. Den kan tas bort igen i framtiden. Ändra inte standardinställningen, om det inte löser ett kritiskt problem i ditt program.
 
 ## <a name="prerequisites"></a>Krav
 
-Den ensidiga återgivningsinställningen `opaqueMaterialDefaultSidedness` har bara en effekt för maskor `SingleSided`som har [konverterats](../../how-tos/conversion/configure-model-conversion.md) med alternativet inställt på . Som standard är det `DoubleSided`här alternativet inställt på .
+Inställningen med enkel sida åter givning har bara en effekt för maskor som har [konverterats](../../how-tos/conversion/configure-model-conversion.md) med `opaqueMaterialDefaultSidedness` alternativet inställt på `SingleSided`. Som standard är det här alternativet inställt på `DoubleSided`.
 
-## <a name="single-sided-rendering-setting"></a>Inställning för enkelsidig återgivning
+## <a name="single-sided-rendering-setting"></a>Inställning med Enkels idig åter givning
 
 Det finns tre olika lägen:
 
-**Normalt:** I det här läget återges alltid maskor när de konverteras. Det innebär att maskor som konverterats med `opaqueMaterialDefaultSidedness` inställd på `SingleSided` alltid kommer att få återges med back-face culling aktiverat, även när de skär ett snitt plan.
+**Normal:** I det här läget återges alltid maskor när de konverteras. Det innebär att nät som konverteras `opaqueMaterialDefaultSidedness` med `SingleSided` set till alltid återges med en bakgrunds Cull aktive rad, även om de överlappar ett klipp plan.
 
-**DynamicDoubleSiding:** I det här läget, när ett snittplan skär ett nät, växlas det automatiskt till dubbelsidig rendering. Det här läget är standardläget.
+**DynamicDoubleSiding:** I det här läget, när ett klipp plan överlappar ett nät, växlas det automatiskt till dubbels idig åter givning. Det här läget är standard läget.
 
-**AlwaysDoubleSided:** Tvingar alla enkelsidiga geometri att återges dubbelsidig hela tiden. Det här läget är mestadels exponerat så att du enkelt kan jämföra prestandapåverkan mellan enkelsidig och dubbelsidig rendering.
+**AlwaysDoubleSided:** Tvingar all Enkels idig geometri att renderas dubbels idiga hela tiden. Det här läget exponeras främst så att du enkelt kan jämföra prestanda påverkan mellan enkel sida och dubbels idig åter givning.
 
-Ändra enkelsidiga renderingsinställningar kan göras på följande sätt:
+Du kan ändra inställningarna för enkel åter givning på följande sätt:
 
 ``` cs
 void ChangeSingleSidedRendering(AzureSession session)
@@ -54,5 +54,5 @@ void ChangeSingleSidedRendering(AzureSession session)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Klipp plan](cut-planes.md)
-* [Konfigurera modellkonverteringen](../../how-tos/conversion/configure-model-conversion.md)
+* [Klippa ut planer](cut-planes.md)
+* [Konfigurera modell konverteringen](../../how-tos/conversion/configure-model-conversion.md)

@@ -1,6 +1,6 @@
 ---
-title: Metodtips för datainläsning för Synapse SQL-pool
-description: Rekommendationer och prestandaoptimeringar för inläsning av data med Synapse SQL-pool.
+title: Metod tips för data inläsning för Synapse SQL-pool
+description: Rekommendationer och prestanda optimeringar för att läsa in data med Synapse SQL-pool.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745506"
 ---
-# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Metodtips för inläsning av data med Synapse SQL-pool
+# <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Metod tips för att läsa in data med Synapse SQL-pool
 
-I den här artikeln får du lära dig rekommendationer och prestandaoptimeringar för inläsning av data med HJÄLP AV SQL-pool.
+I den här artikeln får du lära dig rekommendationer och prestanda optimeringar för att läsa in data med SQL-pool.
 
 ## <a name="preparing-data-in-azure-storage"></a>Förbereda data i Azure Storage
 
-För att minimera svarstiden samlokalisera lagringslagret och SQL-poolen.
+Du kan minimera svars tiden genom att samplacera ditt lagrings lager och SQL-poolen.
 
 När du exporterar data till ett ORC-filformat kan du råka ut för ”slut på minne”-fel i Java när det finns kolumner med mycket text. Du kan undvika denna begränsning genom att bara exportera en del av kolumnerna.
 
@@ -36,9 +36,9 @@ Dela upp stora komprimerade filer i små komprimerade filer.
 
 ## <a name="running-loads-with-enough-compute"></a>Köra belastningar med tillräckligt med beräkning
 
-För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om det inte är möjligt, kör ett minimalt antal laster samtidigt. Om du förväntar dig ett stort inläsningsjobb kan du överväga att skala upp SQL-poolen före inläsningen.
+För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om det inte är möjligt kan du köra ett minimalt antal inläsningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp SQL-poolen före belastningen.
 
-För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsningsanvändare till en viss resursklass eller arbetsbelastningsgrupp. Om du vill köra en inläsning loggar du in som en av de inläsningsanvändare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  
+För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsnings användare till en angiven resurs klass eller arbets belastnings grupp. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  
 
 > [!NOTE]
 > Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
@@ -52,7 +52,7 @@ I det här exemplet skapas en inläsningsanvändare för resursklassen staticrc2
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Anslut till SQL-poolen och skapa en användare. Följande kod förutsätter att du är ansluten till databasen som kallas mySampleDataWarehouse. Den visar hur du skapar en användare som heter LoaderRC20 och ger användaren behörighet för en databas. Sedan läggs användaren till som medlem i rollen staticrc20-databas.  
+Anslut till SQL-poolen och skapa en användare. Följande kod förutsätter att du är ansluten till databasen som heter mySampleDataWarehouse. Det visar hur du skapar en användare med namnet LoaderRC20 och ger användaren kontroll behörighet för en databas. Sedan lägger den till användaren som en medlem i staticrc20-databas rollen.  
 
 ```sql
    -- Connect to the database
@@ -61,15 +61,15 @@ Anslut till SQL-poolen och skapa en användare. Följande kod förutsätter att 
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Om du vill köra en belastning med resurser för de statiskaRC20-resursklasserna loggar du in som LoaderRC20 och kör belastningen.
+Om du vill köra en belastning med resurser för resurs klasserna staticRC20 loggar du in som LoaderRC20 och kör belastningen.
 
-Kör inläsningar under statiska i stället för dynamiska resursklasser. Om du använder de statiska resursklasserna garanteras samma resurser oavsett [dina informationslagerenheter.](what-is-a-data-warehouse-unit-dwu-cdwu.md) Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå.
+Kör inläsningar under statiska i stället för dynamiska resursklasser. Att använda statiska resurs klasser garanterar samma resurser oavsett dina [informations lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå.
 
 För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
 
 ## <a name="allowing-multiple-users-to-load"></a>Tillåta många användare att läsa in
 
-Det finns ofta ett behov av att ha flera användare ladda data i en SQL-pool. Inläsning med [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kräver kontrollbehörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman.
+Det finns ofta ett behov av att flera användare ska kunna läsa in data i en SQL-pool. Inläsning med [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kräver kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman.
 
 Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
@@ -80,13 +80,13 @@ Anta att du har följande databasscheman: schema_A för avdelning A och schema_B
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A och user_B är nu utelåst från den andra avd schema.
+User_A och user_B är nu utelåsta från det andra avd-schemat.
 
 ## <a name="loading-to-a-staging-table"></a>Inläsning i en mellanlagringstabell
 
-Om du vill uppnå den snabbaste inläsningshastigheten för att flytta data till en SQL-biljardtabell läser du in data i en mellanlagringstabell.  Definiera mellanlagringstabellen som en heap och använd resursallokering som distributionsalternativ.
+För att uppnå den snabbaste inläsnings hastigheten för att flytta data till en SQL-adresspool, ska du läsa in data i en mellanlagrings tabell.  Definiera mellanlagringstabellen som en heap och använd resursallokering som distributionsalternativ.
 
-Tänk på att inläsning vanligtvis är en tvåstegsprocess där du först läser in till en mellanlagringstabell och sedan infogar data i en produktions-SQL-pooltabell. Om produktionstabellen använder en hash-distribution, kan den totala tiden för att läsa in och infoga bli snabbare om du definierar mellanlagringstabellen i hash-distributionen.
+Tänk på att inläsningen vanligt vis är en två stegs process där du först läser in till en mellanlagringsplats och sedan infogar data i en SQL-adresspool för produktion. Om produktionstabellen använder en hash-distribution, kan den totala tiden för att läsa in och infoga bli snabbare om du definierar mellanlagringstabellen i hash-distributionen.
 
 Inläsning till mellanlagringstabellen tar längre tid, men det andra steget i att infoga rader i produktionstabellen skapar inte dataförflyttning över distributioner.
 
@@ -94,33 +94,33 @@ Inläsning till mellanlagringstabellen tar längre tid, men det andra steget i a
 
 Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i högkvalitativa radgrupper. För bästa komprimerings- och indexeffektivitet behöver kolumnlagringsindexet komprimera högst 1 048 576 rader till varje radgrupp.
 
-Vid brist på minne kanske kolumnlagringsindexet inte kan uppnå den maximala komprimeringsgraden. Det här scenariot påverkar i sin tur frågeprestanda. Mer detaljer finns i [Minnesoptimering för kolumnlagring](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Vid brist på minne kanske kolumnlagringsindexet inte kan uppnå den maximala komprimeringsgraden. Det här scenariot påverkar i sin tur prestandan för frågor. Mer detaljer finns i [Minnesoptimering för kolumnlagring](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 - För att säkerställa att inläsningsanvändaren har tillräckligt med minne för att uppnå maximal komprimeringsgrad ska du använda inläsningsanvändare som är medlemmar i en mellanstor eller stor resursklass.
 - Läs in tillräckligt med rader för att helt fylla de nya radgrupperna. Under en massinläsning komprimeras var 1 048 576:e rad direkt till columnstore som en fullständig radgrupp. Belastningar med färre än 102 400 rader skickar raderna till deltastore där raderna förvaras i ett b-trädindex.
 
 > [!NOTE]
-> Om du läser in för få rader kan alla dirigeras till deltastore och inte komprimeras direkt till columnstore-format.
+> Om du läser in för få rader kan det hända att de skickas till delta lagringen och inte komprimeras direkt till columnstore-format.
 
-## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SqLBulkCopy API eller bcp
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SqLBulkCopy API eller BCP
 
-Inläsning med PolyBase ger det högsta dataflödet med SQL-pool. Om du inte kan använda PolyBase för att läsa in och måste använda [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)bör du överväga att öka batchstorleken för bättre dataflöde.
+Om du läser in med PolyBase får du högsta data flöde med SQL-poolen. Om du inte kan använda PolyBase för att läsa in och måste använda [SqLBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), bör du fundera på att öka batchstorleken för bättre data flöde.
 
 > [!TIP]
-> En batchstorlek mellan 100 K till 1 M rader är den rekommenderade baslinjen för att bestämma optimal batchstorlek kapacitet.
+> En batchstorlek mellan 100 K och 1 miljon rader är den rekommenderade bas linjen för att fastställa den optimala storleken för batchstorlek.
 
 ## <a name="handling-loading-failures"></a>Hantera inläsningsfel
 
 Vid en inläsning med en extern tabell kan ett felmeddelande som ser ut ungefär så här visas: *"Frågan avbröts. Det högsta tröskelvärdet för avslag nåddes vid inläsning från en extern källa"*. Detta meddelande anger att dina externa data innehåller ändrade poster.
 
-En datapost anses vara smutsig om den uppfyller något av följande villkor:
+En data post anses vara smutsig om den uppfyller något av följande villkor:
 
-- Datatyperna och antalet kolumner matchar inte kolumndefinitionerna för den externa tabellen.
-- Data överensstämmer inte med det angivna externa filformatet.
+- Data typerna och antalet kolumner matchar inte kolumn definitionerna för den externa tabellen.
+- Data överensstämmer inte med det angivna externa fil formatet.
 
 Du kan åtgärda de ändrade posterna genom att se till att definitionerna för den externa tabellen och det externa filformatet är korrekta och att dina externa data följer dessa definitioner.
 
-Om en delmängd av externa dataposter är smutsiga kan du välja att avvisa dessa poster för dina frågor genom att använda avvisningsalternativen i [SKAPA EXTERN TABELL (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Om en delmängd av externa data poster är smutsig kan du välja att avvisa dessa poster för dina frågor genom att använda avvisnings alternativen i [skapa extern tabell (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="inserting-data-into-a-production-table"></a>Infoga data i en produktionstabell
 
@@ -130,9 +130,9 @@ Om du har tusentals eller fler enskilda infogningar under dagen bör du gruppera
 
 ## <a name="creating-statistics-after-the-load"></a>Skapa statistik efter inläsningen
 
-För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar. Skapa statistik kan göras manuellt eller så kan du aktivera [AUTO_CREATE_STATISTICS](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic).
+För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar. Att skapa statistik kan göras manuellt eller så kan du aktivera [AUTO_CREATE_STATISTICS](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic).
 
-En detaljerad förklaring av statistik finns i [Statistik](sql-data-warehouse-tables-statistics.md). I följande exempel visas hur du manuellt skapar statistik för fem kolumner i Customer_Speed tabellen.
+En detaljerad förklaring av statistik finns i [Statistik](sql-data-warehouse-tables-statistics.md). I följande exempel visas hur du manuellt skapar statistik på fem kolumner i Customer_Speeds tabellen.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

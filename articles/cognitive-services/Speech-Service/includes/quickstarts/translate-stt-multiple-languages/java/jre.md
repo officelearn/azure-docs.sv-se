@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätt tal till flera språk, Java (Windows, Linux) - Taltjänst'
+title: 'Snabb start: Översätt tal till flera språk, Java (Windows, Linux) – tal service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,23 +11,23 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
 ms.openlocfilehash: 4ed3862b08c73264bca0f3bc6ed8e17586c2735c
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671650"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **Fil** > **ny** > **klass**.
+1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **fil** > **ny** > **klass**.
 
 1. I fönstret **New Java Class** (Ny Java-klass) anger du **speechsdk.quickstart** i fältet **Paket** och anger **Main** i fältet **Namn**.
 
@@ -133,9 +133,9 @@ Innan du börjar måste du:
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-Tryck på F11 eller välj **Kör** > **felsökning**.
+Tryck på F11 eller Välj **Kör** > **fel sökning**.
 
-1. Säg en engelsk fras eller en mening. Ansökan överför ditt tal till taltjänsten, som översätter och transkriberar till text (i detta fall till franska och tyska). Taltjänsten skickar sedan tillbaka texten till programmet för visning.
+1. Säg en engelsk fras eller en mening. Programmet skickar din röst till tal tjänsten som översätter och omvandlar till text (i det här fallet till franska och tyska). Tal tjänsten skickar sedan tillbaka texten till programmet för visning.
 
 ````
 Say something...

@@ -1,30 +1,30 @@
 ---
 title: Skydda en anpassad DNS med en TLS/SSL-bindning
-description: Säker HTTPS-åtkomst till din anpassade domän genom att skapa en TLS/SSL-bindning med ett certifikat. Förbättra webbplatsens säkerhet genom att tillämpa HTTPS eller TLS 1.2.
+description: Skydda HTTPS-åtkomst till din anpassade domän genom att skapa en TLS/SSL-bindning med ett certifikat. Förbättra din webbplats säkerhet genom att tvinga HTTPS eller TLS 1,2.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80811740"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service
 
-I den här artikeln visas hur du skyddar den [anpassade domänen](app-service-web-tutorial-custom-domain.md) i [app-](https://docs.microsoft.com/azure/app-service/) eller [funktionsappen](https://docs.microsoft.com/azure/azure-functions/) för App Service genom att skapa en certifikatbindning. När du är klar kan du komma åt `https://` apptjänstappen vid slutpunkten `https://www.contoso.com`för ditt anpassade DNS-namn (till exempel ). 
+Den här artikeln visar hur du skyddar den [anpassade domänen](app-service-web-tutorial-custom-domain.md) i din [App Service app](https://docs.microsoft.com/azure/app-service/) eller [Function-app](https://docs.microsoft.com/azure/azure-functions/) genom att skapa en certifikat bindning. När du är klar kan du komma åt din App Service-app vid `https://` slut punkten för ditt anpassade DNS-namn (t `https://www.contoso.com`. ex.). 
 
 ![Webbapp med anpassat TLS/SSL-certifikat](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
 Att skydda en [anpassad domän](app-service-web-tutorial-custom-domain.md) med ett certifikat innebär två steg:
 
-- [Lägg till ett privat certifikat i App Service](configure-ssl-certificate.md) som uppfyller alla privata [certifikatkrav](configure-ssl-certificate.md#private-certificate-requirements).
--  Skapa en TLS-bindning till motsvarande anpassade domän. Det andra steget omfattas av den här artikeln.
+- [Lägg till ett privat certifikat till App Service](configure-ssl-certificate.md) som uppfyller alla [krav för privata certifikat](configure-ssl-certificate.md#private-certificate-requirements).
+-  Skapa en TLS-bindning till motsvarande anpassad domän. Det andra steget beskrivs i den här artikeln.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppgradera prisnivån för din app
@@ -35,14 +35,14 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Så här följer du den här guiden:
+För att följa den här instruktions guiden:
 
 - [Skapa en App Service-app](/azure/app-service/)
-- [Mappa ett domännamn till din app](app-service-web-tutorial-custom-domain.md) eller köpa och konfigurera det i [Azure](manage-custom-dns-buy-domain.md)
-- [Lägga till ett privat certifikat i appen](configure-ssl-certificate.md)
+- [Mappa ett domän namn till din app](app-service-web-tutorial-custom-domain.md) eller [köp och konfigurera det i Azure](manage-custom-dns-buy-domain.md)
+- [Lägg till ett privat certifikat i din app](configure-ssl-certificate.md)
 
 > [!NOTE]
-> Det enklaste sättet att lägga till ett privat certifikat är att [skapa ett kostnadsfritt hanterat apptjänstcertifikat](configure-ssl-certificate.md#create-a-free-certificate-preview) (förhandsversion).
+> Det enklaste sättet att lägga till ett privat certifikat är att [skapa ett kostnads fritt App Service-hanterat certifikat](configure-ssl-certificate.md#create-a-free-certificate-preview) (förhands granskning).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -50,65 +50,65 @@ Så här följer du den här guiden:
 
 ## <a name="secure-a-custom-domain"></a>Skydda en anpassad domän
 
-Gör följande:
+Gör så här:
 
-Välj App**\<Services->** **App Services** > på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>på den vänstra menyn .
+I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** > **\<App-Name>** på menyn till vänster.
 
-Starta dialogrutan **TLS/SSL Binding** från den vänstra navigeringen i appen genom att:
+Starta dialog rutan **TLS/SSL-bindning** från den vänstra navigeringen i din app genom att:
 
 - Välja **anpassade domäner** > **Lägg till bindning**
 - Välja **TLS/SSL-inställningar** > **Lägg till TLS/SSL-bindning**
 
-![Lägga till bindning i domänen](./media/configure-ssl-bindings/secure-domain-launch.png)
+![Lägg till bindning till domän](./media/configure-ssl-bindings/secure-domain-launch.png)
 
-I **Anpassad domän**väljer du den anpassade domän som du vill lägga till en bindning för.
+I **anpassad domän**väljer du den anpassade domän som du vill lägga till en bindning för.
 
-Om appen redan har ett certifikat för den valda anpassade domänen går du direkt till [Skapa bindning.](#create-binding) Annars, fortsätt.
+Om din app redan har ett certifikat för den valda anpassade domänen går du till [skapa bindning](#create-binding) direkt. Annars fortsätter du.
 
-### <a name="add-a-certificate-for-custom-domain"></a>Lägga till ett certifikat för anpassad domän
+### <a name="add-a-certificate-for-custom-domain"></a>Lägg till ett certifikat för anpassad domän
 
-Om appen inte har något certifikat för den valda anpassade domänen har du två alternativ:
+Om din app inte har något certifikat för den valda anpassade domänen har du två alternativ:
 
-- **Ladda upp PFX-certifikat** – Följ arbetsflödet vid [Ladda upp ett privat certifikat](configure-ssl-certificate.md#upload-a-private-certificate)och välj sedan det här alternativet här.
-- **Importera App Service-certifikat** – Följ arbetsflödet vid [Importera ett App Service-certifikat](configure-ssl-certificate.md#import-an-app-service-certificate)och välj sedan det här alternativet här.
+- **Ladda upp PFX-certifikat** – Följ arbets flödet på [överför ett privat certifikat](configure-ssl-certificate.md#upload-a-private-certificate)och välj sedan det här alternativet här.
+- **Importera App Service Certificate** – Följ arbets flödet vid [Import av ett app service certifikat](configure-ssl-certificate.md#import-an-app-service-certificate)och välj sedan det här alternativet här.
 
 > [!NOTE]
-> Du kan också [skapa ett kostnadsfritt certifikat](configure-ssl-certificate.md#create-a-free-certificate-preview) (förhandsversion) eller importera ett Key [Vault-certifikat,](configure-ssl-certificate.md#import-a-certificate-from-key-vault)men du måste göra det separat och sedan gå tillbaka till dialogrutan **TLS/SSL-bindning.**
+> Du kan också [skapa ett kostnads fritt certifikat](configure-ssl-certificate.md#create-a-free-certificate-preview) (förhands granskning) eller [Importera ett Key Vault certifikat](configure-ssl-certificate.md#import-a-certificate-from-key-vault), men du måste göra det separat och sedan gå tillbaka till dialog rutan **TLS/SSL-bindning** .
 
 ### <a name="create-binding"></a>Skapa bindning
 
-Använd följande tabell för att konfigurera TLS-bindningen i dialogrutan **TLS/SSL-bindning** och klicka sedan på **Lägg till bindning**.
+Använd följande tabell som hjälp för att konfigurera TLS-bindning i dialog rutan **TLS/SSL-bindning** och klicka sedan på **Lägg till bindning**.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |-|-|
-| Anpassad domän | Domännamnet som TLS/SSL-bindningen ska läggas till för. |
-| Tumavtryck för privat certifikat | Certifikatet att binda. |
-| TLS/SSL-typ | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Flera SNI SSL-bindningar kan läggas till. Med det här alternativet kan flera TLS/SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information finns i [Servernamnsindikering](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** - Endast en IP SSL-bindning kan läggas till. Med det här alternativet kan endast ett TLS/SSL-certifikat skydda en dedikerad offentlig IP-adress. När du har konfigurerat bindningen följer du stegen i [Mappa om en post för IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL stöds endast i produktions- eller isolerade nivåer. </li></ul> |
+| Anpassad domän | Domän namnet som TLS/SSL-bindningen ska läggas till för. |
+| Tumavtryck för privat certifikat | Certifikatet som ska bindas. |
+| TLS/SSL-typ | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** -flera SNI SSL-bindningar kan läggas till. Med det här alternativet kan flera TLS/SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information finns i [servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** -det går bara att lägga till en IP SSL-bindning. Med det här alternativet kan endast ett TLS/SSL-certifikat skydda en dedikerad offentlig IP-adress. När du har konfigurerat bindningen följer du stegen i [mappa om en post för IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL stöds endast i produktions-eller isolerade nivåer. </li></ul> |
 
-När åtgärden är klar ändras den anpassade domänens TLS/SSL-tillstånd till **Säker**.
+När åtgärden har slutförts ändras den anpassade domänens TLS/SSL-tillstånd till **säker**.
 
 ![TLS/SSL-bindningen lyckades](./media/configure-ssl-bindings/secure-domain-finished.png)
 
 > [!NOTE]
-> Ett **säkert** tillstånd i **anpassade domäner** innebär att det är skyddat med ett certifikat, men App-tjänsten kontrollerar inte om certifikatet är självsignerat eller har upphört att gälla, till exempel, vilket också kan leda till att webbläsare visar ett fel eller en varning.
+> Ett **säkert** tillstånd i de **anpassade domänerna** innebär att den skyddas med ett certifikat, men App Service inte kontrollerar om certifikatet är självsignerat eller har upphört att gälla, till exempel, vilket även kan leda till att webbläsare visar ett fel eller en varning.
 
 ## <a name="remap-a-record-for-ip-ssl"></a>Mappa om en A-post för IP SSL
 
-Om du inte använder IP SSL i appen går du till [Testa HTTPS för din anpassade domän](#test-https).
+Om du inte använder IP SSL i din app kan du gå vidare till [testa https för din anpassade domän](#test-https).
 
 Som standard använder din app en delad offentlig IP-adress. När du binder ett certifikat med IP SSL skapar App Service en ny, dedikerad IP-adress för din app.
 
-Om du har mappat en A-post till din app uppdaterar du domänregistret med den här nya, dedikerade IP-adressen.
+Om du har mappat en A-post till din app uppdaterar du domän registret med den nya, dedikerade IP-adressen.
 
 Din apps **Anpassad domän**-sida uppdateras med den nya dedikerade IP-adressen. [Kopiera den här IP-adressen](app-service-web-tutorial-custom-domain.md#info) och [mappa om A-posten](app-service-web-tutorial-custom-domain.md#map-an-a-record) till den nya IP-adressen.
 
 ## <a name="test-https"></a>Testa HTTPS
 
-I olika webbläsare bläddrar du till `https://<your.custom.domain>` för att kontrollera att den visar din app.
+I olika webbläsare, bläddrar `https://<your.custom.domain>` du till för att kontrol lera att appen fungerar.
 
 ![Portalnavigering till Azure-app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-Din programkod kan granska protokollet via "x-appservice-proto"-huvudet. Huvudet har ett värde `http` `https`på eller . 
+Din program kod kan inspektera protokollet via huvudet "x-AppService-proto". Rubriken kommer att ha värdet `http` eller. `https` 
 
 > [!NOTE]
 > Om din app visar fel i certifikatverifieringen så använder du förmodligen ett självsignerat certifikat.
@@ -117,7 +117,7 @@ Din programkod kan granska protokollet via "x-appservice-proto"-huvudet. Huvudet
 
 ## <a name="prevent-ip-changes"></a>Förhindra IP-ändringar
 
-Din inkommande IP-adress kan ändras när du tar bort en bindning, även om bindningen är IP SSL. Detta är särskilt viktigt när du förnyar ett certifikat som redan finns i en IP SSL-bindning. Du kan förhindra att appens IP-adress ändras genom att följa stegen nedan i ordning:
+Din inkommande IP-adress kan ändras när du tar bort en bindning, även om denna bindning är IP SSL. Detta är särskilt viktigt när du förnyar ett certifikat som redan finns i en IP SSL-bindning. Du kan förhindra att appens IP-adress ändras genom att följa stegen nedan i ordning:
 
 1. Ladda upp det nya certifikatet.
 2. Bind det nya certifikatet till önskad anpassad domän utan att ta bort det gamla. Med den här åtgärden ersätts bindningen i stället för att den gamla tas bort.
@@ -149,9 +149,9 @@ När åtgärden är klar avvisar appen alla anslutningar med lägre TLS-version.
 
 ## <a name="handle-tls-termination"></a>Hantera TLS-avslutning
 
-I App Service sker [TLS-avslutningen](https://wikipedia.org/wiki/TLS_termination_proxy) hos nätverksbelastningsbalanserarna, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
+I App Service sker [TLS-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) vid utjämning av nätverks belastning, så alla HTTPS-begäranden når din app som okrypterade HTTP-förfrågningar. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
 
-Språkspecifika konfigurationsguider, till exempel konfigurationsguiden för [Linux Node.js,](containers/configure-language-nodejs.md#detect-https-session) visar hur du identifierar en HTTPS-session i programkoden.
+Språkspecifika konfigurations guider, till exempel [konfigurations guiden för Linux Node. js](containers/configure-language-nodejs.md#detect-https-session) , visar hur du identifierar en https-session i program koden.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
@@ -165,5 +165,5 @@ Språkspecifika konfigurationsguider, till exempel konfigurationsguiden för [Li
 
 ## <a name="more-resources"></a>Fler resurser
 
-* [Använda ett TLS/SSL-certifikat i koden i Azure App Service](configure-ssl-certificate-in-code.md)
-* [Vanliga frågor och svar : App Service-certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Använd ett TLS/SSL-certifikat i koden i Azure App Service](configure-ssl-certificate-in-code.md)
+* [Vanliga frågor och svar: App Service certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

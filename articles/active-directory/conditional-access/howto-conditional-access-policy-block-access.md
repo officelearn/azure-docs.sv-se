@@ -1,6 +1,6 @@
 ---
-title: Villkorlig åtkomst - Blockera åtkomst - Azure Active Directory
-description: Skapa en anpassad princip för villkorlig åtkomst till
+title: Villkorlig åtkomst – blockera åtkomst Azure Active Directory
+description: Skapa en anpassad princip för villkorlig åtkomst för
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,78 +12,78 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2834fd3d4901b6394eabe000f9efc572c2efd497
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755076"
 ---
-# <a name="conditional-access-block-access"></a>Villkorlig åtkomst: Blockera åtkomst
+# <a name="conditional-access-block-access"></a>Villkorlig åtkomst: blockera åtkomst
 
-För organisationer med en konservativ molnmigreringsmetod är block alla principen ett alternativ som kan användas. 
+För organisationer med en försiktigt molnbaserad metod för molnbaserad migrering är blockera alla-principer ett alternativ som kan användas. 
 
 > [!CAUTION]
-> Felkonfiguration av en blockeringsprincip kan leda till att organisationer utestängs från Azure-portalen.
+> Felaktig konfiguration av en blockerande princip kan leda till att organisationer blir utelåst från Azure Portal.
 
-Politik som dessa kan ha oavsiktliga biverkningar. Korrekt testning och validering är avgörande innan du aktiverar. Administratörer bör använda verktyg som [rapportläge med villkorsstyrd åtkomst](concept-conditional-access-report-only.md) och [verktyget Vad händer i villkorlig åtkomst](what-if-tool.md) när du gör ändringar.
+Principer som dessa kan ha oönskade sido effekter. Korrekt testning och validering är avgörande innan du aktiverar. Administratörer bör använda verktyg som t. ex. [endast rapport läge för villkorlig åtkomst](concept-conditional-access-report-only.md) och [What If verktyget i villkorlig åtkomst när du](what-if-tool.md) gör ändringar.
 
-## <a name="user-exclusions"></a>Undantag från användare
+## <a name="user-exclusions"></a>Användar undantag
 
-Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att du utesluter följande konton från din policy:
+Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att du undantar följande konton från principen:
 
-* **Nödåtkomst** eller **break-glass-konton** för att förhindra kontoutelåsning för hela klienten. I det osannolika scenariot är alla administratörer utelåsta från din klientorganisation, ditt administrativa konto för nödåtkomst kan användas för att logga in på klienten vidta åtgärder för att återställa åtkomsten.
-   * Mer information finns i [artikeln, Hantera konton för nödåtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Tjänstkonton** och **tjänsthuvudnamn**, till exempel Azure AD Connect Sync-konto. Tjänstkonton är icke-interaktiva konton som inte är kopplade till en viss användare. De används normalt av backend-tjänster som möjliggör programmatisk åtkomst till program, men används också för att logga in på system för administrativa ändamål. Tjänstkonton som dessa bör uteslutas eftersom MFA inte kan slutföras programmässigt. Samtal från tjänstens huvudnamn blockeras inte av villkorlig åtkomst.
-   * Om din organisation har dessa konton som används i skript eller kod kan du överväga att ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan du utesluta dessa specifika konton från originalprincipen.
+* **Nöd åtkomst** eller **Bryt** punkts konton för att förhindra konto utelåsning för hela klienten. I det osannolika scenariot är alla administratörer utelåsta från din klient, ditt administrations konto för nöd administration kan användas för att logga in på klienten och vidta åtgärder för att återställa åtkomsten.
+   * Mer information finns i artikeln [Hantera nöd åtkomst konton i Azure AD](../users-groups-roles/directory-emergency-access.md).
+* **Tjänst konton** och **tjänst huvud namn**, till exempel Azure AD Connect Sync-kontot. Tjänst konton är icke-interaktiva konton som inte är kopplade till någon viss användare. De används vanligt vis av backend-tjänster för att ge program mässig åtkomst till program, men de används också för att logga in på system för administrativa orsaker. Tjänst konton som dessa bör undantas eftersom MFA inte kan slutföras program mässigt. Anrop som görs av tjänstens huvud namn blockeras inte av villkorlig åtkomst.
+   * Om din organisation har dessa konton som används i skript eller kod kan du ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan du undanta dessa konton från bas linje principen.
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Följande steg hjälper dig att skapa principer för villkorlig åtkomst för att blockera åtkomst till alla appar utom [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) om användarna inte finns i ett betrott nätverk. Dessa principer sätts i [läge Endast för rapport](howto-conditional-access-report-only.md) för att starta så att administratörer kan avgöra vilken inverkan de kommer att ha på befintliga användare. När administratörer är bekväma med att principerna gäller som de vill kan de växla dem till **På**.
+Följande steg hjälper dig att skapa principer för villkorlig åtkomst för att blockera åtkomst till alla appar förutom [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) om användarna inte är i ett betrott nätverk. Dessa principer sätts i [läget endast för rapporter](howto-conditional-access-report-only.md) för att starta så att administratörer kan bestämma vilken effekt de kommer att ha på befintliga användare. När administratörer är van vid att principerna ska gälla som de ska, kan de byta till **på**.
 
-Den första principen blockerar åtkomst till alla appar utom Office 365-program om de inte finns på en betrodd plats.
+Den första principen blockerar åtkomst till alla appar förutom Office 365-program om de inte finns på en betrodd plats.
 
-1. Logga in på **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorlig åtkomst.
-1. Bläddra till **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Välj **Ny princip**.
-1. Ge din policy ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på sina principer.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. Välj **ny princip**.
+1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
-   1. Under **Inkludera**väljer du **Alla användare**.
-   1. Under **Uteslut**väljer du **Användare och grupper** och väljer organisationens konton för nödåtkomst eller glasbrott. 
-   1. Välj **Done** (Klar).
-1. Under **Cloud-appar eller -åtgärder**väljer du följande alternativ:
-   1. Under **Inkludera**väljer du **Alla molnappar**.
-   1. Under **Uteslut**väljer du **Office 365 (förhandsgranskning)** och väljer **Välj**och välj sedan **Klar**.
-1. Under **förhållanden:**
-   1. Under **förhållanden** > **plats**.
-      1. Ange **Konfigurera** till **Ja**
-      1. Under **Inkludera**väljer du **Valfri plats**.
-      1. Under **Uteslut**väljer du **Alla betrodda platser**.
-      1. Välj **Done** (Klar).
-   1. Under **Klientappar (förhandsversion)** anger du **Konfigurera** till **Ja**och väljer **Klar**och sedan **Klar**.
-1. Under **Access-kontroller** > **Bevilja**väljer du Blockera **åtkomst**och väljer sedan **Välj**.
-1. Bekräfta dina inställningar och ange **Aktivera princip** till **endast rapport**.
-1. Välj **Skapa** för att skapa för att aktivera din princip.
+   1. Under **Inkludera**väljer du **alla användare**.
+   1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
+   1. Välj **Klar**.
+1. Under **molnappar eller åtgärder**väljer du följande alternativ:
+   1. Under **Inkludera**väljer du **alla molnappar**.
+   1. Under **exkludera**väljer du **Office 365 (för hands version)**, väljer **Välj**och väljer sedan **Slutför**.
+1. Under **villkor**:
+   1. Under **villkor** > **plats**.
+      1. **Konfigurera** till **Ja**
+      1. Under **Inkludera**väljer du **valfri plats**.
+      1. Under **exkludera**väljer du **alla betrodda platser**.
+      1. Välj **Klar**.
+   1. Under **klient program (för hands version)** anger du **Konfigurera** till **Ja**och **väljer sedan** **klart**.
+1. Under **åtkomst kontroller** > **beviljas**väljer du **blockera åtkomst**och väljer sedan **Välj**.
+1. Bekräfta inställningarna och ange att **principen** endast ska **rapporteras**.
+1. Välj **skapa** för att skapa för att aktivera principen.
 
-En andra princip skapas nedan för att kräva multifaktorautentisering eller en kompatibel enhet för användare av Office 365.
+En andra princip skapas nedan för att kräva Multi-Factor Authentication eller en kompatibel enhet för användare av Office 365.
 
-1. Välj **Ny princip**.
-1. Ge din policy ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på sina principer.
+1. Välj **ny princip**.
+1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
-   1. Under **Inkludera**väljer du **Alla användare**.
-   1. Under **Uteslut**väljer du **Användare och grupper** och väljer organisationens konton för nödåtkomst eller glasbrott. 
-   1. Välj **Done** (Klar).
-1. Under **Cloud-appar eller -åtgärder** > **Inkludera**väljer du Välj **appar**, väljer Office **365 (förhandsgranskning)** och väljer **Välj**och sedan **Klar**.
-1. Under **Åtkomstkontroller** > **Bevilja**väljer du Bevilja **åtkomst**.
-   1. Välj **Kräv multifaktorautentisering** och **Kräv att enheten ska markeras som kompatibel** väljer **.**
-   1. Kontrollera **att kräv att alla markerade kontroller** är markerade.
+   1. Under **Inkludera**väljer du **alla användare**.
+   1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
+   1. Välj **Klar**.
+1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**, sedan **Office 365 (för hands version)** och väljer **Välj**och sedan **Slutför**.
+1. Under **åtkomst kontroller** > **bevilja**väljer du **bevilja åtkomst**.
+   1. Välj **Kräv Multi-Factor Authentication** och **Kräv att enheten är markerad som kompatibel** Välj **Välj**.
+   1. Se till att **alla markerade kontroller** är markerat.
    1. Välj **Välj**.
-1. Bekräfta dina inställningar och ange **Aktivera princip** till **endast rapport**.
-1. Välj **Skapa** för att skapa för att aktivera din princip.
+1. Bekräfta inställningarna och ange att **principen** endast ska **rapporteras**.
+1. Välj **skapa** för att skapa för att aktivera principen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 
-[Fastställa påverkan med hjälp av rapportläge med villkorsstyrd åtkomst](howto-conditional-access-report-only.md)
+[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
 
-[Simulera inloggningsbeteende med verktyget Villkorlig åtkomst Vad händer om](troubleshoot-conditional-access-what-if.md)
+[Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)

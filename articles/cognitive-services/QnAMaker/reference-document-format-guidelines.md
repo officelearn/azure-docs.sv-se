@@ -1,58 +1,58 @@
 ---
-title: Riktlinjer för importdokumentformat - QnA Maker
-description: Förstå hur typerna av webbadresser används för att importera och skapa QnA-par.
+title: Importera dokument format rikt linjer – QnA Maker
+description: 'Förstå hur olika typer av URL: er används för att importera och skapa QnA-par.'
 ms.topic: reference
 ms.date: 04/06/2020
 ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804341"
 ---
-# <a name="format-guidelines-for-imported-documents-and-urls"></a>Formatera riktlinjer för importerade dokument och webbadresser
+# <a name="format-guidelines-for-imported-documents-and-urls"></a>Format rikt linjer för importerade dokument och webb adresser
 
-Läs igenom de här formateringsriktlinjerna för att få bästa resultat för ditt innehåll.
+Granska dessa rikt linjer för formatering för att få bästa möjliga resultat för ditt innehåll.
 
-## <a name="formatting-considerations"></a>Formateringsöverväganden
+## <a name="formatting-considerations"></a>Överväganden vid formatering
 
-När du har importerat en fil eller URL konverteras och lagras innehållet i [markeringsformatet.](https://en.wikipedia.org/wiki/Markdown) Konverteringsprocessen lägger till nya rader `\n\n`i texten, till exempel . En kunskap om markdown-formatet hjälper dig att förstå det konverterade innehållet och hantera ditt kunskapsbasinnehåll.
+När du har importerat en fil eller URL, QnA Maker konvertera och lagra innehållet i [markdown-formatet](https://en.wikipedia.org/wiki/Markdown). Konverterings processen lägger till nya rader i texten, t `\n\n`. ex.. En kunskap om markdown-formatet hjälper dig att förstå det konverterade innehållet och hantera ditt kunskaps bas innehåll.
 
-Om du lägger till eller redigerar innehållet direkt i kunskapsbasen använder du **markeringsformatering** för att skapa RTF-innehåll eller ändra innehållet i markdown-formatet som redan finns i svaret. QnA Maker stöder mycket av markdown-formatet för att få rtf-funktionerna till ditt innehåll. Klientprogrammet, till exempel en chattrobot, kanske inte stöder samma uppsättning markdown-format. Det är viktigt att testa klientprogrammets visning av svar.
+Om du lägger till eller redigerar innehållet direkt i din kunskaps bas använder du **markdown-formatering** för att skapa RTF-innehåll eller ändra markdown format innehåll som redan finns i svaret. QnA Maker stöder mycket av markdown-formatet för att få RTF-funktioner till ditt innehåll. Men klient programmet, till exempel en chatt-robot, kanske inte stöder samma uppsättning markdown-format. Det är viktigt att testa klient programmets visning av svar.
 
-Se en fullständig lista över [innehållstyper och exempel](./Concepts/content-types.md#file-and-url-data-types).
+Se en fullständig lista över [innehålls typer och exempel](./Concepts/content-types.md#file-and-url-data-types).
 
 ## <a name="basic-document-formatting"></a>Grundläggande dokumentformatering
 
-QnA Maker identifierar avsnitt och underavsnitt och relationer i filen baserat på visuella ledtrådar som:
+QnA Maker identifierar avsnitt och underavsnitt och relationer i filen baserat på visuella LED trådar som:
 
 * teckenstorlek
-* Teckenstil
-* Numrering
+* tecken stil
+* numreringen
 * färger
 
-## <a name="product-manuals"></a>Produktmanualer
+## <a name="product-manuals"></a>Produkt handböcker
 
-En handbok är vanligtvis vägledning material som medföljer en produkt. Det hjälper användaren att konfigurera, använda, underhålla och felsöka produkten. När QnA Maker behandlar en handbok extraheras rubrikerna och underrubrikerna som frågor och det efterföljande innehållet som svar. Se ett exempel [här](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
+En manuell är vanligt vis ett hjälp material som medföljer en produkt. Det hjälper användaren att konfigurera, använda, underhålla och felsöka produkten. När QnA Maker bearbetar en manuell extraheras rubriker och under rubriker som frågor och efterföljande innehåll som svar. Se ett exempel [här](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
 
-Nedan följer ett exempel på en handbok med en indexsida och hierarkiskt innehåll
+Nedan visas ett exempel på en manuell med en index sida och hierarkiskt innehåll
 
- ![Produkthandbok exempel för en kunskapsbas](./media/qnamaker-concepts-datasources/product-manual.png)
+ ![Produkt hand bok exempel för en kunskaps bas](./media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
-> Extrahering fungerar bäst på handböcker som har en innehållsförteckning och/eller en indexsida, och en tydlig struktur med hierarkiska rubriker.
+> Extraktion fungerar bäst på handböcker som har en innehålls förteckning och/eller en index sida och en tydlig struktur med hierarkiska rubriker.
 
-## <a name="brochures-guidelines-papers-and-other-files"></a>Broschyrer, riktlinjer, papper och andra filer
+## <a name="brochures-guidelines-papers-and-other-files"></a>Broschyrer, rikt linjer, dokument och andra filer
 
-Många andra typer av dokument kan också bearbetas för att generera QA-par, förutsatt att de har en tydlig struktur och layout. Dessa inkluderar: Broschyrer, riktlinjer, rapporter, vitböcker, vetenskapliga artiklar, policyer, böcker, etc. Se ett exempel [här](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Många andra typer av dokument kan också bearbetas för att generera frågor och svar, förutsatt att de har en tydlig struktur och layout. Dessa omfattar: broschyrer, rikt linjer, rapporter, fakta blad, vetenskapliga handlingar, principer, böcker osv. Se ett exempel [här](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
-Nedan visas ett exempel på ett halvstrukturerat dokument utan index:
+Nedan visas ett exempel på ett delvis strukturerat dokument utan ett index:
 
- ![Halvstrukturerad doc för Azure Blob-lagring](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+ ![Halv strukturerat dokument i Azure Blob Storage](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
 
 ## <a name="structured-qna-document"></a>Strukturerat QnA-dokument
 
-Formatet för strukturerade frågestunder i DOC-filer, är i form av alternerande frågor och svar per rad, en fråga per rad följt av dess svar på följande rad, som visas nedan:
+Formatet för strukturerad fråga – svar i DOC-filer, är i form av alternerande frågor och svar per rad, en fråga per rad följt av dess svar på följande rad, enligt nedan:
 
 ```text
 Question1
@@ -64,56 +64,56 @@ Question2
 Answer2
 ```
 
-Nedan följer ett exempel på ett strukturerat QnA-orddokument:
+Nedan visas ett exempel på ett strukturerat QnA Word-dokument:
 
- ![Strukturerat QnA-dokumentexempel för en kunskapsbas](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
+ ![Exempel på strukturerade QnA-dokument för en kunskaps bas](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
-## <a name="structured-txt-tsv-and-xls-files"></a>Strukturerade *TXT-,* *TSV-* och *XLS-filer*
+## <a name="structured-txt-tsv-and-xls-files"></a>Strukturerade *txt*-, *TSV* -och *xls* -filer
 
-QnAs i form av strukturerade *.txt,* *.tsv* eller *.xls* filer kan också laddas upp till QnA Maker för att skapa eller utöka en kunskapsbas.  Dessa kan antingen vara oformaterad text eller ha innehåll i RTF eller HTML.
+Kring i form av Structured *. txt*-, *. tsv* -eller *. xls* -filer kan också överföras till QNA Maker för att skapa eller utöka en kunskaps bas.  Dessa kan antingen vara oformaterad text eller ha innehåll i RTF eller HTML.
 
 | Fråga  | Svar  | Metadata (1 nyckel: 1 värde) |
 |-----------|---------|-------------------------|
-| Fråga1 | Svar1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
-| Fråga2 | Svar2 |      `Key:Value`           |
+| Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
+| Question2 | Answer2 |      `Key:Value`           |
 
-Ytterligare kolumner i källfilen ignoreras.
+Eventuella ytterligare kolumner i käll filen ignoreras.
 
 ### <a name="example-of-structured-excel-file"></a>Exempel på strukturerad Excel-fil
 
-Nedan är ett exempel på en strukturerad QnA *.xls-fil* med HTML-innehåll:
+Nedan visas ett exempel på en strukturerad QnA *. xls* -fil med HTML-innehåll:
 
- ![Strukturerad QnA utmärker sig exempel för en kunskapsbas](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Strukturerad QnA Excel-exempel för en kunskaps bas](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
-### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Exempel på alternativa frågor för ett enda svar i Excel-filen
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Exempel på alternativa frågor för ett enskilt svar i Excel-fil
 
-Nedan är ett exempel på en strukturerad QnA *.xls-fil,* med flera alternativa frågor för ett enda svar:
+Nedan visas ett exempel på en strukturerad QnA *. xls* -fil med flera alternativa frågor för ett enda svar:
 
- ![Exempel på alternativa frågor för ett enda svar i Excel-filen](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+ ![Exempel på alternativa frågor för ett enskilt svar i Excel-fil](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
-När filen har importerats finns fråge- och svarsparet i kunskapsbasen enligt nedan:
+När filen har importer ATS visas fråga-och-svar-paret i kunskaps basen enligt nedan:
 
- ![Skärmbild av alternativa frågor för ett enda svar som importeras till kunskapsbas](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
+ ![Skärm bild av alternativa frågor för enskilda svar som importeras till kunskaps basen](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
-## <a name="structured-data-format-through-import"></a>Strukturerat dataformat genom import
+## <a name="structured-data-format-through-import"></a>Strukturerat data format via import
 
-Om du importerar en kunskapsbas ersätts innehållet i den befintliga kunskapsbasen. Import kräver en strukturerad TSV-fil som innehåller information om datakällan. Den här informationen hjälper QnA Maker att gruppera frågesvarsparen och tillskriva dem en viss datakälla.
+Om du importerar en kunskaps bas ersätts innehållet i den befintliga kunskaps basen. Importen kräver en strukturerad. TSV-fil som innehåller information om data källan. Den här informationen hjälper QnA Maker att gruppera frågans svars par och attributerar dem till en viss data källa.
 
 | Fråga  | Svar  | Källa| Metadata (1 nyckel: 1 värde) |
 |-----------|---------|----|---------------------|
-| Fråga1 | Svar1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
-| Fråga2 | Svar2 | Redaktionella|    `Key:Value`       |
+| Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
+| Question2 | Answer2 | Redaktionellt|    `Key:Value`       |
 
 <a href="#formatting-considerations"></a>
 
-## <a name="multi-turn-document-formatting"></a>Dokumentformatering med flera varv
+## <a name="multi-turn-document-formatting"></a>Flersidig dokumentformatering
 
-* Använd rubriker och underrubriker för att beteckna hierarki. Du kan till exempel H1 ange den överordnade QnA och h2 för att beteckna QnA som ska tas som prompt. Använd liten rubrikstorlek för att ange efterföljande hierarki. Använd inte stil, färg eller någon annan mekanism för att antyda struktur i dokumentet, QnA Maker kommer inte att extrahera flera varvsansningar.
-* Det första tecknet i rubriken måste aktiveras.
-* Avsluta inte en rubrik med `?`ett frågetecken.
+* Använd rubriker och under rubriker för att beteckna hierarkier. Till exempel kan du ange den överordnade QnA och H2 för att ange den QnA som ska tas med i frågan. Använd liten rubrik storlek för att beteckna efterföljande hierarkier. Använd inte formatmall, färg eller någon annan mekanism för att göra en struktur i ditt dokument, QnA Maker inte extraherar flera inaktiverade prompter.
+* Första bokstaven i rubriken måste vara kapitaliserad.
+* Avsluta inte en rubrik med ett frågetecken, `?`.
 
-**Exempeldokument:**<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso Fördelar (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso Fördelar (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
+**Exempel dokument**:<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso-förmåner (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso-förmåner (PDF)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en fullständig lista över [innehållstyper och exempel](./Concepts/content-types.md#file-and-url-data-types)
+Se en fullständig lista över [innehålls typer och exempel](./Concepts/content-types.md#file-and-url-data-types)

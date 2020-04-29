@@ -1,16 +1,16 @@
 ---
 title: PowerShell-skript för att uppdatera ett Azure Cosmos-kontos regioner
-description: Exempel på Azure PowerShell-skript – uppdatera ett Azure Cosmos-kontos regioner
+description: Azure PowerShell skript exempel – uppdatera ett Azure Cosmos-kontos regioner
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/21/2020
 ms.author: mjbrown
 ms.openlocfilehash: 4a8e24b4445e2bf29b35e87600de260c523d4376
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80367576"
 ---
 # <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Uppdatera ett Azure Cosmos-kontos regioner med PowerShell
@@ -22,9 +22,9 @@ ms.locfileid: "80367576"
 ## <a name="sample-script"></a>Exempelskript
 
 > [!NOTE]
-> Du kan inte ändra regioner och ändra andra Cosmos-kontoegenskaper i samma åtgärd. Dessa måste göras som två separata operationer.
+> Du kan inte ändra regioner och ändra andra egenskaper för Cosmos-kontot i samma åtgärd. Dessa måste göras som två separata åtgärder.
 > [!NOTE]
-> Det här exemplet visas med hjälp av ett SQL-API-konto (Core). Om du vill använda det här exemplet för andra API:er kopierar du de relaterade egenskaperna och gäller för ditt API-specifika skript.
+> Det här exemplet visar hur du använder ett SQL (Core) API-konto. Om du vill använda det här exemplet för andra API: er kopierar du de relaterade egenskaperna och tillämpar på ditt API-speciella skript.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
 
@@ -40,11 +40,11 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure-resurser**| |
 | [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Uppdatera en resurs. |
-|**Azure-resursgrupper**| |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

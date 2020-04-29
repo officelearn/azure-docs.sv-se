@@ -12,32 +12,32 @@ ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 2485794d9ec1ce78a8916014dc1117ed59c34e44
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656064"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Snabbstart: Generera en miniatyrbild med REST-API:et för visuellt innehåll och JavaScript
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Snabb start: skapa en miniatyr med hjälp av Visuellt innehåll REST API och Java Script
 
-I den här snabbstarten skapar du en miniatyrbild från en bild med REST-APIN för visuellt innehåll. Du anger höjd och bredd, som kan skilja sig i proportioner från indatabilden. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
+I den här snabb starten ska du skapa en miniatyr bild från en avbildning med hjälp av Visuellt innehåll REST API. Du anger höjd och bredd, vilket kan skilja sig från indata-bildens höjd/bredd-förhållande. Visuellt innehåll använder smart beskärning för att identifiera det område som är intressant och generera koordinater för beskärning baserat på det området.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Spara prenumerationsnyckeln och slutpunkts-URL:en på en tillfällig plats.
+Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Spara prenumerations nyckeln och slut punkts-URL: en på en tillfällig plats.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
 Så här skapar du och kör exemplet:
 
-1. Skapa en fil som heter _get-thumbnail.html_, öppna den i en textredigerare och kopiera följande kod till den.
-1. Du kan också ersätta `value` värdet för `inputImage` attributet för kontrollen med URL:en för en annan bild som du vill analysera.
+1. Skapa en fil med namnet _Get-thumbnail. html_, öppna den i en text redigerare och kopiera följande kod till den.
+1. Du kan också ersätta värdet på `value` attributet för `inputImage` kontrollen med URL: en för en annan bild som du vill analysera.
 1. Öppna ett webbläsarfönster.
 1. Dra och släpp filen till webbläsarfönstret i webbläsaren.
-1. När webbsidan visas i webbläsaren klistrar du in prenumerationsnyckeln och slutpunkts-URL:en i lämpliga inmatningsrutor.
-1. Slutligen väljer du knappen **Generera miniatyr.**
+1. När webb sidan visas i webbläsaren klistrar du in din prenumerations nyckel och slut punkts-URL i lämpliga inmatade rutor.
+1. Välj slutligen knappen **generera miniatyr bild** .
 
 ```html
 <!DOCTYPE html>

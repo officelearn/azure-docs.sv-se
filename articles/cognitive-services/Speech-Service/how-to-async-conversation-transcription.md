@@ -1,7 +1,7 @@
 ---
-title: Asynkron konversationsavskription (förhandsgranskning) - Taltjänst
+title: Avskrift av asynkron konversation (för hands version) – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder asynkron konversationsavskrift med hjälp av taltjänsten. Endast tillgängligt för Java.
+description: Lär dig hur du använder asynkron konversations avskrift med hjälp av tal tjänsten. Endast tillgängligt för Java.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,29 +11,29 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: amishu
 ms.openlocfilehash: 57543f4a3779145ce66259eec1abac195b63c7ba
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80384304"
 ---
-# <a name="asynchronous-conversation-transcription-preview"></a>Asynkron konversationsavskrift (förhandsgranskning)
+# <a name="asynchronous-conversation-transcription-preview"></a>Avskrift av asynkron konversation (förhands granskning)
 
-I den här artikeln visas asynkron konversationsavskription med hjälp av **RemoteConversationTranscriptionClient** API. Om du har konfigurerat konversationsavskrifter för att göra `conversationId`asynkron transkription `conversationId` och har en kan du hämta transkriptionen som är associerad med den med hjälp av **RemoteConversationTranscriptionClient** API.
+I den här artikeln visas den asynkrona konversations avskriften med hjälp av **RemoteConversationTranscriptionClient** -API: et. Om du har konfigurerat konversations avskrift för asynkron avskrift och har en `conversationId`kan du hämta avskriften som är associerad med `conversationId` med **RemoteConversationTranscriptionClient** -API: et.
 
-## <a name="asynchronous-vs-real-time--asynchronous"></a>Asynkron kontra realtid + asynkron
+## <a name="asynchronous-vs-real-time--asynchronous"></a>Asynkron vs. real tids + asynkron
 
-Med asynkron transkription streamar du konversationsljudet, men behöver inte en transkription som returneras i realtid. När ljudet har skickats använder `conversationId` `Conversation` du i stället frågan om statusen för den asynkrona transkriptionen. När den asynkrona transkriptionen är klar `RemoteConversationTranscriptionResult`får du en .
+Med asynkron avskrift strömmar du konversations ljudet, men behöver ingen avskrift i real tid. När ljudet har skickats använder `conversationId` `Conversation` du i stället för att fråga efter status för den asynkrona avskriften. När den asynkrona avskriften är klar får du en `RemoteConversationTranscriptionResult`.
 
-Med realtid plus asynkron får du transkriptionen i realtid, men får också `conversationId` transkriptionen genom att fråga med (liknande asynkrona scenario).
+Med real tids plus asynkront får du avskrifter i real tid, men du kan också få avskriften genom att `conversationId` fråga med (liknar asynkront scenario).
 
-Två steg krävs för att utföra asynkron transkription. Det första steget är att ladda upp ljudet, välja antingen asynkrona bara eller realtid plus asynkrona. Det andra steget är att få transkriptionsresultat.
+Två steg krävs för att utföra asynkron avskriftering. Det första steget är att ladda upp ljudet, välja antingen asynkront eller i real tid och asynkront. Det andra steget är att hämta resultatet av avskriften.
 
 ## <a name="upload-the-audio"></a>Ladda upp ljudet
 
-Innan asynkron transkription kan utföras måste du skicka ljudet till konversationsavskriftstjänsten med Microsoft Cognitive Speech-klienten SDK (version 1.8.0 eller senare).
+Innan asynkron avskrift kan utföras måste du skicka ljudet till konversations avskrifts tjänsten med hjälp av Microsofts kognitiva tal klient-SDK (version 1.8.0 eller senare).
 
-Den här exempelkoden visar hur du skapar konversations transkriberare för asynkront läge. För att strömma ljud till transkriberaren måste du lägga till ljudströmningskod som härletts från [Transkribera konversationer i realtid med Tal SDK](how-to-use-conversation-transcription-service.md). Se avsnittet **Begränsningar** i det avsnittet om att se de plattformar och språk som stöds.
+I den här exempel koden visas hur du skapar en konversations beskrivare för endast asynkront läge. För att kunna strömma ljud till-skrivarna måste du lägga till kod för direkt uppspelning av ljud som härletts från att skriva om [samtal i real tid med talet SDK](how-to-use-conversation-transcription-service.md). I avsnittet **begränsningar** i det här avsnittet visas de plattformar och språk-API: er som stöds.
 
 ```java
 // Create the speech config object
@@ -101,7 +101,7 @@ Future<?> future = transcriber.startTranscribingAsync();
 ...
 ```
 
-Om du vill _ha_ realtid plus asynkron, kommentera och avkommentera lämpliga kodrader enligt följande:
+Om du vill ha ett real tids _plus_ asynkront, kommentera och ta bort kommentarer till rätt rader med kod enligt följande:
 
 ```java
 // Set the property for asynchronous transcription
@@ -111,17 +111,17 @@ Om du vill _ha_ realtid plus asynkron, kommentera och avkommentera lämpliga kod
 speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", ServicePropertyChannel.UriQueryParameter);
 ```
 
-## <a name="get-transcription-results"></a>Få transkriptionsresultat
+## <a name="get-transcription-results"></a>Hämta avskrifts resultat
 
-Det här steget får asynkrona transkriptionsresultat men förutsätter att all bearbetning i realtid som du kan ha krävt görs någon annanstans. Mer information finns [i Transkribera konversationer i realtid med Tal SDK](how-to-use-conversation-transcription-service.md).
+Det här steget hämtar resultatet av den asynkrona avskriften men förutsätter att all bearbetning i real tid som du kan ha krävt görs någon annan stans. Mer information finns i skriva [upp konversationer i real tid med talet SDK](how-to-use-conversation-transcription-service.md).
 
-För koden som visas här behöver du **fjärrkonversation version 1.8.0**, stöds endast för Java (1.8.0 eller högre) på Windows, Linux och Android (ENDAST API-nivå 26 eller högre).
+För den kod som visas här behöver du **1.8.0 för fjärrkonversationer**, som endast stöds för Java (1.8.0 eller senare) i Windows, Linux och Android (endast API-nivå 26 eller senare).
 
-### <a name="obtaining-the-client-sdk"></a>Skaffa klienten SDK
+### <a name="obtaining-the-client-sdk"></a>Hämta klient-SDK
 
-Du kan hämta **fjärrkonversation** genom att redigera filen pom.xml på följande sätt.
+Du kan hämta en **fjärran** sluten konversation genom att redigera Pom. XML-filen på följande sätt.
 
-1. I slutet av filen, före `</project>`den avslutande `repositories` taggen, skapar du ett element med en referens till Maven-databasen för Tal-SDK:
+1. I slutet av filen, före den avslutande taggen `</project>`, skapar du ett `repositories` -element med en referens till maven-lagringsplatsen för tal-SDK:
 
    ```xml
    <repositories>
@@ -133,7 +133,7 @@ Du kan hämta **fjärrkonversation** genom att redigera filen pom.xml på följa
    </repositories>
    ```
 
-2. Lägg också `dependencies` till ett element med remoteconversation-client-sdk 1.8.0 som ett beroende:
+2. Lägg också till `dependencies` ett-element med remoteconversation-client-SDK-1.8.0 som ett beroende:
 
    ```xml
    <dependencies>
@@ -147,9 +147,9 @@ Du kan hämta **fjärrkonversation** genom att redigera filen pom.xml på följa
 
 3. Spara ändringarna
 
-### <a name="sample-transcription-code"></a>Exempel på transkriptionskod
+### <a name="sample-transcription-code"></a>Exempel kod för avskrift
 
-När du `conversationId`har , skapa en fjärrkonversation transkription klient **RemoteConversationTranscriptionClient** på klientprogrammet för att fråga status för asynkron transkription. Använd **metoden getTranscriptionOperation** i **RemoteConversationTranscriptionClient** för att hämta ett [PollerFlux-objekt.](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) PollerFlux-objektet kommer att ha information om fjärråtgärdsstatusen **RemoteConversationTranscriptionOperation** och slutresultatet **RemoteConversationTranscriptionResult**. När åtgärden är klar får du **RemoteConversationTranscriptionResult** genom att anropa **getFinalResult** på en [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). I denna kod skriver vi helt enkelt ut resultatinnehållet till systemutdata.
+När du har gjort `conversationId`det kan du skapa en **RemoteConversationTranscriptionClient** för avskrifts avskrift i klient programmet för att fråga om status för den asynkrona avskriften. Använd **getTranscriptionOperation** -metoden i **RemoteConversationTranscriptionClient** för att hämta ett [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) -objekt. PollerFlux-objektet kommer att ha information om fjärråtgärdens status **RemoteConversationTranscriptionOperation** och det slutliga resultatet **RemoteConversationTranscriptionResult**. När åtgärden har slutförts hämtar du **RemoteConversationTranscriptionResult** genom att anropa **GetFinalResult** på en [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). I den här koden skriver vi helt enkelt ut resultat innehållet till systemets utdata.
 
 ```java
 // Create the speech config object

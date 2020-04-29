@@ -1,39 +1,39 @@
 ---
 title: Ändra miljö och material
-description: Självstudiekurs som visar hur du ändrar himmelskartan och objektmaterial i en Unity-scen.
+description: Självstudie som visar hur du ändrar den himmelsblå kartan och objekt materialet i en Unity-scen.
 author: jakrams
 ms.author: jakras
 ms.date: 02/03/2020
 ms.topic: tutorial
 ms.openlocfilehash: 1354ac3cf2c6fc716ac72ae339928fa49171893e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679620"
 ---
-# <a name="tutorial-changing-the-environment-and-materials"></a>Handledning: Ändra miljö och material
+# <a name="tutorial-changing-the-environment-and-materials"></a>Självstudie: ändra miljö och material
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Ändra miljökartan för en scen.
-> * Ändra materialparametrar.
+> * Ändra miljö kartan för en scen.
+> * Ändra material parametrar.
 > * Läs in anpassade texturer.
 
 ## <a name="prerequisites"></a>Krav
 
-Den här självstudien förutsätter att du är bekant med [självstudiekurs: Arbeta med fjärrentiteter i Unity](working-with-remote-entities.md). Du behöver dock bara ett Unity-projekt som du kan ansluta till sessioner med och läsa in en modell, som visas i [Självstudiekurs: Ställa in ett Unity-projekt från grunden](project-setup.md).
+I den här självstudien förutsätter vi att du är bekant med [Självstudier: arbeta med fjär entiteter i](working-with-remote-entities.md)enhet. Men du behöver bara ett beställnings projekt som du kan använda för att ansluta till sessioner och läsa in en modell som visas i [Självstudier: Konfigurera ett Unity-projekt från grunden](project-setup.md).
 
 > [!TIP]
-> [ARR-exempeldatabasen](https://github.com/Azure/azure-remote-rendering) innehåller förberedda Unity-projekt för *Unity* alla självstudier i unity-mappen, som du kan använda som referens.
+> [Plats för arr-exempel](https://github.com/Azure/azure-remote-rendering) innehåller för beredda Unit-projekt för alla självstudier i mappen *Unity* , som du kan använda som referens.
 
-## <a name="change-the-environment-map"></a>Ändra miljökartan
+## <a name="change-the-environment-map"></a>Ändra miljö kartan
 
-Azure Remote Rendering stöder användningen av [himmelslådor](../../overview/features/sky.md) (ibland även kallade "miljökartor") för att simulera omgivande belysning. Detta är särskilt användbart när dina objekt använder *[fysiskt baserad rendering](../../overview/features/pbr-materials.md)*, som våra exempelmodeller gör. ARR levereras också med en mängd inbyggda himmel texturer, som vi kommer att använda i den här guiden.
+Azure Remote rendering stöder användning av [himmelsblå rutor](../../overview/features/sky.md) (kallas ibland "miljö kartor") för att simulera omgivande belysning. Detta är särskilt användbart när dina objekt använder *[fysiskt baserad åter givning](../../overview/features/pbr-materials.md)*, eftersom våra exempel modeller gör det. ARR levereras också med en mängd inbyggda himmelsblå texturer som vi kommer att använda i den här självstudien.
 
-Skapa ett nytt skript som heter **RemoteSky** och lägg till det i ett nytt GameObject. Öppna skriptfilen och ersätt den med följande kod:
+Skapa ett nytt skript med namnet **RemoteSky** och Lägg till det i en ny GameObject. Öppna skript filen och ersätt den med följande kod:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -95,15 +95,15 @@ public class RemoteSky : MonoBehaviour
 }
 ```
 
-Observera att `LoadTextureFromSASAsync` varianten används ovan eftersom inbyggda texturer läses in. Vid inläsning från [länkade blob-lagringar](../../how-tos/create-an-account.md#link-storage-accounts)använder du varianten. `LoadTextureAsync` Ett exempel på hur detta fungerar för modeller finns i [avsnittet modellinläsning](../../concepts/models.md#loading-models).
+Observera att `LoadTextureFromSASAsync` varianten används ovan eftersom inbyggda texturer har lästs in. Om du läser in från [länkade BLOB-lagringar](../../how-tos/create-an-account.md#link-storage-accounts)använder du `LoadTextureAsync` varianten. Ett exempel på hur detta fungerar för modeller finns i avsnittet om [modell inläsning](../../concepts/models.md#loading-models).
 
-När du kör koden och växla genom himlen kartor, kommer du att märka drastiskt olika belysning på din modell. Bakgrunden förblir dock svart och du kan inte se själva himmelsstrukturen. Detta är avsiktligt, som gör en bakgrund skulle vara störande med en Augmented Reality-enhet. I ett korrekt program bör du använda himmel texturer som liknar din verkliga världen omgivning, eftersom detta kommer att bidra till att göra objekt verkar mer verklig.
+När du kör koden och växlar genom rummets kartor, kommer du att märka en drastiskt annorlunda belysning i modellen. Bakgrunden kommer dock att vara svart och du kan inte se den faktiska luft rummets struktur. Detta är avsiktligt, eftersom åter givning av en bakgrund skulle vara störande med en förhöjd verklighet. I ett korrekt program bör du använda himmelsblå texturer som liknar din riktiga världs miljö, eftersom det gör att objekt visas mer i verkligheten.
 
 ## <a name="modify-materials"></a>Ändra material
 
-I föregående självstudie använde vi [tillståndssidosättningskomponenter](../../overview/features/override-hierarchical-state.md) för att ändra nyansfärgen för markerade objekt. Nu vill vi uppnå en liknande effekt, men gör det genom att ändra [materialet](../../concepts/materials.md) i ett objekt.
+I den föregående själv studie kursen använde vi [tillstånd att åsidosätta komponenter](../../overview/features/override-hierarchical-state.md) för att ändra färg tonen för valda objekt. Nu vill vi uppnå en liknande påverkan, men gör detta genom att ändra [material](../../concepts/materials.md) för ett objekt.
 
-Först behöver vi ett skript för att plocka objekt, som vi gjorde i [den andra handledningen](working-with-remote-entities.md). Om du inte har ett **RemoteRaycaster-skript** ännu skapar du det nu. Ersätt innehållet med följande kod:
+Först behöver vi ett skript för att plocka objekt, precis som vi gjorde i [den andra själv studie kursen](working-with-remote-entities.md). Om du inte har ett **RemoteRaycaster** -skript ännu skapar du det nu. Ersätt dess innehåll med följande kod:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -220,9 +220,9 @@ public class RemoteRaycaster : MonoBehaviour
 }
 ```
 
-Lägg till komponenten i *fjärrrenderingsspelobjektet.* Den ansvarar för att plocka objekt under musen och lägga till *RemoteModelEntity-komponenter* i de plockade objekten. Den komponentklassen är där vi implementerar den faktiska materialförändringsfunktionen.
+Lägg till komponenten i *RemoteRendering* Game-objektet. Den ansvarar för att plocka objekt under musen och lägga till *RemoteModelEntity* -komponenter i de plockade objekten. Den komponent klassen implementerar vi de faktiska material ändrings funktionerna.
 
-Om du inte har ett **RemoteModelEntity-skript** ännu skapar du det och ersätter innehållet med den här koden:
+Om du inte har ett **RemoteModelEntity** -skript ännu skapar du det och ersätter dess innehåll med den här koden:
 
 ```csharp
 using UnityEngine;
@@ -314,21 +314,21 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 
-När du kör den här koden markeras objekt som du hovrar med musen. Effekten liknar vad vi gjorde i handledning 2, men hur det uppnås är annorlunda. Här får vi listan över material på det plockade objektet och sedan ändra den första att ha en annan albedo färg.
+När du kör den här koden är de objekt som du hovrar med musen markerade. Resultatet liknar vad vi gjorde i själv studie kursen 2, men det sätt som den uppnår är annorlunda. Här hämtar vi listan över material för det plockade objektet och ändrar sedan det första för att ha en annan albedo-färg.
 
 > [!IMPORTANT]
-> Tänk på att om den här metoden belyser rätt delar av en modell beror på hur en modell skapas. Det kommer att fungera perfekt, om varje objekt använder exakt ett material. Men om modellen inte har en 1:1 relation mellan delar och material, kommer den naiva koden ovan inte göra det rätta.
+> Tänk på att om den här metoden markerar rätt delar av en modell beror på hur en modell har skapats. Den fungerar perfekt, om varje objekt använder exakt ett material. Men om modellen inte har en 1:1-relation mellan delar och material, kommer naïve-koden ovan inte att göra rätt sak.
 
-## <a name="use-a-different-texture"></a>Använda en annan textur
+## <a name="use-a-different-texture"></a>Använd en annan struktur
 
-[Texturer](../../concepts/textures.md) är vanligtvis en del av en källmodell. Under [modellkonvertering](../../quickstarts/convert-model.md)konverteras alla texturer till det nödvändiga körningsformatet och paketeras till den slutliga modellfilen. Om du vill ersätta en textur vid körning måste du spara den i [DDS-filformat](https://en.wikipedia.org/wiki/DirectDraw_Surface) och överföra den till Azure blob storage. I [den här snabbstartsguiden finns i den här snabbstartsguiden](../../quickstarts/convert-model.md) för hur du skapar en Azure-blob-behållare. När du har en blob-behållare kan du öppna den i Azure Storage Explorer och ladda upp filen via dra och släpp.
+[Texturer](../../concepts/textures.md) ingår vanligt vis i en käll modell. Under [modell konverteringen](../../quickstarts/convert-model.md)konverteras alla texturer till det nödvändiga körnings formatet och paketeras i den slutliga modell filen. Om du vill ersätta en struktur vid körning måste du spara den i [DDS-filformat](https://en.wikipedia.org/wiki/DirectDraw_Surface) och ladda upp den till Azure Blob Storage. Läs [den här snabb starts guiden](../../quickstarts/convert-model.md) för hur du skapar en Azure Blob-behållare. När du har en BLOB-behållare kan du öppna den i Azure Storage Explorer och ladda upp filen via dra och släpp.
 
-På körningssidan kan du adressera en texturtillgång i bloblagring på två olika sätt:
+På körnings sidan kan du adressera en struktur till gång i Blob Storage på två olika sätt:
 
-* Adressstruktur av dess SAS URI. För det högerklickar du på den uppladdade filen och väljer "**Få delad åtkomstsignatur...**" från snabbmenyn. Använd denna SAS URI med funktionsvarianten `LoadTextureFromSASAsync` (se exempelkod nedan).
-* Åtgärda texturen med blob storage-parametrar direkt, om [blob-lagringen är länkad till kontot](../../how-tos/create-an-account.md#link-storage-accounts). Relevant lastfunktion i `LoadTextureAsync`detta fall är .
+* Adress struktur efter SAS-URI. Högerklicka sedan på den överförda filen och välj "**Hämta signatur för delad åtkomst...**" från snabb menyn. Använd den här SAS-URI `LoadTextureFromSASAsync` : n med Function-varianten (se exempel koden nedan).
+* Adressera strukturen efter Blob Storage-parametrar direkt, om [Blob Storage är länkat till kontot](../../how-tos/create-an-account.md#link-storage-accounts). Relevant inläsnings funktion i det `LoadTextureAsync`här fallet är.
 
-Öppna nu **RemoteModelEntity-skriptet,** lägg till följande kod och ta bort dubblettfunktioner:
+Öppna nu **RemoteModelEntity** -skriptet, Lägg till följande kod och ta bort dubbletter:
 
 ```csharp
     private string textureFile = ""; //<SAS URI for your texture>
@@ -385,11 +385,11 @@ På körningssidan kan du adressera en texturtillgång i bloblagring på två ol
     }
 ```
 
-Kör den här koden och hovra över din modell. Om din modell har rätt UV-koordinater, bör du se din textur visas. Annars kan du bara märka en färgförändring.
+Kör den här koden och hovra över din modell. Om din modell har riktiga UV-koordinater bör du se att texturen visas. Annars kanske du bara märker en färg ändring.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därmed avslutas vår introduktionsserie om hur du använder Azure Remote Rendering med Unity. Som ett nästa steg bör du bekanta dig med några grundläggande begrepp i ARR, till exempel [sessioner,](../../concepts/sessions.md) [entiteter](../../concepts/entities.md)och [modeller](../../concepts/models.md) för att skapa en djupare förståelse. Det finns också olika funktioner som [lampor,](../../overview/features/lights.md) [dispositionsrendering,](../../overview/features/outlines.md) [hierarkiska tillståndsöversidoringar](../../overview/features/override-hierarchical-state.md)och [material](../../concepts/materials.md) som du bör utforska mer i detalj.
+Detta avslutar introduktions serien om hur du använder Azure Remote rendering med Unity. I nästa steg ska du bekanta dig med några grundläggande koncept för ARR, till exempel [sessioner](../../concepts/sessions.md), [entiteter](../../concepts/entities.md)och [modeller](../../concepts/models.md) , för att bygga en djupare förståelse. Det finns också olika funktioner som [lampor](../../overview/features/lights.md), [dispositions åter givning](../../overview/features/outlines.md), [hierarkiska tillstånds åsidosättningar](../../overview/features/override-hierarchical-state.md)och [material](../../concepts/materials.md) som du bör utforska i detalj.
 
 > [!div class="nextstepaction"]
-> [Unity spel objekt och komponenter](../../how-tos/unity/objects-components.md)
+> [Unity Game-objekt och-komponenter](../../how-tos/unity/objects-components.md)

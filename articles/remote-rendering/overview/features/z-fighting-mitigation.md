@@ -1,30 +1,30 @@
 ---
-title: Z-fighting lindring
-description: Beskriver tekniker för att minska z-fighting artefakter
+title: Minskning av Z-fighting
+description: Beskriver tekniker för att minimera z-bekämpnings artefakter
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: bc06deafe3f589fce9a9178fefdb22388254929d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680458"
 ---
-# <a name="z-fighting-mitigation"></a>Z-fighting lindring
+# <a name="z-fighting-mitigation"></a>Minskning av Z-fighting
 
-När två ytor överlappar varandra är det oklart vilken som ska återges ovanpå den andra. Resultatet varierar även per pixel, vilket resulterar i vyberoende artefakter. Följaktligen, när kameran eller nätet rör sig, dessa mönster flimrar märkbart. Denna artefakt kallas *z-fighting*. För AR- och VR-applikationer intensifieras problemet eftersom huvudmonterade enheter naturligt alltid rör sig. För att förhindra att tittaren obehag z-fighting begränsning funktionalitet är tillgänglig i Azure Remote Rendering.
+När två ytor överlappar varandra är det inte uppenbart vilken som ska återges ovanpå den andra. Resultatet varierar även per bild punkt, vilket resulterar i visnings beroende artefakter. Det innebär att när kameran eller nätet flyttas flimmer dessa mönster märkbart. Den här artefakten kallas för *z-bekämpning*. För AR-och VR-program är problemet intensifierat eftersom de head-monterade enheterna naturligt alltid flyttar. För att förhindra att visnings programmet för visnings dämpande z-bekämpning är tillgängligt i Azure Remote rendering.
 
-## <a name="z-fighting-mitigation-modes"></a>Z-fighting begränsningslägen
+## <a name="z-fighting-mitigation-modes"></a>Minsknings lägen för Z-bekämpning
 
-|Situationen                        | Resultat                               |
+|Tillståndet                        | Resultat                               |
 |---------------------------------|:-------------------------------------|
-|Regelbundna z-fighting               |![Z-slåss](./media/zfighting-0.png)|
-|Z-fighting mitigation aktiverat    |![Z-slåss](./media/zfighting-1.png)|
-|Markering av schackbräde aktiverat|![Z-slåss](./media/zfighting-2.png)|
+|Vanlig z-bekämpning               |![Z-bekämpning](./media/zfighting-0.png)|
+|Minskning av Z-bekämpning aktive rad    |![Z-bekämpning](./media/zfighting-1.png)|
+|Schack rutigt markering aktive rad|![Z-bekämpning](./media/zfighting-2.png)|
 
-Följande kod möjliggör z-fighting mitigation:
+Följande kod aktiverar minskning av z-bekämpning:
 
 ``` cs
 void EnableZFightingMitigation(AzureSession session, bool highlight)
@@ -40,29 +40,29 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 ```
 
 > [!NOTE]
-> Z-fighting mitigation är en global inställning som påverkar alla renderade maskor.
+> Minskning av Z-bekämpning är en global inställning som påverkar alla återgivna maskor.
 
-## <a name="reasons-for-z-fighting"></a>Orsaker till z-fighting
+## <a name="reasons-for-z-fighting"></a>Orsaker till z-bekämpning
 
-Z-fighting händer främst av två skäl:
+Z-bekämpning sker huvudsakligen av två anledningar:
 
-1. när ytorna är mycket långt borta från kameran försämras precisionen i deras djupvärden och värdena blir omöjliga att skilja
-1. när ytor i ett nät överlappar varandra fysiskt
+1. När ytorna är mycket bort från kameran blir precisionen för deras djup värden degraderade och värdena inte särskiljbar
+1. När ytor i ett nät fysiskt överlappar
 
-Det första problemet kan alltid hända och är svårt att eliminera. Om detta händer i din ansökan, se till att förhållandet mellan den *nära planet* avstånd till den *bortre planet* avståndet är så lågt som praktiskt. Till exempel, ett nära plan på avstånd 0,01 och långt plan på avstånd 1000 kommer att skapa detta problem mycket tidigare, än att ha nära planet på 0,1 och långt plan på avstånd 20.
+Det första problemet kan alltid inträffa och är svårt att eliminera. Om detta händer i ditt program, se till att förhållandet mellan det *nära planet* avståndet till det *långt planet* avståndet är så litet som möjligt. Ett nära planet på avstånd 0,01 och långt plan på avstånd 1000 kommer att skapa det här problemet mycket tidigare, än att ha det nära planet vid 0,1 och det långt planet på avstånd 20.
 
-Det andra problemet är en indikator för dåligt författat innehåll. I den verkliga världen kan två objekt inte vara på samma plats samtidigt. Beroende på programmet kanske användarna vill veta om överlappande ytor finns och var de befinner sig. Till exempel bör en CAD-scen av en byggnad som ligger till grund för en verklig värld konstruktion, inte innehålla fysiskt omöjliga ytkorsningar. För att möjliggöra visuell inspektion är markeringsläget tillgängligt, som visar potentiella z-fighting som ett animerat schackbrädemönster.
+Det andra problemet är en indikator för dåligt skapat innehåll. I den verkliga världen kan två objekt inte vara på samma plats samtidigt. Beroende på programmet kanske användarna vill veta om överlappande ytor finns och var de är. Till exempel är en CAD-scen för en byggnad som utgör grunden för en verklig världs konstruktion, bör inte innehålla något fysiskt möjligt funktions områdes skärnings punkt. För att möjliggöra visuell granskning är markerings läget tillgängligt, vilket visar potentiella z-skydd som ett animerat schack mönster.
 
 ## <a name="limitations"></a>Begränsningar
 
-Den tillförda z-fighting lindring är en bästa insats. Det finns ingen garanti för att det tar bort alla z-fighting. Också kommer det automatiskt att föredra en yta över en annan. Således när du har ytor som är för nära varandra, kan det hända att "fel" yta hamnar på toppen. Ett vanligt problemär när text och andra dekaler appliceras på en yta. Med z-fighting lindring aktiverat dessa detaljer kan lätt bara försvinna.
+Den angivna minskningen av z-bekämpning är en bra ansträngning. Det finns ingen garanti för att den tar bort all z-bekämpning. Det innebär också att den automatiskt föredrar en yta över en annan. När du har ytor som är för nära varandra kan det hända att ytan "fel" hamnar överst. Ett vanligt problem är när text och andra decals tillämpas på en yta. Med z-bekämpning kan du använda den här informationen för att enkelt undvikas.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
-* Att möjliggöra z-fighting lindring medför liten eller ingen prestanda overhead.
-* Dessutom gör det möjligt för z-fighting overlay medför en icke-trivial prestanda overhead, men det kan variera beroende på scenen.
+* Att aktivera minskning av z-bekämpning innebär lite till ingen prestanda omkostnader.
+* Även om du aktiverar ett överlägg med z-skydd uppstår en icke-trivial prestanda, men det kan variera beroende på scenen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Återgivningslägen](../../concepts/rendering-modes.md)
-* [Sent skede omprojection](late-stage-reprojection.md)
+* [Renderingsmodeller](../../concepts/rendering-modes.md)
+* [Omprojektion av sena steg](late-stage-reprojection.md)

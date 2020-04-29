@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 0d65ea9b684439cab384bbaa09fcdef1302b6bcf
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743859"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Ansluta till Azure Synapse Analytics med SQL Server Management Studio (SSMS)
@@ -25,30 +25,30 @@ ms.locfileid: "80743859"
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 
-Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga ett informationslager i Azure Synapse.
+Använd SQL Server Management Studio (SSMS) för att ansluta till och fråga ett informations lager i Azure Synapse.
 
 ## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att använda de här självstudierna:
 
-* En befintlig SQL-pool. En skapa en finns i [Skapa en SQL-pool](create-data-warehouse-portal.md).
-* SQL Server Management Studio (SSMS) installerat. [Ladda ner SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) gratis om du inte redan har det.
-* Det fullständigt kvalificerade servernamnet. Information om hur du hittar den här informationen finns i [Anslut till SQL-poolen](sql-data-warehouse-connect-overview.md).
+* En befintlig SQL-pool. Information om hur du skapar en SQL-pool finns i [skapa en SQL-pool](create-data-warehouse-portal.md).
+* SQL Server Management Studio (SSMS) har installerats. [Hämta SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kostnads fritt om du inte redan har det.
+* Det fullständigt kvalificerade servernamnet. Information om hur du hittar den här informationen finns i [Anslut till SQL-pool](sql-data-warehouse-connect-overview.md).
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. Anslut till din SQL-pool
 
 1. Öppna SSMS.
-2. Öppna Objektutforskaren genom att markera **Utforskaren för** > **Filanslutningsobjekt**.
+2. Öppna Object Explorer genom att välja **fil** > **Connect Object Explorer**.
 
     ![SQL Server Object Explorer](./media/sql-data-warehouse-query-ssms/connect-object-explorer.png)
 3. Fyll i fälten i fönstret anslut till server.
 
    ![Anslut till server](./media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
 
-   * **Servernamn**. Ange det **servernamn** som du identifierade tidigare.
+   * **Server namn**. Ange det **servernamn** som du identifierade tidigare.
    * **Autentisering**. Välj **SQL Server-autentisering** eller **Active Directory-integrerad autentisering**.
    * **Användarnamn** och **lösenord**. Ange användarnamn och lösenord om du valde SQL Server-autentisering ovan.
    * Klicka på **Anslut**.
@@ -56,7 +56,7 @@ Du behöver följande för att använda de här självstudierna:
 
    ![Utforska AdventureWorksDW](./media/sql-data-warehouse-query-ssms/explore-tables.png)
 
-## <a name="2-run-a-sample-query"></a>2. Kör en exempelfråga
+## <a name="2-run-a-sample-query"></a>2. kör en exempel fråga
 
 När du nu etablerat en anslutning till din databas, är det dags att skriva en fråga.
 
@@ -70,7 +70,7 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
    SELECT COUNT(*) FROM dbo.FactInternetSales;
    ```
 
-4. Kör frågan genom `Execute` att klicka eller `F5`använda följande genväg: .
+4. Kör frågan genom att klicka `Execute` på eller Använd följande genväg: `F5`.
 
    ![Kör frågan](./media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Titta på frågeresultaten. I det här exemplet har tabellen FactInternetSales 60398 rader.
@@ -79,4 +79,4 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du kan ansluta och fråga kan du prova [att visualisera data med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Information om hur du konfigurerar din miljö för Azure Active Directory-autentisering finns [i Autentisera till SQL-pool](sql-data-warehouse-authentication.md).
+Nu när du kan ansluta och fråga kan du prova [att visualisera data med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Information om hur du konfigurerar din miljö för Azure Active Directory autentisering finns i [autentisera till SQL-pool](sql-data-warehouse-authentication.md).

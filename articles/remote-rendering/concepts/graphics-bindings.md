@@ -1,6 +1,6 @@
 ---
-title: Grafikbindning
-description: Inställning av grafikbindningar och användningsfall
+title: Grafik bindning
+description: Installation av grafik bindningar och användnings fall
 author: florianborn71
 manager: jlyons
 services: azure-remote-rendering
@@ -10,31 +10,31 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.openlocfilehash: 8b5db0532f3dcc8b6dfb024238d0cacff2e6d2a1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681888"
 ---
-# <a name="graphics-binding"></a>Grafikbindning
+# <a name="graphics-binding"></a>Grafik bindning
 
-För att kunna använda Azure Remote Rendering i ett anpassat program måste den integreras i programmets renderingspipeline. Denna integration är grafikbindningens ansvar.
+För att kunna använda Azures fjärrrendering i ett anpassat program måste den integreras i programmets åter givnings pipeline. Den här integrationen är ansvaret för grafik bindningen.
 
-När grafikbindningen har ställts in får du tillgång till olika funktioner som påverkar den renderade bilden. Dessa funktioner kan delas in i två kategorier: allmänna funktioner som alltid `Microsoft.Azure.RemoteRendering.GraphicsApiType`är tillgängliga och specifika funktioner som bara är relevanta för det valda .
+När grafik bindningen har kon figurer ATS ger den till gång till olika funktioner som påverkar den åter givnings avbildningen. Dessa funktioner kan delas in i två kategorier: allmänna funktioner som alltid är tillgängliga och vissa funktioner som endast är relevanta för den valda `Microsoft.Azure.RemoteRendering.GraphicsApiType`.
 
-## <a name="graphics-binding-in-unity"></a>Grafikbindning i Unity
+## <a name="graphics-binding-in-unity"></a>Grafik bindning i Unity
 
-I Unity hanteras hela bindningen av `RemoteUnityClientInit` den `RemoteManagerUnity.InitializeManager`struktur som överförs till . Om du vill ställa `GraphicsApiType` in grafikläget måste fältet ställas in på den valda bindningen. Fältet fylls i automatiskt beroende på om det finns en XRDevice. Beteendet kan åsidosättas manuellt med följande beteenden:
+I Unity hanteras hela bindningen av de `RemoteUnityClientInit` strukturer som skickas till. `RemoteManagerUnity.InitializeManager` Om du vill ställa in grafik läget `GraphicsApiType` måste fältet ställas in på den valda bindningen. Fältet fylls i automatiskt beroende på om en XRDevice finns. Beteendet kan åsidosättas manuellt med följande beteenden:
 
-* **HoloLens 2**: Windows Mixed Reality-grafikbindningen används alltid. [Windows Mixed Reality](#windows-mixed-reality)
-* **Platt UWP-skrivbordsapp:** [Simulering](#simulation) används alltid. Om du vill använda det här läget måste du följa stegen i [Självstudiekurs: Konfigurera ett Unity-projekt från grunden](../tutorials/unity/project-setup.md).
-* **Unity editor**: [Simulering](#simulation) används alltid om inte ett WMR VR-headset är anslutet, i vilket fall ARR kommer att inaktiveras för att tillåta att felsöka icke-ARR-relaterade delar av programmet. Se även [holografisk remoting](../how-tos/unity/holographic-remoting.md).
+* **HoloLens 2**: grafik bindningen för [Windows Mixed Reality](#windows-mixed-reality) används alltid.
+* **Flat UWP Desktop-app**: [simulering](#simulation) används alltid. Om du vill använda det här läget måste du följa stegen i [självstudien: Konfigurera ett Unity-projekt från grunden](../tutorials/unity/project-setup.md).
+* **Unity Editor**: [simuleringen](#simulation) används alltid om inte ett WMR VR-headset är anslutet i vilket fall arr kommer att inaktive ras för att felsöka icke-arr-relaterade delar av programmet. Se även [Holographic fjärr kommunikation](../how-tos/unity/holographic-remoting.md).
 
-Den enda andra relevanta delen för Unity är att komma åt den [grundläggande bindningen](#access), alla andra avsnitt nedan kan hoppas över.
+Den enda andra relevanta delen för Unity har åtkomst till den [grundläggande bindningen](#access). alla andra avsnitt nedan kan hoppas över.
 
-## <a name="graphics-binding-setup-in-custom-applications"></a>Konfigurera grafikbindning i anpassade program
+## <a name="graphics-binding-setup-in-custom-applications"></a>Grafik bindnings konfiguration i anpassade program
 
-Om du vill välja en grafikbindning gör du följande två steg: För det första måste grafikbindningen initieras statiskt när programmet initieras:
+Om du vill välja en grafik bindning gör du följande två steg: först måste grafik bindningen vara statiskt initierad när programmet initieras:
 
 ``` cs
 RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization;
@@ -44,11 +44,11 @@ managerInit.right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
 ```
 
-Anropet ovan är nödvändigt för att initiera Azure Remote Rendering till holografiska API:er. Den här funktionen måste anropas innan ett holografiskt API anropas och innan andra API:er för fjärrrendering används. På samma sätt bör motsvarande `RemoteManagerStatic.ShutdownRemoteRendering();` de-init-funktion anropas efter att inga holografiska API:er anropas längre.
+Anropet ovan krävs för att initiera Azures fjärrrendering i Holographic-API: erna. Den här funktionen måste anropas innan något Holographic-API anropas och innan andra API: er för fjärrrendering används. På samma sätt ska motsvarande avinitierings funktion `RemoteManagerStatic.ShutdownRemoteRendering();` anropas när inga Holographic-API: er anropas längre.
 
-## <a name="span-idaccessaccessing-graphics-binding"></a><span id="access">Komma åt grafikbindning
+## <a name="span-idaccessaccessing-graphics-binding"></a><span id="access">Åtkomst till grafik bindning
 
-När en klient har konfigurerats kan den grundläggande `AzureSession.GraphicsBinding` grafikbindningen nås med gettern. Som ett exempel kan den senaste bildrutestatistiken hämtas så här:
+När en klient har kon figurer ATS kan den grundläggande grafik bindningen nås med `AzureSession.GraphicsBinding` Get-metoden. Till exempel kan den senaste ram statistiken hämtas så här:
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -62,18 +62,18 @@ if (currentSesson.GraphicsBinding)
 }
 ```
 
-## <a name="graphic-apis"></a>Grafiska API:er
+## <a name="graphic-apis"></a>Grafik-API: er
 
-Det finns för närvarande två grafik-API:er som kan väljas `WmrD3D11` och `SimD3D11`. En tredje `Headless` finns men stöds ännu inte på klientsidan.
+Det finns för närvarande två grafik- `WmrD3D11` API: er som kan `SimD3D11`väljas och. Det `Headless` finns ännu en tredjedel av klient sidan som inte stöds.
 
 ### <a name="windows-mixed-reality"></a>Windows Mixed Reality
 
-`GraphicsApiType.WmrD3D11`är standardbindningen som ska köras på HoloLens 2. Det kommer `GraphicsBindingWmrD3d11` att skapa bindningen. I det här läget Azure Remote Rendering krokar direkt i holografiska API: er.
+`GraphicsApiType.WmrD3D11`är standard bindningen som ska köras på HoloLens 2. `GraphicsBindingWmrD3d11` Bindningen skapas. I det här läget är Azure-fjärrrendering hookar direkt i Holographic-API: erna.
 
-För att komma åt de härledda grafikbindningarna måste basen `GraphicsBinding` gjutas.
-Det finns två saker som måste göras för att använda WMR-bindningen:
+För att komma åt de härledda grafik bindningarna `GraphicsBinding` måste basen omvandlas.
+Det finns två saker som måste utföras för att använda WMR-bindningen:
 
-#### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>Informera fjärrrendering av det använda koordinatsystemet
+#### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>Meddela fjärrrendering av det använda koordinatsystemet
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -85,11 +85,11 @@ if (binding.UpdateUserCoordinateSystem(ptr) == Result.Success)
 }
 ```
 
-Där ovanstående `ptr` måste vara en `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` pekare till ett inbyggt objekt som definierar det globala rymdkoordinatsystem där koordinater i API:et uttrycks i.
+Där ovanstående `ptr` måste vara en pekare till ett ursprungligt `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` objekt som definierar det världs utrymmes koordinatsystem där koordinaterna i API: et uttrycks i.
 
-#### <a name="render-remote-image"></a>Återge fjärrbild
+#### <a name="render-remote-image"></a>Återge fjärran sluten avbildning
 
-I början av varje bildruta måste fjärrramen återges i den bakre bufferten. Detta görs genom `BlitRemoteFrame`att anropa , som fyller både färg- och djupinformation i det för närvarande bundna renderingsmålet. Därför är det viktigt att detta görs efter bindning tillbaka bufferten som en render mål.
+I början av varje ram måste fjär ramen återges i den bakre bufferten. Detta görs genom att anropa `BlitRemoteFrame`, vilket fyller både färg-och djupgående information i det aktuella bindnings målet. Det är därför viktigt att detta görs när du har kopplat den bakre bufferten som ett Render-mål.
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -99,12 +99,12 @@ binding.BlitRemoteFrame();
 
 ### <a name="simulation"></a>Simulering
 
-`GraphicsApiType.SimD3D11`är simuleringsbindningen och `GraphicsBindingSimD3d11` om det här alternativet väljs skapas grafikbindningen. Detta gränssnitt används för att simulera huvudets rörelse, till exempel i ett skrivbordsprogram och återger en monoskopisk bild.
-Installationen är lite mer involverad och fungerar på följande sätt:
+`GraphicsApiType.SimD3D11`är simulerings bindningen och om den väljs `GraphicsBindingSimD3d11` skapas grafik bindningen. Det här gränssnittet används för att simulera huvud förflyttning, till exempel i ett Skriv bords program och återger en monoscopic-avbildning.
+Installationen är lite mer engagerad och fungerar på följande sätt:
 
-#### <a name="create-proxy-render-target"></a>Skapa mål för proxyåtergivning
+#### <a name="create-proxy-render-target"></a>Skapa Proxy för rendering mål
 
-Fjärrinnehåll och lokalt innehåll måste återges till en offscreen färg / djup göra mål `GraphicsBindingSimD3d11.Update` som kallas "proxy" med hjälp av proxy kameradata som tillhandahålls av funktionen. Proxyn måste matcha upplösningen på bakåtbufferten. När en session `GraphicsBindingSimD3d11.InitSimulation` är klar måste du anropas innan du ansluter till den:
+Fjärrinnehållet och det lokala innehållet måste återges för att rendera målet för färg-och djupet som heter proxy med hjälp av proxy- `GraphicsBindingSimD3d11.Update` kamerans data som tillhandahålls av funktionen. Proxyservern måste matcha back buffertens upplösning. När en session är klar `GraphicsBindingSimD3d11.InitSimulation` måste anropas före anslutning till den:
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -118,16 +118,16 @@ GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as Graphics
 simBinding.InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically);
 ```
 
-Init-funktionen måste förses med pekare till den inbyggda d3d-enheten samt till proxyåtergivningsmålets färg- och djupstruktur. En gång `AzureSession.ConnectToRuntime` initierat, `DisconnectFromRuntime` och kanna bli alarmerat `GraphicsBindingSimD3d11.DeinitSimulation` flera tiden utom när kopplande `GraphicsBindingSimD3d11.InitSimulation` till en olik session, nödvändigtvis till vara alarmerat första på den gammal session framför kanna bli kallat på en annan session.
+Funktionen init måste tillhandahållas med pekare till den interna D3D-enheten samt färg-och djup texturen för proxyns åter givnings mål. När den har `AzureSession.ConnectToRuntime` initierats `DisconnectFromRuntime` och kan anropas flera gånger, men när du växlar till en `GraphicsBindingSimD3d11.DeinitSimulation` annan session, måste anropas först på den gamla `GraphicsBindingSimD3d11.InitSimulation` sessionen innan den kan anropas i en annan session.
 
-#### <a name="render-loop-update"></a>Uppdatera renderingsloop
+#### <a name="render-loop-update"></a>Uppdatera upprepnings slinga
 
-Renderingsloopuppdateringen består av flera steg:
+Uppdateringen rendera loop består av flera steg:
 
-1. Varje bildruta, innan någon `GraphicsBindingSimD3d11.Update` rendering sker, anropas med den aktuella kameratransformeringen som skickas över till den server som ska återges. Samtidigt bör den returnerade proxytransformeringen tillämpas på proxykameran för att renderas i proxyåtergivningsmålet.
-Om den returnerade `SimulationUpdate.frameId` proxyuppdateringen är null finns det inga fjärrdata ännu. I det här fallet, i stället för att återge till proxyåtergivningsmålet, ska allt lokalt innehåll återges till den bakre bufferten direkt med hjälp av aktuella kameradata och de följande två stegen hoppas över.
-1. Programmet bör nu binda proxy återge mål och samtal `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy`. Detta fyller fjärrfärg och djupinformation i proxyåtergivningsmålet. Allt lokalt innehåll kan nu återges på proxyn med hjälp av proxykameratransformeringen.
-1. Därefter måste bakåtbufferten vara bunden `GraphicsBindingSimD3d11.ReprojectProxy` som ett återgemål och anropas vid vilken tidpunkt den bakre bufferten kan visas.
+1. Varje ram, innan en åter givning sker, `GraphicsBindingSimD3d11.Update` anropas med den aktuella Camera-transformeringen som skickas över till den server som ska renderas. Samtidigt bör den returnerade proxysammansättningen tillämpas på den proxyserver som ska renderas i proxyns åter givnings mål.
+Om den returnerade proxykonfigurationen `SimulationUpdate.frameId` är null finns det inga fjärrdata än. I det här fallet i stället för att rendera in i proxyns åter givnings mål, ska allt lokalt innehåll återges till den bakre bufferten direkt med hjälp av aktuella kamera data och nästa två steg hoppas över.
+1. Programmet bör nu binda proxyns åter givnings mål och anropa `GraphicsBindingSimD3d11.BlitRemoteFrameToProxy`. Då fylls information om fjärrfärg och djup i proxyns åter givnings mål. Alla lokala innehåll kan nu återges på proxyservern med hjälp av proxy-kamera omvandlingen.
+1. Sedan måste den bakre bufferten vara kopplad till ett åter givnings mål och `GraphicsBindingSimD3d11.ReprojectProxy` anropas med den punkt där den bakre bufferten kan visas.
 
 ``` cs
 AzureSession currentSesson = ...;
@@ -157,4 +157,4 @@ else
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudiekurs: Ställa in ett Unity-projekt från grunden](../tutorials/unity/project-setup.md)
+* [Självstudie: Konfigurera ett Unity-projekt från grunden](../tutorials/unity/project-setup.md)

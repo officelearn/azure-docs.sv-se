@@ -1,28 +1,28 @@
 ---
-title: Objekt bounds
-description: Förklarar hur rumsliga objekt bounds kan efterfrågas
+title: Objektgränser
+description: Förklarar hur spatial objekts gränser kan frågas
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1d2dfdb203b05f2f6b7de740718d7407bd88066c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681719"
 ---
-# <a name="object-bounds"></a>Objekt bounds
+# <a name="object-bounds"></a>Objektgränser
 
-Objekt bounds representerar den volym som en [entitet](entities.md) och dess underordnade upptar. I Azure Remote Rendering anges alltid objekt bounds som *axeljusterade markeringsrutor* (AABB). Objekt bounds kan vara antingen i *lokalt utrymme* eller i *världen rymden*. Hursomhelst, de är alltid axel-anpassade, vilket innebär att omfattningen och volymen kan skilja sig mellan den lokala och globala rymdrepresentation.
+Objekt gränser representerar den volym som en [entitet](entities.md) och dess underordnade upptar. I Azure fjärrrendering anges objekt gränser alltid som *axel justerings* ramar (AABB). Objekt gränser kan vara antingen i *lokalt utrymme* eller i *hela utrymmet*. Oavsett sätt är de alltid axelbaserade, vilket innebär att lagrings utrymmet och volymen kan skilja sig åt mellan den lokala och det dagliga utrymmes representationen.
 
-## <a name="querying-object-bounds"></a>Att fråga objekt bounds
+## <a name="querying-object-bounds"></a>Frågar efter objekt gränser
 
-Den lokala AABB för ett [nät](meshes.md) kan efterfrågas direkt från nätresursen. Dessa gränser kan omvandlas till det lokala utrymmet eller världsrymden för en entitet med hjälp av entitetens transformering.
+Den lokala AABB för ett [nät](meshes.md) kan frågas direkt från nät resursen. Dessa gränser kan omvandlas till ett lokalt utrymme eller ett globalt utrymme för en entitet som använder entitetens Transform.
 
-Det är möjligt att beräkna gränserna för en hel objekthierarki på det här sättet, men det kräver att du korsar hierarkin, frågar gränserna för varje nät och kombinerar dem manuellt. Denna operation är både tråkig och ineffektiv.
+Det är möjligt att beräkna gränserna för en hel Object-hierarki på det här sättet, men det kräver att du går igenom hierarkin, frågar gränserna för varje nät och kombinerar dem manuellt. Den här åtgärden är både omständlig och ineffektiv.
 
-Ett bättre sätt `QueryLocalBoundsAsync` är `QueryWorldBoundsAsync` att ringa eller på en entitet. Beräkningen lastas sedan av till servern och returneras med minimal fördröjning.
+Ett bättre sätt är att anropa `QueryLocalBoundsAsync` eller `QueryWorldBoundsAsync` på en entitet. Beräkningen avlastas sedan till servern och returneras med minimal fördröjning.
 
 ``` cs
 private BoundsQueryAsync _boundsQuery = null;

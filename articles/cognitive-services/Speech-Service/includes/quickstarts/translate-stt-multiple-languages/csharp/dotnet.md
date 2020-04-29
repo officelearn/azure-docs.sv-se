@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätt tal till flera språk, C# (.NET Framework Windows) - Taltjänst'
+title: 'Snabb start: Översätt tal till flera språk, C# (.NET Framework Windows) – tal service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,23 +11,23 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
 ms.openlocfilehash: 08bae7c258aa7c60cf723eff5def85705a4ff6fb
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671052"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Öppna **Program.cs**och ersätt all kod i den med följande.
+1. Öppna **program.cs**och ersätt all kod i den med följande.
 
    ```Csharp
    using System;
@@ -109,15 +109,15 @@ Innan du börjar måste du:
 
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Välj Spara**alla** **på** > menyraden .
+1. Välj **Arkiv** > **Spara alla**på Meny raden.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-1. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden bör nu kompileras utan fel.
+1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Välj **Felsökning** > **Starta felsökning** (eller tryck på **F5)** för att starta **helloworld-programmet.**
+1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
 
-1. Säg en engelsk fras eller en mening. Ansökan överför ditt tal till taltjänsten, som översätter och transkriberar till text (i detta fall till franska och tyska). Taltjänsten skickar sedan tillbaka texten till programmet för visning.
+1. Säg en engelsk fras eller en mening. Programmet skickar din röst till tal tjänsten som översätter och omvandlar till text (i det här fallet till franska och tyska). Tal tjänsten skickar sedan tillbaka texten till programmet för visning.
 
 ````
 Say something...

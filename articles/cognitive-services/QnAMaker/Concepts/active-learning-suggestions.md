@@ -1,52 +1,52 @@
 ---
-title: Aktiva inlärningsförslag - QnA Maker
-description: Med aktiva inlärningsförslag kan du förbättra kvaliteten på din kunskapsbas genom att föreslå alternativa frågor, baserat på användarinlämningar, på din fråga och svarspar.
+title: Aktiva utbildnings förslag – QnA Maker
+description: Med aktiva utbildnings förslag kan du förbättra kvaliteten på din kunskaps bas genom att föreslå alternativa frågor, baserat på användar-och användar sändningar, till din fråga och ditt svars par.
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.openlocfilehash: edbe06b12fbb97473b28ccca968fd3e7d8366152
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804229"
 ---
-# <a name="active-learning-suggestions"></a>Förslag på aktivt lärande
+# <a name="active-learning-suggestions"></a>Aktiva utbildnings förslag
 
-Med funktionen _Aktiva inlärningsförslag_ kan du förbättra kvaliteten på din kunskapsbas genom att föreslå alternativa frågor, baserat på användarinlämningar, på ditt fråga- och svarspar. Du granskar dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem.
+Med funktionen för _aktiva utbildnings förslag_ kan du förbättra kvaliteten på din kunskaps bas genom att föreslå alternativa frågor, baserat på användar-och användar sändningar till din fråga och svar-paret. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem.
 
-Din kunskapsbas ändras inte automatiskt. För att en ändring ska börja gälla måste du acceptera förslagen. Dessa förslag lägger till frågor men ändrar inte eller tar bort befintliga frågor.
+Kunskaps basen ändras inte automatiskt. För att alla ändringar ska börja gälla måste du godkänna förslagen. Dessa förslag lägger till frågor, men ändrar inte eller tar inte bort befintliga frågor.
 
-## <a name="what-is-active-learning"></a>Vad är aktivt lärande?
+## <a name="what-is-active-learning"></a>Vad är aktiv inlärning?
 
-QnA Maker lär sig nya frågevariationer med implicit och explicit feedback.
+QnA Maker lär sig nya variationer i frågan med implicit och uttrycklig feedback.
 
-* [Implicit feedback](#how-qna-makers-implicit-feedback-works) – Rankern förstår när en användarfråga har flera svar med poäng som är mycket nära och betraktar detta som feedback. Du behöver inte göra något för att det här ska hända.
-* [Explicit feedback](#how-you-give-explicit-feedback-with-the-train-api) – När flera svar med liten variation i poäng returneras från kunskapsbasen frågar klientprogrammet användaren vilken fråga som är rätt fråga. Användarens explicita feedback skickas till QnA Maker med [Train API](../How-to/improve-knowledge-base.md#train-api).
+* [Implicit feedback](#how-qna-makers-implicit-feedback-works) – rankningen förstår när en användar fråga har flera svar med poäng som är mycket nära och som ser ut som feedback. Du behöver inte göra något för att detta ska ske.
+* [Explicit feedback](#how-you-give-explicit-feedback-with-the-train-api) – när flera svar med lite variation i poängen returneras från kunskaps basen, ber klient programmet användaren som frågan är rätt fråga om. Användarens uttryckliga feedback skickas till QnA Maker med träna- [API: et](../How-to/improve-knowledge-base.md#train-api).
 
-Båda metoderna ger rangordningen liknande frågor som är klustrade.
+Båda metoderna ger rangordningen med liknande frågor som är klustrade.
 
-## <a name="how-active-learning-works"></a>Så här fungerar aktivt lärande
+## <a name="how-active-learning-works"></a>Så här fungerar Active Learning
 
-Aktiv inlärning utlöses baserat på poängen för de få svar som returneras av QnA Maker. Om poängskillnaderna mellan QnA-par som matchar frågan ligger inom ett litet intervall, betraktas frågan som ett möjligt förslag (som en alternativ fråga) för vart och ett av de möjliga QnA-paren. När du har accepterat den föreslagna frågan för ett specifikt QnA-par avvisas den för de andra paren. Du måste komma ihåg att spara och träna, efter att ha accepterat förslag.
+Aktiv inlärning utlöses baserat på resultaten av de viktigaste svaren som returneras av QnA Maker. Om Poäng skillnaderna mellan QnA-par som matchar frågan ligger inom ett litet intervall, anses frågan vara ett möjligt förslag (som en alternativ fråga) för varje möjligt QnA-par. När du har accepterat den föreslagna frågan för ett speciellt QnA-par avvisas den för de andra paren. Du måste komma ihåg att spara och träna när du har accepterat förslag.
 
-Aktiv inlärning ger bästa möjliga förslag i de fall där slutpunkterna får en rimlig mängd och olika användningsfrågor. När 5 eller fler liknande frågor grupperas, var 30:e minut, föreslår QnA Maker de användarbaserade frågorna till kunskapsbasdesignern att acceptera eller avvisa. Alla förslag grupperas tillsammans efter likhet och de vanligaste förslagen för alternativa frågor visas baserat på frekvensen av de specifika frågorna av slutanvändare.
+Active Learning ger bästa möjliga förslag i fall där slut punkterna får en rimlig mängd och olika användnings frågor. Om 5 eller fler liknande frågor grupperas, var 30: e minut, föreslår QnA Maker de användarbaserade frågorna till kunskaps bas verktyget för att godkänna eller avvisa. Alla förslag är grupperade efter likhet och de vanligaste förslagen för alternativa frågor som visas baserat på frekvensen för specifika frågor av slutanvändare.
 
-När frågor har föreslagits i QnA Maker-portalen måste du granska och acceptera eller avvisa dessa förslag. Det finns inget API för att hantera förslag.
+När frågorna föreslås i QnA Maker portal måste du granska och godkänna eller avvisa dessa förslag. Det finns inget API för att hantera förslag.
 
 ## <a name="turn-on-active-learning"></a>Aktivera aktiv inlärning
 
-Som standard är aktiv inlärning **inaktiverad**.
-Så här använder du aktiv inlärning:
-* Du måste [aktivera aktiv inlärning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) så att QnA Maker samlar in alternativa frågor till din kunskapsbas.
-* Om du vill se de föreslagna alternativa frågorna [använder du Visa alternativ](../How-To/improve-knowledge-base.md#view-suggested-questions) på sidan Redigera.
+Som standard är aktiv inlärning **inaktiverat**.
+Så här använder du Active Learning:
+* Du måste [Aktivera aktiv inlärning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) så att QNA Maker samlar in alternativa frågor om din kunskaps bas.
+* Om du vill se de föreslagna alternativa frågorna [använder du visnings alternativen](../How-To/improve-knowledge-base.md#view-suggested-questions) på sidan Redigera.
 
-## <a name="how-qna-makers-implicit-feedback-works"></a>Så här fungerar QnA Maker implicita återkopplingar
+## <a name="how-qna-makers-implicit-feedback-works"></a>Så här fungerar QnA Makers implicit feedback
 
-QnA Maker implicita feedback använder en algoritm för att bestämma poäng närhet sedan gör aktiva lärande förslag. Algoritmen för att bestämma närhet är inte en enkel beräkning. Intervallen i följande exempel är inte avsedda att vara fasta, men bör användas som en guide för att förstå effekten av algoritmen endast.
+QnA Makers implicita feedback använder en algoritm för att fastställa poängen och gör aktiva utbildnings förslag. Algoritmen för att bestämma närhet är inte en enkel beräkning. Intervallen i följande exempel är inte avsedda att korrigeras utan bör användas som vägledning för att endast förstå effekten av algoritmen.
 
-När en frågas poäng är mycket säker, till exempel 80%, är intervallet av poäng som anses för aktivt lärande brett, ungefär inom 10%. När konfidenspoängen minskar, till exempel 40 %, minskar också poängintervallet, ungefär inom 4 %.
+När en frågas Poäng är mycket trygg, t. ex. 80%, är poängen som beaktas för aktiv inlärning en bred, ungefär inom 10%. När förtroende poängen minskar, till exempel 40%, minskar intervallet för poängen, ungefär inom 4%.
 
-I följande JSON svar från en fråga till QnA Maker's generateAnswer, poängen för A, B och C är nära och skulle betraktas som förslag.
+I följande JSON-svar från en fråga till QnA Maker s generateAnswer, visas poängen för A, B och C nära och betraktas som förslag.
 
 ```json
 {
@@ -116,20 +116,20 @@ I följande JSON svar från en fråga till QnA Maker's generateAnswer, poängen 
 }
 ```
 
-QnA Maker vet inte vilket svar som är det bästa svaret. Använd QnA Maker-portalens lista med förslag för att välja det bästa svaret och träna igen.
+QnA Maker vet inte vilket svar som är det bästa svaret. Använd QnA Maker Portals lista med förslag för att välja det bästa svaret och träna igen.
 
 
-## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Hur du ger explicit feedback med Train API
+## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>Hur du ger explicit feedback med träna-API: et
 
-QnA Maker behöver tydlig feedback om vilket av svaren som var det bästa svaret. Hur det bästa svaret bestäms är upp till dig och kan innehålla:
+QnA Maker behöver uttrycklig feedback om vilka av svaren som var det bästa svaret. Hur det bästa svaret fastställs är upp till dig och kan innehålla:
 
-* Feedback från användare genom att välja ett av svaren.
-* Affärslogik, till exempel bestämma ett godtagbart poängintervall.
-* En kombination av både användarfeedback och affärslogik.
+* Feedback från användare och välj ett av svaren.
+* Affärs logik, till exempel att fastställa ett acceptabelt Poäng intervall.
+* En kombination av både feedback och affärs logik.
 
-Använd [Train API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train) för att skicka rätt svar till QnA Maker, när användaren har valt det.
+Använd [träna API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train) för att skicka rätt svar till QNA Maker när användaren har markerat det.
 
 ## <a name="next-step"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Fråga kunskapsbasen](query-knowledge-base.md)
+> [Fråga kunskaps basen](query-knowledge-base.md)

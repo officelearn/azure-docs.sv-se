@@ -1,34 +1,34 @@
 ---
-title: Utbildningspolitik - Personalizer
-description: Inlärningsinställningar bestämmer *modellträningens hyperparametrar.* Två modeller av samma data som tränas på olika inlärningsinställningar kommer att sluta annorlunda.
+title: Utbildnings princip – Personanpassare
+description: Inlärnings inställningarna bestämmer modell utbildningens *Egenskaper* . Två modeller av samma data som har tränats på olika inlärnings inställningar kommer att upphöra annorlunda.
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219350"
 ---
-# <a name="learning-policy-and-settings"></a>Utbildningspolitik och inställningar
+# <a name="learning-policy-and-settings"></a>Utbildnings princip och inställningar
 
-Inlärningsinställningar bestämmer *modellträningens hyperparametrar.* Två modeller av samma data som tränas på olika inlärningsinställningar kommer att sluta annorlunda.
+Inlärnings inställningarna bestämmer modell utbildningens *Egenskaper* . Två modeller av samma data som har tränats på olika inlärnings inställningar kommer att upphöra annorlunda.
 
-[Utbildningsprincipen och inställningarna](how-to-settings.md#configure-rewards-for-the-feedback-loop) är inställda på din Personalizer-resurs i Azure-portalen.
+[Inlärnings policy och inställningar](how-to-settings.md#configure-rewards-for-the-feedback-loop) anges på din personanpassa resurs i Azure Portal.
 
-## <a name="import-and-export-learning-policies"></a>Principer för import och export av utbildning
+## <a name="import-and-export-learning-policies"></a>Importera och exportera utbildnings principer
 
-Du kan importera och exportera utbildningsprincipfiler från Azure-portalen. Använd den här metoden för att spara befintliga principer, testa dem, ersätta dem och arkivera dem i källkodskontrollen som artefakter för framtida referens och granskning.
+Du kan importera och exportera filer för inlärnings principer från Azure Portal. Använd den här metoden för att spara befintliga principer, testa dem, ersätta dem och arkivera dem i käll kods kontrollen som artefakter för framtida referens och granskning.
 
-Lär dig [hur](how-to-manage-model.md#import-a-new-learning-policy) du importerar och exporterar en utbildningspolitik i Azure-portalen för din Personalizer-resurs.
+Lär dig [hur du](how-to-manage-model.md#import-a-new-learning-policy) importerar och exporterar en utbildnings princip i Azure Portal för din personanpassa resurs.
 
-## <a name="understand-learning-policy-settings"></a>Förstå inställningar för utbildningsprincipen
+## <a name="understand-learning-policy-settings"></a>Förstå policy inställningar för inlärning
 
-Inställningarna i utbildningsprincipen är inte avsedda att ändras. Ändra bara inställningar om du förstår hur de påverkar Personalizer. Utan denna kunskap kan du orsaka problem, inklusive invalidisering Personalizer modeller.
+Inställningarna i inlärnings principen är inte avsedda att ändras. Ändra endast inställningar om du förstår hur de påverkar Personanpassaren. Utan den här kunskapen kan du orsaka problem, t. ex. invaliderar anpassnings modeller.
 
-Personalizer använder [vowpalwabbit](https://github.com/VowpalWabbit) att träna och poäng händelserna. Se [vokalwabbitdokumentationen](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) om hur du redigerar inlärningsinställningarna med vokalwabbit. När du har rätt argument på kommandoraden sparar du kommandot i en fil med följande format (ersätt egenskapsvärdet för argument med önskat kommando) och överför filen för att importera utbildningsinställningar i fönstret **Modell- och utbildningsinställningar** i Azure-portalen för din Personalizer-resurs.
+I personanpassaren används [vowpalwabbit](https://github.com/VowpalWabbit) för att träna och räkna upp händelser. Läs vowpalwabbit- [dokumentationen](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) om hur du redigerar inlärnings inställningarna med hjälp av vowpalwabbit. När du har rätt kommando rads argument sparar du kommandot till en fil med följande format (Ersätt egenskap svärdet argument med önskat kommando) och laddar upp filen för att importera inlärnings inställningar i fönstret **modell-och inlärnings inställningar** i Azure Portal för din personanpassa resurs.
 
-Följande `.json` är ett exempel på en utbildningspolitik.
+Följande `.json` är ett exempel på en utbildnings princip.
 
 ```json
 {
@@ -37,17 +37,17 @@ Följande `.json` är ett exempel på en utbildningspolitik.
 }
 ```
 
-## <a name="compare-learning-policies"></a>Jämför utbildningsprinciper
+## <a name="compare-learning-policies"></a>Jämför inlärnings principer
 
-Du kan jämföra hur olika utbildningsprinciper presterar mot tidigare data i Personalizer-loggar genom att göra [offlineutvärderingar](concepts-offline-evaluation.md).
+Du kan jämföra hur olika inlärnings principer fungerar mot tidigare data i personanpassa loggar genom att göra [offline-utvärderingar](concepts-offline-evaluation.md).
 
-[Ladda upp dina egna utbildningsprinciper](how-to-manage-model.md) för att jämföra dem med den aktuella utbildningsprincipen.
+[Ladda upp dina egna utbildnings principer](how-to-manage-model.md) för att jämföra dem med den aktuella inlärnings policyn.
 
-## <a name="optimize-learning-policies"></a>Optimera utbildningsprinciper
+## <a name="optimize-learning-policies"></a>Optimera inlärnings principer
 
-Personalizer kan skapa en optimerad inlärningspolicy i en [offlineutvärdering](how-to-offline-evaluation.md). En optimerad inlärningspolicy som har bättre belöningar i en offlineutvärdering ger bättre resultat när den används online i Personalizer.
+En personanpassare kan skapa en optimerad utbildnings princip i en [offline-utvärdering](how-to-offline-evaluation.md). En optimerad utbildnings princip som har bättre fördelar i en offline-utvärdering ger bättre resultat när den används online i personanpassa företaget.
 
-När du har optimerat en utbildningspolitik kan du använda den direkt på Personalizer så att den omedelbart ersätter den aktuella principen. Du kan också spara den optimerade principen för vidare utvärdering och senare bestämma om du vill ignorera, spara eller tillämpa den.
+När du har optimerat en inlärnings princip kan du tillämpa den direkt på en Personanpassare så att den omedelbart ersätter den aktuella principen. Eller så kan du spara den optimerade principen för ytterligare utvärdering och senare bestämma om du vill ignorera, Spara eller tillämpa den.
 
 ## <a name="next-steps"></a>Nästa steg
 

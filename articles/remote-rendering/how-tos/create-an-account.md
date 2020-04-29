@@ -1,40 +1,40 @@
 ---
 title: Skapa ett Azure Remote Rendering-konto
-description: Beskriver stegen för att skapa ett konto för Azure Remote Rendering
+description: Beskriver stegen för att skapa ett konto för Azure Remote rendering
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: b9b72fb9e80c588eb3e6642d0228bffa50b35c6e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681303"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Skapa ett Azure Remote Rendering-konto
 
-Det här kapitlet vägleder dig genom stegen för att skapa ett konto för **Azure Remote Rendering-tjänsten.** Ett giltigt konto är obligatoriskt för att slutföra någon av snabbstarter eller självstudier.
+Det här kapitlet vägleder dig genom stegen för att skapa ett konto för tjänsten **Azure Remote rendering** . Ett giltigt konto är obligatoriskt för att slutföra alla snabb starter eller självstudier.
 
 ## <a name="create-an-account"></a>Skapa ett konto
 
-Följande steg behövs för att skapa ett konto för Azure Remote Rendering-tjänsten:
+Följande steg krävs för att skapa ett konto för tjänsten Azure Remote rendering:
 
-1. Gå till [sidan Förhandsgranskning av mixad verklighet](https://aka.ms/MixedRealityPrivatePreview)
-1. Klicka på knappen Skapa en resurs
-1. Skriv in "Fjärr rendering" i sökfältet ("Sök på marketplace".
-1. Klicka på panelen "Fjärrrendering" i resultatlistan
-1. På nästa skärm klickar du på knappen "Skapa". Ett formulär öppnas för att skapa ett nytt fjärrrenderingskonto:
-    1. Ange "Resursnamn" till namnet på kontot
-    1. Uppdatera "Prenumeration" om det behövs
-    1. Ange "Resursgrupp" till en resursgrupp som du väljer
+1. Gå till [förhands gransknings sidan för Mixad verklighet](https://aka.ms/MixedRealityPrivatePreview)
+1. Klicka på knappen "skapa en resurs"
+1. Skriv "fjärrrendering" i Sök fältet ("Sök på Marketplace") och tryck på RETUR.
+1. I resultat listan klickar du på panelen fjärrrendering
+1. Klicka på knappen "skapa" på nästa skärm. Ett formulär öppnas för att skapa ett nytt konto för fjärrrendering:
+    1. Ange resurs namnet till namnet på kontot
+    1. Uppdatera prenumerationen om det behövs
+    1. Ange resurs grupp i valfri resurs grupp
 1. När kontot har skapats navigerar du till det och:
-    1. På fliken *Översikt* noterar du "Konto-ID"
-    1. På fliken *Inställningar > åtkomstnycklar* tecknar du "Primärnyckeln" – det här är kontots hemliga kontonyckel
+    1. På fliken *Översikt* noterar du "konto-ID"
+    1. På fliken *inställningar > åtkomst nycklar* noterar du "primär nyckel", det här är kontots hemliga konto nyckel
 
-### <a name="retrieve-the-account-information"></a>Hämta kontoinformationen
+### <a name="retrieve-the-account-information"></a>Hämta konto informationen
 
-Exemplen och självstudierna kräver att du anger konto-ID och en nyckel. Till exempel i **filen arrconfig.json** som används för PowerShell-exempelskripten:
+Exempel och självstudier kräver att du anger konto-ID och en nyckel. Till exempel i filen **ARRConfig. JSON** som används för PowerShell-exempel skripten:
 
 ```json
     "accountSettings": {
@@ -44,57 +44,57 @@ Exemplen och självstudierna kräver att du anger konto-ID och en nyckel. Till e
     },
 ```
 
-Se [listan över tillgängliga regioner](../reference/regions.md) för att fylla i *regionalternativet.*
+Se [listan över tillgängliga regioner](../reference/regions.md) för att fylla i alternativet *region* .
 
-Värdena **`arrAccountId`** för **`arrAccountKey`** och finns i portalen enligt beskrivningen i följande steg:
+Värdena för **`arrAccountId`** och **`arrAccountKey`** finns i portalen enligt beskrivningen i följande steg:
 
 * Gå till [Azure Portal](https://www.portal.azure.com)
-* Hitta ditt **"Fjärrrenderingskonto"** – det ska finnas i listan **"Senaste resurser".** Du kan också söka efter den i sökfältet högst upp. I så fall kontrollerar du att den prenumeration du vill använda är markerad i standardprenumerationsfiltret (filterikon bredvid sökfältet):
+* Hitta ditt **"Fjärråter givnings konto"** – det ska vara i listan **"senaste resurser"** . Du kan också söka efter den i Sök fältet längst upp. I så fall kontrollerar du att den prenumeration du vill använda är markerad i standard prenumerations filtret (filter ikon bredvid Sök fältet):
 
-![Abonnemangsfilter](./media/azure-subscription-filter.png)
+![Prenumerations filter](./media/azure-subscription-filter.png)
 
-Om du klickar på ditt konto kommer du till den här skärmen, som visar **konto-ID:et** direkt:
+Genom att klicka på ditt konto får du till gång till den här skärmen, som visar **konto-ID: t** omedelbart:
 
-![Id för Azure-konto](./media/azure-account-id.png)
+![ID för Azure-konto](./media/azure-account-id.png)
 
-För nyckeln väljer du **Snabbtangenter** på panelen till vänster. På nästa sida visas en primär och en sekundär nyckel:
+För nyckeln väljer du **åtkomst nycklar** i panelen till vänster. Nästa sida visar en primär och en sekundär nyckel:
 
-![Azure-åtkomstnycklar](./media/azure-account-primary-key.png)
+![Åtkomst nycklar för Azure](./media/azure-account-primary-key.png)
 
-Värdet för **`arrAccountKey`** kan antingen vara primär eller sekundär nyckel.
+Värdet för **`arrAccountKey`** kan vara antingen primär eller sekundär nyckel.
 
-## <a name="link-storage-accounts"></a>Länka lagringskonton
+## <a name="link-storage-accounts"></a>Länka lagrings konton
 
-I det här stycket beskrivs hur du länkar lagringskonton till ditt fjärrrenderingskonto. När ett lagringskonto är länkat är det inte nödvändigt att generera en SAS URI varje gång du vill interagera med data i ditt konto, till exempel när du läser in en modell. I stället kan du använda lagringskontonamnen direkt enligt beskrivningen i [avsnittet läsa in en modell](../concepts/models.md#loading-models).
+I det här stycket förklaras hur du länkar lagrings konton till ditt konto för fjärrrendering. När ett lagrings konto är länkat behöver du inte skapa en SAS-URI varje gång du vill interagera med data i ditt konto, till exempel när du läser in en modell. I stället kan du använda lagrings kontots namn direkt enligt beskrivningen i [avsnittet läsa in en modell](../concepts/models.md#loading-models).
 
-Stegen i den här punkten måste utföras för varje lagringskonto som ska använda den här alternativa åtkomstmetoden. Om du inte har skapat lagringskonton ännu kan du gå igenom respektive steg i [konvertera en modell för rendering snabbstart](../quickstarts/convert-model.md#storage-account-creation).
+Stegen i det här stycket måste utföras för varje lagrings konto som ska använda den alternativa åtkomst metoden. Om du inte har skapat lagrings konton än kan du gå igenom respektive steg i avsnittet [konvertera en modell för att rendera snabb start](../quickstarts/convert-model.md#storage-account-creation).
 
-Nu antas det att du har ett lagringskonto. Navigera till lagringskontot i portalen och gå till fliken **Åtkomstkontroll (IAM)** för det lagringskontot:
+Nu förutsätts det att du har ett lagrings konto. Navigera till lagrings kontot i portalen och gå till fliken **Access Control (IAM)** för det lagrings kontot:
 
-![Lagringskonto IAM](./media/azure-storage-account.png)
+![IAM för lagrings konto](./media/azure-storage-account.png)
 
- Se till att du har ägarbehörigheter över det här lagringskontot för att säkerställa att du kan lägga till rolltilldelningar. Om du inte har åtkomst inaktiveras alternativet **Lägg till en rolltilldelning.**
+ Se till att du har ägar behörigheter över det här lagrings kontot för att säkerställa att du kan lägga till roll tilldelningar. Om du inte har åtkomst kommer alternativet **Lägg till en roll tilldelning** att inaktive ras.
 
- Du måste lägga till tre olika roller enligt beskrivningen i nästa steg. Om du inte anger alla tre åtkomstnivåerna kommer det att finnas behörighetsproblem när du försöker komma åt lagringskontot.
+ Du måste lägga till tre olika roller enligt beskrivningen i nästa steg. Om du inte anger alla tre åtkomst nivåer får du behörighets problem när du försöker komma åt lagrings kontot.
 
- Klicka på knappen **Lägg till** i panelen Lägg till en rolltilldelning för att lägga till den första rollen:
+ Klicka på knappen **Lägg till** i panelen Lägg till en roll tilldelning för att lägga till den första rollen:
 
-![Lagringskonto IAM](./media/azure-add-role-assignment.png)
+![IAM för lagrings konto](./media/azure-add-role-assignment.png)
 
-* Den första rollen att tilldela är **Ägare** som visas i skärmdumpen ovan. 
-* Välj **Fjärrrenderingskonto** i listrutan ***Tilldela åtkomst.**
-* Välj din prenumeration och fjärrrenderingskonto i de senaste listrarna.
+* Den första rollen som ska tilldelas är **ägare** som visas i skärm bilden ovan. 
+* Välj **fjärrstyrt konto** i list rutan ***tilldela åtkomst till** .
+* Välj din prenumeration och fjärråter givnings konto i de sista List rutorna.
 
-Upprepa att lägga till nya roller ytterligare två gånger för respektive val från **listrutan Roll:**
+Upprepa att lägga till nya roller två gånger för respektive val i list rutan **roll** :
 * **Lagringskontodeltagare**
-* **Storage Blob Data Contributor**
+* **Storage BLOB data-deltagare**
 
-De andra listrarna väljs som i det första steget.
+De andra List rutorna väljs som i det första steget.
 
-Om du har lagt till alla tre rollerna har ditt Azure Remote Rendering-konto åtkomst till ditt lagringskonto med hjälp av systemtilldelade hanterade tjänstidentiteter.
+Om du har lagt till alla tre roller har ditt Azure Remote rendering-konto åtkomst till ditt lagrings konto med systemtilldelade tjänst identiteter.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Autentisering](authentication.md)
-* [Använda Azure Frontend API:er för autentisering](frontend-apis.md)
-* [Exempel på PowerShell-skript](../samples/powershell-example-scripts.md)
+* [Använda Azure-frontend-API: er för autentisering](frontend-apis.md)
+* [PowerShell-exempelskript](../samples/powershell-example-scripts.md)

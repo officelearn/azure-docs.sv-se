@@ -1,40 +1,40 @@
 ---
-title: Självstudiekurs - lägga till taggar i resurser i mallen
-description: Lägg till taggar i resurser som du distribuerar i din Azure Resource Manager-mall. Med taggar kan du ordna resurser logiskt.
+title: Självstudie – Lägg till taggar till resurser i mallen
+description: Lägg till taggar till resurser som du distribuerar i din Azure Resource Manager-mall. Med taggar kan du logiskt organisera resurser.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 3e0deb53e57cd29cbfce4c37f2d6c6729f15bebd
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80411711"
 ---
-# <a name="tutorial-add-tags-in-your-arm-template"></a>Självstudiekurs: Lägga till taggar i arm-mallen
+# <a name="tutorial-add-tags-in-your-arm-template"></a>Självstudie: Lägg till taggar i ARM-mallen
 
-I den här självstudien får du lära dig hur du lägger till taggar i resurser i din AZURE Resource Manager-mall (ARM). [Taggar](../management/tag-resources.md) hjälper dig att logiskt organisera dina resurser. Taggvärdena visas i kostnadsrapporter. Den här självstudien tar **8 minuter** att slutföra.
+I den här självstudien får du lära dig hur du lägger till taggar till resurser i din Azure Resource Manager-mall (ARM). Med [taggar](../management/tag-resources.md) kan du logiskt organisera dina resurser. De märkes värden som visas i kostnads rapporter. Den här självstudien tar **8 minuter** att slutföra.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi rekommenderar att du slutför [självstudien om Snabbstartsmallar,](template-tutorial-quickstart-template.md)men det krävs inte.
+Vi rekommenderar att du slutför [självstudien om snabb starts mallar](template-tutorial-quickstart-template.md), men det är inget krav.
 
-Du måste ha Visual Studio-kod med tillägget Resource Manager Tools och antingen Azure PowerShell eller Azure CLI. Mer information finns i [mallverktyg](template-tutorial-create-first-template.md#get-tools).
+Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Mall för granskning
+## <a name="review-template"></a>Granska mall
 
-Din tidigare mall har distribuerat ett lagringskonto, App Service-plan och webbapp.
+Din tidigare mall har distribuerat ett lagrings konto, App Service plan och en webbapp.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
-När du har distribuerat dessa resurser kan du behöva spåra kostnader och hitta resurser som tillhör en kategori. Du kan lägga till taggar för att lösa dessa problem.
+När du har distribuerat dessa resurser kan du behöva spåra kostnader och hitta resurser som tillhör en kategori. Du kan lägga till taggar för att lösa problemen.
 
 ## <a name="add-tags"></a>Lägga till taggar
 
-Du taggar resurser för att lägga till värden som hjälper dig att identifiera deras användning. Du kan till exempel lägga till taggar som listar miljön och projektet. Du kan lägga till taggar som identifierar ett kostnadsställe eller det team som äger resursen. Lägg till alla värden som är meningsfulla för din organisation.
+Du kan tagga resurser för att lägga till värden som hjälper dig att identifiera användningen. Du kan till exempel lägga till taggar som visar miljön och projektet. Du kan lägga till taggar som identifierar ett kostnads ställe eller teamet som äger resursen. Lägg till värden som passar din organisation.
 
-I följande exempel markeras ändringarna i mallen. Kopiera hela filen och ersätt mallen med dess innehåll.
+I följande exempel visas ändringarna i mallen. Kopiera hela filen och ersätt din mall med dess innehåll.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
@@ -42,7 +42,7 @@ I följande exempel markeras ändringarna i mallen. Kopiera hela filen och ersä
 
 Det är dags att distribuera mallen och titta på resultaten.
 
-Om du inte har skapat resursgruppen läser du [Skapa resursgrupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **variabeln templateFile** till sökvägen till mallfilen, vilket visas i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
+Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -58,7 +58,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+Om du vill köra det här distributions kommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -71,33 +71,33 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Om distributionen misslyckades använder du **felsökningsväxeln** med distributionskommandot för att visa felsökningsloggarna.  Du kan också använda **den utförliga** växeln för att visa de fullständiga felsökningsloggarna.
+> Om distributionen misslyckades använder du **fel söknings** växeln med kommandot distribution för att visa fel söknings loggarna.  Du kan också använda **utförlig** växeln för att visa fullständiga fel söknings loggar.
 
 ## <a name="verify-deployment"></a>Verifiera distributionen
 
-Du kan verifiera distributionen genom att utforska resursgruppen från Azure-portalen.
+Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **Resursgrupper**på den vänstra menyn .
-1. Välj den resursgrupp som du har distribuerat till.
-1. Välj en av resurserna, till exempel lagringskontoresursen. Du ser att det nu har taggar.
+1. Välj **resurs grupper**på den vänstra menyn.
+1. Välj den resurs grupp som du har distribuerat till.
+1. Välj en av resurserna, till exempel lagrings konto resursen. Nu ser du att det finns taggar.
 
-   ![Visa taggar](./media/template-tutorial-add-tags/show-tags.png)
+   ![Visa Taggar](./media/template-tutorial-add-tags/show-tags.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går vidare till nästa självstudiekurs behöver du inte ta bort resursgruppen.
+Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
 
-Om du slutar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resursgruppen.
+Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
 
-1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
+1. Från Azure Portal väljer du **resurs grupp** på den vänstra menyn.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
 3. Välj resursgruppens namn.
-4. Välj **Ta bort resursgrupp** på den övre menyn.
+4. Välj **ta bort resurs grupp** på den översta menyn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till taggar i resurserna. I nästa självstudiekurs får du lära dig hur du använder parameterfiler för att förenkla överföring av värden till mallen.
+I den här självstudien har du lagt till taggar till resurserna. I nästa själv studie kurs får du lära dig hur du använder parameter-filer för att förenkla överföring av värden till mallen.
 
 > [!div class="nextstepaction"]
-> [Använd parameterfil](template-tutorial-use-parameter-file.md)
+> [Använd parameter fil](template-tutorial-use-parameter-file.md)

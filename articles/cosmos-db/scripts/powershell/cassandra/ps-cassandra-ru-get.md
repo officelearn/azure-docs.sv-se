@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att hämta dataflöde (RU/s) för Azure Cosmos DB Cassandra API-resurser
-description: Azure PowerShell-skript - Azure Cosmos DB Get Throughput (RU/s) för Cassandra API
+title: PowerShell-skript för att hämta data flöde (RU/s) för Azure Cosmos DB API för Cassandra resurser
+description: Azure PowerShell script-Azure Cosmos DB hämta data flöde (RU/s) för API för Cassandra
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: f1cae958fce1de000ee4349a2fe8229d69f1a0ae
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366171"
 ---
-# <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Hämta dataflöde (RU/s) för ett keyspace eller -bord för Azure Cosmos DB - Cassandra API
+# <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Hämta data flöde (RU/s) för ett tecken utrymme eller en tabell för Azure Cosmos DB-API för Cassandra
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,12 +36,12 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Hämta-AzCosmosDBassandraKeyspaceThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspacethroughput) | Hämtar dataflödesvärdet för det angivna Cassandra API-keyspace. |
-| [Få-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Hämtar dataflödesvärdet för den angivna Cassandra API-tabellen. |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBCassandraKeyspaceThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspacethroughput) | Hämtar data flöde svärdet för det angivna API för Cassandra-utrymmet. |
+| [Get-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Hämtar data flöde svärdet för den angivna API för Cassandras tabellen. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

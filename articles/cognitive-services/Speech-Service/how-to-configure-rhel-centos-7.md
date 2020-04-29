@@ -1,7 +1,7 @@
 ---
-title: Konfigurera RHEL/CentOS 7 - Taltjänst
+title: Så här konfigurerar du RHEL/CentOS 7-tal service
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du konfigurerar RHEL/CentOS 7 så att Tal SDK kan användas.
+description: Lär dig hur du konfigurerar RHEL/CentOS 7 så att du kan använda tal-SDK.
 services: cognitive-services
 author: pankopon
 manager: jhakulin
@@ -11,51 +11,51 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: dc09d517d95b5a3f2a88504a14f1451d1de5ffc9
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80639167"
 ---
-# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Konfigurera RHEL/CentOS 7 för Tal SDK
+# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Konfigurera RHEL/CentOS 7 för tal-SDK
 
-Red Hat Enterprise Linux (RHEL) 8 x64 och CentOS 8 x64 stöds officiellt av Speech SDK version 1.10.0 och senare. Det är också möjligt att använda Tal SDK på RHEL/CentOS 7 x64, men detta kräver uppdatering av C++-kompilatorn (för C++-utveckling) och det delade C++-runtimebiblioteket på ditt system.
+Red Hat Enterprise Linux (RHEL) 8 x64 och CentOS 8 x64 stöds officiellt av tal SDK-versionen 1.10.0 och senare. Du kan också använda tal-SDK: n på RHEL/CentOS 7 x64, men det kräver att C++-kompilatorn uppdateras (för C++-utveckling) och det delade C++ runtime-biblioteket i systemet.
 
-Om du vill kontrollera C++-kompilatorversionen kör du:
+Kör följande för att kontrol lera C++-kompilator versionen:
 
 ```bash
 g++ --version
 ```
 
-Om kompilatorn är installerad ska utdata se ut så här:
+Om kompilatorn är installerad bör utdata se ut så här:
 
 ```bash
 g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-Detta meddelande låter dig veta att GCC större version 4 är installerad. Den här versionen har inte fullt stöd för C++ 11-standarden, som Tal-SDK använder. Om du försöker kompilera ett C++-program med den här GCC-versionen och Tal-SDK-huvudena resulterar det i kompileringsfel.
+I det här meddelandet kan du se att GCC Major version 4 är installerad. Den här versionen har inte fullständigt stöd för C++ 11 standard, vilket används i tal-SDK. Om du försöker kompilera ett C++-program med den här GCC-versionen och talet SDK-huvuden kommer att leda till kompileringsfel.
 
-Det är också viktigt att kontrollera versionen av det delade C++-körningsbiblioteket (libstdc++). De flesta tal-SDK implementeras som inbyggda C++-bibliotek, vilket innebär att det beror på libstdc++ oavsett vilket språk du använder för att utveckla program.
+Det är också viktigt att kontrol lera versionen av det delade C++ runtime library (libstdc + +). De flesta tal-SDK: n implementeras som inbyggda C++-bibliotek, vilket innebär att det är beroende av libstdc + + oavsett vilket språk du använder för att utveckla program.
 
-Om du vill hitta platsen för libstdc++ på datorn kör du:
+Du hittar platsen för libstdc + + i systemet genom att köra:
 
 ```bash
 ldconfig -p | grep libstdc++
 ```
 
-Produktionen på vanilj RHEL/CentOS 7 (x64) är:
+Utdata på vanilj RHEL/CentOS 7 (x64) är:
 
 ```
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
-Baserat på det här meddelandet bör du kontrollera versionsdefinitionerna med det här kommandot:
+Utifrån det här meddelandet ska du kontrol lera versions definitionerna med följande kommando:
 
 ```bash
 strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
 ```
 
-Utgången bör vara:
+Utdata ska vara:
 
 ```
 ...
@@ -65,14 +65,14 @@ CXXABI_1.3.7
 ...
 ```
 
-Tal-SDK kräver **CXXABI_1.3.9** och **GLIBCXX_3.4.21**. Du hittar den här `ldd libMicrosoft.CognitiveServices.Speech.core.so` informationen genom att köra på Speech SDK-biblioteken från Linux-paketet.
+Talet SDK kräver **CXXABI_1.3.9** och **GLIBCXX_3.4.21**. Du kan hitta den här informationen genom `ldd libMicrosoft.CognitiveServices.Speech.core.so` att köra i tal SDK-biblioteken från Linux-paketet.
 
 > [!NOTE]
-> Vi rekommenderar att den version av GCC som är installerad på systemet är minst **5.4.0**, med matchande körningsbibliotek.
+> Vi rekommenderar att versionen av GCC som är installerad på systemet är minst **5.4.0**, med matchande körnings bibliotek.
 
 ## <a name="example"></a>Exempel
 
-Det här är ett exempelkommando som illustrerar hur du konfigurerar RHEL/CentOS 7 x64 för utveckling (C++, C#, Java, Python) med Tal SDK 1.10.0 eller senare:
+Detta är ett exempel kommando som illustrerar hur du konfigurerar RHEL/CentOS 7 x64 för utveckling (C++, C#, Java, python) med talet SDK 1.10.0 eller senare:
 
 ```bash
 # Only run ONE of the following two commands

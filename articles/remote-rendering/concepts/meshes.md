@@ -1,42 +1,42 @@
 ---
 title: Maskor
-description: Definition av nät i azure remote rendering
+description: Definition av nät i omfånget för Azure Remote rendering
 author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: b800272a538243d39a89e4eed64bc5cbc2d53ad8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681771"
 ---
 # <a name="meshes"></a>Maskor
 
-## <a name="mesh-resource"></a>Mesh-resurs
+## <a name="mesh-resource"></a>Nät resurs
 
-Nät är en oföränderlig [delad resurs](../concepts/lifetime.md)som bara kan skapas genom [modellkonvertering](../how-tos/conversion/model-conversion.md). Maskor innehåller en eller flera *undermåliga.* Varje undermål refererar till ett [material](materials.md) som det ska återges som standard. Om du vill placera ett nät i 3D-rymden lägger du till en [MeshComponent](#meshcomponent) i en [entitet](entities.md).
+Maskor är en oföränderlig [delad resurs](../concepts/lifetime.md)som bara kan skapas via [modell konvertering](../how-tos/conversion/model-conversion.md). Maskor innehåller ett eller flera under *nät*. Varje under nät refererar till ett [material](materials.md) med vilket det ska återges som standard. Lägg till en [MeshComponent](#meshcomponent) till en [entitet](entities.md)för att placera ett nät i 3D-rymden.
 
-### <a name="mesh-resource-properties"></a>Egenskaper för meshresurs
+### <a name="mesh-resource-properties"></a>Egenskaper för nät resurs
 
-Klassegenskaperna `Mesh` är:
+`Mesh` Klass egenskaperna är:
 
-* **Material:** En rad material. Varje material används av en annan submesh. Flera poster i matrisen kan referera till samma [material](materials.md). Dessa data kan inte ändras vid körning.
+* **Material:** En matris med material. Varje material används av ett annat under nät. Flera poster i matrisen kan referera till samma [material](materials.md). Dessa data kan inte ändras vid körning.
 
-* **Gränser:** En aABB-markeringsram (local-space axis-aligned bounding box) för nättörnen.
+* **Gränser:** En axel med lokalt blank steg (AABB) för nät hörnen.
 
-## <a name="meshcomponent"></a>MeshComponent (MeshComponent)
+## <a name="meshcomponent"></a>MeshComponent
 
-Klassen `MeshComponent` används för att placera en förekomst av en nätresurs. Varje MeshComponent refererar till ett enda nät. Det kan åsidosätta vilka material som används för att återge varje undergrupp.
+`MeshComponent` Klassen används för att placera en instans av en nät resurs. Varje MeshComponent hänvisar till ett enda nät. Det kan åsidosätta vilka material som används för att återge varje under nät.
 
 ### <a name="meshcomponent-properties"></a>Egenskaper för MeshComponent
 
-* **Nät:** Den nätresurs som används av den här komponenten.
+* **Nät:** Den nät resurs som används av den här komponenten.
 
-* **Material:** Den mängd material som anges på själva nätkomponenten. Matrisen har alltid samma längd som matrisen *Material* på nätresursen. Material som inte får åsidosättas från nätstandarden är inställda på *null* i den här matrisen.
+* **Material:** Den matris med material som anges i själva nät komponenten. Matrisen kommer alltid att ha samma längd som *material* mat ris i nät resursen. Material som inte ska åsidosättas från standardvärdet för nät är inställt på *Null* i matrisen.
 
-* **UsedMaterials:** Matrisen med faktiskt använda material för varje undernäring. Kommer att vara identisk *Materials* med data i materialmatrisen, för icke-null-värden. Annars innehåller det värdet *Materials* från materialmatrisen i nätinstansen.
+* **UsedMaterials:** Matrisen med faktiskt använt material för varje under nät. Är identisk med data i *material* mat ris för värden som inte är null. Annars innehåller den värdet från *material* mat ris i nät instansen.
 
 ## <a name="next-steps"></a>Nästa steg
 

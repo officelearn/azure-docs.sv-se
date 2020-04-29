@@ -1,6 +1,6 @@
 ---
 title: Anslutningssträngar
-description: Anslutningssträngar för Synapse SQL-pool
+description: Anslutnings strängar för Synapse SQL-pool
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: aad65c112bfc5a6a80f481fe3748e0f4d5c52f74
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745281"
 ---
-# <a name="connection-strings-for-synapse-sql-pool"></a>Anslutningssträngar för Synapse SQL-pool
+# <a name="connection-strings-for-synapse-sql-pool"></a>Anslutnings strängar för Synapse SQL-pool
 
-Du kan ansluta till SQL-pool med flera olika programprotokoll, till exempel [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Nedan följer några exempel på anslutningar strängar för varje protokoll.  Du kan också använda Azure-portalen för att skapa din anslutningssträng.  
+Du kan ansluta till SQL-poolen med flera olika program protokoll, till exempel [ADO.net](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [php](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Nedan visas några exempel på anslutnings strängar för varje protokoll.  Du kan också använda Azure Portal för att bygga anslutnings strängen.  
 
-Om du vill skapa anslutningssträngen med Azure-portalen navigerar du till databasbladet under *Essentials* och klickar på *Visa databasanslutningssträngar*.
+Om du vill bygga anslutnings strängen med hjälp av Azure Portal navigerar du till bladet databas under *Essentials* och klickar på *Visa databas anslutnings strängar*.
 
-## <a name="sample-adonet-connection-string"></a>Exempel ADO.NET anslutningssträng
+## <a name="sample-adonet-connection-string"></a>Exempel på ADO.NET-anslutningssträng
 
 ```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -49,8 +49,8 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 > [!NOTE]
-> Överväg att ställa in tidsgränsen för anslutningen till 300 sekunder så att anslutningen kan överleva korta perioder av otillgänglighet.
+> Överväg att ange tids gränsen för anslutningen till 300 sekunder för att tillåta anslutningen att överleva korta perioder av otillgänglighet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer om du vill börja fråga din SQL-pool med Visual Studio och andra program finns i [Fråga med Visual Studio](sql-data-warehouse-query-visual-studio.md).
+Information om hur du börjar fråga SQL-poolen med Visual Studio och andra program finns i [fråga med Visual Studio](sql-data-warehouse-query-visual-studio.md).

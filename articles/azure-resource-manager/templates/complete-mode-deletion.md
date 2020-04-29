@@ -1,337 +1,337 @@
 ---
 title: Borttagning i complete-läget
-description: Visar hur resurstyper hanterar fullständig borttagning av läge i Azure Resource Manager-mallar.
+description: Visar hur resurs typer hanterar fullständig borttagning av läge i Azure Resource Manager mallar.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: e0250b289ce7a228d844023c3e1d1110438b3afc
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80802577"
 ---
-# <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för distribution i fullständigt läge
+# <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
-I den här artikeln beskrivs hur resurstyper hanterar borttagning när de inte är i en mall som distribueras i fullständigt läge.
+I den här artikeln beskrivs hur resurs typer hanterar borttagning när de inte finns i en mall som distribueras i fullständigt läge.
 
-De resurstyper som är markerade med **Ja** tas bort när typen inte finns i mallen som distribueras med fullständigt läge.
+De resurs typer som marker ATS med **Ja** tas bort när typen inte finns i mallen distribuerad med slutfört läge.
 
-De resurstyper som är markerade med **Nej** tas inte bort automatiskt när de inte finns i mallen. De tas dock bort om den överordnade resursen tas bort. En fullständig beskrivning av beteendet finns i [distributionslägen för Azure Resource Manager](deployment-modes.md).
+Resurs typerna som marker ATS med **Nej** tas inte bort automatiskt när de inte finns i mallen. de tas dock bort om den överordnade resursen tas bort. En fullständig beskrivning av beteendet finns i [Azure Resource Manager distributions lägen](deployment-modes.md).
 
-Om du distribuerar till [mer än en resursgrupp i en mall](cross-resource-group-deployment.md)kan resurser i resursgruppen som anges i distributionsåtgärden tas bort. Resurser i de sekundära resursgrupperna tas inte bort.
+Om du distribuerar till [fler än en resurs grupp i en mall](cross-resource-group-deployment.md)är resurserna i resurs gruppen som anges i distributions åtgärden tillgängliga för borttagning. Resurser i de sekundära resurs grupperna tas inte bort.
 
-Gå till ett namnområde för resursleverantören:
+Hoppa till ett namn område för en resurs leverantör:
 > [!div class="op_single_selector"]
-> - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft.Addons](#microsoftaddons)
-> - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
-> - [Microsoft.Advisor (Av )](#microsoftadvisor)
-> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
-> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
-> - [Microsoft.ApiHanagement](#microsoftapimanagement)
-> - [Microsoft.AppKonfigurering](#microsoftappconfiguration)
-> - [Microsoft.AppPlattform](#microsoftappplatform)
-> - [Microsoft.Attestation](#microsoftattestation)
+> - [Microsoft. AAD](#microsoftaad)
+> - [Microsoft. addons](#microsoftaddons)
+> - [Microsoft. ADHybridHealthService](#microsoftadhybridhealthservice)
+> - [Microsoft. Advisor](#microsoftadvisor)
+> - [Microsoft. AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft. AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft. API Management](#microsoftapimanagement)
+> - [Microsoft. AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft. AppPlatform](#microsoftappplatform)
+> - [Microsoft. attestering](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
-> - [Microsoft.Automation](#microsoftautomation)
-> - [Microsoft.Azconfig](#microsoftazconfig)
-> - [Microsoft.Azure.Geneva](#microsoftazuregeneva)
-> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft.AzureData](#microsoftazuredata)
-> - [Microsoft.AzureStack](#microsoftazurestack)
+> - [Microsoft. Automation](#microsoftautomation)
+> - [Microsoft. Azconfig](#microsoftazconfig)
+> - [Microsoft. Azure. Genève](#microsoftazuregeneva)
+> - [Microsoft. AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft. AzureData](#microsoftazuredata)
+> - [Microsoft. AzureStack](#microsoftazurestack)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.Fakturering](#microsoftbilling)
-> - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.Blockchain (på andra)](#microsoftblockchain)
-> - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
-> - [Microsoft.Blueprint (Microsoft.Blueprint)](#microsoftblueprint)
-> - [Microsoft.BotService](#microsoftbotservice)
-> - [Microsoft.Cache](#microsoftcache)
-> - [Microsoft.Kapacitet](#microsoftcapacity)
-> - [Microsoft.Cdn](#microsoftcdn)
-> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft. fakturering](#microsoftbilling)
+> - [Microsoft. Bingkartssökning](#microsoftbingmaps)
+> - [Microsoft. blockchain](#microsoftblockchain)
+> - [Microsoft. BlockchainTokens](#microsoftblockchaintokens)
+> - [Microsoft. skiss](#microsoftblueprint)
+> - [Microsoft. BotService](#microsoftbotservice)
+> - [Microsoft. cache](#microsoftcache)
+> - [Microsoft. Capacity](#microsoftcapacity)
+> - [Microsoft. CDN](#microsoftcdn)
+> - [Microsoft. CertificateRegistration](#microsoftcertificateregistration)
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
-> - [Microsoft.ClassicInfrastrukturMigera](#microsoftclassicinfrastructuremigrate)
-> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
-> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
-> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
-> - [Microsoft.Commerce](#microsoftcommerce)
+> - [Microsoft. ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
+> - [Microsoft. ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft. ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft. CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft. Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft.Förbrukning](#microsoftconsumption)
-> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
-> - [Microsoft.Container-registret](#microsoftcontainerregistry)
-> - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
-> - [Microsoft.CustomProviders](#microsoftcustomproviders)
-> - [Microsoft.DataBox](#microsoftdatabox)
-> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
-> - [Microsoft.Databricks](#microsoftdatabricks)
-> - [Microsoft.DataCatalog](#microsoftdatacatalog)
-> - [Microsoft.DataFactory](#microsoftdatafactory)
-> - [Microsoft.DataLakeAnalytics Microsoft.DataLakeAnalytics Microsoft.DataLakeAnalytics Microsoft.](#microsoftdatalakeanalytics)
-> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
-> - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft.DataShare](#microsoftdatashare)
-> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
-> - [Microsoft.DBforMySQL](#microsoftdbformysql)
-> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
-> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
-> - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft.Devices](#microsoftdevices)
-> - [Microsoft.DevOps](#microsoftdevops)
-> - [Microsoft.DevSpaces](#microsoftdevspaces)
-> - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [Microsoft.DocumentDB](#microsoftdocumentdb)
-> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
-> - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
-> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
-> - [Microsoft.EventGrid](#microsofteventgrid)
-> - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft.Falcon (olika)](#microsoftfalcon)
-> - [Microsoft.Funktioner](#microsoftfeatures)
-> - [Microsoft.Gallery](#microsoftgallery)
-> - [Microsoft.Genomik](#microsoftgenomics)
-> - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
-> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
-> - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
-> - [Microsoft.HDInsight](#microsofthdinsight)
-> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
-> - [Microsoft.HybridCompute](#microsofthybridcompute)
-> - [Microsoft.HybridData](#microsofthybriddata)
-> - [Microsoft.Hydra (på andra)](#microsofthydra)
-> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft. förbrukning](#microsoftconsumption)
+> - [Microsoft. ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft. ContainerRegistry](#microsoftcontainerregistry)
+> - [Microsoft. container service](#microsoftcontainerservice)
+> - [Microsoft. CostManagement](#microsoftcostmanagement)
+> - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
+> - [Microsoft. CustomProviders](#microsoftcustomproviders)
+> - [Microsoft. data-](#microsoftdatabox)
+> - [Microsoft. DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft. Databricks](#microsoftdatabricks)
+> - [Microsoft. DataCatalog](#microsoftdatacatalog)
+> - [Microsoft. DataFactory](#microsoftdatafactory)
+> - [Microsoft. DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft. DataLakeStore](#microsoftdatalakestore)
+> - [Microsoft. data migration](#microsoftdatamigration)
+> - [Microsoft. DataShare](#microsoftdatashare)
+> - [Microsoft. DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft. DBforMySQL](#microsoftdbformysql)
+> - [Microsoft. DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft. DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft. DesktopVirtualization](#microsoftdesktopvirtualization)
+> - [Microsoft. Devices](#microsoftdevices)
+> - [Microsoft. DevOps](#microsoftdevops)
+> - [Microsoft. DevSpaces](#microsoftdevspaces)
+> - [Microsoft. DevTestLab](#microsoftdevtestlab)
+> - [Microsoft. DocumentDB](#microsoftdocumentdb)
+> - [Microsoft. DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft. DynamicsLcs](#microsoftdynamicslcs)
+> - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft. EventGrid](#microsofteventgrid)
+> - [Microsoft. EventHub](#microsofteventhub)
+> - [Microsoft. Falcon](#microsoftfalcon)
+> - [Microsoft. features](#microsoftfeatures)
+> - [Microsoft. Gallery](#microsoftgallery)
+> - [Microsoft. genomik](#microsoftgenomics)
+> - [Microsoft. GuestConfiguration](#microsoftguestconfiguration)
+> - [Microsoft. HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft. HardwareSecurityModules](#microsofthardwaresecuritymodules)
+> - [Microsoft. HDInsight](#microsofthdinsight)
+> - [Microsoft. HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft. HybridCompute](#microsofthybridcompute)
+> - [Microsoft. HybridData](#microsofthybriddata)
+> - [Microsoft. Hydra](#microsofthydra)
+> - [Microsoft. ImportExport](#microsoftimportexport)
 > - [Microsoft.Intune](#microsoftintune)
-> - [Microsoft.IoTCentral](#microsoftiotcentral)
-> - [Microsoft.IoTSpaces](#microsoftiotspaces)
-> - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft.Kubernetes](#microsoftkubernetes)
+> - [Microsoft. IoTCentral](#microsoftiotcentral)
+> - [Microsoft. IoTSpaces](#microsoftiotspaces)
+> - [Microsoft. nyckel valv](#microsoftkeyvault)
+> - [Microsoft. Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
-> - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.Logic](#microsoftlogic)
-> - [Microsoft.MachineLärning](#microsoftmachinelearning)
+> - [Microsoft. LabServices](#microsoftlabservices)
+> - [Microsoft. Logic](#microsoftlogic)
+> - [Microsoft. MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
-> - [Microsoft.Underhåll](#microsoftmaintenance)
-> - [Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.](#microsoftmanagedidentity)
-> - [Microsoft.ManagedServices](#microsoftmanagedservices)
-> - [Microsoft.Management (På)Microsoft.Management](#microsoftmanagement)
-> - [Microsoft.Maps](#microsoftmaps)
-> - [Microsoft.Marketplace](#microsoftmarketplace)
-> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
-> - [Microsoft.MarketplaceBeställa](#microsoftmarketplaceordering)
-> - [Microsoft.Media](#microsoftmedia)
-> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
-> - [Microsoft.Migrera](#microsoftmigrate)
-> - [Microsoft.MixedReality](#microsoftmixedreality)
-> - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft. Maintenance](#microsoftmaintenance)
+> - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft. ManagedServices](#microsoftmanagedservices)
+> - [Microsoft. Management](#microsoftmanagement)
+> - [Microsoft. Maps](#microsoftmaps)
+> - [Microsoft. Marketplace](#microsoftmarketplace)
+> - [Microsoft. MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft. MarketplaceOrdering](#microsoftmarketplaceordering)
+> - [Microsoft. Media](#microsoftmedia)
+> - [Microsoft. Microservices4Spring](#microsoftmicroservices4spring)
+> - [Microsoft. Migrate](#microsoftmigrate)
+> - [Microsoft. MixedReality](#microsoftmixedreality)
+> - [Microsoft. NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
-> - [Microsoft.Notebooks](#microsoftnotebooks)
-> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [Microsoft.ObjectStore](#microsoftobjectstore)
-> - [Microsoft.OffAzure](#microsoftoffazure)
-> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
-> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
-> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft. Notebook](#microsoftnotebooks)
+> - [Microsoft. NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft. ObjectStore](#microsoftobjectstore)
+> - [Microsoft. OffAzure](#microsoftoffazure)
+> - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft. OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft. peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
-> - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PowerBI](#microsoftpowerbi)
-> - [Microsoft.PowerBIDedicated Microsoft.PowerBIDedicated Microsoft.PowerBIDedicated Microsoft.](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
-> - [Microsoft.Quantum (På andra)](#microsoftquantum)
-> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
-> - [Microsoft.Relay](#microsoftrelay)
-> - [Microsoft.RemoteApp](#microsoftremoteapp)
-> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
-> - [Microsoft.ResourceHealth](#microsoftresourcehealth)
-> - [Microsoft.Resurser](#microsoftresources)
-> - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Sök](#microsoftsearch)
-> - [Microsoft.Säkerhet](#microsoftsecurity)
-> - [Microsoft.SecurityGraph Microsoft.SecurityGraph Microsoft.SecurityGraph Microsoft.](#microsoftsecuritygraph)
-> - [Microsoft.SecurityInights](#microsoftsecurityinsights)
+> - [Microsoft. Portal](#microsoftportal)
+> - [Microsoft. PowerBI](#microsoftpowerbi)
+> - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft. ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft. Quantum](#microsoftquantum)
+> - [Microsoft. RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft. Relay](#microsoftrelay)
+> - [Microsoft. RemoteApp](#microsoftremoteapp)
+> - [Microsoft. ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft. ResourceHealth](#microsoftresourcehealth)
+> - [Microsoft. Resources](#microsoftresources)
+> - [Microsoft. SaaS](#microsoftsaas)
+> - [Microsoft. search](#microsoftsearch)
+> - [Microsoft. Security](#microsoftsecurity)
+> - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
+> - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
-> - [Microsoft.ServiceFabric](#microsoftservicefabric)
-> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft.Tjänster](#microsoftservices)
-> - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
-> - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
-> - [Microsoft.Solutions](#microsoftsolutions)
-> - [Microsoft.SpoolService](#microsoftspoolservice)
-> - [Microsoft.SQL](#microsoftsql)
-> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft. ServiceFabric](#microsoftservicefabric)
+> - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft. Services](#microsoftservices)
+> - [Microsoft. SignalRService](#microsoftsignalrservice)
+> - [Microsoft. SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
+> - [Microsoft. Solutions](#microsoftsolutions)
+> - [Microsoft. SpoolService](#microsoftspoolservice)
+> - [Microsoft. SQL](#microsoftsql)
+> - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
-> - [Microsoft.StorageCache](#microsoftstoragecache)
-> - [Microsoft.StorageReplication](#microsoftstoragereplication)
-> - [Microsoft.StorageSync](#microsoftstoragesync)
-> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
-> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
-> - [Microsoft.StorSimple](#microsoftstorsimple)
-> - [Microsoft.StreamAnalytics Microsoft.StreamAnalytics Microsoft.StreamAnalytics Microsoft.](#microsoftstreamanalytics)
-> - [Microsoft.Prenumeration](#microsoftsubscription)
-> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
-> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft.VnfManager](#microsoftvnfmanager)
-> - [Microsoft.Web](#microsoftweb)
-> - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
-> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
+> - [Microsoft. StorageCache](#microsoftstoragecache)
+> - [Microsoft. StorageReplication](#microsoftstoragereplication)
+> - [Microsoft. StorageSync](#microsoftstoragesync)
+> - [Microsoft. StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft. StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft. StorSimple](#microsoftstorsimple)
+> - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft. Subscription](#microsoftsubscription)
+> - [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft. VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft. VnfManager](#microsoftvnfmanager)
+> - [Microsoft. Web](#microsoftweb)
+> - [Microsoft. WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft. WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft. WorkloadMonitor](#microsoftworkloadmonitor)
 
-## <a name="microsoftaad"></a>Microsoft.AAD
+## <a name="microsoftaad"></a>Microsoft. AAD
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | DomainServices | Ja |
-> | DomainServices / oucontainer | Inga |
+> | DomainServices / oucontainer | Nej |
 
-## <a name="microsoftaddons"></a>Microsoft.Addons
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | supportProviders | Inga |
-
-## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
+## <a name="microsoftaddons"></a>Microsoft. addons
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | aadsupportcases | Inga |
-> | adderartjänster | Inga |
-> | Agenter | Inga |
-> | anonymapiusers | Inga |
-> | konfiguration | Inga |
-> | loggar | Inga |
-> | rapporter | Inga |
-> | servicehealthmetrics | Inga |
-> | services | Inga |
+> | supportProviders | Nej |
 
-## <a name="microsoftadvisor"></a>Microsoft.Advisor (Av )
+## <a name="microsoftadhybridhealthservice"></a>Microsoft. ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Konfigurationer | Inga |
-> | genereraKommendationer | Inga |
-> | metadata | Inga |
-> | rekommendationer | Inga |
-> | undertryckanden | Inga |
+> | aadsupportcases | Nej |
+> | addsservices | Nej |
+> | aktörer | Nej |
+> | anonymousapiusers | Nej |
+> | konfiguration | Nej |
+> | loggar | Nej |
+> | rapporter | Nej |
+> | servicehealthmetrics | Nej |
+> | services | Nej |
 
-## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
+## <a name="microsoftadvisor"></a>Microsoft. Advisor
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | konfigurationer | Nej |
+> | generateRecommendations | Nej |
+> | metadata | Nej |
+> | rekommendationer | Nej |
+> | utelämningar | Nej |
+
+## <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | actionRules | Ja |
-> | aviseringar | Inga |
-> | aviseringarLista | Inga |
-> | varningarMetaData | Inga |
-> | varningarSumma | Inga |
-> | aviseringarSummaryList | Inga |
+> | aviseringar | Nej |
+> | alertsList | Nej |
+> | alertsMetaData | Nej |
+> | alertsSummary | Nej |
+> | alertsSummaryList | Nej |
 > | smartDetectorAlertRules | Ja |
-> | smarta grupper | Inga |
+> | smartGroups | Nej |
 
-## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Servrar | Ja |
-
-## <a name="microsoftapimanagement"></a>Microsoft.ApiHanagement
+## <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | rapportFeedback | Inga |
+> | brygghuvudservrar | Ja |
+
+## <a name="microsoftapimanagement"></a>Microsoft. API Management
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | reportFeedback | Nej |
 > | tjänst | Ja |
-> | verifieraServiceName | Inga |
+> | validateServiceName | Nej |
 
-## <a name="microsoftappconfiguration"></a>Microsoft.AppKonfigurering
+## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | configurationStores | Ja |
-> | configurationStores / eventGridFilters | Inga |
+> | configurationStores / eventGridFilters | Nej |
 
-## <a name="microsoftappplatform"></a>Microsoft.AppPlattform
+## <a name="microsoftappplatform"></a>Microsoft. AppPlatform
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | Spring | Ja |
 
-## <a name="microsoftattestation"></a>Microsoft.Attestation
+## <a name="microsoftattestation"></a>Microsoft. attestering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | attestationProviders | Inga |
+> | attestationProviders | Nej |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | klassiskaLäggare | Inga |
-> | dataAliases | Inga |
-> | nekaTilldelningar | Inga |
-> | höjaAccess | Inga |
-> | findOrphanRoleAssignments | Inga |
-> | Lås | Inga |
-> | Behörigheter | Inga |
-> | policyAssignments | Inga |
-> | policyDefinitioner | Inga |
-> | policySetDefinitions | Inga |
-> | providerOperations | Inga |
-> | rollTilldelningar | Inga |
-> | rollTilldelningarAnvändarnametri | Inga |
-> | rollDefinitioner | Inga |
+> | classicAdministrators | Nej |
+> | dataAliases | Nej |
+> | denyAssignments | Nej |
+> | elevateAccess | Nej |
+> | findOrphanRoleAssignments | Nej |
+> | hålls | Nej |
+> | åtkomst | Nej |
+> | policyAssignments | Nej |
+> | policyDefinitions | Nej |
+> | policySetDefinitions | Nej |
+> | providerOperations | Nej |
+> | roleAssignments | Nej |
+> | roleAssignmentsUsageMetrics | Nej |
+> | roleDefinitions | Nej |
 
-## <a name="microsoftautomation"></a>Microsoft.Automation
+## <a name="microsoftautomation"></a>Microsoft. Automation
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | automationKonton | Ja |
-> | automationKonton / konfigurationer | Ja |
-> | automationKonton / jobb | Inga |
-> | automationAlän / privateEndpointConnectionProxies | Inga |
-> | automationKonton / privateEndpointAnslutningar | Inga |
-> | automationKonton / privateLinkResources | Inga |
-> | automationKonton / runbooks | Ja |
-> | automationKonto/programvaraUppdämpningar | Inga |
-> | automationKonton / webhooks | Inga |
+> | automationAccounts | Ja |
+> | automationAccounts/konfigurationer | Ja |
+> | automationAccounts/jobb | Nej |
+> | automationAccounts / privateEndpointConnectionProxies | Nej |
+> | automationAccounts / privateEndpointConnections | Nej |
+> | automationAccounts / privateLinkResources | Nej |
+> | automationAccounts/Runbooks | Ja |
+> | automationAccounts / softwareUpdateConfigurations | Nej |
+> | automationAccounts/Webhooks | Nej |
 
-## <a name="microsoftazconfig"></a>Microsoft.Azconfig
+## <a name="microsoftazconfig"></a>Microsoft. Azconfig
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | configurationStores | Ja |
-> | configurationStores / eventGridFilters | Inga |
+> | configurationStores / eventGridFilters | Nej |
 
-## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Miljöer | Inga |
-> | miljöer / konton | Inga |
-> | miljöer / konton / namnområden | Inga |
-> | miljöer / konton / namnrymd / konfigurationer | Inga |
-
-## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
+## <a name="microsoftazuregeneva"></a>Microsoft. Azure. Genève
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | b2cKataloger | Ja |
-> | b2ctenants (b2ctenants) | Inga |
+> | utrymmen | Nej |
+> | miljöer/konton | Nej |
+> | miljöer/konton/namn områden | Nej |
+> | miljöer/konton/namn rymder/konfigurationer | Nej |
 
-## <a name="microsoftazuredata"></a>Microsoft.AzureData
+## <a name="microsoftazureactivedirectory"></a>Microsoft. AzureActiveDirectory
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | b2cDirectories | Ja |
+> | b2ctenants | Nej |
+
+## <a name="microsoftazuredata"></a>Microsoft. AzureData
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -340,420 +340,420 @@ Gå till ett namnområde för resursleverantören:
 > | postgresInstances | Ja |
 > | sqlInstances | Ja |
 > | sqlServerRegistrations | Ja |
-> | sqlServerRegistrations / sqlServers | Inga |
+> | sqlServerRegistrations/sqlServer | Nej |
 
-## <a name="microsoftazurestack"></a>Microsoft.AzureStack
+## <a name="microsoftazurestack"></a>Microsoft. AzureStack
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | cloudManifestFiler | Inga |
-> | Registreringar | Ja |
-> | registreringar / kundAbonnemang | Inga |
-> | registreringar / produkter | Inga |
+> | cloudManifestFiles | Nej |
+> | registreringar | Ja |
+> | registreringar/customerSubscriptions | Nej |
+> | registreringar/produkter | Nej |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | batchKonton | Ja |
+> | batchAccounts | Ja |
 
-## <a name="microsoftbilling"></a>Microsoft.Fakturering
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | faktureringKonton | Inga |
-> | faktureringKonton/avtal | Inga |
-> | faktureringKonton /faktureringPermissions | Inga |
-> | faktureringKonto/faktureringProfiler | Inga |
-> | faktureringKonton / faktureringProfiler / faktureringPermissions | Inga |
-> | faktureringKonto/faktureringProfiler / faktureringRolleAstilldelningar | Inga |
-> | faktureringKonto / faktureringProfiler / faktureringRoleDefinitioner | Inga |
-> | faktureringKonto/faktureringProfiler / faktureringAbonnemang | Inga |
-> | faktureringKonto/faktureringProfiler / skapaFaktureringRollAstilldelning | Inga |
-> | faktureringKonton / faktureringProfiler / kunder | Inga |
-> | faktureringKonton / faktureringProfiler / instruktioner | Inga |
-> | faktureringKonton / faktureringProfiler / fakturor | Inga |
-> | faktureringKonton / faktureringProfiler / fakturor / prisblad | Inga |
-> | faktureringKonton / faktureringProfiler / fakturor / transaktioner | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / faktureringPermissions | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / faktureringRolEAstilldelningar | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / faktureringRoleDefinitioner | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / faktureringAbonnemang | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / skapaFakturering | Inga |
-> | faktureringKonton /faktureringProfiler / fakturaAvsnitt / initieraTransfer | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / produkter | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / produkter / överföring | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / produkter / uppdateringAutoRenew | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / transaktioner | Inga |
-> | faktureringKonton / faktureringProfiler / fakturaAvsnitt / överföringar | Inga |
-> | billingAccounts / BillingProfiles / patchOperations | Inga |
-> | faktureringKonton / faktureringProfiler / betalningMethods | Inga |
-> | faktureringKonton / faktureringProfiler / policyer | Inga |
-> | faktureringKonton / faktureringProfiler / prisblad | Inga |
-> | faktureringKonton / faktureringProfiler / prisbladLadda nedOperationer | Inga |
-> | faktureringKonton / faktureringProfiler / produkter | Inga |
-> | faktureringKonton / faktureringProfiler / transaktioner | Inga |
-> | faktureringKonton /faktureringRollAtilldelningar | Inga |
-> | faktureringKonto / faktureringRoleDefinitioner | Inga |
-> | faktureringKonto/faktureringAbonnemang | Inga |
-> | faktureringKonton / faktureringAbonnemang /fakturor | Inga |
-> | billingAccounts / createBillingRoleAssignment | Inga |
-> | billingAccounts / createInvoiceSectionOperations | Inga |
-> | faktureringKonton / kunder | Inga |
-> | faktureringKonton / kunder / faktureringPermissions | Inga |
-> | faktureringKonton / kunder / faktureringAbonnemang | Inga |
-> | faktureringKonton / kunder / initieraTransfer | Inga |
-> | faktureringKonton / kunder / policyer | Inga |
-> | faktureringKonton / kunder / produkter | Inga |
-> | faktureringKonton / kunder / transaktioner | Inga |
-> | faktureringKonton / kunder / överföringar | Inga |
-> | faktureringKonton / avdelningar | Inga |
-> | faktureringKonton / registreringKonton | Inga |
-> | faktureringKonton/fakturor | Inga |
-> | faktureringKonton / fakturorAvsnitt | Inga |
-> | faktureringKonton / fakturorAvsnitt / faktureringAbonnemangFlyttaOperationer | Inga |
-> | faktureringKonton / fakturorAvsnitt / faktureringAbonnemang | Inga |
-> | faktureringKonton / fakturorAvsnitt / faktureringAbonnemang /överföring | Inga |
-> | faktureringKonton / fakturorAvsnitt / höj | Inga |
-> | faktureringKonton / fakturaAvsnitt / initieraTransfer | Inga |
-> | faktureringKonton / fakturorAvsnitt / patchOperations | Inga |
-> | faktureringKonton / fakturorAvsnitt / productMoveOperations | Inga |
-> | faktureringKonton / fakturorAvsnitt / produkter | Inga |
-> | faktureringKonton / fakturorAvsnitt / produkter / överföring | Inga |
-> | faktureringKonton / fakturorAvsnitt / produkter / uppdateringAutoRenew | Inga |
-> | faktureringKonton / fakturorAvsnitt /transaktioner | Inga |
-> | faktureringKonton / fakturorAvsnitt /överföringar | Inga |
-> | billingAccounts / lineOfCredit | Inga |
-> | billingAccounts / patchOperations | Inga |
-> | faktureringKonton / betalningMethods | Inga |
-> | faktureringKonton / produkter | Inga |
-> | faktureringKonton /transaktioner | Inga |
-> | faktureringPerioder | Inga |
-> | faktureringPermissions | Inga |
-> | faktureringSförsörstighet | Inga |
-> | billingRoleAstilldelningar | Inga |
-> | faktureringRoleDefinitioner | Inga |
-> | skapaBillingRoleAssignment | Inga |
-> | Avdelningar | Inga |
-> | registreringKonto | Inga |
-> | Fakturor | Inga |
-> | Överföringar | Inga |
-> | överföringar / accepteraÖversändande | Inga |
-> | överföringar / avböjTransfer | Inga |
-> | överföringar /operationStatus | Inga |
-> | överföringar/valideraÖverförflyttning | Inga |
-> | valideraAdress | Inga |
-
-## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
+## <a name="microsoftbilling"></a>Microsoft. fakturering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | kartaApis | Ja |
-> | uppdateraKommunikationsövertolkning | Inga |
+> | billingAccounts | Nej |
+> | billingAccounts/avtal | Nej |
+> | billingAccounts / billingPermissions | Nej |
+> | billingAccounts / billingProfiles | Nej |
+> | billingAccounts / billingProfiles / billingPermissions | Nej |
+> | billingAccounts / billingProfiles / billingRoleAssignments | Nej |
+> | billingAccounts / billingProfiles / billingRoleDefinitions | Nej |
+> | billingAccounts / billingProfiles / billingSubscriptions | Nej |
+> | billingAccounts / billingProfiles / createBillingRoleAssignment | Nej |
+> | billingAccounts/billingProfiles/kunder | Nej |
+> | billingAccounts/billingProfiles/instruktioner | Nej |
+> | billingAccounts/billingProfiles/fakturor | Nej |
+> | billingAccounts/billingProfiles/fakturor/pris dokument | Nej |
+> | billingAccounts/billingProfiles/fakturor/transaktioner | Nej |
+> | billingAccounts / billingProfiles / invoiceSections | Nej |
+> | billingAccounts / billingProfiles / invoiceSections / billingPermissions | Nej |
+> | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | Nej |
+> | billingAccounts / billingProfiles / invoiceSections / billingRoleDefinitions | Nej |
+> | billingAccounts / billingProfiles / invoiceSections / billingSubscriptions | Nej |
+> | billingAccounts / billingProfiles / invoiceSections / createBillingRoleAssignment | Nej |
+> | billingAccounts / billingProfiles / invoiceSections / initiateTransfer | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products/transfer | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/Products/updateAutoRenew | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/transaktioner | Nej |
+> | billingAccounts/billingProfiles/invoiceSections/transfers | Nej |
+> | billingAccounts / BillingProfiles / patchOperations | Nej |
+> | billingAccounts / billingProfiles / paymentMethods | Nej |
+> | billingAccounts/billingProfiles/policys | Nej |
+> | billingAccounts/billingProfiles/pris dokument | Nej |
+> | billingAccounts / billingProfiles / pricesheetDownloadOperations | Nej |
+> | billingAccounts/billingProfiles/Products | Nej |
+> | billingAccounts/billingProfiles/transaktioner | Nej |
+> | billingAccounts / billingRoleAssignments | Nej |
+> | billingAccounts / billingRoleDefinitions | Nej |
+> | billingAccounts / billingSubscriptions | Nej |
+> | billingAccounts/billingSubscriptions/fakturor | Nej |
+> | billingAccounts / createBillingRoleAssignment | Nej |
+> | billingAccounts / createInvoiceSectionOperations | Nej |
+> | billingAccounts/kunder | Nej |
+> | billingAccounts/kunder/billingPermissions | Nej |
+> | billingAccounts/kunder/billingSubscriptions | Nej |
+> | billingAccounts/kunder/initiateTransfer | Nej |
+> | billingAccounts/kunder/principer | Nej |
+> | billingAccounts/kunder/produkter | Nej |
+> | billingAccounts/kunder/transaktioner | Nej |
+> | billingAccounts/kunder/överföringar | Nej |
+> | billingAccounts/avdelningar | Nej |
+> | billingAccounts / enrollmentAccounts | Nej |
+> | billingAccounts/fakturor | Nej |
+> | billingAccounts / invoiceSections | Nej |
+> | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | Nej |
+> | billingAccounts / invoiceSections / billingSubscriptions | Nej |
+> | billingAccounts/invoiceSections/billingSubscriptions/transfer | Nej |
+> | billingAccounts/invoiceSections/höjning | Nej |
+> | billingAccounts / invoiceSections / initiateTransfer | Nej |
+> | billingAccounts / invoiceSections / patchOperations | Nej |
+> | billingAccounts / invoiceSections / productMoveOperations | Nej |
+> | billingAccounts/invoiceSections/Products | Nej |
+> | billingAccounts/invoiceSections/Products/transfer | Nej |
+> | billingAccounts/invoiceSections/Products/updateAutoRenew | Nej |
+> | billingAccounts/invoiceSections/transaktioner | Nej |
+> | billingAccounts/invoiceSections/överföringar | Nej |
+> | billingAccounts / lineOfCredit | Nej |
+> | billingAccounts / patchOperations | Nej |
+> | billingAccounts / paymentMethods | Nej |
+> | billingAccounts/produkter | Nej |
+> | billingAccounts/transaktioner | Nej |
+> | billingPeriods | Nej |
+> | billingPermissions | Nej |
+> | billingProperty | Nej |
+> | billingRoleAssignments | Nej |
+> | billingRoleDefinitions | Nej |
+> | createBillingRoleAssignment | Nej |
+> | enheten | Nej |
+> | enrollmentAccounts | Nej |
+> | fakturor | Nej |
+> | överlåtelse | Nej |
+> | överföringar/acceptTransfer | Nej |
+> | överföringar/declineTransfer | Nej |
+> | överföringar/operationStatus | Nej |
+> | överföringar/validateTransfer | Nej |
+> | validateAddress | Nej |
 
-## <a name="microsoftblockchain"></a>Microsoft.Blockchain (på andra)
+## <a name="microsoftbingmaps"></a>Microsoft. Bingkartssökning
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | mapApis | Ja |
+> | updateCommunicationPreference | Nej |
+
+## <a name="microsoftblockchain"></a>Microsoft. blockchain
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | blockchainMembers | Ja |
 > | cordaMembers | Ja |
-> | Watchers | Ja |
+> | Övervakare | Ja |
 
-## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
+## <a name="microsoftblockchaintokens"></a>Microsoft. BlockchainTokens
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | TokenServices | Ja |
-> | TokenServices / BlockchainNetworks | Inga |
-> | TokenServices / Grupper | Inga |
-> | TokenServices / Grupper / Konton | Inga |
-> | TokenServices / TokenTemplates | Inga |
+> | TokenServices / BlockchainNetworks | Nej |
+> | TokenServices/grupper | Nej |
+> | TokenServices/grupper/konton | Nej |
+> | TokenServices / TokenTemplates | Nej |
 
-## <a name="microsoftblueprint"></a>Microsoft.Blueprint (Microsoft.Blueprint)
+## <a name="microsoftblueprint"></a>Microsoft. skiss
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | ritningarTilldelningar | Inga |
-> | skissTilldelningar/tilldelningOperationer | Inga |
-> | blueprintAssignments /operationer | Inga |
-> | Ritningar | Inga |
-> | ritningar / artefakter | Inga |
-> | ritningar / versioner | Inga |
-> | ritningar / versioner / artefakter | Inga |
+> | blueprintAssignments | Nej |
+> | blueprintAssignments / assignmentOperations | Nej |
+> | blueprintAssignments/åtgärder | Nej |
+> | modeller | Nej |
+> | skisser/artefakter | Nej |
+> | skisser/versioner | Nej |
+> | skisser/versioner/artefakter | Nej |
 
-## <a name="microsoftbotservice"></a>Microsoft.BotService
+## <a name="microsoftbotservice"></a>Microsoft. BotService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | botServices | Ja |
-> | botServices / kanaler | Inga |
-> | botServices / anslutningar | Inga |
-> | språk | Inga |
-> | mallar | Inga |
+> | botServices/kanaler | Nej |
+> | botServices/anslutningar | Nej |
+> | språk | Nej |
+> | mallar | Nej |
 
-## <a name="microsoftcache"></a>Microsoft.Cache
+## <a name="microsoftcache"></a>Microsoft. cache
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | Redis | Ja |
 
-## <a name="microsoftcapacity"></a>Microsoft.Kapacitet
+## <a name="microsoftcapacity"></a>Microsoft. Capacity
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | appliedReservations | Inga |
-> | autoQuotaIncrease | Inga |
-> | beräknaUtnytt på | Inga |
-> | beräknaPris | Inga |
-> | beräknaKöpPrit | Inga |
-> | Kataloger | Inga |
-> | kommersiellaReservationOrder | Inga |
-> | Exchange | Inga |
-> | platsKöpOrder | Inga |
-> | reservationOrder | Inga |
-> | reservationOrder / beräknaRefund | Inga |
-> | reservationOrder / sammanfogning | Inga |
-> | reservationOrder / reservationer | Inga |
-> | reservationOrder / reservationer / revideringar | Inga |
-> | reservationOrder / retur | Inga |
-> | reservationOrder / split | Inga |
-> | reservationOrder / swap | Inga |
-> | Reservationer | Inga |
-> | resurserProviders | Inga |
-> | resources | Inga |
-> | valideraReservationOrder | Inga |
+> | appliedReservations | Nej |
+> | autoQuotaIncrease | Nej |
+> | calculateExchange | Nej |
+> | calculatePrice | Nej |
+> | calculatePurchasePrice | Nej |
+> | kataloger | Nej |
+> | commercialReservationOrders | Nej |
+> | utväxla | Nej |
+> | placePurchaseOrder | Nej |
+> | reservationOrders | Nej |
+> | reservationOrders / calculateRefund | Nej |
+> | reservationOrders/slå samman | Nej |
+> | reservationOrders/reservationer | Nej |
+> | reservationOrders/reservationer/revisioner | Nej |
+> | reservationOrders/retur | Nej |
+> | reservationOrders/Split | Nej |
+> | reservationOrders/växling | Nej |
+> | reservera | Nej |
+> | resourceProviders | Nej |
+> | resources | Nej |
+> | validateReservationOrder | Nej |
 
-## <a name="microsoftcdn"></a>Microsoft.Cdn
+## <a name="microsoftcdn"></a>Microsoft. CDN
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | CdnWebApplicationFirewallManagedRuleSet | Inga |
+> | CdnWebApplicationFirewallManagedRuleSets | Nej |
 > | CdnWebApplicationFirewallPolicies | Ja |
-> | kantnoder | Inga |
-> | Profiler | Ja |
-> | profiler/slutpunkter | Ja |
-> | profiler/slutpunkter / customdomains | Inga |
-> | profiler/slutpunkter/ursprungsgrupper | Inga |
-> | profiler/slutpunkter/ursprung | Inga |
-> | valideraProbe | Inga |
+> | edgenodes | Nej |
+> | filer | Ja |
+> | profiler/slut punkter | Ja |
+> | profiler/slut punkter/customdomains | Nej |
+> | profiler/slut punkter/origingroups | Nej |
+> | profiler/slut punkter/ursprung | Nej |
+> | validateProbe | Nej |
 
-## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
+## <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | certifikatOrdar | Ja |
-> | certifikatOrder/certifikat | Inga |
-> | valideraCertificateRegistrationInformation | Inga |
+> | certificateOrders | Ja |
+> | certificateOrders/certifikat | Nej |
+> | validateCertificateRegistrationInformation | Nej |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | funktioner eller behörigheter | Inga |
-> | domainNames (domainNames) | Ja |
-> | domainNames /capabilities | Inga |
-> | domainNames / internalLoadBalancers | Inga |
-> | domainNames / serviceCertificates | Inga |
-> | domainNames / slots | Inga |
-> | domainNames / slots / roller | Inga |
-> | domainNames / slots / roller / metricDefinitions | Inga |
-> | domainNames / slots / roller / mått | Inga |
-> | moveSubscriptionResources | Inga |
-> | driftSystemFamilier | Inga |
-> | driftSystem | Inga |
-> | quotas | Inga |
-> | resourceTypes | Inga |
-> | valideraAbonnemangFlyttaTillgänglighet | Inga |
-> | virtuellaMaskiner | Ja |
-> | virtualMachines / diagnosticSettings | Inga |
-> | virtualMachines / metricDefinitions | Inga |
-> | virtualMachines / mått | Inga |
+> | funktioner eller behörigheter | Nej |
+> | Domän namn | Ja |
+> | Domän namn/funktioner | Nej |
+> | Domän namn/internalLoadBalancers | Nej |
+> | Domän namn/serviceCertificates | Nej |
+> | Domän namn/platser | Nej |
+> | Domän namn/platser/roller | Nej |
+> | Domän namn/platser/roller/metricDefinitions | Nej |
+> | Domän namn/platser/roller/mått | Nej |
+> | moveSubscriptionResources | Nej |
+> | operatingSystemFamilies | Nej |
+> | operatingSystems | Nej |
+> | quotas | Nej |
+> | resourceTypes | Nej |
+> | validateSubscriptionMoveAvailability | Nej |
+> | virtualMachines | Ja |
+> | virtualMachines / diagnosticSettings | Nej |
+> | virtualMachines / metricDefinitions | Nej |
+> | virtualMachines/mått | Nej |
 
-## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastrukturMigera
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | klassiskaInfrastrukturResurser | Inga |
-
-## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft. ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | funktioner eller behörigheter | Inga |
-> | expressRouteCrossAnslutningar | Inga |
-> | expressRouteCrossConnections / peerings | Inga |
-> | gatewaySupportedDevices | Inga |
-> | nätverkSäkerhetsgrupper | Ja |
-> | quotas | Inga |
+> | classicInfrastructureResources | Nej |
+
+## <a name="microsoftclassicnetwork"></a>Microsoft. ClassicNetwork
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | funktioner eller behörigheter | Nej |
+> | expressRouteCrossConnections | Nej |
+> | expressRouteCrossConnections/peering | Nej |
+> | gatewaySupportedDevices | Nej |
+> | networkSecurityGroups | Ja |
+> | quotas | Nej |
 > | reservedIps | Ja |
 > | virtualNetworks | Ja |
-> | virtualNetworks / remoteVirtualNetworkPeeringProxies | Inga |
-> | virtualNetworks / virtualNetworkPeerings | Inga |
+> | virtualNetworks/remoteVirtualNetworkPeeringProxies | Nej |
+> | virtualNetworks/virtualNetworkPeerings | Nej |
 
-## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
+## <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | funktioner eller behörigheter | Inga |
-> | Diskar | Inga |
-> | images | Inga |
-> | osImages (osImages) | Inga |
-> | osPlatformImager | Inga |
-> | offentligaBilder | Inga |
-> | quotas | Inga |
-> | lagringKonton | Ja |
-> | lagringKonton / blobServices | Inga |
-> | lagringKonton / filTjänster | Inga |
-> | lagringKonto/ måttDefinitioner | Inga |
-> | lagringKonto/mått | Inga |
-> | lagringKonton /queueServices | Inga |
-> | lagringKonton /tjänster | Inga |
-> | lagringKonton / tjänster / diagnostikInställningar | Inga |
-> | lagringKonton / tjänster / metricDefinitioner | Inga |
-> | lagringKonton / tjänster / mått | Inga |
-> | lagringKonton / tabellTjänster | Inga |
-> | lagringKonton / vmImages | Inga |
-> | vmImages | Inga |
+> | funktioner eller behörigheter | Nej |
+> | disk | Nej |
+> | images | Nej |
+> | osImages | Nej |
+> | osPlatformImages | Nej |
+> | publicImages | Nej |
+> | quotas | Nej |
+> | storageAccounts | Ja |
+> | storageAccounts/blobServices | Nej |
+> | storageAccounts/fileServices | Nej |
+> | storageAccounts/metricDefinitions | Nej |
+> | storageAccounts/mått | Nej |
+> | storageAccounts/queueServices | Nej |
+> | storageAccounts/tjänster | Nej |
+> | storageAccounts/tjänster/diagnosticSettings | Nej |
+> | storageAccounts/tjänster/metricDefinitions | Nej |
+> | storageAccounts/tjänster/mått | Nej |
+> | storageAccounts/tableServices | Nej |
+> | storageAccounts/vmImages | Nej |
+> | vmImages | Nej |
 
-## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
+## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
 
-## <a name="microsoftcommerce"></a>Microsoft.Commerce
+## <a name="microsoftcommerce"></a>Microsoft. Commerce
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | RateCard | Inga |
-> | Användningsagga | Inga |
+> | RateCard | Nej |
+> | UsageAggregates | Nej |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | tillgänglighetSeter | Ja |
+> | availabilitySets | Ja |
 > | diskEncryptionSets | Ja |
-> | Diskar | Ja |
-> | Gallerier | Ja |
-> | gallerier / applikationer | Inga |
-> | gallerier / applikationer / versioner | Inga |
-> | gallerier / bilder | Inga |
-> | gallerier / bilder / versioner | Inga |
+> | disk | Ja |
+> | gallerier | Ja |
+> | gallerier/program | Nej |
+> | gallerier/program/versioner | Nej |
+> | gallerier/bilder | Nej |
+> | gallerier/avbildningar/versioner | Nej |
 > | hostGroups | Ja |
-> | hostGroups /värdar | Ja |
+> | hostGroups/värdar | Ja |
 > | images | Ja |
-> | närhetPlatsmentGrupper | Ja |
-> | restorePointCollections restorePointCollections restorePointCollections restorePoint | Ja |
-> | restorePointCollections /restorePoints restorePoints restorePoints restorePoints restorePoints restorePoints | Inga |
+> | proximityPlacementGroups | Ja |
+> | restorePointCollections | Ja |
+> | restorePointCollections / restorePoints | Nej |
 > | sharedVMExtensions | Ja |
-> | sharedVMExtensions / versioner | Inga |
+> | sharedVMExtensions/versioner | Nej |
 > | sharedVMImages | Ja |
-> | sharedVMImages / versioner | Inga |
+> | sharedVMImages/versioner | Nej |
 > | snapshots | Ja |
-> | sshPublicKeys (sshPublicKeys) | Ja |
-> | virtuellaMaskiner | Ja |
-> | virtualMachines / tillägg | Ja |
-> | virtualMachines / metricDefinitions | Inga |
-> | virtuellaMachineScaleSets | Ja |
-> | virtualMachineScaleSets / tillägg | Inga |
-> | virtualMachineScaleSets / nätverkInterfaces | Inga |
-> | virtualMachineScaleSets / publicIPAddresses | Inga |
-> | virtualMachineScaleSets / virtualMachines | Inga |
-> | virtualMachineScaleSets / virtualMachines / networkInterfaces | Inga |
+> | sshPublicKeys | Ja |
+> | virtualMachines | Ja |
+> | virtualMachines/tillägg | Ja |
+> | virtualMachines / metricDefinitions | Nej |
+> | virtualMachineScaleSets | Ja |
+> | virtualMachineScaleSets/tillägg | Nej |
+> | virtualMachineScaleSets/networkInterfaces | Nej |
+> | virtualMachineScaleSets/publicIPAddresses | Nej |
+> | virtualMachineScaleSets/virtualMachines | Nej |
+> | virtualMachineScaleSets/virtualMachines/networkInterfaces | Nej |
 
-## <a name="microsoftconsumption"></a>Microsoft.Förbrukning
+## <a name="microsoftconsumption"></a>Microsoft. förbrukning
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Aggregeradcost | Inga |
-> | Saldon | Inga |
-> | Budgetar | Inga |
-> | Avgifter | Inga |
-> | Kostnadsbrickor | Inga |
-> | Krediter | Inga |
-> | händelser | Inga |
-> | Prognoser | Inga |
-> | Massor | Inga |
-> | Marknadsplatser | Inga |
-> | Prisdokument | Inga |
-> | Produkter | Inga |
-> | ReservationDetaljer | Inga |
-> | ReservationRecommendations | Inga |
-> | ReservationSummaries | Inga |
-> | ReservationTransaktioner | Inga |
-> | Taggar | Inga |
-> | Hyresgäster | Inga |
-> | Villkor | Inga |
-> | UsageDetails | Inga |
+> | AggregatedCost | Nej |
+> | Saldon | Nej |
+> | Budgetar | Nej |
+> | Avgifter | Nej |
+> | CostTags | Nej |
+> | krediter | Nej |
+> | händelser | Nej |
+> | Prognoser | Nej |
+> | samtliga | Nej |
+> | Marknads platser | Nej |
+> | Prisdokument | Nej |
+> | läkemedle | Nej |
+> | ReservationDetails | Nej |
+> | ReservationRecommendations | Nej |
+> | ReservationSummaries | Nej |
+> | ReservationTransactions | Nej |
+> | Taggar | Nej |
+> | klienter | Nej |
+> | Villkor | Nej |
+> | UsageDetails | Nej |
 
-## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | containerGroups | Ja |
-> | serviceAssociationLänkar | Inga |
+> | serviceAssociationLinks | Nej |
 
-## <a name="microsoftcontainerregistry"></a>Microsoft.Container-registret
+## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Register | Ja |
-> | register / agentPools | Ja |
-> | register / bygger | Inga |
-> | register / byggen / avbryt | Inga |
-> | register / byggen / getLogLink | Inga |
-> | register / buildTasks | Ja |
-> | register / buildTasks / steg | Inga |
-> | register / eventGridFilters | Inga |
-> | register / generateCredentials | Inga |
-> | register / getBuildSourceUploadUrl | Inga |
-> | register / GetCredentials | Inga |
-> | register / importBild | Inga |
-> | register / privateEndpointConnectionProxies | Inga |
-> | register / privateEndpointConnectionProxies / validera | Inga |
-> | register / privateEndpointConnections | Inga |
-> | register / privateLinkResources | Inga |
-> | register / queueBuild | Inga |
-> | register / regenerateCredential | Inga |
-> | register / regenerateCredentials | Inga |
-> | register /replikeringar | Ja |
-> | register / körningar | Inga |
-> | register / körningar / avbryt | Inga |
-> | register / scheduleRun | Inga |
-> | register / scopeMaps | Inga |
-> | register / taskRuns | Ja |
-> | register /uppgifter | Ja |
-> | register / tokens | Inga |
-> | register / uppdateringPolicies | Inga |
-> | register / webhooks | Ja |
-> | register / webhooks / getCallbackConfig | Inga |
-> | register / webhooks / ping | Inga |
+> | register | Ja |
+> | register/agentPools | Ja |
+> | register/versioner | Nej |
+> | register/versioner/Avbryt | Nej |
+> | register/build/getLogLink | Nej |
+> | register/buildTasks | Ja |
+> | register/buildTasks/steg | Nej |
+> | register/eventGridFilters | Nej |
+> | register/generateCredentials | Nej |
+> | register/getBuildSourceUploadUrl | Nej |
+> | register/GetCredentials | Nej |
+> | register/importImage | Nej |
+> | register/privateEndpointConnectionProxies | Nej |
+> | register/privateEndpointConnectionProxies/validate | Nej |
+> | register/privateEndpointConnections | Nej |
+> | register/privateLinkResources | Nej |
+> | register/queueBuild | Nej |
+> | register/regenerateCredential | Nej |
+> | register/regenerateCredentials | Nej |
+> | register/replikeringar | Ja |
+> | register/körningar | Nej |
+> | register/körningar/Avbryt | Nej |
+> | register/scheduleRun | Nej |
+> | register/scopeMaps | Nej |
+> | register/taskRuns | Ja |
+> | register/uppgifter | Ja |
+> | register/token | Nej |
+> | register/updatePolicies | Nej |
+> | register/Webhooks | Ja |
+> | register/Webhooks/getCallbackConfig | Nej |
+> | register/Webhooks/ping | Nej |
 
-## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
+## <a name="microsoftcontainerservice"></a>Microsoft. container service
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -762,534 +762,534 @@ Gå till ett namnområde för resursleverantören:
 > | managedClusters | Ja |
 > | openShiftManagedClusters | Ja |
 
-## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
+## <a name="microsoftcostmanagement"></a>Microsoft. CostManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Aviseringar | Inga |
-> | FaktureringKonto | Inga |
-> | Budgetar | Inga |
-> | CloudConnectors | Inga |
+> | Aviseringar | Nej |
+> | BillingAccounts | Nej |
+> | Budgetar | Nej |
+> | CloudConnectors | Nej |
 > | Anslutningar | Ja |
-> | Avdelningar | Inga |
-> | Dimensioner | Inga |
-> | RegistreringKonto | Inga |
-> | Export | Inga |
-> | ExternafaktureringKonton | Inga |
-> | ExternafaktureringKonton / Aviseringar | Inga |
-> | Externafaktureringskonton / dimensioner | Inga |
-> | Externafaktureringskonton / Prognos | Inga |
-> | ExternafaktureringKonton / Fråga | Inga |
-> | Externa prenumerationer | Inga |
-> | Externa prenumerationer / Varningar | Inga |
-> | Externa prenumerationer/dimensioner | Inga |
-> | Externa prenumerationer / prognos | Inga |
-> | Externa prenumerationer / Fråga | Inga |
-> | Prognos | Inga |
-> | Söka i data | Inga |
-> | registrera | Inga |
-> | Rapportkonfigs | Inga |
-> | Rapporter | Inga |
-> | Inställningar | Inga |
-> | showbackRules (showbackRules) | Inga |
-> | Vyer | Inga |
+> | Avdelningar | Nej |
+> | Dimensioner | Nej |
+> | EnrollmentAccounts | Nej |
+> | Exporteras | Nej |
+> | ExternalBillingAccounts | Nej |
+> | ExternalBillingAccounts/aviseringar | Nej |
+> | ExternalBillingAccounts/dimensioner | Nej |
+> | ExternalBillingAccounts/prognos | Nej |
+> | ExternalBillingAccounts/fråga | Nej |
+> | ExternalSubscriptions | Nej |
+> | ExternalSubscriptions/aviseringar | Nej |
+> | ExternalSubscriptions/dimensioner | Nej |
+> | ExternalSubscriptions/prognos | Nej |
+> | ExternalSubscriptions/fråga | Nej |
+> | Prognos | Nej |
+> | Söka i data | Nej |
+> | registrera | Nej |
+> | Reportconfigs | Nej |
+> | Rapporter | Nej |
+> | Inställningar | Nej |
+> | showbackRules | Nej |
+> | Vyer | Nej |
 
-## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Begäranden | Inga |
-
-## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
+## <a name="microsoftcustomerlockbox"></a>Microsoft. CustomerLockbox
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Sammanslutningar | Inga |
-> | resurserProviders | Ja |
+> | autentiseringsbegäran | Nej |
 
-## <a name="microsoftdatabox"></a>Microsoft.DataBox
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Jobb | Ja |
-
-## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
+## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | DataBoxEdgeEnheter | Ja |
+> | typer | Nej |
+> | resourceProviders | Ja |
 
-## <a name="microsoftdatabricks"></a>Microsoft.Databricks
+## <a name="microsoftdatabox"></a>Microsoft. data-
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | utskrifts | Ja |
+
+## <a name="microsoftdataboxedge"></a>Microsoft. DataBoxEdge
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | DataBoxEdgeDevices | Ja |
+
+## <a name="microsoftdatabricks"></a>Microsoft. Databricks
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | arbetsytor | Ja |
-> | arbetsytor / dbWorkspaces | Inga |
-> | arbetsytor / lagringFörkryptering | Inga |
-> | arbetsytor / virtualNetworkPeerings | Inga |
+> | arbets ytor/dbWorkspaces | Nej |
+> | arbets ytor/storageEncryption | Nej |
+> | arbets ytor/virtualNetworkPeerings | Nej |
 
-## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Kataloger | Ja |
-> | datakategorier | Ja |
-> | datakataloger / datasources | Inga |
-> | datakataloger / datasources / skanningar | Inga |
-> | datakataloger / datakällor / skanningar / dataset | Inga |
-> | datakataloger / datakällor / skanningar / triggers | Inga |
-
-## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
+## <a name="microsoftdatacatalog"></a>Microsoft. DataCatalog
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | dataFakta | Ja |
-> | dataFakta / diagnostikInställningar | Inga |
-> | dataFakta / metricDefinitioner | Inga |
-> | dataFactorySchema | Inga |
-> | Fabriker | Ja |
-> | fabriker / integrationRuntimes | Inga |
+> | kataloger | Ja |
+> | datacatalogs | Ja |
+> | datacatalogs/data källor | Nej |
+> | datacatalogs/data källor/-genomsökningar | Nej |
+> | datacatalogs/data källor/genomsökningar/data uppsättningar | Nej |
+> | datacatalogs/data källor/genomsökningar/utlösare | Nej |
 
-## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics Microsoft.DataLakeAnalytics Microsoft.DataLakeAnalytics Microsoft.
+## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | konton | Ja |
-> | konton / dataLakeStoreAccounts | Inga |
-> | konton / lagringKonton | Inga |
-> | konton / lagringKonton / behållare | Inga |
-> | konton / transferAnalyticsUnits | Inga |
+> | dataFactories | Ja |
+> | dataFactories / diagnosticSettings | Nej |
+> | dataFactories / metricDefinitions | Nej |
+> | dataFactorySchema | Nej |
+> | fabriker | Ja |
+> | fabriker/integrationRuntimes | Nej |
 
-## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
+## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
-> | konton / eventGridFilters | Inga |
-> | konton / firewallRules | Inga |
+> | konton/dataLakeStoreAccounts | Nej |
+> | konton/storageAccounts | Nej |
+> | konton/storageAccounts/behållare | Nej |
+> | konton/transferAnalyticsUnits | Nej |
 
-## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
+## <a name="microsoftdatalakestore"></a>Microsoft. DataLakeStore
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | konton | Ja |
+> | konton/eventGridFilters | Nej |
+> | konton/firewallRules | Nej |
+
+## <a name="microsoftdatamigration"></a>Microsoft. data migration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | services | Ja |
-> | tjänster /projekt | Ja |
+> | tjänster/projekt | Ja |
 
-## <a name="microsoftdatashare"></a>Microsoft.DataShare
+## <a name="microsoftdatashare"></a>Microsoft. DataShare
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
-> | konton / aktier | Inga |
-> | konton / aktier / datauppsättningar | Inga |
-> | konton / aktier / inbjudningar | Inga |
-> | konton / aktier / leverantöraktieteckningar | Inga |
-> | konton / aktier / synkroniseringSinställningar | Inga |
-> | konton / aktieabonnemang | Inga |
-> | konton / aktieabonnemang / consumerSourceDataSets | Inga |
-> | konton / aktieabonnemang / datasetmappings | Inga |
-> | konton / aktieabonnemang / triggers | Inga |
+> | konton/resurser | Nej |
+> | konton/resurser/data uppsättningar | Nej |
+> | konton/resurser/inbjudningar | Nej |
+> | konton/resurser/providersharesubscriptions | Nej |
+> | konton/resurser/synchronizationSettings | Nej |
+> | konton/sharesubscriptions | Nej |
+> | konton/sharesubscriptions/consumerSourceDataSets | Nej |
+> | konton/sharesubscriptions/datasetmappings | Nej |
+> | konton/sharesubscriptions/utlösare | Nej |
 
-## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Servrar | Ja |
-> | servrar / rådgivare | Inga |
-> | servrar / nycklar | Inga |
-> | servrar / privateEndpointConnectionProxies | Inga |
-> | servrar / privateEndpointAnslutningar | Inga |
-> | servrar / privateLinkResources | Inga |
-> | servrar / queryTexter | Inga |
-> | servrar / återvinningsbaraServers | Inga |
-> | servrar / topQueryStatistics | Inga |
-> | servrar / virtualNetworkRules | Inga |
-> | servrar / waitStatistics | Inga |
-
-## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
+## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Servrar | Ja |
-> | servrar / rådgivare | Inga |
-> | servrar / nycklar | Inga |
-> | servrar / privateEndpointConnectionProxies | Inga |
-> | servrar / privateEndpointAnslutningar | Inga |
-> | servrar / privateLinkResources | Inga |
-> | servrar / queryTexter | Inga |
-> | servrar / återvinningsbaraServers | Inga |
-> | servrar / topQueryStatistics | Inga |
-> | servrar / virtualNetworkRules | Inga |
-> | servrar / waitStatistics | Inga |
+> | brygghuvudservrar | Ja |
+> | servrar/rådgivare | Nej |
+> | servrar/nycklar | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej |
+> | servrar/privateEndpointConnections | Nej |
+> | servrar/privateLinkResources | Nej |
+> | servrar/queryTexts | Nej |
+> | servrar/recoverableServers | Nej |
+> | servrar/topQueryStatistics | Nej |
+> | servrar/virtualNetworkRules | Nej |
+> | servrar/waitStatistics | Nej |
 
-## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | serverGrupper | Ja |
-> | Servrar | Ja |
-> | servrar / rådgivare | Inga |
-> | servrar / nycklar | Inga |
-> | servrar / privateEndpointConnectionProxies | Inga |
-> | servrar / privateEndpointAnslutningar | Inga |
-> | servrar / privateLinkResources | Inga |
-> | servrar / queryTexter | Inga |
-> | servrar / återvinningsbaraServers | Inga |
-> | servrar / topQueryStatistics | Inga |
-> | servrar / virtualNetworkRules | Inga |
-> | servrar / waitStatistics | Inga |
-> | servrarv2 | Ja |
+> | brygghuvudservrar | Ja |
+> | servrar/rådgivare | Nej |
+> | servrar/nycklar | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej |
+> | servrar/privateEndpointConnections | Nej |
+> | servrar/privateLinkResources | Nej |
+> | servrar/queryTexts | Nej |
+> | servrar/recoverableServers | Nej |
+> | servrar/topQueryStatistics | Nej |
+> | servrar/virtualNetworkRules | Nej |
+> | servrar/waitStatistics | Nej |
+
+## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | serverGroups | Ja |
+> | brygghuvudservrar | Ja |
+> | servrar/rådgivare | Nej |
+> | servrar/nycklar | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej |
+> | servrar/privateEndpointConnections | Nej |
+> | servrar/privateLinkResources | Nej |
+> | servrar/queryTexts | Nej |
+> | servrar/recoverableServers | Nej |
+> | servrar/topQueryStatistics | Nej |
+> | servrar/virtualNetworkRules | Nej |
+> | servrar/waitStatistics | Nej |
+> | serversv2 | Ja |
 > | singleServers | Ja |
 
-## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
+## <a name="microsoftdeploymentmanager"></a>Microsoft. DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | artefakterKällar | Ja |
-> | Utbyggnader | Ja |
+> | artifactSources | Ja |
+> | distributioner | Ja |
 > | serviceTopologies | Ja |
-> | serviceTopologier / tjänster | Ja |
-> | serviceTopologier / tjänster / serviceUnits | Ja |
+> | serviceTopologies/tjänster | Ja |
+> | serviceTopologies/tjänster/serviceUnits | Ja |
 > | steg | Ja |
 
-## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
+## <a name="microsoftdesktopvirtualization"></a>Microsoft. DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | programgrupper | Ja |
-> | programgrupper/program | Inga |
-> | programgrupper / stationära datorer | Inga |
-> | applikationsgrupper / startmenuitems | Inga |
-> | värdpooler | Ja |
-> | hostpools / sessionhosts | Inga |
-> | hostpools / sessionhosts / usersessions hostpools / sessions | Inga |
-> | hostpools / usersessions | Inga |
+> | applicationgroups | Ja |
+> | applicationgroups/program | Nej |
+> | applicationgroups/Station ära datorer | Nej |
+> | applicationgroups / startmenuitems | Nej |
+> | hostpools | Ja |
+> | hostpools / sessionhosts | Nej |
+> | hostpools / sessionhosts / usersessions | Nej |
+> | hostpools / usersessions | Nej |
 > | arbetsytor | Ja |
 
-## <a name="microsoftdevices"></a>Microsoft.Devices
+## <a name="microsoftdevices"></a>Microsoft. Devices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | ElasticPools | Ja |
 > | ElasticPools / IotHubTenants | Ja |
-> | ElasticPools / IotHubTenants / securitySettings | Inga |
+> | ElasticPools/IotHubTenants/securitySettings | Nej |
 > | IotHubs | Ja |
-> | IotHubs / eventGridFilters | Inga |
-> | IotHubs / securitySettings | Inga |
-> | EtableringTjänster | Ja |
-> | Användningsområden | Inga |
+> | IotHubs / eventGridFilters | Nej |
+> | IotHubs/securitySettings | Nej |
+> | ProvisioningServices | Ja |
+> | användningar | Nej |
 
-## <a name="microsoftdevops"></a>Microsoft.DevOps
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Rörledningar | Ja |
-
-## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
+## <a name="microsoftdevops"></a>Microsoft. DevOps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Styrenheter | Ja |
+> | pipelines | Ja |
 
-## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
+## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | domänkontrollanter | Ja |
+
+## <a name="microsoftdevtestlab"></a>Microsoft. DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | labcenters | Ja |
-> | Labs | Ja |
-> | laboratorier / miljöer | Ja |
-> | labb / serviceRunners | Ja |
-> | laboratorier / virtuellaMaskiner | Ja |
-> | Scheman | Ja |
+> | Laboration | Ja |
+> | labb/miljöer | Ja |
+> | labb/serviceRunners | Ja |
+> | labb/virtualMachines | Ja |
+> | scheman | Ja |
 
-## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | databasKontoNamn | Inga |
-> | databasKonton | Ja |
-
-## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
+## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Domäner | Ja |
-> | domäner / domänÄgarebetare | Inga |
-> | genereraSsoRequest | Inga |
-> | topLevelDomains | Inga |
-> | valideraDomainRegistrationInformation | Inga |
+> | databaseAccountNames | Nej |
+> | databaseAccounts | Ja |
 
-## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
+## <a name="microsoftdomainregistration"></a>Microsoft. DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | lcsprojekt | Inga |
-> | lcsprojects / clouddeployments lcsprojects / clouddeployments lcsprojects / clouddeployments lc | Inga |
-> | lcsprojects / kontakter | Inga |
+> | domäner | Ja |
+> | domäner/domainOwnershipIdentifiers | Nej |
+> | generateSsoRequest | Nej |
+> | topLevelDomains | Nej |
+> | validateDomainRegistrationInformation | Nej |
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftdynamicslcs"></a>Microsoft. DynamicsLcs
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | lcsprojects | Nej |
+> | lcsprojects / clouddeployments | Nej |
+> | lcsprojects/kopplingar | Nej |
+
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | services | Ja |
 
-## <a name="microsofteventgrid"></a>Microsoft.EventGrid
+## <a name="microsofteventgrid"></a>Microsoft. EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Domäner | Ja |
-> | domäner / ämnen | Inga |
-> | händelseAbonnemang | Inga |
-> | extensionTopics | Inga |
-> | partnerNamnområden | Ja |
-> | partnerNamnområden / eventKanaler | Inga |
+> | domäner | Ja |
+> | domäner/ämnen | Nej |
+> | eventSubscriptions | Nej |
+> | extensionTopics | Nej |
+> | partnerNamespaces | Ja |
+> | partnerNamespaces/eventChannels | Nej |
 > | partnerRegistrations | Ja |
 > | partnerTopics | Ja |
-> | partnerTopics / eventAbonnemang | Inga |
+> | partnerTopics / eventSubscriptions | Nej |
 > | systemTopics | Ja |
-> | systemTopics / eventAbonnemang | Inga |
-> | Ämnen | Ja |
-> | topicTypes | Inga |
+> | systemTopics / eventSubscriptions | Nej |
+> | avsnitt | Ja |
+> | topicTypes | Nej |
 
-## <a name="microsofteventhub"></a>Microsoft.EventHub
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Kluster | Ja |
-> | Namnområden | Ja |
-> | namnrymd / tillståndsregler | Inga |
-> | namnrymd / katastrofåterupptäcktconfigs | Inga |
-> | namnområden / eventhubs | Inga |
-> | namnrymd / eventhubs / authorizationrules | Inga |
-> | namnområden / eventhubs / konsumentgrupper | Inga |
-> | namnrymd / nätverksregler | Inga |
-
-## <a name="microsoftfalcon"></a>Microsoft.Falcon (olika)
+## <a name="microsofteventhub"></a>Microsoft. EventHub
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Namnområden | Ja |
+> | kluster | Ja |
+> | namn områden | Ja |
+> | namnrymder/authorizationrules | Nej |
+> | namnrymder/disasterrecoveryconfigs | Nej |
+> | namnrymder/eventhubs | Nej |
+> | namnrymder/eventhubs/authorizationrules | Nej |
+> | namnrymder/eventhubs/consumergroups | Nej |
+> | namnrymder/networkrulesets | Nej |
 
-## <a name="microsoftfeatures"></a>Microsoft.Funktioner
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | featureProviders | Inga |
-> | funktioner | Inga |
-> | Leverantörer | Inga |
-> | abonnemangFöreelser | Inga |
-
-## <a name="microsoftgallery"></a>Microsoft.Gallery
+## <a name="microsoftfalcon"></a>Microsoft. Falcon
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Registrera | Inga |
-> | galleriiter | Inga |
-> | generateartifactaccessuri | Inga |
-> | myareas | Inga |
-> | myareas / områden | Inga |
-> | myareas / områden / områden | Inga |
-> | myareas / områden / områden / galleryitems | Inga |
-> | myareas / områden / galleryitems | Inga |
-> | myareas / galleryitems | Inga |
-> | registrera | Inga |
-> | resources | Inga |
-> | retrieveresourcesbyid | Inga |
+> | namn områden | Ja |
 
-## <a name="microsoftgenomics"></a>Microsoft.Genomik
+## <a name="microsoftfeatures"></a>Microsoft. features
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | featureProviders | Nej |
+> | funktioner | Nej |
+> | finansiär | Nej |
+> | subscriptionFeatureRegistrations | Nej |
+
+## <a name="microsoftgallery"></a>Microsoft. Gallery
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | certifiering | Nej |
+> | galleryitems | Nej |
+> | generateartifactaccessuri | Nej |
+> | områden | Nej |
+> | område/områden | Nej |
+> | område/områden/områden | Nej |
+> | område/områden/områden/galleryitems | Nej |
+> | områdets/områden/galleryitems | Nej |
+> | områden/galleryitems | Nej |
+> | registrera | Nej |
+> | resources | Nej |
+> | retrieveresourcesbyid | Nej |
+
+## <a name="microsoftgenomics"></a>Microsoft. genomik
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
 
-## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+## <a name="microsoftguestconfiguration"></a>Microsoft. GuestConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | autoManagedRedovisningar | Ja |
+> | autoManagedAccounts | Ja |
 > | autoManagedVmConfigurationProfiles | Ja |
-> | konfigurationProfileAstilldelningar | Inga |
-> | gästKonfigurationTilldelningar | Inga |
-> | Programvara | Inga |
-> | softwareUpdateProfile | Inga |
-> | programvaraUppdater | Inga |
+> | configurationProfileAssignments | Nej |
+> | guestConfigurationAssignments | Nej |
+> | IntelliPoint | Nej |
+> | softwareUpdateProfile | Nej |
+> | softwareUpdates | Nej |
 
-## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | hanaInstances (olikart) | Ja |
-> | sapMonitors (sapMonitors) | Ja |
-
-## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
+## <a name="microsofthanaonazure"></a>Microsoft. HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | dedikeradeHSM-moduler | Ja |
+> | hanaInstances | Ja |
+> | sapMonitors | Ja |
 
-## <a name="microsofthdinsight"></a>Microsoft.HDInsight
+## <a name="microsofthardwaresecuritymodules"></a>Microsoft. HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Kluster | Ja |
-> | kluster / applikationer | Inga |
+> | dedicatedHSMs | Ja |
 
-## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+## <a name="microsofthdinsight"></a>Microsoft. HDInsight
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | kluster | Ja |
+> | kluster/program | Nej |
+
+## <a name="microsofthealthcareapis"></a>Microsoft. HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | services | Ja |
 
-## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Maskiner | Ja |
-> | maskiner / förlängningar | Ja |
+> | faxar | Ja |
+> | datorer/tillägg | Ja |
 
-## <a name="microsofthybriddata"></a>Microsoft.HybridData
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | dataHantverkare | Ja |
-
-## <a name="microsofthydra"></a>Microsoft.Hydra (på andra)
+## <a name="microsofthybriddata"></a>Microsoft. HybridData
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Komponenter | Ja |
-> | nätverkScopes | Ja |
+> | dataManagers | Ja |
 
-## <a name="microsoftimportexport"></a>Microsoft.ImportExport
+## <a name="microsofthydra"></a>Microsoft. Hydra
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Jobb | Ja |
+> | delarna | Ja |
+> | networkScopes | Ja |
+
+## <a name="microsoftimportexport"></a>Microsoft. ImportExport
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | utskrifts | Ja |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | diagnostikInställningar | Inga |
-> | diagnostikEtteringsKategories | Inga |
+> | diagnosticSettings | Nej |
+> | diagnosticSettingsCategories | Nej |
 
-## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
+## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | appEmplates | Inga |
+> | appTemplates | Nej |
 > | IoTApps | Ja |
 
-## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
+## <a name="microsoftiotspaces"></a>Microsoft. IoTSpaces
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | Graph | Ja |
 
-## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
+## <a name="microsoftkeyvault"></a>Microsoft. nyckel valv
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | deletedVaults | Inga |
-> | hsmPools (hsmPools) | Ja |
-> | Valv | Ja |
-> | valv / accessPolicies | Inga |
-> | valv / eventGridFilters | Inga |
-> | valv / hemligheter | Inga |
+> | deletedVaults | Nej |
+> | hsmPools | Ja |
+> | valv | Ja |
+> | valv/accessPolicies | Nej |
+> | valv/eventGridFilters | Nej |
+> | valv/hemligheter | Nej |
 
-## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
+## <a name="microsoftkubernetes"></a>Microsoft. Kubernetes
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | anslutnaKlusterer | Ja |
+> | connectedClusters | Ja |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Kluster | Ja |
-> | kluster /bifogadedatabaskonfigurationer | Inga |
-> | kluster / databaser | Inga |
-> | kluster / databaser / dataanslutningar | Inga |
-> | kluster / databaser / eventhubconnections | Inga |
-> | kluster / databaser / principalassignments | Inga |
-> | kluster/dataanslutningar | Inga |
-> | kluster /principalastilldelningar | Inga |
-> | kluster /delade enheter | Inga |
+> | kluster | Ja |
+> | kluster/attacheddatabaseconfigurations | Nej |
+> | kluster/databaser | Nej |
+> | kluster/databaser/dataconnections | Nej |
+> | kluster/databaser/eventhubconnections | Nej |
+> | kluster/databaser/principalassignments | Nej |
+> | kluster/dataconnections | Nej |
+> | kluster/principalassignments | Nej |
+> | kluster/sharedidentities | Nej |
 
-## <a name="microsoftlabservices"></a>Microsoft.LabServices
+## <a name="microsoftlabservices"></a>Microsoft. LabServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | labaccounts | Ja |
-> | användare | Inga |
+> | användare | Nej |
 
-## <a name="microsoftlogic"></a>Microsoft.Logic
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | hostingMiljöer | Ja |
-> | integrationKonton | Ja |
-> | integrationTjänstMiljöer | Ja |
-> | integrationServiceMiljöer / managedApis | Ja |
-> | isoleradeMiljöer | Ja |
-> | Arbetsflöden | Ja |
-
-## <a name="microsoftmachinelearning"></a>Microsoft.MachineLärning
+## <a name="microsoftlogic"></a>Microsoft. Logic
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | åtagandePlaner | Ja |
-> | Webservices | Ja |
+> | hostingEnvironments | Ja |
+> | integrationAccounts | Ja |
+> | integrationServiceEnvironments | Ja |
+> | integrationServiceEnvironments/managedApis | Ja |
+> | isolatedEnvironments | Ja |
+> | arbetsflöden | Ja |
+
+## <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | commitmentPlans | Ja |
+> | WebServices | Ja |
 > | Arbetsytor | Ja |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
@@ -1298,653 +1298,653 @@ Gå till ett namnområde för resursleverantören:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | arbetsytor | Ja |
-> | arbetsytor / beräkningar | Inga |
-> | arbetsytor / eventGridFilters | Inga |
+> | arbets ytor/beräkningar | Nej |
+> | arbets ytor/eventGridFilters | Nej |
 
-## <a name="microsoftmaintenance"></a>Microsoft.Underhåll
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | applyUpdates | Inga |
-> | configurationAstilldelningar | Inga |
-> | underhållKonfigurationer | Ja |
-> | uppdateringar | Inga |
-
-## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.
+## <a name="microsoftmaintenance"></a>Microsoft. Maintenance
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Identiteter | Inga |
-> | userAssignedId entiteter | Ja |
+> | applyUpdates | Nej |
+> | configurationAssignments | Nej |
+> | maintenanceConfigurations | Ja |
+> | uppdateringar | Nej |
 
-## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | marknadsplatsRegistrationDefinitioner | Inga |
-> | registreringTilldelningar | Inga |
-> | registreringDefinier | Inga |
-
-## <a name="microsoftmanagement"></a>Microsoft.Management (På)Microsoft.Management
+## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | hämta enheter | Inga |
-> | managementGroups | Inga |
-> | managementGroups /inställningar | Inga |
-> | resources | Inga |
-> | startTenantBackfill | Inga |
-> | klientBackfillStatus | Inga |
+> | Identiteter | Nej |
+> | userAssignedIdentities | Ja |
 
-## <a name="microsoftmaps"></a>Microsoft.Maps
+## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | marketplaceRegistrationDefinitions | Nej |
+> | registrationAssignments | Nej |
+> | registrationDefinitions | Nej |
+
+## <a name="microsoftmanagement"></a>Microsoft. Management
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | getEntities | Nej |
+> | managementGroups | Nej |
+> | managementGroups/inställningar | Nej |
+> | resources | Nej |
+> | startTenantBackfill | Nej |
+> | tenantBackfillStatus | Nej |
+
+## <a name="microsoftmaps"></a>Microsoft. Maps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
-> | konton / eventGridFilters | Inga |
-> | konton / privateAtlases | Ja |
+> | konton/eventGridFilters | Nej |
+> | konton/privateAtlases | Ja |
 
-## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
+## <a name="microsoftmarketplace"></a>Microsoft. Marketplace
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Erbjuder | Inga |
-> | offerTyper | Inga |
-> | offerTyper/utgivare | Inga |
-> | offerTyper/ utgivare/erbjudanden | Inga |
-> | offerTyper / utgivare / erbjudanden / planer | Inga |
-> | offerTyper / utgivare / erbjudanden / planer / avtal | Inga |
-> | offerTyper / utgivare / erbjudanden / planer / configs | Inga |
-> | offerTyper / utgivare / erbjudanden / planer / configs / importImage | Inga |
-> | privategalleryitems | Inga |
-> | privatButikClient | Inga |
-> | privateStores | Inga |
-> | privateStores / erbjudanden | Inga |
-> | Produkter | Inga |
-> | Förlag | Inga |
-> | förlag / erbjudanden | Inga |
-> | förlag / erbjudanden / ändringar | Inga |
-> | registrera | Inga |
+> | budgivning | Nej |
+> | offerTypes | Nej |
+> | offerTypes/utgivare | Nej |
+> | offerTypes/utgivare/erbjudanden | Nej |
+> | offerTypes/utgivare/erbjudanden/planer | Nej |
+> | offerTypes/utgivare/erbjudanden/planer/avtal | Nej |
+> | offerTypes/utgivare/erbjudanden/planer/konfigurationer | Nej |
+> | offerTypes/utgivare/erbjudanden/planer/configs/importImage | Nej |
+> | privategalleryitems | Nej |
+> | privateStoreClient | Nej |
+> | privateStores | Nej |
+> | privateStores/erbjudanden | Nej |
+> | läkemedle | Nej |
+> | Utgivare | Nej |
+> | Utgivare/erbjudanden | Nej |
+> | Utgivare/erbjudanden/ändringar | Nej |
+> | registrera | Nej |
 
-## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
+## <a name="microsoftmarketplaceapps"></a>Microsoft. MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | classicDevServices | Ja |
-> | uppdateraKommunikationsövertolkning | Inga |
+> | updateCommunicationPreference | Nej |
 
-## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceBeställa
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Avtal | Inga |
-> | offertyper | Inga |
-
-## <a name="microsoftmedia"></a>Microsoft.Media
+## <a name="microsoftmarketplaceordering"></a>Microsoft. MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | medietjänster | Ja |
-> | mediatjänster / kontoFilter | Inga |
-> | mediaservice /tillgångar | Inga |
-> | mediatjänster / tillgångar / tillgångFilter | Inga |
-> | mediatjänster / contentKeyPolicies | Inga |
-> | mediaservices / eventGridFilters | Inga |
-> | mediaservices / liveEventOperations | Inga |
-> | mediaservices / liveEvents | Ja |
-> | mediaservices / liveEvents / liveOutputs | Inga |
-> | mediaservices / liveOutputOperations | Inga |
-> | mediatjänster / mediaGrafer | Inga |
-> | mediatjänster / streamingEndpointOperations | Inga |
-> | mediatjänster / streamingEndpoints | Ja |
-> | mediatjänster / streamingLocators | Inga |
-> | mediatjänster / streamingPolicies | Inga |
-> | mediaservices / transformeringar | Inga |
-> | mediaservices / transformeringar / jobb | Inga |
+> | villkor | Nej |
+> | offertypes | Nej |
 
-## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
+## <a name="microsoftmedia"></a>Microsoft. Media
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | appKluster | Ja |
+> | Media Services | Ja |
+> | Media Services/accountFilters | Nej |
+> | Media Services/till gångar | Nej |
+> | Media Services/assets/assetFilters | Nej |
+> | Media Services/contentKeyPolicies | Nej |
+> | Media Services/eventGridFilters | Nej |
+> | Media Services/liveEventOperations | Nej |
+> | Media Services/liveEvents | Ja |
+> | Media Services/liveEvents/liveOutputs | Nej |
+> | Media Services/liveOutputOperations | Nej |
+> | Media Services/mediaGraphs | Nej |
+> | Media Services/streamingEndpointOperations | Nej |
+> | Media Services/strömnings slut punkter | Ja |
+> | Media Services/streamingLocators | Nej |
+> | Media Services/streamingPolicies | Nej |
+> | Media Services/transformeringar | Nej |
+> | Media Services/transformeringar/jobb | Nej |
 
-## <a name="microsoftmigrate"></a>Microsoft.Migrera
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | bedömningProjekt | Ja |
-> | migreraprojekt | Ja |
-> | flyttaKolleringar | Ja |
-> | Projekt | Ja |
-
-## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | holografiSkräkenUtnämningar | Ja |
-> | objektUnderstandingAccounts | Ja |
-> | remoteRenderingRedovisningar | Ja |
-> | spatialAnchorsKonton | Ja |
-
-## <a name="microsoftnetapp"></a>Microsoft.NetApp
+## <a name="microsoftmicroservices4spring"></a>Microsoft. Microservices4Spring
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | netAppAccounts (netAppAccounts) | Ja |
-> | netAppAccounts / accountBackups | Inga |
+> | appClusters | Ja |
+
+## <a name="microsoftmigrate"></a>Microsoft. Migrate
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | assessmentProjects | Ja |
+> | migrateprojects | Ja |
+> | moveCollections | Ja |
+> | samarbetsprojekt | Ja |
+
+## <a name="microsoftmixedreality"></a>Microsoft. MixedReality
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | holographicsBroadcastAccounts | Ja |
+> | objectUnderstandingAccounts | Ja |
+> | remoteRenderingAccounts | Ja |
+> | spatialAnchorsAccounts | Ja |
+
+## <a name="microsoftnetapp"></a>Microsoft. NetApp
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | netAppAccounts | Ja |
+> | netAppAccounts / accountBackups | Nej |
 > | netAppAccounts / capacityPools | Ja |
-> | netAppAccounts / capacityPools / volymer | Ja |
-> | netAppAccounts / capacityPools / volymer / ögonblicksbilder | Ja |
+> | netAppAccounts/capacityPools/Volumes | Ja |
+> | netAppAccounts/capacityPools/volym/ögonblicks bilder | Ja |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | ansökanGateways | Ja |
-> | ansökanGatewayWebApplicationFirewallPolicies | Ja |
+> | applicationGateways | Ja |
+> | applicationGatewayWebApplicationFirewallPolicies | Ja |
 > | applicationSecurityGroups | Ja |
-> | azureFirewallFqdnTags | Inga |
+> | azureFirewallFqdnTags | Nej |
 > | azureFirewalls | Ja |
-> | bastionHosts (bastionHosts) | Ja |
-> | bgpServiceKommuner | Inga |
-> | Anslutningar | Ja |
+> | bastionHosts | Ja |
+> | bgpServiceCommunities | Nej |
+> | anslutning | Ja |
 > | ddosCustomPolicies | Ja |
 > | ddosProtectionPlans | Ja |
-> | dnsOperationStatuses | Inga |
+> | dnsOperationStatuses | Nej |
 > | dnszones | Ja |
-> | dnszones / A | Inga |
-> | dnszones / AAAA | Inga |
-> | dnszones / alla | Inga |
-> | dnszones / CAA | Inga |
-> | dnszones / CNAME | Inga |
-> | dnszones / MX | Inga |
-> | dnszones / NS | Inga |
-> | dnszones / PTR | Inga |
-> | dnszones / recordset | Inga |
-> | dnszones / SOA | Inga |
-> | dnszones / SRV | Inga |
-> | dnszones / TXT | Inga |
-> | expressRouteCirklar | Ja |
-> | expressRouteCrossAnslutningar | Ja |
+> | dnszones/A | Nej |
+> | dnszones/AAAA | Nej |
+> | dnszones/alla | Nej |
+> | dnszones/CAA | Nej |
+> | dnszones/CNAME | Nej |
+> | dnszones/MX | Nej |
+> | dnszones/NS | Nej |
+> | dnszones/PTR | Nej |
+> | dnszones/Recordset | Nej |
+> | dnszones/SOA | Nej |
+> | dnszones/SRV | Nej |
+> | dnszones/TXT | Nej |
+> | expressRouteCircuits | Ja |
+> | expressRouteCrossConnections | Ja |
 > | expressRouteGateways | Ja |
 > | expressRoutePorts | Ja |
-> | expressRouteServiceProviders | Inga |
-> | brandväggPolicies | Ja |
-> | frontdörrar | Ja |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Inga |
+> | expressRouteServiceProviders | Nej |
+> | firewallPolicies | Ja |
+> | frontdoors | Ja |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Nej |
 > | frontdoorWebApplicationFirewallPolicies | Ja |
-> | getDnsResourceReference | Inga |
-> | interntAnmäl dig | Inga |
-> | loadBalancers | Ja |
+> | getDnsResourceReference | Nej |
+> | internalNotify | Nej |
+> | Belastningsutjämnare | Ja |
 > | localNetworkGateways | Ja |
-> | natGateways (natGateways) | Ja |
-> | nätverkIntentPolicies | Ja |
-> | nätverkGränssnitt | Ja |
-> | nätverkProfiler | Ja |
-> | nätverkSäkerhetsgrupper | Ja |
-> | nätverkWatchers | Ja |
-> | nätverkWatchers / connectionMonitors | Ja |
-> | nätverkWatchers / linser | Ja |
-> | nätverkWatchers / pingMeshes | Ja |
+> | natGateways | Ja |
+> | networkIntentPolicies | Ja |
+> | networkInterfaces | Ja |
+> | networkProfiles | Ja |
+> | networkSecurityGroups | Ja |
+> | networkWatchers | Ja |
+> | networkWatchers / connectionMonitors | Ja |
+> | networkWatchers/linser | Ja |
+> | networkWatchers / pingMeshes | Ja |
 > | p2sVpnGateways | Ja |
-> | privateDnsOperationStatuses | Inga |
-> | privatDnsZones | Ja |
-> | privateDnsZones / A | Inga |
-> | privateDnsZones / AAAA | Inga |
-> | privateDnsZones / alla | Inga |
-> | privateDnsZones / CNAME | Inga |
-> | privateDnsZones / MX | Inga |
-> | privateDnsZones / PTR | Inga |
-> | privateDnsZones / SOA | Inga |
-> | privateDnsZones / SRV | Inga |
-> | privateDnsZones / TXT | Inga |
+> | privateDnsOperationStatuses | Nej |
+> | privateDnsZones | Ja |
+> | privateDnsZones/A | Nej |
+> | privateDnsZones/AAAA | Nej |
+> | privateDnsZones/alla | Nej |
+> | privateDnsZones/CNAME | Nej |
+> | privateDnsZones/MX | Nej |
+> | privateDnsZones/PTR | Nej |
+> | privateDnsZones/SOA | Nej |
+> | privateDnsZones/SRV | Nej |
+> | privateDnsZones/TXT | Nej |
 > | privateDnsZones / virtualNetworkLinks | Ja |
 > | privateEndpoints | Ja |
 > | privateLinkServices | Ja |
-> | offentliga IP-adresser | Ja |
-> | offentligaIP-korrigeringar | Ja |
+> | publicIPAddresses | Ja |
+> | publicIPPrefixes | Ja |
 > | routeFilters | Ja |
 > | routeTables | Ja |
 > | serviceEndpointPolicies | Ja |
-> | trafikManagerGeographicHierarchies | Inga |
+> | trafficManagerGeographicHierarchies | Nej |
 > | trafficmanagerprofiles | Ja |
-> | trafficmanagerprofiles / heatMaps | Inga |
-> | trafikManagerUserMetricsKeys | Inga |
+> | trafficmanagerprofiles/termiska kartor | Nej |
+> | trafficManagerUserMetricsKeys | Nej |
 > | virtualHubs | Ja |
 > | virtualNetworkGateways | Ja |
 > | virtualNetworks | Ja |
 > | virtualNetworkTaps | Ja |
-> | virtuellaWans | Ja |
-> | vpnGateways (vpnGateways) | Ja |
-> | vpnSites (vpnSites) | Ja |
+> | virtualWans | Ja |
+> | vpnGateways | Ja |
+> | vpnSites | Ja |
 > | webApplicationFirewallPolicies | Ja |
 
-## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
+## <a name="microsoftnotebooks"></a>Microsoft. Notebook
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Bärbara datorer | Inga |
+> | NotebookProxies | Nej |
 
-## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
+## <a name="microsoftnotificationhubs"></a>Microsoft. NotificationHubs
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Namnområden | Ja |
-> | namnområden / anmälanHubs | Ja |
+> | namn områden | Ja |
+> | namnrymder/notificationHubs | Ja |
 
-## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
+## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | osNamespaces | Ja |
 
-## <a name="microsoftoffazure"></a>Microsoft.OffAzure
+## <a name="microsoftoffazure"></a>Microsoft. OffAzure
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | HyperVSites (HyperVSites) | Ja |
-> | ImportPlatser | Ja |
-> | ServerPlatser | Ja |
-> | VmwareSites (VMwareSites) | Ja |
+> | HyperVSites | Ja |
+> | ImportSites | Ja |
+> | ServerSites | Ja |
+> | VMwareSites | Ja |
 
-## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
+## <a name="microsoftoperationalinsights"></a>Microsoft. OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Kluster | Ja |
-> | länkMål | Inga |
-> | lagringInightConfigs | Inga |
+> | kluster | Ja |
+> | linkTargets | Nej |
+> | storageInsightConfigs | Nej |
 > | arbetsytor | Ja |
-> | arbetsytor / dataExportar | Inga |
-> | arbetsytor / dataSources | Inga |
-> | arbetsytor / linkedServices | Inga |
-> | arbetsytor / linkedStorageAccounts | Inga |
-> | arbetsytor / fråga | Inga |
-> | arbetsytor / scopedPrivateLinkProxies | Inga |
+> | arbets ytor/dataExports | Nej |
+> | arbets ytor/data källor | Nej |
+> | arbets ytor/linkedServices | Nej |
+> | arbets ytor/linkedStorageAccounts | Nej |
+> | arbets ytor/fråga | Nej |
+> | arbets ytor/scopedPrivateLinkProxies | Nej |
 
-## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+## <a name="microsoftoperationsmanagement"></a>Microsoft. OperationsManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | managementassociations | Inga |
-> | hanteringskonfigurationer | Ja |
+> | managementassociations | Nej |
+> | managementconfigurations | Ja |
 > | lösningar | Ja |
-> | Visningar | Ja |
+> | vyer | Ja |
 
-## <a name="microsoftpeering"></a>Microsoft.Peering
+## <a name="microsoftpeering"></a>Microsoft. peering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | legacyPeerings | Inga |
-> | peerAsns | Inga |
+> | legacyPeerings | Nej |
+> | peerAsns | Nej |
 > | peerings | Ja |
-> | peeringServiceLänder | Inga |
-> | peeringServiceProviders | Inga |
-> | peeringTjänster | Ja |
+> | peeringServiceCountries | Nej |
+> | peeringServiceProviders | Nej |
+> | peeringServices | Ja |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | policyEvents | Inga |
-> | policyMetadata | Inga |
-> | policyStates | Inga |
-> | policyTrackedResources | Inga |
-> | avhjälpande åtgärder | Inga |
+> | policyEvents | Nej |
+> | policyMetadata | Nej |
+> | policyStates | Nej |
+> | policyTrackedResources | Nej |
+> | reparationer | Nej |
 
-## <a name="microsoftportal"></a>Microsoft.Portal
+## <a name="microsoftportal"></a>Microsoft. Portal
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> |  -konsoler | Inga |
+> |  -konsoler | Nej |
 > | instrumentpaneler | Ja |
-> | userSettings | Inga |
+> | userSettings | Nej |
 
-## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | arbetsytaInsamlingar | Ja |
-
-## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated Microsoft.PowerBIDedicated Microsoft.PowerBIDedicated Microsoft.
+## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Kapacitet | Ja |
+> | workspaceCollections | Ja |
 
-## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
+## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | kapaciteter | Ja |
+
+## <a name="microsoftprojectbabylon"></a>Microsoft. ProjectBabylon
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | konton | Ja |
 
-## <a name="microsoftquantum"></a>Microsoft.Quantum (På andra)
+## <a name="microsoftquantum"></a>Microsoft. Quantum
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | Arbetsytor | Ja |
 
-## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
+## <a name="microsoftrecoveryservices"></a>Microsoft. RecoveryServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | backupSkyddadeobjektier | Inga |
-> | Valv | Ja |
+> | backupProtectedItems | Nej |
+> | valv | Ja |
 
-## <a name="microsoftrelay"></a>Microsoft.Relay
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Namnområden | Ja |
-> | namnrymd / tillståndsregler | Inga |
-> | namnrymder / hybridanslutningar | Inga |
-> | namnrymder / hybridanslutningar / authorizationrules | Inga |
-> | namnområden / wcfrelays | Inga |
-> | namnrymd / wcfrelays / authorizationrules | Inga |
-
-## <a name="microsoftremoteapp"></a>Microsoft.RemoteApp
+## <a name="microsoftrelay"></a>Microsoft. Relay
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | konton | Inga |
+> | namn områden | Ja |
+> | namnrymder/authorizationrules | Nej |
+> | namnrymder/hybridconnections | Nej |
+> | namnrymder/hybridconnections/authorizationrules | Nej |
+> | namnrymder/wcfrelays | Nej |
+> | namnrymder/wcfrelays/authorizationrules | Nej |
+
+## <a name="microsoftremoteapp"></a>Microsoft. RemoteApp
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | konton | Nej |
 > | Samlingar | Ja |
-> | samlingar / applikationer | Inga |
-> | samlingar /säkerhetsprinciper | Inga |
-> | mallBilder | Inga |
+> | Samlingar/program | Nej |
+> | Samlingar/securityprincipals | Nej |
+> | templateImages | Nej |
 
-## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Frågor | Ja |
-> | resursChangeDetails | Inga |
-> | resurserChanges | Inga |
-> | resources | Inga |
-> | resurserHistoria | Inga |
-> | abonnemangStatus | Inga |
-
-## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
+## <a name="microsoftresourcegraph"></a>Microsoft. ResourceGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | tillgänglighetStatusar | Inga |
-> | childAvailabilityStatuses | Inga |
-> | childResources | Inga |
-> | nyafrågor | Inga |
-> | händelser | Inga |
-> | påverkadeResurser | Inga |
-> | metadata | Inga |
-> | meddelanden | Inga |
+> | skickar | Ja |
+> | resourceChangeDetails | Nej |
+> | resourceChanges | Nej |
+> | resources | Nej |
+> | resourcesHistory | Nej |
+> | subscriptionsStatus | Nej |
 
-## <a name="microsoftresources"></a>Microsoft.Resurser
+## <a name="microsoftresourcehealth"></a>Microsoft. ResourceHealth
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Distributioner | Inga |
-> | distributioner / operationer | Inga |
+> | availabilityStatuses | Nej |
+> | childAvailabilityStatuses | Nej |
+> | childResources | Nej |
+> | emergingissues | Nej |
+> | händelser | Nej |
+> | impactedResources | Nej |
+> | metadata | Nej |
+> | meddelanden | Nej |
+
+## <a name="microsoftresources"></a>Microsoft. Resources
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | distributioner | Nej |
+> | distributioner/åtgärder | Nej |
 > | deploymentScripts | Ja |
-> | deploymentScripts / loggar | Inga |
-> | Länkar | Inga |
-> | notifyResourceJobs | Inga |
-> | Leverantörer | Inga |
-> | resursGrupper | Inga |
-> | Prenumerationer | Inga |
-> | Hyresgäster | Inga |
+> | deploymentScripts/loggar | Nej |
+> | Länkar | Nej |
+> | notifyResourceJobs | Nej |
+> | finansiär | Nej |
+> | resourceGroups | Nej |
+> | prenumerationer | Nej |
+> | klienter | Nej |
 
-## <a name="microsoftsaas"></a>Microsoft.SaaS
+## <a name="microsoftsaas"></a>Microsoft. SaaS
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | program | Ja |
-> | saasresources | Inga |
+> | saasresources | Nej |
 
-## <a name="microsoftsearch"></a>Microsoft.Sök
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | resursHealthMetadata | Inga |
-> | sökTjänster | Ja |
-
-## <a name="microsoftsecurity"></a>Microsoft.Säkerhet
+## <a name="microsoftsearch"></a>Microsoft. search
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | adaptiveNetworkHårningar | Inga |
-> | avanceratTre skyddsinställningar | Inga |
-> | aviseringar | Inga |
-> | tillåtnaAnslutningar | Inga |
-> | programVitlistings | Inga |
-> | bedömningMetadata | Inga |
-> | utvärderingar | Inga |
-> | autoDismissAlertsRules | Inga |
+> | resourceHealthMetadata | Nej |
+> | searchServices | Ja |
+
+## <a name="microsoftsecurity"></a>Microsoft. Security
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | adaptiveNetworkHardenings | Nej |
+> | advancedThreatProtectionSettings | Nej |
+> | aviseringar | Nej |
+> | allowedConnections | Nej |
+> | applicationWhitelistings | Nej |
+> | assessmentMetadata | Nej |
+> | utvärderingar | Nej |
+> | autoDismissAlertsRules | Nej |
 > | automatiseringar | Ja |
-> | AutoProvisioningSettings | Inga |
-> | Efterlevnad | Inga |
-> | dataInsamlingAgenter | Inga |
-> | deviceSecurityGroups | Inga |
-> | upptäcktSäkerhetLösningar | Inga |
-> | extern SäkerhetLösningar | Inga |
-> | InformationProtectionPolicies | Inga |
-> | iotSecurityLösningar | Ja |
-> | iotSecurityLösningar / analyticsModels | Inga |
-> | iotSecuritySolutions / analyticsModels / aggregatedAlerts | Inga |
-> | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | Inga |
-> | jitNetworkAccessPolicies | Inga |
-> | nätverkData | Inga |
-> | policies | Inga |
-> | priser | Inga |
-> | reglerande EfterlevnadStandarder | Inga |
-> | regulatoryComplianceStandards / regulatoryComplianceControls | Inga |
-> | reglerande EfterlevnadStandards / regulatoriska EfterlevnadKontroller / regulatoriska Efterlevnadsassessments | Inga |
-> | säkraScoreControlDefinitions | Inga |
-> | säkraScoreControls | Inga |
-> | säkraScores | Inga |
-> | secureScores / secureScoreControls | Inga |
-> | säkerhetKontakter | Inga |
-> | säkerhetLösningar | Inga |
-> | säkerhetLösningarReferenceData | Inga |
-> | säkerhetStatusar | Inga |
-> | säkerhetStatusEsSummaries | Inga |
-> | serverVulnerbarhetBes här. | Inga |
-> | settings | Inga |
-> | understämningar | Inga |
-> | uppgifter | Inga |
-> | Topologier | Inga |
-> | arbetsytorInställningar | Inga |
+> | AutoProvisioningSettings | Nej |
+> | Godkännanden | Nej |
+> | dataCollectionAgents | Nej |
+> | deviceSecurityGroups | Nej |
+> | discoveredSecuritySolutions | Nej |
+> | externalSecuritySolutions | Nej |
+> | InformationProtectionPolicies | Nej |
+> | iotSecuritySolutions | Ja |
+> | iotSecuritySolutions / analyticsModels | Nej |
+> | iotSecuritySolutions / analyticsModels / aggregatedAlerts | Nej |
+> | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | Nej |
+> | jitNetworkAccessPolicies | Nej |
+> | networkData | Nej |
+> | policies | Nej |
+> | prissättningar | Nej |
+> | regulatoryComplianceStandards | Nej |
+> | regulatoryComplianceStandards / regulatoryComplianceControls | Nej |
+> | regulatoryComplianceStandards / regulatoryComplianceControls / regulatoryComplianceAssessments | Nej |
+> | secureScoreControlDefinitions | Nej |
+> | secureScoreControls | Nej |
+> | secureScores | Nej |
+> | secureScores / secureScoreControls | Nej |
+> | securityContacts | Nej |
+> | securitySolutions | Nej |
+> | securitySolutionsReferenceData | Nej |
+> | securityStatuses | Nej |
+> | securityStatusesSummaries | Nej |
+> | serverVulnerabilityAssessments | Nej |
+> | settings | Nej |
+> | underbedömningar | Nej |
+> | uppgifter | Nej |
+> | topologier | Nej |
+> | workspaceSettings | Nej |
 
-## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph Microsoft.SecurityGraph Microsoft.SecurityGraph Microsoft.
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | diagnostikInställningar | Inga |
-> | diagnostikEtteringsKategories | Inga |
-
-## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInights
+## <a name="microsoftsecuritygraph"></a>Microsoft. SecurityGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Aggregeringar | Inga |
-> | alertRules | Inga |
-> | alertRuleTemplates | Inga |
-> | bokmärken | Inga |
-> | Fall | Inga |
-> | dataAnslutningar | Inga |
-> | dataConnectorsCheckRequirements | Inga |
-> | Enheter | Inga |
-> | entityQueries | Inga |
-> | Incidenter | Inga |
-> | kontorConsents | Inga |
-> | settings | Inga |
+> | diagnosticSettings | Nej |
+> | diagnosticSettingsCategories | Nej |
+
+## <a name="microsoftsecurityinsights"></a>Microsoft. SecurityInsights
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | agg regeringar | Nej |
+> | alertRules | Nej |
+> | alertRuleTemplates | Nej |
+> | bokmärken | Nej |
+> | fall | Nej |
+> | dataConnectors | Nej |
+> | dataConnectorsCheckRequirements | Nej |
+> | poster | Nej |
+> | entityQueries | Nej |
+> | incidenter | Nej |
+> | officeConsents | Nej |
+> | settings | Nej |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Namnområden | Ja |
-> | namnrymd / tillståndsregler | Inga |
-> | namnrymd / katastrofåterupptäcktconfigs | Inga |
-> | namnområden / eventgridfilter | Inga |
-> | namnrymd / nätverksregler | Inga |
-> | namnområden / köer | Inga |
-> | namnrymd / köer / authorizationrules | Inga |
-> | namnområden / ämnen | Inga |
-> | namnrymd / ämnen / authorizationrules | Inga |
-> | namnrymd / ämnen / prenumerationer | Inga |
-> | namnrymd / ämnen / abonnemang / regler | Inga |
-> | premiumMessagingRegioner | Inga |
+> | namn områden | Ja |
+> | namnrymder/authorizationrules | Nej |
+> | namnrymder/disasterrecoveryconfigs | Nej |
+> | namnrymder/eventgridfilters | Nej |
+> | namnrymder/networkrulesets | Nej |
+> | namnrymder/köer | Nej |
+> | namnrymder/köer/authorizationrules | Nej |
+> | namn områden/ämnen | Nej |
+> | namnrymder/ämnen/authorizationrules | Nej |
+> | namnrymder/ämnen/prenumerationer | Nej |
+> | namn områden/ämnen/prenumerationer/regler | Nej |
+> | premiumMessagingRegions | Nej |
 
-## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
+## <a name="microsoftservicefabric"></a>Microsoft. ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | program | Ja |
-> | Kluster | Ja |
-> | kluster / applikationer | Inga |
+> | kluster | Ja |
+> | kluster/program | Nej |
 > | containerGroups | Ja |
 > | containerGroupSets | Ja |
-> | kantklusor | Ja |
-> | kantkluster / applikationer | Inga |
+> | edgeclusters | Ja |
+> | edgeclusters/program | Nej |
 > | managedclusters | Ja |
-> | managedclusters / nodetyper | Inga |
-> | Nätverk | Ja |
-> | hemliga butiker | Ja |
-> | secretstores / certifikat | Inga |
-> | secretstores / hemligheter | Inga |
+> | managedclusters/nodetypes | Nej |
+> | nätet | Ja |
+> | secretstores | Ja |
+> | secretstores/certifikat | Nej |
+> | secretstores/hemligheter | Nej |
 > | volumes | Ja |
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | program | Ja |
 > | containerGroups | Ja |
-> | Gateways | Ja |
-> | Nätverk | Ja |
+> | gatewayer | Ja |
+> | nätet | Ja |
 > | secrets | Ja |
 > | volumes | Ja |
 
-## <a name="microsoftservices"></a>Microsoft.Tjänster
+## <a name="microsoftservices"></a>Microsoft. Services
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | leverantörRegistrationer | Inga |
-> | providerRegistrations / resourceTypeRegistrations | Inga |
-> | Utbyggnader | Ja |
+> | providerRegistrations | Nej |
+> | providerRegistrations / resourceTypeRegistrations | Nej |
+> | distributioner | Ja |
 
-## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
+## <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | SignalR | Ja |
-> | SignalR / eventGridFilters | Inga |
+> | SignalR/eventGridFilters | Nej |
 
-## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
+## <a name="microsoftsiterecovery"></a>Microsoft. SiteRecovery
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | SiteRecoveryVault | Ja |
 
-## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
+## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | hybridAnvändNingspassningar | Inga |
+> | hybridUseBenefits | Nej |
 
-## <a name="microsoftsolutions"></a>Microsoft.Solutions
+## <a name="microsoftsolutions"></a>Microsoft. Solutions
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | ansökanDefinitioner | Ja |
+> | applicationDefinitions | Ja |
 > | program | Ja |
-> | jitRequests (påtängen) | Ja |
+> | jitRequests | Ja |
 
-## <a name="microsoftspoolservice"></a>Microsoft.SpoolService
+## <a name="microsoftspoolservice"></a>Microsoft. SpoolService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | registreradeAbonnemang | Inga |
-> | Spolar | Ja |
+> | registeredSubscriptions | Nej |
+> | buffertar | Ja |
 
-## <a name="microsoftsql"></a>Microsoft.SQL
+## <a name="microsoftsql"></a>Microsoft. SQL
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | managedInstances | Ja |
-> | managedInstances / databaser | Ja |
-> | managedInstances / databaser / backupKortTermRetentionPolicies | Inga |
-> | managedInstances / databaser / scheman / tabeller / kolumner / känslighetLabels | Inga |
-> | managedInstances / databaser / sårbarhetAssessments | Inga |
-> | managedInstances / databaser / sårbarhetAssessments / regler / baslinjer | Inga |
-> | managedInstances / encryptionProtector | Inga |
-> | managedInstances / nycklar | Inga |
-> | managedInstances / restorableDroppedDatabases / backupKortTermRetentionPolicies | Inga |
-> | managedInstances /vulnerabilityAssessments | Inga |
-> | Servrar | Ja |
-> | servrar /administratörer | Inga |
-> | servrar / communicationLinks | Inga |
-> | servrar / databaser | Ja |
-> | servrar / krypteringSkydd | Inga |
-> | servrar / firewallRules | Inga |
-> | servrar / nycklar | Inga |
-> | servrar / reparerbaraDroppedDatabases | Inga |
-> | servrar /serviceobjektiv | Inga |
-> | servrar / tdeCertificates | Inga |
-> | virtuellaClusters | Inga |
+> | managedInstances/databaser | Ja |
+> | managedInstances/databaser/backupShortTermRetentionPolicies | Nej |
+> | managedInstances/databaser/scheman/tabeller/kolumner/sensitivityLabels | Nej |
+> | managedInstances/databaser/vulnerabilityAssessments | Nej |
+> | managedInstances/databaser/vulnerabilityAssessments/regler/bas linjer | Nej |
+> | managedInstances / encryptionProtector | Nej |
+> | managedInstances/nycklar | Nej |
+> | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | Nej |
+> | managedInstances / vulnerabilityAssessments | Nej |
+> | brygghuvudservrar | Ja |
+> | servrar/administratörer | Nej |
+> | servrar/communicationLinks | Nej |
+> | servrar/databaser | Ja |
+> | servrar/encryptionProtector | Nej |
+> | servrar/firewallRules | Nej |
+> | servrar/nycklar | Nej |
+> | servrar/restorableDroppedDatabases | Nej |
+> | servrar/serviceobjectives | Nej |
+> | servrar/tdeCertificates | Nej |
+> | virtualClusters | Nej |
 
-## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
+## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | SqlVirtualMachineGroups | Ja |
-> | SqlVirtualMachineGroups / AvailabilityGroupListeners | Inga |
+> | SqlVirtualMachineGroups / AvailabilityGroupListeners | Nej |
 > | SqlVirtualMachines | Ja |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
@@ -1952,200 +1952,200 @@ Gå till ett namnområde för resursleverantören:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | lagringKonton | Ja |
-> | lagringKonton / blobServices | Inga |
-> | lagringKonton / filTjänster | Inga |
-> | lagringKonton /queueServices | Inga |
-> | lagringKonton /tjänster | Inga |
-> | lagringKonton / tjänster / metricDefinitioner | Inga |
-> | lagringKonton / tabellTjänster | Inga |
-> | Användningsområden | Inga |
+> | storageAccounts | Ja |
+> | storageAccounts/blobServices | Nej |
+> | storageAccounts/fileServices | Nej |
+> | storageAccounts/queueServices | Nej |
+> | storageAccounts/tjänster | Nej |
+> | storageAccounts/tjänster/metricDefinitions | Nej |
+> | storageAccounts/tableServices | Nej |
+> | användningar | Nej |
 
-## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Cachar | Ja |
-> | cachar / lagringTargets | Inga |
-> | användningModeller | Inga |
-
-## <a name="microsoftstoragereplication"></a>Microsoft.StorageReplication
+## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | replikeringsgrupper | Inga |
+> | cacheminnen | Ja |
+> | cache-/storageTargets | Nej |
+> | usageModels | Nej |
 
-## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
+## <a name="microsoftstoragereplication"></a>Microsoft. StorageReplication
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | storageSyncServices | Ja |
-> | storageSyncServices / registeredServers | Inga |
-> | storageSyncServices/syncGroups | Inga |
-> | storageSyncServices / syncGroups / cloudEndpoints | Inga |
-> | storageSyncServices / syncGroups / serverEndpoints | Inga |
-> | storageSyncServices/arbetsflöden | Inga |
+> | replicationGroups | Nej |
 
-## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
+## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | storageSyncServices | Ja |
-> | storageSyncServices / registeredServers | Inga |
-> | storageSyncServices/syncGroups | Inga |
-> | storageSyncServices / syncGroups / cloudEndpoints | Inga |
-> | storageSyncServices / syncGroups / serverEndpoints | Inga |
-> | storageSyncServices/arbetsflöden | Inga |
+> | storageSyncServices / registeredServers | Nej |
+> | storageSyncServices / syncGroups | Nej |
+> | storageSyncServices / syncGroups / cloudEndpoints | Nej |
+> | storageSyncServices / syncGroups / serverEndpoints | Nej |
+> | storageSyncServices/arbets flöden | Nej |
 
-## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
+## <a name="microsoftstoragesyncdev"></a>Microsoft. StorageSyncDev
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | storageSyncServices | Ja |
-> | storageSyncServices / registeredServers | Inga |
-> | storageSyncServices/syncGroups | Inga |
-> | storageSyncServices / syncGroups / cloudEndpoints | Inga |
-> | storageSyncServices / syncGroups / serverEndpoints | Inga |
-> | storageSyncServices/arbetsflöden | Inga |
+> | storageSyncServices / registeredServers | Nej |
+> | storageSyncServices / syncGroups | Nej |
+> | storageSyncServices / syncGroups / cloudEndpoints | Nej |
+> | storageSyncServices / syncGroups / serverEndpoints | Nej |
+> | storageSyncServices/arbets flöden | Nej |
 
-## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | Chefer | Ja |
-
-## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics Microsoft.StreamAnalytics Microsoft.StreamAnalytics Microsoft.
+## <a name="microsoftstoragesyncint"></a>Microsoft. StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | streamingjobb | Ja |
+> | storageSyncServices | Ja |
+> | storageSyncServices / registeredServers | Nej |
+> | storageSyncServices / syncGroups | Nej |
+> | storageSyncServices / syncGroups / cloudEndpoints | Nej |
+> | storageSyncServices / syncGroups / serverEndpoints | Nej |
+> | storageSyncServices/arbets flöden | Nej |
 
-## <a name="microsoftsubscription"></a>Microsoft.Prenumeration
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | avbryt | Inga |
-> | Skapateckning | Inga |
-> | Aktivera | Inga |
-> | byt namn | Inga |
-> | PrenumerationDefinitioner | Inga |
-> | PrenumerationEr | Inga |
-> | Prenumerationer | Inga |
-
-## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
+## <a name="microsoftstorsimple"></a>Microsoft. StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Miljöer | Ja |
-> | miljöer / accessPolicies | Inga |
+> | hantera | Ja |
+
+## <a name="microsoftstreamanalytics"></a>Microsoft. StreamAnalytics
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | streamingjobs | Ja |
+
+## <a name="microsoftsubscription"></a>Microsoft. Subscription
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | avbryt | Nej |
+> | CreateSubscription | Nej |
+> | Aktivera | Nej |
+> | byt namn | Nej |
+> | SubscriptionDefinitions | Nej |
+> | SubscriptionOperations | Nej |
+> | prenumerationer | Nej |
+
+## <a name="microsofttimeseriesinsights"></a>Microsoft. TimeSeriesInsights
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | utrymmen | Ja |
+> | miljöer/accessPolicies | Nej |
 > | miljöer/eventsources | Ja |
-> | miljöer / referensDataSets | Ja |
+> | miljöer/referenceDataSets | Ja |
 
-## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | dedikeradCloudNodes | Ja |
-> | dedikeradeCloudServices | Ja |
-> | virtuellaMaskiner | Ja |
-
-## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
+## <a name="microsoftvmwarecloudsimple"></a>Microsoft. VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | enheter | Ja |
-> | registreradeAbonnemang | Inga |
-> | Leverantörer | Inga |
-> | leverantörer / skus | Inga |
-> | leverantörer / vnfs | Inga |
-> | virtualNetworkFunctionSkus | Inga |
-> | vnfs (vnfs) | Ja |
+> | dedicatedCloudNodes | Ja |
+> | dedicatedCloudServices | Ja |
+> | virtualMachines | Ja |
 
-## <a name="microsoftweb"></a>Microsoft.Web
+## <a name="microsoftvnfmanager"></a>Microsoft. VnfManager
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | apiManagementKonton | Inga |
-> | apiManagementKonton / apiAcls | Inga |
-> | apiManagementAccounts / apis | Inga |
-> | apiManagementAccounts / apis / apiAcls apiManagementAccounts / apis / apiAcls apiManagementAccounts / apis / apiAcls apiMan | Inga |
-> | apiManagementAccounts / apis / connectionAcls | Inga |
-> | apiManagementAccounts / apis / anslutningar | Inga |
-> | apiManagementAccounts / apis / anslutningar / connectionAcls | Inga |
-> | apiManagementAccounts / apis / localizedDefinitions | Inga |
-> | apiManagementRedovisning / anslutningAkn(2) | Inga |
-> | apiManagementKonton / anslutningar | Inga |
-> | billingMetrar | Inga |
+> | devices | Ja |
+> | registeredSubscriptions | Nej |
+> | leverantören | Nej |
+> | leverantörer/SKU: er | Nej |
+> | leverantörer/vnfs | Nej |
+> | virtualNetworkFunctionSkus | Nej |
+> | vnfs | Ja |
+
+## <a name="microsoftweb"></a>Microsoft. Web
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | apiManagementAccounts | Nej |
+> | apiManagementAccounts / apiAcls | Nej |
+> | apiManagementAccounts/API: er | Nej |
+> | apiManagementAccounts/API/apiAcls | Nej |
+> | apiManagementAccounts/API/connectionAcls | Nej |
+> | apiManagementAccounts/API/anslutningar | Nej |
+> | apiManagementAccounts/API/Connections/connectionAcls | Nej |
+> | apiManagementAccounts/API/localizedDefinitions | Nej |
+> | apiManagementAccounts / connectionAcls | Nej |
+> | apiManagementAccounts/anslutningar | Nej |
+> | billingMeters | Nej |
 > | certifikat | Ja |
-> | anslutningGateways | Ja |
-> | Anslutningar | Ja |
+> | connectionGateways | Ja |
+> | anslutning | Ja |
 > | customApis | Ja |
-> | deletedSites | Inga |
-> | hostingMiljöer | Ja |
-> | hostingMiljöer / eventGridFilters | Inga |
-> | hostingMiljöer / multiRolePools | Inga |
-> | hostingMiljöer / workerPools | Inga |
-> | kubeMiljöer | Ja |
-> | publishingAnvändare | Inga |
-> | rekommendationer | Inga |
-> | resursHealthMetadata | Inga |
-> | Runtimes | Inga |
-> | serverFarms | Ja |
-> | serverFarms / eventGridFilters | Inga |
+> | deletedSites | Nej |
+> | hostingEnvironments | Ja |
+> | hostingEnvironments / eventGridFilters | Nej |
+> | hostingEnvironments / multiRolePools | Nej |
+> | hostingEnvironments / workerPools | Nej |
+> | kubeEnvironments | Ja |
+> | publishingUsers | Nej |
+> | rekommendationer | Nej |
+> | resourceHealthMetadata | Nej |
+> | körningar | Nej |
+> | Server grupper | Ja |
+> | Server grupper/eventGridFilters | Nej |
 > | webbplatser | Ja |
-> | platser/config  | Inga |
-> | platser / eventGridFilters | Inga |
-> | webbplatser / hostNameBindings | Inga |
-> | platser / nätverkConfig | Inga |
-> | platser / premieraddons | Ja |
-> | platser / platser | Ja |
-> | platser / platser / eventGridFilters | Inga |
-> | platser / platser / hostNameBindings | Inga |
-> | platser / platser / nätverkConfig | Inga |
-> | sourceControls | Inga |
+> | platser/konfig  | Nej |
+> | platser/eventGridFilters | Nej |
+> | platser/hostNameBindings | Nej |
+> | platser/networkConfig | Nej |
+> | platser/premieraddons | Ja |
+> | platser/platser | Ja |
+> | platser/platser/eventGridFilters | Nej |
+> | platser/platser/hostNameBindings | Nej |
+> | platser/platser/networkConfig | Nej |
+> | sourceControls | Nej |
 > | staticSites | Ja |
-> | Validera | Inga |
-> | verifieraHostingMiljöVnet | Inga |
+> | kontrollerar | Nej |
+> | verifyHostingEnvironmentVnet | Nej |
 
-## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | diagnostikInställningar | Inga |
-> | diagnostikEtteringsKategories | Inga |
-
-## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
+## <a name="microsoftwindowsdefenderatp"></a>Microsoft. WindowsDefenderATP
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Enhetstjänster | Ja |
+> | diagnosticSettings | Nej |
+> | diagnosticSettingsCategories | Nej |
 
-## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
+## <a name="microsoftwindowsiot"></a>Microsoft. WindowsIoT
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | Komponenter | Inga |
-> | komponenterSumma | Inga |
-> | monitorInsikter | Inga |
-> | monitorInstancesSummary | Inga |
-> | Bildskärmar | Inga |
-> | meddelandenInställningar | Inga |
+> | DeviceServices | Ja |
+
+## <a name="microsoftworkloadmonitor"></a>Microsoft. WorkloadMonitor
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | delarna | Nej |
+> | componentsSummary | Nej |
+> | monitorInstances | Nej |
+> | monitorInstancesSummary | Nej |
+> | Övervakare | Nej |
+> | notificationSettings | Nej |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill hämta samma data som en fil med kommaavgränsade värden hämtar du [complete-mode-deletion.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).
+Hämta samma data som en fil med kommaavgränsade värden genom att ladda ned [Complete-mode-deletion. csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).

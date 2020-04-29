@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att lista och hämta åtgärder i Azure Cosmos DB:s API för MongoDB
-description: Azure PowerShell-skript - Azure Cosmos DB-lista och hämta åtgärder för MongoDB API
+title: PowerShell-skript för att visa och hämta åtgärder i Azure Cosmos DBs API för MongoDB
+description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för MongoDB-API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 686b140915e90adefa15084c2e8317404b91ed09
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365895"
 ---
-# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Lista och hämta databaser och diagram för Azure Cosmos DB - MongoDB API
+# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Lista och hämta databaser och diagram för Azure Cosmos DB-MongoDB-API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,13 +36,13 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Få-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Visar Cosmos DB-konton eller får ett angivet Cosmos DB-konto. |
-| [Hämta-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabase) | Visar Cosmos DB MongoDB API-databaser i ett konto eller får en angiven Cosmos DB MogoDB API-databas i ett konto. |
-| [Hämta-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollection) | Visar Cosmos DB MongoDB API-samlingar eller får en angiven Cosmos DB MongoDB API-samling i en databas |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Listar Cosmos DB konton eller hämtar ett angivet Cosmos DB-konto. |
+| [Get-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabase) | Listar Cosmos DB MongoDB API-databaser i ett konto eller hämtar en angiven Cosmos DB MogoDB-API-databas i ett konto. |
+| [Get-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollection) | Visar en lista över Cosmos DB MongoDB API-samlingar eller hämtar en angiven Cosmos DB MongoDB API-samling i en databas |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

@@ -1,6 +1,6 @@
 ---
 title: Villkorlig åtkomst – Kräv MFA för Azure-hantering – Azure Active Directory
-description: Skapa en anpassad princip för villkorlig åtkomst för att kräva multifaktorautentisering för Azure-hanteringsuppgifter
+description: Skapa en anpassad princip för villkorlig åtkomst för att kräva Multi-Factor Authentication för Azure-hanterings uppgifter
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,53 +12,53 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b92d833e6f32821ad907ff966771bbba8bbb77ce
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755179"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Villkorlig åtkomst: Kräv MFA för Azure-hantering
 
-Organisationer använder en mängd olika Azure-tjänster och hanterar dem från Azure Resource Manager-baserade verktyg som:
+Organisationer använder en mängd olika Azure-tjänster och hanterar dem från Azure Resource Manager baserade verktyg som:
 
 * Azure Portal
 * Azure PowerShell
 * Azure CLI
 
-De här verktygen kan ge mycket privilegierad åtkomst till resurser som kan ändra konfigurationer för hela prenumerationer, tjänstinställningar och prenumerationsfakturering. För att skydda dessa privilegierade resurser rekommenderar Microsoft att du kräver multifaktorautentisering för alla användare som använder dessa resurser.
+Dessa verktyg kan ge hög privilegie rad åtkomst till resurser, som kan ändra konfigurationer för hela konfigurationen, tjänst inställningar och fakturering av prenumerationer. För att skydda dessa privilegierade resurser rekommenderar Microsoft att du kräver Multi-Factor Authentication för alla användare som har åtkomst till dessa resurser.
 
-## <a name="user-exclusions"></a>Undantag från användare
+## <a name="user-exclusions"></a>Användar undantag
 
-Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att du utesluter följande konton från din policy:
+Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att du undantar följande konton från principen:
 
-* **Nödåtkomst** eller **break-glass-konton** för att förhindra kontoutelåsning för hela klienten. I det osannolika scenariot är alla administratörer utelåsta från din klientorganisation, ditt administrativa konto för nödåtkomst kan användas för att logga in på klienten vidta åtgärder för att återställa åtkomsten.
-   * Mer information finns i [artikeln, Hantera konton för nödåtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Tjänstkonton** och **tjänsthuvudnamn**, till exempel Azure AD Connect Sync-konto. Tjänstkonton är icke-interaktiva konton som inte är kopplade till en viss användare. De används normalt av backend-tjänster som möjliggör programmatisk åtkomst till program, men används också för att logga in på system för administrativa ändamål. Tjänstkonton som dessa bör uteslutas eftersom MFA inte kan slutföras programmässigt. Samtal från tjänstens huvudnamn blockeras inte av villkorlig åtkomst.
-   * Om din organisation har dessa konton som används i skript eller kod kan du överväga att ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan du utesluta dessa specifika konton från originalprincipen.
+* **Nöd åtkomst** eller **Bryt** punkts konton för att förhindra konto utelåsning för hela klienten. I det osannolika scenariot är alla administratörer utelåsta från din klient, ditt administrations konto för nöd administration kan användas för att logga in på klienten och vidta åtgärder för att återställa åtkomsten.
+   * Mer information finns i artikeln [Hantera nöd åtkomst konton i Azure AD](../users-groups-roles/directory-emergency-access.md).
+* **Tjänst konton** och **tjänst huvud namn**, till exempel Azure AD Connect Sync-kontot. Tjänst konton är icke-interaktiva konton som inte är kopplade till någon viss användare. De används vanligt vis av backend-tjänster för att ge program mässig åtkomst till program, men de används också för att logga in på system för administrativa orsaker. Tjänst konton som dessa bör undantas eftersom MFA inte kan slutföras program mässigt. Anrop som görs av tjänstens huvud namn blockeras inte av villkorlig åtkomst.
+   * Om din organisation har dessa konton som används i skript eller kod kan du ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan du undanta dessa konton från bas linje principen.
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Följande steg hjälper till att skapa en princip för villkorlig åtkomst för att kräva att de tilldelade administrativa rollerna utför multifaktorautentisering.
+Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kräver att de tilldelade administrativa rollerna utför Multi-Factor Authentication.
 
-1. Logga in på **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorlig åtkomst.
-1. Bläddra till **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Välj **Ny princip**.
-1. Ge din policy ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på sina principer.
-1. Under **Tilldelningar**väljer du **Användare och grupper**
-   1. Under **Inkludera**väljer du **Alla användare**.
-   1. Under **Uteslut**väljer du **Användare och grupper** och väljer organisationens konton för nödåtkomst eller glasbrott. 
-   1. Välj **Done** (Klar).
-1. Under **Molnappar eller åtgärder** > **Inkludera**väljer du Välj **appar**, väljer Microsoft **Azure Management**och väljer **Välj** sedan **Klar**.
-1. Under **Villkor** > **klientappar (förhandsversion)** ställer du in **Konfigurera** till **Ja**och väljer **Klar**.
-1. Under **Åtkomstkontroller** > **Bevilja**väljer du Bevilja **åtkomst**, **Kräv multifaktorautentisering**och välj **Välj**.
-1. Bekräfta dina inställningar och ställ in **Aktivera princip** på **På**.
-1. Välj **Skapa** för att skapa för att aktivera din princip.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. Välj **ny princip**.
+1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
+1. Under **tilldelningar**väljer **du användare och grupper**
+   1. Under **Inkludera**väljer du **alla användare**.
+   1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
+   1. Välj **Klar**.
+1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**, Välj **Microsoft Azure hantering**och **Välj sedan** **Välj** .
+1. Under **villkor** > **klient program (för hands version)** anger du **Konfigurera** till **Ja**och väljer **klart**.
+1. Under **åtkomst kontroller** > **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
+1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
+1. Välj **skapa** för att skapa för att aktivera principen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 
-[Fastställa påverkan med hjälp av rapportläge med villkorsstyrd åtkomst](howto-conditional-access-report-only.md)
+[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
 
-[Simulera inloggningsbeteende med verktyget Villkorlig åtkomst Vad händer om](troubleshoot-conditional-access-what-if.md)
+[Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)

@@ -1,36 +1,36 @@
 ---
 title: Rumsliga frågor
-description: Hur man gör rumsliga frågor i en scen
+description: Så här gör du spatiala frågor i en scen
 author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
 ms.openlocfilehash: 9a981aeb08ec46900994fd599b592b9f16034f34
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680536"
 ---
 # <a name="spatial-queries"></a>Rumsliga frågor
 
-Rumsliga frågor är åtgärder som du kan fråga fjärråtergivningstjänsten om vilka objekt som finns i ett område. Rumsliga frågor används ofta för att implementera interaktioner, till exempel att räkna ut vilket objekt en användare pekar på.
+Spatiala frågor är åtgärder med vilka du kan ställa en fråga till tjänsten för fjärrrendering som objekt finns i ett-ställe. Rums frågor används ofta för att implementera interaktioner, till exempel för att räkna ut vilka objekt en användare pekar på.
 
-Alla rumsliga frågor utvärderas på servern. Följaktligen är de asynkrona åtgärder och resultaten kommer fram med en fördröjning som beror på nätverksfördröjningen. Eftersom varje rumslig fråga genererar nätverkstrafik, var noga med att inte göra för många på en gång.
+Alla spatiala frågor utvärderas på servern. De är därför asynkrona åtgärder och resultat kommer att få en fördröjning som beror på din nätverks fördröjning. Eftersom varje spatial fråga genererar nätverks trafik bör du vara noga med att inte göra för många samtidigt.
 
-## <a name="collision-meshes"></a>Kollisionsmaskor
+## <a name="collision-meshes"></a>Kollisions nät
 
-Rumsliga frågor drivs av [Havok fysikmotor](https://www.havok.com/products/havok-physics) och kräver en särskild kollision mesh att vara närvarande. Som standard genererar [modellkonvertering](../../how-tos/conversion/model-conversion.md) kollisionsnät. Om du inte behöver rumsliga frågor på en komplex modell kan du inaktivera generering av kollisionsnät i [konverteringsalternativen,](../../how-tos/conversion/configure-model-conversion.md)eftersom det påverkar på flera sätt:
+Spatiala frågor drivs av [Havok fysik](https://www.havok.com/products/havok-physics) motor och kräver att ett dedikerat kollisions nät finns. Som standard genererar [modell konverteringen](../../how-tos/conversion/model-conversion.md) kollisions nät. Om du inte behöver spatiala frågor på en komplex modell bör du överväga att inaktivera kollision av kollision i [konverterings alternativen](../../how-tos/conversion/configure-model-conversion.md), eftersom det påverkar flera olika sätt:
 
-* [Modellkonverteringen](../../how-tos/conversion/model-conversion.md) kommer att ta betydligt längre tid.
-* Konverterade modellfilstorlekar är märkbart större, vilket påverkar nedladdningshastigheten.
-* Körningen är längre.
-* Körning CPU-minne förbrukningen är högre.
-* Det finns en liten körning prestanda overhead för varje modell instans.
+* [Modell konverteringen](../../how-tos/conversion/model-conversion.md) tar avsevärt längre tid.
+* Konverterade modell fil storlekar är märkbart större, vilket påverkar nedladdnings hastigheten.
+* Tiden för inläsning av körnings tid är längre.
+* Processor förbrukningen för körnings processor är högre.
+* Det finns en mindre belastning för körnings prestanda för varje modell instans.
 
-## <a name="ray-casts"></a>Ray kastar
+## <a name="ray-casts"></a>Ray-sändningar
 
-En *ray cast* är en rumslig fråga där körningen kontrollerar vilka objekt som korsas av en stråle, med början vid en viss position och pekar i en viss riktning. Som optimering ges också ett maximalt ray-avstånd, för att inte söka efter objekt som är för långt borta.
+En *Ray-Cast* är en rums fråga där körningen kontrollerar vilka objekt som skärs av en Ray, med början vid en viss position och pekar på en viss riktning. Som en optimering ges ett maximalt Ray-avstånd också för att inte söka efter objekt som är för långt bort.
 
 ````c#
 async void CastRay(AzureSession session)
@@ -54,13 +54,13 @@ async void CastRay(AzureSession session)
 }
 ````
 
-Det finns tre träffinsamlingslägen:
+Det finns tre lägen för träff insamling:
 
-* **Närmaste:** I det här läget rapporteras endast närmaste träff.
-* **Alla:** Föredrar detta läge när allt du vill veta är *om* en stråle skulle träffa något, men bryr sig inte vad som träffades exakt. Denna fråga kan vara betydligt billigare att utvärdera, men har också bara ett fåtal program.
-* **Alla:** I detta läge rapporteras alla träffar längs strålen, sorterade efter avstånd. Använd inte det här läget om du inte verkligen behöver mer än den första träffen. Begränsa antalet rapporterade träffar `MaxHits` med alternativet.
+* **Närmast:** I det här läget rapporteras endast den närmaste träffen.
+* **Valfritt:** Föredra det här läget när allt du vill veta är *om* en Ray skulle träffa något, men var inte noga med vad som trycks exakt. Den här frågan kan vara avsevärt billigare att utvärdera, men har även bara några få program.
+* **Alla:** I det här läget rapporteras alla träffar längs Rayen, sorterade efter avstånd. Använd inte det här läget om du inte verkligen behöver mer än den första träffen. Begränsa antalet rapporterade träffar med `MaxHits` alternativet.
 
-Om du vill utesluta objekt som selektivt övervägs för ray-casts kan komponenten [HierarchicalStateOverrideComponent](override-hierarchical-state.md) användas.
+Om du vill utesluta objekt selektivt från att beaktas för Ray-sändningar kan [HierarchicalStateOverrideComponent](override-hierarchical-state.md) -komponenten användas.
 
 <!--
 The CollisionMask allows the quey to consider or ignore some objects based on their collision layer. If an object has layer L, it will be hit only if the mask has  bit L set.
@@ -68,19 +68,19 @@ It is useful in case you want to ignore objects, for instance when setting an ob
 TODO : Add an API to make that possible.
 -->
 
-### <a name="hit-result"></a>Träffresultat
+### <a name="hit-result"></a>Träff resultat
 
-Resultatet av en ray cast-fråga är en rad träffar. Matrisen är tom om inget objekt träffades.
+Resultatet av en Ray Cast-fråga är en matris med träffar. Matrisen är tom, om inget objekt träffades.
 
 En träff har följande egenskaper:
 
-* **HitEntity:** Vilken [enhet](../../concepts/entities.md) träffades.
-* **SubPartId:** Vilken *undergrupp* träffades i en [MeshComponent](../../concepts/meshes.md). Kan användas för `MeshComponent.UsedMaterials` att indexera och leta upp [materialet](../../concepts/materials.md) vid den tidpunkten.
-* **HitPosition:** Den världsrymdposition där strålen skär objektet.
-* **HitNormal:** Världens rymdyta normal av nätet vid skärningspunktens position.
-* **AvståndToHit:** Avståndet från strålens startläge till träffen.
+* **HitEntity:** Vilken [entitet](../../concepts/entities.md) som träffades.
+* **Delpartis:** Vilket under *nätet* nåddes i en [MeshComponent](../../concepts/meshes.md). Kan användas för att indexera `MeshComponent.UsedMaterials` och slå upp [materialet](../../concepts/materials.md) vid den tidpunkten.
+* **HitPosition:** Utrymmes positionen där Ray korsar objektet.
+* **HitNormal:** Ytans yta i mitten av nätet vid positionen för skärnings punkten.
+* **DistanceToHit:** Avståndet från Ray-start positionen till träffen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Objekt bounds](../../concepts/object-bounds.md)
+* [Objektgränser](../../concepts/object-bounds.md)
 * [Åsidosätta hierarkiska tillstånd](override-hierarchical-state.md)

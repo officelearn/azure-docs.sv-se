@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 44823ce888e97b308f29403612f598c0eb585ae5
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673377"
 ---
-Du kan visa kön i [Azure-portalen](../articles/storage/queues/storage-quickstart-queues-portal.md) eller i [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Du kan också visa kön i Azure CLI, enligt beskrivningen i följande steg:
+Du kan visa kön i [Azure Portal](../articles/storage/queues/storage-quickstart-queues-portal.md) eller i [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Du kan också visa kön i Azure CLI enligt beskrivningen i följande steg:
 
-1. Öppna funktionsprojektets *local.setting.json-fil* och kopiera anslutningssträngvärdet. I ett terminal- eller kommandofönster kör du följande `AZURE_STORAGE_CONNECTION_STRING`kommando för att skapa en `<MY_CONNECTION_STRING>`miljövariabel med namnet , klistra in din specifika anslutningssträng i stället för . (Den här miljövariabeln innebär att du inte behöver ange `--connection-string` anslutningssträngen till varje efterföljande kommando med argumentet.)
+1. Öppna funktions projektets *lokala. Ange. JSON* -fil och kopiera värdet för anslutnings strängen. Kör följande kommando i ett terminalfönster-eller kommando fönster för att skapa en miljö variabel med `AZURE_STORAGE_CONNECTION_STRING`namnet, och klistra in din aktuella anslutnings sträng i `<MY_CONNECTION_STRING>`stället för. (Denna miljö variabel innebär att du inte behöver ange anslutnings strängen för varje efterföljande kommando med hjälp av `--connection-string` argumentet.)
 
-    # <a name="bash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
@@ -35,15 +35,15 @@ Du kan visa kön i [Azure-portalen](../articles/storage/queues/storage-quickstar
     
     ---
     
-1. (Valfritt) Använd [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) kommandot för att visa lagringsköerna i ditt konto. Utdata från det här kommandot `outqueue`ska innehålla en kö med namnet , som skapades när funktionen skrev sitt första meddelande till den kön.
+1. Valfritt Använd [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) kommandot för att Visa lagrings köer i ditt konto. Utdata från det här kommandot ska innehålla en kö med `outqueue`namnet, som skapades när funktionen skrev sitt första meddelande till kön.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. Använd [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) kommandot för att läsa meddelandet från den här kön, vilket bör vara det förnamn som du använde när du testade funktionen tidigare. Kommandot läser och tar bort det första meddelandet från kön. 
+1. Använd [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) kommandot för att läsa meddelandet från den här kön, vilket bör vara det första namnet du använde när du testar funktionen tidigare. Kommandot läser och tar bort det första meddelandet från kön. 
 
-    # <a name="bash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
@@ -61,8 +61,8 @@ Du kan visa kön i [Azure-portalen](../articles/storage/queues/storage-quickstar
     az storage message get --queue-name outqueue -o tsv --query [].{Message:content} > %TEMP%out.b64 && certutil -decode -f %TEMP%out.b64 %TEMP%out.txt > NUL && type %TEMP%out.txt && del %TEMP%out.b64 %TEMP%out.txt /q
     ```
 
-    Det här skriptet använder certutil för att avkoda den base64-kodade meddelandesamlingen från en lokal temp-fil. Om det inte finns några `> NUL` utdata kan du prova att ta bort från skriptet för att sluta undertrycka certutil-utdata om det finns ett fel. 
+    Det här skriptet använder certutil för att avkoda den base64-kodade meddelande samlingen från en lokal Temp-fil. Om det inte finns några utdata kan du `> NUL` försöka ta bort från skriptet för att sluta ignorera certutil-utdata om det uppstår ett fel. 
     
     ---
     
-    Eftersom meddelandetexten lagras [base64-kodad](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding)måste meddelandet avkodas innan det visas. När du `az storage message get`har kör tas meddelandet bort från kön. Om det bara fanns `outqueue`ett meddelande i hämtas inte ett meddelande när du kör det här kommandot en andra gång och får i stället ett felmeddelande.
+    Eftersom meddelande texten lagras base64- [kodat](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding)måste meddelandet avkodas innan det visas. När du har `az storage message get`kört meddelandet tas meddelandet bort från kön. Om det bara finns ett meddelande i `outqueue`, kommer du inte att få ett meddelande när du kör det här kommandot en gång i stället. ett fel visas i stället.

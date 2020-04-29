@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754206"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
@@ -43,7 +43,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Skapa en Azure Cosmos DB-utlösare
 
-1. Expandera funktionsappen **+** och klicka på knappen bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
+1. Expandera din Function-app och klicka **+** på knappen bredvid **Functions**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
 
    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
 
@@ -53,7 +53,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Skriv `cosmos` i sökfältet och välj sedan mallen **Azure Cosmos DB-utlösare**.
 
-1. Om du uppmanas till det väljer du **Installera** för att installera Azure Cosmos DB-tillägget i funktionsappen. När installationen är klar väljer du **Fortsätt**.
+1. Om du uppmanas väljer du **Installera** för att installera Azure Cosmos DB tillägget i Function-appen. När installationen är klar väljer du **Fortsätt**.
 
     ![Installera bindningstillägg](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 
@@ -61,13 +61,13 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     ![Skapa en funktion som utlöses av Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
 
-    | Inställning      | Föreslaget värde  | Beskrivning                                |
+    | Inställningen      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Namn** | Default | Använd det standardfunktionsnamn som föreslås av mallen.|
+    | **Namn** | Standardvärde | Använd det standardfunktionsnamn som föreslås av mallen.|
     | **Azure Cosmos DB-kontoanslutning** | Ny inställning | Välj **Ny**, välj sedan din **prenumeration**, det **databaskonto** som du skapade tidigare och sedan **Välj**. Detta skapar en programinställning för din kontoanslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
-    | **Behållarnamn** | Objekt | Namn på den behållare som ska övervakas. |
-    | **Skapa lånebehållare om den inte finns** | Markerad | Behållaren finns inte redan, så skapa den. |
-    | **Databasnamn** | Aktiviteter | Namn på databasen med behållaren som ska övervakas. |
+    | **Container namn** | Objekt | Namnet på behållaren som ska övervakas. |
+    | **Skapa en låne container om den inte finns** | Markerad | Behållaren finns inte redan, så skapa den. |
+    | **Databas namn** | Aktiviteter | Namnet på databasen med den behållare som ska övervakas. |
 
 1. Klicka på **Skapa** för att skapa en funktion som utlöses av Azure Cosmos DB. När funktionen har skapats visas den mallbaserade funktionskoden.  
 
@@ -75,9 +75,9 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     Den här funktionsmallen skriver antalet dokument och ID:t för det första dokumentet till loggarna.
 
-Därefter ansluter du till ditt Azure Cosmos `Items` DB-konto och skapar behållaren `Tasks` i databasen.
+Sedan ansluter du till ditt Azure Cosmos DB-konto och skapar `Items` behållaren i `Tasks` databasen.
 
-## <a name="create-the-items-container"></a>Skapa behållaren Artiklar
+## <a name="create-the-items-container"></a>Skapa behållaren objekt
 
 1. Öppna en andra instans av [Azure-portalen](https://portal.azure.com) på en ny flik i webbläsaren.
 
@@ -87,30 +87,30 @@ Därefter ansluter du till ditt Azure Cosmos `Items` DB-konto och skapar behåll
 
 1. Välj ditt Azure Cosmos DB-konto och välj sedan **Datautforskaren**. 
 
-1. Under **SQL API**väljer du **Uppgiftsdatabas** och väljer **Ny behållare**.
+1. Under **SQL API**väljer du **uppgifter** databas och sedan **ny behållare**.
 
     ![Skapa en container](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container.png)
 
-1. Använd inställningarna som visas i tabellen under bilden i **Lägg till behållare.** 
+1. I **Lägg till behållare**använder du inställningarna som visas i tabellen under bilden. 
 
-    ![Definiera behållaren Aktiviteter](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
+    ![Definiera behållaren uppgifter](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | Inställning|Föreslaget värde|Beskrivning |
+    | Inställningen|Föreslaget värde|Beskrivning |
     | ---|---|--- |
     | **Databas-ID** | Aktiviteter |Namnet på din nya databas. Måste matcha namnet som definierats i funktionsbindningen. |
     | **Container-ID** | Objekt | Namnet på den nya behållaren. Måste matcha namnet som definierats i funktionsbindningen.  |
-    | **[Partitionsnyckeln](../cosmos-db/partition-data.md)** | /category|En partitionsnyckel som distribuerar data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel för att skapa en högpresterande behållare. | 
+    | **[Partitionsnyckeln](../cosmos-db/partition-data.md)** | /category|En partitionsnyckel som distribuerar data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när du skapar en utförande behållare. | 
     | **Dataflöde** |400 RU| Använd standardvärdet. Du kan skala upp dataflödet senare om du vill minska svarstiden. |    
 
-1. Klicka på **OK** om du vill skapa behållaren Objekt. Det kan ta en kort tid för behållaren att skapas.
+1. Skapa behållaren objekt genom att klicka på **OK** . Det kan ta en stund innan behållaren har skapats.
 
-När behållaren som anges i funktionsbindningen finns kan du testa funktionen genom att lägga till artiklar i den nya behållaren.
+När den behållare som anges i funktions bindningen finns kan du testa funktionen genom att lägga till objekt i den nya behållaren.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. Expandera den nya **objektbehållaren** i Data Explorer, välj **Objekt**och välj sedan **Nytt objekt**.
+1. Expandera behållaren nya **objekt** i datautforskaren, Välj **objekt**och välj sedan **nytt objekt**.
 
-    ![Skapa ett objekt i behållaren Artiklar](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
+    ![Skapa ett objekt i objekt behållare](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
 
 1. Ersätt innehållet i det nya objektet med följande innehåll och välj sedan **Spara**.
 

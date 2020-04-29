@@ -1,112 +1,112 @@
 ---
-title: Belöningspoäng - Personalizer
-description: Belöningspoängen anger hur väl anpassningsvalet, RewardActionID, resulterade för användaren. Värdet på belöningspoängen bestäms av din affärslogik, baserat på observationer av användarbeteende. Personalizer tränar sina maskininlärningsmodeller genom att utvärdera belöningarna.
+title: Belönings Poäng – Personanpassare
+description: Belönings poängen anger hur bra det RewardActionID som har gjort det, för användaren. Värdet för belönings poängen bestäms av affärs logiken, baserat på observationer av användar beteende. Personanpassa tågens maskin inlärnings modeller genom att utvärdera belöningarna.
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219372"
 ---
-# <a name="reward-scores-indicate-success-of-personalization"></a>Belöningspoäng indikerar framgång för personalisering
+# <a name="reward-scores-indicate-success-of-personalization"></a>Belönings Poäng visar att anpassningen lyckades
 
-Belöningspoängen anger hur väl anpassningsvalet, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), resulterade för användaren. Värdet på belöningspoängen bestäms av din affärslogik, baserat på observationer av användarbeteende.
+Belönings poängen anger hur bra det [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response)som har gjort det, för användaren. Värdet för belönings poängen bestäms av affärs logiken, baserat på observationer av användar beteende.
 
-Personalizer tränar sina maskininlärningsmodeller genom att utvärdera belöningarna.
+Personanpassa tågens maskin inlärnings modeller genom att utvärdera belöningarna.
 
-Lär dig [hur](how-to-settings.md#configure-rewards-for-the-feedback-loop) du konfigurerar standardbelöningspoängen i Azure-portalen för din Personalizer-resurs.
+Lär dig [hur du](how-to-settings.md#configure-rewards-for-the-feedback-loop) konfigurerar standard belönings poängen i Azure Portal för din personanpassa resurs.
 
-## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Använd Belönings-API för att skicka belöningspoäng till Personalizer
+## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Använd belönings-API: et för att skicka belönings poängen till Personanpassaren
 
-Belöningar skickas till Personalizer av [belönings-API:et.](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward) Vanligtvis är en belöning ett tal från 0 till 1. En negativ belöning, med värdet -1, är möjlig i vissa scenarier och bör endast användas om du har erfarenhet av förstärkningsinlärning (RL). Personalizer tränar modellen för att uppnå högsta möjliga summa belöningar över tiden.
+Förmåner skickas till Personanpassare av [belönings-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). En belöning är vanligt vis en siffra mellan 0 och 1. En negativ belöning, med värdet-1, är möjlig i vissa scenarier och bör endast användas om du har erfarenhet av förstärknings inlärning (HUVUDWEBBADRESS). Personanpassare tågen modellen för att uppnå högsta möjliga summa av förmåner över tid.
 
-Belöningar skickas efter att användarbeteendet har inträffat, vilket kan vara dagar senare. Den maximala tiden som Personalizer väntar tills en händelse anses ha någon belöning eller en standardbelöning har konfigurerats med [väntetiden för belöning](#reward-wait-time) i Azure-portalen.
+Förmåner skickas när användar beteendet har inträffat, vilket kan vara dagar senare. Den maximala tid som Personanpassaren väntar tills en händelse anses vara ingen belöning eller en standard belöning har kon figurer ATS med försvars [tid](#reward-wait-time) för betalning i Azure Portal.
 
-Om belöningspoängen för en händelse inte har tagits emot inom **väntetiden för belöning**kommer **standardbelöningen** att tillämpas. Vanligtvis är **[standardbelöningen](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** konfigurerad till noll.
+Om belönings poängen för en händelse inte har tagits emot inom svars **tiden för belöningen**, kommer **standard belöningen** att tillämpas. Normalt är **[standard belöningen](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** inställd på noll.
 
 
-## <a name="behaviors-and-data-to-consider-for-rewards"></a>Beteenden och data att tänka på för belöningar
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Beteenden och data som ska övervägas för förmåner
 
-Tänk på dessa signaler och beteenden för kontexten för belöningspoängen:
+Ta hänsyn till dessa signaler och beteenden för belönings poängen:
 
-* Direkt användarinmatning för förslag när det gäller alternativ ("Menar du X?").
-* Sessionslängd.
-* Tid mellan sessionerna.
-* Sentimentanalys av användarens interaktioner.
-* Direkta frågor och mini undersökningar där bot ber användaren om feedback om användbarhet, noggrannhet.
+* Direkt indata från användaren för förslag när alternativ är inblandade ("vill du betyda X?").
+* Sessionens längd.
+* Tid mellan sessioner.
+* Sentiment analys av användarens interaktioner.
+* Direkta frågor och mini-undersökningar där roboten ber användaren om feedback om användbarhet, exakthet.
 * Svar på aviseringar eller fördröjning för att svara på aviseringar.
 
-## <a name="composing-reward-scores"></a>Komponera belöningspoäng
+## <a name="composing-reward-scores"></a>Skriva belönings resultat
 
-En belöningspoäng måste beräknas i din affärslogik. Poängen kan representeras som:
+En belönings Poäng måste beräknas i affärs logiken. Poängen kan representeras som:
 
-* Ett enda nummer som skickas en gång
-* En poäng skickas omedelbart (till exempel 0,8) och en extra poäng skickas senare (vanligtvis 0,2).
+* Ett enda nummer skickas en gång
+* En poäng som skickas omedelbart (till exempel 0,8) och ytterligare poäng som skickas senare (vanligt vis 0,2).
 
-## <a name="default-rewards"></a>Standardbelöningar
+## <a name="default-rewards"></a>Standard förmåner
 
-Om ingen belöning tas emot inom [förmånsväntetiden](#reward-wait-time), varaktigheten sedan rank-samtalet, tillämpar Personalizer implicit **standardbelöningen** på den rankningshändelsen.
+Om ingen belöning tas emot inom svarets [vänte tid](#reward-wait-time), varaktigheten sedan ranknings anropet, tillämpar den här klassificeringen implicit **standard belöningen** för denna rang-händelse.
 
-## <a name="building-up-rewards-with-multiple-factors"></a>Bygga upp belöningar med flera faktorer
+## <a name="building-up-rewards-with-multiple-factors"></a>Skapa fördelar med flera faktorer
 
-För effektiv personalisering kan du bygga upp belöningspoängen baserat på flera faktorer.
+För effektiv anpassning kan du skapa belönings poängen baserat på flera faktorer.
 
-Du kan till exempel använda dessa regler för att anpassa en lista med videoinnehåll:
+Du kan till exempel använda dessa regler för att anpassa en lista med video innehåll:
 
-|Användarens beteende|Partiellt poängvärde|
+|Användar beteende|Partiellt Poäng värde|
 |--|--|
-|Användaren klickade på det översta objektet.|+0,5 belöning|
-|Användaren öppnade det faktiska innehållet i det objektet.|+0,3 belöning|
-|Användaren tittade på 5 minuter av innehållet eller 30%, beroende på vilket som är längst.|+0,2 belöning|
+|Användaren har klickat på det översta objektet.|+ 0,5-belöning|
+|Användaren öppnade det faktiska innehållet i objektet.|+ 0,3-belöning|
+|Användaren bevakade 5 minuter med innehållet eller 30%, beroende på vilket som är längre.|+ 0,2-belöning|
 |||
 
 Du kan sedan skicka den totala belöningen till API: et.
 
-## <a name="calling-the-reward-api-multiple-times"></a>Anropa belönings-API:et flera gånger
+## <a name="calling-the-reward-api-multiple-times"></a>Anrop av belönings-API: n flera gånger
 
-Du kan också anropa belönings-API:et med samma händelse-ID och skicka olika belöningspoäng. När Personalizer får dessa belöningar avgörs den slutliga belöningen för den händelsen genom att samla dem enligt definitionen i Personalizer-konfigurationen.
+Du kan också anropa belönings-API: et med samma händelse-ID och skicka olika belönings poäng. När en Personanpassare får till gång till dessa förmåner fastställer den den slutliga belöningen för händelsen genom att aggregera dem enligt vad som anges i personanpassa konfigurationen.
 
-Aggregeringsvärden:
+Sammansättnings värden:
 
-*  **Första**: Tar den första belöningspoängen som mottagits för evenemanget och kasserar resten.
-* **Summa**: Tar alla belöningspoäng som samlats in för eventId och lägger till dem tillsammans.
+*  **Först**: tar de första belönings poängen emot för evenemanget och tar bort resten.
+* **Sum**: tar alla belönings resultat som samlas in för eventId och lägger till dem tillsammans.
 
-Alla belöningar för ett evenemang, som tas emot efter **belöningsväntan,** kasseras och påverkar inte utbildningen av modeller.
+Alla förmåner för en händelse, som tas emot efter den **väntande tiden för belöningen**, tas bort och påverkar inte inlärningen av modeller.
 
-Genom att lägga upp belöningspoäng kan din slutliga belöning vara utanför det förväntade poängintervallet. Detta kommer inte att göra tjänsten misslyckas.
+Genom att lägga till belönings resultat kan din slutliga belöning vara utanför det förväntade Poäng intervallet. Detta gör inte att tjänsten fungerar.
 
-## <a name="best-practices-for-calculating-reward-score"></a>Bästa praxis för beräkning av belöningspoäng
+## <a name="best-practices-for-calculating-reward-score"></a>Metod tips för att beräkna belönings Poäng
 
-* **Tänk på verkliga indikatorer på framgångsrik personalisering:** Det är lätt att tänka i termer av klick, men en bra belöning är baserad på vad du vill att dina användare att *uppnå* i stället för vad du vill att folk ska *göra*.  Givande på klick kan till exempel leda till att du väljer innehåll som är klickbenäget.
+* **Överväg de sanna anpassnings indikatorerna**: det är enkelt att tänka på när det gäller klickningar, men en bra belöning baseras på vad du vill att användarna ska *uppnå* i stället för vad du vill att användarna ska *göra*.  Till exempel kan belöningar i klick leda till att du väljer innehåll som är clickbaitt känsligt.
 
-* **Använd en belöning poäng för hur bra personalisering fungerade:** Anpassa en film förslag skulle förhoppningsvis resultera i att användaren tittar på filmen och ger det ett högt betyg. Eftersom filmen betyg beror förmodligen på många saker (kvaliteten på skådespeleri, stämningen hos användaren), är det inte en bra belöning signal för hur väl *personalisering* fungerade. Användaren tittar på de första minuterna av filmen, men kan vara en bättre signal om personalisering effektivitet och skicka en belöning på 1 efter 5 minuter kommer att vara en bättre signal.
+* **Använd en belönings Poäng för hur stor anpassningen fungerade: att**anpassa ett film förslag skulle förhoppnings vis leda till att användaren tittar på filmen och ger den en hög klassificering. Eftersom film klassificeringen förmodligen beror på många saker (kvaliteten på det som fungerar, stämningen av användaren), är det inte en bra belönings signal för hur väl *anpassningen* fungerade. Användaren tittar på de första minuterna i filmen, men kan vara en bättre signal för anpassnings effektivitet och att skicka en belöning på 1 efter 5 minuter är en bättre signal.
 
-* **Belöningar gäller endast för RewardActionID:** Personalizer tillämpar belöningarna för att förstå effekten av åtgärden som anges i RewardActionID. Om du väljer att visa andra åtgärder och användaren klickar på dem, bör belöningen vara noll.
+* **Förmåner gäller endast för RewardActionID**: med personanpassare tillämpas belöningarna för att förstå effektiviteten i den åtgärd som anges i RewardActionID. Om du väljer att visa andra åtgärder och användaren klickar på dem ska belöningen vara noll.
 
-* **Överväg oavsiktliga konsekvenser:** Skapa belöningsfunktioner som leder till ansvarsfulla resultat med [etik och ansvarsfull användning.](ethics-responsible-use.md)
+* **Ta hänsyn till oönskade konsekvenser**: skapa belönings funktioner som leder till ansvariga resultat med [etik och ansvarig användning](ethics-responsible-use.md).
 
-* **Använd inkrementella belöningar:** Genom att lägga till partiella belöningar för mindre användarbeteenden hjälper Personalizer att uppnå bättre belöningar. Denna inkrementella belöning gör att algoritmen vet att den kommer närmare att engagera användaren i det slutliga önskade beteendet.
-    * Om du visar en lista med filmer kan du avgöra om användaren håller muspekaren över den första ett tag för att se mer information. Beteendet kan räknas med en belöningspoäng på 0,1.
-    * Om användaren öppnade sidan och sedan avslutade, kan belöningspoängen vara 0,2.
+* **Använd ökande belöningar**: genom att lägga till del förmåner för mindre användar beteende kan du göra det lättare för användare att uppnå bättre fördelar. Den här stegvisa belöningen gör det möjligt för algoritmen att veta att den kommer närmare att engagera användaren i det slutliga önskade beteendet.
+    * Om du visar en lista över filmer, om användaren hovrar över den första för ett tag för att se mer information, kan du fastställa att vissa användar engagemang har inträffat. Beteendet kan räknas med en belönings poäng på 0,1.
+    * Om användaren öppnade sidan och sedan avslutas, kan belönings poängen vara 0,2.
 
-## <a name="reward-wait-time"></a>Väntetid för belöning
+## <a name="reward-wait-time"></a>Vänte tid för belöning
 
-Personalizer kommer att korrelera informationen i ett Rank-samtal med belöningarna som skickas i belöningssamtal för att träna modellen. Dessa kan komma vid olika tidpunkter. Personalizer väntar en begränsad tid, med början när Rank-samtalet inträffade, även om Rank-samtalet gjordes som en inaktiv händelse och aktiverades senare.
+En personanpassare korrelerar informationen om ett rang samtal med de fördelar som skickas i belönings anrop för att träna modellen. De kan komma att uppstå vid olika tidpunkter. Personanpassaren väntar en begränsad tid och startar när rang anropet skedde, även om rang anropet gjordes som en inaktiv händelse och aktive ras senare.
 
-Om **väntetiden för belöning** går ut och det inte har funnits någon belöningsinformation, tillämpas en standardbelöning på den händelsen för träning. Den maximala väntetiden är 6 dagar.
+Om **belöningens vänte tid** upphör att gälla, och det inte finns någon belönings information, tillämpas en standard belöning för utbildning. Maximal vänte tid är 6 dagar.
 
-## <a name="best-practices-for-reward-wait-time"></a>Bästa praxis för belöning väntetid
+## <a name="best-practices-for-reward-wait-time"></a>Metod tips för fördröjning av belöning
 
 Följ dessa rekommendationer för bättre resultat.
 
-* Gör belöningstiden så kort du kan, samtidigt som du lämnar tillräckligt med tid för att få feedback från användarna.
+* Gör belönings vänte tiden så kort som möjligt, samtidigt som du lämnar tillräckligt med tid för att få feedback från användaren.
 
-* Välj inte en varaktighet som är kortare än den tid som behövs för att få feedback. Till exempel, om några av dina belöningar kommer in efter att en användare har sett 1 minut av en video, bör experimentlängden vara minst dubbelt så hög.
+* Välj inte en varaktighet som är kortare än den tid som krävs för att få feedback. Om några av dina förmåner till exempel har tittat på 1 minut i en video bör experiment längden vara minst dubbel.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kunskapsförmedling](concepts-reinforcement-learning.md)
-* [Prova Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
-* [Prova belönings-API:et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)
+* [Testa rang-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
+* [Testa belönings-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)

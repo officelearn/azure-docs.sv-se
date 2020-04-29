@@ -1,130 +1,130 @@
 ---
 title: Materialmappning för modellformat
-description: Beskriver standardkonverteringen från modellkällaformat till PBR-material
+description: Beskriver standard konvertering från modell käll format till PBR-material
 author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
 ms.openlocfilehash: ce287ed94066aac4b900d2ddb02579a54b8550f6
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680393"
 ---
 # <a name="material-mapping-for-model-formats"></a>Materialmappning för modellformat
 
-När en källtillgång [konverteras som en modell](../how-tos/conversion/model-conversion.md)skapar konverteraren [material](../concepts/materials.md) för varje [nät](../concepts/meshes.md). Hur material skapas kan [åsidosättas](../how-tos/conversion/override-materials.md). Men som standard skapar konverteringen [PBR-material](../overview/features/pbr-materials.md). Eftersom varje källfilformat, som FBX, använder sina egna konventioner för att definiera material, måste dessa konventioner mappas till PBR-materialparametrarna för Azure Remote Rendering. 
+När en käll till gång [konverteras som en modell](../how-tos/conversion/model-conversion.md), skapar konverteraren [material](../concepts/materials.md) för varje [nät](../concepts/meshes.md). Hur material skapas kan [åsidosättas](../how-tos/conversion/override-materials.md). Konverteringen kommer dock att skapa [PBR-material](../overview/features/pbr-materials.md)som standard. Eftersom varje käll fil format, t. ex. FBX, använder sina egna konventioner för att definiera material, måste dessa konventioner mappas till PBR-materialets parametrar för Azure Remote rendering. 
 
-I den här artikeln visas de exakta mappningar som används för att konvertera material från källtillgångar till körningsmaterial.
+Den här artikeln innehåller exakta mappningar som används för att konvertera material från käll till gångar till körnings material.
 
-## <a name="gltf"></a>glTF (på andra)
+## <a name="gltf"></a>glTF
 
-Nästan allt från glTF 2.0-specifikationen stöds i Azure Remote Rendering, förutom *EmissiveFactor* och *EmissiveTexture*.
+Nästan allt från glTF 2,0-specifikationen stöds i Azure Remote rendering, förutom *EmissiveFactor* och *EmissiveTexture*.
 
-I följande tabell visas mappningen:
+Följande tabell visar mappningen:
 
-| glTF (på andra) | Azure Remote Rendering |
+| glTF | Azure Remote Rendering |
 |:-------------------|:--------------------------|
-|   basColorFactor   |   albedoFärg              |
-|   basFärgTextur  |   albedoKarta                |
-|   metalliskaFactor    |   metalness (metall)                |
-|   metallicTexture (metallicTexture)   |   metallkarta             |
-|   ojämnhetFaktor   |   Strävhet                |
-|   ojämnhetTextur  |   roughnessMap             |
-|   ocklusionFaktor   |   Ocklusion                |
-|   ocklusionTextur  |   ocklusionKarta             |
-|   normalTextur     |   Normalmap                |
-|   alfaKlipp       |   alfaClipThreshold       |
-|   alphaMode.OPAQUE  |   alphaClipEnabled = falskt, ärTransparent = falskt |
-|   alphaMode.MASK    |   alphaClipEnabled = sant, ärTransparent = falskt  |
-|   alphaMode.BLEND (alfaMode.BLEND)   |   ärTransparent = sant     |
-|   doubleSided       |   ärDoubleSided            |
-|   emissiveFactor (2019)    |   -                        |
-|   emissiveTexture (2019)   |   -                        |
+|   baseColorFactor   |   albedoColor              |
+|   baseColorTexture  |   albedoMap                |
+|   metallicFactor    |   metall                |
+|   metallicTexture   |   metalnessMap             |
+|   roughnessFactor   |   grovhet                |
+|   roughnessTexture  |   roughnessMap             |
+|   occlusionFactor   |   ocklusion                |
+|   occlusionTexture  |   occlusionMap             |
+|   normalTexture     |   normalMap                |
+|   alphaCutoff       |   alphaClipThreshold       |
+|   alphaMode. OGENOMSKINLIG  |   alphaClipEnabled = false, isTransparent = false |
+|   alphaMode. MASK    |   alphaClipEnabled = True, isTransparent = false  |
+|   alphaMode. BLEND   |   isTransparent = True     |
+|   doubleSided       |   isDoubleSided            |
+|   emissiveFactor    |   -                        |
+|   emissiveTexture   |   -                        |
 
-Varje textur i glTF kan ha ett `texCoord` värde som också stöds i Azure Remote Rendering material.
+Varje textur i glTF kan ha ett `texCoord` värde som också stöds i Azure-fjärråter givnings material.
 
 ### <a name="embedded-textures"></a>Inbäddade texturer
 
-Texturer som är inbäddade i * \*.bin-* eller * \*.glb-filer* stöds.
+Texturer som är inbäddade i * \*. bin* -eller * \*. GLB* -filer stöds.
 
 ### <a name="supported-gltf-extension"></a>GlTF-tillägg som stöds
 
-Dessutom stöder Azure Remote Rendering följande glTF-tillägg till basfunktionsuppsättningen:
+Förutom bas funktions uppsättningen stöder Azure-fjärråter givning följande glTF-tillägg:
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
 * [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
-* [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): Motsvarar [färgmaterial.](../overview/features/color-materials.md) För *emissiv material,* Det rekommenderas att använda denna förlängning.
-* [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): Istället för metalliska ojämnheter texturer, kan du ge diffusa-speglande-glossiness texturer. Azure Remote Rendering-implementeringen följer direkt konverteringsformlerna från tillägget.
+* [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): motsvarar [färg material](../overview/features/color-materials.md). För *emissive* material rekommenderar vi att du använder det här tillägget.
+* [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): i stället för metallisk – tuffa strukturer kan du tillhandahålla diffuse-spegel-glossiness texturer. Implementeringen av Azure-fjärrrenderingen följer direkt konverterings formlerna från tillägget.
 
-## <a name="fbx"></a>Fbx
+## <a name="fbx"></a>FBX
 
-FBX-formatet är sluten källkod och FBX-material är inte kompatibla med PBR-material i allmänhet. FBX använder en komplex beskrivning av ytor med många unika parametrar och egenskaper och **inte alla av dem används av Azure Remote Rendering pipeline**.
+FBX-formatet är stängd-källa och FBX material är inte kompatibla med PBR-material i allmänhet. FBX använder en komplex Beskrivning av ytor med många unika parametrar och egenskaper och **inte alla används av pipeline för Azure-Fjärrrendering**.
 
 > [!IMPORTANT]
-> Azure Remote Rendering-modellkonverteringspipelinen stöder endast **FBX 2011 och senare**.
+> Konverterings pipelinen för Azure Remote rendering Model stöder endast **FBX 2011 och högre**.
 
-FBX-formatet definierar en konservativ metod för material, det finns bara två typer i den officiella FBX-specifikationen:
+FBX-formatet definierar ett försiktigt tillvägagångs sätt för material, det finns bara två typer i den officiella FBX-specifikationen:
 
-* *Lambert* - Används inte ofta under ganska lång tid redan, men det stöds fortfarande genom att konvertera till Phong vid konverteringstid.
-* *Phong* - Nästan alla material och de flesta verktyg innehåll använder denna typ.
+* *Lambert* – används vanligt vis inte för lite tid, men stöds fortfarande av konvertering till Phong vid konverterings tiden.
+* *Phong* – nästan allt material och de flesta innehålls verktyg använder den här typen.
 
-Phong-modellen är mer exakt och används som den *enda* modellen för FBX-material. Nedan kommer det att kallas *FBX Material*.
+Phong-modellen är mer korrekt och används som den *enda* modellen för FBX material. Under den kallas det *FBX materialet*.
 
-> Maya använder två anpassade tillägg för FBX genom att definiera anpassade egenskaper för PBR- och Stingray-typer av ett material. Dessa uppgifter ingår inte i FBX-specifikationen, så den stöds inte av Azure Remote Rendering för närvarande.
+> Maya använder två anpassade tillägg för FBX genom att definiera anpassade egenskaper för ett materials PBR-och Stingray-typer. Den här informationen ingår inte i FBX-specifikationen, så den stöds inte av Azure Remote rendering för närvarande.
 
-FBX Material använder diffus-speglande-speglandeLevel koncept, så att konvertera från en diffus konsistens till en albedo karta måste vi beräkna de andra parametrarna för att subtrahera dem från diffusa.
+FBX material använder begreppet diffuse-spegel-SpecularLevel, så att du kan konvertera från en diffus textur till en albedo-karta som vi behöver för att beräkna de andra parametrarna för att subtrahera dem från diffuse.
 
-> Alla färger och texturer i FBX är i sRGB-utrymme (kallas även Gamma-utrymme) men Azure Remote Rendering fungerar med linjärt utrymme under visualisering och i slutet av ramen konverterar allt tillbaka till sRGB utrymme. Azure Remote Rendering tillgång pipeline konverterar allt till linjärt utrymme för att skicka den som förberedda data till renderaren.
+> Alla färger och texturer i FBX är i sRGB-området (även kallat gamma avstånd), men Azure-fjärrrendering fungerar med linjärt utrymme under visualiseringen och i slutet av ramen, vilket konverterar allt tillbaka till sRGB-utrymmet. I pipeline för Azure Remote rendering-till gångar konverteras allt till linjärt utrymme för att skicka det som för beredd data till åter givningen.
 
-Den här tabellen visar hur texturer mappas från FBX-material till Azure Remote Rendering material. Några av dem används inte direkt utan i kombination med andra texturer som deltar i formlerna (till exempel den diffusa texturen):
+Den här tabellen visar hur texturer mappas från FBX material till Azure Remote rendering-material. En del av dem används inte direkt utan i kombination med andra texturer som ingår i formlerna (till exempel diffus textur):
 
-| Fbx | Azure Remote Rendering |
+| FBX | Azure Remote Rendering |
 |:-----|:----|
-| AmbientColor (ambientcolor) | Ocklusion Karta   |
-| Diffusfärg | *används för Albedo, Metalness* |
-| TransparentFärg | *används för alfakanal av Albedo* |
-| TransparencyFactor | *används för alfakanal av Albedo* |
-| Opacitet | *används för alfakanal av Albedo* |
-| Speglandefärg | *används för Albedo, Metalness, Roughness* |
-| SpecularFactor| *används för Albedo, Metalness, Roughness* |
-| Glansutnyttpande | *används för Albedo, Metalness, Roughness* |
-| Normalmap | Normalmap |
-| Stöta | *konverteras till NormalMap* |
-| EmissiveColor (av fel" | - |
-| EmissiveFactor (2019) | - |
-| ReflektionFärg | - |
-| FörskjutningColor | - |
+| AmbientColor | Ocklusion-karta   |
+| DiffuseColor | *används för albedo, Metaly* |
+| TransparentColor | *används för alfa Channel av albedo* |
+| TransparencyFactor | *används för alfa Channel av albedo* |
+| Ogenomskinlighet | *används för alfa Channel av albedo* |
+| SpecularColor | *används för albedo, Metallhet, grovhet* |
+| SpecularFactor| *används för albedo, Metallhet, grovhet* |
+| ShininessExponent | *används för albedo, Metallhet, grovhet* |
+| NormalMap | NormalMap |
+| Öka | *konverterat till NormalMap* |
+| EmissiveColor | - |
+| EmissiveFactor | - |
+| ReflectionColor | - |
+| DisplacementColor | - |
 
-Kartläggningen ovan är den mest komplexa delen av materialkonverteringen, på grund av många antaganden som måste göras. Vi diskuterar dessa antaganden nedan.
+Mappningen ovan är den mest komplexa delen av material omvandlingen, på grund av många antaganden som måste göras. Vi diskuterar dessa antaganden nedan.
 
-Några definitioner som används nedan:
+Vissa definitioner som används nedan:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. Röd 0,2125 + `Specular`. Grön 0,7154 + `Specular`. Blå 0,0721
-* `DiffuseBrightness`= 0,299 `Diffuse`* . Röd<sup>2</sup> + 0,587 * `Diffuse`. Grön<sup>2</sup> + 0,114 * `Diffuse`. Blå<sup>2</sup>
-* `SpecularBrightness`= 0,299 `Specular`* . Röd<sup>2</sup> + 0,587 * `Specular`. Grön<sup>2</sup> + 0,114 * `Specular`. Blå<sup>2</sup>
-* `SpecularStrength`= max(`Specular`. Röd, `Specular`. Grön, `Specular`. Blå)
+* `SpecularIntensity` = `Specular`. Röd ∗ 0,2125 + `Specular`. Grönt ∗ 0,7154 + `Specular`. Blå ∗ 0,0721
+* `DiffuseBrightness`= 0,299 * `Diffuse`. Röd<sup>2</sup> + 0,587 * `Diffuse`. Grön<sup>2</sup> + 0,114 * `Diffuse`. Blå<sup>2</sup>
+* `SpecularBrightness`= 0,299 * `Specular`. Röd<sup>2</sup> + 0,587 * `Specular`. Grön<sup>2</sup> + 0,114 * `Specular`. Blå<sup>2</sup>
+* `SpecularStrength`= Max (`Specular`. Röd, `Specular`. Grönt, `Specular`. Blåskärm
 
-Den SpecularIntensity formel erhålls [härifrån](https://en.wikipedia.org/wiki/Luma_(video)).
-Formeln för ljusstyrka beskrivs i den här [specifikationen](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf).
+SpecularIntensity-formeln hämtas [härifrån](https://en.wikipedia.org/wiki/Luma_(video)).
+Formeln för ljus styrka beskrivs i den här [specifikationen](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf).
 
-### <a name="roughness"></a>Strävhet
+### <a name="roughness"></a>Grovhet
 
-`Roughness`beräknas utifrån `Specular` `ShininessExponent` och med den [här formeln](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). Formeln är en approximation av ojämnhet från Phong speglande exponent:
+`Roughness`beräknas från `Specular` och `ShininessExponent` med [den här formeln](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). Formeln är en uppskattning av grovhet från Phong spegel exponent:
 
 ```Cpp
 Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 ```
 
-### <a name="metalness"></a>Metalness (metall)
+### <a name="metalness"></a>Metall
 
-`Metalness`beräknas från `Diffuse` `Specular` och med den här [formeln från glTF-specifikationen](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
+`Metalness`beräknas från `Diffuse` och `Specular` med den här [formeln från glTF-specifikationen](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
 
-Tanken här är att vi löser ekvationen: Ax<sup>2</sup> + Bx + C = 0.
-I grund och botten återspeglar dielektriska ytor runt 4% av ljuset på ett speglande sätt, och resten är diffust. Metalliska ytor reflekterar inget ljus på ett diffust sätt, men allt på ett speglande sätt.
-Denna formel har några nackdelar, eftersom det inte finns något sätt att skilja mellan blank plast och blanka metalliska ytor. Vi antar att det mesta ytan har metalliska egenskaper, och därmed glänsande plast / gummi ytor kanske inte ser ut som förväntat.
+Tanken här är att vi löser ekvationen: AX<sup>2</sup> + BX + C = 0.
+Dielectric ytor återspeglar i princip ungefär 4% av ljus på ett spegel sätt och resten är diffus. Metallisk ytor reflekterar inget ljus på ett diffust sätt, men allt på ett spegel sätt.
+Den här formeln har några nack delar, eftersom det inte finns något sätt att skilja mellan blank plast och glansiga metallisk ytor. Vi antar att ytan har metallisk egenskaper, och därför kanske det inte ser ut som förväntat.
 ```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
@@ -139,10 +139,10 @@ Metalness = clamp(value, 0.0, 1.0);
 
 ### <a name="albedo"></a>Albedo
 
-`Albedo`beräknas från `Diffuse`, `Specular`och `Metalness`.
+`Albedo`beräknas från `Diffuse`, `Specular`och. `Metalness`
 
-Som beskrivs i metalness avsnittet, dielektriska ytor reflekterar cirka 4% av ljuset.  
-Tanken här är att linjärt `Dielectric` interpolera mellan och `Metal` färger med värde `Metalness` som en faktor. Om metalness `0.0`är , då beroende på speglande det kommer att vara antingen en mörk färg (om speglande är hög) eller diffusa kommer inte att förändras (om ingen speglande finns). Om metalness är ett stort värde, då den diffusa färgen kommer att försvinna till förmån för speglande färg.
+Som det beskrivs i avsnittet Metallhet, dielectric ytorna runt 4% av ljuset.  
+Idén här är att du linjärt `Dielectric` interpolerar `Metal` mellan och `Metalness` färger med värde som en faktor. Om det är något `0.0`som är så är det, beroende på speglad kvalitet, antingen en mörk färg (om spegeln är hög) eller om diffusionen inte ändras (om det inte finns någon spegel). Om metal är ett stort värde försvinner den diffusa färgen för att spegla färg.
 
 ```Cpp
 dielectricSpecularReflectance = 0.04
@@ -154,26 +154,26 @@ albedoRawColor = lerpColors(dielectricColor, metalColor, metalness * metalness)
 AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 ```
 
-`AlbedoRGB`har beräknats av formeln ovan, men alfakanalen kräver ytterligare beräkningar. FBX-formatet är vagt om öppenhet och har många sätt att definiera det. Olika innehållsverktyg använder olika metoder. Tanken här är att förena dem i en formel. Det gör vissa tillgångar felaktigt visas som transparent, men om de inte skapas på ett vanligt sätt.
+`AlbedoRGB`har beräknats av formeln ovan, men alfa kanalen kräver ytterligare beräkningar. FBX-formatet är vagt om genomskinlighet och har många sätt att definiera det. Olika innehålls verktyg använder olika metoder. Tanken här är att förena dem till en formel. Det gör vissa till gångar felaktigt visade som transparenta, men om de inte skapas på ett vanligt sätt.
 
-Detta beräknas från `TransparentColor` `TransparencyFactor`, `Opacity`, :
+Detta beräknas från `TransparentColor`, `TransparencyFactor`,: `Opacity`
 
-om `Opacity` definieras, använd den `AlbedoAlpha`  =  `Opacity` direkt: annars  
-om `TransparencyColor` definieras, `AlbedoAlpha` sedan = 1,0`TransparentColor`- (( . Röd `TransparentColor`+ . Grön `TransparentColor`+ . Blå) / 3,0) annars  
-om `TransparencyFactor`, `AlbedoAlpha` då = 1,0 -`TransparencyFactor`
+Om `Opacity` är definierat använder du den direkt: `AlbedoAlpha`  =  `Opacity` annars  
+Om `TransparencyColor` är definierat `AlbedoAlpha` = 1,0-((`TransparentColor`. Röd + `TransparentColor`. Grön + `TransparentColor`. Blå)/3,0) Else  
+Om `TransparencyFactor`, sedan `AlbedoAlpha` = 1,0-`TransparencyFactor`
 
-Den `Albedo` slutliga färgen har fyra `AlbedoRGB` kanaler, `AlbedoAlpha`kombinera med .
+Den slutliga `Albedo` färgen har fyra kanaler som kombinerar `AlbedoRGB` med. `AlbedoAlpha`
 
 ### <a name="summary"></a>Sammanfattning
 
-Sammanfattningsvis `Albedo` kommer du att vara `Diffuse`mycket `Specular` nära originalet , om den är nära noll. Annars ytan kommer att se ut som en metallisk yta och förlorar den diffusa färgen. Ytan kommer att se mer polerad och reflekterande om `ShininessExponent` den är tillräckligt stor och `Specular` är ljus. Annars ytan kommer att se grov och knappt reflektera miljön.
+För att kunna sammanfatta här `Albedo` är det mycket nära originalet `Diffuse`, om `Specular` det är nära noll. Annars kommer ytan att se ut som en metallisk yta och förlora den diffusa färgen. Ytan kommer att se mer snyggare ut och `ShininessExponent` reflekteras om den `Specular` är tillräckligt stor och är ljus. I annat fall ser ytan grovt ut och knappt reflekterar miljön.
 
 ### <a name="known-issues"></a>Kända problem
 
-* Den nuvarande formeln fungerar inte bra för enkel färgad geometri. Om `Specular` är tillräckligt ljus, då alla geometrier blir reflekterande metalliska ytor utan någon färg. Lösningen här är att `Specular` sänka till 30% från originalet eller att använda konverteringsinställningen [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
-* PBR-material har `Maya` nyligen `3DS Max` lagts till och verktyg för att skapa innehåll. De använder anpassade användardefinierade svartlådeegenskaper för att skicka den till FBX. Azure Remote Rendering läser inte dessa ytterligare egenskaper eftersom de inte är dokumenterade och formatet är stängd källa.
+* Den aktuella formeln fungerar inte bra för enkel färg geometri. Om `Specular` är tillräckligt ljus blir alla Geometries reflekterande metallisk ytor utan färg. Lösningen här är att sänka `Specular` till 30% från originalet eller att använda konverterings inställningen [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
+* PBR-material har nyligen lagts `Maya` till `3DS Max` i och skapa innehålls verktyg. De använder anpassade användardefinierade egenskaper för svart ruta för att skicka den till FBX. Azure Remote rendering läser inte dessa ytterligare egenskaper eftersom de inte är dokumenterade och formatet är stängd-källa.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Modellkonvertering](../how-tos/conversion/model-conversion.md)
-* [Övergripande material under modellkonvertering](../how-tos/conversion/override-materials.md)
+* [Modell konvertering](../how-tos/conversion/model-conversion.md)
+* [Åsidosätter material under modell konverteringen](../how-tos/conversion/override-materials.md)

@@ -1,113 +1,113 @@
 ---
-title: Ta bort programinsikter i Visual Studio - Azure Monitor
+title: Ta bort Application Insights i Visual Studio – Azure Monitor
 description: Ta bort Application Insights SDK för ASP.NET och ASP.NET Core i Visual Studio.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1c9ff8d3d305645ac7d113421e2c6c5f8451bd2b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80805110"
 ---
-# <a name="how-to-remove-application-insights-in-visual-studio"></a>Så här tar du bort programinsikter i Visual Studio
+# <a name="how-to-remove-application-insights-in-visual-studio"></a>Ta bort Application Insights i Visual Studio
 
-Den här artikeln visar hur du tar bort ASP.NET och ASP.NET Core Application Insights SDK i Visual Studio.
+I den här artikeln visas hur du tar bort ASP.NET och ASP.NET Core Application Insights SDK i Visual Studio.
 
-Om du vill ta bort Application Insights måste du ta bort NuGet-paketen och referenserna från API:et i ditt program. Du kan avinstallera NuGet-paket med hjälp av Package Management Console eller Manage NuGet Solution i Visual Studio. I följande avsnitt visas två sätt att ta bort NuGet-paket och vad som automatiskt lades till i projektet. Var noga med att bekräfta de filer som lagts till och områden med i din egen kod där du gjorde samtal till API tas bort.
+Om du vill ta bort Application Insights måste du ta bort NuGet-paketen och referenserna från API: et i ditt program. Du kan avinstallera NuGet-paket med hjälp av paket hanterings konsolen eller hantera NuGet-lösningen i Visual Studio. I följande avsnitt visas två sätt att ta bort NuGet-paket och vad som lades till automatiskt i projektet. Se till att bekräfta de filer som lagts till och områden med i din egen kod där du har gjort anrop till API: et borttaget.
 
-## <a name="uninstall-using-the-package-management-console"></a>Avinstallera med konsolen Pakethantering
+## <a name="uninstall-using-the-package-management-console"></a>Avinstallera med paket hanterings konsolen
 
 # <a name="net"></a>[.NET](#tab/net)
 
-1. Om du vill öppna konsolen Pakethantering väljer du Verktyg > NuGet Package Manager > Package Manager Console på den övre menyn.
+1. Öppna paket hanterings konsolen genom att välja verktyg > NuGet Package Manager > Package Manager-konsolen på den översta menyn.
      
-    ![Klicka på Verktyg > NuGet Package Manager > Package Manager Console i den övre menyn](./media/remove-application-insights/package-manager.png)
+    ![På den översta menyn klickar du på verktyg > NuGet Package Manager > Package Manager-konsolen](./media/remove-application-insights/package-manager.png)
 
     > [!NOTE]
-    > Om spårningssamling är aktiverad måste du först avinstallera Microsoft.ApplicationInsights.TraceListener. Gå `Uninstall-package Microsoft.ApplicationInsights.TraceListener` sedan steget nedan för att ta bort Microsoft.ApplicationInsights.Web.
+    > Om spårnings insamling är aktiverat måste du först avinstallera Microsoft. ApplicationInsights. TraceListener. Ange `Uninstall-package Microsoft.ApplicationInsights.TraceListener` sedan följande steg för att ta bort Microsoft. ApplicationInsights. Web.
 
 1. Ange följande kommando: `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
-    När du har angett kommandot avinstalleras Application Insights-paketet och alla dess beroenden från projektet.
+    När du har angett kommandot kommer Application Insights-paketet och alla dess beroenden att avinstalleras från projektet.
     
     ![Ange kommando i konsolen](./media/remove-application-insights/package-management-console.png)
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-1. Om du vill öppna konsolen Pakethantering väljer du Verktyg > NuGet Package Manager > Package Manager Console på den övre menyn.
+1. Öppna paket hanterings konsolen genom att välja verktyg > NuGet Package Manager > Package Manager-konsolen på den översta menyn.
 
-    ![Klicka på Verktyg > NuGet Package Manager > Package Manager Console i den övre menyn](./media/remove-application-insights/package-manager.png)
+    ![På den översta menyn klickar du på verktyg > NuGet Package Manager > Package Manager-konsolen](./media/remove-application-insights/package-manager.png)
 
 1. Ange följande kommando: ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
 
-    När du har angett kommandot avinstalleras Application Insights-paketet och alla dess beroenden från projektet.
+    När du har angett kommandot kommer Application Insights-paketet och alla dess beroenden att avinstalleras från projektet.
 
 ---
 
-## <a name="uninstall-using-the-visual-studio-nugetui"></a>Avinstallera med visual studio NuGet-användargränssnittet
+## <a name="uninstall-using-the-visual-studio-nugetui"></a>Avinstallera med Visual Studio NuGet-ANVÄNDARGRÄNSSNITTET
 
 # <a name="net"></a>[.NET](#tab/net)
 
-1. Högerklicka på **Lösning**  *i Lösningsutforskaren* till höger och välj **Hantera NuGet-paket för lösning**.
+1. I *Solution Explorer* till höger högerklickar du på **lösning** och väljer **Hantera NuGet-paket för lösningen**.
 
-    Du ser sedan en skärm som låter dig redigera alla NuGet-paket som ingår i projektet.
+    Sedan visas en skärm som gör att du kan redigera alla NuGet-paket som ingår i projektet.
     
-     ![Högerklicka på Lösning i Lösningsutforskaren och välj sedan Hantera NuGet-paket för lösning](./media/remove-application-insights/manage-nuget-framework.png)
+     ![Högerklicka på lösning, gå till Solution Explorer och välj Hantera NuGet-paket för lösningen](./media/remove-application-insights/manage-nuget-framework.png)
 
     > [!NOTE]
-    > Om spårningssamling är aktiverad måste du först avinstallera Microsoft.ApplicationInsights.TraceListener utan att ta bort markerade beroenden och följ sedan stegen nedan för att avinstallera Microsoft.ApplicationInsights.Web med ta bort beroenden markerade.
+    > Om spårnings insamling är aktiverat måste du först avinstallera Microsoft. ApplicationInsights. TraceListener utan att ta bort beroenden och sedan följa stegen nedan för att avinstallera Microsoft. ApplicationInsights. Web med ta bort beroenden markerade.
     
-1. Klicka på paketet "Microsoft.ApplicationInsights.Web".Markera kryssrutan bredvid *Project* till höger för att markera alla projekt.
+1. Klicka på paketet "Microsoft. ApplicationInsights. Web".Till höger markerar du kryss rutan bredvid *projekt* för att markera alla projekt.
     
-1. Om du vill ta bort alla beroenden när du avinstallerar väljer du knappen **Alternativ** under det avsnitt där du valde projektet.
+1. Om du vill ta bort alla beroenden när du avinstallerar väljer du knappen **alternativ** i list rutan under det avsnitt där du har valt projekt.
 
-    Markera kryssrutan bredvid *Ta bort beroenden*under *Avinstallationsalternativ.*
+    Under *avinstallations alternativ*markerar du kryss rutan bredvid *ta bort beroenden*.
 
 1. Välj **Avinstallera**.
     
-    ![Kontrollera ta bort beroenden och avinstallera sedan](./media/remove-application-insights/uninstall-framework.png)
+    ![Markera ta bort beroenden och avinstallera](./media/remove-application-insights/uninstall-framework.png)
 
-    En dialogruta visar alla beroenden som ska tas bort från programmet.Välj **ok** för att avinstallera.
+    En dialog ruta som visar alla beroenden som ska tas bort från programmet visas.Välj **OK** för att avinstallera.
     
-    ![Kontrollera ta bort beroenden och avinstallera sedan](./media/remove-application-insights/preview-uninstall-framework.png)
+    ![Markera ta bort beroenden och avinstallera](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  När allt har avinstallerats kan du fortfarande se "ApplicationInsights.config" och "AiHandleErrorAttribute.cs" i *Solution Explorer*.Du kan ta bort de två filerna manuellt.
+1.  När allt har avinstallerats kan du fortfarande se "ApplicationInsights. config" och "AiHandleErrorAttribute.cs" i *Solution Explorer*.Du kan ta bort de två filerna manuellt.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-1. Högerklicka på **Lösning**  *i Lösningsutforskaren* till höger och välj **Hantera NuGet-paket för lösning**.
+1. I *Solution Explorer* till höger högerklickar du på **lösning** och väljer **Hantera NuGet-paket för lösningen**.
 
-    Du ser sedan en skärm som låter dig redigera alla NuGet-paket som ingår i projektet.
+    Sedan visas en skärm som gör att du kan redigera alla NuGet-paket som ingår i projektet.
 
-    ![Högerklicka på Lösning i Lösningsutforskaren och välj sedan Hantera NuGet-paket för lösning](./media/remove-application-insights/manage-nuget-core.png)
+    ![Högerklicka på lösning, gå till Solution Explorer och välj Hantera NuGet-paket för lösningen](./media/remove-application-insights/manage-nuget-core.png)
 
-1. Klicka på paketet "Microsoft.ApplicationInsights.AspNetCore". Markera kryssrutan bredvid *Project* till höger för att markera alla projekt och välj sedan **Avinstallera**.
+1. Klicka på paketet "Microsoft. ApplicationInsights. AspNetCore". Till höger markerar du kryss rutan bredvid *projekt* för att markera alla projekt och väljer sedan **Avinstallera**.
 
-    ![Kontrollera ta bort beroenden och avinstallera sedan](./media/remove-application-insights/uninstall-core.png)
+    ![Markera ta bort beroenden och avinstallera](./media/remove-application-insights/uninstall-core.png)
 
 ---
 
-## <a name="what-is-created-when-you-add-application-insights"></a>Vad skapas när du lägger till Application Insights
+## <a name="what-is-created-when-you-add-application-insights"></a>Vad som skapas när du lägger till Application Insights
 
-När du lägger till Application Insights i projektet skapas filer och kod läggs till i vissa av dina filer. Enbart avinstallera NuGet Paket kommer inte alltid att kasta filer och kod. Om du vill ta bort Application Insights helt bör du kontrollera och manuellt ta bort den tillagda koden eller filerna tillsammans med alla API-anrop som du har lagt till i projektet.
+När du lägger till Application Insights i ditt projekt skapas filer och lägger till kod till några av dina filer. Att avinstallera NuGet-paketen kommer inte alltid att ignorera filer och kod. För att helt ta bort Application Insights bör du kontrol lera och manuellt ta bort den tillagda koden eller filerna tillsammans med alla API-anrop som du har lagt till i projektet.
 
 # <a name="net"></a>[.NET](#tab/net)
 
-När du lägger till Programstatistik telemetri i en Visual Studio ASP.NET projekt, läggs följande filer till:
+När du lägger till Application Insights Telemetry i ett Visual Studio ASP.NET-projekt lägger den till följande filer:
 
 - ApplicationInsights.config
 - AiHandleErrorAttribute.cs
 
-Följande koddelar läggs till:
+Följande delar av kod läggs till:
 
-- [Projektets namn].csproj
+- [Ditt projekts namn]. CSPROJ
 
     ```C#
      <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
     ```
 
-- Packages.config
+- Packages. config
 
     ```xml
     <packages>
@@ -132,9 +132,9 @@ Följande koddelar läggs till:
     </packages>
     ```
 
-- Layout.cshtml
+- Layout. cshtml
 
-    Om projektet har en Layout.cshtml-fil läggs koden nedan till.
+    Om projektet har en layout. cshtml-fil läggs koden nedan till.
     
     ```html
     <head>
@@ -155,7 +155,7 @@ Följande koddelar läggs till:
     </head>
     ```
 
-- ConnectedService.json
+- ConnectedService. JSON
 
     ```json
     {
@@ -178,9 +178,9 @@ Följande koddelar läggs till:
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-När du lägger till Programstatistik telemetri i en Visual Studio ASP.NET Core mallprojekt, läggs följande kod:
+När du lägger till Application Insights Telemetry i ett projekt i Visual Studio ASP.NET Core mal len lägger du till följande kod:
 
-- [Projektets namn].csproj
+- [Ditt projekts namn]. CSPROJ
 
     ```csharp
       <PropertyGroup>
@@ -197,14 +197,14 @@ När du lägger till Programstatistik telemetri i en Visual Studio ASP.NET Core 
       </ItemGroup>
     ```
 
-- Appsettings.json:
+- AppSettings. JSON:
 
     ```json
     "ApplicationInsights": {
         "InstrumentationKey": "00000000-0000-0000-0000-000000000000"
     ```
 
-- ConnectedService.json
+- ConnectedService. JSON
     
     ```json
     {

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa en anpassad röstassistent, Java (Android) - Taltjänst'
+title: 'Snabb start: skapa en anpassad röst assistent, Java (Android) – tal-service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en anpassad röstassistent i Java på Android med hjälp av Speech SDK.
+description: Lär dig hur du skapar en anpassad röst assistent i Java på Android med hjälp av tal-SDK.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.openlocfilehash: 8a1dd07fd567f41c2b406aabccd0421b5a6983af
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671816"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure Speech-resurs](~/articles/cognitive-services/speech-service/get-started.md)
-> * [Ställ in utvecklingsmiljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
-> * Skapa en robot som är ansluten till [direktlinjetalskanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-> * Se till att du har tillgång till en mikrofon för ljudinspelning
+> * [Skapa en Azure tal-resurs](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
+> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
   > [!NOTE]
-  > Se [listan över regioner som stöds för röstassistenter](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) och se till att dina resurser distribueras i en av dessa regioner.
+  > Se [listan över regioner som stöds för röst assistenter](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
 ## <a name="create-and-configure-a-project"></a>Skapa och konfigurera ett projekt
 
@@ -36,9 +36,9 @@ Innan du börjar måste du:
 
 ## <a name="create-user-interface"></a>Skapa användargränssnitt
 
-I det här avsnittet skapar vi ett grundläggande användargränssnitt för programmet. Låt oss börja med att `activity_main.xml`öppna huvudaktiviteten: . Den grundläggande mallen innehåller en namnlist med `TextView` programmets namn och a med meddelandet "Hello world!".
+I det här avsnittet ska vi skapa ett grundläggande användar gränssnitt (UI) för programmet. Vi börjar med att öppna huvud aktiviteten: `activity_main.xml`. Den grundläggande mallen innehåller en namn List med programmets namn och en `TextView` med meddelandet "Hello World!".
 
-Ersätt sedan innehållet i `activity_main.xml` innehållet i koden med följande kod:
+Ersätt sedan innehållet i `activity_main.xml` med följande kod:
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
@@ -87,11 +87,11 @@ Ersätt sedan innehållet i `activity_main.xml` innehållet i koden med följand
    </LinearLayout>
    ```
 
-Den här XML-koden definierar ett enkelt användargränssnitt för att interagera med din robot.
+I den här XML-koden definieras ett enkelt gränssnitt för att interagera med din robot.
 
-- Elementet `button` initierar en interaktion `onBotButtonClicked` och anropar metoden när du klickar på den.
-- Elementet `recoText` visar tal-till-text-resultaten när du pratar med din robot.
-- Elementet `activityText` visar JSON-nyttolasten för den senaste Bot Framework-aktiviteten från din bot.
+- `button` Elementet initierar en interaktion och anropar `onBotButtonClicked` metoden vid klickning.
+- I `recoText` elementet visas tal-till-text-resultatet när du pratar med din robot.
+- - `activityText` ELEMENTET visar JSON-nyttolasten för den senaste bot Framework-aktiviteten från din robot.
 
 Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här:
 
@@ -241,31 +241,31 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
     }
    ```
 
-   * Metoden `onCreate` innehåller kod som begär mikrofon- och internetbehörigheter.
+   * `onCreate` Metoden inkluderar kod som begär mikrofon-och Internet-behörigheter.
 
-   * Metoden `onBotButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapptryckning utlöser en enda interaktion ("turn") med din bot.
+   * Metoden `onBotButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapp tryckning utlöser en enda interaktion ("Vänd") med din robot.
 
-   * Metoden `registerEventListeners` visar de händelser som `DialogServiceConnector` används av och grundläggande hantering av inkommande aktiviteter.
+   * `registerEventListeners` Metoden visar de händelser som används av `DialogServiceConnector` och grundläggande hantering av inkommande aktiviteter.
 
-1. I samma fil ersätter du konfigurationssträngarna så att de matchar dina resurser:
+1. I samma fil ersätter du konfigurations strängarna så att de matchar dina resurser:
 
     * Ersätt `YourSpeechSubscriptionKey` med din prenumerationsnyckel.
 
-    * Ersätt `YourServiceRegion` med den [region som](~/articles/cognitive-services/speech-service/regions.md) är associerad med din prenumeration Endast en delmängd av taltjänstregioner stöds för närvarande med direkt radtal. Mer information finns i [regioner](~/articles/cognitive-services/speech-service/regions.md#voice-assistants).
+    * Ersätt `YourServiceRegion` med den [region](~/articles/cognitive-services/speech-service/regions.md) som är associerad med din prenumeration. endast en delmängd av tal service regionerna stöds för närvarande med direkt linje tal. Mer information finns i [regioner](~/articles/cognitive-services/speech-service/regions.md#voice-assistants).
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
 1. Anslut din Android-enhet till utvecklingsdatorn. Kontrollera att du har aktiverat [utvecklingsläge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten.
 
-1. Om du vill skapa programmet trycker du på Ctrl+F9 eller väljer **Skapa** > **projekt** på menyraden.
+1. Skapa programmet genom att trycka på CTRL + F9 eller välja **skapa** > **skapa projekt** på Meny raden.
 
-1. Om du vill starta programmet trycker du på Skift+F10 eller väljer **Kör** > **kör "app".**
+1. Starta programmet genom att trycka på SKIFT + F10 eller välja **Kör** > **Kör "app"**.
 
 1. Välj din Android-enhet i målfönstret för distribution som visas.
 
    ![Skärmbild av fönstret för att välja distributionsmål](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-12-deploy.png)
 
-När programmet och dess aktivitet har startat, klicka på knappen för att börja prata med din bot. Transkriberad text visas när du talar och den senaste aktiviteten har du fått från din bot visas när den tas emot. Om din bot är konfigurerad för att ge talade svar spelas tal till text automatiskt upp.
+När programmet och dess aktivitet har startats klickar du på knappen för att börja prata med din robot. Texten som skrivs in visas när du talar och den senaste aktiviteten har du fått från din robot visas när den tas emot. Om din robot har kon figurer ATS för att ge talade svar spelas tal-till-text upp automatiskt.
 
 ![Skärmbild av Android-programmet](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-completed-turn.png)
 

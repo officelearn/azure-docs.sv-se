@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Analysera fjärravbildning - REST, JavaScript'
+title: 'Snabb start: analysera fjärran sluten avbildning – REST, Java Script'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten får du analysera en bild med hjälp av API för visuellt innehåll med JavaScript.
 services: cognitive-services
@@ -12,32 +12,32 @@ ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 1d77acf9f076bbb9a4f4da5c592a0443b8585299
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656108"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och JavaScript i Visuellt innehåll
 
-I den här snabbstarten analyserar du en fjärrbearbetiserad bild för att extrahera visuella funktioner med hjälp av REST-APIN för visuellt innehåll. Med metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bildinnehåll.
+I den här snabb starten ska du analysera en fjärrlagrad avbildning för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bild innehåll.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Spara prenumerationsnyckeln och slutpunkts-URL:en på en tillfällig plats.
+Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Spara prenumerations nyckeln och slut punkts-URL: en på en tillfällig plats.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
 Så här skapar du och kör exemplet:
 
-1. Skapa en fil som heter _analyze-image.html_, öppna den i en textredigerare och kopiera följande kod till den.
+1. Skapa en fil med namnet _Analyze-image. html_, öppna den i en text redigerare och kopiera följande kod till den.
 1. Du kan också ersätta värdet för `value`-attributet för `inputImage`-kontrollen med webbadressen till en annan bild som du vill analysera.
 1. Öppna ett webbläsarfönster.
 1. Dra och släpp filen till webbläsarfönstret i webbläsaren.
-1. När webbsidan visas i webbläsaren klistrar du in prenumerationsnyckeln och slutpunkts-URL:en i lämpliga inmatningsrutor.
-1. Välj knappen **Analysera bild.**
+1. När webb sidan visas i webbläsaren klistrar du in din prenumerations nyckel och slut punkts-URL i lämpliga inmatade rutor.
+1. Välj knappen **analysera avbildning** .
 
 ```html
 <!DOCTYPE html>

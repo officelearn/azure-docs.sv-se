@@ -1,19 +1,19 @@
 ---
-title: PowerShell-skript för att ändra redundansprioritet för ett Azure Cosmos-konto med en huvudhanterare
-description: Azure PowerShell-skriptexempel - Ändra redundansprioritet eller utlösa redundans för ett Azure Cosmos DB-enmanskonto
+title: PowerShell-skript för att ändra växlings prioritet för ett Azure Cosmos-konto med en Master
+description: Azure PowerShell skript exempel – ändra prioritet för växling vid fel eller utlös redundans för ett Azure Cosmos DB ett enkelt huvud konto
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80366110"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Ändra redundansprioritet eller utlösa redundans för ett Azure Cosmos DB-enhuvudkonto med PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Ändra växlings prioritet eller utlös redundans för ett Azure Cosmos DB ett enkelt huvud konto med PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,9 +22,9 @@ ms.locfileid: "80366110"
 ## <a name="sample-script"></a>Exempelskript
 
 > [!NOTE]
-> Alla ändringar i `failoverPriority=0` en region med utlöser en manuell redundans och kan endast göras på ett konto som konfigurerats för manuell redundans. Ändringar i alla andra regioner ändrar helt enkelt redundansprioriteten för ett Cosmos-konto.
+> Alla ändringar i en region med `failoverPriority=0` utlöser en manuell redundans och kan bara göras till ett konto som kon figurer ATS för manuell redundansväxling. Ändringar i alla andra regioner ändrar bara växlings prioriteten för ett Cosmos-konto.
 > [!NOTE]
-> Det här exemplet visas med hjälp av ett SQL-API-konto (Core). Om du vill använda det här exemplet för andra API:er kopierar du de relaterade egenskaperna och gäller för ditt API-specifika skript
+> Det här exemplet visar hur du använder ett SQL (Core) API-konto. Om du vill använda det här exemplet för andra API: er kopierar du de relaterade egenskaperna och tillämpar på ditt API-speciella skript
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-failover-priority-update.ps1 "Update failover priority for an Azure Cosmos account or trigger a manual failover")]
 
@@ -40,12 +40,12 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Få-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Visar Cosmos DB-konton eller får ett angivet Cosmos DB-konto. |
-| [Uppdatering-AzCosmosDBAccountFailoverPriority](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountfailoverpriority) | Uppdatera redundansprioritetsordningen för en Cosmos DB-kontos regioner. |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Listar Cosmos DB konton eller hämtar ett angivet Cosmos DB-konto. |
+| [Uppdatera – AzCosmosDBAccountFailoverPriority](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountfailoverpriority) | Uppdatera prioritets ordningen för redundans för ett Cosmos DB kontos regioner. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Catchpoint'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Catchpoint'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Catchpoint.
 services: active-directory
 documentationCenter: na
@@ -16,127 +16,127 @@ ms.date: 02/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b19e286d299811a950df05f93d221bd710676ea
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80743491"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Självstudiekurs: Azure Active Directory enkel inloggningsintegrering med Catchpoint
+# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Självstudie: Azure Active Directory integration med enkel inloggning med Catchpoint
 
 I den här självstudien får du lära dig hur du integrerar Catchpoint med Azure Active Directory (Azure AD). När du integrerar Catchpoint med Azure AD kan du:
 
-* Kontrollera användaråtkomst till Catchpoint från Azure AD.
+* Kontrol lera användar åtkomst till Catchpoint från Azure AD.
 * Aktivera automatisk Catchpoint-inloggning för användare med Azure AD-konton.
-* Hantera dina konton på en central plats: Azure-portalen.
+* Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* En Catchpoint-prenumeration med enkel inloggning (SSO) aktiverad.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* En Catchpoint-prenumeration med enkel inloggning aktive rad (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Catchpoint stöder SP-initierad och IDP-initierad SSO.
-* Catchpoint stöder jit-etablering (just-in-time).
-* När du har konfigurerat Catchpoint kan du framtvinga sessionskontrollen. Den här försiktighetsåtgärden skyddar mot exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen är ett tillägg av villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Catchpoint stöder just-in-Time (JIT)-användar etablering.
+* När du har konfigurerat Catchpoint kan du framtvinga kontroll av sessionen. Den här försiktighets åtgärden skyddar mot exfiltrering och intrånget av organisationens känsliga data i real tid. Session Control är en utökning av villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="add-catchpoint-from-the-gallery"></a>Lägga till Catchpoint från galleriet
+## <a name="add-catchpoint-from-the-gallery"></a>Lägg till Catchpoint från galleriet
 
 Om du vill konfigurera integreringen av Catchpoint i Azure AD lägger du till Catchpoint i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets-, skol- eller personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i den vänstra rutan.
-1. Gå till **Företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Catchpoint** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Catchpoint** på resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-, skol-eller personligt Microsoft-konto.
+1. I den vänstra rutan väljer du tjänsten **Azure Active Directory** .
+1. Gå till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Catchpoint** i sökrutan.
+1. Välj **Catchpoint** på panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-catchpoint"></a>Konfigurera och testa en azure AD-inloggning för Catchpoint
+## <a name="configure-and-test-azure-ad-single-sign-on-for-catchpoint"></a>Konfigurera och testa enkel inloggning med Azure AD för Catchpoint
 
-För att SSO ska fungera måste du länka en Azure AD-användare med en användare i Catchpoint. För den här självstudien konfigurerar vi en testanvändare som heter **B.Simon**. 
+För att SSO ska fungera måste du länka en Azure AD-användare till en användare i Catchpoint. I den här självstudien konfigurerar vi en test användare som kallas **B. Simon**. 
 
-Fyll i följande avsnitt:
+Slutför följande avsnitt:
 
 1. [Konfigurera Azure AD SSO](#configure-azure-ad-sso)för att aktivera den här funktionen för dina användare.
-    * [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)för att testa Azure AD enkel inloggning med B.Simon.
-    * [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)för att aktivera B.Simon för att använda Azure AD enkel inloggning.
-1. [Konfigurera Catchpoint SSO](#configure-catchpoint-sso)för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    * [Skapa Catchpoint-testanvändare](#create-a-catchpoint-test-user)för att tillåta länkning av B.Simon Azure AD-testkontot till ett liknande användarkonto i Catchpoint.
-1. [Testa SSO](#test-sso)för att kontrollera att konfigurationen fungerar.
+    * [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)för att testa enkel inloggning i Azure AD med B. Simon.
+    * [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)för att aktivera B. Simon att använda enkel inloggning med Azure AD.
+1. [Konfigurera CATCHPOINT SSO](#configure-catchpoint-sso)för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * [Skapa Catchpoint test User](#create-a-catchpoint-test-user)för att tillåta länkning av B. Simon Azure AD-testkontot till ett liknande användar konto i Catchpoint.
+1. [Testa SSO](#test-sso)för att verifiera att konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg i Azure-portalen för att aktivera Azure AD SSO:
+Följ de här stegen i Azure Portal för att aktivera Azure AD SSO:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-1. På sidan **Catchpoint-programintegration** hittar du avsnittet **Hantera** och väljer enkel **inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du pennikonen för att redigera inställningarna för grundläggande **SAML-konfiguration.**
+1. På sidan **Catchpoint** program integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för att redigera de grundläggande inställningarna för **SAML-konfigurationen** .
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. Konfigurera det initierade läget för Catchpoint:
-   - För **IDP-initierat**läge anger du värdena för följande fält:
-     - För **identifierare:**`https://portal.catchpoint.com/SAML2`
-     - För **svar URL:**`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
-   - För **SP**SP-initierat läge väljer du **Ange ytterligare webbadresser** och anger följande värde:
-     - För **sign-on URL:**`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
+   - Ange värden för följande fält för **IDP**-initierat läge:
+     - För **identifierare**:`https://portal.catchpoint.com/SAML2`
+     - För **svars-URL**:`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
+   - För **SP**-initierat läge väljer du **Ange ytterligare URL: er** och anger följande värde:
+     - För **inloggnings-URL**:`https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
 
-1. Catchpoint-programmet förväntar sig SAML-påståenden i ett visst format. Lägg till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande tabell innehåller en lista över standardattribut:
+1. Catchpoint-programmet förväntar sig SAML-intyg i ett särskilt format. Lägg till anpassade mappningar av attribut i konfigurationen av SAML-token-attribut. Följande tabell innehåller en lista över standardattribut:
 
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | ------------ | --------- |
-    | Givennamn | användare.givenneame |
+    | GivenName | User. givenneame |
     | Efternamn | user.surname |
-    | Emailaddress | user.mail |
-    | Namn | user.userprincipalname |
+    | EmailAddress | user.mail |
+    | Name | user.userprincipalname |
     | Unik användaridentifierare | user.userprincipalname |
 
-    ![Användarattribut & skadelista skärmdump](common/default-attributes.png)
+    ![Skärm bild för användarattribut & lista över anspråk](common/default-attributes.png)
 
-1. Catchpoint-programmet förväntar sig också att ett annat attribut skickas i ett SAML-svar. Se följande tabell. Det här attributet är också ifyllt, men du kan granska och uppdatera det så att det passar dina behov.
+1. Dessutom förväntar sig Catchpoint-programmet att ett annat attribut skickas i ett SAML-svar. Se följande tabell. Det här attributet är också ifyllt, men du kan granska och uppdatera det så att det passar dina behov.
 
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | ------------ | --------- |
     | namnområde | user.assignedrole |
 
     > [!NOTE]
-    > Anspråket `namespace` måste mappas med kontonamnet. Det här kontonamnet bör konfigureras med en roll i Azure AD som ska skickas tillbaka i SAML-svar. Mer information om roller i Azure AD finns i [Konfigurera rollanspråket som utfärdats i SAML-token för företagsprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+    > `namespace` Anspråket måste mappas med konto namnet. Det här konto namnet måste konfigureras med en roll i Azure AD för att kunna skickas tillbaka i SAML-svar. Mer information om roller i Azure AD finns i [Konfigurera roll anspråk som utfärdats i SAML-token för företags program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-1. Gå till sidan **Konfigurera enkel inloggning med SAML.** Leta reda på **certifikat (Base64)** i avsnittet **SAML-signeringscertifikat** . Välj **Hämta** om du vill spara certifikatet på datorn.
+1. Gå till sidan **Konfigurera enkel inloggning med SAML** . I avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)**. Välj **Ladda ned** för att spara certifikatet på din dator.
 
-    ![Länken för hämtning av certifikat](common/certificatebase64.png)
+    ![Länken Hämta certifikat](common/certificatebase64.png)
 
-1. Kopiera webbadresserna som du behöver i ett senare steg i avsnittet **Konfigurera Catchpoint.**
+1. I avsnittet **Konfigurera Catchpoint** kopierar du de webb adresser som du behöver i ett senare steg.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet använder du Azure-portalen för att skapa en Azure AD-testanvändare som heter B.Simon.
+I det här avsnittet använder du Azure Portal för att skapa en Azure AD-test användare som heter B. Simon.
 
-1. Välj Azure Active Directory**Users** > **All-användare**i den vänstra rutan i **Azure-portalen** > .
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** > **användare** > **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Ange till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord.** Observera det visade lösenordsvärdet.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Ange till exempel `B.Simon@contoso.com`.
+   1. Markera kryss rutan **Visa lösen ord** . Observera värdet för lösen ord som visas.
    1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Catchpoint.
+I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Catchpoint.
 
-1. I Azure-portalen väljer du Alla**program för** >  **företagsprogram**.
-1. Välj **Catchpoint**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program** > **alla program**.
+1. I listan program väljer du **Catchpoint**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -144,45 +144,45 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
     ![Länken "Lägg till användare"](common/add-assign-user.png)
 
-1. Välj **B.Simon** i listan över användare **och grupper.** Klicka på **Markera** längst ned på skärmen.
-1. Om du förväntar dig ett rollvärde i SAML-påståendet tittar du i dialogrutan **Välj roll** och väljer användarens roll i listan. Klicka på knappen **Välj** längst ned på skärmen.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan över användare. Klicka på **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML-kontrollen, tittar du i dialog rutan **Välj roll** och väljer användarens roll i listan. Klicka på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
 ## <a name="configure-catchpoint-sso"></a>Konfigurera Catchpoint SSO
 
-1. I ett annat webbläsarfönster loggar du in på Catchpoint-programmet som administratör.
+1. Logga in på Catchpoint-programmet som administratör i ett annat webbläsarfönster.
 
-1. Välj ikonen **Inställningar** och sedan **SSO Identity Provider**.
+1. Välj **inställnings** ikonen och sedan **SSO Identity Provider**.
 
-    ![Skärmbild av Catchpoint-inställningar med SSO Identity Provider markerad](./media/catchpoint-tutorial/configuration1.png)
+    ![Skärm bild för Catchpoint inställningar med SSO-identitetsprovider vald](./media/catchpoint-tutorial/configuration1.png)
 
-1. På sidan **Enkel inloggning** anger du följande fält:
+1. Ange följande fält på sidan **enkel inloggning** :
 
-   ![Catchpoint Single Sign On sida skärmdump](./media/catchpoint-tutorial/configuration2.png)
+   ![Skärm bild av Catchpoint enkel inloggning](./media/catchpoint-tutorial/configuration2.png)
 
    Field | Värde
    ----- | ----- 
-   **Namespace** | Ett giltigt namnområdesvärde.
-   **Utfärdare av identitetsprovider** | Värdet `Azure AD Identifier` från Azure-portalen.
-   **Url för enkel inloggning** | Värdet `Login URL` från Azure-portalen.
-   **Certifikat** | Innehållet i den `Certificate (Base64)` hämtade filen från Azure-portalen. Använd Anteckningar för att visa och kopiera.
+   **Namn område** | Ett giltigt namn områdes värde.
+   **Utfärdare av identitets leverantör** | `Azure AD Identifier` Värdet från Azure Portal.
+   **URL för enkel inloggning** | `Login URL` Värdet från Azure Portal.
+   **Certifikatmallens** | Innehållet i den hämtade `Certificate (Base64)` filen från Azure Portal. Använd anteckningar för att visa och kopiera.
 
-   Du kan också ladda upp **FEDERATIONSMETADATA-XML:en** genom att välja alternativet **Ladda upp metadata.**
+   Du kan också ladda upp **XML-metadata för federationsmetadata** genom att välja alternativet **Ladda upp metadata** .
 
 1. Välj **Spara**.
 
-### <a name="create-a-catchpoint-test-user"></a>Skapa en Catchpoint-testanvändare
+### <a name="create-a-catchpoint-test-user"></a>Skapa en Catchpoint-test användare
 
-Catchpoint stöder just-in-time-användaretablering, vilket är aktiverat som standard. Du har inga åtgärdsobjekt i det här avsnittet. Om B.Simon inte redan finns som användare i Catchpoint skapas den efter autentisering.
+Catchpoint stöder just-in-Time-etablering, som är aktiverat som standard. Du har inga åtgärds objekt i det här avsnittet. Om B. Simon inte redan finns som en användare i Catchpoint, skapas det efter autentiseringen.
 
 ## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet testar du din Azure AD-konfiguration med hjälp av portalen Mina appar.
+I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av portalen Mina appar.
 
-När du väljer Catchpoint-panelen i portalen Mina appar bör du automatiskt loggas in i Catchpoint-appen med SSO konfigurerat. Mer information om portalen Mina appar finns [i Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+När du väljer panelen Catchpoint i portalen Mina appar, bör du loggas in automatiskt till Catchpoint-appen med SSO konfigurerat. Mer information om mina apps-portalen finns i [Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 > [!NOTE]
-> När du är inloggad i Catchpoint-programmet via inloggningssidan anger du det giltiga **namnområdesvärdet** i fältet **Företagsautentiseringsuppgifter (SSO)** efter att ha angett **Catchpoint-autentiseringsuppgifter**och väljer **Logga in**.
+> När du är inloggad på Catchpoint-programmet via inloggnings sidan anger du det giltiga **namn område** svärdet i fältet **företagets autentiseringsuppgifter (SSO)** efter att ha angett **Catchpoint-autentiseringsuppgifter**och väljer **Logga in**.
 > 
 > ![Catchpoint-konfiguration](./media/catchpoint-tutorial/loginimage.png)
 
@@ -190,10 +190,10 @@ När du väljer Catchpoint-panelen i portalen Mina appar bör du automatiskt log
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Catchpoint med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -16,10 +16,10 @@ ms.date: 04/03/2020
 ms.author: labrenne
 ms.custom: include file
 ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80657487"
 ---
 ### <a name="general-requirements"></a>Allmänna krav
@@ -49,41 +49,41 @@ Ytterligare krav för virtuella nätverk varierar beroende på huruvida Batch-po
 **Ytterligare nätverksresurser** – Batch tilldelar automatiskt ytterligare nätverksresurser i den resursgrupp som innehåller det virtuella nätverket.
 
 > [!IMPORTANT]
->För varje 50 dedikerade noder (eller varje 20 noder med låg prioritet) allokerar Batch: en nätverkssäkerhetsgrupp (NSG), en offentlig IP-adress och en belastningsutjämnare. Dessa resurser begränsas av prenumerationens [resurskvoter](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). För stora pooler kan du behöva begära en kvotökning för en eller flera av dessa resurser.
+>För varje 50 dedikerade noder (eller varje 20 låg prioritets nod), allokerar batch: en nätverks säkerhets grupp (NSG), en offentlig IP-adress och en belastningsutjämnare. Dessa resurser begränsas av prenumerationens [resurskvoter](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). För stora pooler kan du behöva begära en kvot ökning för en eller flera av dessa resurser.
 
-#### <a name="network-security-groups-batch-default"></a>Nätverkssäkerhetsgrupper: Standard för batch
+#### <a name="network-security-groups-batch-default"></a>Nätverks säkerhets grupper: standard för batch
 
-Undernätet måste tillåta inkommande kommunikation från batch-tjänsten för att kunna schemalägga aktiviteter på beräkningsnoderna och utgående kommunikation för att kommunicera med Azure Storage eller andra resurser som behövs av din arbetsbelastning. För pooler i konfigurationen för virtuella datorer lägger Batch till NSG:er på nätverksgränssnittsnivå som är kopplad till beräkningsnoder. Dessa NSG-grupper är konfigurerade med följande ytterligare regler:
+Under nätet måste tillåta inkommande kommunikation från batch-tjänsten för att kunna schemalägga aktiviteter på datornoderna och utgående kommunikation för att kommunicera med Azure Storage eller andra resurser efter behov av din arbets belastning. För pooler i konfigurationen för den virtuella datorn lägger batchen till NSG: er på nätverkskorts nivån som är kopplad till datornoderna. Dessa NSG: er konfigureras med följande ytterligare regler:
 
-* Inkommande TCP-trafik på portarna 29876 och 29877 från `BatchNodeManagement` batch-tjänst-IP-adresser som motsvarar servicetag.
-* Inkommande TCP-trafik på port 22 (Linux-noder) eller port 3389 (Windows-noder) för att tillåta fjärråtkomst. För vissa typer av multiinstansuppgifter på Linux (till exempel MPI) måste du också tillåta SSH-port 22-trafik för IP-adresser i undernätet som innehåller batch-beräkningsnoderna. Detta kan blockeras per NSG-regler på undernätsnivå (se nedan).
-* Utgående trafik på vilken port som helst till det virtuella nätverket. Detta kan ändras per NSG-regler på undernätsnivå (se nedan).
-* Utgående trafik på valfri port till Internet. Detta kan ändras per NSG-regler på undernätsnivå (se nedan).
+* Inkommande TCP-trafik på portarna 29876 och 29877 från batch-tjänstens IP- `BatchNodeManagement` adresser som motsvarar tjänst tag gen.
+* Inkommande TCP-trafik på port 22 (Linux-noder) eller port 3389 (Windows-noder) för att tillåta fjärråtkomst. För vissa typer av aktiviteter med flera instanser i Linux (till exempel MPI) måste du även tillåta SSH port 22-trafik för IP-adresser i under nätet som innehåller batch-datornoder. Detta kan blockeras per NSG-regler för under näts nivå (se nedan).
+* Utgående trafik på vilken port som helst till det virtuella nätverket. Detta kan ändras per NSG-regler för under näts nivå (se nedan).
+* Utgående trafik på alla portar till Internet. Detta kan ändras per NSG-regler för under näts nivå (se nedan).
 
 > [!IMPORTANT]
-> Var försiktig om du ändrar eller lägger till regler för inkommande eller utgående trafik i Batch-konfigurerade NSG:er. Om kommunikation till beräkningsnoderna i det angivna undernätet nekas av en NSG, ställer Batch-tjänsten in status för beräkningsnoderna till **oanvändbara**. Dessutom bör inga resurslås tillämpas på någon resurs som skapas av Batch, annars kan detta resultera i att förhindra rensning av resurser som ett resultat av användarinitierade åtgärder som att ta bort en pool.
+> Var försiktig om du ändrar eller lägger till regler för inkommande eller utgående trafik i Batch-konfigurerade NSG:er. Om kommunikation till beräkningsnoderna i det angivna undernätet nekas av en NSG, ställer Batch-tjänsten in status för beräkningsnoderna till **oanvändbara**. Dessutom bör inga resurs lås tillämpas på någon resurs som skapats av batchen, annars kan detta leda till att resurser rensas som ett resultat av användar initierade åtgärder som att ta bort en pool.
 
-#### <a name="network-security-groups-specifying-subnet-level-rules"></a>Nätverkssäkerhetsgrupper: Ange regler på undernätsnivå
+#### <a name="network-security-groups-specifying-subnet-level-rules"></a>Nätverks säkerhets grupper: Ange regler för under näts nivå
 
-Det krävs inte att ange NSG:er på den virtuella nätverksundernätsnivån eftersom Batch konfigurerar sina egna NSG-grupper (se ovan). Om du har en NSG som är associerad med undernätet där batchberäkningsnoder distribueras eller vill tillämpa anpassade NSG-regler för att åsidosätta de standardinställningar som tillämpas, måste du konfigurera den här NSG-datorn med åtminstone de inkommande och utgående säkerhetsreglerna som visas i följande tabeller.
+Du behöver inte ange NSG: er på under näts nivån för det virtuella nätverket eftersom batch konfigurerar sin egen NSG: er (se ovan). Om du har en NSG som är associerad med under nätet där batch Compute-noder distribueras eller vill tillämpa anpassade NSG-regler för att åsidosätta de standardvärden som tillämpas, måste du konfigurera den här NSG med minst inkommande och utgående säkerhets regler som visas i följande tabeller.
 
-Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om du behöver tillåta fjärråtkomst till beräkningsnoderna från externa källor. Du kan behöva aktivera port 22-regler på Linux om du behöver stöd för multiinstansuppgifter med vissa MPI-körningar. Att tillåta trafik på dessa portar krävs inte strikt för att poolberäkningsnoderna ska kunna användas.
+Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om du behöver tillåta fjärråtkomst till Compute-noderna från externa källor. Du kan behöva aktivera port 22-regler på Linux om du behöver stöd för aktiviteter med flera instanser med vissa MPI-körningar. Att tillåta trafik på dessa portar är inte absolut nödvändigt för att datornoder ska kunna användas.
 
 **Säkerhetsregler för inkommande trafik**
 
-| Käll-IP-adresser | Servicetag för källa | Källportar | Mål | Målportar | Protokoll | Åtgärd |
+| Käll-IP-adresser | Käll tjänst tag gen | Källportar | Mål | Målportar | Protokoll | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Ej tillämpligt | `BatchNodeManagement`[Servicetag](../articles/virtual-network/security-overview.md#service-tags) (om du använder regional variant, i samma region som ditt Batch-konto) | * | Alla | 29876–29877 | TCP | Tillåt |
-| Ip-adresser för användarkällor för fjärråtkomst till beräkningsnoder och/eller beräkningsnodundernät för Linux-multiinstansuppgifter, om det behövs. | Ej tillämpligt | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
+| Ej tillämpligt | `BatchNodeManagement`[Service tag](../articles/virtual-network/security-overview.md#service-tags) (om du använder regional variant, i samma region som batch-kontot) | * | Alla | 29876–29877 | TCP | Tillåt |
+| Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | Ej tillämpligt | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
 
 > [!WARNING]
-> Batch-tjänst IP-adresser kan ändras med tiden. Därför rekommenderas det starkt att `BatchNodeManagement` använda servicetag (eller regional variant) för NSG-regler. Det rekommenderas inte att fylla I NSG-regler med Batch-tjänst IP-adresser direkt.
+> IP-adresser för batch-tjänsten kan ändras med tiden. Därför rekommenderas det starkt att använda `BatchNodeManagement` tjänst tag gen (eller regional variant) för NSG-regler. Vi rekommenderar inte att du fyller i NSG-regler med batch-tjänstens IP-adresser direkt.
 
 **Säkerhetsregler för utgående trafik**
 
-| Källa | Källportar | Mål | Måltjänsttagg | Målportar | Protokoll | Åtgärd |
+| Källa | Källportar | Mål | Måltjänsttagg | Målportar | Protokoll | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Alla | * | [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(om du använder regional variant, i samma region som ditt Batch-konto) | 443 | TCP | Tillåt |
+| Alla | * | [Tjänsttagg](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(om du använder regional variant, i samma region som batch-kontot) | 443 | TCP | Tillåt |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pooler i Cloud Services-konfigurationen
 
@@ -103,17 +103,17 @@ Undernätet måste tillåta inkommande kommunikation från Batch-tjänsten för 
 
 Du behöver inte ange en NSG eftersom Batch endast konfigurerar inkommande kommunikation från Batch-IP-adresser till poolnoderna. Om det angivna undernätet dock har associerade NSG:er (NSG:er) och/eller en brandvägg konfigurerar du säkerhetsreglerna för inkommande och utgående trafik enligt det som visas i följande tabeller. Om kommunikation till beräkningsnoderna i det angivna undernätet nekas av en NSG, ställer Batch-tjänsten in status för beräkningsnoderna till **oanvändbara**.
 
-Konfigurera inkommande trafik på port 3389 för Windows om du behöver tillåta RDP-åtkomst till poolnoderna. Det krävs inte för att poolnoderna ska kunna användas.
+Konfigurera inkommande trafik på port 3389 för Windows om du behöver tillåta RDP-åtkomst till noderna i poolen. Det krävs inte för att poolnoderna ska kunna användas.
 
 **Säkerhetsregler för inkommande trafik**
 
-| Käll-IP-adresser | Källportar | Mål | Målportar | Protokoll | Åtgärd |
+| Käll-IP-adresser | Källportar | Mål | Målportar | Protokoll | Action |
 | --- | --- | --- | --- | --- | --- |
 Alla <br /><br />Även om detta i princip kräver ”tillåt alla” så tillämpar Batch-tjänsten en ACL-regel på nivån för varje nod som filtrerar ut alla IP-adresser som inte gäller för Batch-tjänsten. | * | Alla | 10100, 20100, 30100 | TCP | Tillåt |
-| Valfritt, för att tillåta RDP-åtkomst till beräkningsnoder. | * | Alla | 3389 | TCP | Tillåt |
+| Valfritt, för att tillåta RDP-åtkomst till Compute-noder. | * | Alla | 3389 | TCP | Tillåt |
 
 **Säkerhetsregler för utgående trafik**
 
-| Källa | Källportar | Mål | Målportar | Protokoll | Åtgärd |
+| Källa | Källportar | Mål | Målportar | Protokoll | Action |
 | --- | --- | --- | --- | --- | --- |
 | Alla | * | Alla | 443  | Alla | Tillåt |

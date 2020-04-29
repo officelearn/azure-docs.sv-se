@@ -1,6 +1,6 @@
 ---
-title: Indexering i Azure Cosmos DB Cassandra API-konto
-description: Lär dig hur sekundär indexering fungerar i Azure Azure Cosmos DB Cassandra API-konto.
+title: Indexering i Azure Cosmos DB API för Cassandra konto
+description: Lär dig hur sekundär indexering fungerar i Azure Azure Cosmos DB API för Cassandra-konto.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,37 +8,37 @@ ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
 ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80758032"
 ---
-# <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Sekundär indexering i Azure Cosmos DB Cassandra API
+# <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Sekundär indexering i Azure Cosmos DB API för Cassandra
 
-Cassandra-API:et i Azure Cosmos DB utnyttjar den underliggande indexeringsinfrastrukturen för att exponera indexeringsstyrkan som är inbyggd i plattformen. Till skillnad från sql-huvud-API:et indexerar Cassandra API i Azure Cosmos DB dock inte alla attribut som standard. I stället stöder den sekundär indexering för att skapa ett index på vissa attribut, som fungerar på samma sätt som Apache Cassandra.  
+API för Cassandra i Azure Cosmos DB utnyttjar den underliggande indexerings infrastrukturen för att exponera den index styrka som är inbyggd i plattformen. Men till skillnad från SQL API-kärnan indexeras API för Cassandra i Azure Cosmos DB inte alla attribut som standard. I stället stöder den sekundär indexering för att skapa ett index på vissa attribut, som fungerar på samma sätt som Apache Cassandra.  
 
-I allmänhet rekommenderas det inte att köra filterfrågor på kolumnerna som inte är partitionerade. Du måste använda syntaxen TILLÅT FILTRERING explicit, vilket resulterar i en åtgärd som kanske inte fungerar bra. I Azure Cosmos DB kan du köra sådana frågor på låga kardinalitetsattribut eftersom de fläktar ut över partitioner för att hämta resultaten.
+I allmänhet uppmanas vi inte att köra filter frågor på de kolumner som inte är partitionerade. Du måste använda syntaxen Tillåt filtrering explicit, vilket resulterar i en åtgärd som kanske inte fungerar bra. I Azure Cosmos DB kan du köra sådana frågor på attribut med låg kardinalitet eftersom de sprider sig över partitioner för att hämta resultaten.
 
-Det rekommenderas inte att skapa ett index i en ofta uppdaterad kolumn. Det är klokt att skapa ett index när du definierar tabellen. Detta säkerställer att data och index är i ett konsekvent tillstånd. Om du skapar ett nytt index för befintliga data kan du för närvarande inte spåra indexstatusändringen för tabellen. Om du behöver spåra förloppet för den här åtgärden måste du begära förloppsändring via en [supportbiljett.]( https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
+Vi rekommenderar inte att du skapar ett index i en ofta uppdaterad kolumn. Det är försiktig att skapa ett index när du definierar tabellen. Detta säkerställer att data och index är i ett konsekvent tillstånd. Om du skapar ett nytt index för befintliga data kan du för närvarande inte spåra ändring av index förloppet för tabellen. Om du behöver följa förloppet för den här åtgärden måste du begära att förloppet ändras via ett [support ärende]( https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 
 > [!NOTE]
-> Sekundärt index stöds inte på följande objekt:
-> - datatyper som frysta insamlingstyper, decimaler och varianttyper.
+> Sekundärt index stöds inte för följande objekt:
+> - data typer som frysta samlings typer, decimaler och variant-typer.
 > - Statiska kolumner
-> - Klusternycklar
+> - Kluster nycklar
 
-## <a name="indexing-example"></a>Exempel på indexering
+## <a name="indexing-example"></a>Indexerings exempel
 
-Skapa först ett exempel på nyckelutrymme och tabell genom att köra följande kommandon i CQL-skalprompten:
+Börja med att skapa ett exempel på ett blank steg och en tabell genom att köra följande kommandon i CQL Shell-prompten:
 
 ```shell
 CREATE KEYSPACE sampleks WITH REPLICATION = {'class' : 'SimpleStrategy'};
 CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=400;
 ``` 
 
-Infoga sedan exempelanvändardata med följande kommandon:
+Infoga sedan exempel användar data med följande kommandon:
 
 ```shell
 insert into sampleks.t1(user_id,lastname) values (1, 'nishu');
@@ -51,26 +51,26 @@ insert into sampleks.t1(user_id,lastname) values (8, 'Theo');
 insert into sampleks.t1(user_id,lastname) values (9, 'jagan');
 ```
 
-Om du försöker köra följande utdrag kommer du att stöta `ALLOW FILTERING`på ett fel som ber dig att använda: 
+Om du försöker köra följande instruktion får du ett fel meddelande som uppmanar dig att använda `ALLOW FILTERING`: 
 
 ```shell
 select user_id, lastname from sampleks.t1 where lastname='nishu';
 ``` 
 
-Även om Cassandra API stöder TILLÅT FILTRERING, som nämns i föregående avsnitt, rekommenderas det inte. Du bör i stället skapa ett index i följande exempel:
+Även om API för Cassandra stöder filtrering, som vi nämnt i föregående avsnitt, rekommenderar vi inte det. I stället bör du skapa ett index i som visas i följande exempel:
 
 ```shell
 CREATE INDEX ON sampleks.t1 (lastname);
 ```
-När du har skapat ett index i fältet "efternamn" kan du nu köra den föregående frågan. Med Cassandra API i Azure Cosmos DB behöver du inte ange ett indexnamn. Ett standardindex `tablename_columnname_idx` med format används. Är till ` t1_lastname_idx` exempel indexnamnet för föregående tabell.
+När du har skapat ett index i fältet LastName kan du köra den tidigare frågan. Med API för Cassandra i Azure Cosmos DB behöver du inte ange något index namn. Ett standard index med format `tablename_columnname_idx` används. Till exempel ` t1_lastname_idx` är index namnet för föregående tabell.
 
-## <a name="dropping-the-index"></a>Släppa indexet 
-Du måste veta vad indexnamnet är för att släppa indexet. Kör `desc schema` kommandot för att få en beskrivning av tabellen. Utdata för det här kommandot innehåller `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)`indexnamnet i formatet . Du kan sedan använda indexnamnet för att släppa indexet enligt följande exempel:
+## <a name="dropping-the-index"></a>Släpper indexet 
+Du måste veta vad index namnet är för att ta bort indexet. Kör `desc schema` kommandot för att hämta en beskrivning av din tabell. Utdata från det här kommandot inkluderar index namnet i formatet `CREATE INDEX tablename_columnname_idx ON keyspacename.tablename(columnname)`. Du kan sedan använda index namnet för att ta bort indexet, som du ser i följande exempel:
 
 ```shell
 drop index sampleks.t1_lastname_idx;
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur [automatisk indexering](index-overview.md) fungerar i Azure Cosmos DB
+* Lär dig hur [Automatisk indexering](index-overview.md) fungerar i Azure Cosmos DB
 * [Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API](cassandra-support.md)

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: a060cd35bbb42d2c31e98bed4855b2d27bfcbada
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756640"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
@@ -34,9 +34,9 @@ I det här avsnittet använder du portalens användargränssnitt för att lägga
 
 1. Välj funktionen som du skapade i den tidigare snabbstarten.
 
-1. Välj **Integrera > ny utdata > Azure Queue Storage**.
+1. Välj **integrera > nya utdata > Azure Queue Storage**.
 
-1. Klicka på **Markera**.
+1. Klicka på **Välj**.
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -48,7 +48,7 @@ I det här avsnittet använder du portalens användargränssnitt för att lägga
 
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Inställning      |  Föreslaget värde   | Beskrivning                              |
+    | Inställningen      |  Föreslaget värde   | Beskrivning                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Meddelandeparameternamn** | outputQueueItem | Namnet på utdatabindningsparametern. | 
     | **Lagringskontoanslutning** | AzureWebJobsStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |

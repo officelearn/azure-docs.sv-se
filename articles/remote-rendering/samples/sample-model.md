@@ -1,43 +1,43 @@
 ---
-title: Exempel modeller
-description: Visar källor för exempelmodeller.
+title: Exempelmodeller
+description: Visar en lista över källor för exempel modeller.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/29/2020
 ms.topic: sample
 ms.openlocfilehash: 0c28d36c7934fbbac0ddd11562c8dc237b0360ee
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679487"
 ---
-# <a name="sample-models"></a>Exempel modeller
+# <a name="sample-models"></a>Exempelmodeller
 
-I den här artikeln visas några resurser för exempeldata som kan användas för att testa Azure Remote Rendering-tjänsten.
+I den här artikeln visas några resurser för exempel data som kan användas för att testa tjänsten Azure Remote rendering.
 
-## <a name="built-in-sample-model"></a>Inbyggd exempelmodell
+## <a name="built-in-sample-model"></a>Inbyggd exempel modell
 
-Vi tillhandahåller en inbyggd exempelmodell som alltid kan läsas in med hjälp av **URL-builtin://Engine**
+Vi tillhandahåller en inbyggd exempel modell som alltid kan läsas in med URL- **Builtin://Engine**
 
-![Exempelmodell](./media/sample-model.png "Exempelmodell")
+![Exempel modell](./media/sample-model.png "Exempel modell")
 
-Modellstatistik:
+Modell statistik:
 
-| Namn | Värde |
+| Name | Värde |
 |-----------|:-----------|
-| [Obligatorisk vm-storlek](../how-tos/session-rest-api.md#create-a-session) | standard |
-| Antal trianglar | 18,7 miljoner |
+| [Nödvändig VM-storlek](../how-tos/session-rest-api.md#create-a-session) | standard |
+| Antal trianglar | 18 700 000 |
 | Antal rörliga delar | 2073 |
 | Antal material | 94 |
 
-## <a name="third-party-data"></a>Uppgifter från tredje part
+## <a name="third-party-data"></a>Data från tredje part
 
-Khronos-koncernen har en uppsättning glTF-exempelmodeller för testning. ARR stöder glTF-formatet både i text (*.gltf*) och i binär (*.glb*) form. Vi föreslår att du använder PBR-modellerna för bästa visuella resultat:
+Khronos-gruppen har en uppsättning glTF-exempel modeller för testning. ARR stöder glTF-formatet i text-(*. glTF*) och i binärformat (*. GLB*) form. Vi rekommenderar att du använder PBR-modellerna för bästa visuella resultat:
 
-* [glTF-exempelmodeller](https://github.com/KhronosGroup/glTF-Sample-Models)
+* [glTF exempel modeller](https://github.com/KhronosGroup/glTF-Sample-Models)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Återge en modell med Unity](../quickstarts/render-model.md)
-* [Snabbstart: Konvertera en modell för rendering](../quickstarts/convert-model.md)
+* [Snabb start: rendera en modell med Unity](../quickstarts/render-model.md)
+* [Snabb start: konvertera en modell för åter givning](../quickstarts/convert-model.md)

@@ -1,28 +1,28 @@
 ---
-title: Installera fjärrrenderingspaketet för Unity
-description: Förklarar hur du installerar DLL-klientens DLL-filer för fjärrrendering för Unity
+title: Installera Remote Rendering-paketet för Unity
+description: Förklarar hur du installerar klient-DLL-filerna för fjärrstyrning för Unity
 author: florianborn71
 ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 86ffe47c009f9e0ae121ffc6ab57bff8fb73210f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681186"
 ---
-# <a name="install-the-remote-rendering-package-for-unity"></a>Installera fjärrrenderingspaketet för Unity
+# <a name="install-the-remote-rendering-package-for-unity"></a>Installera Remote Rendering-paketet för Unity
 
-Azure Remote Rendering använder ett Unity-paket för att kapsla in integreringen i Unity.
+Azure fjärrrendering använder ett Unity-paket för att kapsla in integrationen i Unity.
 
-## <a name="manage-the-remote-rendering-packages-in-unity"></a>Hantera fjärrrenderingspaketen i Unity
+## <a name="manage-the-remote-rendering-packages-in-unity"></a>Hantera de fjärranslutna åter givnings paketen i Unity
 
-Unity-paket är behållare som kan hanteras via Unitys [Package Manager.](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@1.8/manual/index.html)
-Det här paketet innehåller hela C#API samt alla plugin-binärfiler som krävs för att använda Azure Remote Rendering med Unity.
-Efter Unitys namngivningsschema för paket kallas paketet **com.microsoft.azure.remote-rendering**.
+Unity-paket är behållare som kan hanteras via enhetens [paket hanterare](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@1.8/manual/index.html).
+Det här paketet innehåller hela C#-API: et och alla binärfiler för plugin-programmet som krävs för att använda Azure-fjärrrendering med Unity.
+I följande enhets namngivnings schema för paket kallas paketet **com. Microsoft. Azure. Remote-rendering**.
 
-Paketet är inte en del av [ARR-exempeldatabasen](https://github.com/Azure/azure-remote-rendering)och den är inte tillgänglig från Unitys interna paketregister. Om du vill lägga till den i ett projekt `manifest.md` måste du redigera projektets fil manuellt för att lägga till följande:
+Paketet ingår inte i [plats för arr-exempel](https://github.com/Azure/azure-remote-rendering)och är inte tillgängligt i enhetens interna paket register. Om du vill lägga till den i ett projekt måste du manuellt redigera projekt `manifest.md` filen för att lägga till följande:
 ```json
 {
   "scopedRegistries": [
@@ -38,16 +38,16 @@ Paketet är inte en del av [ARR-exempeldatabasen](https://github.com/Azure/azure
   }
 }
 ```
-När detta har lagts till kan du använda Unity Package Manager för att se till att du har den senaste versionen.
-Mer omfattande instruktioner ges i [handledningen: Inrätta en Unity projekt från grunden](../../tutorials/unity/project-setup.md).
+När du har lagt till det kan du använda paket hanteraren för att se till att du har den senaste versionen.
+Mer omfattande instruktioner finns i [självstudien: Konfigurera ett Unity-projekt från grunden](../../tutorials/unity/project-setup.md).
 
-## <a name="unity-render-pipelines"></a>Unity gör rörledningar
+## <a name="unity-render-pipelines"></a>Unity Render-pipeline
 
-Fjärrrendering fungerar med både **universalreningspipelinen** och **standardrendepipelinen**. Av prestandaskäl rekommenderas universalåtergivningspipelinen.
+Fjärrrendering fungerar med både den **universella åter givnings pipelinen** och **standard åter givnings pipelinen**. Av prestanda skäl rekommenderas den universella åter givnings pipelinen.
 
-Om du vill använda **den universella renderingspipelinen**måste dess paket installeras i Unity. Detta kan antingen göras i Unity's **Package Manager** UI (paketnamn **Universal RP**, version 7.2.1 eller nyare), eller genom `Packages/manifest.json` filen, som beskrivs i Unity projektet setup [handledning](../../tutorials/unity/project-setup.md#configure-the-projects-manifest).
+Om du vill använda **pipeline för universell Render**måste dess paket installeras i Unity. Detta kan antingen göras i enhetens **paket hanterings** gränssnitt (paket namn **Universal RP**, version 7.2.1 eller senare) eller via `Packages/manifest.json` filen, enligt beskrivningen i [själv studie kursen om installation av Unity-projekt](../../tutorials/unity/project-setup.md#configure-the-projects-manifest).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Unity spel objekt och komponenter](objects-components.md)
-* [Självstudiekurs: Ställa in ett Unity-projekt från grunden](../../tutorials/unity/project-setup.md)
+* [Unity Game-objekt och-komponenter](objects-components.md)
+* [Självstudie: Konfigurera ett Unity-projekt från grunden](../../tutorials/unity/project-setup.md)

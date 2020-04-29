@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
 ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77660299"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Börja analysera mobilappen med App Center och Application Insights
@@ -79,7 +79,7 @@ När appen skickar anpassade händelser och dessa händelser tas emot av App Cen
    | ------------- |:-------------|:-----|
    | **Namn**      | Ett globalt unikt värde, t.ex. ”myApp-iOS” | Namn som identifierar appen du övervakar |
      | **Resurs grupp**     | En ny resursgrupp eller en befintlig på menyn | Resursgruppen där den nya Application Insights-resursen ska skapas |
-   | **Location** | En plats på menyn | Välj en plats nära dig eller nära där appen finns |
+   | **Position** | En plats på menyn | Välj en plats nära dig eller nära där appen finns |
 
 3. Klicka på **Skapa**.
 

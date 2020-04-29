@@ -1,7 +1,7 @@
 ---
 title: Mått och aviseringar för Azure Virtual Network NAT
 titleSuffix: Azure Virtual Network
-description: Förstå Azure Monitor-mått och aviseringar som är tillgängliga för NAT för virtuellt nätverk.
+description: Förstå Azure Monitor mått och aviseringar som är tillgängliga för Virtual Network NAT.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -15,33 +15,33 @@ ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
 ms.openlocfilehash: 1c3a73cba6a2ece0c9c7459b3515f053a648d683
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81408613"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Azure Virtual Network NAT-mått
 
-Azure Virtual Network NAT gateway-resurser ger flerdimensionella mått. Du kan använda dessa mått för att observera åtgärden och för [felsökning](troubleshoot-nat.md).  Aviseringar kan konfigureras för kritiska problem som SNAT-utmattning.
+Azure Virtual Network NAT-gateway-resurser innehåller flerdimensionella mått. Du kan använda dessa mått för att se hur det fungerar och vid [fel sökning](troubleshoot-nat.md).  Aviseringar kan konfigureras för kritiska problem som SNAT-belastningar.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtuellt nätverk NAT för utgående till Internet">
+  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT för utgående till Internet">
 </p>
 
-*Bild: Virtuellt nätverk NAT för utgående till Internet*
+*Bild: Virtual Network NAT för utgående till Internet*
 
 ## <a name="metrics"></a>Mått
 
-NAT-gatewayresurser tillhandahåller följande flerdimensionella mått i Azure Monitor:
+NAT-gateway-resurser ger följande flerdimensionella mått i Azure Monitor:
 
-| Mått | Beskrivning | Rekommenderad aggregering | Dimensioner |
+| Mått | Beskrivning | Rekommenderad agg regering | Dimensioner |
 |---|---|---|---|
-| Byte | Byte som bearbetas inkommande och utgående | Summa | Riktning (In; Ut), Protokoll (6 TCP; 17 UDP) |
-| Paket | Paket som bearbetas inkommande och utgående | Summa | Riktning (In; Ut), Protokoll (6 TCP; 17 UDP) |
-| Tappade paket | Paket som tappats av NAT-gatewayen | Summa | / |
-| Antal SNAT-anslutningar | Tillståndsövergångar per intervall | Summa | Anslutningstillstånd, protokoll (6 TCP; 17 UDP) |
-| Totalt antal SNAT-anslutningar | Aktuella aktiva SNAT-anslutningar (~ SNAT-portar som används) | Summa | Protokoll (6 TCP; 17 UDP) |
+| Byte | Antal byte som bearbetats inkommande och utgående | Summa | Riktning (i; Ut), protokoll (6 TCP; 17 UDP) |
+| Skickas | Paket som har bearbetats inkommande och utgående | Summa | Riktning (i; Ut), protokoll (6 TCP; 17 UDP) |
+| Ignorerade paket | Paket som släppts av NAT-gatewayen | Summa | / |
+| Antal SNAT-anslutningar | Tillstånds över gångar per intervall | Summa | Anslutnings tillstånd, protokoll (6 TCP; 17 UDP) |
+| Totalt antal SNAT-anslutningar | Aktuella aktiva SNAT-anslutningar (~ SNAT-portar som används) | Summa | Protokoll (6 TCP; 17-tums UDP) |
 
 
 ## <a name="alerts"></a>Aviseringar
@@ -50,14 +50,14 @@ Aviseringar för mått kan konfigureras i Azure Monitor för vart och ett av fö
 
 ## <a name="limitations"></a>Begränsningar
 
-Resurshälsa stöds inte.
+Resource Health stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [NAT för virtuellt nätverk](nat-overview.md)
-* Lär dig mer om [NAT-gatewayresurs](nat-gateway-resource.md)
+* Läs mer om [Virtual Network NAT](nat-overview.md)
+* Lär dig om [NAT gateway-resurs](nat-gateway-resource.md)
 * Läs mer om [Azure Monitor](../azure-monitor/overview.md)
-* Lär dig mer om [felsökning av NAT-gatewayresurser](troubleshoot-nat.md).
-* [Berätta vad du ska bygga härnäst för VIRTUELLT NÄTVERK NAT i UserVoice](https://aka.ms/natuservoice).
+* Lär dig mer om att [Felsöka resurser för NAT-gateway](troubleshoot-nat.md).
+* [Berätta för oss vad du ska bygga härnäst för Virtual Network NAT i UserVoice](https://aka.ms/natuservoice).
 
 

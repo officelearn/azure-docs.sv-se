@@ -1,13 +1,13 @@
 ---
 title: Översikt över Azure Blueprint
-description: Förstå hur Azure Blueprints-tjänsten gör att du kan skapa, definiera och distribuera artefakter i din Azure-miljö.
+description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80677416"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
@@ -22,17 +22,17 @@ Skisser är en deklarativ metod för att dirigera distribution av flera resursma
 - Resursgrupper
 
 Azure Blueprints-tjänsten backas av det globalt distribuerade [Azure Cosmos DB](../../cosmos-db/introduction.md).
-Skissobjekt replikeras till flera Azure-regioner. Den här replikeringen ger låg latens, hög tillgänglighet och konsekvent åtkomst till dina skissobjekt, oavsett vilken region Azure Blueprints distribuerar dina resurser till.
+Skissobjekt replikeras till flera Azure-regioner. Den här replikeringen ger låg latens, hög tillgänglighet och konsekvent åtkomst till dina skiss objekt, oavsett vilken region Azure-ritningar distribuerar dina resurser till.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Så här skiljer de sig från Resource Manager-mallar
 
 Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resursgrupper, principer, rolltilldelningar och Resource Manager-malldistributioner. En skiss är ett paket som ska sammanföra var och en av dessa _artefakttyper_ och gör att du kan skriva och skapa en version för paketet – inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
 
-Nästan allt som du vill inkludera för distribution i Azure Blueprints kan utföras med en Resource Manager-mall. Men en Resource Manager-mall är ett dokument som inte finns inbyggt i Azure – var och en är lagrad lokalt eller i källkontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
+Nästan allt som du vill inkludera för distribution i Azure-ritningar kan utföras med en Resource Manager-mall. Men en Resource Manager-mall är ett dokument som inte finns inbyggt i Azure – var och en är lagrad lokalt eller i källkontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
 
-Med Azure Blueprints bevaras relationen mellan skissdefinitionen (vad _som ska distribueras)_ och skisstilldelningen (vad som har _distribuerats)._ Den här anslutningen har stöd för förbättrad spårning och granskning av distributioner. Azure Blueprints kan också uppgradera flera prenumerationer samtidigt som styrs av samma skiss.
+Med Azure-ritningar bevaras relationen mellan skiss definitionen (vad _ska_ distribueras) och skiss tilldelningen (vad _som distribuerades_ ). Den här anslutningen har stöd för förbättrad spårning och granskning av distributioner. Azure-ritningar kan också uppgradera flera prenumerationer samtidigt som styrs av samma skiss.
 
-Du behöver inte välja mellan en Resource Manager-mall och en skiss. Varje skiss kan bestå av noll eller flera Resource Manager-mall-_artefakter_. Det här stödet innebär att tidigare insatser för att utveckla och underhålla ett bibliotek med Resource Manager-mallar kan återanvändas i Azure Blueprints.
+Du behöver inte välja mellan en Resource Manager-mall och en skiss. Varje skiss kan bestå av noll eller flera Resource Manager-mall-_artefakter_. Det här stödet innebär att tidigare ansträngningar för att utveckla och underhålla ett bibliotek med Resource Manager-mallar kan återanvändas i Azure-ritningar.
 
 ## <a name="how-its-different-from-azure-policy"></a>Hur det skiljer sig från Azure Policy
 
@@ -46,7 +46,7 @@ En princip kan ingå som en av flera _artefakter_ i en definition av skisser. Me
 
 ## <a name="blueprint-definition"></a>Definition av skisser
 
-En skiss består av _artefakter_. Azure Blueprints stöder för närvarande följande resurser som artefakter:
+En skiss består av _artefakter_. Azure-ritningar stöder för närvarande följande resurser som artefakter:
 
 |Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
@@ -73,11 +73,11 @@ Mer information finns [Skissparametrar](./concepts/parameters.md).
 ### <a name="blueprint-publishing"></a>Publicering av skiss
 
 När en skiss först skapas betraktas den som att den är i **utkastläge**. När den är redo att tilldelas måste den vara **publicerad**. Publicering kräver att du definierar en **versionssträng** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken) tillsammans med valfria **Ändra anteckningar**. **Versionen** särskiljer den från framtida ändringar i samma skiss och gör att varje version ska tilldelas. Den här versionshanteringen innebär också att olika **versioner** i samma skiss kan tilldelas till samma prenumeration. När ytterligare ändringar görs i skissen finns den **publicerade**
-**versionen** fortfarande kvar, liksom de **opublicerade ändringarna**. När ändringarna har slutförts är den uppdaterade skissen **publicerad** med en ny och unik **version** och kan nu också tilldelas.
+**versionen** fortfarande, precis som de **opublicerade ändringarna**. När ändringarna har slutförts är den uppdaterade skissen **publicerad** med en ny och unik **version** och kan nu också tilldelas.
 
 ## <a name="blueprint-assignment"></a>Skisstilldelning
 
-Varje **publicerad** **version** av en skiss kan tilldelas (med en maxnamnlängd på 90 tecken) till en befintlig prenumeration. I portalen får skissen som standard den **version** som **publicerades** senast. Om det finns artefaktparametrar (eller skissparametrar) definieras sedan parametrarna under tilldelningen.
+Varje **publicerad** **version** av en skiss kan tilldelas (med en maximal namn längd på 90 tecken) till en befintlig prenumeration. I portalen får skissen som standard den **version** som **publicerades** senast. Om det finns artefaktparametrar (eller skissparametrar) definieras sedan parametrarna under tilldelningen.
 
 ## <a name="permissions-in-azure-blueprints"></a>Behörigheter i Azure Blueprint
 
@@ -108,26 +108,26 @@ Följande inbyggda roller är tillgängliga:
 
 |RBAC-roll | Beskrivning |
 |-|-|
-|[Ägare](../../role-based-access-control/built-in-roles.md#owner) | Förutom andra behörigheter, innehåller alla Azure Blueprint-relaterade behörigheter. |
-|[Deltagare](../../role-based-access-control/built-in-roles.md#contributor) | Förutom andra behörigheter kan du skapa och ta bort skissdefinitioner, men har inte behörighet att hantera tilldelning. |
-|[Medarbetare för skiss](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Kan hantera skissdefinitioner, men inte tilldela dem. |
-|[Skissoperatör](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Kan tilldela befintliga publicerade skisser, men kan inte skapa nya skissdefinitioner. Skisstilldelning fungerar bara om tilldelningen görs med en användartilldelad hanterad identitet. |
+|[Ägare](../../role-based-access-control/built-in-roles.md#owner) | Förutom andra behörigheter innehåller alla Azure Blueprint-relaterade behörigheter. |
+|[Deltagare](../../role-based-access-control/built-in-roles.md#contributor) | Förutom andra behörigheter kan skapa och ta bort skiss definitioner, men har inte behörighet för skiss tilldelning. |
+|[Skiss deltagare](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Kan hantera skiss definitioner, men tilldela dem inte. |
+|[Skiss operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Kan tilldela befintliga publicerade ritningar, men kan inte skapa nya skiss definitioner. Skiss tilldelning fungerar bara om tilldelningen görs med en tilldelad hanterad identitet. |
 
 Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Om du använder en systemtilldelad hanterad identitet kräver tjänsthuvudhuvudet för Azure Blueprints **ägarrollen** för den tilldelade prenumerationen för att aktivera distribution. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar. Om du använder en användartilldelad hanterad identitet behöver `Microsoft.Blueprint/blueprintAssignments/write` endast användaren som skapar skisstilldelningen behörigheten, som ingår i både de inbyggda rollerna **ägare** och **skissoperator.**
+> Om du använder en systemtilldelad hanterad identitet, kräver tjänstens huvud namn för Azure-ritningar **ägar** rollen för den tilldelade prenumerationen för att distributionen ska kunna aktive ras. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar. Om du använder en användardefinierad hanterad identitet behöver endast användaren som skapar skiss tilldelningen `Microsoft.Blueprint/blueprintAssignments/write` behörigheten, som ingår i de inbyggda rollerna **ägare** och **skiss-operator** .
 
-## <a name="naming-limits"></a>Namngivningsgränser
+## <a name="naming-limits"></a>Namngivnings gränser
 
 Följande begränsningar finns för vissa fält:
 
 |Objekt|Field|Tillåtna tecken|Max. Längd|
 |-|-|-|-|
-|Blueprint|Namn|bokstäver, siffror, bindestreck och punkter|48|
-|Blueprint|Version|bokstäver, siffror, bindestreck och punkter|20|
-|Skisstilldelning|Namn|bokstäver, siffror, bindestreck och punkter|90|
-|Skissartefakt|Namn|bokstäver, siffror, bindestreck och punkter|48|
+|Skiss|Name|bokstäver, siffror, bindestreck och punkter|48|
+|Skiss|Version|bokstäver, siffror, bindestreck och punkter|20|
+|Skisstilldelning|Name|bokstäver, siffror, bindestreck och punkter|90|
+|Skiss artefakt|Name|bokstäver, siffror, bindestreck och punkter|48|
 
 ## <a name="video-overview"></a>Videoöversikt
 
@@ -137,6 +137,6 @@ Följande översikt över Azure Blueprints kommer från Azure Fridays. En nedlad
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en skiss - Portal](./create-blueprint-portal.md).
-- [Skapa en skiss - PowerShell](./create-blueprint-powershell.md).
-- [Skapa en skiss - REST API](./create-blueprint-rest-api.md).
+- [Skapa en skiss – Portal](./create-blueprint-portal.md).
+- [Skapa en skiss – PowerShell](./create-blueprint-powershell.md).
+- [Skapa en skiss-REST API](./create-blueprint-rest-api.md).

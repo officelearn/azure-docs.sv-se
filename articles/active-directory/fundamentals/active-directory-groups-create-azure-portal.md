@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c551a81788df8d68664abaa03f467a4521222d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73473459"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory
@@ -31,27 +31,27 @@ Du kan skapa en basgrupp och lägga till dina medlemmar på samma gång.
 
 1. Sök efter och välj **Azure Active Directory**.
 
-    ![Azure AD-sida, med grupper som visas](media/active-directory-groups-create-azure-portal/search-active-directory.png)
+    ![Sidan Azure AD med grupper som visar](media/active-directory-groups-create-azure-portal/search-active-directory.png)
 
-1. På sidan **Active Directory** väljer du **Grupper** och väljer sedan **Ny grupp**.
+1. På sidan **Active Directory** väljer du **grupper** och väljer sedan **ny grupp**.
 
-    ![Azure AD-sida, med grupper som visas](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Sidan Azure AD med grupper som visar](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
-1. Fyll i den information som krävs på sidan **Ny grupp.**
+1. Fyll i den information som krävs på sidan **ny grupp** .
 
     ![Ny gruppsida ifylld med exempelinformation](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-   - **Grupptyp (krävs).** Välj en fördefinierad grupptyp. Detta inkluderar: - **Säkerhet**. Används för att hantera medlems- och datoråtkomst till delade resurser för en grupp användare. Du kan till exempel skapa en säkerhetsgrupp för en specifik säkerhetsprincip. Genom att göra det på det sättet så kan du ge en uppsättning behörigheter till alla medlemmar på samma gång utan att behöva lägga till behörigheter till varje medlem individuellt. Mer information om hur du hanterar åtkomst till resurser finns i [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md).
-               - **Office 365**. Ger samarbetsmöjligheter genom att ge medlemmar tillgång till en delad postlåda, kalender, filer, SharePoint-webbplats och mer. Det här alternativet låter dig även ge personer utanför din organisation tillgång till gruppen. Mer information om Office 365-grupper finns i [Läs mer om Office 365-grupper](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+   - **Grupptyp (krävs).** Välj en fördefinierad grupptyp. Detta omfattar:- **säkerhet**. Används för att hantera medlems- och datoråtkomst till delade resurser för en grupp användare. Du kan till exempel skapa en säkerhetsgrupp för en specifik säkerhetsprincip. Genom att göra det på det sättet så kan du ge en uppsättning behörigheter till alla medlemmar på samma gång utan att behöva lägga till behörigheter till varje medlem individuellt. Mer information om hur du hanterar åtkomst till resurser finns i [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md).
+               - **Office 365**. Ger samarbetsmöjligheter genom att ge medlemmar tillgång till en delad postlåda, kalender, filer, SharePoint-webbplats och mer. Med det här alternativet kan du också ge personer utanför organisationen åtkomst till gruppen. Mer information om Office 365-grupper finns i [Läs mer om Office 365-grupper](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-   - **Gruppnamn (krävs).** Lägg till ett namn för gruppen, något som du kommer ihåg och som låter logiskt. En kontroll utförs för att avgöra om namnet redan används för en annan grupp. Om namnet redan används uppmanas du att ändra namnet på gruppen om du vill undvika att namnge dubblett.
+   - **Gruppnamn (krävs).** Lägg till ett namn för gruppen, något som du kommer ihåg och som låter logiskt. En kontroll görs för att avgöra om namnet redan används för en annan grupp. Om namnet redan används, så uppmanas du att ändra namnet på din grupp för att undvika dubbla namn.
 
-   - **Grupp e-postadress (krävs).** Lägg till en e-postadress för gruppen eller behåll e-postadressen som fylls i automatiskt.
+   - **Gruppens e-postadress (krävs).** Lägg till en e-postadress för gruppen eller Behåll e-postadressen som fylls i automatiskt.
 
    - **Gruppbeskrivning.** Lägg till en valfri beskrivning till din grupp.
 
-   - **Typ av medlemskap (krävs).** Välj en fördefinierad medlemskapstyp. Detta inkluderar: - **Tilldelad.** Låter dig lägga till specifika användare som medlemmar i den här gruppen med unika behörigheter. I den här artikeln använder vi det här alternativet.
-          - **Dynamisk användare.** Gör att du kan använda dynamiska medlemskapsregler för att automatiskt lägga till och ta bort medlemmar. Om en medlems attribut ändras så tittar systemet på dina dynamiska gruppregler för katalogen för att se om medlemmen uppfyller regelkraven (läggs till) eller inte längre uppfyller regelkraven (tas bort).
+   - **Typ av medlemskap (krävs).** Välj en fördefinierad medlemskapstyp. Detta omfattar:- **tilldelad.** Låter dig lägga till specifika användare som medlemmar i den här gruppen med unika behörigheter. I den här artikeln använder vi det här alternativet.
+          - **Dynamisk användare.** Gör att du kan använda dynamiska medlemskaps regler för att automatiskt lägga till och ta bort medlemmar. Om en medlems attribut ändras så tittar systemet på dina dynamiska gruppregler för katalogen för att se om medlemmen uppfyller regelkraven (läggs till) eller inte längre uppfyller regelkraven (tas bort).
           - **Dynamisk enhet.** Låter dig använda dynamiska gruppregler för att automatiskt lägga till och ta bort enheter. Om en enhets attribut ändras så tittar systemet på dina dynamiska gruppregler för katalogen för att se om enheten uppfyller regelkraven (läggs till) eller inte längre uppfyller regelkraven (tas bort).
 
         >[!Important]
@@ -71,9 +71,9 @@ Du kan skapa en basgrupp och lägga till dina medlemmar på samma gång.
 
     ![Gruppöversiktssidan med antalet medlemmar markerat](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
-## <a name="turn-on-or-off-welcome-email"></a>Aktivera eller inaktivera välkomstmeddelande
+## <a name="turn-on-or-off-welcome-email"></a>Aktivera eller inaktivera välkomst meddelande
 
-När en ny Office 365-grupp skapas, oavsett om det är med dynamiskt eller statiskt medlemskap, skickas ett välkomstmeddelande till alla användare som läggs till i gruppen. När attribut för en användare eller enhet ändras bearbetas alla dynamiska gruppregler i organisationen för potentiella medlemskapsändringar. Användare som läggs till får sedan också välkomstmeddelandet. Du kan inaktivera det här beteendet i [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+När en ny Office 365-grupp skapas, oavsett om det är ett dynamiskt eller statiskt medlemskap, skickas ett välkomst meddelande till alla användare som läggs till i gruppen. När alla attribut för en användare eller enhet ändras bearbetas alla dynamiska grupp regler i organisationen för potentiella medlemskaps ändringar. Användare som läggs till får även välkomst meddelandet. Du kan inaktivera det här beteendet i [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lagt till en grupp och minst en användare så kan du:

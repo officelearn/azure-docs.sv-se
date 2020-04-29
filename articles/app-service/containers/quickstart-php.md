@@ -1,15 +1,15 @@
 ---
-title: 'Snabbstart: Skapa en PHP-app på Linux'
+title: 'Snabb start: skapa en PHP-app i Linux'
 description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första PHP-app till en Linux-behållare i App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, cli-validatem seodec18
 ms.openlocfilehash: 5a2abaf49071c90ea4fe0d5b5a454ce91f2cb1e4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80046057"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Skapa en PHP-app i App Service på Linux
@@ -18,7 +18,7 @@ ms.locfileid: "80046057"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en PHP-app i Azure](../app-service-web-get-started-php.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstartsguiden visar hur du distribuerar en PHP-app till Azure App Service på Linux med [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabb starts guiden visar hur du distribuerar en PHP-app till Azure App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Exempelapp som körs i Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -70,7 +70,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Gå till webbplatsen för att se din nyligen skapade app med inbyggd avbildning. Ersätt _ &lt;appnamn>_ med appens namn.
+Gå till webbplatsen för att se din nyligen skapade app med inbyggd avbildning. Ersätt _ &lt;App Name>_ med namnet på appen.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -159,7 +159,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Handledning: PHP app med MySQL](tutorial-php-mysql-app.md)
+> [Självstudie: PHP-app med MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Konfigurera PHP-appen](configure-language-php.md)
+> [Konfigurera PHP-app](configure-language-php.md)

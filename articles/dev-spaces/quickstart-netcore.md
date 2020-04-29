@@ -7,10 +7,10 @@ description: Den här snabb starten visar hur du använder Azure dev Spaces och 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
 ms.openlocfilehash: b38562879fa67d7ee82e3251ea2fcaa57a2075d6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80240215"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio Code och .NET Core – Azure dev Spaces

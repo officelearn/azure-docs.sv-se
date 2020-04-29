@@ -1,63 +1,63 @@
 ---
 title: Om
-description: Introduktion till Azure Remote Rendering
+description: Introduktion till Azure Remote rendering
 author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
 ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679956"
 ---
 # <a name="about-azure-remote-rendering"></a>Om Azure Remote Rendering
 
 > [!IMPORTANT]
-> **Azure Remote Rendering** är för närvarande i offentlig förhandsversion.
+> **Azure Remote rendering** är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-*Azure Remote Rendering* (ARR) är en tjänst som gör att du kan återge högkvalitativt, interaktivt 3D-innehåll i molnet och strömma det i realtid till enheter, till exempel HoloLens 2.
+*Azure Remote rendering* (arr) är en tjänst som gör att du kan återge högkvalitativt, interaktivt 3D-innehåll i molnet och strömma det i real tid till enheter, till exempel HoloLens 2.
 
-![Exempelmodell](../media/arr-engine.png)
+![Exempel modell](../media/arr-engine.png)
 
-Ej uppbundna enheter har begränsad beräkningskraft för rendering av komplexa modeller. För många program skulle det vara oacceptabelt, dock att minska den visuella trohet på något sätt.
+Enheter som inte är insatta har begränsad beräknings kraft för rendering av komplexa modeller. För många program kan det vara oacceptabelt, men för att minska den visuella åter givningen på något sätt.
 
-*Fjärr rendering* löser det här problemet genom att flytta renderingsarbetsbelastningen till avancerade GPU:er i molnet. En molnbaserad grafikmotor återger bilden, kodar den som en videoström och strömmar den till målenheten.
+*Fjärrrendering* löser det här problemet genom att flytta åter givnings arbets belastningen till avancerade GPU: er i molnet. En molnbaserad grafik motor i molnet återger avbildningen, kodar den som en video ström och strömmar till mål enheten.
 
-## <a name="hybrid-rendering"></a>Hybridåtergivning
+## <a name="hybrid-rendering"></a>Hybrid åter givning
 
-I de flesta program är det inte tillräckligt att bara återge en komplex modell. Du behöver också anpassat användargränssnitt för att kunna tillhandahålla funktioner för användaren. Azure Remote Rendering tvingar dig inte att använda ett dedikerat gränssnittsramverk, utan stöder *hybridrendering*. Det innebär att du kan återge element på enheten med den metod du föredrar, till exempel [MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html).
+I de flesta program räcker det inte att bara återge en komplex modell. Du behöver också anpassade användar gränssnitt för att tillhandahålla funktioner för användaren. Med Azure Remote rendering tvingas du inte att använda ett dedikerat GRÄNSSNITTs ramverk, i stället stöder *hybrid åter givning*. Det innebär att du kan återge element på enheten med din önskade metod, till exempel [MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html).
 
-I slutet av en ram kombinerar Azure Remote Rendering sedan automatiskt ditt lokalt renderade innehåll med fjärravbildningen. Det är även kunna göra det med korrekt ocklusion.
+I slutet av en ram kombinerar Azure Remote rendering automatiskt det lokalt återgivna innehållet med fjärravbildningen. Det kan även göra detta med rätt ocklusion.
 
-## <a name="multi-gpu-rendering"></a>Multi-GPU-rendering
+## <a name="multi-gpu-rendering"></a>Rendering av flera GPU
 
-Vissa modeller är för komplexa för att rendera med interaktiva bildhastigheter, även för en avancerad GPU. Särskilt i industriell visualisering är detta ett vanligt problem. För att ytterligare begränsa gränserna kan Azure Remote Rendering distribuera arbetsbelastningen till flera GPU:er. Resultaten slås samman till en enda bild, vilket gör processen helt transparent för användaren.
+Vissa modeller är för komplexa för att kunna återges med interaktiva bild hastigheter, även för en avancerad GPU. Särskilt i industriell visualisering är detta ett vanligt problem. För att push-överföra gränserna kan Azure-fjärråter givning distribuera arbets belastningen till flera GPU: er. Resultaten sammanfogas till en enda bild, vilket gör processen helt transparent för användaren.
 
 ## <a name="high-level-architecture"></a>Övergripande arkitektur
 
-Det här diagrammet illustrerar fjärråtergivningsarkitekturen:
+Det här diagrammet illustrerar arkitekturen för fjärråter givning:
 
 ![Arkitektur](./media/arr-high-level-architecture.png)
 
-En fullständig cykel för bildgenerering innebär följande steg:
+En fullständig cykel för avbildnings generering omfattar följande steg:
 
-1. Klientsidan: Raminställning
-    1. Din kod: Användarindata bearbetas, scendiagrammet uppdateras
-    1. ARR-kod: Scendiagramuppdateringar och förväntad huvudpose skickas till servern
-1. Serversidan: Fjärrrendering
-    1. Renderingsmotor distribuerar rendering över tillgängliga GPU:er
-    1. Utdata från flera GPU:er komponeras till en bild
-    1. Bilden kodas som videoström, skickas tillbaka till klienten
-1. Klientsidan: Slutförande
-    1. Din kod: Lokalt innehåll (användargränssnitt, markörer, ...) återges
-    1. ARR-kod: På "närvarande" slås lokalt renderat innehåll samman automatiskt med videoström
+1. På klient sidan: ram installation
+    1. Din kod: användarindata bearbetas. scen diagrammet uppdateras
+    1. ARR-kod: scen diagram uppdateringar och förväntad Head-attityd skickas till servern
+1. Server sidan: fjärrrendering
+    1. Åter givnings motor distribuerar åter givning över tillgängliga GPU: er
+    1. Utdata från flera GPU: er består av en enda bild
+    1. Avbildningen kodas som video ström och skickas tillbaka till klienten
+1. På klient sidan: slutförd
+    1. Din kod: valfritt lokalt innehåll (UI, markörer,...) återges
+    1. ARR-kod: on ' finns ', lokalt renderat innehåll sammanfogas automatiskt med video strömmen
 
-Nätverksfördröjning är det största problemet. Den vända tiden mellan att skicka en begäran och ta emot resultatet är vanligtvis för lång för interaktiva bildhastigheter. Därför kan mer än en ram vara i flykt när som helst.
+Nätverks fördröjning är det huvudsakliga problemet. Tiden för att skicka en begäran och få resultatet är vanligt vis för lång för interaktiva bild Rute hastigheter. Därför kan mer än en ram finnas i flygning när som helst.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Systemkrav](system-requirements.md)
-* [Snabbstart: Återge en modell med Unity](../quickstarts/render-model.md)
+* [Snabb start: rendera en modell med Unity](../quickstarts/render-model.md)

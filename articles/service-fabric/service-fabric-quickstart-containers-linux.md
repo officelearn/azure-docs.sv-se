@@ -1,15 +1,15 @@
 ---
-title: Skapa en Linux-behållarapp på Service Fabric i Azure
+title: Skapa en Linux container-app på Service Fabric i Azure
 description: I den här snabbstarten skapar du en Docker-avbildning med din app, överför avbildningen till ett containerregister och distribuerar sedan containern till ett Service Fabric-kluster.
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75372694"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snabbstart: Distribuera Linux-containrar till Service Fabric
@@ -30,7 +30,7 @@ För att slutföra den här snabbstarten behöver du:
 
 3. Installera [Service Fabric SDK och CLI](service-fabric-get-started-linux.md#installation-methods)
 
-4. Installera [Git](https://git-scm.com/)
+4. Installera [git](https://git-scm.com/)
 
 
 ## <a name="get-the-application-package"></a>Hämta programpaketet
@@ -108,7 +108,7 @@ Mozilla Firefox är standardwebbläsaren i Ubuntu 16.04. Klicka på menyknappen 
     ./install.sh
     ```
 
-3. Öppna en webbläsare och gå till Service Fabric Explorer-slutpunkten för klustret. Slutpunkten har följande format: **https://\<min azure-service-fabric-cluster-url>:19080/Explorer**; till exempel `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Öppna en webbläsare och gå till Service Fabric Explorer-slutpunkten för klustret. Slut punkten har följande format: **https://\<My-Azure-Service-Fabric-cluster-URL>:19080/Explorer**; till exempel `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Expandera noden **Program** för att se att det nu finns en post för röstningsprogramtypen och instansen som du skapade.
 

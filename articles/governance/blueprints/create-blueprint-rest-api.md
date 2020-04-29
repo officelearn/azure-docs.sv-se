@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Skapa en skiss med REST API'
-description: I den här snabbstarten använder du Azure Blueprints för att skapa, definiera och distribuera artefakter med REST API.
+title: 'Snabb start: skapa en skiss med REST API'
+description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter med hjälp av REST API.
 ms.date: 02/26/2020
 ms.topic: quickstart
 ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80676575"
 ---
-# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabbstart: Definiera och tilldela en Azure Blueprint med REST API
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabb start: definiera och tilldela en Azure Blueprint med REST API
 
 När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
 ## <a name="prerequisites"></a>Krav
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
-- Registrera `Microsoft.Blueprint` resursleverantören. Anvisningar finns i [Resursleverantörer och typer](../../azure-resource-manager/management/resource-providers-and-types.md).
+- Registrera `Microsoft.Blueprint` resurs leverantören. Anvisningar finns i [resurs leverantörer och typer](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -25,7 +25,7 @@ När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveck
 
 Om du inte är bekant med REST API börjar du med att gå igenom [referensen för Azure REST API](/rest/api/azure/) så att du förstår hur REST-API:et fungerar, särskilt begärande-URI och begärandetext. I den här artikeln används dessa begrepp för att förklara hur du arbetar med Azure-skisser och artikeln förutsätter att du har grundläggande kunskap om dem. Verktyg som [ARMClient](https://github.com/projectkudu/ARMClient) och andra kan hantera auktorisering automatiskt och rekommenderas för nybörjare.
 
-Information om Azure Blueprints-specifikationer finns i [AZURE Blueprints REST API](/rest/api/blueprints/).
+För specifikationerna för Azure-ritningar, se [Azure-ritningar REST API](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>REST API och PowerShell
 
@@ -63,7 +63,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 > [!NOTE]
-> Skisser kan också skapas på prenumerationsnivå. Ett exempel finns i [skapa skiss i prenumerationsexempel .](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)
+> Ritningar kan också skapas på prenumerations nivå. Ett exempel finns i [skapa skiss vid prenumerations exempel](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Skapa det första _skissobjektet_. **Begärandetexten** innehåller egenskaper för skissen, de resursgrupper som ska skapas och alla parametrar på skissnivå. Parametrarna anges vid tilldelning och används av artefakterna som lagts till i senare steg.
 
@@ -329,7 +329,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är statisk`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`( ), men tjänstens huvud-ID varierar beroende på klient. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
+1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men tjänstens huvud NAMNS-ID varierar av klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
 
    - REST API-URI
 
@@ -406,7 +406,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      Den **användartilldelade hanterade identiteten** kan finnas i någon av de prenumerationer och resursgrupper som användaren som tilldelade skissen har behörighet till.
 
      > [!IMPORTANT]
-     > Azure Blueprints hanterar inte den användartilldelade hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
+     > Azure-ritningar hanterar inte den användare som tilldelats den hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -432,7 +432,7 @@ Om du vill ta bort själva skissen använder du följande REST API-åtgärd:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat, tilldelat och tagit bort en skiss med REST API. Om du vill veta mer om Azure Blueprints fortsätter du till artikeln om skisslivscykeln.
+I den här snabb starten har du skapat, tilldelat och tagit bort en skiss med REST API. Om du vill veta mer om Azure-ritningar kan du fortsätta till ritnings livs cykel artikeln.
 
 > [!div class="nextstepaction"]
-> [Läs mer om skisslivscykeln](./concepts/lifecycle.md)
+> [Lär dig mer om skiss livs cykeln](./concepts/lifecycle.md)

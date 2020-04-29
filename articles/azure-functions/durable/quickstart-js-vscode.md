@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.reviewer: azfuncdf, antchu
 ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80257656"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
@@ -28,13 +28,13 @@ För att slutföra den här kursen behöver du:
 
 * Installera [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Installera [azure functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS-kodtillägget
+* Installera [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) vs Code-tillägget
 
-* Kontrollera att du har den senaste versionen av [Azure Functions Core Tools](../functions-run-local.md).
+* Kontrol lera att du har den senaste versionen av [Azure Functions Core tools](../functions-run-local.md).
 
-* Varaktiga funktioner kräver ett Azure-lagringskonto. Du behöver en Azure-prenumeration.
+* Durable Functions kräver ett Azure Storage-konto. Du behöver en Azure-prenumeration.
 
-* Kontrollera att du har installerat version 10.x eller 12.x [node.js.](https://nodejs.org/)
+* Kontrol lera att du har version 10. x eller 12. x av [Node. js](https://nodejs.org/) installerat.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,32 +42,32 @@ För att slutföra den här kursen behöver du:
 
 I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt Azure Functions-projekt. 
 
-1. Öppna kommandopaletten genom att trycka på F1 (eller Ctrl/Cmd+Skift+P) i Visual Studio-kod. Sök efter och välj `Azure Functions: Create New Project...`i kommandopaletten .
+1. Tryck på F1 (eller Ctrl + Cmd + Shift + P) i Visual Studio Code för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Create New Project...`.
 
     ![Skapa funktion](media/quickstart-js-vscode/functions-create-project.png)
 
-1. Välj en tom mappplats för projektet och välj **Välj**.
+1. Välj en tom mapplats för ditt projekt och välj **Välj**.
 
-1. Ange följande information efter anvisningarna:
+1. Ange följande information i instruktionerna nedan:
 
     | Uppmaning | Värde | Beskrivning |
     | ------ | ----- | ----------- |
-    | Välj ett språk för funktionsappprojektet | JavaScript | Skapa ett lokalt nod.js-funktionsprojekt. |
-    | Välj en version | Azure-funktioner v3 | Du ser bara det här alternativet när kärnverktygen inte redan är installerade. I det här fallet installeras Core Tools första gången du kör appen. |
-    | Välj en mall för projektets första funktion | Hoppa över för tillfället | |
-    | Välj hur du vill öppna projektet | Öppna i aktuellt fönster | Öppnar VS-kod igen i den valda mappen. |
+    | Välj ett språk för ditt projekt för Function-appen | JavaScript | Skapa ett lokalt Node. js-Function-projekt. |
+    | Välj en version | Azure Functions v3 | Du ser bara det här alternativet när kärn verktygen inte redan har installerats. I det här fallet installeras kärn verktyg första gången du kör appen. |
+    | Välj en mall för projektets första funktion | Hoppa över nu | |
+    | Välj hur du vill öppna projektet | Öppna i aktuellt fönster | Öppnar VS-kod i den mapp som du har valt. |
 
-Visual Studio Code installerar Azure Functions Core Tools om det behövs. Det skapar också ett funktionsappprojekt i en mapp. Det här projektet innehåller konfigurationsfilerna [host.json](../functions-host-json.md) och [local.settings.json.](../functions-run-local.md#local-settings-file)
+Visual Studio Code installerar Azure Functions Core Tools, om det behövs. Det skapar också ett app-projekt i en mapp. Det här projektet innehåller konfigurationsfilerna [Host. JSON](../functions-host-json.md) och [Local. Settings. JSON](../functions-run-local.md#local-settings-file) .
 
-En package.json-fil skapas också i rotmappen.
+En Package. JSON-fil skapas också i rotmappen.
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Aktivera Kompatibilitetsläge för Azure Functions V2
+### <a name="enable-azure-functions-v2-compatibility-mode"></a>Aktivera Azure Functions v2-kompatibilitetsläge
 
-För närvarande kräver JavaScript durable functions Azure Functions V2-kompatibilitetsläge aktiveras.
+Java Script Durable Functions kräver för närvarande att ett Azure Functions v2-kompatibilitetsläge är aktiverat.
 
-1. Öppna *local.settings.json* om du vill redigera de inställningar som används när du kör appen lokalt.
+1. Öppna *Local. Settings. JSON* för att redigera inställningarna som används när du kör appen lokalt.
 
-1. Lägg till `FUNCTIONS_V2_COMPATIBILITY_MODE` en inställning `true`med namnet .
+1. Lägg till en inställning `FUNCTIONS_V2_COMPATIBILITY_MODE` med namnet med värdet `true`.
 
     ```json
     {
@@ -82,102 +82,102 @@ För närvarande kräver JavaScript durable functions Azure Functions V2-kompati
 
 ## <a name="install-the-durable-functions-npm-package"></a>Installera npm-paketet för Durable Functions
 
-Om du vill arbeta med varaktiga funktioner i en nod.js-funktionsapp använder du ett bibliotek som heter `durable-functions`.
+Om du vill arbeta med Durable Functions i en Node. js-Function-app använder du `durable-functions`ett bibliotek som kallas.
 
-1. Öppna en ny terminal i VS-kod med *Visa-menyn* eller Ctrl+Skift+' .
+1. Använd menyn *Visa* eller Ctrl + Skift + ' för att öppna en ny terminal i vs Code.
 
 1. Installera npm-paketet för `durable-functions` genom att köra `npm install durable-functions` i funktionsappens rotkatalog.
 
 ## <a name="creating-your-functions"></a>Skapa dina funktioner
 
-Den mest grundläggande appen Hållbara funktioner innehåller tre funktioner:
+Den mest grundläggande Durable Functions-appen innehåller tre funktioner:
 
-* *Orchestrator-funktionen* - beskriver ett arbetsflöde som dirigerar andra funktioner.
-* *Aktivitetsfunktion* - anropad av orchestrator-funktionen, utför arbete och returnerar eventuellt ett värde.
-* *Klientfunktion* - en vanlig Azure-funktion som startar en orchestrator-funktion. I det här exemplet används en HTTP-utlöst funktion.
+* *Orchestrator-funktion* – beskriver ett arbets flöde som dirigerar andra funktioner.
+* *Aktivitets funktion* – anropas av Orchestrator-funktionen, utför arbete och kan eventuellt returnera ett värde.
+* *Klient funktion* – en vanlig Azure-funktion som startar en Orchestrator-funktion. I det här exemplet används en HTTP-utlöst funktion.
 
-### <a name="orchestrator-function"></a>Orchestrator (funktionen Orchestrator)
+### <a name="orchestrator-function"></a>Orchestrator-funktion
 
-Du använder en mall för att skapa den varaktiga funktionskoden i projektet.
+Du använder en mall för att skapa en hållbar funktions kod i projektet.
 
-1. Sök efter och välj `Azure Functions: Create Function...`i kommandopaletten .
+1. I paletten kommando söker du efter och väljer `Azure Functions: Create Function...`.
 
-1. Ange följande information efter anvisningarna:
-
-    | Uppmaning | Värde | Beskrivning |
-    | ------ | ----- | ----------- |
-    | Välj en mall för din funktion | Innehavare funktioner orchestrator | Skapa en orkestrering med varaktiga funktioner |
-    | Ange ett funktionsnamn | HejOrchestrator ( | Namnet på din hållbara funktion |
-
-Du har lagt till en orchestrator för att samordna aktivitetsfunktioner. Öppna *HelloOrchestrator/index.js* för att se orchestrator-funktionen. Varje anrop som `context.df.callActivity` anropar `Hello`en aktivitetsfunktion med namnet .
-
-Därefter lägger du till `Hello` den refererade aktivitetsfunktionen.
-
-### <a name="activity-function"></a>Aktivitetsfunktion
-
-1. Sök efter och välj `Azure Functions: Create Function...`i kommandopaletten .
-
-1. Ange följande information efter anvisningarna:
+1. Ange följande information i instruktionerna nedan:
 
     | Uppmaning | Värde | Beskrivning |
     | ------ | ----- | ----------- |
-    | Välj en mall för din funktion | Aktivitet för varaktiga funktioner | Skapa en aktivitetsfunktion |
-    | Ange ett funktionsnamn | Hello | Namnet på din aktivitetsfunktion |
+    | Välj en mall för din funktion | Durable Functions Orchestrator | Skapa ett Durable Functions Orchestration |
+    | Ange ett funktions namn | HelloOrchestrator | Namnet på den varaktiga funktionen |
 
-Du har lagt `Hello` till aktivitetsfunktionen som anropas av orchestrator. Öppna *Hello/index.js* om du vill se att det tar ett namn som indata och returnerar en hälsning. En aktivitetsfunktion är där du ska utföra åtgärder som att ringa ett databasanrop eller utföra en beräkning.
+Du har lagt till en Orchestrator för att koordinera aktivitets funktioner. Öppna *HelloOrchestrator/index. js* för att se Orchestrator-funktionen. Varje anrop för `context.df.callActivity` att anropa en aktivitets funktion med `Hello`namnet.
 
-Slutligen ska du lägga till en HTTP-utlöst funktion som startar orkestreringen.
+Sedan lägger du till funktionen refererad `Hello` aktivitet.
 
-### <a name="client-function-http-starter"></a>Klientfunktion (HTTP-start)
+### <a name="activity-function"></a>Aktivitets funktion
 
-1. Sök efter och välj `Azure Functions: Create Function...`i kommandopaletten .
+1. I paletten kommando söker du efter och väljer `Azure Functions: Create Function...`.
 
-1. Ange följande information efter anvisningarna:
+1. Ange följande information i instruktionerna nedan:
 
     | Uppmaning | Värde | Beskrivning |
     | ------ | ----- | ----------- |
-    | Välj en mall för din funktion | HTTP-startspelare med varaktiga funktioner | Skapa en HTTP-startfunktion |
-    | Ange ett funktionsnamn | Funktioner för varaktiga funktionerhttpstart | Namnet på din aktivitetsfunktion |
-    | Auktorisationsnivå | Anonym | I demosyfte kan funktionen anropas utan autentisering |
+    | Välj en mall för din funktion | Durable Functions aktivitet | Skapa en aktivitets funktion |
+    | Ange ett funktions namn | Hello | Namn på din aktivitets funktion |
 
-Du har lagt till en HTTP-utlöst funktion som startar en orkestrering. Öppna *DurableFunctionsHttpStart/index.js* för att `client.startNew` se att den använder för att starta en ny orkestrering. Sedan används `client.createCheckStatusResponse` för att returnera ett HTTP-svar som innehåller webbadresser som kan användas för att övervaka och hantera den nya orkestreringen.
+Du har lagt till `Hello` aktivitets funktionen som anropas av Orchestrator. Öppna *Hello/index. js* för att se att det tar ett namn som inmatat och returnerar en hälsning. En aktivitets funktion är den plats där du utför åtgärder som att göra ett databas anrop eller utföra en beräkning.
 
-Du har nu en varaktig funktionsapp som kan köras lokalt och distribueras till Azure.
+Slutligen lägger du till en HTTP-utlöst funktion som startar dirigeringen.
+
+### <a name="client-function-http-starter"></a>Klient funktion (HTTP starter)
+
+1. I paletten kommando söker du efter och väljer `Azure Functions: Create Function...`.
+
+1. Ange följande information i instruktionerna nedan:
+
+    | Uppmaning | Värde | Beskrivning |
+    | ------ | ----- | ----------- |
+    | Välj en mall för din funktion | Durable Functions HTTP-startstarter | Skapa en HTTP-startfunktion |
+    | Ange ett funktions namn | DurableFunctionsHttpStart | Namn på din aktivitets funktion |
+    | Auktorisationsnivå | Anonym | I demonstrations syfte tillåter du att funktionen anropas utan autentisering |
+
+Du har lagt till en HTTP-utlöst funktion som startar ett dirigering. Öppna *DurableFunctionsHttpStart/index. js* för att se att den `client.startNew` använder för att starta en ny dirigering. Sedan använder `client.createCheckStatusResponse` den för att returnera ett HTTP-svar som innehåller URL: er som kan användas för att övervaka och hantera den nya dirigeringen.
+
+Nu har du en Durable Functions-app som kan köras lokalt och distribueras till Azure.
 
 ## <a name="test-the-function-locally"></a>Testa funktionen lokalt
 
 Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio Code.
 
-1. Om du vill testa funktionen anger `Hello` du en brytpunkt i aktivitetsfunktionskoden (*Hello/index.js*). Tryck på F5 eller välj `Debug: Start Debugging` från kommandopaletten för att starta funktionsappprojektet. Utdata från Core Tools visas på panelen **Terminal**.
+1. Om du vill testa funktionen ställer du in en Bryt `Hello` punkt i aktivitetens funktions kod (*Hello/index. js*). Tryck på F5 eller `Debug: Start Debugging` Välj från kommando paletten för att starta projektet för Function-appen. Utdata från Core Tools visas på panelen **Terminal**.
 
     > [!NOTE]
-    > Mer information om felsökning finns i diagnostiken för [varaktiga funktioner.](durable-functions-diagnostics.md#debugging)
+    > Mer information om fel sökning hittar du i [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) .
 
-1. Varaktiga funktioner kräver ett Azure Storage-konto för att köras. När VS-kod uppmanar dig att välja ett lagringskonto väljer du **Välj lagringskonto**.
+1. Durable Functions kräver att ett Azure Storage-konto körs. Vid VS-kod kan du välja ett lagrings konto genom att välja **Välj lagrings konto**.
 
     ![Skapa lagringskonto](media/quickstart-js-vscode/functions-select-storage.png)
 
-1. Ange följande information för att skapa ett nytt lagringskonto i Azure efter anvisningarna.
+1. Följ instruktionerna och ange följande information för att skapa ett nytt lagrings konto i Azure.
 
     | Uppmaning | Värde | Beskrivning |
     | ------ | ----- | ----------- |
     | Välj en prenumeration | *namnet på din prenumeration* | Välj din Azure-prenumeration |
-    | Välj ett lagringskonto | Skapa ett nytt lagringskonto |  |
-    | Ange namnet på det nya lagringskontot | *unikt namn* | Namn på lagringskontot som ska skapas |
-    | Välj en resursgrupp | *unikt namn* | Namn på den resursgrupp som ska skapas |
-    | Välja en plats | *regionen* | Välj en region nära dig |
+    | Välj ett lagrings konto | Skapa ett nytt lagringskonto |  |
+    | Ange namnet på det nya lagrings kontot | *unikt namn* | Namn på det lagrings konto som ska skapas |
+    | Välj en resursgrupp | *unikt namn* | Namnet på den resurs grupp som ska skapas |
+    | Välja en plats | *nationella* | Välj en region nära dig |
 
 1. På panelen **Terminal** kopierar du URL-slutpunkten för den HTTP-utlösta funktionen.
 
     ![Lokala Azure-utdata](media/quickstart-js-vscode/functions-f5.png)
 
-1. Med ett verktyg som [Brevbärare](https://www.getpostman.com/) eller [cURL](https://curl.haxx.se/)skickar du en HTTP POST-begäran till URL-slutpunkten. Ersätt det sista segmentet med namnet`HelloOrchestrator`på orchestrator-funktionen ( ). Webbadressen ska likna `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Skicka en HTTP POST-begäran till URL-slutpunkten med hjälp av ett verktyg som [Postman](https://www.getpostman.com/) eller [sväng](https://curl.haxx.se/). Ersätt det sista segmentet med namnet på Orchestrator-funktionen (`HelloOrchestrator`). URL-adressen bör liknas `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
-   Svaret är det första resultatet från HTTP-funktionen så att du vet att den varaktiga orkestreringen har startats. Det är inte ännu slutresultatet av orkestreringen. Svaret innehåller några användbara URL:er. För tillfället kör vi en fråga om orkestreringens status.
+   Svaret är det första resultatet från HTTP-funktionen som gör att du vet att den beständiga dirigeringen har startat. Det är inte ännu slutresultatet av orkestreringen. Svaret innehåller några användbara URL:er. För tillfället kör vi en fråga om orkestreringens status.
 
-1. Kopiera URL-värdet `statusQueryGetUri` för och klistra in det i webbläsarens adressfält och kör begäran. Alternativt kan du också fortsätta att använda Postman för att utfärda GET-begäran.
+1. Kopiera URL-värdet för `statusQueryGetUri` och klistra in det i webbläsarens Adress fält och kör begäran. Alternativt kan du även fortsätta att använda Postman för att utfärda GET-begäran.
 
-   Begäran kör en fråga mot orkestreringsinstansen om statusen. Du bör få ett eventuellt svar, vilket visar oss instansen har slutförts, och inkluderar utgångar eller resultat av den varaktiga funktionen. Det ser ut som: 
+   Begäran kör en fråga mot orkestreringsinstansen om statusen. Du får ett möjligt svar som visar att instansen har slutförts och innehåller utdata eller resultat från den varaktiga funktionen. Det ser ut så här: 
 
     ```json
     {
@@ -196,7 +196,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
     }
     ```
 
-1. Om du vill sluta felsöka trycker du på **Skift + F5** i VS-kod.
+1. Stoppa fel sökningen genom att trycka på **SKIFT + F5** i vs Code.
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 
@@ -204,23 +204,23 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Aktivera Kompatibilitetsläge för Azure Functions V2
+### <a name="enable-azure-functions-v2-compatibility-mode"></a>Aktivera Azure Functions v2-kompatibilitetsläge
 
-Samma Azure Functions V2-kompatibilitet som du aktiverade lokalt måste aktiveras i appen i Azure.
+Samma Azure Functions v2-kompatibilitet som du har aktiverat lokalt måste vara aktive rad i appen i Azure.
 
-1. Med kommandopaletten söker du `Azure Functions: Edit Setting...`efter och väljer .
+1. Med hjälp av kommando-paletten söker du `Azure Functions: Edit Setting...`efter och väljer.
 
-1. Följ anvisningarna för att hitta din funktionsapp i din Azure-prenumeration.
+1. Följ anvisningarna för att hitta din Function-app i din Azure-prenumeration.
 
 1. Välj `Create new App Setting...`.
 
-1. Ange en ny `FUNCTIONS_V2_COMPATIBILITY_MODE`inställningsnyckel i .
+1. Ange en ny inställnings nyckel `FUNCTIONS_V2_COMPATIBILITY_MODE`i.
 
-1. Ange ett inställningsvärde `true`på .
+1. Ange ett inställnings värde `true`för.
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 
-1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Url:en som anropar din HTTP-utlösta funktion bör vara i det här formatet:`http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:`http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
 
 2. Klistra in den nya URL:en för HTTP-begäran i webbläsarens adressfält. Du bör få samma statussvar som förut när du använder den publicerade appen.
 

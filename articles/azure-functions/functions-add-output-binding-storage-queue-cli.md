@@ -1,23 +1,23 @@
 ---
-title: Ansluta Azure-funktioner till Azure Storage med kommandoradsverktyg
-description: Lär dig hur du ansluter Azure Functions till en Azure Storage-kö genom att lägga till en utdatabindning till ditt kommandoradsprojekt.
+title: Ansluta Azure Functions till Azure Storage med hjälp av kommando rads verktyg
+description: Lär dig hur du ansluter Azure Functions till en Azure Storage kö genom att lägga till en utgående bindning till ditt kommando rads projekt.
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: f9d9573523083b6355f423b7b3db94b795d8657f
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673336"
 ---
-# <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ansluta Azure-funktioner till Azure Storage med kommandoradsverktyg
+# <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ansluta Azure Functions till Azure Storage med hjälp av kommando rads verktyg
 
-I den här artikeln integrerar du en Azure Storage-kö med det funktions- och lagringskonto som du skapade i [föregående snabbstart](functions-create-first-azure-function-azure-cli.md). Du uppnår den här integreringen med hjälp av en *utdatabindning* som skriver data från en HTTP-begäran till ett meddelande i kön. Slutföra denna artikel medför inga extra kostnader utöver de få USD cent av den tidigare snabbstart. Mer information om bindningar finns i [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)begrepp .
+I den här artikeln integrerar du en Azure Storage kö med den funktion och det lagrings konto som du skapade i [föregående snabb start](functions-create-first-azure-function-azure-cli.md). Du uppnår denna integrering genom att använda en *utgående bindning* som skriver data från en http-begäran till ett meddelande i kön. Om du slutför den här artikeln debiteras inga ytterligare kostnader utöver de få USD cent i föregående snabb start. Mer information om bindningar finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 
 ## <a name="configure-your-local-environment"></a>Konfigurera din lokala miljö
 
-Innan du börjar måste du slutföra artikeln [Snabbstart: Skapa ett Azure Functions-projekt från kommandoraden](functions-create-first-azure-function-azure-cli.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa funktionsappen och relaterade resurser i Azure.
+Innan du börjar måste du slutföra artikeln, [snabb start: skapa ett Azure Functions-projekt från kommando raden](functions-create-first-azure-function-azure-cli.md). Om du redan har rensat resurser i slutet av den artikeln går du igenom stegen igen för att återskapa Function-appen och relaterade resurser i Azure.
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
@@ -32,11 +32,11 @@ Innan du börjar måste du slutföra artikeln [Snabbstart: Skapa ett Azure Funct
 [!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 ::: zone-end   
 
-Mer information om information om bindningar finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md) och [köutdatakonfiguration](functions-bindings-storage-queue-output.md#configuration).
+Mer information om bindningar finns i [Azure Functions utlösare och bindning av koncept](functions-triggers-bindings.md) och utdata från [kö](functions-bindings-storage-queue-output.md#configuration).
 
-## <a name="add-code-to-use-the-output-binding"></a>Lägga till kod för att använda utdatabindningen
+## <a name="add-code-to-use-the-output-binding"></a>Lägg till kod för att använda utgående bindning
 
-Med köbindningen definierad kan du nu `msg` uppdatera funktionen för att ta emot utdataparametern och skriva meddelanden till kön.
+När du har definierat kökvoter kan du nu uppdatera din funktion för att ta emot `msg` Utdataparametern och skriva meddelanden till kön.
 
 ::: zone pivot="programming-language-python"     
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
@@ -64,22 +64,22 @@ Med köbindningen definierad kan du nu `msg` uppdatera funktionen för att ta em
 [!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 ::: zone-end
 
-Observera att du *inte* behöver skriva någon kod för autentisering, hämta en köreferens eller skriva data. Alla dessa integrationsuppgifter hanteras bekvämt i Azure Functions runtime och köutdatabindning.
+Observera att du *inte* behöver skriva någon kod för autentisering, få en Queue-referens eller skriva data. Alla dessa integrations aktiviteter hanteras bekvämt i Azure Functions Runtime-och Queue-bindning.
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
 [!INCLUDE [functions-extension-bundles-info](../../includes/functions-extension-bundles-info.md)]
 
-## <a name="view-the-message-in-the-azure-storage-queue"></a>Visa meddelandet i Azure Storage-kön
+## <a name="view-the-message-in-the-azure-storage-queue"></a>Visa meddelandet i Azure Storage kön
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
 ## <a name="redeploy-the-project-to-azure"></a>Distribuera om projektet till Azure
 
-Nu när du har verifierat lokalt att funktionen skrev ett meddelande till Azure Storage-kön kan du distribuera om projektet för att uppdatera slutpunkten som körs på Azure.
+Nu när du har verifierat lokalt att funktionen skrev ett meddelande till Azure Storage kön kan du distribuera om projektet för att uppdatera slut punkten som körs på Azure.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
-I mappen *LocalFunctionsProj* använder [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) du kommandot för att distribuera`<APP_NAME>` om projektet och ersätter med namnet på appen.
+I mappen *LocalFunctionsProj* använder du [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) kommandot för att distribuera om projektet och ersätter`<APP_NAME>` det med namnet på din app.
 
 ```
 func azure functionapp publish <APP_NAME>
@@ -88,7 +88,7 @@ func azure functionapp publish <APP_NAME>
 
 ::: zone pivot="programming-language-java" 
 
-I den lokala projektmappen använder du följande Maven-kommando för att publicera om projektet:
+I den lokala projektmappen använder du följande maven-kommando för att publicera projektet igen:
 ```
 mvn azure-functions:deploy
 ```
@@ -96,27 +96,27 @@ mvn azure-functions:deploy
 
 ## <a name="verify-in-azure"></a>Verifiera i Azure
 
-1. Precis som i föregående snabbstart använder du en webbläsare eller CURL för att testa den omdepilerade funktionen.
+1. Som i föregående snabb start använder du en webbläsare eller en sväng för att testa den omdistribuerade funktionen.
 
     # <a name="browser"></a>[Webbläsare](#tab/browser)
     
-    Kopiera den fullständiga **anropa-URL:en** som visas i utdata från publiceringskommandot till ett webbläsaradressfält, vilket lägger till frågeparametern `&name=Functions`. Webbläsaren ska visa liknande utdata som när du körde funktionen lokalt.
+    Kopiera den fullständiga **anrops-URL: en** som visas i utdata från kommandot Publicera till ett webbläsarens Adress fält, som `&name=Functions`lägger till Frågeparametern. Webbläsaren bör visa liknande utdata som när du körde funktionen lokalt.
 
-    ![Utdata för funktionen körs på Azure i en webbläsare](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-browser.png)
+    ![Resultatet av funktionen körs på Azure i en webbläsare](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-browser.png)
 
-    # <a name="curl"></a>[Curl](#tab/curl)
+    # <a name="curl"></a>[klammerparentes](#tab/curl)
     
-    Kör [`curl`](https://curl.haxx.se/) med **url:en anropa**och `&name=Functions`lägga till parametern . Utdata för kommandot ska vara texten "Hej funktioner".
+    Kör [`curl`](https://curl.haxx.se/) med **ANROPs-URL: en**och Lägg `&name=Functions`till parametern. Kommandots utdata ska vara texten, "Hello Functions".
     
-    ![Utdata för funktionen körs på Azure med CURL](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
+    ![Resultatet av funktionen körs på Azure med hjälp av sväng](./media/functions-add-output-binding-storage-queue-cli/function-test-cloud-curl.png)
 
     --- 
 
-1. Undersök lagringskön igen, enligt beskrivningen i föregående avsnitt, för att kontrollera att den innehåller det nya meddelandet som skrivits till kön.
+1. Granska lagrings kön igen, enligt beskrivningen i föregående avsnitt, för att kontrol lera att den innehåller det nya meddelandet som skrivits till kön.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar använder du följande kommando för att ta bort resursgruppen och alla dess inneslutna resurser för att undvika att ådra sig ytterligare kostnader.
+När du är klar kan du använda följande kommando för att ta bort resurs gruppen och alla resurser som finns i den för att undvika ytterligare kostnader.
 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
@@ -124,37 +124,37 @@ az group delete --name AzureFunctionsQuickstart-rg
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har uppdaterat http-utlöst funktion för att skriva data till en lagringskö. Nu kan du läsa mer om att utveckla funktioner från kommandoraden med hjälp av Core Tools och Azure CLI:
+Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Nu kan du lära dig mer om att utveckla funktioner från kommando raden med hjälp av kärn verktyg och Azure CLI:
 
-+ [Arbeta med Azure Functions core-verktyg](functions-run-local.md)  
++ [Arbeta med Azure Functions Core Tools](functions-run-local.md)  
 
 ::: zone pivot="programming-language-csharp"  
-+ [Exempel på kompletta funktionsprojekt i C#](/samples/browse/?products=azure-functions&languages=csharp).
++ [Exempel på kompletta funktions projekt i C#](/samples/browse/?products=azure-functions&languages=csharp).
 
-+ [Azure Functions C#-utvecklarreferens](functions-dotnet-class-library.md)  
++ [Referens för Azure Functions C#-utvecklare](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
-+ [Exempel på kompletta funktionsprojekt i JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
++ [Exempel på kompletta funktions projekt i Java Script](/samples/browse/?products=azure-functions&languages=javascript).
 
-+ [Utvecklarhandboken för Azure Functions JavaScript](functions-reference-node.md)  
++ [Azure Functions JavaScript-guide för utvecklare](functions-reference-node.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-+ [Exempel på kompletta funktionsprojekt i TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
++ [Exempel på kompletta funktions projekt i typescript](/samples/browse/?products=azure-functions&languages=typescript).
 
-+ [Utvecklarhandboken för Azure Functions TypeScript](functions-reference-node.md#typescript)  
++ [Guide för Azure Functions TypeScript-utvecklare](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-+ [Exempel på kompletta funktionsprojekt i Python](/samples/browse/?products=azure-functions&languages=python).
++ [Exempel på kompletta funktions projekt i python](/samples/browse/?products=azure-functions&languages=python).
 
-+ [Utvecklarhandboken för Azure Functions Python](functions-reference-python.md)  
++ [Guide för Azure Functions python-utvecklare](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ [Exempel på kompletta funktionsprojekt i PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
++ [Exempel på kompletta funktions projekt i PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
 
-+ [Utvecklarhandboken för Azure Functions PowerShell](functions-reference-powershell.md) 
++ [Azure Functions PowerShell-guide för utvecklare](functions-reference-powershell.md) 
 ::: zone-end
 + [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)
 
-+ [Sidan Funktioner prissättning](https://azure.microsoft.com/pricing/details/functions/)
++ [Prissättnings sida för funktioner](https://azure.microsoft.com/pricing/details/functions/)
 
-+ [Uppskatta kostnader för förbrukningsplan](functions-consumption-costs.md) 
++ [Uppskatta förbruknings Plans kostnader](functions-consumption-costs.md) 

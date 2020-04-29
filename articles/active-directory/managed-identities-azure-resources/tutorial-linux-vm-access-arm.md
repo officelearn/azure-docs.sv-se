@@ -1,5 +1,5 @@
 ---
-title: Snabbstart`:` Använd en hanterad identitet för att komma åt Azure Resource Manager - Azure AD
+title: Snabb`:` start använder en hanterad identitet för att få åtkomst Azure Resource Manager – Azure AD
 description: En snabbstart som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ee10a73579e8533cd14ecfeeebab44e726ba16b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74326323"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Resource Manager
@@ -44,7 +44,7 @@ Med hjälp av hanterade identiteter för Azure-resurser kan din kod hämta åtko
 2. Välj den specifika **resursgrupp** som du skapade tidigare.
 3. Gå till **Åtkomstkontroll (IAM)** i den vänstra panelen.
 4. Klicka på **Lägg till** en ny rolltilldelning för den virtuella datorn. Välj **rollen** som **läsare**.
-5. I nästa listruta **tilldelar du åtkomst till** den virtuella **resursen**.
+5. I nästa listruta tilldelar du **åtkomst till** den virtuella resurs **datorn**.
 6. Kontrollera sedan att rätt prenumeration visas i listrutan **Prenumeration**. Och för **Resursgrupp** väljer du **Alla resursgrupper**.
 7. I **Välj** väljer du sedan din virtuella Linux-dator i listrutan och klickar på **Spara**.
 
@@ -55,7 +55,7 @@ Med hjälp av hanterade identiteter för Azure-resurser kan din kod hämta åtko
 Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 
 1. I portalen går du till den virtuella Linux-datorn och i **översikten** klickar du på **Anslut**.  
-2. **Anslut** till den virtuella datorn med den SSH-klient du väljer. 
+2. **Anslut** till den virtuella datorn med valfri SSH-klient. 
 3. Använd `curl` i terminalfönstret och skicka en begäran till de lokala hanterade identiteterna för Azure-resursslutpunkter för att hämta en åtkomsttoken för Azure Resource Manager.  
  
     `curl`-begäran för åtkomsttoken visas nedan.  
@@ -100,5 +100,5 @@ Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder W
 I den här snabbstarten har du lärt dig hur du använder en systemtilldelad hanterad identitet för att få åtkomst till Azure Resource Manager-API:et.  Mer information om Azure Resource Manager finns här:
 
 > [!div class="nextstepaction"]
->[Skapa,](/azure/azure-resource-manager/resource-group-overview)[lista eller ta bort en användartilldelad hanterad identitet med Azure PowerShell](how-to-manage-ua-identity-powershell.md) 
->
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[skapa, lista eller ta bort en tilldelad hanterad identitet med hjälp av Azure PowerShell](how-to-manage-ua-identity-powershell.md)

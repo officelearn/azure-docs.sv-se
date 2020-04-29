@@ -10,10 +10,10 @@ ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240732"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
@@ -89,7 +89,7 @@ Mer information finns i [Säkerhet och dataskydd i Azure Data Box Disk](data-box
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Information om regiontillgänglighet finns i [Azure-produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk kan också distribueras i Azure Government Cloud. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+Information om regions tillgänglighet finns i [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 
 ## <a name="pricing"></a>Prissättning

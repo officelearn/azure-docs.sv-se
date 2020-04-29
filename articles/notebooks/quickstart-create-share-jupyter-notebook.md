@@ -1,78 +1,78 @@
 ---
-title: Skapa och dela en Jupyter-anteckningsbok i förhandsversionen av Azure Notebooks
-description: Skapa och kör snabbt en Jupyter-anteckningsbok i förhandsversionen av Azure Notebooks och dela sedan anteckningsboken med andra.
+title: Skapa och dela en Jupyter-anteckningsbok för Azure Notebooks för hands version
+description: Skapa snabbt och kör en Jupyter-anteckningsbok på Azure Notebooks för hands versionen och dela den sedan med andra.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.openlocfilehash: d3310444fa28240b8fb1344199514a9601a2c615
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77064452"
 ---
-# <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Snabbstart: Skapa och dela en anteckningsbok i förhandsversionen av Azure Notebooks
+# <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Snabb start: skapa och dela en antecknings bok i Azure Notebooks för hands version
 
-I den här snabbstarten skapar och kör du en Jupyter-anteckningsbok på Azure Notebooks och delar sedan den anteckningsboken med andra. Med Jupyter kan du enkelt kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en delbar arbetsyta, anteckningsboken. Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation.
+I den här snabb starten skapar du och kör en Jupyter Notebook på Azure Notebooks och delar sedan den bärbara datorn med andra. Med Jupyter kan du enkelt kombinera markdown text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbets yta, antecknings boken. Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation.
 
 ## <a name="prerequisites"></a>Krav
 Inga.
 
-## <a name="create-a-new-project-and-notebook"></a>Skapa ett nytt projekt och en ny anteckningsbok
+## <a name="create-a-new-project-and-notebook"></a>Skapa ett nytt projekt och en ny antecknings bok
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-1. Gå till [webbplatsen förhttps://notebooks.azure.com) Azure Notebooks (](https://notebooks.azure.com) och logga in. Mer information finns [i Snabbstart - Logga in på Azure-anteckningsböcker](quickstart-sign-in-azure-notebooks.md).
+1. Gå till [Azure Notebooks-platsen (https://notebooks.azure.com) ](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
-1. På din offentliga profilsida väljer du **Mina projekt** högst upp på sidan:
+1. Från din offentliga profil sida väljer du **Mina projekt** överst på sidan:
 
-    ![Länken Mina projekt visas högst upp i webbläsarfönstret](media/quickstarts/my-projects-link.png)
+    ![Länken Mina projekt överst i webbläsarfönstret](media/quickstarts/my-projects-link.png)
 
-1. På sidan **Mina projekt** väljer du + **Nytt projekt** (kortkommando: n). Knappen kan bara **+** visas som om webbläsarfönstret är smalt:
+1. På sidan **Mina projekt** väljer du **+ nytt projekt** (kortkommando: n). Knappen får bara visas som **+** om webbläsarfönstret är smalare:
 
-    ![Nytt projektkommando på sidan Mina projekt](media/quickstarts/new-project-command.png)
+    ![Kommandot nytt projekt på sidan mina projekt](media/quickstarts/new-project-command.png)
 
-1. Ange eller ange följande information **i popup-fönstret Skapa nytt projekt** som visas och välj sedan **Skapa:**
+1. I popup-fönstret **Skapa nytt projekt** som visas anger eller anger du följande information och väljer sedan **skapa**:
 
-   - **Projektnamn**: Hello World i Python
-   - **Projekt-ID:** hello-world-python
-   - **Offentligt projekt**: (rensat)
-   - **Skapa en README.md:**(rensad)
+   - **Projekt namn**: Hello World i python
+   - **Projekt-ID**: Hello – världen – python
+   - **Offentligt projekt**: (avmarkerat)
+   - **Skapa en README.MD**: (avmarkerad)
 
-     ![Nytt projekt popup med befolkade detaljer](media/quickstarts/new-project-popup.png)
+     ![Popup-fönstret nytt projekt med ifylld information](media/quickstarts/new-project-popup.png)
 
-1. Efter en stund navigerar Azure Notebooks dig till det nya projektet. Lägg till en anteckningsbok i projektet genom att välja listrutan **+**+ **Ny** (som bara kan visas) och sedan välja **Anteckningsbok:**
+1. Efter en liten stund navigerar Azure Notebooks till det nya projektet. Lägg till en antecknings bok i projektet genom att markera List rutan **+ ny** (som endast **+** visas som) och sedan välja **antecknings bok**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. I **popup-fönstret Skapa ny anteckningsbok** som visas anger du ett filnamn för din bärbara dator, till exempel *HelloWorldInPython.ipynb* (*.ipynb* means IronPython (Jupyter) Notebook) och väljer **Python 3.6** för språket (kallas även *kärnan):*
+1. I popup-fönstret **Skapa ny antecknings bok** visas anger du ett namn för din bärbara dator, till exempel *HelloWorldInPython. ipynb* (*. ipynb* betyder ironpython (Jupyter) Notebook) och väljer **python 3,6** för språket (kallas även för *kernel*):
 
-    ![Popup-fönstret Skapa ny anteckningsbok](media/quickstarts/new-notebook-popup.png)
+    ![Popup-fönstret Skapa ny antecknings bok](media/quickstarts/new-notebook-popup.png)
 
-1. Välj **Ny** om du vill slutföra skapandet av anteckningsboken, som sedan visas i projektets fillista:
+1. Välj **ny** för att slutföra skapandet av antecknings boken, som sedan visas i projektets fil lista:
 
-    ![Ny anteckningsbok som visas i projektets fillista](media/quickstarts/new-notebook-created.png)
+    ![Ny antecknings bok visas i projektets fillista](media/quickstarts/new-notebook-created.png)
 
 ## <a name="run-the-notebook"></a>Köra anteckningsboken
 
-1. Välj den nya anteckningsboken för att köra den i redigeraren. kärnan du valde (Python 3.6 i det här exemplet) aktiveras automatiskt för den här anteckningsboken:
+1. Välj den nya antecknings boken som ska köras i redigeraren. den kernel du valde (python 3,6 i det här exemplet) aktive ras automatiskt för den här antecknings boken:
 
-    ![Vy över en ny anteckningsbok i Azure Notebooks](media/quickstarts/create-notebook-first-open.png)
+    ![Vy över en ny antecknings bok i Azure Notebooks](media/quickstarts/create-notebook-first-open.png)
 
-1. Som standard har anteckningsboken en tom kodcell. Om du vill ändra celltypen till **Markdown**använder du listrutan celltyp för att välja **Markdown:**
+1. Som standard har antecknings boken en tom kod cell. Om du vill ändra cell typen till **markdown**, använder du List rutan cell typ för att välja **markdown**:
 
-    ![Ändra celltypen i en ny anteckningsbok](media/quickstarts/create-notebook-cell-type.png)
+    ![Ändra cell typen i en ny antecknings bok](media/quickstarts/create-notebook-cell-type.png)
 
-1. Ange eller klistra in följande rubriktext i cellen:
+1. Skriv eller klistra in följande rubrik text i cellen:
 
     ```markdown
     # Hello World in Python
     ```
 
-1. Eftersom du redigerar Markdown visas texten som en rubrik med "#". Om du vill rendera markeringen i HTML markerar du knappen **Kör.** Azure-anteckningsböcker skapar sedan automatiskt en ny kodcell efteråt:
+1. Eftersom du redigerar markdown visas texten som en rubrik med "#". Om du vill rendera markdown i HTML väljer du knappen **Kör** . Azure Notebooks skapar en ny kod cell automatiskt efteråt:
 
-    ![Körknappen för en cell och renderad Markdown](media/quickstarts/run-cell-markdown-render.png)
+    ![Knappen Kör för en cell och en renderad markdown](media/quickstarts/run-cell-markdown-render.png)
 
-1. I kodcellen anger du följande Python-kod:
+1. Ange följande python-kod i cellen Code:
 
     ```python
     from datetime import datetime
@@ -82,27 +82,27 @@ Inga.
     print(msg)
     ```
 
-1. Välj **Kör** (kortkommando: Skift+Retur) om du vill köra koden. Under cellen bör du se lyckade utdata som liknar följande text:
+1. Kör koden genom att välja **Kör** (kortkommando: Shift + Retur). Under cellen ser du lyckad utdata som liknar följande text:
 
     ```output
     Hello, Azure Notebooks! Today is Thursday, 15 November, 2018
     ```
 
-1. Välj spara ikonen för att spara ditt arbete:
+1. Välj ikonen Spara för att spara ditt arbete:
 
-    ![Ikonen Spara i verktygsfältet Jupyters anteckningsbok](media/quickstarts/hello-results-save-icon.png)
+    ![Spara ikon i Jupyter Notebook-verktygsfältet](media/quickstarts/hello-results-save-icon.png)
 
-1. Välj **menykommandot** > **Filsträn och Stoppa** om du vill stoppa servern och stänga webbläsarfönstret.
+1. Välj Meny kommandot**Stäng och** stoppa för att stoppa servern och stänga webbläsarfönstret. **File** > 
 
-## <a name="share-the-notebook"></a>Dela anteckningsboken
+## <a name="share-the-notebook"></a>Dela antecknings boken
 
-Om du vill dela anteckningsboken växlar du tillbaka till projektsidan om det behövs, högerklickar på anteckningsboksfilen, väljer **Kopiera länk** (kortkommando: y) och klistrar in länken i ett lämpligt meddelande (e-post, snabbmeddelanden osv.).
+Om du vill dela din bärbara dator går du tillbaka till projekt sidan om det behövs, högerklickar på anteckningsbok-filen, väljer **Kopiera länk** (kortkommando: y) och klistrar in länken i ett lämpligt meddelande (e-post, snabb meddelanden osv.).
 
-På projektsidan kan du också använda **Menyn Dela** för att hämta en länk, skapa ett e-postmeddelande med länken eller hämta HTML- och Markdown-inbäddningskod:
+På projekt sidan kan du också använda **delnings** menyn för att hämta en länk, skapa ett e-postmeddelande med länken eller hämta HTML-och markdown inbäddnings kod:
 
-![Kommandot Projektdelning](media/quickstarts/share-project-command.png)
+![Projekt resurs kommando](media/quickstarts/share-project-command.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Skapa och kör en Jupyter-anteckningsbok för att göra linjär regression](tutorial-create-run-jupyter-notebook.md)
+> [Självstudie: skapa och kör en Jupyter-anteckningsbok för linjär regression](tutorial-create-run-jupyter-notebook.md)

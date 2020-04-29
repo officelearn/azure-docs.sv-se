@@ -1,27 +1,27 @@
 ---
-title: Konfigurera Linux Python-appar
-description: Lär dig hur du konfigurerar en förbyggd Python-behållare för din app. Den här artikeln visar de vanligaste konfigurationsuppgifterna.
+title: Konfigurera Linux python-appar
+description: Lär dig hur du konfigurerar en fördefinierad python-behållare för din app. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 8a9276f73c1d9bdf0289f41bb59340b29f5a2575
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80046031"
 ---
-# <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux Python-app för Azure App Service
+# <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux python-app för Azure App Service
 
-Den här artikeln beskriver hur [Azure App Service](app-service-linux-intro.md) kör Python-appar och hur du kan anpassa beteendet för App Service när det behövs. Python-appar måste distribueras [pip](https://pypi.org/project/pip/) med alla nödvändiga kärnmoduler.
+Den här artikeln beskriver hur [Azure App Service](app-service-linux-intro.md) kör Python-appar och hur du kan anpassa beteendet för App Service när det behövs. Python-appar måste distribueras med alla nödvändiga [pip](https://pypi.org/project/pip/) -moduler.
 
-Distributionsmotorn för App-tjänsten aktiverar automatiskt `pip install -r requirements.txt` en virtuell miljö och körs åt dig när du distribuerar en [Git-lagringsplats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)eller ett [Zip-paket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) med byggprocesser påslagna.
+App Service distributions motorn aktiverar automatiskt en virtuell miljö och körs `pip install -r requirements.txt` åt dig när du distribuerar en git- [lagringsplats](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), eller ett [zip-paket](../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) med Bygg processer aktiverade.
 
-Den här guiden innehåller viktiga begrepp och instruktioner för Python-utvecklare som använder en inbyggd Linux-behållare i App Service. Om du aldrig har använt Azure App Service bör du följa [snabbstarten Python](quickstart-python.md) och [Python med PostgreSQL-självstudien](tutorial-python-postgresql-app.md) först.
+Den här guiden innehåller viktiga begrepp och instruktioner för python-utvecklare som använder en inbyggd Linux-behållare i App Service. Om du aldrig har använt Azure App Service bör du först följa snabb starten för [python](quickstart-python.md) och [python med postgresql](tutorial-python-postgresql-app.md) .
 
 > [!NOTE]
-> Linux är för närvarande det rekommenderade alternativet för att köra Python-appar i App Service. Information om Windows-alternativet finns i [Python om Windows-smaken av App Service](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service).
+> Linux är för närvarande det rekommenderade alternativet för att köra python-appar i App Service. Information om Windows-alternativet finns i [python på Windows-smak för App Service](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service).
 >
 
 ## <a name="show-python-version"></a>Visa Python-version
@@ -48,31 +48,31 @@ Kör följande kommando i [Cloud Shell](https://shell.azure.com) för att ställ
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
 ```
 
-## <a name="customize-build-automation"></a>Anpassa byggautomation
+## <a name="customize-build-automation"></a>Anpassa Bygg automatisering
 
-Om du distribuerar din app med Git- eller zip-paket med build automation aktiverat, steg apptjänstens automatisering genom följande sekvens:
+Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
 
-1. Kör anpassat skript om `PRE_BUILD_SCRIPT_PATH`det anges av .
+1. Kör anpassat skript om det anges `PRE_BUILD_SCRIPT_PATH`av.
 1. Kör `pip install -r requirements.txt`.
-1. Om *manage.py* finns i roten i databasen kör *du manage.py collectstatic*. Men om `DISABLE_COLLECTSTATIC` är `true`inställt på , hoppas det här steget över.
-1. Kör anpassat skript om `POST_BUILD_SCRIPT_PATH`det anges av .
+1. Om *Manage.py* finns i roten för lagrings platsen kör du *Manage.py collectstatic*. Men om `DISABLE_COLLECTSTATIC` är inställt `true`på, hoppas det här steget över.
+1. Kör anpassat skript om det anges `POST_BUILD_SCRIPT_PATH`av.
 
-`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` `DISABLE_COLLECTSTATIC` är miljövariabler som är tomma som standard. Om du vill köra förbyggningskommandon definierar du `PRE_BUILD_COMMAND`. Om du vill köra kommandon `POST_BUILD_COMMAND`efter build definierar du . Om du vill inaktivera att köra collectstatic när du skapar Django-appar anger du `DISABLE_COLLECTSTATIC=true`.
+`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`och `DISABLE_COLLECTSTATIC` är miljövariabler som är tomma som standard. Definiera `PRE_BUILD_COMMAND`för att köra kommandon för att skapa för bygge. Definiera `POST_BUILD_COMMAND`för att köra kommandon efter kompilering. Om du vill inaktivera körning av collectstatic när du skapar `DISABLE_COLLECTSTATIC=true`django-appar anger du.
 
-I följande exempel anges de två variablerna till en serie kommandon, avgränsade med kommatecken.
+I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-Ytterligare miljövariabler för att anpassa byggautomatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+Ytterligare miljövariabler för att anpassa Bygg automatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-Mer information om hur App Service körs och bygger Python-appar i Linux finns i [Oryx-dokumentation: Så identifieras och skapas Python-appar](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
+Mer information om hur App Service kör och skapar python-appar i Linux finns i [Oryx-dokumentation: så här identifieras och skapas python-appar](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
 ## <a name="container-characteristics"></a>Containeregenskaper
 
-Python-appar som distribueras till App Service på Linux körs i en Docker-behållare som har definierats i [App Service Python GitHub-databasen](https://github.com/Azure-App-Service/python). Du hittar avbildningskonfigurationerna i de versionsspecifika katalogerna.
+Python-appar som distribueras till App Service i Linux-körningar i en Docker-behållare som har definierats i [App Service python GitHub-lagringsplatsen](https://github.com/Azure-App-Service/python). Du kan hitta bildkonfigurationerna i de versions bara katalogerna.
 
 Den här containern har följande egenskaper:
 
@@ -102,7 +102,7 @@ För Django-appar letar App Service efter en fil med namnet `wsgi.py` i din appk
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Om du vill ha mer specifik kontroll över startkommandot använder du ett [anpassat startkommando](#customize-startup-command) och ersätter `<module>` med namnet på modulen som innehåller *wsgi.py*.
+Om du vill ha mer detaljerad kontroll över Start kommandot använder du ett [anpassat start kommando](#customize-startup-command) och ersätter `<module>` med namnet på den modul som innehåller *wsgi.py*.
 
 ### <a name="flask-app"></a>Flask-app
 
@@ -115,7 +115,7 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 gunicorn --bind=0.0.0.0 --timeout 600 app:app
 ```
 
-Om huvudappmodulen finns i en annan fil använder du ett annat namn för appobjektet, eller om du vill ge ytterligare argument till Gunicorn, använder du ett [anpassat startkommando](#customize-startup-command).
+Om din huvudsakliga app-modul finns i en annan fil, Använd ett annat namn för app-objektet, eller om du vill ange ytterligare argument för Gunicorn, använder du ett [anpassat start kommando](#customize-startup-command).
 
 ### <a name="default-behavior"></a>Standardbeteende
 
@@ -125,13 +125,13 @@ Om App Service inte hittar något anpassat kommando, någon Django-app eller nå
 
 ## <a name="customize-startup-command"></a>Anpassa startkommando
 
-Du kan styra containerns startbeteende genom att ange ett anpassat Gunicorn-startkommando. Så här gör du följande kommando i [Cloud Shell:](https://shell.azure.com)
+Du kan styra containerns startbeteende genom att ange ett anpassat Gunicorn-startkommando. Det gör du genom att köra följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-Om du till exempel har en Flask-app vars huvudmodul är *hello.py* och `myapp`flask-appobjektet i filen heter, är * \<anpassade>* följande:
+Om du till exempel har en kolv-app vars huvudmodul är *Hello.py* och kolv-Appaketet i filen heter `myapp`, så är>för * \<anpassad kommando* :
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -143,9 +143,9 @@ Om din huvudmodul är i en undermapp, till exempel `website`, anger du den mappe
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Du kan också lägga till ytterligare argument för Gunicorn i `--workers=4` * \<>* med anpassade kommandon, till exempel . Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Du kan också lägga till ytterligare argument för Gunicorn till * \<>för anpassade kommandon *, till exempel `--workers=4`. Mer information finns i [Köra Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-Om du vill använda en icke-Gunicorn-server, * \<* till exempel [aiohttp,](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)kan du ersätta>med anpassade kommandon med något liknande:
+Om du vill använda en icke-Gunicorn-Server, till exempel [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), kan du ersätta * \<>för anpassade kommandon* med något som liknar detta:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -156,7 +156,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [ställa in appinställningar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför appkoden. Du kan använda dem med hjälp av standardmönstret [os.environ](https://docs.python.org/3/library/os.html#os.environ). Om du till exempel vill få åtkomst till en appinställning med namnet `WEBSITE_SITE_NAME` använder du följande kod:
+I App Service kan du [Ange inställningar för appar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför appens kod. Du kan använda dem med hjälp av standardmönstret [os.environ](https://docs.python.org/3/library/os.html#os.environ). Om du till exempel vill få åtkomst till en appinställning med namnet `WEBSITE_SITE_NAME` använder du följande kod:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -177,7 +177,7 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsaren
+## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
@@ -187,19 +187,19 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 - Starta om App Service, vänta 15–20 sekunder och kontrollera appen igen.
 - Se till att du använder App Service för Linux i stället för en Windows-baserad instans. Från Azure-CLI kör du kommandot `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`. Byt ut `<resource_group_name>` och `<app_service_name>` därefter. Du bör se `app,linux` som utdata; annars återskapar du App Service och väljer Linux.
 - Använd SSH- eller Kudu-konsolen för att ansluta direkt till App Service och kontrollera att dina filer finns under *site/wwwroot*. Om filerna inte finns granskar du din distributionsprocess och distribuerar appen på nytt.
-- Om filerna finns kunde App Service inte identifiera din specifika startfil. Kontrollera att appen är strukturerad som App Service förväntar sig för [Django](#django-app) eller [Flask](#flask-app)eller använd ett [anpassat startkommando](#customize-startup-command).
+- Om filerna finns kunde App Service inte identifiera din specifika startfil. Kontrol lera att din app är strukturerad som App Service förväntar sig för [django](#django-app) eller [flaska](#flask-app), eller Använd ett [anpassat start kommando](#customize-startup-command).
 - **Du ser meddelandet ”Service Unavailable” (Tjänsten är ej tillgänglig) i webbläsaren.** Webbläsaren nådde tidsgränsen i väntan på svar från App Service, vilket indikerar att App Service startade Gunicorn-servern, men de argument som specificerar appkoden är felaktiga.
 - Uppdatera webbläsaren, särskilt om du använder de lägsta prisnivåerna i din App Service-plan. Till exempel kan appen ta längre tid att starta om du använder de kostnadsfria nivåerna och blir tillgänglig när du uppdaterar webbläsaren.
-- Kontrollera att appen är strukturerad som App Service förväntar sig för [Django](#django-app) eller [Flask](#flask-app)eller använd ett [anpassat startkommando](#customize-startup-command).
-- [Öppna loggströmmen](#access-diagnostic-logs).
+- Kontrol lera att din app är strukturerad som App Service förväntar sig för [django](#django-app) eller [flaska](#flask-app), eller Använd ett [anpassat start kommando](#customize-startup-command).
+- [Åtkomst till logg strömmen](#access-diagnostic-logs).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudie: python-app med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Distribuera från privat behållardatabas](tutorial-custom-docker-image.md)
+> [Självstudie: Distribuera från privat container-lagringsplats](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
 > [Vanliga frågor och svar om App Service Linux](app-service-linux-faq.md)

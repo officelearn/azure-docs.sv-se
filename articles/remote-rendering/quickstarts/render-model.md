@@ -1,47 +1,47 @@
 ---
-title: Återge en modell med Unity
-description: Snabbstart som guidar användaren genom stegen för att återge en modell
+title: Rendera en modell med Unity
+description: Snabb start som vägleder användaren genom stegen för att återge en modell
 author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
 ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80679788"
 ---
-# <a name="quickstart-render-a-model-with-unity"></a>Snabbstart: Återge en modell med Unity
+# <a name="quickstart-render-a-model-with-unity"></a>Snabb start: rendera en modell med Unity
 
-Den här snabbstarten beskriver hur du kör ett Unity-exempel som återger en inbyggd modell på distans med hjälp av Azure Remote Rendering (ARR) tjänsten.
+Den här snabb starten beskriver hur du kör ett Unity-exempel som återger en inbyggd modell via fjärr anslutning med hjälp av tjänsten Azure Remote rendering (ARR).
 
-Vi kommer inte att gå in på detaljer om ARR API själv eller hur man ställer in ett nytt Unity-projekt. Dessa ämnen behandlas i [Handledning: Inrätta en Enhet projekt från grunden](../tutorials/unity/project-setup.md).
+Vi kommer inte att gå in i detalj om ARR-API: et eller hur du konfigurerar ett nytt Unity-projekt. De här avsnitten beskrivs i [Självstudier: Konfigurera ett Unity-projekt från grunden](../tutorials/unity/project-setup.md).
 
-I den här snabbstarten får du lära dig hur du:
+I den här snabb starten får du lära dig att:
 > [!div class="checklist"]
 >
->* Konfigurera din lokala utvecklingsmiljö
->* Hämta och skapa exempelappen ARR Quickstart för Unity
->* Återge en modell i exempelappen Snabbstart i ARR
+>* Konfigurera din lokala utvecklings miljö
+>* Hämta och skapa exempel appen ARR starter för enhets enhet
+>* Rendera en modell i exempel appen ARR starter
 
 ## <a name="prerequisites"></a>Krav
 
-För att få åtkomst till Azure Remote Rendering-tjänsten måste du först [skapa ett konto](../how-tos/create-an-account.md).
+För att få åtkomst till tjänsten Azure Remote rendering måste du först [skapa ett konto](../how-tos/create-an-account.md).
 
-Följande program måste installeras:
+Följande program vara måste vara installerad:
 
-* Windows SDK 10.0.18362.0 [(hämta)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* Den senaste versionen av Visual Studio 2019 [(hämtad)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(ladda ner)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(ladda ner)](https://unity3d.com/get-unity/download)
-  * Installera dessa moduler i Unity:
-    * **UWP** – Stöd för universal windows-plattformsbygge
-    * **IL2CPP** - Stöd för Windows Build (IL2CPP)
+* Windows SDK 10.0.18362.0 [(Hämta)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* Den senaste versionen av Visual Studio 2019 [(Hämta)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* GIT [(nedladdning)](https://git-scm.com/downloads)
+* Unity 2019.3.1 [(Hämta)](https://unity3d.com/get-unity/download)
+  * Installera de här modulerna i Unity:
+    * **UWP** -stöd för Build-universell Windows-plattform
+    * **IL2CPP** – stöd för Windows-build (IL2CPP)
 
 ## <a name="clone-the-sample-app"></a>Klona exempelappen
 
-Öppna en kommandotolk (skriv `cmd` in Start-menyn i Windows) och ändra till en katalog där du vill lagra ARR-exempelprojektet.
+Öppna en kommando tolk (Skriv `cmd` in Start-menyn i Windows) och ändra till en katalog där du vill lagra exempel projektet arr.
 
 Kör följande kommandon:
 
@@ -51,66 +51,66 @@ cd ARR
 git clone https://github.com/Azure/azure-remote-rendering
 ```
 
-Det sista kommandot skapar en underkatalog i ARR-katalogen som innehåller de olika exempelprojekten för Azure Remote Rendering.
+Det sista kommandot skapar en under katalog i katalogen ARR som innehåller de olika exempel projekten för Azure Remote rendering.
 
-Snabbstartsprovappen för Unity finns i underkatalogen *Unity/Quickstart*.
+Exempel appen snabb start för enhet finns i under katalogen *Unit/snabb start*.
 
-## <a name="rendering-a-model-with-the-unity-sample-project"></a>Återge en modell med exempelprojektet Unity
+## <a name="rendering-a-model-with-the-unity-sample-project"></a>Återge en modell med exempel projektet Unity
 
-Öppna Unity Hub och lägg till exempelprojektet, som är mappen *ARR\azure-remote-rendering\Unity\Quickstart.*
-Öppna projektet. Om det behövs kan Unity uppgradera projektet till den installerade versionen.
+Öppna Unity Hub och Lägg till exempelprojektet, som är mappen *ARR\azure-Remote-rendering\Unity\Quickstart* .
+Öppna projektet. Om det behövs kan du göra det möjligt för Unity att uppgradera projektet till den installerade versionen.
 
-Standardmodellen vi renderar är en [inbyggd exempelmodell](../samples/sample-model.md). Vi visar hur du konverterar en anpassad modell med hjälp av ARR-konverteringstjänsten i [nästa snabbstart.](convert-model.md)
+Standard modellen som vi återger är en [inbyggd exempel modell](../samples/sample-model.md). Vi kommer att visa hur du konverterar en anpassad modell med hjälp av tjänsten ARR Conversion i [Nästa snabb start](convert-model.md).
 
-### <a name="enter-your-account-info"></a>Ange din kontoinformation
+### <a name="enter-your-account-info"></a>Ange din konto information
 
-1. I webbläsaren Enhetstillgångar navigerar du till mappen *Scener* och öppnar **snabbstartsscenen.**
-1. Välj **fjärrrenderingsspelobjektet** i *hierarkin.*
-1. Ange dina [kontouppgifter](../how-tos/create-an-account.md)i *inspektören*.
+1. I Unity Asset Browser navigerar du till mappen *scener* och öppnar **snabb starts** scenen.
+1. Välj Game-objektet **RemoteRendering** i *hierarkin*.
+1. I *kontrollanten*anger du dina [autentiseringsuppgifter för kontot](../how-tos/create-an-account.md).
 
-![ARR-kontoinformation](./media/arr-sample-account-info.png)
+![Information om ARR-konto](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Azure Portal visar ditt kontos domän endast *som mixedreality.azure.com*. Detta är otillräckligt för anslutning.
-> Ange **AccountDomain** `<region>.mixedreality.azure.com`till `<region>` , där [är ett av de tillgängliga områdena nära dig](../reference/regions.md).
+> Azure Portal visar endast ditt kontos domän som *mixedreality.Azure.com*. Detta är inte tillräckligt för att kunna ansluta.
+> Ange **AccountDomain** till `<region>.mixedreality.azure.com`, där `<region>` är [en av de tillgängliga regionerna nära dig](../reference/regions.md).
 
-Senare vill vi distribuera det här projektet till en HoloLens och ansluta till fjärrrenderingstjänsten från den enheten. Eftersom vi inte har något enkelt sätt att ange autentiseringsuppgifter på enheten, kommer snabbstartsprovet att **spara autentiseringsuppgifterna i Unity-scenen**.
+Senare vill vi distribuera det här projektet till en HoloLens och ansluta till tjänsten Remote rendering från den enheten. Eftersom vi inte har något enkelt sätt att ange autentiseringsuppgifterna på enheten sparar snabb starts exemplet **autentiseringsuppgifterna i Unity-scenen**.
 
 > [!WARNING]
-> Se till att inte kontrollera projektet med dina sparade autentiseringsuppgifter i något arkiv där det skulle läcka hemlig inloggningsinformation!
+> Se till att du inte kontrollerar projektet med dina sparade autentiseringsuppgifter i en lagrings plats där det skulle avslöja hemlig inloggnings information!
 
-### <a name="create-a-session-and-view-the-default-model"></a>Skapa en session och visa standardmodellen
+### <a name="create-a-session-and-view-the-default-model"></a>Skapa en session och Visa standard modellen
 
-Tryck på Unity's **Play-knappen** för att starta sessionen. Du bör se ett överlägg med statustext längst ned *Game* i visningsområdet på spelpanelen. Sessionen genomgår en rad tillståndsövergångar. I **startläget** snurras fjärrdatorn upp, vilket tar flera minuter. När den har lyckats övergår den till tillståndet **Klar.** Nu går sessionen **Connecting** in i anslutningstillståndet, där den försöker nå renderingskörningen på den virtuella datorn. När det lyckas övergår exemplet till läget **Ansluten.** Vid denna punkt, kommer det att börja ladda ner modellen för rendering. På grund av modellens storlek kan nedladdningen ta några minuter till. Då visas den fjärrrenderade modellen.
+Starta sessionen genom att trycka på unions knappen **Play** . Du bör se ett överlägg med status text, längst ned i visnings området på *spel* panelen. Sessionen kommer att genomgå en serie tillstånds över gångar. I **Start** läge är den virtuella fjärrdatorn det som tar flera minuter att skapa en virtuell dator. Vid lyckad överföring övergår den till **klart** läge. Nu går sessionen in i **anslutnings** läget, där den försöker gå över till åter givnings körningen på den virtuella datorn. När det är klart kan exemplet gå över till **anslutet** tillstånd. Nu börjar den att ladda ned modellen för åter givning. Nedladdningen kan ta några minuter på grund av modellens storlek. Sedan visas den fjärranslutna modellen.
 
-![Utdata från provet](media/arr-sample-output.png)
+![Utdata från exemplet](media/arr-sample-output.png)
 
-Grattis! Du visar nu en fjärrrengörd modell!
+Grattis! Nu visar du en fjärrrenderad modell!
 
-## <a name="inspecting-the-scene"></a>Inspektera scenen
+## <a name="inspecting-the-scene"></a>Inspekterar scenen
 
-När fjärrrenderingsanslutningen har körts uppdateras panelen Inspektör med ytterligare statusinformation:
+När fjärran sluten anslutning har körts uppdateras panelen granska med ytterligare statusinformation:
 
-![Unity provspela](./media/arr-sample-configure-session-running.png)
+![Enhets exempel spel](./media/arr-sample-configure-session-running.png)
 
-Du kan nu utforska scendiagrammet genom att välja den nya noden och klicka på **Visa underordnade** i inspektören.
+Nu kan du utforska scen diagrammet genom att välja den nya noden och klicka på **Visa underordnade** i kontrollanten.
 
-![Enhetshierarki](./media/unity-hierarchy.png)
+![Unity-hierarki](./media/unity-hierarchy.png)
 
-Det finns ett [avklippt planföremål](../overview/features/cut-planes.md) på platsen. Prova att aktivera den i dess egenskaper och flytta runt den:
+Det finns ett [klipp Plans](../overview/features/cut-planes.md) objekt i scenen. Prova att aktivera den i dess egenskaper och flytta den runt:
 
-![Byta snittplan](media/arr-sample-unity-cutplane.png)
+![Ändra det klippta planet](media/arr-sample-unity-cutplane.png)
 
-Om du vill synkronisera transformeringar klickar du antingen på **Synkronisera nu** eller kontrollerar alternativet Synkronisera **alla ramar.** För komponentegenskaper räcker det med att bara ändra dem.
+Om du vill synkronisera transformeringar klickar du antingen på **Synkronisera nu** eller markerar alternativet **synkronisera varje ram** . För komponent egenskaper räcker det bara att ändra dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa snabbstart distribuerar vi exemplet till en HoloLens för att visa den fjärrrenderade modellen i dess ursprungliga storlek.
+I nästa snabb start kommer vi att distribuera exemplet till en HoloLens för att visa den fjärranslutna modellen i ursprunglig storlek.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Distribuera Unity-exempel till HoloLens](deploy-to-hololens.md)
+> [Snabb start: Distribuera Unity-exempel till HoloLens](deploy-to-hololens.md)
 
 Alternativt kan exemplet också distribueras till en stationär dator.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Distribuera Unity-exempel till skrivbordet](deploy-to-desktop.md)
+> [Snabb start: Distribuera Unity-exempel till Skriv bordet](deploy-to-desktop.md)

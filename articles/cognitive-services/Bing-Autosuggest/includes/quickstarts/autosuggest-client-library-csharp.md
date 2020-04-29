@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för Bing Autosuggest C#-klientbibliotek
+title: Snabb start för Automatiska förslag i Bing C#-klient bibliotek
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,41 +9,41 @@ ms.topic: include
 ms.date: 04/06/2020
 ms.author: aahi
 ms.openlocfilehash: ac46eb0119ac95cf09e48823686a6c563d8d4d4a
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887538"
 ---
-Kom igång med klientbiblioteket för Automatiska förslag på Bing för .NET. Följ dessa steg för att installera paketet och prova exempelkoden för grundläggande uppgifter.
+Kom igång med Automatiska förslag i Bing klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 
-Använd klientbiblioteket För automatiska förslag på Bing för .NET för att hämta sökförslag baserat på partiella frågesträngar.
+Använd Automatiska förslag i Bing klient bibliotek för .NET för att få Sök förslag baserat på partiella frågesträngar.
 
-[Referensdokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet) | [Biblioteks](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest) | [källkodspaket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/) | [Exempelkod](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/) | [exempel kod](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration - [Skapa en gratis](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
 ### <a name="create-an-azure-resource"></a>Skapa en Azure-resurs
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-### <a name="create-an-environment-variable"></a>Skapa en miljövariabel
+### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
 
 >[!NOTE]
-> Slutpunkterna för icke-utvärderingsresurser som skapats efter den 1 juli 2019 använder det anpassade underdomänformatet som visas nedan. Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Slut punkterna för icke-testresurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
-Med hjälp av nyckeln och slutpunkten från resursen du skapade skapar du två miljövariabler för autentisering:
+Med din nyckel och slut punkt från den resurs som du har skapat skapar du två miljövariabler för autentisering:
 <!-- replace the below variable names with the names expected in the code sample.-->
-* `AUTOSUGGEST_SUBSCRIPTION_KEY`- Resursnyckeln för att autentisera dina begäranden.
-* `AUTOSUGGEST_ENDPOINT`- Resursslutpunkten för att skicka API-begäranden. Det kommer att se ut så här: 
+* `AUTOSUGGEST_SUBSCRIPTION_KEY`– Resurs nyckeln för autentisering av dina begär Anden.
+* `AUTOSUGGEST_ENDPOINT`– Resurs slut punkten för att skicka API-begäranden. Det kommer att se ut så här: 
   * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
-Följ instruktionerna för operativsystemet.
+Följ anvisningarna för ditt operativ system.
 <!-- replace the below endpoint and key examples -->
 #### <a name="windows"></a>[Windows](#tab/windows)
 
@@ -52,7 +52,7 @@ setx AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
 setx AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 ```
 
-När du har lagt till miljövariabeln startar du om konsolfönstret.
+Starta om konsol fönstret när du har lagt till miljövariabeln.
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
@@ -65,7 +65,7 @@ När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolf�
 
 #### <a name="macos"></a>[macOS](#tab/unix)
 
-Redigera `.bash_profile`din och lägg till miljövariabeln:
+Redigera din `.bash_profile`och Lägg till miljövariabeln:
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -77,21 +77,21 @@ När du har lagt till miljövariabeln så kör `source .bash_profile` från kons
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
-Skapa ett nytt .NET Core-program i önskad redigerare eller IDE. 
+Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE. 
 
-I ett konsolfönster (till exempel cmd, PowerShell `dotnet new` eller Bash) använder du `bing-autosuggest-quickstart`kommandot för att skapa en ny konsolapp med namnet . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda källfil: *program.cs*. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet. `bing-autosuggest-quickstart` Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*. 
 
 ```console
 dotnet new console -n bing-autosuggest-quickstart
 ```
 
-Ändra katalogen till den nyskapade appmappen. Du kan skapa programmet med:
+Ändra katalogen till mappen nyligen skapade appar. Du kan bygga programmet med:
 
 ```console
 dotnet build
 ```
 
-Byggutdata bör inte innehålla några varningar eller fel. 
+Build-utdata får inte innehålla varningar eller fel. 
 
 ```console
 ...
@@ -101,7 +101,7 @@ Build succeeded.
 ...
 ```
 
-Öppna den *program.cs* filen i önskad redigerare eller IDE från projektkatalogen. Lägg till `using` följande direktiv:
+Från projekt katalogen öppnar du *program.cs* -filen i önskat redigerings program eller IDE. Lägg till följande `using` direktiv:
 
 ```csharp
 using System;
@@ -111,7 +111,7 @@ using System.Text;
 using System.Threading.Tasks;
 ```
 
-Skapa `Program` variabler för resursens Azure-slutpunkt och -nyckel i klassen. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigeraren, IDE:t eller skalet som kör den för att komma åt variabeln.
+I- `Program` klassen skapar du variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln.
 
 ```csharp
 private const string key_var = "AUTOSUGGEST_SUBSCRIPTION_KEY";
@@ -122,7 +122,7 @@ private const string endpoint_var = "AUTOSUGGEST_ENDPOINT";
 private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
 ```
 
-I programmets `Main` metod lägger du till följande metodanrop, som du definierar senare.
+I program `Main` metoden lägger du till följande metod anrop, som du kommer att definiera senare.
 
 ```csharp
 static void Main(string[] args)
@@ -133,30 +133,30 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="install-the-client-library"></a>Installera klientbiblioteket
+### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-Installera klientbiblioteket för Automatiska förslag på Bing i programkatalogen för .NET med följande kommando:
+I program katalogen installerar du Automatiska förslag i Bing klient biblioteket för .NET med följande kommando:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.Search.AutoSuggest --version 2.0.0
 ```
 
-Om du använder Visual Studio IDE är klientbiblioteket tillgängligt som ett nedladdningsbart NuGet-paket.
+Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
 
 ## <a name="code-examples"></a>Kodexempel
 
-Dessa kodavsnitt visar hur du utför följande uppgifter med klientbiblioteket För automatiska förslag på Bing för .NET:
+De här kodfragmenten visar hur du gör följande uppgifter med Automatiska förslag i Bing-klient biblioteket för .NET:
 
 * [Autentisera klienten](#authenticate-the-client)
-* [Skicka en begäran om automatisk förslag](#send-an-autosuggest-request)
+* [Skicka en begäran om autoföreslå](#send-an-autosuggest-request)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Den här snabbstarten förutsätter att du har [skapat en miljövariabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln För automatiska uggförslag på Bing med namnet `AUTOSUGGEST_SUBSCRIPTION_KEY`och en för slutpunkten `AUTOSUGGEST_ENDPOINT`.
+> Den här snabb starten förutsätter att du har [skapat en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din `AUTOSUGGEST_SUBSCRIPTION_KEY`automatiska förslag i Bing nyckel, med namnet och en `AUTOSUGGEST_ENDPOINT`för din slut punkt med namnet.
 
 
-I en ny asynkron metod instansierar du en klient med slutpunkten och nyckeln. Skapa ett [ApiKeyServiceClientCredentials-objekt](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.apikeyserviceclientcredentials?view=azure-dotnet) med nyckeln och använd det med slutpunkten för att skapa ett [AutosuggestClient-objekt.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclient?view=azure-dotnet)
+I en ny asynkron metod instansierar du en klient med din slut punkt och nyckel. Skapa ett [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.apikeyserviceclientcredentials?view=azure-dotnet) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [AutosuggestClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclient?view=azure-dotnet) -objekt.
 
 ```csharp
 async static Task RunQuickstart()
@@ -170,9 +170,9 @@ async static Task RunQuickstart()
 }
 ```
 
-## <a name="send-an-autosuggest-request"></a>Skicka en begäran om automatisk förslag
+## <a name="send-an-autosuggest-request"></a>Skicka en begäran om autoföreslå
 
-I samma metod använder du klientens [autosuggestMethodAsync-metod](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) för att skicka en fråga till Bing. Sedan iterera över [förslag](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) svar, och skriva ut det första förslaget.
+I samma metod använder du klientens [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) -Metod för att skicka en fråga till Bing. Iterera sedan över [förslags](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) svaret och skriv ut det första förslaget.
 
 ```csharp
 var result = await client.AutoSuggestMethodAsync("xb");
@@ -200,7 +200,7 @@ else
 
 ## <a name="run-the-application"></a>Köra appen
 
-Kör programmet från programkatalogen `dotnet run` med kommandot.
+Kör programmet från program katalogen med `dotnet run` kommandot.
 
 ```dotnet
 dotnet run
@@ -208,7 +208,7 @@ dotnet run
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
+Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
 * [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -221,4 +221,4 @@ Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort 
 ## <a name="see-also"></a>Se även
 
 - [Vad är Automatiska förslag i Bing?](../../get-suggested-search-terms.md)
-- [Punktnätsreferens för automatisk förslag på Bing](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)
+- [Automatiska förslag i Bing dotNet-referens](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)

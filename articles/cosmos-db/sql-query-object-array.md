@@ -1,25 +1,25 @@
 ---
 title: Arbeta med matriser och objekt i Azure Cosmos DB
-description: Lär dig SQL-syntaxen för att skapa matriser och objekt i Azure Cosmos DB. Den här artikeln innehåller också några exempel för att utföra åtgärder på matrisobjekt
+description: Lär dig SQL-syntaxen för att skapa matriser och objekt i Azure Cosmos DB. Den här artikeln innehåller också några exempel på hur du utför åtgärder på mat ris objekt
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79246557"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Arbeta med matriser och objekt i Azure Cosmos DB
 
-En viktig funktion i Azure Cosmos DB SQL API är matris och objekt skapas.
+En viktig funktion i Azure Cosmos DB SQL API är matris-och objekt skapande.
 
 ## <a name="arrays"></a>Matriser
 
-Du kan konstruera matriser, som visas i följande exempel:
+Du kan skapa matriser, som du ser i följande exempel:
 
 ```sql
     SELECT [f.address.city, f.address.state] AS CityState
@@ -45,7 +45,7 @@ Resultatet är:
     ]
 ```
 
-Du kan också använda [ARRAY-uttrycket](sql-query-subquery.md#array-expression) för att konstruera en matris från [underkventets](sql-query-subquery.md) resultat. Den här frågan hämtar alla olika förnamn för underordnade i en matris.
+Du kan också använda [mat ris uttrycket](sql-query-subquery.md#array-expression) för att skapa en matris från under [frågans](sql-query-subquery.md) resultat. Den här frågan hämtar alla distinkta namn på underordnade objekt i en matris.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -54,7 +54,7 @@ FROM f
 
 ## <a name="iteration"></a><a id="Iteration"></a>Iteration
 
-SQL API ger stöd för itererering över JSON-matriser, med en ny konstruktion som lagts till via [IN-nyckelordet](sql-query-keywords.md#in) i FROM-källan. Se följande exempel:
+SQL API ger stöd för att iterera över JSON-matriser, med en ny konstruktion som lagts till via [nyckelordet](sql-query-keywords.md#in) i från-källan. Se följande exempel:
 
 ```sql
     SELECT *
@@ -90,7 +90,7 @@ Resultatet är:
     ]
 ```
 
-Nästa fråga utför iteration `children` över `Families` i behållaren. Utdatamatrisen skiljer sig från föregående fråga. Det här `children`exemplet delar och förenklar resultaten till en enda matris:  
+Nästa fråga utför iteration över `children` i `Families` behållaren. Den utgående matrisen skiljer sig från föregående fråga. Det här exemplet delar `children`upp och fören klar resultatet till en enda matris:  
 
 ```sql
     SELECT *
@@ -122,7 +122,7 @@ Resultatet är:
     ]
 ```
 
-Du kan filtrera vidare på varje enskild post i matrisen, vilket visas i följande exempel:
+Du kan filtrera efter varje enskild post i matrisen, som du ser i följande exempel:
 
 ```sql
     SELECT c.givenName
@@ -138,7 +138,7 @@ Resultatet är:
     }]
 ```
 
-Du kan också aggregera över resultatet av en matrisiteration. Följande fråga räknar till exempel antalet barn bland alla familjer:
+Du kan också aggregera över resultatet av en mat ris iteration. Följande fråga räknar till exempel antalet underordnade objekt bland alla familjer:
 
 ```sql
     SELECT COUNT(child)
@@ -159,4 +159,4 @@ Resultatet är:
 
 - [Komma igång](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Går](sql-query-join.md)
+- [Kopplingar](sql-query-join.md)

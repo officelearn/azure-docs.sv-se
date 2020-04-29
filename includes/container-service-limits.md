@@ -9,21 +9,21 @@ ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 6b4678b381e769993b01bbedd1cb4c0aeefc0cc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334759"
 ---
 | Resurs | Gräns |
 | --- | :--- |
 | Maximalt antal kluster per prenumeration | 100 |
-| Maximala noder per kluster med tillgänglighetsuppsättningar för virtuella datorer och SKU för grundläggande belastningsutjämnare  | 100 |
-| Maximala noder per kluster med skalningsuppsättningar för virtuella datorer och [SKU för standardbelastningsutjämning][standard-load-balancer] | 1000 (100 noder per [nodpool][node-pool]) |
-| Maximal poddar per nod: [Grundläggande nätverk][basic-networking] med Kubenet | 110 |
-| Maximala poddar per nod: [Avancerat nätverk][advanced-networking] med Azure Container Networking Interface | Azure CLI-distribution: 30<sup>1</sup><br />Azure Resource Manager-mall: 30<sup>1</sup><br />Portaldistribution: 30 |
+| Maximalt antal noder per kluster med tillgänglighets uppsättningar för virtuella datorer och Basic Load Balancer SKU  | 100 |
+| Maximalt antal noder per kluster med Virtual Machine Scale Sets och [standard load BALANCER SKU][standard-load-balancer] | 1000 (100 noder per [Node-pool][node-pool]) |
+| Maximalt antal poddar per nod: [grundläggande nätverk][basic-networking] med Kubernetes | 110 |
+| Maximalt antal poddar per nod: [Avancerat nätverk][advanced-networking] med Azure Container Networking Interface | Azure CLI-distribution: 30<sup>1</sup><br />Azure Resource Manager mall: 30<sup>1</sup><br />Portaldistribution: 30 |
 
-<sup>1.</sup> När du distribuerar ett AKS-kluster (Azure Kubernetes Service) med Azure CLI- eller Resource Manager-mallen kan det här värdet konfigureras upp till 250 poddar per nod. Du kan inte konfigurera maximala poddar per nod när du redan har distribuerat ett AKS-kluster, eller om du distribuerar ett kluster med hjälp av Azure-portalen.<br />
+<sup>1</sup> När du distribuerar ett Azure Kubernetes service-kluster (AKS) med Azure CLI eller en Resource Manager-mall, kan det här värdet konfigureras upp till 250 poddar per nod. Du kan inte konfigurera maximalt poddar per nod efter att du redan har distribuerat ett AKS-kluster, eller om du distribuerar ett kluster med hjälp av Azure Portal.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

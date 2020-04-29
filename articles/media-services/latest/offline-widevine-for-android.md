@@ -1,8 +1,8 @@
 ---
-title: Stream Widevine Android Offline med Azure Media Services v3
-description: Det här avsnittet visar hur du konfigurerar ditt Azure Media Services-konto för offlinestreaming av Widevine-skyddat innehåll.
+title: Strömma Widevine Android offline med Azure Media Services v3
+description: Det här avsnittet visar hur du konfigurerar ditt Azure Media Services-konto för offline-strömning av Widevine-skyddat innehåll.
 services: media-services
-keywords: DASH, DRM, Widevine offlineläge, ExoPlayer, Android
+keywords: BINDESTRECK, DRM, Widevine offline-läge, ExoPlayer, Android
 documentationcenter: ''
 author: willzhan
 manager: steveng
@@ -15,53 +15,53 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: willzhan
 ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887205"
 ---
-# <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Offline Widevine streaming för Android med Media Services v3
+# <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Offline-Widevine strömning för Android med Media Services v3
 
-Förutom att skydda innehåll för onlinestreaming erbjuder prenumerationer på medieinnehåll och uthyrningstjänster nedladdningsbart innehåll som fungerar när du inte är ansluten till internet. Du kan behöva hämta innehåll till telefonen eller surfplattan för uppspelning i flygplansläge när du flyger frånkopplad från nätverket. Ytterligare scenarier där du kanske vill hämta innehåll:
+Förutom att skydda innehåll för online-direktuppspelning, erbjuder medie innehålls prenumeration och hyres tjänster nedladdnings Bart innehåll som fungerar när du inte är ansluten till Internet. Du kan behöva ladda ned innehåll till din telefon eller surfplatta för uppspelning i flyg Plans läge när det är frånkopplat från nätverket. Ytterligare scenarier där du kanske vill ladda ned innehåll:
 
-- Vissa innehållsleverantörer kan inte tillåta leverans av DRM-licenser utanför ett lands/regions gräns. Om en användare vill titta på innehåll när du reser utomlands behövs nedladdning offline.
-- I vissa länder/regioner är Internettillgängligheten och/eller bandbredden begränsad. Användare kan välja att ladda ner innehåll för att kunna titta på det i tillräckligt hög upplösning för tillfredsställande tittarupplevelse.
+- En del innehålls leverantörer får inte tillåta leverans av DRM-licenser utöver ett land/regions gräns. Om en användare vill titta på innehåll medan du reser utomlands krävs offline-nedladdning.
+- I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd begränsad. Användarna kan välja att ladda ned innehåll för att kunna se det med hög nog hög upplösning för tillfredsställande visnings upplevelse.
 
-I den här artikeln beskrivs hur du implementerar uppspelning av offlineläge för DASH-innehåll som skyddas av Widevine på Android-enheter. Offline DRM kan du tillhandahålla prenumerations-, uthyrnings- och inköpsmodeller för ditt innehåll, vilket gör det möjligt för kunder i dina tjänster att enkelt ta med sig innehåll när de kopplas bort från internet.
+Den här artikeln beskriver hur du implementerar uppspelning offline för streck innehåll som skyddas av Widevine på Android-enheter. Med offline-DRM kan du tillhandahålla prenumerations-, hyres-och inköps modeller för ditt innehåll, vilket gör det möjligt för kunder av tjänsterna att enkelt ta innehåll med dem när de är frånkopplade från Internet.
 
-För att bygga Android-spelarens appar beskriver vi tre alternativ:
+För att skapa Android Player-appar kan vi disponera tre alternativ:
 
 > [!div class="checklist"]
-> * Skapa en spelare med Hjälp av Java API för ExoPlayer SDK
-> * Bygg en spelare med Xamarin-bindning av ExoPlayer SDK
-> * Skapa en spelare med EME (Encrypted Media Extension) och MSE (Media Source Extension) i webbläsaren Chrome mobile v62 eller senare
+> * Bygg en spelare med Java API för ExoPlayer SDK
+> * Bygg en spelare med Xamarin-bindningen för ExoPlayer SDK
+> * Bygg en spelare med hjälp av EME (Encrypted Media Extension) och media source Extension (MSE) i V62 för mobila webbläsare eller senare
 
-Artikeln besvarar också några vanliga frågor relaterade till offline streaming av Widevine skyddat innehåll.
+Artikeln har också svar på några vanliga frågor om offline-strömning av Widevine-skyddat innehåll.
 
 > [!NOTE]
-> Offline DRM faktureras endast för att göra en enda begäran om en licens när du hämtar innehållet. Eventuella fel faktureras inte.
+> Offline-DRM debiteras bara för att skapa en enskild begäran om en licens när du laddar ned innehållet. Eventuella fel faktureras inte.
 
 ## <a name="prerequisites"></a>Krav 
 
 Innan du implementerar offline DRM för Widevine på Android-enheter bör du först:
 
-- Bekanta dig med de koncept som introduceras för innehållsskydd online med Widevine DRM. Detta behandlas i detalj i följande dokument/prover:
+- Bekanta dig med de begrepp som introducerades för innehålls skydd online med Widevine DRM. Detta beskrivs i detalj i följande dokument/exempel:
     - [Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
     - [Använda dynamisk DRM-kryptering och tjänsten för licensleverans](protect-with-drm.md)
 - Klona https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git.
 
-    Du måste ändra koden i [Kryptera med DRM med .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) för att lägga till Widevine-konfigurationer.  
-- Bekanta dig med Google ExoPlayer SDK för Android, en videospelare med öppen källkod SDK som kan stödja offline Widevine DRM-uppspelning. 
+    Du måste ändra koden i [kryptera med DRM med .net](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) för att lägga till Widevine-konfigurationer.  
+- Bekanta dig med Google ExoPlayer SDK för Android, en Video Player SDK med öppen källkod som stöder offline-uppspelning av Widevine. 
     - [ExoPlayer SDK](https://github.com/google/ExoPlayer)
-    - [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html)
-    - [EoPlayer Utvecklare Blogg](https://medium.com/google-exoplayer)
+    - [Guide för ExoPlayer-utvecklare](https://google.github.io/ExoPlayer/guide.html)
+    - [EoPlayer Developer-blogg](https://medium.com/google-exoplayer)
 
-## <a name="configure-content-protection-in-azure-media-services"></a>Konfigurera innehållsskydd i Azure Media Services
+## <a name="configure-content-protection-in-azure-media-services"></a>Konfigurera innehålls skydd i Azure Media Services
 
-I metoden [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) finns följande nödvändiga steg:
+I [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) -metoden finns följande nödvändiga steg:
 
-1. Ange hur leverans av innehållsnyckel är auktoriserad i licensleveranstjänsten: 
+1. Ange hur innehålls nyckel leverans tillåts i licens leverans tjänsten: 
 
     ```csharp
     ContentKeyPolicySymmetricTokenKey primaryKey = new ContentKeyPolicySymmetricTokenKey(tokenSigningKey);
@@ -73,7 +73,7 @@ I metoden [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/me
     ContentKeyPolicyTokenRestriction restriction 
         = new ContentKeyPolicyTokenRestriction(Issuer, Audience, primaryKey, ContentKeyPolicyRestrictionTokenType.Jwt, alternateKeys, requiredClaims);
     ```
-2. Konfigurera Widevine-licensmallen:  
+2. Konfigurera Widevine-licens mal len:  
 
     ```csharp
     ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
@@ -90,77 +90,77 @@ I metoden [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/me
         });
     ```
 
-## <a name="enable-offline-mode"></a>Aktivera offlineläge
+## <a name="enable-offline-mode"></a>Aktivera offline-läge
 
-Om du vill aktivera **offlineläge** för Widevine-licenser måste du konfigurera [Widevine-licensmallen](widevine-license-template-overview.md). I **policy_overrides-objektet** anger du **egenskapen can_persist** till **true** (standard är false), som visas i [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563). 
+Om du vill aktivera **offline** -läge för Widevine-licenser måste du konfigurera [licens mal len för Widevine](widevine-license-template-overview.md). I **policy_overrides** -objektet anger du egenskapen **can_persist** till **True** (standard är falskt), som du ser i [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563). 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#ConfigureWidevineLicenseTempate)]
 
-## <a name="configuring-the-android-player-for-offline-playback"></a>Konfigurera Android-spelaren för offlineuppspelning
+## <a name="configuring-the-android-player-for-offline-playback"></a>Konfigurera Android Player för offline-uppspelning
 
-Det enklaste sättet att utveckla en inbyggd spelarapp för Android-enheter är att använda [Google ExoPlayer SDK](https://github.com/google/ExoPlayer), en videospelare med öppen källkod SDK. ExoPlayer stöder funktioner som för närvarande inte stöds av Androids inbyggda MediaPlayer-API, inklusive MPEG-DASH och Microsoft Smooth Streaming-leveransprotokoll.
+Det enklaste sättet att utveckla en inbyggd Player-app för Android-enheter är att använda [Google EXOPLAYER SDK](https://github.com/google/ExoPlayer), en Video Player SDK med öppen källkod. ExoPlayer stöder funktioner som för närvarande inte stöds av Android: s inbyggda Media Player-API, inklusive MPEG-streck och Microsoft Smooth Streaming Delivery Protocols.
 
-ExoPlayer version 2.6 och högre innehåller många klasser som stöder offline Widevine DRM uppspelning. I synnerhet offlinelicenseHelper-klassen tillhandahåller verktygsfunktioner för att underlätta användningen av DefaultDrmSessionManager för nedladdning, förnyelse och publicering av offlinelicenser. Klasserna i SDK-mappen "library/core/src/main/java/com/google/android/exoplayer2/offline/" stöder nedladdning av videoinnehåll offline.
+ExoPlayer version 2,6 och senare innehåller många klasser som stöder offline-uppspelning av DRM-Widevine. I synnerhet tillhandahåller OfflineLicenseHelper-klassen verktyg för att under lätta användningen av DefaultDrmSessionManager för att ladda ned, förnya och frigöra offline-licenser. De klasser som anges i SDK-mappen "Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/" stöder nedladdning av video innehåll offline.
 
-Följande lista över klasser underlättar offlineläge i ExoPlayer SDK för Android:
+Följande lista över klasser underlättar offline-läget i ExoPlayer SDK för Android:
 
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
-- bibliotek/kärna/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
-- bibliotek/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/OfflineLicenseHelper. java  
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DefaultDrmSession. java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DefaultDrmSessionManager. java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DrmSession. java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/ErrorStateDrmSession. java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/ExoMediaDrm. java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/SegmentDownloader. java
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/DownloaderConstructorHelper. java 
+- Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/hämtare. java
+- Library/bindestreck/src/main/Java/com/Google/Android/exoplayer2/source/streck/offline/DashDownloader. java 
 
-Utvecklare bör referera till [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html) och motsvarande [Developer Blog](https://medium.com/google-exoplayer) under utvecklingen av ett program. Google har inte släppt en fullt dokumenterad referens genomförande eller exempelkod för ExoPlayer app stödja Widevine offline just nu, så informationen är begränsad till utvecklarens guide och blogg. 
+Utvecklare bör referera till [ExoPlayer Developer-guiden](https://google.github.io/ExoPlayer/guide.html) och motsvarande [utvecklare för utvecklare](https://medium.com/google-exoplayer) när de utvecklar ett program. Google har inte publicerat en fullständigt dokumenterad referens implementering eller exempel kod för ExoPlayer-appen som stöder Widevine offline just nu, så informationen är begränsad till utvecklarens guide och blogg. 
 
 ### <a name="working-with-older-android-devices"></a>Arbeta med äldre Android-enheter
 
-För vissa äldre Android-enheter måste du ange värden för följande **policy_overrides** egenskaper (definierad i [Widevine-licensmallen:](widevine-license-template-overview.md) **rental_duration_seconds,** **playback_duration_seconds**och **license_duration_seconds**. Alternativt kan du ställa in dem till noll, vilket innebär oändlig / obegränsad varaktighet.  
+För vissa äldre Android-enheter måste du ange värden för följande **policy_overrides** egenskaper (definieras i [Widevine-licens mal len](widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**och **license_duration_seconds**. Du kan också ställa in dem på noll, vilket innebär oändlig/obegränsad varaktighet.  
 
-Värdena måste ställas in för att undvika ett heltalsspillfel. Mer förklaring om problemet https://github.com/google/ExoPlayer/issues/3150 finns https://github.com/google/ExoPlayer/issues/3112i och . <br/>Om du inte uttryckligen anger värdena tilldelas mycket stora värden för **PlaybackDurationRemaining** och **LicenseDurationRemaining** (till exempel 9223372036854775807, vilket är det högsta positiva värdet för ett 64-bitars heltal). Som ett resultat verkar Widevine-licensen ha upphört att gälla och därför kommer dekrypteringen inte att ske. 
+Värdena måste anges för att undvika en heltals spill bugg. Mer information om problemet finns i https://github.com/google/ExoPlayer/issues/3150 och. https://github.com/google/ExoPlayer/issues/3112 <br/>Om du inte anger värdena explicit, tilldelas mycket stora värden för **PlaybackDurationRemaining** och **LicenseDurationRemaining** (till exempel 9223372036854775807, vilket är det högsta positiva värdet för ett 64-bitars heltal). Det innebär att Widevine-licensen har upphört att gälla och därför att dekrypteringen inte sker. 
 
-Det här problemet uppstår inte på Android 5.0 Lollipop eller senare eftersom Android 5.0 är den första Android-versionen, som har utformats för att fullt ut stödja ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) och 64-bitars plattformar, medan Android 4.4 KitKat ursprungligen utformades för att stödja ARMv7 och 32-bitars plattformar som med andra äldre Android-versioner.
+Det här problemet uppstår inte på Android 5,0 Lollipop eller senare eftersom Android 5,0 är den första Android-versionen, som har utformats för att fullständigt stödja ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) och 64-bitarsplattformar, medan Android 4,4 KitKat ursprungligen har utformats för att stödja ARMv7-och 32-bitarsplattformar som med andra äldre Android-versioner.
 
-## <a name="using-xamarin-to-build-an-android-playback-app"></a>Använda Xamarin för att skapa en Android-uppspelningsapp
+## <a name="using-xamarin-to-build-an-android-playback-app"></a>Använda Xamarin för att bygga en Android-uppspelnings-app
 
-Du kan hitta Xamarin bindningar för ExoPlayer med hjälp av följande länkar:
+Du kan hitta Xamarin-bindningar för ExoPlayer med hjälp av följande länkar:
 
-- [Xamarin binder bibliotek för Google ExoPlayer-biblioteket](https://github.com/martijn00/ExoPlayerXamarin)
-- [Xamarin bindningar för ExoPlayer NuGet](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
+- [Bibliotek för Xamarin-bindningar för Google ExoPlayer-biblioteket](https://github.com/martijn00/ExoPlayerXamarin)
+- [Xamarin-bindningar för ExoPlayer-NuGet](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
 
-Se även följande tråd: [Xamarin bindning](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
+Se även följande tråd: Xamarin- [bindning](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
 
 ## <a name="chrome-player-apps-for-android"></a>Chrome Player-appar för Android
 
-Från och med lanseringen av [Chrome för Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates)stöds beständig licens i EME. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1) stöds nu även i Chrome för Android. På så sätt kan du skapa offlineuppspelningsprogram i Chrome om slutanvändarna har den här (eller högre) versionen av Chrome. 
+Från och med lanseringen av [Chrome för Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates)stöds beständig licens i EME. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1) stöds nu också i Chrome för Android. På så sätt kan du skapa offline-uppspelnings program i Chrome om slutanvändarna har den här (eller högre) versionen av Chrome. 
 
-Dessutom har Google producerat en Progressiv Web App (PWA) exempel och öppen källkod det: 
+Dessutom har Google skapat ett PWA-exempel (PWA) med öppen källkod: 
 
 - [Källkod](https://github.com/GoogleChromeLabs/sample-media-pwa)
-- [Google värd version](https://biograf-155113.appspot.com/ttt/episode-2/) (fungerar bara i Chrome v 62 och högre på Android-enheter)
+- [Google-värdbaserad version](https://biograf-155113.appspot.com/ttt/episode-2/) (fungerar bara i Chrome v 62 och högre på Android-enheter)
 
-Om du uppgraderar webbläsaren Chrome till v62 (eller högre) på en Android-telefon och testar exempelappen ovan värd ser du att både onlinestreaming och offlineuppspelning fungerar.
+Om du uppgraderar din mobila Chrome-webbläsare till V62 (eller högre) på en Android-telefon och testar den ovan värdbaserade exempel appen, kommer du att se att både online-direktuppspelning och offline-uppspelning fungerar.
 
-Pwa-appen ovan med öppen källkod skapas i Node.js. Om du vill vara värd för din egen version på en Ubuntu-server bör du tänka på följande vanliga problem som kan förhindra uppspelning:
+Den här PWA-appen med öppen källkod är skapad i Node. js. Om du vill vara värd för din egen version på en Ubuntu-Server bör du tänka på följande vanliga påträffade problem som kan förhindra uppspelning:
 
-1. CORS-problemet: Exempelvideon i exempelappen https://storage.googleapis.com/biograf-video-files/videos/finns i . Google har satt upp CORS för alla sina testprover som finns i Google Cloud Storage bucket. De serveras med CORS-huvuden och anger uttryckligen `https://biograf-155113.appspot.com` CORS-posten: (den domän där google är värd för deras exempel) som förhindrar åtkomst av andra webbplatser. Om du försöker visas följande HTTP-fel:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
-2. Certifikatproblem: Från Chrome v 58 kräver EME för Widevine HTTPS. Därför måste du vara värd för exempelappen via HTTPS med ett X509-certifikat. Ett vanligt testcertifikat fungerar inte på grund av följande krav: Du måste skaffa ett certifikat som uppfyller följande minimikrav:
-    - Chrome och Firefox kräver att inställningen för alternativt namn för SAN-ämne finns i certifikatet
-    - Certifikatet måste ha betrodd certifikatutfärdare och ett självsignerat utvecklingscertifikat fungerar inte
-    - Certifikatet måste ha ett KN som matchar DNS-namnet på webbservern eller gatewayen
+1. CORS-problem: exempel videon i exempel appen finns i https://storage.googleapis.com/biograf-video-files/videos/. Google har konfigurerat CORS för alla test exempel som finns i Google Cloud Storage Bucket. De hanteras med CORS-rubriker och anger explicit CORS-posten: `https://biograf-155113.appspot.com` (den domän där Google-värdarna i sitt exempel) förhindrar åtkomst av andra platser. Om du försöker visas följande HTTP-fel:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+2. Certifikat problem: från och med Chrome v 58 krävs HTTPS för EME för Widevine. Därför måste du vara värd för exempel appen via HTTPS med ett X509-certifikat. Ett vanligt test certifikat fungerar inte på grund av följande krav: du måste skaffa ett certifikat som uppfyller följande minimi krav:
+    - Chrome och Firefox kräver SAN – alternativa namn på certifikat mottagare som ska finnas i certifikatet
+    - Certifikatet måste ha en betrodd certifikat utfärdare och ett självsignerat utvecklings certifikat fungerar inte
+    - Certifikatet måste ha ett CN-namn som matchar DNS-namnet på webb servern eller gatewayen
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
-Mer information finns i [Vanliga frågor om Widevine](frequently-asked-questions.md#widevine-streaming-for-android).
+Mer information finns i [vanliga frågor och svar om Widevine](frequently-asked-questions.md#widevine-streaming-for-android).
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln diskuterades hur du implementerar uppspelning av offlineläge för DASH-innehåll som skyddas av Widevine på Android-enheter.  Det besvarade också några vanliga frågor om offline streaming av Widevine skyddat innehåll.
+Den här artikeln beskrivs hur du implementerar uppspelning i offlineläge för streck innehåll som skyddas av Widevine på Android-enheter.  Det besvarade även några vanliga frågor om offline-strömning av Widevine-skyddat innehåll.

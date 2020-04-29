@@ -9,43 +9,43 @@ ms.date: 03/17/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 7d81799f7fbdb2b41db421daa1a85ec8cde511eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79538836"
 ---
-### <a name="the-data-model-of-the-schema"></a>Schemats datamodell
+### <a name="the-data-model-of-the-schema"></a>Data modellen för schemat
 
 |Field|Beskrivning|
 |----|----|
-|**AlertName (Aviseringsnamn)**|Visningsnamn för varning|
-|**AlertType (Aviseringstyp)**|unik varningsidentifierare|
-|**FörtroendeNivå**|(Valfritt) Konfidensnivån för denna varning (Hög/Låg)|
-|**ConfidenceScore**|(Valfritt) Numerisk konfidensindikator för säkerhetsvarningen|
-|**Beskrivning**|Beskrivningstext för aviseringen|
-|**Displayname**|Aviseringens visningsnamn|
-|**Endtime**|Aviseringens sluttid för påverkan (tidpunkten för den senaste händelsen som bidrar till aviseringen)|
-|**Entiteter**|En lista över entiteter som är relaterade till aviseringen. Denna lista kan innehålla en blandning av enheter av olika typer|
-|**ExtendedLinks**|(Valfritt) En väska för alla länkar relaterade till varningen. Denna väska kan hålla en blandning av länkar för olika typer|
-|**Utökade egenskaper**|En påse med ytterligare fält som är relevanta för aviseringen|
-|**IsIncident (IsIncident)**|Avgör om aviseringen är en incident eller en vanlig avisering. En incident är en säkerhetsvarning som sammanställer flera aviseringar till en säkerhetsincident|
-|**ProcessingEndTime**|UTC-tidsstämpel där aviseringen skapades|
-|**ProductComponentName**|(Valfritt) Namnet på en komponent inuti produkten som genererade aviseringen.|
-|**ProductName**|konstant ("Azure Security Center")|
-|**ProviderName**|Oanvända|
-|**ÅtgärdSteg**|Manuella åtgärdsobjekt att vidta för att åtgärda säkerhetshotet|
+|**AlertName**|Visnings namn för avisering|
+|**AlertType**|unikt aviserings-ID|
+|**ConfidenceLevel**|Valfritt Säkerhets nivån för den här aviseringen (hög/låg)|
+|**ConfidenceScore**|Valfritt Numerisk förtroende indikator för säkerhets aviseringen|
+|**Beskrivning**|Beskrivnings text för aviseringen|
+|**DisplayName**|Aviseringens visnings namn|
+|**Slut**|Aviseringens effekt slut tid (tidpunkten för den senaste händelsen som bidrar till aviseringen)|
+|**Entiteter**|En lista över entiteter som är relaterade till aviseringen. Den här listan kan innehålla en blandning av entiteter av olika typer|
+|**ExtendedLinks**|Valfritt En påse för alla länkar som är relaterade till aviseringen. Den här väskan kan innehålla en blandning av länkar för olika typer|
+|**ExtendedProperties**|En uppsättning ytterligare fält som är relevanta för aviseringen|
+|**IsIncident**|Anger om aviseringen är en incident eller en vanlig avisering. En incident är en säkerhets varning som sammanställer flera aviseringar i en säkerhets incident|
+|**ProcessingEndTime**|UTC-tidsstämpeln som aviseringen skapades i|
+|**ProductComponentName**|Valfritt Namnet på en komponent inuti produkten som skapade aviseringen.|
+|**ProductName**|konstant (' Azure Security Center ')|
+|**ProviderName**|outnyttja|
+|**RemediationSteps**|Manuella åtgärds objekt att vidta för att åtgärda säkerhetshot|
 |**ResourceId**|Fullständig identifierare för den berörda resursen|
-|**Allvarlighetsgrad**|Allvarlighetsgrad för varningen (hög/medel/låg/informativ)|
+|**Allvarlighetsgrad**|Allvarlighets grad för avisering (hög/medel/låg/information)|
 |**SourceComputerId**|ett unikt GUID för den berörda servern (om aviseringen genereras på servern)|
-|**SourceSystem**|Oanvända|
-|**Starttime**|Aviseringens starttid för påverkan (tidpunkten för den första händelsen som bidrar till aviseringen)|
-|**SystemAlertId**|Unik identifierare för den här säkerhetsvarningsinstansen|
-|**TenantId (5)**|identifieraren för den överordnade Azure Active Directory-klienten för prenumerationen som den skannade resursen finns under|
-|**TimeGenerated**|UTC-tidsstämpel som utvärderingen ägde rum på (Säkerhetscentrets skanningstid) (identisk med DiscoveredTimeUTC)|
-|**Typ**|konstant ("SecurityAlert")|
-|**Leverantörsnamn**|Namnet på den leverantör som tillhandahöll aviseringen (t.ex.|
-|**LeverantörOriginalId**|Oanvända|
-|**WorkspaceResourceGroup**|om aviseringen genereras på en VM-, server-, virtual machine-skaluppsättning eller apptjänstinstans som rapporterar till en arbetsyta, innehåller namnet på arbetsyteresursgruppen|
-|**WorkspaceSubscriptionId**|om aviseringen genereras på en VM-, server-, virtual machine-skaluppsättning eller apptjänstinstans som rapporterar till en arbetsyta, innehåller den arbetsytan subscriptionId|
+|**SourceSystem**|outnyttja|
+|**/St**|Aviseringens effekt start tid (tidpunkten för den första händelsen som bidrar till aviseringen)|
+|**SystemAlertId**|Unik identifierare för den här säkerhets aviserings instansen|
+|**TenantId**|identifieraren för den överordnade Azure Active Directory-klient för den prenumeration som den genomsökta resursen finns i|
+|**TimeGenerated**|UTC-tidsstämpeln för vilken utvärderingen ägde rum (Security Center genomsöknings tiden) (identisk med DiscoveredTimeUTC)|
+|**Typ**|konstant (' SecurityAlert ')|
+|**Namn**|Namnet på leverantören som tillhandahöll aviseringen (t. ex. "Microsoft")|
+|**VendorOriginalId**|outnyttja|
+|**WorkspaceResourceGroup**|om aviseringen genereras på en virtuell dator, Server, skalnings uppsättning för virtuell dator eller App Service instans som rapporterar till en arbets yta, innehåller resurs grupps namnet för arbets ytan|
+|**WorkspaceSubscriptionId**|om aviseringen genereras på en virtuell dator, Server, skalnings uppsättning för virtuell dator eller App Service instans som rapporterar till en arbets yta, innehåller subscriptionId för arbets ytan|
 |||

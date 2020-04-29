@@ -1,5 +1,5 @@
 ---
-title: Bing News Search C# klientbibliotek snabbstart
+title: Snabb start för Nyhetssökning i Bing C#-klient bibliotek
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.openlocfilehash: fd43fcb1b5fb70862ed1c1fa5111f0893495b437
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503890"
 ---
-Använd den här snabbstarten för att börja söka efter nyheter med klientbiblioteket Bing News Search för C#. Bing News Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
+Använd den här snabb starten för att börja söka efter nyheter med Nyhetssökning i Bing klient biblioteket för C#. Även om Nyhetssökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
 
 ## <a name="prerequisites"></a>Krav
 
-* Alla utgåvor av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
@@ -28,7 +28,7 @@ Använd den här snabbstarten för att börja söka efter nyheter med klientbibl
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Om du vill konfigurera ett konsolprogram med klientbiblioteket `Manage NuGet Packages` Bing News Search bläddrar du till alternativet från Solution Explorer i Visual Studio.  Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
+Om du vill konfigurera ett konsol program med hjälp av Nyhetssökning i Bing klient biblioteket bläddrar `Manage NuGet Packages` du till alternativet från Solution Explorer i Visual Studio.  Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -84,4 +84,4 @@ Om du vill konfigurera ett konsolprogram med klientbiblioteket `Manage NuGet Pac
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig webbapp](../../tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](../../tutorial-bing-news-search-single-page-app.md)

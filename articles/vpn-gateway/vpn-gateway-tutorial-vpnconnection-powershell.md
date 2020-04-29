@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Gateway: Skapa och hantera S2S VPN-anslutningar: Självstudiekurs'
+title: 'Azure VPN Gateway: skapa och hantera S2S VPN-anslutningar: självstudie'
 description: Självstudie – Skapa och hantera VPN-anslutningar mellan servrar med Azure PowerShell-modulen
 services: vpn-gateway
 author: yushwang
@@ -9,13 +9,13 @@ ms.date: 03/11/2020
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: 18c6188e1b13c35a4c28a5f9e7fc863f00798eed
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80616406"
 ---
-# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Självstudiekurs: Skapa och hantera S2S VPN-anslutningar med PowerShell
+# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Självstudie: skapa och hantera S2S VPN-anslutningar med hjälp av PowerShell
 
 VPN-anslutningar mellan servrar i Azure ger säker anslutning mellan olika platser, t.ex. mellan kundens lokaler och Azure. Den här självstudien visar VPN-anslutningens livscykel via IPsec mellan servrar, till exempel att skapa och hantera en VPN-anslutning mellan servrar. Lär dig att:
 
@@ -35,7 +35,7 @@ Följande diagram visar topologin för den här självstudien:
 
 ## <a name="requirements"></a>Krav
 
-Slutför den första självstudien: [Skapa VPN-gateway med Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) för att skapa följande resurser:
+Slutför den första självstudien: [skapa en VPN-gateway med Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) för att skapa följande resurser:
 
 1. Resursgrupp (TestRG1), virtuellt nätverk (VNet1) och GatewaySubnet
 2. VPN-gateway (VNet1GW)
@@ -102,7 +102,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1
   -ConnectionType IPsec -SharedKey "Azure@!b2C3" -ConnectionProtocol IKEv2
 ```
 
-Lägg till den valfria egenskapen ”**-EnableBGP $True**” för att aktivera BGP:n för anslutningen om du använder BGP. Det är inaktiverat som standard. Parametern '-ConnectionProtocol' är valfri med IKEv2 som standard. Du kan skapa anslutningen med IKEv1-protokoll genom att ange **-ConnectionProtocol IKEv1**.
+Lägg till den valfria egenskapen ”**-EnableBGP $True**” för att aktivera BGP:n för anslutningen om du använder BGP. Det är inaktiverat som standard. Parametern-ConnectionProtocol är valfri med IKEv2 som standard. Du kan skapa anslutningen med IKEv1-protokoll genom att ange **-ConnectionProtocol ikev1**.
 
 ## <a name="update-the-vpn-connection-pre-shared-key-bgp-and-ipsecike-policy"></a>Uppdatera VPN-anslutningens i förväg delade nyckel, BGP och IPsec/IKE-princip
 
@@ -120,7 +120,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-Utdata kommer att vara "**Azure\@!b2C3**" i exemplet ovan. Använd kommandot nedan för att ändra det fördelade nyckelvärdet till "**Azure\@!_b2=C3**":
+Resultatet blir "**\@Azure! b2C3**" som följer exemplet ovan. Använd kommandot nedan för att ändra värdet för en i förväg delad nyckel till **"\@Azure! _b2 = C3**":
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkGatewayConnectionSharedKey `
@@ -136,7 +136,7 @@ Azure VPN-gatewayen har stöd för BGP-protokoll för dynamisk routning. Du kan 
 * ASN för lokal nätverksgateway
 * IP-adress för BGP-peer för lokal nätverksgateway
 
-Om du inte har konfigurerat BGP-egenskaperna lägger följande kommandon till dessa egenskaper i din VPN-gateway och lokala nätverksgateway: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway) och [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway).
+Om du inte har konfigurerat BGP-egenskaperna lägger du till dessa egenskaper till VPN-gatewayen och den lokala Nätverksgatewayen i följande kommandon: [set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway) och [set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway).
 
 Använd följande exempel för att konfigurera BGP-egenskaperna:
 

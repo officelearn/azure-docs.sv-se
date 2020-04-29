@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för JavaScript-klientbibliotek för Visuell sökning
+title: Snabb start för Visuell sökning i Bing Java Script Client library
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,20 +9,20 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: 404529bf269f899603b92c6c23b0d95cd2749ee5
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80550025"
 ---
-Använd den här snabbstarten för att börja hämta bildinsikter från tjänsten Bing Visual Search med hjälp av JavaScript-klientbiblioteket. Bing Visual Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
+Använd den här snabb starten för att börja hämta bild insikter från den Visuell sökning i Bing tjänsten med hjälp av JavaScript-klientcertifikatet. Även om Visuell sökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
-[Referensdokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest) | [Ursprungskod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch) | [Paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch) | [Exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-visualsearch) | [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch) | [exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>Krav
 * [Node.js](https://www.nodejs.org/)
-* Klientbiblioteket Bing Visual Search för JavaScript
-    * Om du vill konfigurera ett konsolprogram med hjälp av klientbiblioteket Bing Visual Search kör du följande kommandon:
+* Visuell sökning i Bing klient bibliotek för Java Script
+    * Om du vill konfigurera ett konsol program med hjälp av Visuell sökning i Bing klient biblioteket kör du följande kommandon:
         1. `npm install ms-rest-azure`
         2. `npm install azure-cognitiveservices-visualsearch`.
 

@@ -9,17 +9,17 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 3b1ecc55f184dd2f9bfc5a6eb8410a664c0d282c
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80573281"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Måttaviseringar (klassisk) |100 aktiva varningsregler per prenumeration. | Ring support. |
-| Måttaviseringar |2 000 aktiva varningsregler per prenumeration i Azure public, Azure China 21Vianet och Azure Government moln. | Ring support. |
-| Aktivitetsloggaviseringar | 100 aktiva varningsregler per prenumeration. | Samma som standard. |
-| Loggaviseringar | 512 aktiva varningsregler per prenumeration. 200 aktiva varningsregler per resurs. | Ring support. |
-| Åtgärdsgrupper |2 000 åtgärdsgrupper per prenumeration. | Ring support. |
-| Inställningar för automatisk skalning |100 per region per prenumeration. | Samma som standard. |
+| Mått varningar (klassisk) |100 aktiva varnings regler per prenumeration. | Kontakta supporten. |
+| Måttaviseringar |2 000 aktiva varnings regler per prenumeration i Azure offentlig, Azure Kina 21Vianet och Azure Government moln. | Kontakta supporten. |
+| Aktivitetsloggaviseringar | 100 aktiva varnings regler per prenumeration. | Samma som standard. |
+| Loggaviseringar | 512 aktiva varnings regler per prenumeration. 200 aktiva varnings regler per resurs. | Kontakta supporten. |
+| Åtgärdsgrupper |2 000 åtgärds grupper per prenumeration. | Kontakta supporten. |
+| Inställningar för autoskalning |100 per region per prenumeration. | Samma som standard. |

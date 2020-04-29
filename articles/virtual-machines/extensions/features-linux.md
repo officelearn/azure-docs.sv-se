@@ -1,6 +1,6 @@
 ---
-title: Azure VM-tillägg och funktioner för Linux
-description: Läs om vilka tillägg som är tillgängliga för virtuella Azure-datorer, grupperade efter vad de tillhandahåller eller förbättrar.
+title: Azure VM-tillägg och-funktioner för Linux
+description: Lär dig vilka tillägg som är tillgängliga för virtuella Azure-datorer, grupperade efter vad de erbjuder eller förbättrar.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -15,63 +15,63 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250522"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg och funktioner för virtuella datorer för Linux
 
 Azure-tillägg för virtuella datorer är små program som ger konfigurations- och automationsuppgifter på virtuella Azure-datorer efter distribution. Om en virtuell dator till exempel behöver programvaruinstallation, antivirusskydd eller körning av ett skript på den kan ett VM-tillägg användas. Azure VM-tillägg kan köras med Azure CLI, PowerShell, Azure Resource Manager-mallar och Azure-portalen. Tillägg kan paketeras med en ny VM-distribution eller köras mot valfritt befintligt system.
 
-Den här artikeln innehåller en översikt över VM-tillägg, förutsättningar för att använda Azure VM-tillägg och vägledning om hur du identifierar, hanterar och tar bort VM-tillägg. Den här artikeln innehåller allmän information eftersom många VM-tillägg är tillgängliga, var och en med en potentiellt unik konfiguration. Tilläggsspecifika detaljer finns i varje dokument som är specifikt för det enskilda tillägget.
+Den här artikeln innehåller en översikt över VM-tillägg, krav för att använda Azure VM-tillägg och rikt linjer för hur du identifierar, hanterar och tar bort VM-tillägg. Den här artikeln innehåller generaliserad information eftersom många VM-tillägg är tillgängliga, var och en med en potentiellt unik konfiguration. Tilläggs information finns i varje dokument som är specifikt för det enskilda tillägget.
 
-## <a name="use-cases-and-samples"></a>Användningsfall och prover
+## <a name="use-cases-and-samples"></a>Användnings fall och exempel
 
-Flera olika Azure VM-tillägg är tillgängliga, var och en med ett specifikt användningsfall. Några exempel är:
+Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt användnings fall. Några exempel är:
 
-- Använd PowerShell-konfigurationer för önskat tillstånd på en virtuell dator med DSC-tillägget för Linux. Mer information finns i [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Konfigurera övervakning av en virtuell dator med tillägget Microsoft Monitoring Agent VM. Mer information finns i [Så här övervakar du en Virtuell Linux-dator](../linux/tutorial-monitoring.md).
-- Konfigurera övervakning av din Azure-infrastruktur med tillägget Chef eller Datadog. Mer information finns i [chefdokumenten eller](https://docs.chef.io/azure_portal.html) [datadogbloggen](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Använd PowerShell Desired State Configurations på en virtuell dator med DSC-tillägget för Linux. Mer information finns i [tillägget Azure Desired State Configuration](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
+- Konfigurera övervakning av en virtuell dator med det virtuella dator tillägget för Microsoft Monitoring Agent. Mer information finns i [så här övervakar du en virtuell Linux-dator](../linux/tutorial-monitoring.md).
+- Konfigurera övervakning av din Azure-infrastruktur med chefs-eller Datadog-tillägget. Mer information finns i [chefs dokumenten](https://docs.chef.io/azure_portal.html) eller [Datadog-bloggen](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
-Förutom processspecifika tillägg är ett anpassat skripttillägg tillgängligt för både virtuella Windows- och Linux-datorer. Custom Script-tillägget för Linux gör att alla Bash-skript kan köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad inbyggda Azure-verktyg kan ge. Mer information finns i [Linux VM Custom Script extension](custom-script-linux.md).
+Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Linux kan alla bash-skript köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i avsnittet om [anpassat skript tillägg för Linux-datorer](custom-script-linux.md).
 
 ## <a name="prerequisites"></a>Krav
 
-För att hantera tillägget på den virtuella datorn behöver du Azure Linux Agent installerad. Vissa enskilda tillägg har förutsättningar, till exempel åtkomst till resurser eller beroenden.
+Om du vill hantera tillägget på den virtuella datorn behöver du Azure Linux-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
 ### <a name="azure-vm-agent"></a>Virtuell Azure-datoragent
 
-Azure VM-agenten hanterar interaktioner mellan en Azure VM och Azure-infrastrukturstyrenheten. VM-agenten ansvarar för många funktionella aspekter av distribution och hantering av virtuella Azure-datorer, inklusive att köra VM-tillägg. Azure VM-agenten är förinstallerad på Azure Marketplace-avbildningar och kan installeras manuellt på operativsystem som stöds. Azure VM-agenten för Linux kallas Linux-agenten.
+Azure VM-agenten hanterar interaktioner mellan en virtuell Azure-dator och Azure Fabric-styrenheten. VM-agenten ansvarar för många funktionella aspekter av att distribuera och hantera virtuella Azure-datorer, inklusive att köra VM-tillägg. Azure VM-agenten är förinstallerad på Azure Marketplace-avbildningar och kan installeras manuellt på operativ system som stöds. Azure VM-agenten för Linux kallas Linux-agenten.
 
-Information om operativsystem och installationsinstruktioner som stöds finns i [Azures virtuella datoragent](agent-linux.md).
+Information om operativ system som stöds och Installationsinstruktioner finns i [Azure Virtual Machine agent](agent-linux.md).
 
-#### <a name="supported-agent-versions"></a>Agentversioner som stöds
+#### <a name="supported-agent-versions"></a>Agent versioner som stöds
 
-För att ge bästa möjliga upplevelse, det finns minimiversioner av agenten. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+För att kunna tillhandahålla bästa möjliga upplevelse finns det minimala versioner av agenten. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-#### <a name="supported-oses"></a>OSes som stöds
+#### <a name="supported-oses"></a>Operativ system som stöds
 
-Linux-agenten körs på flera OSes, men tilläggsramverket har en gräns för de OSes som tillägg. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+Linux-agenten körs på flera operativ system, men tillägg ramverket har en gräns för operativ system som tillägg. Mer information finns i [den här artikeln](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Vissa tillägg stöds inte i alla operativsystem och kan avge *felkod 51, "Os som inte stöds".* Kontrollera den enskilda tilläggsdokumentationen för support.
+Vissa tillägg stöds inte för alla operativ system och genererar *felkod 51, OS som inte stöds*. Kontrol lera den enskilda tilläggs dokumentationen för support.
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
-Tilläggspaket hämtas från Azure Storage-tilläggsdatabasen och tilläggsstatusöverföringar bokförs i Azure Storage. Om du använder den version av agenter som [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) behöver du inte tillåta åtkomst till Azure Storage i regionen VIRTUELL, som kan använda agenten för att omdirigera kommunikationen till Azure fabric-styrenheten för agentkommunikation. Om du använder en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure-lagring i den regionen från den virtuella datorn.
+Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version som [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) av agenterna behöver du inte tillåta åtkomst till Azure Storage i den virtuella dator regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation. Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
 
 > [!IMPORTANT]
-> Om du har blockerat åtkomst till *168.63.129.16* med gästbrandväggen misslyckas tilläggen oavsett ovanstående.
+> Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen, kommer tilläggen att fungera oberoende av ovanstående.
 
-Agenter kan endast användas för att hämta tilläggspaket och rapporteringsstatus. Om till exempel en tilläggsinstallation behöver hämta ett skript från GitHub (Anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brandväggs-/nätverkssäkerhetsgruppportar öppnas. Olika tillägg har olika krav, eftersom de är applikationer i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med Azure NSG-tjänsttaggar för [lagring](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG service-taggar för [lagring](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-För att omdirigera agent trafikbegäranden har Linux-agenten proxyserver stöd. Det här proxyserverstödet gäller dock inte tillägg. Du måste konfigurera varje enskilt tillägg så att det fungerar med en proxy.
+För att omdirigera begär Anden om agent trafik har Linux-agenten stöd för proxy server. Stöd för den här proxyservern tillämpar dock inte tillägg. Du måste konfigurera varje enskilt tillägg så att det fungerar med en proxy.
 
-## <a name="discover-vm-extensions"></a>Upptäck VM-tillägg
+## <a name="discover-vm-extensions"></a>Identifiera VM-tillägg
 
-Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. Om du vill se en fullständig lista använder du [bildlistan för virtuell vm-tillägg](/cli/azure/vm/extension/image#az-vm-extension-image-list). I följande exempel visas alla tillgängliga tillägg på *westus-platsen:*
+Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. Om du vill se en fullständig lista använder du [AZ VM Extension image List](/cli/azure/vm/extension/image#az-vm-extension-image-list). I följande exempel visas alla tillgängliga tillägg på platsen för *västkusten* :
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -79,13 +79,13 @@ az vm extension image list --location westus --output table
 
 ## <a name="run-vm-extensions"></a>Kör VM-tillägg
 
-Azure VM-tillägg körs på befintliga virtuella datorer, vilket är användbart när du behöver göra konfigurationsändringar eller återställa anslutningen på en redan distribuerad virtuell dator. VM-tillägg kan också levereras med Azure Resource Manager-malldistributioner. Genom att använda tillägg med Resource Manager-mallar kan virtuella Azure-datorer distribueras och konfigureras utan åtgärder efter distributionen.
+VIRTUELLA Azure-tillägg körs på befintliga virtuella datorer, vilket är användbart när du behöver göra konfigurations ändringar eller återställa anslutningar på en redan distribuerad virtuell dator. VM-tillägg kan också paketeras med Azure Resource Manager mallar distributioner. Med hjälp av tillägg med Resource Manager-mallar kan virtuella Azure-datorer distribueras och konfigureras utan åtgärder efter distribution.
 
 Följande metoder kan användas för att köra ett tillägg mot en befintlig virtuell dator.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM-tillägg kan köras mot en befintlig virtuell dator med kommandot [az vm-tilläggsuppsättning.](/cli/azure/vm/extension#az-vm-extension-set) I följande exempel körs tillägget Anpassat skript mot en virtuell dator med namnet *myVM* i en resursgrupp med namnet *myResourceGroup*. Ersätt exempelresursgruppens namn, VM-namn och\/skript som ska köras (https: /raw.githubusercontent.com/me/project/hello.sh) med din egen information. 
+Azure VM-tillägg kan köras mot en befintlig virtuell dator med kommandot [AZ VM Extension set](/cli/azure/vm/extension#az-vm-extension-set) . I följande exempel körs det anpassade skript tillägget mot en virtuell dator med namnet *myVM* i en resurs grupp med namnet *myResourceGroup*. Ersätt exempel resurs gruppens namn, namnet på den virtuella datorn och skriptet som ska\/köras (https:/RAW.githubusercontent.com/me/Project/Hello.sh) med din egen information. 
 
 ```azurecli
 az vm extension set `
@@ -96,7 +96,7 @@ az vm extension set `
   --settings '{"fileUris": ["https://raw.githubusercontent.com/me/project/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-När tillägget körs korrekt liknar utdata följande exempel:
+När tillägget fungerar som det ska, ser utdata ut ungefär som i följande exempel:
 
 ```bash
 info:    Executing command vm extension set
@@ -107,17 +107,17 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Azure Portal
 
-VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure-portalen. Välj den virtuella datorn i portalen, välj **Tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ instruktionerna i guiden.
+VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
-Följande avbildning visar installationen av tillägget Linux Custom Script från Azure-portalen:
+Följande bild visar installationen av det anpassade skript tillägget för Linux från Azure Portal:
 
-![Installera anpassat skripttillägg](./media/features-linux/installscriptextensionlinux.png)
+![Installera anpassat skript tillägg](./media/features-linux/installscriptextensionlinux.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-VM-tillägg kan läggas till i en Azure Resource Manager-mall och köras med distributionen av mallen. När du distribuerar ett tillägg med en mall kan du skapa fullständigt konfigurerade Azure-distributioner. Följande JSON hämtas till exempel från en Resource Manager-mall som distribuerar en uppsättning belastningsbalanserade virtuella datorer och en Azure SQL-databas och installerar sedan ett .NET Core-program på varje virtuell dator. Vm-tillägget tar hand om programvaruinstallationen.
+VM-tillägg kan läggas till i en Azure Resource Manager mall och köras med mallen. När du distribuerar ett tillägg med en mall kan du skapa fullständigt konfigurerade Azure-distributioner. Följande JSON tas till exempel från en Resource Manager-mall som distribuerar en uppsättning belastningsutjämnade virtuella datorer och en Azure SQL-databas och installerar sedan ett .NET Core-program på varje virtuell dator. VM-tillägget tar hand om program varu installationen.
 
-Mer information finns i den fullständiga [Resource Manager-mallen](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Mer information finns i fullständig [Resource Manager-mall](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ```json
 {
@@ -148,13 +148,13 @@ Mer information finns i den fullständiga [Resource Manager-mallen](https://gith
 }
 ```
 
-Mer information om hur du skapar Resource Manager-mallar finns i [Skapa Azure Resource Manager-mallar](../windows/template-description.md#extensions).
+Mer information om hur du skapar Resource Manager-mallar finns i [redigera Azure Resource Manager mallar](../windows/template-description.md#extensions).
 
-## <a name="secure-vm-extension-data"></a>Data för säker vm-tillägg
+## <a name="secure-vm-extension-data"></a>Säkra data för VM-tillägg
 
-När du kör ett vm-tillägg kan det vara nödvändigt att inkludera känslig information som autentiseringsuppgifter, lagringskontonamn och åtkomstnycklar för lagringskonto. Många VM-tillägg innehåller en skyddad konfiguration som krypterar data och bara dekrypterar den inuti måldatorn. Varje tillägg har ett specifikt schema för skyddad konfiguration och var och en beskrivs i tilläggsspecifik dokumentation.
+När du kör ett VM-tillägg kan det vara nödvändigt att inkludera känslig information som autentiseringsuppgifter, lagrings konto namn och åtkomst nycklar för lagrings kontot. Många VM-tillägg innehåller en skyddad konfiguration som krypterar data och bara dekrypterar den i den virtuella mål datorn. Varje tillägg har ett särskilt skyddat konfigurations schema och var och en beskrivs i den tilläggsbaserade dokumentationen.
 
-I följande exempel visas en instans av tillägget Anpassat skript för Linux. Kommandot som ska köras innehåller en uppsättning autentiseringsuppgifter. I det här exemplet är kommandot för att köra inte krypterat:
+I följande exempel visas en instans av det anpassade skript tillägget för Linux. Kommandot som ska köras innehåller en uppsättning autentiseringsuppgifter. I det här exemplet krypteras inte kommandot som ska köras:
 
 ```json
 {
@@ -183,7 +183,7 @@ I följande exempel visas en instans av tillägget Anpassat skript för Linux. K
 }
 ```
 
-Om du flyttar **kommandot för att köra** egenskapen till den **skyddade** konfigurationen skyddas körningssträngen, vilket visas i följande exempel:
+Om du flyttar **kommandot för att köra** egenskapen till den **skyddade** konfigurationen skyddas körnings strängen, som du ser i följande exempel:
 
 ```json
 {
@@ -216,32 +216,32 @@ Om du flyttar **kommandot för att köra** egenskapen till den **skyddade** konf
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Hur uppdateras agenter och tillägg?
 
-Agenterna och tilläggen delar samma uppdateringsmekanism. Vissa uppdateringar kräver inga ytterligare brandväggsregler.
+Agenterna och tilläggen delar samma uppdaterings funktion. Vissa uppdateringar kräver inga ytterligare brand Väggs regler.
 
-När en uppdatering är tillgänglig installeras den bara på den virtuella datorn när det sker en ändring av tillägg och andra vm-modelländringar, till exempel:
+När det finns en tillgänglig uppdatering installeras den bara på den virtuella datorn när tilläggen ändras och andra ändringar i VM-modellen, till exempel:
 
 - Datadiskar
 - Tillägg
 - Behållare för startdiagnostik
-- Gäst OS hemligheter
+- Gäst operativ system hemligheter
 - Storlek på virtuell dator
-- Nätverksprofil
+- Nätverks profil
 
 Utgivare gör uppdateringar tillgängliga för regioner vid olika tidpunkter, så det är möjligt att du kan ha virtuella datorer i olika regioner i olika versioner.
 
 #### <a name="agent-updates"></a>Agent uppdateringar
 
-Linux VM-agenten innehåller *etableringsagentkod* och *extension-hanteringskod* i ett paket som inte kan separeras. Du kan inaktivera *etableringsagenten* när du vill etablera på Azure med hjälp av cloud-init. Det gör du genom [att använda cloud-init](../linux/using-cloud-init.md).
+Linux VM-agenten innehåller *etablerings agent kod* och *tillägg hanterings kod* i ett paket som inte kan skiljas åt. Du kan inaktivera *etablerings agenten* när du vill etablera i Azure med Cloud-init. Information om hur du gör detta finns i [använda Cloud-Init](../linux/using-cloud-init.md).
 
-Versioner av ombud som stöds kan använda automatiska uppdateringar. Den enda kod som kan uppdateras är *koden för tilläggshantering*, inte etableringskoden. *Etableringsagentkoden* körs en gång-kod.
+Versioner av agenterna som stöds kan använda automatiska uppdateringar. Den enda kod som kan uppdateras är *tilläggs hanterings koden*, inte etablerings koden. *Etablerings agent koden* körs en gång.
 
-*Koden för tilläggshantering* ansvarar för att kommunicera med Azure-infrastrukturen och hantera vm-tilläggsåtgärder som installationer, rapporteringsstatus, uppdatera enskilda tillägg och ta bort dem. Uppdateringar innehåller säkerhetskorrigeringar, buggfixar och förbättringar av *koden för förlängningshantering*.
+*Tilläggs hanterings koden* ansvarar för kommunikation med Azure-infrastrukturen och hanterar de åtgärder för VM-tillägg som installation, rapporterings status, uppdaterar enskilda tillägg och tar bort dem. Uppdateringar innehåller säkerhets korrigeringar, fel korrigeringar och förbättringar i *tilläggs hanterings koden*.
 
-När agenten installeras skapas en överordnad demon. Den här föräldern ger sedan upphov till en underordnad process som används för att hantera tillägg. Om en uppdatering är tillgänglig för agenten hämtas den, den överordnade stoppar den underordnade processen, uppgraderar den och startar sedan om den. Om det skulle vara problem med uppdateringen återställs den överordnade processen till den tidigare underordnade versionen.
+När agenten installeras skapas ett överordnat daemon. Den här överordnade processen sedan skapar en underordnad process som används för att hantera tillägg. Om det finns en tillgänglig uppdatering för agenten laddas den ned, den överordnade processen stoppas, den underordnade processen uppgraderas och sedan startas den om. Om det uppstår problem med uppdateringen återställs den överordnade processen tillbaka till den tidigare underordnade versionen.
 
-Den överordnade processen kan inte uppdateras automatiskt. Den överordnade kan bara uppdateras med en distributionspaketuppdatering.
+Det går inte att uppdatera den överordnade processen automatiskt. Den överordnade kan bara uppdateras av en distribution-paket uppdatering.
 
-Kontrollera vilken version du kör `waagent` genom att kontrollera följande:
+Kontrol lera vilken version du kör genom att kontrol lera `waagent` följande:
 
 ```bash
 waagent --version
@@ -255,15 +255,15 @@ Python: 3.5.2
 Goal state agent: 2.2.18
 ```
 
-I föregående exempelutdata är den överordnade versionen eller "paketut distribuerad version" *WALinuxAgent-2.2.17*
+I föregående exempel utdata är den överordnade eller paket distribuerade versionen *WALinuxAgent-2.2.17*
 
-"Måltillståndsagenten" är den automatiska uppdateringsversionen.
+Mål tillstånds agenten är den automatiska uppdaterings versionen.
 
-Vi rekommenderar starkt att du alltid har automatisk uppdatering för [agenten, AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Att inte ha detta aktiverat innebär att du måste hålla manuellt uppdatera agenten, och inte få bugg och säkerhetskorrigeringar.
+Vi rekommenderar starkt att du alltid har automatisk uppdatering av agenten, [AutoUpdate. enabled = y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Om du inte aktiverar det här alternativet måste du uppdatera agenten manuellt och inte få fel-och säkerhets korrigeringar.
 
-#### <a name="extension-updates"></a>Tilläggsuppdateringar
+#### <a name="extension-updates"></a>Tilläggs uppdateringar
 
-När en tilläggsuppdatering är tillgänglig hämtar och uppgraderar Linux Agent tillägget. Automatiska tilläggsuppdateringar är antingen *Minor* eller *Hotfix*. Du kan välja eller välja bort tillägg *Mindre* uppdateringar när du etablerar tillägget. I följande exempel visas hur du automatiskt uppgraderar delversioner i en Resource Manager-mall med *autoUpgradeMinorVersion": true":*
+När en tilläggs uppdatering är tillgänglig laddar Linux-agenten ned och uppgraderar tillägget. Automatiska tilläggs uppdateringar är antingen *mindre* eller *snabb korrigeringar*. Du kan välja om du vill inaktivera tillägg som är *mindre* uppdateringar när du etablerar tillägget. I följande exempel visas hur du automatiskt uppgraderar lägre versioner i en Resource Manager-mall med *aktiverat autoupgrademinorversion ": true"*:
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -277,19 +277,19 @@ När en tilläggsuppdatering är tillgänglig hämtar och uppgraderar Linux Agen
     },
 ```
 
-För att få de senaste felkorrigeringarna för mindre versionen rekommenderar vi starkt att du alltid väljer automatisk uppdatering i dina tilläggsdistributioner. Snabbkorrigeringsuppdateringar som innehåller säkerhets- eller nyckelfelskorrigeringar kan inte väljas bort.
+För att få de senaste fel korrigeringarna för smärre versioner, rekommenderar vi att du alltid väljer automatisk uppdatering i dina tillägg-distributioner. Uppdateringar av snabb korrigeringar som innehåller säkerhets-eller nyckel fel korrigeringar kan inte avregistreras.
 
-### <a name="how-to-identify-extension-updates"></a>Identifiera tilläggsuppdateringar
+### <a name="how-to-identify-extension-updates"></a>Så här identifierar du tilläggs uppdateringar
 
-#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identifiera om tillägget är inställt med autoUpgradeMinorVersion på en virtuell dator
+#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Identifiera om tillägget har angetts med aktiverat autoupgrademinorversion på en virtuell dator
 
-Du kan se från vm-modellen om tillägget har etablerats med autoUpgradeMinorVersion. Om du vill kontrollera använder du [az vm-visning](/cli/azure/vm#az-vm-show) och anger resursgruppen och VM-namnet enligt följande:
+Du kan se från VM-modellen om tillägget etablerades med ' aktiverat autoupgrademinorversion '. Om du vill kontrol lera det använder du [AZ VM show](/cli/azure/vm#az-vm-show) och anger resurs gruppen och VM-namnet enligt följande:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
 ```
 
-Följande exempelutdata visar att *autoUpgradeMinorVersion* är inställt på *true:*
+Följande exempel på utdata visar att *aktiverat autoupgrademinorversion* är inställt på *True*:
 
 ```json
   "resources": [
@@ -299,11 +299,11 @@ Följande exempelutdata visar att *autoUpgradeMinorVersion* är inställt på *t
       "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/CustomScriptExtension",
 ```
 
-#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identifiera när en autoUpgradeMinorVersion inträffade
+#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identifiera när ett aktiverat autoupgrademinorversion har inträffat
 
-Om du vill se när en uppdatering av tillägget inträffade granskar du agentloggarna på den virtuella datorn på */var/log/waagent.log*.
+Om du vill se när en uppdatering av tillägget har inträffat granskar du agent loggarna på den virtuella datorn på */var/log/waagent.log*.
 
-I exemplet nedan hade den virtuella datorn *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9025* installerat. En snabbkorrigering var tillgänglig för *Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027:*
+I exemplet nedan hade den virtuella datorn *Microsoft. OSTCExtensions. LinuxDiagnostic-2.3.9025* installerat. En snabb korrigering är tillgänglig för *Microsoft. OSTCExtensions. LinuxDiagnostic-2.3.9027*:
 
 ```bash
 INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Expected handler state: enabled
@@ -324,35 +324,35 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 2017/08/14 20:21:57 LinuxAzureDiagnostic started to handle.
 ```
 
-## <a name="agent-permissions"></a>Agentbehörigheter
+## <a name="agent-permissions"></a>Agent behörigheter
 
-Agenten måste köras som *root*för att kunna utföra sina uppgifter .
+För att utföra dess uppgifter måste agenten köras som *rot*.
 
 ## <a name="troubleshoot-vm-extensions"></a>Felsöka VM-tillägg
 
-Varje VM-tillägg kan ha felsökningssteg som är specifika för tillägget. När du till exempel använder tillägget Anpassat skript finns information om skriptkörning lokalt på den virtuella datorn där tillägget kördes. Alla tilläggsspecifika felsökningssteg beskrivs i tilläggsspecifik dokumentation.
+Varje VM-tillägg kan ha fel söknings steg som är speciella för tillägget. Om du till exempel använder tillägget för anpassat skript kan du hitta skript körnings information lokalt på den virtuella dator där tillägget kördes. Eventuella tilläggs fel söknings steg beskrivs i den särskilda dokumentationen.
 
-Följande felsökningssteg gäller för alla VM-tillägg.
+Följande fel söknings steg gäller för alla VM-tillägg.
 
-1. För att kontrollera Linux Agent Log, titta på aktiviteten när ditt tillägg var etableras i */ var / log /waagent.log*
+1. Kontrol lera loggen för Linux-agenten genom att titta på aktiviteten när ditt tillägg har allokerats i */var/log/waagent.log*
 
-2. Mer information finns i */var/log/azure/extensionName\<>*
+2. Se de faktiska tilläggs loggarna för mer information *i\</var/log/Azure/tillägg>*
 
-3. Kontrollera felsökningsavsnitt för tilläggsspecifik dokumentation för felkoder, kända problem etc.
+3. Sök efter felkoder, kända problem osv. i tilläggs dokumentation fel söknings avsnitt.
 
-3. Titta på systemloggarna. Kontrollera om det finns andra åtgärder som kan ha stört tillägget, till exempel en tidskrävande installation av ett annat program som krävde exklusiv pakethanterare.
+3. Titta på system loggarna. Kontrol lera om det finns andra åtgärder som kan ha stör tillägget, till exempel en tids krävande installation av ett annat program som kräver exklusiv åtkomst till paket hanteraren.
 
-### <a name="common-reasons-for-extension-failures"></a>Vanliga orsaker till tilläggsfel
+### <a name="common-reasons-for-extension-failures"></a>Vanliga orsaker till tilläggs problem
 
-1. Tillägg har 20 minuter att köra (undantag är CustomScript-tillägg, chef och DSC som har 90 minuter). Om distributionen överskrider den här tiden markeras den som en timeout. Orsaken till detta kan bero på virtuella resursdämmor, andra vm-konfigurationer/startaktiviteter som förbrukar stora mängder resurser medan tillägget försöker etablera.
+1. Tilläggen har 20 minuter att köra (undantag är CustomScript-tillägg, chef och DSC som har 90 minuter). Om distributionen överskrider den här tiden markeras den som en tids gräns. Orsaken till detta kan bero på att det finns låg resurs för virtuella datorer, andra VM-konfigurationer/starta aktiviteter som förbrukar stora mängder resurser, medan tillägget försöker etablera.
 
-2. Minimikraven är inte uppfyllda. Vissa tillägg har beroenden av virtuella SKU:er, till exempel HPC-avbildningar. Tillägg kan kräva vissa åtkomstkrav för nätverk, till exempel kommunikation med Azure Storage eller offentliga tjänster. Andra exempel kan vara åtkomst till paketdatabaser, på diskutrymme eller säkerhetsbegränsningar.
+2. Minimi kraven är inte uppfyllda. Vissa tillägg har beroenden på VM SKU: er, till exempel HPC-avbildningar. Tillägg kan kräva vissa krav på nätverks åtkomst, t. ex. kommunikation med Azure Storage eller offentliga tjänster. Andra exempel kan vara till gång till paket lagrings utrymmen, ta slut på disk utrymme eller säkerhets begränsningar.
 
-3. Exklusiv pakethanterare. I vissa fall kan du stöta på en tidskrävande VM-konfiguration och tilläggsinstallation i konflikt, där de båda behöver exklusiv åtkomst till pakethanteraren.
+3. Exklusiv åtkomst till paket hanteraren. I vissa fall kan det uppstå en tids krävande konfiguration av virtuella datorer och tillägg i konflikt, där de båda behöver exklusiv åtkomst till paket hanteraren.
 
-### <a name="view-extension-status"></a>Visa tilläggsstatus
+### <a name="view-extension-status"></a>Visa tilläggs status
 
-När ett VM-tillägg har körts mot en virtuell dator använder du [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) för att returnera tilläggsstatus enligt följande:
+När ett VM-tillägg har körts mot en virtuell dator kan du använda [AZ VM get-instance-View](/cli/azure/vm#az-vm-get-instance-view) för att returnera tilläggets status enligt följande:
 
 ```azurecli
 az vm get-instance-view \
@@ -361,7 +361,7 @@ az vm get-instance-view \
     --query "instanceView.extensions"
 ```
 
-Utdata liknar följande exempelutdata:
+Utdata liknar följande exempel på utdata:
 
 ```bash
   {
@@ -381,11 +381,11 @@ Utdata liknar följande exempelutdata:
   }
 ```
 
-Status för körning av tillägg finns också i Azure-portalen. Om du vill visa status för ett tillägg väljer du den virtuella datorn, väljer **Tillägg**och väljer sedan önskat tillägg.
+Du kan också hitta körnings status för tillägg i Azure Portal. Om du vill visa status för ett tillägg väljer du den virtuella datorn, väljer **tillägg**och väljer sedan önskat tillägg.
 
-### <a name="rerun-a-vm-extension"></a>Köra ett vm-tillägg igen
+### <a name="rerun-a-vm-extension"></a>Kör ett VM-tillägg igen
 
-Det kan finnas fall där ett vm-tillägg måste köras igen. Du kan köra ett tillägg igen genom att ta bort det och sedan köra tillägget igen med valfri körningsmetod. Om du vill ta bort ett tillägg använder du [az vm-tillägget ta bort](/cli/azure/vm/extension#az-vm-extension-delete) enligt följande:
+Det kan finnas fall där ett VM-tillägg måste köras igen. Du kan köra ett tillägg igen genom att ta bort det och sedan köra tillägget igen med en körnings metod som du väljer. Om du vill ta bort ett tillägg använder du [AZ VM Extension Delete](/cli/azure/vm/extension#az-vm-extension-delete) enligt följande:
 
 ```azurecli
 az vm extension delete \
@@ -394,22 +394,22 @@ az vm extension delete \
     --name customScript
 ```
 
-Du kan också ta bort ett tillägg i Azure-portalen på följande sätt:
+Du kan också ta bort ett tillägg i Azure Portal på följande sätt:
 
 1. Välj en virtuell dator.
-2. Välj **Tillägg**.
+2. Välj **tillägg**.
 3. Välj önskat tillägg.
 4. Välj **Avinstallera**.
 
-## <a name="common-vm-extension-reference"></a>Gemensam referens för vm-tillägg
+## <a name="common-vm-extension-reference"></a>Vanlig referens för VM-tillägg
 
-| Tilläggsnamn | Beskrivning | Mer information |
+| Tilläggs namn | Beskrivning | Mer information |
 | --- | --- | --- |
-| Anpassat skripttillägg för Linux |Köra skript mot en virtuell Azure-dator |[Anpassat skripttillägg för Linux](custom-script-linux.md) |
-| VM Access-tillägg |Återfå åtkomsten till en virtuell Azure-dator |[VM Access-tillägg](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
-| Azure Diagnostics-tillägg |Hantera Azure Diagnostics |[Azure Diagnostics-tillägg](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM Access-tillägg |Hantera användare och autentiseringsuppgifter |[VM-åtkomsttillägg för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Anpassat skript tillägg för Linux |Kör skript mot en virtuell Azure-dator |[Anpassat skript tillägg för Linux](custom-script-linux.md) |
+| VM Access-tillägg |Få åtkomst till en virtuell Azure-dator |[VM Access-tillägg](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
+| Azure Diagnostics-tillägg |Hantera Azure-diagnostik |[Azure Diagnostics-tillägg](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Tillägg för Azure VM Access |Hantera användare och autentiseringsuppgifter |[Åtkomst tillägg för virtuella datorer för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om vm-tillägg finns i [Azures översikt över virtuella datorer och funktioner](overview.md).
+Mer information om tillägg för virtuella datorer finns i [Översikt över virtuella Azure-datorer och funktioner](overview.md).

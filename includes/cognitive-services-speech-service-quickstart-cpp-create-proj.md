@@ -5,76 +5,76 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: 72e9334b4df58b1b90288cb7363a7d94bb531661
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80658404"
 ---
-Om du vill skapa ett Visual Studio-projekt för C++-skrivbordsutveckling måste du ställa in utvecklingsalternativ för Visual Studio, skapa projektet, välja målarkitektur och installera Tal-SDK.
+Om du vill skapa ett Visual Studio-projekt för C++ Desktop-utveckling måste du konfigurera alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitekturen och installera talet SDK.
 
-### <a name="set-up-visual-studio-development-options"></a>Konfigurera utvecklingsalternativ för Visual Studio
+### <a name="set-up-visual-studio-development-options"></a>Konfigurera alternativ för Visual Studio-utveckling
 
-Börja med att kontrollera att du är korrekt konfigurerad i Visual Studio för C++-skrivbordsutveckling:
+Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio för C++ Desktop Development:
 
-1. Öppna Visual Studio 2019 för att visa **Start-fönstret.**
+1. Öppna Visual Studio 2019 för att visa **Start** fönstret.
 
-   ![Startfönster - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Start fönster – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Välj **Fortsätt utan kod** för att gå till Visual Studio IDE.
 
-1. På menyraden i Visual Studio väljer du **Verktyg** > **hämta verktyg och funktioner** för att öppna Visual Studio Installer och visa dialogrutan **Ändra.**
+1. I meny raden i Visual Studio väljer du **verktyg** > **Hämta verktyg och funktioner** för att öppna Visual Studio Installer och Visa dialog rutan **ändra** .
 
-   ![Fliken Arbetsbelastningar, dialogrutan Ändra, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   ![Fliken arbets belastningar, ändra dialog rutan, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
-1. Hitta **skrivbordsutvecklingen med C++-arbetsbelastning** under **Windows**på fliken **Arbetsbelastningar.** Om kryssrutan bredvid arbetsbelastningen inte redan är markerad markerar du den.
+1. På fliken **arbets belastningar** , under **Windows**, letar du upp **Skriv bords utvecklingen med C++** -arbetsbelastningen. Om kryss rutan bredvid den arbets belastningen inte redan är markerad, markerar du den.
 
-1. Leta reda på kryssrutan **Nuget package manager** på fliken **Enskilda komponenter.** Om kryssrutan inte redan är markerad markerar du den.
+1. På fliken **enskilda komponenter** letar du upp kryss rutan **NuGet Package Manager** . Markera kryss rutan om den inte redan är markerad.
 
-1. Markera knappen i hörnet med etiketten **Stäng** eller **Ändra**. (Knappnamnet varierar beroende på om du har valt några funktioner för installation.) Om du väljer **Ändra**börjar installationen, vilket kan ta en stund.
+1. Välj knappen i hörnet som är märkt antingen **Stäng** eller **ändra**. (Knapp namnet varierar beroende på om du har valt några funktioner för installation.) Om du väljer **ändra**startar installationen, vilket kan ta en stund.
 
 1. Stäng Visual Studio Installer.
 
-### <a name="create-the-project-and-select-the-target-architecture"></a>Skapa projektet och välj målarkitektur
+### <a name="create-the-project-and-select-the-target-architecture"></a>Skapa projektet och välj mål arkitekturen
 
-Skapa sedan projektet:
+Skapa sedan ditt projekt:
 
-1. I menyraden i Visual Studio väljer du **Arkiv** > **nytt** > **projekt** för att visa fönstret Skapa ett nytt **projekt.**
+1. I meny raden i Visual Studio väljer du **Arkiv** > **nytt** > **projekt** för att visa fönstret **skapa ett nytt projekt** .
 
-   ![Skapa ett nytt projekt, C++ - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)
+   ![Skapa ett nytt projekt, C++-Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-01-new-console-app.png)
 
-1. Sök efter och välj **Konsolapp**. Se till att du väljer C++-versionen av den här projekttypen (i motsats till C# eller Visual Basic).
+1. Sök efter och välj **konsol program**. Kontrol lera att du väljer C++-versionen av den här projekt typen (till skillnad från C# eller Visual Basic).
 
-1. Välj **Nästa** om du vill visa skärmen **Konfigurera det nya projektet.**
+1. Välj **Nästa** för att visa skärmen **Konfigurera ditt nya projekt** .
 
-   ![Konfigurera ditt nya projekt, C++ - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-configure-your-new-project.png)
+   ![Konfigurera det nya projektet, C++-Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-configure-your-new-project.png)
 
-1. Skriv i `helloworld` **Projektnamn**.
+1. I **projekt namn**anger `helloworld`du.
 
-1. Navigera till och markera eller skapa mappen som projektet ska sparas i i **Plats.**
+1. I **plats**navigerar du till och väljer eller skapar mappen där du vill spara projektet i.
 
-Välj nu din målplattformsarkitektur. Leta reda på listrutan **Lösningsplattformar** i verktygsfältet Visual Studio. (Om du inte ser det väljer du **Visa** > verktygsfält**standard** för att visa**verktygsfältet** > som innehåller **lösningsplattformar**.) Om du kör 64-bitars Windows väljer du **x64** i listrutan. 64-bitars Windows kan också köra 32-bitarsprogram, så du kan välja **x86** om du vill.
+Välj nu mål plattforms arkitektur. I Visual Studio-verktygsfältet hittar du List rutan med **plattforms plattformar** . (Om du inte ser det väljer du **Visa** > **verktygsfält** > **standard** för att Visa verktygsfältet som innehåller **plattform för lösningar**.) Om du kör 64-bitars Windows väljer du **x64** i list rutan. 64-bitars Windows kan också köra 32-bitars program, så du kan välja **x86** om du föredrar det.
 
 ### <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Installera slutligen [speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget)och referera till Tal-SDK i projektet:
+Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)och refererar till tal-SDK: n i projektet:
 
-1. Högerklicka på din lösning i **Solution Explorer**och välj **Hantera NuGet-paket för lösning för** att gå till fönstret **Nuget - Solution.**
+1. I **Solution Explorer**högerklickar du på din lösning och väljer **Hantera NuGet-paket för lösning** för att gå till fönstret **NuGet-lösning** .
 
 1. Välj **Bläddra**.
 
-   ![NuGet - Fliken Lösning, Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
+   ![NuGet – fliken lösning, Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
-1. Välj **nuget.org**i **Paketkällan**.
+1. I **paket källa**väljer du **NuGet.org**.
 
-1. I rutan **Sök** `Microsoft.CognitiveServices.Speech`anger du och väljer sedan paketet när det visas i sökresultaten.
+1. I **sökrutan anger** `Microsoft.CognitiveServices.Speech`du och väljer sedan det paketet efter att det visas i Sök resultatet.
 
-   ![Microsoft.CognitiveServices.Speech C++-paketinstallation - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
+   ![Installation av Microsoft. CognitiveServices. Speech C++-paketet-Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
-1. Välj ditt **helloworld-projekt** i fönstret för paketstatus bredvid sökresultaten.
+1. I fönstret paket status bredvid Sök resultaten väljer du ditt **HelloWorld** -projekt.
 
 1. Välj **Installera**.
 
-1. Välj **OK**i dialogrutan **Förhandsgranska ändringar** .
+1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
 
-1. Visa licensen i dialogrutan **Licensacceptans** och välj sedan **Jag accepterar**. Paketinstallationen börjar och när installationen är klar visas ett meddelande som `Successfully installed 'Microsoft.CognitiveServices.Speech 1.11.0' to helloworld`liknar följande text i **fönstret Utdata:** .
+1. I dialog rutan **licens godkännande** visar du licensen och väljer sedan **Jag accepterar**. Paket installationen startar och när installationen är klar visas ett meddelande som liknar följande text i fönstret **utdata** : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.11.0' to helloworld`.

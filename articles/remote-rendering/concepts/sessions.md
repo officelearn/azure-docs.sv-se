@@ -1,86 +1,86 @@
 ---
-title: Fjärrrenderingssessioner
-description: Beskriver vad en fjärrrenderingssession är
+title: Remote Rendering-sessioner
+description: Beskriver vad en fjärrstyrningssession är
 author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 91a59e1398bf5e68799ad16a20dfb824904edc8a
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681693"
 ---
-# <a name="remote-rendering-sessions"></a>Fjärrrenderingssessioner
+# <a name="remote-rendering-sessions"></a>Remote Rendering-sessioner
 
-I Azure Remote Rendering (ARR) är en *session* ett nyckelkoncept. I den här artikeln förklaras exakt vad en session är.
+I Azure Remote rendering (ARR) är en *session* ett nyckel begrepp. I den här artikeln förklaras vad exakt en session är.
 
 ## <a name="overview"></a>Översikt
 
-Azure Remote Rendering fungerar genom att avlasta komplexa renderingsuppgifter i molnet. Dessa renderingsuppgifter kan inte uppfyllas av vilken server som helst, eftersom de flesta molnservrar inte har GPU:er. På grund av mängden data som är inblandade och det hårda kravet på att producera resultat till interaktiva bildhastigheter, det ansvar som servern hanterar vilken användarbegäran inte heller kan överlämnas till en annan maskin i farten, vilket kan vara möjligt för vanligare webbtrafik.
+Azure Remote rendering fungerar genom att avlasta komplexa åter givnings uppgifter i molnet. Dessa åter givnings aktiviteter kan inte uppfyllas av någon server, eftersom de flesta moln servrar inte har GPU: er. På grund av mängden data som är inblandade och det hårda kravet på att producera resultat i interaktiva bild hastigheter, är det ansvaret för vilken server som hanterar användar förfrågningen inte kan överlämnas till en annan dator direkt, vilket kan vara möjligt för mer allmän webb trafik.
 
-Det innebär att när du använder Azure Remote Rendering måste en molnserver med nödvändiga maskinvarufunktioner reserveras uteslutande för att hantera dina renderingsbegäranden. En *session* refererar till allt som är involverat med att interagera med den här servern. Det börjar med den första begäran om att reservera (*lease)* en dator för din användning, fortsätter med alla kommandon för inläsning och manipulera modeller, och slutar med att frigöra lånet på molnservern.
+Det innebär att när du använder Azure-fjärrrendering måste en moln server med de nödvändiga maskin varu funktionerna reserveras uteslutande för att hantera dina åter givnings begär Anden. En *session* syftar på allt som används för att interagera med den här servern. Den börjar med den första begäran om att reservera (*låna*) en dator för användning, fortsätter med alla kommandon för att läsa in och manipulera modeller, och slutar med att släppa lånet på moln servern.
 
 ## <a name="managing-sessions"></a>Hantera sessioner
 
-Det finns flera sätt att hantera och interagera med sessioner. Det språkoberoende sättet att skapa, uppdatera och stänga av sessioner är via [REST API för sessionshantering](../how-tos/session-rest-api.md). I C# och C++exponeras dessa `AzureFrontend` åtgärder `AzureSession`genom klasserna och . För Unity-program finns det ytterligare `ARRServiceUnity` verktygsfunktioner som tillhandahålls av komponenten.
+Det finns flera olika sätt att hantera och interagera med sessioner. Det språk oberoende sättet att skapa, uppdatera och stänga av sessioner är via [REST API för hantering av sessionen](../how-tos/session-rest-api.md). I C# och C++ exponeras dessa åtgärder via klasserna `AzureFrontend` och. `AzureSession` För Unity-program finns ytterligare verktyg som tillhandahålls av `ARRServiceUnity` komponenten.
 
-När du är *ansluten* till en aktiv session exponeras åtgärder som `AzureSession` att läsa in [modeller](models.md) och interagera med scenen genom klassen.
+När du är *ansluten* till en aktiv session exponeras åtgärder som att [läsa in modeller](models.md) och interagera med scenen genom `AzureSession` klassen.
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>Hantera flera sessioner samtidigt
 
-Det går inte att *ansluta* till flera sessioner från en enhet helt. Du kan dock skapa, observera och stänga av så många sessioner du vill från ett enda program. Så länge appen inte är tänkt att någonsin ansluta till en session, behöver den inte köras på en enhet som HoloLens 2 heller. Ett användningsfall för en sådan implementering kan vara om du vill styra sessioner genom en central mekanism. Man kan till exempel bygga en webbapp, där flera surfplattor och holoobjektiv kan logga in. Sedan kan appen visa alternativ på surfplattorna, till exempel vilken CAD-modell som ska visas. Om en användare gör ett val, meddelas denna information till alla HoloLenses för att skapa en delad upplevelse.
+Det går inte att *ansluta* fullständigt till flera sessioner från en enhet. Du kan dock skapa, Observera och stänga av så många sessioner som du vill från ett enda program. Så länge appen inte är avsedd att någonsin ansluta till en session, behöver den inte köras på en enhet som HoloLens 2, antingen. Ett användnings fall för en sådan implementering kan vara om du vill kontrol lera sessioner via en central mekanism. En webbapp kan till exempel bygga en webbapp där flera surfplattor och HoloLenses kan logga in. Sedan kan appen Visa alternativ på surfplattor, till exempel vilken CAD-modell som ska visas. Om en användare gör ett val överförs den här informationen till alla HoloLenses för att skapa en delad upplevelse.
 
-## <a name="session-phases"></a>Sessionsfaser
+## <a name="session-phases"></a>Faser i sessionen
 
 Varje session genomgår flera faser.
 
-### <a name="session-startup"></a>Start av session
+### <a name="session-startup"></a>Starta session
 
-När du ber ARR att [skapa en ny session](../how-tos/session-rest-api.md#create-a-session)är det första den gör att returnera en session [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). Med den här UUID kan du fråga information om sessionen. UUID och viss grundläggande information om sessionen sparas i 30 dagar, så du kan fråga den informationen även efter att sessionen har stoppats. Nu rapporteras **sessionstillståndet** som **Start**.
+När du ställer in ARR för att [skapa en ny session](../how-tos/session-rest-api.md#create-a-session)är det första alternativet att returnera ett [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)för session. Detta UUID gör att du kan fråga efter information om sessionen. UUID och grundläggande information om sessionen är bestående i 30 dagar, så du kan fråga informationen även efter att sessionen har stoppats. I det här läget rapporteras **sessionstillståndet** som att **Starta**.
 
-Därefter försöker Azure Remote Rendering hitta en server som kan vara värd för din session. Det finns två parametrar för den här sökningen. Först kommer det bara att reservera servrar i din [region](../reference/regions.md). Det beror på att nätverksfördröjningen i olika regioner kan vara för hög för att garantera en anständig upplevelse. Den andra faktorn är önskad *storlek* som du har angett. I varje region finns det ett begränsat antal servrar som kan uppfylla *standard-* eller premiumstorleksbegäran. *Premium* Om alla servrar av den begärda storleken för närvarande används i din region misslyckas därför skapandet av sessionen. Orsaken till felet [kan efterfrågas](../how-tos/session-rest-api.md#get-sessions-properties).
+Sedan försöker Azure Remote rendering hitta en server som kan vara värd för din session. Det finns två parametrar för den här sökningen. Först kommer den bara att reservera servrar i din [region](../reference/regions.md). Det beror på att nätverks fördröjningen i flera regioner kan vara för hög för att garantera en vettigt upplevelse. Den andra faktorn är den önskade *storlek* som du har angett. I varje region finns ett begränsat antal servrar som kan uppfylla *standard* -eller *Premium* storleks förfrågan. Om alla servrar med den begärda storleken för närvarande används i din region kommer det därför inte att skapas någon session. Orsaken till att ett problem [kan frågas](../how-tos/session-rest-api.md#get-sessions-properties).
 
 > [!IMPORTANT]
-> Om du *Standard* begär en standard-VM-storlek och begäran misslyckas på grund av hög efterfrågan, innebär det inte att begära en *Premium-server* kommer att misslyckas också. Så om det är ett alternativ för dig, kan du försöka falla tillbaka till en *Premium* VM.
+> Om du begär en *standard* storlek för virtuella datorer och begäran Miss lyckas på grund av hög efter frågan, vilket inte innebär att det inte går att begära en *Premium* -Server. Så om det är ett alternativ åt dig kan du försöka att återgå till en *Premium* -VM.
 
-När tjänsten hittar en lämplig server måste den kopiera rätt virtuell dator (VM) till den för att göra den till en Azure Remote Rendering-värd. Den här processen tar flera minuter. Därefter startas den virtuella datorn och **sessionstillståndet** övergår till **Klar**.
+När tjänsten hittar en lämplig server måste den kopiera rätt virtuell dator (VM) till den för att omvandla den till en Azure-fjärrrendering-värd. Den här processen tar flera minuter. Därefter startas den virtuella datorn och över gången till **sessionen** är **klar**.
 
-Nu väntar servern uteslutande på dina indata. Detta är också den punkt från vilken på du får faktureras för tjänsten.
+I det här läget väntar servern enbart på din inaktuella information. Detta är även den punkt från vilken du debiteras för tjänsten.
 
 ### <a name="connecting-to-a-session"></a>Ansluta till en session
 
-När sessionen är *klar*kan du *ansluta* till den. När enheten är ansluten kan den skicka kommandon för att läsa in och ändra modeller. Varje ARR-värd betjänar bara en klientenhet i taget, så när en klient ansluter till en session har den exklusiv kontroll över det renderade innehållet. Det innebär också att renderingsprestanda aldrig kommer att variera av skäl utanför din kontroll.
+När sessionen är *klar*kan du *ansluta* till den. När du är ansluten kan enheten skicka kommandon för att läsa in och ändra modeller. Varje ARR-värd betjänar bara en klient enhet i taget, så när en klient ansluter till en session har den exklusiv kontroll över det återgivna innehållet. Det innebär också att åter givnings prestandan inte varierar beroende på orsaker utanför kontrollen.
 
 > [!IMPORTANT]
-> Även om endast en klient kan *ansluta* till en session kan grundläggande information om sessioner, till exempel deras aktuella tillstånd, efterfrågas utan att ansluta.
+> Även om bara en klient kan *ansluta* till en session, kan grundläggande information om sessioner, till exempel deras aktuella tillstånd, frågas utan att ansluta.
 
-När en enhet är ansluten till en session misslyckas försök från andra enheter att ansluta. Men när den anslutna enheten kopplar från, antingen frivilligt eller på grund av någon form av fel, kommer sessionen att acceptera en annan anslutningsbegäran. Alla tidigare tillstånd (laddade modeller och sådana) kasseras så att nästa anslutningsenhet får en ren griffeltavla. Således sessioner kan återanvändas många gånger, av olika enheter och det kan vara möjligt att dölja sessionen start overhead från slutanvändaren i de flesta fall.
+När en enhet är ansluten till en session kommer försök av andra enheter att ansluta att Miss lyckas. Men när den anslutna enheten kopplar från, antingen frivilligt eller på grund av en viss typ av haveri, kommer sessionen att acceptera en annan anslutningsbegäran. Alla tidigare tillstånd (inlästa modeller och sådana) tas bort så att nästa anslutande enhet får en ren bakgrunds bild. Sessioner kan därför återanvändas flera gånger, av olika enheter och det kan vara möjligt att dölja start omkostnader för sessionen från slutanvändaren i de flesta fall.
 
 > [!IMPORTANT]
-> Fjärrservern ändrar aldrig tillståndet för klientdata. Alla mutationer av data (t.ex. transformeringsuppdateringar och belastningsbegäranden) måste utföras av klientprogrammet. Alla åtgärder uppdaterar omedelbart klienttillståndet.
+> Fjärrservern ändrar aldrig statusen för data på klient sidan. Alla mutationer av data (t. ex. omvandlings uppdateringar och inläsnings begär Anden) måste utföras av klient programmet. Alla åtgärder uppdaterar klientens tillstånd omedelbart.
 
-### <a name="session-end"></a>Sessionen avslutas
+### <a name="session-end"></a>Session slut
 
-När du begär en ny session anger du en *maximal lånetid*, vanligtvis inom intervallet en till åtta timmar. Detta är den tid under vilken värden kommer att acceptera dina indata.
+När du begär en ny session anger du en *maximal låne tid*, vanligt vis i intervallet en till åtta timmar. Detta är den tid under vilken värden accepterar dina inaktuella värden.
 
-Det finns två vanliga skäl för en session att avsluta. Antingen begär du manuellt att sessionen ska stoppas eller så går den maximala lånetiden ut. I båda fallen stängs alla aktiva anslutningar till värden direkt och tjänsten stängs av på den servern. Servern ges sedan tillbaka till Azure-poolen och kan rekvireras för andra ändamål. Det går inte att ångra eller avbryta att en session stoppas. Om du frågar **sessionstillståndet** för en stoppad session **returneras stoppad** eller **Har upphört att**gälla , beroende på om det stängdes av manuellt eller på grund av att den maximala lånetiden uppnåddes.
+Det finns två vanliga orsaker till att en session slutar. Antingen begär du att sessionen ska stoppas manuellt eller att den längsta låne tiden upphör att gälla. I båda fallen stängs alla aktiva anslutningar till värden omedelbart och tjänsten stängs av på den servern. Servern får sedan tillbaka till Azure-poolen och kan få hjälp av rekvisitioner för andra orsaker. Det går inte att ångra eller avbryta en session. Att fråga **sessionens tillstånd** i en stoppad session returnerar antingen **stoppad** eller **upphört**, beroende på om den stängdes manuellt eller på grund av att den maximala låne tiden har uppnåtts.
 
-En session kan också stoppas på grund av något fel.
+En session kan också stoppas på grund av ett problem.
 
-I samtliga fall debiteras du inte ytterligare när en session har stoppats.
+I samtliga fall faktureras du inte ytterligare när en session har stoppats.
 
 > [!WARNING]
-> Om du ansluter till en session och hur länge det inte påverkar faktureringen. Vad du betalar för tjänsten beror på *sessionens varaktighet,* det betyder den tid som en server är exklusivt reserverad för dig och de begärda maskinvarufunktionerna (vm-storleken). Om du startar en session, ansluter i fem minuter och sedan inte stoppar sessionen, så att den fortsätter att köras tills lånet löper ut, debiteras du för hela sessionshyrtiden. Omvänt är den *maximala hyrestiden* mestadels ett skyddsnät. Det spelar ingen roll om du begär en session med en lånetid på åtta timmar, sedan bara använda den i fem minuter, om du manuellt stoppa sessionen efteråt.
+> Oavsett om du ansluter till en session och hur länge, inte påverkar faktureringen. Vad du betalar för tjänsten beror på *sessionens varaktighet*, vilket innebär den tid som en server är exklusivt reserverad för dig och de begärda maskin varu funktionerna (VM-storleken). Om du startar en session ansluter du i fem minuter och stoppar sedan inte sessionen, så att den fortsätter tills dess att lånet upphör att gälla, så faktureras du för den fullständiga låne tiden för sessionen. Den *längsta låne tiden* är i huvudsak ett säkerhets nät. Det spelar ingen roll om du begär en session med en låne tid på åtta timmar och sedan bara använder den i fem minuter, om du stoppar sessionen manuellt efteråt.
 
-#### <a name="extend-a-sessions-lease-time"></a>Förläng en sessions lånetid
+#### <a name="extend-a-sessions-lease-time"></a>Utöka en sessions låne tid
 
-Du kan [förlänga lånetiden](../how-tos/session-rest-api.md#update-a-session) för en aktiv session om det visar sig att du behöver det längre.
+Du kan [utöka låne tiden](../how-tos/session-rest-api.md#update-a-session) för en aktiv session, om den visar att du behöver den längre.
 
 ## <a name="example-code"></a>Exempelkod
 
-Koden nedan visar en enkel implementering av att starta en session, vänta på *det färdiga* tillståndet, ansluta och sedan koppla från och stänga av igen.
+Koden nedan visar en enkel implementering av att starta en session, väntar på *klart* läge, ansluta och sedan koppla från och stänga av igen.
 
 ``` cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
@@ -136,13 +136,13 @@ await session.StopAsync().AsTask();
 RemoteManagerStatic.ShutdownRemoteRendering();
 ```
 
-Flera `AzureFrontend` `AzureSession` instanser och instanser kan underhållas, manipuleras och efterfrågas från kod. Men endast en enda enhet `AzureSession` kan ansluta till en åt gången.
+Flera `AzureFrontend` och `AzureSession` instanser kan underhållas, manipuleras och efter frågas från kod. Men bara en enskild enhet kan ansluta till en `AzureSession` i taget.
 
-Livslängden för en virtuell dator är `AzureFrontend` inte `AzureSession` knuten till instansen eller instansen. `AzureSession.StopAsync`måste kallas för att stoppa en session.
+Livs längden för en virtuell dator är inte kopplad till `AzureFrontend` instansen `AzureSession` eller instansen. `AzureSession.StopAsync`måste anropas för att stoppa en session.
 
-Det beständiga sessions-ID:t kan efterfrågas via `AzureSession.SessionUUID()` och cachelagras lokalt. Med det här ID:t kan ett program anropa `AzureFrontend.OpenSession` för att binda till den sessionen.
+Det permanenta sessions-ID: t kan `AzureSession.SessionUUID()` frågas via och cachelagras lokalt. Med det här ID: t kan ett `AzureFrontend.OpenSession` program anropa för att binda till den sessionen.
 
-När `AzureSession.IsConnected` är `AzureSession.Actions` sant returnerar `RemoteManager`en instans av , som innehåller funktionerna för att [läsa in modeller,](models.md)manipulera [entiteter](entities.md)och [fråga information](../overview/features/spatial-queries.md) om den renderade scenen.
+När `AzureSession.IsConnected` är `AzureSession.Actions` sant returnerar en instans av `RemoteManager`, som innehåller funktionerna för att [läsa in modeller](models.md), manipulera [entiteter](entities.md)och fråga efter [information](../overview/features/spatial-queries.md) om den återgede scenen.
 
 ## <a name="next-steps"></a>Nästa steg
 

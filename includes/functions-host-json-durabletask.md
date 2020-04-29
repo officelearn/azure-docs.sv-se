@@ -8,10 +8,10 @@ ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6bb59db4c1b31033b1e116742dedc94621b1c60d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80117072"
 ---
 Konfigurations inställningar för [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
@@ -92,7 +92,7 @@ Konfigurations inställningar för [Durable Functions](../articles/azure-functio
 
 Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bokstäver och siffror. Om inget värde anges är standard namnet på uppgifts navet för en Function-app **DurableFunctionsHub**. Mer information finns i [aktivitets nav](../articles/azure-functions/durable-functions-task-hubs.md).
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|Alternativa [aktivitets Hubbs](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera flera Durable Functions program från varandra, även om de använder samma lagrings Server del.|
 |controlQueueBatchSize|32|Antalet meddelanden att hämta från kontroll kön i taget.|
@@ -106,13 +106,13 @@ Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bo
 |azureStorageConnectionStringName |AzureWebJobsStorage|Namnet på den app-inställning som har Azure Storage anslutnings strängen som används för att hantera de underliggande Azure Storage resurserna.|
 |trackingStoreConnectionStringName||Namnet på en anslutnings sträng som ska användas för tabellerna historik och instans. Om inget anges används `azureStorageConnectionStringName` anslutningen.|
 |trackingStoreNamePrefix||Det prefix som ska användas för historik-och instans tabellerna `trackingStoreConnectionStringName` när har angetts. Om den inte anges kommer standardvärdet för prefixet att vara `DurableTask`. Om `trackingStoreConnectionStringName` inte har angetts använder historik-och instans tabellerna `hubName` värdet som prefix, och alla inställningar för `trackingStoreNamePrefix` kommer att ignoreras.|
-|traceInputsAndOutputs |false|Ett värde som anger om indata och utdata för funktions anrop ska spåras. Standard beteendet vid körning av spårning av funktions händelser är att inkludera antalet byte i de serialiserade indata och utdata för funktions anrop. Det här beteendet ger minimal information om vad indata och utdata ser ut som om de inte bloating loggar eller oavsiktligt exponerar känslig information. Om den här egenskapen ställs in på Sant loggas hela innehållet i funktions inmatning och utdata.|
-|logReplayEvents|false|Ett värde som anger om omdirigerings händelser ska skrivas till Application Insights.|
+|traceInputsAndOutputs |falskt|Ett värde som anger om indata och utdata för funktions anrop ska spåras. Standard beteendet vid körning av spårning av funktions händelser är att inkludera antalet byte i de serialiserade indata och utdata för funktions anrop. Det här beteendet ger minimal information om vad indata och utdata ser ut som om de inte bloating loggar eller oavsiktligt exponerar känslig information. Om den här egenskapen ställs in på Sant loggas hela innehållet i funktions inmatning och utdata.|
+|logReplayEvents|falskt|Ett värde som anger om omdirigerings händelser ska skrivas till Application Insights.|
 |eventGridTopicEndpoint ||URL för en Azure Event Grid anpassad ämnes slut punkt. När den här egenskapen anges publiceras Dirigerings livs cykel meddelande händelser till den här slut punkten. Den här egenskapen stöder App Settings-matchning.|
 |eventGridKeySettingName ||Namnet på den app-inställning som innehåller den nyckel som används för att autentisera med Azure Event Grid anpassat ämne `EventGridTopicEndpoint`på.|
 |eventGridPublishRetryCount|0|Antalet gånger som försök görs om publicering till Event Grid avsnittet Miss lyckas.|
 |eventGridPublishRetryInterval|5 minuter|Återförsöks intervallet för Event Grid publiceras i formatet *hh: mm: SS* .|
 |eventGridPublishEventTypes||En lista med händelse typer att publicera till Event Grid. Om inget värde anges kommer alla händelse typer att publiceras. Tillåtna värden är `Started`, `Completed`, `Failed`, `Terminated`.|
-|useGracefulShutdown|false|Förhandsgranskningsvyn Aktivera Stäng av på ett smidigt sätt för att minska risken för att det inte går att stänga av värden i process funktionens körningar.|
+|useGracefulShutdown|falskt|Förhandsgranskningsvyn Aktivera Stäng av på ett smidigt sätt för att minska risken för att det inte går att stänga av värden i process funktionens körningar.|
 
 Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).

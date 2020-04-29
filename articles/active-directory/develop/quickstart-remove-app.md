@@ -1,5 +1,5 @@
 ---
-title: Ta bort app som är registrerad på Microsofts identitetsplattform | Azure
+title: Ta bort appen som är registrerad hos Microsoft Identity Platform | Azure
 description: Lär dig hur du tar bort ett program som registrerats med Microsoft Identity Platform.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 3cc9e4458f14a63bad7f484bc16683248895ede9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240851"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Snabbstart: Ta bort ett program som registrerats med Microsofts identitetsplattform
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Snabb start: ta bort ett program som är registrerat med Microsoft Identity Platform
 
 Företagsutvecklare och SaaS-leverantörer (Software as a Service) som har registrerat program med Microsoft Identity Platform kan behöva ta bort en programregistrering.
 
@@ -30,7 +30,7 @@ I den här snabbstarten lär du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste ha en klient som har program registrerade. Om du vill lära dig lägga till och registrera appar kan du läsas [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md).
+Du måste ha en klient som har registrerade program. Om du vill lära dig lägga till och registrera appar kan du läsas [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md).
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Ta bort ett program som skapats av dig eller din organisation
 
@@ -40,7 +40,7 @@ Program som du eller din organisation har registrerat representeras av både ett
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 2. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-3. I det vänstra navigeringsfönstret väljer du **Azure Active Directory-tjänsten** och väljer sedan **Appregistreringar**. Leta upp och välj det program som du vill konfigurera. När du har valt appen ser du programmets **översiktssida**.
+3. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**. Leta upp och välj det program som du vill konfigurera. När du har valt appen ser du programmets **översiktssida**.
 4. På sidan **Översikt** väljer du **Ta bort**.
 5. Välj **Ja** för att bekräfta att du vill ta bort appen.
 

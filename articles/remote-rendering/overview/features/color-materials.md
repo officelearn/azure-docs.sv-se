@@ -1,58 +1,58 @@
 ---
 title: Färgmaterial
-description: Beskriver färgmaterialtypen.
+description: Beskriver färg Materials typen.
 author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681082"
 ---
 # <a name="color-materials"></a>Färgmaterial
 
-*Färgmaterial* är en av de [materialtyper](../../concepts/materials.md) som stöds i Azure Remote Rendering. De används för [maskor](../../concepts/meshes.md) som inte bör få någon form av belysning, utan snarare vara full ljusstyrka hela tiden. Detta kan vara fallet för "glödande" material, såsom bilinstrumentpaneler, glödlampor eller för data som redan innehåller statisk belysning, till exempel modeller som erhållits genom [fotogrammetri](https://en.wikipedia.org/wiki/Photogrammetry).
+*Färg material* är en av de [material typer](../../concepts/materials.md) som stöds i Azure Remote rendering. De används för [nät](../../concepts/meshes.md) som inte får ta emot någon typ av belysning, utan alltid full ljus styrka. Detta kan vara fallet för "glödande" material, t. ex. bil instrument paneler, glöd lampor eller för data som redan har en statisk belysning, till exempel modeller som erhållits via [Photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
 
-Färgmaterial är effektivare att göra än [PBR material](pbr-materials.md) på grund av deras enklare skuggning modell. De stöder också olika genomskinlighetslägen.
+Färg material är mer effektivt att rendera än [PBR-material](pbr-materials.md) på grund av sin enklare skuggnings modell. De har också stöd för olika genomskinlighets lägen.
 
-## <a name="common-material-properties"></a>Vanliga materialegenskaper
+## <a name="common-material-properties"></a>Vanliga material egenskaper
 
-Dessa egenskaper är gemensamma för alla material:
+Dessa egenskaper är gemensamma för allt material:
 
-* **albedoFärg:** Den här färgen multipliceras med andra färger, till exempel *albedoMap-* eller *vertex-färgerna*. Om *genomskinlighet* är aktiverat på ett material används alfakanalen för `1` att justera opaciteten, med full ogenomskinlig och `0` helt genomskinlig. Standard är vit.
+* **albedoColor:** Den här färgen multipliceras med andra färger, till exempel *albedoMap* -eller *hörn färger*. Om *transparens* är aktiverat på ett material används alfa kanalen för att justera opaciteten, med `1` en helt ogenomskinlig och `0` innebörd som är helt transparent. Standardvärdet är White.
 
   > [!NOTE]
-  > Eftersom färgmaterial inte återspeglar miljön blir ett helt transparent färgmaterial osynligt. Detta är annorlunda för [PBR material](pbr-materials.md).
+  > Eftersom färg material inte återspeglar miljön blir ett helt transparent färg material osynligt. Detta skiljer sig för [PBR-material](pbr-materials.md).
 
-* **albedoKarta:** En [2D-textur](../../concepts/textures.md) för albedo-värden per pixel.
+* **albedoMap:** En [2D-struktur](../../concepts/textures.md) för albedo-värden per pixel.
 
-* **alphaClipEnabled** och **alphaClipThreshold:** Om *alphaClipEnabled* är sant, kommer alla pixlar där albedo-alfavärdet är lägre än *alphaClipThreshold* inte att dras. Alfaurklipp kan användas även utan att aktivera genomskinlighet och är mycket snabbare att rendera. Alfa klippta material är fortfarande långsammare att göra än helt ogenomskinliga material, dock. Som standard är alfaurklippet inaktiverat.
+* **alphaClipEnabled** och **AlphaClipThreshold:** om *alphaClipEnabled* är true, kommer alla pixlar där albedo alpha-värdet är lägre än *alphaClipThreshold* att ritas. Alfa Urklipp kan användas även utan att aktivera genomskinlighet och är mycket snabbare att återge. Alfa urklippta material är fortfarande långsammare att rendera än helt ogenomskinligt material, även om. Som standard är alpha-Urklipp inaktiverat.
 
-* **textureCoordinateScale** och **textureCoordinateOffset:** Skalan multipliceras med UV-texturkoordinaterna, förskjutningen läggs till den. Kan användas för att sträcka ut och flytta texturerna. Standardskalan är (1, 1) och förskjutning är (0, 0).
+* **textureCoordinateScale** och **textureCoordinateOffset:** skalan multipliceras med UV-texturens koordinater. förskjutningen läggs till i den. Kan användas för att sträcka ut och byta texturer. Standard skalan är (1, 1) och förskjutningen är (0, 0).
 
-* **useVertexColor:** Om nätet innehåller hörnfärger och det här alternativet är aktiverat multipliceras maskornas hörnfärger i *albedoColor* och *albedoMap*. Som standard är hörnfärger inaktiverade.
+* **useVertexColor:** Om masken innehåller hörn färger och det här alternativet är aktiverat multipliceras hörn färgerna med maskarna till *albedoColor* och *albedoMap*. Som standard är hörn färger inaktiverade.
 
-* **ärDoubleSided:** Om dubbelsidighet är inställd på true, trianglar med detta material återges även om kameran tittar på deras ryggytor. Som standard är det här alternativet inaktiverat. Se även [Enkelsidig rendering](single-sided-rendering.md).
+* **isDoubleSided:** Om Double-sidedness är inställt på Sant återges trianglar med det här materialet även om kameran tittar på bak sidorna. Som standard är det här alternativet inaktiverat. Se även [Enkels idig åter givning](single-sided-rendering.md).
 
-## <a name="color-material-properties"></a>Egenskaper för färgmaterial
+## <a name="color-material-properties"></a>Egenskaper för färg material
 
-Följande egenskaper är specifika för färgmaterial:
+Följande egenskaper är speciella för färg material:
 
-* **vertexMix:** Det här `0` `1` värdet mellan och anger hur starkt hörnfärgen i ett [nät](../../concepts/meshes.md) bidrar till den slutliga färgen. Vid standardvärdet 1 multipliceras vertexfärgen i albedofärgen helt. Med värdet 0 ignoreras hörnfärgerna helt.
+* **vertexMix:** Värdet mellan `0` och `1` anger hur starkt hörn färgen i ett [nät](../../concepts/meshes.md) bidrar till den slutliga färgen. Vid standardvärdet 1 multipliceras hörn färgen med albedo-färgen helt. Med värdet 0 ignoreras hörn färgerna helt.
 
-* **öppenhetMode:** I motsats till [PBR-material](pbr-materials.md)skiljer färgmaterial mellan olika genomskinlighetslägen:
+* **transparencyMode:** Till skillnad från [PBR-material](pbr-materials.md)skiljer sig färg material mellan olika genomskinlighets lägen:
 
-  1. **Ogenomskinlig:** Standardläget inaktiverar genomskinlighet. Alfa klippning är fortfarande möjligt, dock, och bör föredras, om det är tillräckligt.
+  1. **Ogenomskinlig:** Standard läget inaktiverar transparens. Alfa Urklipp är fortfarande möjligt, men bör helst, och bör helst, om det behövs.
   
-  1. **AlphaBlended:** Det här läget liknar genomskinlighetsläget för PBR-material. Det bör användas för genomskinliga material som glas.
+  1. **AlphaBlended:** Det här läget liknar genomskinlighets läget för PBR-material. Den bör användas för att se på material som glas.
 
-  1. **Tillsats:** Det här läget är det enklaste och mest effektiva genomskinlighetsläget. Materialets bidrag läggs till den renderade bilden. Det här läget kan användas för att simulera glödande (men ändå genomskinliga) objekt, till exempel markörer som används för att markera viktiga objekt.
+  1. **Tillsats:** Det här läget är det enklaste och mest effektiva genomskinlighets läget. Material bidraget läggs till i den återgivna avbildningen. Det här läget kan användas för att simulera glödande (men fortfarande genomskinliga) objekt, till exempel markörer som används för att markera viktiga objekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [PBR-material](pbr-materials.md)
-* [Texturer](../../concepts/textures.md)
+* [Bakgrunder](../../concepts/textures.md)
 * [Maskor](../../concepts/meshes.md)

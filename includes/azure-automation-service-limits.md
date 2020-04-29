@@ -9,55 +9,55 @@ ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
 ms.openlocfilehash: d700dfcf5a7b6e9ada2a755335689ffa571e4c3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334912"
 ---
 #### <a name="process-automation"></a>Processautomatisering
 
-| Resurs | Gräns |Anteckningar|
+| Resurs | Gräns |Obs!|
 | --- | --- |---|
-| Maximalt antal nya jobb som kan skickas var 30:e sekund per Azure Automation-konto (icke-schemalagda jobb) |100 |När den här gränsen har uppnåtts misslyckas efterföljande begäranden om att skapa ett jobb. Klienten får ett felmeddelande.|
-| Maximalt antal samtidiga jobb som körs samtidigt vid samma tidsinstans per Automation-konto (icke-schemalagda jobb) |200 |När den här gränsen har uppnåtts misslyckas efterföljande begäranden om att skapa ett jobb. Klienten får ett felmeddelande.|
-| Maximal lagringsstorlek för jobbmetadata för en rullande 30 dagar | 10 GB (cirka 4 miljoner arbetstillfällen)|När den här gränsen har uppnåtts misslyckas efterföljande begäranden om att skapa ett jobb. |
-| Maximal gräns för jobbström|1MB|En enda ström kan inte vara större än 1 MB.|
-| Maximalt antal moduler som kan importeras var 30:e sekund per Automation-konto |5 ||
-| Maximal storlek på en modul |100 MB ||
-| Speltid, Kostnadsfri nivå |500 minuter per prenumeration per kalendermånad ||
-| Maximalt antal tillåtna diskutrymme per sandlåda<sup>1</sup> |1 GB |Gäller endast för Azure-sandlådor.|
-| Maximal mängd minne som ges till en sandlåda<sup>1</sup> |400 MB |Gäller endast för Azure-sandlådor.|
-| Maximalt antal nätverksuttag som tillåts per sandlåda<sup>1</sup> |1,000 |Gäller endast för Azure-sandlådor.|
-| Maximal körning tillåts per runbook<sup>1</sup> |3 timmar |Gäller endast för Azure-sandlådor.|
+| Maximalt antal nya jobb som kan skickas var 30 sekund per Azure Automation konto (ej schemalagda jobb) |100 |När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. Klienten får ett fel svar.|
+| Maximalt antal samtidiga jobb som körs på samma tids instans per Automation-konto (ej schemalagda jobb) |200 |När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. Klienten får ett fel svar.|
+| Maximal lagrings storlek för jobbets metadata för en rullande period på 30 dagar | 10 GB (cirka 4 000 000 jobb)|När den här gränsen uppnås kan efterföljande begär Anden om att skapa ett jobb inte utföras. |
+| Maximal jobb Ströms gräns|1MB|En enda data ström får inte vara större än 1 MB.|
+| Maximalt antal moduler som kan importeras var 30 sekund per Automation-konto |5 ||
+| Maximal storlek för en modul |100 MB ||
+| Jobb körnings tid, kostnads fri nivå |500 minuter per prenumeration per kalender månad ||
+| Högsta mängd disk utrymme som tillåts per begränsat läge<sup>1</sup> |1 GB |Gäller endast för Azures sand boxar.|
+| Maximal mängd minne som tilldelats till en begränsat läge<sup>1</sup> |400 MB |Gäller endast för Azures sand boxar.|
+| Maximalt antal tillåtna nätverks platser per begränsat läge<sup>1</sup> |1,000 |Gäller endast för Azures sand boxar.|
+| Högsta tillåtna körnings tid per Runbook<sup>1</sup> |3 timmar |Gäller endast för Azures sand boxar.|
 | Maximalt antal Automation-konton i en prenumeration |Obegränsad ||
-| Maximalt antal hybridarbetsgrupper per automationskonto|4 000||
-|Maximalt antal samtidiga jobb som kan köras på en enda Hybrid Runbook Worker|50 ||
-| Parameterstorlek för maximalt runbookjobb   | 512 kilobit||
-| Maximala runbook-parametrar   | 50|Om du når gränsen på 50 parametrar kan du skicka en JSON- eller XML-sträng till en parameter och tolka den med runbooken.|
-| Maximal webhook nyttolaststorlek |  512 kilobit|
-| Maximala dagar som jobbdata behålls|30 dagar|
-| Maximal maximal powershell-arbetsflödestillståndsstorlek |5 MB| Gäller powershell-arbetsflödeskörningar när arbetsflödet för kontrollpunkter ska kontrolleras.|
+| Maximalt antal Hybrid Worker grupper per Automation-konto|4 000||
+|Maximalt antal samtidiga jobb som kan köras på en enskild Hybrid Runbook Worker|50 ||
+| Maximal parameter storlek för Runbook-jobb   | 512 kilobit||
+| Maximalt antal Runbook-parametrar   | 50|Om du når 50-parameter gränsen kan du skicka en JSON-eller XML-sträng till en parameter och parsa den med runbooken.|
+| Maximal nytto Last storlek för webhook |  512 kilobit|
+| Maximalt antal dagar som jobb data kvarhålls|30 dagar|
+| Maximal status storlek för PowerShell Workflow |5 MB| Gäller för PowerShell Workflow-Runbooks vid kontroll av arbets flöde.|
 
-<sup>1.</sup> En sandlåda är en delad miljö som kan användas av flera jobb. Jobb som använder samma sandlåda är bundna av sandlådans resursbegränsningar.
+<sup>1</sup> En sandbox är en delad miljö som kan användas av flera jobb. Jobb som använder samma Sandbox är kopplade till resurs begränsningarna i sand boxen.
 
 #### <a name="change-tracking-and-inventory"></a>Ändringsspårning och inventering
 
-I följande tabell visas de spårade artikelgränserna per dator för ändringsspårning.
+I följande tabell visas gränserna för spårade objekt per dator för ändrings spårning.
 
 | **Resurs** | **Gräns**| **Obs!** |
 |---|---|---|
 |Fil|500||
 |Register|250||
-|Windows-programvara|250|Innehåller inte programuppdateringar.|
-|Linux-paket|1,250||
+|Windows-programvara|250|Innehåller inte program uppdateringar.|
+|Linux-paket|1 250||
 |Tjänster|250||
-|Daemon|250||
+|Program|250||
 
 #### <a name="update-management"></a>Uppdateringshantering
 
-I följande tabell visas gränserna för uppdateringshantering.
+I följande tabell visas gränserna för Uppdateringshantering.
 
 | **Resurs** | **Gräns**| **Obs!** |
 |---|---|---|
-|Antal datorer per uppdateringsdistribution|1000||
+|Antal datorer per uppdaterings distribution|1000||

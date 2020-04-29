@@ -10,22 +10,22 @@ ms.date: 10/09/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: f79b25c98ae2e764f607fc5a12bc311ed0edacae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286191"
 ---
-Få kontakt med kunder direkt genom att lista ditt erbjudande på marknadsplatserna och koppla in ditt CRM-system (Customer Relationship Management) så att du kan få kundkontaktinformation direkt efter att en kund har uttryckt intresse eller distribuerar din Produkt.
+Anslut till kunder direkt genom att ange ditt erbjudande i Marketplace och koppla upp ditt kund Relations hanterings system (CRM) så att du kan ta emot kund kontakt uppgifter direkt efter att en kund har fått ett intresse eller distribuerar din produkt.
 
-- **Välj en leaddestination** (rullgardinsmeny): Ange anslutningsinformation till CRM-systemet där du vill att vi ska skicka kundleads. 
+- **Välj ett mål för lead** (nedrullningsbar meny): Ange anslutnings information till det CRM-system där du vill att vi ska skicka kund leads. 
 
-Partner Center stöder följande CRM-system för leadhantering. Välj länken för installationsinstruktioner.
+Partner Center stöder följande CRM-system för hantering av leads. Välj länken för installations anvisningar.
 
-- [Azure Blob](../commercial-marketplace-lead-management-instructions-azure-blob.md) - Ange kontakt-e-post, behållarnamn och anslutningssträng för lagringskonto. 
-- [Azure Table](../commercial-marketplace-lead-management-instructions-azure-table.md) - Ange anslutningssträng för e-post och lagringskonto. 
-- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) – Ange e-post- och url-läge för kontakter , URL och autentisering (Office 365 eller Azure Active Directory).
-- [Https Slutpunkt](../commercial-marketplace-lead-management-instructions-https.md) - Ange kontakt-e-post och HTTPS-slutpunkts-URL. 
-- [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md) - Ge kontakt e-post, formulär-ID, Munchkin konto-ID och server-ID.
-- [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md) - Ange e-post och organisations-ID för kontakt. 
+- [Azure Blob](../commercial-marketplace-lead-management-instructions-azure-blob.md) – ange kontakt-e-postadress, container namn och anslutnings sträng för lagrings konto. 
+- [Azure-tabell](../commercial-marketplace-lead-management-instructions-azure-table.md) – ange anslutnings sträng för kontakt-och lagrings konto. 
+- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) – ange kontakt-e-post, URL och autentiseringsläge (Office 365 eller Azure Active Directory).
+- [Https-slutpunkt](../commercial-marketplace-lead-management-instructions-https.md) – ange URL för kontakt-e-postadress och HTTPS-slutpunkt. 
+- [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md) – ange kontakt-e-post, formulär-ID, Munchkin-konto-ID och Server-ID.
+- [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md) – ange kontakt-e-post och organisations-ID. 
 

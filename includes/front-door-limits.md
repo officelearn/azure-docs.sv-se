@@ -9,52 +9,52 @@ ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
 ms.openlocfilehash: 148ec3eccce71ab7a4a6c1391c0fa4753c248bd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335089"
 ---
 | Resurs | Gräns |
 | --- | --- |
-| Azure Front Door-resurser per prenumeration | 100 |
-| Front-end värdar, som innehåller anpassade domäner per resurs | 500 |
-| Routningsregler per resurs | 500 |
-| Backend-pooler per resurs | 50 |
-| Backdelar per backend-pool | 100 |
-| Banmönster som matchar en routningsregel | 25 |
-| Url:er i ett enda cacherensningsanrop | 100 |
-| Regler för brandvägg för anpassade webbprogram per princip | 100 |
-| Brandväggsprincipen för webbprogram per prenumeration | 100 |
-| Brandvägg för webbprogram matchar villkor per anpassad regel | 10 |
-| IP-adressintervall för webbprogram brandvägg per matchningsvillkor | 600 |
-| Brandväggssträngen för webbprogram matchar värden per matchningsvillkor | 10 |
-| Brandväggssträngen för webbprogram matchar värdelängd | 256 |
-| Webbprogram brandvägg POST brödtext parameter namnlängd | 256 |
-| HTTP-huvudnamnslängd för webbprogram | 256 |
-| Namnlängd för brandväggstill brandvägg för webbapplikation | 256 |
-| Webbprogram brandvägg HTTP begäran kroppsstorlek inspekteras | 128 kB |
-| Anpassad svarslängd för webbprogramsbrandgens | 2 KB |
+| Resurser för Azures frontend-dörr per prenumeration | 100 |
+| Klient dels värdar som innehåller anpassade domäner per resurs | 500 |
+| Regler för routning per resurs | 500 |
+| Server dels pooler per resurs | 50 |
+| Backend-ändar per backend-pool | 100 |
+| Sök vägs mönster som matchar en regel för routning | 25 |
+| URL: er i ett enda rensnings anrop för cache | 100 |
+| Anpassade brand Väggs regler för webb program per princip | 100 |
+| Brand Väggs princip för webb program per prenumeration | 100 |
+| Villkor för brand vägg för webbaserade programs matchning per anpassad regel | 10 |
+| Webb program brand vägg IP-adressintervall per matchnings villkor | 600 |
+| Webb programmets brand vägg sträng matchnings värden per matchnings villkor | 10 |
+| Webb programmets brand vägg sträng matchnings värde längd | 256 |
+| Brand vägg för webbaserade program POST, parameter namn längd | 256 |
+| Webb program brand väggens HTTP-huvud namn längd | 256 |
+| Cookie-namn längd för webb program brand vägg | 256 |
+| Webb program brand vägg, HTTP-begärans text storlek har kontroller ATS | 128 kB |
+| Webb program brand väggens anpassade svars text längd | 2 KB |
 
 ### <a name="timeout-values"></a>Timeout-värden
-#### <a name="client-to-front-door"></a>Klient till ytterdörren
-* Ytterdörren har en tomgång TCP-anslutningsutgång på 61 sekunder.
+#### <a name="client-to-front-door"></a>Klient till front dörr
+* Front dörren har en inaktiv TCP-anslutningstimeout på 61 sekunder.
 
-#### <a name="front-door-to-application-back-end"></a>Ytterdörr till ansökan back-end
+#### <a name="front-door-to-application-back-end"></a>Frontend-dörr till programmets Server del
 * Om svaret är ett segmenterat svar returneras en 200 om eller när det första segmentet tas emot.
-* När HTTP-begäran har vidarebefordrats till den bakre delen väntar ytterdörren i 30 sekunder på det första paketet från den bakre delen. Sedan returnerar ett 503-fel till klienten. Det här värdet kan konfigureras via fältet sendRecvTimeoutSeconds i API:et.
-    * För cachelagringsscenarier kan den här timeouten inte konfigureras och därför returneras ett 504-fel till klienten om en begäran cachelagras och det tar mer än 30 sekunder för det första paketet från ytterdörren eller från serverdelen. 
-* När det första paketet har tagits emot från den bakre delen väntar ytterdörren i 30 sekunder i en inaktiv timeout. Sedan returnerar ett 503-fel till klienten. Det här timeout-värdet kan inte konfigureras.
-* Timeout för TCP-sessionen i backend är 90 sekunder.
+* När HTTP-begäran har vidarebefordrats till Server delen väntar front dörren i 30 sekunder för det första paketet från Server delen. Sedan returneras ett 503-fel till klienten. Det här värdet kan konfigureras via fältet sendRecvTimeoutSeconds i API: et.
+    * För cachelagring kan denna timeout inte konfigureras och så om en begäran cachelagras och den tar över 30 sekunder för det första paketet från Front dörren eller från Server delen, returneras ett 504-fel till klienten. 
+* När det första paketet tas emot från Server delen väntar front dörren i 30 sekunder i en tids gräns för inaktivitet. Sedan returneras ett 503-fel till klienten. Detta timeout-värde kan inte konfigureras.
+* Front dörren till backend-timeoutvärdet för TCP-sessioner är 90 sekunder.
 
-### <a name="upload-and-download-data-limit"></a>Gränsen för ladda upp och ladda ned data
+### <a name="upload-and-download-data-limit"></a>Ladda upp och ladda ned data gräns
 
-|  | Med segmenterad överföringskodning (CTE) | Utan HTTP-segmentering |
+|  | Med Chunked Transfer Encoding (common Table EXPRESSIONS) | Utan HTTP-segment |
 | ---- | ------- | ------- |
-| **Ladda ned** | Det finns ingen gräns för nedladdningsstorleken. | Det finns ingen gräns för nedladdningsstorleken. |
-| **Överför** |    Det finns ingen gräns så länge varje CTE-uppladdning är mindre än 2 GB. | Storleken får inte vara större än 2 GB. |
+| **Ladda ned** | Det finns ingen gräns för nedladdnings storleken. | Det finns ingen gräns för nedladdnings storleken. |
+| **Överför** |    Det finns ingen gräns så länge som varje common Table EXPRESSIONS uppladdning är mindre än 2 GB. | Storleken får inte vara större än 2 GB. |
 
 ### <a name="other-limits"></a>Andra gränser
-* Maximal URL-storlek - 8 192 byte - Anger maximal längd på den råa WEBBADRESSEN (schema + värdnamn + port + sökväg + frågesträng för WEBBADRESSEN)
-* Maximal frågesträngstorlek - 4 096 byte - Anger frågesträngens maximala längd i byte.
-* Maximal HTTP-svarshuvudstorlek från hälsoavsöknings-URL - 4 096 byte - Anger den maximala längden på alla svarshuvuden för hälsoavsökningar. 
+* Maximal URL-storlek – 8 192 byte-anger den högsta tillåtna längden för den råa URL: en (schema + värdnamn + port + sökväg + frågesträng för URL)
+* Maximal Frågesträngs storlek – 4 096 byte-anger den maximala längden för frågesträngen, i byte.
+* Maximal rubrik storlek för HTTP-svar från hälso avsöknings-URL: 4 096 byte-anger den maximala längden för alla svars huvuden i hälso avsökningar. 

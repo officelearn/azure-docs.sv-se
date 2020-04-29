@@ -4,10 +4,10 @@ description: Konfigurera en privat slut punkt i ett behållar register och aktiv
 ms.topic: article
 ms.date: 03/10/2020
 ms.openlocfilehash: de8228d84497e71f24dba3dd4e6162cb6735a8c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79498910"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurera en privat Azure-länk för ett Azure Container Registry 
@@ -272,7 +272,7 @@ Följande steg förutsätter att du redan har ett virtuellt nätverk och undern�
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Ange namnet på en befintlig grupp eller skapa en ny.|
     | **Instans information** |  |
-    | Namn | Ange ett unikt namn. |
+    | Name | Ange ett unikt namn. |
     |Region|Välj en region.|
     |||
 5. Välj **Nästa: resurs**.

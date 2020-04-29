@@ -1,20 +1,20 @@
 ---
-title: Samlokalisera virtuella Linux-datorer
-description: Lär dig mer om hur samlokalisering av Azure VM-resurser kan förbättra svarstiden.
+title: Samordna virtuella Linux-datorer
+description: Lär dig mer om hur samplaceringen av Azure VM-resurser kan förbättra svars tiden.
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: d2fd8a2cd7dac7b1d3c78691c84a861d924005ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250288"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Samlokalisera resurser för förbättrad svarstid
+# <a name="co-locate-resources-for-improved-latency"></a>Samplacera resurser för förbättrad svars tid
 
-När du distribuerar ditt program i Azure skapas nätverksfördröjning som påverkar programmets övergripande prestanda när du distribuerar ditt program i Azure. 
+När du distribuerar ditt program i Azure skapar spridnings instanser över regioner eller tillgänglighets zoner nätverks fördröjning, vilket kan påverka programmets övergripande prestanda. 
 
 ## <a name="proximity-placement-groups"></a>Närhetsplaceringsgrupper
 
@@ -22,10 +22,10 @@ När du distribuerar ditt program i Azure skapas nätverksfördröjning som påv
 
 ## <a name="next-steps"></a>Nästa steg
 
-Distribuera en virtuell dator till en [närhetsplaceringsgrupp](proximity-placement-groups.md) med Hjälp av Azure CLI.
+Distribuera en virtuell dator till en [närhets placerings grupp](proximity-placement-groups.md) med hjälp av Azure CLI.
 
-Lär dig hur du [testar nätverksfördröjning](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Lär dig hur du [testar nätverks fördröjningen](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Lär dig hur du [optimerar nätverksdataflödet](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+Lär dig hur du [optimerar nätverks data flödet](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-Lär dig hur du [använder närhetsplaceringsgrupper med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Lär dig hur du [använder närhets placerings grupper med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

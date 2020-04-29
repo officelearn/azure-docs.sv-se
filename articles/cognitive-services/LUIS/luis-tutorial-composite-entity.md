@@ -1,27 +1,27 @@
 ---
-title: 'Självstudiekurs: Självstudiekurs för sammansatt entitet - LUIS'
-description: I den här självstudien lägger du till en sammansatt entitet för att paketera extraherade data av olika typer i en enda innehållande entitet. Genom att bunta ihop data kan klientprogrammet enkelt extrahera relaterade data i olika datatyper.
+title: 'Självstudie: själv studie kurs om sammansatta entiteter – LUIS'
+description: I den här självstudien lägger du till en sammansatt enhet för att bunta extraherade data av olika typer till en enda som innehåller entiteten. Genom att koppla samman data kan klient programmet enkelt extrahera relaterade data i olika data typer.
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.openlocfilehash: 5b8185a56c54ec92ce8ceaf1cd029dd31f6e709c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478679"
 ---
-# <a name="tutorial-group-and-extract-related-data"></a>Självstudiekurs: Gruppera och extrahera relaterade data
-I den här självstudien lägger du till en sammansatt entitet för att paketera extraherade data av olika typer i en enda innehållande entitet. Genom att bunta ihop data kan klientprogrammet enkelt extrahera relaterade data i olika datatyper.
+# <a name="tutorial-group-and-extract-related-data"></a>Självstudie: gruppera och extrahera relaterade data
+I den här självstudien lägger du till en sammansatt enhet för att bunta extraherade data av olika typer till en enda som innehåller entiteten. Genom att koppla samman data kan klient programmet enkelt extrahera relaterade data i olika data typer.
 
-Syftet med den sammansatta entiteten är att gruppera relaterade entiteter i en moderkategori. Informationen finns som separata entiteter innan en sammansatt skapas.
+Syftet med den sammansatta entiteten är att gruppera relaterade entiteter i en entitet för överordnad kategori. Informationen finns som separata entiteter innan en sammansatt skapas.
 
 Den sammansatta entiteten passar bra för den här typen av data eftersom data:
 
 * Är relaterade till varandra.
-* Använd en mängd olika entitetstyper.
+* Använd olika typer av enheter.
 * Båda måste grupperas och bearbetas av klientappen som en informationsenhet.
 
-**I den här självstudiekursen får du lära du dig att:**
+**I den här guiden får du lära dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -36,73 +36,73 @@ Den sammansatta entiteten passar bra för den här typen av data eftersom data:
 
 ## <a name="import-example-app"></a>Importera exempelappen
 
-1.  Hämta och spara [filen JSON i](
-https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) listentiteten.
+1.  Ladda ned och spara [app-JSON-filen](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) från själv studie kursen för List entiteter.
 
-2. Importera JSON till en ny app med [LUIS-portalen](https://www.luis.ai).
+2. Importera JSON till en ny app med hjälp av [Luis-portalen](https://www.luis.ai).
 
 3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `composite`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
 ## <a name="composite-entity"></a>Sammansatt entitet
 
-I den här appen definieras avdelningsnamnet i **entiteten avdelningslista** och innehåller synonymer.
+I den här appen definieras avdelnings namnet i entiteten **avdelnings** lista och innehåller synonymer.
 
-Avsikten **TransferEmployeeToDepartment** har exempelyttranden för att begära att en medarbetare flyttas till en ny avdelning.
+**TransferEmployeeToDepartment** -avsikten har till exempel yttranden att begära att en medarbetare flyttas till en ny avdelning.
 
-Exempel yttranden för den här avsikten är:
+Exempel på yttranden för den här avsikten är:
 
 |Exempel på yttranden|
 |--|
 |Flytta John W. Smith till ekonomiavdelningen|
 |överför Jill Jones till utvecklingsavdelningen|
 
-Flyttbegäran ska innehålla avdelningsnamnet och medarbetarens namn.
+Flyttnings förfrågan ska innehålla avdelnings namnet och namnet på den anställda.
 
-## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Lägga till den fördefinierade entiteten för personnamn för att hjälpa till med vanliga datatypsextrahering
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Lägg till PersonName-fördefinierad entitet för att hjälpa till med gemensam data typs extrahering
 
 LUIS har flera fördefinierade entiteter för extrahering av data.
 
-1. Välj **Skapa** i den övre navigeringen och välj sedan **Entiteter** på den vänstra navigeringsmenyn.
+1. Välj **build (Bygg** ) i det övre navigerings fältet och välj sedan **entiteter** i den vänstra navigerings menyn.
 
 1. Välj knappen **Manage prebuilt entity** (Hantera fördefinierad entitet).
 
-1. Välj **[PersonName](luis-reference-prebuilt-person.md)** i listan över fördefinierade entiteter och välj sedan **Klar**.
+1. Välj **[PersonName](luis-reference-prebuilt-person.md)** i listan över fördefinierade entiteter och välj sedan **slutfört**.
 
     ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-    Den här entiteten hjälper dig att lägga till namnigenkänning i klientprogrammet.
+    Med den här entiteten kan du lägga till namn igenkänning i klient programmet.
 
-## <a name="create-composite-entity-from-example-utterances"></a>Skapa sammansatt entitet från exempelyttranden
+## <a name="create-composite-entity-from-example-utterances"></a>Skapa sammansatt entitet från exempel yttranden
 
 1. Välj **Intents** (Avsikter) i det vänstra navigeringsfönstret.
 
-1. Välj **TransferEmployeeToDepartment** i avsiktslistan.
+1. Välj **TransferEmployeeToDepartment** i listan med intenter.
 
-1. Välj personName-entiteten i `place John Jackson in engineering` `John Jackson`uttrycksutseendeten och välj sedan **Radbryt i sammansatt entitet** i snabbmenyn för följande uttryck.
+1. I uttryck `place John Jackson in engineering`väljer du entiteten `John Jackson`PersonName och väljer sedan **Radbryt i sammansatt entitet** i popup-menyn för följande uttryck.
 
-    ![Skärmbild av hur du väljer figursättningskomposit i listrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
+    ![Skärm bild av den nedrullningsbara dialog rutan Markera figursatta sammansatt i](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
-1. Välj sedan omedelbart den `engineering` sista entiteten i uttryck. Ett grönt fält ritas under de markerade orden som anger en sammansatt entitet. På popup-menyn anger du det `TransferEmployeeInfo` sammansatta namnet och väljer sedan enter.
+1. Välj sedan omedelbart den sista entiteten `engineering` i uttryck. Ett grönt fält ritas under de markerade orden som visar en sammansatt entitet. I popup-menyn anger du det sammansatta namnet `TransferEmployeeInfo` och väljer sedan Retur.
 
-    ![Skärmbild av att ange sammansatt namn i listrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
+    ![Skärm bild av dialog rutan Ange sammansatt namn i listruta](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. I **Vilken typ av entitet vill du skapa?** `personName` `Department` Välj **Done** (Klar). Observera att den fördefinierade entiteten, personName, har lagts till i den sammansatta entiteten. Om du kunde ha en fördefinierad entitet som visas mellan början- och sluttoken för en sammansatt entitet, måste den sammansatta entiteten innehålla dessa fördefinierade entiteter. Om de fördefinierade entiteterna inte inkluderas förutses inte den sammansatta entiteten korrekt, men varje enskilt element är det.
+1. I **vilken typ av entitet vill du skapa?**, alla fält som krävs finns i listan: `personName` och. `Department` Välj **Klar**. Observera att den fördefinierade entiteten personName har lagts till i den sammansatta entiteten. Om du kan ha en fördefinierad entitet som visas mellan början och slutet av en sammansatt entitet måste den sammansatta entiteten innehålla de fördefinierade entiteterna. Om fördefinierade entiteter inte ingår, förutsägs inte den sammansatta entiteten, men varje enskilt element är.
 
-    ![Skärmbild av att ange sammansatt namn i listrutan](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
+    ![Skärm bild av dialog rutan Ange sammansatt namn i listruta](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
-## <a name="label-example-utterances-with-composite-entity"></a>Etikettexempel yttranden med sammansatt entitet
+## <a name="label-example-utterances-with-composite-entity"></a>Label-exempel yttranden med sammansatt entitet
 
-1. I varje exempel yttrande väljer du den vänstra entiteten som ska vara i sammansatt. Välj sedan **Radbryt i sammansatt entitet**.
+1. I varje exempel uttryck väljer du den vänstra entiteten som ska vara i den sammansatta. Välj sedan **Radbryt i sammansatt entitet**.
 
-1. Markera det sista ordet i den sammansatta entiteten och välj sedan **TransferEmployeeInfo** på popup-menyn.
+1. Välj det sista ordet i den sammansatta entiteten och välj sedan **TransferEmployeeInfo** på popup-menyn.
 
-1. Kontrollera att alla yttranden i avsikten är märkta med den sammansatta entiteten.
+1. Kontrol lera att alla yttranden i avsikten är märkta med den sammansatta entiteten.
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att avsiktsändringarna kan testas
 
-Om du vill träna appen väljer du **Träna**. Utbildningen tillämpar ändringarna, till exempel de nya entiteterna och de märkta yttrandena, på den aktiva modellen.
+Välj **träna**för att träna appen. Träningen tillämpar ändringarna, till exempel nya entiteter och den märkta yttranden, i den aktiva modellen.
 
-## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicera appen för att komma åt den från HTTP-slutpunkten
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicera appen för att få åtkomst till den från HTTP-slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
@@ -112,7 +112,7 @@ Om du vill träna appen väljer du **Träna**. Utbildningen tillämpar ändringa
 
 2. Gå till slutet av URL:en i adressen och ange `Move Jill Jones to DevOps`. Den sista frågesträngsparametern är `q`, yttrandefrågan.
 
-    Eftersom det här testet är att kontrollera att kompositen extraheras korrekt, kan ett test antingen innehålla ett befintligt exempelyttrande eller ett nytt uttryck. Ett bra test är att inkludera alla underordnade entiteter i den sammansatta entiteten.
+    Eftersom det här testet är att kontrol lera att den sammansatta informationen extraheras korrekt, kan ett test antingen ta med ett befintligt exempel-uttryck eller en ny uttryck. Ett lyckat test är att inkludera alla underordnade entiteter i den sammansatta entiteten.
 
     ```json
     {
@@ -176,14 +176,14 @@ Om du vill träna appen väljer du **Träna**. Utbildningen tillämpar ändringa
     }
     ```
 
-   Det här uttrycket returnerar en sammansatt entitetsmatris. Varje entitet får en typ och ett värde. Om du vill hitta mer precision för varje underordnad entitet använder du kombinationen av typ och värde från sammansatta matrisobjekt för att hitta motsvarande objekt i entitetsmatrisen.
+   Den här uttryck returnerar en matris för sammansatta entiteter. Varje entitet tilldelas en typ och ett värde. Om du vill hitta mer precision för varje underordnad entitet använder du kombinationen av typ och värde från det sammansatta array-objektet för att hitta motsvarande objekt i entiteten entiteter.
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Relaterad information
 
-* [Lista självstudiekurs för entitet](luis-quickstart-intents-only.md)
-* Sammansatt begreppsmässig information [om entitet](luis-concept-entity-types.md)
+* [Självstudie för lista med entiteter](luis-quickstart-intents-only.md)
+* Konceptuell information om [sammansatt entitet](luis-concept-entity-types.md)
 * [Så här tränar du](luis-how-to-train.md)
 * [Så här publicerar du](luis-how-to-publish-app.md)
 * [Så här testar du i LUIS-portalen](luis-interactive-test.md)
@@ -191,7 +191,7 @@ Om du vill träna appen väljer du **Träna**. Utbildningen tillämpar ändringa
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här självstudien skapade en sammansatt entitet för att kapsla in befintliga entiteter. På så sätt kan klientprogrammet hitta en grupp relaterade data i olika datatyper för att fortsätta konversationen. Ett klientprogram för den här personalappen kan fråga vilken dag och tid flytten behöver börja och sluta. Det kan också fråga om annan logistik av flytten såsom en fysisk telefon.
+I den här självstudien skapade du en sammansatt entitet för att kapsla in befintliga entiteter. Detta gör att klient programmet kan hitta en grupp relaterade data i olika data typer för att fortsätta konversationen. Ett klient program för den här typen av personal kan fråga den dag och den tid som flytten måste börja och sluta. Det kan också fråga om andra logistiker av flytten, till exempel en fysisk telefon.
 
 > [!div class="nextstepaction"]
 > [Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden](luis-tutorial-review-endpoint-utterances.md)

@@ -1,6 +1,6 @@
 ---
-title: Fråga på Azure IoT Hub-meddelanderoutning | Microsoft-dokument
-description: Lär dig mer om frågespråket IoT Hub-meddelanderoutning som du kan använda för att tillämpa omfattande frågor på meddelanden för att ta emot de data som är viktiga för dig.
+title: Fråga på Azure IoT Hub meddelanderoutning | Microsoft Docs
+description: Lär dig mer om det IoT Hub meddelande om meddelanderoutning som du kan använda för att använda omfattande frågor till meddelanden för att ta emot de data som är viktiga för dig.
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271114"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-frågesyntaxen för meddelandedirigering
 
-Med meddelanderoutning kan användare dirigera olika datatyper, nämligen enhetselemetrimeddelanden, enhetslivscykelhändelser och händelser för ändring av enhetstvilling till olika slutpunkter. Du kan också använda omfattande frågor på dessa data innan du dirigerar dem för att ta emot de data som är viktiga för dig. I den här artikeln beskrivs frågespråket IoT Hub-meddelanderoutning och några vanliga frågemönster.
+Med meddelanderoutning kan användare dirigera olika data typer, nämligen telemetri meddelanden, enhets livs cykel händelser och enhets dubbla ändrings händelser till olika slut punkter. Du kan också använda omfattande frågor till dessa data innan du dirigerar dem för att ta emot de data som är viktiga för dig. Den här artikeln beskriver frågespråket för IoT Hub Message Routning och innehåller några vanliga fråge mönster.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Med meddelanderoutning kan du fråga efter meddelandeegenskaperna och meddelandetexten samt enhetstvillingtaggar och enhetstvillingegenskaper. Om meddelandetexten inte är JSON kan meddelanderoutning fortfarande cirkulera meddelandet, men frågor kan inte tillämpas på meddelandetexten.  Frågor beskrivs som booleska uttryck där en boolesk true gör att frågan lyckas som dirigerar alla inkommande data och Boolean false misslyckas frågan och inga data dirigeras. Om uttrycket utvärderas till null eller odefinierad behandlas det som falskt och ett fel genereras i diagnostikloggar i händelse av ett fel. Frågesyntaxen måste vara korrekt för att flödet ska kunna sparas och utvärderas.  
+Med meddelanderoutning kan du fråga efter meddelande egenskaper och meddelande text samt enhetens dubbla Taggar och enhetens dubbla egenskaper. Om meddelande texten inte är JSON kan meddelande routning fortfarande dirigera meddelandet, men det går inte att använda frågor i meddelande texten.  Frågor beskrivs som booleska uttryck där ett booleskt värde gör att frågan lyckas och som dirigerar alla inkommande data och booleska falskt Miss lyckas frågan och inga data vidarebefordras. Om uttrycket utvärderas till null eller odefinierad, behandlas det som falskt och ett fel genereras i diagnostikloggar i händelse av ett fel. Frågesyntaxen måste vara korrekt för att vägen ska kunna sparas och utvärderas.  
 
-## <a name="message-routing-query-based-on-message-properties"></a>Fråga för meddelanderoutning baserat på meddelandeegenskaper 
+## <a name="message-routing-query-based-on-message-properties"></a>Meddelande cirkulations fråga baserat på meddelande egenskaper 
 
-IoT Hub definierar ett [gemensamt format](iot-hub-devguide-messages-construct.md) för alla enheter-till-moln-meddelanden för interoperabilitet mellan protokoll. IoT Hub-meddelandet förutsätter följande JSON-representation av meddelandet. Systemegenskaper läggs till för alla användare och identifierar innehållet i meddelandet. Användare kan selektivt lägga till programegenskaper i meddelandet. Vi rekommenderar att du använder unika egenskapsnamn eftersom IoT Hub-meddelanden från enhet till moln inte är skiftlägeskänsliga. Om du till exempel har flera egenskaper med samma namn skickar IoT Hub bara en av egenskaperna.  
+IoT Hub definierar ett [gemensamt format](iot-hub-devguide-messages-construct.md) för all kommunikation från enhet till moln för samverkan mellan protokoll. IoT Hub meddelandet antar följande JSON-representation av meddelandet. System egenskaper läggs till för alla användare och identifierar innehållet i meddelandet. Användare kan selektivt lägga till program egenskaper i meddelandet. Vi rekommenderar att du använder unika egenskaps namn som IoT Hub enhet-till-moln-meddelanden inte är Skift läges känsliga. Om du till exempel har flera egenskaper med samma namn kommer IoT Hub endast att skicka en av egenskaperna.  
 
 ```json
 { 
@@ -48,33 +48,33 @@ IoT Hub definierar ett [gemensamt format](iot-hub-devguide-messages-construct.md
 
 ### <a name="system-properties"></a>Systemegenskaper
 
-Systemegenskaper hjälper till att identifiera innehållet och källan till meddelandena. 
+System egenskaper hjälper till att identifiera innehåll och källa för meddelandena. 
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Contenttype | sträng | Användaren anger meddelandets innehållstyp. Om du vill tillåta fråga på meddelandetexten bör det här värdet anges som program/JSON. |
-| innehållKodning | sträng | Användaren anger meddelandets kodningstyp. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType är inställd på application/JSON. |
-| iothub-anslutning-enhet-id | sträng | Det här värdet anges av IoT Hub och identifierar enhetens ID. Om du `$connectionDeviceId`vill fråga använder du . |
-| iothub-enqueuedtime | sträng | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Om du `enqueuedTime`vill fråga använder du . |
-| iothub-interface-namn | sträng | Det här värdet anges av användaren och representerar namnet på det digitala tvillinggränssnitt som implementerar telemetrimeddelandet. Om du `$interfaceName`vill fråga använder du . Den här funktionen är tillgänglig som en del av den offentliga förhandsversionen av [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). |
+| Innehålls | sträng | Användaren anger meddelandets innehålls typ. Om du vill tillåta frågan på meddelande texten ska det här värdet ställas in Application/JSON. |
+| contentEncoding | sträng | Användaren anger meddelandets kodnings typ. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType är inställt på Application/JSON. |
+| iothub-Connection-Device-ID | sträng | Det här värdet anges av IoT Hub och identifierar enhetens ID. Om du vill fråga `$connectionDeviceId`använder du. |
+| iothub – enqueuedtime | sträng | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Om du vill fråga `enqueuedTime`använder du. |
+| iothub-gränssnitt-namn | sträng | Det här värdet anges av användaren och representerar namnet på det digitala dubbla gränssnitt som implementerar telemetri-meddelandet. Om du vill fråga `$interfaceName`använder du. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). |
 
-Som beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare systemegenskaper i ett meddelande. Förutom **contentType**, **contentEncoding**och **enqueuedTime**kan **även connectionDeviceId** och **connectionModuleId** efterfrågas.
+Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Förutom **ContentType**, **contentEncoding**och **enqueuedTime**kan **connectionDeviceId** och **connectionModuleId** också frågas.
 
 ### <a name="application-properties"></a>Egenskaper för program
 
-Programegenskaper är användardefinierade strängar som kan läggas till i meddelandet. Dessa fält är valfria.  
+Program egenskaperna är användardefinierade strängar som kan läggas till i meddelandet. Dessa fält är valfria.  
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om egenskaper för meddelandesystem måste `$` föregås av symbolen. Frågor om programegenskaper används med sitt namn och bör inte `$`föregås av symbolen. Om ett programegenskapsnamn börjar med `$`kommer IoT Hub att söka efter det i systemegenskaperna och det inte hittas, då kommer det att leta i programegenskaperna. Ett exempel: 
+En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper nås med sitt namn och bör inte föregås av `$`symbolen. Om ett program egenskaps namn börjar `$`med kommer IoT Hub att söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Ett exempel: 
 
-Så här frågar du om systemegenskapsinnehållKodning 
+Så här frågar du efter system egenskapen contentEncoding 
 
 ```sql
 $contentEncoding = 'UTF-8'
 ```
 
-Så här frågar du på programgenskapsbearbetningPath:
+Så här frågar du efter program egenskapen processingPath:
 
 ```sql
 processingPath = 'hot'
@@ -86,13 +86,13 @@ Om du vill kombinera dessa frågor kan du använda booleska uttryck och funktion
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-En fullständig lista över operatorer och funktioner som stöds visas i [Uttryck och villkor](iot-hub-devguide-query-language.md#expressions-and-conditions).
+En fullständig lista över operatörer och funktioner som stöds visas i [uttryck och villkor](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="message-routing-query-based-on-message-body"></a>Fråga för meddelanderoutning baserat på meddelandetext
+## <a name="message-routing-query-based-on-message-body"></a>Meddelande cirkulations fråga baserat på meddelande text
 
-För att aktivera frågor om meddelandetexten ska meddelandet finnas i en JSON-kodad i antingen UTF-8, UTF-16 eller UTF-32. Måste `contentType` ställas in `application/JSON` `contentEncoding` på och till en av de UTF-kodningar som stöds i systemegenskapen. Om dessa egenskaper inte anges utvärderas inte frågeuttrycket i meddelandetexten i IoT Hub. 
+Om du vill aktivera frågor i meddelande texten ska meddelandet vara i en JSON-kodad antingen UTF-8, UTF-16 eller UTF-32. `contentType` Måste anges till `application/JSON` och `contentEncoding` till en av de UTF-kodningar som stöds i system egenskapen. Om de här egenskaperna inte anges kommer IoT Hub inte att utvärdera frågeuttrycket i meddelande texten. 
 
-I följande exempel visas hur du skapar ett meddelande med en korrekt utformad och kodad JSON-brödtext: 
+I följande exempel visas hur du skapar ett meddelande med en korrekt utformad och kodad JSON-text: 
 
 ```javascript
 var messageBody = JSON.stringify(Object.assign({}, {
@@ -142,12 +142,12 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Detta visar hur man hanterar kodning av kroppen i javascript. Om du vill se ett exempel i C#laddar du ned [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Packa upp filen master.zip. Visual Studio-lösningen *SimulatedDevice*'s Program.cs fil visar hur du kodar och skickar meddelanden till en IoT Hub. Det här är samma exempel som används för att testa meddelanderoutningen, vilket förklaras i [självstudiekursen För meddelanderoutning](tutorial-routing.md). Längst ner i Program.cs, den har också en metod för att läsa i en av de kodade filerna, avkoda den och skriva tillbaka den som ASCII så att du kan läsa den. 
+> Här visas hur du hanterar kodningen för bröd texten i Java Script. Om du vill se ett exempel i C#, laddar du ned [Azure IoT C#-exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp Master. zip-filen. Filen Program.cs i Visual Studio- *SimulatedDevice*innehåller information om hur du kodar och skickar meddelanden till en IoT Hub. Det här är samma exempel som används för att testa meddelanderoutning, som beskrivs i [själv studie kursen för meddelanderoutning](tutorial-routing.md). Längst ned i Program.cs har det också en metod för att läsa i en av de kodade filerna, avkoda den och skriva tillbaka den som ASCII så att du kan läsa den. 
 
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelandetext måste föregås `$body`av . Du kan använda en brödtextreferens, brödrrayreferens eller flera brödtextreferenser i frågeuttrycket. Frågeuttrycket kan också kombinera en brödtextreferens med egenskaper för meddelandesystem och referens för egenskaper för meddelandeprogram. Följande är till exempel alla giltiga frågeuttryck: 
+En fråga om meddelande text måste föregås av `$body`. Du kan använda en Body-referens, en text mat ris referens eller flera text referenser i frågeuttrycket. Frågeuttrycket kan också kombinera en brödtext referens med meddelande system egenskaper och referens för meddelande program egenskaper. Till exempel är följande giltiga frågeuttryck: 
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -165,9 +165,9 @@ length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
-## <a name="message-routing-query-based-on-device-twin"></a>Fråga för meddelanderoutning baserat på enhetstvilling 
+## <a name="message-routing-query-based-on-device-twin"></a>Meddelande cirkulations fråga baserat på enhet, dubbla 
 
-Med meddelanderoutning kan du fråga efter [Device Twin-taggar](iot-hub-devguide-device-twins.md) och egenskaper, som är JSON-objekt. Det stöds också att fråga på modultvilling. Nedan visas ett exempel på Device Twin-taggar och egenskaper.
+Med meddelanderoutning kan du fråga på [enhetens dubbla](iot-hub-devguide-device-twins.md) Taggar och egenskaper, som är JSON-objekt. Det finns även stöd för frågor i modulerna "delad". Ett exempel på enhets dubbla Taggar och egenskaper visas nedan.
 
 ```JSON
 {
@@ -200,7 +200,7 @@ Med meddelanderoutning kan du fråga efter [Device Twin-taggar](iot-hub-devguide
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelandetvilling måste `$twin`föregås av . Frågeuttrycket kan också kombinera en tvillingtagg eller egenskapsreferens med en brödtextreferens, meddelandesystemegenskaper och referens för meddelandeprogramegenskaper. Vi rekommenderar att du använder unika namn i taggar och egenskaper eftersom frågan inte är skiftlägeskänslig. Detta gäller både enhetstvillingar och modultvillingar. Avstå också `twin`från `$twin` `body`att `$body`använda , , eller , som egenskapsnamn. Följande är till exempel alla giltiga frågeuttryck: 
+En fråga om meddelandets dubbla måste föregås av `$twin`. Frågeuttrycket kan också kombinera en kombinations-eller egenskaps referens med en innehålls referens, meddelande system egenskaper och referens för meddelande program egenskaper. Vi rekommenderar att du använder unika namn i taggar och egenskaper eftersom frågan inte är Skift läges känslig. Detta gäller för både enhetens dubbla och modul. Du kan också avstå `twin`från `$twin`att `body`använda, `$body`,, eller, som egenskaps namn. Till exempel är följande giltiga frågeuttryck: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
@@ -214,9 +214,9 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
-Routningsfråga på brödtext- eller enhetstvilling med en punkt i nyttolasten eller egenskapsnamnet stöds inte.
+Routnings frågan på bröd texten eller enheten med en punkt i nytto lasten eller egenskaps namnet stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [meddelanderoutning](iot-hub-devguide-messages-d2c.md).
-* Prova [självstudiekursen för meddelanderoutning](tutorial-routing.md).
+* Lär dig [mer om meddelanderoutning](iot-hub-devguide-messages-d2c.md).
+* Prova [själv studie kursen om meddelanderoutning](tutorial-routing.md).

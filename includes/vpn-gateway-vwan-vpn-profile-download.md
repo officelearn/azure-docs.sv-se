@@ -9,15 +9,15 @@ ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c61378510fbfc8bdc13f35ba1063a0d9316d88e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066200"
 ---
-## <a name="1-download-the-file"></a>1. Ladda ner filen
+## <a name="1-download-the-file"></a>1. Hämta filen
 
-Kör följande kommandon. Kopiera resultatadressen till din webbläsare för att hämta zip-filen för profilen.
+Kör följande kommandon. Kopiera resultat-URL: en till webbläsaren för att ladda ned profil zip-filen.
 
 ```azurepowershell-interactive
 $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
@@ -25,17 +25,17 @@ $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauth
 $PROFILE.VpnProfileSASUrl
 ```
 
-## <a name="2-extract-the-zip-file"></a>2. Extrahera zip-filen
+## <a name="2-extract-the-zip-file"></a>2. extrahera zip-filen
 
 Extrahera zip-filen. Filen innehåller följande mappar:
 
 * AzureVPN
 * Allmänna
-* OpenVPN (Om du har aktiverat openvpn- och Azure AD-autentiseringsinställningarna på gatewayen. För VPN Gateway finns i [Skapa en klient .](../articles/vpn-gateway/openvpn-azure-ad-tenant.md) För Virtuellt WAN finns i [Skapa en klient - VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+* OpenVPN (om du har aktiverat inställningarna OpenVPN och Azure AD-autentisering på gatewayen. Mer VPN Gateway finns i [skapa en klient](../articles/vpn-gateway/openvpn-azure-ad-tenant.md). För virtuellt WAN-nätverk, se [skapa en klient-VWAN](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
 
 ## <a name="3-retrieve-information"></a>3. Hämta information
 
-I **AzureVPN-mappen** navigerar du till filen ***azurevpnconfig.xml*** och öppnar den med Anteckningar. Anteckna texten mellan följande taggar.
+I mappen **AzureVPN** navigerar du till filen ***azurevpnconfig. XML*** och öppnar den med anteckningar. Anteckna texten mellan följande taggar.
 
 ```
 <audience>          </audience>
@@ -45,18 +45,18 @@ I **AzureVPN-mappen** navigerar du till filen ***azurevpnconfig.xml*** och öppn
 <serversecret>      </serversecret>
 ```
 
-## <a name="profile-details"></a>Profilinformation
+## <a name="profile-details"></a>Profil information
 
-När du lägger till en anslutning använder du informationen som du samlade in i föregående steg för profilinformationssidan. Fälten motsvarar följande information:
+När du lägger till en anslutning använder du den information som du samlade in i föregående steg för profil informations sidan. Fälten motsvarar följande information:
 
-   * **Publik:** Identifierar den mottagarresurs som token är avsedd för
-   * **Emittent:** Identifierar security token service (STS) som avgav token samt Azure AD-klienten
-   * **Hyresgäst:** Innehåller en oföränderlig, unik identifierare för katalogklienten som utfärdade token
-   * **FQDN:** Det fullständigt kvalificerade domännamnet (FQDN) på Azure VPN-gatewayen
-   * **ServerSecret:** VPN-gatewayen fördelade nyckeln
+   * **Mål grupp:** Identifierar mottagar resursen som token är avsedd för
+   * **Utfärdare:** Identifierar säkerhetstokentjänst som utsänt token samt Azure AD-klienten
+   * **Klient organisation:** Innehåller en oföränderlig, unik identifierare för den katalog klient som utfärdade token
+   * **Fullständigt domän namn:** Det fullständigt kvalificerade domän namnet (FQDN) på Azure VPN-gatewayen
+   * **ServerSecret:** Nyckeln för fördelad VPN-gateway
 
 ## <a name="folder-contents"></a>Mappinnehåll
 
-* Den **allmänna mappen** innehåller det offentliga servercertifikatet och filen VpnSettings.xml. Filen VpnSettings.xml innehåller information som behövs för att konfigurera en allmän klient.
+* Den **allmänna mappen** innehåller det offentliga Server certifikatet och filen VpnSettings. xml. Filen VpnSettings. xml innehåller information som krävs för att konfigurera en allmän klient.
 
-* Den nedladdade zip-filen kan också innehålla **WindowsAmd64-** och **WindowsX86-mappar.** Dessa mappar innehåller installationsprogrammet för SSTP- och IKEv2 för Windows-klienter. Du behöver administratörsrättigheter på klienten för att installera dem.
+* Den hämtade ZIP-filen kan också innehålla **WindowsAmd64** -och **WindowsX86** -mappar. Dessa mappar innehåller installations programmet för SSTP och IKEv2 för Windows-klienter. Du måste ha administratörs behörighet på klienten för att installera dem.

@@ -1,6 +1,6 @@
 ---
-title: SQL Server-databasmigrering till en enda/poolad databas
-description: Lär dig mer om SQL Server-databasmigrering till en enda databas eller en elastisk pool i Azure SQL Database.
+title: SQL Server migrering av databasen till en databas med enkel/pool
+description: Lär dig mer om migrering av SQL Server Database till en enskild databas eller en elastisk pool i Azure SQL Database.
 keywords: databasmigrering, sql server-databasmigrering, databasmigreringsverktyg, migrera databas, migrera sql-databas
 services: sql-database
 ms.service: sql-database
@@ -13,48 +13,48 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268618"
 ---
-# <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server-databasmigrering till Azure SQL Database
+# <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migrering av databasen till Azure SQL Database
 
-I den här artikeln får du lära dig mer om de primära metoderna för att migrera en SQL Server 2005 eller senare databas till en enda eller poolad databas i Azure SQL Database. Information om hur du migrerar till en hanterad instans finns [i Migrera till SQL Server-instans till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). Information om migrering om migrering från andra plattformar finns i [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+I den här artikeln får du lära dig om de primära metoderna för att migrera en SQL Server 2005-databas eller senare till en databas i en eller flera databaser i Azure SQL Database. Information om hur du migrerar till en hanterad instans finns i [migrera till SQL Server instans för att Azure SQL Database Hanterad instans](sql-database-managed-instance-migrate.md). Information om migrering om migrering från andra plattformar finns i [guiden Migrera Azure Database](https://datamigration.microsoft.com/).
 
-## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrera till en enskild databas eller en poolad databas
+## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrera till en enskild databas eller en databas i poolen
 
-Det finns två primära metoder för att migrera en SQL Server 2005 eller senare databas till en enda eller poolad databas i Azure SQL Database. Den första metoden är enklare, men kräver viss till omfattande stilleståndstid under migreringen. Den andra metoden är mer komplicerad, men kräver mycket kortare stilleståndstid under migreringen.
+Det finns två primära metoder för att migrera en SQL Server 2005-databas eller senare till en databas i en eller flera databaser i Azure SQL Database. Den första metoden är enklare, men kräver viss till omfattande stilleståndstid under migreringen. Den andra metoden är mer komplicerad, men kräver mycket kortare stilleståndstid under migreringen.
 
-I båda fallen måste du se till att källdatabasen är kompatibel med Azure SQL Database med hjälp av [DMA (Data Migration Assistant).](https://www.microsoft.com/download/details.aspx?id=53595) SQL Database V12 närmar sig [funktionsparitet](sql-database-features.md) med SQL Server, förutom problem relaterade till åtgärder på servernivå och flera databaser. Databaser och program som förlitar sig på [funktioner som delvis eller inte stöds](sql-database-transact-sql-information.md) behöver viss [omkonstruktion för att åtgärda dessa inkompatibiliteter](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) innan SQL Server-databasen kan migreras.
+I båda fallen måste du se till att käll databasen är kompatibel med Azure SQL Database med hjälp av [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 närmar sig [funktions paritet](sql-database-features.md) med SQL Server, förutom problem som rör åtgärder på server nivå och mellan databaser. Databaser och program som förlitar sig på [funktioner som delvis eller inte stöds](sql-database-transact-sql-information.md) behöver viss [omkonstruktion för att åtgärda dessa inkompatibiliteter](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) innan SQL Server-databasen kan migreras.
 
 > [!NOTE]
 > För att migrera en icke-SQL Server-databas, inklusive Microsoft Access, Sybase, MySQL Oracle och DB2 till Azure SQL Database, se [SQL Server-migreringsassistent](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Metod 1: Migrering med stilleståndstid under migreringen
 
- Använd den här metoden om du vill migrera till en enda eller en poolad databas om du har råd med några driftstopp eller om du utför en testmigrering av en produktionsdatabas för senare migrering. En självstudiekurs finns i [Migrera en SQL Server-databas](../dms/tutorial-sql-server-to-azure-sql.md).
+ Använd den här metoden om du vill migrera till en enskild databas eller en databas i poolen om du kan ge en viss nedtid eller om du utför en testmigrering av en produktions databas för senare migrering. En själv studie kurs finns i [Migrera en SQL Server databas](../dms/tutorial-sql-server-to-azure-sql.md).
 
-Följande lista innehåller det allmänna arbetsflödet för en SQL Server-databasmigrering av en enda eller en poolad databas med den här metoden. För migrering till hanterad instans finns i [Migrering till en hanterad instans](sql-database-managed-instance-migrate.md).
+Följande lista innehåller det allmänna arbets flödet för en SQL Server Database-migrering av en eller flera databaser i en pool med den här metoden. För migrering till hanterad instans, se [migrering till en hanterad instans](sql-database-managed-instance-migrate.md).
 
   ![VSSSDT-migreringsdiagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Utvärdera](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) databasen för kompatibilitet med hjälp av den senaste versionen av [DMA (Data Migration Assistant).](https://www.microsoft.com/download/details.aspx?id=53595)
+1. [Utvärdera](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) databasen för kompatibilitet med hjälp av den senaste versionen av [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Förbered nödvändiga korrigeringar som Transact-SQL-skript.
-3. Gör en transaktionellt konsekvent kopia av källdatabasen som migreras eller stoppa nya transaktioner från att inträffa i källdatabasen medan migrering sker. Metoder för att utföra det senare alternativet är att inaktivera klientanslutning eller skapa en [ögonblicksbild av databasen](https://msdn.microsoft.com/library/ms175876.aspx). Efter migreringen kan du kanske använda transaktionsreplikering för att uppdatera de migrerade databaserna med ändringar som inträffar efter brytpunkten för migreringen. Se [Migrera med transaktionsmigrering](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
+3. Gör en transaktions konsekvent kopia av käll databasen som migreras eller stoppa nya transaktioner från det som inträffar i käll databasen medan migreringen sker. Metoder för att göra detta senare alternativ är att inaktivera klient anslutning eller att skapa en [databas ögonblicks bild](https://msdn.microsoft.com/library/ms175876.aspx). Efter migreringen kan du använda Transaktionsreplikering för att uppdatera de migrerade databaserna med ändringar som inträffar efter den sista punkten för migreringen. Se [migrera med hjälp av transaktionell migrering](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
 4. Distribuera Transact-SQL-skripten för att tillämpa korrigeringar på databaskopian.
-5. [Migrera](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) databaskopian till en ny Azure SQL-databas med hjälp av datamigreringsassistenten.
+5. [Migrera](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) databas kopian till en ny Azure SQL Database med hjälp av data migration assistant.
 
 > [!NOTE]
-> I stället för att använda DMA kan du också använda en BACPAC-fil. Se [Importera en BACPAC-fil till en ny Azure SQL-databas](sql-database-import.md).
+> I stället för att använda DMA kan du också använda en BACPAC-fil. Mer information finns i [Importera en BACPAC-fil till en ny Azure SQL Database](sql-database-import.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimera prestanda för dataöverföring under migreringen
 
 Följande lista innehåller rekommendationer för bästa prestanda under importen.
 
-- Välj den högsta tjänstnivån och beräkningsstorleken som din budget gör det möjligt att maximera överföringsprestandan. Du kan spara pengar genom att skala ned när migreringen är klar.
-- Minimera avståndet mellan BACPAC-filen och måldatacentret.
+- Välj den högsta tjänst nivån och den beräknings storlek som din budget tillåter för att maximera överförings prestandan. Du kan spara pengar genom att skala ned när migreringen är klar.
+- Minimera avståndet mellan BACPAC-filen och mål data centret.
 - Inaktivera automatisk statistik under migreringen
 - Partitionstabeller och index
 - Ta bort indexerade vyer och återskapa dem när de är klara
@@ -66,7 +66,7 @@ Följande lista innehåller rekommendationer för bästa prestanda under importe
 
 ## <a name="method-2-use-transactional-replication"></a>Metod 2: Använd transaktionsreplikering
 
-Om du inte har råd att ta bort SQL Server-databasen från produktionen medan migreringen genomförs kan du använda transaktionsreplikering i SQL Server som migreringslösning. För att kunna använda den här metoden måste källdatabasen uppfylla [kraven för transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) och vara kompatibel med Azure SQL Database. Information om SQL-replikering med Always On finns i [Konfigurera replikering för ALLTID på tillgänglighetsgrupper (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+Om du inte har råd att ta bort SQL Server-databasen från produktionen medan migreringen genomförs kan du använda transaktionsreplikering i SQL Server som migreringslösning. För att kunna använda den här metoden måste källdatabasen uppfylla [kraven för transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) och vara kompatibel med Azure SQL Database. Information om SQL-replikering med Always on finns i [Konfigurera replikering för Always on Availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 När du använder den här lösningen konfigurerar du Azure SQL Database som prenumerant på den SQL Server-instans som du vill migrera. Distributören av transaktionsreplikeringen synkroniserar de data som ska synkroniseras från databasen (utgivaren) medan nya transaktioner fortsätter att göras.
 
@@ -96,7 +96,7 @@ Vid en transaktionsreplikering visas alla ändringar i dina data eller i ditt sc
 Tips och skillnader vid migrering till SQL Database
 
 - Använda en lokal distributör
-  - Om du gör det påverkas servern.
+  - Detta leder till en prestanda påverkan på servern.
   - Om denna påverkan inte är acceptabel kan du använda en annan server men det innebär en mer komplicerad hantering och administration.
 - När du väljer en mapp för ögonblicksbilder måste du se till att mappen är tillräckligt stor för att innehålla en BCP för varje tabell som du vill replikera.
 - När en ögonblicksbild skapas låses de associerade tabellerna tills den är klar. Se därför till att schemalägga ögonblicksbilden vid en lämplig tidpunkt.
@@ -116,7 +116,7 @@ Det finns en mängd olika kompatibilitetsproblem som kan uppstå, beroende på b
 Utöver att söka på Internet och använda dessa resurser kan du använda [MSDN SQL Server community-forumen](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) eller [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
-> Med SQL Database Managed Instance kan du migrera en befintlig SQL Server-instans och dess databaser med minimala till inga kompatibilitetsproblem. Se [Vad är en hanterad instans](sql-database-managed-instance.md).
+> Med SQL Database hanterade instansen kan du migrera en befintlig SQL Server-instans och dess databaser med minimala kompatibilitetsproblem. Se [Vad är en hanterad instans](sql-database-managed-instance.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

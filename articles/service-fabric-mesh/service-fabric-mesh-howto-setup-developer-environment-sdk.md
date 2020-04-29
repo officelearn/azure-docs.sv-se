@@ -1,15 +1,15 @@
 ---
-title: Konfigurera en Windows-utvecklingsmiljö för Service Fabric Mesh
+title: Konfigurera en Windows dev-miljö för Service Fabric nät
 description: Ställa in Windows-utvecklingsmiljön så att du kan skapa ett Service Fabric Mesh-program och distribuera det till Azure Service Fabric Mesh.
 author: dkkapur
 ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: a674047722d4deca02d8f4d38a0826e479065037
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259206"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Konfigurera en Windows-utvecklingsmiljö för att skapa Service Fabric Mesh-program
@@ -27,20 +27,20 @@ Och någon av följande versioner av Windows:
 * Windows Server version 1709
 * Windows Server version 1803
 
-Följande instruktioner hjälper dig att få allt installerat baserat på vilken version av Windows du kör.
+Följande instruktioner hjälper dig att få allt installerat baserat på den version av Windows som du kör.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Visual Studio 2017 eller senare krävs för att distribuera Service Fabric Mesh-program. [Installera version 15.6.0][download-visual-studio] eller senare och aktivera följande arbetsbelastningar:
+Visual Studio 2017 eller senare krävs för att distribuera Service Fabric nätprogram. [Installera version 15.6.0][download-visual-studio] eller senare och aktivera följande arbetsbelastningar:
 
 * ASP.NET och webbutveckling
 * Azure Development
 
 ## <a name="install-docker"></a>Installera Docker
 
-Om du redan har Docker installerat kontrollerar du att du har den senaste versionen. Docker kan fråga dig när en ny version är ute, men kontrollera manuellt för att se till att du har den senaste versionen.
+Om du redan har Docker installerat kontrollerar du att du har den senaste versionen. Docker kan du bli ombedd när en ny version är slut, men kontrol lera manuellt för att se till att du har den senaste versionen.
 
 #### <a name="install-docker-on-windows-10"></a>Installera Docker för Windows 10
 
@@ -48,7 +48,7 @@ Ladda ned och installera den senaste versionen av [Docker Community Edition för
 
 Under installationen väljer du att **använda Windows-container i stället för Linux-container** när frågan dyker upp.
 
-Om Hyper-V inte är aktiverat på datorn kommer Dockers installationsprogram att erbjudas för att aktivera den. Klicka på **OK** för att göra det om du tillfrågas.
+Om Hyper-V inte är aktiverat på datorn kommer Docker-installationsprogrammet att erbjudas att aktivera det. Klicka på **OK** för att göra det om du tillfrågas.
 
 #### <a name="install-docker-on-windows-server-2016"></a>Installera Docker för Windows Server 2016
 
@@ -85,9 +85,9 @@ Installera Service Fabric Mesh-runtime, SDK och verktyg i följande ordning.
 > Om du utvecklar på en dator med Windows Fall Creators Update (version 1709) kan du bara använda Docker-avbildningar för Windows version 1709.
 > Om du utvecklar på en dator med Windows 10 April 2018 Update (version 1803) kan du använda Docker-avbildningar för antingen Windows version 1709 eller 1803.
 
-Om du använder Visual Studio kan du hoppa över det här avsnittet eftersom Visual Studio skapar ett lokalt kluster åt dig om du inte har något.
+Om du använder Visual Studio kan du hoppa över det här avsnittet eftersom Visual Studio skapar ett lokalt kluster åt dig om du inte har ett.
 
-Skapa ett lokalt utvecklingskluster för bästa felsökning när du skapar och kör en enda Service Fabric-app åt gången. Om du kör flera program åt gången skapar du ett lokalt utvecklingskluster för femnoder. Klustret måste köras varje gång du distribuerar eller felsöker ett Service Fabric Mesh-projekt.
+För bästa möjliga fel söknings prestanda när du skapar och kör en enda Service Fabric app i taget, skapar du ett lokalt utvecklings kluster med en nod. Om du kör flera program i taget skapar du ett lokalt utvecklings kluster med fem noder. Klustret måste köras varje gång du distribuerar eller felsöker ett Service Fabric Mesh-projekt.
 
 När du har installerat runtime, SDK:er, Visual Studio Tools, Docker och har Docker igång skapar du ett utvecklingskluster.
 

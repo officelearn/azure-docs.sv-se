@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter bilder med REST API FÖR Bing-bildsökning och C #'
+title: 'Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och C #'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten när du vill skicka bildsökningsbegäranden till REST API för bildsökning i Bing med hjälp av C# och få JSON-svar.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: aahi
 ms.openlocfilehash: 6d9ceac5a63a7a644989430b0349a16369c7133a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478622"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Snabbstart: Sök efter bilder med REST API FÖR Bing-bildsökning och C #
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och C #
 
 Använd den här snabbstarten för att börja skicka sökbegäranden till API för bildsökning i Bing. C#-appen skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden för det här exemplet är tillgänglig [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) med ytterligare felhantering och anteckningar.
+Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) med ytterligare fel hantering och anteckningar.
 
 ## <a name="prerequisites"></a>Krav
-* Alla utgåvor av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
@@ -42,7 +42,7 @@ Källkoden för det här exemplet är tillgänglig [på GitHub](https://github.c
     using Newtonsoft.Json.Linq;
     ```
 
-2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. `uriBase`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. `uriBase`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     //...

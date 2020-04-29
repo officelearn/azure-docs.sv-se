@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Client Library för Computer Vision för Java'
-description: I den här snabbstarten kommer du igång med klientbiblioteket Computer Vision för Java.
+title: 'Snabb start: Visuellt innehåll klient bibliotek för Java'
+description: I den här snabb starten kommer du igång med Visuellt innehåll klient biblioteket för Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,42 +10,42 @@ ms.topic: include
 ms.date: 12/19/2019
 ms.author: pafarley
 ms.openlocfilehash: dbe986145a223f1958f1945abfa189de90952f4a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80272742"
 ---
 <a name="HOLTop"></a>
 
-[Exempel på referensdokumentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [(Maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Exempel på referens dokumentations](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [artefakt (maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration - [Skapa en gratis](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Verktyget Gradle-byggverktyg](https://gradle.org/install/)eller annan beroendehanterare.
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Den aktuella versionen av [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Gradle build-verktyget](https://gradle.org/install/)eller någon annan beroende hanterare.
 
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
-### <a name="create-a-computer-vision-azure-resource"></a>Skapa en Azure-resurs för datorseende
+### <a name="create-a-computer-vision-azure-resource"></a>Skapa en Visuellt innehåll Azure-resurs
 
-Azure Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Datorseende med Hjälp av [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på din lokala dator. Du kan också:
+Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Visuellt innehåll med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
 
-* Få en [testnyckel](https://azure.microsoft.com/try/cognitive-services/#decision) giltig i sju dagar gratis. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visa din resurs på [Azure-portalen](https://portal.azure.com/).
+* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Visa din resurs på [Azure Portal](https://portal.azure.com/).
 
-Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och `COMPUTER_VISION_SUBSCRIPTION_KEY` tjänstslutpunktssträngen, med namnet respektive `COMPUTER_VISION_ENDPOINT`.
+Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
 
 ### <a name="create-a-new-gradle-project"></a>Skapa ett nytt Gradle-projekt
 
-Skapa en ny katalog för appen i ett konsolfönster (till exempel cmd, PowerShell eller Bash) och navigera till den. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den. 
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Kör `gradle init` kommandot från arbetskatalogen. Det här kommandot skapar viktiga byggfiler för Gradle, inklusive *build.gradle.kts*, som används vid körning för att skapa och konfigurera ditt program.
+Kör `gradle init` kommandot från din arbets katalog. Med det här kommandot skapas viktiga build-filer för Gradle, inklusive *build. Gradle. KTS*, som används vid körning för att skapa och konfigurera ditt program.
 
 ```console
 gradle init --type basic
@@ -53,7 +53,7 @@ gradle init --type basic
 
 Välj en **DSL** när du uppmanas till det och välj **Kotlin**.
 
-Hitta *build.gradle.kts* och öppna den med önskad IDE eller textredigerare. Kopiera sedan i följande byggkonfiguration. Den här konfigurationen definierar projektet som ett Java-program vars startpunkt är klassen **ComputerVisionQuickstarts**. Det importerar datorseende biblioteket.
+Leta upp *build. gradle. KTS* och öppna den med önskad IDE-eller text redigerare. Kopiera sedan i följande build-konfiguration. Den här konfigurationen definierar projektet som ett Java-program vars start punkt är klassen **ComputerVisionQuickstarts**. Visuellt innehålls biblioteket importeras.
 
 ```kotlin
 plugins {
@@ -68,23 +68,23 @@ repositories {
 }
 ```
 
-Kör följande kommando i arbetskatalogen för att skapa en projektkällasmapp:
+Kör följande kommando från din arbets katalog för att skapa en mapp för projekt Källa:
 
 ```console
 mkdir -p src/main/java
 ```
 
-Navigera till den nya mappen och skapa en fil som heter *ComputerVisionQuickstarts.java*. Öppna den i önskad redigerare eller `import` IDE och lägg till följande satser:
+Navigera till den nya mappen och skapa en fil med namnet *ComputerVisionQuickstarts. java*. Öppna det i önskat redigerings program eller IDE och Lägg till följande `import` -uttryck:
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imports)]
 
-Lägg sedan till en klassdefinition för **ComputerVisionQuickstarts**.
+Lägg sedan till en klass definition för **ComputerVisionQuickstarts**.
 
-### <a name="install-the-client-library"></a>Installera klientbiblioteket
+### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-Den här snabbstarten använder Gradle-beroendehanteraren. Du hittar klientbiblioteket och informationen för andra beroendehanterare i [Mavens centrala databas](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+I den här snabb starten används Gradle-beroende hanteraren. Du hittar klient biblioteket och information för andra beroende hanterare på den [centrala maven-lagringsplatsen](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
 
-I projektets *version.gradle.kts-fil,* inkludera klientbiblioteket Computer Vision som ett beroende.
+I projektets *build. gradle. KTS* -fil inkluderar du visuellt innehåll klient biblioteket som ett beroende.
 
 ```kotlin
 dependencies {
@@ -92,107 +92,107 @@ dependencies {
 }
 ```
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Computer Vision Java SDK.
+Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll Java SDK.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-| [ComputerVisionClient (Dator)](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Den här klassen behövs för alla datorseendefunktioner. Du instansierar den med din prenumerationsinformation och använder den för att producera instanser av andra klasser.|
-|[ComputerVision (dator)](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Den här klassen kommer från klientobjektet och hanterar direkt alla bildåtgärder, till exempel bildanalys, textidentifiering och miniatyrgenerering.|
-|[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| Den här uppräkningen definierar de olika typer av bildanalys som kan göras i en standardanalysåtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
+| [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
+|[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Den här klassen kommer från klient objekt och hanterar direkt alla avbildnings åtgärder, till exempel bild analys, text identifiering och generering av miniatyrer.|
+|[VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
 
 ## <a name="code-examples"></a>Kodexempel
 
-Dessa kodavsnitt visar hur du utför följande uppgifter med klientbiblioteket Computer Vision för Java:
+De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehåll klient bibliotek för java:
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Analysera en bild](#analyze-an-image)
-* [Läsa tryckt och handskriven text](#read-printed-and-handwritten-text)
+* [Skriv ut och handskriven text](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Den här snabbstarten förutsätter att du har skapat `COMPUTER_VISION_SUBSCRIPTION_KEY`en [miljövariabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln Datorseende med namnet .
+> Den här snabb starten förutsätter att du har [skapat en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din `COMPUTER_VISION_SUBSCRIPTION_KEY`visuellt innehåll nyckel, med namnet.
 
-Följande kod lägger till en `main` metod i klassen och skapar variabler för resursens Azure-slutpunkt och nyckel. Du måste ange din egen slutpunktssträng, som du kan hitta genom att kontrollera avsnittet **Översikt** i Azure-portalen. 
+Följande kod lägger till en `main` Metod i klassen och skapar variabler för resursens Azure-slutpunkt och nyckel. Du måste ange din egen slut punkts sträng, som du hittar i **översikts** avsnittet av Azure Portal. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_mainvars)]
 
-Lägg sedan till följande kod för att skapa ett [ComputerVisionClient-objekt](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) och skickar det till andra metoder som du definierar senare.
+Lägg sedan till följande kod för att skapa ett [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) -objekt och skickar det till andra metoder, som du definierar senare.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_client)]
 
 > [!NOTE]
-> Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigeraren, IDE:t eller skalet som kör den för att komma åt variabeln.
+> Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln.
 
 ## <a name="analyze-an-image"></a>Analysera en bild
 
-Följande kod definierar en `AnalyzeLocalImage`metod, som använder klientobjektet för att analysera en lokal bild och skriva ut resultaten. Metoden returnerar en textbeskrivning, kategorisering, lista med taggar, identifierade ansikten, flaggor för barnförbjudet innehåll, huvudfärger och bildtyp.
+Följande kod definierar en metod, `AnalyzeLocalImage`som använder klient objekt för att analysera en lokal avbildning och skriva ut resultaten. Metoden returnerar en text beskrivning, kategorisering, lista med taggar, identifierade ansikten, olämpliga innehålls flaggor, huvud färger och bildtyp.
 
-### <a name="set-up-test-image"></a>Konfigurera testavbildning
+### <a name="set-up-test-image"></a>Konfigurera test avbildning
 
-Skapa först en **resurs/mapp** i **projektets src/main/-mapp** och lägg till en bild som du vill analysera. Lägg sedan till följande metoddefinition i klassen **ComputerVisionQuickstarts.** Om det behövs ändrar `pathToLocalImage` du värdet på bildfilen. 
+Börja med att skapa en **resurs/** mapp i ditt projekts **src/main/-** mapp och Lägg till en avbildning som du vill analysera. Lägg sedan till följande metod definition i **ComputerVisionQuickstarts** -klassen. Om det `pathToLocalImage` behövs ändrar du värdet för för att matcha bild filen. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_refs)]
 
 > [!NOTE]
-> Du kan också analysera en fjärravbildning med hjälp av webbadressen. Se exempelkoden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) för scenarier med fjärravbildningar.
+> Du kan också analysera en fjärran sluten avbildning med hjälp av dess URL. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) för scenarier som rör fjärranslutna avbildningar.
 
 ### <a name="specify-visual-features"></a>Ange visuella funktioner
 
-Ange sedan vilka visuella funktioner du vill extrahera i analysen. Se [VisualFeatureTypes-uppräkningen](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable) för en fullständig lista.
+Ange sedan vilka visuella funktioner du vill extrahera i analysen. Se [VisualFeatureTypes](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable) -uppräkningen för en fullständig lista.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
 ### <a name="analyze"></a>Analysera
-Den här metoden skriver ut detaljerade resultat till konsolen för varje omfattning av bildanalys. Vi rekommenderar att du omger det här metodanropet i ett Try/Catch-block. Metoden **analyzeImageInStream** returnerar ett **ImageAnalysis-objekt** som innehåller all extraherad information.
+Den här metoden skriver ut detaljerade resultat till-konsolen för varje omfång av bild analys. Vi rekommenderar att du omger det här metod anropet i ett try/catch-block. Metoden **analyzeImageInStream** returnerar ett **ImageAnalysis** -objekt som innehåller all extraherad information.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
 
-Följande avsnitt visar hur du tolkar den här informationen i detalj.
+I följande avsnitt visas hur du kan analysera den här informationen i detalj.
 
-### <a name="get-image-description"></a>Få bildbeskrivning
+### <a name="get-image-description"></a>Beskrivning av Hämta avbildning
 
-Följande kod hämtar listan över genererade bildtexter för bilden. Mer information finns i [Beskriv bilder](../../concept-describing-images.md).
+Följande kod hämtar listan över genererade under texter för avbildningen. Mer information finns i [Beskriv avbildningar](../../concept-describing-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
 
-### <a name="get-image-category"></a>Hämta bildkategori
+### <a name="get-image-category"></a>Hämta bild kategori
 
-Följande kod får den identifierade kategorin av bilden. Mer information finns i [Kategorisera bilder](../../concept-categorizing-images.md).
+Följande kod hämtar den identifierade kategorin för avbildningen. Mer information finns i [kategorisera bilder](../../concept-categorizing-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
 
-### <a name="get-image-tags"></a>Hämta bildtaggar
+### <a name="get-image-tags"></a>Hämta bild etiketter
 
-Följande kod hämtar uppsättningen identifierade taggar i bilden. Mer information finns i [Innehållstaggar](../../concept-tagging-images.md).
+Följande kod hämtar en uppsättning identifierade Taggar i avbildningen. Mer information finns i [innehålls etiketter](../../concept-tagging-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
 ### <a name="detect-faces"></a>Identifiera ansikten
 
-Följande kod returnerar de identifierade ytorna i bilden med sina rektangelkoordinater och väljer ansiktsattribut. Mer information finns i [Ansiktsigenkänning](../../concept-detecting-faces.md).
+Följande kod returnerar identifierade ansikten i bilden med deras Rectangle-koordinater och väljer ansikts attribut. Mer information finns i [ansikts igenkänning](../../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
-### <a name="detect-adult-racy-or-gory-content"></a>Identifiera innehåll för vuxna, racy eller blodiga
+### <a name="detect-adult-racy-or-gory-content"></a>Identifiera vuxna, vågat eller fullständig innehåll
 
-Följande kod skriver ut den upptäckta förekomsten av sexuellt innehåll i bilden. Mer information finns i [Vuxen, racy, blodiga innehåll](../../concept-detecting-adult-content.md).
+Följande kod skriver ut den identifierade förekomsten av olämpligt innehåll i bilden. Mer information finns i [vuxen, vågat, fullständig-innehåll](../../concept-detecting-adult-content.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
 
-### <a name="get-image-color-scheme"></a>Hämta bildfärgschema
+### <a name="get-image-color-scheme"></a>Hämta färg schema för bild
 
-Följande kod skriver ut de identifierade färgattributen i bilden, till exempel de dominerande färgerna och accentfärgen. Mer information finns i [Färgscheman](../../concept-detecting-color-schemes.md).
+Följande kod skriver ut de identifierade färgattributen i bilden, till exempel dominerande färger och dekor färg. Mer information finns i [färg scheman](../../concept-detecting-color-schemes.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
 
-### <a name="get-domain-specific-content"></a>Hämta domänspecifikt innehåll
+### <a name="get-domain-specific-content"></a>Hämta domänbaserat innehåll
 
-Computer Vision kan använda specialiserad modell för att göra ytterligare analys på bilder. Mer information finns i [Domänspecifikt innehåll](../../concept-detecting-domain-content.md). 
+Visuellt innehåll kan använda specialiserad modell för att utföra ytterligare analyser av avbildningar. Mer information finns i [domänbaserat innehåll](../../concept-detecting-domain-content.md). 
 
-Följande kod tolkar data om identifierade kändisar i bilden.
+Följande kod tolkar data om identifierade kändisar i avbildningen.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_celebrities)]
 
@@ -200,38 +200,38 @@ Följande kod tolkar data om identifierade landmärken i bilden.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_landmarks)]
 
-### <a name="get-the-image-type"></a>Hämta bildtypen
+### <a name="get-the-image-type"></a>Hämta avbildnings typen
 
-Följande kod skriver ut information om&mdash;vilken typ av bild det är ClipArt eller linjeritning.
+Följande kod skriver ut information om typen av bild&mdash;oavsett om den är en ClipArt-eller linje ritning.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
-## <a name="read-printed-and-handwritten-text"></a>Läsa tryckt och handskriven text
+## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
 
-Computer Vision kan läsa synlig text i en bild och konvertera den till en teckenström.
+Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström.
 
 > [!NOTE]
-> Du kan också läsa text i en fjärrbild med hjälp av webbadressen. Se exempelkoden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) för scenarier med fjärravbildningar.
+> Du kan också läsa text i en fjärran sluten avbildning med hjälp av dess URL. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) för scenarier som rör fjärranslutna avbildningar.
 
-### <a name="call-the-recognize-api"></a>Anropa API:et för identifiera
+### <a name="call-the-recognize-api"></a>Anropa API: et för igenkänning
 
-Använd först följande kod för att anropa metoden **recognizePrintedTextInStream** för den givna avbildningen. När du lägger till den här koden i `localTextImagePath` projektet måste du ersätta värdet för med sökvägen till den lokala bilden. 
+Använd först följande kod för att anropa **recognizePrintedTextInStream** -metoden för den aktuella avbildningen. När du lägger till den här koden i projektet måste du ersätta värdet för `localTextImagePath` med sökvägen till den lokala avbildningen. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 
-### <a name="print-recognize-results"></a>Skriv ut igen-resultat
+### <a name="print-recognize-results"></a>Skriv ut identifiera resultat
 
-Följande kodblock bearbetar den returnerade texten och tolkar den för att skriva ut det första ordet på varje rad. Du kan använda den här koden för att snabbt förstå strukturen för en **OcrResult-instans.**
+Följande kodblock bearbetar den returnerade texten och tolkar den för att skriva ut det första ordet på varje rad. Du kan använda den här koden för att snabbt förstå strukturen för en **OcrResult** -instans.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_print)]
 
-Slutligen stänger du ut try/catch-blocket och metoddefinitionen.
+Slutligen avslutar du try/catch-blocket och metod definitionen.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_catch)]
 
 ## <a name="run-the-application"></a>Köra appen
 
-Du kan skapa appen med:
+Du kan bygga appen med:
 
 ```console
 gradle build
@@ -245,17 +245,17 @@ gradle run
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
+Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig hur du använder Java-biblioteket För visuellt innehåll för att utföra grunduppgifter. Därefter kan du utforska referensdokumentationen om du vill veta mer om biblioteket.
+I den här snabb starten har du lärt dig hur du använder Visuellt innehåll Java-biblioteket för att utföra grundläggande uppgifter. Sedan kan du utforska referens dokumentationen och läsa mer om biblioteket.
 
 > [!div class="nextstepaction"]
->[Referens för datorseende (Java)](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
+>[Visuellt innehåll referens (Java)](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
 
 * [Vad är visuellt innehåll?](../../Home.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

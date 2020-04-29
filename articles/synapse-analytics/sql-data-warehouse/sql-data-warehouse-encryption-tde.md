@@ -12,50 +12,50 @@ ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 247691326e3aa2c8027dd0318b23a2cbfcba1efe
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745239"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde"></a>Komma igång med transparent datakryptering (TDE)
+# <a name="get-started-with-transparent-data-encryption-tde"></a>Kom igång med transparent datakryptering (TDE)
 
 > [!div class="op_single_selector"]
 >
-> * [Översikt över säkerhet](sql-data-warehouse-overview-manage-security.md)
+> * [Säkerhets översikt](sql-data-warehouse-overview-manage-security.md)
 > * [Autentisering](sql-data-warehouse-authentication.md)
 > * [Kryptering (portal)](sql-data-warehouse-encryption-tde.md)
 > * [Kryptering (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-Om du vill aktivera Transparent datakryptering (TDE) måste du vara administratör eller medlem i rollen dbmanager.
+Om du vill aktivera transparent datakryptering (TDE) måste du vara administratör eller medlem i DBManager-rollen.
 
 ## <a name="enabling-encryption"></a>Aktivera kryptering
 
-Så här aktiverar du TDE nedan:
+Om du vill aktivera TDE följer du stegen nedan:
 
-1. Öppna databasen i [Azure-portalen](https://portal.azure.com)
-2. Klicka på knappen **Inställningar** i databasbladet
-3. Välj portalinställningar för ![alternativet **Transparent datakryptering**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. Välj inställningarna ![för **På** inställning av portal på](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
+1. Öppna databasen i [Azure Portal](https://portal.azure.com)
+2. Klicka på knappen **Inställningar** i bladet databas
+3. Välj Portal inställningar för **transparent data krypterings** alternativ ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
+4. Välj **på** att ställa ![in Portal inställningar på](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
 5. Välj **Spara**
-   ![portalinställningar spara](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
+   ![Portal inställningar Spara](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
 
-## <a name="disabling-encryption"></a>Inaktivera kryptering
+## <a name="disabling-encryption"></a>Inaktiverar kryptering
 
-Så här inaktiverar du TDE nedan:
+Om du vill inaktivera TDE följer du stegen nedan:
 
-1. Öppna databasen i [Azure-portalen](https://portal.azure.com)
-2. Klicka på knappen **Inställningar** i databasbladet
-3. Välj portalinställningar för ![alternativet **Transparent datakryptering**](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
-4. Välj **Off** avinställningsportalinställningarna ![av](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
+1. Öppna databasen i [Azure Portal](https://portal.azure.com)
+2. Klicka på knappen **Inställningar** i bladet databas
+3. Välj Portal inställningar för **transparent data krypterings** alternativ ![](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
+4. Välj **inaktivera** inställnings ![Portal inställningar av](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
 5. Välj **Spara**
-   ![portalinställning spara 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
+   ![Portal inställning Spara 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
 
-## <a name="encryption-dmvs"></a>DVS för kryptering
+## <a name="encryption-dmvs"></a>Kryptering DMV: er
 
-Kryptering kan bekräftas med följande DMVs:
+Kryptering kan bekräftas med följande DMV: er:
 
-* [sys.databaser](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sys.dm_pdw_nodes_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [sys. dm_pdw_nodes_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

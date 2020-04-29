@@ -1,6 +1,6 @@
 ---
-title: Skala upp och ut i Azure Stream Analytics-jobb
-description: I den här artikeln beskrivs hur du skalar ett Stream Analytics-jobb genom att partitionera indata, justera frågan och ange jobbströmningsenheter.
+title: Skala upp och ut i Azure Stream Analytics jobb
+description: Den här artikeln beskriver hur du skalar ett Stream Analytics jobb genom att partitionera indata, justera frågan och ställa in jobb strömnings enheter.
 author: JSeb225
 ms.author: jeanb
 ms.reviewer: mamccrea
@@ -8,41 +8,41 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: d828103bef8e57f5d0cdfe6c243c52e2d0526663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80257554"
 ---
-# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala ett Azure Stream Analytics-jobb för att öka dataflödet
-Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka dataflödet för Streaming Analytics-jobb. Du kan använda följande guide för att skala ditt jobb för att hantera högre belastning och dra nytta av fler systemresurser (till exempel mer bandbredd, mer CPU-resurser, mer minne).
-Som en förutsättning kan du behöva läsa följande artiklar:
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala ett Azure Stream Analytics jobb för att öka data flödet
+Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka data flödet för strömnings analys jobb. Du kan använda följande guide för att skala jobbet för att hantera högre belastning och dra nytta av mer system resurser (till exempel mer bandbredd, mer processor resurser, mer minne).
+Som ett krav kan du behöva läsa följande artiklar:
 -   [Förstå och justera direktuppspelningsenheter](stream-analytics-streaming-unit-consumption.md)
--   [Skapa parallelliserbara jobb](stream-analytics-parallelization.md)
+-   [Skapa kan göras parallella-jobb](stream-analytics-parallelization.md)
 
-## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Fall 1 – Din fråga är till sin natur helt parallelliserbar över indatapartitioner
-Om frågan i sig är helt parallelliserbar över indatapartitioner kan du följa följande steg:
-1.  Författare din fråga att vara pinsamt parallell med hjälp av **PARTITION BY** sökord. Se mer information i avsnittet Pinsamt parallella jobb [på den här sidan](stream-analytics-parallelization.md).
-2.  Beroende på utdatatyper som används i frågan kan vissa utdata antingen inte vara parallelliserbara eller behöver ytterligare konfiguration vara pinsamt parallell. PowerBI-utdata kan till exempel inte parallelliseras. Utdata slås alltid samman innan utdatamottagaren skickas. Blobbar, Tabeller, ADLS, Service Bus och Azure-funktion parallelliseras automatiskt. SQL- och SQL DW-utgångar har ett alternativ för parallellisering. Event Hub måste ha PartitionKey-konfigurationen inställd för att matcha med **partition by-fältet** (vanligtvis PartitionId). För Event Hub, också ägna extra uppmärksamhet åt att matcha antalet partitioner för alla indata och alla utgångar för att undvika cross-over mellan partitioner. 
-3.  Kör frågan med **6 SU** (som är den fulla kapaciteten för en enda datornod) för att mäta maximalt uppnåeligt dataflöde, och om du använder **GROUP BY**mäter du hur många grupper (kardinalitet) som jobbet kan hantera. Allmänna symptom på jobbet som träffar systemresursgränser är följande.
-    - SU % utnyttjandemått är över 80%. Detta indikerar att minnesanvändningen är hög. De faktorer som bidrar till ökningen av detta mått beskrivs [här](stream-analytics-streaming-unit-consumption.md). 
-    -   Tidsstämpeln för utmatning halkar efter när det gäller väggklockan. Beroende på frågelogiken kan utdatatidsstämpeln ha en logikförskjutning från väggklockatiden. De bör dock utvecklas i ungefär samma takt. Om utdatatidsstämpeln sjunker allt längre efter är det en indikator på att systemet överarbetar. Det kan vara ett resultat av nedströms utdatamottagare begränsning, eller hög CPU-användning. Vi tillhandahåller inte cpu-utnyttjandemått just nu, så det kan vara svårt att skilja de två.
-        - Om problemet beror på sink begränsning, kan du behöva öka antalet utdatapartitioner (och även indatapartitioner för att hålla jobbet helt parallelliserbara), eller öka mängden resurser i diskhon (till exempel antalet begärande enheter för CosmosDB).
-    - I jobbdiagram finns det ett händelsemått för per partitionseftersläpning för varje indata. Om eftersläpningshändelsemåttet fortsätter att öka är det också en indikator på att systemresursen är begränsad (antingen på grund av utdatamottagaresbegränsning eller hög PROCESSOR).
-4.  När du har fastställt gränserna för vad ett 6 SU-jobb kan nå kan du extrapolera manuellt bearbetningskapaciteten för jobbet när du lägger till fler SUs, förutsatt att du inte har några data skeva som gör vissa partition "heta".
+## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Fall 1 – din fråga är helt kan göras parallella över indataceller
+Om frågan är helt kan göras parallella över inpartitioner, kan du följa stegen nedan:
+1.  Redigera frågan så att den blir köras parallell genom att använda **partition med** nyckelord. Mer information finns i avsnittet köras Parallel Jobs [på den här sidan](stream-analytics-parallelization.md).
+2.  Beroende på vilka utdatatyper som används i din fråga kan vissa utdata antingen inte kan göras parallella eller så behöver du ytterligare konfiguration för att vara köras parallell. PowerBI-utdata är till exempel inte kan göras parallella. Utdata slås alltid samman innan skickas till utgående mottagare. Blobbar, tabeller, ADLS, Service Bus och Azure-funktionen är automatiskt parallellt. SQL-och SQL DW-utdata har ett alternativ för parallellisering. Event Hub måste ha PartitionKey-konfigurationen inställd så att den matchar fältet **partition by** (vanligt vis PartitionID). För Event Hub ska du också betala extra uppmärksamhet för att matcha antalet partitioner för alla indata och alla utdata för att undvika över-över-partitioner mellan partitioner. 
+3.  Kör din fråga med **6 Su** (vilket är den fulla kapaciteten för en enskild dator) för att mäta maximalt data flöde, och om du använder **Group by**, mäter du hur många grupper (kardinalitet) jobbet kan hantera. Allmänna symtom på system resurs gränser är följande:
+    - Måttet SU% är över 80%. Detta indikerar att minnes användningen är hög. De faktorer som bidrar till ökningen av det här måttet beskrivs [här](stream-analytics-streaming-unit-consumption.md). 
+    -   Tidsstämpeln för utdata faller bakom i förhållande till väggens Klock tid. Beroende på din fråge logik kan tidsstämpeln för utdata ha en logisk förskjutning från väggens klock klocka. De bör dock förfalla i ungefär samma takt. Om tidsstämpeln för utdata faller ytterligare och ytterligare bakom, är det en indikator att systemet är överarbetat. Det kan vara ett resultat av begränsning av utgående mottagare eller hög processor användning. Vi tillhandahåller inte mått för processor användning just nu, så det kan vara svårt att särskilja de två.
+        - Om problemet beror på mottagar begränsningen kan du behöva öka antalet utgående partitioner (och även ange partitioner för att hålla jobbet fullständigt kan göras parallella) eller öka mängden resurser för mottagaren (till exempel antalet enheter för programbegäran för CosmosDB).
+    - I jobb diagram finns det ett händelse mått per partition efter varje inläsning. Om händelse måttet för efter släpning håller på att öka, är det också en indikator att system resursen är begränsad (antingen på grund av utgående Sink-begränsning eller hög CPU).
+4.  När du har fastställt gränserna för vad ett 6 SU-jobb kan komma åt kan du extrapolera linjärt bearbetnings kapaciteten för jobbet när du lägger till mer SUs, förutsatt att du inte har någon data förvrängning som gör att en viss partition är "frekvent".
 
 > [!NOTE]
-> Välj rätt antal strömningsenheter: Eftersom Stream Analytics skapar en bearbetningsnod för varje 6 SU som läggs till är det bäst att göra antalet noder till en divisor av antalet indatapartitioner, så att partitionerna kan fördelas jämnt över noderna.
-> Du har till exempel mätt ditt 6 SU-jobb kan uppnå 4 MB/s bearbetningshastighet och antalet indatapartitioner är 4. Du kan välja att köra ditt jobb med 12 SU för att uppnå ungefär 8 MB / s processorhastighet, eller 24 SU för att uppnå 16 MB / s. Du kan sedan bestämma när SU-numret ska ökas för jobbet till vilket värde, som en funktion av inmatningshastigheten.
+> Välj rätt antal enheter för strömning: eftersom Stream Analytics skapar en bearbetnings-nod för varje 6 SU-tillägg, är det bäst att göra antalet noder till en divisor av antalet indata-partitioner, så att partitionerna kan distribueras jämnt över noderna.
+> Anta att du har mätt ditt 6 SU-jobb kan uppnå 4 MB/s bearbetnings hastighet och antalet indata-partitioner är 4. Du kan välja att köra jobbet med 12 SU för att uppnå ungefär 8 MB/s bearbetnings hastighet eller 24-SU för att uppnå 16 MB/s. Du kan sedan bestämma när du vill öka ditt SU-nummer för jobbet till det värde som är en funktion i din ingångs takt.
 
 
-## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Fall 2 - Om din fråga inte är pinsamt parallell.
-Om frågan inte är pinsamt parallell kan du följa följande steg.
-1.  Börja med en fråga utan **PARTITION BY** först för att undvika partitionering komplexitet, och kör din fråga med 6 SU för att mäta maximal belastning som i [fall 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
-2.  Om du kan uppnå din förväntade belastning i tid för dataflöde, är du klar. Alternativt kan du välja att mäta samma jobb som körs på 3 SU och 1 SU, för att ta reda på det minsta antalet SU som fungerar för ditt scenario.
-3.  Om du inte kan uppnå önskat dataflöde kan du försöka dela upp frågan i flera steg om möjligt, om den inte redan har flera steg och allokera upp till 6 SU för varje steg i frågan. Om du till exempel har 3 steg allokerar du 18 SU i alternativet "Skala".
-4.  När stream Analytics kör ett sådant jobb placeras varje steg på sin egen nod med dedikerade 6 SU-resurser. 
-5.  Om du fortfarande inte har uppnått ditt belastningsmål kan du försöka använda **PARTITION BY** från stegen närmare indata. För **operatorN GROUP BY** som kanske inte är naturligt partitionerbar kan du använda det lokala/globala samlingsmönstret för att utföra en partitionerad GROUP **BY** följt av en icke-partitionerad **GROUP BY**. Om du till exempel vill räkna hur många bilar som går igenom varje betalbås var tredje minut, och datavolymen är utöver vad som kan hanteras av 6 SU.
+## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Fall 2 – om frågan inte är köras parallell.
+Om frågan inte är köras parallell kan du följa stegen nedan.
+1.  Börja med en fråga utan **partition genom** att först för att undvika partitionerings komplexitet och kör din fråga med 6 Su för att mäta den maximala belastningen som i [fall 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
+2.  Om du kan uppnå din förväntade belastning i data flödes perioden är du färdig. Alternativt kan du välja att mäta samma jobb som körs på 3 SU och 1 SU för att ta reda på det minsta antalet SU som fungerar för ditt scenario.
+3.  Om du inte kan uppnå det önskade data flödet kan du försöka dela upp frågan i flera steg om möjligt, om det inte finns flera steg och allokera upp till 6 SU för varje steg i frågan. Om du till exempel har tre steg tilldelar du 18 SU i alternativet "skala".
+4.  När du kör ett sådant jobb placerar Stream Analytics varje steg på en egen nod med dedikerade 6 SU-resurser. 
+5.  Om du fortfarande inte har uppnått ditt belastnings mål kan du försöka använda en **partition genom** att börja med steg närmare inaktuella inaktuella. För **Group by** -operatorer som kanske inte är naturligt partitionerable kan du använda det lokala/globala samlings mönstret för att utföra en partitionerad **grupp genom** att följa av en icke-partitionerad **grupp av**. Om du till exempel vill räkna hur många bilar som passerar varje väg på varje 3 minuter, och data volymen ligger bortom vad som kan hanteras av 6 SU.
 
 Fråga:
 
@@ -56,29 +56,29 @@ Fråga:
  FROM Step1
  GROUP BY TumblingWindow(minute, 3), TollBoothId
  ```
-I frågan ovan räknar du bilar per vägtullmonter per partition och lägger sedan till antalet från alla partitioner tillsammans.
+I frågan ovan ska du räkna bilar per väg-Monte per partition och sedan lägga till antalet från alla partitioner.
 
-När partitioneras, för varje partition i steget, fördela upp till 6 SU, varje partition med 6 SU är den maximala, så varje partition kan placeras på sin egen bearbetning nod.
+Efter att ha partitioner ATS, för varje partition i steget, allokera upp till 6 SU, är varje partition med 6 SU det högsta, så varje partition kan placeras på en egen bearbetnings nod.
 
 > [!Note]
-> Om frågan inte kan partitioneras kan det hända att lägga till ytterligare SU i en fråga i flera steg inte alltid förbättrar dataflödet. Ett sätt att få prestanda är att minska volymen på de första stegen med hjälp av lokala / globala aggregerade mönster, som beskrivs ovan i steg 5.
+> Om din fråga inte kan partitioneras kan du inte alltid förbättra genomflödet genom att lägga till ytterligare SU i en fråga med flera steg. Ett sätt att få prestanda är att minska volymen på de första stegen med hjälp av ett lokalt/globalt samlings mönster, enligt beskrivningen ovan i steg 5.
 
-## <a name="case-3---you-are-running-lots-of-independent-queries-in-a-job"></a>Fall 3 - Du kör massor av oberoende frågor i ett jobb.
-För vissa ISV-användningsfall, där det är mer kostnadseffektivt att bearbeta data från flera klienter i ett enda jobb, med hjälp av separata indata och utdata för varje klient, kan du sluta köra en hel del (till exempel 20) oberoende frågor i ett enda jobb. Antagandet är varje sådan subquery belastning är relativt liten. I det här fallet kan du följa följande steg.
-1.  Använd i så fall inte **PARTITION BY** i frågan
-2.  Minska antalet indatapartitioner till lägsta möjliga värde på 2 om du använder Event Hub.
-3.  Kör frågan med 6 SU. Med förväntad belastning för varje underkö lägger du till så många sådana underfrågor som möjligt tills jobbet når systemresursgränser. Se [fall 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) för symtomen när detta inträffar.
-4.  När du har nått den underköna gräns som mäts ovan börjar du lägga till underfrågan i ett nytt jobb. Antalet jobb som ska köras som en funktion av antalet oberoende frågor bör vara ganska linjärt, förutsatt att du inte har någon belastning skeva. Du kan sedan prognostisera hur många 6 SU-jobb du behöver köra som en funktion av antalet klienter som du vill betjäna.
-5.  När du använder referensdata gå med sådana frågor, union indata tillsammans innan du går med samma referensdata. Dela sedan upp händelserna om det behövs. Annars behåller varje referensdatakoppling en kopia av referensdata i minnet, vilket sannolikt blåser upp minnesanvändningen i onödan.
+## <a name="case-3---you-are-running-lots-of-independent-queries-in-a-job"></a>Fall 3 – du kör många oberoende frågor i ett jobb.
+För vissa ISV-användningsfall, där det är mer kostnads effektivt att bearbeta data från flera klienter i ett enda jobb, med separata indata och utdata för varje klient, kan du komma igång med några av de (till exempel 20) oberoende frågorna i ett enda jobb. Detta förutsätter att inläsning av under frågor är relativt litet. I så fall kan du följa stegen nedan.
+1.  I det här fallet ska du inte använda **partitionen** i frågan
+2.  Minska antalet startpartitioner till det lägsta möjliga värdet 2 om du använder Event Hub.
+3.  Kör frågan med 6 SU. Med förväntad belastning för varje under fråga lägger du till så många sådana under frågor som möjligt, tills jobbet når system resurs gränser. Se [fall 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) för symptomen när detta inträffar.
+4.  När du har nått gränsen för under frågan som mäts ovan börjar du lägga till under frågan i ett nytt jobb. Antalet jobb som ska köras som en funktion av antalet oberoende frågor bör vara relativt linjärt, förutsatt att du inte har någon belastnings skev. Sedan kan du beräkna hur många av de 6 SU-jobb som du behöver köra som en funktion av antalet klienter som du vill betjäna.
+5.  När du använder referens data koppling med sådana frågor, Union indatan innan du ansluter till samma referens data. Dela sedan upp händelserna om det behövs. Annars behåller varje referens data koppling en kopia av referens data i minnet, vilket troligt vis tar upp minnes användningen i onödan.
 
 > [!Note] 
-> Hur många hyresgäster att sätta i varje jobb?
-> Det här frågemönstret har ofta ett stort antal underfrågor och resulterar i mycket stor och komplex topologi. Den registeransvarige för jobbet kanske inte kan hantera en så stor topologi. Som en tumregel, stanna under 40 hyresgäster för 1 SU jobb, och 60 hyresgäster för 3 SU och 6 SU jobb. När du överskrider styrenhetens kapacitet startar inte jobbet.
+> Hur många klienter ska beställas i varje jobb?
+> Det här fråge mönstret har ofta ett stort antal under frågor och resulterar i mycket stor och komplex topologi. Jobbets kontrollant kanske inte kan hantera en sådan stor topologi. Som en tumregel kan du hålla dig under 40 klienter för ett SU-jobb och 60-klienter för 3 SU-och 6 SU-jobb. När du har överskridit enhetens kapacitet kommer inte jobbet att starta.
 
 
 
 ## <a name="get-help"></a>Få hjälp
-Om du vill ha mer hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)

@@ -1,105 +1,105 @@
 ---
 title: Roller och krav för Azure Data Share
-description: Lär dig mer om de behörigheter som krävs för att dela och ta emot data med Azure Data Share.
+description: Läs om de behörigheter som krävs för att dela och ta emot data med Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265511"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roller och krav för Azure Data Share 
 
-I den här artikeln beskrivs roller och behörigheter som krävs för att dela och ta emot data med azure data share-tjänsten. 
+Den här artikeln beskriver roller och behörigheter som krävs för att dela och ta emot data med Azure Data Share-tjänsten. 
 
 ## <a name="roles-and-requirements"></a>Roller och krav
 
-Med Azure Data Share-tjänsten kan du dela data utan att utbyta autentiseringsuppgifter mellan dataprovider och konsument. Azure Data Share-tjänsten använder hanterade identiteter (tidigare kallade MSI:er) för att autentisera till Azure-datalager. 
+Med Azure Data Share-tjänsten kan du dela data utan att utbyta autentiseringsuppgifter mellan data leverantören och konsumenten. Azure Data Share-tjänsten använder hanterade identiteter (kallades tidigare MSIs) för att autentisera till Azure Data Store. 
 
-Azure Data Share-resursens hanterade identitet måste beviljas åtkomst till Azure-datalager. Azure Data Share-tjänsten använder sedan den här hanterade identiteten för att läsa och skriva data för ögonblicksbildbaserad delning och för att upprätta en symbolisk länk för delning på plats. 
+Azure Data Share-resursens hanterade identitet måste beviljas åtkomst till Azure Data Store. Azure Data Sharing-tjänsten använder sedan den här hanterade identiteten för att läsa och skriva data för ögonblicks bilds delning och för att upprätta en symbolisk länk för delning på plats. 
 
-För att dela eller ta emot data från ett Azure-datalager behöver användaren minst följande behörigheter. Ytterligare behörigheter krävs för SQL-baserad delning.
-* Behörighet att skriva till Azure-datalagret. Vanligtvis finns den här behörigheten i rollen **Deltagare.**
-* Behörighet att skapa rolltilldelning i Azure-datalagret. Vanligtvis finns behörighet att skapa rolltilldelningar i rollen **Ägare,** rollen Administratör för Användaråtkomst eller en anpassad roll med Microsoft.Authorization/rolltilldelningar/skrivbehörighet som tilldelats. Den här behörigheten krävs inte om dataresursresursens hanterade identitet redan har beviljats åtkomst till Azure-datalagret. Se tabellen nedan för önskad roll.
+För att kunna dela eller ta emot data från ett Azure-datalager behöver användaren minst följande behörigheter. Ytterligare behörigheter krävs för SQL-baserad delning.
+* Behörighet att skriva till Azure Data Store. Den här behörigheten finns normalt i **deltagar** rollen.
+* Behörighet att skapa roll tilldelning i Azure Data Store. Normalt finns behörighet att skapa roll tilldelningar i **ägar** rollen, rollen administratör för användar åtkomst eller en anpassad roll med Microsoft. auktorisering/roll tilldelningar/Skriv behörighet tilldelad. Den här behörigheten krävs inte om data resurs resursens hanterade identitet redan har beviljats åtkomst till Azure Data Store. Se tabellen nedan för den obligatoriska rollen.
 
-Nedan följer en sammanfattning av de roller som tilldelats datadelningsresursens hanterade identitet:
-
-| |  |  |
-|---|---|---|
-|**Typ av datalager**|**Datalager för dataproviderkälla**|**Data Konsumentmåldata store**|
-|Azure Blob Storage| Dataläsare för lagringsblobb | Storage Blob Data Contributor
-|Azure Data Lake Gen1 | Ägare | Stöds inte
-|Azure Data Lake Gen2 | Dataläsare för lagringsblobb | Storage Blob Data Contributor
-|Azure SQL Server | SQL DB-deltagare | SQL DB-deltagare
-|Azure Data Explorer-kluster | Deltagare | Deltagare
-|
-
-För SQL-baserad delning måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som Azure Data Share-resursen. Nedan följer en sammanfattning av den behörighet som krävs av SQL-användaren.
+Nedan visas en sammanfattning av de roller som tilldelats till data resursen resursens hanterade identitet:
 
 | |  |  |
 |---|---|---|
-|**SQL-databastyp**|**Sql-användarbehörighet för dataprovider**|**Användarbehörighet för datakonsument SQL**|
-|Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
-|Azure Synapse Analytics (tidigare SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|**Data lager typ**|**Data lager för DataProvider-källa**|**Data lager för data konsument mål**|
+|Azure Blob Storage| Storage BLOB data Reader | Storage BLOB data-deltagare
+|Azure Data Lake gen1 | Ägare | Stöds inte
+|Azure Data Lake Gen2 | Storage BLOB data Reader | Storage BLOB data-deltagare
+|Azure-SQL Server | SQL DB-deltagare | SQL DB-deltagare
+|Azure Datautforskaren-kluster | Deltagare | Deltagare
+|
+
+För SQL-baserad delning måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som Azure Data Resource-resursen. Nedan visas en sammanfattning av den behörighet som krävs av SQL-användaren.
+
+| |  |  |
+|---|---|---|
+|**SQL Database typ**|**SQL användar behörighet för DataProvider**|**Användar behörighet för data Consumer SQL**|
+|Azure SQL Database | db_datareader | db_datareader db_datawriter db_ddladmin
+|Azure Synapse Analytics (tidigare SQL DW) | db_datareader | db_datareader db_datawriter db_ddladmin
 |
 
 
-### <a name="data-provider"></a>Uppgiftslämnare 
-Om du vill lägga till en datauppsättning i Azure Data Share måste providerdataresursens hanterade identitet beviljas åtkomst till källdatalagringen i Azure. När det till exempel gäller lagringskonto beviljas dataresursens hanterade identitet rollen Storage Blob Data Reader. 
+### <a name="data-provider"></a>Data leverantör 
+Om du vill lägga till en data uppsättning i Azure Data-resursen måste providerns hanterade identitet beviljas åtkomst till Azure Data Store-källan. Om lagrings kontot t. ex. är beviljat, beviljas data resursens hanterade identitet rollen Storage BLOB data Reader. 
 
-Detta görs automatiskt av Azure Data Share-tjänsten när användaren lägger till datauppsättning via Azure-portalen och användaren har rätt behörighet. Användaren är till exempel ägare till Azure-datalagret eller är medlem i en anpassad roll som har tilldelats Tilldelnings-/rolltilldelningar/skrivbehörighet för Microsoft.Authorization/role. 
+Detta görs automatiskt av Azure Data Share-tjänsten när användaren lägger till data uppsättningen via Azure Portal och användaren har rätt behörighet. Till exempel är användaren en ägare till Azure Data Store eller är medlem i en anpassad roll som har tilldelats behörigheten Microsoft. auktorisering/roll tilldelningar/Skriv. 
 
-Alternativt kan användaren ha ägaren av Azure-datalagret lägga till dataresursens hanterade identitet i Azure-datalagret manuellt. Den här åtgärden behöver bara utföras en gång per dataresurs.
+Alternativt kan användaren ha ägaren till Azure Data Store och lägga till data resurs resursens hanterade identitet i Azure Data Store manuellt. Den här åtgärden behöver bara utföras en gång per data resurs resurs.
 
-Så här skapar du en rolltilldelning för dataresursresursens hanterade identitet:
+Följ stegen nedan om du vill skapa en roll tilldelning för data resurs resursens hanterade identitet:
 
-1. Navigera till Azure-datalagret.
-1. Välj **Åtkomstkontroll (IAM)**.
-1. Välj **Lägg till en rolltilldelning**.
-1. Under *Roll*väljer du rollen i rolltilldelningstabellen ovan (till exempel för lagringskonto väljer du *Storage Blob Data Reader*).
-1. Skriv in namnet på din Azure Data Share-resurs under *Välj.*
+1. Gå till Azure Data Store.
+1. Välj **Access Control (IAM)**.
+1. Välj **Lägg till en roll tilldelning**.
+1. Under *roll*väljer du rollen i roll tilldelnings tabellen ovan (till exempel för lagrings konto väljer du *Storage BLOB data Reader*).
+1. Under *Välj*anger du namnet på din Azure Data Resource-resurs.
 1. Klicka på *Spara*.
 
-För SQL-baserade källor måste en SQL-användare, utöver ovanstående steg, skapas från en extern provider i SQL-databasen med samma namn som Azure Data Share-resursen. Den här användaren måste beviljas *db_datareader* behörighet. Ett exempelskript tillsammans med andra förutsättningar för SQL-baserad delning finns i [resursstudien för data.](share-your-data.md) 
+Förutom stegen ovan i SQL-baserade källor måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som data resurs resursen i Azure. Den här användaren måste beviljas *db_datareader* -behörighet. Ett exempel skript tillsammans med andra krav för SQL-baserad delning finns i själv studie kursen [Dela dina data](share-your-data.md) . 
 
 ### <a name="data-consumer"></a>Data konsument
-För att ta emot data måste konsumentdataresursens hanterade identitet beviljas åtkomst till mål azure-datalagret. När det till exempel gäller lagringskonto beviljas dataresursens hanterade identitet rollen Storage Blob Data Contributor. 
+För att kunna ta emot data måste klient organisationens hanterade identitet beviljas åtkomst till Azure Data Store-målet. Om lagrings kontot till exempel är beviljat, beviljas rollen Storage BLOB data Contributor av data resursens hanterade identitet. 
 
-Detta görs automatiskt av Azure Data Share-tjänsten om användaren anger ett måldatalager via Azure-portalen och användaren har rätt behörighet. Användaren är till exempel ägare till Azure-datalagret eller är medlem i en anpassad roll som har tilldelats tilldelningar/skrivbehörighet för Microsoft.Authorization/role. 
+Detta görs automatiskt av Azure Data Share-tjänsten om användaren anger ett mål data lager via Azure Portal och användaren har rätt behörighet. Till exempel är användaren en ägare till Azure Data Store eller är medlem i en anpassad roll som har tilldelats behörigheten Microsoft. auktorisering/roll tilldelningar/Skriv. 
 
-Alternativt kan användaren ha ägaren av Azure-datalagret lägga till dataresursens hanterade identitet i Azure-datalagret manuellt. Den här åtgärden behöver bara utföras en gång per dataresurs.
+Alternativt kan användaren ha ägaren till Azure Data Store och lägga till data resurs resursens hanterade identitet i Azure Data Store manuellt. Den här åtgärden behöver bara utföras en gång per data resurs resurs.
 
-Så här skapar du en rolltilldelning för dataresursresursens hanterade identitet manuellt:
+Om du vill skapa en roll tilldelning för data resurs resursens hanterade identitet manuellt följer du stegen nedan:
 
-1. Navigera till Azure-datalagret.
-1. Välj **Åtkomstkontroll (IAM)**.
-1. Välj **Lägg till en rolltilldelning**.
-1. Under *Roll*väljer du rollen i rolltilldelningstabellen ovan (till exempel för lagringskonto väljer du *Storage Blob Data Reader*).
-1. Skriv in namnet på din Azure Data Share-resurs under *Välj.*
+1. Gå till Azure Data Store.
+1. Välj **Access Control (IAM)**.
+1. Välj **Lägg till en roll tilldelning**.
+1. Under *roll*väljer du rollen i roll tilldelnings tabellen ovan (till exempel för lagrings konto väljer du *Storage BLOB data Reader*).
+1. Under *Välj*anger du namnet på din Azure Data Resource-resurs.
 1. Klicka på *Spara*.
 
-För SQL-baserat mål måste en SQL-användare, utöver ovanstående steg, skapas från en extern provider i SQL-databasen med samma namn som Azure Data Share-resursen. Den här användaren måste beviljas *db_datareader, db_datawriter, db_ddladmin* behörighet. Ett exempelskript tillsammans med andra förutsättningar för SQL-baserad delning finns i självstudiekursen [för att acceptera och ta emot data.](subscribe-to-data-share.md) 
+För SQL-baserat mål måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som Azure Data Resource-resursen, förutom stegen ovan. Den här användaren måste beviljas *db_datareader db_datawriter db_ddladmin* behörighet. Ett exempel skript tillsammans med andra krav för SQL-baserad delning finns i själv studie kursen [Godkänn och ta emot data](subscribe-to-data-share.md) . 
 
-Om du delar data med REST API:er måste du skapa dessa rolltilldelningar manuellt. 
+Om du delar data med hjälp av REST API: er måste du skapa roll tilldelningarna manuellt. 
 
-Mer information om hur du lägger till en rolltilldelning finns i [den här dokumentationen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). 
+Mer information om hur du lägger till en roll tilldelning finns i [den här dokumentationen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). 
 
-## <a name="resource-provider-registration"></a>Registrering av resursprovider 
+## <a name="resource-provider-registration"></a>Registrering av resurs leverantör 
 
-Om du vill visa inbjudan till Azure-datadelning för första gången i din Azure-klient kan du behöva registrera Microsoft.DataShare-resursleverantören manuellt i din Azure-prenumeration. Följ dessa steg för att registrera Microsoft.DataShare-resursleverantören i din Azure-prenumeration. Du behöver *deltagaråtkomst* till Azure-prenumerationen för att registrera resursprovidern.
+Om du vill visa Azure Data Share-inbjudan för första gången i din Azure-klient kan du behöva registrera Microsoft. DataShare-resurs leverantören manuellt i din Azure-prenumeration. Följ de här stegen för att registrera Microsoft. DataShare-resurs leverantören i din Azure-prenumeration. Du behöver *deltagar* åtkomst till Azure-prenumerationen för att registrera resurs leverantören.
 
-1. Navigera till **Prenumerationer**i Azure-portalen .
-1. Välj den prenumeration som du använder för Azure Data Share.
-1. Klicka på **Resursleverantörer**.
-1. Sök efter Microsoft.DataShare.
+1. I Azure Portal navigerar du till **prenumerationer**.
+1. Välj den prenumeration som du använder för Azure Data-resursen.
+1. Klicka på **resurs leverantörer**.
+1. Sök efter Microsoft. DataShare.
 1. Klicka på **Registrera**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om roller i Azure – [Förstå rolldefinitioner](../role-based-access-control/role-definitions.md)
+- Lär dig mer om roller i Azure – [förstå roll definitioner](../role-based-access-control/role-definitions.md)
 

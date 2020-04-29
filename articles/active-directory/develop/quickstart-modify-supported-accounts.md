@@ -1,5 +1,5 @@
 ---
-title: Ändra Konton för Microsoft identifiera plattformsapp | Azure
+title: Ändra Microsoft identifiera plattforms program konton | Azure
 description: Konfigurera en app registrerad på Microsoft Identity Platform för att ändra vilka, eller vilka konton, som har åtkomst till appen.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80050231"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabbstart: Ändra konton som stöds av ett program
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabb start: ändra de konton som stöds av ett program
 
 När du registrerar en app på Microsoft Identity Platform vill du kanske att appen endast kan kommas åt av användare i din organisation. Du kan också vilja att appen är åtkomlig för användare i externa organisationer eller av användare i externa i organisationer samt användare som inte nödvändigtvis är en del av en organisation (personliga konton).
 
@@ -39,7 +39,7 @@ Innan du kan konfigurera appen gör du följande:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory-tjänsten** och väljer sedan **Appregistreringar**.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att [ändra appregistreringen för att stödja olika konton](#change-the-application-registration-to-support-different-accounts).
 1. Om du har en ensidesapplikation [aktiverar du implicit OAuth 2.0-beviljande](#enable-oauth-20-implicit-grant-for-single-page-applications).

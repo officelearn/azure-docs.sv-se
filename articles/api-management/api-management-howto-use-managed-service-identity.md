@@ -1,5 +1,5 @@
 ---
-title: Använda hanterade identiteter i Azure API Management | Microsoft-dokument
+title: Använda hanterade identiteter i Azure API Management | Microsoft Docs
 description: Lär dig hur du använder hanterade identiteter i API Management
 services: api-management
 documentationcenter: ''
@@ -12,31 +12,31 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249638"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Använda hanterade identiteter i Azure API Management
 
-Den här artikeln visar hur du skapar en hanterad identitet för en API Management-tjänstinstans och hur du får åtkomst till andra resurser. En hanterad identitet som genereras av Azure Active Directory (Azure AD) gör att din API Management-instans enkelt och säkert kan komma åt andra Azure AD-skyddade resurser, till exempel Azure Key Vault. Den här identiteten hanteras av Azure och kräver inte att du etablerar eller roterar några hemligheter. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
+Den här artikeln visar hur du skapar en hanterad identitet för en API Management tjänst instans och hur du kommer åt andra resurser. En hanterad identitet som genereras av Azure Active Directory (Azure AD) gör att API Management-instansen enkelt och säkert kan komma åt andra Azure AD-skyddade resurser, till exempel Azure Key Vault. Den här identiteten hanteras av Azure och kräver inte att du etablerar eller roterar några hemligheter. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Skapa en hanterad identitet för en API Management-instans
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Skapa en hanterad identitet för en API Management instans
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Om du vill konfigurera en hanterad identitet i portalen skapar du först en API Management-instans som vanligt och aktiverar sedan funktionen.
+Om du vill konfigurera en hanterad identitet i portalen skapar du först en API Management-instans som normal och aktiverar sedan funktionen.
 
-1. Skapa en API Management-instans i portalen som vanligt. Gå till den i portalen.
-2. Välj **Hanterade tjänstidentiteter**.
-3. Växla registrera med Azure Active Directory till På. Klicka på Spara.
+1. Skapa en API Management-instans i portalen på vanligt sätt. Gå till den i portalen.
+2. Välj **hanterade tjänst identiteter**.
+3. Växla register med Azure Active Directory till på. Klicka på Spara.
 
 ![Aktivera MSI](./media/api-management-msi/enable-msi.png)
 
-### <a name="using-the-azure-resource-manager-template"></a>Använda Azure Resource Manager-mallen
+### <a name="using-the-azure-resource-manager-template"></a>Använda Azure Resource Manager mall
 
-Du kan skapa en API Management-instans med en identitet genom att inkludera följande egenskap i resursdefinitionen:
+Du kan skapa en API Management-instans med en identitet genom att inkludera följande egenskap i resurs definitionen:
 
 ```json
 "identity" : {
@@ -44,9 +44,9 @@ Du kan skapa en API Management-instans med en identitet genom att inkludera föl
 }
 ```
 
-Detta talar om för Azure att skapa och hantera identiteten för din API Management-instans.
+Detta meddelar Azure att skapa och hantera identiteten för din API Management-instans.
 
-En komplett Azure Resource Manager-mall kan till exempel se ut så här:
+En fullständig Azure Resource Manager mall kan till exempel se ut så här:
 
 ```json
 {
@@ -72,19 +72,19 @@ En komplett Azure Resource Manager-mall kan till exempel se ut så här:
     }]
 }
 ```
-## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Använd den hanterade tjänstidentiteten för att komma åt andra resurser
+## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Använd den hanterade tjänst identiteten för att få åtkomst till andra resurser
 
 > [!NOTE]
-> För närvarande kan hanterade identiteter användas för att hämta certifikat från Azure Key Vault för anpassade domännamn för API Management. Fler scenarier kommer att stödjas snart.
+> För närvarande kan hanterade identiteter användas för att hämta certifikat från Azure Key Vault för API Management anpassade domän namn. Fler scenarier kommer snart att stödjas.
 >
 >
 
 
-### <a name="obtain-a-certificate-from-azure-key-vault"></a>Skaffa ett certifikat från Azure Key Vault
+### <a name="obtain-a-certificate-from-azure-key-vault"></a>Hämta ett certifikat från Azure Key Vault
 
 #### <a name="prerequisites"></a>Krav
-1. Nyckelvalvet som innehåller pfx-certifikatet måste finnas i samma Azure-prenumeration och samma resursgrupp som API Management-tjänsten. Detta är ett krav i Azure Resource Manager-mallen.
-2. Innehållet typ av hemligheten måste vara *ansökan/x-pkcs12*. Du kan använda följande skript för att ladda upp certifikatet:
+1. Key Vault som innehåller PFX-certifikatet måste finnas i samma Azure-prenumeration och samma resurs grupp som API Managements tjänsten. Detta är ett krav för Azure Resource Manager-mallen.
+2. Innehålls typen för hemligheten måste vara *Application/x-PKCS12*. Du kan använda följande skript för att ladda upp certifikatet:
 
 ```powershell
 $pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
@@ -101,13 +101,13 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 ```
 
 > [!Important]
-> Om objektversionen av certifikatet inte tillhandahålls hämtas automatiskt den nyare versionen av certifikatet när det har överförts till Key Vault.
+> Om objekt versionen av certifikatet inte anges får API Management automatiskt den nyare versionen av certifikatet när den har laddats upp till Key Vault.
 
-I följande exempel visas en Azure Resource Manager-mall som innehåller följande steg:
+I följande exempel visas en Azure Resource Manager mall som innehåller följande steg:
 
 1. Skapa en API Management-instans med en hanterad identitet.
-2. Uppdatera åtkomstprinciperna för en Azure Key Vault-instans och gör det möjligt för API Management-instansen att hämta hemligheter från den.
-3. Uppdatera API Management-instansen genom att ange ett anpassat domännamn via ett certifikat från Key Vault-instansen.
+2. Uppdatera åtkomst principerna för en Azure Key Vault-instans och Tillåt att API Management-instansen hämtar hemligheter från den.
+3. Uppdatera API Management-instansen genom att ange ett eget domän namn genom ett certifikat från Key Vault-instansen.
 
 ```json
 {
@@ -233,7 +233,7 @@ I följande exempel visas en Azure Resource Manager-mall som innehåller följan
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hanterade identiteter för Azure-resurser:
+Lär dig mer om hanterade identiteter för Azure-resurser:
 
 * [Vad är hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure Resource Manager-mallar](https://github.com/Azure/azure-quickstart-templates)

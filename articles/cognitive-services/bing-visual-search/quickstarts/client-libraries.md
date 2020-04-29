@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Använda klientbiblioteket Bing Visual Search'
+title: 'Snabb start: Använd Visuell sökning i Bing klient bibliotek'
 titleSuffix: Azure Cognitive Services
-description: Visual Search API erbjuder klientbibliotek som gör det enkelt att integrera sökfunktioner i dina program. Använd den här snabbstarten för att börja skicka sökförfrågningar och få tillbaka resultat.
+description: 'Visuell sökning-API: t erbjuder klient bibliotek som gör det enkelt att integrera Sök funktioner i dina program. Använd den här snabb starten för att börja skicka Sök begär Anden och få tillbaka resultatet.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: e1d3a947df486cd347c17afae5d8dbce21878e09
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549997"
 ---
-# <a name="quickstart-use-the-bing-visual-search-client-library"></a>Snabbstart: Använda klientbiblioteket Bing Visual Search
+# <a name="quickstart-use-the-bing-visual-search-client-library"></a>Snabb start: Använd Visuell sökning i Bing klient bibliotek
 
 ::: zone pivot="programming-language-csharp"
 

@@ -1,56 +1,56 @@
 ---
-title: Återgivningslägen
-description: Beskriver de olika återgivningslägena på serversidan
+title: Renderingsmodeller
+description: Beskriver de olika åter givnings lägena på Server Sidan
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681706"
 ---
-# <a name="rendering-modes"></a>Återgivningslägen
+# <a name="rendering-modes"></a>Renderingsmodeller
 
-Fjärrrendering erbjuder två huvudsakliga driftslägen, **TileBasedComposition-läge** och **DepthBasedComposition-läge.** Dessa lägen avgör hur arbetsbelastningen fördelas över flera GPU:er på servern. Läget måste anges vid anslutningstillfället och kan inte ändras under körning.
+Fjärrrendering erbjuder två huvudsakliga drift lägen, **TileBasedComposition** läge och **DepthBasedComposition** läge. Dessa lägen avgör hur arbets belastningen distribueras över flera GPU: er på servern. Läget måste anges vid anslutnings tillfället och kan inte ändras under körning.
 
-Båda lägena kommer med fördelar men också med inneboende funktionsbegränsningar, så att välja det lämpligaste läget är användningsfallspecifikt.
+Båda lägena har fördelar, men även med funktioner för inbyggd funktion, så att du väljer det mest lämpliga läget är användnings fall.
 
 ## <a name="modes"></a>Lägen
 
-De två lägena diskuteras nu mer i detalj.
+De två lägena diskuteras nu i detalj.
 
-### <a name="tilebasedcomposition-mode"></a>Läget TileBasedComposition
+### <a name="tilebasedcomposition-mode"></a>"TileBasedComposition"-läge
 
-I **TileBasedComposition-läge** återger varje involverad GPU specifika undersektorer (paneler) på skärmen. Huvud-GPU komponerar den slutliga bilden från panelerna innan den skickas som en videobildruta till klienten. Därför kräver alla GPU:er att ha samma uppsättning resurser för rendering, så de inlästa tillgångarna måste passa in i en enda GPU minne.
+I **TileBasedComposition** -läge återger varje involverad GPU vissa underrektanglar (paneler) på skärmen. Huvud-GPU: n skapar den slutliga bilden från panelerna innan den skickas som en video bild ruta till klienten. Därför kräver alla GPU: er samma uppsättning resurser för åter givning, så de inlästa till gångarna måste anpassas till en enda GPU-minne.
 
-Renderingskvaliteten i det här läget är något bättre än i **DepthBasedComposition-läge,** eftersom MSAA kan arbeta med hela uppsättningen geometri för varje GPU. Följande skärmdump visar att kantutjämning fungerar korrekt för båda kanterna likaså:
+Åter givnings kvaliteten i det här läget är något bättre än i **DepthBasedComposition** -läge eftersom MSAA kan arbeta med en fullständig uppsättning geometri för varje GPU. Följande skärm bild visar att kant utjämning fungerar korrekt för båda kanterna på samma sätt:
 
 ![MSAA i TileBasedComposition](./media/service-render-mode-quality.png)
 
-I det här läget kan dessutom varje del växlas till ett transparent material eller växlas till **genomskinligt** läge via [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md)
+Dessutom kan varje del i det här läget växlas till ett genomskinligt material eller växlas för att **se igenom** läget via [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md)
 
 ### <a name="depthbasedcomposition-mode"></a>"DepthBasedComposition"-läge
 
-I **DepthBasedComposition-läge** återges varje involverad GPU med full skärmupplösning men bara en delmängd av maskor. Den slutliga bildkompositionen på huvud-GPU:n ser till att delarna slås ihop korrekt enligt deras djupinformation. Naturligtvis är minne nyttolast fördelas över GPU: er, vilket möjliggör rendering modeller som inte skulle passa in i en enda GPU minne.
+I **DepthBasedComposition** -läge återges alla berörda GPU: n i full skärmupplösning, men endast en delmängd av nät. Den slutliga bild kompositionen på den primära GPU: n tar hänsyn till att delar är korrekt sammanfogade utifrån deras djup information. Naturlig minnes nytto Last fördelas över GPU: er, vilket möjliggör åter givning av modeller som inte passar in i en enda GPU-minne.
 
-Varje enskild GPU använder MSAA för att kantutjämning lokalt innehåll. Det kan dock finnas inneboende aliasing mellan kanter från olika GPU: er. Den här effekten mildras genom att den slutliga bilden efterbehandlings, men MSAA-kvaliteten är fortfarande sämre än i **tilebasedcomposition-läge.**
+Varje enskild GPU använder MSAA för lokalt innehåll i ett alias. Det kan dock finnas inbyggda alias mellan kanter från distinkta GPU: er. Den här åtgärden begränsas av postprocessing den slutliga bilden, men MSAA-kvaliteten är fortfarande sämre än i **TileBasedComposition** -läge.
 
-MSAA-artefakter illustreras i följande ![bild: MSAA in DepthBasedComposition](./media/service-render-mode-balanced.png)
+MSAA-artefakter illustreras i följande bild: ![MSAA i DepthBasedComposition](./media/service-render-mode-balanced.png)
 
-Kantutjämning fungerar korrekt mellan skulpturen och gardinen, eftersom båda delarna återges på samma GPU. Å andra sidan visar kanten mellan gardin och vägg vissa aliasing eftersom dessa två delar består av olika GPU: er.
+Kant utjämning fungerar korrekt mellan Sculpture och kulisserna eftersom båda delarna återges på samma GPU. Å andra sidan visar kanten mellan kulisserna och väggen vissa alias eftersom dessa två delar består av olika GPU: er.
 
-Den största begränsningen i det här läget är att geometridelar inte kan växlas till genomskinliga material dynamiskt och inte heller fungerar **genomskinligt** läge för [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Andra tillstånd åsidosättning funktioner (kontur, färg nyans, ...) fungerar, dock. Även material som har markerats som genomskinliga vid konverteringstiden fungerar korrekt i det här läget.
+Den största begränsningen i det här läget är, att geometri delar inte kan växlas till ett transparent material dynamiskt eller att det inte går att använda läget **Se** till för [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Andra egenskaper för tillstånds åsidosättning (kontur, färg nyanser,...) fungerar, men. Material som marker ATS som transparent vid konverteringen fungerar korrekt i det här läget.
 
 ### <a name="performance"></a>Prestanda
 
-Prestandaegenskaperna för båda lägena varierar beroende på användningsfallet, och det är svårt att resonera eller ge allmänna rekommendationer. Om du inte begränsas av de begränsningar som nämns ovan (minne eller genomskinlighet/genomskinlighet) rekommenderas att du provar båda lägena och övervakar prestanda med hjälp av olika kamerapositioner.
+Prestanda egenskaperna för båda lägena varierar beroende på användnings fallet och det är svårt att motivera eller tillhandahålla allmänna rekommendationer. Om du inte är begränsad av de begränsningar som anges ovan (minne eller genomskinlighet/se) rekommenderar vi att du provar båda lägena och övervakar prestandan med olika kamera positioner.
 
-## <a name="setting-the-render-mode"></a>Ställa in återgivningsläge
+## <a name="setting-the-render-mode"></a>Ange åter givnings läge
 
-Renderingsläget som används på en virtuell `AzureSession.ConnectToRuntime` fjärrrendering anges under via `ConnectToRuntimeParams`.
+Åter givnings läget som används på en virtuell dator för fjärrrendering `AzureSession.ConnectToRuntime` anges `ConnectToRuntimeParams`under via.
 
 ```cs
 async void ExampleConnect(AzureSession session)
@@ -74,4 +74,4 @@ async void ExampleConnect(AzureSession session)
 ## <a name="next-steps"></a>Nästa steg
 
 * [Sessioner](../concepts/sessions.md)
-* [Åsidosättkomponent för hierarkiskt tillstånd](../overview/features/override-hierarchical-state.md)
+* [Åsidosättande komponent för hierarkiskt tillstånd](../overview/features/override-hierarchical-state.md)

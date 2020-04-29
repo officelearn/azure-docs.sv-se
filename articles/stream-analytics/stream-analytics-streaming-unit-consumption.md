@@ -1,6 +1,6 @@
 ---
-title: Strömmande enheter i Azure Stream Analytics
-description: I den här artikeln beskrivs inställningen för strömningsenheter och andra faktorer som påverkar prestanda i Azure Stream Analytics.
+title: Enheter för strömning i Azure Stream Analytics
+description: I den här artikeln beskrivs inställningen för strömnings enheter och andra faktorer som påverkar prestanda i Azure Stream Analytics.
 author: JSeb225
 ms.author: jeanb
 ms.reviewer: mamccrea
@@ -8,77 +8,77 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/27/2020
 ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267357"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera direktuppspelningsenheter
 
-Strömningsenheter (SUs) representerar de datorresurser som allokeras för att köra ett Stream Analytics-jobb. Ju fler SU:er, desto fler processor- och minnesresurser allokeras för jobbet. Med den här kapaciteten kan du fokusera på frågelogiken och abstrakta behovet av att hantera maskinvaran för att köra stream analytics-jobbet i tid.
+Strömnings enheter (SUs) representerar de data bearbetnings resurser som allokeras för att köra ett Stream Analytics jobb. Ju fler SU:er, desto fler processor- och minnesresurser allokeras för jobbet. Med den här kapaciteten kan du fokusera på fråge logiken och göra en sammanfattning av behovet av att hantera maskin vara för att köra Stream Analytics-jobbet inom rimlig tid.
 
-För att minimera svarstiderna vid bearbetningen av dataströmmar utför Azure Stream Analytics-jobb all bearbetning i minnet. När minnet tar misslyckas strömningsjobbet. För ett produktionsjobb är det därför viktigt att övervaka ett strömningsjobbs resursanvändning och se till att det finns tillräckligt med resurser för att hålla jobben igång dygnet 24/7.
+För att minimera svarstiderna vid bearbetningen av dataströmmar utför Azure Stream Analytics-jobb all bearbetning i minnet. Det går inte att köra direkt uppspelnings jobbet när minnet börjar ta slut. För ett produktions jobb är det viktigt att övervaka resursanvändningen för ett direkt uppspelnings jobb och se till att det finns tillräckligt med resurser för att behålla jobben som kör 24/7.
 
-Su% utnyttjandemått, som sträcker sig från 0% till 100%, beskriver minnesförbrukningen för din arbetsbelastning. För ett direktuppspelningsjobb med minimalt fotavtryck är det här måttet vanligtvis mellan 10 % och 20 %. Om SU% utnyttjande är låg och indatahändelser får eftersläpning, kräver din arbetsbelastning sannolikt mer beräkningsresurser, vilket kräver att du ökar antalet SUs. Det är bäst att hålla SU-måttet under 80% för att ta hänsyn till enstaka spikar. Microsoft rekommenderar att du ställer in en avisering på 80 % SU-utnyttjande för att förhindra resursutmattning. Mer information finns i [Självstudiekurs: Konfigurera aviseringar för Azure Stream Analytics-jobb](stream-analytics-set-up-alerts.md).
+Måttet SU%, som sträcker sig från 0% till 100%, beskriver minnes förbrukningen för din arbets belastning. För ett strömmande jobb med minimalt utrymme är det här måttet vanligt vis mellan 10% och 20%. Om SU%-användning är låg och indata-händelser blir eftersläpande, kräver din arbets belastning troligen fler beräknings resurser, vilket kräver att du ökar antalet SUs. Vi rekommenderar att du håller SU-måttet under 80% för att få en tillfällig toppar. Microsoft rekommenderar att du ställer in en avisering på 80% SU-användnings mått för att förhindra resurs överbelastning. Mer information finns i [Självstudier: Konfigurera aviseringar för Azure Stream Analytics jobb](stream-analytics-set-up-alerts.md).
 
-## <a name="configure-stream-analytics-streaming-units-sus"></a>Konfigurera Stream Analytics-strömenheter (SUs)
-1. Logga in på [Azure-portalen](https://portal.azure.com/)
+## <a name="configure-stream-analytics-streaming-units-sus"></a>Konfigurera Stream Analytics streaming Units (SUs)
+1. Logga in på [Azure Portal](https://portal.azure.com/)
 
-2. Leta reda på det Stream Analytics-jobb som du vill skala och öppna det i listan över resurser. 
+2. Leta upp det Stream Analytics jobb som du vill skala i listan över resurser och öppna det sedan. 
 
-3. Välj **Skala**under rubriken **Konfigurera** på jobbsidan . 
+3. På sidan jobb, under **Konfigurera** rubrik, väljer du **skala**. 
 
-    ![Jobbkonfiguration för Azure Portal Stream Analytics][img.stream.analytics.preview.portal.settings.scale]
+    ![Azure Portal Stream Analytics jobb konfiguration][img.stream.analytics.preview.portal.settings.scale]
     
-4. Använd skjutreglaget för att ställa in SUs för jobbet. Observera att du är begränsad till specifika SU-inställningar. 
-5. Du kan ändra antalet SUs som tilldelats jobbet även när det körs. Detta är inte möjligt om jobbet använder en [icke-partitionerad utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) eller har [en flerstegsfråga med olika PARTITION BY-värden](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Du kanske är begränsad till att välja från en uppsättning SU-värden när jobbet körs. 
+4. Använd skjutreglaget för att ställa in SUs för jobbet. Observera att du är begränsad till särskilda SU-inställningar. 
+5. Du kan ändra antalet SUs som är tilldelat ditt jobb även när det körs. Detta är inte möjligt om ditt jobb använder en [icke-partitionerad utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) eller har [en fråga med flera steg med olika partitioner med värden](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Du kanske är begränsad till att välja från en uppsättning SU-värden när jobbet körs. 
 
-## <a name="monitor-job-performance"></a>Övervaka jobbets prestanda
-Med Hjälp av Azure-portalen kan du spåra dataflödet för ett jobb:
+## <a name="monitor-job-performance"></a>Övervaka jobb prestanda
+Med hjälp av Azure Portal kan du spåra data flödet för ett jobb:
 
-![Azure Stream Analytics övervakar jobb][img.stream.analytics.monitor.job]
+![Azure Stream Analytics övervaka jobb][img.stream.analytics.monitor.job]
 
-Beräkna arbetsbelastningens förväntade dataflöde. Om dataflödet är mindre än förväntat justerar du indatapartitionen, ställer in frågan och lägger till SUs i jobbet.
+Beräkna det förväntade data flödet för arbets belastningen. Om data flödet är mindre än förväntat kan du finjustera partitionen, finjustera frågan och lägga till SUs i jobbet.
 
 ## <a name="how-many-sus-are-required-for-a-job"></a>Hur många SU:er behövs för ett jobb?
 
-Att välja antalet nödvändiga SUs för ett visst jobb beror på partitionskonfigurationen för indata och frågan som har definierats i jobbet. På **sidan Skala** kan du ange rätt antal SUs. Det är en bästa praxis att fördela fler SUs än nödvändigt. Stream Analytics-bearbetningsmotorn optimerar för svarstid och dataflöde på bekostnad av allokering av ytterligare minne.
+Om du väljer hur många SUs-filer som krävs för ett visst jobb beror det på partitionsuppsättningen för indata och frågan som definieras i jobbet. På sidan **skala** kan du ange rätt antal SUS. Vi rekommenderar att du allokerar mer än vad som behövs. Den Stream Analytics bearbetnings motorn optimerar för svars tid och data flöde till kostnaden för att allokera ytterligare minne.
 
-I allmänhet är det bästa sättet att börja med 6 SUs för frågor som inte använder **PARTITION BY**. Bestäm sedan sweet spot genom att använda en trial and error-metod där du ändrar antalet SUs när du har klarat representativa mängder data och undersöker su% utnyttjandemåttet. Det maximala antalet strömningsenheter som kan användas av ett Stream Analytics-jobb beror på antalet steg i frågan som definierats för jobbet och antalet partitioner i varje steg. Du kan läsa mer om gränserna [här](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
+I allmänhet är det bästa sättet att börja med 6 SUs för frågor som inte använder **partition av**. Ta sedan reda på den söt punkten genom att använda en utvärderings-och fel metod där du ändrar antalet SUs när du har överfört representativa data mängder och undersöker SU-hälsoanvändnings måttet. Det maximala antalet enheter för strömning som kan användas av ett Stream Analytics jobb beror på antalet steg i frågan som definierats för jobbet och antalet partitioner i varje steg. Du kan lära dig mer om begränsningarna [här](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
-Mer information om hur du väljer rätt antal SUs finns på den här sidan: [Skala Azure Stream Analytics-jobb för att öka dataflödet](stream-analytics-scale-jobs.md)
+Mer information om hur du väljer rätt antal SUs finns på den här sidan: [skala Azure Stream Analytics jobb för att öka data flödet](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Att välja hur många SUs som krävs för ett visst jobb beror på partitionskonfigurationen för indata och på frågan som definierats för jobbet. Du kan välja upp till din kvot i SUs för ett jobb. Som standard har varje Azure-prenumeration en kvot på upp till 500 SUs för alla analysjobb i en viss region. Om du vill öka SUs för dina prenumerationer utöver den här kvoten kontaktar du [Microsoft Support](https://support.microsoft.com). Giltiga värden för SUs per jobb är 1, 3, 6 och uppåt i steg om 6.
+> Hur många SUs-uppgifter som krävs för ett visst jobb beror på partitionens konfiguration för indata och på den fråga som definierats för jobbet. Du kan välja upp till din kvot i SUs för ett jobb. Som standard har varje Azure-prenumeration en kvot på upp till 500 SUs för alla analys jobb i en angiven region. Kontakta [Microsoft Support](https://support.microsoft.com)om du vill öka SUS för dina prenumerationer utöver den här kvoten. Giltiga värden för SUs per jobb är 1, 3, 6 och upp i steg om 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Faktorer som ökar den procentuella användningen av SU:er 
 
-Tidsmässiga (tidsorienterade) frågeelement är kärnuppsättningen av tillståndskänsliga operatorer som tillhandahålls av Stream Analytics. Stream Analytics hanterar tillståndet för dessa åtgärder internt för användarens räkning, genom att hantera minnesförbrukning, kontrollpunkt för återhämtning och tillståndsåterställning under tjänstuppgraderingar. Även om Stream Analytics hanterar lägena fullt ut finns det ett antal rekommendationer för bästa praxis som användarna bör överväga.
+Temporala (tidsorienterade) frågedata är kärn uppsättningen av tillstånds känsliga operatorer som tillhandahålls av Stream Analytics. Stream Analytics hanterar statusen för dessa åtgärder internt för användarens räkning, genom att hantera minnes förbrukning, kontroll punkter för återhämtning och tillstånds återställning under tjänst uppgraderingar. Även om Stream Analytics hanterar tillstånden fullständigt, finns det ett antal rekommendationer för bästa praxis som användarna bör tänka på.
 
-Observera att ett jobb med komplex frågelogik kan ha hög SU%-användning även när det inte kontinuerligt tar emot indatahändelser. Detta kan inträffa efter en plötslig ökning av indata- och utdatahändelser. Jobbet kan fortsätta att upprätthålla tillståndet i minnet om frågan är komplex.
+Observera att ett jobb med komplex fråge logik kan ha hög SU%-användning även när det inte kontinuerligt tar emot inkommande händelser. Detta kan inträffa efter en plötslig insamling i in-och utdata-händelser. Jobbet kan fortsätta att underhålla tillstånd i minnet om frågan är komplex.
 
-SU% utnyttjande kan plötsligt sjunka till 0 under en kort period innan de kommer tillbaka till förväntade nivåer. Detta händer på grund av tillfälliga fel eller systeminitierade uppgraderingar. Att öka antalet strömningsenheter för ett jobb kanske inte minskar SU%-användningen om frågan inte är [helt parallell](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+SU%-användning kan plötsligt släppas till 0 under en kort period innan de återgår till förväntade nivåer. Detta inträffar på grund av tillfälliga fel eller systeminitierade uppgraderingar. Att öka antalet strömnings enheter för ett jobb kanske inte minskar SU-användningen om frågan inte är [helt parallell](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
-När du jämför utnyttjandet över en tidsperiod använder du [händelsehastighetsmått](stream-analytics-monitoring.md). InputEvents och OutputEvents-mått visar hur många händelser som lästes och bearbetades. Det finns mått som anger antalet felhändelser också, till exempel deserialiseringsfel. När antalet händelser per tidsenhet ökar ökar SU% i de flesta fall.
+Använd [Event Rate-mått](stream-analytics-monitoring.md)när du jämför användning under en viss tids period. InputEvents-och OutputEvents-mått visar hur många händelser som lästs och bearbetats. Det finns mått som indikerar antalet fel händelser, t. ex. deserialiserings fel. När antalet händelser per tidsenhet ökar ökar SU% i de flesta fall.
 
-## <a name="stateful-query-logicin-temporal-elements"></a>Tillståndskänslig frågelogik i temporala element
-En av de unika funktionerna i Azure Stream Analytics-jobbet är att utföra tillståndskänslig bearbetning, till exempel fönsterade aggregat, temporala kopplingar och temporala analytiska funktioner. Var och en av dessa operatörer håller tillståndsinformation.Den maximala fönsterstorleken för dessa frågeelement är sju dagar. 
+## <a name="stateful-query-logicin-temporal-elements"></a>Tillstånds känslig fråge logik i temporala element
+En av de unika funktionerna för Azure Stream Analytics jobb är att utföra tillstånds känslig bearbetning, till exempel fönster mängd, temporala kopplingar och temporala analys funktioner. Var och en av dessa operatörer behåller statusinformation.Maximal fönster storlek för de här fråge elementen är sju dagar. 
 
-Temporal fönsterkonceptet visas i flera Stream Analytics-frågeelement:
-1. Fönsterade aggregat: GROUP BY av Tumbling, Hopping och Sliding fönster
+Det temporala fönstrets koncept visas i flera Stream Analytics frågedata:
+1. Fönster mängd: Gruppera efter av rullande, hoppande och glidande fönster
 
-2. Temporala kopplingar: JOIN med funktionen DATEDIFF
+2. Temporala kopplingar: delta med funktionen DATEDIFF
 
-3. Temporala analytiska funktioner: ISFIRST, LAST och LAG MED LIMIT DURATION
+3. Temporala analys funktioner: ISFIRST, LAST och fördröjning med gräns varaktighet
 
-Följande faktorer påverkar det minne som används (en del av datamått för direktuppspelningsenheter) av Stream Analytics-jobb:
+Följande faktorer påverkar det minne som används (del av måttet för strömnings enheter) genom Stream Analytics-jobb:
 
-## <a name="windowed-aggregates"></a>Fönsterade aggregat
-Det minne som förbrukas (tillståndsstorlek) för en fönsterad aggregat är inte alltid direkt proportionell mot fönsterstorleken. I stället är det minne som förbrukas proportionellt mot kardinaliteten för data, eller antalet grupper i varje tidsfönster.
+## <a name="windowed-aggregates"></a>Fönster mängd
+Förbrukat minne (tillstånds storlek) för en sammanslagen mängd är inte alltid direkt proportionellt mot fönstrets storlek. I stället är det förbrukade minnet proportionellt för dataens kardinalitet eller antalet grupper i varje tids period.
 
 
-I följande fråga är till exempel `clusterid` det tal som är associerat med frågans kardinalitet. 
+I följande fråga är det tal som är associerat med `clusterid` till exempel frågans kardinalitet. 
 
    ```sql
    SELECT count(*)
@@ -86,7 +86,7 @@ I följande fråga är till exempel `clusterid` det tal som är associerat med f
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-För att minska eventuella problem som orsakas av hög kardinalitet i föregående `clusterid`fråga kan du skicka händelser till Event Hub partitionerad av och skala ut frågan genom att låta systemet bearbeta varje indatapartition separat med **partition BY** som visas i exemplet nedan:
+För att minimera eventuella problem som orsakas av hög kardinalitet i föregående fråga kan du skicka händelser till Händelsehubben partitionerad av `clusterid`och skala ut frågan genom att låta systemet bearbeta varje indatatagg separat med hjälp av **partitionen** som visas i exemplet nedan:
 
    ```sql
    SELECT count(*) 
@@ -94,14 +94,14 @@ För att minska eventuella problem som orsakas av hög kardinalitet i föregåen
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
    ```
 
-När frågan är utpartitionerad sprids den ut över flera noder. Som ett resultat minskas antalet `clusterid` värden som kommer in i varje nod vilket minskar gruppens kardinalitet för operatör. 
+När frågan är utpartitionerad sprids den ut över flera noder. Det innebär att antalet `clusterid` värden som kommer till varje nod minskas, vilket minskar huvud gruppen för Group by-operatorn. 
 
-Event Hub-partitioner bör partitioneras av gruppningsnyckeln för att undvika behovet av ett minskande steg. Mer information finns i [översikt över händelsehubbar](../event-hubs/event-hubs-what-is-event-hubs.md). 
+Partitioner som rör händelsehubben bör partitioneras med tangentkombinationen för att undvika att ett minsknings steg behövs. Mer information finns i [Event Hubs översikt](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## <a name="temporal-joins"></a>Temporala kopplingar
-Det minne som förbrukas (tillståndsstorlek) för en temporal koppling är proportionellt mot antalet händelser i det tidsmässiga vicka rummet för kopplingen, vilket är händelseinmatningshastighet multiplicerat med vicka rumsstorlek. Med andra ord är det minne som förbrukas av kopplingar proportionellt mot datumdifftidintervallet multiplicerat med genomsnittlig händelsehastighet.
+Förbrukad mängd minne (tillstånds storlek) för en temporal koppling är proportionell till antalet händelser i det temporala wiggle rummet, vilket är händelsens ingångs frekvens multiplicerat med storleken på wiggle rums utrymme. Med andra ord är det minne som används av sammanfogningar proportionellt till avslags tidsintervallet multiplicerat med genomsnittlig händelse frekvens.
 
-Antalet omatchade händelser i kopplingen påverkar minnet utnyttjande för frågan. Följande fråga söker efter reklamannonser som genererar klick:
+Antalet omatchade händelser i kopplingen påverkar minnes användningen för frågan. Följande fråga söker efter reklamannonser som genererar klick:
 
    ```sql
    SELECT clicks.id
@@ -109,9 +109,9 @@ Antalet omatchade händelser i kopplingen påverkar minnet utnyttjande för frå
    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
    ```
 
-I det här exemplet är det möjligt att många annonser visas och få människor klickar på den och det krävs för att hålla alla händelser i tidsfönstret. Förbrukat minne beror på tidsperiodens längd och händelsens frekvens. 
+I det här exemplet är det möjligt att många annonser visas och att jag klickar på den och det krävs för att behålla alla händelser i tids perioden. Förbrukat minne beror på tidsperiodens längd och händelsens frekvens. 
 
-Om du vill åtgärda detta skickar du händelser till Event Hub som partitioneras av kopplingsnycklarna (ID i det här fallet) och skalar ut frågan genom att låta systemet bearbeta varje indatapartition separat med **partitionen SOM** visas:
+Du kan åtgärda detta genom att skicka händelser till Händelsehubben partitionerad av kopplings nycklarna (ID i det här fallet) och skala ut frågan genom att låta systemet bearbeta varje indatatagg separat med hjälp av **partition** :
 
    ```sql
    SELECT clicks.id
@@ -120,34 +120,34 @@ Om du vill åtgärda detta skickar du händelser till Event Hub som partitionera
    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
    ```
 
-När frågan är utpartitionerad sprids den ut över flera noder. Som ett resultat av antalet händelser som kommer in i varje nod minskas vilket minskar storleken på det tillstånd som hålls i kopplingsfönstret. 
+När frågan är utpartitionerad sprids den ut över flera noder. Därför minskar antalet händelser som kommer till varje nod, vilket minskar storleken på det tillstånd som hålls kvar i kopplings fönstret. 
 
-## <a name="temporal-analytic-functions"></a>Temporala analytiska funktioner
-Det minne som förbrukas (tillståndsstorlek) för en temporal analytisk funktion är proportionellt mot händelsehastigheten multiplicera med varaktigheten.Det minne som förbrukas av analytiska funktioner är inte proportionellt mot fönsterstorleken, utan partitionsantalet i varje tidsfönster.
+## <a name="temporal-analytic-functions"></a>Temporala analys funktioner
+Förbrukad mängd minne (tillstånds storlek) för en temporal analys funktion är proportionerlig till händelse frekvensen multiplicerat med varaktigheten.Det minne som används av analys funktionerna är inte proportionellt mot fönstrets storlek, utan i stället för antalet partitioner i varje tids period.
 
-Reparationen liknar temporal koppling. Du kan skala ut frågan med **PARTITION BY**. 
+Reparationen liknar temporal koppling. Du kan skala ut frågan med **partition by**. 
 
-## <a name="out-of-order-buffer"></a>Ur funktionsbuffert 
-Användaren kan konfigurera buffertstorleken i oordning i konfigurationsfönstret För händelseordning. Bufferten används för att hålla indata under fönstrets varaktighet och ändra ordning på dem. Buffertens storlek är proportionell mot händelseinmatningshastigheten multipliceras med den i slutordningens fönsterstorlek. Standardfönstrets storlek är 0. 
+## <a name="out-of-order-buffer"></a>Felaktig buffert 
+Användaren kan konfigurera storleks gränsen för bufferten i konfigurations fönstret för händelse ordning. Bufferten används för att lagra indata under fönstrets varaktighet och ändra ordning på dem. Storleken på bufferten är proportionell mot händelsens ingångs frekvens multiplicerat med storleks fönstret. Standard fönstrets storlek är 0. 
 
-Om du vill åtgärda spill av bufferten i oordning skalar du ut frågan med **PARTITION BY**. När frågan är utpartitionerad sprids den ut över flera noder. Därför minskar antalet händelser som kommer in i varje nod vilket minskar antalet händelser i varje beställningsbuffert. 
+Om du vill reparera spill för bufferten som ligger utanför ordningen kan du skala ut fråga med **partition by**. När frågan är utpartitionerad sprids den ut över flera noder. Därför minskar antalet händelser som kommer till varje nod, vilket minskar antalet händelser i varje beställnings buffert. 
 
-## <a name="input-partition-count"></a>Antal indatapartitioner 
-Varje indatapartition för en jobbindata har en buffert. Ju större antal indatapartitioner, desto mer resurs förbrukar jobbet. För varje streamingenhet kan Azure Stream Analytics bearbeta ungefär 1 MB/s indata. Därför kan du optimera genom att matcha antalet Stream Analytics-enheter med antalet partitioner i händelsehubben. 
+## <a name="input-partition-count"></a>Antal inmatade partitioner 
+Varje indatatagg i ett jobbs inmatare har en buffert. Ju större antal inpartitioner, desto mer resurs kommer jobbet att förbrukas. För varje strömnings enhet kan Azure Stream Analytics bearbeta ungefär 1 MB/s indata. Därför kan du optimera genom att matcha antalet Stream Analytics strömnings enheter med antalet partitioner i Händelsehubben. 
 
-Vanligtvis är ett jobb som konfigurerats med en strömningsenhet tillräckligt för en eventnav med två partitioner (vilket är det minsta för Event Hub). Om händelsehubben har fler partitioner förbrukar stream analytics-jobbet mer resurser, men använder inte nödvändigtvis det extra dataflödet som tillhandahålls av Event Hub. 
+Normalt räcker ett jobb som kon figurer ATS med en enhet för strömning för en Event Hub med två partitioner (vilket är minimivärdet för Event Hub). Om Händelsehubben har fler partitioner, förbrukar ditt Stream Analyticss jobb fler resurser, men använder inte nödvändigt vis det extra data flöde som tillhandahålls av Event Hub. 
 
-För ett jobb med 6 strömningsenheter kan du behöva 4 eller 8 partitioner från eventhubben. Undvik dock för många onödiga partitioner eftersom det orsakar överdriven resursanvändning. Till exempel en eventhubb med 16 partitioner eller större i ett Stream Analytics-jobb som har en strömningsenhet. 
+För ett jobb med 6 enheter för strömning kan du behöva 4 eller 8 partitioner från Händelsehubben. Undvik dock för många onödiga partitioner eftersom det orsakar orimlig resursanvändning. Till exempel en Event Hub med 16 partitioner eller större i ett Stream Analytics jobb som har 1 strömnings enhet. 
 
-## <a name="reference-data"></a>Referensdata 
-Referensdata i ASA läses in i minnet för snabb sökning. Med den aktuella implementeringen behåller varje kopplingsåtgärd med referensdata en kopia av referensdata i minnet, även om du ansluter till samma referensdata flera gånger. För frågor med **PARTITION BY**har varje partition en kopia av referensdata, så partitionerna är helt frikopplade. Med multiplikatoreffekten kan minnesanvändningen snabbt bli mycket hög om du ansluter till referensdata flera gånger med flera partitioner.  
+## <a name="reference-data"></a>Referens data 
+Referens data i ASA läses in i minnet för snabb sökning. Med den aktuella implementeringen behåller varje kopplings åtgärd med referens data en kopia av referens data i minnet, även om du ansluter till samma referens data flera gånger. För frågor med **partition by**har varje partition en kopia av referens data, så partitionerna är helt frikopplade. Med multiplikator effekterna kan minnes användningen snabbt bli mycket hög om du ansluter till referens data flera gånger med flera partitioner.  
 
 ### <a name="use-of-udf-functions"></a>Användning av UDF-funktioner
-När du lägger till en UDF-funktion läser Azure Stream Analytics in JavaScript-körningen i minnet. Detta kommer att påverka SU%.
+När du lägger till en UDF-funktion Azure Stream Analytics läser in JavaScript-körningen i minnet. Detta kommer att påverka SU%.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa parallelliserbara frågor i Azure Stream Analytics](stream-analytics-parallelization.md)
-* [Skala Azure Stream Analytics-jobb för att öka dataflödet](stream-analytics-scale-jobs.md)
+* [Skapa kan göras parallella-frågor i Azure Stream Analytics](stream-analytics-parallelization.md)
+* [Skala Azure Stream Analytics jobb för att öka data flödet](stream-analytics-scale-jobs.md)
 
 <!--Image references-->
 

@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för Bing Video Search Python-klientbibliotek
+title: Snabb start för Videosökning i Bing python-klient bibliotek
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,20 +9,20 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: 7a9fab8ba8bb9d21c9284cbf14bc67226d2ef9d3
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289744"
 ---
-Använd den här snabbstarten för att börja söka efter nyheter med klientbiblioteket Bing Video Search för Python. Bing Video Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) med ytterligare anteckningar och funktioner.
+Använd den här snabb starten för att börja söka efter nyheter med Videosökning i Bing klient biblioteket för python. Även om Videosökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) med ytterligare kommentarer och funktioner.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-- [Python (svenska)](https://www.python.org/) 2.x eller 3.x
-- Klientbiblioteket Bing Video Search för python
+- [Python](https://www.python.org/) 2. x eller 3. x
+- Videosökning i Bing klient bibliotek för python
 
 Vi rekommenderar att du använder en [virtuell Python-miljö](https://docs.python.org/3/tutorial/venv.html). Du kan installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv). Installera virtualenv för Python 2.7 med:
 
@@ -30,7 +30,7 @@ Vi rekommenderar att du använder en [virtuell Python-miljö](https://docs.pytho
 python -m venv mytestenv
 ```
 
-Installera klientbiblioteket för Bing Video Search med:
+Installera klient biblioteket för Videosökning i Bing med:
 
 ```console
 cd mytestenv

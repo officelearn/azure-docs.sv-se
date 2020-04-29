@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för JavaScript-klientbibliotek för Bing Video Search JavaScript
+title: Snabb start för Videosökning i Bing Java Script Client library
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: b642d981b79d13857881ec8cc5796e6365003ace
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289765"
 ---
-Använd den här snabbstarten för att börja söka efter nyheter med klientbiblioteket Bing Video Search för JavaScript. Bing Video Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Den innehåller fler kommentarer och funktioner.
+Använd den här snabb starten för att börja söka efter nyheter med Videosökning i Bing klient bibliotek för Java Script. Även om Videosökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). Den innehåller fler kommentarer och funktioner.
 
 ## <a name="prerequisites"></a>Krav
 
 - [Node.js](https://www.nodejs.org/)
 
-Så här konfigurerar du ett konsolprogram med klientbiblioteket Bing Video Search:
+Så här konfigurerar du ett konsol program med hjälp av Videosökning i Bing klient biblioteket:
 * Kör `npm install ms-rest-azure` i utvecklingsmiljön.
 * Kör `npm install azure-cognitiveservices-videosearch` i utvecklingsmiljön.
 
@@ -29,7 +29,7 @@ Så här konfigurerar du ett konsolprogram med klientbiblioteket Bing Video Sear
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny JavaScript-fil i din favorit-IDE eller redigerare och lägg till ett `require()` uttryck för klientbiblioteket och `CognitiveServicesCredentials` modulen Bing Video Search. Skapa en variabel för din prenumerationsnyckel. 
+1. Skapa en ny JavaScript-fil i din favorit-IDE eller-redigerare och `require()` Lägg till en instruktion för videosökning i Bing klient bibliotek `CognitiveServicesCredentials` och modul. Skapa en variabel för din prenumerationsnyckel. 
     
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;

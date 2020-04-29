@@ -9,181 +9,181 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
 ms.openlocfilehash: a477114bda7d138a6860d21f2fad75e27d968833
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80116897"
 ---
-Shared Image Gallery är en tjänst som hjälper dig att skapa struktur och organisation kring dina hanterade avbildningar. Delade bildgallerier innehåller:
+Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
-- Hanterad global replikering av bilder.
-- Versionshantering och gruppering av bilder för enklare hantering.
-- ZRS-konton (Zone Redundant Storage) med hög tillgänglighet i regioner som stöder tillgänglighetszoner. ZRS erbjuder bättre motståndskraft mot zonfel.
-- Dela mellan prenumerationer, och även mellan Active Directory (AD) klienter, med hjälp av RBAC.
-- Skala dina distributioner med avbildningsrepliker i varje region.
+- Hanterad global replikering av avbildningar.
+- Versions hantering och gruppering av avbildningar för enklare hantering.
+- Bilder med hög tillgänglighet med ZRS-konton (Zone redundant Storage) i regioner som stöder Tillgänglighetszoner. ZRS erbjuder bättre återhämtning mot zonindelade-problem.
+- Dela över prenumerationer och till och med mellan Active Directory (AD)-klienter med RBAC.
+- Skala dina distributioner med avbildnings repliker i varje region.
 
-Med hjälp av ett delat bildgalleri kan du dela dina bilder med olika användare, tjänsthuvudnamn eller AD-grupper inom organisationen. Delade avbildningar kan replikeras till flera regioner, för snabbare skalning av dina distributioner.
+Med hjälp av ett delat bild galleri kan du dela dina avbildningar till olika användare, tjänst huvud namn eller AD-grupper i din organisation. Delade avbildningar kan replikeras till flera regioner, för snabbare skalning av dina distributioner.
 
-En hanterad avbildning är en kopia av antingen en fullständig virtuell dator (inklusive alla anslutna datadiskar) eller bara OS-disken, beroende på hur du skapar avbildningen. När du skapar en virtuell dator från avbildningen används en kopia av de virtuella hårddiskarna i avbildningen för att skapa diskarna för den nya virtuella datorn. Den hanterade avbildningen finns kvar i lager och kan användas om och om igen för att skapa nya virtuella datorer.
+En hanterad avbildning är en kopia av antingen en fullständig virtuell dator (inklusive alla anslutna data diskar) eller bara OS-disken, beroende på hur du skapar avbildningen. När du skapar en virtuell dator från avbildningen används en kopia av de virtuella hård diskarna i avbildningen för att skapa diskarna för den nya virtuella datorn. Den hanterade avbildningen finns kvar i lagrings utrymmet och kan användas över och över igen för att skapa nya virtuella datorer.
 
-Om du har ett stort antal hanterade bilder som du behöver underhålla och vill göra dem tillgängliga i hela företaget kan du använda ett delat bildgalleri som en databas som gör det enkelt att dela dina bilder. 
+Om du har ett stort antal hanterade avbildningar som du behöver underhålla och vill göra dem tillgängliga i hela företaget, kan du använda ett delat avbildnings galleri som en lagrings plats som gör det enkelt att dela dina avbildningar. 
 
-Funktionen Delat bildgalleri har flera resurstyper:
+Funktionen för delad bild galleri har flera resurs typer:
 
 | Resurs | Beskrivning|
 |----------|------------|
-| **Hanterad bild** | En grundläggande bild som kan användas ensam eller användas för att skapa en **bildversion** i ett bildgalleri. Hanterade avbildningar skapas från [generaliserade](#generalized-and-specialized-images) virtuella datorer. En hanterad avbildning är en speciell typ av virtuell hårddisk som kan användas för att skapa flera virtuella datorer och som nu kan användas för att skapa delade avbildningsversioner. |
-| **Ögonblicksbild** | En kopia av en virtuell hårddisk som kan användas för att skapa en **bildversion**. Ögonblicksbilder kan tas från en [specialiserad](#generalized-and-specialized-images) virtuell dator (en som inte har generaliserats) och sedan användas ensamt eller med ögonblicksbilder av datadiskar, för att skapa en specialiserad avbildningsversion.
-| **Bildgalleri** | Precis som Azure Marketplace är ett **avbildningsgalleri** en databas för hantering och delning av avbildningar, men du styr vem som har åtkomst. |
-| **Bilddefinition** | Bilder definieras i ett galleri och innehåller information om bilden och krav för att använda den i organisationen. Du kan inkludera information som om avbildningen är generaliserad eller specialiserad, operativsystemet, lägsta och högsta minneskrav och viktig information. Det är en definition av en typ av bild. |
-| **Bildversion** | En **bildversion** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Precis som en hanterad avbildning används avbildningsversionen när du använder en **avbildningsversion** för att skapa en virtuell dator för att skapa nya diskar för den virtuella datorn. Bildversioner kan användas flera gånger. |
+| **Hanterad avbildning** | En grundläggande bild som kan användas separat eller som används för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från [generaliserade](#generalized-and-specialized-images) virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
+| **Ögonblicksbild** | En kopia av en virtuell hård disk som kan användas för att skapa en **avbildnings version**. Ögonblicks bilder kan hämtas från en [specialiserad](#generalized-and-specialized-images) virtuell dator (en som inte har generaliserats), sedan används separat eller med ögonblicks bilder av data diskar för att skapa en specialiserad avbildnings version.
+| **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
+| **Bild definition** | Avbildningar definieras i ett galleri och bär information om avbildningen och kraven för att använda den i din organisation. Du kan inkludera information, till exempel om avbildningen är generaliserad eller specialiserad, kraven på operativ system, minsta och högsta mängd minne och viktig information. Det är en definition av en typ av bild. |
+| **Avbildnings version** | En **avbildnings version** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Som en hanterad avbildning används avbildnings versionen för att skapa nya diskar för den virtuella datorn när du använder en **avbildnings version** för att skapa en virtuell dator. Avbildnings versioner kan användas flera gånger. |
 
 <br>
 
 ![Bild som visar hur du kan ha flera versioner av en bild i galleriet](./media/shared-image-galleries/shared-image-gallery.png)
 
-## <a name="image-definitions"></a>Bilddefinitioner
+## <a name="image-definitions"></a>Bild definitioner
 
-Bilddefinitioner är en logisk gruppering för versioner av en bild. Bilddefinitionen innehåller information om varför bilden skapades, vilket operativsystem den är till för och information om hur du använder bilden. En bilddefinition är som en plan för alla detaljer kring att skapa en viss bild. Du distribuerar inte en virtuell dator från en avbildningsdefinition, utan från den avbildningsversion som skapats från definitionen.
+Bild definitioner är en logisk gruppering för versioner av en bild. Bild definitionen innehåller information om varför avbildningen skapades, vilket operativ system den är för och information om hur du använder avbildningen. En bild definition är som en plan för all information om hur du skapar en speciell avbildning. Du distribuerar inte en virtuell dator från en avbildnings definition, men från avbildnings versionen som skapats från definitionen.
 
-Det finns tre parametrar för varje bilddefinition som används i kombination - **Publisher**, **Offer** och **SKU**. Dessa används för att hitta en specifik bilddefinition. Du kan ha bildversioner som delar ett eller två, men inte alla tre värdena.  Här är till exempel tre bilddefinitioner och deras värden:
+Det finns tre parametrar för varje avbildnings definition som används i kombinations **utgivare**, **erbjudande** och **SKU**. Dessa används för att hitta en bestämd avbildnings definition. Du kan ha avbildnings versioner som delar en eller två, men inte alla tre värden.  Här är till exempel tre bild definitioner och deras värden:
 
 |Bilddefinition|Utgivare|Erbjudande|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Ekonomi|Backend|
+|myImage1|Contoso|Ekonomi|Serverdel|
 |myImage2|Contoso|Ekonomi|Klientdel|
 |myImage3|Testning|Ekonomi|Klientdel|
 
-Alla tre har unika uppsättningar av värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att få den senaste versionen av en Marketplace-avbildning. Varje bilddefinition måste ha en unik uppsättning av dessa värden.
+Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
-Följande är andra parametrar som kan ställas in på bilddefinitionen så att du lättare kan spåra dina resurser:
+Följande är andra parametrar som kan ställas in på din avbildnings definition så att du enkelt kan spåra dina resurser:
 
-* Operativsystemtillstånd - Du kan ställa in os-tillståndet till [generaliserad eller specialiserad](#generalized-and-specialized-images).
-* Operativsystem - kan vara antingen Windows eller Linux.
-* Beskrivning - använd beskrivning för att ge mer detaljerad information om varför bilddefinitionen finns. Du kan till exempel ha en bilddefinition för frontend-servern som har programmet förinstallerat.
-* Eula - kan användas för att peka på ett licensavtal för slutanvändare som är specifikt för bilddefinitionen.
-* Sekretesspolicy och viktig information – lagra viktig information och sekretesspolicyer i Azure-lagring och tillhandahålla en URI för åtkomst till dem som en del av avbildningsdefinitionen.
-* Slutdatum - bifoga ett slutdatum till din bilddefinition för att kunna använda automatisering för att ta bort gamla bilddefinitioner.
-* Tag - du kan lägga till taggar när du skapar din bilddefinition. Mer information om taggar finns i [Använda taggar för att ordna dina resurser](../articles/azure-resource-manager/management/tag-resources.md)
-* Lägsta och högsta rekommendationer för vCPU och minne - om din bild har vCPU- och minnesrekommendationer kan du bifoga den informationen till din bilddefinition.
-* Otillåtna disktyper – du kan ange information om lagringsbehoven för den virtuella datorn. Om bilden till exempel inte är lämplig för vanliga hårddiskar lägger du till dem i listan tillåt inte.
+* Operativ system tillstånd – du kan ange operativ systemets tillstånd till [generaliserad eller specialiserad](#generalized-and-specialized-images).
+* Operativ system – kan vara antingen Windows eller Linux.
+* Beskrivning – Använd beskrivning för att ge mer detaljerad information om varför avbildnings definitionen finns. Du kan till exempel ha en avbildnings definition för din klient server som har programmet förinstallerat.
+* EULA – kan användas för att peka på ett licens avtal för slutanvändare som är speciellt för avbildnings definitionen.
+* Sekretess policy och viktig information – Store viktig information och sekretess policys i Azure Storage och ange en URI för att få åtkomst till dem som en del av avbildnings definitionen.
+* Datum för livs längd – koppla ett livs cykel datum till din bild definition för att kunna använda Automation för att ta bort gamla avbildnings definitioner.
+* Tagg – du kan lägga till taggar när du skapar din avbildnings definition. Mer information om taggar finns i [använda taggar för att organisera resurser](../articles/azure-resource-manager/management/tag-resources.md)
+* Lägsta och högsta vCPU och minnes rekommendationer – om avbildningen har vCPU och minnes rekommendationer kan du koppla informationen till din avbildnings definition.
+* Otillåtna disk typer – du kan ange information om lagrings behoven för den virtuella datorn. Om bilden till exempel inte är lämplig för standard diskar för hård diskar lägger du till dem i listan Tillåt inte.
 
-## <a name="generalized-and-specialized-images"></a>Generaliserade och specialiserade bilder
+## <a name="generalized-and-specialized-images"></a>Generaliserade och specialiserade avbildningar
 
-Det finns två operativsystemtillstånd som stöds av Det delade bildgalleriet. Vanligtvis kräver avbildningar att den virtuella datorn som används för att skapa avbildningen har generaliserats innan avbildningen togs. Generalisering är en process som tar bort dator- och användarspecifik information från den virtuella datorn. För Windows används även Sysprep. För Linux kan du använda `-deprovision+user` [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` eller parametrar.
+Det finns två operativ system tillstånd som stöds av det delade avbildnings galleriet. Vanligt vis kräver avbildningar att den virtuella datorn som användes för att skapa avbildningen har generaliserats innan avbildningen togs. Att generalisera är en process som tar bort dator-och användarspecifik information från den virtuella datorn. För Windows används Sysprep för även. För Linux kan du använda [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` eller `-deprovision+user` parametrar.
 
-Specialiserade virtuella datorer har inte gått igenom en process för att ta bort datorspecifik information och konton. Dessutom har virtuella datorer som skapats `osProfile` från specialiserade avbildningar inte en associerad med dem. Detta innebär att specialiserade bilder kommer att ha vissa begränsningar.
+Specialiserade virtuella datorer har inte genomgått någon process för att ta bort datorspecifik information och konton. Virtuella datorer som skapats från specialiserade avbildningar har inte heller `osProfile` någon kopplad till sig. Det innebär att specialiserade avbildningar kommer att ha vissa begränsningar.
 
-- Konton som kan användas för att logga in på den virtuella datorn kan också användas på alla virtuella datorer som skapas med den specialiserade avbildningen som skapas från den virtuella datorn.
-- Virtuella datorer har **datornamnet** på den virtuella datorn som avbildningen togs från. Du bör ändra datornamnet för att undvika kollisioner.
-- Det `osProfile` är hur viss känslig information skickas `secrets`till den virtuella datorn med hjälp av . Detta kan orsaka problem med att använda KeyVault, WinRM och andra funktioner som används `secrets` i `osProfile`. I vissa fall kan du använda hanterade tjänstidentiteter (MSI) för att kringgå dessa begränsningar.
+- Konton som kan användas för att logga in på den virtuella datorn kan också användas på alla virtuella datorer som skapats med hjälp av den specialiserade avbildningen som skapas från den virtuella datorn.
+- Virtuella datorer kommer att ha **dator namnet** på den virtuella dator som avbildningen hämtades från. Du bör ändra dator namnet för att undvika kollisioner.
+- `osProfile` Hur känslig information överförs till den virtuella datorn med hjälp av `secrets`. Detta kan orsaka problem med hjälp av nyckel valv, WinRM och andra funktioner `secrets` som använder `osProfile`i. I vissa fall kan du använda hanterade tjänst identiteter (MSI) för att undvika de här begränsningarna.
 
 > [!IMPORTANT]
-> Specialiserade bilder är för närvarande i offentlig förhandsgranskning.
+> Specialiserade avbildningar är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> **Kända begränsningar för förhandsgranskning** Virtuella datorer kan bara skapas från specialiserade avbildningar med hjälp av portalen eller API:et. Det finns inget CLI- eller PowerShell-stöd för förhandsversionen.
+> **Kända för hands versions begränsningar** Virtuella datorer kan bara skapas från specialiserade avbildningar med hjälp av portalen eller API: et. Är inget CLI-eller PowerShell-stöd för förhands granskningen.
 
 
-## <a name="regional-support"></a>Regionalt stöd
+## <a name="regional-support"></a>Regional support
 
-Källregioner visas i tabellen nedan. Alla offentliga regioner kan vara målregioner, men för att replikera till Australia Central och Australia Central 2 måste du ha din prenumeration vitlistad. Om du vill begära vitlistning går du till:https://azure.microsoft.com/global-infrastructure/australia/contact/
+Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien Central och Australien, Central 2 måste du ha din prenumeration vit listas. Om du vill begära vit listning går du till:https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
-| Källregioner        |                   |                    |                    |
+| Käll regioner        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Australien, centrala     | Kina, östra        | Indien, södra        | Europa, västra        |
-| Australien, centrala 2   | Kina Öst 2      | Sydostasien     | Storbritannien, södra           |
+| Australien, centrala 2   | Kina, östra 2      | Sydostasien     | Storbritannien, södra           |
 | Australien, östra        | Kina, norra       | Japan, östra         | Storbritannien, västra            |
-| Australien, sydöstra   | Kina Norra 2     | Japan, västra         | USA DoD, centrala     |
+| Australien, sydöstra   | Kina, norra 2     | Japan, västra         | USA DoD, centrala     |
 | Brasilien, södra          | Asien, östra         | Sydkorea, centrala      | USA DoD, östra        |
 | Kanada, centrala        | USA, östra           | Sydkorea, södra        | US Gov, Arizona     |
 | Kanada, östra           | USA, östra 2         | USA, norra centrala   | US Gov, Texas       |
-| Indien, centrala         | Östra USA 2 EUAP    | Europa, norra       | US Gov, Virginia    |
+| Indien, centrala         | USA, östra 2 EUAP    | Europa, norra       | US Gov, Virginia    |
 | USA, centrala            | Frankrike, centrala    | USA, södra centrala   | Indien, västra         |
-| Centrala USA EUAP       | Frankrike, södra      | USA, västra centrala    | USA, västra            |
+| Centrala USA-EUAP       | Frankrike, södra      | USA, västra centrala    | USA, västra            |
 |                       |                   |                    | USA, västra 2          |
 
 
 
 ## <a name="limits"></a>Begränsningar 
 
-Det finns gränser per prenumeration för att distribuera resurser med delade avbildningsgallerier:
-- 100 delade bildgallerier, per prenumeration, per region
-- 1 000 bilddefinitioner per prenumeration, per region
-- 10 000 bildversioner, per prenumeration, per region
+Det finns gränser per prenumeration för att distribuera resurser med hjälp av delade avbildnings gallerier:
+- 100 delade avbildnings gallerier, per prenumeration, per region
+- 1 000 avbildnings definitioner, per prenumeration, per region
+- 10 000 avbildnings versioner, per prenumeration, per region
 - Alla diskar som är anslutna till avbildningen måste vara mindre än eller lika med 1 TB i storlek
 
-Mer information finns i [Kontrollera resursanvändning mot gränser](https://docs.microsoft.com/azure/networking/check-usage-against-limits) för exempel på hur du kontrollerar din aktuella användning.
+Mer information finns i [kontrol lera resursanvändningen mot begränsningar](https://docs.microsoft.com/azure/networking/check-usage-against-limits) för att se hur du använder den aktuella användningen.
  
 ## <a name="scaling"></a>Skalning
-Med det delade bildgalleriet kan du ange hur många repliker du vill att Azure ska behålla avbildningarna. Detta hjälper i flera VM-distributionsscenarier eftersom vm-distributionerna kan spridas till olika repliker vilket minskar risken för att instansskapande bearbetning begränsas på grund av överbelastning av en enda replik.
+Med det delade bild galleriet kan du ange antalet repliker som du vill att Azure ska behålla avbildningarna. Detta bidrar till distributions scenarier med flera virtuella datorer eftersom distributioner av virtuella datorer kan spridas till olika repliker, vilket minskar risken för bearbetning av instans skapande begränsas på grund av överbelastning av en enskild replik.
 
-Med Shared Image Gallery kan du nu distribuera upp till 1 000 VM-instanser i en uppsättning virtuella datorer (upp från 600 med hanterade avbildningar). Avbildningsrepliker ger bättre distributionsprestanda, tillförlitlighet och konsekvens. Du kan ange ett antal olika repliker i varje målregion, baserat på regionens skalbehov. Eftersom varje replik är en djup kopia av avbildningen hjälper detta till att skala distributionerna linjärt med varje extra replik. Även om vi förstår att inga två bilder eller regioner är desamma, här är vår allmänna riktlinje om hur du använder repliker i en region:
+Med delade avbildnings galleriet kan du nu distribuera upp till en 1 000 VM-instanser i en skalnings uppsättning för virtuella datorer (upp till 600 med hanterade avbildningar). Avbildnings repliker ger bättre distributions prestanda, tillförlitlighet och konsekvens. Du kan ange ett annat antal repliker i varje mål region, baserat på skalnings behoven för regionen. Eftersom varje replik är en djupgående kopia av din avbildning hjälper det att skala dina distributioner linjärt med varje extra replik. Vi förstår att inga två bilder eller regioner är desamma, här är vår allmänna rikt linje om hur du använder repliker i en region:
 
-- För VMSS-distributioner (Non-Virtual Machine Scale Set) – för varje 20 virtuella datorer som du skapar samtidigt rekommenderar vi att du behåller en replik. Om du till exempel skapar 120 virtuella datorer samtidigt med samma bild i en region föreslår vi att du behåller minst 6 repliker av bilden. 
-- För VMSS-distributioner (Virtual Machine Scale Set) – För varje skalningsuppsättningsdistribution med upp till 600 instanser rekommenderar vi att du behåller minst en replik. Om du till exempel skapar 5 skalningsuppsättningar samtidigt, var och en med 600 VM-instanser med samma avbildning i en enda region, föreslår vi att du behåller minst 5 repliker av avbildningen. 
+- För VMSS-distributioner för icke-virtuella datorer, rekommenderar vi att du behåller en replik för varje 20 virtuella datorer som du skapar samtidigt. Om du till exempel skapar 120 virtuella datorer samtidigt med samma avbildning i en region, rekommenderar vi att du behåller minst 6 repliker av avbildningen. 
+- För VMSS-distributioner (Virtual Machine Scale set) – för varje skalnings uppsättnings distribution med upp till 600 instanser rekommenderar vi att du behåller minst en replik. Om du till exempel skapar 5 skalnings uppsättningar samtidigt, var och en med 600 VM-instanser med samma avbildning i en enda region, rekommenderar vi att du behåller minst 5 repliker av avbildningen. 
 
-Vi rekommenderar alltid att du överetablerar antalet repliker på grund av faktorer som bildstorlek, innehåll och OS-typ.
+Vi rekommenderar alltid att du överetablerar antalet repliker på grund av faktorer som bild storlek, innehåll och OS-typ.
 
 ![Bild som visar hur du kan skala bilder](./media/shared-image-galleries/scaling.png)
 
-## <a name="make-your-images-highly-available"></a>Gör dina bilder mycket tillgängliga
+## <a name="make-your-images-highly-available"></a>Gör dina bilder med hög tillgänglighet
 
-[Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) ger återhämtning mot ett tillgänglighetszonfel i regionen. Med den allmänna tillgängligheten för det delade bildgalleriet kan du välja att lagra dina bilder i ZRS-konton i regioner med tillgänglighetszoner. 
+[ZRS (Azure Zone redundant Storage)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) tillhandahåller återhämtning mot ett problem med en tillgänglighets zon i regionen. Med den allmänna tillgängligheten för delade avbildnings galleriet kan du välja att lagra dina avbildningar i ZRS-konton i regioner med Tillgänglighetszoner. 
 
-Du kan också välja kontotyp för var och en av målområdena. Standardtypen för lagringskonto är Standard_LRS, men du kan välja Standard_ZRS för regioner med tillgänglighetszoner. Kontrollera den regionala tillgängligheten för ZRS [här](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+Du kan också välja konto typen för varje mål region. Standard typen av lagrings konto är Standard_LRS, men du kan välja Standard_ZRS för regioner med Tillgänglighetszoner. Kontrol lera den regionala tillgängligheten för ZRS [här](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
 
 ![Bild som visar ZRS](./media/shared-image-galleries/zrs.png)
 
 ## <a name="replication"></a>Replikering
-Med det delade avbildningsgalleriet kan du också replikera dina avbildningar till andra Azure-regioner automatiskt. Varje version av delad avbildning kan replikeras till olika regioner beroende på vad som är meningsfullt för din organisation. Ett exempel är att alltid replikera den senaste avbildningen i flera regioner medan alla äldre versioner endast är tillgängliga i 1 region. Detta kan hjälpa till att spara på lagringskostnader för delade avbildningsversioner. 
+Med det delade bild galleriet kan du också replikera dina avbildningar till andra Azure-regioner automatiskt. Varje delad avbildnings version kan replikeras till olika regioner beroende på vad som passar din organisation. Ett exempel är att alltid replikera den senaste avbildningen i flera regioner medan alla äldre versioner bara är tillgängliga i en region. Detta kan hjälpa till att spara lagrings kostnader för delade avbildnings versioner. 
 
-De regioner som en version av delad avbildning replikeras till kan uppdateras efter skapandetid. Hur lång tid det tar att replikera till olika regioner beror på hur mycket data som kopieras och antalet regioner som versionen replikeras till. Detta kan ta några timmar i vissa fall. Medan replikeringen sker kan du visa status för replikering per region. När avbildningsreplikeringen är klar i en region kan du sedan distribuera en virtuell dator eller skaluppsättning med den avbildningsversionen i regionen.
+De regioner som en delad avbildnings version replikeras till kan uppdateras efter skapande tiden. Hur lång tid det tar att replikera till olika regioner beror på hur mycket data som kopieras och hur många regioner som versionen replikeras till. Detta kan ta några timmar i vissa fall. Även om replikeringen sker kan du se status för replikering per region. När replikeringen är klar i en region kan du distribuera en virtuell dator eller en skalnings uppsättning med hjälp av avbildnings versionen i regionen.
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
 ## <a name="access"></a>Åtkomst
 
-Eftersom versionen För delad bildgalleri, bilddefinition och avbildning är alla resurser kan de delas med de inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänsthuvudnamn och grupper. Du kan även dela åtkomst till personer utanför klienten som de skapades inom. När en användare har åtkomst till versionen delad avbildning kan de distribuera en virtuell dator eller en skaluppsättning för virtuella datorer.  Här är delningsmatrisen som hjälper till att förstå vad användaren får tillgång till:
+När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
-| Delas med användare     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
+| Delat med användare     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
 | Delat bildgalleri | Ja                  | Ja          | Ja                  |
-| Bilddefinition     | Inga                   | Ja          | Ja                  |
+| Bilddefinition     | Nej                   | Ja          | Ja                  |
 
-Vi rekommenderar att du delar på gallerinivå för bästa upplevelse. Vi rekommenderar inte att du delar enskilda bildversioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
+Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
-Avbildningar kan också delas i stor skala även över klienter med hjälp av en appregistrering för flera innehavare. Mer information om hur du delar av bilder mellan klienter finns i [Dela virtuella avbildningar i galleri för azure-klienter](../articles/virtual-machines/linux/share-images-across-tenants.md).
+Avbildningar kan också delas, i stor skala, även mellan klienter som använder en app-registrering för flera innehavare. Mer information om hur du delar avbildningar över klienter finns i [dela Galleri VM-avbildningar i Azure-klienter](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Fakturering
-Det tillkommer ingen extra kostnad för att använda tjänsten Delat bildgalleri. Du debiteras för följande resurser:
-- Lagringskostnader för lagring av versionerna för delad bild. Kostnaden beror på antalet repliker av avbildningsversionen och antalet regioner som versionen replikeras till. Om du till exempel har två avbildningar och båda replikeras till 3 regioner debiteras du för 6 hanterade diskar baserat på deras storlek. Mer information finns i [Priser för hanterade diskar](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Nätverksutgående avgifter för replikering av den första avbildningsversionen från källregionen till de replikerade regionerna. Efterföljande repliker hanteras inom regionen, så det finns inga extra avgifter. 
+Det kostar inget extra att använda tjänsten Shared Image Gallery. Du kommer att debiteras för följande resurser:
+- Lagrings kostnader för lagring av delade avbildnings versioner. Kostnaden beror på antalet repliker av avbildnings versionen och antalet regioner som versionen replikeras till. Om du till exempel har två bilder och båda replikeras till tre regioner debiteras du för 6 hanterade diskar baserat på deras storlek. Mer information finns i [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Nätverks utgående kostnader för replikering av den första avbildnings versionen från käll regionen till de replikerade regionerna. Efterföljande repliker hanteras i regionen, så det finns inga ytterligare avgifter. 
 
-## <a name="updating-resources"></a>Uppdatera resurser
+## <a name="updating-resources"></a>Uppdaterar resurser
 
-När du har skapat kan du göra vissa ändringar i bildgalleriets resurser. Dessa är begränsade till:
+När du har skapat kan du göra några ändringar i avbildnings Galleri resurserna. Dessa är begränsade till:
  
-Delat bildgalleri:
+Galleri för delad avbildning:
 - Beskrivning
 
-Bilddefinition:
-- Rekommenderade vCPUs
+Bild definition:
+- Rekommenderad virtuella processorer
 - Rekommenderat minne
 - Beskrivning
-- Datum för uttjänt
+- Datum för slut på livs längd
 
-Bildversion:
+Avbildnings version:
 - Antal regionala repliker
-- Målregioner
-- Uteslut från senaste
-- Datum för uttjänt
+- Mål regioner
+- Exkludera från senaste
+- Datum för slut på livs längd
 
 ## <a name="sdk-support"></a>SDK-support
 
-Följande SDK-filer har stöd för att skapa delade bildgallerier:
+Följande SDK: er har stöd för att skapa delade avbildnings gallerier:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
@@ -193,118 +193,118 @@ Följande SDK-filer har stöd för att skapa delade bildgallerier:
 
 ## <a name="templates"></a>Mallar
 
-Du kan skapa resurs för delat bildgalleri med hjälp av mallar. Det finns flera Azure Quickstart-mallar tillgängliga: 
+Du kan skapa en resurs för delade avbildnings galleri med hjälp av mallar. Det finns flera tillgängliga Azure snabb starts mallar: 
 
-- [Skapa ett delat bildgalleri](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Skapa en bilddefinition i ett delat bildgalleri](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Skapa en bildversion i ett delat bildgalleri](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Skapa en virtuell dator från avbildningsversion](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Skapa ett galleri för delad avbildning](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Skapa en avbildnings definition i ett galleri för delade avbildningar](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Skapa en avbildnings version i ett galleri för delad avbildning](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Skapa en virtuell dator från avbildnings version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 
 
-* [Hur kan jag lista alla resurser i det delade bildgalleriet mellan prenumerationer?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
-* [Kan jag flytta min befintliga bild till det delade bildgalleriet?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
-* [Kan jag skapa en avbildningsversion från en specialiserad disk?](#can-i-create-an-image-version-from-a-specialized-disk)
-* [Kan jag flytta resursen Delat bildgalleri till en annan prenumeration när den har skapats?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
-* [Kan jag replikera mina avbildningsversioner över moln som Azure China 21Vianet eller Azure Germany eller Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
-* [Kan jag replikera mina avbildningsversioner över prenumerationer?](#can-i-replicate-my-image-versions-across-subscriptions)
-* [Kan jag dela avbildningsversioner över Azure AD-klienter?](#can-i-share-image-versions-across-azure-ad-tenants)
-* [Hur lång tid tar det att replikera avbildningsversioner i målområdena?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
-* [Vad är skillnaden mellan källregion och målregion?](#what-is-the-difference-between-source-region-and-target-region)
-* [Hur anger jag källregionen när jag skapar avbildningsversionen?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
-* [Hur anger jag antalet bildversionsrepliker som ska skapas i varje region?](#how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region)
-* [Kan jag skapa det delade bildgalleriet på en annan plats än det för bilddefinitionen och bildversionen?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
-* [Vilka avgifter debiteras för att använda det delade bildgalleriet?](#what-are-the-charges-for-using-the-shared-image-gallery)
-* [Vilken API-version ska jag använda för att skapa delat bildgalleri och bilddefinition och bildversion?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
-* [Vilken API-version ska jag använda för att skapa delad virtuell dator eller skala för virtuell dator av avbildningsversionen?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+* [Hur gör jag för att visa en lista över alla delade avbildnings Galleri resurser i prenumerationer?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
+* [Kan jag flytta min befintliga avbildning till galleriet för delad avbildning?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
+* [Kan jag skapa en avbildnings version från en specialiserad disk?](#can-i-create-an-image-version-from-a-specialized-disk)
+* [Kan jag flytta den delade avbildnings Galleri resursen till en annan prenumeration när den har skapats?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
+* [Kan jag replikera mina bild versioner över moln som Azure Kina 21Vianet eller Azure Germany eller Azure Government molnet?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [Kan jag replikera mina image-versioner mellan prenumerationer?](#can-i-replicate-my-image-versions-across-subscriptions)
+* [Kan jag dela avbildnings versioner i Azure AD-klienter?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [Hur lång tid tar det att replikera avbildnings versioner i mål regionerna?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
+* [Vad är skillnaden mellan käll region och mål region?](#what-is-the-difference-between-source-region-and-target-region)
+* [Hur gör jag för att anger du käll regionen när du skapar avbildnings versionen?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
+* [Hur gör jag för att ange antalet avbildningar av avbildnings version som ska skapas i varje region?](#how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region)
+* [Kan jag skapa galleriet för delade avbildningar på en annan plats än det för bild definitionen och avbildnings versionen?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
+* [Vad kostar det att använda det delade avbildnings galleriet?](#what-are-the-charges-for-using-the-shared-image-gallery)
+* [Vilken API-version ska jag använda för att skapa delade avbildnings gallerier och bild definitions-och avbildnings versioner?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
+* [Vilken API-version ska jag använda för att skapa delad VM eller virtuell dators skalnings uppsättning från avbildnings versionen?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 
-### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Hur kan jag lista alla resurser i det delade bildgalleriet mellan prenumerationer?
+### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Hur gör jag för att visa en lista över alla delade avbildnings Galleri resurser i prenumerationer?
 
-Så här listar du alla resurser i det delade bildgalleriet över prenumerationer som du har åtkomst till på Azure-portalen:
+Om du vill visa en lista över alla delade avbildnings Galleri resurser över prenumerationer som du har åtkomst till på Azure Portal följer du stegen nedan:
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
-1. Gå till **Alla resurser**.
-1. Välj alla prenumerationer som du vill visa alla resurser under.
-1. Leta efter resurser av typen **Privat galleri**.
+1. Öppna [Azure Portal](https://portal.azure.com).
+1. Gå till **alla resurser**.
+1. Välj alla prenumerationer som du vill lista alla resurser under.
+1. Sök efter resurser av typen **privat Galleri**.
  
-   Om du vill visa bilddefinitioner och bildversioner bör du också välja **Visa dolda typer**.
+   Om du vill se bild definitionerna och bild versionerna bör du även välja **Visa dolda typer**.
  
-   Om du vill visa alla resurser i det delade bildgalleriet över prenumerationer som du har behörighet till använder du följande kommando i Azure CLI:
+   Om du vill visa en lista över alla delade avbildnings Galleri resurser över prenumerationer som du har behörighet till använder du följande kommando i Azure CLI:
 
    ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
    ```
 
-### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Kan jag flytta min befintliga bild till det delade bildgalleriet?
+### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Kan jag flytta min befintliga avbildning till galleriet för delad avbildning?
  
-Ja. Det finns 3 scenarier baserat på vilka typer av bilder du kan ha.
+Ja. Det finns tre scenarier baserat på de typer av avbildningar som du kan ha.
 
- Scenario 1: Om du har en hanterad avbildning i samma prenumeration som SIG kan du skapa en bilddefinition och bildversion från den.
+ Scenario 1: om du har en hanterad avbildning i samma prenumeration som din egen, kan du skapa en avbildnings definition och avbildnings version från den.
 
- Scenario 2: Om du har en ohanterad avbildning i samma prenumeration som SIG kan du skapa en hanterad avbildning från den och sedan skapa en bilddefinition och bildversion från den. 
+ Scenario 2: om du har en ohanterad avbildning i samma prenumeration som för SIG kan du skapa en hanterad avbildning från den och sedan skapa en avbildnings definition och avbildnings version från den. 
 
- Scenario 3: Om du har en virtuell hårddisk i ditt lokala filsystem måste du ladda upp den virtuella hårddisken till en hanterad avbildning, kan du skapa en bilddefinition och bildversion från den.
+ Scenario 3: om du har en virtuell hård disk i det lokala fil systemet måste du ladda upp den virtuella hård disken till en hanterad avbildning. sedan kan du skapa en avbildnings definition och avbildnings version från den.
 
-- Om den virtuella hårddisken är av en Virtuell Windows-dator läser du [Ladda upp en virtuell hårddisk](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-- Om den virtuella hårddisken är för en Virtuell Linux-dator läser du [Ladda upp en virtuell hårddisk](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- Om den virtuella hård disken är en virtuell Windows-dator kan du läsa [Ladda upp en virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- Om den virtuella hård disken är för en virtuell Linux-dator läser du [Ladda upp en virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
-### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Kan jag skapa en avbildningsversion från en specialiserad disk?
+### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Kan jag skapa en avbildnings version från en specialiserad disk?
 
-Ja, stöd för specialiserade diskar som avbildningar är i förhandsgranskning. Du kan bara skapa en virtuell dator från en specialiserad avbildning med hjälp av portalen[(Windows](../articles/virtual-machines/linux/shared-images-portal.md) eller [Linux)](../articles/virtual-machines/linux/shared-images-portal.md)och API. Det finns inget PowerShell-stöd för förhandsversionen.
+Ja, stöd för specialiserade diskar som bilder är i för hands version. Du kan bara skapa en virtuell dator från en specialiserad avbildning med hjälp av portalen ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) eller [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) och API. Det finns inget PowerShell-stöd för förhands granskningen.
 
-### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Kan jag flytta resursen Delat bildgalleri till en annan prenumeration när den har skapats?
+### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Kan jag flytta den delade avbildnings Galleri resursen till en annan prenumeration när den har skapats?
 
-Nej, du kan inte flytta den delade bildgalleriresursen till en annan prenumeration. Du kan dock replikera avbildningsversionerna i galleriet till andra regioner efter behov.
+Nej, du kan inte flytta den delade avbildnings Galleri resursen till en annan prenumeration. Du kommer dock att kunna replikera avbildnings versionerna i galleriet till andra regioner efter behov.
 
-### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Kan jag replikera mina avbildningsversioner över moln som Azure China 21Vianet eller Azure Germany eller Azure Government Cloud?
+### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Kan jag replikera mina bild versioner över moln som Azure Kina 21Vianet eller Azure Germany eller Azure Government molnet?
 
-Nej, du kan inte replikera avbildningsversioner över moln.
+Nej, du kan inte replikera avbildnings versioner över moln.
 
-### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Kan jag replikera mina avbildningsversioner över prenumerationer?
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Kan jag replikera mina image-versioner mellan prenumerationer?
 
-Nej, du kan replikera avbildningsversionerna mellan regioner i en prenumeration och använda den i andra prenumerationer via RBAC.
+Nej, du kan replikera avbildnings versionerna mellan regioner i en prenumeration och använda dem i andra prenumerationer via RBAC.
 
-### <a name="can-i-share-image-versions-across-azure-ad-tenants"></a>Kan jag dela avbildningsversioner över Azure AD-klienter? 
+### <a name="can-i-share-image-versions-across-azure-ad-tenants"></a>Kan jag dela avbildnings versioner i Azure AD-klienter? 
 
-Ja, du kan använda RBAC för att dela med personer mellan klienter. Men om du vill dela i stor skala läser du "Dela galleriavbildningar över Azure-klienter" med [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) eller [CLI](../articles/virtual-machines/linux/share-images-across-tenants.md).
+Ja, du kan använda RBAC för att dela till individer mellan klienter. Men om du vill dela i skala, se "dela Galleri bilder över Azure-klienter" med hjälp av [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) eller [CLI](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
-### <a name="how-long-does-it-take-to-replicate-image-versions-across-the-target-regions"></a>Hur lång tid tar det att replikera avbildningsversioner i målområdena?
+### <a name="how-long-does-it-take-to-replicate-image-versions-across-the-target-regions"></a>Hur lång tid tar det att replikera avbildnings versioner i mål regionerna?
 
-Replikeringstiden för avbildningsversionen är helt beroende av bildens storlek och antalet regioner som den replikeras till. Som bästa praxis rekommenderar vi dock att du håller bilden liten och att käll- och målområdena stängs för bästa resultat. Du kan kontrollera replikeringens status med flaggan -ReplicationStatus.
+Replikerings tiden för avbildnings versionen är helt beroende av avbildningens storlek och antalet regioner som den replikeras till. Men som bästa praxis rekommenderar vi att du håller bilden liten och att käll-och mål regionerna stängs för bästa möjliga resultat. Du kan kontrol lera status för replikeringen med hjälp av flaggan-ReplicationStatus.
 
-### <a name="what-is-the-difference-between-source-region-and-target-region"></a>Vad är skillnaden mellan källregion och målregion?
+### <a name="what-is-the-difference-between-source-region-and-target-region"></a>Vad är skillnaden mellan käll region och mål region?
 
-Källregion är den region där bildversionen skapas och målområden är de regioner där en kopia av bildversionen ska lagras. För varje bildversion kan du bara ha en källregion. Se också till att du skickar källregionens plats som ett av målområdena när du skapar en bildversion.
+Käll region är den region där din avbildnings version kommer att skapas och mål regioner är de regioner där en kopia av din avbildnings version ska lagras. För varje avbildnings version kan du bara ha en käll region. Se också till att du överför käll regions platsen som en av mål regionerna när du skapar en avbildnings version.
 
-### <a name="how-do-i-specify-the-source-region-while-creating-the-image-version"></a>Hur anger jag källregionen när jag skapar avbildningsversionen?
+### <a name="how-do-i-specify-the-source-region-while-creating-the-image-version"></a>Hur gör jag för att anger du käll regionen när du skapar avbildnings versionen?
 
-När du skapar en bildversion kan du använda taggen **--location** i CLI och **-Location-taggen** i PowerShell för att ange källregionen. Kontrollera att den hanterade avbildningen som du använder som basavbildning för att skapa bildversionen är på samma plats som den plats där du tänker skapa avbildningsversionen. Se också till att du skickar källregionens plats som ett av målområdena när du skapar en bildversion.  
+När du skapar en avbildnings version kan du använda taggen **--location** i CLI och taggen **-location** i PowerShell för att ange käll regionen. Kontrol lera att den hanterade avbildningen som du använder som bas avbildning för att skapa avbildnings versionen finns på samma plats som den plats där du vill skapa avbildnings versionen. Se också till att du överför käll regions platsen som en av mål regionerna när du skapar en avbildnings version.  
 
-### <a name="how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region"></a>Hur anger jag antalet bildversionsrepliker som ska skapas i varje region?
+### <a name="how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region"></a>Hur gör jag för att ange antalet avbildningar av avbildnings version som ska skapas i varje region?
 
-Du kan ange hur många bildversionsrepliker som ska skapas i varje region:
+Det finns två sätt som du kan använda för att ange hur många avbildningar av avbildnings version som ska skapas i varje region:
  
 1. Antalet regionala repliker som anger antalet repliker som du vill skapa per region. 
-2. Det vanliga replikantalet som är standardantalet per region om inte antalet regionala repliker anges. 
+2. Antal vanliga repliker som är standardvärdet per region, om antalet regionala repliker inte har angetts. 
 
-Om du vill ange antalet regionala repliker skickar du platsen tillsammans med antalet repliker som du vill skapa i den regionen: "South Central US=2". 
+Ange det regionala replik antalet genom att skicka platsen tillsammans med antalet repliker som du vill skapa i regionen: "södra centrala USA = 2". 
 
-Om regionalt replikantal inte anges med varje plats, blir standardantalet repliker det gemensamma replikantalet som du angav. 
+Om det regionala replik antalet inte anges med varje plats, blir standard antalet repliker det vanliga antalet repliker som du har angett. 
 
-Om du vill ange det vanliga replikantalet i `az sig image-version create` CLI använder du argumentet **--replica-count** i kommandot.
+Om du vill ange vanliga replik antal i CLI använder du argumentet **--Replica-Count** i `az sig image-version create` kommandot.
 
-### <a name="can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>Kan jag skapa det delade bildgalleriet på en annan plats än det för bilddefinitionen och bildversionen?
+### <a name="can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>Kan jag skapa galleriet för delade avbildningar på en annan plats än det för bild definitionen och avbildnings versionen?
 
-Ja, det kan du. Men som bästa praxis rekommenderar vi att du behåller resursgruppen, det delade bildgalleriet, bilddefinitionen och bildversionen på samma plats.
+Ja, det kan du. Men vi rekommenderar att du behåller resurs gruppen, delade avbildnings galleriet, avbildnings definitionen och avbildnings versionen på samma plats.
 
-### <a name="what-are-the-charges-for-using-the-shared-image-gallery"></a>Vilka avgifter debiteras för att använda det delade bildgalleriet?
+### <a name="what-are-the-charges-for-using-the-shared-image-gallery"></a>Vad kostar det att använda det delade avbildnings galleriet?
 
-Det finns inga avgifter för att använda tjänsten Delat bildgalleri, förutom lagringsavgifterna för lagring av avbildningsversioner och nätverksutgående avgifter för att replikera avbildningsversionerna från källregionen till målområden.
+Det kostar inget att använda tjänsten Shared Image Gallery, förutom lagrings kostnaderna för lagring av avbildnings versioner och utgående kostnader för att replikera avbildnings versionerna från käll regionen till mål regioner.
 
-### <a name="what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version"></a>Vilken API-version ska jag använda för att skapa delat bildgalleri och bilddefinition och bildversion?
+### <a name="what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version"></a>Vilken API-version ska jag använda för att skapa delade avbildnings gallerier och bild definitions-och avbildnings versioner?
 
-Om du vill arbeta med delade bildgallerier, bilddefinitioner och bildversioner rekommenderar vi att du använder API-version 2018-06-01. Zon redundant lagring (ZRS) kräver version 2019-03-01 eller senare.
+Om du vill arbeta med delade avbildnings gallerier, bild definitioner och avbildnings versioner rekommenderar vi att du använder API-version 2018-06-01. ZRS (Zone redundant Storage) kräver version 2019-03-01 eller senare.
 
-### <a name="what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>Vilken API-version ska jag använda för att skapa delad virtuell dator eller skala för virtuell dator av avbildningsversionen?
+### <a name="what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>Vilken API-version ska jag använda för att skapa delad VM eller virtuell dators skalnings uppsättning från avbildnings versionen?
 
-För vm- och virtual machine-skalningsuppsättningsdistributioner med hjälp av en avbildningsversion rekommenderar vi att du använder API-version 2018-04-01 eller senare.
+För virtuella datorer och distributioner av skalnings uppsättningar för virtuella datorer med en avbildnings version rekommenderar vi att du använder API version 2018-04-01 eller senare.

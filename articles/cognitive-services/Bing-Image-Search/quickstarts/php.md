@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter bilder med REST API för Bing-bildsökning och PHP'
+title: 'Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och PHP'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka bildsökningsbegäranden till REST-API med PHP för bildsökning i Bing och få JSON-svar.
 services: cognitive-services
@@ -13,19 +13,19 @@ ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: fffe56986a3b3a64910678d19321e2d04b8fcc55
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478558"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Snabbstart: Sök efter bilder med REST API för Bing-bildsökning och PHP
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och PHP
 
 Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det enkla programmet i den här artikeln skickar en sökfråga och visar rådataresultat.
 
 Det här programmet är skrivet i PHP, men API:n är en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Källkoden för det här exemplet är tillgänglig [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
+Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -41,7 +41,7 @@ Följ dessa steg om du vill köra programmet.
 
 1. Kontrollera att säkert HTTP-stöd är aktiverat i din `php.ini`-fil. I Windows finns den här filen i `C:\windows`.
 2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.
-3. Definiera API-slutpunkten, din prenumerationsnyckel och sökterm. Slutpunkten kan vara den globala slutpunkten nedan, eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+3. Definiera API-slutpunkten, prenumerations nyckeln och Sök termen. slut punkten kan vara den globala slut punkten nedan eller den [anpassade under domänens](../../../cognitive-services/cognitive-services-custom-subdomains.md) slut punkt som visas i Azure Portal för din resurs.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';

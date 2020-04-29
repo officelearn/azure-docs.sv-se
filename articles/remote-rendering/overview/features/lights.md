@@ -1,76 +1,76 @@
 ---
-title: Cykellyktor
-description: Beskrivning och egenskaper för ljuskälla
+title: Lampor
+description: Beskrivning och egenskaper för ljus källa
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: 0a4a226af1347b5302b0c3964889fc072f89e7f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680952"
 ---
-# <a name="lights"></a>Cykellyktor
+# <a name="lights"></a>Lampor
 
-Som standard lyser fjärrrenderade objekt med ett [himmelsljus](sky.md). För de flesta program är detta redan tillräckligt, men du kan lägga till ytterligare ljuskällor till scenen.
+Som standard tänds de fjärranslutna objekten med hjälp av en [luft rummets ljus](sky.md). För de flesta program är det redan tillräckligt, men du kan lägga till ytterligare ljus källor till scenen.
 
 > [!IMPORTANT]
-> Endast [PBR-material](pbr-materials.md) påverkas av ljuskällor. [Färgmaterial](color-materials.md) visas alltid helt ljusa.
+> Endast [PBR-material](pbr-materials.md) påverkas av ljusa källor. [Färg material](color-materials.md) visas alltid helt ljust.
 
 > [!NOTE]
-> Castskuggor stöds för närvarande inte. Azure Remote Rendering är optimerad för att återge enorma mängder geometri, med hjälp av flera GPU:er om det behövs. Traditionella metoder för skugggjutning fungerar inte bra i sådana scenarier.
+> Byte av skuggor stöds inte för närvarande. Azures fjärrrendering är optimerad för att återge enorma mängder geometrier och använda flera GPU: er vid behov. Traditionella metoder för skugg byte fungerar inte bra i sådana scenarier.
 
-## <a name="common-light-component-properties"></a>Vanliga ljuskomponentegenskaper
+## <a name="common-light-component-properties"></a>Egenskaper för gemensam ljus komponent
 
-Alla ljustyper härstammar från `LightComponent` den abstrakta basklassen och delar dessa egenskaper:
+Alla ljus typer härleds från den abstrakta Bask `LightComponent` Lassen och delar dessa egenskaper:
 
-* **Färg:** Färgen på ljuset i [Gamma utrymme](https://en.wikipedia.org/wiki/SRGB). Alpha ignoreras.
+* **Färg:** Färgen på ljuset i [gamma avstånd](https://en.wikipedia.org/wiki/SRGB). Alfa ignoreras.
 
-* **Intensitet:** Ljusets ljusstyrka. För punkt- och punktljus definierar intensiteten också hur långt ljuset lyser.
+* **Intensitet:** Ljus styrka för ljuset. För punkt-och Spotlight-lampor definierar intensiteten även hur långt ljuset skiner.
 
 ## <a name="point-light"></a>Punkt ljus
 
-I Azure Remote `PointLightComponent` Rendering kan inte bara avge ljus från en enda punkt, men också från en liten sfär eller ett litet rör, för att simulera mjukare ljuskällor.
+I Azure fjärrrendering `PointLightComponent` kan inte bara dra ljuset från en enda punkt, utan även från en liten sfär eller ett litet rör, för att simulera mjuka ljus källor.
 
 ### <a name="pointlightcomponent-properties"></a>Egenskaper för PointLightComponent
 
-* **Radie:** Standardradien är noll, i vilket fall ljuset fungerar som en punktlampa. Om radien är större än noll fungerar den som sfärisk ljuskälla, vilket ändrar utseendet på speglade högdagrar.
+* **RADIUS:** Standardvärdet är noll, vilket innebär att ljuset fungerar som ett punkt ljus. Om radien är större än noll fungerar den som sfärisk ljus källa, vilket ändrar utseendet på speglade höjd punkter.
 
-* **Längd:** Om `Length` båda `Radius` och är icke-noll, fungerar ljuset som ett rör ljus. Detta kan användas för att simulera neonrör.
+* **Längd:** Om både `Length` och `Radius` är icke-noll fungerar ljuset som ett rör ljus. Detta kan användas för att simulera Neon-rör.
 
-* **DämpningAvstjäl:** Om den lämnas till (0,0) beror dämpningen av ljuset bara på dess `Intensity`. Du kan dock ange anpassade min/max-avstånd över vilka ljusets intensitet skalas linjärt ner till 0. Den här funktionen kan användas för att framtvinga ett mindre inflytande för ett visst ljus.
+* **AttenuationCutoff:** Om vänster till (0, 0) är dämpningen av ljuset bara beroende av dess `Intensity`. Du kan dock ange egna min-/max avstånd som ljus styrkan skalas linjärt ned till 0. Den här funktionen kan användas för att genomdriva en mindre mängd påverkan av ett speciellt ljus.
 
-* **ProjectedCubemap:** Om den är inställd på en giltig [kubkarta](../../concepts/textures.md)projiceras texturen på ljusets omgivande geometri. Kubkartans färg moduleras med ljusets färg.
+* **ProjectedCubemap:** Om värdet är inställt på ett giltigt [cubemap](../../concepts/textures.md), projiceras texturen på ljusets omgivande geometri. Cubemap färg är modulerad med ljusets färg.
 
-## <a name="spot-light"></a>Spot ljus
+## <a name="spot-light"></a>Dekor ljus
 
-Den `SpotLightComponent` liknar `PointLightComponent` men ljuset är begränsad till formen på en kon. Konens orientering definieras av *ägarentitetens negativa z-axel*.
+`SpotLightComponent` Liknar det `PointLightComponent` men ljuset är begränsat till formen av en kon. Konnas orientering definieras av *ägarens negativa z-axel*.
 
 ### <a name="spotlightcomponent-properties"></a>Egenskaper för SpotLightComponent
 
-* **Radie:** Samma som `PointLightComponent`för .
+* **RADIUS:** Samma som för `PointLightComponent`.
 
-* **SpotAngleDeg:** Detta intervall definierar konens inre och yttre vinkel, mätt i grad. Allt inom den inre vinkeln belyses med full ljusstyrka. En falloff appliceras mot den yttre vinkeln som genererar en penumbra-liknande effekt.
+* **SpotAngleDeg:** Detta intervall definierar den inre och den yttre vinkeln för kon, mätt i grader. Allt inom den inre vinkeln lyser med full ljus styrka. Ett utfall tillämpas mot den yttre vinkel som genererar en Penumbra effekt.
 
-* **FalloffExponent:** Definierar hur kraftigt falloff övergångar mellan den inre och den yttre konvinkel. Ett högre värde resulterar i en skarpare övergång. Standardvärdet på 1,0 resulterar i en linjär övergång.
+* **FalloffExponent:** Definierar hur skarpa utfalls över gångarna mellan den inre och den yttre kon vinkeln. Ett högre värde resulterar i en skarpare över gång. Standardvärdet på 1,0 resulterar i linjär över gång.
 
-* **DämpningAvstjäl:** Samma som `PointLightComponent`för .
+* **AttenuationCutoff:** Samma som för `PointLightComponent`.
 
-* **Projected2dTexture:** Om den är inställd på en giltig [2D-textur](../../concepts/textures.md)projiceras bilden på den geometri som ljuset lyser med. Texturens färg moduleras med ljusets färg.
+* **Projected2dTexture:** Om den är inställd på en giltig [2D-struktur](../../concepts/textures.md)projiceras bilden på geometrin som ljuset skiner på. Texturens färg är modulerad med ljusets färg.
 
 ## <a name="directional-light"></a>Riktat ljus
 
-Simulerar `DirectionalLightComponent` en ljuskälla som är oändligt långt borta. Ljuset lyser i riktning mot den *negativa z-axeln av ägarenheten*. Entitetens position ignoreras.
+`DirectionalLightComponent` Simulerar en ljus källa som är oändligt långt bort. Ljuset skiner i riktningen för den *negativa z-axeln i entiteten ägare*. Entitetens position ignoreras.
 
 Det finns inga ytterligare egenskaper.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
-Ljuskällor har en betydande inverkan på renderingsprestanda. Använd dem noggrant och endast om det krävs av programmet. Alla statiska globala ljusförhållanden, inklusive en statisk riktningskomponent, kan uppnås med en [anpassad himmelsstruktur](sky.md), utan extra återgivningskostnader.
+Ljusa källor har en betydande inverkan på åter givnings prestanda. Använd dem noggrant och endast om det krävs av programmet. Alla statiska globala belysnings villkor, inklusive en statisk riktad komponent, kan uppnås med en [anpassad luft rummets struktur](sky.md), utan ytterligare åter givnings kostnad.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Material](../../concepts/materials.md)
-* [Himlen](sky.md)
+* [Himmel](sky.md)

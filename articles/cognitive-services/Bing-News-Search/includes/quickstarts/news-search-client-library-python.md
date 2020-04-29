@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för Bing News Search Python-klientbibliotek
+title: Snabb start för Nyhetssökning i Bing python-klient bibliotek
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.openlocfilehash: c1bd0d86a3fd9d19d67d84b9b05955421373e01e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503883"
 ---
-Använd den här snabbstarten för att börja söka efter nyheter med klientbiblioteket Bing News Search för Python. Bing News Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
+Använd den här snabb starten för att börja söka efter nyheter med Nyhetssökning i Bing klient biblioteket för python. Även om Nyhetssökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
 ## <a name="prerequisites"></a>Krav
 
-* [Python (svenska)](https://www.python.org/) 2.x eller 3.x
+* [Python](https://www.python.org/) 2. x eller 3. x
 
 Vi rekommenderar att du använder en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html) för din Python-utveckling. Du kan installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv). Du måste installera en virtualenv för Python 2.7. Du kan skapa en virtuell miljö med:
 
@@ -27,7 +27,7 @@ Vi rekommenderar att du använder en [virtuell miljö](https://docs.python.org/3
 python -m venv mytestenv
 ```
 
-Du kan installera klientbiblioteksberoendena för Bing News Search med det här kommandot:
+Du kan installera klient biblioteks beroenden för Nyhetssökning i Bing med det här kommandot:
     
 ```console
 python -m pip install azure-cognitiveservices-search-newssearch
@@ -83,4 +83,4 @@ else:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig webbapp](../../tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](../../tutorial-bing-news-search-single-page-app.md)

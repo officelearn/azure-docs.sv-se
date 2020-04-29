@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Client Library för Datorseende för Go'
+title: 'Snabb start: Visuellt innehåll klient bibliotek för go'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med klientbiblioteket Computer Vision for Go med den här snabbstarten.
+description: Kom igång med Visuellt innehåll klient biblioteket för go med den här snabb starten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,53 +11,53 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: d8f40ab57ee2569b2cb5bf62f391919476b8ab17
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80136016"
 ---
 <a name="HOLTop"></a>
 
-[Källkodspaket för](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [referensdokumentation](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [bibliotek](https://github.com/Azure/azure-sdk-for-go)
+[Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [paket](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration - [Skapa en gratis](https://azure.microsoft.com/free/)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
 
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
-### <a name="create-a-computer-vision-azure-resource"></a>Skapa en Azure-resurs för datorseende
+### <a name="create-a-computer-vision-azure-resource"></a>Skapa en Visuellt innehåll Azure-resurs
 
-Azure Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Datorseende med Hjälp av [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på din lokala dator. Du kan också:
+Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Visuellt innehåll med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
 
-* Få en [testnyckel](https://azure.microsoft.com/try/cognitive-services/#decision) giltig i sju dagar gratis. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visa din resurs på [Azure-portalen](https://portal.azure.com/).
+* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Visa din resurs på [Azure Portal](https://portal.azure.com/).
 
-När du har fått en nyckel från utvärderingsprenumerationen eller resursen `COMPUTER_VISION_ENDPOINT`skapar du [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och slutpunkts-URL:en, med namn `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive , respektive.
+När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts `COMPUTER_VISION_ENDPOINT`-URL: en, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive.
 
-### <a name="create-a-go-project-directory"></a>Skapa en Go-projektkatalog
+### <a name="create-a-go-project-directory"></a>Skapa en go-projektfil
 
-Skapa en ny arbetsyta för Go-projektet med namnet `my-app`Go-projektet i ett konsolfönster (cmd, PowerShell, Terminal, Bash) och navigera till den.
+I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets yta för ditt go-projekt `my-app`, med namnet och navigerar till den.
 
 ```
 mkdir -p my-app/{src, bin, pkg}  
 cd my-app
 ```
 
-Arbetsytan innehåller tre mappar:
+Arbets ytan kommer att innehålla tre mappar:
 
-* **src** - Den här katalogen innehåller källkod och paket. Alla paket som `go get` installeras med kommandot kommer att gå i den här katalogen.
-* **pkg** - Den här katalogen innehåller de kompilerade Go-paketobjekten. Dessa filer har `.a` alla ett tillägg.
-* **bin** - Den här katalogen innehåller de binära `go install`körbara filer som skapas när du kör .
+* **src** – den här katalogen kommer att innehålla källkod och paket. Alla paket som installeras med `go get` kommandot hamnar i den här katalogen.
+* **pkg** – den här katalogen kommer att innehålla de kompilerade go-paket-objekten. De här filerna har ett `.a` fil namns tillägg.
+* **bin** – den här katalogen innehåller de binära körbara filer som skapas när du `go install`kör.
 
 > [!TIP]
-> Mer information om strukturen på en Go-arbetsyta finns i [dokumentdokumentationen Gå.](https://golang.org/doc/code.html#Workspaces) Den här guiden `$GOPATH` innehåller `$GOROOT`information för inställning och .
+> Läs mer om strukturen för en Go-arbetsyta i [språk dokumentationen för go](https://golang.org/doc/code.html#Workspaces). Den här guiden innehåller information om `$GOPATH` hur `$GOROOT`du ställer in och.
 
-### <a name="install-the-client-library-for-go"></a>Installera klientbiblioteket för Go
+### <a name="install-the-client-library-for-go"></a>Installera klient biblioteket för go
 
-Installera sedan klientbiblioteket för Go:
+Installera sedan klient biblioteket för Go:
 
 ```bash
 go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
@@ -71,129 +71,129 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Skapa ett Go-program
 
-Skapa sedan en fil i **src-katalogen** med namnet `sample-app.go`:
+Skapa sedan en fil i **src** -katalogen med namnet `sample-app.go`:
 
 ```bash
 cd src
 touch sample-app.go
 ```
 
-Öppna `sample-app.go` i önskad IDE- eller textredigerare. Lägg sedan till paketnamnet och importera följande bibliotek:
+Öppna `sample-app.go` i önskad IDE-eller text redigerare. Lägg sedan till paket namnet och importera följande bibliotek:
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports)]
 
-Deklarera också en kontext i skriptets rot. Du behöver det här objektet för att köra de flesta datorseende funktionsanrop:
+Deklarera också en kontext i roten i skriptet. Du behöver det här objektet för att köra de flesta Visuellt innehåll funktions anrop:
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
 
-Därefter ska du börja lägga till kod för att utföra olika datorseendeåtgärder.
+Härnäst ska du börja lägga till kod för att utföra olika Visuellt innehåll åtgärder.
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Computer Vision Go SDK.
+Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Visuellt innehåll go SDK.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
-| [BaseClient (avbaskl)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Den här klassen behövs för alla datorseendefunktioner, till exempel bildanalys och textläsning. Du instansierar den med din prenumerationsinformation och använder den för att göra de flesta avbildningsåtgärder.|
-|[BildAnalys](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Den här typen innehåller resultatet av ett AnalyzeImage-funktionsanrop. **AnalyzeImage** Det finns liknande typer för var och en av de kategorispecifika funktionerna.|
-|[ReadOperationResult](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ReadOperationResult)| Den här typen innehåller resultatet av en batchläsning. |
-|[VisualFeatureTypes](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#VisualFeatureTypes)| Den här typen definierar de olika typer av bildanalys som kan göras i en standardanalysåtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
+| [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Den här klassen krävs för alla Visuellt innehåll funktioner, till exempel bild analys och text läsning. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
+|[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Den här typen innehåller resultatet av ett **AnalyzeImage** -funktions anrop. Det finns liknande typer för var och en av de företagsspecifika funktionerna.|
+|[ReadOperationResult](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ReadOperationResult)| Den här typen innehåller resultatet av en batch-Läs åtgärd. |
+|[VisualFeatureTypes](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#VisualFeatureTypes)| Den här typen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning VisualFeatureTypes-värden beroende på dina behov. |
 
 ## <a name="code-examples"></a>Kodexempel
 
-De här kodavsnitten visar hur du utför följande uppgifter med klientbiblioteket Computer Vision for Go:
+De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehåll klient biblioteket för Go:
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Analysera en bild](#analyze-an-image)
-* [Läsa tryckt och handskriven text](#read-printed-and-handwritten-text)
+* [Skriv ut och handskriven text](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE]
-> Det här steget förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln och slutpunkten för datorseende, namngivna `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive. `COMPUTER_VISION_ENDPOINT`
+> Det här steget förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din visuellt innehåll nyckel och `COMPUTER_VISION_SUBSCRIPTION_KEY` slut `COMPUTER_VISION_ENDPOINT` punkt, med namnet respektive.
 
-Skapa `main` en funktion och lägg till följande kod i den för att instansiera en klient med din slutpunkt och nyckel.
+Skapa en `main` funktion och Lägg till följande kod i den för att instansiera en klient med din slut punkt och nyckel.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
 
 ## <a name="analyze-an-image"></a>Analysera en bild
 
-Följande kod använder klientobjektet för att analysera en fjärravbildning och skriva ut resultaten till konsolen. Du kan få en textbeskrivning, kategorisering, lista med taggar, identifierade objekt, identifierade varumärken, identifierade ansikten, flaggor för barnförbjudet innehåll, huvudfärger och bildtyp.
+I följande kod används klient objekt för att analysera en fjärravbildning och skriva ut resultatet till-konsolen. Du kan få en text beskrivning, kategorisering, lista med taggar, identifierade objekt, identifierade märken, identifierade ansikten, vuxen innehålls flaggor, huvud färger och bildtyp.
 
-### <a name="set-up-test-image"></a>Konfigurera testavbildning
+### <a name="set-up-test-image"></a>Konfigurera test avbildning
 
-Spara först en referens till url:en för den bild som du vill analysera. Sätt detta `main` i din funktion.
+Spara först en referens till URL: en för den avbildning som du vill analysera. Lägg detta i din `main` funktion.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
 
 > [!NOTE]
-> Du kan också analysera en lokal bild. Se exempelkoden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) för scenarier med lokala avbildningar.
+> Du kan också analysera en lokal avbildning. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) för scenarier som involverar lokala avbildningar.
 
 ### <a name="specify-visual-features"></a>Ange visuella funktioner
 
-Följande funktionsanrop extraherar olika visuella funktioner från exempelbilden. Du definierar dessa funktioner i följande avsnitt.
+Följande funktions anrop extraherar olika visuella funktioner från exempel bilden. Du definierar dessa funktioner i följande avsnitt.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze)]
 
-### <a name="get-image-description"></a>Få bildbeskrivning
+### <a name="get-image-description"></a>Beskrivning av Hämta avbildning
 
-Följande funktion hämtar listan över genererade bildtexter för bilden. Mer information om bildbeskrivning finns i [Beskriv bilder](../../concept-describing-images.md).
+Följande funktion hämtar listan över genererade under texter för avbildningen. Mer information om avbildnings beskrivning finns i [Beskriv avbildningar](../../concept-describing-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_describe)]
 
-### <a name="get-image-category"></a>Hämta bildkategori
+### <a name="get-image-category"></a>Hämta bild kategori
 
-Följande funktion får den identifierade kategorin av bilden. Mer information finns i [Kategorisera bilder](../../concept-categorizing-images.md).
+Följande funktion hämtar den identifierade kategorin för avbildningen. Mer information finns i [kategorisera bilder](../../concept-categorizing-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_categorize)]
 
-### <a name="get-image-tags"></a>Hämta bildtaggar
+### <a name="get-image-tags"></a>Hämta bild etiketter
 
-Följande funktion hämtar uppsättningen identifierade taggar i bilden. Mer information finns i [Innehållstaggar](../../concept-tagging-images.md).
+Följande funktion hämtar en uppsättning identifierade Taggar i bilden. Mer information finns i [innehålls etiketter](../../concept-tagging-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_tags)]
 
 ### <a name="detect-objects"></a>Upptäcka objekt
 
-Följande funktion identifierar vanliga objekt i bilden och skriver ut dem till konsolen. Mer information finns i [Objektidentifiering](../../concept-object-detection.md).
+Följande funktion identifierar vanliga objekt i avbildningen och skriver ut dem till-konsolen. Mer information finns i [objekt identifiering](../../concept-object-detection.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_objects)]
 
 ### <a name="detect-brands"></a>Identifiera varumärken
 
-Följande kod identifierar företagets varumärken och logotyper i bilden och skriver ut dem på konsolen. För mer information, [Brand detection](../../concept-brand-detection.md).
+Följande kod identifierar företags märken och logo typer i bilden och skriver ut dem till-konsolen. För mer information, [varumärkes identifiering](../../concept-brand-detection.md).
 
-Deklarera först en referens till en `main` ny bild i funktionen.
+Deklarera först en referens till en ny avbildning i din `main` funktion.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brand_url)]
 
-Följande kod definierar varumärkesidentifieringsfunktionen.
+Följande kod definierar varumärkes identifierings funktionen.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Identifiera ansikten
 
-Följande funktion returnerar de identifierade ytorna i bilden med sina rektangelkoordinater och vissa ansiktsattribut. Mer information finns i [Ansiktsigenkänning](../../concept-detecting-faces.md).
+Följande funktion returnerar identifierade ansikten i bilden med deras Rectangle-koordinater och vissa ansikts attribut. Mer information finns i [ansikts igenkänning](../../concept-detecting-faces.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_faces)]
 
-### <a name="detect-adult-racy-or-gory-content"></a>Identifiera innehåll för vuxna, racy eller blodiga
+### <a name="detect-adult-racy-or-gory-content"></a>Identifiera vuxna, vågat eller fullständig innehåll
 
-Följande funktion skriver ut den upptäckta förekomsten av sexuellt innehåll i bilden. Mer information finns i [Vuxen, racy, blodiga innehåll](../../concept-detecting-adult-content.md).
+Följande funktion skriver ut den identifierade förekomsten av olämpligt innehåll i bilden. Mer information finns i [vuxen, vågat, fullständig-innehåll](../../concept-detecting-adult-content.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_adult)]
 
-### <a name="get-image-color-scheme"></a>Hämta bildfärgschema
+### <a name="get-image-color-scheme"></a>Hämta färg schema för bild
 
-I följande funktion skrivs de identifierade färgattributen i bilden ut, till exempel de dominerande färgerna och accentfärgen. Mer information finns i [Färgscheman](../../concept-detecting-color-schemes.md).
+Följande funktion skriver ut de identifierade färgattributen i bilden, till exempel dominerande färger och dekor färg. Mer information finns i [färg scheman](../../concept-detecting-color-schemes.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_color)]
 
-### <a name="get-domain-specific-content"></a>Hämta domänspecifikt innehåll
+### <a name="get-domain-specific-content"></a>Hämta domänbaserat innehåll
 
-Computer Vision kan använda specialiserade modeller för att göra ytterligare analys på bilder. Mer information finns i [Domänspecifikt innehåll](../../concept-detecting-domain-content.md). 
+Visuellt innehåll kan använda specialiserade modeller för att utföra ytterligare analyser av avbildningar. Mer information finns i [domänbaserat innehåll](../../concept-detecting-domain-content.md). 
 
-Följande kod tolkar data om identifierade kändisar i bilden.
+Följande kod tolkar data om identifierade kändisar i avbildningen.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_celebs)]
 
@@ -201,44 +201,44 @@ Följande kod tolkar data om identifierade landmärken i bilden.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_landmarks)]
 
-### <a name="get-the-image-type"></a>Hämta bildtypen
+### <a name="get-the-image-type"></a>Hämta avbildnings typen
 
-I följande funktion skrivs information&mdash;om vilken typ av bild det är ClipArt eller en linjeritning.
+Följande funktion skriver ut information om typen av bild&mdash;oavsett om den är ClipArt eller en linje ritning.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
-## <a name="read-printed-and-handwritten-text"></a>Läsa tryckt och handskriven text
+## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
 
-Computer Vision kan läsa synlig text i en bild och konvertera den till en teckenström. Koden i det här avsnittet `RecognizeTextReadAPIRemoteImage`definierar en funktion, som använder klientobjektet för att identifiera och extrahera utskriven eller handskriven text i bilden.
+Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström. Koden i det här avsnittet definierar en funktion, `RecognizeTextReadAPIRemoteImage`som använder-klient objekt för att identifiera och extrahera utskrift eller handskriven text i bilden.
 
-Lägg till exempelbildsreferensen `main` och funktionsanropet i din funktion.
+Lägg till exempel bild referensen och funktions anropet `main` i din funktion.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
 > [!NOTE]
-> Du kan också extrahera text från en lokal bild. Se exempelkoden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) för scenarier med lokala avbildningar.
+> Du kan också Extrahera text från en lokal avbildning. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) för scenarier som involverar lokala avbildningar.
 
-### <a name="call-the-read-api"></a>Anropa läs-API:et
+### <a name="call-the-read-api"></a>Anropa Read API
 
-Definiera den nya funktionen `RecognizeTextReadAPIRemoteImage`för att läsa text, . Lägg till koden nedan, som **anropar Metoden BatchReadFile** för den givna bilden. Den här metoden returnerar ett åtgärds-ID och startar en asynkron process för att läsa bildens innehåll.
+Definiera den nya funktionen för att läsa text `RecognizeTextReadAPIRemoteImage`. Lägg till koden nedan, som anropar **BatchReadFile** -metoden för den aktuella avbildningen. Den här metoden returnerar ett åtgärds-ID och startar en asynkron process för att läsa innehållet i avbildningen.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_call)]
 
-### <a name="get-read-results"></a>Få läsresultat
+### <a name="get-read-results"></a>Hämta Läs resultat
 
-Hämta sedan åtgärds-ID:et som returneras från **BatchReadFile-anropet** och använder det med metoden **GetReadOperationResult** för att fråga tjänsten efter åtgärdsresultat. Följande kod kontrollerar åtgärden med en sekunds mellanrum tills resultaten returneras. Sedan skrivs de extraherade textdata ut till konsolen.
+Hämta sedan det åtgärds-ID som returnerades från **BatchReadFile** -anropet och Använd det med **GetReadOperationResult** -metoden för att fråga tjänsten efter åtgärds resultat. Följande kod kontrollerar åtgärden vid en sekunds intervall tills resultatet returneras. Den skriver sedan ut de extraherade text data till-konsolen.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_response)]
 
-### <a name="display-read-results"></a>Visa läsresultat
+### <a name="display-read-results"></a>Visa Läs resultat
 
-Lägg till följande kod för att tolka och visa hämtade textdata och avsluta funktionsdefinitionen.
+Lägg till följande kod för att parsa och Visa hämtade text data och slutför funktions definitionen.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
 ## <a name="run-the-application"></a>Köra appen
 
-Kör programmet från programkatalogen `go run` med kommandot.
+Kör programmet från program katalogen med `go run` kommandot.
 
 ```bash
 go run sample-app.go
@@ -246,15 +246,15 @@ go run sample-app.go
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
+Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [API-referens för datorseende (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+> [API för visuellt innehåll referens (go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
 * [Vad är visuellt innehåll?](../../Home.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

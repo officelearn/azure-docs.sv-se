@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 2f6cdda71c89041d954d8dbaf34a1fd874c5849a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334577"
 ---
-Azure Data Lake Analytics gör den komplexa uppgiften att hantera distribuerad infrastruktur och komplex kod enkel. Det etablerar dynamiskt resurser och du kan använda den för att göra analyser på exabyte data. När jobbet är klart avvecklas resurser automatiskt. Du betalar bara för processorkraften som användes. När du ökar eller minskar storleken på lagrade data eller hur mycket beräkning som används behöver du inte skriva om koden. Om du vill höja standardgränserna för din prenumeration kontaktar du supporten.
+Azure Data Lake Analytics är det enkelt att hantera distribuerad infrastruktur och komplicerad kod. Den dynamiskt etablerar resurser och du kan använda den för att utföra analyser på exabyte av data. När jobbet har slutförts rullas resurserna automatiskt. Du betalar bara för den bearbetnings kraft som användes. När du ökar eller minskar storleken på data som lagras eller mängden beräkning som används behöver du inte skriva om kod. Kontakta supporten om du vill öka standard gränserna för din prenumeration.
 
-| **Resurs** | **Gräns** | **Kommentar** |
+| **Resurs** | **Gräns** | **Kommentarer** |
 | --- | --- | --- |
 | Maximalt antal samtidiga jobb |20 | |
-| Maximalt antal analysenheter (AUs) per konto |250 | Använd valfri kombination av upp till maximalt 250 AUs över 20 jobb. Om du vill öka den här gränsen kontaktar du Microsoft Support. |
-| Maximal skriptstorlek för jobbinlämning | 3 MB | |
-| Maximalt antal DataSjöanalyskonton per region och prenumeration | 5 | Om du vill öka den här gränsen kontaktar du Microsoft Support. |
+| Maximalt antal analys enheter (Australien) per konto |250 | Använd valfri kombination av upp till 250-Australien över 20 jobb. Kontakta Microsoft Support om du vill öka gränsen. |
+| Maximal skript storlek för jobb överföring | 3 MB | |
+| Maximalt antal Data Lake Analytics konton per region per prenumeration | 5 | Kontakta Microsoft Support om du vill öka gränsen. |

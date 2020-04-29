@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
 ms.openlocfilehash: 3b18e185480cc5275b97bba474f1c054c7bd1276
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286718"
 ---
 För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprogram, måste du publicera appen på slutpunkten.
 
-1. Välj **Publicera** i navigeringen längst upp till höger.
+1. Välj **publicera** i det övre högra navigerings fältet.
 
     ![Knappen för LUIS-publicering till en slutpunkt i den övre högra menyn](../media/howto-publish/publish-button.png)
 
-2. Välj **produktionsplatsen** och välj sedan **Klar**.
+2. Välj **produktions** plats och välj sedan **Slutför**.
 
     > [!div class="mx-imgBorder"]
     > ![LUIS-publicering till slutpunkt](../media/howto-publish/publish-app-popup.png)
 
-3. Publiceringen är klar när meddelandet bekräftar att det har framgångsrikts.
+3. Publiceringen är klar när du ser att meddelandet bekräftar att det är klart.
 
     ![LUIS-publicering till slutpunkt](../media/howto-publish/publish-endpoint-success.png)
 
-4. Välj länken **Öppna dina slutpunktsadresser** i meddelandet för att gå till sidan **Azure Resources.** Slutpunktsadresserna visas som **exempelfråga**.
+4. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga**.

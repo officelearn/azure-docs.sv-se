@@ -1,6 +1,6 @@
 ---
-title: Utveckla Azure-funktioner med Media Services
-description: Det här avsnittet visar hur du börjar utveckla Azure-funktioner med Media Services med Hjälp av Azure-portalen.
+title: Utveckla Azure Functions med Media Services
+description: Det här avsnittet visar hur du börjar utveckla Azure Functions med Media Services med hjälp av Azure Portal.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,58 +15,58 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251172"
 ---
-# <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure-funktioner med Media Services
+# <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
 
-Den här artikeln visar hur du kommer igång med att skapa Azure-funktioner som använder Media Services. Azure-funktionen som definieras i den här artikeln övervakar en lagringskontobehållare med **namnet indata** för nya MP4-filer. När en fil släpps i lagringsbehållaren kör blob-utlösaren funktionen. Information om hur du granskar Azure-funktioner finns i [Översikt](../../azure-functions/functions-overview.md) och andra avsnitt i avsnittet **Azure-funktioner.**
+Den här artikeln visar hur du kommer igång med att skapa Azure Functions som använder Media Services. Azure-funktionen som definieras i den här artikeln övervakar en lagrings konto behållare med namnet **indata** för nya MP4-filer. När en fil har släppts i lagrings behållaren kör BLOB-utlösaren funktionen. Information om hur du granskar Azure Functions finns i [Översikt](../../azure-functions/functions-overview.md) och andra ämnen i avsnittet **Azure Functions** .
 
-Om du vill utforska och distribuera befintliga Azure-funktioner som använder Azure Media Services kan du läsa [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Den här databasen innehåller exempel som använder Media Services för att visa arbetsflöden som är relaterade till intag av innehåll direkt från blob-lagring, kodning och skrivning av innehåll tillbaka till blob-lagring. Den innehåller också exempel på hur du övervakar jobbmeddelanden via WebHooks och Azure-köer. Du kan också utveckla dina funktioner baserat på exemplen i [Databasen För Azure Functions i Media Services.](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) Om du vill distribuera funktionerna trycker du på knappen **Distribuera till Azure.**
+Om du vill utforska och distribuera befintliga Azure Functions som använder Azure Media Services kan du kolla [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Den här lagrings platsen innehåller exempel som använder Media Services för att Visa arbets flöden som är relaterade till att mata in innehåll direkt från Blob Storage, kodning och skrivning av innehåll till Blob Storage. Den innehåller också exempel på hur du övervakar jobb meddelanden via Webhooks och Azure-köer. Du kan också utveckla dina funktioner baserat på exemplen i [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) -lagringsplatsen. Distribuera funktionerna genom att trycka på knappen **distribuera till Azure** .
 
 ## <a name="prerequisites"></a>Krav
 
 - Innan du kan skapa din första funktion måste du ha ett aktivt Azure-konto. Om du inte redan har ett Azure-konto [finns kostnadsfria konton tillgängliga](https://azure.microsoft.com/free/).
-- Om du ska skapa Azure Functions som utför åtgärder på ditt AMS-konto (Azure Media Services) eller lyssna på händelser som skickas av Media Services, bör du skapa ett AMS-konto enligt beskrivningen [här](media-services-portal-create-account.md).
+- Om du ska skapa Azure Functions som utför åtgärder på ditt Azure Media Services-konto (AMS) eller lyssnar på händelser som skickats av Media Services, bör du skapa ett AMS-konto enligt beskrivningen [här](media-services-portal-create-account.md).
     
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 1. Gå till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
-2. Skapa en funktionsapp enligt beskrivningen [här](../../azure-functions/functions-create-function-app-portal.md).
+2. Skapa en Function-app enligt beskrivningen [här](../../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]
-> Ett lagringskonto som du anger i **lagringsanslutningsmiljöns** variabel (se nästa steg) ska finnas i samma region som din app.
+> Ett lagrings konto som du anger i **StorageConnection** -miljövariabeln (se nästa steg) ska finnas i samma region som din app.
 
-## <a name="configure-function-app-settings"></a>Konfigurera inställningar för funktionsappar
+## <a name="configure-function-app-settings"></a>Konfigurera funktions program inställningar
 
-När du utvecklar Media Services-funktioner är det praktiskt att lägga till miljövariabler som ska användas i alla dina funktioner. Om du vill konfigurera appinställningar klickar du på länken Konfigurera appinställningar. Mer information finns i [Så här konfigurerar du azure function-appinställningar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+När du utvecklar Media Services funktioner är det praktiskt att lägga till miljövariabler som ska användas i dina funktioner. Om du vill konfigurera appinställningar klickar du på länken konfigurera app-inställningar. Mer information finns i [så här konfigurerar du inställningar för Azure Function-appar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
-Funktionen, som definieras i den här artikeln, förutsätter att du har följande miljövariabler i appinställningarna:
+Funktionen som definieras i den här artikeln förutsätter att du har följande miljövariabler i dina app-inställningar:
 
-**AMSAADTenantDomain**: Slutpunkt för Azure AD-klient. Mer information om hur du ansluter till AMS API finns i den [här](media-services-use-aad-auth-to-access-ams-api.md) artikeln.
+**AMSAADTenantDomain**: Azure AD-klientens slut punkt. Mer information om hur du ansluter till AMS-API: et finns i [den här](media-services-use-aad-auth-to-access-ams-api.md) artikeln.
 
-**AMSRESTAPIEndpoint**: URI som representerar REST API-slutpunkten. 
+**AMSRESTAPIEndpoint**: URI som representerar REST API slut punkten. 
 
-**AMSClientId**: Azure AD-programklient-ID.
+**AMSClientId**: klient-ID för Azure AD-program.
 
-**AMSClientSecret**: Azure AD-programklienthemma.
+**AMSClientSecret**: Azure AD-programmets klient hemlighet.
 
-**StorageConnection**: lagringsanslutning av kontot som är kopplat till Media Services-kontot. Det här värdet används i **filen function.json** och **filen run.csx** (beskrivs nedan).
+**StorageConnection**: lagrings anslutning för det konto som är kopplat till Media Services kontot. Det här värdet används i **Function. JSON** -filen och filen **Run. CSX** (beskrivs nedan).
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
-När din funktionsapp har distribuerats kan du hitta den bland **App Services** Azure Functions.
+När din Function-app har distribuerats kan du hitta den bland **App Services** Azure Functions.
 
-1. Markera funktionsappen och klicka på **Ny funktion**.
-2. Välj scenariot **C#** språk och **databehandling.**
-3. Välj **BlobTrigger-mall.** Den här funktionen utlöses när en blob överförs till **indatabehållaren.** **Indatanamnet** anges i **sökvägen**i nästa steg.
+1. Välj din Function-app och klicka på **ny funktion**.
+2. Välj **C#** -språket och **data bearbetnings** scenariot.
+3. Välj **en** -mall. Den här funktionen utlöses när en BLOB överförs till behållaren för **indatafilen** . **Indatamängden** anges i **sökvägen**i nästa steg.
 
     ![filer](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. När du har valt **BlobTrigger**visas ytterligare några kontroller på sidan.
+4. När du har valt **en**visas vissa fler kontroller på sidan.
 
     ![filer](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
@@ -74,18 +74,18 @@ När din funktionsapp har distribuerats kan du hitta den bland **App Services** 
 
 ## <a name="files"></a>Filer
 
-Din Azure-funktion är associerad med kodfiler och andra filer som beskrivs i det här avsnittet. När du använder Azure-portalen för att skapa en funktion skapas **function.json** och **run.csx** åt dig. Du måste lägga till eller ladda upp en **project.json-fil.** Resten av det här avsnittet ger en kort förklaring av varje fil och visar deras definitioner.
+Din Azure-funktion är associerad med kodfragment och andra filer som beskrivs i det här avsnittet. När du använder Azure Portal för att skapa en funktion skapas **funktionen function. JSON** och **Run. CSX** . Du måste lägga till eller ladda upp en **Project. JSON** -fil. Resten av det här avsnittet ger en kort förklaring av varje fil och visar deras definitioner.
 
 ![filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
-Filen function.json definierar funktionsbindningar och andra konfigurationsinställningar. Körningen använder den här filen för att bestämma vilka händelser som ska övervakas och hur data ska överföras till och returnera data från funktionskörning. Mer information finns i [Azure-funktioner HTTP- och webhook-bindningar](../../azure-functions/functions-reference.md#function-code).
+Function. JSON-filen definierar funktions bindningarna och andra konfigurations inställningar. Körningen använder den här filen för att avgöra vilka händelser som ska övervakas och hur du skickar data till och returnerar data från funktions körning. Mer information finns i [Azure Functions HTTP-och webhook-bindningar](../../azure-functions/functions-reference.md#function-code).
 
 >[!NOTE]
->Ange egenskapen **inaktiverad** till **true** för att förhindra att funktionen körs. 
+>Ange egenskapen **Disabled** till **True** för att förhindra att funktionen körs. 
 
-Ersätt innehållet i den befintliga filen function.json med följande kod:
+Ersätt innehållet i den befintliga function. JSON-filen med följande kod:
 
 ```json
 {
@@ -102,11 +102,11 @@ Ersätt innehållet i den befintliga filen function.json med följande kod:
 }
 ```
 
-### <a name="projectjson"></a>projekt.json
+### <a name="projectjson"></a>Project. JSON
 
-Filen project.json innehåller beroenden. Här är ett exempel på **project.json-fil** som innehåller de nödvändiga .NET Azure Media Services-paketen från Nuget. Observera att versionsnumren ändras med de senaste uppdateringarna av paketen, så du bör bekräfta de senaste versionerna. 
+Filen Project. JSON innehåller beroenden. Här är ett exempel på en **Project. JSON** -fil som innehåller nödvändiga .net Azure Media Services-paket från NuGet. Observera att versions numren ändras med de senaste uppdateringarna av paketen, så du bör bekräfta de senaste versionerna. 
 
-Lägg till följande definition i project.json. 
+Lägg till följande definition i Project. JSON. 
 
 ```json
 {
@@ -124,18 +124,18 @@ Lägg till följande definition i project.json.
 
 ```
     
-### <a name="runcsx"></a>run.csx (på andra)
+### <a name="runcsx"></a>Kör. CSX
 
-Det här är C#-koden för din funktion.  Funktionen som definieras nedan övervakar en lagringskontobehållare med namnet **indata** (det är vad som angavs i sökvägen) för nya MP4-filer. När en fil släpps i lagringsbehållaren kör blob-utlösaren funktionen.
+Det här är C#-koden för din funktion.  Funktionen som definieras nedan övervakar en lagrings konto behållare med namnet **indata** (det vill säga vad som angavs i sökvägen) för nya MP4-filer. När en fil har släppts i lagrings behållaren kör BLOB-utlösaren funktionen.
     
 Exemplet som definieras i det här avsnittet visar 
 
-1. hur du intar en tillgång till ett Media Services-konto (genom att hantera en klump i en AMS-tillgång) och 
-2. skicka in ett kodningsjobb som använder Media Encoder Standards förinställning "Adaptiv strömning".
+1. Hur man matar in en till gång i ett Media Services konto (genom att kopiera en blob till en AMS-till gång) och 
+2. så här skickar du ett kodnings jobb som använder Media Encoder Standard "adaptiv streaming"-för inställning.
 
-I verkliga scenariot vill du troligen spåra jobbförloppet och sedan publicera den kodade tillgången. Mer information finns i [Använda Azure WebHooks för att övervaka Jobbmeddelanden för Media Services](media-services-dotnet-check-job-progress-with-webhooks.md). Fler exempel finns i [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
+I det verkliga livet vill du förmodligen spåra jobbets förlopp och sedan publicera din kodade till gång. Mer information finns i [använda Azure Webhooks för att övervaka Media Services jobb meddelanden](media-services-dotnet-check-job-progress-with-webhooks.md). Fler exempel finns i [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Ersätt innehållet i den befintliga filen run.csx med följande kod: När du är klar med att definiera funktionen klickar du på **Spara och kör**.
+Ersätt innehållet i den befintliga filen Run. CSX med följande kod: när du är klar med att definiera en funktion klickar du på **Spara och kör**.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -330,23 +330,23 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 ## <a name="test-your-function"></a>Testa din funktion
 
-Om du vill testa funktionen måste du ladda upp en MP4-fil till **indatabehållaren** för lagringskontot som du angav i anslutningssträngen.  
+Om du vill testa din funktion måste du ladda upp en MP4-fil till **indatafilen** för det lagrings konto som du har angett i anslutnings strängen.  
 
-1. Välj det lagringskonto som du angav i **lagringsanslutningsmiljöns** variabel.
-2. Klicka på **Blobbar**.
-3. Klicka på **+ Container**. Ge **behållaren ett namn**.
-4. Tryck **på Ladda upp** och bläddra till en MP4-fil som du vill ladda upp.
+1. Välj det lagrings konto som du har angett i **StorageConnection** -miljövariabeln.
+2. Klicka på **blobbar**.
+3. Klicka på **+ Container**. Namnge behållar **indatamängden**.
+4. Tryck på **överför** och bläddra till en MP4-fil som du vill ladda upp.
 
 >[!NOTE]
-> När du använder en blob-utlösare på en förbrukningsplan kan det ta upp till 10 minuters fördröjning i bearbetningen av nya blobbar efter att en funktionsapp har gått inaktiv. När funktionsappen körs bearbetas blobbar omedelbart. Mer information finns i [Blob-lagringsutlösare och bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> När du använder en BLOB-utlösare i en förbruknings plan kan det vara upp till 10 minuter att bearbeta nya blobbar när en Function-app har varit inaktiv. När Function-appen körs bearbetas blobarna direkt. Mer information finns i [Blob Storage-utlösare och bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu är du redo att börja utveckla ett Media Services-program. 
  
-Mer information och komplettemplar/lösningar för att använda Azure Functions och Logic Apps med Azure Media Services för att skapa arbetsflöden för skapande av anpassat innehåll finns i [exempelt på integrering av mediatjänster .NET Functions på GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
+Mer information och fullständiga exempel/lösningar för att använda Azure Functions och Logic Apps med Azure Media Services för att skapa anpassade arbets flöden för skapande av innehåll finns i avsnittet [Media Services .net Functions-integrering på GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
-Se också [Använda Azure WebHooks för att övervaka Jobbmeddelanden för Media Services med .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
+Se även [använda Azure Webhooks för att övervaka Media Services jobb meddelanden med .net](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

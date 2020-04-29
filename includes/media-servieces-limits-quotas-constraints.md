@@ -5,93 +5,93 @@ ms.topic: include
 ms.date: 03/31/2020
 ms.author: juliako
 ms.openlocfilehash: 99aeb5384b317d1b4d291c769b5402e829247b30
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656214"
 ---
 > [!NOTE]
-> Öppna en supportbiljett för att be om en ökning av kvoterna för resurser som inte är fasta. Skapa inte ytterligare Azure Media Services-konton i ett försök att få högre gränser.
+> För resurser som inte har åtgärd ATS öppnar du ett support ärende för att be om en ökning av kvoterna. Skapa inte ytterligare Azure Media Services konton i ett försök att få högre gränser.
 
-### <a name="account-limits"></a>Kontogränser
-
-| Resurs | Standardgräns | 
-| --- | --- | 
-| Media Services-konton i en enda prenumeration | 25 (fast) |
-
-### <a name="asset-limits"></a>Tillgångsgränser
+### <a name="account-limits"></a>Konto gränser
 
 | Resurs | Standardgräns | 
 | --- | --- | 
-| Tillgångar per mediatjänstkonto | 1,000,000|
+| Media Services konton i en enda prenumeration | 25 (fast) |
 
-### <a name="storage-media-limits"></a>Begränsningar för lagring (media)
+### <a name="asset-limits"></a>Till gångs gränser
 
 | Resurs | Standardgräns | 
 | --- | --- | 
-| Filstorlek| I vissa fall finns det en gräns för den maximala filstorleken som stöds för bearbetning i Media Services. <sup>(1)</sup> |
+| Till gångar per Media Services konto | 1,000,000|
+
+### <a name="storage-media-limits"></a>Lagrings gränser (medie)
+
+| Resurs | Standardgräns | 
+| --- | --- | 
+| Filstorlek| I vissa fall finns det en gräns för maximal fil storlek som stöds för bearbetning i Media Services. <sup>81.1</sup> |
 | Lagringskonton | 100<sup>(2)</sup> (fast) |
 
-<sup>1</sup> Den maximala storleken som stöds för en enda blob är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare begränsningar gäller i Media Services baserat på de vm-storlekar som används av tjänsten. Storleksgränsen gäller för de filer som du laddar upp och även de filer som genereras som ett resultat av Media Services-bearbetning (kodning eller analys). Om källfilen är större än 260 GB misslyckas det troligen med jobbet. 
+<sup>1</sup> den maximala storleken som stöds för en enskild BLOB är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare gränser gäller i Media Services baserat på de VM-storlekar som används av tjänsten. Storleks gränsen gäller för de filer som du överför och även de filer som genereras på grund av Media Services bearbetning (kodning eller analys). Om käll filen är större än 260 GB kommer jobbet sannolikt att Miss förväntas. 
 
-I följande tabell visas gränserna för de mediereserverade enheterna S1, S2 och S3. Om källfilen är större än de gränser som anges i tabellen misslyckas kodningsjobbet. Om du kodar 4K-upplösningskällor med lång varaktighet måste du använda S3-mediereserverade enheter för att uppnå den prestanda som behövs. Om du har 4K-innehåll som är större än gränsen på 260 GB för S3-mediereserverade enheter öppnar du en supportbiljett.
+I följande tabell visas gränserna för de medie reserverade enheterna S1, S2 och S3. Om käll filen är större än de gränser som anges i tabellen, Miss lyckas kodnings jobbet. Om du kodar 4K-resolutioner med lång varaktighet måste du använda S3-medie reserverade enheter för att uppnå de prestanda som behövs. Öppna ett support ärende om du har ett 4K-innehåll som är större än 260 GB-gränsen på S3-enheternas reserverade enheter.
 
-|Mediereserverad enhetstyp|Maximal inmatningsstorlek (GB)|
+|Enhets typ för reserverat medium|Maximal ingångs storlek (GB)|
 |---|---|
 |S1 |    26|
 |S2    | 60|
 |S3    |260|
 
-<sup>2</sup> Lagringskontona måste komma från samma Azure-prenumeration.
+<sup>2</sup> lagrings kontona måste vara från samma Azure-prenumeration.
 
-### <a name="jobs-encoding--analyzing-limits"></a>Jobb (kodning & analysera) gränser
-
-| Resurs | Standardgräns | 
-| --- | --- | 
-| Jobb per mediatjänstkonto | 500 000 <sup>(3)</sup> (fast)|
-| Jobbindata per jobb | 50 (fast)|
-| Jobbutdata per jobb | 20 (fast) |
-| Omvandlar per Media Services-konto | 100 (fast)|
-| Omforma utdata i en transformering | 20 (fast) |
-| Filer per jobbinmatning|10 (fast)|
-
-<sup>3</sup> Det här numret inkluderar köade, färdiga, aktiva och avbrutna jobb. Den innehåller inte borttagna jobb. 
-
-Alla jobbposter i ditt konto som är äldre än 90 dagar tas automatiskt bort, även om det totala antalet poster ligger under den maximala kvoten. 
-
-### <a name="live-streaming-limits"></a>Gränser för livestreaming
+### <a name="jobs-encoding--analyzing-limits"></a>Jobb (kodning & analys) gränser
 
 | Resurs | Standardgräns | 
 | --- | --- | 
-| Live-evenemang <sup>(4)</sup> per Media Services-konto |5|
-| Live-utdata per livehändelse |3 <sup>(5)</sup> |
-| Max varaktighet för liveutdata | 25 timmar |
+| Jobb per Media Services konto | 500 000 <sup>(3)</sup> (fast)|
+| Jobb indata per jobb | 50 (fast)|
+| Jobbets utdata per jobb | 20 (fast) |
+| Transformeringar per Media Services konto | 100 (fast)|
+| Transformera utdata i en transformering | 20 (fast) |
+| Filer per jobb inmatat|10 (fast)|
 
-<sup>4</sup> Detaljerad information om begränsningar i livehändelsen finns i [jämförelse och begränsningar för livehändelsetyper](../articles/media-services/latest/live-event-types-comparison.md).
+<sup>3</sup> det här talet omfattar köade, avslutade, aktiva och avbrutna jobb. Den inkluderar inte borttagna jobb. 
+
+Eventuella jobb poster i ditt konto som är äldre än 90 dagar tas bort automatiskt, även om det totala antalet poster unders tiger den maximala kvoten. 
+
+### <a name="live-streaming-limits"></a>Begränsningar för direkt uppspelning
+
+| Resurs | Standardgräns | 
+| --- | --- | 
+| Live-händelser <sup>(4)</sup> per Media Services konto |5|
+| Live-utdata per Live-händelse |3 <sup>(5)</sup> |
+| Maximal varaktighet för Live-utdata | 25 timmar |
+
+<sup>4</sup> mer detaljerad information om begränsningar för Live-händelser finns i [jämförelse och begränsningar för live event types](../articles/media-services/latest/live-event-types-comparison.md).
 
 <sup>5</sup> Live-utdata börjar skapas och stoppas när de tas bort.
 
-### <a name="packaging--delivery-limits"></a>Förpackning & leveransgränser
+### <a name="packaging--delivery-limits"></a>Leverans gränser för paketering &
 
 | Resurs | Standardgräns | 
 | --- | --- | 
-| Strömmande slutpunkter (stoppas eller körs) per Media Services-konto|2 (fast)|
+| Slut punkter för direkt uppspelning (stoppad eller igång) per Media Services konto|2 (fast)|
 | Filter för dynamiskt manifest|100|
 | Principer för direktuppspelning | 100 <sup>(6)</sup> |
-| Unika streamingpositionerare som är associerade med en tillgång samtidigt | 100<sup>(7)</sup> (fast) |
+| Unika strömmande positionerare som är associerade med en till gång vid ett tillfälle | 100<sup>(7)</sup> (fast) |
 
-<sup>6</sup> När du använder en anpassad [streamingprincip](https://docs.microsoft.com/rest/api/media/streamingpolicies)bör du utforma en begränsad uppsättning sådana principer för ditt Media Service-konto och återanvända dem för dina StreamingLocators när samma krypteringsalternativ och protokoll behövs. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
+<sup>6</sup> när du använder en anpassad [strömnings princip](https://docs.microsoft.com/rest/api/media/streamingpolicies)bör du utforma en begränsad uppsättning sådana principer för ditt Media Service-konto och sedan använda dem igen för din StreamingLocators när samma krypterings alternativ och protokoll behövs. Du bör inte skapa en ny strömningsprincip för varje positionerare för direktuppspelning.
 
-<sup>7</sup> Streaming Locators är inte utformade för att hantera åtkomstkontroll per användare. Om du vill ge olika åtkomsträttigheter till enskilda användare kan du använda DRM-lösningar (Digital Rights Management).
+<sup>7</sup> strömmande positionerare är inte utformade för att hantera åtkomst kontroll per användare. Om du vill ge olika åtkomsträttigheter till enskilda användare kan du använda DRM-lösningar (Digital Rights Management).
 
-### <a name="protection-limits"></a>Skyddsgränser
+### <a name="protection-limits"></a>Skydds gränser
 
 | Resurs | Standardgräns | 
 | --- | --- | 
-| Alternativ per innehållsnyckelpolicy |30 | 
-| Licenser per månad för var och en av DRM-typerna på Media Services nyckelleveranstjänst per konto|1,000,000|
+| Alternativ per innehålls nyckel princip |30 | 
+| Licenser per månad för varje DRM-typ på Media Services Key Delivery Service per konto|1,000,000|
 
-### <a name="support-ticket"></a>Supportbiljett
+### <a name="support-ticket"></a>Support ärende
 
-För resurser som inte är fasta kan du begära att kvoterna höjs genom att öppna en [supportbiljett.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Inkludera detaljerad information i begäran om önskade kvotändringar, användningsfallsscenarier och regioner som krävs. <br/>Försök **inte** få högre gränser genom att skapa ytterligare Azure Media Services-konton.
+För resurser som inte har åtgärd ATS kan du be att kvoterna höjs, genom att öppna ett [support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Ta med detaljerad information i begäran om önskade kvot ändringar, användnings Falls scenarier och regioner som krävs. <br/>Försök **inte** få högre gränser genom att skapa ytterligare Azure Media Services-konton.

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Läsa in data med Azure-portalen & SSMS'
-description: Självstudien använder Azure Portal och SQL Server Management Studio för att läsa in WideWorldImportersDW-datalagret från en global Azure-blob till en Azure Synapse Analytics SQL-pool.
+title: 'Självstudie: läsa in data med Azure Portal & SSMS'
+description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in informations lagret wideworldimportersdw Data Warehouse från en global Azure-blob till en Azure Synapse Analytics SQL-pool.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,19 +12,19 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ms.openlocfilehash: 16263a23c978e3486ff7c5d9281117f850cb885c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80744362"
 ---
-# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudiekurs: Läsa in data i Azure Synapse Analytics SQL-pool
+# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudie: läsa in data till Azure Synapse Analytics SQL-pool
 
-Den här självstudien använder PolyBase för att läsa in WideWorldImportersDW-informationslagret från Azure Blob-lagring till ditt informationslager i Azure Synapse Analytics SQL-pool. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att:
+I den här självstudien används PolyBase för att läsa in informations lagret wideworldimportersdw Data Warehouse från Azure Blob Storage till ditt data lager i Azure Synapse Analytics SQL-poolen. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att:
 
 > [!div class="checklist"]
 >
-> * Skapa ett datalager med SQL-pool i Azure-portalen
+> * Skapa ett informations lager med SQL-pool i Azure Portal
 > * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till SQL-poolen med SSMS
 > * Skapa en användare som utsetts för att läsa in data
@@ -34,7 +34,7 @@ Den här självstudien använder PolyBase för att läsa in WideWorldImportersDW
 > * Generera ett års data i tabellerna för datumdimension och säljfakta
 > * Skapa statistik på nyligen inlästa data
 
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -44,80 +44,80 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Skapa ett tomt informationslager i SQL-pool
+## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Skapa ett tomt informations lager i SQL-poolen
 
-En SQL-pool skapas med en definierad uppsättning [beräkningsresurser](memory-concurrency-limits.md). SQL-poolen skapas i en [Azure-resursgrupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk Azure SQL-server](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+En SQL-pool skapas med en definierad uppsättning [beräknings resurser](memory-concurrency-limits.md). SQL-poolen skapas i en [Azure-resurs grupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk Azure SQL-Server](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Följ dessa steg för att skapa en tom SQL-pool.
+Följ de här stegen för att skapa en tom SQL-pool.
 
-1. Välj **Skapa en resurs** i Azure-portalen.
+1. Välj **skapa en resurs** i Azure Portal.
 
-1. Välj **Databaser** på den **nya** sidan och välj **Azure Synapse Analytics** under **Dagens** på den **nya** sidan.
+1. Välj **databaser** på sidan **nytt** och välj **Azure Synapse Analytics** under **aktuella** på den **nya** sidan.
 
     ![skapa SQL-pool](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-1. Fyll i avsnittet **Projektinformation** med följande information:
+1. Fyll i avsnittet **projekt information** med följande information:
 
-   | Inställning | Exempel | Beskrivning |
+   | Inställningen | Exempel | Beskrivning |
    | ------- | --------------- | ----------- |
    | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
-1. Under **SQL-poolinformation**anger du ett namn för din SQL-pool. Välj sedan en befintlig server i listrutan eller välj **Skapa ny** under **serverinställningarna** för att skapa en ny server. Fyll i formuläret med följande information:
+1. Ange ett namn för SQL-poolen under **information om SQL-pooler**. Välj sedan antingen en befintlig server i list rutan eller Välj **Skapa ny** under **Server** inställningar för att skapa en ny server. Fyll i formuläret med följande information:
 
-    | Inställning | Föreslaget värde | Beskrivning |
+    | Inställningen | Föreslaget värde | Beskrivning |
     | ------- | --------------- | ----------- |
-    |**Sql-poolnamn**|SampleDW| Giltiga databasnamn finns i [Databasidentifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-    | **Logga in för serveradministratör** | Valfritt giltigt namn | Giltiga inloggningsnamn finns i [Databasidentifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+    |**SQL-poolnamn**|SampleDW| För giltiga databas namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
+    | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggnings namn, se [databas identifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Position** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databasserver](./media/load-data-wideworldimportersdw/create-database-server.png)
 
-1. **Välj prestandanivå**. Skjutreglaget som standard är inställt på **DW1000c**. Flytta skjutreglaget uppåt och nedåt för att välja önskad prestandaskala.
+1. **Välj prestanda nivå**. Skjutreglaget som standard är inställt på **DW1000c**. Flytta skjutreglaget uppåt och nedåt för att välja önskad prestanda skala.
 
     ![skapa databasserver](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-1. På sidan **Ytterligare inställningar** anger du Använd **befintliga data** till Ingen och lämnar **sorteringen** som standard *för SQL_Latin1_General_CP1_CI_AS*.
+1. På sidan **ytterligare inställningar** ställer du in **Använd befintliga data** till ingen och låter **sorteringen** vara standard *SQL_Latin1_General_CP1_CI_AS*.
 
-1. Välj **Granska + skapa** om du vill granska inställningarna och välj sedan **Skapa** för att skapa informationslager. Du kan övervaka dina framsteg genom att öppna sidan **för pågående distribution** från menyn **Meddelanden.**
+1. Välj **Granska + skapa** för att granska inställningarna och välj sedan **skapa** för att skapa ditt informations lager. Du kan övervaka förloppet genom att öppna sidan **distribution** pågår från menyn **meddelanden** .
 
      ![avisering](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-Azure Synapse Analytics-tjänsten skapar en brandvägg på servernivå som förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för klientens IP-adress.
+Azure Synapse Analytics-tjänsten skapar en brand vägg på server nivå som förhindrar att externa program och verktyg ansluter till servern eller några databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för klientens IP-adress.
 
 > [!NOTE]
-> Azure Synapse Analytics SQL-pool kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
+> Azure Synapse Analytics SQL-poolen kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. När distributionen är klar söker du efter poolnamnet i sökrutan i navigeringsmenyn och väljer SQL-poolresursen. Välj servernamnet.
+1. När distributionen är klar söker du efter namnet på din pool i sökrutan i navigerings menyn och väljer resursen SQL-pool. Välj servernamnet.
 
-    ![gå till din resurs](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
+    ![Gå till din resurs](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
 
 1. Välj servernamnet.
     ![servernamn](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Välj **Visa brandväggsinställningar**. Sidan **Brandväggsinställningar** för SQL-poolservern öppnas.
+1. Välj **Visa brand Väggs inställningar**. Sidan **brand Väggs inställningar** för SQL-adresspoolen öppnas.
 
     ![serverinställningar](./media/load-data-wideworldimportersdw/server-settings.png)
 
-1. På sidan **Brandväggar och virtuella nätverk** väljer du **Lägg till klient-IP** för att lägga till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
+1. På sidan **brand väggar och virtuella nätverk** väljer du **Lägg till klient-IP** för att lägga till din aktuella IP-adress i en ny brand Väggs regel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
     ![brandväggsregler för server](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
 1. Välj **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
 
-Du kan nu ansluta till SQL-servern med hjälp av klient-IP-adressen. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter använder du serveradmin-kontot som du skapade tidigare.  
+Nu kan du ansluta till SQL-servern med din klient-IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter använder du serveradmin-kontot som du skapade tidigare.  
 
 > [!IMPORTANT]
 > Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan och klicka sedan på **Spara** för att inaktivera brandväggen för alla Azure-tjänster.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Hämta det fullständigt kvalificerade servernamnet
 
-Det fullständigt kvalificerade servernamnet är det som används för att ansluta till servern. Gå till din SQL-poolresurs i Azure-portalen och visa det fullständigt kvalificerade namnet under **Servernamn**.
+Det fullständigt kvalificerade Server namnet är det som används för att ansluta till servern. Gå till din SQL-pool i Azure Portal och visa det fullständigt kvalificerade namnet under **Server namn**.
 
 ![servernamn](././media/load-data-wideworldimportersdw/find-server-name.png)
 
@@ -129,13 +129,13 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-    | Inställning      | Föreslaget värde | Beskrivning |
+    | Inställningen      | Föreslaget värde | Beskrivning |
     | ------------ | --------------- | ----------- |
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-    | servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.database.windows.net** ett fullständigt kvalificerat servernamn. |
+    | servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.Database.Windows.net** ett fullständigt kvalificerat Server namn. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
-    | lösenord | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+    | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](./media/load-data-wideworldimportersdw/connect-to-server.png)
 
@@ -147,7 +147,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 ## <a name="create-a-user-for-loading-data"></a>Skapa en användare för att läsa in data
 
-Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Maximalt minne definieras enligt den generering av SQL-pool som du använder, [informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)och [resursklass](resource-classes-for-workload-management.md).
+Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Högsta minnes storlek definieras enligt den generation av SQL-pool som du använder, [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)och [resurs klass](resource-classes-for-workload-management.md).
 
 Det är bäst att skapa en särskild inloggning och en särskild användare för inläsning av data. Lägg sedan till inläsningsanvändaren i en [resursklass](resource-classes-for-workload-management.md) som möjliggör en lämplig maximal minnesallokering.
 
@@ -170,7 +170,7 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
 
     ![Ny fråga på exempelinformationslagret](./media/load-data-wideworldimportersdw/create-loading-user.png)
 
-5. Använd följande T-SQL-kommandon för att skapa en databasanvändare med namnet LoaderRC60 för inloggningen LoaderRC60. Den andra raden ger den nya användaren kontrollbehörighet på det nya informationslagret.  Dessa behörigheter påminner om att göra användaren till databasens ägare. Den tredje raden lägger till den `staticrc60` nya användaren som medlem i [resursklassen](resource-classes-for-workload-management.md).
+5. Använd följande T-SQL-kommandon för att skapa en databasanvändare med namnet LoaderRC60 för inloggningen LoaderRC60. Den andra raden ger den nya användaren kontrollbehörighet på det nya informationslagret.  Dessa behörigheter påminner om att göra användaren till databasens ägare. Den tredje raden lägger till den nya användaren som en medlem i `staticrc60` [resurs klassen](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -198,9 +198,9 @@ Det första steget för att läsa in data är att logga in som LoaderRC60.
 
 ## <a name="create-external-tables-and-objects"></a>Skapa externa tabeller och objekt
 
-Du är redo att börja läsa in data till ditt nya informationslager. För framtida referens, om du vill lära dig hur du hämtar dina data till Azure Blob-lagring eller läser in [dem](design-elt-data-loading.md)direkt från källan i SQL-poolen.
+Du är redo att börja läsa in data till ditt nya informationslager. Information om hur du hämtar dina data till Azure Blob Storage eller läser in dem direkt från källan till SQL-poolen finns i [Översikt över inläsning](design-elt-data-loading.md).
 
-Kör följande SQL-skript för att ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. Data finns i en global Azure Blob.
+Kör följande SQL-skript för att ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. Data finns i en global Azure-blob.
 
 1. I föregående avsnitt loggade du in på ditt informationslager som Loader RC60. Högerklicka på **SampleDW** i SSMS under LoaderRC60-anslutningen och välj **Ny fråga**.  Ett nytt frågefönster visas.
 
@@ -214,7 +214,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
     CREATE MASTER KEY;
     ```
 
-4. Kör instruktionen [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att definiera platsen för Azure-blobben. Detta är platsen för externa globala importörer data.  För att köra ett kommando som du har bifogat till frågefönstret markerar du de kommandon du vill köra och klickar på **Kör**.
+4. Kör instruktionen [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att definiera platsen för Azure-blobben. Det här är platsen för externa data från Världs omfattande importörer.  För att köra ett kommando som du har bifogat till frågefönstret markerar du de kommandon du vill köra och klickar på **Kör**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -248,7 +248,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
     CREATE SCHEMA wwi;
     ```
 
-7. Skapa de externa tabellerna. Tabelldefinitionerna lagras i databasen, men tabellerna refererar till data som lagras i Azure blob storage. Kör följande T-SQL-kommandon för att skapa flera externa tabeller som alla pekar mot den Azure-blob du definierade tidigare i den externa datakällan.
+7. Skapa de externa tabellerna. Tabell definitionerna lagras i databasen, men tabellerna refererar till data som lagras i Azure Blob Storage. Kör följande T-SQL-kommandon för att skapa flera externa tabeller som alla pekar mot den Azure-blob du definierade tidigare i den externa datakällan.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[dimension_City](
@@ -523,20 +523,20 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
     );
     ```
 
-8. Expandera SampleDW i Objektutforskaren om du vill visa listan över externa tabeller som du har skapat.
+8. I Object Explorer expanderar du SampleDW för att se en lista över externa tabeller som du har skapat.
 
     ![Visa externa tabeller](./media/load-data-wideworldimportersdw/view-external-tables.png)
 
-## <a name="load-the-data-into-sql-pool"></a>Läsa in data i SQL-poolen
+## <a name="load-the-data-into-sql-pool"></a>Läs in data i SQL-poolen
 
-I det här avsnittet används de externa tabeller som du har definierat för att läsa in exempeldata från Azure Blob till SQL-poolen.  
+I det här avsnittet används de externa tabeller som du har definierat för att läsa in exempel data från Azure-blob till SQL-pool.  
 
 > [!NOTE]
 > De här självstudierna läser in data direkt till den slutliga tabellen. I en produktionsmiljö använder du vanligtvis CREATE TABLE AS SELECT FÖR att läsa in till en mellanlagringstabell. Du kan utföra alla nödvändiga omvandlingar när data är i mellanlagringstabellen. Du kan använda instruktionen INSERT...SELECT om du vill lägga till data i mellanlagringstabellen i en produktionstabell. Mer information finns i [Infoga data i en produktionstabell](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 
-Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När select-satsen väljer från en extern tabell importeras data till en relationstabell i informationslagret.
+Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När SELECT-instruktionen väljer från en extern tabell, importeras data till en Relations tabell i data lagret.
 
-Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fact_Sale. Tabellerna genereras i ett senare steg för att tabellerna ska innehålla ett radantal med justerbar storlek.
+Det här skriptet läser inte in data i tabellerna WWI. dimension_Date och WWI. fact_Sale. Tabellerna genereras i ett senare steg för att tabellerna ska innehålla ett radantal med justerbar storlek.
 
 1. Kör följande skript för att läsa in data till nya tabeller i informationslagret.
 
@@ -685,7 +685,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
     ;
     ```
 
-2. Visa data som laddas. Du läser in flera GB data och komprimerar dem till högpresterande klustrade columnstore-index. Öppna ett nytt frågefönster för SampleDW och kör följande fråga för att visa status för belastningen. Efter att ha startat frågan, ta en kaffe och ett mellanmål medan SQL pool gör några tunga lyft.
+2. Visa data som laddas. Du läser in flera GB data och komprimerar dem till högpresterande grupperade columnstore-index. Öppna ett nytt frågefönster för SampleDW och kör följande fråga för att visa status för belastningen. När du har startat frågan tar du en kaffe och en fika medan SQL-poolen gör några tung lyft.
 
     ```sql
     SELECT
@@ -732,7 +732,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Skapa tabeller och procedurer för att generera datum- och säljtabellerna
 
-I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det skapar också lagrade procedurer som kan generera miljontals rader i tabellerna wwi.dimension_Date och wwi.fact_Sale.
+I det här avsnittet skapas tabellerna WWI. dimension_Date och WWI. fact_Sale. Det skapar också lagrade procedurer som kan generera miljon tals rader i tabellerna WWI. dimension_Date och WWI. fact_Sale.
 
 1. Skapa tabellerna dimension_Date och fact_Sale.  
 
@@ -876,7 +876,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
     END;
     ```
 
-4. Skapa den här proceduren som fyller i tabellerna wwi.dimension_Date och wwi.fact_Sale. Den anropar [wwi].[PopulateDateDimensionForYear] för att fylla i wwi.dimension_Date.
+4. Skapa den här proceduren som fyller tabellerna WWI. dimension_Date och WWI. fact_Sale. Den anropar [wwi].[PopulateDateDimensionForYear] för att fylla i wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -933,7 +933,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
 
 ## <a name="generate-millions-of-rows"></a>Generera miljontals rader
 
-Använd de lagrade procedurer som du har skapat för att generera miljontals rader i tabellen wwi.fact_Sale och motsvarande data i tabellen wwi.dimension_Date.
+Använd de lagrade procedurer som du skapade för att generera miljon tals rader i tabellen WWI. fact_Sale och motsvarande data i tabellen WWI. dimension_Date.
 
 1. Kör den här proceduren om du vill lägga till flera rader i [wwi]. [seed_Sale].
 
@@ -941,7 +941,7 @@ Använd de lagrade procedurer som du har skapat för att generera miljontals rad
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Kör den här proceduren för att fylla wwi.fact_Sale med 100 000 rader per dag för varje dag år 2000.
+2. Kör den här proceduren för att fylla i WWI. fact_Sale med 100 000 rader per dag för varje dag under året 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -961,7 +961,7 @@ Använd de lagrade procedurer som du har skapat för att generera miljontals rad
 
 ## <a name="populate-the-replicated-table-cache"></a>Fyll i cachen för replikerad tabell
 
-SQL-pool replikerar en tabell genom att cachelagra data till varje beräkningsnod. Cachen fylls när en fråga körs mot tabellen. Den första frågan i en replikerad tabell kan därför kräva extra lång tid för att fylla i cachen. När cachen är fylld körs frågor i replikerade tabeller snabbare.
+SQL-poolen replikerar en tabell genom att cachelagra data till varje Compute-nod. Cachen fylls när en fråga körs mot tabellen. Den första frågan i en replikerad tabell kan därför kräva extra lång tid för att fylla i cachen. När cachen är fylld körs frågor i replikerade tabeller snabbare.
 
 Kör följande SQL-frågor för att fylla i cachen för replikerad tabell på beräkningsnoderna.
 
@@ -1083,7 +1083,7 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
     ![Rensa resurser](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkningen debiteras du bara för datalagring och du kan återuppta beräkningen när du är redo att arbeta med data. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När informationslagret har pausats visas knappen **Starta**.  Klicka på **Starta** om du vill återuppta beräkningarna.
+2. Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkningen debiteras du bara för data lagring och du kan återuppta beräkningen när du är redo att arbeta med data. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När informationslagret har pausats visas knappen **Starta**.  Klicka på **Starta** om du vill återuppta beräkningarna.
 
 3. Om du vill undvika framtida avgifter kan du ta bort informationslagret. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 
@@ -1098,7 +1098,7 @@ I de här självstudierna lärde du dig att skapa ett informationslager och skap
 Du gjorde detta:
 > [!div class="checklist"]
 >
-> * Skapade ett datalager med SQL-pool i Azure-portalen
+> * Skapade ett informations lager med SQL-pool i Azure Portal
 > * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluten till SQL-poolen med SSMS
 > * Skapade en användare för inläsning av data
@@ -1107,7 +1107,7 @@ Du gjorde detta:
 > * Visade förloppet för data under inläsning
 > * Skapade statistik på nyligen inlästa data
 
-Gå vidare till utvecklingsöversikten för att lära dig hur du migrerar en befintlig databas till Azure Synapse SQL-pool.
+Gå vidare till utvecklings översikten och lär dig hur du migrerar en befintlig databas till Azure Synapse SQL-poolen.
 
 > [!div class="nextstepaction"]
->[Utforma beslut om att migrera en befintlig databas till SQL-pool](sql-data-warehouse-overview-develop.md)
+>[Design beslut för att migrera en befintlig databas till SQL-poolen](sql-data-warehouse-overview-develop.md)

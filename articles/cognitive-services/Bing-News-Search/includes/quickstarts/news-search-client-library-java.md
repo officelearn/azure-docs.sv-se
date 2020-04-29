@@ -1,5 +1,5 @@
 ---
-title: Bing News Search Java-klientbibliotek snabbstart
+title: Snabb start för Java-klient bibliotek Nyhetssökning i Bing
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.openlocfilehash: 76a752bc108158c998d13a548da535d5fb1d5ee2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503876"
 ---
-Använd den här snabbstarten för att börja söka efter nyheter med Bing News Search-klientbiblioteket för Java. Bing News Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
+Använd den här snabb starten för att börja söka efter nyheter med Nyhetssökning i Bing klient bibliotek för Java. Även om Nyhetssökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 
 ## <a name="prerequisites"></a>Krav
 
-Installera klientbiblioteksberoendena för Bing News Search med Maven, Gradle eller ett annat beroendehanteringssystem. Maven POM-filen kräver följande deklaration:
+Installera klient biblioteks beroenden för Nyhetssökning i Bing med maven, Gradle eller något annat beroende hanterings system. Maven POM-filen kräver följande deklaration:
 
 ```xml
     <dependencies>
@@ -62,7 +62,7 @@ import java.io.IOException;
     }
     ```
 
-2. Skapa `ServiceClientCredentials`-objektet genom att åsidosätta funktionen `applyCredentialsFilter()`. Skicka `OkHttpClient.Builder` en till metoden och använd `addNetworkInterceptor()` verktygets metod för att skapa dina autentiseringsuppgifter för klientbiblioteksanropet.
+2. Skapa `ServiceClientCredentials`-objektet genom att åsidosätta funktionen `applyCredentialsFilter()`. Skicka en `OkHttpClient.Builder` till-metoden och Använd Builder: s `addNetworkInterceptor()` metod för att skapa dina autentiseringsuppgifter för klient biblioteks anropet.
 
     ```java
     new ServiceClientCredentials() {
@@ -133,4 +133,4 @@ import java.io.IOException;
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig webbapp](../../tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](../../tutorial-bing-news-search-single-page-app.md)

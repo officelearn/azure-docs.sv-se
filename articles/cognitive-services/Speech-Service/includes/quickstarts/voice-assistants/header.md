@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en anpassad röstassistent - Taltjänst'
+title: 'Snabb start: skapa en anpassad röst assistent – tal tjänst'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: trrwilson
@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 03/20/2020
 ms.author: travisw
 ms.openlocfilehash: bb88ef7f048b2454f05ef33286e59277070c3ea0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241145"
 ---
-I den här snabbstarten använder du [Tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att skapa ett anpassat röstassistentprogram som ansluter till en robot som du redan har skapat och konfigurerat. Om du behöver skapa en bot, se [den relaterade handledningen](~/articles/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md) för en mer omfattande guide.
+I den här snabb starten ska du använda [tal-SDK: n](~/articles/cognitive-services/speech-service/speech-sdk.md) för att skapa ett anpassat program för röst assistent som ansluter till en robot som du redan har skapat och konfigurerat. Om du behöver skapa en bot, se [den relaterade självstudien](~/articles/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk.md) för en mer omfattande guide.
 
-När du har uppfyllt några förutsättningar tar du bara några steg att ansluta din anpassade röstassistent:
+När du uppfyller några krav, tar det bara några steg att ansluta till den anpassade röst assistenten:
 > [!div class="checklist"]
-> * Skapa `BotFrameworkConfig` ett objekt från din prenumerationsnyckel och region.
-> * Skapa `DialogServiceConnector` ett objekt `BotFrameworkConfig` med objektet ovanifrån.
-> * Starta `DialogServiceConnector` lyssningsprocessen för ett enda uttryck med hjälp av objektet.
-> * Inspektera `ActivityReceivedEventArgs` de returnerade.
+> * Skapa ett `BotFrameworkConfig` objekt från din prenumerations nyckel och region.
+> * Skapa ett `DialogServiceConnector` objekt med hjälp `BotFrameworkConfig` av objektet ovan.
+> * Starta lyssnings processen för en enda uttryck med hjälp av `DialogServiceConnector` objektet.
+> * Granska den `ActivityReceivedEventArgs` returnerade.

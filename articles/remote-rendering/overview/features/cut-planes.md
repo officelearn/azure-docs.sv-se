@@ -1,37 +1,37 @@
 ---
-title: Klipp plan
-description: Förklarar vad klippta plan är och hur man använder dem
+title: Klippa ut planer
+description: Förklarar vad klipp ut plan är och hur du använder dem
 author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 8075d9cd4530bafb12a338830baf0fe22eb03bce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681030"
 ---
-# <a name="cut-planes"></a>Klipp plan
+# <a name="cut-planes"></a>Klippa ut planer
 
-Ett *snittplan* är en visuell funktion som klipper pixlar på ena sidan av ett virtuellt plan, vilket avslöjar insidan av [maskor](../../concepts/meshes.md).
-Bilden nedan visar effekten. Den vänstra visar den ursprungliga nätet, till höger kan man titta inuti nätet:
+Ett *klipp plan* är en visuell funktion som klipper ut pixlar på ena sidan av ett virtuellt plan, och som visar insidan av [maskor](../../concepts/meshes.md).
+Bilden nedan visar resultatet. Den vänstra delen visar det ursprungliga nätet, till höger kan se ut i nätet:
 
-![Klipp plan](./media/cutplane-1.png)
+![Klipp ut plan](./media/cutplane-1.png)
 
 ## <a name="limitations"></a>Begränsningar
 
-* För närvarande stöder Azure Remote Rendering **högst åtta aktiva cut-plan**. Du kan skapa fler klippta plankomponenter, men om du försöker aktivera fler samtidigt ignorerar den aktiveringen. Inaktivera andra plan först om du vill byta vilken komponent som ska påverka scenen.
-* Varje klippplan påverkar alla fjärrrenderade objekt. Det finns för närvarande inget sätt att utesluta specifika objekt eller maskdelar.
-* Klipp plan är rent en visuell funktion, de påverkar inte resultatet av [rumsliga frågor](spatial-queries.md). Om du vill stråle kastas i en cut-open mesh, kan du justera startpunkten för strålen att vara på cut planet. På så sätt kan strålen bara träffa synliga delar.
+* För tillfället stöder Azure-fjärråter givning **högst åtta aktiva klipp plan**. Du kan skapa fler klipp komponenter, men om du försöker aktivera fler samtidigt kommer den att ignorera aktiveringen. Inaktivera andra plan först om du vill växla vilken komponent som ska påverka scenen.
+* Varje styckat plan påverkar alla fjärråterställda objekt. Det finns för närvarande inget sätt att utesluta vissa objekt eller nät delar.
+* Klipp ut plan är enbart en visuell funktion, de påverkar inte resultatet av [spatiala frågor](spatial-queries.md). Om du vill använda Ray i ett uppdelat nät kan du justera start punkten för Ray-ytan så att den är i det avskurna planet. På så sätt kan Ray bara trycka på synliga delar.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
-Varje aktivt skärningsplan medför en liten kostnad under rendering. Inaktivera eller ta bort klippta plan när de inte behövs.
+Varje aktivt klipp plan kostar en låg kostnad under åter givningen. Inaktivera eller ta bort klipp plan när de inte behövs.
 
 ## <a name="cutplanecomponent"></a>CutPlaneComponent
 
-Du lägger till ett klippt plan till scenen genom att skapa en *CutPlaneComponent*. Planets placering och orientering bestäms av komponentens [ägarenhet](../../concepts/entities.md).
+Du lägger till ett klipp plan till scenen genom att skapa en *CutPlaneComponent*. Planens plats och orientering bestäms av komponentens ägar [enhet](../../concepts/entities.md).
 
 ```cs
 void CreateCutPlane(AzureSession session, Entity ownerEntity)
@@ -45,17 +45,17 @@ void CreateCutPlane(AzureSession session, Entity ownerEntity)
 
 ### <a name="cutplanecomponent-properties"></a>Egenskaper för CutPlaneComponent
 
-Följande egenskaper exponeras på en cut plane-komponent:
+Följande egenskaper visas i en klipp Plans komponent:
 
-* **Aktiverad:** Du kan tillfälligt stänga av flygplan genom att inaktivera komponenten. Funktionshindrade klippplan ådrar sig inte rendering overhead och räknas inte heller mot den globala cut plane-gränsen.
+* **Aktive rad:** Du kan tillfälligt stänga av klipp ut plan genom att inaktivera komponenten. Inaktiverade klipp plan medför inte åter givning av kostnader och räknas inte mot den globala gränsen för klipp ut plan.
 
-* **Normalt:** Anger vilken riktning (+X,-X,+Y,-Y,+Z,-Z) används som planet normalt. Den här riktningen är relativ till ägarentitetens orientering. Flytta och rotera ägarentiteten för exakt placering.
+* **Normal:** Anger vilken riktning (+ X,-X, + Y,-Y, + Z,-Z) som används som normal för planet. Den här riktningen är relativ till ägar entitetens orientering. Flytta och rotera entiteten ägare för exakt placering.
 
 * **FadeColor** och **FadeLength:**
 
-  Om alfavärdet för *FadeColor* inte är noll tonas pixlar nära det utklippta planet mot RGB-delen av FadeColor. Alfakanalens styrka avgör om den kommer att blekna helt mot toningsfärgen eller bara delvis. *FadeLength* definierar över vilket avstånd denna toning kommer att äga rum.
+  Om alpha-värdet för *FadeColor* är skilt från noll, kommer pixlarna nära det avskurna planet att tonas mot RGB-delen av FadeColor. Styrkan i alfa kanalen avgör om den ska tonas helt mot tonings färgen eller bara delvis. *FadeLength* definierar över vilket avstånd som den här toningen ska äga rum.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Enkelsidig rendering](single-sided-rendering.md)
+* [Enkels idig rendering](single-sided-rendering.md)
 * [Rumsliga frågor](spatial-queries.md)

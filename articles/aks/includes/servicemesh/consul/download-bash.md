@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: a6b915e2735b45ac876ca98d279a15e4a371fbfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594296"
 ---
-I ett bash-baserat skal på Linux, [Windows Subsystem för Linux][install-wsl] eller MacOS, använd `curl` för att ladda ner Consul Helm-versionen enligt följande:
+I ett bash gränssnitt på Linux, Windows- [undersystem för Linux][install-wsl] eller MacOS använder `curl` du för att ladda ned den konsulära Helm-diagrammets version så här:
 
 ```bash
 # Specify the Consul Helm chart version that will be leveraged throughout these instructions

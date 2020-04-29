@@ -6,95 +6,95 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77593908"
 ---
-# <a name="istio"></a>Istio (på)
+# <a name="istio"></a>Istio
 
 ## <a name="overview"></a>Översikt
 
-[Istio][istio] är ett komplett, anpassningsbart och utbyggbart servicenät.
+[Istio][istio] är ett komplett, anpassningsbart och utöknings Bart tjänst nät.
 
 ## <a name="architecture"></a>Arkitektur
 
-Istio tillhandahåller ett dataplan som består av [Envoy-baserade][envoy-proxy]sidovagnar. Dessa intelligenta proxyservrar styr all nätverkstrafik in och ut ur dina mesh-appar och arbetsbelastningar.
+Istio tillhandahåller ett data plan som består av [mottagare][envoy-proxy]-baserade sidvagn. Dessa intelligenta proxyservrar styr all nätverks trafik in i och ut ur dina nätappar och arbets belastningar.
 
-Kontrollplanet hanterar konfigurationen, principen och telemetrin via följande [komponenter:][what-is-istio]
+Kontroll planet hanterar konfigurationen, principen och Telemetrin via följande [komponenter][what-is-istio]:
 
-- **Mixer** - Tillämpar principer för åtkomstkontroll och användning. Samlar telemetri från fullmakter som skjuts in [prometheus][prometheus].
+- **Mixer** – tillämpar principer för åtkomst kontroll och användning. Samlar in telemetri från de proxyservrar som skickas till [Prometheus][prometheus].
 
-- **Pilot** - Tillhandahåller princip/konfiguration för tjänstidentifiering och trafikhantering för proxyservrarna.
+- **Pilot** – tillhandahåller tjänst identifierings-och Traffic Management-principer/konfiguration för proxyservrarna.
 
-- **Citadel** - Tillhandahåller identitets- och säkerhetsfunktioner som möjliggör mTLS mellan tjänster.
+- **Citadel** – ger identitets-och säkerhets funktioner som tillåter mTLS mellan tjänster.
 
-- **Pentry** - Abstracts och ger konfiguration till komponenter.
+- **Text** – abstrakta och ger konfiguration till komponenter.
 
-Följande arkitekturdiagram visar hur de olika komponenterna i dataplanet och kontrollplanet interagerar.
+Följande arkitektur diagram visar hur de olika komponenterna i data planet och kontroll planet interagerar.
 
 
 ![Översikt över Istio-komponenter och arkitektur.](media/servicemesh/istio/about-architecture.png)
 
 
-## <a name="selection-criteria"></a>Urvalskriterier
+## <a name="selection-criteria"></a>Urvals villkor
 
-Det är viktigt att förstå och tänka på följande områden när du utvärderar Istio för dina arbetsbelastningar:
+Det är viktigt att förstå och ta hänsyn till följande områden när du utvärderar Istio för dina arbets belastningar:
 
-- [Designmål](#design-goals)
+- [Design mål](#design-goals)
 - [Funktioner](#capabilities)
 - [Scenarier](#scenarios)
 
 
 ### <a name="design-goals"></a>Designmål
 
-Följande designmål [styr][design-goals] Istio-projektet:
+Följande design mål [vägleder][design-goals] Istio-projektet:
 
-- **Maximera genomskinlighet** - Tillåt införande med minsta möjliga arbete för att få verkligt värde från systemet.
+- **Maximera genomskinlighet** – Tillåt antagande med minsta möjliga arbets mängd för att få ett verkligt värde från systemet.
 
-- **Utökningsbarhet** - Måste kunna växa och anpassa sig med förändrade behov.
+- **Utökning** – måste kunna växa och anpassas med föränderliga behov.
 
-- **Bärbarhet** - Kör enkelt i olika typer av miljöer - moln, lokalt.
+- **Portabilitet** – kör enkelt i olika typer av miljöer – molnet lokalt.
 
-- **Politisk enhetlighet** - Konsekvens i utformningen av politiken över olika resurser.
+- **Princip enhetlighet** – konsekvent i princip definitionen för olika resurser.
 
 
 ### <a name="capabilities"></a>Funktioner
 
-Istio tillhandahåller följande uppsättning funktioner:
+Istio tillhandahåller följande funktioner:
 
-- **Mesh** – gateways (multi-cluster), virtuella datorer (meshexpansion)
+- **Nät** – gatewayer (flera kluster), virtuella datorer (nät expansion)
 
-- **Trafikledning** – routning, delning, timeout, brytare, återförsök, ingående, utgående
+- **Trafik hantering** – routning, delning, tids gränser, krets brytare, återförsök, ingress, utgående
 
-- **Princip** – åtkomstkontroll, hastighetsgräns, kvot, anpassade principkort
+- **Princip** – åtkomst kontroll, hastighets begränsning, kvot, anpassade princip kort
 
-- **Säkerhet** – autentisering (jwt), auktorisering, kryptering (mTLS), extern certifikatutfärdarcertifikatutfärdar (HashiCorp Vault)
+- **Säkerhet** – autentisering (JWT), auktorisering, kryptering (mTLS), extern ca (HashiCorp-valv)
 
-- **Observerbarhet** – gyllene mätvärden, spegel, spårning, anpassade adaptrar, prometheus, grafana
+- **Iakttagithet** – gyllene mått, spegling, spårning, anpassade kort, Prometheus, Grafana
 
 ### <a name="scenarios"></a>Scenarier
 
-Istio är väl lämpad för och föreslås för följande scenarier:
+Istio passar bra för och föreslås för följande scenarier:
 
-- Kräv utökningsbarhet och omfattande uppsättning funktioner
+- Kräv utökning och omfattande uppsättning funktioner
 
-- Mesh-expansion till att omfatta VM-baserade arbetsbelastningar
+- Expansion av nätverk för att inkludera VM-baserade arbets belastningar
 
-- Tjänstnät för flera kluster
+- Nätverk med flera kluster tjänster
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande dokumentation beskrivs hur du kan installera Istio på Azure Kubernetes Service (AKS):
+I följande dokumentation beskrivs hur du kan installera Istio på Azure Kubernetes service (AKS):
 
 > [!div class="nextstepaction"]
-> [Installera Istio i Azure Kubernetes Service (AKS)][istio-install]
+> [Installera Istio i Azure Kubernetes service (AKS)][istio-install]
 
-Du kan också utforska Istio-koncept och ytterligare distributionsmodeller ytterligare:
+Du kan också ytterligare utforska Istio-koncept och ytterligare distributions modeller:
 
 - [Istio-begrepp][what-is-istio]
-- [Istio-distributionsmodeller][deployment-models]
+- [Istio distributions modeller][deployment-models]
 
 <!-- LINKS - external -->
 [istio]: https://istio.io

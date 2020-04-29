@@ -1,7 +1,7 @@
 ---
-title: Konfigurera belastningsutjämning och utgående regler med hjälp av Azure-portalen
+title: Konfigurera belastnings utjämning och utgående regler med hjälp av Azure Portal
 titleSuffix: Azure Load Balancer
-description: Den här artikeln visar hur du konfigurerar belastningsutjämning och utgående regler i Standard belastningsutjämnare med hjälp av Azure-portalen.
+description: Den här artikeln visar hur du konfigurerar belastnings utjämning och utgående regler i Standard Load Balancer med hjälp av Azure Portal.
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -9,54 +9,54 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77590018"
 ---
-# <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurera belastningsutjämning och utgående regler i Standard load Balancer med hjälp av Azure-portalen
+# <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurera belastnings utjämning och utgående regler i Standard Load Balancer med hjälp av Azure Portal
 
-Den här artikeln visar hur du konfigurerar utgående regler i Standard Load Balancer med hjälp av Azure-portalen.  
+Den här artikeln visar hur du konfigurerar utgående regler i Standard Load Balancer med hjälp av Azure Portal.  
 
-Belastningsutjämnarresursen innehåller två främre ändar och tillhörande regler. Du har en frontend för inkommande trafik och en annan frontend för utgående trafik.  
+Belastnings Utjämnings resursen innehåller två klient delar och deras associerade regler. Du har en klient del för inkommande trafik och en annan klient del för utgående trafik.  
 
-Varje klientreferens refererar till en offentlig IP-adress. I det här fallet skiljer sig den offentliga IP-adressen för inkommande trafik från adressen för utgående trafik.   Belastningsutjämningsregeln ger endast ingående belastningsutjämning. Den utgående regeln styr den utgående nätverksadressöversättningen (NAT) för den virtuella datorn.  
+Varje klient del refererar till en offentlig IP-adress. I det här scenariot skiljer sig den offentliga IP-adressen för inkommande trafik från adressen för utgående trafik.   Belastnings Utjämnings regeln tillhandahåller endast inkommande belastnings utjämning. Regeln för utgående trafik styr utgående Network Address Translation (NAT) för den virtuella datorn.  
 
-Scenariot använder två backend-pooler: en för inkommande trafik och en för utgående trafik. Dessa pooler illustrerar kapacitet och ger flexibilitet för scenariot.
+Scenariot använder två server dels pooler: en för inkommande trafik och en för utgående trafik. Dessa pooler illustrerar kapaciteten och ger flexibilitet för scenariot.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
 
-I det här avsnittet skapar du en belastningsutjämnare som kommer att belastningsutjämna virtuella datorer. Du kan skapa en offentlig belastningsutjämnare eller en intern belastningsutjämnare. När du skapar en offentlig belastningsutjämnare skapar du en ny offentlig IP-adress som har konfigurerats som klientdel för belastningsutjämnaren. Frontend kommer att heta **LoadBalancerFrontEnd** som standard.
+I det här avsnittet skapar du en belastningsutjämnare som ska belastningsutjämna virtuella datorer. Du kan skapa en offentlig belastningsutjämnare eller en intern belastningsutjämnare. När du skapar en offentlig belastningsutjämnare skapar du en ny offentlig IP-adress som är konfigurerad som klient del för belastningsutjämnaren. Klient delen får namnet **LoadBalancerFrontEnd** som standard.
 
-1. Välj **Skapa en resurs** > **Nätverksbelastningsutjämnare****Networking** > längst upp till vänster på skärmen .
-2. På fliken Grunderna på sidan **Skapa belastningsutjämnare** anger eller väljer du följande information: **Basics**
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **Load Balancer**.
+2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information:
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj **Skapa nytt** och skriv **myResourceGroupSLB** i textrutan.|
-    | Namn                   | **myLoadBalancer**                                   |
+    | Resursgrupp         | Välj **Skapa ny** och skriv **myResourceGroupSLB** i text rutan.|
+    | Name                   | **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
-    | SKU           | Välj **Standard** eller **Basic**. Microsoft rekommenderar Standard för produktionsarbetsbelastningar. |
-    | Offentlig IP-adress | Välj **Skapa ny**. Om du har en befintlig offentlig IP som du vill använda väljer du **Använd befintlig**.  Befintlig offentlig IP måste vara **Standard** SKU.  Grundläggande offentliga IPs är inte kompatibla med **Standard** SKU belastningsutjämnare.  |
+    | SKU           | Välj **standard** eller **Basic**. Microsoft rekommenderar standard för produktions arbets belastningar. |
+    | Offentlig IP-adress | Välj **Skapa ny**. Om du har en befintlig offentlig IP-adress som du vill använda väljer du **Använd befintlig**.  Den befintliga offentliga IP-adressen måste vara **standard** -SKU.  Grundläggande offentliga IP-adresser är inte kompatibla med **standard** -SKU: n.  |
     | Namn på offentlig IP-adress              | Skriv **myPublicIP** i textrutan.|
-    | Tillgänglighetszon | Välj **Zonundant** om du vill skapa en flexibel belastningsutjämningsfaktor. Om du vill skapa en zonindelningsbelastningsutdelningsapparat väljer du en viss zon från 1, 2 eller 3 |
+    | Tillgänglighetszon | Välj **zon-redundant** för att skapa en elastisk Load Balancer. Om du vill skapa en zonindelade Load Balancer väljer du en speciell zon från 1, 2 eller 3 |
 
 3. Acceptera standardinställningarna för resten av konfigurationen.
 4. Välj **Granska + skapa**
 
     > [!IMPORTANT]
-    > Resten av den här snabbstarten förutsätter att **Standard** SKU väljs under SKU-urvalsprocessen ovan.
+    > Resten av den här snabb starten förutsätter att **standard** -SKU väljs under urvals processen för SKU ovan.
 
-5. Välj **Skapa**på fliken **Granska + skapa** .   
+5. På fliken **Granska och skapa** väljer du **skapa**.   
 
     ![Skapa en Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
@@ -66,26 +66,26 @@ I det här avsnittet konfigurerar du inställningarna för lastbalanseraren för
 
 ### <a name="create-a-backend-pool"></a>Skapa en serverdelspool
 
-En servergrupp innehåller IP-adresserna för de virtuella nätverkskorten i serverdapoolen. Skapa serverdelsadresspoolen **myBackendPool** för att inkludera virtuella datorer för belastningsutjämning av internettrafik.
+En backend-adresspool innehåller IP-adresserna för de virtuella nätverkskorten i backend-poolen. Skapa **myBackendPool** för backend-adresspoolen för att inkludera virtuella datorer för belastnings utjämning av Internet trafik.
 
-1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar**väljer du **Backend-pooler**och väljer sedan **Lägg till**.
-3. Skriv **myBackendPool**för namn på sidan **Lägg till en backend-pool** och välj sedan **Lägg till**.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
+2. Under **Inställningar**väljer du **backend-pooler**och väljer sedan **Lägg till**.
+3. På sidan **Lägg till en server dels grupp** anger du **myBackendPool**som namn på din backend-pool. Välj sedan **Lägg till**.
 
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
 
-En hälsoavsökning används för att övervaka appens status. Hälsoavsökningen lägger till eller tar bort virtuella datorer från belastningsutjämnaren baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning **myHealthProbe** så att du kan övervaka de virtuella datorernas hälsotillstånd.
+En hälso avsökning används för att övervaka appens status. Hälso avsökningen lägger till eller tar bort virtuella datorer från belastningsutjämnaren baserat på deras svar på hälso kontroller. Skapa en hälsoavsökning **myHealthProbe** så att du kan övervaka de virtuella datorernas hälsotillstånd.
 
-1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar**väljer du **Hälsoavsökningar**och väljer sedan **Lägg till**.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
+2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
     
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myHealthProbe**. |
-    | Protokoll | Välj **HTTP**. |
-    | Port | Skriv in **80**.|
-    | Intervall | Ange **15** för antal **intervall** i sekunder mellan avsökningsförsök. |
-    | Felfritt tröskelvärde | Välj **2** för antal **felaktiga tröskelvärden** eller på varandra följande avsökningsfel som måste inträffa innan en virtuell dator anses vara fel.|
+    | Protokoll | Välj **http**. |
+    | Port | Ange **80**.|
+    | Intervall | Ange **15** som **intervall** i sekunder mellan avsöknings försök. |
+    | Tröskelvärde för ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
     | | |
 4. Välj **OK**.
 
@@ -93,88 +93,88 @@ En hälsoavsökning används för att övervaka appens status. Hälsoavsökninge
 En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. 
 
 Du definierar:
- - Frontend IP-konfiguration för inkommande trafik.
- - Den bakre IP-poolen för att ta emot trafiken.
- - Den nödvändiga käll- och målporten. 
+ - IP-konfiguration för klient delen för inkommande trafik.
+ - Server delens IP-pool för att ta emot trafiken.
+ - Käll-och mål port som krävs. 
 
 I följande avsnitt skapar du en:
- - Belastningsutjämnare regel **minHTTPRule** för att lyssna på port 80.
- - Frontend **LoadBalancerFrontEnd**.
- - Backend adress pool **myBackEndPool** också använda port 80. 
+ - Belastnings Utjämnings regeln **myHTTPRule** för att lyssna på port 80.
+ - Frontend- **LoadBalancerFrontEnd**.
+ - **MyBackEndPool** för backend-adresspoolen använder också port 80. 
 
-1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar**väljer du **Belastningsutjämningsregler**och väljer sedan **Lägg till**.
-3. Använd dessa värden för att konfigurera belastningsutjämningsregeln:
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
+2. Välj **belastnings Utjämnings regler**under **Inställningar**och välj sedan **Lägg till**.
+3. Använd de här värdena för att konfigurera belastnings Utjämnings regeln:
     
     | Inställning | Värde |
     | ------- | ----- |
-    | Namn | Ange **minHTTPRule**. |
+    | Namn | Ange **myHTTPRule**. |
     | Protokoll | Välj **TCP**. |
-    | Port | Skriv in **80**.|
-    | Backend-port | Skriv in **80**. |
+    | Port | Ange **80**.|
+    | Backend-port | Ange **80**. |
     | Serverdelspool | Välj **myBackendPool**.|
     | Hälsoavsökning | Välj **myHealthProbe**. |
-    | Skapa implicita utgående regler | Välj **Nej**. Vi skapar utgående regler i ett senare avsnitt med hjälp av en dedikerad offentlig IP. |
+    | Skapa implicit utgående regler | Välj **Nej**. Vi skapar utgående regler i ett senare avsnitt med hjälp av en dedikerad offentlig IP-adress. |
 4. Lämna resten av standardinställningarna och välj sedan **OK**.
 
-## <a name="create-outbound-rule-configuration"></a>Skapa utgående regelkonfiguration
-Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för virtuella datorer i serverdapoolen. 
+## <a name="create-outbound-rule-configuration"></a>Skapa utgående regel konfiguration
+Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för virtuella datorer i backend-poolen. 
 
-### <a name="create-an-outbound-public-ip-address-and-frontend"></a>Skapa en utgående offentlig IP-adress och klientdel
+### <a name="create-an-outbound-public-ip-address-and-frontend"></a>Skapa en utgående offentlig IP-adress och klient del
 
-1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
 
-2. Under **Inställningar**väljer du **Frontend IP-konfiguration**och väljer sedan **Lägg till**.
+2. Under **Inställningar**väljer du **klient delens IP-konfiguration**och väljer sedan **Lägg till**.
 
-3. Använd dessa värden för att konfigurera ip-konfigurationen för klientdel för utgående:
+3. Använd de här värdena för att konfigurera klient delens IP-konfiguration för utgående:
 
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **LoadBalancerFrontEndOutbound**. |
     | IP-version | Välj **IPv4**. |
     | IP-typ | Välj **IP-adress**.|
-    | Offentlig IP-adress | Välj **Skapa ny**. Ange **myPublicIPOutbound**i **Lägg till en offentlig IP-adress**.  Välj **OK**. |
+    | Offentlig IP-adress | Välj **Skapa ny**. I **Lägg till en offentlig IP-adress**, anger du **myPublicIPOutbound**.  Välj **OK**. |
 
 4. Välj **Lägg till**.
 
 ### <a name="create-an-outbound-backend-pool"></a>Skapa en utgående backend-pool
 
-1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
 
-2. Under **Inställningar**väljer du **Backend-pooler**och väljer sedan **Lägg till**.
+2. Under **Inställningar**väljer du **backend-pooler**och väljer sedan **Lägg till**.
 
-3. Skriv **myBackendPoolOutbound**som namn på sidan **Lägg till en backend-pool** och välj sedan **Lägg till**.
+3. På sidan **Lägg till en server dels grupp** anger du **myBackendPoolOutbound**som namn på din backend-pool. Välj sedan **Lägg till**.
 
 ### <a name="create-outbound-rule"></a>Skapa utgående regel
 
-1. Välj **Alla tjänster** på menyn till vänster, välj Alla **resurser**och välj sedan **myLoadBalancer** i resurslistan.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
 
-2. Under **Inställningar**väljer du **Utgående regler**och väljer sedan Lägg **till**.
+2. Välj **utgående regler**under **Inställningar**och välj sedan **Lägg till**.
 
-3. Använd dessa värden för att konfigurera utgående regler:
+3. Använd de här värdena för att konfigurera de utgående reglerna:
 
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myOutboundRule**. |
-    | IP-adress för klientdel | Välj **LoadBalancerFrontEndOutbound**. |
-    | Tidsgränsen för inaktiv tid (minuter) | Flytta skjutreglaget till **15 minuter.|
+    | IP-adress för klient del | Välj **LoadBalancerFrontEndOutbound**. |
+    | Tids gräns för inaktivitet (minuter) | Flytta skjutreglaget till * * 15 minuter.|
     | TCP-återställning | Välj **Aktiverad**.|
     | Serverdelspool | Välj **myBackendPoolOutbound** |
-    | Portallokering -> portallokering | Välj **Manuellt välja antal utgående portar** |
-    | Utgående portar -> Välj av | Välj **portar per instans** |
-    | Utgående portar -> portar per instans | Ange **10 000**. |
+    | Port tilldelning – > port tilldelning | Välj **manuellt Välj antalet utgående portar** |
+    | Utgående portar-> Välj efter | Välj **portar per instans** |
+    | Utgående portar-> portar per instans | Ange **10 000**. |
 
 4. Välj **Lägg till**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när de inte längre behövs. Markera resursgruppen **myResourceGroupSLB** som innehåller belastningsutjämnaren och välj sedan **Ta bort**.
+Ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när de inte längre behövs. Välj den resurs grupps **myResourceGroupSLB** som innehåller belastningsutjämnaren och välj sedan **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln:
- - Du har skapat en standardbelastningsutjämnare.
- - Konfigurerade trafikregler för både inkommande och utgående belastningsutjämnare.
- - Konfigurerade en hälsoavsökning för de virtuella datorerna i backend-poolen. 
+ - Du har skapat en standard belastningsutjämnare.
+ - Konfigurerade både inkommande och utgående trafik regler för belastningsutjämnare.
+ - Konfigurerat en hälso avsökning för de virtuella datorerna i backend-poolen. 
 
-Om du vill veta mer fortsätter du till [självstudierna för Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Om du vill veta mer kan du fortsätta till [självstudierna för Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).

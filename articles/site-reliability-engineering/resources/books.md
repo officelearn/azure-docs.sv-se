@@ -1,6 +1,6 @@
 ---
-title: SRE boklista | Microsoft-dokument
-description: Öka dina kunskaper om webbplatsens tillförlitlighetsteknik med dessa böcker
+title: SRE Book List | Microsoft Docs
+description: Öka dina kunskaper om tillförlitligheten för webbplatser med dessa böcker
 author: dnblankedelman
 manager: efreeman
 ms.service: site-reliability-engineering
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: dnb
 ms.openlocfilehash: 4a350953a5755f24c938011ae4b98e1e35e094e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77599046"
 ---
-# <a name="books-about-site-reliability-engineering"></a>Böcker om tillförlitlighetsteknik för webbplatsen
+# <a name="books-about-site-reliability-engineering"></a>Böcker om Tillförlitlighets teknik för webbplatser
 
-För mer detaljerad information om webbplatsens tillförlitlighetsteknik (SRE), är den bästa källan en trio av böcker som har publicerats i ämnet
+För mer detaljerad information om Site Tillförlitlighets teknik (SRE) är den bästa källan en trio av böcker som har publicerats på ämnet
 
 - [_Site Reliability Engineering: How Google Runs Production Systems_](https://shop.oreilly.com/product/0636920041528.do) (kallas för ”SRE-boken”)
 - [_The Site Reliability Workbook: Practical Ways to Implement SRE_](https://shop.oreilly.com/product/0636920132448.do) (kallas ”SRE-arbetsboken”)
@@ -30,4 +30,4 @@ Var och en av dessa böcker innehåller en viktig uppsättning information:
 
 - Seeking SRE – ger en mer omfattande vy över SRE-världen utöver dess ursprung, som information om hur den har implementerats i andra miljöer.
 
-Eftersom dessa böcker beskriver erfarenhet, miljöer och kultur av organisationer som kanske eller kanske inte liknar den du befinner dig i, är det viktigt att läsa dessa böcker med ett kritiskt öga. När du läser, försök att avgöra vilka metoder som skulle eller inte skulle lyckas i din organisation. Ägna en stund åt att identifiera informationen som du är säker på kan ge dig positivt värde. Tänk på vilka delar av din organisations kultur och värden som kan ge stöd för SRE-arbete enligt beskrivningen och som kan göra det mer utmanande. En noggrann, iterativ omfattar av SRE kommer nästan alltid att ge bättre resultat än en grossist dubblering av något du läser i dessa böcker.
+Eftersom dessa böcker beskriver erfarenheten, miljöer och kultur organisationer som kanske inte liknar den som du befinner dig i, är det viktigt att läsa dessa böcker med ett viktigt öga. När du läser kan du försöka avgöra vilka metoder som skulle fungera eller inte skulle lyckas i din organisation. Ägna en stund åt att identifiera informationen som du är säker på kan ge dig positivt värde. Tänk på vilka delar av din organisations kultur och värden som kan ge stöd för SRE-arbete enligt beskrivningen och som kan göra det mer utmanande. En noggrann, iterativ SRE kommer nästan alltid att ge bättre resultat än en parti-dubblett av något som du läser i dessa böcker.

@@ -1,45 +1,45 @@
 ---
-title: Installera Linkerd i Azure Kubernetes Service (AKS)
-description: Lär dig hur du installerar och använder Linkerd för att skapa ett tjänstnät i ett AKS-kluster (Azure Kubernetes Service)
+title: Installera Linkerd i Azure Kubernetes service (AKS)
+description: Lär dig hur du installerar och använder Linkerd för att skapa ett service nät i ett Azure Kubernetes service-kluster (AKS)
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77593755"
 ---
-# <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Installera Linkerd i Azure Kubernetes Service (AKS)
+# <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Installera Linkerd i Azure Kubernetes service (AKS)
 
-[Linkerd][linkerd-github] är ett servicenät med öppen källkod och [CNCF-inkuberingsprojekt][linkerd-cncf]. Linkerd är ett ultralätt servicenät som tillhandahåller funktioner som inkluderar trafikhantering, tjänstidentitet och säkerhet, tillförlitlighet och observerbarhet. Mer information om Linkerd finns i den officiella dokumentationen för [Linkerd och][linkerd-faq] [Linkerd Architecture.][linkerd-architecture]
+[Linkerd][linkerd-github] är ett nät med öppen källkod för att skapa ett [CNCF-projekt][linkerd-cncf]. Linkerd är ett Ultralight service-nät som innehåller funktioner som omfattar trafik hantering, tjänst identitet och säkerhet, tillförlitlighet och att observera. Mer information om Linkerd finns i den officiella [Linkerd vanliga frågor och svar][linkerd-faq] och [Linkerd Architecture][linkerd-architecture] -dokumentation.
 
-Den här artikeln visar hur du installerar Linkerd. Linkerd-klientbinären `linkerd` installeras på klientdatorn och Linkerd-komponenterna installeras i ett Kubernetes-kluster på AKS.
+Den här artikeln visar hur du installerar Linkerd. Linkerd `linkerd` -klientens binärfil installeras på klient datorn och Linkerd-komponenterna installeras i ett Kubernetes-kluster på AKS.
 
 > [!NOTE]
-> Dessa instruktioner refererar till `stable-2.6.0`Linkerd version .
+> De här anvisningarna hänvisar till `stable-2.6.0`Linkerd-versionen.
 >
-> Linkerd `stable-2.6.x` kan köras mot Kubernetes versioner `1.13+`. Du kan hitta ytterligare stabila och kant Linkerd versioner på [GitHub - Linkerd Releases][linkerd-github-releases].
+> Linkerd `stable-2.6.x` kan köras mot Kubernetes-versioner `1.13+`. Du hittar ytterligare stabila och Edge Linkerd-versioner på [GitHub-Linkerd-][linkerd-github-releases]versioner.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Ladda ner och installera Linkerd linkerd-klienten binär
+> * Hämta och installera Linkerd Linkerd-klientens binärfil
 > * Installera Linkerd på AKS
 > * Verifiera Linkerd-installationen
-> * Få tillgång till instrumentpanelen
+> * Åtkomst till instrument panelen
 > * Avinstallera Linkerd från AKS
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Stegen som beskrivs i den här artikeln förutsätter att du `1.13` har skapat ett AKS-kluster (Kubernetes och högre, med RBAC aktiverat) och har upprättat en `kubectl` anslutning till klustret. Om du behöver hjälp med något av dessa objekt, sedan se [AKS snabbstart][aks-quickstart].
+De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS `1.13` -kluster (Kubernetes och senare, med RBAC aktiverat) `kubectl` och har upprättat en anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart].
 
-Alla Linkerd pods måste schemaläggas för att köras på Linux-noder - den här inställningen är standard i installationsmetoden nedan och kräver ingen ytterligare konfiguration.
+Alla Linkerd-poddar måste vara schemalagda att köras på Linux-noder – den här inställningen är standard i installations metoden som beskrivs nedan och kräver ingen ytterligare konfiguration.
 
-Den här artikeln separerar Linkerd-installationsvägledningen i flera diskreta steg. Resultatet är detsamma i struktur som den officiella Linkerd komma igång [vägledning][linkerd-getting-started].
+Den här artikeln separerar installations vägledningen för Linkerd till flera diskreta steg. Resultatet är detsamma i strukturen som den officiella Linkerd- [vägledningen][linkerd-getting-started]för att komma igång.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -61,13 +61,13 @@ Den här artikeln separerar Linkerd-installationsvägledningen i flera diskreta 
 
 ## <a name="install-linkerd-on-aks"></a>Installera Linkerd på AKS
 
-Innan vi installerar Linkerd kör vi förinstallationskontroller för att avgöra om kontrollplanet kan installeras i vårt AKS-kluster:
+Innan vi installerar Linkerd kör vi för installations kontroller för att avgöra om kontroll planet kan installeras på vårt AKS-kluster:
 
 ```console
 linkerd check --pre
 ```
 
-Du bör se något liknande följande för att ange att AKS-klustret är ett giltigt installationsmål för Linkerd:
+Du bör se något som liknar följande för att indikera att ditt AKS-kluster är ett giltigt installations mål för Linkerd:
 
 ```console
 kubernetes-api
@@ -117,26 +117,26 @@ linkerd-version
 Status check results are √
 ```
 
-Nu är det dags att installera Linkerd-komponenterna. Använd `linkerd` och `kubectl` binärfiler för att installera Linkerd-komponenterna i AKS-klustret. Ett `linkerd` namnområde skapas automatiskt och komponenterna installeras i det här namnområdet.
+Nu är det dags att installera Linkerd-komponenterna. Använd `linkerd` binärfilerna `kubectl` och för att installera Linkerd-komponenterna i ditt AKS-kluster. Ett `linkerd` namn område skapas automatiskt och komponenterna installeras i det här namn området.
 
 ```console
 linkerd install | kubectl apply -f -
 ```
 
-Linkerd distribuerar ett antal objekt. Du ser listan från utdata `linkerd install` från kommandot ovan. Distributionen av Linkerd-komponenterna bör ta cirka 1 minut att slutföra, beroende på klustermiljön.
+Linkerd distribuerar ett antal objekt. Du ser listan från utdata från `linkerd install` kommandot ovan. Distributionen av Linkerd-komponenterna bör ta cirka 1 minut att slutföra, beroende på kluster miljön.
 
-Nu har du distribuerat Linkerd till AKS-klustret. För att säkerställa att vi har en lyckad distribution av Linkerd, låt oss gå vidare till nästa avsnitt för att [validera Linkerd-installationen](#validate-the-linkerd-installation).
+Nu har du distribuerat Linkerd till ditt AKS-kluster. För att säkerställa att vi har en lyckad distribution av Linkerd kan vi gå vidare till nästa avsnitt för att [validera Linkerd-installationen](#validate-the-linkerd-installation).
 
 ## <a name="validate-the-linkerd-installation"></a>Verifiera Linkerd-installationen
 
-Bekräfta att resurserna har skapats. Använd [kubectl get svc][kubectl-get] och [kubectl get][kubectl-get] `linkerd` pod-kommandon för att fråga namnområdet, `linkerd install` där Linkerd-komponenterna installerades av kommandot:
+Bekräfta att resurserna har skapats. Använd `linkerd install` kommandot [kubectl get SVC][kubectl-get] och [kubectl get Pod][kubectl-get] för att fråga efter `linkerd` namn området, där Linkerd-komponenterna har installerats med kommandot:
 
 ```console
 kubectl get svc --namespace linkerd --output wide
 kubectl get pod --namespace linkerd --output wide
 ```
 
-Följande exempelutdata visar de tjänster och poddar (schemalagda på Linux-noder) som nu ska köras:
+Följande exempel på utdata visar tjänsterna och poddar (schemalagda på Linux-noder) som nu ska köras:
 
 ```console
 NAME                     TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)             AGE  SELECTOR
@@ -163,13 +163,13 @@ linkerd-tap-5cd9fc566-ct988               2/2     Running   0          64s   10.
 linkerd-web-774c79b6d5-dhhwf              2/2     Running   0          65s   10.240.0.70   aks-linux-16165125-vmss000002   <none>           <none>
 ```
 
-Linkerd tillhandahåller ett `linkerd` kommando via klientbinären för att verifiera att Linkerd-kontrollplanet har installerats och konfigurerats.
+Linkerd tillhandahåller ett kommando via `linkerd` klientens binärfil för att kontrol lera att kontroll planet för Linkerd har installerats och kon figurer ATS.
 
 ```console
 linkerd check
 ```
 
-Du bör se något liknande följande för att ange att installationen lyckades:
+Du bör se något som liknar följande för att indikera att installationen lyckades:
 
 ```console
 kubernetes-api
@@ -224,15 +224,15 @@ control-plane-version
 Status check results are √
 ```
 
-## <a name="access-the-dashboard"></a>Få tillgång till instrumentpanelen
+## <a name="access-the-dashboard"></a>Åtkomst till instrument panelen
 
-Linkerd levereras med en instrumentpanel som ger insikt i tjänstnätet och arbetsbelastningarna. Använd kommandot för att `linkerd dashboard` komma åt instrumentpanelen. Det här kommandot utnyttjar [kubectl port-forward][kubectl-port-forward] för att skapa en säker anslutning mellan klientdatorn och relevanta poddar i AKS-klustret. Den öppnas sedan automatiskt på instrumentpanelen i standardwebbläsaren.
+Linkerd levereras med en instrument panel som ger insikt i tjänstens nät och arbets belastningar. Använd `linkerd dashboard` kommandot för att få åtkomst till instrument panelen. Det här kommandot använder [kubectl-Port-Forward][kubectl-port-forward] för att skapa en säker anslutning mellan klient datorn och den relevanta poddar i ditt AKS-kluster. Sedan öppnas instrument panelen automatiskt i din standard webbläsare.
 
 ```console
 linkerd dashboard
 ```
 
-Kommandot skapar också en port-forward och returnerar en länk för Grafana-instrumentpanelerna.
+Kommandot kommer också att skapa en Port-Forward och returnera en länk för Grafana-instrumentpaneler.
 
 ```console
 Linkerd dashboard available at:
@@ -245,11 +245,11 @@ Opening Linkerd dashboard in the default browser
 ## <a name="uninstall-linkerd-from-aks"></a>Avinstallera Linkerd från AKS
 
 > [!WARNING]
-> Om du tar bort Linkerd från ett system som körs kan det leda till trafikrelaterade problem mellan dina tjänster. Se till att du har gjort avsättningar för att ditt system fortfarande ska fungera korrekt utan Linkerd innan du fortsätter.
+> Om du tar bort Linkerd från ett system som körs kan det leda till trafik problem mellan dina tjänster. Se till att du har gjort att systemet fortfarande fungerar korrekt utan Linkerd innan du fortsätter.
 
-Först måste du ta bort dataplanet proxyservrar. Ta bort alla [automatiska proxyinjektionsanteckningar][linkerd-automatic-proxy-injection] från arbetsbelastningsnamnområden och distribuera dina arbetsbelastningsdistributioner. Dina arbetsbelastningar bör inte längre ha några associerade dataplankomponenter.
+Först måste du ta bort dataplans-proxyn. Ta bort eventuella [anteckningar][linkerd-automatic-proxy-injection] från arbets belastnings namn rymder och distribuera dina arbets belastnings distributioner. Dina arbets belastningar bör inte längre ha några associerade data Plans komponenter.
 
-Ta slutligen bort kontrollplanet enligt följande:
+Ta slutligen bort kontroll planet enligt följande:
 
 ```console
 linkerd install --ignore-cluster | kubectl delete -f -
@@ -257,15 +257,15 @@ linkerd install --ignore-cluster | kubectl delete -f -
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utforskar installations- och konfigurationsalternativ för Linkerd finns i följande officiella Linkerd-vägledning:
+För att utforska fler installations-och konfigurations alternativ för Linkerd, se följande officiella Linkerd-vägledning:
 
-- [Linkerd - Helm installation][linkerd-install-with-helm]
-- [Linkerd - Flerstegsinstallation för att tillgodose rollprivilegier][linkerd-multi-stage-installation]
+- [Linkerd – Helm-installation][linkerd-install-with-helm]
+- [Linkerd – installation i flera steg för att tillgodose roll behörigheter][linkerd-multi-stage-installation]
 
-Du kan också följa ytterligare scenarier med hjälp av:
+Du kan också följa ytterligare scenarier som använder:
 
-- [Linkerd emojivoto demo][linkerd-demo-emojivoto]
-- [Linkerd böcker demo][linkerd-demo-books]
+- [Linkerd emojivoto-demo][linkerd-demo-emojivoto]
+- [Demo om Linkerd Books][linkerd-demo-books]
 
 <!-- LINKS - external -->
 

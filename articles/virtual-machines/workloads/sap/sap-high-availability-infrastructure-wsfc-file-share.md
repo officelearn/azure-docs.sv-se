@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77591548"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
@@ -222,8 +222,8 @@ Läs följande artikel innan du påbörjar installationen:
 | --- | --- | --- | --- |
 | Första klusternoden ASCS/SCS-kluster | ASCs-1 | 10.0.6.4 | ASCs – som |
 | Andra klusternoden ASCS/SCS-kluster | ASCs-2 | 10.0.6.5 | ASCs – som |
-| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | Saknas |
-| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | Saknas |
+| Kluster nätverks namn |ASCs-cl | 10.0.6.6 | saknas |
+| SAP PR1 ASCS-kluster nätverks namn |PR1 – ASCs | 10.0.6.7 | saknas |
 
 
 **Tabell 1**: ASCS/SCS-kluster
@@ -240,8 +240,8 @@ Läs följande artikel innan du påbörjar installationen:
 | Första klusternoden | SOFS-1 | 10.0.6.10 | SOFS – som |
 | Andra klusternoden | SOFS-2 | 10.0.6.11 | SOFS – som |
 | Tredje klusternoden | SOFS-3 | 10.0.6.12 | SOFS – som |
-| Kluster nätverks namn | SOFS-cl | 10.0.6.13 | Saknas |
-| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | Saknas |
+| Kluster nätverks namn | SOFS-cl | 10.0.6.13 | saknas |
+| Globalt värd namn för SAP | sapglobal | Använd IP-adresser för alla klusternoder | saknas |
 
 **Tabell 3**: skalbar filserver kluster
 

@@ -6,92 +6,92 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77593775"
 ---
-# <a name="linkerd"></a>Linkerd (länk)
+# <a name="linkerd"></a>Linkerd
 
 ## <a name="overview"></a>Översikt
 
-[Linkerd][linkerd] är ett lättanvänt och lätt servicenät.
+[Linkerd][linkerd] är ett enkelt sätt att använda och lätta service nät.
 
 ## <a name="architecture"></a>Arkitektur
 
-Linkerd tillhandahåller ett dataplan som består av ultralätta [Linkerd-specialiserade][linkerd-proxy] proxy-sidovagnar. Dessa intelligenta proxyservrar styr all nätverkstrafik in och ut ur dina mesh-appar och arbetsbelastningar. Proxyservrarna exponerar också mätvärden via [Prometheus-måttslutpunkter.][prometheus]
+Linkerd tillhandahåller ett data plan som består av Ultralight [Linkerd][linkerd-proxy] specialiserad proxy-sidvagn. Dessa intelligenta proxyservrar styr all nätverks trafik in i och ut ur dina nätappar och arbets belastningar. Proxyservrarna visar också Mät värden via [Prometheus][prometheus] -slutpunkter.
 
-Kontrollplanet hanterar konfigurationen och aggregerad telemetri via följande [komponenter:][linkerd-architecture]
+Kontroll planet hanterar konfigurationen och aggregerad telemetri via följande [komponenter][linkerd-architecture]:
 
-- **Controller** - Tillhandahåller api som driver Linkerd CLI och Dashboard. Ger konfiguration för proxyservrar.
+- **Controller** – tillhandahåller API som driver Linkerd CLI och instrument panel. Innehåller konfiguration för proxyservrar.
 
-- **Tryck på** - Upprätta klockor i realtid på förfrågningar och svar.
+- **Knacka** för att bestämma real tids arm på begär Anden och svar.
 
-- **Identitet** - Tillhandahåller identitets- och säkerhetsfunktioner som möjliggör mTLS mellan tjänster.
+- **Identitet** – tillhandahåller identitets-och säkerhets funktioner som tillåter mTLS mellan tjänster.
 
-- **Webb** - Tillhandahåller instrumentpanelen i Linkerd.
+- **Webb** – tillhandahåller Linkerd-instrumentpanelen.
 
 
-Följande arkitekturdiagram visar hur de olika komponenterna i dataplanet och kontrollplanet interagerar.
+Följande arkitektur diagram visar hur de olika komponenterna i data planet och kontroll planet interagerar.
 
 
 ![Översikt över Linkerd-komponenter och arkitektur.](media/servicemesh/linkerd/about-architecture.png)
 
 
-## <a name="selection-criteria"></a>Urvalskriterier
+## <a name="selection-criteria"></a>Urvals villkor
 
-Det är viktigt att förstå och tänka på följande områden när du utvärderar Linkerd för dina arbetsbelastningar:
+Det är viktigt att förstå och ta hänsyn till följande områden när du utvärderar Linkerd för dina arbets belastningar:
 
-- [Designprinciper](#design-principles)
+- [Design principer](#design-principles)
 - [Funktioner](#capabilities)
 - [Scenarier](#scenarios)
 
 
 ### <a name="design-principles"></a>Designprinciper
 
-Följande designprinciper [vägleder][design-principles] Linkerd-projektet:
+Följande design principer [vägleder][design-principles] Linkerd-projektet:
 
-- **Keep it Simple** - Måste vara lätt att använda och förstå.
+- **Håll det enkelt** – måste vara lätt att använda och förstå.
 
-- **Minimera resurskrav** - Införa minimal prestanda och resurskostnad.
+- **Minimera resurs krav** – ge minimala prestanda-och resurs kostnader.
 
-- **Just Work** - Bryt inte befintliga program och kräver inte komplex konfiguration.
+- Du behöver **bara** avbryta befintliga program och inte kräva komplex konfiguration.
 
 
 ### <a name="capabilities"></a>Funktioner
 
-Linkerd innehåller följande uppsättning funktioner:
+Linkerd tillhandahåller följande funktioner:
 
-- **Mesh** – inbyggt felsökningsalternativ
+- **Nät** – skapat fel söknings alternativ
 
-- **Trafikledning** – delning, timeout, återförsök, inträngning
+- **Trafik hantering** – delning, timeout, återförsök, ingångar
 
-- **Säkerhet** – kryptering (mTLS), certifikat som roteras automatiskt var 24:e timme
+- **Säkerhet** – kryptering (mTLS), certifikat som roteras automatisk var 24: e timme
 
-- **Observerbarhet** – gyllene mått, kran, spårning, serviceprofiler och per ruttmått, webbinstrumentpanel med topologidiagram, prometheus, grafana
+- **Iakttagithet** – gyllene mått, tryck, spårning, tjänst profiler och linje mått för varje flöde, webb instrument panel med topologier för topologi, Prometheus, Grafana
 
 
 ### <a name="scenarios"></a>Scenarier
 
-Linkerd är väl lämpad för och föreslås för följande scenarier:
+Linkerd passar bra för och föreslås för följande scenarier:
 
-- Enkel att använda med bara den väsentliga uppsättningen kapacitetskrav
+- Enkelt att använda med bara den viktigaste uppsättningen kapacitets krav
 
-- Låg latens, låg overhead, med fokus på observerbarhet och enkel trafikledning
+- Låg latens, låg belastning, med fokus på observerad och enkel trafik hantering
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande dokumentation beskrivs hur du kan installera Linkerd på Azure Kubernetes Service (AKS):
+I följande dokumentation beskrivs hur du kan installera Linkerd på Azure Kubernetes service (AKS):
 
 > [!div class="nextstepaction"]
-> [Installera Linkerd i Azure Kubernetes Service (AKS)][linkerd-install]
+> [Installera Linkerd i Azure Kubernetes service (AKS)][linkerd-install]
 
-Du kan också utforska Linkerds funktioner och arkitektur ytterligare:
+Du kan också ytterligare utforska Linkerd-funktioner och arkitektur:
 
-- [Länkningsfunktioner][linkerd-features]
-- [Länkningsarkitektur][linkerd-architecture]
+- [Linkerd-funktioner][linkerd-features]
+- [Linkerd-arkitektur][linkerd-architecture]
 
 <!-- LINKS - external -->
 [linkerd]: https://linkerd.io/2/overview/

@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
 ms.openlocfilehash: a1a3e62646fedd468a02eac7b1a48d0b2d00fd74
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77591990"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Självstudie: Spåra användning av ett labb i Azure Lab Services
@@ -41,7 +41,7 @@ I den här självstudien gör du följande:
 
     ![Registrerade användare](../media/tutorial-track-usage/registered-users.png)
 
-    Mer information om hur du lägger till och hanterar användare för labbet finns i [Lägga till och hantera labbanvändare](how-to-configure-student-usage.md).
+    Mer information om hur du lägger till och hanterar användare för labbet finns i [lägga till och hantera labb användare](how-to-configure-student-usage.md).
 
 ## <a name="view-the-usage-of-vms"></a>Visa användningen av virtuella datorer
 
@@ -51,14 +51,14 @@ I den här självstudien gör du följande:
     ![VM-användning](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Hantera virtuella studentdatorer 
-På den här sidan kan du starta, stoppa eller återställa virtuella elevdriska datorer med hjälp av kontroller i **kolumnen Tillstånd** eller i verktygsfältet.
+På den här sidan kan du starta, stoppa eller återställa elev-VM: ar med hjälp av kontrollerna i kolumnen **tillstånd** eller i verktygsfältet.
 
-![Åtgärder för virtuella datorer](../media/tutorial-track-usage/vm-controls.png)
+![VM-åtgärder](../media/tutorial-track-usage/vm-controls.png)
 
-Mer information om hur du hanterar poolen för virtuella datorer för labbet finns i [Konfigurera och hantera pool för virtuella datorer](how-to-set-virtual-machine-passwords.md).
+Mer information om hur du hanterar en pool för virtuella datorer för labbet finns i [Konfigurera och hantera en pool för virtuella datorer](how-to-set-virtual-machine-passwords.md).
 
 > [!NOTE]
-> När en lärare slår på en deltagare VM påverkas inte kvoten för eleven. Kvot för en användare anger antalet labbtimmar som är tillgängliga för användaren utanför den schemalagda klasstiden. Mer information om kvoter finns i [Ange kvoter för användare](how-to-configure-student-usage.md?#set-quotas-for-users).
+> När en lärare aktive ras på en elev-VM påverkas inte kvoten för studenten. Kvoten för en användare anger antalet Labb timmar som är tillgängliga för användaren utanför den schemalagda klass tiden. Mer information om kvoter finns i [Ange kvoter för användare](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om klassrumslabb finns i artiklarna under [Instruktionsguider](how-to-manage-lab-accounts.md).

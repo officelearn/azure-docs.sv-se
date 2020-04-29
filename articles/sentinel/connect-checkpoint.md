@@ -1,6 +1,6 @@
 ---
-title: Ansluta checkpunktsdata till Azure Sentinel| Microsoft-dokument
-description: Lär dig hur du ansluter Check Point-data till Azure Sentinel.
+title: Anslut kontroll punkts data till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter kontroll punkts data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,35 +15,35 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 70836ec557eff1be035d92e8e7db30a882e05fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588424"
 ---
-# <a name="connect-check-point-to-azure-sentinel"></a>Anslut kontrollpunkt till Azure Sentinel
+# <a name="connect-check-point-to-azure-sentinel"></a>Anslut Check Point till Azure Sentinel
 
 
 
-I den här artikeln beskrivs hur du ansluter Check Point-enheten till Azure Sentinel. Med Check Point-datakopplingen kan du enkelt ansluta dina Check Point-loggar med Azure Sentinel, för att visa instrumentpaneler, skapa anpassade aviseringar och förbättra undersökningen. Genom att använda Check Point på Azure Sentinel får du mer information om organisationens Internetanvändning och förbättrar dess säkerhetsfunktioner. 
+Den här artikeln förklarar hur du ansluter din Check Point-installation till Azure Sentinel. Med Check Point data Connector kan du enkelt ansluta dina check punkts loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Genom att använda Check Point på Azure Sentinel får du mer insikter om din organisations Internet användning och förbättrar säkerhets åtgärdens funktioner. 
 
-## <a name="forward-check-point-logs-to-the-syslog-agent"></a>Check point-loggar framåt till Syslog-agenten
+## <a name="forward-check-point-logs-to-the-syslog-agent"></a>Vidarebefordra check punkts loggar till syslog-agenten
 
-Konfigurera Check Point-enheten för att vidarebefordra Syslog-meddelanden i CEF-format till din Azure-arbetsyta via Syslog-agenten.
+Konfigurera Check Point-enheten för att vidarebefordra syslog-meddelanden i CEF-format till din Azure-arbetsyta via syslog-agenten.
 
-1. Gå till [Export av kontrollpunktsloggen](https://aka.ms/asi-syslog-checkpoint-forwarding).
-1. Bläddra ned till **Grundläggande distribution** och följ instruktionerna för att konfigurera anslutningen med hjälp av följande riktlinjer:
-   - Ställ in **Syslog-porten** på **514** eller den port som du anger på agenten.
-     - Ersätt **namn-** och **målserver-IP-adressen** i CLI med Syslog-agentens namn och IP-adress.
-     - Ange formatet till **FSE**.
-1. Om du använder version R77.30 eller R80.10 bläddrar du upp till **Installationer** och följer instruktionerna för att installera en loggexportör för din version.
-1. Fortsätt till [STEG 3: Validera anslutningen](connect-cef-verify.md).
+1. Gå till [Check Point log export](https://aka.ms/asi-syslog-checkpoint-forwarding).
+1. Rulla ned till **grundläggande distribution** och följ anvisningarna för att konfigurera anslutningen med hjälp av följande rikt linjer:
+   - Ställ in **syslog-porten** på **514** eller porten som du har angett för agenten.
+     - Ersätt **namnet** och **mål serverns IP-adress** i CLI med syslog-AGENTens namn och IP-adress.
+     - Ange formatet till **CEF**.
+1. Om du använder version R 77.30 eller R 80.10 rullar du upp till **installationer** och följer anvisningarna för att installera en logg exportör för din version.
+1. Fortsätt till [steg 3: verifiera anslutningen](connect-cef-verify.md).
  
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter Check Point-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+I det här dokumentet har du lärt dig hur du ansluter kontroll punkts apparater till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - [Verifiera anslutningen](connect-cef-verify.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Använd arbetsböcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
 
 

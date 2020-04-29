@@ -1,165 +1,165 @@
 ---
-title: Supportprinciper för Azure Kubernetes Service (AKS)
-description: Lär dig mer om Azure Kubernetes Service (AKS) supportprinciper, delat ansvar och funktioner som finns i förhandsversion (eller alfa eller beta).
+title: Support principer för Azure Kubernetes service (AKS)
+description: Lär dig mer om Azure Kubernetes service (AKS) support principer, delade ansvar och funktioner i för hands versionen (eller alpha eller beta).
 services: container-service
 author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
 ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77593588"
 ---
-# <a name="support-policies-for-azure-kubernetes-service"></a>Supportprinciper för Azure Kubernetes Service
+# <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
-Den här artikeln innehåller information om principer för teknisk support och begränsningar för Azure Kubernetes Service (AKS). Artikeln beskriver också hantering av arbetsnoder, hanterade styrplankomponenter, komponenter med öppen källkod från tredje part och hantering av säkerhet eller korrigering.
+Den här artikeln innehåller information om tekniska support principer och begränsningar för Azure Kubernetes service (AKS). Artikeln innehåller också information om hantering av arbetsnoder, hanterade kontroll Plans komponenter, komponenter från tredje part med öppen källkod och säkerhets-eller uppdaterings hantering.
 
-## <a name="service-updates-and-releases"></a>Uppdateringar och versioner av tjänsten
+## <a name="service-updates-and-releases"></a>Service uppdateringar och versioner
 
-* Information om versionen finns i [AKS-viktig information](https://github.com/Azure/AKS/releases).
-* Information om funktioner i förhandsversionen finns i [AKS förhandsgranskningsfunktioner och relaterade projekt](https://github.com/Azure/AKS/blob/master/previews.md).
+* Versions information finns i [AKS-versions anteckningar](https://github.com/Azure/AKS/releases).
+* Information om funktioner i för hands version finns i [AKS Preview-funktioner och relaterade projekt](https://github.com/Azure/AKS/blob/master/previews.md).
 
 ## <a name="managed-features-in-aks"></a>Hanterade funktioner i AKS
 
-Basinfrastruktur som en tjänst (IaaS) molnkomponenter, till exempel beräknings- eller nätverkskomponenter, ger användarna åtkomst till kontroller på låg nivå och anpassningsalternativ. Aks tillhandahåller däremot en nyckelfärdig Kubernetes-distribution som ger kunderna den gemensamma uppsättning konfigurationer och funktioner de behöver. AKS-kunder har begränsad anpassning, distribution och andra alternativ. Dessa kunder behöver inte oroa sig för eller hantera Kubernetes kluster direkt.
+Grundläggande infrastruktur komponenter för infrastruktur som en tjänst (IaaS), till exempel Compute-eller nätverks komponenter, ger användarna åtkomst till lågnivå kontroller och anpassnings alternativ. Som kontrast tillhandahåller AKS en nyckel färdig Kubernetes-distribution som ger kunderna en gemensam uppsättning konfigurationer och funktioner som de behöver. AKS-kunder har begränsad anpassning, distribution och andra alternativ. Dessa kunder behöver inte bekymra sig om eller hantera Kubernetes-kluster direkt.
 
-Med AKS får kunden ett helt hanterat *kontrollplan.* Kontrollplanet innehåller alla komponenter och tjänster som kunden behöver för att driva och tillhandahålla Kubernetes-kluster till slutanvändare. Alla Kubernetes-komponenter underhålls och drivs av Microsoft.
+Med AKS får kunden ett fullständigt hanterat *kontroll plan*. Kontroll planet innehåller alla komponenter och tjänster som kunden behöver för att kunna hantera och tillhandahålla Kubernetes-kluster till slutanvändare. Alla Kubernetes-komponenter upprätthålls och drivs av Microsoft.
 
-Microsoft hanterar och övervakar följande komponenter via kontrollfönstret:
+Microsoft hanterar och övervakar följande komponenter i kontroll fönstret:
 
-* Kubelet- eller Kubernetes API-servrar
-* Etcd eller ett kompatibelt nyckelvärdeslager som tillhandahåller kvalitet på tjänsterna (QoS), skalbarhet och körning
-* DNS-tjänster (till exempel kube-dns eller CoreDNS)
-* Kubernetes proxy eller nätverk
+* Kubelet-eller Kubernetes-API-servrar
+* Etcd eller ett kompatibelt nyckel värdes lager som tillhandahåller QoS (Quality of Service), skalbarhet och körning
+* DNS-tjänster (till exempel Kube-DNS eller CoreDNS)
+* Kubernetes-proxy eller nätverk
 
-AKS är inte en helt hanterad klusterlösning. Vissa komponenter, till exempel arbetsnoder, har *delat ansvar*, där användarna måste hjälpa till att underhålla AKS-klustret. Användarindata krävs till exempel för att tillämpa en operativsystemet för arbetsnod (OS).
+AKS är inte en fullständigt hanterad kluster lösning. Vissa komponenter, till exempel arbetsnoder, har *delat ansvar*, där användarna måste underhålla AKS-klustret. Användarindata krävs, t. ex. för att tillämpa en säkerhets korrigering för en säkerhets korrigering av en arbetsnods operativ system (OS).
 
-Tjänsterna *hanteras* i den meningen att Microsoft och AKS-teamet distribuerar, driver och ansvarar för tjänstens tillgänglighet och funktionalitet. Kunder kan inte ändra dessa hanterade komponenter. Microsoft begränsar anpassningen för att säkerställa en konsekvent och skalbar användarupplevelse. En helt anpassningsbar lösning finns i [AKS Engine](https://github.com/Azure/aks-engine).
+Tjänsterna *hanteras* i den mening att Microsoft och AKS-teamet distribuerar, agerar och ansvarar för tjänstens tillgänglighet och funktioner. Kunder kan inte ändra dessa hanterade komponenter. Microsoft begränsar anpassningen för att säkerställa en konsekvent och skalbar användar upplevelse. En helt anpassningsbar lösning finns i [AKS-motorn](https://github.com/Azure/aks-engine).
 
 > [!NOTE]
-> AKS-arbetsnoder visas i Azure-portalen som vanliga Azure IaaS-resurser. Men dessa virtuella datorer distribueras till en anpassad Azure-resursgrupp (föregås av MC\\*). Det är möjligt att ändra AKS-arbetsnoder. Du kan till exempel använda Secure Shell (SSH) för att ändra AKS-arbetsnoder på det sätt du ändrar normala virtuella datorer (du kan dock inte ändra grundoperativsystemets avbildning och ändringar kanske inte kvarstår genom en uppdatering eller omstart) och du kan koppla andra Azure-resurser till AKS arbetsnoder. Men när du gör ändringar *av bandhantering och anpassning* kan AKS-klustret inte kunna stödjas. Undvik att ändra arbetsnoder om inte Microsoft Support uppmanar dig att göra ändringar.
+> AKS Worker-noder visas i Azure Portal som vanliga Azure IaaS-resurser. Men de här virtuella datorerna distribueras till en anpassad Azure-resurs grupp (föregås\\av MC *). Det går att ändra AKS Worker-noder. Du kan till exempel använda SSH (Secure Shell) för att ändra AKS Worker-noder på samma sätt som du ändrar normala virtuella datorer (du kan dock inte ändra bas operativ system avbildningen, och ändringar kanske inte behålls genom en uppdatering eller omstart) och du kan koppla andra Azure-resurser till AKS arbetsnoder. Men när du gör ändringar *utanför band-hanteringen och anpassningen* kan AKS-klustret bli oanvändbart. Undvik att ändra arbetsnoder om inte Microsoft Support dirigerar dig om att göra ändringar.
 
-Utfärdande åtgärder som inte stöds enligt definitionen ovan, till exempel out of band deallocation av alla agentnoder, gör klustret stöds inte. AKS förbehåller sig rätten att arkivera kontrollplan som har konfigurerats av supportriktlinjer under längre perioder som är lika med och längre än 30 dagar. AKS underhåller säkerhetskopior av kluster etcd metadata och kan enkelt omfördela klustret. Den här omfördelningen kan initieras av en PUT-åtgärd som ger klustret tillbaka till stöd, till exempel en uppgradering eller skala till aktiva agentnoder.
+Om du skickar åtgärder som inte stöds enligt definitionen ovan, till exempel out-of-band-deallokering av alla agent-noder, återges inte klustret. AKS förbehåller sig rätten att arkivera kontroll plan som har kon figurer ATS ur support rikt linjerna för utökade perioder som är lika med och bortom 30 dagar. AKS upprätthåller säkerhets kopiering av etcd metadata i kluster och kan enkelt allokera om klustret. Den här Omallokeringen kan initieras av en pågående åtgärd som tar klustret tillbaka till support, till exempel en uppgradering eller skalning till aktiva agent-noder.
 
 ## <a name="shared-responsibility"></a>Delat ansvar
 
-När ett kluster skapas definierar kunden de Kubernetes-arbetsnoder som AKS skapar. Kundarbetsbelastningar körs på dessa noder. Kunderna äger och kan visa eller ändra arbetsnoderna.
+När ett kluster skapas definierar kunden de Kubernetes Worker-noder som AKS skapar. Kund arbets belastningar körs på dessa noder. Kunder som äger och kan visa eller ändra arbetsnoder.
 
-Eftersom kundklusternoder kör privat kod och lagrar känsliga data kan Microsoft Support komma åt dem på ett begränsat sätt. Microsoft Support kan inte logga in på, köra kommandon i eller visa loggar för dessa noder utan uttrycklig kundbehörighet eller hjälp.
+Eftersom kundklusternoder kör privat kod och lagrar känsliga data kan Microsoft Support komma åt dem på ett begränsat sätt. Microsoft Support kan inte logga in på, köra kommandon i eller Visa loggar för dessa noder utan uttrycklig kund behörighet eller hjälp.
 
-Eftersom arbetsnoder är känsliga är Microsoft mycket noga med att begränsa sin bakgrundshantering. I många fall fortsätter arbetsbelastningen att köras även om Kubernetes-huvudnoderna, etcd och andra Microsoft-hanterade komponenter misslyckas. Slarvigt modifierade arbetsnoder kan orsaka förluster av data och arbetsbelastningar och kan göra klustret inte stödbart.
+Eftersom arbetsnoder är känsliga, tar Microsoft utmärkt att begränsa sin bakgrunds hantering. I många fall kommer arbets belastningen fortsätta att köras även om Kubernetes-huvudnoderna, etcd och andra Microsoft-hanterade komponenter Miss fungerar. Carelessly ändrade arbetsnoder kan orsaka förlust av data och arbets belastningar och kan rendera klustret kan inte användas.
 
-## <a name="aks-support-coverage"></a>AKS-supporttäckning
+## <a name="aks-support-coverage"></a>Support täckning för AKS
 
 Microsoft tillhandahåller teknisk support för följande:
 
-* Anslutning till alla Kubernetes-komponenter som Kubernetes-tjänsten tillhandahåller och stöder, till exempel API-servern.
-* Hantering, drifttid, QoS och drift av Kubernetes styr plantjänster (Kubernetes master noder, API-server, etcd och kube-dns, till exempel).
-* Etcd. Supporten omfattar automatiska, transparenta säkerhetskopior av alla etcd-data var 30:e minut för katastrofplanering och återställning av klustertillstånd. Dessa säkerhetskopior är inte direkt tillgängliga för kunder eller användare. De säkerställer datatillförlitlighet och konsekvens.
-* Alla integrationspunkter i Azure-molnproviderdrivrutinen för Kubernetes. Dessa inkluderar integreringar i andra Azure-tjänster, till exempel belastningsutjämnare, beständiga volymer eller nätverk (Kubernetes och Azure CNI).
-* Frågor eller problem om anpassning av styrplankomponenter som Kubernetes API-server, etcd och kube-dns.
-* Problem med nätverk, till exempel Azure CNI, kubenet eller andra problem med nätverksåtkomst och funktioner. Problem kan omfatta DNS-lösning, paketförlust, routning och så vidare. Microsoft stöder olika nätverksscenarier:
-  * Kubenet (grundläggande) och avancerade nätverk (Azure CNI) i klustret och tillhörande komponenter
-  * Anslutning till andra Azure-tjänster och -program
-  * Ingående styrenheter och ingående eller belastningsutjämnare konfigurationer
-  * Nätverksprestanda och svarstid
+* Anslutning till alla Kubernetes-komponenter som Kubernetes-tjänsten tillhandahåller och stöder, t. ex. API-servern.
+* Hantering, drift tid, QoS och drift av Kubernetes Control plan-tjänster (Kubernetes Master Nodes, API-Server, etcd och Kube-DNS, till exempel).
+* Etcd. Support omfattar automatiserade, transparenta säkerhets kopieringar av alla etcd-data var 30: e minut för katastrof planering och återställning av kluster tillstånd. Dessa säkerhets kopior är inte direkt tillgängliga för kunder eller användare. De säkerställer data tillförlitlighet och konsekvens.
+* Alla integrerings platser i Azure Cloud Provider-drivrutinen för Kubernetes. Detta inkluderar integreringar i andra Azure-tjänster, till exempel belastningsutjämnare, beständiga volymer eller nätverk (Kubernetes och Azure CNI).
+* Frågor eller problem med anpassning av kontroll Plans komponenter som Kubernetes API-Server, etcd och Kube-DNS.
+* Problem med nätverk, till exempel Azure CNI, Kubernetes eller andra problem med nätverks åtkomst och funktioner. Problem kan vara DNS-matchning, paket förlust, Routning och så vidare. Microsoft har stöd för olika nätverks scenarier:
+  * Kubernetes (Basic) och Advanced Networking (Azure CNI) i klustret och associerade komponenter
+  * Anslutning till andra Azure-tjänster och-program
+  * Ingångs-och ingångs-eller belastnings Utjämnings konfigurationer
+  * Nätverks prestanda och svars tid
 
 Microsoft tillhandahåller inte teknisk support för följande:
 
-* Frågor om hur du använder Kubernetes. Microsoft Support ger till exempel inga råd om hur du skapar anpassade ingressstyrenheter, använder programarbetsbelastningar eller tillämpar programpaket eller verktyg med öppen källkod eller öppen källkod.
+* Frågor om hur du använder Kubernetes. Microsoft Support ger dig till exempel inte råd om hur du skapar anpassade ingångs styrenheter, använder program arbets belastningar eller använder program varu paket från tredje part eller öppen källkod eller verktyg.
   > [!NOTE]
-  > Microsoft Support kan ge råd om AKS-klusterfunktioner, anpassning och justering (till exempel Problem och procedurer för Kubernetes-åtgärder).
-* Projekt med öppen källkod från tredje part som inte tillhandahålls som en del av Kubernetes-kontrollplanet eller distribueras med AKS-kluster. Dessa projekt kan omfatta Istio, Helm, Sändebud eller andra.
+  > Microsoft Support kan informera om AKS kluster funktioner, anpassning och justering (till exempel problem med Kubernetes-åtgärder och procedurer).
+* Projekt med öppen källkod från tredje part som inte tillhandahålls som en del av Kubernetes-kontroll planet eller distribueras med AKS-kluster. Dessa projekt kan innehålla Istio, Helm, mottagare eller andra.
   > [!NOTE]
-  > Microsoft kan ge stöd för bästa möjliga support för projekt med öppen källkod från tredje part som Helm och Kured. Om verktyget med öppen källkod från tredje part integreras med Kubernetes Azure-molnleverantör eller andra AKS-specifika fel stöder Microsoft exempel och program från Microsoft-dokumentation.
-* Programvara från tredje part. Denna programvara kan innehålla verktyg för säkerhetsskanning och nätverksenheter eller programvara.
-* Problem om multicloud eller multivendor build-outs. Microsoft stöder till exempel inte problem relaterade till att köra en federerad multipublic cloud-leverantörslösning.
-* Andra nätverksanpassningar än de som anges i [AKS-dokumentationen](https://docs.microsoft.com/azure/aks/).
+  > Microsoft kan tillhandahålla bästa möjliga support för projekt med öppen källkod från tredje part, till exempel Helm och Kured. Om verktyget med öppen källkod integrerar med Kubernetes Azure-molnet eller andra AKS buggar, stöder Microsoft exempel och program från Microsoft-dokumentationen.
+* Program vara från sluten program vara från tredje part. Den här program varan kan innehålla verktyg för säkerhets genomsökning och nätverks enheter eller program.
+* Problem om multimoln eller multileverantörs-build-timeout. Microsoft stöder till exempel inte problem som rör körning av en federerad lösning för en federerad multipublik moln leverantör.
+* Andra nätverks anpassningar än de som anges i [AKS-dokumentationen](https://docs.microsoft.com/azure/aks/).
   > [!NOTE]
-  > Microsoft stöder problem och buggar relaterade till nätverkssäkerhetsgrupper (NSG). Microsoft Support kan till exempel svara på frågor om ett NSG-fel att uppdatera eller ett oväntat NSG- eller belastningsutjämnare.For example, Microsoft Support can answer questions about an NSG failure to update or an unexpected NSG or load balancer behavior.
+  > Microsoft stöder problem och buggar som är relaterade till nätverks säkerhets grupper (NSG: er). Microsoft Support kan till exempel svara på frågor om ett NSG-fel för att uppdatera eller en oväntad NSG eller belastnings Utjämnings funktion.
 
-## <a name="aks-support-coverage-for-worker-nodes"></a>AKS-stödtäckning för arbetsnoder
+## <a name="aks-support-coverage-for-worker-nodes"></a>Stöd för AKS-täckning för arbetsnoder
 
-### <a name="microsoft-responsibilities-for-aks-worker-nodes"></a>Microsoft-ansvar för AKS-arbetsnoder
+### <a name="microsoft-responsibilities-for-aks-worker-nodes"></a>Microsoft-ansvar för AKS Worker-noder
 
-Microsoft och kunder delar ansvaret för Kubernetes arbetsnoder där:
+Microsoft och våra kunder delar ansvar för Kubernetes arbetsnoder där:
 
-* Basen OS-avbildningen har nödvändiga tillägg (t.ex. övervaknings- och nätverksagenter).
-* Arbetsnoderna tar emot OS-patchar automatiskt.
-* Problem med Kubernetes-styrplankomponenter som körs på arbetsnoderna åtgärdas automatiskt. Komponenterna omfattar följande:
+* Bas operativ system avbildningen har nödvändiga tillägg (till exempel övervaknings-och nätverks agenter).
+* Arbetsnoderna får OS-uppdateringar automatiskt.
+* Problem med de Kubernetes Control plan-komponenter som körs på arbetsnoderna åtgärdas automatiskt. Komponenterna innehåller följande:
   * Kube-proxy
-  * Nätverkstunnlar som tillhandahåller kommunikationsvägar till Kubernetes huvudkomponenter
+  * Nätverks tunnlar som tillhandahåller kommunikations vägar till Kubernetes huvud komponenter
   * Kubelet
-  * Docker eller Moby demon
+  * Docker eller Moby daemon
 
 > [!NOTE]
-> Om en kontrollplankomponent inte är i drift på en arbetsnod kan AKS-teamet behöva starta om enskilda komponenter eller hela arbetarnoden. Dessa omstartsåtgärder är automatiserade och ger automatisk reparation för vanliga problem. Dessa omstarter sker endast på _nodnivå_ och inte klustret om det inte finns ett nödunderhåll eller avbrott.
+> Om en kontroll Plans komponent inte fungerar på en arbetsnoden kan AKS-teamet behöva starta om enskilda komponenter eller hela arbetsnoden. De här omstarts åtgärderna automatiseras och tillhandahåller automatisk reparation av vanliga problem. Dessa omstarter sker bara på _nodnivå_ och inte i klustret om det inte finns något underhåll eller avbrott i nödfall.
 
-### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Kundansvar för AKS-arbetsnoder
+### <a name="customer-responsibilities-for-aks-worker-nodes"></a>Kund ansvar för AKS Worker-noder
 
-Microsoft startar inte automatiskt om arbetsnoder för att använda patchar på OS-nivå. Även om OS-korrigeringar levereras till arbetsnoderna är *kunden* ansvarig för att starta om arbetsnoderna för att tillämpa ändringarna. Delade bibliotek, demoner som SSHD (Solid State Hybrid Drive) och andra komponenter på systemnivå eller operativsystem korrigeras automatiskt.
+Microsoft startar inte automatiskt om arbetsnoder för att tillämpa uppdateringar på operativ system nivå. Även om OS-korrigeringsfiler levereras till arbetsnoderna ansvarar *kunden* för att starta om arbetsnoderna för att tillämpa ändringarna. Delade bibliotek, bakgrunds program, till exempel SSHD (solid-state hybrid Drive) och andra komponenter på nivån för systemet eller operativ systemet, korrigeras automatiskt.
 
-Kunderna ansvarar för att utföra Kubernetes uppgraderingar. De kan köra uppgraderingar via Azure-kontrollpanelen eller Azure CLI. Detta gäller för uppdateringar som innehåller förbättringar av säkerhet eller funktioner i Kubernetes.
-
-> [!NOTE]
-> Eftersom AKS är en *hanterad tjänst*är slutmålen att ta bort ansvaret för korrigeringar, uppdateringar och loggsamling för att göra tjänsthanteringen mer komplett och hands-off. När tjänstens kapacitet för hantering från till på sluttid ökar kan framtida versioner utelämna vissa funktioner (till exempel nodomstart och automatisk korrigering).
-
-### <a name="security-issues-and-patching"></a>Säkerhetsproblem och korrigering
-
-Om ett säkerhetsfel finns i en eller flera komponenter i AKS kommer AKS-teamet att korrigera alla berörda kluster för att minska problemet. Alternativt kommer teamet att ge användarna uppgraderingsvägledning.
-
-För arbetsnoder som ett säkerhetsfel påverkar, om en noll-driftstopp patch är tillgänglig, kommer AKS-teamet att tillämpa den korrigeringsfilen och meddela användarna om ändringen.
-
-När en säkerhetskorrigering kräver omstart av arbetsnoden meddelar Microsoft kunderna om detta krav. Kunden är ansvarig för omstart eller uppdatering för att hämta klusterkorrigeringen. Om användarna inte tillämpar korrigeringsfilerna enligt AKS-vägledningen fortsätter deras kluster att vara sårbart för säkerhetsproblemet.
-
-### <a name="node-maintenance-and-access"></a>Underhåll och åtkomst för nod
-
-Arbetsnoder är ett delat ansvar och ägs av kunder. På grund av detta har kunderna möjlighet att logga in på sina arbetsnoder och göra potentiellt skadliga ändringar som kernel-uppdateringar och installera eller ta bort paket.
-
-Om kunder gör destruktiva ändringar eller orsakar att kontrollplankomponenter kopplas från eller blir icke-funktionella, identifierar AKS detta fel och återställer automatiskt arbetsnoden till föregående arbetstillstånd.
-
-Även om kunder kan logga in på och ändra arbetsnoder, är det inte möjligt att göra detta eftersom ändringar kan göra ett kluster som inte kan stödjas.
-
-## <a name="network-ports-access-and-nsgs"></a>Nätverksportar, åtkomst och NSG:er
-
-Som en hanterad tjänst har AKS specifika nätverks- och anslutningskrav. Dessa krav är mindre flexibla än kraven för normala IaaS-komponenter. I AKS kan åtgärder som att anpassa NSG-regler, blockera en viss port (till exempel med hjälp av brandväggsregler som blockerar utgående port 443) och vitlistning av webbadresser göra klustret inte stödbart.
+Kunderna ansvarar för att köra Kubernetes-uppgraderingar. De kan köra uppgraderingar via Azures kontroll panel eller Azure CLI. Detta gäller för uppdateringar som innehåller förbättringar av säkerhet eller funktioner i Kubernetes.
 
 > [!NOTE]
-> För närvarande tillåter AKS inte att du helt låser utgående trafik från klustret. Om du vill styra listan över webbadresser och portar som klustret kan använda för utgående trafik finns [begränsad utgående trafik](limit-egress-traffic.md).
+> Eftersom AKS är en *hanterad tjänst*, omfattar slut målen för att ta bort ansvar för korrigeringar, uppdateringar och logg insamling för att göra tjänst hanteringen mer komplett och praktisk. När tjänstens kapacitet för slut punkt till slut punkt ökar kan framtida versioner utesluta vissa funktioner (till exempel omstart av nod och automatisk uppdatering).
 
-## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Funktioner för alfa- och betakubernät som inte stöds
+### <a name="security-issues-and-patching"></a>Säkerhets problem och uppdatering
 
-AKS stöder endast stabila funktioner i projektet uppströms Kubernetes. Om inget annat dokumenteras stöder AKS inte alfa- och betafunktioner som är tillgängliga i projektet uppströms Kubernetes.
+Om det finns ett säkerhets fel i en eller flera komponenter i AKS, kommer AKS-teamet att uppdatera alla berörda kluster för att undvika problemet. Alternativt ger teamet användarna uppgraderings vägledning.
 
-I två scenarier kan alfa- eller betafunktioner distribueras innan de är allmänt tillgängliga:
+För arbetsnoder som ett säkerhets fel påverkar, om en uppdatering utan avbrott är tillgänglig, kommer AKS-teamet att tillämpa korrigeringen och meddela användare om ändringen.
 
-* Kunderna har träffat AKS-produkt-, support- eller ingenjörsteam och har ombetts att prova dessa nya funktioner.
-* Dessa funktioner har [aktiverats av en funktionsflagga](https://github.com/Azure/AKS/blob/master/previews.md). Kunder måste uttryckligen välja att använda dessa funktioner.
+När en säkerhets korrigering kräver omstarter av arbetsnoden meddelar Microsoft kunderna om detta krav. Kunden ansvarar för att starta om eller uppdatera för att hämta kluster korrigeringen. Om användarna inte tillämpar korrigeringarna enligt AKS-vägledningen fortsätter deras kluster att vara sårbara för säkerhets problemet.
 
-## <a name="preview-features-or-feature-flags"></a>Förhandsgranska funktioner eller funktionsflaggor
+### <a name="node-maintenance-and-access"></a>Underhåll och åtkomst till nod
 
-För funktioner som kräver utökad testning och feedback från användare släpper Microsoft nya förhandsgranskningsfunktioner eller funktioner bakom en funktionsflagga. Betrakta dessa funktioner som förhandsversioner eller betafunktioner.
+Arbetsnoder är ett delat ansvar och ägs av kunder. Därför har kunderna möjlighet att logga in på sina arbetsnoder och göra potentiellt skadliga ändringar, till exempel kernel-uppdateringar och installera eller ta bort paket.
 
-Förhandsgranskningsfunktioner eller funktioner med funktionsflagga är inte avsedda för produktion. Pågående ändringar i API:er och beteende, buggfixar och andra ändringar kan resultera i instabila kluster och driftstopp.
+Om kunderna gör destruktiva ändringar eller gör att kontroll Plans komponenter går offline eller inte fungerar, kommer AKS att upptäcka detta fel och automatiskt återställa arbetsnoden till föregående fungerande tillstånd.
 
-Funktioner i offentlig förhandsversion omfattas av "best effort"-stöd eftersom dessa funktioner är i förhandsversion och inte avsedda för produktion och stöds av AKS tekniska supportteam endast under kontorstid. För ytterligare information se:
+Även om kunder kan logga in på och ändra arbetsnoder, så kommer detta inte att undvikas eftersom ändringar kan göra att ett kluster inte stöds.
 
-* [Vanliga frågor och svar om Azure-support](https://azure.microsoft.com/support/faq/)
+## <a name="network-ports-access-and-nsgs"></a>Nätverks portar, åtkomst och NSG: er
+
+Som en hanterad tjänst har AKS särskilda nätverks-och anslutnings krav. Dessa krav är mindre flexibla än kraven för normala IaaS-komponenter. I AKS, åtgärder som att anpassa NSG-regler, blockera en speciell port (till exempel genom att använda brand Väggs regler som blockerar utgående port 443) och vit listning URL: er kan göra att klustret inte stöds.
 
 > [!NOTE]
-> Förhandsversionsfunktioner börjar gälla på *Azure-prenumerationsnivå.* Installera inte förhandsversionsfunktioner på en produktionsprenumeration. På en produktionsprenumeration kan förhandsversionsfunktioner ändra standard-API-beteende och påverka vanliga åtgärder.
+> För närvarande tillåter AKS inte att du fullständigt låser ut utgående trafik från klustret. Om du vill kontrol lera listan över URL: er och portar som klustret kan använda för utgående trafik, se [begränsa utgående trafik](limit-egress-traffic.md).
 
-## <a name="upstream-bugs-and-issues"></a>Uppströms buggar och problem
+## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Funktioner som inte stöds av alpha och beta Kubernetes
 
-Med tanke på den snabba utvecklingen i projektet uppströms Kubernetes uppstår alltid buggar. Några av dessa buggar kan inte korrigeras eller bearbetas runt inom AKS-systemet. I stället kräver buggfixar större korrigeringar för uppströmsprojekt (till exempel Kubernetes, nod eller operativsystem för arbetare och kärnor). För komponenter som Microsoft äger (till exempel Azure-molnleverantören) har AKS och Azure-personal åtagit sig att åtgärda problem uppströms i communityn.
+AKS stöder endast stabila funktioner i det överordnade Kubernetes-projektet. Om inget annat har dokumenterats stöder AKS inte alfa-och beta funktioner som är tillgängliga i det överordnade Kubernetes-projektet.
 
-När ett problem med teknisk support orsakas av en eller flera uppströmsfel kommer AKS support- och ingenjörsteam att:
+I två scenarier kan alfa-eller beta funktioner distribueras innan de är allmänt tillgängliga:
 
-* Identifiera och länka uppströmsfelen med eventuella supportinformationer för att förklara varför det här problemet påverkar klustret eller arbetsbelastningen. Kunderna får länkar till de nödvändiga databaserna så att de kan titta på problemen och se när en ny version ger korrigeringar.
-* Tillhandahålla potentiella lösningar eller mildrande åtgärder. Om problemet kan minskas kommer ett [känt problem](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue) att arkiveras i AKS-databasen. Den kända frågan arkivering förklarar:
-  * Problemet, inklusive länkar till uppströms buggar.
-  * Lösningen och information om en uppgradering eller en annan varaktighet av lösningen.
-  * Grova tidslinjer för att ta med frågan, baserat på uppströmsutgivningskaden.
+* Kunderna har uppfyllt AKS produkt, support eller teknik team och har blivit ombedd att testa de här nya funktionerna.
+* De här funktionerna har [Aktiver ATS av en funktions flagga](https://github.com/Azure/AKS/blob/master/previews.md). Kunderna måste uttryckligen välja att använda dessa funktioner.
+
+## <a name="preview-features-or-feature-flags"></a>Förhands gransknings funktioner eller funktions flaggor
+
+För funktioner och funktioner som kräver utökad testning och feedback från användaren, släpper Microsoft nya för hands versions funktioner eller funktioner bakom en funktions flagga. Tänk på dessa funktioner som för hands version eller beta funktioner.
+
+Funktionerna för förhands granskning eller funktions flagga är inte avsedda för produktion. Pågående ändringar i API: er och beteende, fel korrigeringar och andra ändringar kan resultera i instabila kluster och stillestånds tid.
+
+Funktioner som ingår i den offentliga för hands versionen är under stöd för bästa prestanda eftersom dessa funktioner är i för hands version och inte är avsedda för produktion och stöds endast av AKS-teamen för teknisk support under kontors tid. Mer information finns i:
+
+* [Vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/)
+
+> [!NOTE]
+> För hands versions funktionerna börjar gälla på Azures *prenumerations* nivå. Installera inte för hands versions funktioner i en produktions prenumeration. I en produktions prenumeration kan förhands gransknings funktioner ändra standard-API-beteendet och påverka vanliga åtgärder.
+
+## <a name="upstream-bugs-and-issues"></a>Överordna buggar och problem
+
+Med tanke på hastigheten på utvecklingen i det överordnade Kubernetes-projektet, uppstår buggar. Vissa av dessa buggar kan inte korrigeras eller bearbetas runt i AKS-systemet. I stället kräver fel korrigeringar större korrigeringar för att överföra projekt (till exempel Kubernetes, Node-eller Worker-operativsystem och kernels). För komponenter som Microsoft äger (t. ex. Azure Cloud Provider) är AKS och Azure personal engagerade i att åtgärda problem med överströms i communityn.
+
+När ett tekniskt support ärende är rot som orsakas av en eller flera överströms buggar, kommer AKS support och teknik team att:
+
+* Identifiera och länka de överordnade buggar med all ytterligare information som kan hjälpa dig att förklara varför det här problemet påverkar klustret eller arbets belastningen. Kunderna får länkar till de nödvändiga databaserna så att de kan se problemen och se när en ny version kommer att tillhandahålla korrigeringar.
+* Tillhandahålla potentiella lösningar eller begränsningar. Om problemet kan undvikas kommer ett [känt problem](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue) att arkiveras i AKS-lagringsplatsen. Den kända problem filen förklarar:
+  * Problemet, inklusive länkar till överordnade buggar.
+  * Lösning och information om en uppgradering eller en annan beständig lösning.
+  * Tuffa tids linjer för ärendets inkludering baserat på den överordnade versionen takt.

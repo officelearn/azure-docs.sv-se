@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: e8b94b4adc39de81dbdf17dfd24fcff39532b482
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77594027"
 ---
-### <a name="add-grafana-secret"></a>Lägg till Grafana Secret
+### <a name="add-grafana-secret"></a>Lägg till Grafana-hemlighet
 
-Ersätt `REPLACE_WITH_YOUR_SECURE_PASSWORD` token med ditt lösenord och kör följande kommandon:
+Ersätt `REPLACE_WITH_YOUR_SECURE_PASSWORD` token med ditt lösen ord och kör följande kommandon:
 
 ```bash
 GRAFANA_USERNAME=$(echo -n "grafana" | base64)
@@ -35,7 +35,7 @@ EOF
 
 ### <a name="add-kiali-secret"></a>Lägg till Kiali-hemlighet
 
-Ersätt `REPLACE_WITH_YOUR_SECURE_PASSWORD` token med ditt lösenord och kör följande kommandon:
+Ersätt `REPLACE_WITH_YOUR_SECURE_PASSWORD` token med ditt lösen ord och kör följande kommandon:
 
 ```bash
 KIALI_USERNAME=$(echo -n "kiali" | base64)

@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågemönster - Azure Digital Twins | Microsoft-dokument
-description: Lär dig flera vanliga API-frågemönster för Azure Digital Twins management API:er.
+title: Vanliga fråge mönster – Azure Digitals flätar | Microsoft Docs
+description: 'Lär dig flera vanliga API-frågor för API: er för Azure Digitals sammanflätade hantering.'
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,83 +9,83 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: 133c0e0dcc07afb85a0f3af9ae51d2207abac293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77589121"
 ---
-# <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Fråga Azure Digital Twins API:er för vanliga uppgifter
+# <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Så här frågar du Azure Digitals dubbla API: er för vanliga uppgifter
 
-Den här artikeln visar frågemönster som hjälper dig att köra vanliga scenarier för din Azure Digital Twins-instans. Detta förutsätter att din Digital Twins-instans redan körs. Du kan använda valfri REST-klient, till exempel Postman. 
+Den här artikeln visar fråge mönster som hjälper dig att köra vanliga scenarier för din Azure Digital-instansen. Detta förutsätter att din digitala-instansen redan körs. Du kan använda alla REST-klienter, till exempel Postman. 
 
 [!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
 
 
-## <a name="queries-for-spaces-and-types"></a>Frågor om mellanslag och typer
+## <a name="queries-for-spaces-and-types"></a>Frågor för mellanslag och typer
 
-I det här avsnittet visas exempelfrågor för att få mer information om dina etablerade blanksteg. Gör autentiserade GET HTTP-begäranden med exempelfrågorna och ersätt platshållarna med värden från din inställning. 
+Det här avsnittet innehåller exempel frågor för att få mer information om dina allokerade utrymmen. Gör autentiserade Hämta HTTP-förfrågningar med exempel frågorna och ersätt plats hållarna med värden från din installation. 
 
-- Hämta blanksteg som är rotnoder.
+- Hämta blank steg som är rotnoder.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
     ```
 
-- Få ett utrymme efter namn och inkludera enheter, sensorer, beräknade värden och sensorvärden. 
+- Få ett mellanslag efter namn och inkludera enheter, sensorer, beräknade värden och sensor värden. 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
     ```
 
-- Hämta mellanslag och deras enhets-/sensorinformation, vars överordnade är det angivna rymd-ID:t, och som ligger på nivå två till fem [i förhållande till det givna utrymmet](how-to-navigate-apis.md#api-navigation). 
+- Hämta utrymmen och deras enhet/sensor information, vars överordnade är det tilldelade Utrymmes-ID: t och som finns på nivå två till fem i [förhållande till det aktuella utrymmet](how-to-navigate-apis.md#api-navigation). 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
     ```
 
-- Hämta utrymmet med det angivna ID:t och inkludera beräknade värden och sensorvärden.
+- Hämta utrymmet med angivet ID och inkludera beräknade värden och sensor värden.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?ids=YOUR_SPACE_ID&includes=Values,sensors,SensorsValues
     ```
 
-- Hämta egenskapsnycklar för ett visst utrymme.
+- Hämta egenskaps nycklar för ett visst utrymme.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/propertykeys?spaceId=YOUR_SPACE_ID
     ```
 
-- Få blanksteg med *egenskapsnyckeln AreaInSqMeters* och dess värde är 30. Du kan också utföra strängåtgärder, till exempel `name = X contains Y`hämta blanksteg som innehåller egenskapsnyckel med .
+- Hämta blank steg med egenskaps nyckeln med namnet *AreaInSqMeters* och dess värde är 30. Du kan också utföra sträng åtgärder, till exempel hämta blank steg som innehåller egenskaps `name = X contains Y`nyckel med.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?propertyKey=AreaInSqMeters&propertyValue=30
     ```
 
-- Få alla namn med namn *Temperatur* och tillhörande beroenden och ontologier.
+- Hämta alla namn med namn *temperatur* och associerade beroenden och Ontologies.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/types?names=Temperature&includes=space,ontologies,description,fullpath
     ```
 
 
-## <a name="queries-for-roles-and-role-assignments"></a>Frågor om roller och rolltilldelningar
+## <a name="queries-for-roles-and-role-assignments"></a>Frågor för roller och roll tilldelningar
 
 I det här avsnittet visas några frågor för att få mer information om roller och deras tilldelningar. 
 
-- Få alla roller som stöds av Azure Digital Twins.
+- Hämta alla roller som stöds av Azure Digitals dubbla.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
 
-- Få alla rolluppgifter i din Digital Twins-instans. 
+- Hämta alla roll tilldelningar i din digitala dubbla instansen. 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=down
     ```
 
-- Hämta rolltilldelningar på en viss bana.
+- Hämta roll tilldelningar för en viss sökväg.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/A_SPATIAL_PATH
@@ -93,7 +93,7 @@ I det här avsnittet visas några frågor för att få mer information om roller
 
 ## <a name="queries-for-devices"></a>Frågor för enheter
 
-I det här avsnittet visas några exempel på hur du kan använda api:erna för hantering för att få specifik information om dina enheter. Alla API-anrop måste autentiseras HÄMTA HTTP-begäranden.
+I det här avsnittet visas några exempel på hur du kan använda hanterings-API: er för att få detaljerad information om dina enheter. Alla API-anrop måste autentiseras Hämta HTTP-begäranden.
 
 - Hämta alla enheter.
 
@@ -101,117 +101,117 @@ I det här avsnittet visas några exempel på hur du kan använda api:erna för 
     YOUR_MANAGEMENT_API_URL/devices
     ```
 
-- Hitta alla enhetsstatusar.
+- Sök efter alla enhets status.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/devices/statuses
     ```
 
-- Skaffa en specifik enhet.
+- Hämta en speciell enhet.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID
     ```
 
-- Få alla enheter anslutna till rotutrymmet.
+- Hämta alla enheter som är anslutna till rot utrymmet.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?maxLevel=1
     ```
 
-- Få alla enheter anslutna till utrymmen på nivåerna 2 till 4.
+- Hämta alla enheter som är kopplade till utrymmen på nivå 2 till 4.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4
     ```
 
-- Få alla enheter direkt anslutna till ett visst utrymmes-ID.
+- Hämta alla enheter direkt anslutna till ett visst Utrymmes-ID.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID
     ```
 
-- Få alla enheter anslutna till ett visst utrymme och dess underordnade.
+- Hämta alla enheter som är kopplade till ett visst utrymme och dess underordnade.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Down
     ```
 
-- Få alla enheter anslutna till underordnade i ett blanksteg, exklusive det utrymmet.
+- Hämta alla enheter som är kopplade till underordnade objekt till ett utrymme, förutom det utrymmet.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Down&minLevel=1&minRelative=true
     ```
 
-- Få alla enheter anslutna till direkt underordnade i ett utrymme.
+- Hämta alla enheter som är kopplade till direkta underordnade objekt till ett utrymme.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true
     ```
 
-- Få alla enheter anslutna till en av förfäderna till ett utrymme.
+- Hämta alla enheter som är kopplade till en av ett utrymmes överordnade objekt.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Up&maxLevel=-1&maxRelative=true
     ```
 
-- Få alla enheter anslutna till underordnade i ett utrymme som är av nivå mindre än eller lika med 5.
+- Hämta alla enheter som är kopplade till underordnade objekt till ett utrymme som är mindre än eller lika med 5.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Down&maxLevel=5
     ```
 
-- Hämta alla enheter som är anslutna till blanksteg som är på samma nivå som utrymmet med ID *YOUR_SPACE_ID*.
+- Hämta alla enheter som är kopplade till utrymmen på samma nivå som utrymmet med ID *YOUR_SPACE_ID*.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true
     ```
 
-- Hämta anslutningssträngen för IoT Hub-enheten för enheten.
+- Hämta enhetens anslutnings sträng för IoT Hub enhet.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID?includes=ConnectionString
     ```
 
-- Skaffa enheten med det angivna maskinvaru-ID:t, inklusive anslutna sensorer.
+- Hämta enhet med angivet maskinvaru-ID, inklusive anslutna sensorer.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=sensors
     ```
 
-- Hämta sensorer för vissa datatyper, i det här fallet *Rörelse* och *Temperatur*.
+- Hämta sensorer för särskilda data typer, i det här fallet *rörelse* och *temperatur*.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/sensors?dataTypes=Motion,Temperature
     ```
 
-## <a name="queries-for-matchers-and-user-defined-functions"></a>Frågor om matchningars och användardefinierade funktioner 
+## <a name="queries-for-matchers-and-user-defined-functions"></a>Frågor för matchare och användardefinierade funktioner 
 
-- Få alla etablerade matchers och deras ID.
+- Hämta alla etablerade matchare och deras ID.
 
    ```plaintext
     YOUR_MANAGEMENT_API_URL/matchers
     ```
 
-- Få information om en viss matchning, inklusive de utrymmen och användardefinierade funktion som är associerade med den.
+- Hämta information om en viss matchnings funktion, inklusive de blank steg och användardefinierade funktionen som är associerade med den.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_ID?includes=description, conditions, fullpath, userdefinedfunctions, space
     ```
 
-- Utvärdera en matchning mot en sensor och aktivera loggning för felsökning. Returen av det här HTTP GET-meddelandet talar om för dig om matchnings- och sensorn tillhör datatypen. 
+- Utvärdera en matchning mot en sensor och aktivera loggning för fel söknings syfte. Returen av detta HTTP GET-meddelande anger om matchnings tjänsten och sensorn tillhör data typen. 
 
    ```plaintext
     YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_ID/evaluate/YOUR_SENSOR_ID?enableLogging=true
     ```
 
-- Hämta ID:et för de användardefinierade funktionerna. 
+- Hämta ID för användardefinierade funktioner. 
 
    ```plaintext
     YOUR_MANAGEMENT_API_URL/userdefinedfunctions
     ```
 
-- Hämta innehållet i en viss användardefinierad funktion 
+- Hämta innehållet i en specifik användardefinierad funktion 
 
    ```plaintext
     YOUR_MANAGEMENT_API_URL/userdefinedfunctions/YOUR_USER_DEFINED_FUNCTION_ID/contents
@@ -220,7 +220,7 @@ I det här avsnittet visas några exempel på hur du kan använda api:erna för 
 
 ## <a name="queries-for-users"></a>Frågor för användare
 
-I det här avsnittet visas några exempel på API-frågor för hantering av användare i Azure Digital Twins. Gör en HTTP GET-begäran som ersätter platshållarna med värden från din konfiguration. 
+I det här avsnittet visas några exempel på API-frågor för att hantera användare i digitala Azure-enheter. Gör en HTTP GET-begäran och ersätt plats hållarna med värden från din installation. 
 
 - Hämta alla användare. 
 
@@ -228,7 +228,7 @@ I det här avsnittet visas några exempel på API-frågor för hantering av anv�
     YOUR_MANAGEMENT_API_URL/users
     ```
 
-- Skaffa en viss användare.
+- Hämta en speciell användare.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/users/ANY_USER_ID
@@ -236,6 +236,6 @@ I det här avsnittet visas några exempel på API-frågor för hantering av anv�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta hur du autentiserar med ditt hanterings-API läser du [Autentisering med API: er](./security-authenticating-apis.md).
+Läs [autentisering med API: er](./security-authenticating-apis.md)för att lära dig hur du autentiserar med ditt hanterings-API.
 
-Mer information om dina API-slutpunkter finns i [Så här använder du Digital Twins Swagger](./how-to-use-swagger.md).
+Om du vill veta mer om dina API-slutpunkter läser [du så här använder du digitala dubbla Swagger](./how-to-use-swagger.md).

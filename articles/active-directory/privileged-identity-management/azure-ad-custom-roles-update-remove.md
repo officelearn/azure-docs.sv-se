@@ -1,6 +1,6 @@
 ---
-title: Uppdatera eller ta bort azure AD-anpassad roll – PRIVILEGIErad identitetshantering (PIM)
-description: Så här uppdaterar eller tar du bort en anpassad Azure AD-rolltilldelning för privilegierad identitetshantering (PIM)
+title: Uppdatera eller ta bort den anpassade rollen för Azure AD – Privileged Identity Management (PIM)
+description: Så här uppdaterar eller tar du bort en anpassad roll tilldelning för Azure AD Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,45 +17,45 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad5747be47e250cf9c623cc40d21d12c91ee16f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77499107"
 ---
-# <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Uppdatera eller ta bort en tilldelad azure AD-anpassad roll i privilegierad identitetshantering
+# <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Uppdatera eller ta bort en tilldelad Azure AD-roll i Privileged Identity Management
 
-I den här artikeln beskrivs hur du använder PIM (Privileged Identity Management) för att uppdatera eller ta bort just-in-time- och tidsbunden tilldelning till anpassade roller som skapats för programhantering i azure Active Directory (Azure AD) administrativ upplevelse. 
+Den här artikeln beskriver hur du använder Privileged Identity Management (PIM) för att uppdatera eller ta bort just-in-Time-och Time-Bound till anpassade roller som skapats för program hantering i den administrativa miljön för Azure Active Directory (Azure AD). 
 
-- Mer information om hur du skapar anpassade roller för att delegera programhantering i Azure AD finns [i Anpassade administratörsroller i Azure Active Directory (förhandsversion).](../users-groups-roles/roles-custom-overview.md) 
-- Om du inte har använt Privilegierad identitetshantering ännu kan du få mer information när [du börjar använda Privilegierad identitetshantering](pim-getting-started.md).
+- Mer information om hur du skapar anpassade roller för att delegera program hantering i Azure AD finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../users-groups-roles/roles-custom-overview.md). 
+- Om du inte har använt Privileged Identity Management ännu kan du få mer information när du [börjar använda Privileged Identity Management](pim-getting-started.md).
 
 > [!NOTE]
-> Azure AD-anpassade roller är inte integrerade med de inbyggda katalogrollerna under förhandsversionen. När kapaciteten är allmänt tillgänglig kommer rollhantering att ske i den inbyggda rollupplevelsen. Om du ser följande banner bör dessa roller hanteras [i den inbyggda rollupplevelsen](pim-how-to-add-role-to-user.md) och den här artikeln gäller inte:
+> Anpassade Azure AD-roller är inte integrerade med de inbyggda katalog rollerna under för hands versionen. När funktionen är allmänt tillgänglig, sker roll hanteringen i den inbyggda roll upplevelsen. Om du ser följande banderoll bör dessa roller hanteras [i den inbyggda roll upplevelsen](pim-how-to-add-role-to-user.md) och den här artikeln gäller inte:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="update-or-remove-an-assignment"></a>Uppdatera eller ta bort en tilldelning
 
-Följ dessa steg för att uppdatera eller ta bort en befintlig anpassad rolltilldelning.
+Följ dessa steg om du vill uppdatera eller ta bort en befintlig anpassad roll tilldelning.
 
-1. Logga in [på privilegierad identitetshantering](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) i Azure-portalen med ett användarkonto som har tilldelats rollen Privilegierad rolladministratör.
-1. Välj **anpassade Azure AD-roller (förhandsversion)**.
+1. Logga in på [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) i Azure Portal med ett användar konto som tilldelats rollen privilegie rad roll administratör.
+1. Välj **anpassade Azure AD-roller (för hands version)**.
 
-    ![Välj förhandsversion av anpassade roller för anpassade roller i Azure AD för att se kvalificerade rolltilldelningar](./media/azure-ad-custom-roles-assign/view-custom.png)
+    ![Välj för hands versionen av Azure AD-anpassade roller för att se kvalificerade roll tilldelningar](./media/azure-ad-custom-roles-assign/view-custom.png)
 
-1. Välj **Roller** om du vill visa listan **över tilldelningar** med anpassade roller för Azure AD-program.
+1. Välj **roller** för att se en lista över **tilldelningar** för anpassade roller för Azure AD-program.
 
-    ![Välj Roller se listan över kvalificerade rolltilldelningar](./media/azure-ad-custom-roles-update-remove/assignments-list.png)
+    ![Välj roller se listan över kvalificerade roll tilldelningar](./media/azure-ad-custom-roles-update-remove/assignments-list.png)
 
 1. Välj den roll som du vill uppdatera eller ta bort.
-1. Hitta rolltilldelningen på flikarna **Kvalificerade roller** eller **Aktiva roller.**
-1. Välj **Uppdatera** eller **Ta bort** om du vill uppdatera eller ta bort rolltilldelningen.
+1. Hitta roll tilldelningen på flikarna **berättigade roller** eller **aktiva roller** .
+1. Välj **Uppdatera** eller **ta bort** om du vill uppdatera eller ta bort roll tilldelningen.
 
-    ![Välj ta bort eller uppdatera i den kvalificerade rolltilldelningen](./media/azure-ad-custom-roles-update-remove/remove-update.png)
+    ![Välj Ta bort eller uppdatera i den berättigade roll tilldelningen](./media/azure-ad-custom-roles-update-remove/remove-update.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Aktivera en anpassad Azure AD-roll](azure-ad-custom-roles-assign.md)
 - [Tilldela en anpassad Azure AD-roll](azure-ad-custom-roles-assign.md)
-- [Konfigurera en anpassad Azure AD-rolltilldelning](azure-ad-custom-roles-configure.md)
+- [Konfigurera en anpassad roll tilldelning för Azure AD](azure-ad-custom-roles-configure.md)

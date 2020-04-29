@@ -1,323 +1,323 @@
 ---
-title: Övervaka Azure Storage-tjänster med Azure Monitor for Storage (förhandsversion)| Microsoft-dokument
-description: I den här artikeln beskrivs Azure Monitor for Storage-funktionen som ger lagringsadministratörer en snabb förståelse för prestanda- och användningsproblem med sina Azure Storage-konton.
+title: Övervaka Azure Storage tjänster med Azure Monitor för lagring (för hands version) | Microsoft Docs
+description: Den här artikeln beskriver Azure Monitor för lagrings funktionen som ger lagrings administratörer en snabb förståelse för prestanda-och användnings problem med deras Azure Storage-konton.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
 ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662527"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Övervaka din lagringstjänst med Azure Monitor for Storage (förhandsversion)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring (för hands version)
 
-Azure Monitor for Storage (förhandsversion) ger omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage-tjänsters prestanda, kapacitet och tillgänglighet. Du kan observera lagringskapacitet och prestanda på två sätt, visa direkt från ett lagringskonto eller en vy från Azure Monitor för att se över grupper av lagringskonton. 
+Azure Monitor för lagring (för hands version) ger omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage tjänsters prestanda, kapacitet och tillgänglighet. Du kan se lagrings kapacitet och prestanda på två sätt, Visa direkt från ett lagrings konto eller vy från Azure Monitor för att se flera grupper av lagrings konton. 
 
-Den här artikeln hjälper dig att förstå den erfarenhet som Azure Monitor for Storage (förhandsversion) ger för att härleda användbar kunskap om hälso- och prestanda för lagringskonton i stor skala, med möjlighet att fokusera på hotspots och diagnostisera svarstid, begränsning, och tillgänglighetsproblem.
+Den här artikeln hjälper dig att förstå upplevelsen Azure Monitor för lagring (för hands version) som ger till gång till kunskaps bara information om hälso tillstånd och prestanda för lagrings konton i stor skala, med möjlighet att fokusera på hotspots och diagnostisera svars-, begränsnings-och tillgänglighets problem.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introduktion till Azure Monitor for Storage (förhandsversion)
+## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introduktion till Azure Monitor för lagring (för hands version)
 
-Innan du dyker in i upplevelsen, bör du förstå hur den presenterar och visualiserar information. Oavsett om du väljer lagringsfunktionen direkt från ett lagringskonto eller från Azure Monitor, presenterar Azure Monitor for Storage en konsekvent upplevelse. 
+Innan du simhopp i upplevelsen bör du förstå hur den visar och visualiserar information. Oavsett om du väljer lagrings funktionen direkt från ett lagrings konto eller från Azure Monitor, ger Azure Monitor för lagring en konsekvent upplevelse. 
 
-Kombinerat det ger:
+Kombinerat IT ger:
 
-* **Vid skalningsperspektiv** som visar en ögonblicksbildvy av deras tillgänglighet baserat på hälsotillståndet för lagringstjänsten eller API-åtgärden, användning som visar det totala antalet begäranden som lagringstjänsten tar emot och svarstid som visar den genomsnittliga tiden lagringstjänsten eller API-åtgärdstypen tar för att bearbeta begäranden. Du kan också visa kapacitet efter blob, fil, tabell och kö.
+* **I skalnings perspektiv** visas en Snapshot-vy över deras tillgänglighet baserat på hälso tillståndet för lagrings tjänsten eller API-åtgärden, användning som visar det totala antalet begär Anden som lagrings tjänsten tar emot och svars tiden visar den genomsnittliga tiden som lagrings tjänsten eller API-åtgärds typen tar att bearbeta begär Anden. Du kan också Visa kapaciteten efter BLOB, fil, tabell och kö.
 
-* **Öka detaljnivån för** en viss lagringskonto för att diagnostisera problem eller utföra detaljerad analys efter kategori - tillgänglighet, prestanda, fel och kapacitet. Om du väljer något av dessa alternativ kan du visa mått på ett djupgående perspektiv.  
+* **Detaljgranska analys** av ett visst lagrings konto för att hjälpa till att diagnostisera problem eller utföra detaljerad analys efter kategori tillgänglighet, prestanda, fel och kapacitet. Om du väljer något av dessa alternativ visas en djupgående vy över mått.  
 
-* **Anpassningsbar där** du kan ändra vilka mått du vill visa, ändra eller ange tröskelvärden som stämmer överens med dina gränser och spara som en egen arbetsbok. Diagram i arbetsboken kan fästas på Azure-instrumentpanelen.  
+* **Anpassningsbara** där du kan ändra vilka mått du vill se, ändra eller ange tröskelvärden som överensstämmer med dina gränser och Spara som en egen arbets bok. Diagram i arbets boken kan fästas på Azure-instrumentpanelen.  
 
-Den här funktionen kräver inte att du aktiverar eller konfigurerar något, lagringsmåtten från dina lagringskonton samlas in som standard. Om du inte känner till mått som är tillgängliga på Azure Storage kan du visa beskrivningen och definitionen i Azure Storage-mått genom att granska [Azure-lagringsmått](../../storage/common/storage-metrics-in-azure-monitor.md).
-
->[!NOTE]
->Det finns ingen avgift för att komma åt den här funktionen och du debiteras endast för de grundläggande funktioner för Azure Monitor som du konfigurerar eller aktiverar, enligt beskrivningen på [prisinformationssidan för Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/)
+Den här funktionen kräver inte att du aktiverar eller konfigurerar något, lagrings måtten från dina lagrings konton samlas in som standard. Om du inte känner till mått som är tillgängliga på Azure Storage kan du Visa beskrivningen och definitionen i Azure Storage mått genom att granska [Azure Storage-mått](../../storage/common/storage-metrics-in-azure-monitor.md).
 
 >[!NOTE]
->Azure Monitor for Storage stöder inte [virtuella v1-konton för allmänt ändamål](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
+>Det kostar inget att få åtkomst till den här funktionen och du debiteras bara för Azure Monitor viktiga funktioner som du konfigurerar eller aktiverar, enligt beskrivningen på sidan [pris information för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) .
+
+>[!NOTE]
+>Azure Monitor för lagring stöder inte [generella v1-konton](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
 >
 
 ## <a name="view-from-azure-monitor"></a>Visa från Azure Monitor
 
-Från Azure Monitor kan du visa transaktions-, svarstids- och kapacitetsinformation från flera lagringskonton i din prenumeration och hjälpa dig att identifiera prestanda, kapacitetsproblem och fel.
+Från Azure Monitor kan du Visa information om transaktion, svars tid och kapacitet från flera lagrings konton i din prenumeration och hjälpa till att identifiera prestanda, kapacitets problem och fel.
 
-Om du vill visa hur du använder och är tillgänglig för dina lagringskonton i alla dina prenumerationer utför du följande steg.
+Utför följande steg för att visa användning och tillgänglighet för dina lagrings konton för alla dina prenumerationer.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **Övervaka** i det vänstra fönstret i Azure-portalen och välj **Lagringskonton (förhandsgranskning)** under avsnittet **Insikter** .
+2. Välj **övervaka** i rutan till vänster i Azure Portal och välj **lagrings konton (förhands granskning)** under avsnittet **insikter** .
 
-    ![Vy över flera lagringskonton](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
+    ![Vy över flera lagrings konton](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
-### <a name="overview-workbook"></a>Översikt arbetsbok
+### <a name="overview-workbook"></a>Översikt över arbets bok
 
-I **översiktsarbetsboken** för den valda prenumerationen visar tabellen interaktiva lagringsmått och tjänsttillgänglighetstillstånd för upp till 10 lagringskonton grupperade i prenumerationen. Du kan filtrera resultaten baserat på de alternativ du väljer i följande listrutor:
+I tabellen **Översikt** för den valda prenumerationen visar tabellen interaktiva lagrings mått och tjänst tillgänglighets tillstånd för upp till 10 lagrings konton grupperade i prenumerationen. Du kan filtrera resultaten baserat på de alternativ du väljer i följande List rutor:
 
-* **Prenumerationer** – endast prenumerationer som har lagringskonton visas.  
+* **Prenumerationer – endast** prenumerationer som har lagrings konton visas.  
 
-* **Lagringskonton** – som standard är 10 lagringskonton förvalda. Om du väljer alla eller flera lagringskonton i scopeväljaren returneras upp till 200 lagringskonton. Om du till exempel hade totalt 573 lagringskonton för tre prenumerationer som du har valt visas bara 200 konton. 
+* **Lagrings konton** – som standard väljs 10 lagrings konton i förväg. Om du väljer alla eller flera lagrings konton i omfångs väljaren returneras upp till 200 lagrings konton. Om du till exempel har totalt 573 lagrings konton över tre prenumerationer som du har valt visas bara 200-konton. 
 
-* **Tidsintervall** - som standard visar de senaste 4 timmarnas information baserat på motsvarande val som gjorts.
+* **Tidsintervall** – som standard visar de senaste 4 timmarna med information baserat på motsvarande val som gjorts.
 
-Räknarpanelen under listrutan visar det totala antalet lagringskonton i prenumerationen och visar hur många av de totala som väljs. Det finns villkorlig färgkodning eller heatmaps för kolumner i arbetsboken som rapporterar transaktionsmått eller fel. Den djupaste färgen har det högsta värdet och en ljusare färg baseras på de lägsta värdena. För de felbaserade kolumnerna är värdet i rött och för de måttbaserade kolumnerna är värdet i blått.
+Panelen räknare under List rutorna slår upp det totala antalet lagrings konton i prenumerationen och visar hur många av summan som väljs. Det finns en villkorsstyrd färg kodning eller termiska kartor för kolumner i arbets boken som rapporterar transaktions mått eller fel. Den djupaste färgen har det högsta värdet och en ljusare färg baseras på de lägsta värdena. För de felbaserade kolumnerna är värdet i rött och för måttbaserade kolumner är värdet i blått.
 
-Välj ett värde i kolumnerna **Tillgänglighet**, **E2E Latency,** **Server latency**och **transaktionsfeltyp/Fel** leder dig till en rapport som är anpassad till den specifika typen av lagringsmått som matchar kolumnen som valts för det lagringskontot. Mer information om arbetsböckerna för varje kategori finns i avsnittet [Detaljerade lagringsarbetsböcker](#detailed-storage-workbooks) nedan. 
+Välj ett värde i kolumn **tillgänglighet**, **E2E-latens**, **Server svars tid**och **transaktions fel typ/fel** för att dirigera dig till en rapport som är anpassad till den angivna typen av lagrings mått som matchar den valda kolumnen för det lagrings kontot. Mer information om arbets böckerna för varje kategori finns i avsnittet [detaljerade lagrings arbets böcker](#detailed-storage-workbooks) nedan. 
 
 >[!NOTE]
->Mer information om vilka fel som kan visas i rapporten finns i [schemat för svarstyp](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) och leta efter svarstyper som **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Beroende på vilka lagringskonton som valts representeras alla andra fel under kategorin **Andra.**
+>Information om vilka fel som kan visas i rapporten finns i schema för [svars typ](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) och Sök efter svars typer som **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Beroende på vilka lagrings konton som valts, om det finns fler än tre typer av fel som rapporter ATS, visas **alla andra fel i kategorin.**
 
-Standardtröskeln **för tillgänglighet** är:
+Standard tröskelvärdet för **tillgänglighet** är:
 
-* Varning - 99%
-* Kritisk - 90%
+* Varning-99%
+* Kritisk – 90%
 
-Om du vill ange ett tröskelvärde för tillgänglighet baserat på resultaten av din observation eller dina krav granskar du [ändra tillgänglighetströskeln](#modify-the-availability-threshold). 
+Om du vill ange ett tröskelvärde för tillgänglighet baserat på resultatet av din observation eller dina krav granskar [du ändra tröskelvärdet för tillgänglighet](#modify-the-availability-threshold). 
 
-### <a name="capacity-workbook"></a>Arbetsbok för kapacitet
+### <a name="capacity-workbook"></a>Arbets bok för kapacitet
 
-Välj **Kapacitet** högst upp på sidan och arbetsboken **Kapacitet** öppnas. Den visar hur mycket totalt lagringsutrymme som används i kontot och kapaciteten som används av varje datatjänst i kontot för att identifiera över och under utnyttjad lagring.
+Välj **kapacitet** överst på sidan och **kapacitets** arbets boken öppnas. Det visar den totala mängden lagrings utrymme som används för kontot och kapaciteten som används av varje data tjänst i kontot för att identifiera över och under utnyttjat lagrings utrymme.
 
-![Arbetsbok för kapacitet för flera lagringskonton](./media/storage-insights-overview/storage-account-capacity-02.png) 
+![Arbets bok för kapacitet för flera lagrings konton](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-Det finns villkorlig färgkodning eller heatmaps för kolumner i arbetsboken som rapporterar kapacitetsmått med ett blått värde. Den djupaste färgen har det högsta värdet och en ljusare färg baseras på de lägsta värdena.
+Det finns en villkorsstyrd färg kodning eller termiska kartor för kolumner i arbets boken som rapporterar kapacitets mått med ett blått värde. Den djupaste färgen har det högsta värdet och en ljusare färg baseras på de lägsta värdena.
 
-När du väljer ett värde under någon av kolumnerna i arbetsboken går du ned detaljnivån till **kapacitetsarbetsboken** för lagringskontot. Mer information om detaljgranskningsrapporten beskrivs i avsnittet [Detaljerad lagringsarbetsböcker](#detailed-storage-workbooks) nedan. 
+När du väljer ett värde under någon av kolumnerna i arbets boken kan du öka detalj nivån för **kapacitets** arbets boken för lagrings kontot. Mer information om detalj nivå rapporten beskrivs i avsnittet [detaljerade lagrings arbets böcker](#detailed-storage-workbooks) nedan. 
 
-## <a name="view-from-a-storage-account"></a>Visa från ett lagringskonto
+## <a name="view-from-a-storage-account"></a>Visa från ett lagrings konto
 
-Så här kommer du åt Azure Monitor för virtuella datorer direkt från ett lagringskonto:
+Få åtkomst till Azure Monitor for VMs direkt från ett lagrings konto:
 
-1. Välj Lagringskonton i Azure-portalen.
+1. I Azure Portal väljer du lagrings konton.
 
-2. Välj ett lagringskonto i listan. Välj Insikter (förhandsgranskning) i avsnittet Övervakning.
+2. Välj ett lagrings konto i listan. I avsnittet övervakning väljer du insikter (för hands version).
 
-    ![Översiktssida för markerat lagringskonto](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Sidan vald översikt över lagrings konto](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-I **översiktsarbetsboken** för lagringskontot visas flera mätvärden för lagringsprestanda som hjälper dig att snabbt bedöma:
+I arbets boken **Översikt** för lagrings kontot visar det flera lagrings prestanda mått som hjälper dig att snabbt utvärdera:
 
-* Hälsotillstånd för lagringstjänsten för att omedelbart se om ett problem utanför kontrollen påverkar lagringstjänsten i den region som den distribueras till, vilket anges under kolumnen **Sammanfattning.**
+* Hälso tillståndet för lagrings tjänsten för att omedelbart se om ett problem utanför kontrollen påverkar lagrings tjänsten i den region som den distribueras till, som anges under **sammanfattnings** kolumnen.
 
-* Interaktiva prestandadiagram som visar de viktigaste detaljerna för lagringskapacitet, tillgänglighet, transaktioner och svarstid.  
+* Interaktiva prestanda diagram som visar de viktigaste detaljerna som rör lagrings kapacitet, tillgänglighet, transaktioner och svars tider.  
 
-* Mått- och statuspaneler som belyser tjänstens tillgänglighet, totalt antal transaktioner till lagringstjänsten, E2E-svarstid och serverfördröjning.
+* Panelerna för mått-och status paneler markerar tjänstens tillgänglighet, totalt antal transaktioner till lagrings tjänsten, E2E-svars tid och Server svars tid.
 
-Om du väljer en av **knapparna**för Fel, **Prestanda,** **Tillgänglighet**och **Kapacitet** öppnas respektive arbetsbok. 
+Om du markerar någon av knapparna för att **Miss lyckas**, **prestanda**, **tillgänglighet**och **kapacitet** öppnas respektive arbets bok. 
 
-![Översiktssida för markerat lagringskonto](./media/storage-insights-overview/storage-account-capacity-01.png)
+![Sidan vald översikt över lagrings konto](./media/storage-insights-overview/storage-account-capacity-01.png)
 
-## <a name="detailed-storage-workbooks"></a>Detaljerade lagringsarbetsböcker
+## <a name="detailed-storage-workbooks"></a>Detaljerade lagrings arbets böcker
 
-Oavsett om du har valt ett värde i kolumnerna **Tillgänglighet**, **E2E-svarstid,** **Serverfördröjning**och **transaktionsfeltyp/Fel** från arbetsboken **Översikt** för flera lagringskonto, eller välja någon av knapparna för **Fel,** **Prestanda,** **Tillgänglighet**och **Kapacitet** från **översiktsarbetsboken** från ett visst lagringskonto, levererar var och en en uppsättning interaktiv lagringsrelaterad information som är skräddarsydd för den kategorin.  
+Oavsett om du har valt ett värde i kolumnernas **tillgänglighet**, **E2E svars tid**, **Server svars tid**och **transaktions fel typ/fel** från arbets boken för flera lagrings konton, eller om du väljer någon av knapparna för **fel**, **prestanda**, **tillgänglighet**och **kapacitet** i **översikts** **arbets boken från** ett särskilt lagrings konto, ger vardera en uppsättning interaktiv lagrings information som är anpassad till den kategorin.  
 
-* **Tillgänglighet** öppnar **arbetsboken Tillgänglighet.** Den visar det aktuella hälsotillståndet för Azure Storage-tjänsten, en tabell som visar det tillgängliga hälsotillståndet för varje objekt som kategoriseras efter datatjänst som definierats i lagringskontot med en trendlinje som representerar det valda tidsintervallet och ett trenddiagram för tillgänglighet för varje datatjänst i kontot.  
+* **Tillgänglighet** öppnar **tillgänglighets** arbets boken. Den visar det aktuella hälso tillståndet för Azure Storage tjänst, en tabell som visar det tillgängliga hälso tillståndet för varje objekt kategoriserade efter data tjänst som definierats i lagrings kontot med en trend linje som representerar tidsintervallet som valts och ett tillgänglighets trend diagram för varje data tjänst i kontot.  
 
-    ![Exempel på tillgänglighetsrapport](./media/storage-insights-overview/storage-account-availability-01.png)
+    ![Exempel på tillgänglighets rapport](./media/storage-insights-overview/storage-account-availability-01.png)
 
-* **E2E-svarstid** och **serverfördröjning** öppnar **prestandaarbetsboken.** Den innehåller en samlad statuspanel som visar E2E-svarstid och serverfördröjning, ett prestandadiagram över E2E kontra serverfördröjning och en tabell som bryter ned svarstiden för lyckade anrop av API som kategoriseras av datatjänst som definierats i lagringskontot.
+* **E2E svars tid** och **Server svars** tid öppnar arbets boken **prestanda** . Den innehåller en sammanfattnings status panel som visar E2E svars tid och Server svars tid, ett prestanda diagram över E2E jämfört med Server svars tid och en tabell över svars tids fördröjningar för lyckade anrop via API Kategoriserad av data tjänst som definierats i lagrings kontot
 
-    ![Exempel på prestandarapport](./media/storage-insights-overview/storage-account-performance-01.png)
+    ![Exempel på prestanda rapport](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* Om du väljer någon av felkategorierna i rutnätet öppnas arbetsboken **Fel.** Rapporten visar måttpaneler för alla andra klientfel utom beskrivna och lyckade begäranden, klientbegränsningsfel, ett prestandadiagram för dimensionsmåttet **för transaktionssvarstyp** som är specifika för attributet ClientOtherError och två tabeller - **Transaktioner efter API-namn** och Transaktioner efter **svarstyp**.
+* Genom att välja någon av de fel kategorier som visas i rutnätet öppnar du arbets boken **fel** . Rapporten visar mått paneler för alla andra klients IDE fel utom beskrivna och lyckade förfrågningar, fel i klient begränsning, ett prestanda diagram för transaktions **svars typen** dimensions mått som är särskilt för attributet ClientOtherError och två tabeller – **transaktioner efter API-namn** och **transaktioner efter svars typ**.
 
-   ![Exempel på felrapport](./media/storage-insights-overview/storage-account-failures-01.png)
+   ![Exempel på rapport om haveri](./media/storage-insights-overview/storage-account-failures-01.png)
 
-* **Kapacitet** öppnar **arbetsboken Kapacitet.** Den visar den totala mängden lagringsutrymme som används för varje lagringsdataobjekt i kontot i panelerna och diagrammet och hur många dataobjekt som lagras i kontot.  
+* **Kapacitet** öppnar arbets boken för **kapacitet** . Den visar den totala mängden lagrings utrymme som används för varje lagrings data objekt i kontot i panelerna och i diagrammet samt hur många data objekt som lagras i kontot.  
 
-    ![Vald sida för lagringskontokapacitet](./media/storage-insights-overview/storage-account-capacity-01.png) 
+    ![Sidan för vald lagrings konto kapacitet](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
-## <a name="pin-and-export"></a>Fästa och exportera
+## <a name="pin-and-export"></a>Fäst och exportera
 
-Du kan fästa något av måttavsnitten på en Azure Dashboard genom att välja pushpin-ikonen längst upp till höger i avsnittet.
+Du kan fästa något av mått avsnitten på en Azure-instrumentpanel genom att välja kartnål-ikonen längst upp till höger i avsnittet.
 
-![Exempel på måttavsnittsnål på instrumentpanelen](./media/storage-insights-overview/workbook-pin-example.png)
+![Mått avsnitt fäst vid instrument panelen exempel](./media/storage-insights-overview/workbook-pin-example.png)
 
-**Arbetsböckerna Översikt** **över** flera prenumerationer och lagringskonto stöder export av resultaten i Excel-format genom att välja nedpilikonen till höger om pushpin-ikonen.
+**Översikten över** flera prenumerationer och lagrings **Capacity** konton har stöd för att exportera resultatet i Excel-format genom att välja ikonen nedåtpil till höger om ikonen kartnål.
 
-![Exempel på resultat i dokumentnätet för export](./media/storage-insights-overview/workbook-export-example.png)
+![Exempel på export av arbets bokens rutnäts resultat](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>Anpassa Azure Monitor för lagring (förhandsversion)
+## <a name="customize-azure-monitor-for-storage-preview"></a>Anpassa Azure Monitor för lagring (för hands version)
 
-I det här avsnittet beskrivs vanliga scenarier för redigering av arbetsboken för att anpassa till stöd för dina dataanalysbehov:
+I det här avsnittet beskrivs vanliga scenarier för att redigera arbets boken för att anpassa stöd för dina data analys behov:
 
-* Scope arbetsboken så att den alltid väljer en viss prenumeration eller ett visst lagringskonto
+* Omfånget som arbets boken ska alltid välja en viss prenumeration eller ett eller flera lagrings konton
 * Ändra mått i rutnätet
 * Ändra tröskelvärdet för tillgänglighet
-* Ändra färgåtergivning
+* Ändra färg åter givningen
 
-Anpassningarna sparas i en anpassad arbetsbok för att förhindra att standardkonfigurationen skrivs över i vår publicerade arbetsbok. Arbetsböcker sparas i en resursgrupp, antingen i avsnittet **Mina rapporter** som är privat för dig eller i avsnittet **Delade rapporter** som är tillgängligt för alla med åtkomst till resursgruppen. När du har sparat den anpassade arbetsboken måste du gå till arbetsboksgalleriet för att starta den.
+Anpassningarna sparas i en anpassad arbets bok för att förhindra att standard konfigurationen skrivs över i vår publicerade arbets bok. Arbets böcker sparas i en resurs grupp, antingen i avsnittet **Mina rapporter** som är privat för dig eller i avsnittet **delade rapporter** som är tillgängliga för alla som har åtkomst till resurs gruppen. När du har sparat den anpassade arbets boken måste du gå till arbets boks galleriet för att starta den.
 
-![Starta arbetsboksgalleri från kommandofältet](./media/storage-insights-overview/workbook-command-bar-gallery.png)
+![Starta arbets boks galleriet från kommando fältet](./media/storage-insights-overview/workbook-command-bar-gallery.png)
 
-### <a name="specifying-a-subscription-or-storage-account"></a>Ange ett prenumerations- eller lagringskonto
+### <a name="specifying-a-subscription-or-storage-account"></a>Ange en prenumeration eller ett lagrings konto
 
-Du kan konfigurera arbetsböckerna **översikt** **över** flera prenumerationer och lagringskonto till scope till en viss prenumeration eller lagringskonto på varje körning, utför följande steg.
+Du kan konfigurera en **Översikt över** flera prenumerationer och lagrings konton för att omfånget till en viss **prenumeration eller ett** lagrings konto på varje körning genom att utföra följande steg.
 
-1. Välj **Övervaka** från portalen och välj sedan **Lagringskonton (förhandsgranskning)** i den vänstra rutan.
+1. Välj **övervakare** från portalen och välj sedan **lagrings konton (förhands granskning)** i den vänstra rutan.
 
-2. I kommandofältet i **kontrollarbetsboken** väljer du **Redigera**i kommandofältet .
+2. I **översikts** arbets boken väljer du **Redigera**i kommando fältet.
 
-3. Välj i listrutan **Prenumerationer** en eller flera prenumerationer som du vill att den ska vara som standard. Kom ihåg att arbetsboken stöder att välja upp till totalt 10 prenumerationer.  
+3. Välj i list rutan **prenumerationer** en eller flera prenumerationer som du vill att den ska vara standard för. Kom ihåg att arbets boken har stöd för att välja upp till totalt 10 prenumerationer.  
 
-4. Välj i listrutan **Lagringskonton** ett eller flera konton som du vill att det ska vara som standard. Kom ihåg att arbetsboken stöder att välja upp till totalt 200 lagringskonton. 
+4. Välj i list rutan **lagrings konton** ett eller flera konton som du vill att det ska vara standard för. Kom ihåg att arbets boken har stöd för att välja upp till totalt 200 lagrings konton. 
 
-5. Välj **Spara som** i kommandofältet om du vill spara en kopia av arbetsboken med anpassningarna och klicka sedan på Klar **redigering** för att återgå till läsläge.  
+5. Välj **Spara som** från kommando fältet för att spara en kopia av arbets boken med dina anpassningar och klicka sedan på **klar redigering** för att återgå till läsläge.  
 
-### <a name="modify-metrics-and-colors-in-the-workbook"></a>Ändra mått och färger i arbetsboken
+### <a name="modify-metrics-and-colors-in-the-workbook"></a>Ändra mått och färger i arbets boken
 
-De fördefinierade arbetsböckerna innehåller måttdata och du kan ändra eller ta bort någon av visualiseringarna och anpassa efter teamets specifika behov.
+De färdiga arbets böckerna innehåller mått data och du har möjlighet att ändra eller ta bort en av visualiseringarna och anpassa till teamets speciella behov.
 
-I vårt exempel arbetar vi med arbetsboken för kapacitet för flera prenumerationer och lagringskonto för att visa hur du:
+I vårt exempel arbetar vi med arbets boken med flera prenumerationer och lagrings konto kapacitet för att demonstrera hur du:
 
 * Ta bort ett mått
-* Ändra färgåtergivning
+* Ändra färg åter givning
 
-Du kan utföra samma ändringar mot någon av de fördefinierade **fel,** **prestanda,** **tillgänglighet**och **kapacitet** arbetsböcker.
+Du kan utföra samma ändringar mot något av de förbyggda **felen**, **prestanda**, **tillgänglighet**och **kapacitets** arbets böcker.
 
-1. Välj **Övervaka** från portalen och välj sedan **Lagringskonton (förhandsgranskning)** i den vänstra rutan.
+1. Välj **övervakare** från portalen och välj sedan **lagrings konton (förhands granskning)** i den vänstra rutan.
 
-2. Välj **Kapacitet om** du vill växla till kapacitetsarbetsboken och välj **Redigera** i kommandofältet i kommandofältet i kommandofältet.
+2. Välj **kapacitet** för att växla till arbets boken kapacitet och i kommando fältet väljer du **Redigera** från kommando fältet.
 
-    ![Välj redigera om du vill ändra en arbetsbok](./media/storage-insights-overview/workbook-edit-workbook.png)
+    ![Välj Redigera för att ändra en arbets bok](./media/storage-insights-overview/workbook-edit-workbook.png)
 
-3. Välj Redigera bredvid avsnittet mått **.**
+3. Klicka på **Redigera**bredvid avsnittet mått.
 
-    ![Välj Redigera om du vill ändra kapacitetsarbetsboksmått](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
+    ![Välj Redigera för att ändra arbets boks mått för kapacitet](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
-4. Vi kommer att ta bort kolumnen **Kontoanvänd kapacitet tidslinje,** så välj **Kolumninställningar** i måttrutnätet.
+4. Vi kommer att ta bort kolumnen **Använd kapacitets tids linje för kontot** så välj **kolumn inställningar** i mått rutnätet.
 
-    ![Redigera kolumninställningar](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
+    ![Redigera kolumn inställningar](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. I fönstret **Redigera kolumninställningar** väljer du under avsnittet **Kolumner** **microsoft.storageaccounts-Capacity-UsedCapacity Timeline$| Kontoanvänd kapacitet Tidslinje$** och under listrutan **Kolumnrendare** väljer du **Dold**.
+5. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/Storageaccounts-Capacity-UsedCapacity Timeline $ | Konto för Använd kapacitet tids linje $** och välj **dold**under List rutans **kolumn åter givning** .
 
-6. Välj **Spara och stäng** för att genomföra ändringen.
+6. Välj **Spara och Stäng** för att bekräfta ändringen.
 
-Nu ska vi ändra färgtemat för kapacitetsmåtten i rapporten så att det används grönt i stället för blått.
+Nu ska vi ändra färg temat för kapacitets måtten i rapporten för att använda grönt i stället för blått.
 
-1. Välj **Kolumninställningar** i måttrutnätet.
+1. Välj **kolumn inställningar** i rutnätet mått.
 
-2. I fönstret **Redigera kolumninställningar** välj under avsnittet **Kolumner** **microsoft.storageaccounts-Capacity-UsedCapacity$|microsoft.storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storageaccounts/tableservices-Capacity-TableCapacity$**. Välj **Grön**under listrutan **Färgpalett**.
+2. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/storageaccounts-Capacity-UsedCapacity $ | Microsoft. Storage/storageaccounts/blobservices-Capacity-BlobCapacity $ | Microsoft. Storage/storageaccounts/FileServices-Capacity-FileCapacity $ | Microsoft. Storage/storageaccounts/queueservices-Capacity-QueueCapacity $ | Microsoft. Storage/storageaccounts/tableservices-Capacity-TableCapacity $**. Välj **grönt**under List rutans **färgpalett.**
 
-3. Välj **Spara och stäng** för att genomföra ändringen.
+3. Välj **Spara och Stäng** för att bekräfta ändringen.
 
-4. Välj **Spara som** i kommandofältet om du vill spara en kopia av arbetsboken med anpassningarna och klicka sedan på Klar **redigering** för att återgå till läsläge.  
+4. Välj **Spara som** från kommando fältet för att spara en kopia av arbets boken med dina anpassningar och klicka sedan på **klar redigering** för att återgå till läsläge.  
 
 ### <a name="modify-the-availability-threshold"></a>Ändra tröskelvärdet för tillgänglighet
 
-I det här exemplet arbetar vi med arbetsboken för lagringskontokapacitet och visar hur du ändrar tillgänglighetströskeln. Som standard konfigureras panel- och rutnätsrapporteringsprocenttillgängligheten med ett lägsta tröskelvärde på 90 och ett högsta tröskelvärde på 99. Vi kommer att ändra det lägsta tröskelvärdet **för tillgänglighet %** i rutnätet Tillgänglighet med **API-namn** till 85 %, vilket innebär att hälsotillståndet ändras till kritiskt om tröskelvärdet är mindre än 85 procent. 
+I det här exemplet arbetar vi med arbets boken lagrings konto kapacitet och demonstrerar hur du ändrar tröskelvärdet för tillgänglighet. Som standard konfigureras tillgänglighets verktyget för panelen och rutnäts procenten med ett minimi tröskelvärde på 90 och maximalt tröskelvärde på 99. Vi kommer att ändra det minsta tröskelvärdet för **tillgänglighet%** i rutnätet **tillgänglighet efter API-namn** till 85%, vilket innebär att hälso tillståndet ändras till kritiskt om tröskelvärdet är mindre än 85 procent. 
 
-1. Välj **Lagringskonton** från portalen och välj sedan ett lagringskonto i listan.
+1. Välj **lagrings konton** från portalen och välj sedan ett lagrings konto i listan.
 
-2. Välj **Insikter (förhandsgranskning)** i den vänstra rutan.
+2. Välj **Insights (förhands granskning)** i det vänstra fönstret.
 
-3. I arbetsboken väljer du **Tillgänglighet** för att växla till tillgänglighetsarbetsboken och väljer sedan **Redigera** i kommandofältet. 
+3. I arbets boken väljer du **tillgänglighet** för att växla till tillgänglighets arbets boken och väljer sedan **Redigera** från kommando fältet. 
 
-4. Bläddra ned till sidans nederkant och välj **Redigera**till vänster bredvid rutnätet **Tillgänglighet via API** .
+4. Rulla ned till slutet av sidan och på den vänstra sidan bredvid rutnäts rutnätet **tillgänglighet** , Välj **Redigera**.
 
-    ![Redigera tillgänglighet efter inställningar för API-namnrutnät](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
+    ![Redigera tillgänglighet efter API-namn rutnäts inställningar](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Välj **Kolumninställningar** och välj sedan Tillgänglighet **Columns** (%) i fönstret Redigera **kolumninställningar** ** (Tröskelvärden + Formaterade)**.
+5. Välj **kolumn inställningar** och sedan i fönstret **Redigera kolumn inställningar** , under avsnittet **kolumner** väljer du **tillgänglighet (%) (Tröskelvärden + formaterat)**.
 
-6. Ändra värdet för tillståndet **Kritisk** hälsotillstånd från **90** till **85** och klicka sedan på **Spara och stäng**.
+6. Ändra värdet för **kritiskt** hälso tillstånd från **90** till **85** och klicka sedan på **Spara och Stäng**.
 
     ![Ändra tröskelvärdet för tillgänglighet för kritiskt tillstånd](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 
-7. Välj **Spara som** i kommandofältet om du vill spara en kopia av arbetsboken med anpassningarna och klicka sedan på Klar **redigering** för att återgå till läsläge.
+7. Välj **Spara som** från kommando fältet för att spara en kopia av arbets boken med dina anpassningar och klicka sedan på **klar redigering** för att återgå till läsläge.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Det här avsnittet hjälper dig med diagnos och felsökning av några av de vanliga problem som kan uppstå när du använder Azure Monitor for Storage (förhandsversion). Använd listan nedan för att hitta den information som är relevant för ditt specifika problem.
+I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för lagring (för hands version). Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
 
-### <a name="resolving-performance-capacity-or-availability-issues"></a>Lösa prestanda-, kapacitets- eller tillgänglighetsproblem
+### <a name="resolving-performance-capacity-or-availability-issues"></a>Lösa problem med prestanda, kapacitet eller tillgänglighet
 
-Information om hur du felsöker alla lagringsrelaterade problem som du identifierar med Azure Monitor for Storage (förhandsversion) finns i [felsökningsvägledningen](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)för Azure Storage .  
+Information om hur du felsöker eventuella lagrings problem som du identifierar med Azure Monitor för lagring (för hands version) finns i [fel söknings vägledningen](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)för Azure Storage.  
 
-### <a name="why-can-i-only-see-200-storage-accounts"></a>Varför kan jag bara se 200 lagringskonton?
+### <a name="why-can-i-only-see-200-storage-accounts"></a>Varför kan jag bara se 200-lagrings konton?
 
-Antalet valda lagringskonton har en gräns på 200, oavsett antalet prenumerationer som har valts.
+Antalet valda lagrings konton har en gräns på 200, oavsett hur många prenumerationer som har valts.
 
-### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>Vad händer när jag klickar på en nyligen fäst panel på instrumentpanelen?
+### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>Vad händer när jag klickar på en nyligen fäst panel på instrument panelen?
 
-* Om du klickar någonstans på panelen kommer den att ta dig till fliken där panelen var fäst från. Om du till exempel fäster ett diagram i fliken Översikt över lagringskonto öppnas den sparade kopians vy när du klickar på panelen på instrumentpanelen.
-* Filterikonen längst upp till vänster i titeln öppnar fliken "Konfigurera panelinställningar".
-* Ellipsikonen längst upp till höger ger dig alternativen att "Anpassa titeldata", "anpassa", "uppdatera" och "ta bort från instrumentpanelen".
+* Om du klickar någonstans på panelen kommer du till fliken där panelen har fästs från. Om du till exempel fäster en graf i fliken "lagrings konto översikt" och sedan klickar på den panelen på instrument panelen öppnas den som standardvy, men om du fäster ett diagram från din egna sparade kopia öppnas vyn Sparad kopia.
+* Filter ikonen längst upp till vänster i rubriken öppnar fliken "Konfigurera panel inställningar".
+* Ellips-ikonen längst upp till höger ger dig alternativen "anpassa rubrik data", "anpassa", "uppdatera" och "ta bort från instrument panelen".
 
-### <a name="what-happens-when-i-save-a-workbook"></a>Vad händer när jag sparar en arbetsbok?
+### <a name="what-happens-when-i-save-a-workbook"></a>Vad händer när jag sparar en arbets bok?
 
-* När du sparar en arbetsbok kan du skapa en ny kopia av arbetsboken med dina redigeringar och ändra titeln. Spara inte skriva över arbetsboken, kommer den aktuella arbetsboken alltid vara standardvyn.
-* En **arbetsbok som inte sparats** är bara standardvyn.
+* När du sparar en arbets bok kan du skapa en ny kopia av arbets boken med dina ändringar och ändra rubriken. Om du sparar skrivs inte arbets boken över, den aktuella arbets boken är alltid standardvy.
+* En **osparad** arbets bok är bara standardvyn.
 
 
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Varför ser jag inte alla mina prenumerationer i portalen?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Varför visas inte alla mina prenumerationer i portalen?
 
-Portalen visar endast data för valda prenumerationer vid portalstart. Om du vill ändra vilka prenumerationer som väljs går du längst upp till höger och klickar på anteckningsboken med en filterikon. Detta visar fliken Katalog + prenumerationer.
+Portalen visar endast data för de valda prenumerationerna på Portal lansering. Om du vill ändra vilka prenumerationer som är markerade går du till det övre högra hörnet och klickar på antecknings boken med en filter ikon. Fliken Katalog + prenumerationer visas.
 
 ![Katalog + prenumeration](./media/storage-insights-overview/fqa3.png)
 
-### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Hur ändrar man färg och tröskelvärde för tillgänglighet?
+### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Hur ändrar du färg och tröskel för tillgänglighet?
 
-I avsnittet [Ändra tröskelvärdet](storage-insights-overview.md#modify-the-availability-threshold) för tillgänglighet finns detaljerade steg om hur du ändrar färg och tröskelvärden för tillgänglighet.
+I avsnittet [ändra tröskeln för tillgänglighet](storage-insights-overview.md#modify-the-availability-threshold) finns detaljerade anvisningar om hur du ändrar färg och tröskelvärden för tillgänglighet.
 
-### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Hur man analyserar och felsöker data som visas i Azure Monitor for Storage?
+### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>Hur analyserar och felsöker du data som visas i Azure Monitor för lagring?
 
- Mer information om hur du analyserar och felsöker Azure Storage-data som visas i Azure Monitor for Storage finns i artikeln [Monitor, diagnose och felsöka](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) Microsoft Azure Storage.
+ Information om hur du analyserar och felsöker Azure Storage data som visas i Azure Monitor för lagring finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) artikel.
 
-### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Varför ser jag inte alla typer av fel i mätvärden?
+### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>Varför visas inte alla typer av fel i mått?
 
-För närvarande visas upp till tre olika typer av fel och resten av felen grupperas tillsammans i en enda bucket. Den styrs med splitByLimit och kan ändras. Så här ändrar du den här egenskapen:
+För närvarande visas upp till tre olika typer av fel och resten av felen grupperas tillsammans i en enda Bucket. Den styrs med hjälp av splitByLimit och kan ändras. För att ändra den här egenskapen:
 
-1. Klicka på redigera arbetsbok.
-2. Gå till mått, klicka på redigera och välj sedan **Transaktioner, Summa** eller vilka mått du vill redigera.
+1. Klicka på Redigera arbets bok.
+2. Gå till mått, klicka på Redigera och välj sedan **transaktioner, Summa** eller de mått som du vill redigera.
 
-    ![Gå till mått och klicka på redigera sedan på "Transaktioner, summor"](./media/storage-insights-overview/fqa7.png)
+    ![Gå till mått och klicka på Redigera sedan på "transaktioner, summor"](./media/storage-insights-overview/fqa7.png)
 
 1. Ändra sedan antalet delningar.
 
-    ![Välj måttparametrar"](./media/storage-insights-overview/fqa7-2.png)
+    ![Välj mått parametrar "](./media/storage-insights-overview/fqa7-2.png)
 
-Om du vill se n olika typer av fel än ange splitByLimit som n +1, 1 extra för resten av felen.
+Om du vill se n olika typer av fel än att ange splitByLimit som n + 1, 1 extra för resten av felen.
 
-###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Jag sparade arbetsboken på vissa lagringskonto. Varför kan jag inte hitta den nu?
+###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Jag sparade min arbets bok på ett lagrings konto. Varför kan jag inte hitta det nu?
 
-Varje arbetsbok sparas i lagringskontot som du sparade den i. Försök att hitta det specifika lagringskonto där användaren sparade arbetsboken. Annars finns det inget sätt att hitta en specifik arbetsbok utan att känna till resursen (lagringskonto).
+Varje arbets bok sparas i det lagrings konto som du sparade det i. Försök att hitta det lagrings konto som användaren sparade arbets boken i. Annars finns det inget sätt att hitta en speciell arbets bok utan att känna till resursen (lagrings kontot).
 
-### <a name="what-is-time-range"></a>Vad är tidsintervall?
+### <a name="what-is-time-range"></a>Vad är tidsintervallet?
 
-Tidsintervallet visar data från en viss tidsram. Om tidsintervallet till exempel är 24 timmar visas data från de senaste 24 timmarna.
+Tidsintervallet visar data från en viss tidsram. Om tidsintervallet exempelvis är 24 timmar visar det data från de senaste 24 timmarna.
 
-### <a name="what-is-time-granularity-time-grain"></a>Vad är tidsgranularitet (tidskorn)?
+### <a name="what-is-time-granularity-time-grain"></a>Vad är tids kornig het (tids kornig het)?
 
-Tidsgranularitet är tidsskillnaden mellan två datapunkter. Om till exempel tidskornet är inställt på 1 sekund betyder det att mått samlas in varje sekund.
+Tids kornig het är tids skillnaden mellan två data punkter. Om tids kornigheten till exempel är en sekund som innebär att mått samlas in varje sekund.
 
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Vad är tidsgranulariteten när vi fäster någon del av arbetsböckerna på en instrumentpanel?
+### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Vad är tids kornigheten när vi fäster någon del av arbets böckerna på en instrument panel?
 
-Standardtidsgranulariteten är inställd på automatisk, den kan för närvarande inte ändras just nu.
+Standard tids kornig het är inställd på automatisk, den går för närvarande inte att ändra just nu.
 
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Hur ändrar jag tidsintervallet/tidsintervallet för arbetsboken på instrumentpanelen?
+### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Hur gör jag för att ändra tidsintervall/tidsintervall för arbets bokens steg på min instrument panel?
 
-Som standard är tidsintervallet/tidsintervallet på instrumentpanelen inställt på 24 timmar, om du vill ändra det här klicket på ellipserna längst upp till höger, välj **Anpassa paneldata**, markera rutan "Åsidosätt instrumentpanelens tidsinställningar på rubriknivå" och välj sedan ett tidsintervall med hjälp av rullgardinsmenyn.  
+Som standard är TimeSpan/tidsintervallet på instrument panelen inställd på 24 timmar. om du vill ändra detta klickar du på ellipserna längst upp till höger. Välj **Anpassa panel data**, markera kryss rutan Åsidosätt inställningarna för instrument panelen på rubrik nivå och välj sedan ett TimeSpan med hjälp av list menyn.  
 
-![Markera ellipserna i det högra hörnet av panelen och välj Anpassa dessa data](./media/storage-insights-overview/fqa-data-settings.png)
+![Välj ellipserna i det högra hörnet av panelen och välj anpassa dessa data](./media/storage-insights-overview/fqa-data-settings.png)
 
-![I Konfigurera panelinställningar väljer du listrutan tidsintervall för att ändra tidsintervallet/tidsintervallet](./media/storage-insights-overview/fqa-timespan.png)
+![I Konfigurera panel inställningar väljer du List rutan TimeSpan för att ändra tidsintervall/tidsintervall](./media/storage-insights-overview/fqa-timespan.png)
 
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Hur ändrar jag arbetsbokens rubrik eller ett arbetsbokssteg som jag fäster på en instrumentpanel?
+### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Hur gör jag för att ändra titeln på arbets boken eller ett arbets boks steg som jag har fäst på en instrument panel?
 
-Titeln på arbetsboken eller arbetsbokssteget som är fäst vid en instrumentpanel behåller samma namn som den hade i arbetsboken. Om du vill ändra titeln måste du spara en egen kopia av arbetsboken. Då kan du namnge arbetsboken innan du trycker på Spara.
+Rubriken på arbets bokens eller arbets bokens steg som fästs på en instrument panel behåller samma namn som den hade i arbets boken. Om du vill ändra titeln måste du spara din egen kopia av arbets boken. Sedan kan du namnge arbets boken innan du trycker på Spara.
 
-![Välj spara högst upp om du vill spara en kopia av arbetsboken och ändra namnet på den](./media/storage-insights-overview/fqa-change-workbook-name.png)
+![Välj Spara längst upp för att spara en kopia av arbets boken och ändra namnet på den](./media/storage-insights-overview/fqa-change-workbook-name.png)
 
-Om du vill ändra namnet på ett steg i den sparade arbetsboken väljer du redigera under steget och väljer sedan växeln längst ned i inställningarna.
+Om du vill ändra namnet på ett steg i din sparade arbets bok väljer du redigera under steget och väljer sedan växeln längst ned i inställningarna.
 
-![Välj redigera längst ned i ett arbetsbokssteg för att öppna inställningarna](./media/storage-insights-overview/fqa-edit.png)
-![I inställningarna väljer du växeln längst ned, för att kunna ändra stegnamnet](./media/storage-insights-overview/fqa-change-name.png)
+![Välj Redigera längst ned i ett arbets boks steg för att öppna inställningarna](./media/storage-insights-overview/fqa-edit.png)
+![i Inställningar Välj växeln längst ned för att kunna ändra steg namnet](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Konfigurera [måttaviseringar](../platform/alerts-metric.md) och [tjänsthälsomeddelanden](../../service-health/alerts-activity-log-service-notifications.md) för att konfigurera automatisk avisering för att åtgärda problem.
+* Konfigurera [mått aviseringar](../platform/alerts-metric.md) och [meddelanden om tjänst hälsa](../../service-health/alerts-activity-log-service-notifications.md) för att ställa in automatiserad avisering som hjälper till att identifiera problem.
 
-* Lär dig scenarier arbetsböcker är utformade för att stödja, hur du skapar nya och anpassa befintliga rapporter och mer genom att granska [Skapa interaktiva rapporter med Azure Monitor arbetsböcker](../app/usage-workbooks.md).
+* Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](../app/usage-workbooks.md).
 
-* En detaljerad guide om hur du använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka Problem med Azure Storage finns i [Övervaka, diagnostisera och felsöka Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+* En djupgående guide om hur du använder Lagringsanalys och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).

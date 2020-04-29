@@ -1,6 +1,6 @@
 ---
-title: Reagera på Blob Storage-modulhändelser – Azure Event Grid IoT Edge | Microsoft-dokument
-description: Reagera på Blob Storage-modulhändelser
+title: Reagera på Blob Storage module-händelser – Azure Event Grid IoT Edge | Microsoft Docs
+description: Reagera på Blob Storage module-händelser
 author: arduppal
 manager: brymat
 ms.author: arduppal
@@ -10,54 +10,54 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77086600"
 ---
-# <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Självstudiekurs: Reagera på Blob Storage-händelser på IoT Edge (förhandsversion)
-Den här artikeln visar hur du distribuerar Azure Blob Storage på IoT-modulen, som skulle fungera som en Event Grid-utgivare för att skicka händelser om Blob-skapande och Blob-borttagning till Event Grid.  
+# <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Självstudie: reagera på Blob Storage händelser på IoT Edge (förhands granskning)
+Den här artikeln visar hur du distribuerar Azure Blob Storage i IoT-modulen, som fungerar som en Event Grid utgivare för att skicka händelser vid skapande av BLOB och blob-borttagning till Event Grid.  
 
-En översikt över Azure Blob Storage på IoT Edge finns i [Azure Blob Storage på IoT Edge](../../iot-edge/how-to-store-data-blob.md) och dess funktioner.
+En översikt över Azure-Blob Storage på IoT Edge finns i [Azure Blob Storage på IoT Edge](../../iot-edge/how-to-store-data-blob.md) och dess funktioner.
 
 > [!WARNING]
-> Azure Blob Storage på IoT Edge-integrering med Event Grid är i förhandsversion
+> Azure Blob Storage på IoT Edge-integrering med Event Grid är i för hands version
 
-För att slutföra den här guiden behöver du:
+För att kunna slutföra den här självstudien behöver du:
 
-* **Azure-prenumeration** - Skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 
-* **Azure IoT Hub och IoT Edge-enhet** – Följ stegen i snabbstarten för [Linux-](../../iot-edge/quickstart-linux.md) eller [Windows-enheter](../../iot-edge/quickstart.md) om du inte redan har någon.
+* **Azure-prenumeration** – skapa ett [kostnads fritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 
+* **Azure IoT Hub-och IoT Edge-enhet** – Följ stegen i snabb starten för [Linux](../../iot-edge/quickstart-linux.md) -eller [Windows-enheter](../../iot-edge/quickstart.md) om du inte redan har en.
 
-## <a name="deploy-event-grid-iot-edge-module"></a>Distribuera IoT Edge-module för händelserutnät
+## <a name="deploy-event-grid-iot-edge-module"></a>Distribuera Event Grid IoT Edge modul
 
-Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fungerar för Azure Event Grid på IoT Edge. I den här artikeln beskrivs stegen för att distribuera Event Grid på IoT Edge från Azure-portalen.
+Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fungerar Azure Event Grid på IoT Edge. I den här artikeln beskrivs stegen för att distribuera Event Grid på IoT Edge från Azure Portal.
 
 >[!NOTE]
-> I den här självstudien distribuerar du modulen Event Grid utan att vara beständig. Det innebär att alla ämnen och prenumerationer som du skapar i den här självstudien tas bort när du distribuerar om modulen. Mer information om hur du konfigurerar persistens finns i följande artiklar: [Beständigt tillstånd i Linux](persist-state-linux.md) eller [Kvarstår i Windows](persist-state-windows.md). För produktionsarbetsbelastningar rekommenderar vi att du installerar modulen Event Grid med uthållighet.
+> I den här självstudien ska du distribuera Event Grid-modulen utan persistence. Det innebär att alla ämnen och prenumerationer som du skapar i den här självstudien tas bort när du distribuerar om modulen. Mer information om hur du konfigurerar persistence finns i följande artiklar: [sparat tillstånd i Linux](persist-state-linux.md) eller [sparat tillstånd i Windows](persist-state-windows.md). För produktions arbets belastningar rekommenderar vi att du installerar Event Grid-modulen med persistence.
 
 
-### <a name="select-your-iot-edge-device"></a>Välj din IoT Edge-enhet
+### <a name="select-your-iot-edge-device"></a>Välj din IoT Edge enhet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Logga in på [Azure Portal](https://portal.azure.com)
 1. Navigera till din IoT Hub.
-1. Välj **IoT Edge** på menyn i avsnittet **Automatisk enhetshantering.** 
-1. Klicka på målenhetens ID från listan över enheter
-1. Välj **Ange moduler**. Håll sidan öppen. Du fortsätter med stegen i nästa avsnitt.
+1. Välj **IoT Edge** på menyn i avsnittet **Automatisk enhets hantering** . 
+1. Klicka på mål enhetens ID i listan över enheter
+1. Välj **Ange moduler**. Låt sidan vara öppen. Du kommer att fortsätta med stegen i nästa avsnitt.
 
-### <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributionsmanifest
+### <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributions manifest
 
-Ett distributionsmanifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan modulerna och önskade egenskaper för modultvillingarna. Azure-portalen har en guide som hjälper dig att skapa ett distributionsmanifest i stället för att skapa JSON-dokumentet manuellt.  Den har tre steg: **Lägg till moduler,** **Ange vägar**och Granska **distribution**.
+Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
 
 ### <a name="add-modules"></a>Lägga till moduler
 
-1. I avsnittet **Distributionsmoduler** väljer du **Lägg till**
-1. Välj **IoT Edge Module** i de typer av moduler som finns i listrutan
-1. Ange alternativ för att skapa namn, avbildning, behållare för behållaren:
+1. I avsnittet **distributions moduler** väljer du **Lägg till**
+1. Från typer av moduler i list rutan väljer du **IoT Edge modul**
+1. Ange namn, avbildning, behållarens skapande alternativ för behållaren:
 
    * **Namn**: eventgridmodule
-   * **Bild URI:**`mcr.microsoft.com/azure-event-grid/iotedge:latest`
-   * **Skapa alternativ för att skapa behållare:**
+   * **Bild-URI**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Alternativ för att skapa behållare**:
 
     ```json
         {
@@ -78,41 +78,41 @@ Ett distributionsmanifest är ett JSON-dokument som beskriver vilka moduler som 
     ```    
 
  1. Klicka på **Spara**
- 1. Fortsätt till nästa avsnitt för att lägga till Azure Event Grid Subscriber-modulen innan du distribuerar dem tillsammans.
+ 1. Fortsätt till nästa avsnitt för att lägga till modulen Azure Event Grid-prenumerant innan du distribuerar dem tillsammans.
 
     >[!IMPORTANT]
-    > I den här självstudien får du lära dig att distribuera modulen Event Grid så att både HTTP/HTTPs-begäranden, klientautentisering inaktiveras. För produktionsarbetsbelastningar rekommenderar vi att du endast aktiverar HTTPs-begäranden och prenumeranter med klientautentisering aktiverad. Mer information om hur du konfigurerar Modulen Event Grid på ett säkert sätt finns i [Säkerhet och autentisering](security-authentication.md).
+    > I den här självstudien får du lära dig att distribuera Event Grid-modulen för att tillåta både HTTP/HTTPs-begäranden, klientautentisering inaktive rad. För produktions arbets belastningar rekommenderar vi att du bara aktiverar HTTPs-förfrågningar och-prenumeranter med klientautentisering aktive rad. Mer information om hur du konfigurerar Event Grid modul på ett säkert sätt finns i [säkerhet och autentisering](security-authentication.md).
     
 
-## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Distribuera IoT Edge-modulen För händelserutnät
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Distribuera Event Grid Subscriber IoT Edge-modulen
 
-I det här avsnittet visas hur du distribuerar en annan IoT-modul som skulle fungera som en händelsehanterare till vilken händelser som kan levereras.
+I det här avsnittet visas hur du distribuerar en annan IoT-modul som fungerar som en händelse hanterare som du kan leverera händelser till.
 
 ### <a name="add-modules"></a>Lägga till moduler
 
-1. Välj **Lägg till** igen i avsnittet **Distributionsmoduler.** 
-1. Välj **IoT Edge Module** i de typer av moduler som finns i listrutan
-1. Ange alternativ för att skapa namn, avbildning och behållare för behållaren:
+1. I avsnittet **distributions moduler** väljer du **Lägg till** igen. 
+1. Från typer av moduler i list rutan väljer du **IoT Edge modul**
+1. Ange namn, avbildning och behållar skapande alternativ för behållaren:
 
-   * **Namn**: abonnent
-   * **Bild URI:**`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
-   * **Alternativ för att skapa behållare:** Inga
+   * **Namn**: prenumerant
+   * **Bild-URI**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Alternativ för att skapa behållare**: ingen
 1. Klicka på **Spara**
 1. Fortsätt till nästa avsnitt för att lägga till Azure Blob Storage-modulen
 
-## <a name="deploy-azure-blob-storage-module"></a>Distribuera Azure Blob Storage-modul
+## <a name="deploy-azure-blob-storage-module"></a>Distribuera Azure Blob Storage-modulen
 
-I det här avsnittet visas hur du distribuerar Azure Blob Storage-modulen, som skulle fungera som en Event Grid-utgivare som publicerar Blob skapade och tagit bort händelser.
+I det här avsnittet visas hur du distribuerar Azure Blob Storage-modulen, som fungerar som en Event Grid publicering av BLOB som skapats och tagits bort av Publisher.
 
 ### <a name="add-modules"></a>Lägga till moduler
 
-1. I avsnittet **Distributionsmoduler** väljer du **Lägg till**
-2. Välj **IoT Edge Module** i de typer av moduler som finns i listrutan
-3. Ange alternativ för att skapa namn, avbildning och behållare för behållaren:
+1. I avsnittet **distributions moduler** väljer du **Lägg till**
+2. Från typer av moduler i list rutan väljer du **IoT Edge modul**
+3. Ange namn, avbildning och behållar skapande alternativ för behållaren:
 
    * **Namn**: azureblobstorageoniotedge
-   * **Bild URI**: mcr.microsoft.com/azure-blob-storage:latest
-   * **Skapa alternativ för att skapa behållare:**
+   * **Bild-URI**: MCR.Microsoft.com/Azure-Blob-Storage:Latest
+   * **Alternativ för att skapa behållare**:
 
    ```json
        {
@@ -133,47 +133,47 @@ I det här avsnittet visas hur du distribuerar Azure Blob Storage-modulen, som s
    ```
 
    > [!IMPORTANT]
-   > - Blob Storage module kan publicera händelser med både HTTPS och HTTP. 
-   > - Om du har aktiverat klientbaserad autentisering för EventGrid kontrollerar du att du uppdaterar värdet `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`för EVENTGRID_ENDPOINT för att tillåta https, så här: .
-   > - Lägg också till `AllowUnknownCertificateAuthority=true` en annan miljövariabel till ovanstående Json. När du pratar med EventGrid via HTTPS tillåter **AllowUnknownCertificateAuthority** lagringsmodulen att lita på självsignerade EventGrid-servercertifikat.
+   > - Blob Storage-modulen kan publicera händelser med både HTTPS och HTTP. 
+   > - Om du har aktiverat den klientbaserade autentiseringen för EventGrid, se till att uppdatera värdet för EVENTGRID_ENDPOINT att tillåta https, så här: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`.
+   > - Lägg också till en annan `AllowUnknownCertificateAuthority=true` miljö variabel till ovanstående JSON. När du pratar med EventGrid över HTTPS tillåter **AllowUnknownCertificateAuthority** lagrings modulen att lita på självsignerade EventGrid-servercertifikat.
 
 4. Uppdatera JSON som du kopierade med följande information:
 
-   - Ersätt `<your storage account name>` med ett namn som du kan komma ihåg. Kontonamnen ska vara 3 till 24 tecken långa, med gemener och siffror. Inga mellanslag.
+   - Ersätt `<your storage account name>` med ett namn som du kan komma ihåg. Konto namn ska vara 3 till 24 tecken långa, med gemener och siffror. Inga blank steg.
 
-   - Ersätt `<your storage account key>` med en 64-byte base64 nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att komma åt blob-lagringen från andra moduler.
+   - Ersätt `<your storage account key>` med en 64 byte-base64-nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler.
 
-   - Ersätt `<event grid module name>` med namnet på modulen Event Grid.
-   - Byt ut `<storage mount>` enligt ditt behållaroperativsystem.
-     - För **Linux-behållare, min volym:/blobroot**
-     - För**Windows-behållare, my-volume:C:/BlobRoot**
+   - Ersätt `<event grid module name>` med namnet på din event Grid-modul.
+   - Ersätt `<storage mount>` enligt behållar operativ systemet.
+     - För Linux-behållare, **min-volym:/blobroot**
+     - För Windows-behållare,**min-volym: C:/BlobRoot**
 
 5. Klicka på **Spara**
-6. Klicka på **Nästa** om du vill fortsätta till flödet
+6. Klicka på **Nästa** för att fortsätta till avsnittet vägar
 
     > [!NOTE]
-    > Om du använder en Virtuell Azure-dator som kantenhet lägger du till en inkommande portregel för att tillåta inkommande trafik på värdportarna som används i den här självstudien: 4438, 5888, 8080 och 11002. Instruktioner om hur du lägger till regeln finns i [Så här öppnar du portar till en virtuell dator](../../virtual-machines/windows/nsg-quickstart-portal.md).
+    > Om du använder en virtuell Azure-dator som gräns enhet lägger du till en regel för inkommande port för att tillåta inkommande trafik på de värd portar som används i den här självstudien: 4438, 5888, 8080 och 11002. Anvisningar om hur du lägger till regeln finns i [så här öppnar du portar till en virtuell dator](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
-### <a name="setup-routes"></a>Installationsvägar
+### <a name="setup-routes"></a>Installations vägar
 
-Behåll standardvägarna och välj **Nästa** om du vill fortsätta till granskningsavsnittet
+Behåll standard vägarna och välj **Nästa** för att fortsätta till gransknings avsnittet
 
 ### <a name="review-deployment"></a>Granska distribution
 
-1. Granskningsavsnittet visar det JSON-distributionsmanifest som skapades baserat på dina val i föregående avsnitt. Bekräfta att du ser följande fyra moduler: **$edgeAgent**, **$edgeHub**, **eventgridmodule,** **prenumerant** och **azureblobstorageoniotedge** som alla distribueras.
-2. Granska distributionsinformationen och välj sedan **Skicka**.
+1. I avsnittet granska visas JSON-distributions manifestet som skapades utifrån dina val i föregående avsnitt. Bekräfta att du ser följande fyra moduler: **$edgeAgent**, **$edgeHub**, **eventgridmodule**, **prenumeranter** och **azureblobstorageoniotedge** som alla distribueras.
+2. Granska distributions informationen och välj sedan **Skicka**.
 
 ## <a name="verify-your-deployment"></a>Verifiera distributionen
 
-1. När du har skickat distributionen går du tillbaka till IoT Edge-sidan i din IoT-hubb.
-2. Välj den **IoT Edge-enhet** som du riktade in dig på med distributionen för att öppna dess information.
-3. I enhetsinformationen kontrollerar du att modulerna eventgridmodule, abonnent och azureblobstorageoniotedge visas som både **angivna i distributionen** och **Rapporterad per enhet**.
+1. När du har skickat distributionen återgår du till IoT Edge sida i IoT Hub.
+2. Välj den **IoT Edge enhet** som du har för distributionen för att öppna informationen.
+3. I enhets informationen kontrollerar du att modulerna eventgridmodule, prenumeranter och azureblobstorageoniotedge anges som båda **anges i distributionen** och **rapporteras av enheten**.
 
-   Det kan ta en stund innan modulen startas på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan för att se en uppdaterad status.
+   Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se en uppdaterad status.
 
-## <a name="publish-blobcreated-and-blobdeleted-events"></a>Publicera BlobCreated och BlobDeleted händelser
+## <a name="publish-blobcreated-and-blobdeleted-events"></a>Publicera BlobCreated-och BlobDeleted-händelser
 
-1. Den här modulen skapar automatiskt ämnet **MicrosoftStorage**. Kontrollera att den finns
+1. I den här modulen skapas automatiskt ämnet **MicrosoftStorage**. Kontrol lera att den finns
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview
     ```
@@ -195,11 +195,11 @@ Behåll standardvägarna och välj **Nästa** om du vill fortsätta till granskn
     ```
 
     > [!IMPORTANT]
-    > - Om klientautentiseringen är aktiverad via SAS-tangenten för HTTPS-flödet ska SAS-nyckeln som angetts tidigare läggas till som ett huvud. Därför curl begäran kommer att vara:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
-    > - Om klientautentiseringen aktiveras via certifikat för HTTPS-flödet kommer den curl-begäran att vara:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - För HTTPS-flödet, om klientautentisering är aktive rad via SAS-nyckel, ska den SAS-nyckel som anges ovan läggas till som en rubrik. Därför kommer spiral förfrågan att:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - Om klientautentisering är aktive rad via certifikat för HTTPS-flödet blir förfrågan om att:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
-2. Prenumeranter kan registrera sig för evenemang som publiceras i ett ämne. Om du vill ta emot alla händelser måste du skapa en Event Grid-prenumeration för **MicrosoftStorage-avsnittet.**
-    1. Skapa blobsubscription.json med följande innehåll. Mer information om nyttolasten finns i vår [API-dokumentation](api.md)
+2. Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om du vill ta emot en händelse måste du skapa en Event Grid prenumeration för **MicrosoftStorage** -avsnittet.
+    1. Skapa blobsubscription. JSON med följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md)
 
        ```json
         {
@@ -215,19 +215,19 @@ Behåll standardvägarna och välj **Nästa** om du vill fortsätta till granskn
        ```
 
        >[!NOTE]
-       > Egenskapen **endpointType** anger att prenumeranten är en **Webhook**.  **SlutpunktenUrl** anger webbadressen där prenumeranten lyssnar efter händelser. Den här URL:en motsvarar exemplet på Azure-funktionen som du har distribuerat tidigare.
+       > Egenskapen **endpointType** anger att prenumeranten är en **webhook**.  **EndpointUrl** anger URL: en där prenumeranten lyssnar efter händelser. URL: en motsvarar Azure Function-exemplet som du distribuerade tidigare.
 
-    2. Kör följande kommando för att skapa en prenumeration för ämnet. Bekräfta att HTTP-statuskoden `200 OK`är .
+    2. Kör följande kommando för att skapa en prenumeration för ämnet. Bekräfta att du ser HTTP-statuskoden är `200 OK`.
 
        ```sh
        curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
        ```
 
        > [!IMPORTANT]
-       > - Om klientautentiseringen är aktiverad via SAS-tangenten för HTTPS-flödet ska SAS-nyckeln som angetts tidigare läggas till som ett huvud. Därför curl begäran kommer att vara:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
-       > - Om klientautentiseringen aktiveras via certifikat för HTTPS-flödet kommer den curl-begäran att vara:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - För HTTPS-flödet, om klientautentisering är aktive rad via SAS-nyckel, ska den SAS-nyckel som anges ovan läggas till som en rubrik. Därför kommer spiral förfrågan att:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+       > - Om klientautentisering är aktive rad via certifikat för HTTPS-flödet blir förfrågan om att:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
-    3. Kör följande kommando för att verifiera att prenumerationen har skapats. HTTP-statuskoden för 200 OK ska returneras.
+    3. Kör följande kommando för att kontrol lera att prenumerationen har skapats. HTTP-statuskod på 200 OK ska returneras.
 
        ```sh
        curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
@@ -253,17 +253,17 @@ Behåll standardvägarna och välj **Nästa** om du vill fortsätta till granskn
        ```
 
        > [!IMPORTANT]
-       > - Om klientautentiseringen är aktiverad via SAS-tangenten för HTTPS-flödet ska SAS-nyckeln som angetts tidigare läggas till som ett huvud. Därför curl begäran kommer att vara:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-       > - Om klientautentiseringen aktiveras via certifikat för HTTPS-flödet kommer den curl-begäran att vara:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - För HTTPS-flödet, om klientautentisering är aktive rad via SAS-nyckel, ska den SAS-nyckel som anges ovan läggas till som en rubrik. Därför kommer spiral förfrågan att:`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - Om klientautentisering är aktive rad via certifikat för HTTPS-flödet blir förfrågan om att:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
-3. Ladda ned [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och ansluta den till ditt lokala [lagringsutrymme](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
+3. Ladda ned [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och [Anslut den till din lokala lagrings plats](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
-## <a name="verify-event-delivery"></a>Verifiera händelseleverans
+## <a name="verify-event-delivery"></a>Verifiera händelse leverans
 
-### <a name="verify-blobcreated-event-delivery"></a>Verifiera BlobCreated händelseleverans
+### <a name="verify-blobcreated-event-delivery"></a>Verifiera leverans av BlobCreated-händelser
 
-1. Ladda upp filer som blockblobar till den lokala lagringen från Azure Storage Explorer och modulen publicerar automatiskt skapa händelser. 
-2. Kolla in prenumerantloggarna för att skapa evenemang. Följ stegen för att [verifiera händelseleveransen](pub-sub-events-webhook-local.md#verify-event-delivery)
+1. Ladda upp filer som block blobbar till den lokala lagringen från Azure Storage Explorer, så publicerar modulen automatiskt skapa händelser. 
+2. Kolla in prenumeranternas loggar för att skapa händelse. Följ stegen för att [Verifiera händelse leveransen](pub-sub-events-webhook-local.md#verify-event-delivery)
 
     Exempel på utdata:
 
@@ -290,10 +290,10 @@ Behåll standardvägarna och välj **Nästa** om du vill fortsätta till granskn
             }
     ```
 
-### <a name="verify-blobdeleted-event-delivery"></a>Verifiera BlobDeleted händelseleverans
+### <a name="verify-blobdeleted-event-delivery"></a>Verifiera leverans av BlobDeleted-händelser
 
-1. Ta bort blobbar från det lokala lagringsutrymmet med Azure Storage Explorer och modulen publicerar automatiskt borttagningshändelser. 
-2. Kolla in prenumerantloggarna för borttagningshändelse. Följ stegen för att [verifiera händelseleveransen](pub-sub-events-webhook-local.md#verify-event-delivery)
+1. Ta bort blobbar från den lokala lagringen med hjälp av Azure Storage Explorer och modulen publicerar automatiskt ta bort händelser. 
+2. Kolla in prenumeranterna för att ta bort händelser. Följ stegen för att [Verifiera händelse leveransen](pub-sub-events-webhook-local.md#verify-event-delivery)
 
     Exempel på utdata:
     
@@ -320,45 +320,45 @@ Behåll standardvägarna och välj **Nästa** om du vill fortsätta till granskn
             }
     ```
 
-Grattis! Du har slutfört handledningen. I följande avsnitt finns information om händelseegenskaperna.
+Grattis! Du har slutfört självstudien. I följande avsnitt finns information om händelse egenskaperna.
 
-### <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelse egenskaper
 
-Här är listan över händelseegenskaper som stöds och deras typer och beskrivningar. 
+Här är en lista över de händelse egenskaper som stöds och deras typer och beskrivningar. 
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
-| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
-| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
-| data | objekt | Händelsedata för bloblagring. |
+| Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| id | sträng | Unikt ID för händelsen. |
+| data | objekt | Händelse data för Blob Storage. |
 | Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
-Dataobjektet har följande egenskaper:
+Data-objektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| api | sträng | Åtgärden som utlöste händelsen. Det kan vara något av följande värden: <ul><li>BlobCreated - tillåtna `PutBlob` värden är: och`PutBlockList`</li><li>BlobDeleted - tillåtna `DeleteAfterUpload` `AutoDelete`värden är `DeleteBlob`och . <p>Händelsen `DeleteAfterUpload` genereras när blob automatiskt tas bort eftersom egenskapen deleteAfterUpload desired property är inställd på true. </p><p>`AutoDelete`händelse genereras när blob tas bort automatiskt eftersom deleteAfterMinutes önskat egenskapsvärde har upphört att gälla.</p></li></ul>|
-| klientRequestId | sträng | ett klienttillsyn på begäran för lagrings-API-åtgärden. Det här ID:t kan användas för att korrelera till Azure Storage-diagnostikloggar med hjälp av fältet "client-request-id" i loggarna och kan tillhandahållas i klientbegäranden med huvudet "x-ms-client-request-id". Mer information finns i [Loggformat](/rest/api/storageservices/storage-analytics-log-format). |
-| Id | sträng | Tjänstgenererat begärande-ID för lagrings-API-åtgärden. Kan användas för att korrelera till Azure Storage-diagnostikloggar med hjälp av fältet "request-id-header" i loggarna och returneras från att initiera API-anrop i huvudet "x-ms-request-id". Se [Loggformat](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| Etag | sträng | Det värde som du kan använda för att utföra åtgärder villkorligt. |
-| Contenttype | sträng | Den innehållstyp som angetts för blobben. |
-| innehållLängd | heltal | Storleken på blobben i byte. |
-| blobType (blobType) | sträng | Typ av blob. Giltiga värden är antingen "BlockBlob" eller "PageBlob". |
-| url | sträng | Sökvägen till blobben. <br>Om klienten använder ett Blob REST API har url:en den här strukturen: * \<\>storage-account-name\<.blob.core.windows.net/-filnamn för behållarnamn\>/\<\>*. <br>Om klienten använder ett REST-API för datasjölagring har url:en den här strukturen: * \<\>storage-account-name\<.dfs.core.windows.net/ filnamnsfilnamn för filnamnet\>/\<\>*. |
+| api | sträng | Den åtgärd som utlöste händelsen. Det kan vara något av följande värden: <ul><li>BlobCreated-tillåtna värden är: `PutBlob` och`PutBlockList`</li><li>BlobDeleted-tillåtna värden är `DeleteBlob` `DeleteAfterUpload` och `AutoDelete`. <p>`DeleteAfterUpload` Händelsen genereras när BLOB tas bort automatiskt eftersom den önskade deleteAfterUpload-egenskapen har angetts till true. </p><p>`AutoDelete`händelsen genereras när blobben tas bort automatiskt eftersom det önskade egenskap svärdet för deleteAfterMinutes har upphört att gälla.</p></li></ul>|
+| clientRequestId | sträng | ett ID för begäran som tillhandahållits för Storage API-åtgärden. Detta ID kan användas för att korrelera Azure Storage diagnostikloggar med hjälp av fältet "client-Request-ID" i loggarna och kan tillhandahållas i klient begär Anden med hjälp av huvudet "x-MS-client-Request-ID". Mer information finns i [logg format](/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | sträng | Service-genererat förfrågnings-ID för Storage API-åtgärden. Kan användas för att korrelera Azure Storage diagnostikloggar som använder fältet "Request-ID-huvud" i loggarna och returneras från initiering av API-anrop i huvudet "x-MS-Request-ID". Se [logg format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| eTag | sträng | Det värde som du kan använda för att utföra åtgärder villkorligt. |
+| Innehålls | sträng | Den innehålls typ som angetts för blobben. |
+| contentLength | heltal | Storleken på blobben i byte. |
+| blobType | sträng | Typ av BLOB. Giltiga värden är antingen "BlockBlob" eller "PageBlob". |
+| url | sträng | Sökvägen till blobben. <br>Om klienten använder en BLOB-REST API, har URL: en följande struktur: * \<lagrings konto\>namn\<. blob.Core.Windows.net/container-\>/\<Name File-name\>*. <br>Om klienten använder en data Lake Storage REST API, har URL: en följande struktur: * \<Storage-Account-\>Name. DFS.Core.Windows.net/\<-fil\>/\<\>*-Name. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar i dokumentationen för Blob Storage:
+Se följande artiklar i Blob Storage-dokumentationen:
 
-- [Filtrera bloblagringshändelser](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
-- [Rekommenderade metoder för att använda Blob Storage-händelser](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
+- [Filtrera Blob Storage händelser](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
+- [Rekommenderade metoder för att konsumera Blob Storage händelser](../../storage/blobs/storage-blob-event-overview.md#practices-for-consuming-events)
 
-I den här självstudien publicerade du händelser genom att skapa eller ta bort blobbar i en Azure Blob Storage. Se de andra självstudierna för att lära dig hur du vidarebefordrar händelser till molnet (Azure Event Hub eller Azure IoT Hub): 
+I den här självstudien publicerade du händelser genom att skapa eller ta bort blobbar i ett Azure-Blob Storage. Se de andra självstudierna för att lära dig hur du vidarebefordrar händelser till molnet (Azure Event Hub eller Azure IoT Hub): 
 
 - [Vidarekoppla händelser till Azure Event Grid](forward-events-event-grid-cloud.md)
 - [Vidarekoppla händelser till Azure IoT Hub](forward-events-iothub.md)

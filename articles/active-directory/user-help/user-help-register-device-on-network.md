@@ -1,6 +1,6 @@
 ---
-title: Registrera personliga enheter i en organisations nätverk - Azure AD
-description: Läs om hur du registrerar din personliga enhet i organisationens nätverk så att du kan komma åt organisationens skyddade resurser.
+title: Registrera personliga enheter i en organisations nätverk – Azure AD
+description: Lär dig hur du registrerar din personliga enhet i din organisations nätverk så att du kan komma åt din organisations skyddade resurser.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,62 +14,62 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: e2e6585bac100a09f3f98037e90b24738e22816f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063874"
 ---
-# <a name="register-your-personal-device-on-your-organizations-network"></a>Registrera din personliga enhet i organisationens nätverk
-Registrera din personliga enhet (vanligtvis en telefon eller surfplatta) i organisationens nätverk. När enheten har registrerats kan den komma åt organisationens begränsade resurser.
+# <a name="register-your-personal-device-on-your-organizations-network"></a>Registrera din personliga enhet i din organisations nätverk
+Registrera din personliga enhet (vanligt vis en telefon eller surfplatta) i din organisations nätverk. När enheten har registrerats kommer den att kunna komma åt din organisations begränsade resurser.
 
 >[!Note]
->Den här artikeln använder en Windows-enhet i demonstrationssyfte, men du kan också registrera enheter som kör iOS, Android eller macOS.
+>I den här artikeln används en Windows-enhet i demonstrations syfte, men du kan även registrera enheter som kör iOS, Android eller macOS.
 
-## <a name="what-happens-when-you-register-your-device"></a>Vad händer när du registrerar enheten
-När du registrerar enheten i organisationens nätverk kommer följande åtgärder att vidtas:
+## <a name="what-happens-when-you-register-your-device"></a>Vad händer när du registrerar din enhet
+När du registrerar din enhet i din organisations nätverk sker följande åtgärder:
 
-- Windows registrerar enheten i organisationens nätverk.
+- Windows registrerar din enhet i din organisations nätverk.
 
-- Alternativt, baserat på organisationens val, kan du bli ombedd att konfigurera tvåstegsverifiering via antingen [multifaktorautentisering](multi-factor-authentication-end-user-first-time.md) eller [säkerhetsinformation](user-help-security-info-overview.md).
+- Om du vill, baserat på din organisations val, kan du uppmanas att konfigurera tvåstegsverifiering genom antingen [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) eller [säkerhets information](user-help-security-info-overview.md).
 
-- Alternativt, baserat på organisationens val, kan du automatiskt registreras i hantering av mobila enheter, till exempel Microsoft Intune. Mer information om hur du registrerar dig i Microsoft Intune finns [i Registrera din enhet i Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Du kan också, beroende på din organisations val, registreras automatiskt i hantering av mobila enheter, t. ex. Microsoft Intune. Mer information om hur du registrerar i Microsoft Intune finns i [Registrera din enhet i Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
 
-- Du går igenom inloggningsprocessen med användarnamn och lösenord för ditt arbets- eller skolkonto.
+- Du går igenom inloggnings processen med hjälp av användar namn och lösen ord för ditt arbets-eller skol konto.
 
-## <a name="to-register-your-windows-device"></a>Så här registrerar du din Windows-enhet
+## <a name="to-register-your-windows-device"></a>Registrera din Windows-enhet
 
-Följ dessa steg för att registrera din personliga enhet i nätverket.
+Följ de här stegen för att registrera din personliga enhet i nätverket.
 
-1. Öppna **Inställningar**och välj sedan **Konton**.
-
-    ![Konton på skärmen Inställningar](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
-
-2. Välj **Access-arbete eller skola**och välj sedan **Anslut** på **skärmen Access-arbete eller skola.**
-
-    ![Komma åt arbets- eller skolskärmen med alternativet Anslut markerat](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
-
-3. På skärmen **Lägg till ett arbets- eller skolkonto** skriver du in din e-postadress för ditt arbets- eller skolkonto och väljer sedan **Nästa**. Till exempel alain@contoso.com.
-
-4. Logga in på ditt arbets- eller skolkonto och välj sedan **Logga in**.
-
-5. Slutför resten av registreringsprocessen, inklusive godkännande av din begäran om identitetsverifiering (om du använder tvåstegsverifiering) och konfigurera Windows Hello (om det behövs).
-
-## <a name="to-verify-that-youre-registered"></a>Så här verifierar du att du är registrerad
-Du kan kontrollera att du är registrerad genom att titta på dina inställningar.
-
-1. Öppna **Inställningar**och välj sedan **Konton**.
+1. Öppna **Inställningar**och välj sedan **konton**.
 
     ![Konton på skärmen Inställningar](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Välj **Åtkomst till arbete eller skola**och se till att du ser ditt arbets- eller skolkonto.
+2. Välj **åtkomst till arbete eller skola**och välj sedan **Anslut** från skärmen för **åtkomst till arbetet eller skolan** .
 
-    ![Komma åt arbets- eller skolskärm med anslutet contoso-konto](./media/user-help-register-device-on-network/register-device-setup-verify.png)
+    ![Åtkomst till arbets-eller skol skärm med alternativet Anslut markerat](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
+
+3. På skärmen **Lägg till ett arbets-eller skol konto** skriver du in din e-postadress för ditt arbets-eller skol konto och väljer sedan **Nästa**. Till exempel alain@contoso.com.
+
+4. Logga in på ditt arbets-eller skol konto och välj sedan **Logga**in.
+
+5. Slutför resten av registrerings processen, inklusive att godkänna din begäran om identitets verifiering (om du använder tvåstegsverifiering) och konfigurera Windows Hello (om det behövs).
+
+## <a name="to-verify-that-youre-registered"></a>För att kontrol lera att du är registrerad
+Du kan se till att du har registrerat dig genom att titta på dina inställningar.
+
+1. Öppna **Inställningar**och välj sedan **konton**.
+
+    ![Konton på skärmen Inställningar](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
+
+2. Välj **åtkomst till arbete eller skola**och se till att du ser ditt arbets-eller skol konto.
+
+    ![Få åtkomst till arbets-eller skol skärmen med det anslutna contoso-kontot](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
 ## <a name="next-steps"></a>Nästa steg
-När du har registrerat din personliga enhet i organisationens nätverk bör du kunna komma åt de flesta av dina resurser.
+När du har registrerat din personliga enhet i din organisations nätverk bör du ha åtkomst till de flesta av dina resurser.
 
-- Om din organisation vill att du ska gå med i din arbetsenhet läser [du Ansluta till din arbetsenhet till organisationens nätverk](user-help-join-device-on-network.md).
+- Om din organisation vill att du ska ansluta till din arbets enhet, se [ansluta din arbets enhet till din organisations nätverk](user-help-join-device-on-network.md).
 
 
 

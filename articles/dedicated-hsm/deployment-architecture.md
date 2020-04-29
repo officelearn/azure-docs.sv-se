@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77048552"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Distributionsarkitektur för Azure Dedicated HSM

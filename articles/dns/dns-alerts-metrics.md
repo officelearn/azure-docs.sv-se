@@ -1,6 +1,6 @@
 ---
-title: Mått och aviseringar - Azure DNS
-description: Med den här utbildningssökvägen kommer du igång med Azure DNS-mått och aviseringar.
+title: Mått och aviseringar – Azure DNS
+description: Med den här utbildnings vägen kan du komma igång med Azure DNS mått och aviseringar.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -13,56 +13,56 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
 ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76937445"
 ---
-# <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-mått och aviseringar
-Azure DNS är en värdtjänst för DNS-domäner som tillhandahåller namnmatchning med Microsoft Azure-infrastrukturen. I den här artikeln beskrivs mått och aviseringar för Azure DNS-tjänsten.
+# <a name="azure-dns-metrics-and-alerts"></a>Azure DNS mått och aviseringar
+Azure DNS är en värd tjänst för DNS-domäner som tillhandahåller namn matchning med hjälp av Microsoft Azure-infrastrukturen. Den här artikeln beskriver mått och aviseringar för den Azure DNS tjänsten.
 
-## <a name="azure-dns-metrics"></a>Azure DNS-mått
+## <a name="azure-dns-metrics"></a>Azure DNS mått
 
-Azure DNS tillhandahåller mått för kunder så att de kan övervaka specifika aspekter av sina DNS-zoner som finns i tjänsten. Dessutom, med Azure DNS-mått, kan du konfigurera och ta emot aviseringar baserat på villkor av intresse. Måtten tillhandahålls via [Azure Monitor-tjänsten](../azure-monitor/index.yml). Azure DNS tillhandahåller följande mått via Azure Monitor för dina DNS-zoner:
+Azure DNS tillhandahåller mått för kunder så att de kan övervaka vissa aspekter av sina DNS-zoner som finns i tjänsten. Med Azure DNS mått kan du dessutom konfigurera och ta emot aviseringar baserat på villkor i intresse. Måtten tillhandahålls via den [Azure Monitor tjänsten](../azure-monitor/index.yml). Azure DNS tillhandahåller följande mått via Azure Monitor för dina DNS-zoner:
 
--   FrågaVolym
--   RecordSetCount (RecordSetCount)
+-   QueryVolume
+-   RecordSetCount
 -   RecordSetCapacityUtilization
 
-Du kan också se definitionen av dessa mått på [dokumentationssidan](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) för Azure Monitor.
+Du kan också se [definitionen av dessa mått](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) på sidan Azure Monitor dokumentation.
 >[!NOTE]
-> För närvarande är dessa mått endast tillgängliga för offentliga DNS-zoner som finns i Azure DNS. Om du har privata zoner i Azure DNS kommer dessa mått inte att tillhandahålla data för dessa zoner. Dessutom stöds mått och aviseringsfunktionen endast i Azure Public-molnet. Stöd för suveräna moln kommer att följa vid ett senare tillfälle. 
+> För närvarande är dessa mått bara tillgängliga för offentliga DNS-zoner som finns i Azure DNS. Om du har privata zoner som finns i Azure DNS, kommer dessa mått inte att tillhandahålla data för dessa zoner. Dessutom stöds endast funktionen mått och avisering i Azures offentliga moln. Stöd för suveräna moln kommer att följa vid ett senare tillfälle. 
 
-Det mest detaljerade element som du kan se mått för är en DNS-zon. Du kan för närvarande inte se mått för enskilda resursposter inom en zon.
+Det mest detaljerade elementet som du kan se mått för är en DNS-zon. Du kan för närvarande inte se mått för enskilda resurs poster inom en zon.
 
 ### <a name="query-volume"></a>Fråga volym
 
-Måttet *Frågevolym* i Azure DNS visar volymen DNS-frågor (frågetrafik) som tas emot av Azure DNS för DNS-zonen. Måttenheten är Antal och aggregeringen är summan av alla frågor som tas emot under en tidsperiod. 
+Volym måttet *Volume* i Azure DNS visar volymen DNS-frågor (fråga trafik) som tas emot av Azure DNS för din DNS-zon. Mått enheten är antal och agg regeringen är summan av alla frågor som tagits emot under en viss tids period. 
 
-Om du vill visa det här måttet väljer du Upplevelse av mått (förhandsversion) på fliken Övervakare i Azure-portalen. Välj DNS-zonen i listrutan Resurs, välj måttet Frågevolym och välj Summa som aggregering. Nedan visar skärmdump ett exempel.  Mer information om hur du utforskar statistik och diagram finns i [Utforskaren för Azure Monitor Metrics](../azure-monitor/platform/metrics-charts.md).
+Om du vill visa det här måttet väljer du mått (förhands granskning) Explorer-upplevelse från fliken övervaka i Azure Portal. Välj din DNS-zon i list rutan resurs, Välj volym mått för fråga och välj sum som agg regering. Skärm bilden nedan visar ett exempel.  Mer information om Metrics Explorer upplevelse och diagram finns i [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
 
 ![Fråga volym](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 
-*Bild: Azure DNS-frågevolymmått*
+*Bild: Azure DNS fråga volym mått*
 
-### <a name="record-set-count"></a>Antal postuppsättningar
-Måttet *Antal postuppsättningar* visar antalet postmängder i Azure DNS för DNS-zonen. Alla postmängder som definierats i zonen räknas. Måttenheten är Antal och aggregeringen är den maximala av alla postmängder. Om du vill visa det här måttet väljer du **Upplevelse av mått (förhandsversion)** på fliken **Övervakare** i Azure-portalen. Välj DNS-zonen i listrutan **Resurs,** välj måttet **Antal postuppsättningar** och välj sedan **Max** som **aggregering**. Mer information om hur du utforskar statistik och diagram finns i [Utforskaren för Azure Monitor Metrics](../azure-monitor/platform/metrics-charts.md). 
+### <a name="record-set-count"></a>Antal post uppsättningar
+Måttet *antal post uppsättningar* visar antalet post uppsättningar i Azure DNS för din DNS-zon. Alla post uppsättningar som definierats i din zon räknas. Mått enheten är count och agg regeringen är maximum för alla post mängder. Om du vill visa det här måttet väljer du **mått (förhands granskning) Explorer-** upplevelse från fliken **övervaka** i Azure Portal. Välj din DNS-zon i list rutan **resurs** , Välj måttet **uppsättning av uppsättning med data uppsättning** och välj sedan **Max** som **agg regering**. Mer information om Metrics Explorer upplevelse och diagram finns i [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
-![Antal postuppsättningar](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
+![Antal post uppsättningar](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
 
-*Bild: Azure DNS-postuppsättningsantalsmått*
+*Bild: mått för Azure DNS post uppsättnings antal*
 
 
-### <a name="record-set-capacity-utilization"></a>Kapacitetsutnyttjande för postuppsättning
-Måttet *Postuppsättning kapacitetsutnyttjande* i Azure DNS visar procentandelen utnyttjande av din postmängdskapacitet för en DNS-zon. Varje DNS-zon i Azure DNS omfattas av en postmängdsgräns som definierar det maximala antalet postmängder som tillåts för zonen (se [DNS-gränser).](dns-zones-records.md#limits) Därför visar det här måttet hur nära du är att träffa postmängdsgränsen. Om du till exempel har 500 postmängder konfigurerade för DNS-zonen och zonen har standardgränsen för postmängd på 5000, visar metric RecordSetCapacityUtilization värdet 10 % (som erhålls genom att dividera 500 med 5000). Måttenheten är **Procent** och **aggregeringstypen** är **Maximum**. Om du vill visa det här måttet väljer du Upplevelse av mått (förhandsversion) på fliken Övervakare i Azure-portalen. Välj DNS-zonen i listrutan Resurs, välj måttet Datainställda kapacitetsutnyttjande och välj Max som aggregering. Nedan visar skärmdump ett exempel. Mer information om hur du utforskar statistik och diagram finns i [Utforskaren för Azure Monitor Metrics](../azure-monitor/platform/metrics-charts.md). 
+### <a name="record-set-capacity-utilization"></a>Kapacitets användning för post uppsättning
+Måttet för *data uppsättningens kapacitetsutnyttjande* i Azure DNS visar procent andelen för användningen av din Recordset-kapacitet för en DNS-zon. Varje DNS-zon i Azure DNS omfattas av en Recordset-gräns som definierar det maximala antalet post uppsättningar som tillåts för zonen (se [DNS-gränser](dns-zones-records.md#limits)). Därför visar det här måttet hur nära du är när du ska trycka på post mängds gränsen. Om du till exempel har 500-Recordset som kon figurer ATS för din DNS-zon och zonen har standard post mängds gränsen 5000, visar RecordSetCapacityUtilization-måttet värdet 10% (som erhålls genom att dividera 500 med 5000). Mått enheten är i **procent** och **agg regerings** typen är **maximum**. Om du vill visa det här måttet väljer du mått (förhands granskning) Explorer-upplevelse från fliken övervaka i Azure Portal. Välj din DNS-zon i list rutan resurs, Välj mått för kapacitets användning för data uppsättning och välj Max som agg regering. Skärm bilden nedan visar ett exempel. Mer information om Metrics Explorer upplevelse och diagram finns i [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
-![Antal postuppsättningar](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
+![Antal post uppsättningar](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
-*Bild: Azure DNS-postuppsättning kapacitetsutnyttjandemått*
+*Bild: Azure DNS post uppsättnings mått för kapacitets användning*
 
 ## <a name="alerts-in-azure-dns"></a>Aviseringar i Azure DNS
-Azure Monitor ger möjlighet att avisera mot tillgängliga måttvärden. DNS-måtten är tillgängliga i den nya aviseringskonfigurationsupplevelsen. Som beskrivs i detalj i [Azure Monitor-aviseringar dokumentationen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)kan du välja DNS Zone som resurs, välja måttsignaltyp och konfigurera varningslogiken och andra parametrar som **Period** och **Frekvens**. Du kan ytterligare definiera en [åtgärdsgrupp](../azure-monitor/platform/action-groups.md) för när varningsvillkoret är uppfyllt, varvid aviseringen levereras via de valda åtgärderna. Mer information om hur du konfigurerar aviseringar för Azure Monitor-mått finns i [Skapa, visa och hantera aviseringar med Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Azure Monitor ger möjlighet att varna mot tillgängliga mått värden. DNS-måtten är tillgängliga i den nya aviserings konfigurations upplevelsen. Som beskrivs i detalj i [dokumentationen för Azure Monitor-aviseringar](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)kan du välja DNS-zon som resurs, välja mått signal typ och konfigurera aviserings logiken och andra parametrar, till exempel **period** och **frekvens**. Du kan ytterligare definiera en [Åtgärds grupp](../azure-monitor/platform/action-groups.md) för när aviserings villkoret är uppfyllt, genom att ange att aviseringen ska levereras via de valda åtgärderna. Mer information om hur du konfigurerar aviseringar för Azure Monitor mått finns i [skapa, Visa och hantera aviseringar med hjälp av Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Azure DNS](dns-overview.md).

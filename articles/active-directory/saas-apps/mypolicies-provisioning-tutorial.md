@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera myPolicies för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableringa användarkonton till myPolicies.
+title: 'Självstudie: konfigurera principer för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till principer.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,146 +16,146 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 353da826b6e339d40a5d85bbf63caac5bf7094f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77061377"
 ---
-# <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera myPolicies för automatisk användaretablering
+# <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Självstudie: konfigurera principer för automatisk användar etablering
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i myPolicies och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetableras användare och/eller grupper till myPolicies.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i principerna och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetablera användare och/eller grupper till principer.
 
 > [!NOTE]
-> Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här kopplingen är för närvarande i offentlig förhandsversion. Mer information om de allmänna användningsvillkoren för förhandsversionen av Microsoft Azure finns i [Tilläggsvillkor för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klientorganisation.
-* [En myPolicies hyresgäst](https://mypolicies.com/index.html#section10).
-* Ett användarkonto i myPolicies med administratörsbehörighet.
+* [En klient för principer](https://mypolicies.com/index.html#section10).
+* Ett användar konto i principer för administratörs behörighet.
 
-## <a name="assigning-users-to-mypolicies"></a>Tilldela användare till myPolicies
+## <a name="assigning-users-to-mypolicies"></a>Tilldela användare till principer
 
-Azure Active Directory använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till myPolicies. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till myPolicies genom att följa instruktionerna här:
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till principer. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till principer genom att följa anvisningarna här:
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-mypolicies"></a>Viktiga tips för att tilldela användare till myPolicies
+## <a name="important-tips-for-assigning-users-to-mypolicies"></a>Viktiga tips för att tilldela användare principer
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas myPolicies för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas principer för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till myPolicies måste du välja en giltig programspecifik roll (om sådan finns) i tilldelningsdialogrutan. Användare med rollen **Standardåtkomst** är undantagna från etablering.
+* När du tilldelar en användare till principer måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="setup-mypolicies-for-provisioning"></a>Konfigurera myPolicies för etablering
+## <a name="setup-mypolicies-for-provisioning"></a>Konfigurera principer för etablering
 
-Innan du konfigurerar myPolicies för automatisk användaretablering med Azure AD måste du aktivera SCIM-etablering på myPolicies.
+Innan du konfigurerar principer för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering för principer.
 
-1. Kontakta din myPolicies-representant **support@mypolicies.com** för att få den hemliga token som behövs för att konfigurera SCIM-etablering.
+1. Kontakta dina principer för **support@mypolicies.com** att få den hemliga token som krävs för att konfigurera scim-etablering.
 
-2.  Spara tokenvärdet från myPolicies representant. Det här värdet anges i fältet **Hemlig token** på fliken Etablering i myPolicies-programmet i Azure-portalen.
+2.  Spara värdet för token som tillhandahålls av principerna som är representativa för principerna. Det här värdet anges i fältet **hemligt token** på fliken etablering i appen för principer för principer i Azure Portal.
 
-## <a name="add-mypolicies-from-the-gallery"></a>Lägg till myPolicies från galleriet
+## <a name="add-mypolicies-from-the-gallery"></a>Lägg till principer från galleriet
 
-Om du vill konfigurera myPolicies för automatisk användaretablering med Azure AD måste du lägga till myPolicies från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Om du vill konfigurera principer för automatisk användar etablering med Azure AD måste du lägga till principer från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Så här lägger du till myPolicies från Azure AD-programgalleriet:**
+**Utför följande steg för att lägga till principer från program galleriet i Azure AD:**
 
-1. Välj **Azure Active Directory**i **[Azure-portalen](https://portal.azure.com)** i den vänstra navigeringspanelen .
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Enterprise-program**och välj sedan **Alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program väljer du knappen **Nytt program** högst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **myPolicies,** väljer **myPolicies** på resultatpanelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **principer**, väljer **principer** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
-    ![myPolicies i resultatlistan](common/search-new-app.png)
+    ![Principer i resultat listan](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-mypolicies"></a>Konfigurera automatisk användaretablering till myPolicies 
+## <a name="configuring-automatic-user-provisioning-to-mypolicies"></a>Konfigurera automatisk användar etablering till principer 
 
-Det här avsnittet hjälper dig att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i myPolicies baserat på användar- och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i principer som baseras på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserade enda sign-on för myPolicies , efter instruktionerna i [myPolicies Single sign-on tutorial](mypolicies-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för principer enligt anvisningarna i [självstudien](mypolicies-tutorial.md)om att använda principer för enkel inloggning. Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-provisioning-for-mypolicies-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för myPolicies i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-mypolicies-in-azure-ad"></a>Konfigurera automatisk användar etablering för principer i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan väljer du **myPolicies**.
+2. I listan program väljer du **principer**.
 
-    ![MyPolicies-länken i programlistan](common/all-applications.png)
+    ![Länken för mina principer i program listan](common/all-applications.png)
 
-3. Välj fliken **Etablering.**
+3. Välj fliken **etablering** .
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **Administratörsautentiseringsuppgifter,** indata `https://<myPoliciesCustomDomain>.mypolicies.com/scim` i **klient-URL** där `<myPoliciesCustomDomain>` är din myPolicies anpassade domän. Du kan hämta din myPolicies kunddomän, från din webbadress.
-Exempel: `<demo0-qa>`.mypolicies.com.
+5. Under avsnittet **admin-autentiseringsuppgifter** , inmatat `https://<myPoliciesCustomDomain>.mypolicies.com/scim` i klient `<myPoliciesCustomDomain>` - **URL** , där är den anpassade domänen för principer. Du kan hämta din kund domän för principer från din URL.
+Exempel: `<demo0-qa>`. mypolicies.com.
 
-6. I **hemlig token**anger du tokenvärdet som hämtades tidigare. Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till myPolicies. Om anslutningen misslyckas kontrollerar du att ditt myPolicies-konto har administratörsbehörighet och försök igen.
+6. I **hemlig token**anger du det token-värde som hämtades tidigare. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till principer. Om anslutningen Miss lyckas kontrollerar du att kontot för ditt principer har administratörs behörighet och försöker igen.
 
-    ![Url till klient + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
-7. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan - **Skicka ett e-postmeddelande när ett fel inträffar**.
+7. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
 8. Klicka på **Spara**.
 
-9. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till myPolicies**.
+9. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till principerna**.
 
-    ![myPolicies Användarmappningar](media/mypolicies-provisioning-tutorial/usermapping.png)
+    ![Användar mappningar för principer](media/mypolicies-provisioning-tutorial/usermapping.png)
 
-10. Granska användarattributen som synkroniseras från Azure AD till myPolicies i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i myPolicies för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+10. Granska de användarattribut som synkroniseras från Azure AD till principer i avsnittet mappning av **attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i principerna för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![myPolicies Användarmappningar](media/mypolicies-provisioning-tutorial/userattribute.png)
+    ![Användar mappningar för principer](media/mypolicies-provisioning-tutorial/userattribute.png)
 
-11. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Om du vill aktivera Azure AD-etableringstjänsten för myPolicies ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
+12. Om du vill aktivera Azure AD Provisioning-tjänsten för principer ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-13. Definiera de användare och/eller grupper som du vill etablera till myPolicies genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
+13. Definiera de användare och/eller grupper som du vill etablera till principer genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etableringsomfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
 14. När du är redo att etablera klickar du på **Spara**.
 
-    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på myPolicies.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten för principer.
 
-Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Begränsningar för anslutning
+## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* myPolicies kräver alltid **userName,** **e-post** och **externalId**.
-* myPolicies stöder inte hårda borttagningar för användarattribut.
+* Principer för principer kräver alltid **användar namn**, **e-post** och **externalId**.
+* Principer för att inte använda hård borttagningar för användarattribut stöds inte.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

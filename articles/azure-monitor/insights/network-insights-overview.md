@@ -1,73 +1,73 @@
 ---
-title: Azure Monitor för nätverk (förhandsversion)
-description: En snabb översikt för Azure Monitor för nätverk som ger en omfattande vy över hälso- och mått för alla distribuerade nätverksresurser utan konfiguration.
+title: Azure Monitor för nätverk (för hands version)
+description: En snabb översikt för Azure Monitor för nätverk som ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
 ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77654876"
 ---
-# <a name="azure-monitor-for-networks-preview"></a>Azure Monitor för nätverk (förhandsversion)
-Azure Monitor for Network ger en omfattande vy över hälso- och mått för alla distribuerade nätverksresurser utan konfiguration. Den avancerade sökfunktionen hjälper till att identifiera resursberoenden, vilket möjliggör scenarier som att identifiera resurser som är värd för din webbplats genom att helt enkelt söka efter värdbaserade webbplatsnamn.
+# <a name="azure-monitor-for-networks-preview"></a>Azure Monitor för nätverk (för hands version)
+Azure Monitor för nätverk ger en omfattande vy över hälsa och mått för alla distribuerade nätverks resurser utan någon konfiguration. Den avancerade Sök funktionen hjälper till att identifiera resurs beroenden, vilket möjliggör scenarier som att identifiera resurser som är värdar för din webbplats genom att helt enkelt söka efter namnet på den värdbaserade webbplatsen.
 
-Sidan Översikt över Azure Monitor för **nätverk** är ett enkelt sätt att visualisera inventeringen av nätverksresurserna tillsammans med resurshälsa och aviseringar. Den är uppdelad i fyra viktiga funktionella områden:
+**Översikts** sidan för Azure Monitor för nätverk är ett smidigt sätt att visualisera inventeringen av dina nätverks resurser tillsammans med resurs hälsa och aviseringar. Den är uppdelad i fyra viktiga funktions områden:
 
-- Sök och filtrera
-- Resurshälsa och mått
+- Sökning och filtrering
+- Resource Health och mått
 - Aviseringar 
-- Beroendevy
+- Beroende vy
 
-![Översiktssida](media/network-insights-overview/overview.png)
+![Översikts sida](media/network-insights-overview/overview.png)
 
-## <a name="search-and-filtering"></a>Sök och filtrera
-Vyn Resurshälsa och aviseringar kan anpassas med filter som **Prenumeration,** **Resursgrupp** och **Resurstyp**. Sökrutan ger möjlighet att söka igenom resursegenskaper.
+## <a name="search-and-filtering"></a>Sökning och filtrering
+Vyn resurs hälsa och aviseringar kan anpassas med hjälp av filter som **prenumeration**, **resurs grupp** och **resurs typ**. Sökrutan ger möjlighet att söka igenom resurs egenskaper.
 
-Sökrutan kan användas för att söka efter resurser och associerade resurser. En offentlig IP är till exempel kopplad till en programgateway. Om du söker efter DNS-namnet för offentliga IPs identifierar du både offentlig IP och den associerade Application Gateway.
+Du kan använda sökrutan för att söka efter resurser och associerade resurser. Till exempel är en offentlig IP-adress kopplad till en Application Gateway. Om du söker efter offentliga IP DNS-namn identifieras både offentlig IP-adress och tillhör ande Application Gateway.
 
-![Search](media/network-insights-overview/search.png)
+![Sök](media/network-insights-overview/search.png)
 
 
-## <a name="resource-health-and-metric"></a>Resurshälsa och mått
-Varje panel representerar en resurstyp, med antalet instanser som distribueras över alla prenumerationer markerade tillsammans med resurshälsostatus. I exemplet nedan finns det 105 ER- och VPN-anslutningar som distribueras, 103 är felfria och 2 är inte tillgängliga.
+## <a name="resource-health-and-metric"></a>Resource Health och mått
+Varje panel representerar en resurs typ med antalet instanser som distribueras över alla prenumerationer som valts tillsammans med resursens hälso status. I exemplet nedan finns det 105 ER-och VPN-anslutningar som har distribuerats, 103 är felfria och 2 otillgängliga.
 
 ![Resurshälsa](media/network-insights-overview/resource-health.png)
 
-Om du klickar på de två otillgängliga ER- och VPN-anslutningarna startar du en måttvy. 
+Om du klickar på de två otillgängliga återställnings-och VPN-anslutningarna öppnas en Metric-vy. 
 
-![Måttvy](media/network-insights-overview/metric-view.png)
+![Metric-vy](media/network-insights-overview/metric-view.png)
 
-Du kan klicka på varje element i rutnätsvyn. Klicka på hälsoikonen för att omdirigera till resurshälsa för den anslutningen. Klicka på Aviseringar för att omdirigera till aviseringar respektive måttsida för den anslutningen. 
+Du kan klicka på varje-element i diagramvyn. Klicka på hälso ikonen för att omdirigera till resurs hälsa för den anslutningen. Klicka på aviseringar för att omdirigera till aviseringar och mått sidan för anslutningen. 
 
 ## <a name="alerts"></a>Aviseringar
-Rutnätet **Aviseringar** till höger ger en vy över alla aviseringar som genereras för de valda resurserna i alla prenumerationer. Klicka på aviseringsantalet för att navigera till detaljerade aviseringar sida.
+I rutnätet **aviseringar** till höger får du en översikt över alla aviseringar som har genererats för de valda resurserna i alla prenumerationer. Klicka på sidan antal aviseringar för att gå till sidan detaljerade aviseringar.
 
-## <a name="dependency-view"></a>Beroendevy
-**Beroendevyn** hjälper till att visualisera hur resursen är konfigurerad. För närvarande stöds beroendevyn endast för Application Gateway. Beroendevyn kan nås genom att klicka på programgatewayresursnamnet från rutnätsvyn mått.
+## <a name="dependency-view"></a>Beroende vy
+**Beroende** vyn hjälper till att visualisera hur resursen konfigureras. För hands beroende vy stöds bara för Application Gateway. Du kan komma åt beroende vyn genom att klicka på Application Gateway resurs namn från vyn mått rutnät.
 
-![Vyn Programgateway](media/network-insights-overview/application-gateway.png)
+![Application Gateway vy](media/network-insights-overview/application-gateway.png)
 
-**Beroendevyn** för Application Gateway ger en förenklad vy över hur frontend-IP-adresser är anslutna till lyssnarna, reglerna och backend-poolen. Anslutningskanterna är färgkodade och innehåller ytterligare information baserat på serverdapoolens hälsotillstånd. Vyn innehåller också en detaljerad vy över mätvärden och mått för Application Gateway för alla relaterade serverdpooler som VMSS- och VM-instanser.
+**Beroende** vyn för Application Gateway ger en förenklad vy över hur klient delens IP-adresser är anslutna till lyssnare, regler och backend-pool. De anslutande kanterna är färgkodade och ger ytterligare information baserat på Server delens hälso tillstånd. Vyn innehåller också en detaljerad vy över Application Gateway mått och mått för alla relaterade Server dels pooler, till exempel VMSS och VM-instanser.
 
-![Beroendevy](media/network-insights-overview/dependency-view.png)
+![Beroende vy](media/network-insights-overview/dependency-view.png)
 
-Beroendediagrammet möjliggör enkel navigering till konfigurationsinställningar. Högerklicka på en backend pool för att komma åt andra funktioner. Om serverda poolen till exempel är en virtuell dator kan du direkt komma åt felsöka VM Insights och Network Watcher-anslutning för att identifiera anslutningsproblem.
+Med det beroende diagrammet kan du enkelt navigera till konfigurations inställningar. Högerklicka på en backend-pool för att få åtkomst till andra funktioner. Om till exempel backend-poolen är en virtuell dator kan du direkt komma åt VM-insikter och Network Watcher anslutnings fel sökning för att identifiera anslutnings problem.
 
-![Menyn Beroendevy](media/network-insights-overview/dependency-view-menu.png)
+![Meny för beroende vy](media/network-insights-overview/dependency-view-menu.png)
 
-Sök- och filterfältet i beroendevyn är ett enkelt sätt att söka igenom diagrammet. Om du till exempel söker efter *AppGWTestRule* i exemplet nedan begränsas den grafiska vyn till alla noder som är anslutna via *AppGWTestRule*. 
+Sök-och filter fältet i beroende vyn ger ett smidigt sätt att söka igenom grafen. Om du till exempel söker efter *AppGWTestRule* i exemplet nedan så begränsas den grafiska vyn till alla noder som är anslutna via *AppGWTestRule*. 
 
 ![Sök exempel](media/network-insights-overview/search-example.png)
 
-Olika filter ger hjälp att begränsa till en viss sökväg och tillstånd. Välj till exempel bara *Ohälsosamt* från listrutan **Hälsostatus** för att visa alla kanter där tillståndet är *felfritt*.
+Olika filter ger hjälp att begränsa till en specifik sökväg och tillstånd. Välj till exempel endast *ohälsosamt* från List rutan **hälso status** för att visa alla kanter där tillståndet är *dåligt*.
 
-Klicka på **Detaljerad måttvy** om du vill starta en förkonfigurerad arbetsbok med detaljerade mått för programgatewayen, alla serverdelspoolresurser och frontend-IP-adresser. 
+Klicka på **vyn detaljerad statistik** för att starta en förkonfigurerad arbets bok med detaljerade mått för programgatewayen, alla resurser för Server dels poolen och klient dels-IP-adresser. 
 
 ## <a name="next-steps"></a>Nästa steg 
 
-- Läs mer om nätverksövervakning på Vad är [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Läs mer om nätverks övervakning i vad är [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).

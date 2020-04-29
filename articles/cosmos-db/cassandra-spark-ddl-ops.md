@@ -1,6 +1,6 @@
 ---
-title: DDL-åtgärder i Azure Cosmos DB Cassandra API från Spark
-description: Den här artikeln beskriver ddl-åtgärder för keyspace och tabell mot Azure Cosmos DB Cassandra API från Spark.
+title: DDL-åtgärder i Azure Cosmos DB API för Cassandra från Spark
+description: Den här artikeln innehåller information om åtgärder för åtgärds utrymme och tabell-DDL mot Azure Cosmos DB API för Cassandra från Spark.
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,17 +9,17 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: c0df05eff5dc84ef24e1ed5afcaf705d99f447ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77622565"
 ---
-# <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>DDL-åtgärder i Azure Cosmos DB Cassandra API från Spark
+# <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>DDL-åtgärder i Azure Cosmos DB API för Cassandra från Spark
 
-Den här artikeln beskriver ddl-åtgärder för keyspace och tabell mot Azure Cosmos DB Cassandra API från Spark.
+Den här artikeln innehåller information om åtgärder för åtgärds utrymme och tabell-DDL mot Azure Cosmos DB API för Cassandra från Spark.
 
-## <a name="cassandra-api-related-configuration"></a>Cassandra API-relaterad konfiguration 
+## <a name="cassandra-api-related-configuration"></a>API för Cassandra-relaterad konfiguration 
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -48,9 +48,9 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="keyspace-ddl-operations"></a>DDL-åtgärder i Keyspace
+## <a name="keyspace-ddl-operations"></a>DDL-åtgärder för disk utrymme
 
-### <a name="create-a-keyspace"></a>Skapa ett nyckelområde
+### <a name="create-a-keyspace"></a>Skapa ett blank steg
 
 ```scala
 //Cassandra connector instance
@@ -62,13 +62,13 @@ cdbConnector.withSessionDo(session => session.execute("CREATE KEYSPACE IF NOT EX
 
 #### <a name="validate-in-cqlsh"></a>Validera i cqlsh
 
-Kör följande kommando i cqlsh och du bör se det nyckelsteg som du skapade tidigare.
+Kör följande kommando i cqlsh och se det tecken utrymme som du skapade tidigare.
 
 ```bash
 DESCRIBE keyspaces;
 ```
 
-### <a name="drop-a-keyspace"></a>Släpp ett nyckelområde
+### <a name="drop-a-keyspace"></a>Ta bort ett blank steg
 
 ```scala
 val cdbConnector = CassandraConnector(sc)
@@ -80,14 +80,14 @@ cdbConnector.withSessionDo(session => session.execute("DROP KEYSPACE books_ks"))
 ```bash
 DESCRIBE keyspaces;
 ```
-## <a name="table-ddl-operations"></a>Tabell DDL-åtgärder
+## <a name="table-ddl-operations"></a>Tabell-DDL-åtgärder
 
-**Överväganden:**  
+**Angående**  
 
-- Dataflöde kan tilldelas på tabellnivå med hjälp av skapa tabellsatsning.  
+- Data flödet kan tilldelas på tabell nivå med instruktionen CREATE TABLE.  
 - En partitionsnyckel kan lagra 20 GB data.  
 - En post kan lagra högst 2 MB data.  
-- En partition nyckelintervall kan lagra flera partitionsnycklar.
+- Ett nyckel intervall för partition kan lagra flera partitionsnyckel.
 
 ### <a name="create-a-table"></a>Skapa en tabell
 
@@ -98,29 +98,29 @@ cdbConnector.withSessionDo(session => session.execute("CREATE TABLE IF NOT EXIST
 
 #### <a name="validate-in-cqlsh"></a>Validera i cqlsh
 
-Kör följande kommando i cqlsh och du bör se tabellen med namnet "böcker: 
+Kör följande kommando i cqlsh och du bör se tabellen med namnet "Books: 
 
 ```bash
 USE books_ks;
 DESCRIBE books;
 ```
 
-Etablerade dataflöde och standard-TTL-värden visas inte i utdata från föregående kommando, du kan hämta dessa värden från portalen.
+Etablerade data flöden och standard TTL-värden visas inte i utdata från föregående kommando, du kan hämta dessa värden från portalen.
 
 ### <a name="alter-table"></a>Ändra tabell
 
-Du kan ändra följande värden med kommandot Ändra tabell:
+Du kan ändra följande värden med kommandot ALTER TABLE:
 
-* etablerat dataflöde 
-* värde från tid till liv
-<br>Kolumnändringar stöds för närvarande inte.
+* allokerat data flöde 
+* TTL-värde (Time to Live)
+<br>Kolumn ändringar stöds inte för närvarande.
 
 ```scala
 val cdbConnector = CassandraConnector(sc)
 cdbConnector.withSessionDo(session => session.execute("ALTER TABLE books_ks.books WITH cosmosdb_provisioned_throughput=8000, WITH default_time_to_live=0;"))
 ```
 
-### <a name="drop-table"></a>Släpp tabell
+### <a name="drop-table"></a>Ta bort tabell
 
 ```scala
 val cdbConnector = CassandraConnector(sc)
@@ -129,7 +129,7 @@ cdbConnector.withSessionDo(session => session.execute("DROP TABLE IF EXISTS book
 
 #### <a name="validate-in-cqlsh"></a>Validera i cqlsh
 
-Kör följande kommando i cqlsh och du bör se att tabellen "böcker" inte längre är tillgänglig:
+Kör följande kommando i cqlsh och se att tabellen "böcker" inte längre är tillgänglig:
 
 ```bash
 USE books_ks;
@@ -138,11 +138,11 @@ DESCRIBE tables;
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat nyckelområdet och tabellen går du vidare till följande artiklar för CRUD-åtgärder med mera:
+När du har skapat tecken utrymmet och tabellen fortsätter du till följande artiklar för CRUD-åtgärder med mera:
  
 * [Skapa/infoga åtgärder](cassandra-spark-create-ops.md)  
-* [Läs operationer](cassandra-spark-read-ops.md)  
-* [Upsert-operationer](cassandra-spark-upsert-ops.md)  
+* [Läs åtgärder](cassandra-spark-read-ops.md)  
+* [Upsert-åtgärder](cassandra-spark-upsert-ops.md)  
 * [Ta bort åtgärder](cassandra-spark-delete-ops.md)  
 * [Sammansättningsåtgärder](cassandra-spark-aggregation-ops.md)  
-* [Tabellkopieringsåtgärder](cassandra-spark-table-copy-ops.md)  
+* [Åtgärder för tabell kopiering](cassandra-spark-table-copy-ops.md)  

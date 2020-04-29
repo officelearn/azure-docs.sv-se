@@ -1,6 +1,6 @@
 ---
-title: Få tillgång till datauppsättningar med Python-klientbiblioteket - Team Data Science Process
-description: Installera och använd Python-klientbiblioteket för att komma åt och hantera Azure Machine Learning-data på ett säkert sätt från en lokal Python-miljö.
+title: Få åtkomst till data uppsättningar med python-klient bibliotek – team data science process
+description: Installera och Använd python-klient biblioteket för att komma åt och hantera Azure Machine Learning data på ett säkert sätt från en lokal python-miljö.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,177 +12,177 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720987"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
-Förhandsversionen av Microsoft Azure Machine Learning Python-klientbiblioteket kan möjliggöra säker åtkomst till dina Azure Machine Learning-datauppsättningar från en lokal Python-miljö och gör det möjligt att skapa och hantera datauppsättningar på en arbetsyta.
+Förhands granskningen av Microsoft Azure Machine Learning python-klientprogrammet kan ge säker åtkomst till dina Azure Machine Learning data uppsättningar från en lokal python-miljö och möjliggör skapande och hantering av data uppsättningar i en arbets yta.
 
-Det här avsnittet innehåller instruktioner om hur du:
+Det här avsnittet innehåller anvisningar om hur du:
 
-* installera Machine Learning Python-klientbiblioteket
-* komma åt och ladda upp datauppsättningar, inklusive instruktioner om hur du får auktorisering för att komma åt Azure Machine Learning-datauppsättningar från din lokala Python-miljö
-* komma åt mellanliggande datauppsättningar från experiment
-* använda Python-klientbiblioteket för att räkna upp datauppsättningar, komma åt metadata, läsa innehållet i en datauppsättning, skapa nya datauppsättningar och uppdatera befintliga datauppsättningar
+* Installera Machine Learning python-klient biblioteket
+* få åtkomst till och ladda upp data uppsättningar, inklusive instruktioner om hur du får åtkomst till Azure Machine Learning data uppsättningar från din lokala python-miljö
+* få åtkomst till mellanliggande data uppsättningar från experiment
+* Använd python-klient biblioteket för att räkna upp data uppsättningar, få åtkomst till metadata, läsa innehållet i en data uppsättning, skapa nya data uppsättningar och uppdatera befintliga data uppsättningar
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
-Python-klientbiblioteket har testats under följande miljöer:
+Python-klient biblioteket har testats i följande miljöer:
 
 * Windows, Mac och Linux
-* Python 2.7, 3.3 och 3.4
+* Python 2,7, 3,3 och 3,4
 
-Den är beroende av följande paket:
+Det har ett beroende av följande paket:
 
-* Begäranden
-* python-dateutil
-* Pandor
+* autentiseringsbegäran
+* python – dateutil
+* Pandas
 
-Vi rekommenderar att du använder en Python-distribution som [Anaconda](http://continuum.io/downloads#all) eller [Canopy](https://store.enthought.com/downloads/), som levereras med Python, IPython och de tre paket som anges ovan installerade. Även om IPython inte är strikt krävs, är det en bra miljö för att manipulera och visualisera data interaktivt.
+Vi rekommenderar att du använder en python-distribution som [Anaconda](http://continuum.io/downloads#all) eller [Canopy](https://store.enthought.com/downloads/), som medföljer python, ipython och de tre paket som anges ovan installerade. Även om IPython inte är absolut nödvändigt är det en bra miljö för att manipulera och visualisera data interaktivt.
 
-### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Så här installerar du Azure Machine Learning Python-klientbiblioteket
-Installera Azure Machine Learning Python-klientbiblioteket för att slutföra de uppgifter som beskrivs i det här avsnittet. Det här biblioteket är tillgängligt från [Python Package Index](https://pypi.python.org/pypi/azureml). Om du vill installera den i python-miljön kör du följande kommando från din lokala Python-miljö:
+### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Så här installerar du Azure Machine Learning python-klient biblioteket
+Installera Azure Machine Learning python-klient biblioteket för att slutföra de aktiviteter som beskrivs i det här avsnittet. Det här biblioteket är tillgängligt från [python-paketets index](https://pypi.python.org/pypi/azureml). Om du vill installera den i python-miljön kör du följande kommando från din lokala python-miljö:
 
     pip install azureml
 
-Alternativt kan du hämta och installera från källorna på [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+Du kan också hämta och installera från källorna på [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
-Om du har git installerat på datorn kan du använda pip för att installera direkt från git-databasen:
+Om du har git installerat på datorn kan du använda PIP för att installera direkt från git-lagringsplatsen:
 
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="use-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Använda kodavsnitt för att komma åt datauppsättningar
-Python-klientbiblioteket ger dig programmatisk åtkomst till dina befintliga datauppsättningar från experiment som har körts.
+## <a name="use-code-snippets-to-access-datasets"></a><a name="datasetAccess"></a>Använd kodfragment för att komma åt data uppsättningar
+Med python-klient biblioteket får du program mässig åtkomst till dina befintliga data uppsättningar från experiment som har körts.
 
-Från webbgränssnittet i Azure Machine Learning Studio (klassiskt) kan du generera kodavsnitt som innehåller all nödvändig information för att hämta och deserialisera datauppsättningar som pandas DataFrame-objekt på din lokala dator.
+Från Azure Machine Learning Studio-webbgränssnittet (klassisk) kan du generera kodfragment som innehåller all nödvändig information för att ladda ned och deserialisera data uppsättningar som Pandas DataFrame-objekt på den lokala datorn.
 
-### <a name="security-for-data-access"></a><a name="security"></a>Säkerhet för dataåtkomst
-Kodavsnitten som tillhandahålls av Azure Machine Learning Studio (klassisk) för användning med Python-klientbiblioteket innehåller ditt arbetsområdes-ID och auktoriseringstoken. Dessa ger fullständig åtkomst till din arbetsyta och måste skyddas, som ett lösenord.
+### <a name="security-for-data-access"></a><a name="security"></a>Säkerhet för data åtkomst
+Kodfragmenten som tillhandahålls av Azure Machine Learning Studio (klassisk) för användning med python-klient biblioteket innehåller ditt arbetsyte-ID och autentiseringstoken. Dessa ger fullständig åtkomst till din arbets yta och måste skyddas, till exempel ett lösen ord.
 
-Av säkerhetsskäl är kodavsnittsfunktionen endast tillgänglig för användare som har sin roll som **ägare** för arbetsytan. Din roll visas i Azure Machine Learning Studio (klassisk) på sidan **ANVÄNDARE** under **Inställningar**.
+Av säkerhets skäl är funktionen för kodfragment bara tillgänglig för användare som har rollen som **ägare** till arbets ytan. Din roll visas i Azure Machine Learning Studio (klassisk) på sidan **användare** under **Inställningar**.
 
 ![Säkerhet][security]
 
-Om din roll inte anges som **Ägare**kan du antingen begära att få ett återinspelat som ägare eller be arbetsytans ägare att förse dig med kodavsnittet.
+Om rollen inte har angetts som **ägare**kan du antingen begära att bli inbjuden till en ägare eller be ägaren av arbets ytan att förse dig med kodfragmentet.
 
-Om du vill hämta auktoriseringstoken kan du välja något av följande alternativ:
+Du kan välja något av följande alternativ för att hämta autentiseringstoken:
 
-* Be om en token från en ägare. Ägare kan komma åt sina auktoriseringstoken från sidan Inställningar på sin arbetsyta i Azure Machine Learning Studio (klassisk). Välj **Inställningar** i den vänstra rutan och klicka på **AUKTORISERINGSTOKENS** för att se de primära och sekundära token. Även om antingen de primära eller sekundära auktoriseringstoken kan användas i kodavsnittet, rekommenderas att ägarna endast delar de sekundära auktoriseringstoken.
+* Fråga efter en token från en ägare. Ägare kan komma åt sina autentiseringstoken från inställnings sidan för deras arbets yta i Azure Machine Learning Studio (klassisk). Välj **Inställningar** i den vänstra rutan och klicka på **autentiseringstoken för att** se de primära och sekundära tokens. Även om antingen primär-eller sekundär token-token kan användas i kodfragmentet, rekommenderar vi att ägarna bara delar de sekundära tokens.
 
-   ![Auktoriseringstoken](./media/python-data-access/ml-python-access-settings-tokens.png)
+   ![Autentiseringstoken](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Be om att bli befordrad till ägarroll: en aktuell ägare av arbetsytan måste först ta bort dig från arbetsytan och sedan bjuda in dig igen som ägare.
+* Be att bli befordrad till ägarens roll: en aktuell ägare av arbets ytan måste först ta bort dig från arbets ytan och sedan bjuda in dig till den som ägare.
 
-När utvecklare har fått arbetsyte-ID och auktoriseringstoken kan de komma åt arbetsytan med hjälp av kodavsnittet oavsett deras roll.
+När utvecklare har fått arbets ytans ID och autentiseringstoken kan de komma åt arbets ytan med hjälp av kodfragmentet oavsett deras roll.
 
-Auktoriseringstoken hanteras på sidan **AUKTORISERINGSTOKENS** under **INSTÄLLNINGAR**. Du kan återskapa dem, men den här proceduren återkallar åtkomsten till föregående token.
+Tokens hanteras på sidan **AUTHORIZATION tokens** under **Inställningar**. Du kan återskapa dem, men den här proceduren återkallar åtkomsten till föregående token.
 
-### <a name="access-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Få tillgång till datauppsättningar från ett lokalt Python-program
-1. I Machine Learning Studio (klassisk) klickar du på **DATASETS** i navigeringsfältet till vänster.
-2. Välj den datauppsättning som du vill komma åt. Du kan välja någon av datauppsättningarna i **listan MINA DATASETS** eller i LISTAN **EXEMPEL.**
-3. Klicka på Generera **dataåtkomstkod**i det nedre verktygsfältet . Om data är i ett format som inte är kompatibelt med Python-klientbiblioteket inaktiveras den här knappen.
+### <a name="access-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Få åtkomst till data uppsättningar från ett lokalt python-program
+1. I Machine Learning Studio (klassisk) klickar du på **data uppsättningar** i navigerings fältet till vänster.
+2. Välj den data uppsättning som du vill ha åtkomst till. Du kan välja någon av data uppsättningarna från listan **mina data uppsättningar** eller från listan **samples** .
+3. Klicka på **generera data åtkomst kod**i det nedre verktygsfältet. Om data har ett format som inte är kompatibelt med python-klient biblioteket är den här knappen inaktive rad.
    
     ![Datauppsättningar][datasets]
-4. Markera kodavsnittet i fönstret som visas och kopiera det till Urklipp.
+4. Välj kodfragmentet i fönstret som visas och kopiera det till Urklipp.
    
-    ![Knappen Generera dataåtkomstkod][dataset-access-code]
-5. Klistra in koden i anteckningsboken för ditt lokala Python-program.
+    ![Knappen generera kod för data åtkomst][dataset-access-code]
+5. Klistra in koden i den bärbara datorn i ditt lokala python-program.
    
-    ![Klistra in kod i anteckningsboken][ipython-dataset]
+    ![Klistra in kod i antecknings boken][ipython-dataset]
 
-## <a name="access-intermediate-datasets-from-machine-learning-experiments"></a><a name="accessingIntermediateDatasets"></a>Få tillgång till mellanliggande datauppsättningar från Machine Learning-experiment
-När ett experiment körs i Machine Learning Studio (klassisk) är det möjligt att komma åt mellanliggande datauppsättningar från utdatanoderna för moduler. Mellanliggande datauppsättningar är data som har skapats och använts för mellanliggande steg när ett modellverktyg har körts.
+## <a name="access-intermediate-datasets-from-machine-learning-experiments"></a><a name="accessingIntermediateDatasets"></a>Få åtkomst till mellanliggande data uppsättningar från Machine Learning experiment
+När ett experiment körs i Machine Learning Studio (klassisk) är det möjligt att komma åt mellanliggande data uppsättningar från utdata-noderna i moduler. Mellanliggande data uppsättningar är data som har skapats och använts för mellanliggande steg när ett modell verktyg har körts.
 
-Mellanliggande datauppsättningar kan nås så länge dataformatet är kompatibelt med Python-klientbiblioteket.
+Mellanliggande data uppsättningar kan nås så länge data formatet är kompatibelt med python-klient biblioteket.
 
-Följande format stöds (konstanter för dessa format `azureml.DataTypeIds` finns i klassen):
+Följande format stöds (konstanter för dessa format finns i `azureml.DataTypeIds` klassen):
 
 * PlainText
-* GeneriskCSV
+* GenericCSV
 * GenericTSV
-* GeneriskCSVNoHeader
+* GenericCSVNoHeader
 * GenericTSVNoHeader
 
-Du kan bestämma formatet genom att hovra över en modulutdatanod. Det visas tillsammans med nodnamnet, i en verktygstips.
+Du kan bestämma formatet genom att hovra över nodens utdata. Den visas tillsammans med nodnamnet i en knapp beskrivning.
 
-Några av modulerna, till exempel [modulen Dela,][split] matas ut till ett format med namnet `Dataset`, som inte stöds av Python-klientbiblioteket.
+Några av modulerna, t. ex. modulen [Split][split] , utdata till ett format `Dataset`med namnet, som inte stöds av python-klient biblioteket.
 
-![Format för datauppsättning][dataset-format]
+![Data uppsättnings format][dataset-format]
 
-Du måste använda en konverteringsmodul, till exempel [Konvertera till CSV,][convert-to-csv]för att få en utdata till ett format som stöds.
+Du måste använda en Conversion-modul, till exempel [konvertera till CSV][convert-to-csv], för att få utdata i ett format som stöds.
 
 ![GenericCSV-format][csv-format]
 
-Följande steg visar ett exempel som skapar ett experiment, kör det och kommer åt mellanliggande datauppsättning.
+Följande steg visar ett exempel som skapar ett experiment, kör det och får åtkomst till mellanliggande data uppsättning.
 
 1. Skapa ett nytt experiment.
-2. Infoga en **datauppsättning för binär klassificering av vuxenräkningsinkomst.**
-3. Sätt i en [Split-modul][split] och anslut indata till datauppsättningsmodulutdata.
-4. Infoga en [Konvertera till CSV-modul][convert-to-csv] och anslut indata till en av [splitmodulutgångarna.][split]
-5. Spara experimentet, kör det och vänta tills jobbet är klart.
-6. Klicka på utdatanoden i modulen [Konvertera till CSV.][convert-to-csv]
-7. När snabbmenyn visas väljer du **Generera dataåtkomstkod**.
+2. Infoga en **data uppsättnings modul för binärdata med vuxen räknings inkomst** .
+3. Infoga en [delad][split] modul och Anslut dess indata till utdata för datauppsättnings modulen.
+4. Infoga en [Convert to CSV][convert-to-csv] -modul och Anslut dess indata till någon av utdata för [delade][split] moduler.
+5. Spara experimentet, kör det och vänta tills jobbet har slutförts.
+6. Klicka på noden utdata i modulen [konvertera till CSV][convert-to-csv] .
+7. När snabb menyn visas väljer du **generera kod för data åtkomst**.
    
     ![Snabbmeny][experiment]
-8. Markera kodavsnittet och kopiera det till Urklipp från fönstret som visas.
+8. Välj kodfragmentet och kopiera det till Urklipp från fönstret som visas.
    
-    ![Generera åtkomstkod från snabbmenyn][intermediate-dataset-access-code]
-9. Klistra in koden i anteckningsboken.
+    ![Generera åtkomst kod från snabb menyn][intermediate-dataset-access-code]
+9. Klistra in koden i din bärbara dator.
    
-    ![Klistra in kod i anteckningsboken][ipython-intermediate-dataset]
-10. Du kan visualisera data med matplotlib. Detta visas i ett histogram för ålderskolumnen:
+    ![Klistra in kod i Notebook][ipython-intermediate-dataset]
+10. Du kan visualisera data med matplotlib. Detta visas i ett histogram för kolumnen ålder:
     
     ![Histogram][ipython-histogram]
 
-## <a name="use-the-machine-learning-python-client-library-to-access-read-create-and-manage-datasets"></a><a name="clientApis"></a>Använda Machine Learning Python-klientbiblioteket för att komma åt, läsa, skapa och hantera datauppsättningar
+## <a name="use-the-machine-learning-python-client-library-to-access-read-create-and-manage-datasets"></a><a name="clientApis"></a>Använd Machine Learning python-klient biblioteket för att få åtkomst till, läsa, skapa och hantera data uppsättningar
 ### <a name="workspace"></a>Arbetsyta
-Arbetsytan är startpunkten för Python-klientbiblioteket. Ge `Workspace` klassen ditt arbetsområdes-ID och auktoriseringstoken för att skapa en instans:
+Arbets ytan är start punkten för python-klient biblioteket. Ange en `Workspace` klass med arbetsyte-ID och autentiseringstoken för att skapa en instans:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
 
 
-### <a name="enumerate-datasets"></a>Räkna upp datauppsättningar
-Så här räknar du upp alla datauppsättningar på en viss arbetsyta:
+### <a name="enumerate-datasets"></a>Räkna upp data uppsättningar
+Räkna upp alla data uppsättningar på en specifik arbets yta:
 
     for ds in ws.datasets:
         print(ds.name)
 
-Så här räknar du upp bara de användarskapade datauppsättningarna:
+Räkna upp enbart skapade data uppsättningar:
 
     for ds in ws.user_datasets:
         print(ds.name)
 
-Så här räknar du upp bara exempeldatauppsättningarna:
+Räkna upp bara exempel data uppsättningar:
 
     for ds in ws.example_datasets:
         print(ds.name)
 
-Du kan komma åt en datauppsättning efter namn (som är skiftlägeskänslig):
+Du kan komma åt en data uppsättning efter namn (vilket är Skift läges känsligt):
 
     ds = ws.datasets['my dataset name']
 
-Eller så kan du komma åt den efter index:
+Eller så kan du komma åt det genom att indexera:
 
     ds = ws.datasets[0]
 
 
 ### <a name="metadata"></a>Metadata
-Datauppsättningar har metadata, förutom innehåll. (Mellanliggande datauppsättningar är ett undantag från den här regeln och har inga metadata.)
+Data uppsättningar har metadata, förutom innehåll. (Mellanliggande data uppsättningar är ett undantag till den här regeln och har inga metadata.)
 
-Vissa metadatavärden tilldelas av användaren vid skapande:
+Vissa metadata-värden tilldelas av användaren vid skapande tillfället:
 
     print(ds.name)
     print(ds.description)
     print(ds.family_id)
     print(ds.data_type_id)
 
-Andra är värden som tilldelats av Azure ML:
+Andra värden tilldelas av Azure ML:
 
     print(ds.id)
     print(ds.created_date)
@@ -190,18 +190,18 @@ Andra är värden som tilldelats av Azure ML:
 
 Se `SourceDataset` klassen för mer information om tillgängliga metadata.
 
-### <a name="read-contents"></a>Läs innehåll
-Kodavsnitten från Machine Learning Studio (klassisk) hämtar och avserialiserar datauppsättningen automatiskt till ett pandasDataFrame-objekt. Detta görs med `to_dataframe` metoden:
+### <a name="read-contents"></a>Läsa innehåll
+Kodfragmenten som tillhandahålls av Machine Learning Studio (klassisk) hämtar och deserialiserar data uppsättningen automatiskt till ett Pandas DataFrame-objekt. Detta görs med `to_dataframe` metoden:
 
     frame = ds.to_dataframe()
 
-Om du föredrar att hämta rådata och utföra deserialiseringen själv är det ett alternativ. För närvarande är detta det enda alternativet för format som "ARFF", som Python-klientbiblioteket inte kan avserialisera.
+Om du hellre vill ladda ned rå data och utföra deserialiseringen själv, är det ett alternativ. För närvarande är detta det enda alternativet för format som "ARFF", vilket python-klient biblioteket inte kan deserialisera.
 
 Så här läser du innehållet som text:
 
     text_data = ds.read_as_text()
 
-Så här läser du innehållet som binärt:
+Så här läser du innehållet som binär:
 
     binary_data = ds.read_as_binary()
 
@@ -211,10 +211,10 @@ Du kan också bara öppna en ström till innehållet:
         binary_data_chunk = file.read(1000)
 
 
-### <a name="create-a-new-dataset"></a>Skapa en ny datauppsättning
-Med Python-klientbiblioteket kan du ladda upp datauppsättningar från ditt Python-program. Dessa datauppsättningar är sedan tillgängliga för användning på arbetsytan.
+### <a name="create-a-new-dataset"></a>Skapa en ny data uppsättning
+Med python-klient biblioteket kan du ladda upp data uppsättningar från python-programmet. Dessa data uppsättningar är sedan tillgängliga för användning i din arbets yta.
 
-Om du har dina data i en pandas DataFrame använder du följande kod:
+Om du har dina data i en Pandas-DataFrame använder du följande kod:
 
     from azureml import DataTypeIds
 
@@ -236,18 +236,18 @@ Om dina data redan är serialiserade kan du använda:
         description='my description'
     )
 
-Python-klientbiblioteket kan serialisera en pandas DataFrame till följande format (konstanter för dessa är i `azureml.DataTypeIds` klassen):
+Python-klient biblioteket kan serialisera en Pandas-DataFrame till följande format (konstanter för dessa är i `azureml.DataTypeIds` klassen):
 
 * PlainText
-* GeneriskCSV
+* GenericCSV
 * GenericTSV
-* GeneriskCSVNoHeader
+* GenericCSVNoHeader
 * GenericTSVNoHeader
 
-### <a name="update-an-existing-dataset"></a>Uppdatera en befintlig datauppsättning
-Om du försöker ladda upp en ny datauppsättning med ett namn som matchar en befintlig datauppsättning bör du få ett konfliktfel.
+### <a name="update-an-existing-dataset"></a>Uppdatera en befintlig data uppsättning
+Om du försöker överföra en ny data uppsättning med ett namn som matchar en befintlig data uppsättning bör du få ett konflikt fel.
 
-Om du vill uppdatera en befintlig datauppsättning måste du först hämta en referens till den befintliga datauppsättningen:
+Om du vill uppdatera en befintlig data uppsättning måste du först hämta en referens till den befintliga data uppsättningen:
 
     dataset = ws.datasets['existing dataset']
 
@@ -255,7 +255,7 @@ Om du vill uppdatera en befintlig datauppsättning måste du först hämta en re
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Använd `update_from_dataframe` sedan för att serialisera och ersätta innehållet i datauppsättningen på Azure:
+Använd `update_from_dataframe` sedan för att serialisera och ersätta innehållet i data uppsättningen på Azure:
 
     dataset = ws.datasets['existing dataset']
 
@@ -265,7 +265,7 @@ Använd `update_from_dataframe` sedan för att serialisera och ersätta innehål
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Om du vill serialisera data till ett annat format `data_type_id` anger du ett värde för den valfria parametern.
+Ange ett värde för den valfria `data_type_id` parametern om du vill serialisera data till ett annat format.
 
     from azureml import DataTypeIds
 
@@ -280,7 +280,7 @@ Om du vill serialisera data till ett annat format `data_type_id` anger du ett v�
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Du kan också ange en ny beskrivning genom `description` att ange ett värde för parametern.
+Du kan också ange en ny beskrivning genom att ange ett värde för `description` parametern.
 
     dataset = ws.datasets['existing dataset']
 
@@ -293,7 +293,7 @@ Du kan också ange en ny beskrivning genom `description` att ange ett värde fö
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-Du kan också ange ett nytt namn genom `name` att ange ett värde för parametern. Från och med nu hämtar du datauppsättningen med det nya namnet. Följande kod uppdaterar data, namn och beskrivning.
+Alternativt kan du ange ett nytt namn genom att ange ett värde för `name` parametern. Från och med nu hämtar du data uppsättningen med det nya namnet. Följande kod uppdaterar data, namn och beskrivning.
 
     dataset = ws.datasets['existing dataset']
 
@@ -310,9 +310,9 @@ Du kan också ange ett nytt namn genom `name` att ange ett värde för parameter
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-Parametrarna `data_type_id`och `name` parametrarna är valfria och som standard för deras tidigare värde. `description` Parametern `dataframe` krävs alltid.
+`data_type_id`är valfria och standardvärdet för deras tidigare `name` `description` värde. `dataframe` Parametern krävs alltid.
 
-Om dina data redan är `update_from_raw_data` serialiserade använder du i stället för `update_from_dataframe`. Om du bara `raw_data` passerar `dataframe`in istället för , det fungerar på ett liknande sätt.
+Om dina data redan är serialiserade använder `update_from_raw_data` du i stället `update_from_dataframe`för. Om du bara skickar i `raw_data` stället för `dataframe`fungerar det på ett liknande sätt.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

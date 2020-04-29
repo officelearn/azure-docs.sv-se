@@ -1,6 +1,6 @@
 ---
-title: Dirigera trafik för HA-program - Azure PowerShell - Traffic Manager
-description: Exempel på Azure PowerShell-skript – Dirigera trafik för hög tillgänglighet av program
+title: Dirigera trafik för HA av program – Azure PowerShell-Traffic Manager
+description: Azure PowerShell skript exempel – väg trafik för hög tillgänglighet för program
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -16,17 +16,17 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: rohink
 ms.openlocfilehash: 3f448683dbb210ab196e27cfd98a376429d03aec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76934741"
 ---
-# <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Dirigera trafik för hög tillgänglighet för program med Azure PowerShell
+# <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Dirigera trafik för hög tillgänglighet för program som använder Azure PowerShell
 
-Det här skriptet skapar en resursgrupp, två apptjänstplaner, två webbappar, en traffic manager-profil och två slutpunkter för Traffic Manager. Traffic Manager dirigerar trafik till programmet i en region som den primära regionen och till den sekundära regionen när programmet i den primära regionen inte är tillgänglig. Innan du kör skriptet måste du ändra värdena MyWebApp, MyWebAppL1 och MyWebAppL2 till unika värden i Azure. När du har kört skriptet kan du komma åt appen i den primära regionen med URL-mywebapp.trafficmanager.net.
+Det här skriptet skapar en resurs grupp, två App Service-planer, två webb program, en Traffic Manager-profil och två Traffic Manager-slutpunkter. Traffic Manager dirigerar trafik till programmet i en region som den primära regionen och till den sekundära regionen när programmet i den primära regionen inte är tillgängligt. Innan du kör skriptet måste du ändra värdena för MyWebAppL1 och MyWebAppL2 till unika värden i Azure. När du har kört skriptet kan du komma åt appen i den primära regionen med URL-mywebapp.trafficmanager.net.
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](/powershell/azure)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure.
+Om det behövs installerar du Azure PowerShell med hjälp av den instruktion som finns i [Azure PowerShell-guiden](/powershell/azure)och `Connect-AzAccount` kör sedan för att skapa en anslutning till Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,12 +49,12 @@ Remove-AzResourceGroup -Name myResourceGroup2
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, en webbapp, en Traffic Manager-profil och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Skapar en resursgrupp där alla resurser lagras. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. Det här är som en servergrupp för din Azure-webbapp. |
-| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Skapar en Azure-webbapp i App Service-planen. |
-| [Set-AzResource](/powershell/module/az.resources/new-azresource) | Skapar en Azure-webbapp i App Service-planen. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. Detta är som en Server grupp för din Azure-webbapp. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Skapar en Azure-webbapp i App Service plan. |
+| [Set-AzResource](/powershell/module/az.resources/new-azresource) | Skapar en Azure-webbapp i App Service plan. |
 | [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Skapar en Azure Traffic Manager-profil. |
 | [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Lägger till en slutpunkt i en Azure Traffic Manager-profil. |
 

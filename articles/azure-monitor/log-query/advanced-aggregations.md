@@ -1,29 +1,29 @@
 ---
-title: Avancerade aggregeringar i Azure Monitor-loggfrågor| Microsoft-dokument
-description: Beskriver några av de mer avancerade aggregeringsalternativen som är tillgängliga för Azure Monitor-loggfrågor.
+title: Avancerade agg regeringar i Azure Monitor logg frågor | Microsoft Docs
+description: Beskriver några av de mer avancerade agg regerings alternativen som är tillgängliga för Azure Monitor logg frågor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77662186"
 ---
-# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade aggregeringar i Azure Monitor-loggfrågor
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Avancerade agg regeringar i Azure Monitor logg frågor
 
 > [!NOTE]
-> Du bör slutföra [aggregeringar i Azure Monitor-frågor](./aggregations.md) innan du slutför den här lektionen.
+> Du bör slutföra [agg regeringar i Azure Monitor frågor](./aggregations.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-I den här artikeln beskrivs några av de mer avancerade aggregeringsalternativen som är tillgängliga för Azure Monitor-frågor.
+I den här artikeln beskrivs några av de mer avancerade agg regerings alternativen som är tillgängliga för Azure Monitor frågor.
 
-## <a name="generating-lists-and-sets"></a>Generera listor och uppsättningar
-Du kan `makelist` använda för att pivotera data efter värdeordningen i en viss kolumn. Du kanske till exempel vill utforska de vanligaste orderhändelserna på dina datorer. Du kan i huvudsak pivotera data efter ordningen för EventIDs på varje dator. 
+## <a name="generating-lists-and-sets"></a>Genererar listor och uppsättningar
+Du kan använda `makelist` för att pivotera data efter ordningen på värdena i en viss kolumn. Du kanske till exempel vill utforska de vanligaste order händelserna i dina datorer. Du kan i princip pivotera data i ordningen EventIDs på varje dator. 
 
 ```Kusto
 Event
@@ -34,13 +34,13 @@ Event
 
 |Dator|list_EventID|
 |---|---|
-| dator1 | [704,701,1501,1500,1085,704,704,701] |
-| dator2 | [326,105,302,301,300,102] |
+| DATOR1 | [704, 701, 1501, 1500, 1085, 704, 704, 701] |
+| DATOR2 | [326 105 302 301 300 102] |
 | ... | ... |
 
-`makelist`genererar en lista i den ordning som data skickades till den. Om du vill sortera händelser `asc` från äldsta till `desc`nyaste använder du i orderutdraget i stället för . 
+`makelist`genererar en lista i den ordning som data skickades till den. Om du vill sortera händelser från äldsta till nyaste `asc` använder du i order-instruktionen i stället för `desc`. 
 
-Det är också användbart att skapa en lista med bara distinkta värden. Detta kallas en _uppsättning_ och `makeset`kan genereras med:
+Det är också användbart att skapa en lista med enbart distinkta värden. Detta kallas för en _uppsättning_ och kan genereras med `makeset`:
 
 ```Kusto
 Event
@@ -51,14 +51,14 @@ Event
 
 |Dator|list_EventID|
 |---|---|
-| dator1 | [704,701,1501,1500,1085] |
-| dator2 | [326,105,302,301,300,102] |
+| DATOR1 | [704, 701, 1501, 1500, 1085] |
+| DATOR2 | [326 105 302 301 300 102] |
 | ... | ... |
 
-`makelist`Liksom `makeset` fungerar också med ordnade data och genererar matriserna baserat på ordningen på de rader som skickas in i den.
+Till `makelist`exempel `makeset` fungerar också med beställda data och skapar matriserna baserat på ordningen på de rader som skickas till den.
 
-## <a name="expanding-lists"></a>Utöka listor
-Den omvända `makelist` funktionen `makeset` `mvexpand`av eller är , som utökar en lista med värden för att separera rader. Det kan expandera över valfritt antal dynamiska kolumner, både JSON och array. Du kan till exempel kontrollera tabellen *Pulsslag* efter lösningar som skickar data från datorer som har skickat pulsslag under den senaste timmen:
+## <a name="expanding-lists"></a>Expandera listor
+Den inverterade åtgärden för `makelist` eller `makeset` är `mvexpand`, som utökar en lista med värden för att separera rader. Den kan utökas över valfritt antal dynamiska kolumner, både JSON och array. Du kan till exempel kontrol lera *pulsslags* tabellen för lösningar som skickar data från datorer som har skickat ett pulsslag under den senaste timmen:
 
 ```Kusto
 Heartbeat
@@ -68,12 +68,12 @@ Heartbeat
 
 | Dator | Lösningar | 
 |--------------|----------------------|
-| dator1 | "säkerhet", "uppdateringar", "changeTracking" |
-| dator2 | "säkerhet", "uppdateringar" |
-| dator3 | "antiMalware", "changeTracking" |
+| DATOR1 | "säkerhet", "uppdateringar", "changeTracking" |
+| DATOR2 | "säkerhet", "uppdateringar" |
+| computer3 | "program mot skadlig kod", "changeTracking" |
 | ... | ... |
 
-Används `mvexpand` för att visa varje värde på en separat rad i stället för en kommaavgränsad lista:
+Används `mvexpand` för att visa varje värde i en separat rad i stället för en kommaavgränsad lista:
 
 ```Kusto
 Heartbeat
@@ -84,17 +84,17 @@ Heartbeat
 
 | Dator | Lösningar | 
 |--------------|----------------------|
-| dator1 | "säkerhet" |
-| dator1 | "uppdateringar" |
-| dator1 | "changeTracking" |
-| dator2 | "säkerhet" |
-| dator2 | "uppdateringar" |
-| dator3 | "antiMalware" |
-| dator3 | "changeTracking" |
+| DATOR1 | Bullet |
+| DATOR1 | uppdateringar |
+| DATOR1 | ChangeTracking |
+| DATOR2 | Bullet |
+| DATOR2 | uppdateringar |
+| computer3 | Skadlig kod |
+| computer3 | ChangeTracking |
 | ... | ... |
 
 
-Du kan `makelist` sedan använda igen för att gruppera objekt tillsammans, och den här gången se listan över datorer per lösning:
+Du kan sedan använda `makelist` igen för att gruppera objekten och den här gången visas listan över datorer per lösning:
 
 ```Kusto
 Heartbeat
@@ -106,14 +106,14 @@ Heartbeat
 
 |Lösningar | list_Computer |
 |--------------|----------------------|
-| "säkerhet" | ["dator1", "dator2"] |
-| "uppdateringar" | ["dator1", "dator2"] |
-| "changeTracking" | ["dator1", "dator3"] |
-| "antiMalware" | ["dator3"] |
+| Bullet | ["DATOR1", "DATOR2"] |
+| uppdateringar | ["DATOR1", "DATOR2"] |
+| ChangeTracking | ["DATOR1", "computer3"] |
+| Skadlig kod | ["computer3"] |
 | ... | ... |
 
-## <a name="handling-missing-bins"></a>Hantering av papperskorgar som saknas
-Ett användbart `mvexpand` program av är behovet av att fylla standardvärden i för saknade lagerplatser. Anta till exempel att du letar efter drifttiden för en viss dator genom att utforska dess pulsslag. Du vill också se källan till pulsslag _category_ som finns i kategorikolumnen. Normalt skulle vi använda en enkel sammanfatta uttalande enligt följande:
+## <a name="handling-missing-bins"></a>Hantering av saknade lager platser
+Ett användbart program i `mvexpand` är behovet av att fylla standardvärden i för saknade lager platser. Anta till exempel att du söker efter drift tiden för en viss dator genom att utforska dess pulsslag. Du vill också se källan till pulsslaget som finns i kolumnen _kategori_ . Normalt skulle vi använda en enkel sammanfattnings instruktion på följande sätt:
 
 ```Kusto
 Heartbeat
@@ -130,7 +130,7 @@ Heartbeat
 | Direkt agent | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
-I dessa resultat om bucketen som är associerad med "2017-06-06T19:00:00Z" saknas eftersom det inte finns några pulsslagsdata för den timmen. Använd `make-series` funktionen för att tilldela ett standardvärde till tomma buckets. Detta genererar en rad för varje kategori med två extra matriskolumner, en för värden och en för matchande tidssegment:
+I dessa resultat, trots att Bucket som är associerat med "2017-06-06T19:00:00Z" saknas, eftersom det inte finns några pulsslags data för den timmen. Använd `make-series` funktionen för att tilldela tomma buckets-värde. Då skapas en rad för varje kategori med två extra mat ris kolumner, en för värden och en för matchande tidsbuckets:
 
 ```Kusto
 Heartbeat
@@ -139,10 +139,10 @@ Heartbeat
 
 | Kategori | count_ | TimeGenerated |
 |---|---|---|
-| Direkt agent | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00.00000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
+| Direkt agent | [15, 60, 0, 55, 60, 57, 60,...] | ["2017-06-06T17:00:00.0000000 Z", "2017-06-06T18:00:00.0000000 Z", "2017-06-06T19:00:00.0000000 Z", "2017-06-06T20:00:00.0000000 Z", "2017-06-06T21:00:00.0000000 Z",...] |
 | ... | ... | ... |
 
-Det tredje elementet i *den count_* matrisen är en 0 som förväntat, och det finns en matchande tidsstämpel på "2017-06-06T19:00:00.0000000Z" i _matrisen TimeGenerated._ Detta arrayformat är svårt att läsa dock. Används `mvexpand` för att expandera matriserna och producera `summarize`samma formatutdata som genereras av:
+Det tredje elementet i *count_* matrisen är 0 som förväntat och det finns en matchande tidsstämpel på "2017-06-06T19:00:00.0000000 z" i _TimeGenerated_ -matrisen. Det här mat ris formatet är svårt att läsa. Används `mvexpand` för att expandera matriserna och producera samma format resultat som genereras av `summarize`:
 
 ```Kusto
 Heartbeat
@@ -163,8 +163,8 @@ Heartbeat
 
 
 
-## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Begränsa resultaten till en uppsättning `let` `makeset`element: , , `toscalar``in`
-Ett vanligt scenario är att välja namnen på vissa specifika entiteter baserat på en uppsättning villkor och sedan filtrera en annan datauppsättning ner till den uppsättningen entiteter. Du kan till exempel hitta datorer som är kända för att ha saknade uppdateringar och identifiera IPs som dessa datorer ropade till:
+## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>Begränsa resultaten till en uppsättning element: `let`, `makeset`,, `toscalar``in`
+Ett vanligt scenario är att välja namnen på vissa entiteter baserat på en uppsättning villkor och sedan filtrera en annan data uppsättning till den uppsättningen entiteter. Du kan till exempel hitta datorer där uppdateringar saknas och identifiera IP-adresser som de här datorerna anropar för att:
 
 
 ```Kusto
@@ -179,12 +179,12 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/) med Azure Monitor-loggdata:
+Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/) med Azure Monitor loggdata:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)
 - [Aggregeringsfunktioner](aggregations.md)
 - [Avancerade aggregeringar](advanced-aggregations.md)
 - [JSON och datastrukturer](json-data-structures.md)
-- [Går](joins.md)
+- [Kopplingar](joins.md)
 - [Diagram](charts.md)

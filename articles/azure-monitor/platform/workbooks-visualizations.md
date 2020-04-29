@@ -1,6 +1,6 @@
 ---
-title: Visualiseringar av Azure Monitor-arbetsbok
-description: Lär dig mer om alla Visualiseringar av Azure Monitor-arbetsboks visualiseringar, inklusive - text, diagram, rutnät, träd och diagram.
+title: Azure Monitor arbets bok visualiseringar
+description: Lär dig mer om alla Azure Monitor-arbetsböckers visualiserings komponenter, inklusive text, diagram, rutnät, träd och diagram.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,156 +10,156 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d05902f47dff3dd2f8a63ae240c0b8825a5c441f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658038"
 ---
-# <a name="azure-monitor-workbook-visualizations"></a>Visualiseringar av Azure Monitor-arbetsbok
+# <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor arbets bok visualiseringar
 
-Azure Monitor-arbetsböcker stöder ett antal olika visualiseringar för att tillgodose dina rapporteringsbehov. Den här artikeln innehåller exempel på varje typ av visualisering.
+Azure Monitor arbets böcker har stöd för ett antal olika typer av visualiseringar som passar dina rapporterings behov. Den här artikeln innehåller exempel på varje typ av visualisering.
 
 ## <a name="text"></a>Text
 
-Arbetsböcker gör det möjligt för författare att inkludera textblock i sina arbetsböcker. Texten kan vara mänsklig analys av telemetri, information för att hjälpa användare att tolka dina data, avsnittrubriker, etc.
+Med arbets böcker kan författarna innehålla textblock i sina arbets böcker. Texten kan vara mänsklig analys av telemetri, information som hjälper användarna att tolka dina data, avsnitts rubriker osv.
 
-![Skärmbild av Apdex-texttabell](./media/workbooks-visualizations/apdex.png)
+![Skärm bild av Apdex text tabell](./media/workbooks-visualizations/apdex.png)
 
-Text läggs till genom en Markdown-kontroll som ger fullständig formateringskontroll.
+Text läggs till via en markdown-kontroll som ger fullständig formatering.
 
-![Skärmbild av råmarkdown som skapar den renderade tabellen](./media/workbooks-visualizations/markdown.png)
+![Skärm bild av RAW-markdown som bygger den återgivna tabellen](./media/workbooks-visualizations/markdown.png)
 
-### <a name="add-a-text-control"></a>Lägga till en textkontroll
+### <a name="add-a-text-control"></a>Lägg till en text kontroll
 
-1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet **Redigera** verktygsfält.
-2. Använd länken **Lägg till text** om du vill lägga till en textkontroll i arbetsboken.
-3. Lägg till Markdown i kontrollen.
-4. Klicka på knappen **Klar redigering** om du vill visa den formaterade texten.
+1. Ändra arbets boken till redigerings läge genom att klicka på objektet **Redigera** verktygsfält.
+2. Använd länken **Lägg till text** för att lägga till en text kontroll i arbets boken.
+3. Lägg till markdown i kontrollen.
+4. Klicka på knappen **klar redigering** för att se den formaterade texten.
 
 > [!TIP]
-> Använd den här [Markdown-lathunden](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) om du vill veta mer om olika formateringsalternativ.
+> Använd det här [markdown lathund-bladet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) för att lära dig om olika formateringsalternativ.
 
 ## <a name="charts"></a>Diagram
 
-Arbetsböcker gör det möjligt att presentera övervakningsdata som diagram. Diagramtyper som stöds inkluderar linje, stapel, stapelkategorisk, område, punktdiagram, cirkel och tid. Författare kan välja att anpassa höjd, bredd, färgpalett, legend, titlar, no-data meddelande, etc. i diagrammet.
+Med arbets böcker kan övervaknings data visas som diagram. Diagram typer som stöds innehåller linje, stapel, kategoriska, område, punkt diagram, cirkel och tid. Författare kan välja att anpassa höjden, bredden, färgpaletten, förklaringen, titlar, inga data meddelanden osv.
 
-Arbetsböcker stöder diagram för både loggar och måttdatakällor. 
+Arbets böcker stöder diagram för både loggar och metriska data källor. 
 
-### <a name="adding-a-log-chart"></a>Lägga till ett loggdiagram
+### <a name="adding-a-log-chart"></a>Lägga till ett logg diagram
 
-1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet **Redigera** verktygsfält.
-2. Använd länken **Lägg till fråga** om du vill lägga till en loggfrågekontroll i arbetsboken.
-3. Välj frågetypen som **Log**, resurstyp (till exempel Application Insights) och de resurser som ska riktas.
-4. Använd Frågeredigeraren för att ange [KQL](https://docs.microsoft.com/azure/kusto/query/) för din analys (till exempel trend av begäranden).
-5. Ange visualiseringen till en av: **Område,** **Stapel**, **Stapel (kategorisk)**, **Linje,** **Cirkel,** **Punkt**eller **Tid**.
-6. Ange andra parametrar om det behövs - som tidsintervall, visualisering, storlek, färgpalett och förklaring.
+1. Ändra arbets boken till redigerings läge genom att klicka på objektet **Redigera** verktygsfält.
+2. Använd länken **Lägg till fråga** för att lägga till en logg frågas kontroll i arbets boken.
+3. Välj typ av fråga som **logg**, resurs typ (till exempel Application Insights) och de resurser som ska riktas mot målet.
+4. Använd Frågeredigeraren för att ange [KQL](https://docs.microsoft.com/azure/kusto/query/) för din analys (till exempel trend för förfrågningar).
+5. Ange visualiseringen till något av: **Area**, **bar**, **bar (kategoriska)**, **linje**, **cirkel**, **punkt**eller **tid**.
+6. Ange andra parametrar om det behövs, till exempel tidsintervall, visualisering, storlek, färgpalett och förklaring.
 
-![Skärmbild av loggdiagram i redigeringsläge](./media/workbooks-visualizations/log-chart.png)
+![Skärm bild av logg diagram i redigerings läge](./media/workbooks-visualizations/log-chart.png)
 
-#### <a name="log-chart-parameters"></a>Parametrar för loggdiagram
-
-| Parameter | Förklaring | Exempel |
-| ------------- |:-------------|:-------------|
-| `Query Type` | Den typ av fråga som ska användas | Logga, Azure Resource Graph, etc. |
-| `Resource Type` | Resurstypen som ska riktas | Application Insights, Log Analytics eller Azure-first |
-| `Resources` | En uppsättning resurser för att hämta måttvärdet från | MyApp1 |
-| `Time Range` | Tidsfönstret för att visa loggdiagrammet | Sista timmen, Senaste 24 timmarna, etc. |
-| `Visualization` | Visualiseringen som ska användas | Område, Bar, Linje, Cirkel, Punkt, Tid, bar kategorisk |
-| `Size` | Den vertikala storleken på kontrollen | Små, medelstora, stora eller fulla |
-| `Color palette` | Den färgpalett som ska användas i diagrammet. Ignoreras i multimetrid eller segmenterat läge. | Blå, grön, röd, etc. |
-| `Legend` | Aggregeringsfunktionen som ska användas för förklaringen | Summa eller medelvärde av värden eller Max, Min, Först, Sista värde |
-| `Query` | Alla KQL-frågor som returnerar data i det format som förväntas av diagramvisualiseringen | _begär \| begäranden om begäranden om make-series Requests = count() default = 0 på tidsstämpel från sedan(1d) till nu() steg 1h_ |
-
-### <a name="adding-a-metric-chart"></a>Lägga till ett måttdiagram
-
-1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet **Redigera** verktygsfält.
-2. Använd länken **Lägg till mått för** att lägga till en måttkontroll i arbetsboken.
-3. Välj en resurstyp (till exempel Lagringskonto), de resurser som ska riktas, det måttnamnområde och det namn och det aggregering som ska användas.
-4. Ange andra parametrar om det behövs – som tidsintervall, delad, visualisering, storlek och färgpalett.
-
-![Skärmbild av måttdiagram i redigeringsläge](./media/workbooks-visualizations/metric-chart.png)
-
-#### <a name="metric-chart-parameters"></a>Parametrar för metriskt diagram
+#### <a name="log-chart-parameters"></a>Parametrar för logg diagram
 
 | Parameter | Förklaring | Exempel |
 | ------------- |:-------------|:-------------|
-| `Resource Type` | Resurstypen som ska riktas | Lagring eller virtuell dator. |
-| `Resources` | En uppsättning resurser för att hämta måttvärdet från | MyStorage1 (På väg till) |
-| `Namespace` | Namnområdet med måttet | Lagring > Blob |
-| `Metric` | Måttet som ska visualiseras | Lagring > Blob >-transaktioner |
-| `Aggregation` | Aggregeringsfunktionen som ska tillämpas på måttet | Summa, antal, medelvärde, etc. |
-| `Time Range` | Tidsfönstret för att visa måttet i | Sista timmen, Senaste 24 timmarna, etc. |
-| `Visualization` | Visualiseringen som ska användas | Område, Bar, Linje, Punkt, Rutnät |
-| `Split By` | Du kan också dela upp måttet på en dimension | Transaktioner efter geotyp |
-| `Size` | Den vertikala storleken på kontrollen | Små, medelstora eller stora |
-| `Color palette` | Den färgpalett som ska användas i diagrammet. Ignoreras om `Split by` parametern används | Blå, grön, röd, etc. |
+| `Query Type` | Typ av fråga som ska användas | Logg, Azure Resource Graph osv. |
+| `Resource Type` | Resurs typen som mål | Application Insights, Log Analytics eller Azure-First |
+| `Resources` | En uppsättning resurser som mått värde hämtas från | MyApp1 |
+| `Time Range` | Tids perioden för att Visa logg diagrammet | Senaste timmen, senaste 24 timmarna osv. |
+| `Visualization` | Visualiseringen som ska användas | Yt-, stapel-, linje-, cirkel-, punkt-, Time-, bar-kategoriska |
+| `Size` | Kontrollens lodräta storlek | Liten, medel, stor eller fullständig |
+| `Color palette` | Den färgpalett som ska användas i diagrammet. Ignoreras i multi-Metric-eller segment läge. | Blått, grönt, rött osv. |
+| `Legend` | Sammansättnings funktionen som ska användas för förklaringen | Sum eller medelvärdet av värden eller Max, min, First, sista värdet |
+| `Query` | Alla KQL-frågor som returnerar data i det format som förväntas av diagrammets visualisering | _begär \| Anden om make-serien = Count () standard = 0 på tidsstämpeln från sedan (1d) till Now () steg 1H_ |
+
+### <a name="adding-a-metric-chart"></a>Lägga till ett mått diagram
+
+1. Ändra arbets boken till redigerings läge genom att klicka på objektet **Redigera** verktygsfält.
+2. Använd länken **Lägg till mått** om du vill lägga till en mått kontroll i arbets boken.
+3. Välj en resurs typ (t. ex. lagrings konto), de resurser som ska riktas till, mått namn området och namnet och vilken agg regering som ska användas.
+4. Ange andra parametrar vid behov, t. ex. tidsintervall, delning för, visualisering, storlek och färgpalett.
+
+![Skärm bild av mått diagram i redigerings läge](./media/workbooks-visualizations/metric-chart.png)
+
+#### <a name="metric-chart-parameters"></a>Mått diagram parametrar
+
+| Parameter | Förklaring | Exempel |
+| ------------- |:-------------|:-------------|
+| `Resource Type` | Resurs typen som mål | Lagring eller virtuell dator. |
+| `Resources` | En uppsättning resurser som mått värde hämtas från | MyStorage1 |
+| `Namespace` | Namn området med måttet | Lagring > BLOB |
+| `Metric` | Måttet som ska visualiseras | Lagrings > BLOB-> transaktioner |
+| `Aggregation` | Sammansättnings funktionen som ska tillämpas på måttet | Sum, Count, Average osv. |
+| `Time Range` | Tids perioden för att Visa måttet i | Senaste timmen, senaste 24 timmarna osv. |
+| `Visualization` | Visualiseringen som ska användas | Yt-, stapel-, linje-, punkt-, rutnät |
+| `Split By` | Du kan också dela måttet på en dimension | Transaktioner per geo-typ |
+| `Size` | Kontrollens lodräta storlek | Liten, medel eller stor |
+| `Color palette` | Den färgpalett som ska användas i diagrammet. Ignoreras om `Split by` parametern används | Blått, grönt, rött osv. |
 
 ## <a name="grids"></a>Rutnät
 
-Rutnät eller tabeller är ett vanligt sätt att presentera data för användare. Arbetsböcker gör det möjligt för användare att individuellt formatera kolumnerna i rutnätet för att tillhandahålla ett omfattande användargränssnitt för sina rapporter.
+Rutnät eller tabeller är ett vanligt sätt att presentera data för användare. Med arbets böcker kan användarna individuellt formatera kolumnerna i rutnätet för att ge ett omfattande användar gränssnitt för sina rapporter.
 
-Exemplet nedan visar ett rutnät som kombinerar ikoner, värmekartor och sparkfält för att presentera komplex information. Arbetsboken innehåller också sortering, en sökruta och en go-to-analytics-knapp.
+Exemplet nedan visar ett rutnät som kombinerar ikoner, termiska kartor och Spark-staplar för att presentera komplex information. Arbets boken innehåller också sortering, en sökruta och en go-till-Analytics-knapp.
 
-![Skärmbild av loggbaserat rutnät](./media/workbooks-visualizations/grid.png)
+![Skärm bild av logga baserat rutnät](./media/workbooks-visualizations/grid.png)
 
-### <a name="adding-a-log-based-grid"></a>Lägga till ett loggbaserat rutnät
+### <a name="adding-a-log-based-grid"></a>Lägga till ett logg baserat rutnät
 
-1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet **Redigera** verktygsfält.
-2. Använd länken **Lägg till fråga** om du vill lägga till en loggfrågekontroll i arbetsboken.
-3. Välj frågetypen som **Log**, resurstyp (till exempel Application Insights) och de resurser som ska riktas.
+1. Ändra arbets boken till redigerings läge genom att klicka på objektet **Redigera** verktygsfält.
+2. Använd länken **Lägg till fråga** för att lägga till en logg frågas kontroll i arbets boken.
+3. Välj typ av fråga som **logg**, resurs typ (till exempel Application Insights) och de resurser som ska riktas mot målet.
 4. Använd Frågeredigeraren för att ange KQL för din analys (till exempel virtuella datorer med minne under ett tröskelvärde)
-5. Ställa in visualiseringen på **rutnät**
-6. Ställ in andra parametrar om det behövs - som tidsintervall, storlek, färgpalett och förklaring.
+5. Ange visualiseringen till **rutnät**
+6. Ange andra parametrar om det behövs, till exempel tidsintervall, storlek, färgpalett och förklaring.
 
-![Skärmbild av loggbaserad rutnätsfråga](./media/workbooks-visualizations/grid-query.png)
+![Skärm bild av fråga om logg beroende rutnät](./media/workbooks-visualizations/grid-query.png)
 
 ## <a name="tiles"></a>Ikoner
 
-Paneler är ett mycket användbart sätt att presentera sammanfattningsdata i arbetsböcker. Bilden nedan visar ett vanligt användningsfall för paneler - sammanfattning av appnivå ovanpå ett detaljerat rutnät.
+Paneler är ett mycket användbart sätt att Visa sammanfattnings data i arbets böcker. I bilden nedan visas ett vanligt användnings fall av sammanfattningar på App-nivå ovanpå ett detaljerat rutnät.
 
-![Skärmbild av sammanfattningsvy för paneler](./media/workbooks-visualizations/tiles-summary.png)
+![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/tiles-summary.png)
 
-Arbetsbokspaneler stöder en rubrik, underrubrik, stor text, ikoner, måttbaserade övertoningar, sparklinje/staplar, sidfot, etc.
+Stöd för arbets boks paneler visar en rubrik, under rubrik, stor text, ikoner, metriska övertoningar, Spark-linje/staplar, sidfot osv.
 
 ### <a name="adding-a-tile"></a>Lägga till en panel
 
-1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet _Redigera_ verktygsfält.
-2. Använd länken **Lägg till fråga** om du vill lägga till en loggfrågekontroll i arbetsboken. 
-3. Välj frågetypen som **Log**, resurstyp (till exempel Application Insights) och de resurser som ska riktas.
+1. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
+2. Använd länken **Lägg till fråga** för att lägga till en logg frågas kontroll i arbets boken. 
+3. Välj typ av fråga som **logg**, resurs typ (till exempel Application Insights) och de resurser som ska riktas mot målet.
 4. Använd Frågeredigeraren för att ange KQL för din analys
     ```kusto
     requests
     | summarize Requests = count() by appName, name
     | top 7 by Requests desc
     ```
-5. Ange storlek till **full**
-6. Ställa in visualiseringen på **paneler**
-7. Klicka på knappen **Panelinställningar** för att öppna inställningsfönstret
-8. I **Panelfält**anger du:
-    * Titel:`name`
-    * Vänster: `Requests`, Renderer: `Big Number`, `Green to Red`Färgpalett: , Min Värde:`0`
-    * Botten:`appName`
-9. Klicka på knappen **Spara och stäng** längst ned i fönstret.
+5. Ange **fullständig** storlek
+6. Ange visualiseringen som **paneler**
+7. Klicka på knappen **panel inställningar** för att öppna fönstret inställningar
+8. I **panel fält**ställer du in:
+    * Avdelning`name`
+    * Left: `Requests`, renderare: `Big Number`, färgpalett: `Green to Red`, minsta värde:`0`
+    * Kanten`appName`
+9. Klicka på knappen **Spara och Stäng** längst ned i fönstret.
 
-![Skärmbild av sammanfattningsvy för paneler](./media/workbooks-visualizations/tile-settings.png)
+![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/tile-settings.png)
 
-Så här ser panelerna ut i läsläge:
+Så här kommer panelerna att se ut i läsläge:
 
-![Skärmbild av sammanfattningsvy för paneler](./media/workbooks-visualizations/tiles-read-mode.png)
+![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/tiles-read-mode.png)
 
 ## <a name="trees"></a>Träd
 
-Arbetsböcker stöder hierarkiska vyer via trädrutnät. Träd tillåter vissa rader att kunna expanderas till nästa nivå för en detaljerad upplevelse.
+Arbets böcker har stöd för hierarkiska vyer via träd rutnät. Trees tillåter att vissa rader kan utökas till nästa nivå för att öka detalj nivån.
 
-Exemplet nedan visar behållarhälsomått (arbetsuppsättningsstorlek) som visualiseras som ett trädrutnät. De översta noderna här är AKS-noder (Azure Kubernetes Service), nästa nivå är poddar och den slutliga nivån är behållare. Observera att du fortfarande kan formatera kolumnerna som i ett rutnät (heatmap, ikoner, länk). Den underliggande datakällan i det här fallet är en Log Analytics-arbetsyta med AKS-loggar.
+Exemplet nedan visar hälso mått för behållare (storleken på arbets minnet) visualiserade som ett träd rutnät. Noder på den översta nivån här är Azure Kubernetes service-noder (AKS), nästa nivå är poddar och den slutgiltiga nivån är behållare. Observera att du fortfarande kan formatera dina kolumner som i ett rutnät (termisk karta, ikoner, länk). Den underliggande data källan i det här fallet är en Log Analytics arbets yta med AKS-loggar.
 
-![Skärmbild av sammanfattningsvy för paneler](./media/workbooks-visualizations/trees.png)
+![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/trees.png)
 
-### <a name="adding-a-tree-grid"></a>Lägga till ett trädrutnät
-1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet _Redigera_ verktygsfält.
-2. Använd länken **Lägg till fråga** om du vill lägga till en loggfrågekontroll i arbetsboken. 
-3. Välj frågetypen som **Log**, resurstyp (till exempel Application Insights) och de resurser som ska riktas.
+### <a name="adding-a-tree-grid"></a>Lägga till ett träd rutnät
+1. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
+2. Använd länken **Lägg till fråga** för att lägga till en logg frågas kontroll i arbets boken. 
+3. Välj typ av fråga som **logg**, resurs typ (till exempel Application Insights) och de resurser som ska riktas mot målet.
 4. Använd Frågeredigeraren för att ange KQL för din analys
     ```kusto
     requests
@@ -171,43 +171,43 @@ Exemplet nedan visar behållarhälsomått (arbetsuppsättningsstorlek) som visua
     | project Name, Kind, Requests, Id, ParentId
     | order by Requests desc
     ```
-5. Ställa in visualiseringen på **rutnät**
-6. Klicka på knappen **Kolumninställningar** för att öppna inställningsfönstret
-7. Ange: **Tree/Group By Settings**
-    * Trädtyp:`Parent/Child`
-    * Id-fält:`Id`
-    * Fältet Överordnat ID:`ParentId`
-    * Visa expandern på:`Name`
-    * Expandera den översta nivån i trädet:`checked`
-8. I avsnittet _Kolumner_ högst upp anger du:
-    * _Id_ - Kolumn renderare:`Hidden`
-    * _Överordnad ID_ - Kolumnåtergivning:`Hidden`
-    * _Begäranden_ - Kolumnåtergivning: `Bar` `Blue`, Färg: , Lägsta värde:`0`
-9. Klicka på knappen _Spara och stäng_ längst ned i fönstret.    
+5. Ange visualiseringen till **rutnät**
+6. Klicka på knappen för **kolumn inställningar** för att öppna fönstret inställningar
+7. I avsnittet **träd/gruppera efter inställningar** längst ned anger du:
+    * Träd typ:`Parent/Child`
+    * ID-fält:`Id`
+    * Överordnat ID-fält:`ParentId`
+    * Visa expanderingen på:`Name`
+    * Expandera trädets översta nivå:`checked`
+8. I avsnittet _kolumner_ högst upp anger du:
+    * _ID_ – kolumn åter givning:`Hidden`
+    * _Överordnat ID_ -kolumn åter givning:`Hidden`
+    * _Begär Anden_ -kolumn åter givning `Bar`:, färg `Blue`:, minimalt värde:`0`
+9. Klicka på knappen _Spara och Stäng_ längst ned i fönstret.    
 
-![Skärmbild av sammanfattningsvy för paneler](./media/workbooks-visualizations/tree-settings.png)
+![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/tree-settings.png)
 
-### <a name="tree-settings"></a>Trädinställningar
+### <a name="tree-settings"></a>Träd inställningar
 
-| Inställning | Förklaring |
+| Inställningen | Förklaring |
 |:------------- |:-------------|
-| `Id Field` | Det unika ID:et för varje rad i rutnätet |
-| `Parent Id Field` | Id för den överordnade raden |
-| `Show the expander on` | Den kolumn som trädet expanderar på. Det är vanligt att trädrutnät döljer sitt id- och överordnad id-fält eftersom de inte är särskilt läsbara. I stället visas expandern på ett fält med ett mer läsbart värde - som namnet på entiteten |
-| `Expand the top level of the tree` | Om markerad expanderas trädrutnätet på den översta nivån. Användbart om du vill visa mer information som standard |
+| `Id Field` | Unikt ID för varje rad i rutnätet |
+| `Parent Id Field` | ID för överordnad för den aktuella raden |
+| `Show the expander on` | Den kolumn där träd expanderingen ska visas. Det är vanligt att träd rutnät döljer sitt ID och ett överordnat ID-fält eftersom de inte är särskilt läsbara. I stället visas expanderingen i ett fält med ett mer läsbart värde, som namnet på entiteten |
+| `Expand the top level of the tree` | Om det här alternativet är markerat expanderas träd rutnätet på den översta nivån. Användbart om du vill visa mer information som standard |
 
-## <a name="graphs"></a>Grafer
+## <a name="graphs"></a>Diagram
 
-Arbetsböcker stöder visualisering av godtyckliga diagram baserat på data från loggar för att visa relationerna mellan övervakningsentiteter.
+Arbets böcker stöder visualisering av godtyckliga grafer som baseras på data från loggar för att Visa relationerna mellan övervakning av entiteter.
 
-Diagrammet nedan visar data som flödar in/ut från en dator via olika portar till/från externa datorer. Den färgas efter typ (dator kontra port kontra extern IP) och kantstorlekarna motsvarar mängden data som flödar däremellan. Underliggande data kommer från KQL-fråga som riktar sig till VM-anslutningar.
+Diagrammet nedan visar data som flödar in/ut ur en dator via olika portar till/från externa datorer. Det är färgat efter typ (dator vs. port vs. extern IP) och kant storlekarna motsvarar mängden data som flödar in mellan. Underliggande data kommer från KQL-frågor riktade mot virtuella dator anslutningar.
 
-![Skärmbild av sammanfattningsvy för paneler](./media/workbooks-visualizations/graph.png)
+![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/graph.png)
 
 ### <a name="adding-a-graph"></a>Lägga till ett diagram
-1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet _Redigera_ verktygsfält.
-2. Använd länken **Lägg till fråga** om du vill lägga till en loggfrågekontroll i arbetsboken. 
-3. Välj frågetypen som **Log**, resurstyp (till exempel Application Insights) och de resurser som ska riktas.
+1. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
+2. Använd länken **Lägg till fråga** för att lägga till en logg frågas kontroll i arbets boken. 
+3. Välj typ av fråga som **logg**, resurs typ (till exempel Application Insights) och de resurser som ska riktas mot målet.
 4. Använd Frågeredigeraren för att ange KQL för din analys
     ```kusto
     let data = dependencies
@@ -230,9 +230,9 @@ Diagrammet nedan visar data som flödar in/ut från en dator via olika portar ti
     nodes
     | union (links)
     ```
-7. Ställa in visualiseringen på **Diagram**
-8. Klicka på knappen **Diagraminställningar** för att öppna inställningsfönstret
-9. _Ange:_
+7. Ange visualiseringen som **graf**
+8. Klicka på knappen **Graph-inställningar** för att öppna fönstret inställningar
+9. I _Nedlayout fälten_ längst ned anger du:
     * `Node Id`: `Id`
     * `Source Id`: `SourceId`
     * `Target Id`: `TargetId`
@@ -242,15 +242,15 @@ Diagrammet nedan visar data som flödar in/ut från en dator via olika portar ti
     * `Coloring Type`: `Categorical`
     * `Node Color Field`: `Kind`
     * `Color palette`: `Pastel`
-10. _Ange:_
-    * _Överst innehåll_ `Name`- Använd kolumn: , Kolumnåtergivning:`Text`
-    * _Centerinnehåll_- Använd `Calls`kolumn: , `Big Number`Kolumnåtergivning: , Färgpalett:`None`
-    * _Nedersta innehållet_ `Kind`- Använd kolumn: , Kolumnåtergivning:`Text`
-10. Klicka på knappen _Spara och stäng_ längst ned i fönstret.
+10. I _format inställningar för Node_ överst anger du:
+    * _Topp innehåll_– Använd kolumn: `Name`, kolumn åter givning:`Text`
+    * _Centrera innehåll_– Använd kolumn: `Calls`, kolumn åter givning: `Big Number`, färgpalett:`None`
+    * _Nedre innehålls_användning – Använd kolumn `Kind`:, kolumn åter givning:`Text`
+10. Klicka på knappen _Spara och Stäng_ längst ned i fönstret.
 
-![Skärmbild av sammanfattningsvy för paneler](./media/workbooks-visualizations/graph-settings.png)
+![Skärm bild av vyn Sammanfattning av panel](./media/workbooks-visualizations/graph-settings.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Distribuera](workbooks-automate.md) arbetsböcker med Azure Resource Manager.
-* [Kontrollera](workbooks-access-control.md) och dela åtkomst till arbetsboksresurserna.
+* [Distribuera](workbooks-automate.md) arbets böcker med Azure Resource Manager.
+* [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.

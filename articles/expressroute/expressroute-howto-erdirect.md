@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Konfigurera ExpressRoute Direct'
-description: Den här sidan hjälper dig att konfigurera ExpressRoute Direct.
+title: 'Azure-ExpressRoute: Konfigurera ExpressRoute Direct'
+description: På den här sidan kan du konfigurera ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
 ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77031620"
 ---
-# <a name="how-to-configure-expressroute-direct"></a>Konfigurera ExpressRoute Direct
+# <a name="how-to-configure-expressroute-direct"></a>Så här konfigurerar du ExpressRoute Direct
 
-ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser som är strategiskt fördelade över hela världen. Mer information finns i [Om ExpressRoute Direct](expressroute-erdirect-about.md).
+ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk vid peering-platser som distribueras strategiskt över hela världen. Mer information finns i [Om ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Skapa resursen
 
-1. Logga in på Azure och välj prenumerationen. ExpressRoute Direct-resursen och ExpressRoute-kretsarna måste finnas i samma prenumeration.
+1. Logga in på Azure och Välj prenumerationen. ExpressRoute Direct Resource och ExpressRoute-kretsar måste vara i samma prenumeration.
 
    ```powershell
    Connect-AzAccount 
@@ -28,12 +28,12 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
    
-2. Registrera din prenumeration på Microsoft.Network för att komma åt api:erna för expressrouteportslocation och expressrouteport.
+2. Registrera prenumerationen på Microsoft. Network för att få åtkomst till expressrouteportslocation-och expressrouteport-API: erna.
 
    ```powershell
    Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
    ```   
-3. Lista alla platser där ExpressRoute Direct stöds.
+3. Visa en lista över alla platser där ExpressRoute Direct stöds.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -66,7 +66,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-4. Ta reda på om en plats som anges ovan har tillgänglig bandbredd
+4. Avgöra om en plats som anges ovan har tillgänglig bandbredd
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -90,12 +90,12 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    ```
 5. Skapa en ExpressRoute Direct-resurs baserat på den plats som valts ovan
 
-   ExpressRoute Direct stöder både QinQ och Dot1Q inkapsling. Om QinQ väljs tilldelas varje ExpressRoute-krets dynamiskt en S-Tag och kommer att vara unik i hela ExpressRoute Direct-resursen. Varje C-Tag på kretsen måste vara unik på banan, men inte över ExpressRoute Direct.  
+   ExpressRoute Direct stöder både QinQ-och Dot1Q-inkapsling. Om QinQ har valts tilldelas varje ExpressRoute-krets dynamiskt en S-tagg och kommer att vara unik i hela ExpressRoute Direct-resursen. Varje C-tagg på kretsen måste vara unik på kretsen, men inte över ExpressRoute Direct.  
 
-   Om Dot1Q-inkapsling är markerat måste du hantera unikheten för C-Tag (VLAN) över hela ExpressRoute Direct-resursen.  
+   Om du väljer Dot1Q-inkapsling måste du hantera unikt C-tag (VLAN) över hela ExpressRoute Direct-resursen.  
 
    > [!IMPORTANT]
-   > ExpressRoute Direct kan bara vara en inkapslingstyp. Inkapsling kan inte ändras när ExpressRoute Direct har skapats.
+   > ExpressRoute Direct får bara vara en inkapslings typ. Det går inte att ändra inkapsling när ExpressRoute Direct skapas.
    > 
  
    ```powershell 
@@ -103,7 +103,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    ```
 
    > [!NOTE]
-   > Attributet Inkapsling kan också ställas in på Dot1Q. 
+   > Attributet inkapsling kan också anges till Dot1Q. 
    >
 
    **Exempel på utdata:**
@@ -155,17 +155,17 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    Circuits                   : []
    ```
 
-## <a name="change-admin-state-of-links"></a><a name="state"></a>Ändra admintillstånd för länkar
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Ändra administratörs tillstånd för länkar
 
-  Den här processen bör användas för att utföra ett Layer 1-test, så att varje korsanslutning är korrekt korrigerad i varje router för primär och sekundär.
-1. Få Information om ExpressRoute Direct.
+  Den här processen ska användas för att genomföra ett lager 1-test, vilket säkerställer att varje kors anslutning korrigeras korrekt i varje router för primär och sekundär.
+1. Hämta ExpressRoute direkt information.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
    ```
-2. Ange länk till Aktiverad. Upprepa det här steget för att ställa in varje länk som aktiverad.
+2. Ange att länken är aktive rad. Upprepa det här steget för att ställa in varje länk till aktive rad.
 
-   Länkar[0] är den primära porten och Länkar[1] är den sekundära porten.
+   Länkar [0] är den primära porten och länkarna [1] är den sekundära porten.
 
    ```powershell
    $ERDirect.Links[0].AdminState = "Enabled"
@@ -223,17 +223,17 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    Circuits                   : []
    ```
 
-   Använd samma procedur med `AdminState = "Disabled"` för att stänga av portarna.
+   Använd samma procedur för `AdminState = "Disabled"` för att inaktivera portarna.
 
 ## <a name="create-a-circuit"></a><a name="circuit"></a>Skapa en krets
 
-Som standard kan du skapa 10 kretsar i prenumerationen där ExpressRoute Direct-resursen finns. Detta kan ökas med stöd. Du är ansvarig för att spåra både etablerad och utnyttjad bandbredd. Etablerad bandbredd är summan av bandbredden för alla kretsar på ExpressRoute Direct-resursen och den utnyttjade bandbredden är den fysiska användningen av de underliggande fysiska gränssnitten.
+Som standard kan du skapa 10 kretsar i prenumerationen där ExpressRoute Direct-resursen är. Detta kan höjas genom stöd. Du ansvarar för att spåra både allokerad och Använd bandbredd. Etablerad bandbredd är summan av bandbredden för alla kretsar i ExpressRoute Direct-resursen och utnyttjad bandbredd är den fysiska användningen av de underliggande fysiska gränssnitten.
 
-Det finns ytterligare kretsbandbredder som kan användas på ExpressRoute Direct endast för att stödja de scenarier som beskrivs ovan. Dessa är: 40Gbps och 100Gbps.
+Det finns ytterligare krets bandbredder som kan användas på ExpressRoute Direct endast för att stödja de scenarier som beskrivs ovan. De är: 40Gbps och 100Gbps.
 
-**SkuTier** kan vara lokal, standard eller Premium.
+**SkuTier** kan vara Local, standard eller Premium.
 
-**SkuFamily** får endast vara MeteredData eftersom obegränsad inte stöds på ExpressRoute Direct.
+**SkuFamily** får endast vara MeteredData eftersom obegränsad inte stöds i ExpressRoute Direct.
 
 Skapa en krets på ExpressRoute Direct-resursen.
 
@@ -241,7 +241,7 @@ Skapa en krets på ExpressRoute Direct-resursen.
   New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
-  Andra bandbredder inkluderar: 5.0, 10.0 och 40.0
+  Andra bandbredder är: 5,0, 10,0 och 40,0
 
   **Exempel på utdata:**
 

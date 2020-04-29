@@ -1,6 +1,6 @@
 ---
-title: Skicka klassiska Windows VM-mått till Azure Monitor-måttdatabasen
-description: Skicka gästoperativsystem till Azure Monitor-datalagret för en virtuell Windows-dator (klassisk)
+title: Skicka de klassiska Windows-DATORernas mått till Azure Monitor mått databasen
+description: Skicka gäst operativ systemets mått till Azure Monitor data lager för en virtuell Windows-dator (klassisk)
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,58 +8,58 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655828"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Skicka gästoperativsystem-mått till Azure Monitor-måttdatabasen för en virtuell Windows-dator (klassisk)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Skicka gäst operativ systemets mått till Azure Monitor Metrics-databasen för en virtuell Windows-dator (klassisk)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor [Diagnostics-tillägget](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (kallas "WAD" eller "Diagnostik") kan du samla in mått och loggar från gästoperativsystemet (Guest OS) som körs som en del av en virtuell dator, molntjänst eller Service Fabric-kluster. Tillägget kan skicka telemetri till [många olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+Med Azure Monitor [Diagnostics-tillägget](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (kallas "wad" eller "diagnostik") kan du samla in mått och loggar från gäst operativ systemet (gäst operativ system) som körs som en del av en virtuell dator, moln tjänst eller Service Fabric kluster. Tillägget kan skicka telemetri till [flera olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-I den här artikeln beskrivs processen för att skicka prestandamått för gästoperativsystem för en virtuell Windows-dator (klassisk) till Azure Monitor-måttdatabasen. Från och med Diagnostik version 1.11 kan du skriva mått direkt till Azure Monitor-måttarkivet, där standardplattformsmått redan har samlats in. 
+I den här artikeln beskrivs processen för att skicka gäst operativ systemets prestanda mått för en virtuell Windows-dator (klassisk) till Azure Monitor Metric-databasen. Från och med diagnostik version 1,11 kan du skriva mått direkt till lagrings platsen Azure Monitor mått, där standard plattforms mått redan har samlats in. 
 
-Genom att lagra dem på den här platsen kan du komma åt samma åtgärder som du gör för plattformsmått. Åtgärderna omfattar aviseringar i nära realtid, diagram, routning, åtkomst från ett REST API med mera. Tidigare skrev diagnostiktillägget till Azure Storage, men inte till Azure Monitor-datalagringen. 
+Genom att lagra dem på den här platsen kan du komma åt samma åtgärder som du gör för plattforms mått. Åtgärder är nästan real tids avisering, diagram, routning, åtkomst från en REST API med mera. Tidigare skrev diagnostikprogrammet-tillägget till Azure Storage, men inte till Azure Monitor data lager. 
 
-Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella datorer som kör Operativsystemet Windows.
+Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella datorer som kör Windows operativ system.
 
 ## <a name="prerequisites"></a>Krav
 
-- Du måste vara [tjänstadministratör eller medadministratör](../../cost-management-billing/manage/add-change-subscription-administrator.md) på din Azure-prenumeration. 
+- Du måste vara [tjänst administratör eller delad administratör](../../cost-management-billing/manage/add-change-subscription-administrator.md) på din Azure-prenumeration. 
 
-- Din prenumeration måste vara registrerad hos [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Din prenumeration måste vara registrerad med [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Du måste ha antingen [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerat.
+- Du måste antingen ha [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerat.
 
-- Vm-resursen måste finnas i en [region som stöder anpassade mått](metrics-custom-overview.md#supported-regions).
+- Din VM-resurs måste finnas i en [region som stöder anpassade mått](metrics-custom-overview.md#supported-regions).
 
-## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Skapa ett klassiskt virtuellt dator- och lagringskonto
+## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Skapa en klassisk virtuell dator och ett lagrings konto
 
-1. Skapa en klassisk virtuell dator med hjälp av Azure-portalen.
-   ![Skapa klassisk virtuell dator](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
+1. Skapa en klassisk virtuell dator med hjälp av Azure Portal.
+   ![Skapa en klassisk virtuell dator](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
 
-1. När du skapar den här virtuella datorn väljer du alternativet för att skapa ett nytt klassiskt lagringskonto. Vi använder det här lagringskontot i senare steg.
+1. När du skapar den här virtuella datorn väljer du alternativet för att skapa ett nytt klassiskt lagrings konto. Vi använder det här lagrings kontot i senare steg.
 
-1. Gå till resursbladet **lagringskonton** i Azure-portalen. Välj **Nycklar**och anteckna nyckeln för lagringskontots namn och lagringskonto. Du behöver den här informationen i senare steg.
-   ![Åtkomstnycklar för lagring](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
+1. I Azure Portal går du till resurs bladet **lagrings konton** . Välj **nycklar**och anteckna lagrings kontots namn och lagrings konto nyckel. Du behöver den här informationen i senare steg.
+   ![Lagrings åtkomst nycklar](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Skapa en tjänstprincip i din Azure Active Directory-klient med hjälp av instruktionerna på [Skapa ett tjänsthuvudnamn](../../active-directory/develop/howto-create-service-principal-portal.md). Observera följande när du går igenom den här processen: 
-- Skapa ny klienthemlighet för den här appen.
-- Spara nyckeln och klient-ID:et för användning i senare steg.
+Skapa en tjänst princip i Azure Active Directory-klienten med hjälp av instruktionerna i [skapa ett huvud namn för tjänsten](../../active-directory/develop/howto-create-service-principal-portal.md). Tänk på följande när du går igenom den här processen: 
+- Skapa ny klient hemlighet för den här appen.
+- Spara nyckeln och klient-ID: t för användning i senare steg.
 
-Ge den här appen "Övervakningsmått Utgivare" behörigheter till den resurs som du vill avge mått mot. Du kan använda en resursgrupp eller en hel prenumeration.  
+Ge den här appen "Monitoring Metrics Publisher" behörigheter till den resurs som du vill skapa mått för. Du kan använda en resurs grupp eller en hel prenumeration.  
 
 > [!NOTE]
-> Tillägget Diagnostik använder tjänstens huvudnamn för att autentisera mot Azure Monitor och avge mått för din klassiska virtuella dator.
+> Tillägget för diagnostik använder tjänstens huvud namn för att autentisera mot Azure Monitor och genererar mått för den klassiska virtuella datorn.
 
-## <a name="author-diagnostics-extension-configuration"></a>Konfiguration av tillägg för författarediagnostik
+## <a name="author-diagnostics-extension-configuration"></a>Redigera konfiguration av Diagnostics-tillägg
 
-1. Förbered konfigurationsfilen för diagnostiktillägget. Den här filen avgör vilka loggar och prestandaräknare diagnostiktillägget ska samla in för din klassiska virtuella dator. Här är ett exempel:
+1. Förbered konfigurations filen för Diagnostics Extension. Den här filen avgör vilka loggar och prestanda räknare som Diagnostics-tillägget ska samla in för den klassiska virtuella datorn. Här är ett exempel:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,7 +105,7 @@ Ge den här appen "Övervakningsmått Utgivare" behörigheter till den resurs so
     <IsEnabled>true</IsEnabled>
     </DiagnosticsConfiguration>
     ```
-1. I avsnittet "SinksConfig" i diagnostikfilen definierar du en ny Azure Monitor-diskho enligt följande:
+1. I avsnittet "SinksConfig" i diagnostik-filen definierar du en ny Azure Monitor-mottagare enligt följande:
 
     ```xml
     <SinksConfig>
@@ -118,7 +118,7 @@ Ge den här appen "Övervakningsmått Utgivare" behörigheter till den resurs so
     </SinksConfig>
     ```
 
-1. I avsnittet i konfigurationsfilen där listan över prestandaräknare som ska samlas in visas dirigerar du prestandaräknarna till Azure Monitor-diskbänken "AzMonSink".
+1. I avsnittet i konfigurations filen där listan över prestanda räknare som ska samlas in visas dirigerar du prestanda räknarna till Azure Monitor Sink "AzMonSink".
 
     ```xml
     <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink">
@@ -127,7 +127,7 @@ Ge den här appen "Övervakningsmått Utgivare" behörigheter till den resurs so
     </PerformanceCounters>
     ```
 
-1. Definiera Azure Monitor-kontot i den privata konfigurationen. Lägg sedan till tjänstens huvudinformation som ska användas för att generera mått.
+1. I den privata konfigurationen definierar du Azure Monitor kontot. Lägg sedan till tjänstens huvud namns information som används för att generera mått.
 
     ```xml
     <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -143,7 +143,7 @@ Ge den här appen "Övervakningsmått Utgivare" behörigheter till den resurs so
 
 1. Spara filen lokalt.
 
-## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Distribuera diagnostiktillägget till molntjänsten
+## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Distribuera tillägget för diagnostik till moln tjänsten
 
 1. Starta PowerShell och logga in.
 
@@ -151,25 +151,25 @@ Ge den här appen "Övervakningsmått Utgivare" behörigheter till den resurs so
     Login-AzAccount
     ```
 
-1. Börja med att ange kontext för den klassiska virtuella datorn.
+1. Börja med att ställa in kontexten för den klassiska virtuella datorn.
 
     ```powershell
     $VM = Get-AzureVM -ServiceName <VM’s Service_Name> -Name <VM Name>
     ```
 
-1. Ange kontexten för det klassiska lagringskontot som skapades med den virtuella datorn.
+1. Ange kontexten för det klassiska lagrings kontot som skapades med den virtuella datorn.
 
     ```powershell
     $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
-1.  Ange sökvägen diagnostik till en variabel med hjälp av följande kommando:
+1.  Ange filens diagnostiska sökväg till en variabel med hjälp av följande kommando:
 
     ```powershell
     $diagconfig = “<path of the diagnostics configuration file with the Azure Monitor sink configured>”
     ```
 
-1.  Förbered uppdateringen för din klassiska virtuella dator med diagnostikfilen som har Azure Monitor-diskbänken konfigurerad.
+1.  Förbered uppdateringen för den klassiska virtuella datorn med den diagnostiska fil som har den Azure Monitor mottagaren konfigurerad.
 
     ```powershell
     $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $diagconfig -VM $VM -StorageContext $Storage_Context
@@ -182,26 +182,26 @@ Ge den här appen "Övervakningsmått Utgivare" behörigheter till den resurs so
     ```
 
 > [!NOTE]
-> Det är fortfarande obligatoriskt att tillhandahålla ett lagringskonto som en del av installationen av diagnostiktillägget. Alla loggar eller prestandaräknare som anges i konfigurationsfilen diagnostik kommer att skrivas till det angivna lagringskontot.
+> Det är fortfarande obligatoriskt att ange ett lagrings konto som en del av installationen av tillägget för diagnostik. Loggar eller prestanda räknare som anges i konfigurations filen för diagnostik skrivs till det angivna lagrings kontot.
 
-## <a name="plot-the-metrics-in-the-azure-portal"></a>Rita måtten i Azure-portalen
+## <a name="plot-the-metrics-in-the-azure-portal"></a>Rita måtten i Azure Portal
 
 1.  Gå till Azure Portal. 
 
-1.  Välj Övervaka på den vänstra **menyn.**
+1.  På den vänstra menyn väljer du **övervaka.**
 
-1.  Välj **Mätvärden**på **bladet Monitor** .
+1.  Välj **mått**på bladet **övervaka** .
 
-    ![Navigera i mått](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
+    ![Navigera mått](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 
-1. Välj den klassiska virtuella datorn på den nedrullningsbara menyn Resurser.
+1. I list menyn resurser väljer du den klassiska virtuella datorn.
 
-1. Välj **azure.vm.windows.guest**på den nedrullningsbara menyn namnområden .
+1. I den nedrullningsbara menyn namn områden väljer du **Azure. VM. Windows. gäst**.
 
-1. Välj **Minne\Allokerade byte i Bruk**på den nedrullningsbara menyn Mått.
-   ![Ritdiagrammått](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
+1. I den nedrullningsbara menyn mått väljer du **Minne\dedikerade byte som används**.
+   ![Rita mått](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [anpassade mått](metrics-custom-overview.md).
+- Lär dig mer om [anpassade mått](metrics-custom-overview.md).
 

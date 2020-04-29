@@ -1,31 +1,31 @@
 ---
-title: Loggaviseringsfrågor i Azure Monitor | Microsoft-dokument
-description: Ger rekommendationer om hur du skriver effektiva frågor för loggaviseringar i Azure Monitor-uppdateringar och en process för att konvertera befintliga frågor.
+title: Logga aviserings frågor i Azure Monitor | Microsoft Docs
+description: Innehåller rekommendationer om hur du skriver effektiva frågor för logg aviseringar i Azure Monitor uppdateringar och en process för att konvertera befintliga frågor.
 author: yossi-y
 ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667796"
 ---
-# <a name="log-alert-queries-in-azure-monitor"></a>Loggaviseringsfrågor i Azure Monitor
-[Varningsregler baserade på Azure Monitor-loggar](alerts-unified-log.md) körs med jämna mellanrum, så du bör se till att de skrivs för att minimera omkostnader och svarstid. Den här artikeln innehåller rekommendationer om hur du skriver effektiva frågor för loggaviseringar och en process för att konvertera befintliga frågor. 
+# <a name="log-alert-queries-in-azure-monitor"></a>Logga aviserings frågor i Azure Monitor
+[Varnings regler som baseras på Azure Monitor loggar](alerts-unified-log.md) körs med jämna mellanrum, så du bör se till att de är skrivna för att minimera omkostnader och svars tider. Den här artikeln innehåller rekommendationer om hur du skriver effektiva frågor för logg aviseringar och en process för att konvertera befintliga frågor. 
 
-## <a name="types-of-log-queries"></a>Typer av loggfrågor
-[Loggfrågor i Azure Monitor](../log-query/log-query-overview.md) börjar med antingen en tabell eller en [sök-](/azure/kusto/query/searchoperator) eller [unionsoperator.](/azure/kusto/query/unionoperator)
+## <a name="types-of-log-queries"></a>Typer av logg frågor
+[Logg frågor i Azure Monitor](../log-query/log-query-overview.md) börjar med antingen en tabell eller en [Sök](/azure/kusto/query/searchoperator) -eller [union](/azure/kusto/query/unionoperator) -operator.
 
-Följande fråga begränsas till till _säkerhetshändelsetabellen_ och söker efter specifikt händelse-ID. Det här är den enda tabell som frågan måste bearbeta.
+Följande fråga är till exempel begränsad till tabellen _SecurityEvent_ och söker efter ett särskilt händelse-ID. Det här är den enda tabell som frågan måste bearbeta.
 
 ``` Kusto
 SecurityEvent | where EventID == 4624 
 ```
 
-Frågor som börjar `search` `union` med eller låter dig söka över flera kolumner i en tabell eller till och med flera tabeller. Följande exempel visar flera metoder för att söka i termen _Minne:_
+Frågor som börjar med `search` eller `union` låter dig söka i flera kolumner i en tabell eller till och med flera tabeller. I följande exempel visas flera metoder för att söka på termen _minne_:
 
 ```Kusto
 search "Memory"
@@ -35,12 +35,12 @@ search ObjectName == "Memory"
 union * | where ObjectName == "Memory"
 ```
 
-Även `search` `union` om och är användbara under datautforskning, söka termer över hela datamodellen, de är mindre effektiva än att använda en tabell eftersom de måste skanna över flera tabeller. Eftersom frågor i varningsregler körs med jämna mellanrum kan detta resultera i överdriven overhead-lägger till svarstid till aviseringen. På grund av den här omkostnader bör frågor om loggaviseringsregler i Azure alltid börja med en tabell för att definiera ett tydligt omfång, vilket förbättrar både frågeprestanda och resultatens relevans.
+Även `search` om `union` det är användbart under data utforskningen kan du söka igenom termer över hela data modellen, men de är mindre effektiva än att använda en tabell eftersom de måste genomsöka över flera tabeller. Eftersom frågor i varnings regler körs med jämna mellanrum, kan det leda till en alltför hög omkostnader för att lägga till fördröjning i aviseringen. På grund av den här omkostnaderna bör frågor för logg aviserings regler i Azure alltid börja med en tabell för att definiera en tydlig omfattning, vilket förbättrar både frågans prestanda och relevansen för resultatet.
 
 ## <a name="unsupported-queries"></a>Frågor som inte stöds
-Från och med 11 januari 2019 stöds inte `search`att `union` skapa eller ändra loggvarningsregler som använder eller operatörer i Azure-portalen. Om du använder dessa operatorer i en varningsregel returneras ett felmeddelande. Befintliga varningsregler och varningsregler som skapats och redigerats med Log Analytics API påverkas inte av den här ändringen. Du bör fortfarande överväga att ändra alla varningsregler som använder dessa typer av frågor men för att förbättra deras effektivitet.  
+Från och med 11 januari 2019, skapa eller ändra logg varnings regler `search`som använder `union` , eller så stöds inte operatörer i Azure Portal. Om dessa operatorer används i en varnings regel returneras ett fel meddelande. Befintliga varnings regler och aviserings regler som skapas och redige ras med Log Analytics API påverkas inte av den här ändringen. Du bör fortfarande överväga att ändra eventuella varnings regler som använder dessa typer av frågor, i syfte att förbättra effektiviteten.  
 
-Loggaviseringsregler med [frågor mellan resurser](../log-query/cross-workspace-query.md) påverkas inte av den här `union`ändringen eftersom resursfrågor använder flera resurser , vilket begränsar frågeomfånget till specifika resurser. Detta motsvarar inte `union *` som inte kan användas.  Följande exempel skulle vara giltigt i en loggvarningsregel:
+Logg varnings regler som använder [kors resurs frågor](../log-query/cross-workspace-query.md) påverkas inte av den här ändringen eftersom frågor om kors resurser `union`använder, vilket begränsar frågans omfång till vissa resurser. Detta är inte detsamma `union *` som kan användas.  Följande exempel är giltigt i en logg aviserings regel:
 
 ```Kusto
 union 
@@ -50,13 +50,13 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->[Fråga över flera resurser](../log-query/cross-workspace-query.md) i loggaviseringar stöds i det nya [schemalagdaQueryRules API:et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor det [äldre Log Analytics Alert API](api-alerts.md) för att skapa nya loggaviseringsregler från Azure-portalen, såvida du inte växlar från äldre [loggvarningar API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API:et standard för nya varningsregler i Azure-portalen och du kan skapa regler för frågeloggar mellan resurser. Du kan skapa frågeloggvarningsregler för flera resurser utan att växla genom att använda [ARM-mallen för scheduledQueryRules API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här aviseringsregeln är hanterbar men [schemalagdQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure-portalen. [cross-resource query](../log-query/cross-workspace-query.md)
+>[Frågan över resurser](../log-query/cross-workspace-query.md) i logg aviseringar stöds i det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Som standard använder Azure Monitor den [äldre Log Analytics varnings-API: n](api-alerts.md) för att skapa nya logg aviserings regler från Azure Portal, såvida du inte växlar från [äldre API för logg aviseringar](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln blir det nya API: t standardvärdet för nya varnings regler i Azure Portal och du kan skapa frågor om aviserings regler för kors resurs. Du kan skapa [frågor om kors resursfrågor](../log-query/cross-workspace-query.md) utan att göra växeln med hjälp av arm- [mallen för scheduledQueryRules-API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här varnings regeln kan hanteras även om [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure Portal.
 
 ## <a name="examples"></a>Exempel
-Följande exempel är loggfrågor `search` som `union` använder och och innehåller steg som du kan använda för att ändra dessa frågor för användning med varningsregler.
+Följande exempel innehåller logg frågor som använder `search` och `union` ger instruktioner som du kan använda för att ändra dessa frågor för användning med varnings regler.
 
 ### <a name="example-1"></a>Exempel 1
-Du vill skapa en loggaviseringsregel med hjälp `search`av följande fråga som hämtar prestandainformation med: 
+Du vill skapa en logg aviserings regel med hjälp av följande fråga som hämtar prestanda information med `search`hjälp av: 
 
 ``` Kusto
 search * | where Type == 'Perf' and CounterName == '% Free Space' 
@@ -65,7 +65,7 @@ search * | where Type == 'Perf' and CounterName == '% Free Space'
 ```
   
 
-Om du vill ändra den här frågan börjar du med följande fråga för att identifiera den tabell som egenskaperna tillhör:
+Om du vill ändra den här frågan börjar du med att använda följande fråga för att identifiera tabellen som egenskaperna tillhör:
 
 ``` Kusto
 search * | where CounterName == '% Free Space'
@@ -73,9 +73,9 @@ search * | where CounterName == '% Free Space'
 ```
  
 
-Resultatet av den här frågan visar att egenskapen _CounterName_ kom från _tabellen Perf._ 
+Resultatet av den här frågan visar att egenskapen _CounterName_ kommer från tabellen _perf_ . 
 
-Du kan använda det här resultatet för att skapa följande fråga som du skulle använda för varningsregeln:
+Du kan använda det här resultatet för att skapa följande fråga som du skulle använda för aviserings regeln:
 
 ``` Kusto
 Perf 
@@ -86,7 +86,7 @@ Perf
 
 
 ### <a name="example-2"></a>Exempel 2
-Du vill skapa en loggaviseringsregel med hjälp `search`av följande fråga som hämtar prestandainformation med: 
+Du vill skapa en logg aviserings regel med hjälp av följande fråga som hämtar prestanda information med `search`hjälp av: 
 
 ``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"  
@@ -96,7 +96,7 @@ search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
 ```
   
 
-Om du vill ändra den här frågan börjar du med följande fråga för att identifiera den tabell som egenskaperna tillhör:
+Om du vill ändra den här frågan börjar du med att använda följande fråga för att identifiera tabellen som egenskaperna tillhör:
 
 ``` Kusto
 search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use" 
@@ -104,9 +104,9 @@ search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use"
 ```
  
 
-Resultatet av den här frågan visar att egenskapen _ObjectName_ och _CounterName_ kom från _tabellen Perf._ 
+Resultatet av den här frågan visar att egenskapen _ObjectName_ och _CounterName_ kommer från tabellen _perf_ . 
 
-Du kan använda det här resultatet för att skapa följande fråga som du skulle använda för varningsregeln:
+Du kan använda det här resultatet för att skapa följande fråga som du skulle använda för aviserings regeln:
 
 ``` Kusto
 Perf 
@@ -119,7 +119,7 @@ Perf
 
 ### <a name="example-3"></a>Exempel 3
 
-Du vill skapa en loggaviseringsregel med `search` `union` hjälp av följande fråga som använder båda och för att hämta prestandainformation: 
+Du vill skapa en logg aviserings regel med hjälp av följande fråga som använder `search` både `union` och för att hämta prestanda information: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
@@ -128,16 +128,16 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 ```
  
 
-Om du vill ändra den här frågan börjar du med följande fråga för att identifiera den tabell som egenskaperna i den första delen av frågan tillhör: 
+Om du vill ändra den här frågan börjar du med att använda följande fråga för att identifiera tabellen som egenskaperna i den första delen av frågan tillhör: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")  
 | summarize by $table 
 ```
 
-Resultatet av den här frågan skulle visa att alla dessa egenskaper kom från _tabellen Perf._ 
+Resultatet av den här frågan visar att alla dessa egenskaper kommer från tabellen _perf_ . 
 
-Använd `union` nu `withsource` med kommandot för att identifiera vilken källtabell som har bidragit med varje rad.
+Används `union` nu med `withsource` kommando för att identifiera vilken käll tabell som har bidragit till varje rad.
 
 ``` Kusto
 union withsource=table * | where CounterName == "% Processor Utility" 
@@ -145,9 +145,9 @@ union withsource=table * | where CounterName == "% Processor Utility"
 ```
  
 
-Resultatet av den här frågan visar att dessa egenskaper också kom från _tabellen Perf._ 
+Resultatet av den här frågan visar att dessa egenskaper också kommer från tabellen _perf_ . 
 
-Du kan använda dessa resultat för att skapa följande fråga som du skulle använda för varningsregeln: 
+Du kan använda dessa resultat för att skapa följande fråga som du skulle använda för aviserings regeln: 
 
 ``` Kusto
 Perf 
@@ -161,7 +161,7 @@ Perf
 ``` 
 
 ### <a name="example-4"></a>Exempel 4
-Du vill skapa en loggaviseringsregel med hjälp `search` av följande fråga som sammanfogar resultatet av två frågor:
+Du vill skapa en logg aviserings regel med hjälp av följande fråga som sammanbinder resultatet av två `search` frågor:
 
 ```Kusto
 search Type == 'SecurityEvent' and EventID == '4625' 
@@ -176,7 +176,7 @@ on Hour
 ```
  
 
-Om du vill ändra frågan börjar du med följande fråga för att identifiera tabellen som innehåller egenskaperna till vänster i kopplingen: 
+Om du vill ändra frågan börjar du med att använda följande fråga för att identifiera den tabell som innehåller egenskaperna på vänster sida av kopplingen: 
 
 ``` Kusto
 search Type == 'SecurityEvent' and EventID == '4625' 
@@ -184,9 +184,9 @@ search Type == 'SecurityEvent' and EventID == '4625'
 ```
  
 
-Resultatet anger att egenskaperna till vänster i kopplingen tillhör _tabellen SecurityEvent._ 
+Resultatet visar att egenskaperna på vänster sida av kopplingen tillhör _SecurityEvent_ -tabellen. 
 
-Använd nu följande fråga för att identifiera tabellen som innehåller egenskaperna till höger om kopplingen: 
+Använd nu följande fråga för att identifiera tabellen som innehåller egenskaperna på höger sida av kopplingen: 
 
  
 ``` Kusto
@@ -195,9 +195,9 @@ search in (Heartbeat) OSType == 'Windows'
 ```
 
  
-Resultatet indikerar att egenskaperna till höger om kopplingen tillhör tabellen Pulsslag. 
+Resultatet visar att egenskaperna till höger i kopplingen tillhör pulsslags tabellen. 
 
-Du kan använda dessa resultat för att skapa följande fråga som du skulle använda för varningsregeln: 
+Du kan använda dessa resultat för att skapa följande fråga som du skulle använda för aviserings regeln: 
 
 
 ``` Kusto
@@ -215,6 +215,6 @@ on Hour
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [loggaviseringar](alerts-log.md) i Azure Monitor.
-- Läs mer om [loggfrågor](../log-query/log-query-overview.md).
+- Lär dig mer om [logg aviseringar](alerts-log.md) i Azure Monitor.
+- Lär dig mer om [logg frågor](../log-query/log-query-overview.md).
 

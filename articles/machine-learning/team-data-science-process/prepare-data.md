@@ -1,6 +1,6 @@
 ---
-title: Prep-data för ML Studio (klassisk) - Team Data Science Process
-description: Förbehandla och rensa data för att förbereda den så att den används effektivt för maskininlärning.
+title: Förbered data för ML Studio (klassisk) – team data science process
+description: Förbearbeta och rensa data för att förbereda den för användning effektivt för maskin inlärning.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,92 +12,92 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720052"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Uppgifter för att förbereda data för förbättrad Machine Learning
-Förbehandling och rengöring av data är viktiga uppgifter som måste utföras innan en datauppsättning kan användas för modellutbildning. Rådata är ofta bullriga och otillförlitliga och kan saknas värden. Att använda sådana data för modellering kan ge vilseledande resultat. Dessa uppgifter är en del av Team Data Science Process (TDSP) och följer vanligtvis en första utforskning av en datauppsättning som används för att identifiera och planera den förbehandling som krävs. Mer detaljerade instruktioner om TDSP-processen finns i stegen i [teamdatavetenskapsprocessen](overview.md).
+För bearbetning och rensning av data är viktiga uppgifter som måste utföras innan en data uppsättning kan användas för modell träning. Rå data är ofta störningar och otillförlitliga och kan sakna värden. Att använda sådana data för modellering kan producera missvisande resultat. De här uppgifterna är en del av TDSP (Team data science process) och följer vanligt vis en inledande utforskning av en data uppsättning som används för att identifiera och planera för bearbetningen som krävs. Mer detaljerad information om TDSP-processen finns i stegen som beskrivs i [team data science-processen](overview.md).
 
-Förbearbetnings- och rengöringsuppgifter, som datautforskningsuppgiften, kan utföras i en mängd olika miljöer, till exempel SQL eller Hive eller Azure Machine Learning Studio (klassisk), och med olika verktyg och språk, till exempel R eller Python, beroende på var dina data lagras och hur den är formaterad. Eftersom TDSP är iterativ karaktär, kan dessa uppgifter ske vid olika steg i arbetsflödet för processen.
+För bearbetnings-och rengörings aktiviteter, t. ex. data utforsknings uppgift, kan utföras i en mängd olika miljöer, till exempel SQL eller Hive eller Azure Machine Learning Studio (klassisk) och med olika verktyg och språk, till exempel R eller python, beroende på var dina data lagras och hur de formateras. Eftersom TDSP är iterativt kan dessa uppgifter utföras i olika steg i arbets flödet för processen.
 
-Den här artikeln introducerar olika databehandlingskoncept och uppgifter som kan utföras antingen före eller efter intag av data i Azure Machine Learning Studio (klassisk).
+I den här artikeln beskrivs olika data bearbetnings koncept och uppgifter som kan utföras antingen före eller efter att data matas in i Azure Machine Learning Studio (klassisk).
 
-Ett exempel på datautforskning och förbearbetning som görs i [Pre-processing data](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) Azure Machine Learning Studio (klassisk) finns i förbearbetningsdatavideon.
+Ett exempel på data utforskning och för bearbetning som utförs i Azure Machine Learning Studio (klassisk) finns i videon om [för bearbetning av data](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) .
 
-## <a name="why-pre-process-and-clean-data"></a>Varför förbehandla och rensa data?
-Verkliga data samlas in från olika källor och processer och det kan innehålla oegentligheter eller korrupta data som äventyrar kvaliteten på datauppsättningen. De typiska datakvalitetsproblem som uppstår är:
+## <a name="why-pre-process-and-clean-data"></a>Varför i förväg bearbeta och rensa data?
+Verkliga världs data samlas in från olika källor och processer och kan innehålla felaktigheter eller skadade data som äventyrar data uppsättningens kvalitet. Vanliga problem med data kvalitet som uppstår är:
 
-* **Ofullständig**: Data saknar attribut eller innehåller värden som saknas.
-* **Noisy**: Data innehåller felaktiga poster eller extremvärden.
-* **Inkonsekvent**: Data innehåller motstridiga poster eller avvikelser.
+* **Ofullständig**: data saknar attribut eller innehåller värden som saknas.
+* **Brus**: data innehåller felaktiga poster eller avvikare.
+* **Inkonsekvent**: data innehåller motstridiga poster eller avvikelser.
 
-Kvalitetsdata är en förutsättning för kvalitetsförutsägande modeller. För att undvika "skräp i, skräp ut" och förbättra datakvalitet och därmed modellprestanda, är det absolut nödvändigt att genomföra en datahälsa skärm för att upptäcka dataproblem tidigt och besluta om motsvarande databehandling och rengöring steg.
+Kvalitets data är ett krav för kvalitets förutsägelse modeller. För att undvika att "skräp in, skräp ut" och förbättra data kvaliteten och därmed modell prestanda, är det absolut nödvändigt att utföra en data hälso kontroll för att upptäcka data problem tidigt och bestämma om motsvarande data bearbetnings-och rengörings steg.
 
-## <a name="what-are-some-typical-data-health-screens-that-are-employed"></a>Vilka är några typiska data hälsa skärmar som används?
-Vi kan kontrollera den allmänna kvaliteten på data genom att kontrollera:
+## <a name="what-are-some-typical-data-health-screens-that-are-employed"></a>Vad är några typiska data hälso skärmar som används?
+Vi kan kontrol lera den allmänna kvaliteten på data genom att kontrol lera:
 
 * Antalet **poster**.
 * Antalet **attribut** (eller **funktioner**).
-* **Attributdatatyperna** (nominell, ordningsvis eller kontinuerlig).
-* Antalet **värden som saknas**.
-* **Välformade** data.
-  * Om data finns i TSV eller CSV kontrollerar du att kolumnavgränsare och radavgränsare alltid är korrekt separata kolumner och rader.
-  * Om data är i HTML- eller XML-format kontrollerar du om data är välformade baserat på deras respektive standarder.
-  * Tolkning kan också vara nödvändig för att extrahera strukturerad information från halvstrukturerade eller ostrukturerade data.
-* **Inkonsekventa dataposter**. Kontrollera att det är tillåtet att kontrollera intervallet med värden. Om data till exempel innehåller student-GPA (genomsnitt för resultatpunkt) kontrollerar du om GPA ligger i det angivna intervallet, säg 0~4.
+* Attributets **data typer** (nominellt, ordnings tal eller kontinuerliga).
+* Antalet **saknade värden**.
+* **Välformulerade** data.
+  * Om data är i TSV eller CSV kontrollerar du att kolumn avgränsare och rad avgränsare alltid är korrekt åtskilda kolumner och rader.
+  * Om data är i HTML-eller XML-format kontrollerar du om data är korrekt utformade baserat på deras respektive standarder.
+  * Parsning kan också behövas för att extrahera strukturerad information från halv strukturerade eller ostrukturerade data.
+* **Inkonsekventa data poster**. Kontrol lera att värde intervallet är tillåtet. Om t. ex. data innehåller student BETYGs klass (genomsnitt) kontrollerar du om GPA är inom det angivna intervallet, ungefär 0 ~ 4.
 
-När du hittar problem med data krävs **bearbetningssteg,** vilket ofta innebär rengöring av saknade värden, datanormalisering, diskretisering, textbearbetning för att ta bort och/eller ersätta inbäddade tecken som kan påverka datajustering, blandade datatyper i vanliga fält och andra.
+När du hittar problem med data är **bearbetnings stegen** nödvändiga, vilket ofta inbegriper rensning av saknade värden, data normalisering, diskretiseringsmetoden stämmer, text bearbetning för att ta bort och/eller ersätta inbäddade tecken som kan påverka data justeringen, blandade data typer i gemensamma fält och andra.
 
-**Azure Machine Learning använder välformade tabelldata**.  Om data redan är i tabellform kan förbearbetning av data utföras direkt med Azure Machine Learning Studio (klassisk) i Machine Learning.  Om data inte är i tabellform, säg att det är i XML, kan tolkning krävas för att konvertera data till tabellform.  
+**Azure Machine Learning använder välformulerade tabell data**.  Om data redan finns i tabell form kan data för bearbetning utföras direkt med Azure Machine Learning Studio (klassisk) i Machine Learning.  Om data inte är i tabell format, antar vi att de är i XML-format, kan tolkas för att konvertera data till tabell format.  
 
-## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Vilka är några av de viktigaste uppgifterna i förbehandling av data?
-* **Datarengöring**: Fyll i saknade värden, identifiera och ta bort bullriga data och extremvärden.
-* **Dataomvandling**: Normalisera data för att minska dimensioner och brus.
-* **Datareduktion**: Exempel på dataposter eller attribut för enklare datahantering.
-* **Datadissering**: Konvertera kontinuerliga attribut till kategoriska attribut för användarvänlighet med vissa maskininlärningsmetoder.
-* **Textrengöring**: ta bort inbäddade tecken som kan orsaka dataförsprång, till exempel inbäddade flikar i en tabbavgränsad datafil, inbäddade nya rader som kan slå poster, till exempel.
+## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Vad är några av de viktigaste uppgifterna i för bearbetning av data?
+* **Data rensning**: Fyll i saknade värden, identifiera och ta bort data och avvikande störningar.
+* **Data omvandling**: normalisera data för att minska dimensioner och brus.
+* **Data reducering**: exempel på data poster eller attribut för enklare data hantering.
+* **Data diskretiseringsmetoden stämmer**: konvertera kontinuerliga attribut till kategoriska-attribut för enkel användning med vissa Machine Learning-metoder.
+* **Text rensning**: ta bort inbäddade tecken som kan orsaka data fel justering, till exempel inbäddade flikar i en tabbavgränsade datafil, inbäddade nya rader som kan bryta poster, till exempel.
 
-I avsnitten nedan beskrivs några av dessa databehandlingssteg.
+I avsnitten nedan beskrivs några av de här stegen för data bearbetning.
 
-## <a name="how-to-deal-with-missing-values"></a>Hur hanterar man saknade värden?
-För att hantera saknade värden är det bäst att först identifiera orsaken till de värden som saknas för att bättre hantera problemet. Typiska metoder för värdehantering som saknas är:
+## <a name="how-to-deal-with-missing-values"></a>Hur hanterar jag saknade värden?
+För att hantera saknade värden, är det bäst att först identifiera orsaken till att de saknade värdena för att hantera problemet bättre. Typiska metoder för värde hantering som saknas är:
 
-* **Borttagning**: Ta bort poster med saknade värden
-* **Dummy substitution**: Ersätt saknade värden med ett *unknown* dummy-värde: t.ex.
-* **Genomsnittlig ersättning**: Om de saknade uppgifterna är numeriska, ersätt de saknade värdena med medelvärdet.
-* **Frekvent substitution**: Om de saknade uppgifterna är kategoriska, ersätt de saknade värdena med det vanligaste objektet
-* **Regressionsersättning**: Använd en regressionsmetod för att ersätta saknade värden med regresserade värden.  
+* **Borttagning**: ta bort poster med saknade värden
+* **Dummy-ersättning**: Ersätt saknade värden med ett dummy-värde: t. ex. *okänd* för kategoriska eller 0 för numeriska värden.
+* **Medel ersättning**: om data som saknas är numeriska ersätter du värdena som saknas med medelvärdet.
+* **Frekvent ersättning**: om data som saknas är kategoriska ersätter du de värden som saknas med det vanligaste objektet
+* **Regressions ersättning**: Använd en Regressions metod för att ersätta saknade värden med försämrat-värden.  
 
-## <a name="how-to-normalize-data"></a>Hur normaliserar man data?
-Datanormalisering skalar om numeriska värden till ett angivet intervall. Populära data normaliseringsmetoder inkluderar:
+## <a name="how-to-normalize-data"></a>Hur normaliserar jag data?
+Data normalisering skalar om numeriska värden till ett visst intervall. Exempel på populära data normaliserings metoder:
 
-* **Min-Max Normalisering**: Omvandla data linjärt till ett intervall, till exempel mellan 0 och 1, där minvärdet skalas till 0 och maxvärde till 1.
-* **Z-poängs normalisering**: Skala data baserat på medelvärde och standardavvikelse: dela skillnaden mellan data och medelvärdet med standardavvikelsen.
-* **Decimalskalning**: Skala data genom att flytta decimaltecknet för attributvärdet.  
+* **Minsta-Max normalisering**: linjärt transformera data till ett intervall, till exempel mellan 0 och 1, där det lägsta värdet skalas till 0 och Max värdet till 1.
+* **Z-score normalisering**: skala data baserat på medelvärde och standard avvikelse: dividera skillnaden mellan data och medelvärdet med standard avvikelsen.
+* **Decimal skalning**: skala data genom att flytta attributvärdets decimal tecken.  
 
-## <a name="how-to-discretize-data"></a>Hur diskreta data?
-Data kan diskretiseras genom att konvertera kontinuerliga värden till nominella attribut eller intervall. Några sätt att göra detta är:
+## <a name="how-to-discretize-data"></a>Hur användas vid diskretisering du data?
+Det går att diskretiserade data genom att konvertera kontinuerliga värden till nominella attribut eller intervall. Några sätt att göra detta är:
 
-* **Lagerplats för lika bredd:** Dela upp intervallet för alla möjliga värden för ett attribut i N-grupper av samma storlek och tilldela de värden som hamnar på en lagerplats med lagerplatsnumret.
-* **Lagerplats för lika höjd:** Dela upp intervallet för alla möjliga värden för ett attribut i N-grupper, var och en med samma antal instanser, och tilldela sedan de värden som hamnar på en lagerplats med lagerplatsnumret.  
+* **Diskretisering med samma bredd**: dividera intervallet med alla möjliga värden för ett attribut till N grupper av samma storlek och tilldela de värden som infaller på en lager plats med lager plats numret.
+* **Diskretisering med samma höjd**: dividera intervallet med alla möjliga värden för ett attribut till N grupper, där var och en innehåller samma antal instanser, och tilldela sedan de värden som infaller på en lager plats med lager plats numret.  
 
-## <a name="how-to-reduce-data"></a>Hur kan man minska data?
-Det finns olika metoder för att minska datastorleken för enklare datahantering. Beroende på datastorlek och domän kan följande metoder användas:
+## <a name="how-to-reduce-data"></a>Hur minskar du data?
+Det finns olika metoder för att minska data storleken för enklare data hantering. Följande metoder kan användas, beroende på data storlek och domän:
 
-* **Postprovtagning:** Ta prov på dataposterna och välj endast den representativa delmängden från data.
-* **Attributs sampling:** Välj bara en delmängd av de viktigaste attributen från data.  
-* **Aggregering**: Dela upp data i grupper och lagra siffrorna för varje grupp. Till exempel kan det dagliga intäktsantalet för en restaurangkedja under de senaste 20 åren aggregeras till månatliga intäkter för att minska storleken på data.  
+* **Post sampling**: exempel på data poster och välj den representativa del mängden från data.
+* **Sampling av attribut**: Välj endast en delmängd av de viktigaste attributen från data.  
+* **Aggregation**: dela in data i grupper och lagra numren för varje grupp. Till exempel kan de dagliga intäkterna från en restaurang kedja under de senaste 20 åren aggregeras per månads intäkt för att minska storleken på data.  
 
-## <a name="how-to-clean-text-data"></a>Hur rensar man textdata?
-**Textfält i tabelldata** kan innehålla tecken som påverkar kolumnjustering och/eller postgränser. Inbäddade flikar i en flikseparerad fil orsakar till exempel kolumnförpassning och inbäddade nya radtecken bryter postlinjer. Felaktig textkodningshantering när du skriver eller läser text leder till informationsförlust, oavsiktlig introduktion av oläsliga tecken (som null) och kan också påverka texttolkning. Noggrann tolkning och redigering kan krävas för att rensa textfält för korrekt justering och/eller för att extrahera strukturerade data från ostrukturerade eller halvstrukturerade textdata.
+## <a name="how-to-clean-text-data"></a>Så här rensar du text data?
+**Textfält i tabell data** kan innehålla tecken som påverkar justering av kolumner och/eller post gränser. Till exempel är inbäddade flikar i en tabbavgränsade fil orsak till kolumn fel justering och inbäddade nya rad tecken Bryt post rader. Felaktig text kodnings hantering vid skrivning eller läsning av text leder till informations förlust, oavsiktlig introduktion av oläsliga tecken (t. ex. nullvärden) och kan också påverka text tolkning. Noggrann parsning och redigering kan krävas för att rensa textfält för korrekt justering och/eller för att extrahera strukturerade data från ostrukturerade eller delvis strukturerade text data.
 
-**Datautforskning** ger en tidig bild av data. Ett antal dataproblem kan upptäckas under det här steget och motsvarande metoder kan användas för att lösa dessa problem.  Det är viktigt att ställa frågor som vad som är orsaken till frågan och hur frågan kan ha införts. Den här processen hjälper dig också att bestämma vilka åtgärder för databearbetning som måste vidtas för att lösa dem. Identifiera de slutliga användningsfallen och personas kan också användas för att prioritera databehandlingsarbetet.
+**Data utforskning** erbjuder en tidig vy över data. Ett antal data problem kan tas bort under det här steget och motsvarande metoder kan användas för att åtgärda dessa problem.  Det är viktigt att ställa frågor, till exempel vad som är orsaken till problemet och hur problemet kan ha införts. Den här processen hjälper dig också att bestämma de data bearbetnings steg som måste vidtas för att lösa dem. Att identifiera de slutliga användnings fallen och personer kan också användas för att prioritera data bearbetnings ansträngningen.
 
 ## <a name="references"></a>Referenser
-> *Data Mining: Begrepp och tekniker*, Tredje upplagan, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber, och Jian Pei
+> *Data utvinning: begrepp och tekniker*, tredje utgåvan, Morgan Kaufmann, 2011, Jiawei han, Micheline Kamber och Jian Pei
 > 
 > 
 

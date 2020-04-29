@@ -1,5 +1,5 @@
 ---
-title: Felsöka Azure IoT Hub-fel 412002 DeviceMessageLockLost
+title: Fel sökning av Azure IoT Hub-fel 412002 DeviceMessageLockLost
 description: Förstå hur du åtgärdar fel 412002 DeviceMessageLockLost
 author: jlian
 manager: briz
@@ -9,24 +9,24 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 66461b23432a3e8b7ae4ad1fdc078fba9ca05646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76960768"
 ---
 # <a name="412002-devicemessagelocklost"></a>412002 DeviceMessageLockLost
 
-I den här artikeln beskrivs orsakerna och lösningarna för **412002 DeviceMessageLockLost-fel.**
+I den här artikeln beskrivs orsaker och lösningar för **412002 DeviceMessageLockLost** -fel.
 
 ## <a name="symptoms"></a>Symtom
 
-NÃ¤s nÃ¤s fÃ¤ndes fÃ¤ndes fÃ¤ndesã¤nstÃ¤ser du intiga en gÃ¤s Ã¤ndar-fÃ¤nderning med felet **412002 DeviceMessageLockLost**.
+När du försöker skicka ett meddelande från molnet till enheten Miss lyckas begäran med felet **412002 DeviceMessageLockLost**.
 
 ## <a name="cause"></a>Orsak
 
-När en enhet tar emot ett meddelande från molnet till [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)enheten från kön (till exempel med hjälp) låses meddelandet av IoT Hub under en tidsgräns på en minut. Om enheten försöker slutföra meddelandet när låstidsgränsen har gått ut, genererar IoT Hub det här undantaget.
+När en enhet tar emot ett meddelande från molnet till enheten från kön (t. ex. [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)med) låses meddelandet av IoT Hub för en tids gräns för låsning av en minut. Om enheten försöker att slutföra meddelandet när tids gränsen för låsning går ut, utlöses detta undantag av IoT Hub.
 
 ## <a name="solution"></a>Lösning
 
-Om IoT Hub inte får meddelandet inom en minuts tidsgräns för lås, ställs meddelandet tillbaka till *enqueued-tillstånd.* Enheten kan försöka ta emot meddelandet igen. Om du vill förhindra att felet inträffar i framtiden implementerar du logik på enheten för att slutföra meddelandet inom en minut efter att du tagit emot meddelandet. Den här time-outen på en minut kan inte ändras.
+Om IoT Hub inte får meddelandet inom en tids gräns på en minut, ställer det tillbaka meddelandet i *kö* . Enheten kan försöka ta emot meddelandet igen. Om du vill förhindra att felet uppstår i framtiden implementerar du enhets sidans logik för att slutföra meddelandet inom en minut med att ta emot meddelandet. Timeout för en minut kan inte ändras.

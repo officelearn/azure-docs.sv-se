@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor-vydesigner till arbetsböcker konverteringsalternativ
+title: Konverterings alternativ för Azure Monitor Visa designer till arbets böcker
 description: ''
 author: austonli
 ms.author: aul
@@ -7,41 +7,41 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658718"
 ---
-# <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Azure Monitor-vydesigner till arbetsböcker konverteringsalternativ
-[View designer](view-designer.md) är en funktion i Azure Monitor som låter dig skapa anpassade vyer som hjälper dig att visualisera data i din Log Analytics arbetsyta, med diagram, listor och tidslinjer. De håller på att fasas ut och ersättas med arbetsböcker som ger ytterligare funktioner. I den här artikeln jämförs grundläggande begrepp mellan de två och alternativen för att konvertera vyer till arbetsböcker.
+# <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Konverterings alternativ för Azure Monitor Visa designer till arbets böcker
+[View Designer](view-designer.md) är en funktion i Azure Monitor som gör att du kan skapa anpassade vyer som hjälper dig att visualisera data i arbets ytan Log Analytics, med diagram, listor och tids linjer. De fasas ut och ersätts med arbets böcker som tillhandahåller ytterligare funktioner. I den här artikeln jämförs grundläggande begrepp mellan de två och alternativen för att konvertera vyer till arbets böcker.
 
-## <a name="basic-workbook-designs"></a>Grundläggande arbetsboksdesign
+## <a name="basic-workbook-designs"></a>Grundläggande arbets boks design
 
-Vydesignern har en fast statisk representation, medan arbetsböcker ger frihet att inkludera och ändra hur data representeras. Bilderna nedan visar två exempel på hur du kan ordna arbetsböcker när du konverterar vyer.
+View Designer har en fast statisk format representation, medan arbets böcker ger frihet att ta med och ändra hur data representeras. I bilderna nedan visas två exempel på hur du kan ordna arbets böcker när du konverterar vyer.
 
-[Lodrät arbetsbok](view-designer-conversion-examples.md#vertical)
-![Lodrät](media/view-designer-conversion-options/view-designer-vertical.png)
+[Lodrät arbets bok](view-designer-conversion-examples.md#vertical)
+![lodrätt](media/view-designer-conversion-options/view-designer-vertical.png)
 
-[Fliken Arbetsbok](view-designer-conversion-examples.md#tabbed)
-![](media/view-designer-conversion-options/distribution-tab.png)
-![Datatypsfördelning Datatyper över tidsflik](media/view-designer-conversion-options/over-time-tab.png)
+[Tabbed workbook](view-designer-conversion-examples.md#tabbed)
+![Fliken](media/view-designer-conversion-options/distribution-tab.png)
+data typ för data typen distribution av arbets bok på fliken![tids fliken](media/view-designer-conversion-options/over-time-tab.png)
 
-## <a name="tile-conversion"></a>Konvertering av paneler
-Visa designer använder funktionen översiktspanel för att representera och sammanfatta det övergripande tillståndet. Dessa finns representerade i sju brickor, allt från tal till diagram. I arbetsböcker kan användare skapa liknande visualiseringar och fästa dem så att de liknar det ursprungliga stilsättet med översiktspaneler. 
+## <a name="tile-conversion"></a>Panel konvertering
+Visa designer använder funktionen översikts panel för att representera och sammanfatta det övergripande läget. Dessa representeras i sju paneler och sträcker sig från siffror till diagram. I arbets böcker kan användare skapa liknande visualiseringar och fästa dem på samma sätt som översikts panelernas ursprungliga format. 
 
 ![Galleri](media/view-designer-conversion-options/overview.png)
 
 
-## <a name="view-dashboard-conversion"></a>Visa konvertering av instrumentpaneler
-Visningsdesignerpaneler består vanligtvis av två avsnitt, en visualisering och en lista som matchar data från visualiseringen, till exempel panelen **Donut & List.**
+## <a name="view-dashboard-conversion"></a>Visa instrument panels konvertering
+Visa designer-paneler består vanligt vis av två avsnitt, en visualisering och en lista som matchar data från visualiseringen, till exempel **ring & List** panel.
 
 ![Ring](media/view-designer-conversion-options/donut-example.png)
 
-Med arbetsböcker tillåter vi användaren att välja att fråga en eller båda delarna av vyn. Att formulera frågor i arbetsböcker är en enkel tvåstegsprocess. Först genereras data från frågan och för det andra återges data som en visualisering.  Ett exempel på hur den här vyn skulle återskapas i arbetsböcker är följande:
+Med arbets böcker låter du användaren välja att fråga en eller båda avsnitten i vyn. Att utforma frågor i arbets böcker är en enkel process i två steg. Först genereras data från frågan, och sedan återges data som en visualisering.  Ett exempel på hur den här vyn återskapas i arbets böcker är följande:
 
 ![Konvertera](media/view-designer-conversion-options/convert-donut.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Komma åt arbetsböcker & behörigheter](view-designer-conversion-access.md)
+- [Åtkomst till arbets böcker & behörigheter](view-designer-conversion-access.md)

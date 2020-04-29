@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera Workteam för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableringa användarkonton till Workteam.
+title: 'Självstudie: Konfigurera Workteam för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Workteam.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,147 +16,147 @@ ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
 ms.openlocfilehash: e9b1e93cf543836b282525c53756752630d5e4f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062814"
 ---
-# <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Workteam för automatisk etablering av användare
+# <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Självstudie: Konfigurera Workteam för automatisk användar etablering
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i Workteam och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetableras användare och/eller grupper till Workteam.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i Workteam och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Workteam.
 
 > [!NOTE]
-> Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här kopplingen är för närvarande i offentlig förhandsversion. Mer information om de allmänna användningsvillkoren för förhandsversionen av Microsoft Azure finns i [Tilläggsvillkor för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klientorganisation.
-* [En workteam-klient](https://workte.am/pricing.html)
-* Ett användarkonto i Workteam med administratörsbehörighet.
+* [En Workteam-klient](https://workte.am/pricing.html)
+* Ett användar konto i Workteam med administratörs behörighet.
 
 ## <a name="assigning-users-to-workteam"></a>Tilldela användare till Workteam 
 
-Azure Active Directory använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Workteam. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Workteam genom att följa instruktionerna här:
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Workteam. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Workteam genom att följa anvisningarna här:
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-workteam"></a>Viktiga tips för att tilldela användare till Workteam 
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas Workteam för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas Workteam för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till Workteam måste du välja en giltig programspecifik roll (om sådan finns) i tilldelningsdialogrutan. Användare med rollen **Standardåtkomst** är undantagna från etablering.
+* När du tilldelar en användare till Workteam måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
 ## <a name="setup-workteam--for-provisioning"></a>Konfigurera Workteam för etablering
 
-Innan du konfigurerar Workteam för automatisk användaretablering med Azure AD måste du aktivera SCIM-etablering på Workteam.
+Innan du konfigurerar Workteam för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på Workteam.
 
-1. Logga in på [Workteam](https://app.workte.am/account/signin). Klicka på **Inställningar för organisationsinställningar** > **SETTINGS**.
+1. Logga in på [Workteam](https://app.workte.am/account/signin). Klicka på**Inställningar**för **organisations inställningar** > .
 
     ![Workteam](media/workteam-provisioning-tutorial/settings.png)
 
-2. Bläddra till botten och aktivera etableringsfunktionerna i Workteam.
+2. Rulla längst ned och aktivera etablerings funktionerna i Workteam.
 
     ![Workteam](media/workteam-provisioning-tutorial/icon.png)
 
-3. Kopiera **basadressen** och **bäraretoken**. Dessa värden anges i fältet **Klient-URL**och **Hemlig token** på fliken Etablering i ditt Workteam-program i Azure-portalen.
+3. Kopiera **bas-URL: en** och **Bearer-token**. Dessa värden anges i fältet klient- **URL**och **hemligt token** på fliken etablering i Workteam-programmet i Azure Portal.
 
     ![Workteam](media/workteam-provisioning-tutorial/scim.png)
 
 
-## <a name="add-workteam--from-the-gallery"></a>Lägg till arbetsgrupp från galleriet
+## <a name="add-workteam--from-the-gallery"></a>Lägg till Workteam från galleriet
 
-Om du vill konfigurera Workteam för automatisk användaretablering med Azure AD måste du lägga till Workteam från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Om du vill konfigurera Workteam för automatisk användar etablering med Azure AD måste du lägga till Workteam från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Så här lägger du till Workteam från Azure AD-programgalleriet:**
+**Utför följande steg för att lägga till Workteam från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i **[Azure-portalen](https://portal.azure.com)** i den vänstra navigeringspanelen .
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Enterprise-program**och välj sedan **Alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program väljer du knappen **Nytt program** högst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **Workteam,** väljer **Workteam** på resultatpanelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Workteam**, väljer **Workteam** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
-    ![Workteam i resultatlistan](common/search-new-app.png)
+    ![Workteam i resultat listan](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-workteam"></a>Konfigurera automatisk användaretablering till Workteam  
+## <a name="configuring-automatic-user-provisioning-to-workteam"></a>Konfigurera automatisk användar etablering till Workteam  
 
-I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Workteam baserat på användar- och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Workteam baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Workteam, i enlighet med instruktionerna i [arbetslag enkel inloggningshandledning](workteam-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om dessa två funktioner kompletterar varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Workteam genom att följa anvisningarna i [självstudien om enkel inloggning med Workteam](workteam-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
 
-### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för Workteam i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-workteam--in-azure-ad"></a>Konfigurera automatisk användar etablering för Workteam i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Workteam**i programlistan .
+2. I listan program väljer du **Workteam**.
 
-    ![Länken Workteam i listan Program](common/all-applications.png)
+    ![Workteam-länken i program listan](common/all-applications.png)
 
-3. Välj fliken **Etablering.**
+3. Välj fliken **etablering** .
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet Administratörsautentiseringsuppgifter anger du värdena **bas-URL** och **innehavartoken** som hämtats tidigare i **klient-URL** respektive **Hemlig token.** Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till Workteam. Om anslutningen misslyckas kontrollerar du att ditt Workteam-konto har administratörsbehörighet och försöker igen.
+5. Under avsnittet admin credentials, skriver du in **bas-URL: en** och **Bearer-token** som hämtades tidigare i **klient-URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Workteam. Om anslutningen Miss lyckas kontrollerar du att Workteam-kontot har administratörs behörighet och försöker igen.
 
-    ![Url till klient + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan - **Skicka ett e-postmeddelande när ett fel inträffar**.
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
 7. Klicka på **Spara**.
 
-8. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory Users to Workteam**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Workteam**.
 
-    ![Användarmappningar för arbetsgrupper](media/workteam-provisioning-tutorial/usermapping.png)
+    ![Workteam användar mappningar](media/workteam-provisioning-tutorial/usermapping.png)
 
-9. Granska användarattributen som synkroniseras från Azure AD till Workteam i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Workteam för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+9. Granska de användarattribut som synkroniseras från Azure AD till Workteam i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Workteam för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Användarattribut för Workteam](media/workteam-provisioning-tutorial/userattribute.png)
+    ![Workteam-användarattribut](media/workteam-provisioning-tutorial/userattribute.png)
 
-11. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Om du vill aktivera Azure AD-etableringstjänsten för Workteam ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
+12. Om du vill aktivera Azure AD Provisioning-tjänsten för Workteam ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-13. Definiera de användare och/eller grupper som du vill etablera till Workteam genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
+13. Definiera de användare och/eller grupper som du vill etablera till Workteam genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etableringsomfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
 14. När du är redo att etablera klickar du på **Spara**.
 
-    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare och/eller grupper att etablera finns i [Hur lång tid tar det att etablera användare](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare och/eller grupper att etablera finns i [hur lång tid det tar att etablera användare](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Du kan använda avsnittet **Aktuell status** för att övervaka förloppet och följa länkar till din etableringsaktivitetsrapport, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på Workteam. Mer information finns [i Kontrollera status för användaretablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Information om hur du läser Azure AD-etableringsloggarna finns i Rapportera om automatisk etablering av [användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
+Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Workteam. Mer information finns i [kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

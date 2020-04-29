@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor-arbetsböcker och Azure Resource Manager-mallar
-description: Förenkla komplex rapportering med fördefinierade och anpassade parameteriserade Azure Monitor-arbetsböcker som distribueras via Azure Resource Manager-mallar
+title: Azure Monitor arbets böcker och Azure Resource Manager mallar
+description: Förenkla komplex rapportering med färdiga och anpassade parameterstyrda Azure Monitor arbets böcker som distribueras via Azure Resource Manager mallar
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77658412"
 ---
-# <a name="programmatically-manage-workbooks"></a>Hantera arbetsböcker på ett programmässigt sätt
+# <a name="programmatically-manage-workbooks"></a>Hantera arbets böcker program mässigt
 
-Resursägare har möjlighet att skapa och hantera sina arbetsböcker programmässigt via Resource Manager-mallar. 
+Resurs ägare har möjlighet att skapa och hantera sina arbets böcker via programmering via Resource Manager-mallar. 
 
 Detta kan vara användbart i scenarier som:
-* Distribuera organisations- eller domänspecifika analysrapporter tillsammans med resursdistributioner. Du kan till exempel distribuera organisationsspecifika prestanda- och felarbetsböcker för dina nya appar eller virtuella datorer.
-* Distribuera standardrapporter eller instrumentpaneler med arbetsböcker för befintliga resurser.
+* Distribuera organisations-eller domänbaserade analys rapporter tillsammans med distributioner av resurser. Du kan till exempel distribuera org-/regionsspecifika prestanda-och arbets böcker för dina nya appar eller virtuella datorer.
+* Distribuera standard rapporter eller instrument paneler med hjälp av arbets böcker för befintliga resurser.
 
-Arbetsboken skapas i önskad under-/resursgrupp och med det innehåll som anges i Resource Manager-mallarna.
+Arbets boken kommer att skapas i önskad under-eller resurs grupp och med det innehåll som anges i Resource Manager-mallarna.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Azure Resource Manager-mall för distribution av arbetsböcker
-1. Öppna en arbetsbok som du vill distribuera programmässigt.
-2. Växla arbetsboken till redigeringsläge genom att klicka på alternativet _Redigera_ verktygsfält.
-3. Öppna _Avancerade redigeraren_ med _</>_ knappen i verktygsfältet.
-4. I redigeraren växlar du _malltyp_ till _Resurshanterarens mall_.
-5. Mallen Resurshanteraren för att skapa visas i redigeraren. Kopiera innehållet och använd som det är eller slå ihop det med en större mall som också distribuerar målresursen.
+## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Azure Resource Manager mall för distribution av arbets böcker
+1. Öppna en arbets bok som du vill distribuera program mässigt.
+2. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
+3. Öppna _avancerad redigerare_ med _</>_ knappen i verktygsfältet.
+4. I redigeraren byter du _Malltyp_ till _Resource Manager-mall_.
+5. Resource Manager-mallen för att skapa visas i redigeraren. Kopiera innehållet och Använd det som är eller slå samman det med en större mall som också distribuerar mål resursen.
 
-    ![Bild som visar hur du hämtar Resource Manager-mallen från arbetsboksgränssnittet](./media/workbooks-automate/programmatic-template.png)
+    ![Bild som visar hur du hämtar Resource Manager-mallen inifrån arbets bokens användar gränssnitt](./media/workbooks-automate/programmatic-template.png)
 
-## <a name="sample-azure-resource-manager-template"></a>Exempel på Azure Resource Manager-mall
-Den här mallen visar hur du distribuerar en enkel arbetsbok som visar en "Hello World!"
+## <a name="sample-azure-resource-manager-template"></a>Exempel på Azure Resource Manager mall
+Den här mallen visar hur du distribuerar en enkel arbets bok som visar Hello World!
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -101,27 +101,27 @@ Den här mallen visar hur du distribuerar en enkel arbetsbok som visar en "Hello
 
 | Parameter | Förklaring |
 | :------------- |:-------------|
-| `workbookDisplayName` | Det egna namnet på arbetsboken som används i galleriet eller den sparade listan. Måste vara unikt i resursgruppens och resurskällans omfattning |
-| `workbookType` | Galleriet som arbetsboken ska visas under. Värden som stöds `tsg`inkluderar arbetsbok, , Azure Monitor, etc. |
-| `workbookSourceId` | ID:et för den resursinstans som arbetsboken ska associeras till. Den nya arbetsboken visas relaterad till den här resursinstansen, till exempel i resursens innehållsförteckning under _Arbetsbok_. Om du vill att arbetsboken ska visas i arbetsboksgalleriet i Azure Monitor använder du strängen _Azure Monitor_ i stället för ett resurs-ID. |
-| `workbookId` | Det unika guid för den här arbetsboksinstansen. Använd _[newGuid()]_ för att automatiskt skapa ett nytt guid. |
-| `kind` | Används för att ange om den skapade arbetsboken är delad eller privat. Använd värdet _som delas_ för delade arbetsböcker och _användare_ för privata. |
-| `location` | Den Azure-plats där arbetsboken ska skapas. Använd _[resourceGroup().location]_ för att skapa den på samma plats som resursgruppen |
-| `serializedData` | Innehåller innehållet eller nyttolasten som ska användas i arbetsboken. Använda resurshanterarens mall från arbetsböckernas användargränssnitt för att hämta värdet |
+| `workbookDisplayName` | Det egna namnet på arbets boken som används i galleriet eller sparade listor. Måste vara unikt i omfånget för resurs gruppen och källan |
+| `workbookType` | Galleriet som arbets boken visas under. Värden som stöds är arbets `tsg`bok, Azure Monitor osv. |
+| `workbookSourceId` | ID för resurs instansen som arbets boken ska associeras med. Den nya arbets boken visas som är relaterad till den här resurs instansen – till exempel i resursens innehålls förteckning under _arbets bok_. Om du vill att arbets boken ska visas i arbets boks galleriet i Azure Monitor använder du strängen _Azure Monitor_ i stället för ett resurs-ID. |
+| `workbookId` | Unikt GUID för arbets boks instansen. Använd _[newGuid ()]_ för att automatiskt skapa ett nytt GUID. |
+| `kind` | Används för att ange om den skapade arbets boken är delad eller privat. Använd värdet _delat_ för delade arbets böcker och _användare_ för privata. |
+| `location` | Den Azure-plats där arbets boken kommer att skapas. Använd _[resourceGroup (). location]_ för att skapa den på samma plats som resurs gruppen |
+| `serializedData` | Innehåller det innehåll eller den nytto last som ska användas i arbets boken. Använd Resource Manager-mallen från arbets bokens användar gränssnitt för att hämta värdet |
 
-### <a name="workbook-types"></a>Arbetsbokstyper
-Arbetsbokstyper anger vilken arbetsboksgallerityp den nya arbetsboksinstansen ska visas under. Alternativen är:
+### <a name="workbook-types"></a>Arbets boks typer
+Arbets boks typer ange vilken arbets boks Galleri typ den nya arbets boks instansen ska visas under. Alternativen är:
 
-| Typ | Galleriplats |
+| Typ | Galleri plats |
 | :------------- |:-------------|
-| `workbook` | Standardvärdet som används i de flesta rapporter, inklusive arbetsboksgalleriet i Application Insights, Azure Monitor osv.  |
-| `tsg` | Galleriet Felsökningsguider i Application Insights |
-| `usage` | Det _fler_ galleriet under _Användning_ i Application Insights |
+| `workbook` | Standardvärdet används i de flesta rapporter, inklusive arbets boks galleriet för Application Insights, Azure Monitor osv.  |
+| `tsg` | Galleriet för fel söknings guider i Application Insights |
+| `usage` | Galleriet _mer_ under _användning_ i Application Insights |
 
 ### <a name="limitations"></a>Begränsningar
-Av en teknisk anledning kan den här mekanismen inte användas för att skapa arbetsboksinstanser i _arbetsboksgalleriet_ i Application Insights. Vi arbetar med att ta itu med denna begränsning. Under tiden rekommenderar vi att du använder galleriet Felsökningsguide `tsg`(workbookType: ) för att distribuera Application Insights-relaterade arbetsböcker.
+Av teknisk anledning kan den här mekanismen inte användas för att skapa arbets boks instanser i galleriet för _arbets böcker_ i Application Insights. Vi arbetar på att lösa den här begränsningen. Under tiden rekommenderar vi att du använder galleriet för fel söknings guiden (workbookType `tsg`:) för att distribuera Application Insights relaterade arbets böcker.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska hur arbetsböcker används för att driva den nya [Azure Monitor for Storage-upplevelsen](../insights/storage-insights-overview.md).
+Utforska hur arbets böcker används för att sätta nya [Azure Monitor för lagrings upplevelsen](../insights/storage-insights-overview.md).
 

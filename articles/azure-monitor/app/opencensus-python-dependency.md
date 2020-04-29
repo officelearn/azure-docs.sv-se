@@ -1,26 +1,26 @@
 ---
-title: Beroendespårning i Azure Application Insights med OpenCensus Python | Microsoft-dokument
-description: Övervaka beroendeanrop för dina Python-appar via OpenCensus Python.
+title: Beroende spårning i Azure Application insikter med python-räkning python | Microsoft Docs
+description: Övervaka beroende anrop för dina python-appar via python-räkningar.
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.openlocfilehash: e400669fd96518adead74a81fc332767c5f9b23b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669938"
 ---
-# <a name="track-dependencies-with-opencensus-python"></a>Spåra beroenden med OpenCensus Python
+# <a name="track-dependencies-with-opencensus-python"></a>Spåra beroenden med python-räkning python
 
-Ett beroende är en extern komponent som anropas av ditt program. Beroendedata samlas in med OpenCensus Python och dess olika integrationer. Data skickas sedan till Application Insights `dependencies` under Azure Monitor som telemetri.
+Ett beroende är en extern komponent som anropas av ditt program. Beroende data samlas in med hjälp av openräkningar python och dess olika integreringar. Data skickas sedan till Application Insights under Azure Monitor som `dependencies` telemetri.
 
-Först instrumentera ditt Python-program med senaste [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
+Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](../../azure-monitor/app/opencensus-python.md).
 
-## <a name="in-process-dependencies"></a>Beroenden i processen
+## <a name="in-process-dependencies"></a>Pågående beroenden
 
-OpenCensus Python SDK för Azure Monitor kan du skicka "i-process" beroende telemetri (information och logik som uppstår i ditt program). Beroenden i processen har `type` fältet `INPROC` som i analyser.
+Med hjälp av python SDK för openräkning för Azure Monitor kan du skicka "inbands beroende telemetri" i processen (information och logik som inträffar i ditt program). Beroenden i processen har `type` fältet som `INPROC` i Analytics.
 
 ```python
 from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -33,11 +33,11 @@ with tracer.span(name='foo'): # <-- A dependency telemetry item will be sent for
     print('Hello, World!')
 ```
 
-## <a name="dependencies-with-requests-integration"></a>Beroenden med "begäranden" integration
+## <a name="dependencies-with-requests-integration"></a>Beroenden med "förfrågningar"-integration
 
-Spåra dina utgående begäranden med `requests` OpenCensus-integreringen.
+Spåra dina utgående begär Anden med openräkning `requests` -integrering.
 
-Hämta och `opencensus-ext-requests` installera från [PyPI](https://pypi.org/project/opencensus-ext-requests/) och lägg till det i spårningsintegrationerna. Begäranden som skickas med biblioteket [python-begäranden](https://pypi.org/project/requests/) spåras.
+Hämta och installera `opencensus-ext-requests` från [pypi](https://pypi.org/project/opencensus-ext-requests/) och Lägg till det i spårnings integrationerna. Begär Anden som skickas med hjälp av python- [begärandena](https://pypi.org/project/requests/) -biblioteket kommer att spåras.
 
 ```python
 import requests
@@ -56,9 +56,9 @@ with tracer.span(name='parent'):
 
 ## <a name="dependencies-with-httplib-integration"></a>Beroenden med "httplib"-integrering
 
-Spåra dina utgående begäranden `httplib` med OpenCensus-integrering.
+Spåra dina utgående begär Anden med openräkning `httplib` -integrering.
 
-Hämta och `opencensus-ext-httplib` installera från [PyPI](https://pypi.org/project/opencensus-ext-httplib/) och lägg till det i spårningsintegrationerna. Begäranden som skickas med [http.client](https://docs.python.org/3.7/library/http.client.html) för Python3 eller [httplib](https://docs.python.org/2/library/httplib.html) för Python2 spåras.
+Hämta och installera `opencensus-ext-httplib` från [pypi](https://pypi.org/project/opencensus-ext-httplib/) och Lägg till det i spårnings integrationerna. Begär Anden som skickas med [http. client](https://docs.python.org/3.7/library/http.client.html) för python3 eller [httplib](https://docs.python.org/2/library/httplib.html) för Python2 spåras.
 
 ```python
 import http.client as httplib
@@ -80,11 +80,11 @@ response = conn.getresponse()
 conn.close()
 ```
 
-## <a name="dependencies-with-django-integration"></a>Beroenden med "django" integration
+## <a name="dependencies-with-django-integration"></a>Beroenden med "django"-integrering
 
-Spåra dina utgående Django-förfrågningar med `django` OpenCensus-integreringen.
+Spåra dina utgående django-begäranden med openräkning `django` -integrering.
 
-Ladda ner `opencensus-ext-django` och installera från [PyPI](https://pypi.org/project/opencensus-ext-django/) `MIDDLEWARE` och lägg till `settings.py` följande rad i avsnittet i Django-filen.
+Hämta och installera `opencensus-ext-django` från [pypi](https://pypi.org/project/opencensus-ext-django/) och Lägg till följande rad i `MIDDLEWARE` avsnittet i Django `settings.py` -filen.
 
 ```python
 MIDDLEWARE = [
@@ -93,7 +93,7 @@ MIDDLEWARE = [
 ]
 ```
 
-Ytterligare konfiguration kan tillhandahållas, läsa [anpassningar](https://github.com/census-instrumentation/opencensus-python#customization) för en fullständig referens.
+Ytterligare konfiguration kan tillhandahållas, Läs [anpassningar](https://github.com/census-instrumentation/opencensus-python#customization) för en fullständig referens.
 
 ```python
 OPENCENSUS = {
@@ -106,11 +106,11 @@ OPENCENSUS = {
 }
 ```
 
-## <a name="dependencies-with-mysql-integration"></a>Beroenden med "mysql"-integrering
+## <a name="dependencies-with-mysql-integration"></a>Beroenden med "MySQL"-integrering
 
-Spåra dina MYSQL-beroenden med OpenCensus-integreringen. `mysql` Den här integreringen stöder [mysql-connector-biblioteket.](https://pypi.org/project/mysql-connector-python/)
+Spåra dina MYSQL-beroenden med openräkning `mysql` -integrering. Den här integrationen stöder [MySQL-Connector-](https://pypi.org/project/mysql-connector-python/) biblioteket.
 
-Hämta och `opencensus-ext-mysql` installera från [PyPI](https://pypi.org/project/opencensus-ext-mysql/) och lägg till följande rader i koden.
+Hämta och installera `opencensus-ext-mysql` från [pypi](https://pypi.org/project/opencensus-ext-mysql/) och Lägg till följande rader i koden.
 
 ```python
 from opencensus.trace import config_integration
@@ -118,11 +118,11 @@ from opencensus.trace import config_integration
 config_integration.trace_integrations(['mysql'])
 ```
 
-## <a name="dependencies-with-pymysql-integration"></a>Beroenden med "pymysql" integration
+## <a name="dependencies-with-pymysql-integration"></a>Beroenden med "pymysql"-integrering
 
-Spåra dina PyMySQL-beroenden med OpenCensus-integreringen. `pymysql`
+Spåra dina PyMySQL-beroenden med openräkning `pymysql` -integrering.
 
-Hämta och `opencensus-ext-pymysql` installera från [PyPI](https://pypi.org/project/opencensus-ext-pymysql/) och lägg till följande rader i koden.
+Hämta och installera `opencensus-ext-pymysql` från [pypi](https://pypi.org/project/opencensus-ext-pymysql/) och Lägg till följande rader i koden.
 
 ```python
 from opencensus.trace import config_integration
@@ -132,9 +132,9 @@ config_integration.trace_integrations(['pymysql'])
 
 ## <a name="dependencies-with-postgresql-integration"></a>Beroenden med "postgresql"-integrering
 
-Spåra dina PostgreSQL-beroenden med OpenCensus-integreringen. `postgresql` Den här integreringen stöder [psycopg2-biblioteket.](https://pypi.org/project/psycopg2/)
+Spåra dina PostgreSQL-beroenden med openräkning `postgresql` -integrering. Den här integrationen stöder [psycopg2](https://pypi.org/project/psycopg2/) -biblioteket.
 
-Hämta och `opencensus-ext-postgresql` installera från [PyPI](https://pypi.org/project/opencensus-ext-postgresql/) och lägg till följande rader i koden.
+Hämta och installera `opencensus-ext-postgresql` från [pypi](https://pypi.org/project/opencensus-ext-postgresql/) och Lägg till följande rader i koden.
 
 ```python
 from opencensus.trace import config_integration
@@ -142,11 +142,11 @@ from opencensus.trace import config_integration
 config_integration.trace_integrations(['postgresql'])
 ```
 
-## <a name="dependencies-with-pymongo-integration"></a>Beroenden med "pymongo"-integration
+## <a name="dependencies-with-pymongo-integration"></a>Beroenden med "pymongo"-integrering
 
-Spåra dina MongoDB-beroenden med OpenCensus-integreringen. `pymongo` Denna integration stöder [pymongo](https://pypi.org/project/pymongo/) biblioteket.
+Spåra dina MongoDB-beroenden med openräkning `pymongo` -integrering. Den här integrationen stöder [pymongo](https://pypi.org/project/pymongo/) -biblioteket.
 
-Hämta och `opencensus-ext-pymongo` installera från [PyPI](https://pypi.org/project/opencensus-ext-pymongo/) och lägg till följande rader i koden.
+Hämta och installera `opencensus-ext-pymongo` från [pypi](https://pypi.org/project/opencensus-ext-pymongo/) och Lägg till följande rader i koden.
 
 ```python
 from opencensus.trace import config_integration
@@ -156,7 +156,7 @@ config_integration.trace_integrations(['pymongo'])
 
 ### <a name="dependencies-with-sqlalchemy-integration"></a>Beroenden med "sqlalchemy"-integrering
 
-Spåra dina beroenden med SQLAlchemy med `sqlalchemy` OpenCensus-integrering. Den här integreringen spårar användningen av [sqlalchemy-paketet,](https://pypi.org/project/SQLAlchemy/) oavsett den underliggande databasen.
+Spåra dina beroenden med SQLAlchemy med hjälp `sqlalchemy` av openräkning-integrering. Den här integrationen spårar användningen av [sqlalchemy](https://pypi.org/project/SQLAlchemy/) -paketet, oavsett vilken underliggande databas som används.
 
 ```python
 from opencensus.trace import config_integration
@@ -169,5 +169,5 @@ config_integration.trace_integrations(['sqlalchemy'])
 * [Programkarta](../../azure-monitor/app/app-map.md)
 * [Tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Sök](../../azure-monitor/app/diagnostic-search.md)
-* [Loggfråga (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
+* [Logg (analys) fråga](../../azure-monitor/log-query/log-query-overview.md)
 * [Transaktionsdiagnostik](../../azure-monitor/app/transaction-diagnostics.md)

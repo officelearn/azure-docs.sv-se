@@ -1,6 +1,6 @@
 ---
-title: 'Säkerhetskopiering och återställning av SAP HANA på Azure (stora instanser) typ II SKU: er| Microsoft-dokument'
-description: Utföra säkerhetskopiering och återställning av operativsystem för SAP HANA på Azure (Stora instanser) Typ II SKU:er
+title: 'Säkerhets kopiering och återställning av operativ system för SAP HANA på Azure (stora instanser) typ II SKU: er | Microsoft Docs'
+description: 'Utföra säkerhets kopiering och återställning av operativ system för SAP HANA på Azure (stora instanser) typ II SKU: er'
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,79 +14,79 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616870"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Operativsystemet säkerhetskopiering och återställning för typ II SKU:er för Revision 3-frimärken
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Säkerhets kopiering och återställning av OS för typ II SKU: er av revision 3-stämplar
 
-I det här dokumentet beskrivs stegen för att utföra en säkerhetskopia och återställning på operativsystemfilnivå för **skriv-II-SKU:erna** för DEA Stora instanserna av revision 3. 
+Det här dokumentet beskriver stegen för att utföra en säkerhets kopiering och återställning av operativ Systems fil nivå för **typ II-SKU: er** för de stora instanser av revision 3. 
 
 >[!Important]
-> **Den här artikeln gäller inte för SKU-distributioner av typ II i revision 4 stora förekomststämplar för hana.** Boot LUNS av typ II HANA Stora instansenheter som distribueras i Revision 4 HANA Stora instans stämplar kan säkerhetskopieras med lagring ögonblicksbilder eftersom detta är fallet med typ I SKU:er redan i Revision 3 stämplar
+> **Den här artikeln gäller inte för typ II SKU-distributioner i revision 4 HANA stora instans stämplar.** Start-LUN av typ II HANA stora instans enheter som distribueras i revision 4 HANA stora instans stämplar kan säkerhets kopie ras med lagrings ögonblicks bilder som detta är fallet med typ I SKU: er som redan finns i revision 3-stämplar
 
 
 >[!NOTE]
->Operativsystemets säkerhetskopieringsskript använder ReaR-programvaran, som är förinstallerad på servern.  
+>Skripten för säkerhets kopiering av OS använder den bakre program varan, som är förinstallerad på-servern.  
 
-När etableringen har slutförts `Service Management` av Microsoft-teamet konfigureras som standard servern med två säkerhetskopieringsscheman för att säkerhetskopiera filsystemnivån på baksidan av operativsystemet. Du kan kontrollera schemana för säkerhetskopieringsjobben med hjälp av följande kommando:
+När etableringen har slutförts av Microsoft `Service Management` -teamet konfigureras servern som standard med två säkerhets kopierings scheman för att säkerhetskopiera fil system nivån på operativ systemet. Du kan kontrol lera scheman för säkerhets kopierings jobben med hjälp av följande kommando:
 ```
 #crontab –l
 ```
-Du kan ändra schemat för säkerhetskopiering när som helst med följande kommando:
+Du kan ändra schemat för säkerhets kopiering när som helst med hjälp av följande kommando:
 ```
 #crontab -e
 ```
-## <a name="how-to-take-a-manual-backup"></a>Hur man tar en manuell backup?
+## <a name="how-to-take-a-manual-backup"></a>Hur gör jag för att göra en manuell säkerhets kopiering?
 
-Säkerhetskopian av os-filsystemet är schemalagd med ett **cron-jobb** redan. Du kan dock också säkerhetskopiera operativsystemets filnivå manuellt. Kör följande kommando om du vill utföra en manuell säkerhetskopiering:
+Säkerhets kopieringen av operativ systemets fil system schemaläggs redan med ett **cron-jobb** . Du kan dock även utföra säkerhets kopieringen av operativ Systems fil nivån manuellt. Kör följande kommando för att utföra en manuell säkerhets kopiering:
 
 ```
 #rear -v mkbackup
 ```
-På följande skärm visas exempel på manuell säkerhetskopiering:
+Följande skärm bild visar exempel på manuell säkerhets kopiering:
 
-![Hur](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![vilken](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
-## <a name="how-to-restore-a-backup"></a>Hur återställer man en säkerhetskopia?
+## <a name="how-to-restore-a-backup"></a>Så här återställer du en säkerhets kopia?
 
-Du kan återställa en fullständig säkerhetskopia eller en enskild fil från säkerhetskopian. Om du vill återställa använder du följande kommando:
+Du kan återställa en fullständig säkerhets kopia eller en enskild fil från säkerhets kopian. Använd följande kommando för att återställa:
 
 ```
 #tar  -xvf  <backup file>  [Optional <file to restore>]
 ```
-Efter återställningen återställs filen i den aktuella arbetskatalogen.
+Efter återställningen återställs filen i den aktuella arbets katalogen.
 
-Följande kommando visar återställning av en fil */etc/fstabfrom* *säkerhetskopian.tar.gz*
+Följande kommando visar återställningen av en fil */etc/fstabfrom* säkerhets kopian av säkerhets kopierings filen *. tar. gz*
 ```
 #tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
 >[!NOTE] 
->Du måste kopiera filen till önskad plats när den har återställts från säkerhetskopian.
+>Du måste kopiera filen till önskad plats efter att den har återställts från säkerhets kopian.
 
-Följande skärmbild visar återställningen av en fullständig säkerhetskopia:
+Följande skärm bild visar återställningen av en fullständig säkerhets kopia:
 
-![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+![HowtoRestoreaBackup. PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
-## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Hur man installerar ReaR-verktyget och ändra konfigurationen? 
+## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Hur du installerar bakre verktyget och ändrar konfigurationen? 
 
-ReaR-paketen (Relax-and-Recover) är **förinstallerade** i **skriv-II-SKU:erna** för STORA HANA-instanser och ingen åtgärd behövs från dig. Du kan direkt börja använda ReaR för säkerhetskopiering av operativsystem.
-Under de omständigheter där du behöver installera paketen på egen hand kan du följa de angivna stegen för att installera och konfigurera ReaR-verktyget.
+Paketen för att minska och återställa (bak) är **förinstallerade** i **typ II-SKU: er** av Hana-stora instanser och ingen åtgärd krävs från dig. Du kan direkt börja använda bak sidan för säkerhets kopieringen av operativ systemet.
+I de fall där du behöver installera paketen i din egen kan du dock följa stegen i listan för att installera och konfigurera bak-verktyget.
 
-Om du vill installera ReaR-säkerhetskopieringspaketen använder du följande kommandon: **ReaR**
+Om du vill installera de **bakre** säkerhets kopie paketen använder du följande kommandon:
 
-För **SLES-operativsystem** använder du följande kommando:
+Använd följande kommando för **SLES** -operativ system:
 ```
 #zypper install <rear rpm package>
 ```
-För **RHEL-operativsystem** använder du följande kommando: 
+Använd följande kommando för **RHEL** -operativ system: 
 ```
 #yum install rear -y
 ```
-Om du vill konfigurera ReaR-verktyget måste du uppdatera parametrar **OUTPUT_URL** och **BACKUP_URL** i *filen /etc/rear/local.conf*.
+Om du vill konfigurera bakre verktyget måste du uppdatera parametrarna **OUTPUT_URL** och **BACKUP_URL** i *filen/etc/Rear/Local.conf*.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Följande skärmbild visar återställningen av ![en fullständig säkerhetskopia: RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Följande skärm bild visar återställningen av en fullständig säkerhets ![kopiering: REARTOOLCONFIGURATION. png](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

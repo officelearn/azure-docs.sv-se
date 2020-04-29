@@ -1,24 +1,24 @@
 ---
-title: Översiktsinstrumentpanel för Azure Application Insights | Microsoft-dokument
-description: Övervaka program med Azure Application Insights och Översiktsinstrumentpanelen.
+title: Översikts instrument panel för Azure Application Insights | Microsoft Docs
+description: Övervaka program med instrument panels funktionerna Azure Application insikter och översikt.
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669904"
 ---
-# <a name="application-insights-overview-dashboard"></a>Instrumentpanelen Översikt över programinsikter
+# <a name="application-insights-overview-dashboard"></a>Instrument panel för Application Insights översikt
 
-Application Insights har alltid tillhandahållit en sammanfattande översiktsfönster för att möjliggöra en snabb och snabb bedömning av programmets hälsa och prestanda. Den nya översiktsinstrumentpanelen ger en snabbare mer flexibel upplevelse.
+Application Insights har alltid fått ett översikts fönster som gör det möjligt att snabbt och enkelt utvärdera programmets hälso tillstånd och prestanda. Den nya översikts instrument panelen ger en snabbare mer flexibel upplevelse.
 
-## <a name="how-do-i-test-out-the-new-experience"></a>Hur testar jag den nya upplevelsen?
+## <a name="how-do-i-test-out-the-new-experience"></a>Hur gör jag för att testa den nya upplevelsen?
 
-Den nya översiktsinstrumentpanelen lanseras nu som standard:
+Den nya översikts instrument panelen startas nu som standard:
 
-![Förhandsgranskningsfönstret översikt](./media/overview-dashboard/overview.png)
+![Översikt över gransknings fönstret](./media/overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>Bättre prestanda
 
@@ -26,34 +26,34 @@ Valet av tidsintervall har förenklats till ett enkelt gränssnitt med ett klick
 
 ![Tidsintervall](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
-Den totala utvecklingen har ökat kraftigt. Du har en klick tillgång till populära funktioner som **Sök** och **Analytics**. Varje standardpanel för dynamisk uppdatering av KPI ger insikt i motsvarande application insights-funktioner. Om du vill veta mer om misslyckade begäranden väljer du Fel under **granskningshuvudet:** **Investigate**
+Den allmänna prestandan har ökat avsevärt. Du har åtkomst med ett klick till populära funktioner som **sökning** och **analys**. Varje standard KPI-panel med dynamiska uppdateringar ger inblick i motsvarande Application Insights funktioner. Om du vill veta mer om misslyckade förfrågningar väljer du **fel** under rubriken **Undersök** :
 
 ![Fel](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Instrumentpanel för program
 
-Instrumentpanelen för program utnyttjar den befintliga instrumentpanelstekniken i Azure för att tillhandahålla en helt anpassningsbar enrutasvy av programmets hälsa och prestanda.
+Instrument panelen för program utnyttjar den befintliga instrument panels tekniken i Azure för att ge en helt anpassningsbar vy över programmets hälso tillstånd och prestanda.
 
-Om du vill komma åt standardinstrumentpanelen väljer du _Programinstrumentpanel_ i det övre vänstra hörnet.
+Öppna standard instrument panelen genom att välja _program instrument panel_ i det övre vänstra hörnet.
 
 ![Instrumentpanelsvy](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
-Om det är första gången du öppnar instrumentpanelen startar en standardvy:
+Om det här är första gången du öppnar instrument panelen, startas en standardvy:
 
 ![Instrumentpanelsvy](./media/overview-dashboard/0001-dashboard.png)
 
-Du kan behålla standardvyn om du vill ha den. Eller så kan du också lägga till och ta bort från instrumentpanelen för att bäst passa teamets behov.
+Du kan behålla standardvyn om du vill. Du kan också lägga till och ta bort från instrument panelen för att passa behoven i ditt team.
 
 > [!NOTE]
-> Alla användare med åtkomst till application insights-resursen delar samma programinstrumentpanel. Ändringar som görs av en användare ändrar vyn för alla användare.
+> Alla användare som har åtkomst till den Application Insights resursen delar samma program instrument panels upplevelse. Ändringar som görs av en användare kommer att ändra vyn för alla användare.
 
-Om du vill navigera tillbaka till översiktsupplevelsen väljer du bara:
+För att gå tillbaka till översikts upplevelsen väljer du bara:
 
 ![Knappen Översikt](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du väljer **Konfigurera panelinställningar** och ange ett anpassat tidsintervall som överstiger 31 dagar visas inte instrumentpanelen längre än 31 dagars data, även med standarddatalagring på 90 dagar. Det finns för närvarande ingen lösning för det här beteendet.
+Om du väljer **Konfigurera panel inställningar** och anger ett anpassat tidsintervall som är längre än 31 dagar visas inte instrument panelen längre än 31 dagar med data, även om standard data kvarhållning på 90 dagar. Det finns för närvarande ingen lösning på problemet.
 
 ## <a name="next-steps"></a>Nästa steg
 

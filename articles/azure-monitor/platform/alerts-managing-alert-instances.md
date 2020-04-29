@@ -1,58 +1,58 @@
 ---
-title: Hantera varningsinstanser i Azure Monitor
-description: Hantera varningsinstanser i Azure
+title: Hantera varnings instanser i Azure Monitor
+description: Hantera aviserings instanser i Azure
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 1910b3b474012365e8117f584379b2b29f8ce3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667626"
 ---
-# <a name="manage-alert-instances-with-unified-alerts"></a>Hantera varningsinstanser med enhetliga aviseringar
+# <a name="manage-alert-instances-with-unified-alerts"></a>Hantera aviserings instanser med enhetliga aviseringar
 
-Med [den enhetliga aviseringar erfarenhet](https://aka.ms/azure-alerts-overview) i Azure Monitor, kan du se alla dina olika typer av aviseringar i Azure. Detta sträcker sig över flera prenumerationer i en enda ruta. Den här artikeln visar hur du kan visa dina varningsinstanser och hur du hittar specifika varningsinstanser för felsökning.
+Med den [enhetliga aviserings upplevelsen](https://aka.ms/azure-alerts-overview) i Azure Monitor kan du se alla olika typer av aviseringar i Azure. Detta omfattar flera prenumerationer i ett enda fönster. Den här artikeln visar hur du kan visa dina aviserings instanser och hur du hittar vissa aviserings instanser för fel sökning.
 
 > [!NOTE]
-> Du kan bara komma åt aviseringar som genererats under de senaste 30 dagarna.
+> Du kan endast få åtkomst till aviseringar som genererats under de senaste 30 dagarna.
 
 ## <a name="go-to-the-alerts-page"></a>Gå till sidan aviseringar
 
 Du kan gå till sidan aviseringar på något av följande sätt:
 
-- Välj > **Övervakaraviseringar**i [Azure-portalen](https://portal.azure.com/). **Monitor**  
+- I [Azure Portal](https://portal.azure.com/)väljer du **övervaka** > **aviseringar**.  
 
-     ![Skärmbild av övervakarvarningar](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
+     ![Skärm bild av övervaknings aviseringar](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
-- Använd kontexten för en viss resurs. Öppna en resurs, gå till avsnittet **Övervakning** och välj **Aviseringar**. Målsidan är förfiltrerade för aviseringar på den specifika resursen.
+- Använd kontexten för en speciell resurs. Öppna en resurs, gå till avsnittet **övervakning** och välj **aviseringar**. Landnings sidan filtreras i förväg för aviseringar på den aktuella resursen.
 
-     ![Skärmbild av resursövervakningsaviseringar](media/alerts-managing-alert-instances/alert-resource.JPG)
+     ![Skärm bild av aviseringar för resurs övervakning](media/alerts-managing-alert-instances/alert-resource.JPG)
 
-- Använd kontexten för en viss resursgrupp. Öppna en resursgrupp, gå till avsnittet **Övervakning** och välj **Aviseringar**. Målsidan är förfiltrerade för aviseringar i den specifika resursgruppen.    
+- Använd kontexten för en speciell resurs grupp. Öppna en resurs grupp, gå till avsnittet **övervakning** och välj **aviseringar**. Landnings sidan filtreras för aviseringar i den aktuella resurs gruppen.    
 
-     ![Skärmbild av övervakningsaviseringar för resursgrupp](media/alerts-managing-alert-instances/alert-rg.JPG)
+     ![Skärm bild av övervaknings aviseringar för resurs grupp](media/alerts-managing-alert-instances/alert-rg.JPG)
 
-## <a name="find-alert-instances"></a>Hitta varningsinstanser
+## <a name="find-alert-instances"></a>Hitta aviserings instanser
 
-På sidan Sammanfattning av **aviseringar** får du en översikt över alla dina aviseringsinstanser i Azure. Du kan ändra sammanfattningsvyn genom att välja **flera prenumerationer** (upp till högst 5) eller genom att filtrera mellan **resursgrupper,** specifika **resurser**eller **tidsintervall**. Välj **Totalt antal aviseringar**eller något av allvarlighetsgradbanden för att gå till listvyn för dina aviseringar.     
+På sidan **aviserings Sammanfattning** får du en översikt över alla aviserings instanser i Azure. Du kan ändra sammanfattningsvyn genom att välja **flera prenumerationer** (högst 5) eller genom att filtrera över **resurs grupper**, vissa **resurser**eller **tidsintervall**. Välj **Totalt antal aviseringar**, eller något av allvarlighets graderna, för att gå till listvyn för dina aviseringar.     
 
-![Skärmbild av sammanfattningssidan för aviseringar](media/alerts-managing-alert-instances/alerts-summary.jpg)
+![Skärm bild av sidan aviserings Sammanfattning](media/alerts-managing-alert-instances/alerts-summary.jpg)
  
-På sidan **Alla aviseringar** visas alla aviseringsinstanser över Azure. Om du kommer till portalen från ett aviseringsmeddelande kan du använda de filter som är tillgängliga för att begränsa in på den specifika aviseringsinstansen.
+På sidan **alla aviseringar** visas alla aviserings instanser i Azure. Om du kommer till portalen från ett aviserings meddelande kan du använda de filter som är tillgängliga för att begränsa den specifika varnings instansen.
 
 > [!NOTE]
-> Om du kom till sidan genom att välja något av allvarlighetsgradsintervallen är listan förfiltrerade för den allvarlighetsgraden.
+> Om du har kommit till sidan genom att välja något av allvarlighets graderna är listan förfiltrerad för den allvarlighets graden.
 
-Förutom de filter som finns tillgängliga på föregående sida kan du också filtrera på grundval av övervakartjänst (till exempel plattform för mått), övervaka villkor (sparken eller löst), allvarlighetsgrad, varningstillstånd (ny/bekräftad/stängd) eller smart grupp-ID.
+Förutom de filter som är tillgängliga på föregående sida kan du också filtrera utifrån övervaknings tjänsten (till exempel plattform för mått), övervaka villkor (utlöst eller löst), allvarlighets grad, aviserings tillstånd (nytt/bekräftat/stängt) eller det smarta grupp-ID: t.
 
-![Skärmbild av sidan Alla aviseringar](media/alerts-managing-alert-instances/all-alerts.jpg)
+![Skärm bild av sidan alla aviseringar](media/alerts-managing-alert-instances/all-alerts.jpg)
 
 > [!NOTE]
-> Om du kom till sidan genom att välja något av allvarlighetsgradsintervallen är listan förfiltrerade för den allvarlighetsgraden.
+> Om du har kommit till sidan genom att välja något av allvarlighets graderna är listan förfiltrerad för den allvarlighets graden.
 
-Om du väljer en aviseringsinstans öppnas sidan **Aviseringsinformation,** så att du kan se mer information om den specifika varningsinstansen.   
+Om du väljer en varnings instans öppnas sidan **aviserings information** , så att du kan se mer information om den aktuella aviserings instansen.   
 
-![Skärmbild av sidan Varningsinformation](media/alerts-managing-alert-instances/alert-details.jpg)  
+![Skärm bild av sidan med aviserings information](media/alerts-managing-alert-instances/alert-details.jpg)  
 

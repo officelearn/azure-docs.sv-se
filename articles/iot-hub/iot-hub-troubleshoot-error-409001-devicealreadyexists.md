@@ -1,5 +1,5 @@
 ---
-title: Felsökning av Azure IoT Hub-fel 409001-enhet Redan
+title: Fel sökning av Azure IoT Hub-fel 409001 DeviceAlreadyExists
 description: Förstå hur du åtgärdar fel 409001 DeviceAlreadyExists
 author: jlian
 manager: briz
@@ -9,23 +9,23 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 93ab2ecc8e820c461a7c79082ac1d50c24f0ba8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76960794"
 ---
 # <a name="409001-devicealreadyexists"></a>409001 DeviceAlreadyExists
 
-I den här artikeln beskrivs orsaker och lösningar för **409001 DeviceAlreadyExists** fel.
+I den här artikeln beskrivs orsaker och lösningar för **409001 DeviceAlreadyExists** -fel.
 
 ## <a name="symptoms"></a>Symtom
 
-NÃ¤s fÃ¤ndes fÃ¤ndes fÃ¤nder en enhet i IoT Hub misslyckas begäran med felet **409001 DeviceAlreadyExists**.
+När du försöker registrera en enhet i IoT Hub Miss lyckas begäran med felet **409001 DeviceAlreadyExists**.
 
 ## <a name="cause"></a>Orsak
 
-Det finns redan en enhet med samma enhets-ID i IoT-hubben. 
+Det finns redan en enhet med samma enhets-ID i IoT Hub. 
 
 ## <a name="solution"></a>Lösning
 

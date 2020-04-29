@@ -1,6 +1,6 @@
 ---
-title: Ladda ned och installera Microsoft Authenticator-appen - Azure AD
-description: Ladda ned och installera Microsoft Authenticator-appen för att verifiera din identitet när du använder tvåfaktorsverifiering.
+title: Hämta och installera Microsoft Authenticator app – Azure AD
+description: Hämta och installera appen Microsoft Authenticator för att verifiera din identitet när du använder tvåstegsverifiering.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,13 +13,13 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 9d8ea02c91dc6aec41a1b548eff148e85111fc32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063908"
 ---
-# <a name="download-and-install-the-microsoft-authenticator-app"></a>Ladda ned och installera Microsoft Authenticator-appen
+# <a name="download-and-install-the-microsoft-authenticator-app"></a>Ladda ned och installera appen Microsoft Authenticator
 
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
@@ -28,14 +28,14 @@ Med Microsoft Authenticator-appen kan du logga in på dina konton om du använde
 
 Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följande:
 
-- **Tvåfaktorsverifiering.** Standardverifieringsmetoden, där en av faktorerna är ditt lösenord. När du har loggat in med ditt användarnamn och lösenord kan du antingen godkänna ett meddelande eller ange en medföljande verifieringskod.
+- **Tvåstegsverifiering.** Standard verifierings metoden, där en av faktorerna är ditt lösen ord. När du har loggat in med ditt användar namn och lösen ord kan du antingen godkänna ett meddelande eller ange en angiven verifierings kod.
 
-- **Telefon inloggning.** En version av tvåfaktorsverifiering som gör att du kan logga in utan att kräva ett lösenord, med ditt användarnamn och din mobila enhet med ditt fingeravtryck, ansikte eller PIN-kod.
+- **Telefonin loggning.** En version av tvåstegsverifiering som du kan använda för att logga in utan att kräva ett lösen ord, med ditt användar namn och din mobila enhet med ditt finger avtryck, ansikte eller PIN-kod.
 
-- **Kodgenerering.** Som kodgenerator för alla andra konton som stöder autentiseringsappar.
+- **Kodgenerering.** Som kod generator för andra konton som stöder Authenticator-appar.
 
 > [!Important]
-> Microsoft Authenticator-appen fungerar med alla konton som använder tvåfaktorsverifiering och stöder de tidsbaserade totp-standarderna (One-time password).
+> Microsoft Authenticator-appen fungerar med ett konto som använder tvåstegsverifiering och som stöder tidsbaserad eng ång slö sen ord (TOTP mobilapp).
 >
 > Din organisation kan kräva att du använder en autentiseringsapp för att logga in och komma åt organisationens data och dokument. Även om ditt användarnamn kanske visas i appen är kontot inte konfigurerat så för att fungera som verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägga till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
 > 
@@ -44,27 +44,27 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 
 ## <a name="download-and-install-the-app"></a>Ladda ned och installera appen
 
-Installera den senaste versionen av Microsoft Authenticator-appen, baserat på ditt operativsystem:
+Installera den senaste versionen av Microsoft Authenticator-appen, baserat på operativ systemet:
 
-- **Google Android.** På din Android-enhet går du till Google Play för att [ladda ned och installera Microsoft Authenticator-appen](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
+- **Google Android.** På din Android-enhet går du till Google Play för att [Ladda ned och installera Microsoft Authenticator-appen](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
 
-- **Apple iOS.** På din Apple iOS-enhet går du till App Store för att [hämta och installera Microsoft Authenticator-appen](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+- **Apple iOS.** På din Apple iOS-enhet går du till App Store för att [Ladda ned och installera Microsoft Authenticator-appen](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Om du inte är på din mobila enhet kan du fortfarande hämta Microsoft Authenticator-appen genom att skicka en nedladdningslänk från [sidan Microsoft Authenticator.](https://www.microsoft.com/en-us/account/authenticator)
+>Om du inte redan har en mobil enhet kan du fortfarande få Microsoft Authenticator-appen genom att skicka en nedladdnings länk från [Microsoft Authenticator sidan](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har hämtat och installerat appen måste du lägga till dina olika konton. Mer information finns i:
+När du har laddat ned och installerat appen måste du lägga till dina olika konton. Mer information finns i:
 
-- **Appen Autentiserare.** Ladda ned och använd en autentiseringsapp för att få antingen ett godkännandemeddelande eller en slumpmässigt genererad godkännandekod för tvåstegsverifiering eller återställning av lösenord. Stegvisa instruktioner om hur du konfigurerar och använder Microsoft Authenticator-appen finns i [Konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md).
+- **Authenticator-app.** Hämta och Använd en Authenticator-app för att få ett meddelande om godkännande eller en slumpmässigt genererad godkännande kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner om hur du konfigurerar och använder Microsoft Authenticator-appen finns i [Konfigurera säkerhets information så att en autentiserare används](security-info-setup-auth-app.md).
 
-- **Text för mobila enheter.** Ange ditt mobilenhetsnummer och få en text som du använder för tvåstegsverifiering eller återställning av lösenord. Stegvisa instruktioner om hur du verifierar din identitet med ett SMS finns i [Konfigurera säkerhetsinformation för att använda SMS](security-info-setup-text-msg.md).
+- **Mobil enhets text.** Ange ditt mobila enhets nummer och få en text kod som du kan använda för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett textmeddelande (SMS) finns i [Konfigurera säkerhets information för att använda SMS (text messaging)](security-info-setup-text-msg.md).
 
-- **Mobil enhet eller arbetssamtal.** Ange ditt mobilenhetsnummer och få ett telefonsamtal för tvåstegsverifiering eller återställning av lösenord. Stegvisa instruktioner om hur du verifierar din identitet med ett telefonnummer finns i [Konfigurera säkerhetsinformation för att använda telefonsamtal](security-info-setup-phone-number.md).
+- **Mobil enhets-eller arbets telefon samtal.** Ange ditt mobila enhets nummer och få ett telefonsamtal för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med ett telefonnummer finns i [Konfigurera säkerhets information så att telefonsamtal används](security-info-setup-phone-number.md).
 
-- **Säkerhetsnyckel.** Registrera din Microsoft-kompatibla säkerhetsnyckel och använd den tillsammans med en PIN-kod för tvåstegsverifiering eller återställning av lösenord. Stegvisa instruktioner om hur du verifierar din identitet med en säkerhetsnyckel finns i [Konfigurera säkerhetsinformation för att använda en säkerhetsnyckel](security-info-setup-security-key.md).
+- **Säkerhets nyckel.** Registrera din Microsoft-kompatibla säkerhets nyckel och Använd den tillsammans med en PIN-kod för tvåstegsverifiering eller lösen ords återställning. Stegvisa instruktioner för hur du verifierar din identitet med en säkerhets nyckel finns i [Konfigurera säkerhets information för att använda en säkerhets nyckel](security-info-setup-security-key.md).
 
-- **E-postadress.** Ange din e-postadress för arbete eller skola för att få ett e-postmeddelande om återställning av lösenord. Det här alternativet är inte tillgängligt för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar din e-post finns i [Konfigurera säkerhetsinformation för att använda e-post](security-info-setup-email.md).
+- **E-postadress.** Ange din e-postadress till arbetet eller skolan för att få ett e-postmeddelande om lösen ords återställning. Det här alternativet är inte tillgängligt för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar din e-post finns i [Konfigurera säkerhets information för att använda e-post](security-info-setup-email.md).
 
-- **Säkerhetsfrågor.** Svara på några säkerhetsfrågor som skapats av administratören för din organisation. Det här alternativet är endast tillgängligt för återställning av lösenord och inte för tvåstegsverifiering. Stegvisa instruktioner om hur du ställer in dina säkerhetsfrågor finns i artikeln [Konfigurera säkerhetsinformation för att använda säkerhetsfrågor.](security-info-setup-questions.md)
+- **Säkerhets frågor.** Svara på vissa säkerhets frågor som har skapats av administratören för din organisation. Det här alternativet är bara tillgängligt för lösen ords återställning och inte för tvåstegsverifiering. Stegvisa instruktioner om hur du konfigurerar dina säkerhets frågor finns i artikeln [Konfigurera säkerhets information för att använda säkerhets frågor](security-info-setup-questions.md) .

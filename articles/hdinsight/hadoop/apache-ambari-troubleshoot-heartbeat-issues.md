@@ -1,6 +1,6 @@
 ---
 title: Problem med pulsslag från Apache Ambari i Azure HDInsight
-description: Granskning av olika orsaker till Apache Ambari pulsslagsproblem i Azure HDInsight
+description: Granskning av olika orsaker till problem med Apache Ambari-pulsslag i Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,29 +8,29 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057081"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problem med pulsslag från Apache Ambari i Azure HDInsight
 
-I den här artikeln beskrivs felsökningssteg och möjliga lösningar för problem när du interagerar med Azure HDInsight-kluster.
+Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
-## <a name="scenario-high-cpu-utilization"></a>Scenario: Hög CPU-användning
+## <a name="scenario-high-cpu-utilization"></a>Scenario: hög processor användning
 
 ### <a name="issue"></a>Problem
 
-Ambari agent har hög CPU-användning, vilket resulterar i varningar från Ambari UI att för vissa noder Ambari agent hjärtslag går förlorad. Den förlorade aviseringen av pulsslag är vanligtvis övergående.
+Ambari-agenten har hög processor användning, vilket resulterar i aviseringar från Ambari-ANVÄNDARGRÄNSSNITTET som för vissa noder går Ambari agent-pulsslag förlorat. Aviseringen om förlorat pulsslag är vanligt vis tillfällig.
 
 ### <a name="cause"></a>Orsak
 
-På grund av olika ambari-agent buggar, i sällsynta fall, din ambari-agent kan ha hög (nära 100) procent CPU-användning.
+På grund av olika Ambari-buggar, i sällsynta fall, kan din Ambari-agent ha hög (nära 100) processor användning i procent.
 
 ### <a name="resolution"></a>Lösning
 
-1. Identifiera process-ID (pid) av ambari-agent:
+1. Identifiera process-ID (PID) för Ambari-agent:
 
     ```bash
     ps -ef | grep ambari_agent
@@ -42,13 +42,13 @@ På grund av olika ambari-agent buggar, i sällsynta fall, din ambari-agent kan 
     top -p <ambari-agent-pid>
     ```
 
-1. Starta om ambari-agenten för att minska problemet:
+1. Starta om Ambari – agent för att undvika problem:
 
     ```bash
     service ambari-agent restart
     ```
 
-1. Om omstart inte fungerar, döda ambari-agentprocessen och starta den sedan:
+1. Om starta om inte fungerar, avsluta Ambari-agent-processen och starta sedan den:
 
     ```bash
     kill -9 <ambari-agent-pid>
@@ -61,7 +61,7 @@ På grund av olika ambari-agent buggar, i sällsynta fall, din ambari-agent kan 
 
 ### <a name="issue"></a>Problem
 
-Ambari-agenten har inte startat vilket resulterar i aviseringar från Ambari UI om att Ambari-agentens pulsslag går förlorade för vissa noder.
+Ambari-agenten har inte startat som resulterar i aviseringar från Ambari-gränssnittet för vissa noder. Ambari agent-pulsslag förloras.
 
 ### <a name="cause"></a>Orsak
 
@@ -69,25 +69,25 @@ Aviseringarna orsakas av att Ambari-agenten inte körs.
 
 ### <a name="resolution"></a>Lösning
 
-1. Bekräfta status för ambari-agent:
+1. Bekräfta status för Ambari-agent:
 
     ```bash
     service ambari-agent status
     ```
 
-1. Bekräfta om redundanskontrolltjänsten körs:
+1. Bekräfta om tjänster för redundans körs:
 
     ```bash
     ps -ef | grep failover
     ```
 
-    Om redundansstyrenhetstjänster inte körs beror det troligen på ett problem att hdinsight-agenten startar redundansstyrenheten. Kontrollera hdinsight-agent `/var/log/hdinsight-agent/hdinsight-agent.out` loggen från filen.
+    Om tjänster för redundansväxling inte körs beror det förmodligen på ett problem som förhindrar att HDInsight-agenten startar redundansväxling. Kontrol lera HDInsight-agentens `/var/log/hdinsight-agent/hdinsight-agent.out` logg från filen.
 
-## <a name="scenario-heartbeat-lost-for-ambari"></a>Scenario: Hjärtslag förlorade för Ambari
+## <a name="scenario-heartbeat-lost-for-ambari"></a>Scenario: pulsslag förlorat för Ambari
 
 ### <a name="issue"></a>Problem
 
-Ambari hjärtslag agent förlorades.
+Ambari pulsslags agent förlorades.
 
 ### <a name="cause"></a>Orsak
 
@@ -95,17 +95,17 @@ OMS-loggar orsakar hög CPU-användning.
 
 ### <a name="resolution"></a>Lösning
 
-* Inaktivera Azure Monitor-loggning med hjälp av [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) PowerShell-cmdlet.
-* Ta `mdsd.warn` bort loggfilen
+* Inaktivera Azure Monitor loggning med hjälp av PowerShell-cmdleten [disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) .
+* Ta bort `mdsd.warn` logg filen
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-* Få svar från Azure-experter via [Azure Community Support](https://azure.microsoft.com/support/community/).
+* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
-* Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en supportbegäran från [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **Stöd** i menyraden eller öppna **supporthubben Hjälp +.** Mer detaljerad information finns i Så här skapar du [en Azure-supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerationshantering och faktureringssupport ingår i din Microsoft Azure-prenumeration och teknisk support tillhandahålls via en av [Azure-supportplanerna](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

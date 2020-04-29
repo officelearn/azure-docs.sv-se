@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera SuccessFactors-tillbakaskrivning i Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du konfigurerar attributskrivning till SuccessFactors från Azure AD
+title: 'Självstudie: Konfigurera SuccessFactors tillbakaskrivning i Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar tillbakaskrivning av attribut till SuccessFactors från Azure AD
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,176 +15,176 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77060056"
 ---
-# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Självstudiekurs: Konfigurera attributåterskrivning från Azure AD till SAP SuccessFactors (förhandsversion)
-Syftet med den här självstudien är att visa de steg du behöver utföra för att skriva tillbaka attribut från Azure AD till SuccessFactors Employee Central. Det enda attribut som för närvarande stöds för tillbakaskrivning är e-postattributet. 
+# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Självstudie: Konfigurera tillbakaskrivning av attribut från Azure AD till SAP SuccessFactors (för hands version)
+Syftet med den här självstudien är att visa de steg som du behöver utföra för att ångra attribut från Azure AD till SuccessFactors personal Central. Det enda attribut som stöds för tillbakaskrivning är e-postattributet. 
 
 ## <a name="overview"></a>Översikt
 
-När du har konfigurerat inkommande etableringsintegration med hjälp av [SuccessFactors till lokala AD-etableringsapp](sap-successfactors-inbound-provisioning-tutorial.md) [eller SuccessFactors till Azure](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) AD-etableringsapp, kan du konfigurera appen SuccessFactors-tillbakaskrivning för att skriva tillbaka e-postadressen till SuccessFactors. 
+När du har installerat integrering av inkommande etablering med antingen [SuccessFactors till en lokal AD](sap-successfactors-inbound-provisioning-tutorial.md) -etablerings app eller [SUCCESSFACTORS till Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) Provisioning-appen, kan du konfigurera SuccessFactors tillbakaskrivning-appen för att skriva e-postadressen tillbaka till SuccessFactors. 
 
-### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här lösning för etablering av användare som är bäst lämpad för?
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här användar etablerings lösningen som passar bäst för?
 
-Den här SuccessFactors-etableringslösningen för tillbakaskrivningsanvändare är idealisk för:
+Den här SuccessFactors-lösningen för tillbakaskrivning av användare passar utmärkt för:
 
-* Organisationer som använder Office 365 som vill skriva tillbaka auktoritära attribut som hanteras av IT (t.ex. e-postadress) tillbaka till SuccessFactors
+* Organisationer som använder Office 365 som vill kunna tillbakaskrivning av auktoritativa attribut som hanteras av IT (till exempel e-postadress) tillbaka till SuccessFactors
 
-## <a name="configuring-successfactors-for-the-integration"></a>Konfigurera SuccessFactors för integrationen
+## <a name="configuring-successfactors-for-the-integration"></a>Konfigurera SuccessFactors för integrering
 
-Ett vanligt krav för alla SuccessFactors-etableringskopplingar är att de kräver autentiseringsuppgifter för ett SuccessFactors-konto med rätt behörighet att anropa SuccessFactors OData-API:er. I det här avsnittet beskrivs steg för att skapa tjänstkontot i SuccessFactors och bevilja lämpliga behörigheter. 
+Ett gemensamt krav för alla SuccessFactors etablerings anslutningar är att de kräver autentiseringsuppgifter för ett SuccessFactors-konto med rätt behörighet för att anropa SuccessFactors OData-API: erna. I det här avsnittet beskrivs steg för att skapa tjänst kontot i SuccessFactors och bevilja lämpliga behörigheter. 
 
 * [Skapa/identifiera API-användarkonto i SuccessFactors](#createidentify-api-user-account-in-successfactors)
-* [Skapa en API-behörighetsroll](#create-an-api-permissions-role)
-* [Skapa en behörighetsgrupp för API-användaren](#create-a-permission-group-for-the-api-user)
-* [Bevilja behörighetsroll till behörighetsgruppen](#grant-permission-role-to-the-permission-group)
+* [Skapa en roll för API-behörigheter](#create-an-api-permissions-role)
+* [Skapa en behörighets grupp för API-användaren](#create-a-permission-group-for-the-api-user)
+* [Bevilja behörighets rollen till behörighets gruppen](#grant-permission-role-to-the-permission-group)
 
 ### <a name="createidentify-api-user-account-in-successfactors"></a>Skapa/identifiera API-användarkonto i SuccessFactors
-Arbeta med ditt SuccessFactors-administratörsteam eller implementeringspartner för att skapa eller identifiera ett användarkonto i SuccessFactors som ska användas för att anropa OData-API:erna. Användarnamn och lösenord autentiseringsuppgifter för det här kontot kommer att krävas när du konfigurerar etableringsapparna i Azure AD. 
+Arbeta med ditt SuccessFactors-administratörs team eller implementerings partner för att skapa eller identifiera ett användar konto i SuccessFactors som ska användas för att anropa OData-API: erna. Autentiseringsuppgifterna för användar namn och lösen ord för det här kontot kommer att krävas när du konfigurerar etablerings appar i Azure AD. 
 
-### <a name="create-an-api-permissions-role"></a>Skapa en API-behörighetsroll
+### <a name="create-an-api-permissions-role"></a>Skapa en roll för API-behörigheter
 
-* Logga in på SAP SuccessFactors med ett användarkonto som har åtkomst till administrationscentret.
-* Sök efter *Hantera behörighetsroller*och välj sedan **Hantera behörighetsroller** från sökresultaten.
-  ![Hantera behörighetsroller](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Klicka på **Skapa nytt**i listan Behörighetsroll .
+* Logga in på SAP SuccessFactors med ett användar konto som har åtkomst till administrations centret.
+* Sök efter *Hantera behörighets roller*och välj **Hantera behörighets roller** från Sök resultaten.
+  ![Hantera behörighets roller](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
+* I listan behörighets roll klickar du på **Skapa ny**.
   > [!div class="mx-imgBorder"]
-  > ![Skapa ny behörighetsroll](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Lägg till ett **rollnamn** och **en beskrivning** för den nya behörighetsrollen. Namnet och beskrivningen bör ange att rollen är för API-användningsbehörigheter.
+  > ![Skapa ny behörighets roll](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+* Lägg till ett **roll namn** och en **Beskrivning** för den nya behörighets rollen. Namnet och beskrivningen ska ange att rollen är för API-användnings behörigheter.
   > [!div class="mx-imgBorder"]
-  > ![Information om behörighetsroll](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Under Behörighetsinställningar klickar du på **Behörighet...** och rullar sedan ned i behörighetslistan och klickar på **Hantera integrationsverktyg**. Markera kryssrutan **Tillåt admin att komma åt OData API via grundläggande autentisering**.
+  > ![Information om behörighets roll](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+* Under behörighets inställningar klickar du på **behörighet...** och bläddrar sedan ned behörighets listan och klickar på **Hantera integrerings verktyg**. Markera kryss rutan om **du vill tillåta administratörs åtkomst till OData-API via grundläggande autentisering**.
   > [!div class="mx-imgBorder"]
-  > ![Hantera integrationsverktyg](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Bläddra nedåt i samma ruta och välj **Personal central-API**. Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj redigeringsalternativet om du planerar att använda samma konto för scenariot Skriv tillbaka till SuccessFactors. 
+  > ![Hantera integrerings verktyg](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+* Rulla nedåt i samma ruta och välj **medarbetares centrala API**. Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj alternativet Redigera om du planerar att använda samma konto för SuccessFactors-scenariot för tillbakaskrivning. 
   > [!div class="mx-imgBorder"]
-  > ![Läs skrivbehörigheter](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Klicka på **Klar**. Klicka på **Spara ändringar**.
+  > ![Läs Skriv behörighet](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+* Klicka på **färdig**. Klicka på **Spara ändringar**.
 
-### <a name="create-a-permission-group-for-the-api-user"></a>Skapa en behörighetsgrupp för API-användaren
+### <a name="create-a-permission-group-for-the-api-user"></a>Skapa en behörighets grupp för API-användaren
 
-* Sök efter *hantera behörighetsgrupper*i Administrationscentret för SuccessFactors och välj sedan **Hantera behörighetsgrupper** från sökresultaten.
+* I SuccessFactors administrations Center söker du efter *Hantera behörighets grupper*och väljer **Hantera behörighets grupper** från Sök resultaten.
   > [!div class="mx-imgBorder"]
-  > ![Hantera behörighetsgrupper](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* Klicka på **Skapa nytt**i fönstret Hantera behörighetsgrupper .
+  > ![Hantera behörighets grupper](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+* I fönstret Hantera behörighets grupper klickar du på **Skapa nytt**.
   > [!div class="mx-imgBorder"]
   > ![Lägg till ny grupp](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Lägg till ett gruppnamn för den nya gruppen. Gruppnamnet ska ange att gruppen är för API-användare.
+* Lägg till ett grupp namn för den nya gruppen. Grupp namnet ska indikera att gruppen är för API-användare.
   > [!div class="mx-imgBorder"]
-  > ![Namn på behörighetsgrupp](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Lägg till medlemmar i gruppen. Du kan till exempel välja **Användarnamn** på listrutan Kontakterpool och sedan ange användarnamnet för API-kontot som ska användas för integreringen. 
+  > ![Namn på behörighets grupp](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+* Lägg till medlemmar i gruppen. Du kan till exempel välja **användar namn** i list rutan personer i poolen och sedan ange användar namnet för det API-konto som ska användas för integreringen. 
   > [!div class="mx-imgBorder"]
   > ![Lägga till gruppmedlemmar](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* Klicka på **Klar** om du vill slutföra skapandet av behörighetsgruppen.
+* Slutför skapandet av behörighets gruppen genom att klicka på **klar** .
 
-### <a name="grant-permission-role-to-the-permission-group"></a>Bevilja behörighetsroll till behörighetsgruppen
+### <a name="grant-permission-role-to-the-permission-group"></a>Bevilja behörighets rollen till behörighets gruppen
 
-* I Administrationscenter för SuccessFactors söker du efter *Hantera behörighetsroller*och väljer sedan **Hantera behörighetsroller** från sökresultaten.
-* Välj den roll som du skapade för API-användningsbehörigheter i **listan Behörigheter**för behörigheter för behörigheter för behörigheter för behörigheter för behörigheter för API-användning.
-* Under **Grant denna roll till...**, klicka på Lägg **till...** knappen.
-* Välj **Behörighetsgrupp...** på den nedrullningsbara menyn och klicka sedan på **Välj...** för att öppna fönstret Grupper för att söka och markera den grupp som skapats ovan. 
+* I SuccessFactors administrations Center kan du söka efter *Hantera behörighets roller*och sedan välja **Hantera behörighets roller** från Sök resultaten.
+* I **listan behörighets roll**väljer du den roll som du har skapat för behörigheter för API-användning.
+* Under **tilldela den här rollen till... klickar du**på **Lägg till...** -knapp.
+* Välj **behörighets grupp...** från den nedrullningsbara menyn och klicka sedan på **Välj...** för att öppna fönstret grupper för att söka efter och välja den grupp som skapades ovan. 
   > [!div class="mx-imgBorder"]
-  > ![Lägga till behörighetsgrupp](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Granska behörighetsrollsbidraget till behörighetsgruppen. 
+  > ![Lägg till behörighets grupp](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+* Granska behörighets rollen bevilja behörighets gruppen. 
   > [!div class="mx-imgBorder"]
-  > ![Behörighetsroll och gruppdetalj](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+  > ![Behörighets roll och grupp information](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 * Klicka på **Spara ändringar**.
 
-## <a name="configuring-successfactors-writeback"></a>Konfigurera tillbakaskrivning av SuccessFactors
+## <a name="configuring-successfactors-writeback"></a>Konfigurera SuccessFactors tillbakaskrivning
 
-I det här avsnittet finns steg för 
+Det här avsnittet innehåller steg för 
 
-* [Lägga till etableringsappen och konfigurera anslutningen till SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors)
-* [Konfigurera attributmappningar](#part-2-configure-attribute-mappings)
-* [Aktivera och starta etablering av användare](#enable-and-launch-user-provisioning)
+* [Lägg till etablerings anslutnings programmet och konfigurera anslutningen till SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors)
+* [Konfigurera mappningar för attribut](#part-2-configure-attribute-mappings)
+* [Aktivera och starta användar etablering](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Del 1: Lägg till etableringsappen och konfigurera anslutningen till SuccessFactors
+### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Del 1: Lägg till etablerings anslutnings programmet och konfigurera anslutningen till SuccessFactors
 
-**Så här konfigurerar du Tillbakaskrivning av SuccessFactors:**
+**Så här konfigurerar du tillbakaskrivning av SuccessFactors:**
 
 1. Gå till <https://portal.azure.com>
 
-2. Välj **Azure Active Directory** i det vänstra navigeringsfältet
+2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
 
-3. Välj **Företagsprogram**och sedan **alla program**.
+3. Välj **företags program**och sedan **alla program**.
 
-4. Välj **Lägg till ett program**och välj kategorin **Alla.**
+4. Välj **Lägg till ett program**och välj kategorin **alla** .
 
-5. Sök efter **SuccessFactors-tillbakaskrivning**och lägg till appen från galleriet.
+5. Sök efter **tillbakaskrivning av SuccessFactors**och Lägg till den appen från galleriet.
 
-6. När appen har lagts till och skärmen för appinformation visas väljer du **Etablera**
+6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
 
-7. Ändra **etableringsläget** **Mode** till **Automatiskt**
+7. Ändra **etablerings** **läget** till **automatiskt**
 
-8. Fyll i avsnittet **Administratörsautentiseringsuppgifter** på följande sätt:
+8. Slutför avsnittet **admin credentials** enligt följande:
 
-   * **Administratörsanvändarnamn** – Ange användarnamnet för SuccessFactors API-användarkonto, med företags-ID bifogat. Den har formatet: **\@användarnamn companyID**
+   * **Administratörens användar namn** – Ange användar namnet för SuccessFactors-API: t med det företags-ID som lagts till. Formatet: **användar namn\@companyID**
 
-   * **Admin lösenord -** Ange lösenordet för användarkontot för SuccessFactors API. 
+   * **Administratörs lösen ord –** Ange lösen ordet för SuccessFactors-API-användarkontot. 
 
-   * **Url till klient –** Ange namnet på slutpunkten för SuccessFactors OData API-tjänster. Ange endast värdnamnet på servern utan http eller https. Det här värdet ska se ut så här: **api-server-name.successfactors.com**.
+   * **Klient-URL –** Ange namnet på SuccessFactors OData API Services-slutpunkten. Ange bara värd namnet för servern utan http eller https. Det här värdet bör se ut så här: **API-Server-Name.SuccessFactors.com**.
 
-   * **E-postmeddelande –** Ange din e-postadress och markera kryssrutan "skicka e-post om fel inträffar" .
+   * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
     > [!NOTE]
-    > Azure AD-etableringstjänsten skickar e-postmeddelande om etableringsjobbet hamnar i [karantäntillstånd.](/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
+    > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
 
-   * Klicka på knappen **Testa anslutning.** Om anslutningstestet lyckas klickar du på knappen **Spara** högst upp. Om det misslyckas dubbelkollar du att autentiseringsuppgifterna och URL:en för SuccessFactors är giltiga.
+   * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas kontrollerar du att autentiseringsuppgifterna och URL: en för SuccessFactors är giltiga.
     >[!div class="mx-imgBorder"]
     >![Azure-portalen](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
 
-   * När autentiseringsuppgifterna har sparats visas **standardmappningen Synkronisera Azure Active Directory-användare till SuccessFactors i** avsnittet **Mappningar**
+   * När autentiseringsuppgifterna har sparats visar avsnittet **mappningar** standard mappningen för **synkronisering Azure Active Directory användare till SuccessFactors**
 
-### <a name="part-2-configure-attribute-mappings"></a>Del 2: Konfigurera attributmappningar
+### <a name="part-2-configure-attribute-mappings"></a>Del 2: Konfigurera mappningar för attribut
 
-I det här avsnittet ska du konfigurera hur användardata flödar från SuccessFactors till Active Directory.
+I det här avsnittet ska du konfigurera hur användar data flödar från SuccessFactors till Active Directory.
 
-1. Klicka på Synkronisera Azure Active **Directory-användare till SuccessFactors**på fliken Etablering under **Mappningar.**
+1. På fliken etablering under **mappningar**klickar du på **Synkronisera Azure Active Directory användare till SuccessFactors**.
 
-1. I fältet **Källobjektomfattning** kan du välja vilka uppsättningar användare i Azure AD som ska beaktas för tillbakaskrivning genom att definiera en uppsättning attributbaserade filter. Standardomfattningen är "alla användare i Azure AD". 
+1. I fältet **käll objekt omfånget** kan du välja vilka uppsättningar av användare i Azure AD som ska beaktas för tillbakaskrivning genom att definiera en uppsättning attributbaserade filter. Standard omfånget är "alla användare i Azure AD". 
    > [!TIP]
-   > När du konfigurerar etableringsappen för första gången måste du testa och verifiera attributmappningar och uttryck för att se till att den ger dig önskat resultat. Microsoft rekommenderar att du använder omfångsfiltren under **Källobjektomfattning** för att testa dina mappningar med några testanvändare från Azure AD. När du har verifierat att mappningarna fungerar kan du antingen ta bort filtret eller gradvis expandera det till att omfatta fler användare.
+   > När du konfigurerar etablerings appen för första gången måste du testa och verifiera dina mappningar och uttryck för att kontrol lera att det ger önskat resultat. Microsoft rekommenderar att du använder omfångs filter under **käll objekt omfånget** för att testa dina mappningar med några test användare från Azure AD. När du har kontrollerat att mappningarna fungerar kan du antingen ta bort filtret eller gradvis expandera det så att det innehåller fler användare.
 
-1. Fältet **Målobjektåtgärder** stöder bara **uppdateringsåtgärden.**
+1. **Åtgärds fältet för mål objekt** stöder bara **uppdaterings** åtgärden.
 
-1. I avsnittet **Attributmappningar** kan du bara ändra det matchande ID som används för att länka en SuccessFactors-användarprofil med Azure AD-användare och vilket attribut i Azure AD fungerar som e-postkälla. 
+1. I avsnittet **mappningar av attribut** kan du bara ändra MATCHNINGS-ID som används för att länka en SuccessFactors användar profil med Azure AD-användare och vilket attribut i Azure AD som fungerar som källa till e-postmeddelandet. 
     >[!div class="mx-imgBorder"]
     >![Azure-portalen](./media/sap-successfactors-inbound-provisioning/sfwb-attribute-mapping.png)
 
    >[!NOTE]
-   >SuccessFactors-tillbakaskrivningen stöder bara e-postattributet. Använd inte **Lägg till ny mappning** för att lägga till nya attribut. 
+   >SuccessFactors-tillbakaskrivning stöder bara e-postattributet. Använd inte **Lägg till ny mappning** för att lägga till nya attribut. 
 
-1. Om du vill spara mappningarna klickar du på **Spara** högst upp i avsnittet Attributmappning.
+1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
 
-När konfigurationen för attributmappning är klar kan du nu [aktivera och starta tjänsten för användaretablering](#enable-and-launch-user-provisioning).
+När du har slutfört konfigurationen av attributmappning kan du nu [Aktivera och starta användar etablerings tjänsten](#enable-and-launch-user-provisioning).
 
-## <a name="enable-and-launch-user-provisioning"></a>Aktivera och starta etablering av användare
+## <a name="enable-and-launch-user-provisioning"></a>Aktivera och starta användar etablering
 
-När SuccessFactors-etableringsappkonfigurationerna har slutförts kan du aktivera etableringstjänsten i Azure-portalen.
+När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings tjänsten i Azure Portal.
 
 > [!TIP]
-> Som standard när du aktiverar etableringstjänsten initieras etableringsåtgärder för alla användare i omfånget. Om det finns fel i mappnings- eller arbetsdagsdataproblemen kan etableringsjobbet misslyckas och gå in i karantäntillståndet. För att undvika detta, som en bästa praxis, rekommenderar vi att konfigurera **källobjektomfattningsfilter** och testa attributmappningarna med några testanvändare innan du startar fullständig synkronisering för alla användare. När du har kontrollerat att mappningarna fungerar och ger dig önskat resultat kan du antingen ta bort filtret eller gradvis expandera det till att omfatta fler användare.
+> Som standard när du aktiverar etablerings tjänsten kommer den att initiera etablerings åtgärder för alla användare i omfånget. Om det uppstår fel i mappnings-eller data frågor för data lagret kan etablerings jobbet Miss Miss kan och gå in i karantäns läget. För att undvika detta rekommenderar vi att du konfigurerar **käll objekt omfångs** filter och testar dina mappningar av attribut med några test användare innan du startar den fullständiga synkroniseringen för alla användare. När du har kontrollerat att mappningarna fungerar och ger dig önskade resultat kan du antingen ta bort filtret eller gradvis expandera det så att det innehåller fler användare.
 
-1. På fliken **Etablering** anger du **etableringsstatusen** **till På**.
+1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
 2. Klicka på **Spara**.
 
-3. Den här åtgärden startar den första synkroniseringen, vilket kan ta ett varierande antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrollera förloppsindikatorn till spåret förloppet för synkroniseringscykeln. 
+3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
 
-4. Kontrollera när som helst fliken **Granskningsloggar** i Azure-portalen för att se vilka åtgärder etableringstjänsten har utfört. Granskningsloggarna visar alla enskilda synkroniseringshändelser som utförs av etableringstjänsten, till exempel vilka användare som läses ut från Workday och sedan läggs till eller uppdateras i Active Directory. 
+4. Gå till fliken **gransknings loggar** i Azure Portal för att se vilka åtgärder som etablerings tjänsten har utfört. I gransknings loggarna visas alla enskilda synkroniseringsfel som utförs av etablerings tjänsten, t. ex. vilka användare som ska läsas ut från Workday och därefter läggs till eller uppdateras till Active Directory. 
 
-5. När den första synkroniseringen är klar skrivs en granskningssammanfattningsrapport på fliken **Etablering,** som visas nedan.
+5. När den inledande synkroniseringen har slutförts skrivs en gransknings sammanfattnings rapport på fliken **etablering** , som visas nedan.
 
    > [!div class="mx-imgBorder"]
-   > ![Etablera förloppsindikator](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+   > ![Förlopps indikator för etablering](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan SuccessFactors och Azure Active Directory](successfactors-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
-* [Lär dig hur du exporterar och importerar etableringskonfigurationer](../app-provisioning/export-import-provisioning-configuration.md)
+* [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../app-provisioning/export-import-provisioning-configuration.md)
 

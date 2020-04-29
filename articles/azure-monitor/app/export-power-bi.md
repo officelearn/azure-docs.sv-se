@@ -1,106 +1,106 @@
 ---
-title: Exportera till Power BI från Azure Application Insights | Microsoft-dokument
-description: Analytics-frågor kan visas i Power BI.
+title: Exportera till Power BI från Azure Application Insights | Microsoft Docs
+description: Analys frågor kan visas i Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77664005"
 ---
-# <a name="feed-power-bi-from-application-insights"></a>Feed Power BI från Application Insights
-[Power BI](https://www.powerbi.com/) är en uppsättning affärsverktyg som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på alla enheter. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+# <a name="feed-power-bi-from-application-insights"></a>Flödes Power BI från Application Insights
+[Power BI](https://www.powerbi.com/) är en uppsättning affärs verktyg som hjälper dig att analysera data och dela insikter. Det finns omfattande instrument paneler på alla enheter. Du kan kombinera data från många källor, inklusive analys frågor från [Azure Application insikter](../../azure-monitor/app/app-insights-overview.md).
 
-Det finns tre metoder för att exportera Application Insights-data till Power BI:
+Det finns tre sätt att exportera Application Insights data till Power BI:
 
-* [**Exportera Analytics-frågor**](#export-analytics-queries). Detta är föredragen metod. Skriv vilken fråga du vill och exportera den till Power BI. Du kan placera den här frågan på en instrumentpanel tillsammans med andra data.
-* [**Kontinuerlig export och Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Den här metoden är användbar om du vill lagra dina data under en längre tid. Om du inte har ett utökat datalagringskrav använder du frågasmetoden för exportanalys. Kontinuerlig export och Stream Analytics innebär mer arbete för att ställa in och ytterligare lagringsutrymme.
-* **Ström BI-adapter**. Uppsättningen diagram är fördefinierad, men du kan lägga till egna frågor från andra källor.
+* [**Exportera Analytics-frågor**](#export-analytics-queries). Detta är föredragen metod. Skriv en fråga som du vill ha och exportera den till Power BI. Du kan placera den här frågan på en instrument panel, tillsammans med andra data.
+* [**Löpande export och Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). Den här metoden är användbar om du vill lagra dina data under långa tids perioder. Om du inte har ett krav för utökad data lagring använder du fråge metoden för export analys. Kontinuerlig export och Stream Analytics omfattar mer arbete för att konfigurera och ytterligare lagrings kostnader.
+* **Power BI adapter**. Uppsättningen med diagram är fördefinierad, men du kan lägga till egna frågor från andra källor.
 
 > [!NOTE]
-> Power BI-kortet är nu **inaktuellt**. De fördefinierade diagrammen för den här lösningen fylls i av statiska oederbara frågor. Du har inte möjlighet att redigera dessa frågor och beroende på vissa egenskaper för dina data är det möjligt för anslutningen till Power BI att lyckas, men inga data fylls i. Detta beror på uteslutningsvillkor som anges i den hårdkodade frågan. Även om den här lösningen fortfarande kan fungera för vissa kunder, är den rekommenderade lösningen på grund av att kortet inte är flexibel att använda [**funktionen exportera Analytics-fråga.**](#export-analytics-queries)
+> Power BI adaptern är nu **föråldrad**. De fördefinierade diagrammen för den här lösningen fylls med statiska frågor som inte kan redige ras. Du har inte möjlighet att redigera dessa frågor och beroende på vissa egenskaper för dina data är det möjligt att anslutningen till Power BI lyckas, men inga data fylls. Detta beror på undantags kriterier som anges i hårdkodad-frågan. Även om den här lösningen kanske fortfarande fungerar för vissa kunder, på grund av bristen på flexibiliteten hos kortet, är den rekommenderade lösningen att använda fråge funktionen för [**export analys**](#export-analytics-queries) .
 
-## <a name="export-analytics-queries"></a>Exportera Analytics-frågor
-Med den här vägen kan du skriva alla Analytics-frågor som du vill eller exportera från användningskanaler och sedan exportera den till en Power BI-instrumentpanel. (Du kan lägga till instrumentpanelen som skapats av kortet.)
+## <a name="export-analytics-queries"></a>Exportera analys frågor
+Med den här vägen kan du skriva en analys fråga som du vill, eller exportera från användnings Tratter, och sedan exportera den till en Power BI instrument panel. (Du kan lägga till den instrument panel som skapats av kortet.)
 
-### <a name="one-time-install-power-bi-desktop"></a>En gång: installera Power BI Desktop
-Om du vill importera frågan Application Insights använder du skrivbordsversionen av Power BI. Sedan kan du publicera den på webben eller till din Power BI-molnarbetsyta. 
+### <a name="one-time-install-power-bi-desktop"></a>En tid: installera Power BI Desktop
+Om du vill importera din Application Insights fråga använder du Skriv bords versionen av Power BI. Sedan kan du publicera den på webben eller till din Power BI moln arbets yta. 
 
-Installera [Power BI-skrivbordet](https://powerbi.microsoft.com/en-us/desktop/).
+Installera [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportera en Analytics-fråga
 1. [Öppna Analytics och skriv frågan](../../azure-monitor/log-query/get-started-portal.md).
-2. Testa och förfina frågan tills du är nöjd med resultatet. Kontrollera att frågan körs korrekt i Analytics innan du exporterar den.
-3. Välj Power BI **(M)** på **Export-menyn** . Spara textfilen.
+2. Testa och förfina frågan tills du är nöjd med resultatet. Kontrol lera att frågan körs korrekt i Analytics innan du exporterar den.
+3. På menyn **Exportera** väljer du **Power BI (M)**. Spara textfilen.
    
-    ![Skärmbild av Analytics, med exportmenyn markerad](./media/export-power-bi/analytics-export-power-bi.png)
-4. Välj Hämta**tom fråga för** **data** > i Power BI-skrivbordet . Välj sedan **Avancerad redigerare**under Visa under **Visa**.
+    ![Skärm bild av analys, med exportera-menyn markerad](./media/export-power-bi/analytics-export-power-bi.png)
+4. I Power BI Desktop väljer du **Hämta data** > **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
 
-    Klistra in det exporterade M-språkskriptet i den avancerade redigeraren.
+    Klistra in det exporterade språk skriptet för M i Avancerad redigerare.
 
-    ![Skärmbild av Power BI Desktop, med avancerad redigerare markerad](./media/export-power-bi/power-bi-import-analytics-query.png)
+    ![Skärm bild av Power BI Desktop, med Avancerad redigerare markerat](./media/export-power-bi/power-bi-import-analytics-query.png)
 
-5. Om du vill att Power BI ska kunna komma åt Azure kan du behöva ange autentiseringsuppgifter. Använd **organisationskontot** för att logga in med ditt Microsoft-konto.
+5. Om du vill tillåta Power BI åtkomst till Azure kan du behöva ange autentiseringsuppgifter. Använd **organisations konto** för att logga in med din Microsoft-konto.
    
-    ![Skärmbild av dialogrutan Inställningar för Power BI-frågor](./media/export-power-bi/power-bi-import-sign-in.png)
+    ![Skärm bild av dialog rutan Power BI frågeinställningar](./media/export-power-bi/power-bi-import-sign-in.png)
 
-    Om du behöver verifiera autentiseringsuppgifterna använder du **menykommandot Inställningar för datakälla** i frågeredigeraren. Var noga med att ange de autentiseringsuppgifter du använder för Azure, som kan skilja sig från dina autentiseringsuppgifter för Power BI.
-6. Välj en visualisering för frågan och välj fälten för x-axel- , y-axel och segmenteringsdimension.
+    Om du behöver verifiera autentiseringsuppgifterna använder du Meny kommandot **Inställningar för data källa** i Frågeredigeraren. Se till att ange de autentiseringsuppgifter som du använder för Azure, vilket kan skilja sig från dina autentiseringsuppgifter för Power BI.
+6. Välj en visualisering för frågan och välj fält för x-axel, y-axel och segment dimension.
    
-    ![Skärmbild av visualiseringsalternativ för Power BI-skrivbordet](./media/export-power-bi/power-bi-analytics-visualize.png)
-7. Publicera rapporten på power bi-molnarbetsytan. Därifrån kan du bädda in en synkroniserad version till andra webbsidor.
+    ![Skärm bild av Power BI Desktop visualiserings alternativ](./media/export-power-bi/power-bi-analytics-visualize.png)
+7. Publicera rapporten till din Power BI moln arbets yta. Därifrån kan du bädda in en synkroniserad version i andra webb sidor.
    
-    ![Skärmbild av Power BI Desktop, med knappen Publicera markerad](./media/export-power-bi/publish-power-bi.png)
-8. Uppdatera rapporten manuellt med jämna mellanrum eller ställ in en schemalagd uppdatering på alternativsidan.
+    ![Skärm bild av Power BI Desktop med knappen publicera markerad](./media/export-power-bi/publish-power-bi.png)
+8. Uppdatera rapporten manuellt med intervall eller konfigurera en schemalagd uppdatering på sidan alternativ.
 
 ### <a name="export-a-funnel"></a>Exportera en tratt
-1. [Gör din tratt](../../azure-monitor/app/usage-funnels.md).
+1. [Skapa din tratt](../../azure-monitor/app/usage-funnels.md).
 2. Välj **Power BI**.
 
-   ![Skärmbild av Power BI-knappen](./media/export-power-bi/button.png)
+   ![Skärm bild av knappen Power BI](./media/export-power-bi/button.png)
 
-3. Välj Hämta**tom fråga för** **data** > i Power BI-skrivbordet . Välj sedan **Avancerad redigerare**under Visa under **Visa**.
+3. I Power BI Desktop väljer du **Hämta data** > **Tom fråga**. Sedan väljer du **avancerad redigerare**i Frågeredigeraren under **Visa**.
 
-   ![Skärmbild av Power BI Desktop, med knappen Tom fråga markerad](./media/export-power-bi/blankquery.png)
+   ![Skärm bild av Power BI Desktop, där knappen tom fråga är markerad](./media/export-power-bi/blankquery.png)
 
-   Klistra in det exporterade M-språkskriptet i den avancerade redigeraren. 
+   Klistra in det exporterade språk skriptet för M i Avancerad redigerare. 
 
-   ![Skärmbild av Power BI Desktop, med avancerad redigerare markerad](./media/export-power-bi/advancedquery.png)
+   ![Skärm bild av Power BI Desktop, med Avancerad redigerare markerat](./media/export-power-bi/advancedquery.png)
 
-4. Markera objekt från frågan och välj en visualisering av tratten.
+4. Välj objekt från frågan och välj en tratt-visualisering.
 
-   ![Skärmbild av visualiseringsalternativ för Power BI-skrivbordet](./media/export-power-bi/selectsequence.png)
+   ![Skärm bild av Power BI Desktop visualiserings alternativ](./media/export-power-bi/selectsequence.png)
 
-5. Ändra titeln så att den blir meningsfull och publicera rapporten på power bi-molnarbetsytan. 
+5. Ändra rubriken så att den blir meningsfull och publicera rapporten till din Power BI moln arbets yta. 
 
-   ![Skärmbild av Power BI Desktop, med rubrikändring markerad](./media/export-power-bi/changetitle.png)
+   ![Skärm bild av Power BI Desktop med rubrik ändring markerad](./media/export-power-bi/changetitle.png)
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Du kan stöta på fel som hör till autentiseringsuppgifter eller storleken på datauppsättningen. Här är lite information om vad du ska göra åt dessa fel.
+Du kan stöta på fel som rör autentiseringsuppgifter eller storleken på data uppsättningen. Här är lite information om vad du kan göra om de här felen.
 
-### <a name="unauthorized-401-or-403"></a>Obehörig (401 eller 403)
+### <a name="unauthorized-401-or-403"></a>Ej auktoriserad (401 eller 403)
 Detta kan inträffa om uppdateringstoken inte har uppdaterats. Prova de här stegen för att se till att du fortfarande har åtkomst:
 
-1. Logga in på Azure-portalen och se till att du kan komma åt resursen.
-2. Försök att uppdatera autentiseringsuppgifterna för instrumentpanelen.
-3. Försök att rensa cacheminnet från PowerBI-skrivbordet.
+1. Logga in på Azure Portal och kontrol lera att du har åtkomst till resursen.
+2. Försök att uppdatera autentiseringsuppgifterna för instrument panelen.
+3. Försök att rensa cacheminnet från PowerBI Desktop.
 
 
-   Om du har tillgång till och uppdatera autentiseringsuppgifterna inte fungerar, vänligen öppna en supportbiljett.
+   Om du har åtkomst och uppdaterar autentiseringsuppgifterna inte fungerar öppnar du ett support ärende.
 
-### <a name="bad-gateway-502"></a>Dålig gateway (502)
-Detta orsakas vanligtvis av en Analytics-fråga som returnerar för mycket data. Prova att använda ett mindre tidsintervall för frågan. 
+### <a name="bad-gateway-502"></a>Felaktig gateway (502)
+Detta orsakas vanligt vis av en analys fråga som returnerar för mycket data. Försök att använda ett kortare tidsintervall för frågan. 
 
-Om du inte uppfyller dina krav om du minskar datauppsättningen som kommer från Analytics-frågan bör du överväga att använda [API:et](https://dev.applicationinsights.io/documentation/overview) för att hämta en större datauppsättning. Så här konverterar du M-Query-exporten för att använda API:et.
+Om minska data uppsättningen som kommer från Analytics-frågan inte uppfyller dina krav kan du överväga att använda [API: et](https://dev.applicationinsights.io/documentation/overview) för att hämta en större data uppsättning. Så här konverterar du M-Query-exporten för att använda API: et.
 
 1. Skapa en [API-nyckel](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
-2. Uppdatera Power BI M-skriptet som du exporterade från Analytics genom att ersätta Azure Resource Manager-URL:en med API:et för Application Insights.
-   * Ersätt **https:\//management.azure.com/subscriptions/...**
-   * med, **https:\//api.applicationinsights.io/beta/apps/...**
-3. Slutligen uppdaterar du autentiseringsuppgifterna till grundläggande och använder din API-nyckel.
+2. Uppdatera det Power BI M-skript som du exporterade från analysen genom att ersätta Azure Resource Manager URL med Application Insights-API: et.
+   * Ersätt **https:\//Management.Azure.com/Subscriptions/...**
+   * med, **https:\//API.applicationinsights.io/beta/Apps/...**
+3. Slutligen uppdaterar du autentiseringsuppgifterna till Basic och använder din API-nyckel.
 
 **Befintligt skript**
  ```
@@ -111,40 +111,40 @@ Om du inte uppfyller dina krav om du minskar datauppsättningen som kommer från
  Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
  ```
 
-## <a name="about-sampling"></a>Om provtagning
-Beroende på hur mycket data som skickas av ditt program kanske du vill använda funktionen för adaptiv sampling, som bara skickar en procentandel av din telemetri. Detsamma gäller om du manuellt har ställt in sampling antingen i SDK eller vid intag. [Läs mer om sampling](../../azure-monitor/app/sampling.md).
+## <a name="about-sampling"></a>Om sampling
+Beroende på hur mycket data som skickas av ditt program kanske du vill använda funktionen för anpassningsbar sampling, som bara skickar en procent andel av din telemetri. Samma sak gäller om du har angett sampling manuellt antingen i SDK eller vid inmatning. [Lär dig mer om sampling](../../azure-monitor/app/sampling.md).
 
-## <a name="power-bi-adapter-deprecated"></a>Power BI-adapter (föråldrad)
-Med den här metoden skapas en komplett instrumentpanel med telemetri åt dig. Den ursprungliga datauppsättningen är fördefinierad, men du kan lägga till mer data i den.
+## <a name="power-bi-adapter-deprecated"></a>Power BI kort (inaktuellt)
+Den här metoden skapar en komplett instrument panel för telemetri åt dig. Den ursprungliga data uppsättningen är fördefinierad, men du kan lägga till mer data i den.
 
-### <a name="get-the-adapter"></a>Hämta adaptern
+### <a name="get-the-adapter"></a>Hämta kortet
 1. Logga in på [Power BI](https://app.powerbi.com/).
-2. Öppna **Hämta data** ![skärmdump av GetData](./media/export-power-bi/001.png)Icon i nedre vänstra hörnet , **Tjänster**.
+2. Öppna **Hämta data** ![skärm bild av GetData-ikonen i det](./media/export-power-bi/001.png)nedre vänstra hörnet, **tjänster**.
 
-    ![Skärmbilder av datakällan Hämta från Application Insights](./media/export-power-bi/002.png)
+    ![Skärm dum par av hämta från Application Insights data Källa](./media/export-power-bi/002.png)
 
-3. Välj **Hämta det nu** under Application Insights.
+3. Välj **Hämta nu** under Application Insights.
 
-   ![Skärmbilder av datakällan Hämta från Application Insights](./media/export-power-bi/003.png)
-4. Ange information om din Application **Insights-resurs**och logga sedan in .
+   ![Skärm dum par av hämta från Application Insights data Källa](./media/export-power-bi/003.png)
+4. Ange information om din Application Insights-resurs och logga sedan **in**.
 
-    ![Skärmbild av datakällan Hämta från Application Insights](./media/export-power-bi/005.png)
+    ![Skärm bild av hämta från Application Insights data Källa](./media/export-power-bi/005.png)
 
-     Den här informationen finns i översiktsfönstret För programinsikter:
+     Den här informationen finns i fönstret Application Insights översikt:
 
-     ![Skärmbild av datakällan Hämta från Application Insights](./media/export-power-bi/004.png)
+     ![Skärm bild av hämta från Application Insights data Källa](./media/export-power-bi/004.png)
 
-5. Öppna den nyligen skapade Application Insights Power BI App.
+5. Öppna den nyligen skapade Application Insights Power BI-appen.
 
-6. Vänta en minut eller två innan data importeras.
+6. Vänta en minut eller två för data som ska importeras.
 
-    ![Skärmbild av Power BI-adapter](./media/export-power-bi/010.png)
+    ![Skärm bild av Power BI adapter](./media/export-power-bi/010.png)
 
-Du kan redigera instrumentpanelen genom att kombinera programstatistikdiagrammen med andra källor och med Analytics-frågor. Du kan hämta fler diagram i visualiseringsgalleriet och varje diagram har parametrar som du kan ange.
+Du kan redigera instrument panelen, kombinera Application Insights diagram med andra källor och med analys frågor. Du kan hämta fler diagram i visualiserings galleriet och varje diagram innehåller parametrar som du kan ange.
 
-Efter den första importen fortsätter instrumentpanelen och rapporterna att uppdateras dagligen. Du kan styra uppdateringsschemat på datauppsättningen.
+Efter den första importen fortsätter instrument panelen och rapporterna att uppdateras dagligen. Du kan styra uppdaterings schema för data uppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Power BI - Lär dig](https://www.powerbi.com/learning/)
-* [Självstudiekurs för Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Power BI – lär dig](https://www.powerbi.com/learning/)
+* [Självstudie för analys](../../azure-monitor/log-query/get-started-portal.md)
 

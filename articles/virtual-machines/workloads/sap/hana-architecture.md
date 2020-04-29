@@ -1,5 +1,5 @@
 ---
-title: Arkitektur för SAP HANA på Azure (stora instanser) | Microsoft-dokument
+title: Arkitektur för SAP HANA på Azure (stora instanser) | Microsoft Docs
 description: Arkitektur för hur du distribuerar SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,51 +14,51 @@ ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 041da4198b0bdd040a4916008a1135aa2e2a5f7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77614527"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>SAP HANA-arkitektur (stora instanser) på Azure
 
-På en hög nivå har SAP HANA på Azure (Stora instanser) lösningen SAP-programskiktet som finns i virtuella datorer. Databaslagret finns på SAP TDI-konfigurerad maskinvara som finns i en stor instansstämpel i samma Azure-region som är ansluten till Azure IaaS.
+På hög nivå har SAP HANA på Azure-lösningen (stora instanser) det SAP-program skikt som finns på virtuella datorer. Databas lagret finns på den SAP TDI-konfigurerade maskin varan som finns i en stor instans stämpel i samma Azure-region som är ansluten till Azure-IaaS.
 
 > [!NOTE]
-> Distribuera SAP-programlagret i samma Azure-region som SAP DBMS-lagret. Den här regeln är väl dokumenterad i publicerad information om SAP-arbetsbelastningar på Azure. 
+> Distribuera SAP-program skiktet i samma Azure-region som SAP-DBMS-skiktet. Den här regeln är väl dokumenterad i publicerad information om SAP-arbetsbelastningar på Azure. 
 
-Den övergripande arkitekturen för SAP HANA på Azure (Stora instanser) tillhandahåller en SAP TDI-certifierad maskinvarukonfiguration, som är en icke-virtualiserad, bare metal, högpresterande server för SAP HANA-databasen. Det ger också möjligheten och flexibiliteten hos Azure att skala resurser för SAP-programlagret för att uppfylla dina behov.
+Den övergripande arkitekturen i SAP HANA på Azure (stora instanser) tillhandahåller en SAP TDI-certifierad maskin varu konfiguration, som är en icke-virtualiserad, Bare Metal-server med hög prestanda för SAP HANA-databasen. Det ger också möjlighet och flexibilitet i Azure att skala resurser för SAP-programlagret så att de passar dina behov.
 
-![Arkitektonisk översikt över SAP HANA på Azure (stora instanser)](./media/hana-overview-architecture/image1-architecture.png)
+![Arkitektur översikt över SAP HANA på Azure (stora instanser)](./media/hana-overview-architecture/image1-architecture.png)
 
-Arkitekturen som visas är uppdelad i tre avsnitt:
+Arkitekturen som visas är uppdelad i tre delar:
 
-- **Höger**: Visar en lokal infrastruktur som kör olika program i datacenter så att slutanvändare kan komma åt LOB-program, till exempel SAP. Helst är den här lokala infrastrukturen ansluten till Azure med [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **Höger**: visar en lokal infrastruktur som kör olika program i Data Center så att slutanvändare kan komma åt LOB-program, till exempel SAP. Vi rekommenderar att den här lokala infrastrukturen är ansluten till Azure med [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-- **Center**: Visar Azure IaaS och, i det här fallet, användning av virtuella datorer för att vara värd för SAP eller andra program som använder SAP HANA som ett DBMS-system. Mindre HANA-instanser som fungerar med det minne som virtuella datorer tillhandahåller distribueras i virtuella datorer tillsammans med deras programlager. Mer information om virtuella datorer finns i [Virtuella datorer](https://azure.microsoft.com/services/virtual-machines/).
+- **Center**: visar Azure-IaaS och i det här fallet använder virtuella datorer som värd för SAP eller andra program som använder SAP HANA som ett DBMS-system. Mindre HANA-instanser som fungerar med det minne som de virtuella datorerna tillhandahåller distribueras i virtuella datorer tillsammans med deras program lager. Mer information om virtuella datorer finns i [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/).
 
-   Azure-nätverkstjänster används för att gruppera SAP-system tillsammans med andra program i virtuella nätverk. Dessa virtuella nätverk ansluter till lokala system samt till SAP HANA på Azure (stora instanser).
+   Azure nätverks tjänster används för att gruppera SAP-system tillsammans med andra program i virtuella nätverk. Dessa virtuella nätverk ansluter till lokala system och SAP HANA på Azure (stora instanser).
 
-   För SAP NetWeaver-program och databaser som stöds för att köras i Azure finns i [SAP Support Note #1928533 – SAP-program på Azure: Produkter som stöds och Azure VM-typer](https://launchpad.support.sap.com/#/notes/1928533). Dokumentation om hur du distribuerar SAP-lösningar på Azure finns i:
+   För SAP NetWeaver-program och databaser som stöds för körning i Azure, se [SAP support Note #1928533 – SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds](https://launchpad.support.sap.com/#/notes/1928533). För dokumentation om hur du distribuerar SAP-lösningar på Azure, se:
 
   -  [Använda SAP på virtuella Windows-datorer](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  -  [Använda SAP-lösningar på virtuella Azure-datorer](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Använd SAP-lösningar på Azure Virtual Machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Vänster**: Visar SAP HANA TDI-certifierad maskinvara i Azure Large Instance-stämpeln. HANA Large Instance-enheterna är anslutna till de virtuella nätverken för din Azure-prenumeration med samma teknik som anslutningen från lokalt till Azure. Från och med maj 2019 introducerades en optimering som gör det möjligt att kommunicera mellan HANA Large Instance-enheterna och virtuella Azure-datorer utan inblandning av ExpressRoute Gateway. Den här optimeringen som kallas ExpressRoute Fast Path visas i den här arkitekturen (röda linjer). 
+- **Left**: visar SAP HANA TDI-certifierad maskin vara i den stora Azure-instansnamnet. De stora instanser av HANA är anslutna till de virtuella nätverken i Azure-prenumerationen genom att använda samma teknik som anslutningen från lokala enheter till Azure. Från maj till 2019 har en optimering lanserats som gör det möjligt att kommunicera mellan de stora instanser av HANA och de virtuella Azure-datorerna utan medverkan av ExpressRoute-gatewayen. Den här optimeringen heter ExpressRoute snabb sökväg visas i den här arkitekturen (röda linjer). 
 
-Själva Azure Large Instance-stämpeln kombinerar följande komponenter:
+Den stora Azure-instansnamnet kombinerar följande komponenter:
 
-- **Datoranvändning:** Servrar som baseras på olika generationer av Intel Xeon-processorer som ger den datorkapacitet som krävs och som är SAP HANA-certifierade.
-- **Nätverk:** En enhetlig höghastighetsnätverksinfrastruktur som kopplar samman dator-, lagrings- och LAN-komponenterna.
-- **Lagring**: En lagringsinfrastruktur som nås via en enhetlig nätverksinfrastruktur. Den specifika lagringskapacitet som tillhandahålls beror på den specifika SAP HANA-konfigurationen (Stora instanser) som distribueras. Mer lagringskapacitet finns tillgänglig mot en extra månadskostnad.
+- **Data behandling**: servrar som baseras på olika generations Intel Xeon-processorer och som ger den nödvändiga dator kapaciteten och som är SAP HANA certifierade.
+- **Nätverk**: en enhetlig höghastighets nätverks infrastruktur resurs som sammankopplar data bearbetnings-, lagrings-och LAN-komponenter.
+- **Lagring**: en lagrings infrastruktur som nås via en enhetlig nätverks infrastruktur resurs. Vilken lagrings kapacitet som anges beror på den aktuella SAP HANA på Azure (stora instanser) konfiguration som distribueras. Mer lagrings kapacitet är tillgängligt ytterligare en månads kostnad.
 
-Inom multi-tenant-infrastrukturen för stämpeln Stor instans distribueras kunder som isolerade klienter. Vid distributionen av klienten namnger du en Azure-prenumeration i din Azure-registrering. Den här Azure-prenumerationen är den som DEN STORA HANA-instansen faktureras mot. Dessa klienter har en 1:1-relation till Azure-prenumerationen. För ett nätverk är det möjligt att komma åt en HANA-enhet för stor instans som distribueras i en klient i en Azure-region från olika virtuella nätverk som tillhör olika Azure-prenumerationer. Dessa Azure-prenumerationer måste tillhöra samma Azure-registrering. 
+Inom infrastrukturen för flera innehavare av den stora instans stämpeln distribueras kunderna som isolerade klienter. Vid distribution av klienten namnger du en Azure-prenumeration i din Azure-registrering. Den här Azure-prenumerationen är den som den stora HANA-instansen debiteras mot. Dessa klienter har en 1:1-relation till Azure-prenumerationen. För ett nätverk är det möjligt att komma åt en HANA-stor instans enhet som distribuerats i en klient i en Azure-region från olika virtuella nätverk som tillhör olika Azure-prenumerationer. Dessa Azure-prenumerationer måste tillhöra samma Azure-registrering. 
 
-Precis som med virtuella datorer erbjuds SAP HANA på Azure (stora instanser) i flera Azure-regioner. Om du vill erbjuda funktioner för haveriberedskap kan du välja att anmäla dig. Olika stora instansstämplar inom en geopolitisk region är kopplade till varandra. Till exempel är HANA Stora instansstämplar i USA Väst och USA Öst anslutna via en dedikerad nätverkslänk för haveriberedskapsreplikering. 
+Precis som med virtuella datorer erbjuds SAP HANA på Azure (stora instanser) i flera Azure-regioner. Om du vill erbjuda haveri beredskap kan du välja att välja. Olika stora instans stämplar inom en geo-politisk region är anslutna till varandra. Till exempel är HANA stora instanser i västra USA och östra USA anslutna via en dedikerad nätverks länk för replikering av haveri beredskap. 
 
-På samma sätt som du kan välja mellan olika vm-typer med Virtuella Azure-datorer kan du välja mellan olika SKU:er för STORA HANA-instans som är skräddarsydda för olika arbetsbelastningstyper av SAP HANA. SAP tillämpar förhållandet mellan minne och processor för olika arbetsbelastningar baserat på Intel-processorgenerationerna. I följande tabell visas de SKU-typer som erbjuds.
+Precis som du kan välja mellan olika typer av virtuella datorer med Azure Virtual Machines kan du välja mellan olika SKU: er av HANA stor instans som är skräddarsydda för olika arbets belastnings typer för SAP HANA. SAP tillämpar förhållandet mellan förhållandet mellan minne och processor för olika arbets belastningar baserat på Intel processor generationer. I följande tabell visas de tillgängliga SKU-typerna.
 
-Du kan hitta tillgängliga [SKU:er Tillgängliga SKU:er för HLI](hana-available-skus.md).
+Du hittar tillgängliga SKU: [er för HLI](hana-available-skus.md).
 
 **Nästa steg**
-- Referera [till SAP HANA-nätverksarkitektur (Stora instanser)](hana-network-architecture.md)
+- Se [SAP HANA (stora instanser) nätverks arkitektur](hana-network-architecture.md)

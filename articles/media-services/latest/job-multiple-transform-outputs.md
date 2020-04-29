@@ -1,6 +1,6 @@
 ---
-title: Skapa ett Azure Media Services-jobb med flera transformeringsutdata
-description: Det här avsnittet visar hur du skapar ett Azure Media Services-jobb med flera transformeringsutdata.
+title: Skapa ett Azure Media Services jobb med flera transformerings utdata
+description: I det här avsnittet visas hur du skapar ett Azure Media Services jobb med flera Transform-utdata.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,23 +12,23 @@ ms.topic: article
 ms.date: 02/17/2020
 ms.author: juliako
 ms.openlocfilehash: dbbeeb33ee46b37ec920fe598483c332d3439689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77563146"
 ---
-# <a name="create-a-job-with-multiple-transform-outputs"></a>Skapa ett jobb med flera transformeringsutdata
+# <a name="create-a-job-with-multiple-transform-outputs"></a>Skapa ett jobb med flera transformera utdata
 
-Det här avsnittet visar hur du skapar en transformering med två transformeringsutdata. Den första kräver att indata ska kodas för adaptiv bithastighet streaming med en inbyggd [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) förinställning. Den andra kräver att ljudsignalen i ingångsvideon ska bearbetas med [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). När transformeringen har skapats kan du skicka in ett jobb som bearbetar videon därefter. Eftersom vi i det här exemplet anger två transformerade utdata måste vi ange två jobbutdata. Du kan välja att dirigera båda projektutfallen till samma tillgång (som visas nedan), eller så kan du låta resultaten skrivas till separata tillgångar.
+Det här avsnittet visar hur du skapar en transformering med två transformera utdata. Det första anropet för indata som ska kodas för strömning med anpassad bit hastighet med en inbyggd [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) för inställning. Det andra anropet för ljud signalen i indata-videon som ska bearbetas med [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). När transformeringen har skapats kan du skicka ett jobb som bearbetar din video på motsvarande sätt. Eftersom vi i det här exemplet anger två transformera utdata måste vi ange två jobb-utdata. Du kan välja att dirigera både jobbets utdata till samma till gång (enligt nedan), eller så kan du få resultaten att skrivas till separata till gångar.
  
 
 > [!TIP]
-> Innan du börjar utveckla, granska [Utveckla med Media Services v3 API:er](media-services-apis-overview.md) (innehåller information om åtkomst till API:er, namngivningskonventioner osv.)
+> Innan du börjar utveckla bör du läsa [utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om hur du kommer åt API: er, namngivnings konventioner osv.)
 
 ## <a name="create-a-transform"></a>Skapa en transformering
 
-Följande kod visar hur du skapar en transformering som ger två utdata.
+Följande kod visar hur du skapar en transformering som producerar två utdata.
 
 ```csharp
 private static async Task<Transform> GetOrCreateTransformAsync(
@@ -67,7 +67,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
 ```
 ## <a name="submit-a-job"></a>Skicka ett jobb
 
-Skapa ett jobb med en HTTPS-URL-inmatning och med två jobbutdata.
+Skapa ett jobb med en HTTPS-URL-indata och med två jobb utdata.
 
 ```csharp
 private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,

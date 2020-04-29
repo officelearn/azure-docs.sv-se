@@ -1,16 +1,16 @@
 ---
 title: Azure-hantering
-description: Översikt över områdena hantering av Azure-program och resurser med länkar till innehåll på Azure-hanteringsverktyg.
+description: Översikt över hanterings områden för Azure-program och-resurser med länkar till innehåll på hanterings verktyg för Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2018
 ms.openlocfilehash: 93180f088935531f83da785bb7a490f80909a6cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669208"
 ---
 # <a name="azure-management---monitoring"></a>Azure-hantering – övervakning
@@ -35,7 +35,7 @@ Följande avsnitt beskriver i korta ordalag de olika hanteringsområdena och til
 Konfiguration syftar på den första distributionen och konfigurationen av program och resurser samt det löpande underhållet av dessa program och resurser som utförs genom korrigeringar och programvaruuppdateringar.  Genom att automatisera de här uppgifterna via skript och principer kan du eliminera redundans och minimera tiden och arbetet som krävs samtidigt som du ökar din precision och effektivitet.  [Azure Automation](../automation/automation-intro.md) innehåller många tjänster för att automatisera konfigurationsåtgärder.  Förutom runbook-flöden för att automatisera processer tillhandahåller Azure Automation även hantering av konfigurationer och uppdateringar, vilket hjälper dig att hantera konfigurationer via principer och att identifiera och distribuera uppdateringar.
 
 ## <a name="govern"></a>Styrning
-Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure.  Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.  Styrning i Azure implementeras främst genom två tjänster.  [Azure Policy](../governance/policy/overview.md) gör det möjligt att skapa, tilldela och hantera principdefinitioner som tillämpar olika regler och åtgärder på resurserna, så att resurserna följer företagets standarder och serviceavtal. [Med Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) kan du spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google.
+Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure.  Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.  Styrning i Azure implementeras främst genom två tjänster.  [Azure Policy](../governance/policy/overview.md) gör det möjligt att skapa, tilldela och hantera principdefinitioner som tillämpar olika regler och åtgärder på resurserna, så att resurserna följer företagets standarder och serviceavtal. Med [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer, inklusive AWS och Google.
 
 ## <a name="secure"></a>Skydda
 Hantering av säkerhet för program, resurser och data innefattar en kombination av att bedöma hot, samla in och analysera säkerhetsdata och att säkerställa att program och resurser är utformade och konfigurerade på ett säkert sätt.  Säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar.  Du bör även läsa [Introduktion till Azure-säkerhet](../security/fundamentals/overview.md) för mer utförlig information om säkerhet i Azure och för att få hjälp med att konfigurera Azure-resurser på ett säkert sätt.

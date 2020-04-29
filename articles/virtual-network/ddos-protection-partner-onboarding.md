@@ -1,6 +1,6 @@
 ---
-title: Samarbetar med Azure DDoS Protection Standard
-description: Förstå partneringmöjligheter som aktiveras av Azure DDoS Protection Standard.
+title: Samar beta med Azure DDoS Protection standard
+description: Förstå samarbets möjligheter som är aktiverade i Azure DDoS Protection standard.
 ms.service: virtual-network
 documentationcenter: na
 author: anupamvi
@@ -9,89 +9,89 @@ ms.topic: article
 ms.date: 01/28/2020
 ms.author: kumud
 ms.openlocfilehash: 39cb2f90b49725c78746df69505fad7160e1db92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76849687"
 ---
-# <a name="partnering-with-azure-ddos-protection-standard"></a>Samarbetar med Azure DDoS Protection Standard
-I den här artikeln beskrivs partneringmöjligheter som aktiveras av Azure DDoS Protection Standard. Den här artikeln är utformad för att hjälpa produktchefer och affärsutvecklingsroller att förstå investeringsvägarna och ge insikt i partnering-värdeerbjudandena.
+# <a name="partnering-with-azure-ddos-protection-standard"></a>Samar beta med Azure DDoS Protection standard
+I den här artikeln beskrivs de partner möjligheter som är aktiverade i Azure DDoS Protection standard. Den här artikeln är utformad för att hjälpa produkt chefer och affärs utvecklings roller att förstå investerings Sök vägarna och tillhandahålla inblick i de sammanställnings värdena.
 
 ## <a name="background"></a>Bakgrund
-DDoS-attacker (Distributed Denial of Service) är en av de viktigaste tillgänglighets- och säkerhetsproblemen som visas av kunder som flyttar sina program till molnet. Med utpressning och hacktivism är de vanligaste motiven bakom DDoS-attacker, de har konsekvent ökat i typ, skala och förekomstfrekvens eftersom de är relativt enkla och billiga att lansera.
+DDoS-attacker (distributed denial of Service) är ett av de största tillgänglighets-och säkerhets frågor som kunderna kan flytta sina program till molnet. Med extortion och hacktivism är det vanliga motivet bakom DDoS-attacker, men de har konsekvent ökande typ, skalning och frekvens av händelser eftersom de är relativt enkla och billiga att starta.
 
-Azure DDoS Protection ger motåtgärder mot de mest sofistikerade DDoS-hoten, vilket utnyttjar den globala omfattningen av Azure-nätverk. Tjänsten ger förbättrade DDoS-begränsningsfunktioner för program och resurser som distribueras i virtuella nätverk.
+Azure DDoS Protection ger motåtgärder mot de mest sofistikerade DDoS-hoten, vilket utnyttjar den globala skalningen av Azure-nätverk. Tjänsten tillhandahåller förbättrade funktioner för DDoS-minskning för program och resurser som distribueras i virtuella nätverk.
 
-Teknikpartner kan skydda sina kunders resurser internt med Azure DDoS Protection Standard för att hantera tillgänglighets- och tillförlitlighetsproblem på grund av DDoS-attacker.
+Teknik partner kan skydda sina kunders resurser internt med Azure DDoS Protection standard för att lösa tillgänglighets-och Tillförlitlighets problem på grund av DDoS-attacker.
 
-## <a name="introduction-to-azure-ddos-protection-standard"></a>Introduktion till Azure DDoS Protection Standard
-Azure DDoS Protection Standard ger förbättrade DDoS-begränsningsfunktioner mot Layer 3- och Layer 4 DDoS-attacker. Följande är de viktigaste funktionerna i DDoS Protection Standard-tjänsten.
+## <a name="introduction-to-azure-ddos-protection-standard"></a>Introduktion till Azure DDoS Protection standard
+Azure DDoS Protection standard ger förbättrade funktioner för DDoS-minskning mot Layer 3-och Layer 4 DDoS-attacker. Följande är viktiga funktioner i DDoS Protection standard tjänsten.
 
-### <a name="adaptive-real-time-tuning"></a>Adaptiv justering i realtid
-För alla skyddade program justerar Azure DDoS Protection Standard automatiskt DDoS-begränsningsprincipens tröskelvärden baserat på programmets trafikprofilmönster. Tjänsten utför den här anpassningen med hjälp av två insikter:
+### <a name="adaptive-real-time-tuning"></a>Anpassad real tids justering
+För varje skyddat program justerar Azure DDoS Protection standard automatiskt tröskelvärdena för begränsning av DDoS-tjänsten baserat på programmets trafik profil mönster. Tjänsten utför den här anpassningen genom att använda två insikter:
 
-- Automatisk inlärning av trafikmönster per kund (per IP) för lager 3 och 4.
-- Minimera falska positiva identifieringar, med tanke på att omfattningen av Azure gör det möjligt att absorbera en betydande mängd trafik.
+- Automatisk inlärning av trafik mönster per kund (per IP) för Layer 3 och 4.
+- Minimera antalet falska positiva identifieringar, med hänsyn till att Azures skala kan absorbera en betydande mängd trafik.
 
-![Adaptiv justering i realtid](./media/ddos-protection-partner-onboarding/real-time-tuning.png)
+![Anpassad real tids justering](./media/ddos-protection-partner-onboarding/real-time-tuning.png)
 
-### <a name="attack-analytics-telemetry-monitoring-and-alerting"></a>Attackanalys, telemetri, övervakning och aviseringar
-Azure DDoS Protection identifierar och minskar DDoS-attacker utan några åtgärder från användaren.
+### <a name="attack-analytics-telemetry-monitoring-and-alerting"></a>Attack analys, telemetri, övervakning och aviseringar
+Azure DDoS Protection identifierar och minimerar DDoS-attacker utan att användaren behöver vidta några åtgärder.
 
-- Om den skyddade resursen finns i prenumerationen som omfattas av Azure Security Center skickar DDoS Protection Standard automatiskt en avisering till Security Center när en DDoS-attack identifieras och mildras mot det skyddade programmet.
-- Alternativt, för att få ett meddelande när det finns en aktiv begränsning för en skyddad offentlig IP, kan du [konfigurera en avisering](manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) om måttet under DDoS-attack eller inte.
-- Du kan dessutom välja att skapa aviseringar för andra DDoS-mått och [konfigurera attackanalys](manage-ddos-protection.md#configure-ddos-attack-analytics) för att förstå omfattningen av attacken, trafik som släpps, attackvektorer, de främsta bidragsgivarna och andra detaljer.
+- Om den skyddade resursen finns i prenumerationen som omfattas Azure Security Center, skickar DDoS Protection standard automatiskt en avisering till Security Center när en DDoS-attack identifieras och minimeras mot det skyddade programmet.
+- Om du vill få ett meddelande när det finns en aktiv skydds åtgärd för en skyddad offentlig IP-adress kan du [Konfigurera en avisering](manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics) på måttet under DDoS-attack eller inte.
+- Du kan också välja att skapa aviseringar för de andra DDoS-måtten och [Konfigurera angrepps analys](manage-ddos-protection.md#configure-ddos-attack-analytics) för att förstå hur stor attacken är, vilken trafik som släpps, angrepps vektorer, förstklassiga deltagare och annan information.
 
-![DDoS-mått](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
+![DDoS mått](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 
-### <a name="ddos-rapid-response-drr"></a>DDoS snabbrespons (DRR)
-DDoS Protection Standard-kunder har tillgång till [Rapid Response-teamet](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) under en aktiv attack. DRR kan hjälpa till med attackutredning, anpassade mildrande åtgärder under en attack och analys efter attacken.
+### <a name="ddos-rapid-response-drr"></a>DDoS Rapid Response (DRR)
+DDoS Protection standard kunder har till gång till [snabba svars grupper](https://azure.microsoft.com/blog/ddos-protection-attack-analytics-rapid-response/) under en aktiv attack. DRR kan hjälpa till med angrepps utredning, anpassade åtgärder under ett angrepp och analys efter angrepp.
 
-### <a name="sla-guarantee-and-cost-protection"></a>SLA-garanti och kostnadsskydd
-DDoS Protection Standard-tjänsten omfattas av ett serviceavtal på 99,99 % och kostnadsskydd ger resurskrediter för att skala ut under en dokumenterad attack. Mer information finns i [SLA för Azure DDoS Protection](https://azure.microsoft.com/support/legal/sla/ddos-protection/v1_0/).
+### <a name="sla-guarantee-and-cost-protection"></a>SLA-garanti och kostnads skydd
+DDoS Protection standard tjänsten omfattas av ett service avtal på 99,99% och kostnads skydd ger resurs krediter för att skala ut under en dokumenterad attack. Mer information finns i [SLA för Azure DDoS Protection](https://azure.microsoft.com/support/legal/sla/ddos-protection/v1_0/).
 
-## <a name="featured-partner-scenarios"></a>Utvalda partnerscenarier
-Följande är viktiga fördelar som du kan härleda genom att integrera med Azure DDoS Protection Standard:
+## <a name="featured-partner-scenarios"></a>Scenarier med aktuella partner
+Följande är viktiga fördelar som du kan härleda genom att integrera med Azure DDoS Protection standard:
 
-- Partners erbjudna tjänster (belastningsutjämnare, brandvägg för webbprogram, brandvägg osv.) till sina kunder skyddas automatiskt (vitmärkt) av Azure DDoS Protection Standard i den bakre delen.
-- Partner har tillgång till Azure DDoS Protection Standard-attackanalys och telemetri som de kan integrera med sina egna produkter och erbjuder en enhetlig kundupplevelse.  
-- Partner har tillgång till DDoS snabbresponssupport även i avsaknad av Azure-snabbsvar, för DDoS-relaterade problem.
-- Partners skyddade program backas upp av en DDoS SLA-garanti och kostnadsskydd i händelse av DDoS-attacker.
+- Partners som erbjuds tjänster (belastningsutjämnare, brand vägg för webb program, brand vägg osv.) till sina kunder skyddas automatiskt (vita etiketterade) genom Azure DDoS Protection standard i Server delen.
+- Partner har åtkomst till Azure DDoS Protection standard attack analys och telemetri som de kan integrera med sina egna produkter, vilket ger en enhetlig kund upplevelse.  
+- Partner har åtkomst till DDoS Rapid Response support även om Azure Rapid Response saknas, för DDoS-relaterade problem.
+- Partners skyddade program backas upp av en DDoS SLA-garanti och ett kostnads skydd i händelse av DDoS-attacker.
 
-## <a name="technical-integration-overview"></a>Översikt över teknisk integration
-Partnermöjligheter för Azure DDoS Protection Standard görs tillgängliga via Azure Portal, API:er och CLI/PS.
+## <a name="technical-integration-overview"></a>Teknisk integrering – översikt
+Azure DDoS Protection standard möjligheter för samarbets partner görs tillgängliga via Azure Portal, API: er och CLI/PS.
 
-### <a name="integrate-with-ddos-protection-standard"></a>Integrera med DDoS Protection Standard
-Följande steg krävs för att partner ska konfigurera integrering med Azure DDoS Protection Standard:
-1. Skapa en DDoS-skyddsplan i önskad (partner) prenumeration. Stegvisa instruktioner finns i [Skapa en DDoS-standardskyddsplan](manage-ddos-protection.md#create-a-ddos-protection-plan).
+### <a name="integrate-with-ddos-protection-standard"></a>Integrera med DDoS Protection standard
+Följande steg krävs för partner för att konfigurera integration med Azure DDoS Protection standard:
+1. Skapa en DDoS Protection Plan i din önskade (partner) prenumeration. Stegvisa instruktioner finns i [skapa en DDoS standard skydds plan](manage-ddos-protection.md#create-a-ddos-protection-plan).
    > [!NOTE]
-   > Endast 1 DDoS-skyddsplan behöver skapas för en viss klient. 
-2. Distribuera en tjänst med offentliga slutpunkter i dina (partner)-prenumerationer, till exempel belastningsutjämnare, brandväggar och brandvägg för webbprogram. 
-3. Aktivera Azure DDoS Protection Standard i det virtuella nätverket för tjänsten som har offentliga slutpunkter med DDoS-skyddsplan som skapats i det första steget. För stpe-by-steg-instruktioner finns i [Aktivera DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-for-an-existing-virtual-network)
+   > Endast 1 DDoS Protection-plan måste skapas för en specifik klient. 
+2. Distribuera en tjänst med en offentlig slut punkt i dina (partner) prenumerationer, till exempel belastningsutjämnare, brand väggar och brand vägg för webbaserade program. 
+3. Aktivera Azure DDoS Protection standard på det virtuella nätverket för den tjänst som har offentliga slut punkter som använder DDoS Protection plan som skapats i det första steget. Stpe-instruktioner finns i [Aktivera DDoS standard Protection Plan](manage-ddos-protection.md#enable-ddos-for-an-existing-virtual-network)
    > [!IMPORTANT] 
-   > När Azure DDoS Protection Standard har aktiverats i ett virtuellt nätverk skyddas alla offentliga IP-adresser i det virtuella nätverket automatiskt. Ursprunget till dessa offentliga IPs kan vara antingen inom Azure (klientprenumeration) eller utanför Azure. 
-4. Du kan också integrera Azure DDoS Protection Standard telemetri och attackanalys i din programspecifika kundinriktade instrumentpanel. Mer information om hur du använder telemetri finns i [Använda DDoS Protection telemetri](manage-ddos-protection.md#use-ddos-protection-telemetry). Mer information om hur du konfigurerar attackanalys finns i [Konfigurera DDoS-attackanalys](manage-ddos-protection.md#configure-ddos-attack-analytics)
+   > När Azure DDoS Protection standard har Aktiver ATS i ett virtuellt nätverk skyddas alla offentliga IP-adresser i det virtuella nätverket automatiskt. Ursprunget för dessa offentliga IP-adresser kan antingen vara inom Azure (klient prenumerationen) eller utanför Azure. 
+4. Du kan också integrera Azure DDoS Protection standard telemetri och angrepps analys på den programspecifika kund instrument panelen. Mer information om hur du använder telemetri finns i [använda DDoS Protection telemetri](manage-ddos-protection.md#use-ddos-protection-telemetry). Mer information om hur du konfigurerar angrepps analys finns i [Konfigurera DDoS-attack analys](manage-ddos-protection.md#configure-ddos-attack-analytics)
 
-### <a name="onboarding-guides-and-technical-documentation"></a>Introduktionsguider och teknisk dokumentation
+### <a name="onboarding-guides-and-technical-documentation"></a>Registrerings guider och teknisk dokumentation
 
-- [Produktsida för Azure DDoS-skydd](https://azure.microsoft.com/services/ddos-protection/)
-- [Azure DDoS-skyddsdokumentation](ddos-protection-overview.md)
-- [Api-referens för Azure DDoS-skydd](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
-- [Azure-referens för virtuellt nätverk](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
+- [Sidan Azure DDoS Protection produkt](https://azure.microsoft.com/services/ddos-protection/)
+- [Azure DDoS Protection dokumentation](ddos-protection-overview.md)
+- [Azure DDoS Protection API-referens](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
+- [API-referens för Azure Virtual Network](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
 
 ### <a name="get-help"></a>Få hjälp
 
-- Om du har frågor om program-, tjänst- eller produktintegreringar med Azure DDoS Protection Standard kontaktar du [Azure-säkerhetsgruppen](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
-- Följ diskussioner om [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).
+- Om du har frågor om program, tjänster eller produkt integreringar med Azure DDoS Protection standard kan du kontakta [Azures säkerhets community](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
+- Följ diskussioner på [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).
 
-### <a name="get-to-market"></a>Komma ut på marknaden
+### <a name="get-to-market"></a>Kom till marknaden
 
-- Det primära programmet för samarbete med Microsoft är [Microsoft Partner Network](https://partner.microsoft.com/). – Microsoft Graph Security-integreringar hamnar i [ISV-spåret (MPN Independent Software Vendor).](https://partner.microsoft.com/saas-solution-guide)
-- [Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association?rtc=1) är det program som specifikt används för Microsoft Security Partners för att berika dina säkerhetsprodukter och förbättra kundernas upptäckbarhet för dina integrationer med Microsoft Security-produkter.
+- Det främsta programmet för att samar beta med Microsoft är [Microsoft Partner Network](https://partner.microsoft.com/). – Microsoft Graph säkerhets integreringar i [ISV-spåret (MPN Independent Software Vendor)](https://partner.microsoft.com/saas-solution-guide) .
+- [Microsoft Intelligent Security Association](https://www.microsoft.com/security/business/intelligent-security-association?rtc=1) är det program som är specifikt för Microsofts säkerhets partner för att hjälpa till att utöka dina säkerhets produkter och förbättra kund identifieringen av integreringarna med Microsofts säkerhets produkter.
 
 ## <a name="next-steps"></a>Nästa steg
-Visa befintliga partnerintegreringar:
+Visa befintliga partner integrationer:
 
-- [Barracuda WAF-som-en-tjänst](https://www.barracuda.com/waf-as-a-service)
+- [Barracuda WAF-as-a-service](https://www.barracuda.com/waf-as-a-service)
 - [Azure Cloud WAF från Radware](https://www.radware.com/resources/microsoft-azure/)

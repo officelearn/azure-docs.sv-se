@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera Velpic för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableras användarkonton till Velpic.
+title: 'Självstudie: Konfigurera Velpic för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Velpic.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -17,87 +17,87 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9b7a6c2c9b7ecb0b160f7481d95f7682f3f7a109
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77064129"
 ---
-# <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Velpic för automatisk etablering av användare
+# <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Velpic för automatisk användar etablering
 
-Syftet med den här självstudien är att visa de steg du behöver för att utföra i Velpic och Azure AD för att automatiskt etablera och avetableras användarkonton från Azure AD till Velpic.
+Syftet med den här självstudien är att visa de steg du behöver utföra i Velpic och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Velpic.
 
 > [!NOTE]
-> Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klientorganisation
-* En Velpic-hyresgäst med [Enterprise-planen](https://www.velpic.com/pricing.html) eller bättre aktiverad
-* Ett användarkonto i Velpic med administratörsbehörighet
+* En Velpic-klient med [företags planen](https://www.velpic.com/pricing.html) eller bättre aktive rad
+* Ett användar konto i Velpic med administratörs behörighet
 
 ## <a name="assigning-users-to-velpic"></a>Tilldela användare till Velpic
 
-Azure Active Directory använder ett koncept som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk etablering av användarkonto synkroniseras endast användare och grupper som har "tilldelats" till ett program i Azure AD. 
+Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD. 
 
-Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din Velpic-app. När du har bestämt dig kan du tilldela dessa användare till din Velpic-app genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som ska representera de användare som behöver åtkomst till Velpic-appen. När du har bestämt dig kan du tilldela dessa användare till Velpic-appen genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-velpic"></a>Viktiga tips för att tilldela användare till Velpic
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas Velpic för att testa etableringskonfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas till Velpic för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till Velpic måste du välja antingen **användarrollen** eller en annan giltig programspecifik roll (om tillgänglig) i tilldelningsdialogrutan. Observera att **standardåtkomstrollen** inte fungerar för etablering och att dessa användare hoppas över.
+* När du tilldelar en användare till Velpic måste du välja antingen **användar** rollen eller en annan giltig programspecifik roll (om tillgänglig) i tilldelnings dialog rutan. Observera att **standard åtkomst** rollen inte fungerar för etablering, och att dessa användare hoppas över.
 
-## <a name="configuring-user-provisioning-to-velpic"></a>Konfigurera användaresetablering till Velpic
+## <a name="configuring-user-provisioning-to-velpic"></a>Konfigurera användar etablering till Velpic
 
-Det här avsnittet hjälper dig att ansluta din Azure AD till Velpics API för etablering av användarkonton och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i Velpic baserat på användar- och grupptilldelning i Azure AD.
+Det här avsnittet vägleder dig genom att ansluta din Azure AD till Velpic-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Velpic baserat på användar-och grupp tilldelning i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Velpic, enligt instruktionerna i [Azure portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Velpic enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-velpic-in-azure-ad"></a>Så här konfigurerar du automatisk etablering av användarkonton till Velpic i Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-velpic-in-azure-ad"></a>Så här konfigurerar du automatisk etablering av användar konton till Velpic i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com)bläddrar du till **avsnittet Azure Active Directory > Enterprise Apps > Alla program.**
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 
-2. Om du redan har konfigurerat Velpic för enkel inloggning söker du efter din instans av Velpic med hjälp av sökfältet. Annars väljer du **Lägg till** och sök efter **Velpic** i programgalleriet. Välj Velpic i sökresultaten och lägg till det i listan över program.
+2. Om du redan har konfigurerat Velpic för enkel inloggning söker du efter din instans av Velpic med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **Velpic** i program galleriet. Välj Velpic från Sök resultaten och Lägg till den i listan över program.
 
-3. Välj din förekomst av Velpic och välj sedan fliken **Etablering.**
+3. Välj din instans av Velpic och välj sedan fliken **etablering** .
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Velpic Etablering](./media/velpic-provisioning-tutorial/Velpic1.png)
+    ![Velpic-etablering](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. Under avsnittet **Administratörsautentiseringsuppgifter** anger du **klient-URL:en&hemlig token** för Velpic. (Du kan hitta dessa värden under ditt Velpic-konto: **Hantera** > **Integration** > **Plugin** > **SCIM**)
+5. Under avsnittet **admin credentials** kan du mata in **klient-URL: en&hemlig token** för Velpic. (Du hittar de här värdena under ditt Velpic-konto: **Hantera** > **integrations** > -**plugin** > -**scim**)
 
-    ![Auktoriseringsvärden](./media/velpic-provisioning-tutorial/Velpic2.png)
+    ![Authorization-värden](./media/velpic-provisioning-tutorial/Velpic2.png)
 
-6. Klicka på Testa **anslutning** i Azure-portalen för att säkerställa att Azure AD kan ansluta till din Velpic-app. Om anslutningen misslyckas kontrollerar du att ditt Velpic-konto har administratörsbehörighet och försök med steg 5 igen.
+6. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din Velpic-app. Om anslutningen Miss lyckas kontrollerar du att Velpic-kontot har administratörs behörighet och försöker sedan steg 5 igen.
 
-7. Ange e-postadressen till en person eller grupp som ska få etableringsfelmeddelanden i fältet **E-postmeddelande** och markera kryssrutan nedan.
+7. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan nedan.
 
 8. Klicka på **Spara**.
 
-9. Under avsnittet Mappningar väljer du **Synkronisera Azure Active Directory-användare till Velpic**.
+9. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till Velpic**.
 
-10. I avsnittet **Attributmappningar** granskar du de användarattribut som ska synkroniseras från Azure AD till Velpic. Observera att de attribut som valts som **matchande** egenskaper kommer att användas för att matcha användarkontona i Velpic för uppdateringsåtgärder. Välj knappen Spara om du vill utföra eventuella ändringar.
+10. I avsnittet **mappningar för attribut** granskar du de användarattribut som kommer att synkroniseras från Azure AD till Velpic. Observera att attributen som har valts som **matchande** egenskaper kommer att användas för att matcha användar kontona i Velpic för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
 
-11. Om du vill aktivera Azure AD-etableringstjänsten för Velpic ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar**
+11. Om du vill aktivera Azure AD Provisioning-tjänsten för Velpic ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
 
 12. Klicka på **Spara**.
 
-Detta startar den första synkroniseringen av alla användare och/eller grupper som tilldelats Velpic i avsnittet Användare och grupper. Observera att den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge tjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitetsrapporter, som beskriver alla åtgärder som utförs av etableringstjänsten.
+Detta startar den inledande synkroniseringen av alla användare och/eller grupper som är tilldelade till Velpic i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporter som beskriver alla åtgärder som utförs av etablerings tjänsten.
 
-Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

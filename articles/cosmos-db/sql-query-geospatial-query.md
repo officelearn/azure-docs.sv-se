@@ -1,23 +1,23 @@
 ---
 title: Fråga geospatiala data med Azure Cosmos DB
-description: Fråga rumsliga data med Azure Cosmos DB
+description: Fråga om spatialdata med Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: 08b12bd9d35aaa61c79d35a55068983cdc0f1b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77566327"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Fråga geospatiala data med Azure Cosmos DB
 
-Den här artikeln beskriver hur du frågar geospatiala data i Azure Cosmos DB med SQL och LINQ. För närvarande stöds lagring och åtkomst till geospatiala data endast av Azure Cosmos DB SQL API-konton. Azure Cosmos DB stöder följande inbyggda OGC-funktioner (Open Geospatial Consortium) för geospatial frågor. Mer information om den fullständiga uppsättningen inbyggda funktioner på SQL-språket finns i [Frågesystemfunktioner i Azure Cosmos DB](sql-query-system-functions.md).
+Den här artikeln beskriver hur du frågar geospatiala data i Azure Cosmos DB att använda SQL och LINQ. För närvarande stöds endast att lagra och komma åt geospatiala data i Azure Cosmos DB SQL API-konton. Azure Cosmos DB stöder följande Open Geospatial Consortium (OGC) inbyggda funktioner för geospatiala frågor. Mer information om den fullständiga uppsättningen inbyggda funktioner i SQL-språket finns [i fråga system funktioner i Azure Cosmos DB](sql-query-system-functions.md).
 
-## <a name="spatial-sql-built-in-functions"></a>Inbyggda funktioner för spatial SQL
+## <a name="spatial-sql-built-in-functions"></a>Inbyggda SQL-funktioner för avstånd
 
 Här är en lista över geospatiala systemfunktioner som är användbara för frågor i Azure Cosmos DB:
 
@@ -27,11 +27,11 @@ Här är en lista över geospatiala systemfunktioner som är användbara för fr
 |ST_WITHIN (spatial_expr, spatial_expr) | Returnerar ett booleskt uttryck som anger huruvida det första GeoJSON-objektet (Point, Polygon eller LineString) finns i det andra GeoJSON-objektet (Point, Polygon eller LineString).|
 |ST_INTERSECTS (spatial_expr, spatial_expr)| Returnerar ett booleskt uttryck som anger huruvida de två angivna GeoJSON-objekten (Point, Polygon eller LineString) överlappar varandra.|
 |ST_ISVALID| Returnerar ett booleskt värde som anger huruvida det angivna GeoJSON Point-, Polygon- eller LineString-uttrycket är giltigt.|
-| ST_ISVALIDDETAILED| Returnerar ett JSON-värde som innehåller ett booleskt värde om det angivna geojsonpunkt-, polygon- eller radsträngningsuttrycket är giltigt. Om den är ogiltig returneras orsaken som ett strängvärde.|
+| ST_ISVALIDDETAILED| Returnerar ett JSON-värde som innehåller ett booleskt värde om det angivna lin Est ring-uttrycket är giltigt. Om detta är ogiltigt returneras orsaken som ett sträng värde.|
 
-Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga data. Här är till exempel en fråga som returnerar alla familjedokument som ligger inom `ST_DISTANCE` 30 km från den angivna platsen med hjälp av den inbyggda funktionen.
+Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga data. Här är ett exempel på en fråga som returnerar alla familje dokument som ligger inom 30 km från den angivna platsen med hjälp `ST_DISTANCE` av den inbyggda funktionen.
 
-**Fråga**
+**Söka i data**
 
 ```sql
     SELECT f.id
@@ -39,7 +39,7 @@ Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga d
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 ```
 
-**Results**
+**Resultat**
 
 ```json
     [{
@@ -47,13 +47,13 @@ Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga d
     }]
 ```
 
-Om du inkluderar rumslig indexering i indexeringsprincipen visas "avståndsfrågor" effektivt genom indexet. Mer information om spatial indexering finns i [geospatial indexering](sql-query-geospatial-index.md). Om du inte har ett rumsligt index för de angivna sökvägarna gör frågan en genomsökning av behållaren.
+Om du inkluderar rums indexering i din indexerings princip kommer "avstånds frågor" att hanteras effektivt genom indexet. Mer information om spatial indexering finns i [Geospatial indexering](sql-query-geospatial-index.md). Om du inte har ett rums index för de angivna Sök vägarna gör frågan en genomsökning av behållaren.
 
-`ST_WITHIN`kan användas för att kontrollera om en punkt ligger inom en polygon. Polygoner används ofta för att representera gränser som postnummer, tillståndsgränser eller naturliga formationer. Återigen om du inkluderar rumslig indexering i din indexeringsprincip, kommer "inom" frågor att visas effektivt genom indexet.
+`ST_WITHIN`kan användas för att kontrol lera om en punkt ligger inom en polygon. Vanliga polygoner används för att representera gränser som post nummer, tillstånds gränser eller naturliga formulär. Återigen om du inkluderar rums indexering i din indexerings princip, kommer frågor i frågor att hanteras effektivt genom indexet.
 
-Polygon argument `ST_WITHIN` i kan innehålla endast en enda ring, det vill säga polygonerna får inte innehålla hål i dem.
+Polygon-argument `ST_WITHIN` i får bara innehålla en enda ring, det vill säga polygonerna får inte innehålla hål i dem.
 
-**Fråga**
+**Söka i data**
 
 ```sql
     SELECT *
@@ -64,7 +64,7 @@ Polygon argument `ST_WITHIN` i kan innehålla endast en enda ring, det vill säg
     })
 ```
 
-**Results**
+**Resultat**
 
 ```json
     [{
@@ -73,13 +73,13 @@ Polygon argument `ST_WITHIN` i kan innehålla endast en enda ring, det vill säg
 ```
 
 > [!NOTE]
-> På samma sätt som inkompatibla typer fungerar i Azure Cosmos DB-frågan, om det platsvärde som anges i något av argumenten är felaktigt eller ogiltigt, utvärderas det till **odefinierat** och det utvärderade dokumentet som ska hoppas över från frågeresultaten. Om frågan inte returnerar `ST_ISVALIDDETAILED` några resultat kör du för att felsöka varför den rumsliga typen är ogiltig.
+> På samma sätt som för fel matchnings typer fungerar i Azure Cosmos DBs fråga, om det plats värde som anges i båda argumenten är felaktigt eller ogiltigt, utvärderas det som **odefinierat** och det utvärderade dokumentet som ska hoppas över från frågeresultaten. Om frågan inte returnerar några resultat kan du `ST_ISVALIDDETAILED` köra för att felsöka varför den spatiala typen är ogiltig.
 >
 >
 
-Azure Cosmos DB stöder också att utföra omvända frågor, det vill säga du kan indexera polygoner eller rader i Azure Cosmos DB och sedan fråga efter de områden som innehåller en angiven punkt. Detta mönster används ofta i logistik för att identifiera till exempel när en lastbil kommer in i eller lämnar ett angivet område.
+Azure Cosmos DB också stöd för att utföra inverterade frågor, det vill säga du kan indexera polygoner eller rader i Azure Cosmos DB och sedan fråga efter de områden som innehåller en angiven punkt. Det här mönstret används ofta i logistik för att identifiera, till exempel när en Last bil ansluts eller lämnar ett visst utrymme.
 
-**Fråga**
+**Söka i data**
 
 ```sql
     SELECT *
@@ -87,7 +87,7 @@ Azure Cosmos DB stöder också att utföra omvända frågor, det vill säga du k
     WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
 ```
 
-**Results**
+**Resultat**
 
 ```json
     [{
@@ -99,15 +99,15 @@ Azure Cosmos DB stöder också att utföra omvända frågor, det vill säga du k
     }]
 ```
 
-`ST_ISVALID`och `ST_ISVALIDDETAILED` kan användas för att kontrollera om ett rumsligt objekt är giltigt. Följande fråga kontrollerar till exempel giltigheten för en punkt med ett värde utanför intervallet (-132,8). `ST_ISVALID`returnerar bara ett booleskt värde och `ST_ISVALIDDETAILED` returnerar booleskten och en sträng som innehåller orsaken till att det anses ogiltigt.
+`ST_ISVALID`och `ST_ISVALIDDETAILED` kan användas för att kontrol lera om ett spatial objekt är giltigt. Följande fråga kontrollerar till exempel giltigheten för en punkt med ett out-of-Range-värde för Latitude (-132,8). `ST_ISVALID`returnerar bara ett booleskt värde och `ST_ISVALIDDETAILED` returnerar det booleska värdet och en sträng som innehåller orsaken till att den anses vara ogiltig.
 
-**Fråga**
+**Söka i data**
 
 ```sql
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 ```
 
-**Results**
+**Resultat**
 
 ```json
     [{
@@ -115,9 +115,9 @@ Azure Cosmos DB stöder också att utföra omvända frågor, det vill säga du k
     }]
 ```
 
-Dessa funktioner kan också användas för att validera polygoner. Här använder `ST_ISVALIDDETAILED` vi till exempel för att validera en Polygon som inte är stängd.
+Dessa funktioner kan också användas för att validera polygoner. Här använder `ST_ISVALIDDETAILED` vi till exempel för att validera en polygon som inte är stängd.
 
-**Fråga**
+**Söka i data**
 
 ```sql
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
@@ -125,7 +125,7 @@ Dessa funktioner kan också användas för att validera polygoner. Här använde
         ]]})
 ```
 
-**Results**
+**Resultat**
 
 ```json
     [{
@@ -138,11 +138,11 @@ Dessa funktioner kan också användas för att validera polygoner. Här använde
 
 ## <a name="linq-querying-in-the-net-sdk"></a>LINQ-frågor i .NET SDK
 
-SQL .NET SDK tillhandahåller `Distance()` också `Within()` stub-metoder och för användning inom LINQ-uttryck. SQL LINQ-providern översätter den här metoden anrop till motsvarande SQL-inbyggda funktionsanrop (ST_DISTANCE respektive ST_WITHIN).
+SQL .NET SDK tillhandahåller även stub-metoder `Distance()` och `Within()` för användning i LINQ-uttryck. SQL LINQ-providern översätter den här metoden anrop till motsvarande SQL-inbyggda funktions anrop (ST_DISTANCE respektive ST_WITHIN).
 
-Här är ett exempel på en LINQ-fråga som hittar `location` alla dokument i Azure Cosmos-behållaren vars värde ligger inom en radie av 30 km från den angivna punkten med LINQ.
+Här är ett exempel på en LINQ-fråga som hittar alla dokument i Azure Cosmos-behållaren `location` vars värde är inom en radie på 30 km från den angivna punkten med LINQ.
 
-**LINQ-fråga för Avstånd**
+**LINQ-fråga för avstånd**
 
 ```csharp
     foreach (UserProfile user in container.GetItemLinqQueryable<UserProfile>(allowSynchronousQueryExecution: true)
@@ -152,9 +152,9 @@ Här är ett exempel på en LINQ-fråga som hittar `location` alla dokument i Az
     }
 ```
 
-På samma sätt, här är en fråga `location` för att hitta alla dokument vars är inom den angivna rutan / Polygon.
+På samma sätt är det här en fråga för att hitta alla dokument `location` vars befinner sig inom den angivna rutan/polygonen.
 
-**LINQ-fråga för Inom**
+**LINQ-fråga för inom**
 
 ```csharp
     Polygon rectangularArea = new Polygon(
@@ -178,8 +178,8 @@ På samma sätt, här är en fråga `location` för att hitta alla dokument vars
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du kommer igång med geospatial support i Azure Cosmos DB kan du nästa du:
+Nu när du har lärt dig hur du kommer igång med geospatial support i Azure Cosmos DB kan du göra följande:
 
-* Läs mer om [Azure Cosmos DB Query](sql-query-getting-started.md)
-* Läs mer om [geospatial- och GeoJSON-platsdata i Azure Cosmos DB](sql-query-geospatial-intro.md)
-* Läs mer om [Index spatial data med Azure Cosmos DB](sql-query-geospatial-index.md)
+* Läs mer om [Azure Cosmos DB fråga](sql-query-getting-started.md)
+* Läs mer om [geospatiala data om geospatiala och geospatiala JSON-platser i Azure Cosmos DB](sql-query-geospatial-intro.md)
+* Läs mer om [index spatial data med Azure Cosmos DB](sql-query-geospatial-index.md)

@@ -1,16 +1,16 @@
 ---
 title: Ställa in Application Insights i en Azure med hjälp av PowerShell | Microsoft Docs
-description: Automatisera konfigurera Azure Diagnostics för att leda data till Application Insights.
+description: Automatisera konfiguration av Azure-diagnostik för att skicka pipe-data till Application Insights.
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.openlocfilehash: da1796c8af5b9463d8223615f4b0629ba65eb3e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669811"
 ---
-# <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Använda PowerShell för att konfigurera programinsikter för Azure Cloud Services
+# <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Konfigurera Application Insights för Azure-Cloud Services med hjälp av PowerShell
 
 [Microsoft Azure](https://azure.com) kan [konfigureras att skicka Azure Diagnostics-data](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) till [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Diagnostiken gäller Azure Cloud Services och virtuella datorer i Azure. De kompletterar telemetrin som du skickar inifrån appen med hjälp av Application Insights SDK. Som en del av automatiseringen av processen för att skapa nya resurser i Azure kan du konfigurera diagnostik med hjälp av PowerShell.
 
@@ -35,7 +35,7 @@ Om webbappen finns i Azure och du skapar dina resurser med hjälp av en Azure Re
      } 
 
 * `nameOfAIAppResource` – ett namn för Application Insights-resursen
-* `myWebAppName`- Webbappens ID
+* `myWebAppName`– webbappens ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Aktivera diagnostiktillägget som en del av distributionen av en molntjänst
 `New-AzureDeployment`-cmdleten har en parameter, `ExtensionConfiguration`, som stöder en rad diagnostikkonfigurationer. Dessa kan skapas med hjälp av cmdleten `New-AzureServiceDiagnosticsExtensionConfig`. Ett exempel:

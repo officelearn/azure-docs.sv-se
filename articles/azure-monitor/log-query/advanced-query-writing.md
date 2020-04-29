@@ -1,27 +1,27 @@
 ---
-title: Avancerade frågor i Azure Monitor | Microsoft-dokument
-description: Den här artikeln innehåller en självstudiekurs för att använda Analytics-portalen för att skriva frågor i Azure Monitor.
+title: Avancerade frågor i Azure Monitor | Microsoft Docs
+description: Den här artikeln innehåller en själv studie kurs om hur du använder Analytics Portal för att skriva frågor i Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670295"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Skriva avancerade frågor i Azure Monitor
 
 > [!NOTE]
-> Du bör slutföra [Komma igång med Azure Monitor Log Analytics](get-started-portal.md) och Komma igång med [frågor](get-started-queries.md) innan du slutför den här lektionen.
+> Du bör slutföra [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) och [komma igång med frågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-## <a name="reusing-code-with-let"></a>Återanvända kod med låt
-Används `let` för att tilldela resultat till en variabel och referera till den senare i frågan:
+## <a name="reusing-code-with-let"></a>Återanvända kod med Let
+Använd `let` för att tilldela resultat till en variabel och referera till den senare i frågan:
 
 ```Kusto
 // get all events that have level 2 (indicates warning level)
@@ -33,7 +33,7 @@ warning_events
 | summarize count() by Computer 
 ```
 
-Du kan också tilldela konstantvärden till variabler. Detta stöder en metod för att ställa in parametrar för de fält som du behöver ändra varje gång du kör frågan. Ändra dessa parametrar efter behov. Om du till exempel vill beräkna det lediga diskutrymmet och det lediga minnet (i percentiler) i ett visst tidsfönster:
+Du kan också tilldela variabler konstanta värden. Detta stöder en metod för att ställa in parametrar för de fält som du behöver ändra varje gång du kör frågan. Ändra parametrarna efter behov. För att till exempel beräkna ledigt disk utrymme och ledigt minne (i percentiler) i ett angivet tidsintervall:
 
 ```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
@@ -51,10 +51,10 @@ Perf
 union FreeDiskSpace, FreeMemory
 ```
 
-Detta gör det enkelt att ändra starttiden nästa gång du kör frågan.
+Detta gör det enkelt att ändra starten på slut tiden nästa gången du kör frågan.
 
 ### <a name="local-functions-and-parameters"></a>Lokala funktioner och parametrar
-Använd `let` satser för att skapa funktioner som kan användas i samma fråga. Definiera till exempel en funktion som tar ett datetime-fält (i UTC-format) och konverterar den till ett vanligt amerikanskt format. 
+Använd `let` instruktioner för att skapa funktioner som kan användas i samma fråga. Du kan till exempel definiera en funktion som tar ett datum/tid-fält (i UTC-format) och konverterar det till ett standard format för USA. 
 
 ```Kusto
 let utc_to_us_date_format = (t:datetime)
@@ -69,15 +69,15 @@ Event
 ```
 
 ## <a name="print"></a>Skriv ut
-`print`returnerar en tabell med en enda kolumn och en enda rad som visar resultatet av en beräkning. Detta används ofta i fall där du behöver en enkel beräkning. Om du till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
+`print`Returnerar en tabell med en enda kolumn och en enskild rad, som visar resultatet av en beräkning. Detta används ofta i fall där du behöver en enkel beräkning. Om du till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
 
 ```Kusto
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
 
-## <a name="datatable"></a>Datatable
-`datatable`kan du definiera en uppsättning data. Du anger ett schema och en uppsättning värden och sedan pipe tabellen till andra frågeelement. Om du till exempel vill skapa en tabell med RAM-användning och beräkna deras genomsnittliga värde per timme:
+## <a name="datatable"></a>DataTable
+`datatable`gör att du kan definiera en uppsättning data. Du kan ange ett schema och en uppsättning värden och sedan skicka tabellen till andra frågeuttryck. Till exempel för att skapa en tabell med RAM-användning och beräkna deras genomsnittliga värde per timme:
 
 ```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
@@ -94,7 +94,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 | summarize avg(usage_percent) by bin(TimeGenerated, 1h)
 ```
 
-Datatable konstruktioner är också mycket användbara när du skapar en uppslagstabell. Om du till exempel vill mappa tabelldata, till exempel händelse-ID:er från tabellen _SecurityEvent,_ till händelsetyper som visas någon annanstans, skapar du en uppslagstabell med händelsetyperna som använder `datatable` och ansluter till dessa datatabell med _SecurityEvent-data:_
+DataTable-konstruktioner är också mycket användbara när du skapar en uppslags tabell. Om du till exempel vill mappa tabell data, till exempel händelse-ID: n från tabellen _SecurityEvent_ , till händelse typer som anges någon annan stans, skapar du `datatable` en uppslags tabell med händelse typerna med hjälp av och ansluter till denna DataTable med _SecurityEvent_ -
 
 ```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
@@ -123,12 +123,12 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/) med Azure Monitor-loggdata:
+Se andra lektioner för att använda [Kusto-frågespråket](/azure/kusto/query/) med Azure Monitor loggdata:
 
 - [Strängåtgärder](string-operations.md)
 - [Åtgärder för datum och tid](datetime-operations.md)
 - [Aggregeringsfunktioner](aggregations.md)
 - [Avancerade aggregeringar](advanced-aggregations.md)
 - [JSON och datastrukturer](json-data-structures.md)
-- [Går](joins.md)
+- [Kopplingar](joins.md)
 - [Diagram](charts.md)

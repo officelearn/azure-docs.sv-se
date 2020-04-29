@@ -1,7 +1,7 @@
 ---
-title: Analysera nätverkssäkerhet - Säkerhetsgruppvy - Azure PowerShell
+title: Analysera nätverks säkerhet – vy över säkerhets grupp – Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: I den här artikeln beskrivs hur du använder PowerShell för att analysera en säkerhet för virtuella datorer med säkerhetsgruppvyn.
+description: Den här artikeln beskriver hur du använder PowerShell för att analysera säkerheten för virtuella datorer med vyn säkerhets grupp.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,53 +13,53 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 4cba2c7e25b5f76b0638da1c551514f102247ae0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840799"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analysera säkerheten för den virtuella datorn med säkerhetsgruppvyn med PowerShell
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analysera säkerheten för virtuella datorer med vyn säkerhets grupp med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
-> - [Powershell](network-watcher-security-group-view-powershell.md)
+> - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
-Säkerhetsgruppvyn returnerar konfigurerade och effektiva nätverkssäkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator för att säkerställa att trafik tillåts eller nekas på rätt sätt. I den här artikeln visar vi hur du hämtar de konfigurerade och effektiva säkerhetsreglerna till en virtuell dator med PowerShell
+Vyn säkerhets grupp returnerar konfigurerade och effektiva nätverks säkerhets regler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera nätverks säkerhets grupper och regler som har kon figurer ATS på en virtuell dator för att säkerställa att trafiken är korrekt tillåten eller nekad. I den här artikeln visar vi hur du hämtar de konfigurerade och effektiva säkerhets reglerna till en virtuell dator med hjälp av PowerShell
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I det här fallet `Get-AzNetworkWatcherSecurityGroupView` kör du cmdleten för att hämta säkerhetsregelinformationen.
+I det här scenariot kör du `Get-AzNetworkWatcherSecurityGroupView` cmdlet: en för att hämta säkerhets regel informationen.
 
-Det här scenariot förutsätter att du redan har följt stegen i [Skapa en nätverksbevakare](network-watcher-create.md) för att skapa en Network Watcher.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa ett Network Watcher](network-watcher-create.md) för att skapa ett Network Watcher.
 
 ## <a name="scenario"></a>Scenario
 
-Scenariot som beskrivs i den här artikeln hämtar de konfigurerade och effektiva säkerhetsreglerna för en viss virtuell dator.
+I det scenario som beskrivs i den här artikeln hämtas de konfigurerade och effektiva säkerhets reglerna för en angiven virtuell dator.
 
-## <a name="retrieve-network-watcher"></a>Hämta nätverksbevakare
+## <a name="retrieve-network-watcher"></a>Hämta Network Watcher
 
-Det första steget är att hämta Network Watcher-instansen. Denna variabel skickas `Get-AzNetworkWatcherSecurityGroupView` till cmdlet.
+Det första steget är att hämta Network Watcher-instansen. Den här variabeln skickas till `Get-AzNetworkWatcherSecurityGroupView` cmdleten.
 
 ```powershell
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
-## <a name="get-a-vm"></a>Skaffa en virtuell dator
+## <a name="get-a-vm"></a>Hämta en virtuell dator
 
-En virtuell dator krävs `Get-AzNetworkWatcherSecurityGroupView` för att köra cmdlet mot. Följande exempel hämtar ett VM-objekt.
+En virtuell dator krävs för att köra `Get-AzNetworkWatcherSecurityGroupView` cmdleten mot. I följande exempel hämtas ett VM-objekt.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName testrg -Name testvm1
 ```
 
-## <a name="retrieve-security-group-view"></a>Hämta säkerhetsgruppsvyn
+## <a name="retrieve-security-group-view"></a>Hämta vyn säkerhets grupp
 
-Nästa steg är att hämta resultatet för säkerhetsgruppvyn.
+Nästa steg är att hämta resultatet av säkerhets gruppen.
 
 ```powershell
 $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
@@ -67,7 +67,7 @@ $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatche
 
 ## <a name="viewing-the-results"></a>Visa resultaten
 
-Följande exempel är ett förkortat svar på de resultat som returneras. Resultaten visar alla effektiva och tillämpade säkerhetsregler på den virtuella datorn uppdelad i grupper av **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**och **EffectiveSecurityRules**.
+Följande exempel är ett förkortat svar på resultaten som returneras. Resultaten visar alla effektiva och tillämpade säkerhets regler på den virtuella datorn, uppdelade i grupper av **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**och **EffectiveSecurityRules**.
 
 ```
 NetworkInterfaces : [
@@ -128,6 +128,6 @@ NetworkInterfaces : [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [Auditing Network Security Groups (NSG) med Network Watcher](network-watcher-nsg-auditing-powershell.md) om du vill lära dig hur du automatiserar valideringen av nätverkssäkerhetsgrupper.
+Besök [granskning av nätverks säkerhets grupper (NSG) med Network Watcher](network-watcher-nsg-auditing-powershell.md) för att lära dig hur du automatiserar validering av nätverks säkerhets grupper.
 
 

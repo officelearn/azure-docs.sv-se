@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: a1726e18ea8c1ba86d77d7b9ca3d50c444620361
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657171"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
@@ -156,7 +156,7 @@ Läs mer:
 * [Microsoft säkerhets Center: efterlevnad](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Betrott moln: Microsoft Azure säkerhet, sekretess och efterlevnad](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-## <a name="confidential-computing"></a>Konfidentiell dator användning
+## <a name="confidential-computing"></a>Konfidentiell databehandling
 
 Även om konfidentiella data behandling inte är tekniskt en del av säkerheten för virtuella datorer, ingår avsnittet om säkerhet på den virtuella datorn på den högre nivån av "Compute"-säkerhet. Konfidentiell data behandling ingår i kategorin "Compute"-säkerhet.
 
@@ -167,7 +167,7 @@ TEEs se till att det inte finns något sätt att visa data eller åtgärderna in
 Läs mer:
 
 * [Introduktion till Azures konfidentiella data behandling](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
-* [Azures konfidentiella data behandling](https://azure.microsoft.com/blog/azure-confidential-computing/)  
+* [Konfidentiell databehandling i Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
 
 ## <a name="next-steps"></a>Nästa steg
 

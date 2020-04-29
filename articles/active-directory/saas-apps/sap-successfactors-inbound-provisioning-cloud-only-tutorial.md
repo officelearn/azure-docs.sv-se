@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Konfigurera successfactors inkommande etablering i Azure Active Directory | Microsoft-dokument'
+title: 'Självstudie: Konfigurera SuccessFactors inkommande etablering i Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar inkommande etablering från SuccessFactors till Azure AD
 services: active-directory
 author: cmmdesai
@@ -15,270 +15,270 @@ ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
 ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063230"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Självstudiekurs: Konfigurera SAP SuccessFactors till Azure AD-användareetablering (förhandsversion)
-Syftet med den här självstudien är att visa de steg du behöver utföra för att etablera arbetardata från SuccessFactors Employee Central i Azure Active Directory, med valfri tillbakaskrivning av e-postadress till SuccessFactors. Den här integreringen är i offentlig förhandsversion och stöder hämtning av mer än [70+ användarattribut](../app-provisioning/sap-successfactors-attribute-reference.md) från SuccessFactors Employee Central. 
+# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Självstudie: konfigurera SAP-SuccessFactors till användar etablering i Azure AD (för hands version)
+Syftet med den här självstudien är att visa de steg som du behöver utföra för att etablera arbetarnas data från SuccessFactors personal Central till Azure Active Directory, med valfri Skriv åtgärd för e-postadressen till SuccessFactors. Den här integrationen är i offentlig för hands version och stöder hämtning av fler än [70 + användarattribut](../app-provisioning/sap-successfactors-attribute-reference.md) från SuccessFactors personal Central. 
 
 >[!NOTE]
->Använd den här självstudien om de användare som du vill etablera från SuccessFactors är molnanvändare som inte behöver ett lokalt AD-konto. Om användarna bara kräver lokalt AD-konto eller både AD- och Azure AD-konto, se självstudien om [hur SAP SuccessFactors konfigureras till Active](sap-successfactors-inbound-provisioning-tutorial.md#overview) Directory-användareetablering. 
+>Använd den här självstudien om de användare som du vill etablera från SuccessFactors är endast molnbaserade användare som inte behöver ett lokalt AD-konto. Om användarna bara behöver ett lokalt AD-konto eller både AD-och Azure AD-konto kan du läsa själv studie kursen om hur [du konfigurerar SAP-SuccessFactors för att Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) användar etablering. 
 
 ## <a name="overview"></a>Översikt
 
-[Azure Active Directory-tjänsten för användaretablering](../app-provisioning/user-provisioning.md) integreras med [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) för att hantera användarnas identitetslivscykel. 
+[Azure Active Directory användar etablerings tjänsten](../app-provisioning/user-provisioning.md) integreras med [SuccessFactors personal Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) för att hantera användarens identitets livs cykel. 
 
-Den SuccessFactors användaretablering arbetsflöden som stöds av Azure AD användare etablering tjänst möjliggör automatisering av följande mänskliga resurser och identitet livscykelhantering scenarier:
+Användar etablerings arbets flöden för SuccessFactors som stöds av Azure AD-tjänsten för användar etablering möjliggör automatisering av följande personal-och identitets cykel hanterings scenarier:
 
-* **Anställa nya medarbetare** – När en ny medarbetare läggs till i SuccessFactors skapas ett användarkonto automatiskt i Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med tillbakaskrivning av e-postadressen till SuccessFactors.
+* **Anställning av nya anställda** – när en ny medarbetare läggs till i SuccessFactors skapas ett användar konto automatiskt i Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med Skriv-tillbaka till SuccessFactors-adressen.
 
-* **Medarbetarattribut och profiluppdateringar** – När en medarbetarpost uppdateras i SuccessFactors (till exempel namn, titel eller chef) uppdateras deras användarkonto automatiskt Azure Active Directory och eventuellt Office 365 och [andra SaaS-program](../app-provisioning/user-provisioning.md)som stöds av Azure AD .
+* **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i SuccessFactors (t. ex. namn, titel eller chef) uppdateras användar kontot automatiskt Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Uppsägning av medarbetare** - När en medarbetare sägs upp i SuccessFactors inaktiveras deras användarkonto automatiskt i Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+* **Anställdas uppsägningar** – när en medarbetare avslutas i SuccessFactors inaktive ras användar kontot automatiskt i Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Medarbetare återanställer** - När en medarbetare återanställs i SuccessFactors kan deras gamla konto återaktiveras eller återetableras (beroende på dina önskemål) till Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
+* **Anställdas återställningar** – när en medarbetare återställs i SuccessFactors kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här lösning för etablering av användare som är bäst lämpad för?
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här användar etablerings lösningen som passar bäst för?
 
-Den här SuccessFactors to Azure Active Directory-användaretableringslösningen är idealisk för:
+Den här SuccessFactors för att Azure Active Directory användar etablerings lösningen passar utmärkt för:
 
-* Organisationer som önskar en förbyggd, molnbaserad lösning för SuccessFactors-användaresetablering
+* Organisationer som vill ha en förbyggd, molnbaserad lösning för SuccessFactors användar etablering
 
-* Organisationer som kräver direkt användaretablering från SuccessFactors till Azure Active Directory
+* Organisationer som kräver direkt användar etablering från SuccessFactors till Azure Active Directory
 
-* Organisationer som kräver att användare etableras med hjälp av data som hämtats från [SuccessFactors Employee Central (EC)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html)
+* Organisationer som kräver att användare tillhandahålls med hjälp av data från [SuccessFactors Employee Central (EG)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html)
 
 * Organisationer som använder Office 365 för e-post
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösnings arkitektur
 
-I det här avsnittet beskrivs lösningsarkitekturen för slut-till-slutanvändaret för användare som bara är molnet. Det finns två relaterade flöden:
+I det här avsnittet beskrivs slut punkt till slut punkt för användar etablerings lösnings arkitekturen för endast molnbaserade användare. Det finns två relaterade flöden:
 
-* **Auktoritärt HR-dataflöde – från SuccessFactors till Azure Active Directory:** I det här flödet uppstår arbetarhändelser (till exempel Nyanställda, Överföringar, Uppsägningar) först i molnet SuccessFactors Employee Central och sedan flödar händelsedata till Azure Active Directory. Beroende på händelsen kan det leda till att skapa/uppdatera/aktivera/inaktivera åtgärder i Azure AD.
-* **Återskrivningsflöde för e-post – från lokal Active Directory till SuccessFactors:** När kontoskapandet är klart i Azure Active Directory kan e-postattributvärdet eller UPN som genereras i Azure AD skrivas tillbaka till SuccessFactors.
+* **Auktoritativt Tim data flöde – från SuccessFactors till Azure Active Directory:** I dessa flödes händelser (till exempel nya anställningar, överföringar, uppsägningar) sker först i Cloud SuccessFactors personal Central och därefter flödar händelse data till Azure Active Directory. Beroende på händelsen kan det leda till att du skapar/uppdaterar/aktiverar/inaktiverar åtgärder i Azure AD.
+* **Flöde för tillbakaskrivning av e-post – från lokala Active Directory till SuccessFactors:** När kontot har skapats i Azure Active Directory kan värdet för e-postattributet eller UPN som genereras i Azure AD skrivas tillbaka till SuccessFactors.
 
   ![Översikt](./media/sap-successfactors-inbound-provisioning/sf2aad-overview.png)
 
-### <a name="end-to-end-user-data-flow"></a>Dataflöde från till användare
+### <a name="end-to-end-user-data-flow"></a>Slut punkt till slut punkt för användar data flöde
 
-1. HR-teamet utför arbetartransaktioner (Joiners/Movers/Leavers eller New Hires/Transfers/Terminations) i SuccessFactors Employee Central
-2. Azure AD-etableringstjänsten kör schemalagda synkroniseringar av identiteter från SuccessFactors EC och identifierar ändringar som måste bearbetas för synkronisering med lokal Active Directory.
-3. Azure AD-etableringstjänsten bestämmer ändringen och anropar åtgärden skapa/uppdatera/aktivera/inaktivera för användaren i Azure AD.
-4. Om [SuccessFactors-tillbakaskrivningsappen](sap-successfactors-writeback-tutorial.md) är konfigurerad hämtas användarens e-postadress från Azure AD. 
-5. Azure AD-etableringstjänsten skriver tillbaka e-postattribut till SuccessFactors, baserat på det matchande attribut som används.
+1. HR-teamet utför arbets transaktioner (anslutare/flytter/Lämnare eller nya anställningar/överföringar/uppsägningar) i SuccessFactors personal Central
+2. Azure AD Provisioning-tjänsten kör schemalagda synkroniseringar av identiteter från SuccessFactors EC och identifierar ändringar som behöver bearbetas för synkronisering med lokala Active Directory.
+3. Azure AD Provisioning-tjänsten fastställer ändringen och anropar åtgärden Skapa/uppdatera/aktivera/inaktivera för användaren i Azure AD.
+4. Om [SuccessFactors tillbakaskrivning-appen](sap-successfactors-writeback-tutorial.md) har kon figurer ATS hämtas användarens e-postadress från Azure AD. 
+5. Azure AD Provisioning-tjänsten skriver tillbaka e-postattribut till SuccessFactors, baserat på det matchande attributet som används.
 
 ## <a name="planning-your-deployment"></a>Planera distributionen
 
-Konfigurera Cloud HR-driven användaretablering från SuccessFactors till Azure AD kräver omfattande planering som täcker olika aspekter, till exempel:
+Konfigurering av moln HR-driven användar etablering från SuccessFactors till Azure AD kräver avsevärd planering som omfattar olika aspekter, till exempel:
 
-* Bestämma matchnings-ID 
+* Identifiera matchnings-ID 
 * Attributmappning
-* Omvandling av attribut 
+* Attribute-transformering 
 * Omfångsfilter
 
-Se [moln-HR-distributionsplanen](../app-provisioning/plan-cloud-hr-provision.md) för omfattande riktlinjer kring dessa ämnen. 
+Mer information om de här ämnena finns i [Cloud HR Deployment plan](../app-provisioning/plan-cloud-hr-provision.md) . 
 
-## <a name="configuring-successfactors-for-the-integration"></a>Konfigurera SuccessFactors för integrationen
+## <a name="configuring-successfactors-for-the-integration"></a>Konfigurera SuccessFactors för integrering
 
-Ett vanligt krav för alla SuccessFactors-etableringskopplingar är att de kräver autentiseringsuppgifter för ett SuccessFactors-konto med rätt behörighet att anropa SuccessFactors OData-API:er. I det här avsnittet beskrivs steg för att skapa tjänstkontot i SuccessFactors och bevilja lämpliga behörigheter. 
+Ett gemensamt krav för alla SuccessFactors etablerings anslutningar är att de kräver autentiseringsuppgifter för ett SuccessFactors-konto med rätt behörighet för att anropa SuccessFactors OData-API: erna. I det här avsnittet beskrivs steg för att skapa tjänst kontot i SuccessFactors och bevilja lämpliga behörigheter. 
 
 * [Skapa/identifiera API-användarkonto i SuccessFactors](#createidentify-api-user-account-in-successfactors)
-* [Skapa en API-behörighetsroll](#create-an-api-permissions-role)
-* [Skapa en behörighetsgrupp för API-användaren](#create-a-permission-group-for-the-api-user)
-* [Bevilja behörighetsroll till behörighetsgruppen](#grant-permission-role-to-the-permission-group)
+* [Skapa en roll för API-behörigheter](#create-an-api-permissions-role)
+* [Skapa en behörighets grupp för API-användaren](#create-a-permission-group-for-the-api-user)
+* [Bevilja behörighets rollen till behörighets gruppen](#grant-permission-role-to-the-permission-group)
 
 ### <a name="createidentify-api-user-account-in-successfactors"></a>Skapa/identifiera API-användarkonto i SuccessFactors
-Arbeta med ditt SuccessFactors-administratörsteam eller implementeringspartner för att skapa eller identifiera ett användarkonto i SuccessFactors som ska användas för att anropa OData-API:erna. Användarnamn och lösenord autentiseringsuppgifter för det här kontot kommer att krävas när du konfigurerar etableringsapparna i Azure AD. 
+Arbeta med ditt SuccessFactors-administratörs team eller implementerings partner för att skapa eller identifiera ett användar konto i SuccessFactors som ska användas för att anropa OData-API: erna. Autentiseringsuppgifterna för användar namn och lösen ord för det här kontot kommer att krävas när du konfigurerar etablerings appar i Azure AD. 
 
-### <a name="create-an-api-permissions-role"></a>Skapa en API-behörighetsroll
+### <a name="create-an-api-permissions-role"></a>Skapa en roll för API-behörigheter
 
-* Logga in på SAP SuccessFactors med ett användarkonto som har åtkomst till administrationscentret.
-* Sök efter *Hantera behörighetsroller*och välj sedan **Hantera behörighetsroller** från sökresultaten.
-  ![Hantera behörighetsroller](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Klicka på **Skapa nytt**i listan Behörighetsroll .
+* Logga in på SAP SuccessFactors med ett användar konto som har åtkomst till administrations centret.
+* Sök efter *Hantera behörighets roller*och välj **Hantera behörighets roller** från Sök resultaten.
+  ![Hantera behörighets roller](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
+* I listan behörighets roll klickar du på **Skapa ny**.
   > [!div class="mx-imgBorder"]
-  > ![Skapa ny behörighetsroll](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Lägg till ett **rollnamn** och **en beskrivning** för den nya behörighetsrollen. Namnet och beskrivningen bör ange att rollen är för API-användningsbehörigheter.
+  > ![Skapa ny behörighets roll](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+* Lägg till ett **roll namn** och en **Beskrivning** för den nya behörighets rollen. Namnet och beskrivningen ska ange att rollen är för API-användnings behörigheter.
   > [!div class="mx-imgBorder"]
-  > ![Information om behörighetsroll](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Under Behörighetsinställningar klickar du på **Behörighet...** och rullar sedan ned i behörighetslistan och klickar på **Hantera integrationsverktyg**. Markera kryssrutan **Tillåt admin att komma åt OData API via grundläggande autentisering**.
+  > ![Information om behörighets roll](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+* Under behörighets inställningar klickar du på **behörighet...** och bläddrar sedan ned behörighets listan och klickar på **Hantera integrerings verktyg**. Markera kryss rutan om **du vill tillåta administratörs åtkomst till OData-API via grundläggande autentisering**.
   > [!div class="mx-imgBorder"]
-  > ![Hantera integrationsverktyg](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Bläddra nedåt i samma ruta och välj **Personal central-API**. Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj redigeringsalternativet om du planerar att använda samma konto för scenariot Skriv tillbaka till SuccessFactors. 
+  > ![Hantera integrerings verktyg](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+* Rulla nedåt i samma ruta och välj **medarbetares centrala API**. Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj alternativet Redigera om du planerar att använda samma konto för SuccessFactors-scenariot för tillbakaskrivning. 
   > [!div class="mx-imgBorder"]
-  > ![Läs skrivbehörigheter](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Klicka på **Klar**. Klicka på **Spara ändringar**.
+  > ![Läs Skriv behörighet](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+* Klicka på **färdig**. Klicka på **Spara ändringar**.
 
-### <a name="create-a-permission-group-for-the-api-user"></a>Skapa en behörighetsgrupp för API-användaren
+### <a name="create-a-permission-group-for-the-api-user"></a>Skapa en behörighets grupp för API-användaren
 
-* Sök efter *hantera behörighetsgrupper*i Administrationscentret för SuccessFactors och välj sedan **Hantera behörighetsgrupper** från sökresultaten.
+* I SuccessFactors administrations Center söker du efter *Hantera behörighets grupper*och väljer **Hantera behörighets grupper** från Sök resultaten.
   > [!div class="mx-imgBorder"]
-  > ![Hantera behörighetsgrupper](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* Klicka på **Skapa nytt**i fönstret Hantera behörighetsgrupper .
+  > ![Hantera behörighets grupper](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+* I fönstret Hantera behörighets grupper klickar du på **Skapa nytt**.
   > [!div class="mx-imgBorder"]
   > ![Lägg till ny grupp](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Lägg till ett gruppnamn för den nya gruppen. Gruppnamnet ska ange att gruppen är för API-användare.
+* Lägg till ett grupp namn för den nya gruppen. Grupp namnet ska indikera att gruppen är för API-användare.
   > [!div class="mx-imgBorder"]
-  > ![Namn på behörighetsgrupp](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Lägg till medlemmar i gruppen. Du kan till exempel välja **Användarnamn** på listrutan Kontakterpool och sedan ange användarnamnet för API-kontot som ska användas för integreringen. 
+  > ![Namn på behörighets grupp](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+* Lägg till medlemmar i gruppen. Du kan till exempel välja **användar namn** i list rutan personer i poolen och sedan ange användar namnet för det API-konto som ska användas för integreringen. 
   > [!div class="mx-imgBorder"]
   > ![Lägga till gruppmedlemmar](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* Klicka på **Klar** om du vill slutföra skapandet av behörighetsgruppen.
+* Slutför skapandet av behörighets gruppen genom att klicka på **klar** .
 
-### <a name="grant-permission-role-to-the-permission-group"></a>Bevilja behörighetsroll till behörighetsgruppen
+### <a name="grant-permission-role-to-the-permission-group"></a>Bevilja behörighets rollen till behörighets gruppen
 
-* I Administrationscenter för SuccessFactors söker du efter *Hantera behörighetsroller*och väljer sedan **Hantera behörighetsroller** från sökresultaten.
-* Välj den roll som du skapade för API-användningsbehörigheter i **listan Behörigheter**för behörigheter för behörigheter för behörigheter för behörigheter för behörigheter för API-användning.
-* Under **Grant denna roll till...**, klicka på Lägg **till...** knappen.
-* Välj **Behörighetsgrupp...** på den nedrullningsbara menyn och klicka sedan på **Välj...** för att öppna fönstret Grupper för att söka och markera den grupp som skapats ovan. 
+* I SuccessFactors administrations Center kan du söka efter *Hantera behörighets roller*och sedan välja **Hantera behörighets roller** från Sök resultaten.
+* I **listan behörighets roll**väljer du den roll som du har skapat för behörigheter för API-användning.
+* Under **tilldela den här rollen till... klickar du**på **Lägg till...** -knapp.
+* Välj **behörighets grupp...** från den nedrullningsbara menyn och klicka sedan på **Välj...** för att öppna fönstret grupper för att söka efter och välja den grupp som skapades ovan. 
   > [!div class="mx-imgBorder"]
-  > ![Lägga till behörighetsgrupp](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Granska behörighetsrollsbidraget till behörighetsgruppen. 
+  > ![Lägg till behörighets grupp](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+* Granska behörighets rollen bevilja behörighets gruppen. 
   > [!div class="mx-imgBorder"]
-  > ![Behörighetsroll och gruppdetalj](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+  > ![Behörighets roll och grupp information](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 * Klicka på **Spara ändringar**.
 
-## <a name="configuring-user-provisioning-from-successfactors-to-azure-ad"></a>Konfigurera användaretablering från SuccessFactors till Azure AD
+## <a name="configuring-user-provisioning-from-successfactors-to-azure-ad"></a>Konfigurera användar etablering från SuccessFactors till Azure AD
 
-Det här avsnittet innehåller steg för etablering av användarkonton från SuccessFactors till Azure AD.
+Det här avsnittet innehåller steg för användar konto etablering från SuccessFactors till Azure AD.
 
-* [Lägga till etableringsappen och konfigurera anslutningen till SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors)
-* [Konfigurera attributmappningar](#part-2-configure-attribute-mappings)
-* [Aktivera och starta etablering av användare](#enable-and-launch-user-provisioning)
+* [Lägg till etablerings anslutnings programmet och konfigurera anslutningen till SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors)
+* [Konfigurera mappningar för attribut](#part-2-configure-attribute-mappings)
+* [Aktivera och starta användar etablering](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Del 1: Lägg till etableringsappen och konfigurera anslutningen till SuccessFactors
+### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Del 1: Lägg till etablerings anslutnings programmet och konfigurera anslutningen till SuccessFactors
 
 **Så här konfigurerar du SuccessFactors till Azure AD-etablering:**
 
 1. Gå till <https://portal.azure.com>
 
-2. Välj **Azure Active Directory** i det vänstra navigeringsfältet
+2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
 
-3. Välj **Företagsprogram**och sedan **alla program**.
+3. Välj **företags program**och sedan **alla program**.
 
-4. Välj **Lägg till ett program**och välj kategorin **Alla.**
+4. Välj **Lägg till ett program**och välj kategorin **alla** .
 
-5. Sök efter **SuccessFactors till Azure Active Directory User Provisioning**och lägg till appen från galleriet.
+5. Sök efter **SuccessFactors för att Azure Active Directory användar etablering**och Lägg till den appen från galleriet.
 
-6. När appen har lagts till och skärmen för appinformation visas väljer du **Etablera**
+6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
 
-7. Ändra **etableringsläget** **Mode** till **Automatiskt**
+7. Ändra **etablerings** **läget** till **automatiskt**
 
-8. Fyll i avsnittet **Administratörsautentiseringsuppgifter** på följande sätt:
+8. Slutför avsnittet **admin credentials** enligt följande:
 
-   * **Administratörsanvändarnamn** – Ange användarnamnet för SuccessFactors API-användarkonto, med företags-ID bifogat. Den har formatet: **\@användarnamn companyID**
+   * **Administratörens användar namn** – Ange användar namnet för SuccessFactors-API: t med det företags-ID som lagts till. Formatet: **användar namn\@companyID**
 
-   * **Admin lösenord -** Ange lösenordet för användarkontot för SuccessFactors API. 
+   * **Administratörs lösen ord –** Ange lösen ordet för SuccessFactors-API-användarkontot. 
 
-   * **Url till klient –** Ange namnet på slutpunkten för SuccessFactors OData API-tjänster. Ange endast värdnamnet på servern utan http eller https. Det här värdet ska se ut så här: **api-server-name.successfactors.com**.
+   * **Klient-URL –** Ange namnet på SuccessFactors OData API Services-slutpunkten. Ange bara värd namnet för servern utan http eller https. Det här värdet bör se ut så här: **API-Server-Name.SuccessFactors.com**.
 
-   * **E-postmeddelande –** Ange din e-postadress och markera kryssrutan "skicka e-post om fel inträffar" .
+   * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
     > [!NOTE]
-    > Azure AD-etableringstjänsten skickar e-postmeddelande om etableringsjobbet hamnar i [karantäntillstånd.](/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
+    > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
 
-   * Klicka på knappen **Testa anslutning.** Om anslutningstestet lyckas klickar du på knappen **Spara** högst upp. Om det misslyckas dubbelkollar du att autentiseringsuppgifterna och URL:en för SuccessFactors är giltiga.
+   * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas kontrollerar du att autentiseringsuppgifterna och URL: en för SuccessFactors är giltiga.
     >[!div class="mx-imgBorder"]
     >![Azure-portalen](./media/sap-successfactors-inbound-provisioning/sf2aad-provisioning-creds.png)
 
-   * När autentiseringsuppgifterna har **sparats** visas standardmappningen **Synkronisera lyckadesfaktareanvändare till Azure Active Directory**
+   * När autentiseringsuppgifterna har sparats visas standard mappningen synkronisera SuccessFactors användare i avsnittet **mappningar** **som används för att Azure Active Directory**
 
-### <a name="part-2-configure-attribute-mappings"></a>Del 2: Konfigurera attributmappningar
+### <a name="part-2-configure-attribute-mappings"></a>Del 2: Konfigurera mappningar för attribut
 
-I det här avsnittet ska du konfigurera hur användardata flödar från SuccessFactors till Active Directory.
+I det här avsnittet ska du konfigurera hur användar data flödar från SuccessFactors till Active Directory.
 
-1. Klicka på **Synkronisera lyckadesfaktorer till Azure Active Directory**på fliken Etablering under **Mappningar.**
+1. På fliken etablering under **mappningar**klickar du på **Synkronisera SuccessFactors-användare för att Azure Active Directory**.
 
-1. I fältet **Källobjektomfattning** kan du välja vilka uppsättningar användare i SuccessFactors som ska vara i omfång för etablering till Azure AD, genom att definiera en uppsättning attributbaserade filter. Standardomfånget är "alla användare i SuccessFactors". Exempelfilter:
+1. I fältet **käll objekt omfånget** kan du välja vilka uppsättningar av användare i SuccessFactors som ska ligga inom omfånget för etablering till Azure AD genom att definiera en uppsättning attributbaserade filter. Standard omfånget är "alla användare i SuccessFactors". Exempel filter:
 
-   * Exempel: Omfattning till användare med personIdExternal mellan 1000000 och 2000000 (exklusive 2000000)
+   * Exempel: scope till användare med personIdExternal mellan 1000000 och 2000000 (exklusive 2000000)
 
       * Attribut: personIdExternal
 
-      * Operatör: REGEX Match
+      * Operator: REGEX-matchning
 
-      * Värde: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Värde: (1 [0-9] [0-9] [0-9] [0-9] [0-9] [0-9])
 
-   * Exempel: Endast anställda och inte villkorade arbetstagare
+   * Exempel: endast anställda och inte eventualtillgångar
 
-      * Attribut: EmployeeID
+      * Attribut: Anställningsnr
 
-      * Operator: ÄR INTE NULL
+      * Operator: är inte NULL
 
    > [!TIP]
-   > När du konfigurerar etableringsappen för första gången måste du testa och verifiera attributmappningar och uttryck för att se till att den ger dig önskat resultat. Microsoft rekommenderar att du använder omfångsfiltren under **Källobjektomfattning** för att testa mappningarna med några testanvändare från SuccessFactors. När du har verifierat att mappningarna fungerar kan du antingen ta bort filtret eller gradvis expandera det till att omfatta fler användare.
+   > När du konfigurerar etablerings appen för första gången måste du testa och verifiera dina mappningar och uttryck för att kontrol lera att det ger önskat resultat. Microsoft rekommenderar att du använder omfångs filter under **käll objekt omfånget** för att testa dina mappningar med några test användare från SuccessFactors. När du har kontrollerat att mappningarna fungerar kan du antingen ta bort filtret eller gradvis expandera det så att det innehåller fler användare.
 
    > [!CAUTION] 
-   > Standardbeteendet för etableringsmotorn är att inaktivera/ta bort användare som inte omfattas. Detta kanske inte är önskvärt i dina SuccessFactors till Azure AD-integrering. Om du vill åsidosätta det här standardbeteendet finns i artikeln [Hoppa över borttagning av användarkonton som inte omfattas](../app-provisioning/skip-out-of-scope-deletions.md)
+   > Standard beteendet för etablerings motorn är att inaktivera/ta bort användare som omfattas av omfånget. Det kanske inte är önskvärt i din SuccessFactors till Azure AD-integrering. Om du vill åsidosätta det här standard beteendet läser du artikeln [hoppa över borttagning av användar konton som omfattas av omfånget](../app-provisioning/skip-out-of-scope-deletions.md)
   
-1. I fältet **Målobjektåtgärder** kan du filtrera vilka åtgärder som utförs i Active Directory globalt. **Skapa** och **uppdatera** är vanligast.
+1. I fältet **mål objekts åtgärder** kan du globalt filtrera vilka åtgärder som utförs på Active Directory. **Skapa** och **Uppdatera** är de vanligaste.
 
-1. I avsnittet **Attributmappningar** kan du definiera hur enskilda SuccessFactors-attribut mappas till Active Directory-attribut.
+1. I avsnittet **mappningar för attribut** kan du definiera hur enskilda SuccessFactors-attribut ska mappas till Active Directory attribut.
 
   >[!NOTE]
-  >En fullständig lista över Attributet SuccessFactors som stöds av programmet finns i Attribute Reference för [SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
+  >En fullständig lista över SuccessFactors-attribut som stöds av programmet finns i referens för [SuccessFactors-attribut](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 
-1. Klicka på en befintlig attributmappning för att uppdatera den, eller klicka på **Lägg till ny mappning** längst ned på skärmen för att lägga till nya mappningar. En enskild attributmappning stöder följande egenskaper:
+1. Klicka på en befintlig attributmappning för att uppdatera den, eller klicka på **Lägg till ny mappning** längst ned på skärmen för att lägga till nya mappningar. En mappning för enskilda attribut stöder följande egenskaper:
 
-      * **Mappningstyp**
+      * **Mappnings typ**
 
-         * **Direkt** – Skriver värdet för Attributet SuccessFactors till AD-attributet, utan ändringar
+         * **Direct** – skriver värdet för attributet SuccessFactors till attributet AD, utan ändringar
 
-         * **Constant** - Skriv ett statiskt, konstant strängvärde till AD-attributet
+         * **Konstant** – Skriv ett statiskt, konstant sträng värde till attributet AD
 
-         * **Uttryck** – Gör att du kan skriva ett anpassat värde till AD-attributet, baserat på ett eller flera SuccessFactors-attribut. [Mer information finns i den här artikeln om uttryck](../app-provisioning/functions-for-customizing-application-data.md).
+         * **Uttryck** – gör att du kan skriva ett anpassat värde till attributet AD, baserat på ett eller flera SuccessFactors-attribut. [Mer information finns i den här artikeln om uttryck](../app-provisioning/functions-for-customizing-application-data.md).
 
-      * **Källattribut** - Användarattributet från SuccessFactors
+      * **Källattribut** – attributet User från SuccessFactors
 
-      * **Standardvärde** – Valfritt. Om källattributet har ett tomt värde skrivs det här värdet i stället.
-            Vanligaste konfigurationen är att lämna detta tomt.
+      * **Standardvärde** – valfritt. Om källattributet har ett tomt värde, skrivs värdet i stället av mappningen.
+            Den vanligaste konfigurationen är att lämna detta tomt.
 
-      * **Målattribut** – Användarattributet i Active Directory.
+      * **Target-attribut** – användarattribut i Active Directory.
 
-      * **Matcha objekt med det här attributet** – Om den här mappningen ska användas för att unikt identifiera användare mellan SuccessFactors och Active Directory. Det här värdet anges vanligtvis i fältet Arbetar-ID för SuccessFactors, som vanligtvis mappas till ett av medarbetar-ID-attributen i Active Directory.
+      * **Matcha objekt med det här attributet** – om mappningen ska användas för att unikt identifiera användare mellan SuccessFactors och Active Directory. Det här värdet anges vanligt vis i fältet Worker-ID för SuccessFactors, som vanligt vis mappas till något av de anställdas ID-attributen i Active Directory.
 
-      * **Matchande prioritet** – Flera matchande attribut kan ställas in. När det finns flera utvärderas de i den ordning som definieras av det här fältet. Så snart en matchning hittas utvärderas inga ytterligare matchande attribut.
+      * **Matchnings prioritet** – flera matchande attribut kan anges. När det finns flera, utvärderas de i den ordning som definieras av det här fältet. Så fort en matchning hittas utvärderas inga ytterligare matchande attribut.
 
       * **Använd den här mappningen**
 
-         * **Alltid** – Använd den här mappningen på både åtgärder för att skapa användare och uppdatera
+         * **Alltid** – Använd den här mappningen för både skapande av användare och uppdaterings åtgärder
 
-         * **Endast under skapandet** - Använd den här mappningen endast på åtgärder för att skapa användare
+         * **Endast vid skapande** – Använd endast den här mappningen för åtgärder för att skapa användare
 
-1. Om du vill spara mappningarna klickar du på **Spara** högst upp i avsnittet Attributmappning.
+1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
 
-När konfigurationen för attributmappning är klar kan du nu [aktivera och starta tjänsten för användaretablering](#enable-and-launch-user-provisioning).
+När du har slutfört konfigurationen av attributmappning kan du nu [Aktivera och starta användar etablerings tjänsten](#enable-and-launch-user-provisioning).
 
-## <a name="enable-and-launch-user-provisioning"></a>Aktivera och starta etablering av användare
+## <a name="enable-and-launch-user-provisioning"></a>Aktivera och starta användar etablering
 
-När SuccessFactors-etableringsappkonfigurationerna har slutförts kan du aktivera etableringstjänsten i Azure-portalen.
+När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings tjänsten i Azure Portal.
 
 > [!TIP]
-> Som standard när du aktiverar etableringstjänsten initieras etableringsåtgärder för alla användare i omfånget. Om det finns fel i mappnings- eller arbetsdagsdataproblemen kan etableringsjobbet misslyckas och gå in i karantäntillståndet. För att undvika detta, som en bästa praxis, rekommenderar vi att konfigurera **källobjektomfattningsfilter** och testa attributmappningarna med några testanvändare innan du startar fullständig synkronisering för alla användare. När du har kontrollerat att mappningarna fungerar och ger dig önskat resultat kan du antingen ta bort filtret eller gradvis expandera det till att omfatta fler användare.
+> Som standard när du aktiverar etablerings tjänsten kommer den att initiera etablerings åtgärder för alla användare i omfånget. Om det uppstår fel i mappnings-eller data frågor för data lagret kan etablerings jobbet Miss Miss kan och gå in i karantäns läget. För att undvika detta rekommenderar vi att du konfigurerar **käll objekt omfångs** filter och testar dina mappningar av attribut med några test användare innan du startar den fullständiga synkroniseringen för alla användare. När du har kontrollerat att mappningarna fungerar och ger dig önskade resultat kan du antingen ta bort filtret eller gradvis expandera det så att det innehåller fler användare.
 
-1. På fliken **Etablering** anger du **etableringsstatusen** **till På**.
+1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
 2. Klicka på **Spara**.
 
-3. Den här åtgärden startar den första synkroniseringen, vilket kan ta ett varierande antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrollera förloppsindikatorn till spåret förloppet för synkroniseringscykeln. 
+3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
 
-4. Kontrollera när som helst fliken **Granskningsloggar** i Azure-portalen för att se vilka åtgärder etableringstjänsten har utfört. Granskningsloggarna visar alla enskilda synkroniseringshändelser som utförs av etableringstjänsten, till exempel vilka användare som läses ut från Workday och sedan läggs till eller uppdateras i Active Directory. 
+4. Gå till fliken **gransknings loggar** i Azure Portal för att se vilka åtgärder som etablerings tjänsten har utfört. I gransknings loggarna visas alla enskilda synkroniseringsfel som utförs av etablerings tjänsten, t. ex. vilka användare som ska läsas ut från Workday och därefter läggs till eller uppdateras till Active Directory. 
 
-5. När den första synkroniseringen är klar skrivs en granskningssammanfattningsrapport på fliken **Etablering,** som visas nedan.
+5. När den inledande synkroniseringen har slutförts skrivs en gransknings sammanfattnings rapport på fliken **etablering** , som visas nedan.
 
    > [!div class="mx-imgBorder"]
-   > ![Etablera förloppsindikator](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+   > ![Förlopps indikator för etablering](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Läs mer om SuccessFactors-attribut som stöds för inkommande etablering](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Lär dig hur du konfigurerar tillbakaskrivning av e-post till SuccessFactors](sap-successfactors-writeback-tutorial.md)
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan SuccessFactors och Azure Active Directory](successfactors-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
-* [Lär dig hur du exporterar och importerar etableringskonfigurationer](../app-provisioning/export-import-provisioning-configuration.md)
+* [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../app-provisioning/export-import-provisioning-configuration.md)
 
 

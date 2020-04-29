@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Hyper-V-haveriberedskap (med VMM) till en sekundär plats med Azure Site Recovery/PowerShell
-description: Beskriver hur du ställer in haveriberedskap av virtuella hyper-v-datorer i VMM-moln till en sekundär VMM-plats med Azure Site Recovery och PowerShell.
+title: Konfigurera en haveri beredskap för Hyper-V (med VMM) till en sekundär plats med Azure Site Recovery/PowerShell
+description: Beskriver hur du konfigurerar haveri beredskap för virtuella Hyper-V-datorer i VMM-moln till en sekundär VMM-plats med hjälp av Azure Site Recovery och PowerShell.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77048603"
 ---
-# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera haveriberedskap av virtuella hyper-virtuella datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera katastrof återställning av virtuella Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
 
-Den här artikeln visar hur du automatiserar stegen för replikering av virtuella hyper-virtuella datorer i System Center-moln för virtual machine manager till ett moln för Virtual Machine Manager i en sekundär lokal plats med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln visar hur du automatiserar stegen för replikering av virtuella Hyper-V-datorer i System Center Virtual Machine Manager moln till ett Virtual Machine Manager moln på en sekundär lokal plats genom att använda [Azure Site Recovery](site-recovery-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -24,36 +24,36 @@ Den här artikeln visar hur du automatiserar stegen för replikering av virtuell
 
 - Granska [arkitekturen och komponenterna för scenariot](hyper-v-vmm-architecture.md).
 - Granska [kraven för stöd](site-recovery-support-matrix-to-sec-site.md) för alla komponenter.
-- Kontrollera att Virtual Machine Manager-servrar och Hyper-V-värdar uppfyller [supportkraven](site-recovery-support-matrix-to-sec-site.md).
-- Kontrollera att de virtuella datorer som du vill replikera uppfyller stödet för [replikerade datorer](site-recovery-support-matrix-to-sec-site.md).
+- Kontrol lera att Virtual Machine Manager-servrar och Hyper-V-värdar följer [support kraven](site-recovery-support-matrix-to-sec-site.md).
+- Kontrol lera att de virtuella datorer som du vill replikera följer den [replikerade datorns support](site-recovery-support-matrix-to-sec-site.md).
 
 ## <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
 
-[Nätverksmappningsmappningsmappningar](hyper-v-vmm-network-mapping.md) mellan lokala virtuella datornätverk för Virtual Machine Manager i käll- och målmoln. Mappning utför följande:
+[Nätverks mappningen](hyper-v-vmm-network-mapping.md) mappar mellan lokala Virtual Machine Manager virtuella dator nätverk i käll-och mål moln. Mappning utför följande:
 
 - Ansluter virtuella datorer till lämpliga VM-målnätverk efter redundansväxling.
 - Placerar virtuella replikdatorer optimalt på Hyper-V-målvärdservrar.
-- Om du inte konfigurerar nätverksmappning ansluts inte virtuella repliker till ett VM-nätverk efter redundans.
+- Om du inte konfigurerar nätverks mappning ansluts virtuella replik datorer till ett virtuellt dator nätverk efter redundansväxlingen.
 
-Förbered Hanteraren för virtuella datorer enligt följande:
+Förbered Virtual Machine Manager enligt följande:
 
-- Kontrollera att du har [logiska nätverk](https://docs.microsoft.com/system-center/vmm/network-logical) för Virtual Machine Manager på käll- och målservrarna för Virtual Machine Manager:
+- Kontrol lera att du har [Virtual Machine Manager logiska nätverk](https://docs.microsoft.com/system-center/vmm/network-logical) på käll-och mål Virtual Machine Manager servrarna:
   - Det logiska nätverket på källservern ska vara associerat med det källmoln där Hyper-V-värdarna finns.
   - Det logiska nätverket på målservern ska vara associerat med målmolnet.
-- Kontrollera att du har [VM-nätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) på käll- och målservrarna för Virtual Machine Manager. VM-nätverk ska vara länkade till det logiska nätverket på varje plats.
+- Kontrol lera att du har [VM-nätverk](https://docs.microsoft.com/system-center/vmm/network-virtual) på käll-och mål Virtual Machine Managers servrarna. VM-nätverk ska vara länkade till det logiska nätverket på varje plats.
 - Ansluta virtuella datorer på Hyper-V-källvärdar till VM-källnätverket.
 
-## <a name="prepare-for-powershell"></a>Förbered dig för PowerShell
+## <a name="prepare-for-powershell"></a>Förbered för PowerShell
 
-Se till att du har Azure PowerShell redo att gå:
+Kontrol lera att du har Azure PowerShell redo att gå:
 
 - Om du redan använder PowerShell uppgraderar du till version 0.8.10 eller senare. [Läs mer](/powershell/azureps-cmdlets-docs) om hur du konfigurerar PowerShell.
-- När du har konfigurerat och konfigurerat PowerShell granskar du [tjänst cmdlets](/powershell/azure/overview).
-- Mer information om hur du använder parametervärden, indata och utdata i PowerShell läser du guiden [Kom igång.](/powershell/azure/get-started-azureps)
+- När du har konfigurerat och konfigurerat PowerShell granskar du [tjänst-cmdletarna](/powershell/azure/overview).
+- Om du vill veta mer om hur du använder parameter värden, indata och utdata i PowerShell läser du guiden [Kom igång](/powershell/azure/get-started-azureps) .
 
 ## <a name="set-up-a-subscription"></a>Konfigurera en prenumeration
 
-1. Logga in på ditt Azure-konto från PowerShell.
+1. Från PowerShell loggar du in på ditt Azure-konto.
 
    ```azurepowershell
    $UserName = "<user@live.com>"
@@ -63,7 +63,7 @@ Se till att du har Azure PowerShell redo att gå:
    Connect-AzAccount #-Credential $Cred
    ```
 
-1. Hämta en lista över dina prenumerationer med prenumerations-ID: er. Observera ID:t för den prenumeration där du vill skapa valvet för Återställningstjänster.
+1. Hämta en lista med dina prenumerationer med prenumerations-ID: n. Notera ID: t för den prenumeration som du vill skapa Recovery Services valvet i.
 
    ```azurepowershell
    Get-AzSubscription
@@ -77,21 +77,21 @@ Se till att du har Azure PowerShell redo att gå:
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-1. Skapa en Azure Resource Manager-resursgrupp om du inte har någon.
+1. Skapa en Azure Resource Manager resurs grupp om du inte har någon.
 
    ```azurepowershell
    New-AzResourceGroup -Name #ResourceGroupName -Location #location
    ```
 
-1. Skapa ett nytt Recovery Services-valv. Spara arkivobjektet i en variabel som ska användas senare.
+1. Skapa ett nytt Recovery Services-valv. Spara valvet-objektet i en variabel som ska användas senare.
 
    ```azurepowershell
    $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    ```
 
-   Du kan hämta valve-objektet när du `Get-AzRecoveryServicesVault` har skapat det med hjälp av cmdleten.
+   Du kan hämta valvet-objektet när du har skapat det med `Get-AzRecoveryServicesVault` hjälp av cmdleten.
 
-## <a name="set-the-vault-context"></a>Ange valvkontext
+## <a name="set-the-vault-context"></a>Ange valv kontext
 
 1. Hämta ett befintligt valv.
 
@@ -99,21 +99,21 @@ Se till att du har Azure PowerShell redo att gå:
    $vault = Get-AzRecoveryServicesVault -Name #vaultname
    ```
 
-1. Ange valvkontexten.
+1. Ange valv kontexten.
 
    ```azurepowershell
    Set-AzRecoveryServicesAsrVaultContext -Vault $vault
    ```
 
-## <a name="install-the-site-recovery-provider"></a>Installera providern för platsåterställning
+## <a name="install-the-site-recovery-provider"></a>Installera Site Recovery-providern
 
-1. Skapa en katalog på datorn För virtual Machine Manager genom att köra följande kommando:
+1. Skapa en katalog på Virtual Machine Manager datorn genom att köra följande kommando:
 
    ```azurepowershell
    New-Item -Path C:\ASR -ItemType Directory
    ```
 
-1. Extrahera filerna med hjälp av den hämtade providerinstallationsfilen.
+1. Extrahera filerna med hjälp av installations filen för den hämtade providern.
 
    ```console
    pushd C:\ASR\
@@ -143,7 +143,7 @@ Se till att du har Azure PowerShell redo att gå:
    $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
    ```
 
-## <a name="create-and-associate-a-replication-policy"></a>Skapa och associera en replikeringsprincip
+## <a name="create-and-associate-a-replication-policy"></a>Skapa och koppla en replikeringsprincip
 
 1. Skapa en replikeringsprincip, i det här fallet för Hyper-V 2012 R2, enligt följande:
 
@@ -161,9 +161,9 @@ Se till att du har Azure PowerShell redo att gå:
    ```
 
    > [!NOTE]
-   > Molnet för Virtual Machine Manager kan innehålla Hyper-V-värdar som kör olika versioner av Windows Server, men replikeringsprincipen gäller för en viss version av ett operativsystem. Om du har olika värdar som körs på olika operativsystem skapar du separata replikeringsprinciper för varje system. Om du till exempel har fem värdar som körs på Windows Server 2012 och tre värdar som körs på Windows Server 2012 R2 skapar du två replikeringsprinciper. Du skapar en för varje typ av operativsystem.
+   > Virtual Machine Manager molnet kan innehålla Hyper-V-värdar som kör olika versioner av Windows Server, men replikeringsprincipen är en särskild version av ett operativ system. Om du har olika värdar som kör på olika operativ system kan du skapa separata replikeringsprinciper för varje system. Om du till exempel har fem värdar som kör på Windows Server 2012 och tre värdar som kör på Windows Server 2012 R2, skapar du två replikeringsprinciper. Du skapar ett för varje typ av operativ system.
 
-1. Hämta den primära skyddsbehållaren (primärt virtual machine manager-moln) och återställningsskyddsbehållaren (recovery Virtual Machine Manager-molnet).
+1. Hämta den primära skydds containern (primär Virtual Machine Manager moln) och återställnings skydds behållare (återställnings Virtual Machine Manager moln).
 
    ```azurepowershell
    $PrimaryCloud = "testprimarycloud"
@@ -173,19 +173,19 @@ Se till att du har Azure PowerShell redo att gå:
    $recoveryprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -FriendlyName $RecoveryCloud;
    ```
 
-1. Hämta replikeringsprincipen som du skapade med det egna namnet.
+1. Hämta den replikeringsprincip du skapade med hjälp av det egna namnet.
 
    ```azurepowershell
    $policy = Get-AzRecoveryServicesAsrPolicy -FriendlyName $policyname
    ```
 
-1. Starta kopplingen mellan skyddsbehållaren (molnhanteraren för virtuell dator) med replikeringsprincipen.
+1. Starta associationen av skydds containern (Virtual Machine Manager molnet) med replikeringsprincipen.
 
    ```azurepowershell
    $associationJob  = New-AzRecoveryServicesAsrProtectionContainerMapping -Policy $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
    ```
 
-1. Vänta tills principanslutningsjobbet är klart. Om du vill kontrollera om jobbet är klart använder du följande PowerShell-kodavsnitt:
+1. Vänta tills princip associerings jobbet har slutförts. Om du vill kontrol lera om jobbet är klart använder du följande PowerShell-kodfragment:
 
    ```azurepowershell
    $job = Get-AzRecoveryServicesAsrJob -Job $associationJob
@@ -196,7 +196,7 @@ Se till att du har Azure PowerShell redo att gå:
    }
    ```
 
-1. När jobbet har slutförts kör du följande kommando:
+1. När jobbet har slutfört bearbetningen kör du följande kommando:
 
    ```azurepowershell
    if($isJobLeftForProcessing)
@@ -206,17 +206,17 @@ Se till att du har Azure PowerShell redo att gå:
    While($isJobLeftForProcessing)
    ```
 
-Följ stegen i [Övervaka aktivitet](#monitor-activity)om du vill kontrollera att åtgärden är slutförd .
+Följ stegen i [Övervaka aktivitet](#monitor-activity)för att kontrol lera att åtgärden har slutförts.
 
 ##  <a name="configure-network-mapping"></a>Konfigurera nätverksmappning
 
-1. Använd det här kommandot för att hämta servrar för det aktuella valvet. Kommandot lagrar platsåterställningsservrarna `$Servers` i matrisvariabeln.
+1. Använd det här kommandot för att hämta servrar för det aktuella valvet. Kommandot lagrar Site Recovery servrar i `$Servers` mat ris variabeln.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesAsrFabric
    ```
 
-1. Kör det här kommandot om du vill hämta nätverken för källservern för Virtual Machine Manager och målservern för Virtual Machine Manager.
+1. Kör det här kommandot för att hämta nätverken för käll Virtual Machine Managers servern och mål Virtual Machine Manager servern.
 
    ```azurepowershell
    $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[0]
@@ -225,9 +225,9 @@ Följ stegen i [Övervaka aktivitet](#monitor-activity)om du vill kontrollera at
    ```
 
    > [!NOTE]
-   > Källservern för Virtual Machine Manager kan vara den första eller andra i servermatrisen. Kontrollera servernamnen för Virtual Machine Manager och hämta nätverken på rätt sätt.
+   > Käll Virtual Machine Managers servern kan vara den första eller andra i Server matrisen. Kontrol lera Virtual Machine Manager Server namn och hämta nätverken på rätt sätt.
 
-1. Den här cmdleten skapar en mappning mellan det primära nätverket och återställningsnätverket. Det anger det primära nätverket som `$PrimaryNetworks`det första elementet i . Det anger återställningsnätverket som `$RecoveryNetworks`det första elementet i .
+1. Denna cmdlet skapar en mappning mellan det primära nätverket och återställnings nätverket. Den anger det primära nätverket som det första elementet i `$PrimaryNetworks`. Det anger återställnings nätverket som det första elementet `$RecoveryNetworks`i.
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
@@ -235,15 +235,15 @@ Följ stegen i [Övervaka aktivitet](#monitor-activity)om du vill kontrollera at
 
 ## <a name="enable-protection-for-vms"></a>Aktivera skydd för virtuella datorer
 
-När servrar, moln och nätverk har konfigurerats korrekt aktiverar du skydd för virtuella datorer i molnet.
+När servrarna, molnen och nätverken har kon figurer ATS korrekt aktiverar du skyddet för virtuella datorer i molnet.
 
-1. Om du vill aktivera skydd kör du följande kommando för att hämta skyddsbehållaren:
+1. Kör följande kommando för att hämta skydds behållaren för att aktivera skydd:
 
    ```azurepowershell
    $PrimaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -FriendlyName $PrimaryCloudName
    ```
 
-1. Hämta skyddsentiteten (VM), enligt följande:
+1. Hämta skydds enheten (VM) enligt följande:
 
    ```azurepowershell
    $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -FriendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
@@ -256,27 +256,27 @@ När servrar, moln och nätverk har konfigurerats korrekt aktiverar du skydd fö
    ```
 
 > [!NOTE]
-> Om du vill replikera till CMK-aktiverade hanterade diskar i Azure gör du följande steg med Az PowerShell 3.3.0 och framåt:
+> Om du vill replikera till CMK-aktiverade hanterade diskar i Azure utför du följande steg med AZ PowerShell 3.3.0 och senare:
 >
-> 1. Aktivera redundans till hanterade diskar genom att uppdatera vm-egenskaper
-> 1. Använd `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet för att hämta disk-ID:n för varje disk i det skyddade objektet
-> 1. Skapa ett ordlisteobjekt med cmdlet `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` för att innehålla mappning av disk-ID till diskkrypteringsuppsättning. Dessa diskkrypteringsuppsättningar ska skapas i föraningen av dig i målregionen.
-> 1. Uppdatera egenskaperna för `Set-AzRecoveryServicesAsrReplicationProtectedItem` virtuella datorer med cmdlet genom att skicka ordlisteobjektet i parametern **DiskIdToDiskEncryptionSetMap.**
+> 1. Aktivera redundans till hanterade diskar genom att uppdatera VM-egenskaper
+> 1. Använd `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdleten för att hämta disk-ID: t för varje disk i det skyddade objektet
+> 1. Skapa ett Dictionary-objekt `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` med hjälp av en cmdlet som innehåller mappningen av disk-ID till disk krypterings uppsättning. De här disk krypterings uppsättningarna skapas i förväg av dig i mål regionen.
+> 1. Uppdatera VM-egenskaperna med `Set-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet genom att skicka Dictionary-objektet i **DiskIdToDiskEncryptionSetMap** -parametern.
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest
 
-Om du vill testa distributionen kör du en testundanställning för en enda virtuell dator. Du kan också skapa en återställningsplan som innehåller flera virtuella datorer och köra en testundanställning för planen. Ett redundanstest simulerar redundans- och återställningsmekanismen i ett isolerat nätverk.
+Testa distributionen genom att köra ett redundanstest för en enskild virtuell dator. Du kan också skapa en återställnings plan som innehåller flera virtuella datorer och köra ett redundanstest för planen. Ett redundanstest simulerar redundans- och återställningsmekanismen i ett isolerat nätverk.
 
-1. Hämta den virtuella datorn som virtuella datorer kommer att växla över.
+1. Hämta den virtuella datorn dit de virtuella datorerna ska redundansväxla.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesASRFabric
    $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
    ```
 
-1. Utför en testväxling.
+1. Utför ett redundanstest.
 
-   För en enda virtuell dator:
+   För en enskild virtuell dator:
 
    ```azurepowershell
    $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
@@ -284,7 +284,7 @@ Om du vill testa distributionen kör du en testundanställning för en enda virt
    $jobIDResult = Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity -VMNetwork $RecoveryNetworks[1]
    ```
 
-   För en återhämtningsplan:
+   För en återställnings plan:
 
    ```azurepowershell
    $recoveryplanname = "test-recovery-plan"
@@ -294,13 +294,13 @@ Om du vill testa distributionen kör du en testundanställning för en enda virt
    $jobIDResult = Start-AzRecoveryServicesAsrTestFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan -VMNetwork $RecoveryNetworks[1]
    ```
 
-Följ stegen i [Övervaka aktivitet](#monitor-activity)om du vill kontrollera att åtgärden är slutförd .
+Följ stegen i [Övervaka aktivitet](#monitor-activity)för att kontrol lera att åtgärden har slutförts.
 
-## <a name="run-planned-and-unplanned-failovers"></a>Kör planerade och oplanerade redundans
+## <a name="run-planned-and-unplanned-failovers"></a>Köra planerade och oplanerad redundans
 
-1. Utför en planerad redundans.
+1. Utföra en planerad redundansväxling.
 
-   För en enda virtuell dator:
+   För en enskild virtuell dator:
 
    ```azurepowershell
    $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
@@ -308,7 +308,7 @@ Följ stegen i [Övervaka aktivitet](#monitor-activity)om du vill kontrollera at
    $jobIDResult = Start-AzRecoveryServicesAsrPlannedFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity
    ```
 
-   För en återhämtningsplan:
+   För en återställnings plan:
 
    ```azurepowershell
    $recoveryplanname = "test-recovery-plan"
@@ -318,9 +318,9 @@ Följ stegen i [Övervaka aktivitet](#monitor-activity)om du vill kontrollera at
    $jobIDResult = Start-AzRecoveryServicesAsrPlannedFailoverJob -Direction PrimaryToRecovery -RecoveryPlan $recoveryplan
    ```
 
-1. Utför en oplanerad redundans.
+1. Utföra en oplanerad redundansväxling.
 
-   För en enda virtuell dator:
+   För en enskild virtuell dator:
 
    ```azurepowershell
    $protectionEntity = Get-AzRecoveryServicesAsrProtectableItem -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
@@ -328,7 +328,7 @@ Följ stegen i [Övervaka aktivitet](#monitor-activity)om du vill kontrollera at
    $jobIDResult = Start-AzRecoveryServicesAsrUnplannedFailoverJob -Direction PrimaryToRecovery -ReplicationProtectedItem $protectionEntity
    ```
 
-   För en återhämtningsplan:
+   För en återställnings plan:
 
    ```azurepowershell
    $recoveryplanname = "test-recovery-plan"
@@ -340,7 +340,7 @@ Följ stegen i [Övervaka aktivitet](#monitor-activity)om du vill kontrollera at
 
 ## <a name="monitor-activity"></a>Övervaka aktivitet
 
-Använd följande kommandon för att övervaka redundansaktivitet. Vänta tills bearbetningen har avslutats mellan jobben.
+Använd följande kommandon för att övervaka redundansväxling. Vänta tills bearbetningen har slutförts mellan jobb.
 
 ```azurepowershell
 Do
@@ -361,4 +361,4 @@ if($isJobLeftForProcessing)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer](/powershell/module/az.recoveryservices) om Site Recovery med PowerShell-cmdlets i Resource Manager.
+[Läs mer](/powershell/module/az.recoveryservices) om hur du Site Recovery med PowerShell-cmdletar för Resource Manager.

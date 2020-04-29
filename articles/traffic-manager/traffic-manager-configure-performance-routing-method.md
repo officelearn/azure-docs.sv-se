@@ -1,6 +1,6 @@
 ---
-title: Konfigurera routningsmetod för prestandatrafik med Hjälp av Azure Traffic Manager | Microsoft-dokument
-description: I den här artikeln beskrivs hur du konfigurerar Traffic Manager för att dirigera trafik till slutpunkten med lägsta svarstid
+title: Konfigurera routningsmetoden för prestanda trafik med Azure Traffic Manager | Microsoft Docs
+description: Den här artikeln förklarar hur du konfigurerar Traffic Manager för att dirigera trafik till slut punkten med lägsta latens
 services: traffic-manager
 manager: twooley
 documentationcenter: ''
@@ -13,41 +13,41 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: rohink
 ms.openlocfilehash: f5e9b7690c28793a35c692a6125a6b11c7a140a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938759"
 ---
-# <a name="configure-the-performance-traffic-routing-method"></a>Konfigurera routningsmetoden för prestandatrafik
+# <a name="configure-the-performance-traffic-routing-method"></a>Konfigurera cirkulations metoden för prestanda trafik
 
-Med metoden För trafikroutning av prestanda kan du dirigera trafik till slutpunkten med den lägsta svarstiden från klientens nätverk. Vanligtvis är datacenter med den lägsta svarstiden närmast geografiskt avstånd. Den här trafikroutningsmetoden kan inte ta hänsyn till ändringar i realtid i nätverkskonfiguration eller belastning.
+Med routningsmetoden för prestanda trafik kan du dirigera trafik till slut punkten med den lägsta svars tiden från klientens nätverk. Normalt är data centret med lägsta latens närmast det geografiska avståndet. Den här routningsmetoden för trafik kan inte ta hänsyn till förändringar i real tid i nätverks konfigurationen eller belastningen.
 
-##  <a name="to-configure-performance-routing-method"></a>Så här konfigurerar du prestandaroutningsmetod
+##  <a name="to-configure-performance-routing-method"></a>Konfigurera routningsmetod för prestanda
 
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
-2. Sök efter **Traffic Manager-profilerna** i portalens sökfält och klicka sedan på det profilnamn som du vill konfigurera routningsmetoden för.
-3. I **profilbladet Traffic Manager** kontrollerar du att både molntjänsterna och webbplatserna som du vill inkludera i konfigurationen finns.
-4. Klicka på **Konfiguration**i avsnittet **Inställningar** och slutför följande i **bladet Konfiguration:**
-    1. För **inställningar för trafikroutningsmetod**väljer du **Prestanda**för **routningsmetod** .
-    2. Ange **slutpunktsövervakarens inställningar** identiska för alla slutpunkter i den här profilen enligt följande:
-        1. Välj lämpligt **protokoll**och ange **portnumret.** 
-        2. För **Bana** skriv */* ett snedstreck . Om du vill övervaka slutpunkter måste du ange en sökväg och ett filnamn. Ett snedstreck för framåt "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rotkatalogen (standard).
-        3. Klicka på **Spara**högst upp på sidan .
+2. I portalens sökfält söker du efter **Traffic Manager profiler** och klickar sedan på det profil namn som du vill konfigurera routningsmetod för.
+3. På bladet **Traffic Manager profil** kontrollerar du att både de moln tjänster och webbplatser som du vill inkludera i konfigurationen finns.
+4. I avsnittet **Inställningar** klickar du på **konfiguration**och slutför i **konfigurations** bladet på följande sätt:
+    1. För routningsmetoden för **trafikroutning** **väljer du** **prestanda**.
+    2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
+        1. Välj lämpligt **protokoll**och ange **port** numret. 
+        2. För **sökväg** anger du ett snedstreck */*. Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
+        3. Klicka på **Spara**längst upp på sidan.
 5.  Testa ändringarna i konfigurationen på följande sätt:
-    1.  Sök efter Profilnamnet Traffic Manager i portalens sökfält och klicka på Traffic Manager-profilen i de resultat som visas.
-    2.  Klicka på **Översikt**i profilbladet **Traffic Manager** .
-    3.  Profilbladet **Traffic Manager** visar DNS-namnet på din nyskapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) för att dirigeras till rätt slutpunkt som bestäms av routningstypen. I det här fallet dirigeras alla begäranden till slutpunkten med den lägsta svarstiden från klientens nätverk.
-6. När traffic manager-profilen har fungerat redigerar du DNS-posten på den auktoritära DNS-servern för att peka företagets domännamn på Traffic Manager-domännamnet.
+    1.  Sök efter namnet på Traffic Manager profilen i portalens sökfält och klicka på Traffic Manager profilen i resultaten som visas.
+    2.  I bladet **Traffic Manager** profil klickar du på **Översikt**.
+    3.  Bladet **Traffic Manager profil** visar DNS-namnet för din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) för att dirigeras till den högra slut punkten som fastställs av typen av routning. I det här fallet dirigeras alla begär anden till slut punkten med den lägsta svars tiden från klientens nätverk.
+6. När din Traffic Manager-profil fungerar redigerar du DNS-posten på den auktoritativa DNS-servern för att peka ditt företags domän namn till Traffic Manager domän namnet.
 
-![Konfigurera routningsmetod för prestandatrafik med Traffic Manager][1]
+![Konfigurera routningsmetoden för prestanda trafik med hjälp av Traffic Manager][1]
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [routningsmetoden för viktad trafik](traffic-manager-configure-weighted-routing-method.md).
 - Lär dig mer om [prioritetsroutningsmetoden](traffic-manager-configure-priority-routing-method.md).
 - Lär dig mer om den [geografiska routningsmetoden](traffic-manager-configure-geographic-routing-method.md).
-- Läs om hur du [testar Traffic Manager-inställningar](traffic-manager-testing-settings.md).
+- Lär dig hur du [testar Traffic Manager inställningar](traffic-manager-testing-settings.md).
 
 <!--Image references-->
 [1]: ./media/traffic-manager-performance-routing-method/traffic-manager-performance-routing-method.png

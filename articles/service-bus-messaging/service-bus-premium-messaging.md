@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus premium och standardnivåer
-description: I den här artikeln beskrivs standard- och premiumnivåer för Azure Service Bus. Jämför dessa nivåer och ger tekniska skillnader.
+title: Azure Service Bus Premium-och standard-nivåer
+description: I den här artikeln beskrivs Azure Service Buss standard-och Premium-nivåer. Jämför dessa nivåer och ger tekniska skillnader.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: ef3cc8d4c7354b43389244e72c2dbc5899b8db25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76774568"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer
@@ -37,9 +37,9 @@ En del övergripande skillnader visas i tabellen nedan.
 | Möjlighet att skala arbetsbelastningen uppåt och nedåt |Ej tillämpligt |
 | Meddelandestorlek upp till 1 MB |Meddelandestorlek upp till 256 kB |
 
-**Service Bus Premium-meddelanden** ger resursisolering på processor- och minnesnivån så att varje kunds arbetsbelastning körs i isolering. Den här resursbehållaren kallas *för en meddelandeenhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2, 4 eller 8 meddelandeenheter för varje Service Bus Premium-namnområde. En enda arbetsbelastning eller entitet kan sträcka sig över flera meddelandeenheter och antalet meddelandeenheter kan ändras efter behag. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen.
+**Service Bus Premium-meddelanden** ger resursisolering på processor- och minnesnivån så att varje kunds arbetsbelastning körs i isolering. Den här resurs behållaren kallas för en *meddelande enhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2, 4 eller 8 meddelande enheter för varje Service Bus Premium-namnrymd. En enskild arbets belastning eller entitet kan sträcka sig över flera meddelande enheter och antalet meddelande enheter kan ändras. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen.
 
-Prestanda är inte bara mer förutsägbara och tillgängliga, utan de är snabbare också. Service Bus Premium Messaging bygger på lagringsmotorn som introducerades i [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Med Premium-meddelanden är topprestandan mycket snabbare än på standardnivån.
+Prestanda är inte bara mer förutsägbara och tillgängliga, utan de är snabbare också. Service Bus Premium-meddelanden bygger på lagrings motorn som introducerades i [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Med Premium-meddelanden är topprestandan mycket snabbare än på standardnivån.
 
 ## <a name="premium-messaging-technical-differences"></a>Premium-meddelanden – tekniska skillnader
 
@@ -55,44 +55,44 @@ Eftersom meddelandehanteringen på premiumnivå körs i en helt isolerad körnin
 
 Om du har kod som körs med meddelandehantering på standardnivå och vill portera den till premiumnivån kontrollerar du att egenskapen [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) har värdet **false** (standardvärdet).
 
-## <a name="premium-messaging-resource-usage"></a>Resursanvändning för Premium Messaging
-I allmänhet kan alla åtgärder på en entitet orsaka CPU- och minnesanvändning. Här är några av dessa åtgärder: 
+## <a name="premium-messaging-resource-usage"></a>Användning av Premium-meddelande resurser
+I allmänhet kan alla åtgärder på en entitet orsaka CPU-och minnes användning. Här följer några av de här åtgärderna: 
 
-- Hanteringsåtgärder som CRUD-åtgärder (Skapa, Hämta, Uppdatera och Ta bort) i köer, ämnen och prenumerationer.
-- Körningsåtgärder (skicka och ta emot meddelanden)
-- Övervakning av åtgärder och varningar
+- Hanterings åtgärder som CRUD (skapa, Hämta, uppdatera och ta bort) åtgärder för köer, ämnen och prenumerationer.
+- Körnings åtgärder (skicka och ta emot meddelanden)
+- Övervaka åtgärder och aviseringar
 
-Den extra CPU och minnesanvändning är inte prissatt dessutom dock. För Premium Messaging-nivån finns ett enda pris för meddelandeenheten.
+Den ytterligare CPU-och minnes användningen är inte priss ätts även. För Premium-meddelande nivån finns det ett enda pris för meddelande enheten.
 
-Cpu- och minnesanvändningen spåras och visas för dig av följande skäl: 
+PROCESSOR-och minnes användningen spåras och visas på följande orsaker: 
 
-- Ge insyn i systemets interna
-- Förstå kapaciteten hos köpta resurser.
-- Kapacitetsplanering som hjälper dig att bestämma dig för att skala upp/ner.
+- Lämna insyn i systemets interna
+- Förstå kapaciteten hos de köpta resurserna.
+- Kapacitets planering som hjälper dig att välja att skala upp/ned.
 
-## <a name="messaging-unit---how-many-are-needed"></a>Meddelandeenhet - Hur många behövs?
+## <a name="messaging-unit---how-many-are-needed"></a>Meddelande enhet – hur många behövs?
 
-När du etablerar ett Azure Service Bus Premium-namnområde måste antalet tilldelade meddelandeenheter anges. Dessa meddelandeenheter är dedikerade resurser som allokeras till namnområdet.
+När du konfigurerar ett Azure Service Bus Premium-namnområde måste antalet allokerade meddelande enheter anges. Dessa meddelande enheter är dedikerade resurser som är allokerade till namn området.
 
-Antalet meddelandeenheter som allokerats till servicebusspremiernas namnområde kan **justeras dynamiskt** för att ta hänsyn till ändringen (ökning eller minskning) av arbetsbelastningar.
+Antalet meddelande enheter som tilldelas Service Bus Premium-namnrymden kan **justeras dynamiskt** till faktor i ändringen (ökning eller minskning) i arbets belastningar.
 
-Det finns ett antal faktorer att ta hänsyn till när du bestämmer antalet meddelandeenheter för din arkitektur:
+Det finns ett antal faktorer att tänka på när du bestämmer antalet meddelande enheter för din arkitektur:
 
-- Börja med ***1 eller 2 meddelandeenheter*** som tilldelats ditt namnområde.
-- Studera mätvärdena för CPU-användning i [resursanvändningsmåtten](service-bus-metrics-azure-monitor.md#resource-usage-metrics) för ditt namnområde.
-    - Om CPU-användningen är ***lägre än 20 %*** kanske du kan skala ***ned*** antalet meddelandeenheter som allokerats till ditt namnområde.
-    - Om CPU-användningen är ***över 70 %*** kommer ditt program att dra nytta av ***att skala upp*** antalet meddelandeenheter som allokerats till ditt namnområde.
+- Börja med ***1 eller 2 meddelande enheter*** som har tilldelats ditt namn område.
+- Studera processor användnings måtten i [användnings statistik för resursanvändningen](service-bus-metrics-azure-monitor.md#resource-usage-metrics) för ditt namn område.
+    - Om CPU-användningen är ***under 20%*** kanske du kan ***skala upp*** antalet meddelande enheter som allokerats till ditt namn område.
+    - Om CPU-användningen är ***över 70%*** kommer ditt program att ha nytta av att ***skala upp*** antalet meddelande enheter som allokerats till ditt namn område.
 
-Processen att skala de resurser som allokerats till en Service Bus-namnområden kan automatiseras med hjälp av [Azure Automation Runbooks](../automation/automation-quickstart-create-runbook.md).
+Processen med att skala resurserna som är allokerade till ett Service Bus-namnområden kan automatiseras med hjälp av [Azure Automation runbooks](../automation/automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> **Skalning** av resurser som allokerats till namnområdet kan vara antingen förebyggande eller reaktiv.
+> **Skalning** av resurser som är allokerade till namn området kan vara antingen ogiltiga eller reaktivt.
 >
->  * **Förebyggande:** Om ytterligare arbetsbelastning förväntas (på grund av säsongsvariationer eller trender) kan du fortsätta att allokera fler meddelandeenheter till namnområdet innan arbetsbelastningarna träffar.
+>  * **Ogiltiga**: om ytterligare arbets belastning förväntas (på grund av säsongs beroende eller trender) kan du fortsätta med att allokera fler meddelande enheter till namn området innan arbets belastningarna nåtts.
 >
->  * **Reaktiv:** Om ytterligare arbetsbelastningar identifieras genom att studera resursanvändningsmåtten kan ytterligare resurser allokeras till namnområdet för att inkludera ökande efterfrågan.
+>  * **Reaktiv**: om ytterligare arbets belastningar identifieras genom att studera resursanvändnings måtten kan ytterligare resurser allokeras till namn området för att införliva ökande efter frågan.
 >
-> Faktureringsmätarena för Service Bus är varje timme. När det gäller uppskalning betalar du bara för de extra resurserna för de timmar som dessa användes.
+> Fakturerings mätare för Service Bus per timme. Om du skalar upp, betalar du bara för de ytterligare resurserna för de timmar som de användes.
 >
 
 ## <a name="get-started-with-premium-messaging"></a>Kom igång med Premium-meddelandetjänster
@@ -107,10 +107,10 @@ Du kan också skapa [Premium-namnområden med hjälp av Azure Resource Manager-m
 
 I följande länkar kan du lära dig mer om Service Bus-meddelanden:
 
-* [Introduktion till Azure Service Bus Premium Messaging (blogginlägg)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introduktion till Azure Service Bus Premium-meddelanden (blogg inlägg)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introduktion till Azure Service Bus Premium-meddelanden (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Översikt över Service Bus-meddelanden](service-bus-messaging-overview.md)
-* [Komma igång med servicebussköer](service-bus-dotnet-get-started-with-queues.md)
+* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
 
 <!--Image references-->
 

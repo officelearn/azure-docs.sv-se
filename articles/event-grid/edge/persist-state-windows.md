@@ -1,6 +1,6 @@
 ---
-title: Beständigt tillstånd i Windows – Azure Event Grid IoT Edge | Microsoft-dokument
-description: Beständigt tillstånd i Windows
+title: Spara tillstånd i Windows-Azure Event Grid IoT Edge | Microsoft Docs
+description: Sparat tillstånd i Windows
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,26 +10,26 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77086623"
 ---
-# <a name="persist-state-in-windows"></a>Beständigt tillstånd i Windows
+# <a name="persist-state-in-windows"></a>Sparat tillstånd i Windows
 
-Ämnen och prenumerationer som skapats i modulen Event Grid lagras som standard i behållarfilsystemet. Utan beständighet, om modulen distribueras om, skulle alla metadata som skapas gå förlorade. Om du vill bevara data över distributioner och omstarter måste du spara data utanför behållarfilsystemet. 
+Ämnen och prenumerationer som skapas i Event Grid-modulen lagras som standard i behållar fil systemet. Utan persistence, om modulen har distribuerats om, kommer alla metadata som skapats att gå förlorade. Om du vill bevara data mellan distributioner och omstarter måste du spara data utanför behållar fil systemet. 
 
-Som standard sparas endast metadata och händelser lagras fortfarande i minnet för bättre prestanda. Följ avsnittet Beständiga händelser för att även aktivera händelsebeständighet.
+Som standard sparas endast metadata och händelser lagras fortfarande i minnet för bättre prestanda. Följ avsnittet beständiga händelser för att aktivera händelse beständighet.
 
-Den här artikeln innehåller de steg som krävs för att distribuera Event Grid-modulen med uthållighet i Windows-distributioner.
+Den här artikeln innehåller de steg som krävs för att distribuera Event Grid-modulen med persistence i Windows-distributioner.
 
 > [!NOTE]
->Event Grid-modulen körs som en **lågbehörighetsanvändarcontaineranvändareuser** i Windows.
+>Event Grid-modulen körs som en låg privilegie rad användar **ContainerUser** i Windows.
 
-## <a name="persistence-via-volume-mount"></a>Persistens via volymfäste
+## <a name="persistence-via-volume-mount"></a>Persistence via volym montering
 
-[Docker-volymer](https://docs.docker.com/storage/volumes/) används för att bevara data över distributioner. Om du vill montera en volym måste du skapa den med dockerkommandon, ge behörighet så att behållaren kan läsa, skriva till den och sedan distribuera modulen.
+[Docker-volymer](https://docs.docker.com/storage/volumes/) används för att bevara data mellan distributioner. Om du vill montera en volym måste du skapa den med Docker-kommandon, ge behörigheter så att behållaren kan läsa, skriva till den och sedan distribuera modulen.
 
 1. Skapa en volym genom att köra följande kommando:
 
@@ -42,7 +42,7 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
    ```
-1. Hämta värdkatalogen som volymen mappar till genom att köra kommandot nedan
+1. Hämta värd katalogen som volymen mappar till genom att köra kommandot nedan
 
     ```sh
     docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
@@ -69,15 +69,15 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
           }
    ]
    ```
-1. Lägg till gruppen **Användare** i värdet som **monterats** på följande sätt:
+1. Lägg till gruppen **användare** till värdet som påpekas av **monterings punkt** enligt följande:
     1. Starta Utforskaren.
-    1. Navigera till mappen som pekas av **Mountpoint**.
-    1. Högerklicka och välj sedan **Egenskaper**.
-    1. Välj **Säkerhet**.
-    1. Under *Grupp- eller användarnamn väljer du **Redigera**.
-    1. Välj **Lägg** `Users`till , välj **Kontrollera namn**och välj **Ok**.
-    1. Under *Behörigheter för användare*väljer du **Ändra**och väljer **Ok**.
-1. Använd **bindningar** för att montera den här volymen och distribuera om event grid-modulen från Azure-portalen
+    1. Navigera till mappen som är påpekad av **monterings punkt**.
+    1. Högerklicka på och välj sedan **Egenskaper**.
+    1. Välj **säkerhet**.
+    1. Under * grupp-eller användar namn väljer du **Redigera**.
+    1. Välj **Lägg till**, `Users`ange, Välj **kontrol lera namn**och välj **OK**.
+    1. Under *behörigheter för användare*väljer du **ändra**och sedan **OK**.
+1. Använd **bindningar** för att montera volymen och distribuera om Event Grid modul från Azure Portal
 
    Exempel:
 
@@ -112,7 +112,7 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
     ```
 
    >[!IMPORTANT]
-   >Ändra inte den andra delen av bindningsvärdet. Det pekar på en specifik plats i modulen. För Event Grid-modulen i windows måste det vara **C:\\app\\metadataDb**.
+   >Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För Event Grid modul i Windows måste den vara **C:\\app\\metadataDb**.
 
 
     Exempel:
@@ -148,11 +148,11 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
     }
     ```
 
-## <a name="persistence-via-host-directory-mount"></a>Persistens via värdkatalogfäste
+## <a name="persistence-via-host-directory-mount"></a>Beständighet via värd katalog montering
 
-I stället för att montera en volym kan du skapa en katalog på värdsystemet och montera den katalogen.
+I stället för att montera en volym kan du skapa en katalog på värd systemet och montera den katalogen.
 
-1. Skapa en katalog i värdfilsystemet genom att köra följande kommando.
+1. Skapa en katalog på värd fil systemet genom att köra följande kommando.
 
    ```sh
    mkdir <your-directory-name-here>
@@ -163,7 +163,7 @@ I stället för att montera en volym kan du skapa en katalog på värdsystemet o
    ```sh
    mkdir C:\myhostdir
    ```
-1. Använd **Bindningar** för att montera katalogen och distribuera om event grid-modulen från Azure-portalen.
+1. Använd **bindningar** för att montera katalogen och distribuera om Event Grid-modulen från Azure Portal.
 
     ```json
     {
@@ -176,7 +176,7 @@ I stället för att montera en volym kan du skapa en katalog på värdsystemet o
     ```
 
     >[!IMPORTANT]
-    >Ändra inte den andra delen av bindningsvärdet. Det pekar på en specifik plats i modulen. För modulen Event Grid i windows måste det vara **C:\\app\\metadataDb**.
+    >Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För Event Grid modulen i Windows måste den vara **C\\: app\\-metadataDb**.
 
     Exempel:
 
@@ -210,17 +210,17 @@ I stället för att montera en volym kan du skapa en katalog på värdsystemet o
          }
     }
     ```
-## <a name="persist-events"></a>Bevara händelser
+## <a name="persist-events"></a>Kvarhåll händelser
 
-Om du vill aktivera händelsebeständighet måste du först aktivera händelser persistens antingen via volymmontering eller värdkatalogfäste med hjälp av ovanstående avsnitt.
+Om du vill aktivera händelse persistence måste du först aktivera händelser som beständiges via volym montering eller värd katalog montering med hjälp av ovanstående avsnitt.
 
-Viktiga saker att notera om kvarstående händelser:
+Viktiga saker att tänka på när du behåller händelser:
 
-* Beständiga händelser aktiveras per händelseprenumeration och är opt-in när en volym eller katalog har monterats.
-* Händelsebeständighet har konfigurerats på en händelseprenumeration vid skapande och kan inte ändras när händelseprenumerationen har skapats. Om du vill växla händelsebeständighet måste du ta bort och återskapa händelseprenumerationen.
-* Ihållande händelser är nästan alltid långsammare än i minnesoperationer, men hastighetsskillnaden är mycket beroende av enhetens egenskaper. Avvägningen mellan hastighet och tillförlitlighet är inneboende i alla meddelandesystem men blir bara en märkbar i stor skala.
+* Beständiga händelser aktive ras för en prenumeration per händelse och är valbar när en volym eller katalog har monterats.
+* Händelse persistence konfigureras för en händelse prenumeration när den skapas och kan inte ändras när händelse prenumerationen har skapats. Om du vill växla händelse beständighet måste du ta bort och återskapa händelse prenumerationen.
+* Beständiga händelser är nästan alltid långsammare än i minnes åtgärder, men hastigheten är mycket beroende av enhetens egenskaper. Kompromissen mellan hastighet och tillförlitlighet är till för alla meddelande system men blir bara en märkbart synlig i stor skala.
 
-Om du vill aktivera händelsebeständighet `persistencePolicy` `true`för en händelseprenumeration ställer du in på:
+Om du vill aktivera händelse beständighet för en `persistencePolicy` händelse `true`prenumeration anger du till:
 
  ```json
         {

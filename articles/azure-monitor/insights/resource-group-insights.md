@@ -1,6 +1,6 @@
 ---
-title: Insikter för Azure Monitor Resource Group | Microsoft-dokument
-description: Förstå hälsotillståndet och prestanda för dina distribuerade program och tjänster på resursgruppsnivå med Azure Monitor
+title: Azure Monitor resurs grupps Insights | Microsoft Docs
+description: Förstå hälso tillståndet och prestandan för dina distribuerade program och tjänster på resurs grupps nivå med Azure Monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: NumberByColors
@@ -8,115 +8,115 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663546"
 ---
-# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resursgrupper med Azure Monitor (förhandsversion)
+# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Övervaka resurs grupper med Azure Monitor (för hands version)
 
-Moderna applikationer är ofta komplexa och distribueras med många diskreta delar som arbetar tillsammans för att leverera en tjänst. Azure Monitor känner igen den här komplexiteten och ger övervakningsinsikter för resursgrupper. Detta gör det enkelt att triage och diagnostisera eventuella problem dina individuella resurser möter, samtidigt som sammanhang om hälsa och prestanda för resursgruppen&mdash;och ditt program&mdash;som helhet.
+Moderna program är ofta komplexa och mycket distribuerade med många diskreta delar som arbetar tillsammans för att leverera en tjänst. Den här komplexiteten är att Azure Monitor ger övervaknings insikter för resurs grupper. Detta gör det enkelt att prioritering och diagnostisera eventuella problem som kan uppstå för enskilda resurser, samtidigt som den erbjuder kontext och prestanda för resurs gruppen&mdash;och ditt program&mdash;som helhet.
 
-## <a name="access-insights-for-resource-groups"></a>Få tillgång till insikter för resursgrupper
+## <a name="access-insights-for-resource-groups"></a>Få åtkomst till insikter för resurs grupper
 
-1. Välj **Resursgrupper** i navigeringsfältet på vänster sida.
-2. Välj en av dina resursgrupper som du vill utforska. (Om du har ett stort antal resursgrupper som filtrerar efter prenumeration kan det ibland vara till hjälp.)
-3. Om du vill komma åt statistik för en resursgrupp klickar du på **Insikter** på menyn till vänster i en resursgrupp.
+1. Välj **resurs grupper** i navigerings fältet på vänster sida.
+2. Välj en av dina resurs grupper som du vill utforska. (Om du har ett stort antal resurs grupper kan filtrering av prenumeration ibland vara till hjälp.)
+3. Om du vill komma åt insikter för en resurs grupp klickar du på **insikter** på den vänstra menyn i valfri resurs grupp.
 
-![Översiktssida för resursgruppsstatistik](./media/resource-group-insights/0001-overview.png)
+![Skärm bild av översikts sidan för resurs gruppens insikter](./media/resource-group-insights/0001-overview.png)
 
-## <a name="resources-with-active-alerts-and-health-issues"></a>Resurser med aktiva aviseringar och hälsoproblem
+## <a name="resources-with-active-alerts-and-health-issues"></a>Resurser med aktiva aviseringar och hälso problem
 
-Översiktssidan visar hur många aviseringar som har avfyrats och fortfarande är aktiva, tillsammans med den aktuella Azure Resource Health för varje resurs. Tillsammans kan den här informationen hjälpa dig att snabbt hitta alla resurser som har problem. Aviseringar hjälper dig att identifiera problem i koden och hur du har konfigurerat infrastrukturen. Azure Resource Health ytor problem med Azure-plattformen själv, som inte är specifika för dina enskilda program.
+På sidan Översikt visas hur många aviseringar som har utlösts och fortfarande är aktiva, tillsammans med den aktuella Azure Resource Health för varje resurs. Tillsammans kan den här informationen hjälpa dig att snabbt hitta alla resurser som har problem. Aviseringar hjälper dig att identifiera problem i din kod och hur du har konfigurerat din infrastruktur. Azure Resource Health problem med själva Azure-plattformen, som inte är specifika för dina enskilda program.
 
-![Skärmbild av hälsofönstret för Azure Resource](./media/resource-group-insights/0002-overview.png)
+![Skärm bild av Azure Resource Health fönstret](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Azure Resource Health
 
-Om du vill visa Azure Resource Health markerar du rutan **Visa Azure Resource Health** ovanför tabellen. Den här kolumnen är dold som standard för att hjälpa sidan att läsas in snabbt.
+Om du vill visa Azure Resource Health markerar du rutan **visa Azure Resource Health** ovanför tabellen. Den här kolumnen är dold som standard för att under lätta sid inläsningen.
 
-![Skärmbild med resurshälsodiagram tillagt](./media/resource-group-insights/0003-overview.png)
+![Skärm bild där resurs hälso diagram har lagts till](./media/resource-group-insights/0003-overview.png)
 
-Som standard grupperas resurserna efter applager och resurstyp. **Applager** är en enkel kategorisering av resurstyper, som bara finns inom ramen för översiktssidan för resursgruppsinsikter. Det finns resurstyper relaterade till programkod, beräkningsinfrastruktur, nätverk, lagring + databaser. Hanteringsverktyg får sina egna applager och alla andra resurser kategoriseras som tillhörande det **andra** applagret. Den här gruppningen kan hjälpa dig att snabbt se vilka delsystem i ditt program som är felfria och ohälsosamma.
+Som standard grupperas resurserna efter app-skikt och resurs typ. **App Layer** är en enkel kategorisering av resurs typer som bara finns i kontexten för översikts sidan för resurs grupper. Det finns resurs typer som är relaterade till program kod, beräknings infrastruktur, nätverk, lagring + databaser. Hanterings verktyg hämtar egna app-lager och varje annan resurs kategoriseras som tillhöra det **andra** App-lagret. Den här grupperingen kan hjälpa dig att se vilka under system i ditt program som är felfria och felaktiga.
 
-## <a name="diagnose-issues-in-your-resource-group"></a>Diagnostisera problem i resursgruppen
+## <a name="diagnose-issues-in-your-resource-group"></a>Diagnostisera problem i resurs gruppen
 
-Sidan Resursgruppsstatistik innehåller flera andra verktyg som kan hjälpa dig att diagnostisera problem
+Sidan resurs grupp insikter innehåller flera andra verktyg som är begränsade till att hjälpa dig att diagnostisera problem
 
    |         |          |
    | ---------------- |:-----|
-   | [**Varningar**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Visa, skapa och hantera aviseringar. |
-   | [**Statistik**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualisera och utforska dina måttbaserade data.    |
-   | [**Aktivitetsloggar**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Händelser på prenumerationsnivå som har inträffat i Azure.  |
-   | [**Programkarta**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navigera i det distribuerade programmets topologi för att identifiera flaskhalsar eller felpunkter för prestanda. |
+   | [**Aviseringar**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Visa, skapa och hantera dina aviseringar. |
+   | [**Mått**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualisera och utforska dina Metric-baserade data.    |
+   | [**Aktivitetsloggar**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Händelser på prenumerations nivå som har inträffat i Azure.  |
+   | [**Program karta**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navigera i den distribuerade appens topologi för att identifiera Flask halsar för prestanda eller felaktiga hotspots. |
 
-## <a name="failures-and-performance"></a>Fel och prestanda
+## <a name="failures-and-performance"></a>Haverier och prestanda
 
-Vad händer om du har märkt att ditt program körs långsamt eller om användarna har rapporterat fel? Det är tidskrävande att söka igenom alla dina resurser för att isolera problem.
+Vad händer om du har märkt att programmet körs långsamt eller om användarna har rapporterat fel? Det tar tid att söka igenom alla resurser för att isolera problem.
 
-Flikarna **Prestanda** och **fel förenklar** den här processen genom att sammanföra prestanda- och feldiagnostiska vyer för många vanliga resurstyper.
+Flikarna **prestanda** och **fel** fören klar den här processen genom att samla in prestanda-och fel diagnostiska vyer för många vanliga resurs typer.
 
-De flesta resurstyper öppnar ett galleri med Azure Monitor-arbetsboksmallar. Varje arbetsbok som du skapar kan anpassas, sparas, delas med ditt team och återanvändas i framtiden för att diagnostisera liknande problem.
+De flesta resurs typer öppnar ett galleri med Azure Monitor mallar för arbets böcker. Varje arbets bok som du skapar kan anpassas, sparas, delas med ditt team och återanvändas i framtiden för att diagnosticera liknande problem.
 
-### <a name="investigate-failures"></a>Undersöka fel
+### <a name="investigate-failures"></a>Undersök felen
 
-Om du vill testa fliken Fel väljer du **Fel** under **Undersök** i menyn till vänster.
+Om du vill testa fliken felen väljer du **felen** under **Undersök** i den vänstra menyn.
 
-Menyraden till vänster ändras när du har gjort ditt val och erbjuder nya alternativ.
+Den vänstra meny raden ändras när ditt val har gjorts, vilket ger dig nya alternativ.
 
-![Skärmbild av översiktsfönstret Fel](./media/resource-group-insights/00004-failures.png)
+![Skärm bild av felöversikts fönstret](./media/resource-group-insights/00004-failures.png)
 
-När App Service väljs visas ett galleri med Azure Monitor-arbetsboksmallar.
+När App Service väljs visas ett galleri med mallar för Azure Monitor-arbetsböcker.
 
-![Skärmbild av programarbetsboksgalleriet](./media/resource-group-insights/0005-failure-insights-workbook.png)
+![Skärm bild av Galleri för program arbets boken](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
-Om du väljer mallen för Felstatistik öppnas arbetsboken.
+Om du väljer mallen för att Visa felblickar öppnas arbets boken.
 
-![Skärmbild av felrapport](./media/resource-group-insights/0006-failure-visual.png)
+![Skärm bild av felrapport](./media/resource-group-insights/0006-failure-visual.png)
 
-Du kan markera någon av raderna. Markeringen visas sedan i en grafisk detaljvy.
+Du kan välja vilken som helst av raderna. Valet visas sedan i en grafisk detaljvy.
 
-![Skärmbild av felinformation](./media/resource-group-insights/0007-failure-details.png)
+![Skärm bild av information om problem](./media/resource-group-insights/0007-failure-details.png)
 
-Arbetsböcker abstraherar det svåra arbetet med att skapa anpassade rapporter och visualiseringar till ett enkelt förbrukningsbart format. Medan vissa användare kanske bara vill justera de fördefinierade parametrarna, är arbetsböcker helt anpassningsbara.
+Arbets böcker sammanfattar det svåra arbetet med att skapa anpassade rapporter och visualiseringar i ett enkelt förbruknings Bart format. Vissa användare kanske bara vill justera de förinställda parametrarna, men arbets böcker är helt anpassningsbara.
 
-Om du vill få en uppfattning om hur arbetsboken fungerar internt väljer du **Redigera** i det övre fältet.
+För att få en uppfattning om hur den här arbets boken fungerar internt väljer du **Redigera** i det översta fältet.
 
-![Skärmbild av ytterligare redigeringsalternativ](./media/resource-group-insights/0008-failure-edit.png)
+![Skärm bild av ytterligare redigerings alternativ](./media/resource-group-insights/0008-failure-edit.png)
 
-Ett antal **redigeringsrutor** visas i närheten av arbetsbokens olika element. Markera rutan **Redigera** under operationssagen.
+Ett antal **redigerings** rutor visas nära de olika elementen i arbets boken. Välj **redigerings** rutan under tabellen med åtgärder.
 
-![Skärmbild av redigeringsrutor](./media/resource-group-insights/0009-failure-edit-graph.png)
+![Skärm bild av redigerings rutor](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Detta visar den underliggande loggfrågan som driver tabellvisualiseringen.
+Detta visar den underliggande logg frågan som kör tabell visualiseringen.
 
- ![Skärmbild av loggfrågefönstret](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Skärm bild av fönstret logg fråga](./media/resource-group-insights/0010-failure-edit-query.png)
 
-Du kan ändra frågan direkt. Du kan också använda den som referens och låna av den när du utformar en egen anpassad parameteriserad arbetsbok.
+Du kan ändra frågan direkt. Eller så kan du använda den som referens och låna från den när du skapar en egen anpassad parametriserad arbets bok.
 
 ### <a name="investigate-performance"></a>Undersök prestanda
 
-Performance erbjuder ett eget galleri med arbetsböcker. För App Service erbjuder den fördefinierade programprestandaarbetsboken följande vy:
+Prestanda erbjuder ett eget galleri med arbets böcker. För att App Service arbets boken för fördefinierade program prestanda erbjuder du följande vy:
 
- ![Skärmbild av prestandavyn](./media/resource-group-insights/0011-performance.png)
+ ![Skärm bild av vyn prestanda](./media/resource-group-insights/0011-performance.png)
 
-I det här fallet, om du väljer redigera ser du att den här uppsättningen visualiseringar drivs av Azure Monitor Metrics.
+I det här fallet om du väljer Redigera ser du att den här uppsättningen visualiseringar drivs av Azure Monitor mått.
 
- ![Skärmbild av prestandavyn med Azure-mått](./media/resource-group-insights/0012-performance-metrics.png)
+ ![Skärm bild av prestanda visning med Azure-mått](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="enabling-access-to-alerts"></a>Aktivera åtkomst till aviseringar
 
-Om du vill se aviseringar i Azure Monitor för resursgrupper måste någon med en ägar- eller deltagarroll för den här prenumerationen öppna Azure Monitor för resursgrupper för alla resursgrupper i prenumerationen. Detta gör det möjligt för alla med läsbehörighet att se aviseringar i Azure Monitor för resursgrupper för alla resursgrupper i prenumerationen. Om du har en ägar- eller deltagarroll uppdaterar du den här sidan om några minuter.
+Om du vill visa aviseringar i Azure Monitor för resurs grupper måste någon med rollen ägare eller deltagare för den här prenumerationen öppna Azure Monitor för resurs grupper för en resurs grupp i prenumerationen. Detta gör att alla med Läs behörighet kan se aviseringar i Azure Monitor för resurs grupper för alla resurs grupper i prenumerationen. Om du har en ägare eller deltagar roll uppdaterar du den här sidan om några minuter.
 
-Azure Monitor för resursgrupper förlitar sig på Azure Monitor Alerts Management-systemet för att hämta aviseringsstatus. Hantering av aviseringar är inte konfigurerad för varje resursgrupp och prenumeration som standard, och den kan bara aktiveras av någon med en ägar- eller deltagarroll. Det kan aktiveras antingen genom att:
-* Öppna Azure Monitor för resursgrupper för alla resursgrupper i prenumerationen.
-* Eller genom att gå till prenumerationen, klicka på **Resursleverantörer**och sedan klicka **på Registrera för aviseringar.Management**.
+Azure Monitor för resurs grupper förlitar sig på Azure Monitor aviserings hanterings system för att hämta aviserings status. Aviserings hantering har inte kon figurer ATS för varje resurs grupp och prenumeration som standard, och den kan bara aktive ras av någon med rollen ägare eller deltagare. Den kan aktive ras antingen av:
+* Öppnar Azure Monitor för resurs grupper för alla resurs grupper i prenumerationen.
+* Eller genom att gå till prenumerationen, klicka på **Resource providers**och sedan klicka på **Registrera för aviseringar. hantering**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Monitor-arbetsböcker](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Azure-övervakarevarningar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Azure Monitor aviseringar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

@@ -1,29 +1,29 @@
 ---
-title: Konfigurera beredskapsavsökning på behållarinstans
-description: Lär dig hur du konfigurerar en avsökning för att säkerställa att behållare i Azure Container Instances endast tar emot begäranden när de är klara
+title: Konfigurera readiness PROBE på behållar instansen
+description: Lär dig hur du konfigurerar en avsökning för att se till att behållare i Azure Container Instances ta emot begär Anden endast när de är klara
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76935681"
 ---
 # <a name="configure-readiness-probes"></a>Konfigurera beredskapsavsökning
 
-För behållare program som betjänar trafik, kanske du vill kontrollera att din behållare är redo att hantera inkommande begäranden. Azure Container Instances stöder beredskapsavsökningar för att inkludera konfigurationer så att din behållare inte kan nås under vissa förhållanden. Readinesssonden uppför något liknande en [Kubernetes readinesssond](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). En behållarapp kan till exempel behöva läsa in en stor datauppsättning under start och du vill inte att den ska ta emot begäranden under den här tiden.
+För behållar program som hanterar trafik, kanske du vill kontrol lera att din behållare är redo att hantera inkommande begär Anden. Azure Container Instances stöder beredskaps avsökningar för att inkludera konfigurationer så att din behållare inte kan nås under vissa förhållanden. Beredskaps avsökningen fungerar som en [Kubernetes readiness PROBE](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). Till exempel kan en container app behöva läsa in en stor data uppsättning under starten och du vill inte ta emot begär Anden under den här tiden.
 
-I den här artikeln beskrivs hur du distribuerar en behållargrupp som innehåller en beredskapsavsökning, så att en behållare endast tar emot trafik när avsökningen lyckas.
+Den här artikeln beskriver hur du distribuerar en behållar grupp som innehåller en beredskaps avsökning, så att en behållare endast tar emot trafik när avsökningen lyckas.
 
-Azure Container Instances stöder också [liveness-avsökningar](container-instances-liveness-probe.md), som du kan konfigurera för att orsaka en felaktig behållare för att automatiskt starta om.
+Azure Container Instances också stöd för [direktmigreringar](container-instances-liveness-probe.md), som du kan konfigurera för att orsaka att en behållare som inte är felfria startar om automatiskt.
 
 > [!NOTE]
-> För närvarande kan du inte använda en beredskapsavsökning i en behållargrupp som distribueras till ett virtuellt nätverk.
+> För närvarande kan du inte använda en beredskaps avsökning i en behållar grupp som distribueras till ett virtuellt nätverk.
 
 ## <a name="yaml-configuration"></a>YAML-konfiguration
 
-Skapa till exempel `readiness-probe.yaml` en fil med följande kodavsnitt som innehåller en beredskapsavsökning. Den här filen definierar en behållargrupp som består av en behållare som kör en liten webbapp. Appen distribueras från `mcr.microsoft.com/azuredocs/aci-helloworld` den offentliga avbildningen. Den här behållarappen visas också i [Distribuera en behållarinstans i Azure med Hjälp av Azure CLI](container-instances-quickstart.md) och andra snabbstarter.
+Skapa till exempel en `readiness-probe.yaml` fil med följande kodfragment som innehåller en beredskaps avsökning. Den här filen definierar en behållar grupp som består av en behållare som kör en liten webbapp. Appen distribueras från den offentliga `mcr.microsoft.com/azuredocs/aci-helloworld` avbildningen. Den här appen med behållare visas också i [distribuera en behållar instans i Azure med hjälp av Azure CLI](container-instances-quickstart.md) och andra snabb starter.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -61,55 +61,55 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-### <a name="start-command"></a>Kommandot Start
+### <a name="start-command"></a>Start kommando
 
-Distributionen innehåller `command` en egenskap som definierar ett startkommando som körs när behållaren börjar köras. Den här egenskapen accepterar en matris med strängar. Det här kommandot simulerar en tid när webbappen körs men behållaren inte är klar. 
+Distributionen innehåller en `command` egenskap som definierar ett start kommando som körs när behållaren först börjar köras. Den här egenskapen accepterar en sträng mat ris. Det här kommandot simulerar en tidpunkt då webbappen körs men behållaren inte är klar. 
 
-Först startar en skalsession och `node` ett kommando körs för att starta webbappen. Det startar också ett kommando för att sova i 240 `ready` sekunder, varefter det skapar en fil som kallas i katalogen: `/tmp`
+Först startar den en Shell-session och kör ett `node` -kommando för att starta webbappen. Det startar också ett kommando till vilo läge i 240 sekunder, och sedan skapas en fil som `ready` heter i `/tmp` katalogen:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait
 ```
 
-### <a name="readiness-command"></a>Kommandot Beredskap
+### <a name="readiness-command"></a>Beredskaps kommando
 
-Den här YAML-filen definierar en `readinessProbe` som stöder ett `exec` beredskapskommando som fungerar som beredskapskontroll. Det här exemplet beredskap kommando `ready` tester för `/tmp` förekomsten av filen i katalogen.
+Den här YAML-filen `readinessProbe` definierar en som `exec` stöder ett beredskaps kommando som fungerar som beredskaps kontroll. Det här exempel kommandot testar för att det finns en `ready` fil i `/tmp` katalogen.
 
-När `ready` filen inte finns avslutas beredskapskommandot med ett värde som inte är noll. behållaren fortsätter att köras men kan inte nås. När kommandot avslutas med avslutningskod 0 är behållaren klar att nås. 
+När `ready` filen inte finns, avslutas beredskaps kommandot med ett värde som inte är noll. behållaren fortsätter att köras men går inte att komma åt. När kommandot avslutas med slut koden 0, är behållaren klar att nås. 
 
-Egenskapen `periodSeconds` anger att beredskapskommandot ska köras var femte sekund. Beredskapsavsökningen körs under containergruppens livstid.
+`periodSeconds` Egenskapen anger att beredskaps kommandot ska köras var 5: e sekund. Beredskaps avsökningen körs för behållar gruppens livs längd.
 
-## <a name="example-deployment"></a>Exempel på distribution
+## <a name="example-deployment"></a>Exempel distribution
 
-Kör följande kommando för att distribuera en behållargrupp med föregående YAML-konfiguration:
+Kör följande kommando för att distribuera en behållar grupp med föregående YAML-konfiguration:
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file readiness-probe.yaml
 ```
 
-## <a name="view-readiness-checks"></a>Visa beredskapskontroller
+## <a name="view-readiness-checks"></a>Visa beredskaps kontroller
 
-I det här exemplet misslyckas kommandot beredskap under de första 240 sekunderna när det söker efter `ready` filens existens. Statuskoden som returneras signalerar att behållaren inte är klar.
+I det här exemplet, under de första 240 sekunderna, fungerar inte kommandot readiness när det söker efter `ready` filens existens. Status koden returnerade signaler om att behållaren inte är klar.
 
-Dessa händelser kan visas från Azure-portalen eller Azure CLI. Portalen visar till exempel `Unhealthy` att händelser av typen utlöses när kommandot beredskap misslyckas. 
+Dessa händelser kan visas från Azure Portal eller Azure CLI. Portalen visar t. ex. händelser av typen `Unhealthy` utlöses när beredskaps kommandot inte fungerar. 
 
-![Felhändelse för portalen][portal-unhealthy]
+![Felaktig händelse för portalen][portal-unhealthy]
 
-## <a name="verify-container-readiness"></a>Verifiera behållarens beredskap
+## <a name="verify-container-readiness"></a>Verifiera behållar beredskap
 
-När du har startat behållaren kan du kontrollera att den inte är tillgänglig från början. Efter etablering hämtar du IP-adressen för behållargruppen:
+När du har startat behållaren kan du kontrol lera att den inte är tillgänglig från början. Hämta IP-adressen för behållar gruppen efter etableringen:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name readinesstest --query "ipAddress.ip" --out tsv
 ```
 
-Försök att komma åt platsen medan beredskapsavsökningen misslyckas:
+Försök att komma åt webbplatsen medan beredskaps avsökningen Miss lyckas:
 
 ```bash
 wget <ipAddress>
 ```
 
-Utdata visar att webbplatsen inte är tillgänglig från början:
+Utdata visar att webbplatsen inte går att komma åt från början:
 ```
 $ wget 192.0.2.1
 --2019-10-15 16:46:02--  http://192.0.2.1/
@@ -117,7 +117,7 @@ Connecting to 192.0.2.1... connected.
 HTTP request sent, awaiting response... 
 ```
 
-Efter 240 sekunder lyckas beredskapskommandot och signalen är klar. Nu, när du `wget` kör kommandot, lyckas det:
+Efter 240 sekunder slutförs beredskaps kommandot och signalerar att behållaren är klar. När du kör `wget` kommandot slutförs nu:
 
 ```
 $ wget 192.0.2.1
@@ -135,12 +135,12 @@ index.html.1                       100%[========================================
 När behållaren är klar kan du också komma åt webbappen genom att bläddra till IP-adressen med hjälp av en webbläsare.
 
 > [!NOTE]
-> Beredskapsavsökningen fortsätter att köras under containergruppens livstid. Om beredskapskommandot misslyckas vid ett senare tillfälle blir behållaren åter otillgänglig. 
+> Beredskaps avsökningen fortsätter att köras under behållar gruppens livs längd. Om kommandot beredskapen Miss lyckas vid ett senare tillfälle blir behållaren återigen otillgänglig. 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En beredskapsavsökning kan vara användbar i scenarier som involverar grupper med flera behållare som består av beroende behållare. Mer information om scenarier med flera behållare finns [i Behållargrupper i Azure Container Instances](container-instances-container-groups.md).
+En beredskaps avsökning kan vara användbar i scenarier som omfattar grupper med flera behållare som består av beroende behållare. Mer information om scenarier med flera behållare finns [i behållar grupper i Azure Container instances](container-instances-container-groups.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-readiness-probe/readiness-probe-failed.png

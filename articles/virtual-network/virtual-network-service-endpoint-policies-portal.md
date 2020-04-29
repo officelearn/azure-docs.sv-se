@@ -1,7 +1,7 @@
 ---
-title: Skapa och associera tjänstslutpunktsprinciper - Azure-portal
+title: Skapa och associera tjänst slut punkts principer – Azure Portal
 titlesuffix: Azure Virtual Network
-description: I den här artikeln får du lära dig hur du konfigurerar och associerade tjänstslutpunktsprinciper med hjälp av Azure-portalen.
+description: I den här artikeln lär du dig att konfigurera och associerade tjänst slut punkts principer med hjälp av Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: RDhillon
@@ -13,23 +13,23 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: d26fd2fec5f9d5ab8e9d82ff2c6bd83b11c72e99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77651272"
 ---
-# <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Skapa, ändra eller ta bort tjänstslutpunktsprincipen med hjälp av Azure-portalen
+# <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Skapa, ändra eller ta bort tjänstens slut punkts princip med hjälp av Azure Portal
 
-Med tjänstslutpunktsprinciper kan du filtrera virtuell nätverkstrafik till specifika Azure-resurser, över tjänstslutpunkter. Om du inte är bekant med tjänstslutpunktsprinciper läser du [översikt över tjänstslutpunktsprinciper](virtual-network-service-endpoint-policies-overview.md) om du vill veta mer.
+Med tjänst slut punkts principer kan du filtrera virtuell nätverks trafik till vissa Azure-resurser, över tjänst slut punkter. Om du inte är bekant med tjänstens slut punkts principer kan du läsa mer i [Översikt över tjänst slut punkts principer](virtual-network-service-endpoint-policies-overview.md) .
 
- I den här självstudiekursen får du lära du dig att:
+ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en princip för tjänstslutpunkt
-> * Skapa principdefinition för tjänstslutpunkt
+> * Skapa en princip för tjänst slut punkt
+> * Skapa en princip definition för tjänst slut punkt
 > * Skapa ett virtuellt nätverk med ett undernät
-> * Associera en tjänstslutpunktsprincip till ett undernät
+> * Koppla en tjänst slut punkts princip till ett undernät
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
@@ -37,80 +37,80 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="create-a-service-endpoint-policy"></a>Skapa en princip för tjänstslutpunkt
+## <a name="create-a-service-endpoint-policy"></a>Skapa en princip för tjänst slut punkt
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
-2. I sökfönstret skriver du "tjänstslutpunktsprincip" och väljer **Princip för Tjänstslutpunkt** och väljer sedan **Skapa**.
+2. I sökrutan skriver du "tjänstens slut punkts princip" och väljer **tjänst slut punkts princip** och väljer sedan **skapa**.
 
-![Skapa princip för tjänstens slutpunkt](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
+![Skapa tjänst slut punkts princip](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
 
-3. Ange, eller välj, följande information i **Grunderna** 
+3. Ange eller Välj följande information i **grunderna** 
 
-   - Prenumeration : Välj din prenumeration för policy
-   - Resursgrupp: Välj **Skapa nytt** och ange *myResourceGroup*
-   - Namn : myEndpointPolicy
-   - Plats : Centrala USA
+   - Prenumeration: Välj din prenumeration för principen
+   - Resurs grupp: Välj **Skapa ny** och ange *myResourceGroup*
+   - Namn: myEndpointPolicy
+   - Plats: Central USA
  
-   ![Skapa grundläggande princip för tjänstslutpunkt](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.png)
+   ![Skapa grundläggande information om tjänst slut punkts principer](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.png)
 
-4. Välj **+ Lägg till** under **Resurser** och ange eller markera följande information i Lägg till **ett resursfönster**
+4. Välj **+ Lägg till** under **resurser** och ange eller Välj följande information i **Lägg till en resurs** -fönstret
 
-   - Tjänst: Endast **Microsoft.Storage** är tillgängligt med tjänstslutpunktsprinciper
-   - Omfattning: Välj ett av **ett enda konto,** **Alla konton i prenumeration** och Alla konton i **resursgruppen**
-   - Prenumeration : Välj din prenumeration för lagringskonto. Princip- och lagringskonton kan finnas i olika prenumerationer.
-   - Resursgrupp : Välj resursgrupp. Obligatoriskt, om scopet anges som "Alla konton i resursgruppen" eller "Ett enda konto".  
-   - Resurs: Välj din Azure Storage-resurs under den valda prenumerations- eller resursgruppen
-   - Klicka på **Lägg till-knappen** längst ned för att slutföra lägger till resursen
+   - Tjänst: endast **Microsoft. Storage** är tillgängligt med tjänst slut punkts principer
+   - Omfång: Välj ett out-of- **Single-konto**, **alla konton i prenumerationen** och **alla konton i resurs gruppen**
+   - Prenumeration: Välj din prenumeration för lagrings kontot. Princip-och lagrings konton kan finnas i olika prenumerationer.
+   - Resurs grupp: Välj din resurs grupp. Obligatoriskt, om omfång anges som, "alla konton i resurs gruppen" eller "enskilt konto".  
+   - Resurs: Välj Azure Storage resurs under den valda prenumerationen eller resurs gruppen
+   - Klicka på knappen **Lägg till** längst ned för att slutföra tillägget av resursen
 
-   ![Principdefinition för tjänstslutpunkt - resurs](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-resource.png)
+   ![Princip definition för tjänst slut punkt-resurs](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-resource.png)
 
-   - Lägg till fler resurser genom att upprepa ovanstående steg efter behov
+   - Lägg till fler resurser genom att upprepa stegen ovan efter behov
 
-5. Valfritt: Ange eller markera följande information i **Taggar:**
+5. Valfritt: Ange eller Välj följande information i **taggar**:
    
-   - Nyckel : Välj din nyckel för principen. Ex: Avd     
-   - Värde : Ange värdepar för nyckeln. Ex: Ekonomi
+   - Nyckel: Välj din nyckel för principen. T. ex. avd     
+   - Värde: Ange värde paret för nyckeln. Till exempel: ekonomi
 
-6. Välj **Granska + Skapa**. Validera informationen och klicka på **Skapa**. Om du vill göra ytterligare ändringar klickar du på **Föregående**. 
+6. Välj **Granska + skapa**. Verifiera informationen och klicka på **skapa**. Klicka på **föregående**om du vill göra ytterligare ändringar. 
 
-   ![Skapa slutliga valideringar av tjänstslutpunktsprincip](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
+   ![Skapa slutlig validering för tjänst slut punkts princip](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   
-## <a name="view-endpoint-policies"></a>Visa principer för slutpunkt 
+## <a name="view-endpoint-policies"></a>Visa slut punkts principer 
 
-1. Börja skriva *tjänstslutpunktsprinciper*i rutan *Alla tjänster* i portalen . Välj **tjänstslutpunktsprinciper**.
-2. Under **Prenumerationer**väljer du din prenumeration och resursgrupp, som visas i följande bild
+1. I rutan *alla tjänster* i portalen börjar du skriva *tjänst slut punkts principer*. Välj **tjänst slut punkts principer**.
+2. Under **prenumerationer**väljer du din prenumeration och resurs grupp, som du ser i följande bild
 
    ![Visa princip](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
        
-3. Välj principen och klicka på **Principdefinitioner** om du vill visa eller lägga till fler principdefinitioner.
+3. Välj principen och klicka på **princip definitioner** för att visa eller lägga till fler princip definitioner.
 
-   ![Visa principdefinitioner](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.png)
+   ![Visa princip definitioner](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.png)
 
-4. Välj **Associerade undernät** om du vill visa de undernät som principen är associerad med. Om inget undernät är associerat ännu följer du instruktionerna i nästa steg.
+4. Välj **associerade undernät** för att visa de undernät som principen är associerad med. Följ anvisningarna i nästa steg om du inte har associerat något undernät ännu.
 
    ![Associerade undernät](./media/virtual-network-service-endpoint-policies-portal/sep-associated-subnets.png)
  
-5. Associera en princip till ett undernät
+5. Koppla en princip till ett undernät
 
 >[!WARNING] 
-> Kontrollera att alla resurser som används från undernätet läggs till i principdefinitionen innan principen associeras med det angivna undernätet. När principen är associerad tillåts endast åtkomst till de *tillåtna angivna* resurserna över tjänstslutpunkter. 
+> Se till att alla resurser som nås från under nätet läggs till i princip definitionen innan du kopplar principen till det aktuella under nätet. När principen är associerad tillåts endast åtkomst till de resurser *som finns i listan* över tjänst slut punkter. 
 >
-> Se också till att det inte finns några hanterade Azure-tjänster i undernätet som associeras till tjänstslutpunktsprincipen
+> Se också till att inga hanterade Azure-tjänster finns i under nätet som associeras med tjänstens slut punkts princip
 
-- Innan du kan associera en princip till ett undernät måste du skapa ett virtuellt nätverk och ett undernät. Mer hjälp med detta finns i artikeln [Skapa ett virtuellt nätverk.](./quick-create-portal.md)
+- Innan du kan koppla en princip till ett undernät måste du skapa ett virtuellt nätverk och ett undernät. Mer information om detta finns i artikeln [skapa en Virtual Network](./quick-create-portal.md) .
 
-- När du har det virtuella nätverket och undernätet är konfigurerat slutpunkter för virtual network service för Azure Storage. På bladet Virtuellt nätverk väljer du **Tjänstslutpunkter**och väljer **microsoft.Storage** i nästa fönster och **väljer** du önskat virtuellt nätverk eller undernät
+- När du har konfigurerat det virtuella nätverket och under nätet måste du konfigurera Virtual Network tjänstens slut punkter för Azure Storage. På bladet Virtual Network väljer du **tjänst slut punkter**och i nästa ruta väljer du **Microsoft. Storage** och under **undernät** väljer du önskat VNet eller undernät
 
-- Nu kan du antingen välja princip för tjänstslutpunkt från listrutan i fönstret ovan om du redan har skapat tjänstslutpunktsprinciper innan du konfigurerar tjänstslutpunkt för undernätet som visas nedan
+- Nu kan du antingen välja att välja tjänstens slut punkts princip i list rutan i rutan ovan om du redan har skapat tjänst slut punkts principer innan du konfigurerar tjänst slut punkten för under nätet enligt nedan
 
-    ![Associera undernät när du skapar tjänstslutpunkt](./media/virtual-network-service-endpoint-policies-portal/vnet-config-service-endpoint-add-sep.png)
+    ![Associera undernät när du skapar tjänstens slut punkt](./media/virtual-network-service-endpoint-policies-portal/vnet-config-service-endpoint-add-sep.png)
 
-- Eller om du associerar tjänstslutpunktsprinciper efter att tjänstslutpunkter redan har konfigurerats kan du välja att associera undernätet från bladet Tjänstslutpunktsprincip genom att navigera till fönstret **Associerade undernät** enligt nedan
+- ELLER om du associerar tjänst slut punkts principer efter att tjänstens slut punkter redan har kon figurer ATS, kan du välja att koppla under nätet från bladet för tjänstens slut punkts princip genom att gå till rutan **associerade undernät** som visas nedan
 
     ![Associera undernät via SEP](./media/virtual-network-service-endpoint-policies-portal/sep-edit-subnet-association.png)
 
 >[!WARNING] 
->Åtkomst till Azure Storage-resurser i alla regioner begränsas enligt tjänstslutpunktsprincipen från det här undernätet.
+>Åtkomst till Azure Storage resurser i alla regioner begränsas enligt tjänst slut punkts principen från det här under nätet.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien skapade du en princip för tjänstslutpunkt och associerade den till ett undernät. Mer information om tjänstslutpunktsprinciper finns i [översikt över tjänstslutpunktsprinciper.](virtual-network-service-endpoint-policies-overview.md)
+I den här självstudien har du skapat en tjänst slut punkts princip och kopplat den till ett undernät. Mer information om principer för tjänst slut punkter finns i [Översikt över tjänst slut punkts principer.](virtual-network-service-endpoint-policies-overview.md)

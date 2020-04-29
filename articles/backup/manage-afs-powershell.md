@@ -1,27 +1,27 @@
 ---
-title: Hantera Azure-filresurssäkerhetskopior med PowerShell
-description: Lär dig hur du använder PowerShell för att hantera och övervaka Azure-filresurser som backas upp av Azure Backup-tjänsten.
+title: Hantera säkerhets kopior av Azure-filresurser med PowerShell
+description: Lär dig hur du använder PowerShell för att hantera och övervaka Azure-filresurser som har säkerhetskopierats av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: a9dc421db740963fc5cd11e868eb383694376ce1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77083178"
 ---
-# <a name="manage-azure-file-share-backups-with-powershell"></a>Hantera Azure-filresurssäkerhetskopior med PowerShell
+# <a name="manage-azure-file-share-backups-with-powershell"></a>Hantera säkerhets kopior av Azure-filresurser med PowerShell
 
-I den här artikeln beskrivs hur du använder Azure PowerShell för att hantera och övervaka Azure-filresurser som backas upp av Azure Backup-tjänsten.
+Den här artikeln beskriver hur du använder Azure PowerShell för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av Azure Backups tjänsten.
 
 > [!WARNING]
-> Kontrollera att PS-versionen uppgraderas till den lägsta versionen för Az.RecoveryServices 2.6.0 för AFS-säkerhetskopior. Mer information finns [i avsnittet](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) om kravet på den här ändringen.
+> Kontrol lera att PS-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar. Mer information finns i [avsnittet](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) disponera kravet på den här ändringen.
 
-## <a name="modify-the-protection-policy"></a>Ändra skyddsprincipen
+## <a name="modify-the-protection-policy"></a>Ändra skydds principen
 
-Om du vill ändra principen som används för säkerhetskopiering av Azure-filresursen använder du [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Ange relevant säkerhetskopieringsobjekt och den nya säkerhetskopieringsprincipen.
+Om du vill ändra principen som används för att säkerhetskopiera Azure-filresursen använder du [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Ange relevant säkerhets kopierings objekt och den nya säkerhets kopierings principen.
 
-I följande exempel ändras **testAzureFS-skyddsprincipen** från **dailyafs** till **monthlyafs**.
+I följande exempel ändras skydds principen för **testAzureFS** från **dailyafs** till **monthlyafs**.
 
 ```powershell
 $monthlyafsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "monthlyafs"
@@ -30,9 +30,9 @@ $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -Workloa
 Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsPol
 ```
 
-## <a name="track-backup-and-restore-jobs"></a>Spåra säkerhetskopiering och återställning av jobb
+## <a name="track-backup-and-restore-jobs"></a>Spåra säkerhets kopierings-och återställnings jobb
 
-Säkerhetskopierings- och återställningsåtgärder på begäran returnerar ett jobb tillsammans med ett ID, vilket visas när du [kör en säkerhetskopiering på begäran](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Använd cmdleten [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) för att spåra jobbets förlopp och information.
+Säkerhets kopierings-och återställnings åtgärder på begäran returnerar ett jobb tillsammans med ett ID, som visas när du [kör en säkerhets kopiering på begäran](backup-azure-afs-automation.md#trigger-an-on-demand-backup). Använd cmdleten [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) för att spåra jobb förlopp och information.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -64,16 +64,16 @@ $job.ErrorDetails
 
 Det finns två sätt att sluta skydda Azure-filresurser:
 
-* Stoppa alla framtida säkerhetskopieringsjobb och *ta bort* alla återställningspunkter
-* Stoppa alla framtida säkerhetskopieringsjobb men *lämna* återställningspunkterna
+* Stoppa alla framtida säkerhets kopierings jobb och *ta bort* alla återställnings punkter
+* Stoppa alla framtida säkerhets kopierings jobb men *lämna* återställnings punkterna
 
-Det kan finnas en kostnad som är associerad med att lämna återställningspunkterna i lagring, eftersom de underliggande ögonblicksbilder som skapats av Azure Backup kommer att behållas. Fördelen med att lämna återställningspunkterna är dock att du kan återställa filresursen senare, om så önskas. Information om kostnaden för att lämna återställningspunkterna finns i [prisinformationen](https://azure.microsoft.com/pricing/details/storage/files/). Om du väljer att ta bort alla återställningspunkter kan du inte återställa filresursen.
+Det kan finnas en kostnad för att lämna återställnings punkterna i lagret, eftersom de underliggande ögonblicks bilderna som skapats av Azure Backup bevaras. Men fördelen med att lämna återställnings punkterna är att du kan återställa fil resursen senare, om så önskas. Information om kostnaden för att lämna återställnings punkterna finns i [pris informationen](https://azure.microsoft.com/pricing/details/storage/files/). Om du väljer att ta bort alla återställnings punkter kan du inte återställa fil resursen.
 
-## <a name="stop-protection-and-retain-recovery-points"></a>Stoppa skyddet och behåll återställningspunkter
+## <a name="stop-protection-and-retain-recovery-points"></a>Stoppa skyddet och behåll återställnings punkter
 
-Om du vill stoppa skyddet när du behåller data använder du cmdleten [Disable-AzRecoveryServicesBackupProtection.](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0)
+Använd cmdleten [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) för att stoppa skyddet när du behåller data.
 
-Följande exempel stoppar skyddet för filresursresursen *afsfileshare* men behåller alla återställningspunkter:
+I följande exempel slutar skydd för *afsfileshare* -filresursen men behåller alla återställnings punkter:
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "afstesting" -Name "afstest" | select -ExpandProperty ID
@@ -87,13 +87,13 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-Attributet Job ID i utdata motsvarar jobb-ID:n för jobbet som skapas av säkerhetskopieringstjänsten för din "stop protection"-åtgärd. Om du vill spåra status för jobbet använder du cmdleten [Get-AzRecoveryServicesBackupJob.](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-3.3.0)
+Jobb-ID-attributet i utdata motsvarar jobb-ID: t för jobbet som skapas av säkerhets kopierings tjänsten för åtgärden "stoppa skydd". Använd cmdleten [Get-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-3.3.0) för att spåra jobbets status.
 
-## <a name="stop-protection-without-retaining-recovery-points"></a>Stoppa skyddet utan att behålla återställningspunkter
+## <a name="stop-protection-without-retaining-recovery-points"></a>Stoppa skyddet utan att behålla återställnings punkter
 
-Om du vill stoppa skyddet utan att behålla återställningspunkter använder du cmdleten [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) och lägger till parametern **-RemoveRecoveryPoints.**
+Om du vill stoppa skyddet utan att behålla återställnings punkter använder du cmdleten [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-3.3.0) och lägger till parametern **-RemoveRecoveryPoints** .
 
-I följande exempel stoppas skyddet för filresursresursen *afsfileshare* utan att återställningspunkter behålls:
+I följande exempel stoppas skyddet för *afsfileshare* -filresursen utan att återställnings punkterna bevaras:
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "afstesting" -Name "afstest" | select -ExpandProperty ID
@@ -109,4 +109,4 @@ afsfileshare     DeleteBackupData     Completed      1/26/2020 2:50:57 PM      1
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om](manage-afs-backup.md) hur du hanterar Azure-filresurssäkerhetskopior i Azure-portalen.
+[Lär dig mer om](manage-afs-backup.md) att hantera säkerhets kopior av Azure-filresurser i Azure Portal.

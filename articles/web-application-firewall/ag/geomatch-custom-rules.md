@@ -1,6 +1,6 @@
 ---
-title: Anpassade regler för Geomatch (Azure Web Application Firewall)
-description: Den här artikeln är en översikt över WAF-geomatchnings anpassade regler för geomatchning (Web Application Firewall) på Azure Application Gateway.
+title: WAF (Azure Web Application Firewall) uppfyller anpassade regler
+description: Den här artikeln är en översikt över de anpassade reglerna för brand vägg för webbaserade program (WAF) som är kompatibla med Azure Application Gateway.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -8,26 +8,26 @@ ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
 ms.openlocfilehash: 6725e1de21dbd103850071f7511e2800c6bd7b69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76961093"
 ---
-# <a name="geomatch-custom-rules-preview"></a>Anpassade regler för Geomatch (förhandsgranskning)
+# <a name="geomatch-custom-rules-preview"></a>Ommatchnings anpassade regler (förhands granskning)
 
-Med anpassade regler kan du skapa skräddarsydda regler som passar de exakta behoven hos dina program och säkerhetsprinciper. Nu kan du begränsa åtkomsten till dina webbprogram efter land/region. Som med alla anpassade regler kan den här logiken förvärras med andra regler som passar behoven hos ditt program.
+Med anpassade regler kan du skapa skräddarsydda regler som passar de exakta behoven för dina program och säkerhets principer. Nu kan du begränsa åtkomsten till dina webb program efter land/region. Precis som med alla anpassade regler kan den här logiken sammanställas med andra regler som passar ditt programs behov.
 
-Om du vill skapa en anpassad geofiltreringsregel väljer du helt enkelt *Geografisk plats* som matchningstyp och väljer sedan det land eller de länder som du vill tillåta/blockera från ditt program. Se [hur du skapar anpassade regler i Powershell](configure-waf-custom-rules.md) och fler anpassade regelexempel (skapa-anpassad-waf-rules.md) för mer information.
+Om du vill skapa en anpassad regel för geo-filtrering väljer du bara *Geo-Location* som matchnings typ och väljer sedan det land eller de länder som du vill tillåta/blockera från ditt program. Mer information finns i [så här skapar du anpassade regler i PowerShell](configure-waf-custom-rules.md) och fler anpassade regel exempel (Create-Custom-waf-rules.MD).
 
 > [!IMPORTANT]
 > Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="country-codes"></a>Landskoder
+## <a name="country-codes"></a>Lands koder
 
-Om du använder operatorn Geomatch kan selektorerna vara någon av följande tvåsiffriga landskoder. 
+Om du använder en kors matchnings operator kan väljare vara någon av följande tvåsiffriga lands koder. 
 
-|Landskod | Landsnamn |
+|Landskod | Lands namn |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Förenade Arabemiraten|
@@ -209,4 +209,4 @@ Om du använder operatorn Geomatch kan selektorerna vara någon av följande tv�
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har lärt dig mer om anpassade regler [skapar du egna anpassade regler](create-custom-waf-rules.md).
+När du har lärt dig om anpassade regler [skapar du dina egna anpassade regler](create-custom-waf-rules.md).

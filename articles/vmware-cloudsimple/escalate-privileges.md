@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning från CloudSimple – Eskalera CloudSimple-privilegier
-description: Beskriver hur du eskalerar CloudSimple-behörigheter för att utföra administrativa funktioner i Private Cloud vCenter
+title: Azure VMware-lösning av CloudSimple-eskalera CloudSimple-privilegier
+description: Beskriver hur du eskalerar CloudSimple-behörigheter för att utföra administrativa funktioner i det privata molnet vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -9,32 +9,32 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 36c6969ed89d0bb9222f52aa81de0d4128b9e533
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77025341"
 ---
-# <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Eskalera CloudSimple-behörigheter för att utföra administrativa funktioner i Private Cloud vCenter
+# <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Eskalera CloudSimple-privilegier för att utföra administrativa funktioner i privat moln vCenter
 
-CloudSimple-privilegier-metoden är utformad för att ge vCenter-användare de privilegier de behöver för att utföra normala åtgärder. I vissa fall kan en användare kräva ytterligare behörigheter för att utföra en viss uppgift.  Du kan eskalera privilegier för en vCenter SSO-användare under en begränsad period.
+CloudSimple-behörigheterna är utformad för att ge vCenter-användare de behörigheter de behöver för att utföra normala åtgärder. I vissa fall kan en användare behöva ytterligare behörighet för att utföra en viss uppgift.  Du kan eskalera privilegier för en vCenter SSO-användare under en begränsad period.
 
-Orsaker till eskalerande privilegier kan vara följande:
+Orsaker till att eskalerade privilegier kan vara följande:
 
-* Konfiguration av identitetskällor
+* Konfiguration av identitets källor
 * Användarhantering
-* Borttagning av distribuerad portgrupp
-* Installera vCenter-lösningar (t.ex. säkerhetskopieringsappar)
-* Skapa tjänstkonton
+* Borttagning av distribuerad port grupp
+* Installera vCenter-lösningar (till exempel säkerhets kopierings program)
+* Skapa tjänst konton
 
 > [!WARNING]
-> Åtgärder som vidtas i det eskalerade privilegierade tillståndet kan påverka systemet negativt och kan leda till att systemet blir otillgängligt. Utför endast nödvändiga åtgärder under eskaleringsperioden.
+> Åtgärder som vidtas i det eskalerade privilegierade läget kan påverka systemet negativt och kan göra att systemet blir otillgängligt. Utför endast de åtgärder som krävs under eskalering perioden.
 
-Från CloudSimple-portalen [eskalerar du behörigheter](escalate-private-cloud-privileges.md) för den lokala cloudowner-användaren på vCenter SSO.  Du kan bara eskalera fjärranvändarens behörighet om ytterligare identitetsprovider har konfigurerats på vCenter.  Eskalering av privilegier innebär att lägga till den valda användaren i gruppen vSphere inbyggd administratörer.  Endast en användare kan ha eskalerade privilegier.  Om du behöver eskalera en annan användares privilegier de-eskalerar först de-eskalera privilegierna för de aktuella användarna.
+Från CloudSimple-portalen [eskalerar du privilegier](escalate-private-cloud-privileges.md) för den lokala CloudOwner-användaren på vCenter SSO.  Du kan bara eskalera fjärran vändare behörighet om ytterligare identitetsprovider har kon figurer ATS på vCenter.  Eskalering av privilegier innebär att lägga till den valda användaren i den inbyggda gruppen vSphere-administratörer.  Endast en användare kan ha eskalerade privilegier.  Om du behöver eskalera en annan användares behörigheter måste du först ta bort privilegierna för de aktuella användarna.
 
-Användare från ytterligare identitetskällor måste läggas till som medlemmar i CloudOwner-gruppen.
+Användare från ytterligare identitets källor måste läggas till som medlemmar i gruppen CloudOwner.
 
 > [!CAUTION]
-> Nya användare får endast läggas till *i Cloud-Owner-Group,* *Cloud-Global-Cluster-Admin-Group,* *Cloud-Global-Storage-Admin-Group,* *Cloud-Global-Network-Admin-Group* eller *Cloud-Global-VM-Admin-Group*.  Användare som läggs till i gruppen *Administratörer* tas bort automatiskt.  Endast tjänstkonton får läggas till *i grupp-* och tjänstkonton för administratörer får inte användas för att logga in på vSphere-webbgränssnittet.
+> Nya användare får endast läggas till i *moln-ägar-grupp*, *Cloud-global-Cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* eller, *Cloud-global-VM-admin-Group*.  Användare som lagts till i gruppen *Administratörer* tas då bort automatiskt.  Endast tjänst konton måste läggas till i *Administratörs* gruppen och tjänst kontona får inte användas för att logga in på vSphere-webbgränssnittet.
 
-Under eskaleringsperioden använder CloudSimple automatisk övervakning med associerade varningsmeddelanden för att identifiera eventuella oavsiktliga ändringar i miljön.
+Under perioden för eskaleringen använder CloudSimple automatisk övervakning med tillhör ande aviseringar för att identifiera eventuella ändringar i miljön.

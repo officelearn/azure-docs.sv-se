@@ -1,7 +1,7 @@
 ---
-title: Azure SQL-anslutning för hanterad instans för sökindexering
+title: Azure SQL-hanterad instans anslutning för Sök indexering
 titleSuffix: Azure Cognitive Search
-description: Aktivera offentlig slutpunkt för att tillåta anslutningar till SQL-hanterade instanser från en indexerare på Azure Cognitive Search.
+description: Aktivera offentlig slut punkt för att tillåta anslutningar till SQL-hanterade instanser från en indexerare på Azure Kognitiv sökning.
 manager: nitinme
 author: vl8163264128
 ms.author: victliu
@@ -9,45 +9,45 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76964897"
 ---
-# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Konfigurera en anslutning från en Azure Cognitive Search-indexerare till SQL-hanterad instans
+# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL-hanterad instans
 
-Som anges i [Ansluta Azure SQL Database till Azure Cognitive Search med indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)stöds skapa indexerare mot **SQL-hanterade instanser** av Azure Cognitive Search via den offentliga slutpunkten.
+Som anges i [ansluta Azure SQL Database till Azure kognitiv sökning med hjälp av indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), stöds att skapa indexerare mot **SQL-hanterade instanser** av Azure kognitiv sökning via den offentliga slut punkten.
 
-## <a name="create-azure-sql-managed-instance-with-public-endpoint"></a>Skapa Azure SQL-hanterad instans med offentlig slutpunkt
-Skapa en SQL-hanterad instans med alternativet **Aktivera offentlig slutpunkt** markerat.
+## <a name="create-azure-sql-managed-instance-with-public-endpoint"></a>Skapa en Azure SQL-hanterad instans med offentlig slut punkt
+Skapa en SQL-hanterad instans med alternativet **Aktivera offentlig slut punkt** valt.
 
-   ![Aktivera offentlig slutpunkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Aktivera offentlig slutpunkt")
+   ![Aktivera offentlig slut punkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "Aktivera offentlig slut punkt")
 
-## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Aktivera offentlig slutpunkt för Azure SQL-hanterad instans
-Du kan också aktivera offentlig slutpunkt på en befintlig SQL-hanterad instans under > **Säkerhetsvirtiskt** >  **Security** > nätverk**Offentlig slutpunkt****Aktivera**.
+## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Aktivera offentlig slut punkt för Azure SQL Managed instance
+Du kan också aktivera**offentlig slut punkt**på en befintlig SQL-hanterad instans under**offentlig slut punkt** > för **säkerhet** > **virtuellt nätverk** > .
 
-   ![Aktivera offentlig slutpunkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Aktivera offentlig slutpunkt")
+   ![Aktivera offentlig slut punkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Aktivera offentlig slut punkt")
 
 ## <a name="verify-nsg-rules"></a>Verifiera NSG-regler
-Kontrollera att nätverkssäkerhetsgruppen har rätt **inkommande säkerhetsregler** som tillåter anslutningar från Azure-tjänster.
+Kontrol lera att nätverks säkerhets gruppen har rätt **inkommande säkerhets regler** som tillåter anslutningar från Azure-tjänster.
 
-   ![Säkerhetsregel för NSG-inkommande](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "Säkerhetsregel för NSG-inkommande")
+   ![NSG inkommande säkerhets regel](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG inkommande säkerhets regel")
 
 > [!NOTE]
-> Indexerare kräver fortfarande att SQL Managed Instance konfigureras med en offentlig slutpunkt för att läsa data.
-> Du kan dock välja att begränsa inkommande åtkomst till den offentliga`public_endpoint_inbound`slutpunkten genom att ersätta den aktuella regeln ( ) med följande två regler:
+> Indexerare kräver fortfarande att SQL-hanterad instans konfigureras med en offentlig slut punkt för att läsa data.
+> Du kan dock välja att begränsa den inkommande åtkomsten till den offentliga slut punkten genom att ersätta den aktuella`public_endpoint_inbound`regeln () med följande 2 regler:
 >
-> * Tillåt inkommande åtkomst `AzureCognitiveSearch` från [tjänstmärket](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("KÄLLA" `AzureCognitiveSearch`= `cognitive_search_inbound`, "NAME" = )
+> * Tillåter inkommande åtkomst från `AzureCognitiveSearch` [tjänst tag gen](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("källa" = `AzureCognitiveSearch`, "namn" = `cognitive_search_inbound`)
 >
-> * Tillåter inkommande åtkomst från IP-adressen för söktjänsten, som kan erhållas genom att `<your-search-service-name>.search.windows.net`pinga sitt fullt kvalificerade domännamn (t.ex.. ). ("KÄLLA" `IP address`= , "NAMN" = `search_service_inbound`)
+> * Tillåter inkommande åtkomst från IP-adressen för Sök tjänsten, som kan hämtas genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net`). ("källa" = `IP address`, "namn" = `search_service_inbound`)
 >
-> För var och en av dessa två `3342`regler anger `TCP`du "PORT" `Any`= , "PROTOKOLL" = , "DESTINATION" = , "ACTION" =`Allow`
+> För var och en av dessa 2 regler anger du "PORT `3342`" =, "protokoll `TCP`" =, "mål `Any`" =, "åtgärd" =`Allow`
 
-## <a name="get-public-endpoint-connection-string"></a>Hämta den offentliga anslutningssträngen för slutpunkt
-Se till att du använder anslutningssträngen för den **offentliga slutpunkten** (port 3342, inte port 1433).
+## <a name="get-public-endpoint-connection-string"></a>Hämta anslutnings sträng för offentlig slut punkt
+Se till att du använder anslutnings strängen för den **offentliga slut punkten** (port 3342, inte port 1433).
 
-   ![Anslutningssträng för offentlig slutpunkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-connection-string.png "Anslutningssträng för offentlig slutpunkt")
+   ![Anslutnings sträng för offentlig slut punkt](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-connection-string.png "Anslutnings sträng för offentlig slut punkt")
 
 ## <a name="next-steps"></a>Nästa steg
-Med konfiguration ur vägen kan du nu ange en SQL-hanterad instans som datakälla för en Azure Cognitive Search-indexerare med hjälp av antingen portalen eller REST API. Mer information [finns i Ansluta Azure SQL Database till Azure Cognitive Search med indexerare.](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+Med konfigurationen av kan du nu ange en SQL-hanterad instans som data källa för en Azure Kognitiv sökning-indexerare med hjälp av antingen portalen eller REST API. Mer information finns i [ansluta Azure SQL Database till Azure kognitiv sökning med indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .

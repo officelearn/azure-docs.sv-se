@@ -1,7 +1,7 @@
 ---
-title: Skapa och använda anpassade v2-regler
+title: Skapa och använda anpassade version 2-regler
 titleSuffix: Azure Web Application Firewall
-description: Den här artikeln innehåller information om hur du skapar WAF-anpassade regler (Web Application Firewall) v2 i Azure Application Gateway.
+description: Den här artikeln innehåller information om hur du skapar anpassade regler för brand vägg för webbaserade program (WAF) v2 i Azure Application Gateway.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
@@ -9,26 +9,26 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368302"
 ---
-# <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Skapa och använda anpassade regler för webbprogrambrandvägg v2 på Application Gateway
+# <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Skapa och Använd brand Väggs reglerna för webbaserade program v2 på Application Gateway
 
-WAF (Web Application Firewall) v2 på Azure Application Gateway ger skydd för webbprogram. Det här skyddet tillhandahålls av OWASP-huvudregeluppsättningen (Open Web Application Security Project) (CRS). I vissa fall kan du behöva skapa egna anpassade regler för att uppfylla dina specifika behov. Mer information om anpassade WAF-regler finns i [översikt över anpassade brandväggsregler för webbprogram](custom-waf-rules-overview.md).
+Brand väggen för webbaserade program (WAF) V2 på Azure Application Gateway ger skydd för webb program. Det här skyddet tillhandahålls av OWASP (Open Web Application Security Project) Core regel set (DATORISERAt). I vissa fall kan du behöva skapa egna anpassade regler för att uppfylla dina specifika behov. Mer information om anpassade regler för WAF finns i [Översikt över anpassade brand Väggs regler för webb program](custom-waf-rules-overview.md).
 
-I den här artikeln visas några exempel på anpassade regler som du kan skapa och använda med din v2 WAF. Mer information om hur du distribuerar en WAF med en anpassad regel med Azure PowerShell finns i [Konfigurera anpassade regler för brandväggsprogram för webbprogram med Azure PowerShell](configure-waf-custom-rules.md).
+I den här artikeln visas några exempel på anpassade regler som du kan skapa och använda med din v2-WAF. Information om hur du distribuerar en WAF med en anpassad regel med hjälp av Azure PowerShell finns i [Konfigurera anpassade regler för brand vägg för webbaserade program med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
 
 >[!NOTE]
-> Om programgatewayen inte använder WAF-nivån visas alternativet för att uppgradera programgatewayen till WAF-nivån i den högra rutan.
+> Om din Application Gateway inte använder WAF-nivån visas alternativet för att uppgradera programgatewayen till WAF-nivån i den högra rutan.
 
 ![Aktivera WAF][fig1]
 
 ## <a name="example-1"></a>Exempel 1
 
-Du vet att det finns en bot som heter *evilbot* som du vill blockera från att genomsöka din webbplats. I det här fallet blockerar du user-agent *evilbot* i begäran rubriker.
+Du vet att det finns en robot med namnet *evilbot* som du vill blockera från att crawla din webbplats. I det här fallet blockerar du *evilbot* för användar agenten i begärandehuvuden.
 
 Logik: p
 
@@ -52,7 +52,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Och här är motsvarande JSON:
+Här är motsvarande JSON:
 
 ```json
   {
@@ -76,11 +76,11 @@ Och här är motsvarande JSON:
   }
 ```
 
-Information om hur du ser en WAF som distribueras med den här anpassade regeln finns i [Konfigurera en anpassad regel för brandvägg för webbprogram med Azure PowerShell](configure-waf-custom-rules.md).
+En WAF som distribueras med den här anpassade regeln finns i [Konfigurera en anpassad regel för brand vägg för webbaserade program med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
 
 ### <a name="example-1a"></a>Exempel 1a
 
-Du kan åstadkomma samma sak med ett reguljärt uttryck:
+Du kan utföra samma sak med ett reguljärt uttryck:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -128,7 +128,7 @@ Och motsvarande JSON:
 
 ## <a name="example-2"></a>Exempel 2
 
-Du vill tillåta trafik från USA med hjälp av Operatorn GeoMatch:
+Du vill tillåta trafik från USA med hjälp av operatorn för att matcha:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -177,9 +177,9 @@ Och motsvarande JSON:
 
 ## <a name="example-3"></a>Exempel 3
 
-Du vill blockera alla begäranden från IP-adresser i intervallet 198.168.5.0/24.
+Du vill blockera alla förfrågningar från IP-adresser i intervallet 198.168.5.0/24.
 
-I det här exemplet ska du blockera all trafik som kommer från ett IP-adressintervall. Namnet på regeln är *myrule1* och prioriteten är satt till 10.
+I det här exemplet ska du blockera all trafik som kommer från ett IP-adressintervall. Namnet på regeln är *myrule1* och prioriteten är inställd på 10.
 
 Logik: p
 
@@ -225,11 +225,11 @@ Här är motsvarande JSON:
   }
 ```
 
-Motsvarande regel om datoriserade bokningssystem:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+Motsvarande regel för boknings system:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-4"></a>Exempel 4
 
-I det här exemplet vill du blockera User-Agent *evilbot*och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchningsvillkor och placera dem båda i samma regel. Detta säkerställer att om både *evilbot* i användaragenthuvudet **och** IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
+I det här exemplet vill du blockera *evilbot*för användar agent och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Detta säkerställer att om båda *evilbot* i användar agentens huvud- **och** IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
 
 Logik: p **och** q
 
@@ -301,7 +301,7 @@ Här är motsvarande JSON:
 
 ## <a name="example-5"></a>Exempel 5
 
-I det här exemplet vill du blockera om begäran antingen ligger utanför IP-adressintervallet *192.168.5.0/24*eller så är användaragentsträngen inte *chrome* (vilket innebär att användaren inte använder webbläsaren Chrome). Eftersom den här logiken använder **eller**är de två villkoren i separata regler som visas i följande exempel. *myrule1* och *myrule2* båda måste matcha för att blockera trafiken.
+I det här exemplet vill du blockera om begäran antingen ligger utanför IP-adressintervallet *192.168.5.0/24*, eller om användar agent strängen inte är *Chrome* (vilket innebär att användaren inte använder Chrome-webbläsaren). Eftersom den här logiken använder **eller**, är de två villkoren i separata regler som visas i följande exempel. *myrule1* och *myrule2* måste båda matcha för att blockera trafiken.
 
 Logik: **inte** (p **och** q) = **inte** p **eller inte** q.
 
@@ -388,7 +388,7 @@ Och motsvarande JSON:
 
 ## <a name="example-6"></a>Exempel 6
 
-Du vill blockera anpassad SQLI. Eftersom logiken som används här är **eller**, och alla värden finns i *RequestUri*, kan alla *MatchValues* vara i en kommaavgränsad lista.
+Du vill blockera anpassade SQLI. Eftersom logiken som används här är **eller**, och alla värden finns i *RequestUri*, kan alla *MatchValues* finnas i en kommaavgränsad lista.
 
 Logik: p **eller** q **eller** r
 
@@ -545,6 +545,6 @@ Motsvarande JSON:
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat dina anpassade regler kan du läsa om hur du visar dina WAF-loggar. Mer information finns i [Diagnostik för Programgateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+När du har skapat dina anpassade regler kan du lära dig hur du visar dina WAF-loggar. Mer information finns i [Application Gateway Diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ../media/create-custom-waf-rules/1.png

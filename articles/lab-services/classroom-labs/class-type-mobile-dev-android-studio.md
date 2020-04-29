@@ -1,7 +1,7 @@
 ---
-title: Skapa ett labb för att lära ut utveckling av mobilapplikationer med Android Studio
+title: Konfigurera ett labb för att lära mobil program utveckling med Android Studio
 titleSuffix: Azure Lab Services
-description: Lär dig hur du konfigurerar ett labb för att lära ut utvecklingsklass för datamobilprogram som använder Android Studio.  Artikel kommer också att diskutera justeringar att göra när du använder Android Studio på en virtuell dator i Azure.
+description: Lär dig hur du konfigurerar ett labb för att lära dig att utveckla data i utvecklings klassen för mobil program som använder Android Studio.  Artikeln diskuterar också justeringar som ska utföras när du använder Android Studio på en virtuell dator i Azure.
 services: lab-services
 author: emaher
 ms.service: lab-services
@@ -9,97 +9,97 @@ ms.topic: article
 ms.date: 1/23/2020
 ms.author: enewman
 ms.openlocfilehash: 0c257589a2e93ac4c15a639e7156d0c0944b033c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76849791"
 ---
-# <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Konfigurera ett labb för att lära ut datamobil applikationsutveckling med Android Studio
+# <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Konfigurera ett labb för att lära dig utveckla data i mobil program med Android Studio
 
-Den här artikeln visar hur du ställer in en inledande mobil applikationsutvecklingsklass.  Den här klassen fokuserar på Android-mobilappar som kan publiceras i [Google Play Butik](https://play.google.com/store/apps).  Eleverna lär sig att använda [Android Studio](https://developer.android.com/studio) för att skapa program.  [Visual Studio Emulator för Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) används för att testa programmet lokalt.
+Den här artikeln visar hur du konfigurerar en introduktions utvecklings klass för mobil program.  Den här klassen fokuserar på mobila Android-program som kan publiceras till [Google Play Butik](https://play.google.com/store/apps).  Eleverna lär dig hur du använder [Android Studio](https://developer.android.com/studio) för att bygga program.  [Visual Studio-emulator för Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) används för att testa programmet lokalt.
 
-## <a name="lab-configuration"></a>Labbkonfiguration
+## <a name="lab-configuration"></a>Labb konfiguration
 
-För att konfigurera det här labbet behöver du en Azure-prenumeration och labbkonto för att komma igång. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. När du har fått en Azure-prenumeration kan du skapa ett nytt labbkonto i Azure Lab Services. Mer information om hur du skapar ett nytt labbkonto finns i [självstudiekursen för att skapa ett labbkonto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labbkonto.
+För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labb konto.
 
-Följ [den konfigurerar labbhandledningen i klassrummet](tutorial-setup-classroom-lab.md) för att skapa ett nytt labb och använd sedan följande inställningar:
+Följ [själv studie kursen Konfigurera klass rummet](tutorial-setup-classroom-lab.md) för att skapa ett nytt labb och Använd sedan följande inställningar:
 
 | Storlek för virtuell dator | Bild |
 | -------------------- | ----- |
 | Medium (kapslad virtualisering) | Windows Server 2019 Datacenter |
 
-## <a name="template-machine-configuration"></a>Konfiguration av mallmaskin
+## <a name="template-machine-configuration"></a>Mall dator konfiguration
 
-När skapandet av malldatorn är klar [startar du datorn och ansluter till den](how-to-create-manage-template.md#update-a-template-vm) för att utföra följande uppgifter:
+När mallens dator har skapats startar du [datorn och ansluter till den](how-to-create-manage-template.md#update-a-template-vm) för att utföra följande uppgifter:
 
 1. Lägg till Hyper-V-roll
-2. Ladda ner och installera Java.  
-3. Ladda ner och installera Visual Studio Emulator för Android.
-4. Ladda ner och installera Android Studio.
-5. Konfigurera Visual Studio Emulator för Android Studio.
+2. Ladda ned och installera Java.  
+3. Ladda ned och installera Visual Studio-emulator för Android.
+4. Hämta och installera Android Studio.
+5. Konfigurera Visual Studio-emulatorn för Android Studio.
 
 ## <a name="add-hyper-v-role"></a>Lägg till Hyper-V-roll
 
-Hyper-V måste aktiveras för en lyckad installation av Visual Studio Emulator för Android.  Följ instruktionerna i [hur du aktiverar kapslad virtualisering i en artikel med virtuella datorer i mallen.](how-to-enable-nested-virtualization-template-vm.md)
+Hyper-V måste vara aktiverat för att installationen av Visual Studio-emulator för Android ska lyckas.  Följ anvisningarna i artikeln [så här aktiverar du kapslad virtualisering i en mall för virtuella datorer](how-to-enable-nested-virtualization-template-vm.md) .
 
 ## <a name="install-java"></a>Installera Java
 
-Android Studio kräver Java.  Följ stegen nedan för att ladda ner den senaste versionen av Java.
+Android Studio kräver Java.  Följ stegen nedan för att ladda ned den senaste versionen av Java.
 
-1. Navigera till [nedladdningssidan](https://www.java.com/download/)för Java . Klicka på knappen **Ladda ned Java.**
-2. På webbsidan 64-bitars Windows för Java klickar du på knappen **Godkänn och Starta gratis nedladdning**.
-3. När **installationsprogrammet för Java** visas klickar du på **Installera**.
-4. Vänta tills installationstiteln ändras till **Java-installationen – Slutför**.  Klicka på **Knappen Stäng.**
+1. Gå till [nedladdnings sidan för Java](https://www.java.com/download/). Klicka på knappen **Java-nedladdning** .
+2. På sidan 64-bitars Windows för Java-sida klickar du på knappen **Godkänn och starta kostnads fri hämtning**.
+3. När **installations** programmet för Java-installationen visas klickar du på **Installera**.
+4. Vänta tills installations titeln ändras till **Java-installationen – slutförd**.  Klicka på knappen **Stäng** .
 
-## <a name="install-visual-studio-emulator-for-android"></a>Installera Visual Studio Emulator för Android
+## <a name="install-visual-studio-emulator-for-android"></a>Installera Visual Studio-emulator för Android
 
-För att testa ett Android-program lokalt måste den använda en virtualiserad version av en Android-enhet.  Det finns några Android emulatorer tillgängliga som gör det möjligt för en utvecklare att testa sin ansökan från sin maskin.  Vi använder Visual Studio Emulator för Android eftersom det är en emulator som stöder kapslad virtualisering.  Eftersom den virtuella datorn för labtjänsten redan är en virtuell dator behöver vi en emulator som stöder kapslad virtualisering.  Den inbyggda emulatorn för Android Studio stöder inte kapslad virtualisering.  Information om vilka emulatorer som stöder kapslad virtualisering finns i [maskinvaruacceleration för emulatorprestanda (Hyper-V & HAXM).](https://docs.microsoft.com/xamarin/android/get-started/installation/android-emulator/hardware-acceleration)
+Om du vill testa ett Android-program lokalt måste det använda en virtualiserad version av en Android-enhet.  Det finns några Android-emulatorer som gör det möjligt för utvecklare att testa sina program från sina datorer.  Vi använder Visual Studio-emulator för Android eftersom det är en emulator som stöder kapslad virtualisering.  Eftersom labb tjänstens virtuella dator redan är en virtuell dator behöver vi en emulator som stöder kapslad virtualisering.  Den inbyggda emulatorn för Android Studio stöder inte kapslad virtualisering.  Om du vill se vilka emulatorer som stöder kapslad virtualisering, se [maskin varu acceleration för prestanda för emulator (Hyper-V & HAXM)](https://docs.microsoft.com/xamarin/android/get-started/installation/android-emulator/hardware-acceleration).
 
-Använd följande instruktioner för att hämta och installera Visual Studio Emulator för Android.
+Använd följande instruktioner för att ladda ned och installera Visual Studio-emulator för Android.
 
-1. Navigera till [Visual Studio Emulator för Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) hemsida.
-2. Klicka på knappen **Hämta emulator.**
-3. När vs_emulatorsetup.exe hämtas kör du den körbara filen.
-4. När dialogrutan Konfigurera Visual Studio visas klickar du på knappen **Installera.**
-5. Vänta tills installationsprogrammet är klart.  Klicka på knappen **Starta om nu** om du vill starta om datorn och slutföra installationen.
+1. Gå till start sidan [för Visual Studio-emulatorn för Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) .
+2. Klicka på **Hämta emulator** -knappen.
+3. Kör den körbara filen när vs_emulatorsetup. exe har laddats ned.
+4. När dialog rutan Visual Studio Setup visas klickar du på knappen **Installera** .
+5. Vänta tills installations programmet har slutförts.  Starta om datorn och slutför installationen genom att klicka på knappen **starta om nu** .
 
-Starta emulatorn först innan du distribuerar ditt program med Android Studio.  Mer information om Visual Studio Emulator för Android finns i [Visual Studio Emulator för Android-dokumentation](https://docs.microsoft.com/visualstudio/cross-platform/visual-studio-emulator-for-android).
+Starta emulatorn först innan du distribuerar ditt program med hjälp av Android Studio.  Mer information om Visual Studio-emulatorn för Android finns i [dokumentationen för Visual Studio-emulator för Android](https://docs.microsoft.com/visualstudio/cross-platform/visual-studio-emulator-for-android).
 
 ## <a name="install-android-studio"></a>Installera Android Studio
 
-Följ instruktionerna nedan för att ladda ner och installera [Android Studio](https://developer.android.com/studio).
+Följ anvisningarna nedan för att ladda ned och installera [Android Studio](https://developer.android.com/studio).
 
-1. Navigera till [Android Studio nedladdningssida](https://developer.android.com/studio#downloads).  
+1. Gå till [Android Studio hämtnings sida](https://developer.android.com/studio#downloads).  
     > [!NOTE]
-    > Internet Explorer stöds inte av den här webbplatsen.
-2. Klicka på det körbara Android Studio-paketet med Windows (64 bitar).
-3. Läs de juridiska termer som skrivits i popup-programmet.  När du är redo att fortsätta, kontrollera **att jag har läst och håller med om kryssrutan ovan villkor** och klicka på knappen Ladda ner Android Studio för **Windows.**
-4. En gång på Android Studio setup körbar hämtas, kör den körbara.
-5. Klicka på **Nästa**på installationssidan **för Välkommen till Android Studio** i **installationsprogrammet för Android Studio.**
-6. Klicka på **Nästa**på sidan **Konfigurationsinställningar** .
-7. Klicka på **Installera**på sidan **Välj startmenymapp** .
-8. Vänta tills installationen är klar.
-9. Klicka på **Nästa**på sidan **Slutför installation** .
-10. På sidan **Slutför installationen av Android Studio.**  Klicka på **Slutför**.
-11. Android Studio startar automatiskt när installationen är klar.
-12. I dialogrutan **Importera Android-inställningar från...** väljer du **Importera inte inställningar**. Klicka på **OK**.
-13. Klicka på **Nästa**på **välkomstsidan** i **installationsguiden för Android Studio**.
-14. Välj **Standard**på sidan **Installationstyp** . Klicka på **Nästa**.
-15. Välj önskat tema på sidan **Välj gränssnittstema.** Klicka på **Nästa**.
-16. Klicka på **Nästa**på sidan **Verifiera inställningar** .
-17. Vänta tills alla komponenter har hämtats på sidan **Hämta komponenter.**  Klicka på **Slutför**.
+    > Internet Explorer stöds inte av den här platsen.
+2. Klicka på det körbara Android Studio paketet Windows (64-bitars).
+3. Läs de juridiska villkor som skrivs i popup-fönstret.  När du är redo att fortsätta kontrollerar du att kryss rutan **har lästs och samtycker till ovanstående villkor** och klickar på knappen **Ladda ned Android Studio för Windows** .
+4. Kör den körbara filen på Android Studio körbara installations program.
+5. Klicka på **Nästa**på sidan **Välkommen till Android Studio installations** program i installations programmet för **Android Studio** .
+6. På sidan **konfigurations inställningar** klickar du på **Nästa**.
+7. På sidan **Välj Start-menyn mapp** klickar du på **Installera**.
+8. Vänta tills installationen har slutförts.
+9. På sidan **installationen har slutförts** klickar du på **Nästa**.
+10. På sidan **slutför Android Studio installationen** .  Klicka på **Slutför**.
+11. Android Studio startas automatiskt när installationen är slutförd.
+12. I dialog rutan **Importera Android-inställningar från...** väljer **du importera inte inställningar**. Klicka på **OK**.
+13. Klicka på **Nästa**på sidan **Välkommen** i **installations guiden för Android Studio**.
+14. På sidan **Installations typ** väljer du **standard**. Klicka på **Nästa**.
+15. På sidan **Välj UI-tema** väljer du önskat tema. Klicka på **Nästa**.
+16. På sidan **Verifiera inställningar** klickar du på **Nästa**.
+17. På sidan **Ladda ned komponenter** väntar du tills alla komponenter har laddats ned.  Klicka på **Slutför**.
 
     > [!IMPORTANT]
-    > Det förväntas att HAXM-installationen misslyckas.  HAXM stöder inte kapslad virtualisering, vilket är anledningen till att vi installerade Visual Studio Emulator för Android tidigare i den här artikeln.
+    > Det förväntas att installationen av HAXM Miss lyckas.  HAXM har inte stöd för kapslad virtualisering, vilket är anledningen till att vi har installerat Visual Studio-emulator för Android tidigare i den här artikeln.
 
-18. Dialogrutan **Välkommen till Android Studio** visas när installationsguiden är klar.
+18. Dialog rutan **Välkommen till Android Studio** visas när installations guiden är klar.
 
-## <a name="configure-android-studio-and-visual-studio-emulator-for-android"></a>Konfigurera Android Studio och Visual Studio Emulator för Android
+## <a name="configure-android-studio-and-visual-studio-emulator-for-android"></a>Konfigurera Android Studio och Visual Studio-emulator för Android
 
-Android Studio är nästan klar för användning.  Vi måste fortfarande berätta Visual Studio Emulator för Android där Android SDK är installerat.  Detta kommer att göra alla emulatorer som körs i Visual Studio för Android visar som distributionsmål för Android Studio felsökning.
+Android Studio är snart klart att använda.  Vi behöver fortfarande meddela Visual Studio-emulatorn för Android där Android SDK är installerat.  Detta gör att alla emulatorer som körs i Visual Studio för Android visas som distributions mål för Android Studio fel sökning.
 
-Vi måste ställa in en specifik registernyckel för att berätta Visual Studio Emulator för Android där Android Sdk finns.  Om du vill ange den nödvändiga registernyckeln kör du skriptet nedan.  PowerShell-skriptet nedan förutsätter standardinstallationsplatsen för Android Sdk.  Om du har installerat din Android Sdk `$androidSdkPath` på en annan plats ändrar du värdet innan du kör skriptet.
+Vi måste ange en unik register nyckel för att meddela Visual Studio-emulatorn för Android där Android SDK finns.  Om du vill ange den register nyckel som behövs kör du skriptet nedan.  PowerShell-skriptet nedan förutsätter standard installations platsen för Android SDK.  Om du har installerat Android SDK på en annan plats ändrar du värdet för `$androidSdkPath` innan du kör skriptet.
 
 ```powershell
 $androidSdkPath = Resolve-Path $(Join-Path "$($env:APPDATA)" "../Local/Android/Sdk")
@@ -110,25 +110,25 @@ New-ItemProperty -Path $registryKeyPath -Name Path -PropertyType String -Value $
 ```
 
 > [!IMPORTANT]
-> Starta om Visual Studio Emulator för Android och Android Studio så att den nya inställningen används.
+> Starta om Visual Studio-emulatorn för Android och Android Studio så att den nya inställningen används.
 
-Starta den version du behöver i Visual Studio Emulator.  Det visas som ett distributionsmål för din Android-app i Android-studion.  Den minsta versionen för Android Studio-projektet måste stödja den version som körs i Visual Studio Emulator för Android.  Nu är du redo att skapa och felsöka projekt med Android Studio och Visual Studio Emulator för Android.  Om du har några problem läser du felsökningen av Android-emulator.
+Starta den version du behöver i Visual Studio-emulatorn.  Den visas som ett distributions mål för din Android-app i Android Studio.  Den lägsta versionen för Android Studio-projektet måste ha stöd för den version som körs i Visual Studio-emulatorn för Android.  Nu är du redo att skapa och felsöka projekt med hjälp av Android Studio och Visual Studio-emulator för Android.  Om du har problem kan du läsa fel sökning av Android-emulator.
 
 ## <a name="cost"></a>Kostnad
 
 Om du vill uppskatta kostnaden för det här labbet kan du följa exemplet nedan.
-För en klass på 25 elever med 20 timmars schemalagd lektionstid och 10 timmars kvot för läxor eller uppgifter, skulle priset för labbet vara  
+För en klass av 25 studenter med 20 timmar schemalagda klass tider och 10 timmars kvot för läxor eller tilldelningar, skulle priset för labbet vara  
 
-25 \* studenter (20 schemalagda + 10 kvoter) timmar * 55 lab enheter * 0,01 USD per timme = 412,5 USD
+25 studenter \* (20 schemalagda + 10 kvot) timmar * 55 lab-enheter * 0,01 USD per timme = 412,5 USD
 
-Mer information om prissättning finns i [Azure Lab Services Prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
+Mer detaljerad information om priser finns [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa steg är vanliga för att konfigurera ett labb.
+Nästa steg är vanliga för att ställa in alla labb.
 
 - [Skapa och hantera en mall](how-to-create-manage-template.md)
 - [Lägg till användare](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Ange kvot](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Ange ett schema](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Länkar till e-postregistrering till studenter](how-to-configure-student-usage.md#send-invitations-to-users)
+- [E-postregistrering länkar till studenter](how-to-configure-student-usage.md#send-invitations-to-users)

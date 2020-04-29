@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
 ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80667862"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
@@ -55,7 +55,7 @@ I följande tabell beskrivs de nätverkstopologier som stöds av Azure NetApp Fi
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Anslutning till volym i ett lokalt virtuellt nätverk    |    Ja    |         |
 |    Anslutning till volym i ett peer-kopplat VNet (samma region)    |    Ja    |         |
-|    Anslutning till volym i ett peer-kopplat VNet (mellan regioner eller global peering)    |    Inga    |    Ingen    |
+|    Anslutning till volym i ett peer-kopplat VNet (mellan regioner eller global peering)    |    Nej    |    Inga    |
 |    Anslutning till en volym över ExpressRoute-Gateway    |    Ja    |         |
 |    Anslutning från lokal plats till en volym i ett eker VNet över ExpressRoute-gateway och VNet-peering med Gateway-överföring    |    Ja    |        |
 |    Anslutning från lokal plats till en volym i en eker VNet över VPN-gateway    |    Ja    |         |

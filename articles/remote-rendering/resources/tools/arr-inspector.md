@@ -1,124 +1,124 @@
 ---
-title: Inspektionsverktyget för ArrInspector
-description: Användarhandbok för verktyget ArrInspector
+title: Kontrollverktyget för ArrInspector
+description: Användar handbok för ArrInspector-verktyget
 author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
 ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680081"
 ---
-# <a name="the-arrinspector-inspection-tool"></a>Inspektionsverktyget för ArrInspector
+# <a name="the-arrinspector-inspection-tool"></a>Kontrollverktyget för ArrInspector
 
-ArrInspector är ett webbaserat verktyg som används för att granska en azure remote renderingssession som körs. Det är tänkt att användas för felsökning, för att inspektera strukturen på scenen som återges, visa loggmeddelanden och övervaka live-prestanda på servern.
+ArrInspector är ett webbaserat verktyg som används för att inspektera en pågående Azure-fjärrrendering-session. Den är avsedd att användas för fel söknings syfte, för att kontrol lera strukturen på den scen som återges, Visa logg meddelanden och övervaka Live-prestanda på servern.
 
-![ArrInspector (en)](./media/arr-inspector.png)
+![ArrInspector](./media/arr-inspector.png)
 
-## <a name="connecting-to-the-arrinspector"></a>Ansluta till ArrInspector
+## <a name="connecting-to-the-arrinspector"></a>Ansluter till ArrInspector
 
-När du har hämtat `mixedreality.azure.com`värdnamnet (som slutar på) för ARR-servern ansluter du med [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Den här funktionen `StartArrInspector.html` skapar en på den enhet som programmet körs på. Om du vill starta ArrInspector öppnar du filen med en webbläsare (Edge, Firefox eller Chrome) på en dator. Filen är endast giltig i 24 timmar.
+När du har fått värd namnet (slutar `mixedreality.azure.com`på) för din arr-Server ansluter du med [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). Den här funktionen skapar `StartArrInspector.html` en på den enhet där programmet körs. Om du vill starta ArrInspector öppnar du filen med en webbläsare (Edge, Firefox eller Chrome) på en dator. Filen är endast giltig i 24 timmar.
 
-Om appen som `ConnectToArrInspectorAsync` anropar redan körs på en dator:
+Om appen som anropar `ConnectToArrInspectorAsync` redan körs på en dator:
 
-* Om du använder Unity-integreringen kan den startas automatiskt för dig.
-* Annars hittar du filen i *User\\Folders\\LocalAppData\\[your_app] AC\\Temp*.
+* Om du använder unions integreringen kan den startas automatiskt åt dig.
+* Annars hittar du filen i *User Folders\\localappdata\\[your_app]\\AC\\Temp*.
 
 Om appen körs på en HoloLens:
 
-1. Öppna HoloLens med [Windows Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
+1. Få åtkomst till HoloLens med hjälp av [Windows Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
 1. Gå till *System > Utforskaren*.
-1. Navigera till *användarmappar\\\\LocalAppData\\[your_app]\\AC Temp*.
-1. Spara *StartArrInspector.html* på datorn.
-1. Öppna *StartArrInspector.html* för att läsa in sessionens ArrInspector.
+1. Navigera till *\\localappdata\\för användare [your_app]\\AC\\-Temp*.
+1. Spara *StartArrInspector. html* på din dator.
+1. Öppna *StartArrInspector. html* för att läsa in sessionens ArrInspector.
 
-## <a name="the-performance-panel"></a>Panelen Prestanda
+## <a name="the-performance-panel"></a>Panelen prestanda
 
-![Prestandapanelen](./media/performance-panel.png)
+![Panelen prestanda](./media/performance-panel.png)
 
-Den här panelen visar diagram över alla prestandavärden per bildruta som visas av servern. Värdena inkluderar för närvarande ramtid, FPS, CPU och minnesanvändning, minnesstatistik som övergripande RAM-användning, antal objekt, etc.
+Den här panelen visar diagram över alla prestanda värden per ram som exponeras av servern. Värdena omfattar för närvarande tidsram, FPS, processor-och minnes användning, minnes statistik som total RAM-användning, antal objekt, osv.
 
-Om du vill visualisera en av dessa parametrar klickar du på knappen **Lägg till ny** och väljer ett av de tillgängliga värden som visas i dialogrutan. Den här åtgärden lägger till ett nytt rullande diagram på panelen och spårar värdena i realtid. Till höger kan du se *det lägsta,* *högsta* och *aktuella* värdet.
+Om du vill visualisera en av dessa parametrar klickar du på knappen **Lägg till ny** och väljer en av de tillgängliga värdena som visas i dialog rutan. Den här åtgärden lägger till ett nytt rullnings diagram på panelen och spårar värdena i real tid. Till höger kan du se det *lägsta*, *högsta* och *aktuella* värdet.
 
-Du kan panorera diagrammet genom att dra dess innehåll med musen, men panorering vågrätt är bara möjligt när ArrInspector är i pausat tillstånd.
+Du kan panorera grafen genom att dra dess innehåll med musen, men det är dock bara möjligt att panorera vågrätt när ArrInspector är i pausat läge.
 
-Om du håller ned CTRL medan du drar kan du zooma. Vågrät zoomning kan också styras med skjutreglaget längst ned.
+Du kan zooma genom att hålla CTRL samtidigt som du drar. Horisontell zoomning kan också styras med skjutreglaget längst ned.
 
-Det lodräta området beräknas som standard baserat på de värden som för närvarande visas och värden för min och max visas i textrutorna till höger. När värdena ställs in manuellt, antingen genom att skriva in dem direkt i textrutan eller genom att panorera/zooma, kommer diagrammet att använda dessa värden. Om du vill återställa den automatiska lodräta inramningen klickar du på ikonen i det övre högra hörnet.
+Det lodräta intervallet är som standard beräknat baserat på de värden som visas för närvarande, och de minsta och högsta värdena visas i text rutorna till höger. När värdena anges manuellt, antingen genom att skriva dem direkt i text rutan eller genom panorering/zoomning, kommer diagrammet att använda dessa värden. Om du vill återställa den automatiska lodräta ram, klickar du på ikonen i det övre högra hörnet.
 
 ![lodrätt intervall](./media/vertical-range.png)
 
-## <a name="the-log-panel"></a>Loggpanelen
+## <a name="the-log-panel"></a>Panelen logg
 
-![Loggpanel](./media/log-panel.png)
+![Logg panel](./media/log-panel.png)
 
-Loggpanelen visar en lista över loggmeddelanden som genereras på serversidan. Vid anslutning kommer det att visa upp till 200 tidigare loggmeddelanden, och kommer att skriva ut nya när de inträffar.
+Logg panelen visar en lista över logg meddelanden som genereras på Server sidan. Vid anslutning visar den upp till 200 tidigare logg meddelanden och kommer att skriva ut nya.
 
-Du kan filtrera listan baserat `[Error/Warning/Info/Debug]` på loggtypen med hjälp av knapparna högst upp.
-![Knappar för loggfilter](./media/log-filter.png)
+Du kan filtrera listan baserat på logg typen `[Error/Warning/Info/Debug]` med knapparna längst upp.
+![Logg filter knappar](./media/log-filter.png)
 
-## <a name="the-timing-data-capture-panel"></a>Panelen Insamling av tidsdata
+## <a name="the-timing-data-capture-panel"></a>Hämtnings panelen för tids data
 
-![Insamling av tidsinformation](./media/timing-data-capture.png)
+![Fångst av tids data](./media/timing-data-capture.png)
 
-Den här panelen används för att samla in tidsinformation från servern och hämta den. Filen använder [Chrome Tracing JSON-formatet](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). Om du vill granska data `Chrome://tracing` öppnar du Chrome på webbadressen och drar och släpper den nedladdade filen på sidan. Tidsdata samlas kontinuerligt in i en ringbuffert i fast storlek. När den skrivs ut innehåller fångsten bara information om det omedelbara förflutna, vilket innebär ett par sekunder till några minuter.
+Den här panelen används för att avbilda tids information från servern och ladda ned den. Filen använder JSON- [formatet Chrome-spårning](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). Om du vill granska data öppnar du Chrome på URL `Chrome://tracing` : en och drar och släpper den nedladdade filen på sidan. Tid mätnings data samlas in kontinuerligt i en ring-buffert med fast storlek. Vid avskrivning innehåller insamlingen bara information om den omedelbara tiden, vilket innebär några sekunder till några minuter.
 
-## <a name="the-scene-inspection-panel"></a>Panelen Sceninspektion
+## <a name="the-scene-inspection-panel"></a>Kontroll panelen för scenen
 
-![Panelen Scen inspektion](./media/scene-inspection-panel.png)
+![Kontroll panel för scen](./media/scene-inspection-panel.png)
 
-Den här panelen visar strukturen på den renderade scenen. Objekthierarkin finns till vänster, innehållet i det markerade objektet finns till höger. Panelen är skrivskyddad och uppdateras i realtid.
+Den här panelen visar strukturen för den renderade scenen. Objektets hierarki är till vänster. innehållet i det markerade objektet är till höger. Panelen är skrivskyddad och uppdateras i real tid.
 
-## <a name="the-vm-debug-information-panel"></a>Panelen Felsökning av virtuella datorer
+## <a name="the-vm-debug-information-panel"></a>Panelen för fel söknings information för virtuell dator
 
-![Informationspanel för felsökning för virtuella datorer](./media/state-debugger-panel.png)
+![Fel söknings informations panel för virtuell dator](./media/state-debugger-panel.png)
 
-Den här panelen erbjuder vissa felsökningsfunktioner.
+Den här panelen innehåller vissa fel söknings funktioner.
 
 ### <a name="restart-service"></a>Starta om tjänsten
 
-Knappen **Starta om tjänsten** startar om körningen på den virtuella datorn som arrInspector är ansluten till. Alla anslutna klienter kopplas från och arrInspector-sidan måste laddas om för att ansluta till den omstartade tjänsten.
+Med knappen **starta om tjänsten** startar du om körningen på den virtuella datorn som arrInspector är ansluten till. Alla anslutna klienter kommer att kopplas från och arrInspector-sidan måste läsas in för att ansluta till den omstartade tjänsten.
 
-### <a name="collect-debug-information"></a>Samla in felsökningsinformation
+### <a name="collect-debug-information"></a>Samla in felsöknings information
 
-Knappen **Samla in felsökningsinformation för virtuell dator** öppnar en dialogruta som gör att du kan utlösa ARR-instansen för att samla in felsökningsinformation på den virtuella datorn:
+Knappen **samla in fel söknings information för virtuell dator** öppnar en dialog ruta där du kan utlösa arr-instansen för att samla in felsöknings information på den virtuella datorn:
 
-![Dialogrutan För felsökning av virtuella datorer](./media/state-debugger-dialog.png)
+![Dialog rutan fel söknings information för virtuell dator](./media/state-debugger-dialog.png)
 
-Felsökningsinformation hjälper Azure Remote Rendering-teamet att analysera eventuella problem som uppstår i en ARR-instans som körs. Dialogrutan har ett textfält för att ge ytterligare information, till exempel steg för att återskapa ett problem.
+Felsöknings information hjälper Azure-fjärrrendering-teamet att analysera eventuella problem som inträffar i en ARR-instans som körs. Dialog rutan innehåller ett textfält som ger ytterligare information, till exempel steg för att återskapa ett problem.
 
-När du har klickat på knappen **Starta insamling** stängs dialogrutan och insamlingsprocessen börjar. Det kan ta några minuter att samla in information om den virtuella datorn.
+När du klickar på knappen **börja samla in** stängs dialog rutan och samlings processen börjar. Det kan ta några minuter att samla in informationen på den virtuella datorn.
 
-![Vm-felsökningsinformationsinsamling pågår](./media/state-debugger-panel-in-progress.png)
+![Insamling av virtuella dator fel söknings information pågår](./media/state-debugger-panel-in-progress.png)
 
-När samlingen är klar får du ett meddelande i fönstret ArrInspector. Det här meddelandet innehåller ett ID som identifierar just den här samlingen. Var noga med att spara det här ID:et för att vidarebefordra det till Azure Remote Rendering team.
+När samlingen är färdig visas ett meddelande i fönstret ArrInspector. Det här meddelandet innehåller ett ID som identifierar den aktuella samlingen. Se till att spara det här ID: t för att skicka det till Azure-fjärrrendering-teamet.
 
-![Framgång för den virtuella felsökningsinformationssamlingen](./media/state-debugger-snackbar-success.png)
+![Informations insamling för VM-felsökning lyckades](./media/state-debugger-snackbar-success.png)
 
 > [!IMPORTANT]
-> Du kan inte hämta eller på annat sätt komma åt felsökningsinformation för virtuella datorer. Endast Azure Remote Rendering-teamet har åtkomst till insamlade data. Du måste kontakta oss och skicka insamlings-ID tillsammans, för att vi ska undersöka problemet du ser.
+> Du kan inte ladda ned eller på annat sätt komma åt VM-felsökning. Endast Azure-fjärråter givnings teamet har åtkomst till de insamlade data. Du måste kontakta oss och skicka samlings-ID: t tillsammans för att vi ska kunna undersöka problemet som du ser.
 
-## <a name="pause-mode"></a>Pausläge
+## <a name="pause-mode"></a>Paus läge
 
-I det övre högra hörnet kan du med en switch pausa liveuppdateringen av panelerna. Det här läget kan vara användbart för att noggrant inspektera ett visst tillstånd.
+I det övre högra hörnet kan du med en växel pausa Live-uppdateringen av panelerna. Det här läget kan vara användbart för att noggrant inspektera ett särskilt tillstånd.
 
-![Pausläge](./media/pause-mode.png)
+![Paus läge](./media/pause-mode.png)
 
-När liveuppdateringen återaktiverar återställs alla paneler.
+När du aktiverar direkt uppdatering igen återställs alla paneler.
 
-## <a name="host-configuration"></a>Värdkonfiguration
+## <a name="host-configuration"></a>Värd konfiguration
 
-Som standard ansluter verktyget till ARR-servern som körs på samma värd som betjänar ArrInspector. Du kan dock konfigurera den för att inspektera en annan server, förutsatt att den kör en ARR-instans med verktygsporten öppen.
+Som standard ansluter verktyget till den ARR-server som körs på samma värd som betjänar ArrInspector. Du kan dock konfigurera den att inspektera en annan server, förutsatt att den kör en ARR-instans med verktygs porten öppen.
 
-Det gör du genom att öppna huvudmenyn till vänster om rubrikfältet och välja *Värdkonfiguration*. Klicka på **Lägg till ny värd**och ange namn och värdnamn. För *värdnamn* använder du bara `.mixedreality.azure.com`värdnamnet som `http://` slutar på , inkludera inte eller en port.
+Det gör du genom att gå till huvud menyn till vänster i rubrik fältet och välja *värd konfiguration*. Klicka på **Lägg till ny värd**och ange namn och värdnamn. För *hostname* använder du bara det värdnamn som `.mixedreality.azure.com`slutar i, `http://` tar inte med eller en port.
 
-![Värdkonfiguration](./media/host-configuration.png)
+![Värd konfiguration](./media/host-configuration.png)
 
-Om du snabbt vill växla från en värd till en annan använder du rullgardinsmenyn längst upp till höger.
+Om du snabbt vill växla från en värd till en annan använder du List rutan längst upp till höger.
 
-![Värdkombination](./media/host-switch-combo.png)
+![Värd kombination](./media/host-switch-combo.png)
 
-Värdlistan lagras i webbläsarens lokala lagring, så den bevaras när samma webbläsare öppnas igen.
+Värd listan lagras i den lokala webbläsarens lagring, så den kommer att bevaras när du öppnar samma webbläsare igen.

@@ -1,6 +1,6 @@
 ---
-title: Viktig information – Azure Event Grid IoT Edge | Microsoft-dokument
-description: Azure Event Grid på IoT Edge-versionsanteckningar
+title: Viktig information – Azure Event Grid IoT Edge | Microsoft Docs
+description: Viktig information om Azure Event Grid i IoT Edge
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,42 +9,42 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 18a4fb9a979841bbf6cd0090fc67a77327c61596
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76849713"
 ---
-# <a name="release-notes-azure-event-grid-on-iot-edge"></a>Viktig information: Azure-händelserutnät på IoT Edge
+# <a name="release-notes-azure-event-grid-on-iot-edge"></a>Viktig information: Azure Event Grid på IoT Edge
 
-## <a name="100-preview1"></a>1.0.0-preview1
+## <a name="100-preview1"></a>1.0.0 – preview1
 
 Första versionen av Azure Event Grid på IoT Edge. Inkluderade funktioner:
 
 * Skapa ämne
-* Skapa skapande av evenemangsprenumeration
+* Skapa händelse prenumeration
 * Avancerade filter
 * Batchbearbetning av utdata
-* Återförsöksprinciper
-* Modul till modulpublicering
-* Publicera till WebHook som mål
-* Publicera till IoT Edge Hub som mål
-* Publicera till molntjänsten Azure Event Grid som mål
-* Beständigt tillstånd för metadata
-* Integrering av Blob-lagringsmodul
+* Principer för återförsök
+* Modul till modul-publicering
+* Publicera till webhook som ett mål
+* Publicera till IoT Edge hubb som mål
+* Publicera till Azure Event Grid moln tjänst som mål
+* Sparat tillstånd för metadata
+* Integrering av Blob Storage-modul
 
-Taggar:`1.0.0-preview1`
+Taggen`1.0.0-preview1`
 
-## <a name="100-preview2"></a>1.0.0-preview2
+## <a name="100-preview2"></a>1.0.0 – preview2
 
-Preview 2 av Azure Event Grid på IoT Edge har lagts till:
+För hands version 2 av Azure Event Grid på IoT Edge har lagts till:
 
 * Konfigurerbara beständiga händelser till disk
-* Ämnesmått
-* Mått för händelseprenumeration
-* Publicera till händelsehubbar som mål
-* Publicera till servicebussköer som mål
-* Publicera till Service Bus-ämnen som mål
-* Publicera till lagringsköer som mål
+* Ämnes mått
+* Mått för händelse prenumeration
+* Publicera till Event Hubs som ett mål
+* Publicera till Service Bus köer som mål
+* Publicera till Service Bus ämnen som mål
+* Publicera till lagrings köer som mål
 
-Taggar: `1.0.0-preview2` `1.0`, ,`latest`
+Taggar: `1.0.0-preview2`, `1.0`,`latest`

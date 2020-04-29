@@ -1,7 +1,7 @@
 ---
-title: Vanliga frågor om konfiguration och hantering
+title: Vanliga frågor och svar om konfiguration och hantering
 titleSuffix: Azure Cloud Services
-description: I den här artikeln visas vanliga frågor om konfiguration och hantering för Microsoft Azure Cloud Services.
+description: Den här artikeln innehåller vanliga frågor och svar om konfiguration och hantering av Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -16,143 +16,143 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668587"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations- och hanteringsproblem för Azure Cloud Services: Vanliga frågor och svar (vanliga frågor)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
-Den här artikeln innehåller vanliga frågor och svar om konfigurations- och hanteringsproblem för [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också läsa [sidan VM-storlek](cloud-services-sizes-specs.md) för molntjänster för storleksinformation.
+Den här artikeln innehåller vanliga frågor om konfigurations-och hanterings problem för [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också se storleks information på [sidan Cloud Services virtuell dator storlek](cloud-services-sizes-specs.md) .
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 **Certifikat**
 
-- [Varför är certifikatkedjan för mitt TLS/SSL-certifikat för molntjänst ofullständig?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
-- [Vad är syftet med "Windows Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
-- [Hur kan jag generera en begäran om certifikatsignering (CSR) utan "RDP-ing" i instansen?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
-- [Mitt cloud servicehanteringscertifikat löper ut. Hur förnyar man det?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [Hur automatiserar man installationen av huvud-TLS/SSL-certifikat(.pfx) och mellanliggande certifikat(.p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
+- [Varför är certifikat kedjan för mitt moln tjänst TLS/SSL-certifikat ofullständig?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
+- [Vad är syftet med krypterings certifikatet "Windows Azure-verktyg för tillägg"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
+- [Hur kan jag skapa en certifikat signerings förfrågan utan "RDP-ing" i-instansen?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
+- [Mitt moln tjänst hanterings certifikat upphör att gälla. Hur förnyar jag det?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
+- [Hur automatiserar du installationen av huvudtls/SSL-certifikat (. pfx) och mellanliggande certifikat (. p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - [Vad är syftet med certifikatet "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Övervakning och loggning**
 
-- [Vilka är de kommande Molntjänstfunktionerna i Azure-portalen som kan hjälpa till att hantera och övervaka program?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
-- [Varför slutar IIS skriva till loggkatalogen?](#why-does-iis-stop-writing-to-the-log-directory)
-- [Hur aktiverar jag WAD-loggning för molntjänster?](#how-do-i-enable-wad-logging-for-cloud-services)
+- [Vilka är de kommande moln tjänst funktionerna i Azure Portal som kan hjälpa dig att hantera och övervaka program?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
+- [Varför slutar IIS skriva till logg katalogen?](#why-does-iis-stop-writing-to-the-log-directory)
+- [Hur gör jag för att aktivera loggning av WAD för Cloud Services?](#how-do-i-enable-wad-logging-for-cloud-services)
 
-**Nätverkskonfiguration**
+**Konfiguration av nätverk**
 
-- [Hur ställer jag in tidsgränsen för inaktiv för Azure load balancer?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer)
-- [Hur kopplar jag en statisk IP-adress till min molntjänst?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
-- [Vilka funktioner och funktioner finns som Azure basic IPS/IDS och DDOS tillhandahåller?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
-- [Hur aktiverar du HTTP/2 på virtuell molntjänster?](#how-to-enable-http2-on-cloud-services-vm)
+- [Hur gör jag för att ange tids gränsen för inaktivitet för Azure Load Balancer?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer)
+- [Hur gör jag för att associera en statisk IP-adress till min moln tjänst?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service)
+- [Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Hur aktiverar jag HTTP/2 på Cloud Services VM?](#how-to-enable-http2-on-cloud-services-vm)
 
-**Behörigheter**
+**Åtkomst**
 
-- [Kan Microsofts interna tekniker fjärrskrivbord till Cloud Service-instanser utan tillstånd?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Jag kan inte fjärrskrivbord till virtuell molntjänst med hjälp av RDP-filen. Jag får följande fel: Ett autentiseringsfel har inträffat (Kod: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
+- [Jag kan inte fjärr skrivbord till moln tjänstens virtuella dator med hjälp av RDP-filen. Jag får följande fel meddelande: ett autentiseringsfel har inträffat (kod: 0x80004005 visas)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Skalning**
 
-- [Jag kan inte skala bortom X-instanser](#i-cannot-scale-beyond-x-instances)
-- [Hur konfigurerar jag automatisk skalning baserat på minnesmått?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
+- [Det går inte att skala mer än X instanser](#i-cannot-scale-beyond-x-instances)
+- [Hur kan jag konfigurera automatisk skalning baserat på minnes mått?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
 
 **Allmänna**
 
-- [Hur lägger jag till "nosniff" på min webbplats?](#how-do-i-add-nosniff-to-my-website)
-- [Hur anpassar jag IIS för en webbroll?](#how-do-i-customize-iis-for-a-web-role)
-- [Vad är kvotgränsen för min molntjänst?](#what-is-the-quota-limit-for-my-cloud-service)
-- [Varför visar enheten på min virtuella molntjänst väldigt lite ledigt diskutrymme?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
-- [Hur lägger jag till ett antimalware-tillägg för mina molntjänster på ett automatiserat sätt?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
-- [Hur aktiverar du SNI (Server Name Indication) för molntjänster?](#how-to-enable-server-name-indication-sni-for-cloud-services)
-- [Hur lägger jag till taggar i min Azure Cloud Service?](#how-can-i-add-tags-to-my-azure-cloud-service)
-- [Azure-portalen visar inte SDK-versionen av min molntjänst. Hur kan jag få det?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
-- [Jag vill stänga av molntjänsten i flera månader. Hur kan man minska faktureringskostnaden för Molntjänsten utan att förlora IP-adressen?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
+- [Hur gör jag för att lägger du till "nosniffer" på min webbplats?](#how-do-i-add-nosniff-to-my-website)
+- [Hur gör jag för att anpassa IIS för en webb roll?](#how-do-i-customize-iis-for-a-web-role)
+- [Vilken är kvot gränsen för min moln tjänst?](#what-is-the-quota-limit-for-my-cloud-service)
+- [Varför visar enheten i min moln tjänst VM mycket ledigt disk utrymme?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
+- [Hur kan jag lägga till ett tillägg för program mot skadlig kod för mina Cloud Services på ett automatiserat sätt?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Hur aktiverar du Servernamnindikator (SNI) för Cloud Services?](#how-to-enable-server-name-indication-sni-for-cloud-services)
+- [Hur kan jag lägga till taggar i min Azure Cloud service?](#how-can-i-add-tags-to-my-azure-cloud-service)
+- [Azure Portal visar inte SDK-versionen av min moln tjänst. Hur kan jag få det?](#the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that)
+- [Jag vill stänga av moln tjänsten under flera månader. Hur minskar du fakturerings kostnaden för moln tjänsten utan att förlora IP-adressen?](#i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address)
 
 
 ## <a name="certificates"></a>Certifikat
 
-### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Varför är certifikatkedjan för mitt TLS/SSL-certifikat för molntjänst ofullständig?
+### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Varför är certifikat kedjan för mitt moln tjänst TLS/SSL-certifikat ofullständig?
     
-Vi rekommenderar att kunderna installerar hela certifikatkedjan (lövcert, mellanliggande certifikat och rotcert) i stället för bara lövcertifikatet. När du installerar bara lövcertifikatet förlitar du dig på att Windows ska skapa certifikatkedjan genom att gå på CTL. Om återkommande nätverks- eller DNS-problem uppstår i Azure eller Windows Update när Windows försöker validera certifikatet kan certifikatet anses ogiltigt. Genom att installera hela certifikatkedjan kan det här problemet undvikas. Bloggen på [Hur man installerar ett kedjat SSL-certifikat](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) visar hur man gör detta.
+Vi rekommenderar att kunderna installerar hela certifikat kedjan (löv certifikat, mellanliggande certifikat och rot certifikat) i stället för bara löv certifikatet. När du installerar bara löv certifikatet förlitar du dig på Windows för att bygga certifikat kedjan genom att gå till listan över betrodda certifikat. Om tillfälliga nätverks-eller DNS-problem inträffar i Azure eller Windows Update när Windows försöker validera certifikatet, kan certifikatet anses vara ogiltigt. Genom att installera den fullständiga certifikat kedjan kan du undvika det här problemet. Bloggen för [att installera ett länkat SSL-certifikat](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) visar hur du gör detta.
 
-### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>Vad är syftet med "Windows Azure Tools Encryption Certificate for Extensions"?
+### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>Vad är syftet med krypterings certifikatet "Windows Azure-verktyg för tillägg"?
 
-Dessa certifikat skapas automatiskt när ett tillägg läggs till i molntjänsten. Oftast är detta WAD-tillägget eller RDP-tillägget, men det kan vara andra, till exempel tillägget Antimalware eller Log Collector. Dessa certifikat används endast för att kryptera och dekryptera den privata konfigurationen för tillägget. Utgångsdatumet kontrolleras aldrig, så det spelar ingen roll om certifikatet har upphört att gälla. 
+Dessa certifikat skapas automatiskt när ett tillägg läggs till i moln tjänsten. Oftast är detta WAD-tillägget eller RDP-tillägget, men det kan vara andra, till exempel tillägget för program mot skadlig kod eller logg insamlare. Dessa certifikat används bara för kryptering och dekryptering av den privata konfigurationen för tillägget. Utgångs datumet kontrol leras aldrig, så det spelar ingen roll om certifikatet har upphört att gälla. 
 
-Du kan ignorera dessa certifikat. Om du vill rensa certifikaten kan du prova att ta bort dem alla. Azure genererar ett fel om du försöker ta bort ett certifikat som används.
+Du kan ignorera dessa certifikat. Om du vill rensa certifikaten kan du prova att ta bort alla. Azure kommer att utlösa ett fel om du försöker ta bort ett certifikat som används.
 
-### <a name="how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance"></a>Hur kan jag generera en begäran om certifikatsignering (CSR) utan "RDP-ing" i instansen?
+### <a name="how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance"></a>Hur kan jag skapa en certifikat signerings förfrågan utan "RDP-ing" i-instansen?
 
-Se följande vägledningsdokument:
+Se följande rikt linjer:
 
-[Skaffa ett certifikat för användning med Windows Azure-webbplatser (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
+[Hämta ett certifikat för användning med Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
-Csr är bara en textfil. Det behöver inte skapas från den maskin där certifikatet slutligen kommer att användas.Även om det här dokumentet är skrivet för en App-tjänst är CSR-skapandet allmänt och gäller även för molntjänster.
+CSR är bara en textfil. Den behöver inte skapas från den dator där certifikatet slutligen ska användas.Även om det här dokumentet skrivs för en App Service, är CSR-skapandet generiskt och gäller även för Cloud Services.
 
-### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Mitt cloud servicehanteringscertifikat löper ut. Hur förnyar man det?
+### <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Mitt moln tjänst hanterings certifikat upphör att gälla. Hur förnyar jag det?
 
-Du kan använda följande PowerShell-kommandon för att förnya dina hanteringscertifikat:
+Du kan använda följande PowerShell-kommandon för att förnya hanterings certifikat:
 
     Add-AzureAccount
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-**Get-AzurePublishSettingsFile** skapar ett nytt hanteringscertifikat i > **prenumerationshanteringscertifikat** i Azure-portalen. **Subscription** Namnet på det nya certifikatet ser ut som "YourSubscriptionNam]-[CurrentDate]-credentials".
+**Get-AzurePublishSettingsFile** skapar ett nytt hanterings certifikat i **prenumerations** > **hanterings certifikaten** i Azure Portal. Namnet på det nya certifikatet ser ut som "YourSubscriptionNam]-[CurrentDate]-credentials".
 
-### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Hur automatiserar man installationen av huvud-TLS/SSL-certifikat(.pfx) och mellanliggande certifikat(.p7b)?
+### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Hur automatiserar du installationen av huvudtls/SSL-certifikat (. pfx) och mellanliggande certifikat (. p7b)?
 
-Du kan automatisera den här uppgiften med hjälp av ett startskript (batch/cmd/PowerShell) och registrera startskriptet i tjänstdefinitionsfilen. Lägg till både startskriptet och certifikatfilen(.p7b) i projektmappen i samma katalog med startskriptet.
+Du kan automatisera den här uppgiften med hjälp av ett start skript (batch/cmd/PowerShell) och registrera start skriptet i tjänst definitions filen. Lägg till både start skriptet och certifikatet (. P7B-filen) i projektmappen i samma katalog som start skriptet.
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Vad är syftet med certifikatet "Microsoft Azure Service Management for MachineKey"?
 
-Det här certifikatet används för att kryptera datornycklar på Azure Web Roles. Mer information finns i [den här rekommendationen](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Det här certifikatet används för att kryptera dator nycklar på Azure-webbroller. Mer information finns i [den här rekommendationen](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Mer information finns i följande artiklar:
-- [Konfigurera och köra startuppgifter för en molntjänst](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Vanliga startuppgifter för Molntjänsten](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Konfigurera och köra start åtgärder för en moln tjänst](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Vanliga start uppgifter för moln tjänster](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>Övervakning och loggning
 
-### <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Vilka är de kommande Molntjänstfunktionerna i Azure-portalen som kan hjälpa till att hantera och övervaka program?
+### <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Vilka är de kommande moln tjänst funktionerna i Azure Portal som kan hjälpa dig att hantera och övervaka program?
 
-Möjligheten att generera ett nytt certifikat för RDP (Remote Desktop Protocol) kommer snart. Du kan också köra det här skriptet:
+Möjlighet att generera ett nytt certifikat för Remote Desktop Protocol (RDP) kommer snart. Du kan också köra det här skriptet:
 
 ```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Möjlighet att välja blob eller lokal för din csdef och cscfg ladda upp plats kommer snart. Med hjälp av [Ny AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0)kan du ange varje platsvärde.
+Det kommer snart att välja BLOB eller lokalt för csdef-och cscfg-uppladdnings platsen. Med [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0)kan du ange varje plats värde.
 
-Möjlighet att övervaka mått på instansnivå. Ytterligare övervakningsfunktioner finns i [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
+Möjlighet att övervaka mått på instans nivå. Ytterligare övervakningsfunktioner finns i [så här övervakar du Cloud Services](cloud-services-how-to-monitor.md).
 
-### <a name="why-does-iis-stop-writing-to-the-log-directory"></a>Varför slutar IIS skriva till loggkatalogen?
-Du har uttömt den lokala lagringskvoten för att skriva till loggkatalogen.För att rätta till detta kan du göra en av tre saker:
-* Aktivera diagnostik för IIS och få diagnostiken regelbundet flyttad till bloblagring.
-* Ta bort loggfiler manuellt från loggningskatalogen.
-* Öka kvotgränsen för lokala resurser.
+### <a name="why-does-iis-stop-writing-to-the-log-directory"></a>Varför slutar IIS skriva till logg katalogen?
+Du har förbrukat den lokala lagrings kvoten för skrivning till logg katalogen.Du kan åtgärda detta genom att göra något av tre saker:
+* Aktivera diagnostik för IIS och låt diagnostiken regelbundet flyttas till Blob Storage.
+* Ta bort loggfiler manuellt från loggnings katalogen.
+* Öka kvot gränsen för lokala resurser.
 
 Mer information finns i följande dokument:
-* [Lagra och visa diagnostikdata i Azure Storage](/azure/storage/common/storage-introduction)
-* [IIS-loggar slutar skriva i Molntjänst](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Lagra och Visa diagnostikdata i Azure Storage](/azure/storage/common/storage-introduction)
+* [IIS-loggar slutar att skriva i moln tjänsten](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
-### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hur aktiverar jag WAD-loggning för molntjänster?
-Du kan aktivera LOGGNING AV Windows Azure Diagnostics (WAD) via följande alternativ:
+### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hur gör jag för att aktivera loggning av WAD för Cloud Services?
+Du kan aktivera Windows Azure-diagnostik (WAD)-loggning genom följande alternativ:
 1. [Aktivera från Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Aktivera via .NET-kod](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Aktivera via Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+3. [Aktivera via PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
-För att få de aktuella WAD-inställningarna för din molntjänst kan du använda [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd eller så kan du visa den via portalen från bladet "Cloud Services --> Extensions".
+För att kunna hämta de aktuella WAD-inställningarna för moln tjänsten kan du använda [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) PS cmd eller så kan du Visa den via portalen från bladet "Cloud Services--> tillägg".
 
 
-## <a name="network-configuration"></a>Nätverkskonfiguration
+## <a name="network-configuration"></a>Konfiguration av nätverk
 
-### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Hur ställer jag in tidsgränsen för inaktiv för Azure load balancer?
-Du kan ange tidsgränsen i filen för tjänstdefinition (csdef) så här:
+### <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Hur gör jag för att ange tids gränsen för inaktivitet för Azure Load Balancer?
+Du kan ange timeout i csdef-filen (service definition) så här:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -170,90 +170,90 @@ Du kan ange tidsgränsen i filen för tjänstdefinition (csdef) så här:
     </Endpoints>
   </WorkerRole>
 ```
-Se [Ny: Konfigurerbar inaktiv timeout för Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) för mer information.
+Se [ny: konfigurerbar tids gräns för inaktivitet för Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) för mer information.
 
-### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Hur kopplar jag en statisk IP-adress till min molntjänst?
-Om du vill konfigurera en statisk IP-adress måste du skapa en reserverad IP. Den här reserverade IP-adressen kan associeras till en ny molntjänst eller till en befintlig distribution. Mer information finns i följande dokument:
+### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Hur gör jag för att associera en statisk IP-adress till min moln tjänst?
+Om du vill konfigurera en statisk IP-adress måste du skapa en reserverad IP-adress. Den här reserverade IP-adressen kan kopplas till en ny moln tjänst eller till en befintlig distribution. Mer information finns i följande dokument:
 * [Så här skapar du en reserverad IP-adress](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#manage-reserved-vips)
-* [Reservera IP-adressen för en befintlig molntjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Associera en reserverad IP till en ny molntjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Associera en reserverad IP till en distribution som körs](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
-* [Associera en reserverad IP till en molntjänst med hjälp av en tjänstkonfigurationsfil](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [Reservera IP-adressen för en befintlig moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Koppla en reserverad IP-adress till en ny moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Koppla en reserverad IP-adress till en distribution som körs](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
+* [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Vilka funktioner och funktioner finns som Azure basic IPS/IDS och DDOS tillhandahåller?
-Azure har IPS/IDS på datacenterfysiska servrar för att skydda mot hot. Dessutom kan kunder distribuera säkerhetslösningar från tredje part, till exempel brandväggar för webbprogram, nätverksbrandvägger, antimalware, intrångsidentifiering, förebyggande system (IDS/IPS) med mera. Mer information finns i [Skydda dina data och tillgångar och följa globala säkerhetsstandarder](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
+### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller?
+Azure har IP-adresser/ID: n i Data Center fysiska servrar för att skydda mot hot. Dessutom kan kunderna distribuera säkerhetslösningar från tredje part, till exempel brand väggar för webb program, nätverks brand väggar, program mot skadlig kod, intrångs identifiering, skydds system (ID/IP-adresser) med mera. Mer information finns i [skydda dina data och till gångar och följa globala säkerhets standarder](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
 
-Microsoft övervakar kontinuerligt servrar, nätverk och program för att upptäcka hot. Azures multipronged threat-management-metod använder intrångsidentifiering, distribuerad denial-of-service (DDoS) attackprevention, penetrationstestning, beteendeanalys, avvikelseidentifiering och maskininlärning för att ständigt stärka sitt försvar och minska riskerna. Microsoft Antimalware för Azure skyddar Azure Cloud Services och virtuella datorer. Du har möjlighet att distribuera säkerhetslösningar från tredje part dessutom, till exempel brandväggar för webbprogram, nätverksbrandväggar, antimalware, intrångsidentifiering och förebyggande system (IDS/IPS) med mera.
+Microsoft övervakar kontinuerligt servrar, nätverk och program för att identifiera hot. Azures multipronged Threat-Management-metod använder intrångs identifiering, distribuerad denial-of-service (DDoS), inträngande test, beteende analys, avvikelse identifiering och maskin inlärning för att ständigt förstärka sitt försvar och minska riskerna. Microsoft Antimalware för Azure skyddar Azure-Cloud Services och virtuella datorer. Du har möjlighet att distribuera säkerhetslösningar från tredje part, till exempel brand väggar för webb program, nätverks brand väggar, program mot skadlig kod, intrångs identifiering och skydds system (ID/IP-adresser) med mera.
 
-### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Hur aktiverar du HTTP/2 på virtuell molntjänster?
+### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Hur aktiverar jag HTTP/2 på Cloud Services VM?
 
-Windows 10 och Windows Server 2016 har stöd för HTTP/2 på både klient- och serversidan. Om din klient (webbläsare) ansluter till IIS-servern via TLS som förhandlar HTTP/2 via TLS-tillägg behöver du inte göra några ändringar på serversidan. Detta beror på att h2-14-huvudet som anger användningen av HTTP/2 skickas som standard via TLS. Om klienten å andra sidan skickar ett uppgraderingshuvud för att uppgradera till HTTP/2 måste du göra ändringen nedan på serversidan för att säkerställa att uppgraderingen fungerar och att du får en HTTP/2-anslutning. 
+Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både klient-och Server sidan. Om klienten (webbläsaren) ansluter till IIS-servern via TLS som förhandlar om HTTP/2 via TLS-tillägg behöver du inte göra några ändringar på Server sidan. Detta beror på att TLS-14-huvudet som anger användningen av HTTP/2 skickas som standard via TLS. Om den andra klienten skickar ett uppgraderings huvud för att uppgradera till HTTP/2, måste du göra ändringen nedan på Server sidan för att säkerställa att uppgraderingen fungerar och att du har slut på en HTTP/2-anslutning. 
 
-1. Kör regedit.exe.
-2. Bläddra till registernyckeln: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+1. Kör regedit. exe.
+2. Bläddra till register nyckel: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Skapa ett nytt DWORD-värde med namnet **DuoEnabled**.
-4. Ange värdet till 1.
+4. Ange värdet 1.
 5. Starta om servern.
-6. Gå till **standardwebbplatsen** och skapa en ny TLS-bindning under **Bindningar**med det självsignerade certifikat som just har skapats. 
+6. Gå till **standard webbplatsen** och under **bindningar**skapar du en ny TLS-bindning med det självsignerade certifikatet som du nyss skapade. 
 
 Mer information finns i:
 
-- [HTTP/2 på IIS](https://blogs.iis.net/davidso/http2)
-- [Video: HTTP/2 i Windows 10: Webbläsare, appar och webbserver](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [HTTP/2 i IIS](https://blogs.iis.net/davidso/http2)
+- [Video: HTTP/2 i Windows 10: webbläsare, appar och webb server](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
-Dessa steg kan automatiseras via en startuppgift, så att när en ny PaaS-instans skapas kan den göra ändringarna ovan i systemregistret. Mer information finns i [Så här konfigurerar och kör du startuppgifter för en molntjänst](cloud-services-startup-tasks.md).
+De här stegen kan automatiseras via en start åtgärd, så när en ny PaaS-instans skapas, kan ändringarna placeras ovan i system registret. Mer information finns i [så här konfigurerar och kör du Start åtgärder för en moln tjänst](cloud-services-startup-tasks.md).
 
  
-När detta har gjorts kan du kontrollera om HTTP/2 har aktiverats eller inte med någon av följande metoder:
+När detta har gjorts kan du kontrol lera om HTTP/2 har Aktiver ATS eller inte genom att använda någon av följande metoder:
 
-- Aktivera protokollversion i IIS-loggar och titta i IIS-loggarna. Det kommer att visa HTTP /2 i loggarna. 
-- Aktivera F12 Developer Tool i Internet Explorer eller Microsoft Edge och växla till fliken Nätverk för att verifiera protokollet. 
+- Aktivera protokoll version i IIS-loggar och leta i IIS-loggarna. Då visas HTTP/2 i loggarna. 
+- Aktivera verktyget F12-utvecklare i Internet Explorer eller Microsoft Edge och växla till fliken nätverk för att verifiera protokollet. 
 
-Mer information finns i [HTTP/2 på IIS](https://blogs.iis.net/davidso/http2).
+Mer information finns i [http/2 i IIS](https://blogs.iis.net/davidso/http2).
 
 ## <a name="permissions"></a>Behörigheter
 
-### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Hur implementerar jag rollbaserad åtkomst för molntjänster?
-Cloud Services stöder inte den rollbaserade åtkomstkontrollmodellen (RBAC) eftersom det inte är en Azure Resource Manager-baserad tjänst.
+### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Hur kan jag implementera rollbaserad åtkomst för Cloud Services?
+Cloud Services stöder inte RBAC-modellen (rollbaserad åtkomst kontroll) eftersom den inte är en Azure Resource Manager baserad tjänst.
 
-Se [Förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Se [förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Fjärrskrivbord
+## <a name="remote-desktop"></a>Fjärr skrivbord
 
-### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsofts interna tekniker fjärrskrivbord till Cloud Service-instanser utan tillstånd?
-Microsoft följer en strikt process som inte tillåter interna tekniker att fjärrskrivbord till din molntjänst utan skriftligt tillstånd (e-post eller annan skriftlig kommunikation) från ägaren eller deras designee.
+### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?
+Microsoft följer en strikt process som inte tillåter interna tekniker att använda fjärr skrivbord i moln tjänsten utan skriftligt tillstånd (e-post eller annan skriftlig kommunikation) från ägaren eller deras utformning.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Jag kan inte fjärrskrivbord till virtuell molntjänst med hjälp av RDP-filen. Jag får följande fel: Ett autentiseringsfel har inträffat (Kod: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Jag kan inte fjärr skrivbord till moln tjänstens virtuella dator med hjälp av RDP-filen. Jag får följande fel meddelande: ett autentiseringsfel har inträffat (kod: 0x80004005 visas)
 
-Det här felet kan uppstå om du använder RDP-filen från en dator som är ansluten till Azure Active Directory. Följ dessa anvisningar för att lösa problemet:
+Det här felet kan inträffa om du använder RDP-filen från en dator som är ansluten till Azure Active Directory. Följ dessa anvisningar för att lösa problemet:
 
-1. Högerklicka på den RDP-fil som du hämtade och välj sedan **Redigera**.
-2. Lägg till "&#92;" som prefix före användarnamnet. Använd till exempel **.\användarnamn** i stället för **användarnamn**.
+1. Högerklicka på den RDP-fil som du laddade ned och välj sedan **Redigera**.
+2. Lägg till "&#92;" som prefix före användar namnet. Använd till exempel **.\username** i stället för **användar namn**.
 
 ## <a name="scaling"></a>Skalning
 
-### <a name="i-cannot-scale-beyond-x-instances"></a>Jag kan inte skala bortom X-instanser
-Din Azure-prenumeration har en gräns för hur många kärnor du kan använda. Skalning fungerar inte om du har använt alla tillgängliga kärnor. Om du till exempel har en gräns på 100 kärnor kan du ha 100 100 100 100 100 förekomster av virtuella datorer i A1-storlek för molntjänsten eller 50 A2-förekomster av virtuella datorer.
+### <a name="i-cannot-scale-beyond-x-instances"></a>Det går inte att skala mer än X instanser
+Din Azure-prenumeration har en gräns för antalet kärnor som du kan använda. Skalning fungerar inte om du har använt alla kärnor som är tillgängliga. Om du till exempel har en gräns på 100 kärnor, innebär det att du kan ha 100 a1-storlek för virtuella dator instanser för din moln tjänst eller 50 a2 storlek på virtuella dator instanser.
 
-### <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Hur konfigurerar jag automatisk skalning baserat på minnesmått?
+### <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Hur kan jag konfigurera automatisk skalning baserat på minnes mått?
 
-Automatisk skalning baserat på minnesmått för en molntjänst stöds för närvarande inte. 
+Automatisk skalning baserat på minnes mått för en Cloud Services stöds inte för närvarande. 
 
-Om du vill lösa problemet kan du använda Application Insights. Automatisk skalning stöder Application Insights som en måttkälla och kan skala antalet rollinstanser baserat på gästmått som "Minne".  Du måste konfigurera Application Insights i din Cloud Service-projektpaketfil (*.cspkg) och aktivera Azure Diagnostics-tillägg på tjänsten för att implementera den här bedriften.
+Du kan lösa problemet genom att använda Application Insights. Autoskalning stöder Application Insights som en mått källa och kan skala roll instans antalet baserat på gäst måttet, till exempel "minne".  Du måste konfigurera Application Insights i din moln tjänst projekt paket fil (*. cspkg) och aktivera Azure-diagnostik-tillägget på tjänsten för att implementera den här Feat.
 
-Mer information om hur du använder ett anpassat mått via Application Insights för att konfigurera Automatisk skalning på Molntjänster finns i [Komma igång med automatisk skala efter anpassat mått i Azure](../azure-monitor/platform/autoscale-custom-metric.md)
+Mer information om hur du använder ett anpassat mått via Application Insights för att konfigurera automatisk skalning på Cloud Services finns i [Kom igång med automatisk skalning efter anpassad mått i Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
-Mer information om hur du integrerar Azure Diagnostics med Application Insights for Cloud Services finns i [Skicka molntjänst, virtuell dator eller diagnostikdata för tjänstinfrastruktur till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+Mer information om hur du integrerar Azure-diagnostik med Application Insights för Cloud Services finns i [Skicka moln tjänst, virtuell dator eller Service Fabric diagnostikdata till Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
-Mer information om hur du aktiverar Application Insights för Molntjänster finns i [Application Insights för Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+Mer information om hur du aktiverar Application Insights för Cloud Services finns i [Application Insights för Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-Mer information om hur du aktiverar Azure Diagnostics Logging for Cloud Services finns i [Konfigurera diagnostik för Azure Cloud Services och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+Mer information om hur du aktiverar Azure-diagnostik loggning för Cloud Services finns i [Konfigurera diagnostik för Azure Cloud Services och virtuella datorer](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>Allmänna
 
-### <a name="how-do-i-add-nosniff-to-my-website"></a>Hur lägger jag till "nosniff" på min webbplats?
-Om du vill förhindra att klienter sniffar MIME-typerna lägger du till en inställning i filen *web.config.*
+### <a name="how-do-i-add-nosniff-to-my-website"></a>Hur gör jag för att lägger du till "nosniffer" på min webbplats?
+Om du vill förhindra att klienter kan använda MIME-typer lägger du till en inställning i din *Web. config-* fil.
 
 ```xml
 <configuration>
@@ -267,45 +267,45 @@ Om du vill förhindra att klienter sniffar MIME-typerna lägger du till en inst�
 </configuration>
 ```
 
-Du kan också lägga till detta som en inställning i IIS. Använd följande kommando med artikeln [vanliga startuppgifter.](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe)
+Du kan också lägga till den som en inställning i IIS. Använd följande kommando med artikeln [vanliga start åtgärder](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) .
 
 ```cmd
 %windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
 ```
 
-### <a name="how-do-i-customize-iis-for-a-web-role"></a>Hur anpassar jag IIS för en webbroll?
-Använd IIS-startskriptet från artikeln [med vanliga startuppgifter.](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe)
+### <a name="how-do-i-customize-iis-for-a-web-role"></a>Hur gör jag för att anpassa IIS för en webb roll?
+Använd start skriptet i IIS från artikeln [vanliga start åtgärder](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) .
 
-### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>Vad är kvotgränsen för min molntjänst?
-Se [Tjänstspecifika gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>Vilken är kvot gränsen för min moln tjänst?
+Se [tjänstspecifika gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
-### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Varför visar enheten på min virtuella molntjänst väldigt lite ledigt diskutrymme?
-Detta är förväntat och det bör inte orsaka något problem för ditt program. Journalering är aktiverat för %approot%-enheten i virtuella Azure PaaS-datorer, som i princip förbrukar dubbelt så mycket utrymme som filer normalt tar upp. Men det finns flera saker att vara medveten om som i huvudsak förvandla detta till en icke-fråga.
+### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Varför visar enheten i min moln tjänst VM mycket ledigt disk utrymme?
+Detta är ett förväntat beteende och det bör inte orsaka något problem med ditt program. Journalering har Aktiver ATS för% appens rot%-enheten i virtuella Azure PaaS-datorer, vilket i princip förbrukar dubbelt så mycket utrymme som filer normalt tar upp. Det finns dock flera saker som du bör känna till, vilket innebär att det innebär ett icke-problem.
 
-%approot%-enhetsstorleken \<beräknas som storleken på .cspkg + max journalstorlek + en marginal med ledigt utrymme> eller 1,5 GB, beroende på vilket som är störst. Storleken på den virtuella datorn har ingen betydelse för den här beräkningen. (Vm-storleken påverkar bara storleken på den tillfälliga C:-enheten.) 
+Enhets storleken% appens rot% beräknas som \<storlek på. cspkg + Max Journal storlek + en marginal på det lediga utrymmet>, eller 1,5 GB, beroende på vilket som är störst. Den virtuella datorns storlek har ingen betydelse för den här beräkningen. (Storleken på den virtuella datorn påverkar endast storleken på den temporära enheten C:.) 
 
-Det stöds inte att skriva till %approot%-enheten. Om du skriver till den virtuella Azure-datorn måste du göra det i en tillfällig LocalStorage-resurs (eller något annat alternativ, till exempel Blob-lagring, Azure-filer osv.). Så mängden ledigt utrymme på mappen %approot% är inte meningsfull. Om du inte är säker på om ditt program skriver till %approot%-enheten kan du alltid låta tjänsten köras i några dagar och sedan jämföra storlekarna "före" och "efter". 
+Det går inte att skriva till% appens rot%-enheten. Om du skriver till den virtuella Azure-datorn måste du göra det i en tillfällig LocalStorage-resurs (eller något annat alternativ, till exempel Blob Storage, Azure Files osv.). Därför är mängden ledigt utrymme i mappen% appens rot% inte meningsfull. Om du inte är säker på om ditt program skriver till% appens rot%-enheten, kan du alltid låta tjänsten köras i några dagar och sedan jämföra storlekarna "före" och "efter". 
 
-Azure skriver inget till %approot%-enheten. När den virtuella hårddisken har skapats från din .cspkg och monteras i Azure VM, är det enda som kan skriva till den här enheten ditt program. 
+Azure skriver inte något till% appens rot%-enheten. När den virtuella hård disken har skapats från. cspkg och monterats i den virtuella Azure-datorn är ditt program det enda som kan skriva till den här enheten. 
 
-Journalinställningarna kan inte konfigureras, så du kan inte stänga av den.
+Journal inställningarna kan inte konfigureras, så du kan inte stänga av den.
 
-### <a name="how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way"></a>Hur lägger jag till ett antimalware-tillägg för mina molntjänster på ett automatiserat sätt?
+### <a name="how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way"></a>Hur kan jag lägga till ett tillägg för program mot skadlig kod för mina Cloud Services på ett automatiserat sätt?
 
-Du kan aktivera tillägget Antimalware med PowerShell-skript i startuppgiften. Följ stegen i de här artiklarna för att implementera den: 
+Du kan aktivera tillägg för program mot skadlig kod med hjälp av PowerShell-skript i Start aktiviteten. Följ stegen i de här artiklarna för att implementera det: 
  
-- [Skapa en startuppgift för PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
+- [Skapa en start åtgärd för PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-Mer information om scenarier för distribution mot skadlig kod och hur du aktiverar den från portalen finns i [Scenarier för distribution mot skadlig kod](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
+Mer information om scenarier för distribution av program mot skadlig kod och hur du aktiverar det från portalen finns i [scenarier för distribution av program mot skadlig kod](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
-### <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>Hur aktiverar du SNI (Server Name Indication) för molntjänster?
+### <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>Hur aktiverar du Servernamnindikator (SNI) för Cloud Services?
 
-Du kan aktivera SNI i Molntjänster med någon av följande metoder:
+Du kan aktivera SNI i Cloud Services med någon av följande metoder:
 
 **Metod 1: Använd PowerShell**
 
-SNI-bindningen kan konfigureras med PowerShell-cmdlet **New-WebBinding** i en startuppgift för en Cloud Service-rollinstans enligt nedan:
+SNI-bindningen kan konfigureras med PowerShell **-cmdlet New-webbinding** i en start åtgärd för en moln tjänst roll instans enligt nedan:
     
     New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
     
@@ -315,12 +315,12 @@ Som beskrivs [här](https://technet.microsoft.com/library/ee790567.aspx)kan $ssl
 ------|------
 |0|Ingen SNI|
 |1|SNI aktiverat|
-|2|Icke SNI-bindning som använder Central Certificate Store|
-|3|SNI-bindning som använder centralcertifikatarkivet|
+|2|Icke-SNI bindning som använder centralt certifikat Arkiv|
+|3|SNI-bindning som använder centralt certifikat Arkiv|
  
 **Metod 2: Använd kod**
 
-SNI-bindningen kan också konfigureras via kod i rollstarten enligt beskrivningen i det här [blogginlägget:](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/)
+SNI-bindningen kan också konfigureras via kod i roll starten enligt beskrivningen i det här [blogg inlägget](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
     
     //<code snip> 
@@ -331,25 +331,25 @@ SNI-bindningen kan också konfigureras via kod i rollstarten enligt beskrivninge
                     serverManager.CommitChanges(); 
     //</code snip> 
     
-Med någon av metoderna ovan måste respektive certifikat (*.pfx) för de specifika värdnamnen först installeras på rollinstanserna med hjälp av en startuppgift eller via kod för att SNI-bindningen ska gälla.
+Med hjälp av någon av metoderna ovan måste respektive certifikat (*. pfx) för de angivna värdarna installeras först på roll instanserna med en start uppgift eller via kod för att SNI-bindningen ska vara effektiv.
 
-### <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Hur lägger jag till taggar i min Azure Cloud Service? 
+### <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Hur kan jag lägga till taggar i min Azure Cloud service? 
 
-Cloud Service är en klassisk resurs. Endast resurser som skapats via supporttaggar för Azure Resource Manager. Du kan inte använda taggar på klassiska resurser, till exempel Molntjänst. 
+Moln tjänsten är en klassisk resurs. Endast resurser som skapats med hjälp av Azure Resource Manager Support taggar. Du kan inte använda taggar för klassiska resurser, till exempel en moln tjänst. 
 
-### <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Azure-portalen visar inte SDK-versionen av min molntjänst. Hur kan jag få det?
+### <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Azure Portal visar inte SDK-versionen av min moln tjänst. Hur kan jag få det?
 
-Vi arbetar med att föra den här funktionen på Azure-portalen. Under tiden kan du använda följande PowerShell-kommandon för att hämta SDK-versionen:
+Vi arbetar med att ta med den här funktionen på Azure Portal. Under tiden kan du Hämta SDK-versionen med följande PowerShell-kommandon:
 
     Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
 
-### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Jag vill stänga av molntjänsten i flera månader. Hur kan man minska faktureringskostnaden för Molntjänsten utan att förlora IP-adressen?
+### <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Jag vill stänga av moln tjänsten under flera månader. Hur minskar du fakturerings kostnaden för moln tjänsten utan att förlora IP-adressen?
 
-En redan distribuerad molntjänst faktureras för den beräkning och lagring som används. Så även om du stänger av den virtuella Azure-datorn debiteras du fortfarande för lagringen. 
+En redan distribuerad moln tjänst faktureras för den beräkning och lagring som används. Så även om du stänger av den virtuella Azure-datorn debiteras du fortfarande för lagringen. 
 
-Här är vad du kan göra för att minska din fakturering utan att förlora IP-adressen för din tjänst:
+Det här kan du göra för att minska faktureringen utan att förlora IP-adressen för din tjänst:
 
-1. [Reservera IP-adressen](../virtual-network/virtual-networks-reserved-public-ip.md) innan du tar bort distributionerna.  Du debiteras endast för den här IP-adressen. Mer information om ip-adressfakturering finns i [PRISSÄTTNINGEN för IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/).
-2. Ta bort distributionerna. Ta inte bort xxx.cloudapp.net, så att du kan använda den för framtiden.
-3. Om du vill distribuera om molntjänsten med samma reserv-IP som du reserverade i din prenumeration läser du [Reserverade IP-adresser för molntjänster och virtuella datorer](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+1. [Reservera IP-adressen](../virtual-network/virtual-networks-reserved-public-ip.md) innan du tar bort distributionerna.  Du debiteras bara för den här IP-adressen. Mer information om fakturering av IP-adresser finns i [priser för IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. Ta bort distributionerna. Ta inte bort xxx.cloudapp.net, så att du kan använda den i framtiden.
+3. Om du vill distribuera om moln tjänsten med hjälp av samma reserverade IP-adress som du har reserverat i din prenumeration, se [reserverad IP adresser för Cloud Services och Virtual Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/).
 

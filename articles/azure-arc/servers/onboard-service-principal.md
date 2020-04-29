@@ -1,6 +1,6 @@
 ---
-title: Anslut hybriddatorer till Azure i stor skala
-description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med Azure Arc för servrar (förhandsversion) med hjälp av ett tjänsthuvudnamn.
+title: Ansluta hybrid datorer till Azure i stor skala
+description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med hjälp av Azure Arc for Servers (för hands version) med ett huvud namn för tjänsten.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -9,35 +9,35 @@ ms.author: magoedte
 ms.date: 02/04/2020
 ms.topic: conceptual
 ms.openlocfilehash: 3a19dc019d2566ddddb2c0ba7988b342d30a45d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77192277"
 ---
-# <a name="connect-hybrid-machines-to-azure-at-scale"></a>Anslut hybriddatorer till Azure i stor skala
+# <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ansluta hybrid datorer till Azure i stor skala
 
-Du kan aktivera Azure Arc för servrar (förhandsversion) för flera Windows- eller Linux-datorer i din miljö med flera flexibla alternativ beroende på dina behov. Med hjälp av mallskriptet vi tillhandahåller kan du automatisera varje steg i installationen, inklusive upprättande av anslutningen till Azure Arc. Du måste dock interaktivt köra skriptet med ett konto som har förhöjda behörigheter på måldatorn och i Azure. Om du vill ansluta datorerna till Azure Arc för servrar kan du använda [huvudnamnen](../../active-directory/develop/app-objects-and-service-principals.md) för Tjänsten Azure i stället för att använda din privilegierade identitet för att [interaktivt ansluta datorn](onboard-portal.md). Ett tjänsthuvudnamn är en särskild begränsad hanteringsidentitet som endast beviljas `azcmagent` den minsta behörighet som krävs för att ansluta datorer till Azure med kommandot. Detta är säkrare än att använda ett högre privilegierat konto som en klientadministratör och följer våra bästa praxis för åtkomstkontrollsäkerhet. Tjänstens huvudnamn används endast under introduktion, det används inte för något annat ändamål.  
+Du kan aktivera Azure Arc for Servers (för hands version) för flera Windows-eller Linux-datorer i din miljö med flera flexibla alternativ beroende på dina behov. Med hjälp av det mall-skript som vi tillhandahåller kan du automatisera alla steg i installationen, inklusive att upprätta anslutningen till Azure-bågen. Du måste dock köra det här skriptet interaktivt med ett konto som har förhöjd behörighet på mål datorn och i Azure. Om du vill ansluta datorerna till Azure-bågen för servrar kan du använda ett Azure Active Directory [tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md) i stället för att använda din privilegierade identitet för att [ansluta datorn interaktivt](onboard-portal.md). Ett tjänst huvud namn är en särskild begränsad hanterings identitet som endast beviljas den lägsta behörighet som krävs för att ansluta datorer till `azcmagent` Azure med hjälp av kommandot. Detta är säkrare än att använda ett högre privilegierat konto, till exempel en innehavaradministratör, och följer våra bästa metoder för åtkomst kontroll. Tjänstens huvud namn används bara vid onboarding, det används inte i något annat syfte.  
 
-Installationsmetoderna för att installera och konfigurera agenten ansluten dator kräver att den automatiserade metod du använder har administratörsbehörighet på datorerna. På Linux, genom att använda rotkontot och i Windows, som medlem i gruppen Lokala administratörer.
+Installations metoderna för att installera och konfigurera den anslutna dator agenten kräver att den automatiserade metoden du använder har administratörs behörighet på datorerna. I Linux, med hjälp av rot kontot och Windows, som medlem i den lokala administratörs gruppen.
 
-Innan du börjar bör du se till att granska [förutsättningarna](overview.md#prerequisites) och kontrollera att din prenumeration och dina resurser uppfyller kraven.
+Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](overview.md#prerequisites) resurser uppfyller kraven.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-I slutet av den här processen har du anslutit dina hybriddatorer till Azure Arc för servrar.
+I slutet av den här processen kommer du att ha anslutit dina hybrid datorer till Azure-bågen för servrar.
 
-## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Skapa en tjänsthuvudnamn för introduktion i stor skala
+## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Skapa ett huvud namn för tjänsten för onboarding i skala
 
-Du kan använda [Azure PowerShell](/powershell/azure/install-az-ps) för att skapa ett tjänsthuvudnamn med cmdleten [New-AzADServicePrincipal.](/powershell/module/Az.Resources/New-AzADServicePrincipal) Du kan också följa stegen under [Skapa ett tjänsthuvudnamn med hjälp av Azure-portalen](../../active-directory/develop/howto-create-service-principal-portal.md) för att slutföra den här uppgiften.
+Du kan använda [Azure PowerShell](/powershell/azure/install-az-ps) för att skapa ett huvud namn för tjänsten med cmdleten [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal) . Du kan också följa stegen som visas under [skapa ett huvud namn för tjänsten med hjälp av Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) för att slutföra den här aktiviteten.
 
 > [!NOTE]
-> När du skapar ett tjänsthuvudnamn måste ditt konto vara en ägare eller administratör för användaråtkomst i den prenumeration som du vill använda för introduktion. Om du inte har tillräcklig behörighet för att skapa rolltilldelningar kan tjänstens huvudnamn skapas, men det kan inte vara inbyggda datorer.
+> När du skapar ett huvud namn för tjänsten måste ditt konto vara en ägare eller administratör för användar åtkomst i den prenumeration som du vill använda för onboarding. Om du inte har tillräcklig behörighet för att skapa roll tilldelningar kan tjänstens huvud namn skapas, men det går inte att publicera datorer.
 >
 
-Om du vill skapa tjänstens huvudnamn med PowerShell utför du följande.
+Utför följande för att skapa tjänstens huvud namn med PowerShell.
 
-1. Kör följande kommando. Du måste lagra cmdletens [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) utdata i en variabel, annars kan du inte hämta lösenordet som behövs i ett senare steg.
+1. Kör följande kommando. Du måste lagra utdata från [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdleten i en variabel, annars kommer du inte att kunna hämta lösen ordet som krävs i ett senare steg.
 
     ```azurepowershell-interactive
     $sp = New-AzADServicePrincipal -DisplayName "Arc-for-servers" -Role "Azure Connected Machine Onboarding"
@@ -54,43 +54,43 @@ Om du vill skapa tjänstens huvudnamn med PowerShell utför du följande.
     Type                  :
     ```
 
-2. Om du vill hämta `$sp` lösenordet som lagras i variabeln kör du följande kommando:
+2. Kör följande kommando för att hämta det `$sp` lösen ord som lagras i variabeln:
 
     ```azurepowershell-interactive
     $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
     $credential.GetNetworkCredential().password
     ```
 
-3. Leta reda på lösenordsvärdet under **fältets lösenord** i utdata och kopiera det. Också hitta värdet under fältet **ApplicationId** och kopiera det också. Spara dem till senare på en säker plats. Om du glömmer eller förlorar tjänstens huvudlösenord kan du återställa det med hjälp av cmdleten. [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential)
+3. I utdata söker du efter lösen ordets värde under fältet **lösen ord** och kopierar det. Hitta även värdet under fältet **ApplicationId** och kopiera det också. Spara dem för senare på ett säkert ställe. Om du glömmer bort eller förlorar lösen ordet för [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) tjänstens huvud namn kan du återställa det med hjälp av cmdleten.
 
-Värdena från följande egenskaper används med `azcmagent`parametrar som skickas till :
+Värdena från följande egenskaper används med parametrar som skickas till `azcmagent`:
 
-* Värdet från egenskapen **ApplicationId** används `--service-principal-id` för parametervärdet
-* Värdet från **password** lösenordsegenskapen `--service-principal-secret` används för parametern som används för att ansluta agenten.
+* Värdet från egenskapen **ApplicationId** används för `--service-principal-id` parametervärdet
+* Värdet från **lösen ords** egenskapen används för den `--service-principal-secret` parameter som används för att ansluta agenten.
 
 > [!NOTE]
-> Se till att använda egenskapen **ApplicationId** för tjänsten, inte **egenskapen Id.**
+> Se till att använda egenskapen **ApplicationId** för tjänstens huvud namn, inte egenskapen **ID** .
 >
 
-**Azure Connected Machine Onboarding-rollen** innehåller endast de behörigheter som krävs för att registrera en dator. Du kan tilldela tjänstens huvudbehörighet så att dess omfattning kan inkludera en resursgrupp eller en prenumeration. Information om hur du lägger till rolltilldelning finns i [Lägga till eller ta bort rolltilldelningar med Azure RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md) eller Lägg till eller ta bort [rolltilldelningar med Azure RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+Den **Azure-anslutna dator onboarding** -rollen innehåller bara de behörigheter som krävs för att publicera en dator. Du kan tilldela tjänstens huvud namn behörighet att tillåta att dess omfång inkluderar en resurs grupp eller en prenumeration. Information om hur du lägger till roll tilldelning finns i [lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md) eller [lägga till eller ta bort roll tilldelningar med Azure RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
-## <a name="install-the-agent-and-connect-to-azure"></a>Installera agenten och ansluta till Azure
+## <a name="install-the-agent-and-connect-to-azure"></a>Installera agenten och Anslut till Azure
 
-Följande steg installerar och konfigurerar agenten ansluten dator på hybriddatorerna med hjälp av skriptmallen, som utför liknande steg som beskrivs i [Connect-hybriddatorerna till Azure från Azure-portalartikeln.](onboard-portal.md) Skillnaden är i det sista steget där du upprättar anslutningen till Azure Arc med `azcmagent` kommandot med hjälp av tjänstens huvudnamn. 
+Följande steg installerar och konfigurerar den anslutna dator agenten på dina hybrid datorer med hjälp av skript mal len, som utför liknande steg som beskrivs i [ansluta hybrid datorer till Azure från Azure Portal](onboard-portal.md) artikeln. Skillnaden är i det sista steget där du upprättar anslutningen till Azure-bågen med `azcmagent` hjälp av kommandot med hjälp av tjänstens huvud namn. 
 
-Följande är de inställningar som `azcmagent` du konfigurerar kommandot som ska användas för tjänstens huvudnamn.
+Följande är de inställningar som du konfigurerar `azcmagent` kommandot som ska användas för tjänstens huvud namn.
 
-* `tenant-id`: Den unika identifierare (GUID) som representerar din dedikerade instans av Azure AD.
-* `subscription-id`: Prenumerations-ID (GUID) för din Azure-prenumeration som du vill ha datorerna i.
-* `resource-group`: Resursgruppsnamnet där du vill att dina anslutna datorer ska tillhöra.
-* `location`: Se [Azure-regioner som stöds](overview.md#supported-regions). Den här platsen kan vara samma eller annorlunda, som resursgruppens plats.
-* `resource-name`: (*Valfritt*) Används för Azure-resursrepresentationen av din lokala dator. Om du inte anger det här värdet används datorvärden.
+* `tenant-id`: Den unika identifieraren (GUID) som representerar din dedikerade instans av Azure AD.
+* `subscription-id`: Prenumerations-ID (GUID) för den Azure-prenumeration som du vill ha datorerna i.
+* `resource-group`: Namnet på den resurs grupp där du vill att dina anslutna datorer ska tillhöra.
+* `location`: Se [Azure-regioner som stöds](overview.md#supported-regions). Den här platsen kan vara samma eller olika, som resurs gruppens plats.
+* `resource-name`: (*Valfritt*) som används för Azures resurs åter givning av din lokala dator. Om du inte anger det här värdet används datorns värdnamn.
 
-Du kan läsa `azcmagent` mer om kommandoradsverktyget genom att granska [Azcmagent Reference](azcmagent-reference.md).
+Du kan lära dig mer om `azcmagent` kommando rads verktyget genom att granska [Azcmagent-referensen](azcmagent-reference.md).
 
-### <a name="windows-installation-script"></a>Installationsskript för Windows
+### <a name="windows-installation-script"></a>Installations skript för Windows
 
-Följande är ett exempel på installationsskriptet för ansluten dator för Windows som har ändrats för att använda tjänstens huvudnamn för att stödja en helt automatiserad, icke-interaktiv installation av agenten.
+Följande är ett exempel på installations skriptet för den anslutna dator agenten för Windows som har ändrats för att använda tjänstens huvud namn för att stödja en helt automatiserad, icke-interaktiv installation av agenten.
 
 ```
  # Download the package
@@ -110,9 +110,9 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --subscription-id "{subscriptionID}"
 ```
 
-### <a name="linux-installation-script"></a>Installationsskript för Linux
+### <a name="linux-installation-script"></a>Installations skript för Linux
 
-Följande är ett exempel på Connected Machine-agenten för Linux-installationsskriptet som har ändrats för att använda tjänstens huvudnamn för att stödja en helt automatiserad, icke-interaktiv installation av agenten.
+Följande är ett exempel på installations skriptet för den anslutna dator agenten för Linux som har ändrats för att använda tjänstens huvud namn för att stödja en helt automatiserad, icke-interaktiv installation av agenten.
 
 ```
 # Download the installation package
@@ -131,12 +131,12 @@ azcmagent connect \
   --subscription-id "{subscriptionID}"
 ```
 
-När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc för servrar (förhandsversion) går du till Azure-portalen för att kontrollera att servern har anslutits. Visa dina datorer i [Azure-portalen](https://aka.ms/hybridmachineportal).
+När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc for Servers (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure Portal](https://aka.ms/hybridmachineportal).
 
-![En lyckad serveranslutning](./media/onboard-portal/arc-for-servers-successful-onboard.png)
+![En lyckad Server anslutning](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du hanterar din dator med [Azure Policy](../../governance/policy/overview.md), för till exempel [VM-gästkonfiguration,](../../governance/policy/concepts/guest-configuration.md)verifierar att datorn rapporterar till den förväntade Log Analytics-arbetsytan, aktiverar övervakning med [Azure Monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)och mycket mer.
+- Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md)och mycket mer.
 
-- Läs mer om [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics-agenten för Windows och Linux krävs när du proaktivt vill övervaka operativsystemet och arbetsbelastningar som körs på datorn, hantera det med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
+- Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).

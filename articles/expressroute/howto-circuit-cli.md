@@ -1,6 +1,6 @@
 ---
 title: 'Skapa och ändra en ExpressRoute-krets: Azure CLI'
-description: Den här artikeln visar hur du skapar, etablerar, verifierar, uppdaterar, tar bort och avetableras en ExpressRoute-krets med CLI.
+description: Den här artikeln visar hur du skapar, etablerar, verifierar, uppdaterar, tar bort och avetablerar en ExpressRoute-krets med CLI.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,36 +8,36 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.openlocfilehash: b967e1d8751a9c6a5214fef5241d57e954ad9f17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476159"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Skapa och ändra en ExpressRoute-krets med hjälp av CLI
 
 
-I den här artikeln beskrivs hur du skapar en Azure ExpressRoute-krets med hjälp av COMMAND Line Interface (CLI). Den här artikeln visar också hur du kontrollerar status, uppdaterar eller tar bort och avetablera en krets. Om du vill använda en annan metod för att arbeta med ExpressRoute-kretsar kan du välja artikeln i följande lista:
+Den här artikeln beskriver hur du skapar en Azure ExpressRoute-krets med hjälp av kommando rads gränssnittet (CLI). Den här artikeln visar också hur du kontrollerar status, uppdaterar eller tar bort och avetablerar en krets. Om du vill använda en annan metod för att arbeta med ExpressRoute-kretsar kan du välja artikeln i följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-circuit-arm.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
-> * [Video - Azure-portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Azure Resource Manager mall](expressroute-howto-circuit-resource-manager-template.md)
+> * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 * Innan du börjar ska du installera den senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI](/cli/azure/install-azure-cli) och [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli).
-* Granska [förutsättningarna](expressroute-prerequisites.md) och [arbetsflödena](expressroute-workflows.md) innan du börjar konfigurera.
+* Granska [nödvändiga komponenter](expressroute-prerequisites.md) och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Skapa och etablera en ExpressRoute-krets
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Logga in på ditt Azure-konto och välj din prenumeration
 
-Logga in på ditt Azure-konto för att starta konfigurationen. Om du använder CloudShell "Prova", loggas du in automatiskt. Använd följande exempel för att hjälpa dig att ansluta:
+Logga in på ditt Azure-konto för att påbörja konfigurationen. Om du använder CloudShell "testa", loggas du in automatiskt. Använd följande exempel för att ansluta:
 
 ```azurecli-interactive
 az login
@@ -55,9 +55,9 @@ Välj den prenumeration som du vill skapa en ExpressRoute-krets för.
 az account set --subscription "<subscription ID>"
 ```
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Få en lista över leverantörer, platser och bandbredder som stöds
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Hämta listan över providers, platser och bandbredder som stöds
 
-Innan du skapar en ExpressRoute-krets behöver du listan över anslutningsleverantörer, platser och bandbreddsalternativ som stöds. CLI-kommandot `az network express-route list-service-providers` returnerar den här informationen som du ska använda i senare steg:
+Innan du skapar en ExpressRoute-krets behöver du en lista över anslutnings leverantörer, platser och bandbredds alternativ som stöds. CLI-kommandot `az network express-route list-service-providers` returnerar den här informationen, som du kommer att använda i senare steg:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -116,52 +116,52 @@ Svaret liknar följande exempel:
   },
 ```
 
-Kontrollera svaret för att se om din anslutningsleverantör finns med i listan. Anteckna följande information, som du behöver när du skapar en krets:
+Kontrol lera svaret för att se om din anslutnings leverantör visas. Anteckna följande information, som du kommer att behöva när du skapar en krets:
 
-* Namn
+* Name
 * PeeringLocations
-* Bandbredder Som erbjuds
+* BandwidthsOffered
 
-Du är nu redo att skapa en ExpressRoute-krets.
+Nu är du redo att skapa en ExpressRoute-krets.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Skapa en ExpressRoute-krets
+### <a name="3-create-an-expressroute-circuit"></a>3. skapa en ExpressRoute-krets
 
 > [!IMPORTANT]
-> Din ExpressRoute-krets faktureras från det att en servicenyckel utfärdas. Utför den här åtgärden när anslutningsprovidern är redo att etablera kretsen.
+> Din ExpressRoute-krets debiteras från den tidpunkt då en tjänst nyckel utfärdas. Utför den här åtgärden när anslutnings leverantören är redo att etablera kretsen.
 >
 >
 
-Om du inte redan har en resursgrupp måste du skapa en innan du skapar expressroutekretsen. Du kan skapa en resursgrupp genom att köra följande kommando:
+Om du inte redan har en resurs grupp måste du skapa en innan du skapar din ExpressRoute-krets. Du kan skapa en resurs grupp genom att köra följande kommando:
 
 ```azurecli-interactive
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-Följande exempel visar hur du skapar en 200 Mbps ExpressRoute-krets via Equinix i Silicon Valley. Om du använder en annan leverantör och olika inställningar ersätter du den informationen när du gör din begäran.
+I följande exempel visas hur du skapar en 200-Mbit/s ExpressRoute-krets via Equinix i Silicon dal. Om du använder en annan provider och olika inställningar ersätter du den informationen när du gör din begäran.
 
-Se till att du anger rätt SKU-nivå och SKU-familj:
+Se till att du anger rätt SKU-nivå och SKU-serien:
 
-* SKU-nivån avgör om en ExpressRoute-krets är [Lokal,](expressroute-faqs.md#expressroute-local)Standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *Lokal,* *Standard* eller *Premium*.
-* SKU-familjen bestämmer faktureringstypen. Du kan ange *Datadata för datapriser* för ett dataabonnemang med datapriser och *Unlimiteddata* för ett obegränsat dataabonnemang. Du kan ändra *faktureringstypen* från Datadata till *Unlimiteddata,* men du kan inte ändra typen från *Unlimiteddata* till *Datapriser*. En *lokal* krets är endast *Unlimiteddata.*
+* SKU-nivån avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, *standard* eller *Premium*.
+* SKU-serien bestämmer fakturerings typen. Du kan ange *Metereddata* för ett data abonnemang med datapriser och *Unlimiteddata* för ett obegränsat data abonnemang. Du kan ändra fakturerings typen från *Metereddata* till *Unlimiteddata*, men du kan inte ändra typen från *Unlimiteddata* till *Metereddata*. En *lokal* krets är endast *Unlimiteddata* .
 
 
-Din ExpressRoute-krets faktureras från det att en servicenyckel utfärdas. Följande exempel är en begäran om en ny tjänstnyckel:
+Din ExpressRoute-krets debiteras från den tidpunkt då en tjänst nyckel utfärdas. Följande exempel är en begäran om en ny tjänst nyckel:
 
 ```azurecli-interactive
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Silicon Valley" -g ExpressRouteResourceGroup --provider "Equinix" -l "West US" --sku-family MeteredData --sku-tier Standard
 ```
 
-Svaret innehåller servicenyckeln.
+Svaret innehåller tjänst nyckeln.
 
-### <a name="4-list-all-expressroute-circuits"></a>4. Lista alla ExpressRoute-kretsar
+### <a name="4-list-all-expressroute-circuits"></a>4. lista alla ExpressRoute-kretsar
 
-Om du vill hämta en lista över alla ExpressRoute-kretsar som du har skapat kör du `az network express-route list` kommandot. Du kan hämta den här informationen när som helst med hjälp av det här kommandot. Om du vill visa en lista över alla kretsar ringer du samtalet utan parametrar.
+Om du vill hämta en lista över alla ExpressRoute-kretsar som du har skapat kör `az network express-route list` du kommandot. Du kan hämta den här informationen när som helst genom att använda det här kommandot. Om du vill visa alla kretsar gör du ett anrop utan parametrar.
 
 ```azurecli-interactive
 az network express-route list
 ```
 
-Din tjänstnyckel visas i fältet *ServiceKey* för svaret.
+Din tjänst nyckel visas i fältet *serviceKey* i svaret.
 
 ```output
 "allowClassicOperations": false,
@@ -192,15 +192,15 @@ Din tjänstnyckel visas i fältet *ServiceKey* för svaret.
 "type": "Microsoft.Network/expressRouteCircuits]
 ```
 
-Du kan få detaljerade beskrivningar av alla parametrar genom att köra kommandot med parametern '-h'.
+Du kan få detaljerade beskrivningar av alla parametrar genom att köra kommandot med parametern "-h".
 
 ```azurecli-interactive
 az network express-route list -h
 ```
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Skicka tjänstnyckeln till din anslutningsleverantör för etablering
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. skicka tjänst nyckeln till din anslutnings leverantör för etablering
 
-"ServiceProviderProvisioningState" ger information om det aktuella läget för etablering på tjänsteleverantörens sida. Statusen ger tillståndet på Microsoft-sidan. Mer information finns i [artikeln Arbetsflöden](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+"ServiceProviderProvisioningState" innehåller information om det aktuella etablerings läget på tjänstens leverantörs sida. Statusen ger tillståndet på Microsoft-sidan. Mer information finns i artikeln om [arbets flöden](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
 När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 
@@ -209,7 +209,7 @@ När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 "circuitProvisioningState": "Enabled"
 ```
 
-Kretsen ändras till följande tillstånd när anslutningsleverantören är i färd med att aktivera det åt dig:
+-Kretsen ändras till följande tillstånd när anslutnings leverantören håller på att aktivera den åt dig:
 
 ```output
 "serviceProviderProvisioningState": "Provisioning"
@@ -223,9 +223,9 @@ För att du ska kunna använda en ExpressRoute-krets måste den vara i följande
 "circuitProvisioningState": "Enabled
 ```
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Kontrollera regelbundet kretsnyckelns status och tillstånd
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. kontrol lera regelbundet status och tillståndet för krets nyckeln
 
-Om du kontrollerar kretsnyckelns status och tillstånd får du veta när din leverantör har aktiverat din krets. När kretsen har konfigurerats visas "ServiceProviderProvisioningState" som "Etablerad", som visas i följande exempel:
+Genom att kontrol lera status och tillståndet för krets nyckeln kan du se när din provider har aktiverat din krets. När kretsen har kon figurer ATS visas "ServiceProviderProvisioningState" som "etablerad", som du ser i följande exempel:
 
 ```azurecli-interactive
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
@@ -262,67 +262,67 @@ Svaret liknar följande exempel:
 "type": "Microsoft.Network/expressRouteCircuits]
 ```
 
-### <a name="7-create-your-routing-configuration"></a>7. Skapa din routningskonfiguration
+### <a name="7-create-your-routing-configuration"></a>7. skapa konfigurationen för routning
 
-Steg-för-steg-instruktioner finns i konfigurationsartikeln för Routning av [ExpressRoute-kretsroutning](howto-routing-cli.md) för att skapa och ändra krets peerings.
+Stegvisa instruktioner finns i [ExpressRoute-kretsens konfigurations](howto-routing-cli.md) artikel för att skapa och ändra krets-peering.
 
 > [!IMPORTANT]
-> Dessa instruktioner gäller endast för kretsar som skapas med tjänsteleverantörer som erbjuder anslutningstjänster för lager 2. Om du använder en tjänsteleverantör som erbjuder hanterade layer 3-tjänster (vanligtvis en IP VPN, till exempel MPLS), konfigurerar och hanterar anslutningsleverantören routning åt dig.
+> Dessa anvisningar gäller endast för kretsar som skapats med tjänst leverantörer som erbjuder Layer 2-anslutningstjänster. Om du använder en tjänst leverantör som erbjuder hanterade Layer 3-tjänster (vanligt vis ett IP-VPN, som MPLS) konfigurerar och hanterar din anslutnings leverantör routning åt dig.
 >
 >
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Länka ett virtuellt nätverk till en ExpressRoute-krets
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. länka ett virtuellt nätverk till en ExpressRoute-krets
 
-Länka sedan ett virtuellt nätverk till expressroutekretsen. Använd artikeln [Länka virtuella nätverk till ExpressRoute-kretsar.](howto-linkvnet-cli.md)
+Länka sedan ett virtuellt nätverk till din ExpressRoute-krets. Använd artikeln [Länka virtuella nätverk till ExpressRoute-kretsar](howto-linkvnet-cli.md) .
 
 ## <a name="modifying-an-expressroute-circuit"></a><a name="modify"></a>Ändra en ExpressRoute-krets
 
 Du kan ändra vissa egenskaper för en ExpressRoute-krets utan att påverka anslutningen. Du kan göra följande ändringar utan avbrott:
 
-* Du kan aktivera eller inaktivera ett ExpressRoute premium-tillägg för din ExpressRoute-krets.
-* Du kan öka bandbredden på din ExpressRoute-krets förutsatt att det finns kapacitet tillgänglig på porten. Det går dock inte att nedgradera bandbredden för en krets.
-* Du kan ändra mätplanen från datapriser till obegränsad data. Det går dock inte att ändra avläsningsplanen från obegränsad data till datapriser.
+* Du kan aktivera eller inaktivera ett ExpressRoute Premium-tillägg för din ExpressRoute-krets.
+* Du kan öka bandbredden för din ExpressRoute-krets om det finns tillgänglig kapacitet för porten. Nedgradering av en kretss bandbredd stöds dock inte.
+* Du kan ändra Mät planen från datapriser till obegränsade data. Det går dock inte att ändra Mät planen från obegränsade data till datapriser.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
 
-Mer information om begränsningar och begränsningar finns i Vanliga frågor och svar om [ExpressRoute](expressroute-faqs.md).
+Mer information om begränsningar och begränsningar finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
-### <a name="to-enable-the-expressroute-premium-add-on"></a>Så här aktiverar du Premium-tillägget ExpressRoute
+### <a name="to-enable-the-expressroute-premium-add-on"></a>Aktivera ExpressRoute Premium-tillägget
 
-Du kan aktivera Premium-tillägget ExpressRoute för din befintliga krets med hjälp av följande kommando:
+Du kan aktivera ExpressRoute Premium-tillägget för din befintliga krets genom att använda följande kommando:
 
 ```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Premium
 ```
 
-Kretsen har nu ExpressRoute premium tilläggsfunktioner aktiverade. Vi börjar fakturera dig för premiumtilläggsfunktionen så snart kommandot har körts.
+Kretsen har nu ExpressRoute Premium-tillägg aktiverade. Vi börjar med att debitera dig för Premium-tilläggs kapaciteten så snart kommandot har körts.
 
-### <a name="to-disable-the-expressroute-premium-add-on"></a>Så här inaktiverar du Premium-tillägget ExpressRoute
+### <a name="to-disable-the-expressroute-premium-add-on"></a>Så här inaktiverar du ExpressRoute Premium-tillägget
 
 > [!IMPORTANT]
-> Den här åtgärden kan misslyckas om du använder resurser som är större än vad som är tillåtet för standardkretsen.
+> Den här åtgärden kan inte utföras om du använder resurser som är större än vad som tillåts för standard kretsen.
 >
 >
 
-Innan du inaktiverar Premium-tillägget ExpressRoute bör du förstå följande kriterier:
+Innan du inaktiverar ExpressRoute Premium-tillägget förstår du följande kriterier:
 
-* Innan du nedgraderar från premium till standard måste du se till att du har färre än 10 virtuella nätverk kopplade till kretsen. Om du har fler än 10 misslyckas din uppdateringsbegäran och vi fakturerar dig till högre priser.
-* Du måste ta bort länken till alla virtuella nätverk i andra geopolitiska regioner. Om du inte tar bort länken till alla dina virtuella nätverk misslyckas din uppdateringsbegäran och vi fakturerar dig till högre priser.
-* Din rutttabell måste vara mindre än 4 000 vägar för privat peering. Om flödestabellstorleken är större än 4 000 vägar sjunker BGP-sessionen. Sessionen kommer inte att kunna återsebar förrän antalet annonserade prefix är under 4 000.
+* Innan du nedgraderar från Premium till standard måste du se till att du har färre än 10 virtuella nätverk som är länkade till kretsen. Om du har fler än 10 Miss lyckas uppdateringsbegäran och vi debiteras till Premium-priser.
+* Du måste ta bort länken mellan alla virtuella nätverk i andra politiska regioner. Om du inte tar bort länken till alla dina virtuella nätverk, Miss lyckas din uppdateringsbegäran och vi debiteras till Premium priser.
+* Routningstabellen måste vara mindre än 4 000 vägar för privat peering. Om din väg tabell storlek är större än 4 000 vägar, släpps BGP-sessionen. Sessionen återaktiveras inte förrän antalet annonserade prefix är under 4 000.
 
-Du kan inaktivera Premium-tillägget ExpressRoute för den befintliga kretsen med hjälp av följande exempel:
+Du kan inaktivera ExpressRoute Premium-tillägget för den befintliga kretsen med hjälp av följande exempel:
 
 ```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Standard
 ```
 
-### <a name="to-update-the-expressroute-circuit-bandwidth"></a>Så här uppdaterar du ExpressRoute-kretsbandbredden
+### <a name="to-update-the-expressroute-circuit-bandwidth"></a>Så här uppdaterar du ExpressRoute-kretsens bandbredd
 
-Om du har de bandbreddsalternativ som stöds för din leverantör kontrollerar du [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md). Du kan välja vilken storlek som helst som är större än storleken på din befintliga krets.
+För de bandbredds alternativ som stöds för din Provider, se [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md). Du kan välja valfri storlek som är större än den befintliga kretsens storlek.
 
 > [!IMPORTANT]
 > Om det finns otillräcklig kapacitet på den befintliga porten kan du behöva återskapa ExpressRoute-kretsen. Du kan inte uppgradera kretsen om det inte finns någon ytterligare kapacitet tillgänglig på den platsen.
 >
-> Du kan inte minska bandbredden för en ExpressRoute-krets utan avbrott. Nedgradering bandbredd kräver att du avetablerar ExpressRoute-kretsen och sedan återetablerar en ny ExpressRoute-krets.
+> Du kan inte minska bandbredden för en ExpressRoute-krets utan avbrott. Med degradering av bandbredd måste du avetablera ExpressRoute-kretsen och sedan etablera om en ny ExpressRoute-krets.
 >
 
 När du har bestämt vilken storlek du behöver använder du följande kommando för att ändra storlek på kretsen:
@@ -331,29 +331,29 @@ När du har bestämt vilken storlek du behöver använder du följande kommando 
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
-Din krets är dimensionerad på Microsoft-sidan. Därefter måste du kontakta anslutningsleverantören för att uppdatera konfigurationer på deras sida för att matcha den här ändringen. När du har gjort det här meddelandet börjar vi fakturera dig för det uppdaterade bandbreddsalternativet.
+Din krets har stor storlek på Microsoft-sidan. Sedan måste du kontakta din anslutnings leverantör för att uppdatera konfigurationerna på sidan för att matcha den här ändringen. När du har gjort den här aviseringen börjar vi debitera dig för alternativet uppdaterad bandbredd.
 
-### <a name="to-move-the-sku-from-metered-to-unlimited"></a>Så här flyttar du SKU:n från uppmätt till obegränsad
+### <a name="to-move-the-sku-from-metered-to-unlimited"></a>Flytta SKU: n från avgiftsbelagd till obegränsad
 
-Du kan ändra SKU för en ExpressRoute-krets med hjälp av följande exempel:
+Du kan ändra SKU: n för en ExpressRoute-krets med hjälp av följande exempel:
 
 ```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-family UnlimitedData
 ```
 
-### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Så här styr du åtkomsten till de klassiska miljöerna och Resurshanteraren
+### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Så här kontrollerar du åtkomsten till de klassiska och Resource Manager-miljöerna
 
-Granska instruktionerna i [Move ExpressRoute-kretsar från klassikern till Resurshanterarens distributionsmodell](expressroute-howto-move-arm.md).
+Läs anvisningarna i [Flytta ExpressRoute-kretsar från den klassiska distributions modellen till Resource Manager](expressroute-howto-move-arm.md).
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Avetablera och ta bort en ExpressRoute-krets
 
-Om du vill avetablera och ta bort en ExpressRoute-krets måste du förstå följande kriterier:
+För att avetablera och ta bort en ExpressRoute-krets, se till att du förstår följande kriterier:
 
-* Du måste ta bort länken till alla virtuella nätverk från ExpressRoute-kretsen. Om den här åtgärden misslyckas kontrollerar du om några virtuella nätverk är länkade till kretsen.
-* Om etableringstillståndet för ExpressRoute-kretstjänstleverantören **etablerar** eller **etableras**måste du samarbeta med din tjänsteleverantör för att avetablera kretsen på deras sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänsteleverantören slutför avetablering av kretsen och meddelar oss.
-* Du kan ta bort kretsen om tjänsteleverantören har avetablerat kretsen. När en krets avetableras anges etableringstillståndet för tjänsteleverantören till **Inte etablerat**. Därmed avbryts faktureringen för kretsen.
+* Du måste ta bort länken till alla virtuella nätverk från ExpressRoute-kretsen. Om den här åtgärden Miss lyckas kontrollerar du om det finns några virtuella nätverk som är länkade till kretsen.
+* Om etablerings statusen för ExpressRoute- **kretsen etableras eller** **etableras**måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänste leverantören har slutfört avetableringen av kretsen och meddelar oss oss.
+* Du kan ta bort kretsen om tjänst leverantören har avetablerat kretsen. När en krets har avetablerats är etablerings statusen för tjänst leverantören inställd på **inte etablerad**. Därmed avbryts faktureringen för kretsen.
 
-Du kan ta bort expressroutekretsen genom att köra följande kommando:
+Du kan ta bort ExpressRoute-kretsen genom att köra följande kommando:
 
 ```azurecli-interactive
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
@@ -361,7 +361,7 @@ az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat kretsen kontrollerar du att du utför följande uppgifter:
+När du har skapat din krets, se till att du utför följande uppgifter:
 
 * [Skapa och ändra routning för din ExpressRoute-krets](howto-routing-cli.md)
 * [Länka ditt virtuella nätverk till din ExpressRoute-krets](howto-linkvnet-cli.md)

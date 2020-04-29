@@ -1,6 +1,6 @@
 ---
-title: Om ExpressRoute-gateways för virtuella nätverk – Azure| Microsoft-dokument
-description: Lär dig mer om virtuella nätverksgateways för ExpressRoute. Den här artikeln innehåller information om gateway SKU:er och typer.
+title: Om ExpressRoute virtuella nätverksgateway – Azure | Microsoft Docs
+description: 'Läs om virtuella nätverks-gatewayer för ExpressRoute. Den här artikeln innehåller information om Gateway-SKU: er och typer.'
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,54 +8,54 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
 ms.openlocfilehash: 58e75e4efecf390c4c1449b7ec59684554fa7516
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281423"
 ---
-# <a name="about-expressroute-virtual-network-gateways"></a>Om ExpressRoute-gateways för virtuella nätverk
+# <a name="about-expressroute-virtual-network-gateways"></a>Om ExpressRoute-gatewayer för virtuella nätverk
 
-Om du vill ansluta ditt virtuella Azure-nätverk och ditt lokala nätverk via ExpressRoute måste du först skapa en virtuell nätverksgateway. En virtuell nätverksgateway tjänar två syften: utbyta IP-vägar mellan nätverken och dirigera nätverkstrafik. I den här artikeln beskrivs gatewaytyper, gateway-SKU:er och uppskattade prestanda av SKU. I den här artikeln beskrivs också ExpressRoute [FastPath](#fastpath), en funktion som gör att nätverkstrafiken från det lokala nätverket kan kringgå den virtuella nätverksgatewayen för att förbättra prestanda.
+Om du vill ansluta ditt virtuella Azure-nätverk och ditt lokala nätverk via ExpressRoute måste du först skapa en virtuell nätverksgateway. En virtuell nätverksgateway fungerar i två olika syfte: Exchange IP-vägar mellan nätverken och dirigera nätverks trafik. I den här artikeln beskrivs Gateway-typer, Gateway SKU: er och uppskattade prestanda per SKU. Den här artikeln beskriver också ExpressRoute [FastPath](#fastpath), en funktion som gör att nätverks trafiken från ditt lokala nätverk kan kringgå den virtuella Nätverksgatewayen för att förbättra prestandan.
 
 ## <a name="gateway-types"></a>Gateway-typer
 
-När du skapar en virtuell nätverksgateway måste du ange flera inställningar. En av de nödvändiga inställningarna, '-GatewayType', anger om gatewayen används för ExpressRoute eller VPN-trafik. De två gatewaytyperna är:
+När du skapar en virtuell nätverksgateway måste du ange flera inställningar. En av de obligatoriska inställningarna,-GatewayType, anger om gatewayen används för ExpressRoute eller VPN-trafik. De två Gateway-typerna är:
 
-* **Vpn** - För att skicka krypterad trafik över det offentliga Internet använder du gatewaytypen "Vpn". Detta kallas också för en VPN-gateway. Plats-till-plats-, punkt-till-plats- och VNet-VNet-anslutningar använder allihop en VPN-gateway.
+* **VPN** – om du vill skicka krypterad trafik via det offentliga Internet använder du Gateway-typen VPN. Detta kallas även för en VPN-gateway. Plats-till-plats-, punkt-till-plats- och VNet-VNet-anslutningar använder allihop en VPN-gateway.
 
-* **ExpressRoute** - Om du vill skicka nätverkstrafik på en privat anslutning använder du gatewaytypen "ExpressRoute". Detta kallas också en ExpressRoute-gateway och är den typ av gateway som används när expressroute konfigureras.
+* **ExpressRoute** – om du vill skicka nätverks trafik på en privat anslutning använder du Gateway-typen "ExpressRoute". Detta kallas även för en ExpressRoute-gateway och är den typ av gateway som används när du konfigurerar ExpressRoute.
 
 Varje virtuellt nätverk kan bara ha en VNet-gateway per gateway-typ. Du kan exempelvis ha en VNet-gateway som använder -GatewayType Vpn och en som använder -GatewayType ExpressRoute.
 
 ## <a name="gateway-skus"></a><a name="gwsku"></a>Gateway-SKU:er
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Om du vill uppgradera din gateway till en mer kraftfull gateway SKU, i de flesta fall kan du använda "Ändra storlek-AzVirtualNetworkGateway" PowerShell cmdlet. Detta kommer att fungera för uppgraderingar till Standard och HighPerformance SKU: er. Men för att uppgradera till UltraPerformance SKU måste du återskapa gatewayen. Återskapa en gateway medför driftstopp.
+Om du vill uppgradera din gateway till en mer kraftfull Gateway-SKU, kan du i de flesta fall använda PowerShell-cmdleten "Restore-AzVirtualNetworkGateway". Detta fungerar för uppgraderingar till standard-och HighPerformance-SKU: er. Men för att uppgradera till UltraPerformance SKU måste du återskapa gatewayen. Att återskapa en gateway medför avbrott.
 
-### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>Uppskattade prestanda efter gateway SKU
-I följande tabell visas gatewaytyperna och de uppskattade prestandana. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.
+### <a name="estimated-performances-by-gateway-sku"></a><a name="aggthroughput"></a>Beräknade prestanda per Gateway-SKU
+I följande tabell visas de olika Gateway-typerna och de uppskattade prestanda. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Programmets prestanda beror på flera faktorer, till exempel svarstiden från slutna till slutna dagar, och antalet trafikflöden som programmet öppnas. Siffrorna i tabellen representerar den övre gränsen som programmet teoretiskt kan uppnå i en idealisk miljö.
+> Program prestandan beror på flera faktorer, till exempel svars tiden från slut punkt till slut punkt och antalet trafik flöden som programmet öppnar. Talen i tabellen representerar den övre gränsen som programmet kan åstadkomma teoretiskt i en perfekt miljö.
 >
 >
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>Gateway-undernät 
 
-Innan du skapar en ExpressRoute-gateway måste du skapa ett gateway-undernät. Gateway-undernätet innehåller de IP-adresser som virtuella virtuella nätverksgateway virtuella datorer och tjänster använder. När du skapar din virtuella nätverksgateway distribueras virtuella gateway-datorer till gateway-undernätet och konfigureras med de önskade ExpressRoute-gatewayinställningarna. Distribuera aldrig något annat (till exempel ytterligare virtuella datorer) till gateway-undernätet. Gateway-undernätet måste ha namnet "GatewaySubnet" för att fungera korrekt. Namngivning av gateway-undernätet GatewaySubnet gör att Azure vet att detta är undernätet för att distribuera virtuella virtuella nätverksgateway-datorer och -tjänster till.
+Innan du skapar en ExpressRoute-Gateway måste du skapa ett Gateway-undernät. Gateway-undernätet innehåller de IP-adresser som de virtuella nätverks-gatewayens virtuella datorer och tjänster använder. När du skapar en virtuell nätverksgateway distribueras virtuella gateway-datorer till gateway-undernätet och konfigureras med nödvändiga ExpressRoute Gateway-inställningar. Distribuera aldrig något annat (till exempel ytterligare virtuella datorer) till gateway-undernätet. Gateway-undernätet måste ha namnet GatewaySubnet för att fungera korrekt. Att namnge Gateway-undernätet "GatewaySubnet" låter Azure veta att det här är under nätet för att distribuera virtuella nätverksgateway VM och tjänster till.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
 
-När du skapar gatewayundernätet anger du det antal IP-adresser som undernätet innehåller. IP-adresserna i gateway-undernätet allokeras till gateway-virtuella datorer och gatewaytjänster. Vissa konfigurationer kräver fler IP-adresser än andra. 
+När du skapar gatewayundernätet anger du det antal IP-adresser som undernätet innehåller. IP-adresserna i Gateway-undernätet tilldelas till gateway-VM: ar och gateway-tjänsterna. Vissa konfigurationer kräver fler IP-adresser än andra. 
 
-När du planerar gateway-undernätsstorleken läser du dokumentationen för den konfiguration som du planerar att skapa. ExpressRoute/VPN Gateway-samtidigkonfigurationen kräver till exempel ett större gateway-undernät än de flesta andra konfigurationer. Dessutom kanske du vill se till att gateway-undernätet innehåller tillräckligt med IP-adresser för att hantera eventuella framtida ytterligare konfigurationer. Även om du kan skapa ett gateway-undernät så litet som /29 rekommenderar vi att du skapar ett gateway-undernät på /27 eller större (/27, /26 osv.) om du har det tillgängliga adressutrymmet för att göra det. Detta kommer att rymma de flesta konfigurationer.
+När du planerar storleken på Gateway-undernätet läser du dokumentationen för den konfiguration som du planerar att skapa. Till exempel kräver ExpressRoute-och VPN Gateway-konfigurationer som är samtidigt ett större Gateway-undernät än de flesta andra konfigurationer. Dessutom kanske du vill kontrol lera att Gateway-undernätet innehåller tillräckligt med IP-adresser för att kunna hantera framtida ytterligare konfigurationer. Även om du kan skapa ett Gateway-undernät så litet som/29, rekommenderar vi att du skapar ett Gateway-undernät på/27 eller större (/27,/26 osv.) om du har det tillgängliga adress utrymmet. Detta kommer att hantera de flesta konfigurationer.
 
-I följande PowerShell-exempel för Resurshanteraren visar ett gateway-undernät med namnet GatewaySubnet. Du kan se CIDR-notationen anger en /27, vilket ger tillräckligt många IP-adresser för de flesta konfigurationer som för närvarande finns.
+Följande PowerShell-exempel i Resource Manager visar ett Gateway-undernät med namnet GatewaySubnet. Du kan se CIDR-noteringen anger en/27, vilket gör det möjligt för tillräckligt med IP-adresser för de flesta konfigurationer som för närvarande finns.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
@@ -63,40 +63,40 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="zone-redundant-gateway-skus"></a><a name="zrgw"></a>Zonsanta gateway-SKU:er
+### <a name="zone-redundant-gateway-skus"></a><a name="zrgw"></a>Zon – redundanta Gateway-SKU: er
 
-Du kan också distribuera ExpressRoute-gateways i Azure-tillgänglighetszoner. Detta separerar fysiskt och logiskt dem i olika tillgänglighetszoner, vilket skyddar din lokala nätverksanslutning till Azure från fel på zonnivå.
+Du kan också distribuera ExpressRoute-gatewayer i Azure-tillgänglighetszoner. Detta fysiskt och logiskt särskiljer dem till olika Tillgänglighetszoner, vilket skyddar din lokala nätverks anslutning till Azure från felaktiga zon nivåer.
 
-![Zonuppsagd ExpressRoute-gateway](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
+![Zone-redundant ExpressRoute-Gateway](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
-Zonundanta gateways använder specifika nya gateway-SKU:er för ExpressRoute-gateway.
+Zone – redundanta gateways använder vissa nya gateway-SKU: er för ExpressRoute-Gateway.
 
-* ErGw1AZ (ErGw1AZ)
-* ErGw2AZ (ErGw2AZ)
-* ErGw3AZ (ErGw3AZ)
+* ErGw1AZ
+* ErGw2AZ
+* ErGw3AZ
 
-De nya sku:erna för gateway stöder även andra distributionsalternativ som bäst matchar dina behov. När du skapar en virtuell nätverksgateway med hjälp av de nya gateway-SKU:erna har du också möjlighet att distribuera gatewayen i en viss zon. Detta kallas en zoninkörd gateway. När du distribuerar en zon gateway distribueras alla instanser av gatewayen i samma tillgänglighetszon.
+Nya gateway-SKU: er stöder också andra distributions alternativ för att passa dina behov bäst. När du skapar en virtuell nätverksgateway med hjälp av nya gateway-SKU: er, kan du också välja att distribuera gatewayen i en speciell zon. Detta kallas en zonindelade-Gateway. När du distribuerar en zonindelade-Gateway distribueras alla instanser av gatewayen i samma tillgänglighets zon.
 
 ## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 
-ExpressRoute virtuellt nätverk gateway är utformad för att utbyta nätverksvägar och dirigera nätverkstrafik. FastPath är utformat för att förbättra datasökvägens prestanda mellan det lokala nätverket och det virtuella nätverket. När det är aktiverat skickar FastPath nätverkstrafik direkt till virtuella datorer i det virtuella nätverket och kringgår gatewayen.
+ExpressRoute virtuella nätverksgateway är utformad för att utbyta nätverks vägar och dirigera nätverks trafik. FastPath är utformat för att förbättra data Sök vägens prestanda mellan ditt lokala nätverk och ditt virtuella nätverk. När aktive rad skickar FastPath nätverks trafik direkt till virtuella datorer i det virtuella nätverket, vilket kringgår gatewayen.
 
-Mer information om FastPath, inklusive begränsningar och krav, finns i [Om FastPath](about-fastpath.md).
+Mer information om FastPath, inklusive begränsningar och krav finns i [om FastPath](about-fastpath.md).
 
-## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>REST API:er och PowerShell-cmdlets
-Ytterligare tekniska resurser och specifika syntaxkrav när du använder REST-API:er och PowerShell-cmdletar för konfigurationer av virtuella nätverksgatewayer finns på följande sidor:
+## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>REST-API: er och PowerShell-cmdletar
+För ytterligare tekniska resurser och särskilda syntax krav för att använda REST-API: er och PowerShell-cmdletar för konfigurationer för virtuella nätverksgateway, se följande sidor:
 
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
-| [Powershell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[Powershell](https://docs.microsoft.com/powershell/module/az.network#networking) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om tillgängliga anslutningskonfigurationer finns i [Översikt över ExpressRoute](expressroute-introduction.md).
+Mer information om tillgängliga anslutnings konfigurationer finns i [Översikt över ExpressRoute](expressroute-introduction.md).
 
-Mer information om hur du skapar ExpressRoute-gateways finns i [Skapa en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
+Mer information om hur du skapar ExpressRoute-gatewayer finns i [skapa en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-Mer information om hur du konfigurerar zonundant gateways finns i [Skapa en zonundant virtuell nätverksgateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
+Mer information om hur du konfigurerar zoner med redundanta gateways finns i [skapa en zon-redundant virtuell](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md)nätverksgateway.
 
-Mer information om FastPath finns i [Om FastPath](about-fastpath.md).
+Mer information om FastPath finns i [om FastPath](about-fastpath.md).

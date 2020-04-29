@@ -1,35 +1,35 @@
 ---
-title: Anpassa användardefinierade vägar (UDR) i Azure Kubernetes Service (AKS)
-description: Lär dig hur du definierar en anpassad utgående väg i Azure Kubernetes Service (AKS)
+title: Anpassa användardefinierade vägar (UDR) i Azure Kubernetes service (AKS)
+description: Lär dig hur du definierar en anpassad utgående väg i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80676512"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Anpassa klusterutgående med en användardefinierad rutt (förhandsgranskning)
+# <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Anpassa utgående kluster med en användardefinierad väg (förhands granskning)
 
-Utgående från ett AKS-kluster kan anpassas för att passa specifika scenarier. Som standard etablerar AKS en standard-SKU-belastningsutfärdare som ska ställas in och användas för utgående. Standardinställningen kanske inte uppfyller kraven i alla scenarier om offentliga IPs inte tillåts eller ytterligare hopp krävs för utgående.
+Utgående från ett AKS-kluster kan anpassas så att de passar vissa scenarier. Som standard tillhandahåller AKS en standard-SKU Load Balancer som ska installeras och användas för utgående trafik. Men standard installationen kanske inte uppfyller kraven i alla scenarier om offentliga IP-adresser inte tillåts eller om ytterligare hopp krävs för utgående trafik.
 
-Den här artikeln går igenom hur du anpassar ett klusters utgående väg för att stödja anpassade nätverksscenarier, till exempel de som inte tillåter offentliga IP-adresser och kräver att klustret sitter bakom en virtuell nätverksinstallation (NVA).
+Den här artikeln beskriver hur du anpassar ett klusters utgående väg för att stödja anpassade nätverks scenarier, till exempel sådana som inte tillåter offentliga IP-adresser och kräver att klustret placeras bakom en virtuell nätverks installation (NVA).
 
 > [!IMPORTANT]
-> AKS-förhandsgranskningsfunktioner är självbetjäning och erbjuds på opt-in-basis. Förhandsgranskningar tillhandahålls *i dess fall* och är undantagna från servicenivåavtalet (SLA) och begränsad garanti. *as available* AKS-förhandsvisningar omfattas delvis av kundsupport efter *bästa möjliga ansträngning.* Därför är funktionerna inte avsedda för produktionsanvändning. Mer information finns i följande supportartiklar:
+> AKS för hands versions funktionerna är självbetjänings tjänster och erbjuds på ett valbart sätt. För hands versioner tillhandahålls och *är* *tillgängliga* och omfattas inte av service nivå avtalet (SLA) och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på *bästa* möjliga sätt. Därför är funktionerna inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
 >
-> * [Aks-supportpolicyer](support-policies.md)
-> * [Vanliga frågor och svar om Azure-support](faq.md)
+> * [Support principer för AKS](support-policies.md)
+> * [Vanliga frågor och svar om support för Azure](faq.md)
 
 ## <a name="prerequisites"></a>Krav
-* Azure CLI version 2.0.81 eller senare
-* Azure CLI Preview-tilläggsversion 0.4.28 eller senare
-* API-version `2020-01-01` av eller mer
+* Azure CLI-version 2.0.81 eller senare
+* Azure CLI Preview-tillägg version 0.4.28 eller senare
+* API-version `2020-01-01` av eller större
 
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installera det senaste Azure CLI AKS Preview-tillägget
-Om du vill ange den utgående typen av ett kluster behöver du Azure CLI AKS Preview-tilläggsversionen 0.4.18 eller senare. Installera Azure CLI AKS Preview-tillägget med kommandot az extension add och sök sedan efter tillgängliga uppdateringar med hjälp av följande kommando för uppdatering av az-tillägg:
+## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installera det senaste för hands tillägget för Azure CLI-AKS
+Om du vill ange utgående typ för ett kluster måste du ha Azure CLI-AKS för hands versions version 0.4.18 eller senare. Installera Azure CLI-AKS för hands versions tillägg med hjälp av kommandot AZ Extension Add och Sök sedan efter eventuella tillgängliga uppdateringar med hjälp av följande kommando för AZ-tillägg:
 
 ```azure-cli
 # Install the aks-preview extension
@@ -40,61 +40,61 @@ az extension update --name aks-preview
 ```
 
 ## <a name="limitations"></a>Begränsningar
-* Under förhandsgranskningen `outboundType` kan endast definieras vid klusterskapande tid och kan inte uppdateras efteråt.
-* Under förhandsversionen bör `outboundType` AKS-kluster använda Azure CNI. Kubenet är konfigurerbart, användning kräver manuella associationer av flödestabellen till AKS-undernätet.
-* Inställningen `outboundType` kräver AKS-kluster `vm-set-type` `VirtualMachineScaleSets` med `load-balancer-sku` `Standard`en av och av .
-* Om `outboundType` du anger `UDR` ett värde för krävs en användardefinierad väg med giltig utgående anslutning för klustret.
-* Om `outboundType` du ställer `UDR` in värdet för innebär att ip-adressen för ingångskällan som dirigeras till belastningsutjämnaren **kanske inte matchar** klustrets utgående utgående utgående måladress.
+* Under för hands `outboundType` versionen kan bara definieras i klustrets skapande tid och kan inte uppdateras efteråt.
+* AKS- `outboundType` kluster bör använda Azure cni under för hands versionen. Kubernetes kan konfigureras, användning kräver manuella kopplingar av routningstabellen till AKS-undernätet.
+* Inställningen `outboundType` kräver AKS `vm-set-type` -kluster med `VirtualMachineScaleSets` och. `load-balancer-sku` `Standard`
+* Inställningen `outboundType` till värdet `UDR` kräver en användardefinierad väg med giltig utgående anslutning för klustret.
+* Inställningen `outboundType` till värdet `UDR` innebär att den inkommande käll-IP-vägen till belastningsutjämnaren **inte matchar** klustrets utgående mål adress för utgående trafik.
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Översikt över utgående typer i AKS
 
-Ett AKS-kluster kan anpassas med en unik `outboundType` typbelastningsutjämning eller användardefinierad routning.
+Ett AKS-kluster kan anpassas med en `outboundType` unik typ belastningsutjämnare eller användardefinierad routning.
 
 > [!IMPORTANT]
-> Utgående typ påverkar bara utgående trafik i klustret. Mer information [finns i ställa in ingångskontrollanter.](ingress-basic.md)
+> Utgående typ påverkar bara utgående trafik i klustret. Mer information finns i Konfigurera ingångs [styrenheter](ingress-basic.md) .
 
 ### <a name="outbound-type-of-loadbalancer"></a>Utgående typ av loadBalancer
 
-Om `loadBalancer` är inställt slutför AKS följande inställning automatiskt. Belastningsutjämnaren används för utgående via en AKS-tilldelad offentlig IP. En utgående `loadBalancer` typ av stöder Kubernetes-tjänster av typen `loadBalancer`, som förväntar sig utgående från belastningsutjämnaren som skapats av AKS-resursprovidern.
+Om `loadBalancer` är inställt, slutför AKS följande konfiguration automatiskt. Belastningsutjämnaren används för utgående trafik genom en AKS tilldelad offentlig IP. En utgående typ som `loadBalancer` stöder Kubernetes-tjänster av `loadBalancer`typen, som förväntar sig utgående från BELASTNINGSUTJÄMNAREN som skapats av AKS-resurs leverantören.
 
-Följande inställningar görs av AKS.
-   * En offentlig IP-adress har etablerats för klusteravgående.
-   * Den offentliga IP-adressen tilldelas belastningsutjämnarens resurs.
-   * Serverdelspooler för belastningsutjämnaren är inställningar för agentnoder i klustret.
+Följande inställningar utförs av AKS.
+   * En offentlig IP-adress har allokerats för utgående kluster.
+   * Den offentliga IP-adressen är tilldelad till belastnings Utjämnings resursen.
+   * Backend-pooler för belastningsutjämnaren konfigureras för agent-noder i klustret.
 
-Nedan visas en nätverkstopologi som distribueras i AKS-kluster som standard, som använder en `outboundType` av `loadBalancer`.
+Nedan är en nätverkstopologi som distribueras i AKS-kluster som standard, som använder `outboundType` sig av `loadBalancer`.
 
-![utgående typ-lb](media/egress-outboundtype/outboundtype-lb.png)
+![outboundtype – lb](media/egress-outboundtype/outboundtype-lb.png)
 
 ### <a name="outbound-type-of-userdefinedrouting"></a>Utgående typ av userDefinedRouting
 
 > [!NOTE]
-> Att använda utgående typ är ett avancerat nätverksscenario och kräver korrekt nätverkskonfiguration.
+> Använd utgående typ är ett avancerat nätverks scenario och kräver rätt nätverks konfiguration.
 
-Om `userDefinedRouting` är inställt konfigurerar AKS inte automatiskt utgående sökvägar. Följande förväntas göras av **användaren**.
+Om `userDefinedRouting` är inställt konfigureras inte AKS automatiskt utgående sökvägar. Följande förväntas göras av **användaren**.
 
-Klustret måste distribueras till ett befintligt virtuellt nätverk med ett undernät som har konfigurerats. Det måste finnas en giltig användardefinierad väg (UDR) i undernätet med utgående anslutning.
+Klustret måste distribueras i ett befintligt virtuellt nätverk med ett undernät som har kon figurer ATS. En giltig användardefinierad väg (UDR) måste finnas i under nätet med utgående anslutning.
 
-AKS-resursprovidern distribuerar en standardbelastningsutjämnare (SLB). Belastningsutjämnaren är inte konfigurerad med några regler och [ådrar sig ingen debitering förrän en regel har placerats](https://azure.microsoft.com/pricing/details/load-balancer/). AKS kommer **inte** automatiskt att etablera en offentlig IP-adress för SLB-frontend. AKS konfigurerar **inte** serverdpoolen för belastningsutjämnarutjämnaren automatiskt.
+AKS Resource Provider kommer att distribuera en standard Load Balancer (SLB). Belastningsutjämnaren har inte kon figurer ATS med några regler och [debiteras inte förrän en regel har lagts](https://azure.microsoft.com/pricing/details/load-balancer/)till. AKS etablerar **inte** automatiskt en offentlig IP-adress för SLB-klient. AKS konfigurerar **inte** backend-poolen för belastningsutjämnare automatiskt.
 
-## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Distribuera ett kluster med utgående typ av UDR- och Azure-brandvägg
+## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Distribuera ett kluster med utgående typ av UDR och Azure-brandvägg
 
-För att illustrera tillämpningen av ett kluster med utgående typ med hjälp av en användardefinierad väg kan ett kluster konfigureras på ett virtuellt nätverk som peer-ats med en Azure-brandvägg.
+För att illustrera programmet för ett kluster med utgående typ med en användardefinierad väg, kan ett kluster konfigureras i ett virtuellt nätverk som är peer-kopplat med en Azure-brandvägg.
 
 ![Låst topologi](media/egress-outboundtype/outboundtype-udr.png)
 
-* Ingress tvingas flöda genom brandväggsfilter
-   * Ett isolerat undernät innehåller en intern belastningsutjämnare för routning till agentnoder
-   * Agentnoder är isolerade i ett dedikerat undernät
-* Utgående begäranden startar från agentnoder till den interna IP-adressen för Azure-brandväggen med hjälp av en användardefinierad väg
-   * Begäranden från AKS-agentnoder följer en UDR som har placerats på undernätet som AKS-klustret har distribuerats till.
-   * Azure-brandväggen utgår från det virtuella nätverket från en offentlig IP-frontend
-   * Åtkomst till AKS-kontrollplanet skyddas av en NSG, som har aktiverat brandväggens frontsida IP-adress
-   * Åtkomst till det offentliga internet eller andra Azure-tjänster flödar till och från brandväggens klientdels IP-adress
+* Ingressen tvingas att flöda genom brand Väggs filter
+   * Ett isolerat undernät innehåller en intern belastningsutjämnare för routning till agent-noder
+   * Agent-noderna är isolerade i ett dedikerat undernät
+* Utgående begär Anden börjar från agent-noder till den interna Azure-brandväggen med en användardefinierad väg
+   * Begär Anden från AKS agent-noder följer en UDR som har placerats i under nätet som AKS-klustret distribuerades till.
+   * Azure-brandväggen går ut från det virtuella nätverket från en offentlig IP-klient
+   * Åtkomst till AKS-kontroll planet skyddas av en NSG, som har aktiverat IP-adressen för brand Väggs klient delen
+   * Åtkomst till offentliga Internet eller andra Azure-tjänster flödar till och från brand Väggs klient delens IP-adress
 
-### <a name="set-configuration-via-environment-variables"></a>Ange konfiguration via miljövariabler
+### <a name="set-configuration-via-environment-variables"></a>Konfigurera konfiguration via miljövariabler
 
-Definiera en uppsättning miljövariabler som ska användas i resursskapande.
+Definiera en uppsättning miljövariabler som ska användas för att skapa resurser.
 
 ```bash
 PREFIX="contosofin"
@@ -116,7 +116,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}fwinternet"
 DEVSUBNET_NAME="${PREFIX}dev"
 ```
 
-Ange sedan prenumerations-ID: er.
+Ange sedan prenumerations-ID: n.
 
 ```azure-cli
 # Get ARM Access Token and Subscription ID - This will be used for AuthN later.
@@ -135,11 +135,11 @@ SUBID=$(az account show -s '<SUBSCRIPTION_NAME_GOES_HERE>' -o tsv --query 'id')
 
 ## <a name="create-a-virtual-network-with-multiple-subnets"></a>Skapa ett virtuellt nätverk med flera undernät
 
-Etablera ett virtuellt nätverk med tre separata undernät, ett för klustret, ett för brandväggen och ett för tjänstinträngning.
+Etablera ett virtuellt nätverk med tre separata undernät, ett för klustret, ett för brand väggen och ett för ingångs tjänsten.
 
 ![Tom nätverkstopologi](media/egress-outboundtype/empty-network.png)
 
-Skapa en resursgrupp för att hålla alla resurser.
+Skapa en resurs grupp för att lagra alla resurser.
 
 ```azure-cli
 # Create Resource Group
@@ -147,7 +147,7 @@ Skapa en resursgrupp för att hålla alla resurser.
 az group create --name $RG --location $LOC
 ```
 
-Skapa två virtuella nätverk som är värdar för AKS-klustret och Azure-brandväggen. Var och en kommer att ha sitt eget undernät. Låt oss börja med AKS-nätverket.
+Skapa två virtuella nätverk som ska vara värdar för AKS-klustret och Azure-brandväggen. Var och en får sitt eget undernät. Vi börjar med AKS-nätverket.
 
 ```
 # Dedicated virtual network with AKS subnet
@@ -178,17 +178,17 @@ az network vnet subnet create \
 
 ## <a name="create-and-setup-an-azure-firewall-with-a-udr"></a>Skapa och konfigurera en Azure-brandvägg med en UDR
 
-Regler för inkommande och utgående Azure-brandväggen måste konfigureras. Huvudsyftet med brandväggen är att göra det möjligt för organisationer att ställa in detaljerade regler för in- och utgående trafik till och från AKS-klustret.
+Regler för inkommande och utgående Azure-brandvägg måste konfigureras. Huvud syftet med brand väggen är att göra det möjligt för organisationer att konfigurera detaljerade ingångs-och utgångs trafik regler till och från AKS-klustret.
 
-![Brandvägg och UDR](media/egress-outboundtype/firewall-udr.png)
+![Brand vägg och UDR](media/egress-outboundtype/firewall-udr.png)
 
-Skapa en vanlig SKU-offentlig IP-resurs som ska användas som Frontend-adress för Azure-brandväggen.
+Skapa en offentlig IP-resurs (standard-SKU) som ska användas som Azure Firewall-frontend-adress.
 
 ```azure-cli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
-Registrera förhandsgranskningsklimattillägget för att skapa en Azure-brandvägg.
+Registrera Preview CLI-tillägget för att skapa en Azure-brandvägg.
 ```azure-cli
 # Install Azure Firewall preview CLI extension
 
@@ -199,11 +199,11 @@ az extension add --name azure-firewall
 az network firewall create -g $RG -n $FWNAME -l $LOC
 ```
 
-IP-adressen som skapades tidigare kan nu tilldelas brandväggsfrontend.
+Den IP-adress som skapades tidigare kan nu tilldelas brand Väggs klient delen.
 > [!NOTE]
-> Installationen av den offentliga IP-adressen till Azure-brandväggen kan ta några minuter.
+> Det kan ta några minuter att konfigurera den offentliga IP-adressen till Azure-brandväggen.
 > 
-> Om fel tas emot upprepade gånger på kommandot nedan tar du bort den befintliga brandväggen och den offentliga IP-adressen och etablerar den offentliga IP- och Azure-brandväggen via portalen samtidigt.
+> Om fel tas emot flera gånger i kommandot nedan tar du bort den befintliga brand väggen och den offentliga IP-adressen och etablerar den offentliga IP-adressen och Azure-brandväggen via portalen på samma gång.
 
 ```azure-cli
 # Configure Firewall IP Config
@@ -211,7 +211,7 @@ IP-adressen som skapades tidigare kan nu tilldelas brandväggsfrontend.
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
 ```
 
-När föregående kommando har lyckats sparar du brandväggsfrontend IP-adressen för konfiguration senare.
+När det föregående kommandot har slutförts, sparar du IP-adressen för brand Väggs klient delen för konfiguration senare.
 
 ```bash
 # Capture Firewall IP Address for Later Use
@@ -220,11 +220,11 @@ FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAd
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
 ```
 
-### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Skapa en UDR med ett hopp till Azure-brandväggen
+### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Skapa en UDR med hopp till Azure-brandväggen
 
-Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk och lokala nätverk. Om du vill ändra någon av Azures standardroutning gör du det genom att skapa en vägtabell.
+Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk och lokala nätverk. Om du vill ändra någon av Azures standardroutning gör du det genom att skapa en routningstabell.
 
-Skapa en tom flödestabell som ska associeras med ett visst undernät. Vägtabellen definierar nästa hopp som Azure-brandväggen som skapats ovan. Varje undernät kan ha noll eller en associerad routningstabell.
+Skapa en tom routningstabell som ska associeras med ett angivet undernät. Routningstabellen definierar nästa hopp som den Azure-brandvägg som skapats ovan. Varje undernät kan ha noll eller en associerad routningstabell.
 
 ```azure-cli
 # Create UDR and add a route for Azure Firewall
@@ -234,16 +234,16 @@ az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-na
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
 
-Se dokumentation för [virtuella nätverksvägstabeller](../virtual-network/virtual-networks-udr-overview.md#user-defined) om hur du kan åsidosätta Azures standardsystemvägar eller lägga till ytterligare vägar i ett undernäts vägtabell.
+Mer information om hur du kan åsidosätta Azures standard system vägar eller lägga till ytterligare vägar till ett undernäts routningstabell finns i [dokumentationen för virtuella nätverks vägar](../virtual-network/virtual-networks-udr-overview.md#user-defined) .
 
-## <a name="adding-network-firewall-rules"></a>Lägga till regler för nätverksbrandvägg
+## <a name="adding-network-firewall-rules"></a>Lägga till nätverks brand Väggs regler
 
 > [!WARNING]
-> Nedan visas ett exempel på att lägga till en brandväggsregel. Alla utgående slutpunkter som definieras i de [egress-slutpunkter som krävs](egress.md) måste aktiveras av programbrandväggsregler för att AKS-kluster ska fungera. Utan dessa slutpunkter aktiverade kan klustret inte fungera.
+> Nedan visas ett exempel på hur du lägger till en brand Väggs regel. Alla utgående slut punkter som definieras i de [obligatoriska utgående slut punkterna](egress.md) måste aktive ras av brand Väggs regler för AKS för att fungera. Det går inte att använda klustret, utan att dessa slut punkter har Aktiver ATS.
 
-Nedan följer ett exempel på en nätverks- och programregel. Vi lägger till en nätverksregel som tillåter protokoll, källadress, måladress och målportar. Vi lägger också till en programregel för **några** av de slutpunkter som krävs av AKS.
+Nedan visas ett exempel på en nätverks-och program regel. Vi lägger till en nätverks regel som tillåter alla protokoll, käll adresser, mål adresser och mål portar. Vi lägger också till en program regel för **några** av slut punkterna som krävs av AKS.
 
-I ett produktionsscenario bör du endast aktivera åtkomst till nödvändiga slutpunkter för ditt program och de som definieras i [AKS krävs egress](egress.md).
+I ett produktions scenario bör du bara aktivera åtkomst till obligatoriska slut punkter för ditt program och de som definierats i [AKS-nödvändigt utgående](egress.md).
 
 ```
 # Add Network FW Rules
@@ -273,11 +273,11 @@ az network firewall application-rule create -g $RG -f $FWNAME \
         'acs-mirror.azureedge.net'
 ```
 
-Mer information om Azure-brandväggen finns i [dokumentationen](https://docs.microsoft.com/azure/firewall/overview) till Azure Firewall.
+Mer information om Azure Firewall-tjänsten finns i [dokumentationen för Azure-brandväggen](https://docs.microsoft.com/azure/firewall/overview) .
 
-## <a name="associate-the-route-table-to-aks"></a>Associera flödestabellen med AKS
+## <a name="associate-the-route-table-to-aks"></a>Koppla routningstabellen till AKS
 
-Om du vill associera klustret med brandväggen måste det dedikerade undernätet för klustrets undernät referera till den vägtabell som skapats ovan. Association kan göras genom att utfärda ett kommando till det virtuella nätverket som innehåller både klustret och brandväggen för att uppdatera vägtabellen för klustrets undernät.
+För att associera klustret med brand väggen måste det dedikerade under nätet för klustrets undernät referera till routningstabellen som skapats ovan. Kopplingen kan göras genom att ett kommando utfärdas till det virtuella nätverket som innehåller både klustret och brand väggen för att uppdatera routningstabellen för klustrets undernät.
 
 ```azure-cli
 # Associate route table with next hop to Firewall to the AKS subnet
@@ -287,13 +287,13 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ## <a name="deploy-aks-with-outbound-type-of-udr-to-the-existing-network"></a>Distribuera AKS med utgående typ av UDR till det befintliga nätverket
 
-Nu kan ett AKS-kluster distribueras till den befintliga virtuella nätverkskonfigurationen. För att kunna ange en kluster utgående typ till användardefinierad routning måste ett befintligt undernät tillhandahållas AKS.
+Nu kan ett AKS-kluster distribueras till den befintliga konfigurationen av virtuella nätverk. För att kunna ange en utgående kluster typ till användardefinierad routning måste ett befintligt undernät tillhandahållas till AKS.
 
-![aks-distribuera](media/egress-outboundtype/outboundtype-udr.png)
+![AKS – distribuera](media/egress-outboundtype/outboundtype-udr.png)
 
-### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Skapa ett tjänsthuvudnamn med åtkomst till etablering i det befintliga virtuella nätverket
+### <a name="create-a-service-principal-with-access-to-provision-inside-the-existing-virtual-network"></a>Skapa ett huvud namn för tjänsten med åtkomst till etablering i det befintliga virtuella nätverket
 
-Ett huvudnamn för tjänsten används av AKS för att skapa klusterresurser. Tjänstens huvudnamn som skickas vid skapandetillfället används för att skapa underliggande AKS-resurser som virtuella datorer, lagring och belastningsutjämnare som används av AKS. Om det beviljas för få behörigheter kan det inte etablera ett AKS-kluster.
+Ett huvud namn för tjänsten används av AKS för att skapa kluster resurser. Tjänstens huvud namn som skickades vid skapande tillfället används för att skapa underliggande AKS-resurser, till exempel virtuella datorer, lagrings enheter och belastningsutjämnare som används av AKS. Om det har beviljats för få behörigheter, kan det inte etablera ett AKS-kluster.
 
 ```azure-cli
 # Create SP and Assign Permission to Virtual Network
@@ -301,7 +301,7 @@ Ett huvudnamn för tjänsten används av AKS för att skapa klusterresurser. Tj�
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 ```
 
-Nu ersätta `APPID` `PASSWORD` och nedan med tjänstens huvudnamn appid och tjänstens huvudlösenord automatiskt som skapas av föregående kommandoutdata. Vi refererar till VNET-resurs-ID för att bevilja behörigheter till tjänstens huvudnamn så att AKS kan distribuera resurser till det.
+Ersätt nu `APPID` och `PASSWORD` nedan med tjänstens huvud namn och lösen ord för tjänstens huvud namn som genererats av föregående kommandoutdata. Vi kommer att referera till resurs-ID: t för VNET för att bevilja behörighet till tjänstens huvud namn så att AKS kan distribuera resurser till den.
 
 ```azure-cli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
@@ -318,18 +318,18 @@ az role assignment list --assignee $APPID --all -o table
 
 ### <a name="deploy-aks"></a>Distribuera AKS
 
-Slutligen kan AKS-klustret distribueras till det befintliga undernätet som vi har dedikerat för klustret. Målundernätet som ska distribueras till definieras `$SUBNETID`med miljövariabeln . Vi definierade inte `$SUBNETID` variabeln i föregående steg. Om du vill ange värdet för undernäts-ID:et kan du använda följande kommando:
+Slutligen kan AKS-klustret distribueras till det befintliga under nätet som vi har dedikerat för klustret. Det mål under nät som ska distribueras till definieras med miljövariabeln `$SUBNETID`. Vi har inte definierat `$SUBNETID` variabeln i föregående steg. Om du vill ange värdet för under nätets ID kan du använda följande kommando:
 
 ```azurecli
 SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
 ```
 
-Vi definierar den utgående typen för att följa UDR som finns på undernätet, vilket gör att AKS kan hoppa över inställningar och IP-etablering för belastningsutjämnaren som nu kan vara strikt intern.
+Vi definierar den utgående typen för att följa UDR som finns i under nätet, vilket gör det möjligt för AKS att hoppa över installations-och IP-etablering för belastningsutjämnaren som nu kan vara helt internt.
 
-AKS-funktionen för [API-serverauktoriserat IP-intervall](api-server-authorized-ip-ranges.md) kan läggas till för att begränsa API-serveråtkomsten till endast brandväggens offentliga slutpunkt. Funktionen för auktoriserade IP-intervall betecknas i diagrammet som NSG som måste skickas för att komma åt kontrollplanet. När du aktiverar den auktoriserade IP-intervallfunktionen för att begränsa API-serveråtkomsten måste utvecklarverktygen använda en jumpbox från brandväggens virtuella nätverk eller lägga till alla utvecklarslutpunkter i det auktoriserade IP-intervallet.
+AKS-funktionen för [tillåtna IP-intervall för API-servrar](api-server-authorized-ip-ranges.md) kan läggas till för att begränsa åtkomsten till API-servern till endast brand väggens offentliga slut punkt. Funktionen auktoriserade IP-adressintervall anges i diagrammet som NSG som måste skickas för att få åtkomst till kontroll planet. När du aktiverar funktionen auktoriserat IP-intervall för att begränsa åtkomsten till API-servern, måste utvecklarverktyg använda en hoppsida från brand väggens virtuella nätverk, eller så måste du lägga till alla utvecklares slut punkter i det auktoriserade IP-intervallet.
 
 > [!TIP]
-> Ytterligare funktioner kan läggas till i klusterdistributionen, till exempel (privat kluster)[]. När du använder auktoriserade IP-intervall krävs en jumpbox inuti klusternätverket för att komma åt API-servern.
+> Ytterligare funktioner kan läggas till i kluster distributionen, t. ex. (privat kluster) []. När du använder auktoriserade IP-intervall krävs en hoppning i kluster nätverket för att få åtkomst till API-servern.
 
 ```azure-cli
 az aks create -g $RG -n $AKS_NAME -l $LOC \
@@ -346,11 +346,11 @@ az aks create -g $RG -n $AKS_NAME -l $LOC \
   --api-server-authorized-ip-ranges $FWPUBLIC_IP
   ```
 
-### <a name="enable-developer-access-to-the-api-server"></a>Aktivera utvecklaråtkomst till API-servern
+### <a name="enable-developer-access-to-the-api-server"></a>Aktivera åtkomst till utvecklare till API-servern
 
-På grund av den auktoriserade IP-intervallkonfigurationen för klustret måste du lägga till IP-adresser för utvecklarverktyg i AKS-klusterlistan över godkända IP-intervall för att komma åt API-servern. Ett annat alternativ är att konfigurera en jumpbox med det verktyg som behövs i ett separat undernät i brandväggens virtuella nätverk.
+På grund av de auktoriserade IP-adressintervall som ska konfigureras för klustret måste du lägga till dina IP-adresser för utvecklarverktyg i AKS-kluster listan över godkända IP-adressintervall för att få åtkomst till API-servern. Ett annat alternativ är att konfigurera en hoppsida med nödvändiga verktyg i ett separat undernät i brand väggens virtuella nätverk.
 
-Lägga till ytterligare en IP-adress i de godkända intervallen med följande kommando
+Lägg till en annan IP-adress till de godkända intervallen med följande kommando
 
 ```bash
 # Retrieve your IP address
@@ -361,17 +361,17 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
- Använd kommandot [az aks get-credentials][az-aks-get-credentials] för att konfigurera `kubectl` för att ansluta till ditt nyskapade Kubernetes-kluster. 
+ Använd kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att `kubectl` konfigurera för att ansluta till det nyligen skapade Kubernetes-klustret. 
 
  ```azure-cli
  az aks get-credentials -g $RG -n $AKS_NAME
  ```
 
-### <a name="setup-the-internal-load-balancer"></a>Ställ in den interna belastningsutjämnaren
+### <a name="setup-the-internal-load-balancer"></a>Konfigurera den interna belastningsutjämnaren
 
-AKS har distribuerat en belastningsutjämnare med klustret som kan ställas in som en [intern belastningsutjämnare](internal-lb.md).
+AKS har distribuerat en belastningsutjämnare med klustret som kan konfigureras som en [intern belastningsutjämnare](internal-lb.md).
 
-Om du vill skapa en intern belastningsutjämnare skapar du ett tjänstmanifest med namnet internal-lb.yaml med tjänsttypen LoadBalancer och den azure-load-balancer-intern anteckningen som visas i följande exempel:
+Skapa en intern belastningsutjämnare genom att skapa ett tjänst manifest med namnet Internal-lb. yaml med tjänst typen LoadBalancer och Azure-belastningsutjämnaren – intern anteckning som visas i följande exempel:
 
 ```yaml
 apiVersion: v1
@@ -389,7 +389,7 @@ spec:
     app: internal-app
 ```
 
-Distribuera den interna belastningsutjämnaren med kubectl-ansök och ange namnet på YAML-manifestet:
+Distribuera den interna belastningsutjämnaren med kubectl tillämpa och ange namnet på ditt YAML-manifest:
 
 ```bash
 kubectl apply -f internal-lb.yaml
@@ -397,9 +397,9 @@ kubectl apply -f internal-lb.yaml
 
 ## <a name="deploy-a-kubernetes-service"></a>Distribuera en Kubernetes-tjänst
 
-Eftersom klusterutgående typ anges som UDR, så slutförs inte associera agentnoderna som serverdelspoolen för belastningsutjämnaren automatiskt av AKS vid klusterskapande tid. Backend pool association hanteras dock av Kubernetes Azure-molnprovidern när Kubernetes-tjänsten distribueras.
+Eftersom utgående kluster typ har angetts som UDR, associerar-agent-noderna som backend-poolen för belastningsutjämnaren inte har slutförts automatiskt av AKS vid kluster skapande tid. En Association för Server delens pool hanteras dock av Kubernetes Azure Cloud Provider när Kubernetes-tjänsten distribueras.
 
-Distribuera Azure-röstningsappprogrammet genom att kopiera yaml `example.yaml`nedan till en fil med namnet .
+Distribuera programmet Azure röstning app genom att kopiera yaml nedan till en fil med namnet `example.yaml`.
 
 ```yaml
 apiVersion: apps/v1
@@ -495,19 +495,19 @@ Distribuera tjänsten genom att köra:
 kubectl apply -f example.yaml
 ```
 
-## <a name="add-a-dnat-rule-to-azure-firewall"></a>Lägga till en DNAT-regel i Azure-brandväggen
+## <a name="add-a-dnat-rule-to-azure-firewall"></a>Lägg till en DNAT-regel i Azure-brandväggen
 
-För att konfigurera inkommande anslutning måste en DNAT-regel skrivas till Azure-brandväggen. För att testa anslutningen till vårt kluster definieras en regel för brandväggen frontend offentlig IP-adress för att dirigera till den interna IP som exponeras av den interna tjänsten.
+Om du vill konfigurera inkommande anslutning måste en DNAT-regel skrivas till Azure-brandväggen. För att testa anslutningen till vårt kluster definieras en regel för den offentliga IP-adressen för brand Väggs-frontend att dirigera till den interna IP-adressen som exponeras av den interna tjänsten.
 
-Måladressen kan anpassas eftersom det är porten på brandväggen som ska nås. Den översatta adressen måste vara IP-adressen för den interna belastningsutjämnaren. Den översatta porten måste vara den exponerade porten för din Kubernetes-tjänst.
+Mål adressen kan anpassas eftersom det är porten i brand väggen som ska nås. Den översatta adressen måste vara IP-adressen för den interna belastningsutjämnaren. Den översatta porten måste vara den exponerade porten för din Kubernetes-tjänst.
 
-Du måste ange den interna IP-adressen som tilldelats belastningsutjämnaren som skapats av kubernetes-tjänsten. Hämta adressen genom att köra:
+Du måste ange den interna IP-adress som har tilldelats till belastningsutjämnaren som skapats av Kubernetes-tjänsten. Hämta adressen genom att köra:
 
 ```bash
 kubectl get services
 ```
 
-Den IP-adress som behövs visas i kolumnen EXTERN-IP, liknande följande.
+Den IP-adress som behövs visas i kolumnen extern IP-adress, som ser ut ungefär så här.
 
 ```bash
 NAME               TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
@@ -523,9 +523,9 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 > [!NOTE]
-> När du tar bort den interna tjänsten Kubernetes, om den interna belastningsutjämnaren inte längre används av någon tjänst, tar Azure-molnleverantören bort den interna belastningsutjämnaren. Vid nästa tjänstdistribution distribueras en belastningsutjämnare om ingen kan hittas med den begärda konfigurationen.
+> När du tar bort den interna Kubernetes-tjänsten och den interna belastningsutjämnaren inte längre används av någon tjänst, tar Azure Cloud Provider bort den interna belastningsutjämnaren. Vid nästa tjänst distribution distribueras en belastningsutjämnare om ingen kan hittas med den begärda konfigurationen.
 
-Om du vill rensa Azure-resurser tar du bort AKS-resursgruppen.
+Ta bort resurs gruppen AKS om du vill rensa Azure-resurser.
 
 ```azure-cli
 az group delete -g $RG
@@ -533,15 +533,15 @@ az group delete -g $RG
 
 ## <a name="validate-connectivity"></a>Verifiera anslutning
 
-Navigera till AZURE-brandväggens frontend-IP-adress i en webbläsare för att validera anslutningen.
+Gå till Azure Firewall-klientens IP-adress i en webbläsare för att verifiera anslutningen.
 
-Du bör se en bild av Azure-röstningsappen.
+Du bör se en bild av appen för Azure-röstning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [ÖVERSIKT över UDR för Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+Se [Översikt över Azure Networking-UDR](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-Se [hur du skapar, ändrar eller tar bort en vägtabell](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+Se [hur du skapar, ändrar eller tar bort en](https://docs.microsoft.com/azure/virtual-network/manage-route-table)routningstabell.
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

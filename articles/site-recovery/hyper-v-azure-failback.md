@@ -1,6 +1,6 @@
 ---
-title: Misslyckas med att återställa virtuella hyper-virtuella datorer från Azure med Azure Site Recovery
-description: Så här växlar du tillbaka hyper-virtuella datorer till en lokal plats från Azure med Azure Site Recovery.
+title: Återställa virtuella Hyper-V-datorer från Azure med Azure Site Recovery
+description: Återställa virtuella Hyper-V-datorer till en lokal plats från Azure med Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -9,52 +9,52 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
 ms.openlocfilehash: 4b005ae308576db6fd26fcf079161430b266ec3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79281787"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Köra en återställning efter fel för virtuella Hyper-V-datorer
 
-I den här artikeln beskrivs hur du reder tillbaka virtuella Azure-datorer som har skapats efter redundans av virtuella hyper-virtuella datorer från en lokal plats till Azure, med [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskriver hur du återställer virtuella Azure-datorer som har skapats efter redundansväxlingen av virtuella Hyper-V-datorer från en lokal plats till Azure, med [Azure Site Recovery](site-recovery-overview.md).
 
-- Du kan återställa Hyper-V-datorer från Azure genom att köra en planerad redundans från Azure till den lokala platsen. Om redundansriktningen är från Azure till lokalt betraktas det som en återställning efter fel.
-- Eftersom Azure är en miljö med hög tillgänglig tillgång och virtuella datorer alltid är tillgängliga, är återställning efter fel från Azure en planerad aktivitet. Du kan planera för ett litet driftstopp så att arbetsbelastningar kan börja köras lokalt igen. 
-- Planerad återställning av återställning efter fel inaktiverar de virtuella datorerna i Azure och hämtar de senaste ändringarna. Ingen dataförlust förväntas.
+- Du kan återställa virtuella Hyper-V-datorer från Azure genom att köra en planerad redundansväxling från Azure till den lokala platsen. Om växlings riktningen är från Azure till en lokal, betraktas den som en återställning efter fel.
+- Eftersom Azure är en hög tillgänglig miljö och virtuella datorer alltid är tillgängliga, är failback från Azure en planerad aktivitet. Du kan planera för ett litet avbrott så att arbets belastningar kan börja köras lokalt. 
+- Planerad återställning stänger av de virtuella datorerna i Azure och laddar ned de senaste ändringarna. Ingen data förlust förväntas.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-1. [Granska de typer av återställning av fel som](failover-failback-overview.md#hyper-v-reprotectionfailback) du kan använda – original återställning av plats och alternativ platsåterställning.
-2. Kontrollera att virtuella Azure-datorer använder ett lagringskonto och inte hanterade diskar. Återställning av virtuella hyper-virtuella datorer som replikeras med hanterade diskar stöds inte.
-3. Kontrollera att den lokala Hyper-V-värden (eller System Center VMM-servern om du använder med Site Recovery) körs och är ansluten till Azure. 
-4. Kontrollera att redundans och genomförande är slutförd för de virtuella datorerna. Du behöver inte konfigurera några specifika site recovery-komponenter för återställning av hyper-virtuella datorer från Azure.
-5. Den tid som krävs för att slutföra datasynkronisering och starta den lokala virtuella datorn beror på ett antal faktorer. För att påskynda datahämtningen kan du konfigurera Microsoft Recovery Services-agenten så att fler trådar kan parallellisera hämtningen. [Läs mer](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
+1. [Granska typerna av återställning efter fel](failover-failback-overview.md#hyper-v-reprotectionfailback) du kan använda – ursprunglig plats återställning och alternativ plats återställning.
+2. Se till att de virtuella Azure-datorerna använder ett lagrings konto och inte hanterade diskar. Återställning efter fel för virtuella Hyper-V-datorer som replikeras med hanterade diskar stöds inte.
+3. Kontrol lera att den lokala Hyper-V-värden (eller System Center VMM-servern om du använder med Site Recovery) körs och är ansluten till Azure. 
+4. Se till att redundans och genomförande är slutförda för de virtuella datorerna. Du behöver inte konfigurera några enskilda Site Recoverys komponenter för återställning efter fel för virtuella Hyper-V-datorer från Azure.
+5. Tiden som krävs för att slutföra datasynkroniseringen och starta den lokala virtuella datorn beror på ett antal faktorer. För att påskynda hämtningen av data kan du konfigurera Microsoft Recovery Services-agenten att använda fler trådar för att parallellisera nedladdningen. [Läs mer](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
 
 
 ## <a name="fail-back-to-the-original-location"></a>Växla tillbaka till den ursprungliga platsen
 
-Om du vill återställa hyper-virtuella datorer i Azure till den ursprungliga lokala virtuella datorn kör du en planerad redundans från Azure till den lokala platsen enligt följande:
+Om du vill återställa virtuella Hyper-V-datorer i Azure till den ursprungliga lokala virtuella datorn kör du en planerad redundansväxling från Azure till den lokala platsen enligt följande:
 
-1. Välj den virtuella datorn i valvet > **replikerade objekt.** Högerklicka på den virtuella datorn > **planerad redundans**. Om du inte säkerhetskopierar en återställningsplan markerar du plannamnet och klickar på > **Redundanplanerad redundans**. **Failover**
-2. I **Bekräfta planerad redundans**väljer du käll- och målplatser. Notera redundansriktningen. Om redundans från primärt fungerade som förväntat och alla virtuella datorer är på den sekundära platsen är detta endast för information.
-3. Välj ett alternativ **i Datasynkronisering:**
-    - **Synkronisera data före redundans (endast synkronisering av deltaändringar)**– Det här alternativet minimerar stilleståndstiden för virtuella datorer när de synkroniseras utan att stänga av dem.
-        - **Fas 1**: Tar en ögonblicksbild av Azure VM och kopierar den till den lokala Hyper-V-värden. Datorn fortsätter att köras i Azure.
-        - **Fas 2**: Stänger av den virtuella azure-datorn så att inga nya ändringar inträffar där. Den slutliga uppsättningen deltaändringar överförs till den lokala servern och den lokala virtuella datorn startas.
-    - **Synkronisera data endast under redundans (fullständig hämtning)**– Det här alternativet är snabbare eftersom vi antar att de flesta av disken har ändrats och inte vill spendera tid på att beräkna kontrollsummar. Det här alternativet utför inga kontrollsummenberäkningar.
+1. Välj den virtuella datorn i valvet > **replikerade objekt**. Högerklicka på den virtuella datorn > **planerad redundansväxling**. Om du inte återställer en återställnings plan väljer du plan namnet **och klickar på** > **planerad redundansväxling**.
+2. I **Bekräfta Planerad redundans**väljer du käll-och mål platserna. Observera växlings riktningen. Om redundansväxlingen från det primära fungerade som förväntat och alla virtuella datorer finns på den sekundära platsen är detta endast för information.
+3. I **datasynkronisering**väljer du ett alternativ:
+    - **Synkronisera data före redundans (synkronisera ändringar endast)**– med det här alternativet minimeras nedtid för virtuella datorer när den synkroniseras utan att stängas av.
+        - **Fas 1**: tar en ögonblicks bild av den virtuella Azure-datorn och kopierar den till den lokala Hyper-V-värden. Datorn fortsätter att köras i Azure.
+        - **Fas 2**: stänger av den virtuella Azure-datorn så att inga nya ändringar sker där. Den slutliga uppsättningen delta ändringar överförs till den lokala servern och den lokala virtuella datorn startas.
+    - **Synkronisera endast data under redundans (fullständig hämtning)**– det här alternativet är snabbare eftersom vi förutsätter att det mesta av disken har ändrats och inte vill ägna tid åt att beräkna kontroll summor. Det här alternativet utför inte några beräkningar av kontroll summa.
         - Den utför en nedladdning av disken. 
-        - Vi rekommenderar att du använder det här alternativet om du har kört Azure ett tag (en månad eller mer) eller om den lokala virtuella datorn tas bort.
+        - Vi rekommenderar att du använder det här alternativet om du har kört Azure en stund (en månad eller mer) eller om den lokala virtuella datorn har tagits bort.
 
-4. Endast för VMM, om datakryptering är **Encryption Key**aktiverat för molnet, väljer du det certifikat som utfärdades när du aktiverade datakryptering under Provider-installationen på VMM-servern.
+4. För VMM, om data kryptering är aktiverat för molnet, i **krypterings nyckel**väljer du det certifikat som utfärdades när du aktiverade data kryptering under installationen av providern på VMM-servern.
 5. Starta redundansväxlingen. Du kan följa redundansförloppet på fliken **Jobb**.
-6. Om du valde alternativet att synkronisera data före redundansen klickar du på **Jobb** > jobbnamn > **Slutför redundans**när den första datasynkroniseringen är klar och du är redo att stänga av de virtuella datorerna i Azure. Det här gör följande:
+6. Om du har valt alternativet för att synkronisera data före redundansväxlingen när den inledande datasynkroniseringen har slutförts och du är redo att stänga av de virtuella datorerna i Azure klickar du på **jobb** > jobb namn > **Slutför redundans**. Det här gör följande:
     - Stänger av Azure-datorn.
     - Överför de senaste ändringarna till den lokala virtuella datorn.
     - Startar den lokala virtuella datorn.
-7. Du kan nu logga in på den lokala VM-datorn för att kontrollera att den är tillgänglig som förväntat.
-8. Den virtuella datorn är i ett väntande tillstånd. Klicka på **Commit** för att genomföra redundansen.
-9. Om du vill slutföra återställningen klickar du på **Omvänd replikera** för att börja replikera den lokala virtuella datorn till Azure igen.
+7. Nu kan du logga in på den lokala virtuella datorn för att kontrol lera att den är tillgänglig som förväntat.
+8. Den virtuella datorn är i ett väntande tillstånd. Klicka på **genomför** för att genomföra redundansväxlingen.
+9. Slutför återställningen genom att klicka på **omvänd replikering** för att starta replikeringen av den lokala virtuella datorn till Azure igen.
 
 
 
@@ -62,24 +62,24 @@ Om du vill återställa hyper-virtuella datorer i Azure till den ursprungliga lo
 
 Växla tillbaka till en alternativ plats enligt följande:
 
-1. Om du konfigurerar ny maskinvara installerar du en [version av Windows som stöds](hyper-v-azure-support-matrix.md#replicated-vms)och Hyper-V-rollen på datorn.
-2. Skapa en virtuell nätverksväxel med samma namn som du hade på den ursprungliga servern.
-3. I **Skyddade objektSskydd** > **GruppskyddGroupName** > \<> -> \<VirtualMachineName> väljer du den virtuella dator som du vill återställa och väljer sedan Planerad **redundans**.
-4. I **Bekräfta planerad redundans**väljer du **Skapa lokal virtuell dator om den inte finns**.
-5. I **Värdnamn**väljer du den nya Hyper-V-värdservern där du vill placera den virtuella datorn.
-6. I **Datasynkronisering**rekommenderar vi att du väljer alternativet att synkronisera data före redundansen. Detta minimerar driftstopp för virtuella datorer när den synkroniseras utan att stänga av dem. Det gör följande:
-    - **Fas 1**: Tar ögonblicksbilder av Den virtuella Azure-datorn och kopierar den till den lokala Hyper-V-värden. Datorn fortsätter att köras i Azure.
-    - **Fas 2**: Stänger av den virtuella azure-datorn så att inga nya ändringar inträffar där. Den slutliga uppsättningen ändringar överförs till den lokala servern och den lokala virtuella datorn startas.
+1. Om du konfigurerar ny maskin vara installerar du en [version av Windows som stöds](hyper-v-azure-support-matrix.md#replicated-vms)och Hyper-V-rollen på datorn.
+2. Skapa en virtuell nätverks växel med samma namn som du hade på den ursprungliga servern.
+3. I**skydds gruppen** > \<för **skyddade objekt** > ProtectionGroupName> \<-> VirtualMachineName> väljer du den virtuella dator som du vill återställa och väljer sedan **planerad redundansväxling**.
+4. I **Bekräfta planerad redundansväxling**, väljer du **skapa en lokal virtuell dator om den inte finns**.
+5. I **värdnamn**väljer du den nya Hyper-V-värdservern där du vill placera den virtuella datorn.
+6. I **datasynkronisering**rekommenderar vi att du väljer alternativet för att synkronisera data före redundansväxlingen. Detta minimerar stillestånds tiden för virtuella datorer när den synkroniseras utan att stänga av dem. Det gör följande:
+    - **Fas 1**: tar ögonblicks bilder av den virtuella Azure-datorn och kopierar den till den lokala Hyper-V-värden. Datorn fortsätter att köras i Azure.
+    - **Fas 2**: stänger av den virtuella Azure-datorn så att inga nya ändringar sker där. Den slutliga uppsättningen ändringar överförs till den lokala servern och den lokala virtuella datorn startas.
     
-7. Klicka på bocken för att påbörja redundansen (redundans).
-8. När den första synkroniseringen är klar och du är redo att stänga av den virtuella Azure-datorn klickar du på **Jobbplanerat** > \<redundansjobb> > **Slutför redundans**. Detta stänger av Azure-datorn, överför de senaste ändringarna till den lokala virtuella datorn och startar den.
-9. Du kan logga in på den lokala virtuella datorn för att kontrollera att allt fungerar som förväntat.
-10. Klicka på **Slutför** för att slutföra redundansen. Commit tar bort Den virtuella Azure-datorn och dess diskar och förbereder den lokala virtuella datorn för att skyddas igen.
-10. Klicka på **Omvänd replikera** för att börja replikera den lokala virtuella datorn till Azure. Endast deltaändringarna sedan den virtuella datorn stängdes av i Azure replikeras.
+7. Klicka på bock markeringen för att påbörja redundansväxlingen (failback).
+8. När den första synkroniseringen är klar och du är redo att stänga av den virtuella Azure-datorn klickar du på **jobb** > \<Planerad redundans> > **Slutför redundans**. Detta stänger av Azure-datorn, överför de senaste ändringarna till den lokala virtuella datorn och startar den.
+9. Du kan logga in på den lokala virtuella datorn för att kontrol lera att allt fungerar som förväntat.
+10. Slutför redundansväxlingen genom att klicka på **genomför** . Commit tar bort den virtuella Azure-datorn och dess diskar och förbereder den lokala virtuella datorn så att den skyddas igen.
+10. Klicka på **omvänd replikering** för att påbörja replikeringen av den lokala virtuella datorn till Azure. Endast delta ändringar sedan den virtuella datorn stängdes av i Azure kommer att replikeras.
 
     > [!NOTE]
-    > Om du avbryter återställningsjobbet under datasynkronisering kommer den lokala virtuella datorn att vara i ett skadat tillstånd. Detta beror på att datasynkronisering kopierar de senaste data från Azure VM-diskar till lokala datadiskar, och tills synkroniseringen är klar, kan diskdata inte vara i ett konsekvent tillstånd. Om den lokala virtuella datorn startar efter att datasynkroniseringen har avbrutits kanske den inte startas. I det här fallet kör du redundansen igen för att slutföra datasynkroniseringen.
+    > Om du avbryter återställnings jobbet under datasynkroniseringen, är den lokala virtuella datorn i ett skadat tillstånd. Detta beror på att datasynkroniseringen kopierar senaste data från virtuella Azure-diskar till lokala data diskar, och tills synkroniseringen har slutförts kanske disk data inte är i ett konsekvent tillstånd. Om den lokala virtuella datorn startar efter att datasynkroniseringen har avbrutits kanske den inte startar. I det här fallet kör du om redundansväxlingen för att slutföra datasynkroniseringen.
 
 
 ## <a name="next-steps"></a>Nästa steg
-När den lokala virtuella datorn replikeras till Azure kan du [köra en annan redundans](site-recovery-failover.md) till Azure efter behov.
+När den lokala virtuella datorn replikeras till Azure kan du [köra en annan redundansväxling](site-recovery-failover.md) till Azure efter behov.

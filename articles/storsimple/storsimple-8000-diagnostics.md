@@ -1,6 +1,6 @@
 ---
-title: Diagnostikverktyg för felsökning av StorSimple 8000-enhet | Microsoft-dokument
-description: Beskriver lägena för StorSimple-enheten och förklarar hur du använder Windows PowerShell för StorSimple för att ändra enhetsläget.
+title: Diagnostikverktyg för fel sökning av StorSimple 8000-enhet | Microsoft Docs
+description: Beskriver enhets lägena i StorSimple och förklarar hur du använder Windows PowerShell för StorSimple för att ändra enhets läget.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,86 +15,86 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298745"
 ---
-# <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använd StorSimple Diagnostics Tool för att felsöka enhetsproblem i 8000-serien
+# <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använd verktyget StorSimple Diagnostics för att felsöka enhets problem i 8000-serien
 
 ## <a name="overview"></a>Översikt
 
-StorSimple Diagnostics-verktyget diagnostiserar problem relaterade till system-, prestanda-, nätverks- och maskinvarukomponenthälsa för en StorSimple-enhet. Diagnostikverktyget kan användas i olika scenarier. Dessa scenarier omfattar arbetsbelastningsplanering, distribution av en StorSimple-enhet, bedömning av nätverksmiljön och fastställande av prestanda för en fungerande enhet. Den här artikeln innehåller en översikt över diagnostikverktyget och beskriver hur verktyget kan användas med en StorSimple-enhet.
+StorSimple Diagnostics-verktyget diagnostiserar problem som rör system-, prestanda-, nätverks-och maskin varu komponent hälsa för en StorSimple-enhet. Diagnostikverktyget kan användas i olika scenarier. Dessa scenarier innefattar arbets belastnings planering, distribution av en StorSimple-enhet, bedömning av nätverks miljön och fast ställande av prestanda för en fungerande enhet. Den här artikeln innehåller en översikt över verktyget diagnostik och beskriver hur verktyget kan användas med en StorSimple-enhet.
 
-Diagnostikverktyget är främst avsett för lokala enheter i StorSimple 8000-serien (8100 och 8600).
+Diagnostikverktyget är främst avsett för StorSimple 8000-seriens lokala enheter (8100 och 8600).
 
-## <a name="run-diagnostics-tool"></a>Kör diagnostikverktyget
+## <a name="run-diagnostics-tool"></a>Kör diagnostik-verktyget
 
 Det här verktyget kan köras via Windows PowerShell-gränssnittet på din StorSimple-enhet. Det finns två sätt att komma åt enhetens lokala gränssnitt:
 
-* [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Fjärråtkomst till verktyget via Windows PowerShell för StorSimple](storsimple-8000-remote-connect.md).
+* [Använd SparaTillFil för att ansluta till enhetens serie konsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* Fjärråtkomst till [verktyget via Windows PowerShell för StorSimple](storsimple-8000-remote-connect.md).
 
-I den här artikeln antar vi att du har anslutit till enhetens seriekonsol via PuTTY.
+I den här artikeln förutsätter vi att du har anslutit till enhetens serie konsol via SparaTillFil.
 
-#### <a name="to-run-the-diagnostics-tool"></a>Så här kör du diagnostikverktyget
+#### <a name="to-run-the-diagnostics-tool"></a>Köra diagnostik-verktyget
 
-När du har anslutit till enhetens Windows PowerShell-gränssnitt utför du följande steg för att köra cmdleten.
-1. Logga in på enhetens seriekonsol genom att följa stegen i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+När du har anslutit till Windows PowerShell-gränssnittet på enheten utför du följande steg för att köra cmdleten.
+1. Logga in på enhetens serie konsol genom att följa stegen i [använda SparaTillFil för att ansluta till enhetens serie konsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Ange följande kommando:
 
     `Invoke-HcsDiagnostics`
 
-    Om scopeparametern inte har angetts kör cmdleten alla diagnostiska tester. Dessa tester omfattar system, maskinvarukomponenthälsa, nätverk och prestanda. 
+    Om omfångs parametern inte anges kör cmdleten alla diagnostiska tester. Dessa tester omfattar system, maskin varu komponent hälsa, nätverk och prestanda. 
     
-    Om du bara vill köra ett visst test anger du scopeparametern. Om du till exempel bara vill köra nätverkstestet skriver du
+    Om du bara vill köra ett speciellt test anger du omfattnings parametern. Om du till exempel bara vill köra nätverks testet skriver du
 
     `Invoke-HcsDiagnostics -Scope Network`
 
-3. Välj och kopiera utdata från PuTTY-fönstret till en textfil för vidare analys.
+3. Markera och kopiera utdata från fönstret SparaTillFil till en textfil för ytterligare analys.
 
-## <a name="scenarios-to-use-the-diagnostics-tool"></a>Scenarier för användning av diagnostikverktyget
+## <a name="scenarios-to-use-the-diagnostics-tool"></a>Scenarier för att använda verktyget diagnostik
 
-Använd diagnostikverktyget för att felsöka systemets nätverks-, prestanda-, system- och maskinvaruhälsa. Här är några möjliga scenarier:
+Använd diagnostikverktyget för att felsöka nätverks-, prestanda-, system-och maskin varu hälsan i systemet. Här följer några möjliga scenarier:
 
-* **Enheten offline** - Enheten i StorSimple 8000-serien är offline. Men från Windows PowerShell-gränssnittet verkar det som om båda styrenheterna är igång.
-    * Du kan använda det här verktyget för att sedan bestämma nätverkstillståndet.
+* **Enheten offline** – din StorSimple 8000-serie enhet är offline. Men från Windows PowerShell-gränssnittet verkar det som om båda styrenheterna är igång.
+    * Du kan använda det här verktyget för att fastställa nätverks tillstånd.
          
          > [!NOTE]
-         > Använd inte det här verktyget för att bedöma prestanda- och nätverksinställningar på en enhet före registreringen (eller konfigurera via installationsguiden). En giltig IP tilldelas enheten under installationsguiden och registreringen. Du kan köra den här cmdleten på en enhet som inte är registrerad, för maskinvaruhälsa och system. Använd scopeparametern, till exempel:
+         > Använd inte det här verktyget för att utvärdera prestanda-och nätverks inställningar på en enhet innan registreringen (eller konfigureras via installations guiden). En giltig IP-adress tilldelas enheten under installations guiden och registreringen. Du kan köra den här cmdleten på en enhet som inte är registrerad för maskin varu hälsa och system. Använd omfattnings parametern, till exempel:
          >
          > `Invoke-HcsDiagnostics -Scope Hardware`
          >
          > `Invoke-HcsDiagnostics -Scope System`
 
-* **Beständiga enhetsproblem** – Du har problem med enheten som verkar finnas kvar. Till exempel misslyckas registreringen. Du kan också ha problem med enheten när enheten har registrerats och tagits i drift ett tag.
-    * I det här fallet använder du det här verktyget för preliminär felsökning innan du loggar en servicebegäran med Microsoft Support. Vi rekommenderar att du kör det här verktyget och fångar in utdata för det här verktyget. Du kan sedan tillhandahålla den här utdata till support för att påskynda felsökning.
-    * Om det finns maskinvarukomponenter eller klusterfel bör du logga in en supportbegäran.
+* **Problem med beständig enhet** – du har problem med enheten som verkar vara kvar. Till exempel fungerar inte registreringen. Det kan också uppstå enhets problem när enheten har registrerats och fungerar en stund.
+    * I det här fallet ska du använda det här verktyget för preliminär fel sökning innan du loggar en tjänstbegäran med Microsoft Support. Vi rekommenderar att du kör det här verktyget och fångar in utdata från det här verktyget. Du kan sedan ange dessa utdata som stöd för att påskynda fel sökningen.
+    * Om det finns maskin varu komponenter eller kluster fel, bör du logga in på en Supportbegäran.
 
-* **Låg enhetsprestanda** - Din StorSimple-enhet är långsam.
-    * I det här fallet kör du den här cmdleten med scopeparametern inställd på prestanda. Analysera utdata. Du får molnet läs-skriva latenser. Använd de rapporterade svarstiderna som maximalt uppnåeligt mål, faktor i vissa omkostnader för intern databearbetning och distribuera sedan arbetsbelastningarna på systemet. Mer information finns i [Använd nätverkstestet för att felsöka enhetens prestanda](#network-test).
+* **Låg enhets prestanda** – din StorSimple-enhet är långsam.
+    * I det här fallet kör du denna cmdlet med omfattnings parametern inställd på prestanda. Analysera utdata. Du får en svars tids fördröjning för molnet. Använd de rapporterade svars tiderna som maximalt mål som kan nås, faktor i vissa kostnader för intern data bearbetning och distribuera sedan arbets belastningarna i systemet. Om du vill ha mer information går du till [Använd Nätverks testet för att felsöka enhetens prestanda](#network-test).
 
 
-## <a name="diagnostics-test-and-sample-outputs"></a>Test- och provutgångar för diagnostik
+## <a name="diagnostics-test-and-sample-outputs"></a>Test av diagnostik och exempel på utdata
 
-### <a name="hardware-test"></a>Maskinvarutest
+### <a name="hardware-test"></a>Maskin varu test
 
-Det här testet avgör statusen för maskinvarukomponenterna, den inbyggda programvaran USM och den fasta disken som körs på datorn.
+Det här testet bestämmer status för maskin varu komponenter, den inbyggda program varan för USM POLICYEGENSKAPER och diskens inbyggda program vara som körs på systemet.
 
-* Maskinvarukomponenterna som rapporteras är de komponenter som misslyckades med testet eller som inte finns i systemet.
-* USM firmware och disk firmware versioner rapporteras för Controller 0, Controller 1 och delade komponenter i ditt system. En fullständig lista över maskinvarukomponenter finns i:
+* Maskin varu komponenter som rapporteras är de komponenter som inte kunde utföra testet eller som inte finns i systemet.
+* Versionerna av den inbyggda program varan och USM POLICYEGENSKAPER för diskarna rapporteras för styrenhet 0, styrenhet 1 och delade komponenter i systemet. En fullständig lista över maskin varu komponenter finns på:
 
-    * [Komponenter i primärhölje](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Komponenter i EBOD-kapsling](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Komponenter i primär kabinett](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Komponenter i EBOD-kabinettet](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Om maskinvarutestrapporterna misslyckades [loggar du in en tjänstbegäran med Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+> Om maskin varu testet rapporterar felaktiga komponenter loggar du in [en tjänstbegäran med Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-#### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Exempel på maskinvarutestkörning på en 8100-enhet
+#### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Exempel på utdata från maskin varu test på en 8100-enhet
 
-Här är ett exempel på utdata från en StorSimple 8100-enhet. I 8100-modellenheten finns inte EBOD-höljet. Därför rapporteras inte EBOD-styrenhetens komponenter.
+Här är ett exempel på utdata från en StorSimple 8100-enhet. EBOD-kabinettet finns inte i 8100-modell enheten. Därför rapporteras inte EBOD-styrenhetens komponenter.
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope Hardware
@@ -204,19 +204,19 @@ DisksFirmware       : SmrtStor:TXA2D20400GA6XYR:KZ50
 --------------------------------------------------
 ```
 
-### <a name="system-test"></a>Systemtest
+### <a name="system-test"></a>System test
 
-Det här testet rapporterar systeminformation, tillgängliga uppdateringar, klusterinformation och tjänstinformation för enheten.
+Det här testet rapporterar system information, tillgängliga uppdateringar, kluster information och tjänst information för enheten.
 
-* Systeminformationen omfattar modell, enhetsserienummer, tidszon, controller-status och den detaljerade programvaruversion som körs på systemet. Om du vill förstå de olika systemparametrar som rapporteras som utdata går du till [Tolka systeminformation](#appendix-interpreting-system-information).
+* System informationen inkluderar modellen, enhetens serie nummer, tidszon, styrenhets status och den detaljerade program varu version som körs på systemet. Om du vill förstå de olika system parametrarna som rapporteras som utdata går du till [tolka system information](#appendix-interpreting-system-information).
 
-* Uppdateringstillgängligheten rapporterar om de vanliga och underhållslägena är tillgängliga och tillhörande paketnamn. Om `RegularUpdates` `MaintenanceModeUpdates` och `false`är , indikerar detta att uppdateringarna inte är tillgängliga. Enheten är uppdaterad.
-* Klusterinformationen innehåller information om olika logiska komponenter i alla HCS-klustergrupper och deras respektive status. Om du ser en offlineklustergrupp i det här avsnittet i rapporten [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-* Serviceinformationen innehåller namn och status för alla HCS- och CiS-tjänster som körs på din enhet. Den här informationen är användbar för Microsoft Support vid felsökning av enhetsproblemet.
+* Uppdaterings tillgänglighet rapporterar om de vanliga och underhålls lägena är tillgängliga och deras associerade paket namn. Om `RegularUpdates` och `MaintenanceModeUpdates` är `false`, indikerar detta att uppdateringarna inte är tillgängliga. Enheten är uppdaterad.
+* Kluster informationen innehåller information om olika logiska komponenter i alla HCS UPPDATERINGSKLIENTEN-kluster grupper och deras respektive status. Om du ser en frånkopplad kluster grupp i det här avsnittet av rapporten [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+* Tjänst informationen innehåller namn och status för alla HCS UPPDATERINGSKLIENTEN-och CiS-tjänster som körs på enheten. Den här informationen är användbar för Microsoft Support vid fel sökning av enhets problemet.
 
-#### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Exempel på utdata från systemtestkörning på en 8100-enhet
+#### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Exempel på utdata från systemtesten som körs på en 8100-enhet
 
-Här är ett exempel på utdata från systemtestkörningen på en 8100-enhet.
+Här är ett exempel på utdata från system testet som körs på en 8100-enhet.
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope System
@@ -321,24 +321,24 @@ hcs_startup                                   Stopped hcs_startup
 --------------------------------------------------
 ```
 
-### <a name="network-test"></a>Nätverkstest
+### <a name="network-test"></a>Nätverks test
 
-Det här testet validerar statusen för nätverksgränssnitt, portar, DNS- och NTP-serveranslutning, TLS/SSL-certifikat, autentiseringsuppgifter för lagringskonto, anslutning till uppdateringsservrarna och webbproxyanslutning på Din StorSimple-enhet.
+Det här testet kontrollerar status för nätverks gränssnitt, portar, DNS-och NTP-serverrollen, TLS/SSL-certifikat, autentiseringsuppgifter för lagrings konto, anslutning till uppdaterings servrar och webbproxy-anslutning på din StorSimple-enhet.
 
-#### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Exempel på utskrift av nätverkstest när endast DATA0 är aktiverat
+#### <a name="sample-output-of-network-test-when-only-data0-is-enabled"></a>Exempel på utdata från nätverks test när endast DATA0 har Aktiver ATS
 
-Här är ett exempel på 8100-enheten. Du kan se i utdata som:
-* Endast nätverksgränssnitt för DATA 0 och DATA 1 är aktiverade och konfigurerade.
-* DATA 2 - 5 är inte aktiverade i portalen.
+Här är ett exempel på utdata från 8100-enheten. Du kan se i utdata som:
+* Endast nätverks gränssnitten DATA 0 och DATA 1 är aktiverade och konfigurerade.
+* DATA 2-5 är inte aktiverade i portalen.
 * DNS-serverkonfigurationen är giltig och enheten kan ansluta via DNS-servern.
-* NTP-serveranslutningen är också bra.
-* Portarna 80 och 443 är öppna. Port 9354 är dock blockerad. Baserat på [systemnätverkskraven](storsimple-system-requirements.md)måste du öppna den här porten för servicebusskommunikationen.
+* NTP-serverns anslutning är också bra.
+* Portarna 80 och 443 är öppna. Port 9354 är dock blockerad. Baserat på [systemets nätverks krav](storsimple-system-requirements.md)måste du öppna porten för Service Bus-kommunikationen.
 * TLS/SSL-certifieringen är giltig.
-* Enheten kan ansluta till _lagringskontot: myss8000storageacct_.
-* Anslutningen till Uppdateringsservrar är giltig.
-* Webbproxyn är inte konfigurerad på den här enheten.
+* Enheten kan ansluta till lagrings kontot: _myss8000storageacct_.
+* Anslutningen till uppdaterings servrarna är giltig.
+* Webbproxyn har inte kon figurer ATS på den här enheten.
 
-#### <a name="sample-output-of-network-test-when-data0-and-data1-are-enabled"></a>Exempel på utdata från nätverkstest när DATA0 och DATA1 är aktiverade
+#### <a name="sample-output-of-network-test-when-data0-and-data1-are-enabled"></a>Exempel på utdata från nätverks test när DATA0 och fil1 är aktiverade
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope Network
@@ -368,31 +368,31 @@ Web proxy                               Not enabled         Web proxy is not...
 
 ### <a name="performance-test"></a>Prestandatest
 
-Det här testet rapporterar molnprestanda via molnet läs-skriva latenser för din enhet. Det här verktyget kan användas för att upprätta en baslinje för molnprestanda som du kan uppnå med StorSimple. Verktyget rapporterar det maximala prestanda (bästa scenario för läs-skriv-svarstider) som du kan få för din anslutning.
+Det här testet rapporterar moln prestanda via molnets Läs-och skriv fördröjningar för din enhet. Det här verktyget kan användas för att upprätta en bas linje för moln prestanda som du kan uppnå med StorSimple. Verktyget rapporterar högsta prestanda (bästa fall scenariot för Läs-och skriv fördröjning) som du kan hämta för anslutningen.
 
-När verktyget rapporterar maximal uppnåelig prestanda kan vi använda de rapporterade läs-skriv-svaren som mål när du distribuerar arbetsbelastningarna.
+När verktyget rapporterar högsta prestanda som kan uppnås kan vi använda de rapporterade Läs-och skriv fördröjningarna som mål när du distribuerar arbets belastningarna.
 
-Testet simulerar blob-storlekarna som är associerade med de olika volymtyperna på enheten. Regelbundna nivåindelade och säkerhetskopior av lokalt fästa volymer använder en blobstorlek på 64 kB. Nivåindelad volymer med arkivalternativet markerat använd 512 KB blob datastorlek. Om enheten har nivåindelade och lokalt fästa volymer konfigurerade körs endast testet som motsvarar 64 KB blob-datastorlek.
+Testet simulerar BLOB-storlekarna som är kopplade till de olika volym typerna på enheten. Regelbundna nivåer och säkerhets kopieringar av lokalt fästa volymer använder en BLOB-storlek på 64 KB. De skiktade volymerna med alternativet Arkiv markerat Använd 512 KB BLOB-data storlek. Om enheten har nivå-och lokalt fästa volymer konfigurerade, körs bara det test som motsvarar 64 KB BLOB-datastorlek.
 
-Så här använder du det här verktyget:
+Utför följande steg för att använda det här verktyget:
 
-1.  Skapa först en blandning av nivåindelade volymer och nivåindelade volymer med arkiverat alternativ markerat. Den här åtgärden säkerställer att verktyget kör testerna för både 64 KB- och 512 KB-blobstorlekar.
+1.  Börja med att skapa en blandning av skiktade volymer och skiktade volymer med arkiverat alternativ markerat. Den här åtgärden säkerställer att verktyget kör testerna för både 64 KB-och 512 KB-BLOB-storlekar.
 
 2. Kör cmdleten när du har skapat och konfigurerat volymerna. Ange:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
-3. Anteckna de läs-skriv-svaren som rapporteras av verktyget. Det här testet kan ta flera minuter att köra innan det rapporterar resultaten.
+3. Anteckna den Läs-och skriv fördröjning som rapporteras av verktyget. Det här testet kan ta flera minuter att köra innan det rapporterar resultatet.
 
-4. Om anslutningsfördynningar är alla under det förväntade intervallet kan de svaren som rapporteras av verktyget användas som maximalt uppnåeligt mål när arbetsbelastningarna distribueras. Faktor i vissa omkostnader för intern databehandling.
+4. Om tids fördröjningen för anslutningen är under det förväntade intervallet, kan svars tiderna som rapporteras av verktyget användas som maximalt mål när du distribuerar arbets belastningarna. Faktor i viss kostnad för intern data bearbetning.
 
-    Om de läs-skriv-svaren som rapporteras av diagnostikverktyget är höga:
+    Om den Läs-och skriv fördröjning som rapporteras av diagnostikverktyget är hög:
 
-    1. Konfigurera Storage Analytics för blob-tjänster och analysera utdata för att förstå svarstiderna för Azure-lagringskontot. Detaljerade instruktioner finns i [aktivera och konfigurera Storage Analytics](../storage/common/storage-enable-and-view-metrics.md). Om dessa svarstider också är höga och jämförbara med de nummer du fick från StorSimple Diagnostics-verktyget måste du logga en tjänstbegäran med Azure-lagring.
+    1. Konfigurera Lagringsanalys för BLOB Services och analysera utdata för att förstå fördröjningarna för Azure Storage-kontot. Detaljerade anvisningar finns i [Aktivera och konfigurera Lagringsanalys](../storage/common/storage-enable-and-view-metrics.md). Om de fördröjningarna också är höga och jämförbara med de nummer som du fick från StorSimple-diagnostikverktyget måste du logga en tjänstbegäran med Azure Storage.
 
-    2. Om svarstidsfördröjningarna för lagringskontot är låga kontaktar du nätverksadministratören för att undersöka eventuella svarstidsproblem i nätverket.
+    2. Om lagrings konto fördröjningen är låg kontaktar du nätverks administratören och undersöker eventuella latens problem i nätverket.
 
-#### <a name="sample-output-of-performance-test-run-on-an-8100-device"></a>Exempel på prestandatestkörning på en 8100-enhet
+#### <a name="sample-output-of-performance-test-run-on-an-8100-device"></a>Exempel på utdata från prestanda test på en 8100-enhet
 
 ```
 Controller0>Invoke-HcsDiagnostics -Scope Performance
@@ -410,36 +410,36 @@ Cloud read latency: 4924 ms using credential 'myss8000storageacct', blob size '5
 Controller0>
 ```
 
-## <a name="appendix-interpreting-system-information"></a>Tillägg: tolkning av systeminformation
+## <a name="appendix-interpreting-system-information"></a>Bilaga: tolkning av system information
 
-Här är en tabell som beskriver vad de olika Windows PowerShell parametrarna i systeminformationen kartan till. 
+Här är en tabell som beskriver de olika Windows PowerShell-parametrarna i system information Map till. 
 
 | PowerShell-parameter    | Beskrivning  |
 |-------------------------|------------------|
 | Instans-ID             | Varje styrenhet har en unik identifierare eller ett GUID som är associerat med den.|
-| Namn                    | Det egna namnet på enheten som konfigurerats via Azure-portalen under enhetsdistributionen. Standardnamnet är enhetens serienummer. |
-| Modell                   | Modellen för din StorSimple 8000-serie enhet. Modellen kan vara 8100 eller 8600.|
-| Serienummer            | Enhetens serienummer tilldelas på fabriken och är 15 tecken långt. Till exempel anger 8600-SHX0991003G44HT:<br> 8600 – Är enhetsmodellen.<br>SHX – Är tillverkningsanläggningen.<br> 0991003 - Är en specifik produkt. <br> G44HT- de sista 5 siffrorna ökas för att skapa unika serienummer. Detta kanske inte är en sekventiell uppsättning.|
-| TimeZone                | Enhetens tidszon som konfigurerats i Azure-portalen under enhetsdistributionen.|
-| CurrentController (Aktuellakontrolller)       | Den handkontroll som du är ansluten till via Windows PowerShell-gränssnittet på Din StorSimple-enhet.|
-| ActiveController (aktiv kontroll)        | Styrenheten som är aktiv på enheten och styr alla nätverks- och diskåtgärder. Detta kan vara Controller 0 eller Controller 1.  |
-| Controller0Status       | Status för Controller 0 på enheten. Styrenhetens status kan vara normal, i återställningsläge eller inte nås.|
-| Controller1Status       | Status för Controller 1 på enheten.  Styrenhetens status kan vara normal, i återställningsläge eller inte nås.|
-| SystemMode (systemmode)              | Den övergripande statusen för din StorSimple-enhet. Enhetsstatusen kan vara normal, underhåll eller inaktiverad (motsvarar inaktiverad i Azure-portalen).|
-| FriendlySoftwareVersion | Den vänliga strängen som motsvarar enhetens programvaruversion. För ett system som kör Uppdatering 4, skulle den vänliga programvaruversionen vara StorSimple 8000 Series Update 4.0.|
-| HcsSoftwareVersion      | HCS-programvaruversionen som körs på enheten. Till exempel är HCS-programvaruversionen som motsvarar StorSimple 8000 Series Update 4.0 6.3.9600.17820. |
-| ApiVersion (ApiVersion)              | Programvaruversionen av Windows PowerShell-API:et för HCS-enheten.|
-| VhdVersion (VhdVersion)              | Programvaruversionen av fabriksavbildningen som enheten levererades med. Om du återställer enheten till fabriksinställningar körs den här programvaruversionen.|
-| OSVersion               | Programvaruversionen av operativsystemet Windows Server som körs på enheten. StorSimple-enheten är baserad på Windows Server 2012 R2 som motsvarar 6.3.9600.|
-| CisAgentVersion (CisAgentVersion)         | Versionen för din Cis-agent som körs på din StorSimple-enhet. Den här agenten hjälper till att kommunicera med StorSimple Manager-tjänsten som körs i Azure.|
-| MdsAgentVersion (MdsAgentVersion)         | Den version som motsvarar Mds-agenten som körs på din StorSimple-enhet. Den här agenten flyttar data till övervaknings- och diagnostiktjänsten (MDS).|
-| Lsisas2Version          | Den version som motsvarar LSI-drivrutinerna på StorSimple-enheten.|
+| Name                    | Det egna namnet på enheten enligt konfigurationen i Azure Portal under enhets distributionen. Det egna standard namnet är enhetens serie nummer. |
+| Modell                   | Modellen för din enhet med StorSimple 8000-serien. Modellen kan vara 8100 eller 8600.|
+| Serienummer            | Enhetens serie nummer tilldelas till fabriken och är 15 tecken långt. Till exempel visar 8600-SHX0991003G44HT:<br> 8600 – är enhets modellen.<br>SHX – är webbplatsen för produktion.<br> 0991003 – är en enskild produkt. <br> G44HT – de sista 5 siffrorna ökar för att skapa unika serie nummer. Det får inte vara en sekventiell uppsättning.|
+| TimeZone                | Enhetens tidszon enligt konfigurationen i Azure Portal under enhets distributionen.|
+| CurrentController       | Den kontroll enhet som du är ansluten till via Windows PowerShell-gränssnittet på din StorSimple-enhet.|
+| ActiveController        | Den kontrollant som är aktiv på enheten och som styr alla nätverks-och disk åtgärder. Detta kan vara styrenhet 0 eller styrenhet 1.  |
+| Controller0Status       | Status för kontrollant 0 på enheten. Status för kontrollanten kan vara normal, i återställnings läge eller inte kan kontaktas.|
+| Controller1Status       | Status för kontrollant 1 på enheten.  Status för kontrollanten kan vara normal, i återställnings läge eller inte kan kontaktas.|
+| SystemMode              | Den övergripande statusen för din StorSimple-enhet. Enhetens status kan vara normal, underhåll eller inaktive rad (motsvarar inaktive rad i Azure Portal).|
+| FriendlySoftwareVersion | Den egna strängen som motsvarar enhetens program varu version. För ett system som kör uppdatering 4 skulle den egna program varu versionen vara StorSimple 8000-serien Update 4,0.|
+| HcsSoftwareVersion      | HCS UPPDATERINGSKLIENTEN program varu version som körs på enheten. Till exempel är HCS UPPDATERINGSKLIENTEN-programvaran som motsvarar StorSimple 8000-serien uppdatering 4,0 6.3.9600.17820. |
+| API version              | Program varu versionen av Windows PowerShell API för HCS UPPDATERINGSKLIENTEN-enheten.|
+| VhdVersion              | Den program varu version av fabriks avbildningen som enheten levererades med. Om du återställer enheten till fabriks inställningarna körs den här program versionen.|
+| OSVersion               | Program varu versionen av Windows Server-operativsystemet som körs på enheten. StorSimple-enheten baseras på Windows Server 2012 R2 som motsvarar 6.3.9600.|
+| CisAgentVersion         | Versionen för din CIS-agent som körs på din StorSimple-enhet. Den här agenten hjälper till att kommunicera med StorSimple Manager tjänsten som körs i Azure.|
+| MdsAgentVersion         | Den version som motsvarar MDS-agenten som körs på din StorSimple-enhet. Den här agenten flyttar data till övervaknings-och diagnos tjänsten (MDS).|
+| Lsisas2Version          | Den version som motsvarar LSI-drivrutinerna på din StorSimple-enhet.|
 | Kapacitet                | Enhetens totala kapacitet i byte.|
-| RemoteManagementMode    | Anger om enheten kan fjärrhanteras via sitt Windows PowerShell-gränssnitt. |
-| FipsMode (fipsmode)                | Anger om FIPS-läget (Federal Information Processing Standard) är aktiverat på enheten. FIPS 140-standarden definierar kryptografiska algoritmer som godkänts för användning av amerikanska federala myndighetsdatasystem för skydd av känsliga data. För enheter som kör uppdatering 4 eller senare aktiveras FIPS-läget som standard. |
+| RemoteManagementMode    | Anger om enheten kan fjärrhanteras via Windows PowerShell-gränssnittet. |
+| FipsMode                | Anger om FIPS-läget (USA Federal Information Processing Standard) är aktiverat på enheten. FIPS 140-standarden definierar kryptografiska algoritmer som godkänns för användning av amerikanska federala myndighets dator system för skydd av känsliga data. För enheter som kör uppdatering 4 eller senare är FIPS-läge aktiverat som standard. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [syntaxen i cmdleten Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
+* Lär dig [syntaxen för cmdleten Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 
-* Läs mer om [felsÃ¶kning av distributionsproblem](storsimple-troubleshoot-deployment.md) på Din StorSimple-enhet.
+* Läs mer om hur du [felsöker distributions problem](storsimple-troubleshoot-deployment.md) på din StorSimple-enhet.

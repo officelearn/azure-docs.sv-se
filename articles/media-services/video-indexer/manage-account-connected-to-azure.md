@@ -1,7 +1,7 @@
 ---
-title: Hantera ett videoindexererkonto
+title: Hantera ett Video Indexer konto
 titleSuffix: Azure Media Services
-description: Läs om hur du hanterar ett videoindexerkonto som är anslutet till Azure.
+description: Lär dig hur du hanterar ett Video Indexer-konto som är anslutet till Azure.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,82 +11,82 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79499661"
 ---
-# <a name="manage-a-video-indexer-account-connected-to-azure"></a>Hantera ett videoindexerkonto som är anslutet till Azure
+# <a name="manage-a-video-indexer-account-connected-to-azure"></a>Hantera ett Video Indexer-konto som är anslutet till Azure
 
-Den här artikeln visar hur du hanterar ett Video Indexer-konto som är anslutet till din Azure-prenumeration och ett Azure Media Services-konto.
+Den här artikeln visar hur du hanterar ett Video Indexer-konto som är kopplat till din Azure-prenumeration och ett Azure Media Services-konto.
 
 > [!NOTE]
-> Du måste vara ägare till videoindexererkontot för att göra justeringar av kontokonfigurationen som beskrivs i det här avsnittet.
+> Du måste vara ägare till Video Indexer konto för att göra ändringar i konto konfigurationen som beskrivs i det här avsnittet.
 
 ## <a name="prerequisites"></a>Krav
 
-Anslut ditt Video Indexer-konto till Azure enligt beskrivningen i [Ansluten till Azure](connect-to-azure.md).
+Anslut ditt Video Indexer-konto till Azure enligt beskrivningen i [ansluta till Azure](connect-to-azure.md).
 
-Se till att följa [Förutsättningar](connect-to-azure.md#prerequisites) och granska [Överväganden](connect-to-azure.md#considerations) i artikeln.
+Se till att följa [krav](connect-to-azure.md#prerequisites) och [överväganden](connect-to-azure.md#considerations) vid granskning i artikeln.
 
-## <a name="examine-account-settings"></a>Granska kontoinställningar
+## <a name="examine-account-settings"></a>Granska konto inställningar
 
-I det här avsnittet undersöks inställningarna för ditt Video Indexer-konto.
+Det här avsnittet undersöker inställningarna för ditt Video Indexer-konto.
 
 Så här visar du inställningar:
 
-1. Klicka på användarikonen i det övre högra hörnet och välj **Inställningar**.
+1. Klicka på användar ikonen i det övre högra hörnet och välj **Inställningar**.
 
     ![Inställningar i Video Indexer](./media/manage-account-connected-to-azure/select-settings.png)
 
-2. Välj fliken **Konto** på sidan **Inställningar.**
+2. På sidan **Inställningar** väljer du fliken **konto** .
 
-Om ditt Videos Indexer-konto är anslutet till Azure visas följande:
+Om ditt video Indexer-konto är anslutet till Azure visas följande saker:
 
-* Namnet på det underliggande Azure Media Services-kontot.
-* Antalet indexeringsjobb som körs och köade.
-* Antalet och typen av tilldelade reserverade enheter.
+* Namnet på det underliggande Azure Media Services kontot.
+* Antalet indexerings jobb som körs och har placerats i kö.
+* Antalet och typen av allokerade reserverade enheter.
 
-Om ditt konto behöver vissa justeringar visas relevanta fel och varningar om kontokonfigurationen på sidan **Inställningar.** Meddelandena innehåller länkar till exakta platser i Azure-portalen där du behöver göra ändringar. Mer information finns i avsnittet [fel och varningar](#errors-and-warnings) som följer.
+Om ditt konto behöver vissa justeringar visas relevanta fel och varningar om konto konfigurationen på sidan **Inställningar** . Meddelandena innehåller länkar till exakta platser i Azure Portal där du behöver göra ändringar. Mer information finns i avsnittet [fel och varningar](#errors-and-warnings) nedan.
 
 ## <a name="repair-the-connection-to-azure"></a>Reparera anslutningen till Azure
 
-I dialogrutan **Uppdatera anslutning till Azure Media Services** på sidan Video [Indexer](https://www.videoindexer.ai/) uppmanas du att ange värden för följande inställningar:
+I dialog rutan **Uppdatera anslutning till Azure Media Services** på din [video Indexer](https://www.videoindexer.ai/) sida uppmanas du att ange värden för följande inställningar:
 
-|Inställning|Beskrivning|
+|Inställningen|Beskrivning|
 |---|---|
-|Azure-prenumerations-ID|Prenumerations-ID kan hämtas från Azure-portalen. Klicka på **Alla tjänster** i den vänstra panelen och sök efter "prenumerationer". Välj **Prenumerationer** och välj önskat ID i listan över dina prenumerationer.|
-|Namn på Azure Media Services-resursgrupp|Namnet på resursgruppen där du skapade Media Services-kontot.|
-|Program-ID:t|Azure AD-program-ID (med behörigheter för det angivna Media Services-kontot) som du skapade för det här videoindexerkontot. <br/><br/>Om du vill hämta app-ID:et navigerar du till Azure-portalen. Under medietjänstkontot väljer du ditt konto och går till **API Access**. Välj **Anslut till API för mediatjänster med tjänstens huvudnamn** -> Azure AD**App**. Kopiera relevanta parametrar.|
-|Programnyckel|Azure AD-programnyckeln som är associerad med ditt Media Services-konto som du angav ovan. <br/><br/>Om du vill hämta appnyckeln navigerar du till Azure-portalen. Under medietjänstkontot väljer du ditt konto och går till **API Access**. Välj **Anslut till Api för mediatjänster med tjänsthuvudnamn** -> Hantera**programcertifikat** -> **& hemligheter**. Kopiera relevanta parametrar.|
+|ID för Azure-prenumeration|Prenumerations-ID kan hämtas från Azure Portal. Klicka på **alla tjänster** i den vänstra panelen och Sök efter "prenumerationer". Välj **prenumerationer** och välj önskat ID i listan med dina prenumerationer.|
+|Namn på Azure Media Services resurs grupp|Namnet på resurs gruppen där du skapade Media Services-kontot.|
+|Program-ID:t|Azure AD-programid (med behörigheter för det angivna Media Services kontot) som du skapade för det här Video Indexer-kontot. <br/><br/>Om du vill hämta app-ID: t navigerar du till Azure Portal. Under Media Services konto väljer du ditt konto och går till **API-åtkomst**. Välj **Anslut till Media Services-API med tjänstens huvud namn** -> **Azure AD App**. Kopiera de relevanta parametrarna.|
+|Program nyckel|Den Azure AD-programnyckel som är kopplad till ditt Media Services konto som du angav ovan. <br/><br/>Om du vill hämta appens nyckel navigerar du till Azure Portal. Under Media Services konto väljer du ditt konto och går till **API-åtkomst**. Välj **Anslut till Media Services-API med tjänstens huvud namn** -> **hantera program** -> **certifikat & hemligheter**. Kopiera de relevanta parametrarna.|
 
-## <a name="autoscale-reserved-units"></a>Reserverade enheter för automatisk skalning
+## <a name="autoscale-reserved-units"></a>Autoskala reserverade enheter
 
-På sidan **Inställningar** kan du ställa in automatisk skalning av mediereserverade enheter (RU). Om alternativet är **På**kan du allokera det maximala antalet ru:er och se till att videoindexeraren stoppar/startar ru:er automatiskt. Med det här alternativet betalar du inte extra pengar för inaktiv tid, men väntar inte heller på att indexeringsjobb ska slutföras under lång tid när indexeringsbelastningen är hög.
+På sidan **Inställningar** kan du ställa in automatisk skalning av reserverade enheter (ru). Om alternativet är **aktiverat**kan du allokera maximalt antal ru: er och se till att video Indexer stoppar/startar ru: er automatiskt. Med det här alternativet betalar du inte extra pengar för inaktiv tid, men du behöver inte heller vänta på att indexerings jobben ska slutföras under en längre tid när indexerings belastningen är hög.
 
-Automatisk skalning skalas inte under 1 RU eller över standardgränsen för Media Services-kontot. Skapa en servicebegäran om du vill öka gränsen. Information om kvoter och begränsningar och hur du öppnar en supportbiljett finns i [Kvoter och begränsningar](../../media-services/previous/media-services-quotas-and-limitations.md).
+Autoskalning skalar inte under 1 RU eller över standard gränsen för det Media Services kontot. Om du vill öka gränsen skapar du en tjänstbegäran. Information om kvoter och begränsningar och hur du öppnar ett support ärende finns i [kvoter och begränsningar](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Automatisk skalning reserverade enheter Video Indexer](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Autoskala reserverade enheter Video Indexer](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Fel och varningar
 
-Om ditt konto behöver vissa justeringar visas relevanta fel och varningar om kontokonfigurationen på sidan **Inställningar.** Meddelandena innehåller länkar till exakta platser i Azure-portalen där du behöver göra ändringar. I det här avsnittet finns mer information om felmeddelanden och varningsmeddelanden.
+Om ditt konto behöver vissa justeringar visas relevanta fel och varningar om konto konfigurationen på sidan **Inställningar** . Meddelandena innehåller länkar till exakta platser i Azure Portal där du behöver göra ändringar. Det här avsnittet innehåller mer information om fel-och varnings meddelanden.
 
-* EventGrid (På ett sätt som är fallet)
+* EventGrid
 
-    Du måste registrera EventGrid-resursleverantören med hjälp av Azure-portalen. Gå till **Prenumerationer** > [prenumeration] > **ResourceProviders** > **Microsoft.EventGrid**i [Azure-portalen](https://portal.azure.com/). Om inte i **registrerat** tillstånd väljer du **Registrera**. Det tar ett par minuter att registrera sig.
+    Du måste registrera EventGrid-resurs leverantören med hjälp av Azure Portal. I [Azure Portal](https://portal.azure.com/)går du till **prenumerationer** > [prenumeration] > **ResourceProviders** > **Microsoft. EventGrid**. Om inte i det **registrerade** läget väljer du **Registrera**. Det tar några minuter att registrera sig.
 
 * Slutpunkt för direktuppspelning
 
-    Kontrollera att det underliggande Media Services-kontot har **standardslutpunkten för direktuppspelning** i ett startat tillstånd. Annars kan du inte titta på videoklipp från det här Media Services-kontot eller i Video Indexer.
+    Kontrol lera att det underliggande Media Servicess kontot har standard **slut punkten för direkt uppspelning** i ett start läge. Annars kan du inte titta på videor från det här Media Services kontot eller i Video Indexer.
 
-* Reserverade enheter för media
+* Enheter med reserverat medium
 
-    Du måste allokera mediereserverade enheter på mediatjänstens resurs för att kunna indexera videor. För optimal indexeringsprestanda rekommenderas att minst 10 S3-reserverade enheter allokeras. Prisinformation finns i avsnittet Vanliga frågor och svar på [prissidan för Media Services.](https://azure.microsoft.com/pricing/details/media-services/)
+    Du måste allokera medie reserverade enheter på din medie tjänst resurs för att kunna indexera videor. För optimal indexerings prestanda rekommenderar vi att du allokerar minst 10 S3-reserverade enheter. Information om priser finns i avsnittet Vanliga frågor och svar på sidan [Media Services prissättning](https://azure.microsoft.com/pricing/details/media-services/) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan interagera med utvärderingskontot eller Video Indexer-konton som är anslutna till Azure programmässigt genom att följa instruktionerna i: [Använd API:er](video-indexer-use-apis.md).
+Du kan interagera med ditt utvärderings konto eller Video Indexer konton som är anslutna till Azure genom att följa instruktionerna i: [använda API: er](video-indexer-use-apis.md).
 
-Använd samma Azure AD-användare som du använde när du ansluter till Azure.
+Använd samma Azure AD-användare som du använde när du anslöt till Azure.

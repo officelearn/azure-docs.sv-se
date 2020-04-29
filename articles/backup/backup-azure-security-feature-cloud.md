@@ -1,93 +1,93 @@
 ---
-title: Säkerhetsfunktioner för att skydda molnarbetsbelastningar
-description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhetskopior säkrare.
+title: Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar
+description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: bd7c86e18114513a264a0f9252589533fb7ff2d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668744"
 ---
-# <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner för att skydda molnarbetsbelastningar som använder Azure Backup
+# <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
 
-Oron för säkerhetsfrågor, som skadlig kod, ransomware och intrång, ökar. Dessa säkerhetsfrågor kan bli kostsamma, både när det gäller pengar och data. För att skydda mot sådana attacker tillhandahåller Azure Backup nu säkerhetsfunktioner för att skydda säkerhetskopierade data även efter borttagning.
+Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara och intrång, ökar. De här säkerhets problemen kan vara dyra, i termer av både Money och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda säkerhets kopierings data även efter borttagning.
 
-En sådan funktion är mjuk bort. Med mjuk borttagning, även om en skadlig aktör tar bort säkerhetskopian av en virtuell dator (eller säkerhetskopieringsdata tas bort av misstag), sparas säkerhetskopieringsdata i ytterligare 14 dagar, vilket gör att säkerhetskopieringen av det säkerhetskopierade objektet inte kan återställas utan dataförlust. Den ytterligare 14 dagars lagring av säkerhetskopierade data i tillståndet "mjuk borttagning" medför inga kostnader för kunden. Azure krypterar också alla säkerhetskopierade data i vila med [lagringstjänstkryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) för att ytterligare skydda dina data.
+En sådan funktion är mjuk borttagning. Med mjuk borttagning, även om en skadlig aktör tar bort säkerhets kopian av en virtuell dator (eller säkerhets kopierings data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket innebär att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagars kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden. Azure krypterar också alla säkerhetskopierade data i vila med hjälp av [kryptering för lagringstjänst](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) för att skydda dina data ytterligare.
 
-Soft delete protection för virtuella Azure-datorer är allmänt tillgängligt.
+Mjuk borttagnings skydd för virtuella Azure-datorer är allmänt tillgängligt.
 
 >[!NOTE]
->Mjuk borttagning för SQL-server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar är nu tillgänglig i förhandsversion.<br>
->För att registrera dig för förhandsgranskningen, skriv till oss påAskAzureBackupTeam@microsoft.com
+>Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar finns nu i för hands version.<br>
+>Registrera dig för för hands versionen genom att skriva till oss påAskAzureBackupTeam@microsoft.com
 
 ## <a name="soft-delete"></a>Mjuk borttagning
 
 ### <a name="soft-delete-for-vms"></a>Mjuk borttagning för virtuella datorer
 
-Mjuk borttagning för virtuella datorer skyddar säkerhetskopiorna för dina virtuella datorer från oavsiktlig borttagning. Även efter att säkerhetskopiorna har tagits bort bevaras de i mjukt borttagningstillstånd i ytterligare 14 dagar.
+Mjuk borttagning för virtuella datorer skyddar de virtuella datorerna från oavsiktlig borttagning. Även efter att säkerhets kopiorna har tagits bort bevaras de i läget för mjuk borttagning under ytterligare 14 dagar.
 
 > [!NOTE]
-> Mjuk borttagning skyddar bara borttagna säkerhetskopierade data. Om en virtuell dator tas bort utan säkerhetskopiering bevaras inte data. Alla resurser bör skyddas med Azure Backup för att säkerställa fullständig återhämtning.
+> Mjuk borttagning skyddar bara borttagna säkerhets kopierings data. Om en virtuell dator tas bort utan säkerhets kopiering bevaras inte data av funktionen för mjuk borttagning. Alla resurser bör skyddas med Azure Backup för att garantera fullständig återhämtning.
 >
 
 ### <a name="supported-regions"></a>Regioner som stöds
 
-Mjuk borttagning stöds för närvarande i västra centrala USA, Östra Asien, Kanada Central, Kanada Öst, Frankrike Central, Frankrike Syd, Korea Central, Korea Syd, Storbritannien Syd, Storbritannien Väst, Australien Öst, Australien Sydöstra, Norra Europa, Västra USA, Västra USA2, Centrala USA, Sydostasien, Norra centrala USA, Södra centrala USA, Japan Öst, Japan Väst, Indien Syd, Indien Central, Indien Väst, Östra USA 2 , Schweiz North, Schweiz West, Norge Väst, Norge Öst och alla nationella regioner.
+Mjuk borttagning stöds för närvarande i USA, västra centrala, Asien, östra, centrala Kanada, Östra Kanada, centrala Frankrike, södra Korea, centrala Korea, södra Korea, Storbritannien, södra, Storbritannien, västra, östra Australien, sydöstra Australien, norra Europa, västra USA, västra 2; USA, centrala USA, Asien, sydöstra, norra centrala USA, södra centrala USA, Östra Japan, västra Japan, södra Indien, västra Indien, östra USA 2 , Schweiz, norra, Schweiz, västra, västra Norge, östra Norge och alla nationella regioner.
 
-### <a name="soft-delete-for-vms-using-azure-portal"></a>Mjuk borttagning för virtuella datorer med Azure-portal
+### <a name="soft-delete-for-vms-using-azure-portal"></a>Mjuk borttagning för virtuella datorer som använder Azure Portal
 
-1. Om du vill ta bort säkerhetskopierade data för en virtuell dator måste säkerhetskopian stoppas. Gå till ditt återhämtningstjänster-valv i Azure-portalen, högerklicka på säkerhetskopian och välj **Stoppa säkerhetskopiering**.
+1. Om du vill ta bort säkerhets kopierings data för en virtuell dator måste säkerhets kopian stoppas. I Azure Portal går du till Recovery Services-valvet, högerklickar på säkerhets kopierings objekt och väljer **stoppa säkerhets kopiering**.
 
-   ![Skärmbild av säkerhetsobjekt för Azure Portal](./media/backup-azure-security-feature-cloud/backup-stopped.png)
+   ![Skärm bild av Azure Portal säkerhets kopierings objekt](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. I följande fönster får du välja att ta bort eller behålla säkerhetskopierade data. Om du väljer **Ta bort säkerhetskopierade data** och sedan Stoppa **säkerhetskopiering**tas inte säkerhetskopian av den virtuella datorn bort permanent. I stället kommer säkerhetskopieringsdata att behållas i 14 dagar i mjukt borttaget tillstånd. Om **Ta bort säkerhetskopierade data** väljs skickas en avisering om borttagning av e-post till det konfigurerade e-post-ID:t som informerar användaren om att 14 dagar återstår av utökad kvarhållning för säkerhetskopieringsdata. Dessutom skickas en e-postavisering den 12:e dagen med information om att det finns ytterligare två dagar kvar att återuppliva de borttagna uppgifterna. Borttagningen skjuts upp till den 15:e dagen, när permanent radering kommer att ske och en slutlig e-postavisering skickas med information om permanent radering av data.
+2. I följande fönster kan du välja att ta bort eller behålla säkerhetskopierade data. Om du väljer **ta bort säkerhetskopierade data** och sedan **stoppar säkerhets kopieringen**tas inte den virtuella datorns säkerhets kopia bort permanent. I stället behålls säkerhets kopierings data i 14 dagar i läget Soft Deleted. Om du väljer **ta bort säkerhets kopierings data** skickas en e-postavisering till det konfigurerade e-postmeddelandet som informerar användaren om att 14 dagar fortfarande är av utökad kvarhållning för säkerhetskopierade data. Dessutom skickas en e-postavisering den 12: e dagen på att det finns två dagar kvar för att Resurrect borttagna data. Borttagningen skjuts upp fram till den femtonde dagen, när permanent borttagning kommer att ske och en slutgiltig e-postavisering skickas för att informera om permanent borttagning av data.
 
-   ![Skärmbild av Azure Portal, Stoppa säkerhetskopieringsskärmen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
+   ![Skärm bild av Azure Portal, stoppa säkerhets kopierings skärmen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
-3. Under dessa 14 dagar, i Recovery Services Vault, visas den mjuka borttagna virtuella datorn med en röd "soft-delete"-ikon bredvid den.
+3. Under dessa 14 dagar visas den mjuka borttagna virtuella datorn i Recovery Services-valvet med en röd "mjuk borttagning"-ikon bredvid.
 
-   ![Skärmbild av Azure Portal, VM i mjukt borttagningstillstånd](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
-
-   > [!NOTE]
-   > Om det finns några borttagna säkerhetskopieringsobjekt i valvet kan valvet inte tas bort vid den tidpunkten. Försök att ta bort valv när säkerhetskopieringsobjekten har tagits bort permanent och det finns inget objekt i mjukt borttaget tillstånd kvar i valvet.
-
-4. Om du vill återställa den borttagna virtuella datorn måste den först tas bort. Om du vill ta bort om e-post väljer du den mjuka borttagna virtuella datorn och väljer sedan alternativet **Ta bort.**
-
-   ![Skärmbild av Azure Portal, Undelete VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
-   Ett fönster visas som varnar för att om om du väljer om inteeleter väljs kommer alla återställningspunkter för den virtuella datorn att tas bort och vara tillgängliga för att utföra en återställningsåtgärd. Den virtuella datorn kommer att behållas i ett "stoppskydd med behålla data" tillstånd med säkerhetskopior pausas och säkerhetskopieringsdata lagras för alltid utan backup princip effektiv.
-
-   ![Skärmbild av Azure Portal, Bekräfta omende av vm](./media/backup-azure-security-feature-cloud/undelete-vm.png)
-
-   Nu kan du också återställa den virtuella datorn genom att välja **Återställ virtuell dator** från den valda återställningspunkten.  
-
-   ![Skärmbild av Azure Portal, Alternativet Återställ virtuell dator](./media/backup-azure-security-feature-cloud/restore-vm.png)
+   ![Skärm bild av Azure Portal, VM i läget för mjuk borttagning](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > Skräpinsamlaren körs och rensar återställningspunkter som har upphört att gälla först när användaren har säkerhetskopiering av **återupptagning.**
+   > Om det finns mjuka, borttagna säkerhets kopierings objekt i valvet kan valvet inte tas bort vid denna tidpunkt. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och att det inte finns något objekt i läget Soft Deleted kvar i valvet.
 
-5. När processen för att avslutas återgår statusen till "Stoppa säkerhetskopiering med lagringsdata" och sedan kan du välja **Återuppta säkerhetskopiering**. Återuppta **säkerhetskopieringsåtgärden** återför säkerhetskopieringsobjektet i aktivt tillstånd, associerat med en princip för säkerhetskopiering som valts av användaren som definierar säkerhetskopierings- och kvarhållningsscheman.
+4. Om du vill återställa den mjuk-borttagna virtuella datorn måste den först tas bort. Om du vill ångra borttagningen väljer du den mjuk-borttagna virtuella datorn och väljer sedan alternativet **ta bort**.
 
-   ![Skärmbild av Azure Portal, alternativet Återuppta säkerhetskopiering](./media/backup-azure-security-feature-cloud/resume-backup.png)
+   ![Skärm bild av Azure Portal, ta bort virtuell dator](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
-Det här flödesschemat visar de olika stegen och lägena för ett säkerhetskopieringsobjekt när Mjuk borttagning är aktiverat:
+   Ett fönster visas där du får ett varnings meddelande om att ångra borttagning har valts och att alla återställnings punkter för den virtuella datorn tas bort och är tillgängliga för att utföra en återställnings åtgärd. Den virtuella datorn kommer att behållas i status "stoppa skydd med kvarhållning" med säkerhets kopior som pausats och säkerhets kopierings data kvarhålls för alltid med ingen säkerhets kopierings princip gällande.
 
-![Livscykel för säkerhetskopieringsobjekt som tagits bort för mjukt](./media/backup-azure-security-feature-cloud/lifecycle.png)
+   ![Skärm bild av Azure Portal, bekräfta borttagning av virtuell dator](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
-Mer information finns i avsnittet [Vanliga frågor](backup-azure-security-feature-cloud.md#frequently-asked-questions) nedan.
+   I det här läget kan du också återställa den virtuella datorn genom att välja **Återställ virtuell dator** från den valda återställnings punkten.  
 
-### <a name="soft-delete-for-vms-using-azure-powershell"></a>Mjuk borttagning för virtuella datorer med Azure PowerShell
+   ![Skärm bild av Azure Portal, Återställ VM-alternativ](./media/backup-azure-security-feature-cloud/restore-vm.png)
+
+   > [!NOTE]
+   > Skräp insamlaren kommer att köra och rensa återställnings punkter som har upphört att gälla först när användaren utför **säkerhets kopierings åtgärden återuppta** .
+
+5. När du har slutfört borttagnings processen återgår statusen till "stoppa säkerhets kopiering med kvar data" och sedan kan du välja **återuppta säkerhets kopiering**. Åtgärden **återuppta säkerhets kopiering** kommer tillbaka till säkerhets kopierings objektet i det aktiva läget, associerat med en säkerhets kopierings princip som valts av användaren som definierar säkerhets kopierings-och bevarande scheman.
+
+   ![Skärm bild av Azure Portal, återuppta säkerhets kopierings alternativ](./media/backup-azure-security-feature-cloud/resume-backup.png)
+
+Det här Flow-diagrammet visar de olika stegen och tillstånden för ett säkerhets kopierings objekt när mjuk borttagning är aktiverat:
+
+![Livs cykel för mjuk borttagning av säkerhets kopierings objekt](./media/backup-azure-security-feature-cloud/lifecycle.png)
+
+Mer information finns i avsnittet [vanliga frågor och svar](backup-azure-security-feature-cloud.md#frequently-asked-questions) nedan.
+
+### <a name="soft-delete-for-vms-using-azure-powershell"></a>Mjuk borttagning för virtuella datorer som använder Azure PowerShell
 
 > [!IMPORTANT]
-> Den Az.RecoveryServices-version som krävs för att använda mjuk borttagning med Azure PS är min 2.2.0. Används ```Install-Module -Name Az.RecoveryServices -Force``` för att få den senaste versionen.
+> AZ. RecoveryServices-versionen som krävs för att använda mjuk borttagning med Azure PS är min 2.2.0. Använd ```Install-Module -Name Az.RecoveryServices -Force``` för att hämta den senaste versionen.
 
-Som beskrivs ovan för Azure-portalen är sekvensen av steg samma när du använder Azure PowerShell också.
+Som beskrivs ovan för Azure Portal, är sekvensen av steg densamma när du använder Azure PowerShell även.
 
-#### <a name="delete-the-backup-item-using-azure-powershell"></a>Ta bort säkerhetskopian med Azure PowerShell
+#### <a name="delete-the-backup-item-using-azure-powershell"></a>Ta bort säkerhets kopierings objekt med Azure PowerShell
 
-Ta bort säkerhetskopian med hjälp av [filen Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet.
+Ta bort säkerhets kopierings objekt med hjälp av cmdleten [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -97,11 +97,11 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
-DeleteState-objektets "DeleteState" ändras från "NotDeleted" till "ToBeDeleted". Säkerhetskopieringsdata kommer att behållas i 14 dagar. Om du vill återställa borttagningsåtgärden ska ångra-borttagning utföras.
+DeleteState för säkerhets kopierings objekt ändras från ' NotDeleted ' till ' ToBeDeleted '. Säkerhetskopierade data sparas i 14 dagar. Om du vill återställa borttagnings åtgärden ska du utföra Undo-Delete.
 
-#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Ångra borttagningsåtgärden med Azure PowerShell
+#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Ångra borttagnings åtgärden med Azure PowerShell
 
-Hämta först det relevanta säkerhetskopieringsobjektet som är i mjukt borttagningsläge (det vill säga på väg att tas bort).
+Börja med att hämta det relevanta säkerhets kopierings objekt som är i läget för mjuk borttagning (det vill säga tas bort).
 
 ```powershell
 
@@ -114,7 +114,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Utför sedan ångra-borttagningen med hjälp av cmdleten [Ångra-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) PS.
+Utför sedan åtgärden ångra borttagning med hjälp av cmdleten [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) PS.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -124,33 +124,33 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-DeleteState för säkerhetskopieringsobjektet återgår till NotDeleted. Men skyddet är fortfarande stoppat. [Återuppta säkerhetskopian](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) för att återaktivera skyddet.
+DeleteState för säkerhets kopierings objekt återgår till ' NotDeleted '. Men skyddet har fortfarande stoppats. [Återuppta säkerhets kopieringen](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) för att återaktivera skyddet.
 
-### <a name="soft-delete-for-vms-using-rest-api"></a>Mjuk borttagning för virtuella datorer med REST API
+### <a name="soft-delete-for-vms-using-rest-api"></a>Mjuk borttagning för virtuella datorer som använder REST API
 
-- Ta bort säkerhetskopior med REST API som nämns [här](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- Om användaren vill ångra dessa borttagningsåtgärder läser du stegen som nämns [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+- Ta bort säkerhets kopiorna med REST API som anges [här](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+- Om användaren vill ångra dessa borttagnings åtgärder, se de steg som beskrivs [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
 
-## <a name="disabling-soft-delete"></a>Inaktivera mjuk borttagning
+## <a name="disabling-soft-delete"></a>Inaktiverar mjuk borttagning
 
-Mjuk borttagning är aktiverat som standard på nyskapade valv för att skydda säkerhetskopierade data från oavsiktliga eller skadliga borttagningar.  Det rekommenderas inte att inaktivera den här funktionen. Den enda omständighet där du bör överväga att inaktivera mjuk borttagning är om du planerar att flytta dina skyddade objekt till ett nytt valv och inte kan vänta de 14 dagar som krävs innan du tar bort och skyddar igen (till exempel i en testmiljö.) Endast valvägaren kan inaktivera den här funktionen. Om du inaktiverar den här funktionen kommer alla framtida borttagningar av skyddade objekt att resultera i omedelbar borttagning, utan att du kan återställa dem. Säkerhetskopierade data som finns i mjukt borttaget läge innan den här funktionen inaktiveras förblir i mjukt borttaget tillstånd under en period av 14 dagar. Om du vill ta bort dessa permanent omedelbart, måste du ta bort och ta bort dem igen för att få permanent bort.
+Mjuk borttagning är aktiverat som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar.  Du bör inte inaktivera den här funktionen. Den enda omständigheterna där du bör inaktivera mjuk borttagning är om du planerar att flytta dina skyddade objekt till ett nytt valv, och det kan inte vänta 14 dagar innan du tar bort och återskyddar (till exempel i en test miljö). Endast valvets ägare kan inaktivera den här funktionen. Om du inaktiverar den här funktionen kommer alla framtida borttagningar av skyddade objekt att leda till omedelbar borttagning, utan möjlighet att återställa. Säkerhets kopierings data som finns i läget Soft Deleted, innan funktionen inaktive ras, förblir i tyst borttaget läge under perioden 14 dagar. Om du vill ta bort dessa omedelbart permanent måste du ångra borttagningen och ta bort dem igen för att ta bort dem permanent.
 
-### <a name="disabling-soft-delete-using-azure-portal"></a>Inaktivera mjuk borttagning med Azure-portal
+### <a name="disabling-soft-delete-using-azure-portal"></a>Inaktivera mjuk borttagning med Azure Portal
 
-Så här inaktiverar du mjuk borttagning:
+Följ dessa steg om du vill inaktivera mjuk borttagning:
 
-1. Gå till valvet i Azure-portalen och gå sedan till **Egenskaper för Inställningar** -> **.**
-2. Välj**Uppdatering**av **säkerhetsinställningar** -> i egenskapsfönstret .  
-3. Välj **Inaktivera**under Mjuk borttagning under **Mjuk borttagning**i fönstret Säkerhetsinställningar .
+1. Gå till ditt valv i Azure Portal och gå sedan till **Inställningar** -> **Egenskaper**.
+2. I fönstret Egenskaper väljer du **säkerhets inställningar** -> **Uppdatera**.  
+3. I rutan säkerhets inställningar under **mjuk borttagning**väljer du **inaktivera**.
 
 ![Inaktivera mjuk borttagning](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
 
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Inaktivera mjuk borttagning med Azure PowerShell
 
 > [!IMPORTANT]
-> Den Az.RecoveryServices-version som krävs för att använda mjuk borttagning med Azure PS är min 2.2.0. Används ```Install-Module -Name Az.RecoveryServices -Force``` för att få den senaste versionen.
+> AZ. RecoveryServices-versionen som krävs för att använda mjuk borttagning med Azure PS är min 2.2.0. Använd ```Install-Module -Name Az.RecoveryServices -Force``` för att hämta den senaste versionen.
 
-Om du vill inaktivera använder du cmdleten [Set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS.
+Om du vill inaktivera använder du cmdleten [set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -165,44 +165,44 @@ SoftDeleteFeatureState : Disabled
 
 ### <a name="disabling-soft-delete-using-rest-api"></a>Inaktivera mjuk borttagning med REST API
 
-Om du vill inaktivera funktionen för mjuk borttagning med REST API läser du stegen som nämns [här](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+Om du vill inaktivera funktionen för mjuk borttagning med REST API, se de steg som beskrivs [här](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 
-## <a name="permanently-deleting-soft-deleted-backup-items"></a>Ta bort mjuka borttagna säkerhetskopieringsobjekt permanent
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>Ta bort mjuka borttagna säkerhets kopierings objekt permanent
 
-Säkerhetskopierade data i mjukt borttaget tillstånd innan du inaktiverar den här funktionen förblir i mjukt borttaget tillstånd. Om du vill ta bort dessa permanent omedelbart, sedan ångra och ta bort dem igen för att få permanent bort.
+Säkerhets kopierings data i läget Soft Deleted tidigare inaktive ring av den här funktionen kommer att vara i läget Soft Deleted Om du vill ta bort dessa omedelbart tar du bort dem igen och tar bort dem permanent.
 
 ### <a name="using-azure-portal"></a>Använda Azure Portal
 
 Följ de här stegen:
 
 1. Följ stegen för att [inaktivera mjuk borttagning](#disabling-soft-delete).
-2. Gå till valvet i Azure-portalen, gå till **säkerhetskopieringsobjekt**och välj den mjuka borttagna virtuella datorn.
+2. Gå till ditt valv i Azure Portal, gå till **säkerhets kopierings objekt**och välj den mjuka BORTTAGNA virtuella datorn.
 
-   ![Välj mjuk borttagen virtuell dator](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Välj Mjuk borttagning av virtuell dator](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
-3. Välj alternativet **Avmarkera**.
+3. Välj alternativet **ångra borttagning**.
 
-   ![Välj Ta bort ereta](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+   ![Välj ångra borttagning](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
-4. Ett fönster visas. Välj **Ta bort omet .**
+4. Ett fönster visas. Välj **ångra borttagning**.
 
-   ![Välj Ta bort ereta](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Välj ångra borttagning](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
-5. Välj **Ta bort säkerhetskopierade data** om du vill ta bort säkerhetskopierade data permanent.
+5. Välj **ta bort säkerhetskopierade data** om du vill ta bort säkerhetskopierade data permanent.
 
-   ![Välj Ta bort säkerhetskopierade data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Välj Ta bort säkerhets kopierings data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-6. Skriv namnet på säkerhetskopian för att bekräfta att du vill ta bort återställningspunkterna.
+6. Ange namnet på det säkerhetskopierade objektet för att bekräfta att du vill ta bort återställnings punkterna.
 
-   ![Skriv namnet på säkerhetskopian](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Ange namnet på det säkerhetskopierade objektet](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
-7. Om du vill ta bort säkerhetskopierade data för objektet väljer du **Ta bort**. Ett meddelande visar att säkerhetskopieringsdata har tagits bort.
+7. Om du vill ta bort säkerhetskopierade data för objektet väljer du **ta bort**. Ett meddelande visas där du vet att säkerhets kopierings data har tagits bort.
 
 ### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
-Om objekt togs bort innan mjuk borttagning inaktiverades, kommer de att vara i ett mjukt borttaget tillstånd. Om du vill ta bort dem omedelbart måste borttagningen återföras och sedan utföras igen.
+Om objekten togs bort innan mjuk borttagning har inaktiverats, kommer de att vara i ett mjukt borttaget tillstånd. Om du vill ta bort dem omedelbart måste borttagnings åtgärden ångras och sedan utföras igen.
 
-Identifiera de objekt som är i mjukt borttaget tillstånd.
+Identifiera objekt som är i läget Soft-Deleted.
 
 ```powershell
 
@@ -215,7 +215,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Återför sedan borttagningsåtgärden som utfördes när mjuk borttagning aktiverades.
+Ångra sedan borttagnings åtgärden som utfördes när mjuk borttagning har Aktiver ATS.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -225,7 +225,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-Eftersom den mjuka borttagningen nu är inaktiverad, kommer borttagningen att resultera i omedelbar borttagning av säkerhetskopierade data.
+Eftersom den mjuka borttagningen nu är inaktive rad kommer borttagnings åtgärden att leda till omedelbar borttagning av säkerhets kopierings data.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -237,95 +237,95 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="using-rest-api"></a>Använda REST-API:et
 
-Om objekt togs bort innan mjuk borttagning inaktiverades, kommer de att vara i ett mjukt borttaget tillstånd. Om du vill ta bort dem omedelbart måste borttagningen återföras och sedan utföras igen.
+Om objekten togs bort innan mjuk borttagning har inaktiverats, kommer de att vara i ett mjukt borttaget tillstånd. Om du vill ta bort dem omedelbart måste borttagnings åtgärden ångras och sedan utföras igen.
 
-1. Ångra först borttagningsåtgärderna med stegen som nämns [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
-2. Inaktivera sedan funktionen för mjuk borttagning med REST API med hjälp av stegen som nämns [här](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
-3. Ta sedan bort säkerhetskopior med REST API som nämns [här](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+1. Börja med att ångra borttagnings åtgärderna med stegen som anges [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+2. Inaktivera sedan funktionerna för mjuk borttagning med REST API med hjälp av stegen som beskrivs [här](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+3. Ta sedan bort säkerhets kopiorna med REST API som anges [här](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
 ## <a name="encryption"></a>Kryptering
 
-Alla dina säkerhetskopierade data krypteras automatiskt när de lagras i molnet med Azure Storage-kryptering, vilket hjälper dig att uppfylla dina säkerhets- och efterlevnadsåtaganden. Dessa data i vila krypteras med 256-bitars AES-kryptering, en av de starkaste blockchiffer tillgängliga, och är FIPS 140-2-kompatibel.
+Alla säkerhetskopierade data krypteras automatiskt när de lagras i molnet med hjälp av Azure Storage kryptering, vilket hjälper dig att uppfylla dina åtaganden om säkerhet och efterlevnad. Den här informationen i rest krypteras med 256-bitars AES-kryptering, en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel.
 
-Förutom kryptering i vila överförs alla säkerhetskopierade data under överföring via HTTPS. Den finns alltid kvar i Azure-stamnätet.
+Förutom kryptering i vila överförs alla dina säkerhets kopierings data i överföring via HTTPS. Det finns alltid i Azure stamnät nätverket.
 
-Mer information finns i [Azure Storage-kryptering för data i vila](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Se [vanliga frågor och svar](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) på Azure Backup för att svara på eventuella frågor som du kan ha om kryptering.
+Mer information finns i [Azure Storage kryptering för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Läs [Azure Backup vanliga frågor](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) och svar om du vill besvara eventuella frågor om kryptering.
 
-### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Kryptering av säkerhetskopierade data med hjälp av plattformshanterade nycklar
+### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Kryptering av säkerhets kopierings data med hjälp av plattforms hanterade nycklar
 
-Som standard krypteras alla dina data med plattformshanterade nycklar. Du behöver inte vidta några explicita åtgärder från din sida för att aktivera den här krypteringen och det gäller för alla arbetsbelastningar som säkerhetskopieras till ditt Recovery Services-valv.
+Som standard krypteras alla dina data med hjälp av plattforms hanterade nycklar. Du behöver inte vidta några uttryckliga åtgärder från din slut för att aktivera den här krypteringen och den gäller för alla arbets belastningar som säkerhets kopie ras till Recovery Services-valvet.
 
-### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhetskopierade data med kundhanterade nycklar
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 
-När du säkerhetskopierar dina virtuella Azure-datorer kan du nu kryptera dina data med hjälp av nycklar som ägs och hanteras av dig. Med Azure Backup kan du använda dina RSA-nycklar som lagras i Azure Key Vault för att kryptera dina säkerhetskopior. Krypteringsnyckeln som används för att kryptera säkerhetskopior kan skilja sig från den som används för källan. Data skyddas med hjälp av en AES 256-baserad datakrypteringsnyckel (DEK), som i sin tur är skyddad med hjälp av dina nycklar. Detta ger dig full kontroll över data och nycklar. För att tillåta kryptering krävs att Recovery Services-valvet beviljas åtkomst till krypteringsnyckeln i Azure Key Vault. Du kan inaktivera nyckeln eller återkalla åtkomsten när det behövs. Du måste dock aktivera kryptering med hjälp av dina nycklar innan du försöker skydda objekt till valvet.
+När du säkerhetskopierar Azure-Virtual Machines kan du nu kryptera dina data med hjälp av nycklar som ägs och hanteras av dig. Med Azure Backup kan du använda dina RSA-nycklar som lagras i Azure Key Vault för kryptering av dina säkerhets kopior. Krypterings nyckeln som används för kryptering av säkerhets kopior kan skilja sig från den som används för källan. Data skyddas med en AES 256-baserad data krypterings nyckel (DEK), som i sin tur skyddas med hjälp av dina nycklar. Detta ger dig fullständig kontroll över data och nycklar. För att tillåta kryptering krävs det att Recovery Services valvet beviljas åtkomst till krypterings nyckeln i Azure Key Vault. Du kan inaktivera nyckeln eller återkalla åtkomst när det behövs. Du måste dock aktivera kryptering med dina nycklar innan du försöker skydda några objekt i valvet.
 
 >[!NOTE]
->Den här funktionen är för närvarande i begränsad tillgänglighet. Fyll i [denna undersökning](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) och AskAzureBackupTeam@microsoft.com maila oss på om du vill kryptera dina säkerhetskopierade data med hjälp av kundhanterade nycklar. Observera att möjligheten att använda den här funktionen är föremål för godkännande från Azure Backup-tjänsten.
+>Den här funktionen har för närvarande begränsad tillgänglighet. Fyll i [den här undersökningen](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) och skicka e- AskAzureBackupTeam@microsoft.com post till oss på om du vill kryptera dina säkerhetskopierade data med hjälp av Kundhanterade nycklar. Observera att möjligheten att använda den här funktionen omfattas av godkännande från Azure Backups tjänsten.
 
-### <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Säkerhetskopiering av hanterade disk-virtuella datorer krypterade med kundhanterade nycklar
+### <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Säkerhets kopiering av hanterade virtuella hård diskar krypterade med Kundhanterade nycklar
 
-Med Azure Backup kan du också säkerhetskopiera dina virtuella Azure-datorer som använder nyckeln för kryptering på serversidan. Nyckeln som används för att kryptera diskarna lagras i Azure Key Vault och hanteras av dig. Server-side kryptering med hjälp av kundhanterade nycklar skiljer sig från Azure Disk Encryption, eftersom ADE utnyttjar BitLocker (för Windows) och DM-Crypt (för Linux) för att utföra gästkryptering, SSE krypterar data i lagringstjänsten, så att du kan använda alla operativsystem eller avbildningar för dina virtuella datorer. Mer information finns i [Kryptering av hanterade diskar med kundhanterade nycklar.](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)
+Med Azure Backup kan du också säkerhetskopiera virtuella Azure-datorer som använder din nyckel för kryptering på Server sidan. Den nyckel som används för att kryptera diskarna lagras i Azure Key Vault och hanteras av dig. Kryptering på Server sidan med Kundhanterade nycklar skiljer sig från Azure Disk Encryption, eftersom ADE använder BitLocker (för Windows) och DM-crypt (för Linux) för att utföra kryptering vid kryptering, krypterar SSE data i lagrings tjänsten, så att du kan använda alla operativ system eller avbildningar för dina virtuella datorer. Mer information finns i [kryptering av hanterade diskar med kund hanterade nycklar](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) .
 
-### <a name="backup-of-vms-encrypted-using-ade"></a>Säkerhetskopiering av virtuella datorer krypterade med ADE
+### <a name="backup-of-vms-encrypted-using-ade"></a>Säkerhets kopiering av virtuella datorer som har krypterats med ADE
 
-Med Azure Backup kan du också säkerhetskopiera dina Virtuella Azure-datorer som har sina operativsystem eller datadiskar krypterade med Azure Disk Encryption. ADE använder BitLocker för Virtuella Windows-datorer och DM-Crypt för virtuella Linux-datorer för att utföra gästkryptering. Mer information finns i [Säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+Med Azure Backup kan du också säkerhetskopiera virtuella Azure-datorer som har sina operativ system eller data diskar krypterade med Azure Disk Encryption. ADE använder BitLocker för virtuella Windows-datorer och DM-crypt för virtuella Linux-datorer för att utföra kryptering i gästen. Mer information finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-## <a name="private-endpoints"></a>Privata slutpunkter
+## <a name="private-endpoints"></a>Privata slut punkter
 
 [!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="other-security-features"></a>Andra säkerhetsfunktioner
 
-### <a name="protection-of-azure-backup-recovery-points"></a>Skydd av återställningspunkter för Azure Backup
+### <a name="protection-of-azure-backup-recovery-points"></a>Skydd av Azure Backup återställnings punkter
 
-Lagringskonton som används av återställningstjänster är isolerade och kan inte nås av användare för skadliga ändamål. Åtkomsten tillåts endast via Azure Backup-hanteringsåtgärder, till exempel återställning. Dessa hanteringsåtgärder styrs genom rollbaserad åtkomstkontroll (RBAC).
+Lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore. Dessa hanterings åtgärder styrs via rollbaserad Access Control (RBAC).
 
-Mer information finns i [Använda rollbaserad åtkomstkontroll för att hantera återställningspunkter för Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+Mer information finns i [använda rollbaserad Access Control för att hantera Azure Backup återställnings punkter](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="for-soft-delete"></a>För Mjuk borttagning
+### <a name="for-soft-delete"></a>För mjuk borttagning
 
 #### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Måste jag aktivera funktionen för mjuk borttagning i varje valv?
 
-Nej, den är byggd och aktiverad som standard för alla återställningstjänster valv.
+Nej, den skapas och aktive ras som standard för alla Recovery Services-valv.
 
-#### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Kan jag konfigurera hur många dagar mina data ska lagras i mjukt borttaget tillstånd när borttagningen är klar?
+#### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Kan jag konfigurera det antal dagar för vilka mina data ska bevaras i läget Soft-Deleted när borttagningen har slutförts?
 
-Nej, den är fast till 14 dagars ytterligare kvarhållning efter borttagningen.
+Nej, det har åtgärd ATS till 14 dagar efter ytterligare kvarhållning efter borttagnings åtgärden.
 
-#### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>Måste jag betala kostnaden för denna extra 14-dagars kvarhållning?
+#### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>Behöver jag betala kostnaden för ytterligare 14-dagars kvarhållning?
 
-Nej, den här ytterligare kvarhållningen på 14 dagar kostar kostnadsfritt som en del av mjukborttagningsfunktioner.
+Nej, den här 14-dagars ytterligare kvarhållning kommer kostnads fritt som en del av funktionen för mjuk borttagning.
 
-#### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Kan jag utföra en återställningsåtgärd när mina data är i mjukt borttagningsläge?
+#### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Kan jag utföra en återställnings åtgärd när mina data är i läget för tyst Borttagning?
 
-Nej, du måste ta bort den mjuka borttagna resursen för att återställa den. Den undelete åtgärden kommer att föra resursen tillbaka till **stoppskydd med behålla datatillstånd** där du kan återställa till någon tidpunkt. Sophämtaren förblir pausad i det här tillståndet.
+Nej, du måste ta bort den mjuka borttagna resursen för att kunna återställa. Åtgärden ta bort tar tillbaka resursen i **stopp skyddet med Behåll data tillstånd** där du kan återställa till en viss tidpunkt. Skräp insamlaren förblir pausad i det här läget.
 
-#### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>Kommer mina ögonblicksbilder att följa samma livscykel som mina återställningspunkter i valvet?
+#### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>Kommer mina ögonblicks bilder att följa samma livs cykel som mina återställnings punkter i valvet?
 
 Ja.
 
-#### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Hur kan jag utlösa schemalagda säkerhetskopior igen för en mjuk borttagen resurs?
+#### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Hur kan jag aktivera schemalagda säkerhets kopieringar igen för en mjuk borttagen resurs?
 
-Om du tar bort den följt av återupptar åtgärden skyddas resursen igen. Återuppta åtgärden associerar en säkerhetskopieringsprincip för att utlösa schemalagda säkerhetskopior med den valda kvarhållningsperioden. Dessutom körs skräpuppsamlaren så fort återuppta-åtgärden är klar. Om du vill utföra en återställning från en återställningspunkt som är förbi utgångsdatumet, rekommenderas du att göra det innan du utlöser återuppta-åtgärden.
+Undelete följt av Resume-åtgärden skyddar resursen igen. Återuppta åtgärd associerar en säkerhets kopierings princip för att utlösa de schemalagda säkerhets kopieringarna med den valda kvarhållningsperioden. Dessutom körs skräp insamlaren så fort återställnings åtgärden har slutförts. Om du vill utföra en återställning från en återställnings punkt som har passerat förfallo datumet, uppmanas du att göra det innan du utlöser återställnings åtgärden.
 
-#### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Kan jag ta bort valvet om det finns mjuka borttagna objekt i valvet?
+#### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Kan jag ta bort mitt valv om det finns mjuka borttagna objekt i valvet?
 
-Valvet för Återställningstjänster kan inte tas bort om det finns säkerhetskopieringsobjekt i mjukt borttaget tillstånd i valvet. De borttagna objekten tas bort permanent 14 dagar efter borttagningen. Om du inte kan vänta i 14 dagar inaktiverar du [mjuk borttagning](#disabling-soft-delete), tar bort de mjuka borttagna objekten och tar bort dem igen för att tas bort permanent. När du har sett till att det inte finns några skyddade objekt och inga mjuka borttagna objekt kan valvet tas bort.  
+Det går inte att ta bort Recovery Services valvet om det finns säkerhets kopierings objekt i läget Soft-Deleted i valvet. De mjuka borttagna objekten tas bort permanent 14 dagar efter borttagnings åtgärden. Om du inte kan vänta i 14 dagar [inaktiverar du mjuk borttagning](#disabling-soft-delete), tar bort de mjuka borttagna objekten och tar bort dem igen för att ta bort dem permanent. När du har kontrollerat att det inte finns några skyddade objekt och inga mjuka borttagna objekt, kan valvet tas bort.  
 
-#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Kan jag ta bort data tidigare än den 14 dagar lång tid som inte tagits bort efter borttagningen?
+#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Kan jag ta bort data som är tidigare än de 14 dagarna mjuk borttagnings perioden efter borttagningen?
 
-Nej. Du kan inte tvinga bort de borttagna objekten, de tas bort automatiskt efter 14 dagar. Den här säkerhetsfunktionen är aktiverad för att skydda säkerhetskopierade data från oavsiktliga eller skadliga borttagningar.  Du bör vänta i 14 dagar innan du utför någon annan åtgärd på den virtuella datorn.  Mjuka borttagna objekt debiteras.  Om du behöver återbeskydda de virtuella datorerna som är markerade för att ta bort dem inom 14 dagar till ett nytt valv kontaktar du Microsoft-supporten.
+Nej. Du kan inte framtvinga borttagning av borttagna objekt, de tas bort automatiskt efter 14 dagar. Den här säkerhetsfunktionen är aktive rad för att skydda säkerhetskopierade data från oavsiktliga eller skadliga borttagningar.  Du bör vänta i 14 dagar innan du utför någon annan åtgärd på den virtuella datorn.  Mjuk borttagna objekt vann debiteras.  Kontakta Microsoft-supporten om du behöver återskydda de virtuella datorerna som marker ATS för mjuk borttagning inom 14 dagar till ett nytt valv.
 
-#### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>Kan mjuka borttagningsåtgärder utföras i PowerShell eller CLI?
+#### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>Kan mjuka borttagnings åtgärder utföras i PowerShell eller CLI?
 
-Mjuka borttagningsåtgärder kan utföras med [PowerShell](#soft-delete-for-vms-using-azure-powershell). För närvarande stöds inte CLI.
+Mjuk borttagnings åtgärder kan utföras med hjälp av [PowerShell](#soft-delete-for-vms-using-azure-powershell). CLI stöds för närvarande inte.
 
-#### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>Stöds mjuk borttagning för andra molnarbetsbelastningar, till exempel SQL Server i virtuella Azure-datorer och SAP HANA i virtuella Azure-datorer?
+#### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>Stöds mjuk borttagning för andra moln arbets belastningar, t. ex. SQL Server i virtuella Azure-datorer och SAP HANA i virtuella Azure-datorer?
 
-Nej. För närvarande stöds mjuk borttagning endast för virtuella Azure-datorer.
+Nej. För tillfället mjuk borttagning stöds bara för virtuella Azure-datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om [säkerhetskontroller för Azure Backup](backup-security-controls.md).
+- Läs om [säkerhets kontroller för Azure Backup](backup-security-controls.md).

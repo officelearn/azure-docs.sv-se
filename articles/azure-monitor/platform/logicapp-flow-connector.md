@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Monitor-loggar med Azure Logic Apps och Power Automate
-description: Lär dig hur du kan använda Azure Logic Apps och Power Automate för att snabbt automatisera repeterbara processer med hjälp av Azure Monitor-kopplingen.
+title: Använd Azure Monitor loggar med Azure Logic Apps och energi automatisering
+description: Lär dig hur du kan använda Azure Logic Apps och energi automatisering för att snabbt automatisera upprepade processer med hjälp av Azure Monitor-anslutningen.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
@@ -8,65 +8,65 @@ author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
 ms.openlocfilehash: 6961b7bd94c9b3fe70365055851c488efa2cbeca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480019"
 ---
-# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Azure Monitor Loggar anslutning för Logic Apps och Flow
-[Med Azure Logic Apps](/azure/logic-apps/) och [Power Automate](https://ms.flow.microsoft.com) kan du skapa automatiserade arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Med Azure Monitor Logs-kopplingen kan du skapa arbetsflöden som hämtar data från en Log Analytics-arbetsyta eller ett Application Insights-program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genomgång för att skapa ett arbetsflöde med hjälp av dessa data.
+# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Azure Monitor loggar Connector för Logic Apps och Flow
+Med [Azure Logic Apps](/azure/logic-apps/) och [energi spar läge](https://ms.flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Med anslutnings programmet för Azure Monitor loggar kan du bygga arbets flöden som hämtar data från en Log Analytics arbets yta eller ett Application Insights program i Azure Monitor. I den här artikeln beskrivs de åtgärder som ingår i kopplingen och en genom gång av hur du skapar ett arbets flöde med dessa data.
 
-Du kan till exempel skapa en logikapp för att använda Azure Monitor-loggdata i ett e-postmeddelande från Office 365, skapa ett fel i Azure DevOps eller publicera ett Slack-meddelande.  Du kan utlösa ett arbetsflöde genom ett enkelt schema eller från någon åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot. 
+Du kan till exempel skapa en Logic app för att använda Azure Monitor loggdata i ett e-postmeddelande från Office 365, skapa en bugg i Azure DevOps eller skicka ett slack-meddelande.  Du kan utlösa ett arbets flöde med ett enkelt schema eller från en åtgärd i en ansluten tjänst, till exempel när ett e-postmeddelande eller en tweet tas emot. 
 
 ## <a name="actions"></a>Åtgärder
-I följande tabell beskrivs de åtgärder som ingår i Azure Monitor Logs-kopplingen. Båda kan du köra en loggfråga mot en Log Analytics arbetsyta eller Application Insights-program. Skillnaden är i hur data returneras.
+I följande tabell beskrivs de åtgärder som ingår med Azure Monitor loggar Connector. Båda låter dig köra en logg fråga mot en Log Analytics arbets yta eller Application Insights program. Skillnaden är på samma sätt som data returneras.
 
 > [!NOTE]
-> Azure Monitor Logs-kopplingen ersätter [Azure Log Analytics-anslutningen](https://docs.microsoft.com/connectors/azureloganalytics/) och [Azure Application Insights-kopplingen](https://docs.microsoft.com/connectors/applicationinsights/). Den här kopplingen innehåller samma funktioner som de andra och är den metod som föredras för att köra en fråga mot en Log Analytics-arbetsyta eller ett programinsiktsprogram.
+> Azure Monitor loggar Connector ersätter [Azure Log Analytics-anslutningen](https://docs.microsoft.com/connectors/azureloganalytics/) och Azure Application Insights- [anslutningsprogrammet](https://docs.microsoft.com/connectors/applicationinsights/). Den här anslutningen ger samma funktioner som de andra och är den bästa metoden för att köra en fråga mot en Log Analytics arbets yta eller ett Application Insights program.
 
 
-| Åtgärd | Beskrivning |
+| Action | Beskrivning |
 |:---|:---|
-| [Kör fråge- och listresultat](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Returnerar varje rad som sitt eget objekt. Använd den här åtgärden när du vill arbeta med varje rad separat i resten av arbetsflödet. Åtgärden följs vanligtvis av en [för varje aktivitet](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
-| [Kör fråge- och visualisera resultat](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returnerar alla rader i resultatuppsättningen som ett enda formaterat objekt. Använd den här åtgärden när du vill använda resultatuppsättningen tillsammans i resten av arbetsflödet, till exempel skicka resultaten i ett e-postmeddelande.  |
+| [Kör fråga-och list resultat](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Returnerar varje rad som ett eget objekt. Använd den här åtgärden när du vill arbeta med varje rad separat i resten av arbets flödet. Åtgärden följs vanligt vis av en [för varje aktivitet](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
+| [Kör fråga och visualisera resultat](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returnerar alla rader i resultat uppsättningen som ett enda formaterat objekt. Använd den här åtgärden när du vill använda resultat uppsättningen tillsammans i resten av arbets flödet, till exempel skicka resultatet i ett e-postmeddelande.  |
 
 ## <a name="walkthroughs"></a>Genomgångar
-Följande självstudier illustrerar användningen av Azure Monitor-kopplingar i Azure Logic Apps. Du kan utföra samma exempel med Power Automate, den enda skillnaden är hur du skapar det ursprungliga arbetsflödet och kör det när det är klart. Konfigurationen av arbetsflödet och åtgärderna är densamma mellan båda. Se [Skapa ett flöde från en mall i Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) för att komma igång.
+Följande självstudier illustrerar användningen av Azure Monitor-kopplingar i Azure Logic Apps. Du kan utföra samma exempel med automatisk energi förbrukning, men den enda skillnaden är att du skapar det första arbets flödet och kör det när du är klar. Konfigurationen av arbets flödet och åtgärderna är samma mellan båda. Kom igång genom att se [skapa ett flöde från en mall i energi automatisering](https://docs.microsoft.com/power-automate/get-started-logic-template) .
 
 
 ### <a name="create-a-logic-app"></a>Skapa en logikapp
 
-Gå till **Logic Apps** i Azure-portalen och klicka på **Lägg till**. Välj en **prenumeration,** **resursgrupp**och **region för** att lagra den nya logikappen och ge den ett unikt namn. Du kan aktivera inställningen **Logganalys** för att samla in information om körningsdata och händelser enligt beskrivningen i [Konfigurera Azure Monitor-loggar och samla in diagnostikdata för Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). Den här inställningen krävs inte för att använda Azure Monitor Logs-kopplingen.
+Gå till **Logic Apps** i Azure Portal och klicka på **Lägg till**. Välj en **prenumeration**, en **resurs grupp**och en **region** för att lagra den nya Logic-appen och ge den ett unikt namn. Du kan aktivera **Log Analytics** inställningen för att samla in information om körnings data och händelser enligt beskrivningen i [Konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). Den här inställningen krävs inte för att använda anslutnings programmet för Azure Monitor-loggar.
 
 ![Skapa en logikapp](media/logicapp-flow-connector/create-logic-app.png)
 
 
-Klicka på **Granska + skapa** och sedan **skapa**. När distributionen är klar klickar du på **Gå till resurs** för att öppna Logic Apps **Designer**.
+Klicka på **Granska + skapa** och sedan på **skapa**. När distributionen är klar klickar du på **gå till resurs** för att öppna **Logic Apps designer**.
 
-### <a name="create-a-trigger-for-the-logic-app"></a>Skapa en utlösare för logikappen
-Under **Börja med en vanlig utlösare**väljer du **Återkommande**. Detta skapar en logikapp som körs automatiskt med jämna mellanrum. I rutan **Frekvens** för åtgärden väljer du **Dag** och i rutan **Intervall** anger du **1** för att köra arbetsflödet en gång per dag.
+### <a name="create-a-trigger-for-the-logic-app"></a>Skapa en utlösare för Logic app
+Under **börja med en gemensam utlösare**väljer du **upprepning**. Detta skapar en logisk app som körs automatiskt med jämna mellanrum. I rutan **frekvens** för åtgärden väljer du **dag** och i rutan **intervall** anger du **1** för att köra arbets flödet en gång per dag.
 
-![Åtgärden Återkommande](media/logicapp-flow-connector/recurrence-action.png)
+![Upprepnings åtgärd](media/logicapp-flow-connector/recurrence-action.png)
 
-## <a name="walkthrough-mail-visualized-results"></a>Genomgång: Visualiserade resultat för e-post
-Följande självstudiekurs visar hur du skapar en logikapp som skickar resultaten av en Azure Monitor-loggfråga via e-post. 
+## <a name="walkthrough-mail-visualized-results"></a>Genom gång: visualisering av e-post
+Följande själv studie kurs visar hur du skapar en logisk app som skickar resultatet av en Azure Monitor logg fråga via e-post. 
 
-### <a name="add-azure-monitor-logs-action"></a>Åtgärden Lägg till Azure Monitor Logs
-Klicka på **+ Nytt steg** om du vill lägga till en åtgärd som körs efter upprepningsåtgärden. Under **Välj en åtgärd**skriver du **azure-övervakare** och väljer sedan **Azure Monitor Logs**.
+### <a name="add-azure-monitor-logs-action"></a>Åtgärden Lägg till Azure Monitor loggar
+Klicka på **+ nytt steg** för att lägga till en åtgärd som körs efter upprepnings åtgärden. Under **Välj en åtgärd**, Skriv **Azure Monitor** och välj sedan **Azure Monitor loggar**.
 
-![Åtgärden Azure Monitor Loggar](media/logicapp-flow-connector/select-azure-monitor-connector.png)
+![Åtgärd för Azure Monitor loggar](media/logicapp-flow-connector/select-azure-monitor-connector.png)
 
-Klicka på **Azure Log Analytics – Kör fråga och visualisera resultat**.
+Klicka på **Azure Log Analytics – kör fråga och visualisera resultat**.
 
-![Kör fråge- och visualisera resultatåtgärd](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Kör åtgärd för att köra frågor och visualisera resultat](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
-### <a name="add-azure-monitor-logs-action"></a>Åtgärden Lägg till Azure Monitor Logs
+### <a name="add-azure-monitor-logs-action"></a>Åtgärden Lägg till Azure Monitor loggar
 
-Välj **prenumerations-** och **resursgruppen** för din Log Analytics-arbetsyta. Välj *Log Analytics Workspace* för **resurstypen** och välj sedan arbetsytans namn under **Resursnamn**.
+Välj **prenumerationen** och **resurs gruppen** för din Log Analytics-arbetsyta. Välj *Log Analytics arbets yta* för **resurs typen** och välj sedan namnet på arbets ytan under **resurs namn**.
 
-Lägg till följande loggfråga i **frågefönstret.**  
+Lägg till följande logg fråga i **frågefönstret** .  
 
 ```Kusto
 Event
@@ -76,38 +76,38 @@ Event
 | sort by Computer asc   
 ```
 
-Välj *Ange i fråga* för **tidsintervall och** **HTML-tabell** för **diagramtypen**.
+Välj *Ange i fråga* för **tidsintervallet** och **HTML-tabellen** för **diagram typen**.
    
-![Kör fråge- och visualisera resultatåtgärd](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Kör åtgärd för att köra frågor och visualisera resultat](media/logicapp-flow-connector/run-query-visualize-action.png)
 
-E-postmeddelandet skickas av kontot som är kopplat till den aktuella anslutningen. Du kan ange ett annat konto genom att klicka på **Ändra anslutning**.
+E-postmeddelandet kommer att skickas av det konto som är associerat med den aktuella anslutningen. Du kan ange ett annat konto genom att klicka på **ändra anslutning**.
 
 ### <a name="add-email-action"></a>Lägg till e-poståtgärd
 
-Klicka på **+ Nytt steg**och sedan på + Lägg till en **åtgärd**. Skriv **Outlook** under **Välj en åtgärd**och välj sedan Office **365 Outlook**.
+Klicka på **+ nytt steg**och klicka sedan på **+ Lägg till en åtgärd**. Under **Välj en åtgärd**skriver du **Outlook** och väljer sedan **Office 365 Outlook**.
 
-![Välj Outlook-anslutning](media/logicapp-flow-connector/select-outlook-connector.png)
+![Välj Outlook-koppling](media/logicapp-flow-connector/select-outlook-connector.png)
 
-Välj **Skicka ett e-postmeddelande (V2)**.
+Välj **Skicka ett e-postmeddelande (v2)**.
 
-![Valfönstret i Office 365 Outlook](media/logicapp-flow-connector/select-mail-action.png)
+![Office 365 Outlook Selection-fönster](media/logicapp-flow-connector/select-mail-action.png)
 
-Klicka var som helst i rutan **Brödtext** om du vill öppna ett **dynamiskt innehållsfönster** med värden från tidigare åtgärder i logikappen. Välj **Visa mer** och sedan **Brödtext** som är resultatet av frågan i åtgärden Logganalys.
+Klicka någonstans i rutan **brödtext** för att öppna ett **dynamiskt innehålls** fönster som öppnas med värden från föregående åtgärder i Logic-appen. Välj **Visa mer** och sedan **brödtext** som är resultatet av frågan i Log Analytics åtgärden.
 
 ![Välj brödtext](media/logicapp-flow-connector/select-body.png)
 
-Ange e-postadressen till en mottagare i fönstret **Till** och ett ämne för e-postmeddelandet i **Ämne**. 
+Ange e-postadressen för en mottagare i fönstret **till** och ett ämne för e-postmeddelandet i **ämne**. 
 
-![Åtgärd för e-post](media/logicapp-flow-connector/mail-action.png)
+![E-poståtgärd](media/logicapp-flow-connector/mail-action.png)
 
 
-### <a name="save-and-test-your-logic-app"></a>Spara och testa logikappen
-Klicka på **Spara** och **kör** sedan för att utföra en testkörning av logikappen.
+### <a name="save-and-test-your-logic-app"></a>Spara och testa din Logic app
+Klicka på **Spara** och **Kör** sedan för att utföra en testkörning av Logic app.
 
 ![Spara och kör](media/logicapp-flow-connector/save-run.png)
 
 
-När logikappen är klar kontrollerar du e-postmeddelandet till mottagaren som du har angett.  Du borde ha fått ett mail med en kropp som liknar följande:
+När Logic-appen har slutförts, kontrol lera e-postmeddelandets mottagare som du har angett.  Du bör ha fått ett e-postmeddelande med en brödtext som liknar följande:
 
 ![Exempel på e-post](media/logicapp-flow-connector/sample-mail.png)
 
@@ -115,7 +115,7 @@ När logikappen är klar kontrollerar du e-postmeddelandet till mottagaren som d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [loggfrågor i Azure Monitor](../log-query/log-query-overview.md).
+- Lär dig mer om [logg frågor i Azure Monitor](../log-query/log-query-overview.md).
 - Läs mer om [Logic Apps](/azure/logic-apps/)
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
 

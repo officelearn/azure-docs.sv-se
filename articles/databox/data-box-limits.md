@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box gränser | Microsoft-dokument
-description: Beskriver systemgränser och rekommenderade storlekar för Microsoft Azure Data Box-komponenter och -anslutningar.
+title: Azure Data Box gränser | Microsoft Docs
+description: Beskriver system begränsningar och rekommenderade storlekar för Microsoft Azure Data Box-enhet komponenter och anslutningar.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,26 +9,26 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: alkohli
 ms.openlocfilehash: 13d5bce46883ea4ddca91d7222f68a19ba65c21c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260051"
 ---
-# <a name="azure-data-box-limits"></a>Begränsningar för Azure-databox
+# <a name="azure-data-box-limits"></a>Azure Data Box gränser
 
-Tänk på dessa gränser när du distribuerar och använder din Microsoft Azure Data Box. I följande tabell beskrivs dessa gränser för datarutan.
+Tänk på följande begränsningar när du distribuerar och använder Microsoft Azure Data Box-enhet. I följande tabell beskrivs de här gränserna för Data Box-enhet.
 
-## <a name="data-box-service-limits"></a>Begränsningar för tjänsten Data Box
+## <a name="data-box-service-limits"></a>Data Box-enhet tjänst gränser
 
 [!INCLUDE [data-box-service-limits](../../includes/data-box-service-limits.md)]
 
-## <a name="data-box-limits"></a>Gränser för dataruta
+## <a name="data-box-limits"></a>Data Box-enhet gränser
 
-- Data Box kan lagra högst 500 miljoner filer.
-- Data Box stöder högst 512 behållare eller resurser i molnet. Katalogerna på den översta nivån i användarresursen blir behållare eller Azure-filresurser i molnet. 
+- Data Box-enhet kan lagra högst 500 000 000 filer.
+- Data Box-enhet stöder högst 512 behållare eller resurser i molnet. Katalogerna på den översta nivån i användar resursen blir behållare eller Azure-filresurser i molnet. 
 
-## <a name="azure-storage-limits"></a>Azure-lagringsgränser
+## <a name="azure-storage-limits"></a>Azure Storage-gränser
 
 [!INCLUDE [data-box-storage-limits](../../includes/data-box-storage-limits.md)]
 
@@ -36,14 +36,14 @@ Tänk på dessa gränser när du distribuerar och använder din Microsoft Azure 
 
 [!INCLUDE [data-box-data-upload-caveats](../../includes/data-box-data-upload-caveats.md)]
 
-## <a name="azure-storage-account-size-limits"></a>Storleksbegränsningar för Azure-lagringskonto
+## <a name="azure-storage-account-size-limits"></a>Storleks gränser för Azure Storage-kontot
 
 [!INCLUDE [data-box-storage-account-size-limits](../../includes/data-box-storage-account-size-limits.md)]
 
-## <a name="azure-object-size-limits"></a>Storleksbegränsningar för Azure-objekt
+## <a name="azure-object-size-limits"></a>Storleks gränser för Azure-objekt
 
 [!INCLUDE [data-box-object-size-limits](../../includes/data-box-object-size-limits.md)]
 
-## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure-blockblob, sidblob och filnamnskonventioner
+## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Konventioner för Azure Block Blob, Page blob och namngivning av filer
 
 [!INCLUDE [data-box-naming-conventions](../../includes/data-box-naming-conventions.md)]

@@ -1,6 +1,6 @@
 ---
-title: Översikt över REST API-api för mediatjänsters operationer | Microsoft-dokument
-description: API:et "Media Services Operations REST" används för att skapa jobb, tillgångar, livekanaler och andra resurser i ett Media Services-konto. Den här artikeln innehåller en Azure Media Services v2 REST API-översikt.
+title: Översikt över Media Services åtgärder REST API | Microsoft Docs
+description: 'API: et "Media Services Operations REST" används för att skapa jobb, till gångar, direktsända kanaler och andra resurser i ett Media Services konto. Den här artikeln innehåller en Azure Media Services v2 REST API översikt.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,29 +16,29 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773661"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Översikt över REST-API-API för Media Services-åtgärder 
+# <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-REST-API:et för **Media Services Operations** används för att skapa jobb, tillgångar, livekanaler och andra resurser i ett Media Services-konto. Mer information finns i [Media Services Operations REST API-referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+REST-API: et **Media Services Operations** används för att skapa jobb, till gångar, direktsända kanaler och andra resurser i ett Media Services konto. Mer information finns i [Media Services åtgärder REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
-Media Services tillhandahåller ett REST API som accepterar både JSON- eller atom+pub XML-format. REST API för Media Services kräver specifika HTTP-huvuden som varje klient måste skicka när de ansluter till Media Services, samt en uppsättning valfria rubriker. I följande avsnitt beskrivs de rubriker och HTTP-verb som du kan använda när du skapar begäranden och tar emot svar från Media Services.
+Media Services tillhandahåller en REST API som accepterar både JSON-eller Atom + pub XML-format. Media Services REST API kräver vissa HTTP-huvuden som varje klient måste skicka när de ansluter till Media Services, samt en uppsättning valfria huvuden. I följande avsnitt beskrivs de huvuden och HTTP-verb som du kan använda när du skapar förfrågningar och tar emot svar från Media Services.
 
-Autentisering till REST-API:et för Media Services sker via Azure Active Directory-autentisering som beskrivs i artikeln [Använd Azure AD-autentisering för att komma åt Azure Media Services API med REST](media-services-rest-connect-with-aad.md)
+Autentisering till Media Services REST API görs genom Azure Active Directory autentisering som beskrivs i artikeln [Använd Azure AD-autentisering för att få åtkomst till Azure Media Services API med rest](media-services-rest-connect-with-aad.md)
 
 ## <a name="considerations"></a>Överväganden
 
 Följande överväganden gäller när du använder REST.
 
-* Vid fråga entiteter finns det en gräns på 1 000 entiteter som returneras samtidigt eftersom offentliga REST v2 begränsar frågeresultat till 1 000 resultat. Du måste använda **Skip** and **Take** (.NET)/ **top** (REST) enligt beskrivningen i det [här .NET-exemplet](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [det här REST API-exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* När du använder JSON och anger att nyckelordet **__metadata** i begäran (till exempel för att referera till ett länkat objekt) måste du ange **formatet Acceptera** till [JSON-verbos (se](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) följande exempel). Odata förstår inte **egenskapen __metadata** i begäran, såvida du inte ställer in den på att verbose.  
+* När du frågar entiteter, finns det en gräns på 1000 entiteter som returneras vid en tidpunkt eftersom offentliga REST v2 begränsar frågeresultat till 1000-resultat. Du måste använda **hoppa över** och **ta** (.net)/ **Top** (rest) enligt beskrivningen i [det här .net-exemplet](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [REST API exemplet](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+* När du använder JSON och anger att ska använda **__metadata** nyckelordet i begäran (t. ex. för att referera till ett länkat objekt) måste du ange formatet för att **ta emot** sidhuvud till [JSON](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (se följande exempel). OData förstår inte **__metadata** egenskapen i begäran, om du inte anger den som utförlig.  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose
@@ -55,73 +55,73 @@ Följande överväganden gäller när du använder REST.
                 [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
         . . . 
 
-## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard-HTTP-begäranden som stöds av Media Services
-För varje samtal du gör till Media Services finns det en uppsättning obligatoriska rubriker som du måste inkludera i din begäran och även en uppsättning valfria rubriker som du kanske vill inkludera. I tabellen nedan visas de rubriker som krävs:
+## <a name="standard-http-request-headers-supported-by-media-services"></a>Standard-HTTP-begärandehuvuden som stöds av Media Services
+För varje anrop du gör i Media Services finns det en uppsättning obligatoriska huvuden som du måste inkludera i din begäran och även en uppsättning valfria huvuden som du kanske vill inkludera. I tabellen nedan visas de huvuden som krävs:
 
 | Huvud | Typ | Värde |
 | --- | --- | --- |
-| Auktorisering |Bearer |Bärare är den enda godkända tillståndsmekanismen. Värdet måste också innehålla åtkomsttoken som tillhandahålls av Azure Active Directory. |
-| x-ms-version |Decimal |2.17 (eller senaste versionen)|
+| Auktorisering |Bearer |Bearer är den enda godkända mekanismen för auktorisering. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
+| x-MS-version |Decimal |2,17 (eller senaste versionen)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
-> Eftersom Media Services använder OData för att exponera sina REST-API:er bör rubrikerna DataServiceVersion och MaxDataServiceVersion inkluderas i alla begäranden. Men om de inte är det, antar Media Services för närvarande att dataserviceversion-värdet som används är 3.0.
+> Eftersom Media Services använder OData för att exponera REST-API: erna, ska DataServiceVersion-och MaxDataServiceVersion-huvuden tas med i alla begär Anden. men om de inte är det antar Media Services det DataServiceVersion-värde som används är 3,0.
 > 
 > 
 
-Följande är en uppsättning valfria rubriker:
+Följande är en uppsättning valfria huvuden:
 
 | Huvud | Typ | Värde |
 | --- | --- | --- |
-| Datum |RFC 1123 datum |Tidsstämpel för begäran |
-| Acceptera |Innehållstyp |Den begärda innehållstypen för svaret, till exempel följande:<p> -application/json;odata=verbose<p> - ansökan /atom+xml<p> Svaren kan ha en annan innehållstyp, till exempel en blob fetch, där ett lyckat svar innehåller blob-strömmen som nyttolast. |
-| Acceptera-kodning |Gzip, töm |GZIP- och DEFLATE-kodning, i förekommande fall. För stora resurser kan Media Services ignorera det här huvudet och returnera icke-komprimerade data. |
-| Accept-Language |"en", "es", och så vidare. |Anger önskat språk för svaret. |
-| Acceptera-Charset |Charset typ som "UTF-8" |Standard är UTF-8. |
-| X-HTTP-metod |HTTP-metod |Tillåter klienter eller brandväggar som inte stöder HTTP-metoder som PUT eller DELETE att använda dessa metoder, tunnel via ett GET-anrop. |
-| Content-Type |Innehållstyp |Innehållstyp för begärandetexten i PUT- eller POST-begäranden. |
-| klient-begäran-id |String |Ett anropardefinierat värde som identifierar den angivna begäran. Om det anges inkluderas det här värdet i svarsmeddelandet som ett sätt att mappa begäran. <p><p>**Viktigt**<p>Värdena bör begränsas till 2096b (2k). |
+| Date |RFC 1123-datum |Tidsstämpel för begäran |
+| Acceptera |Innehållstyp |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
+| Accept-Encoding |Gzip, deflate |GZIP och DEFLATE-kodning, om tillämpligt. Obs! för stora resurser kan Media Services ignorera detta sidhuvud och returnera data som inte är komprimerade. |
+| Accept-Language |"sv", "es" och så vidare. |Anger det språk som ska besvaras. |
+| Acceptera-teckenuppsättning |Teckenuppsättnings typ som "UTF-8" |Standardvärdet är UTF-8. |
+| X-HTTP-metod |HTTP-metod |Tillåter att klienter eller brand väggar som inte stöder HTTP-metoder som att lägga till eller ta bort använder dessa metoder, tunnlade via ett GET-anrop. |
+| Content-Type |Innehållstyp |Innehålls typ för begär ande texten i begäran om att skicka eller publicera. |
+| klient-begärande-ID |Sträng |Ett callation-definierat värde som identifierar den angivna begäran. Om det här värdet anges tas det här värdet med i svarsmeddelandet som ett sätt att mappa begäran. <p><p>**Oviktig**<p>Värdena bör vara tak vid 2096b (2 000). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standard-HTTP-svarshuvuden som stöds av Media Services
-Följande är en uppsättning rubriker som kan returneras till dig beroende på vilken resurs du begärde och vilken åtgärd du avsåg att utföra.
+Följande är en uppsättning huvuden som kan returneras till dig, beroende på vilken resurs du begärde och vilka åtgärder du avsåg att utföra.
 
 | Huvud | Typ | Värde |
 | --- | --- | --- |
-| begäran-id |String |En unik identifierare för den aktuella åtgärden, tjänst som genereras. |
-| klient-begäran-id |String |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |
-| Datum |RFC 1123 datum |Datum/tid då begäran bearbetades. |
-| Content-Type |Varierar |Innehållstypen för svarstexten. |
-| Content-Encoding |Varierar |Gzip eller töm, beroende på vad som är tillämpligt. |
+| begärande-ID |Sträng |En unik identifierare för den aktuella åtgärden, genererad tjänst. |
+| klient-begärande-ID |Sträng |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |
+| Date |RFC 1123-datum |Datum/tid då begäran bearbetades. |
+| Content-Type |Varierar |Innehålls typen för svars texten. |
+| Content-Encoding |Varierar |Gzip eller deflatera efter behov. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Standard-HTTP-verb som stöds av Media Services
-Följande är en fullständig lista över HTTP-verb som kan användas vid http-begäranden:
+Följande är en fullständig lista över HTTP-verb som kan användas när du gör HTTP-förfrågningar:
 
 | Verb | Beskrivning |
 | --- | --- |
 | HÄMTA |Returnerar det aktuella värdet för ett objekt. |
-| POST |Skapar ett objekt baserat på de data som tillhandahålls eller skickar ett kommando. |
-| PUT |Ersätter ett objekt eller skapar ett namngivet objekt (i förekommande fall). |
+| POST |Skapar ett objekt baserat på angivna data eller skickar ett kommando. |
+| PUT |Ersätter ett objekt, eller skapar ett namngivet objekt (om tillämpligt). |
 | DELETE |Tar bort ett objekt. |
-| Sammanfoga |Uppdaterar ett befintligt objekt med namngivna egenskapsändringar. |
-| HEAD |Returnerar metadata för ett objekt för ett GET-svar. |
+| Katalog |Uppdaterar ett befintligt objekt med namngivna egenskaps ändringar. |
+| HEAD |Returnerar metadata för ett objekt för GET-svar. |
 
-## <a name="discover-and-browse-the-media-services-entity-model"></a>Upptäck och bläddra i entitymodellen Media Services
-För att göra Media Services-entiteter mer upptäckbara kan $metadata-åtgärden användas. Det gör att du kan hämta alla giltiga entitetstyper, entitetsegenskaper, associationer, funktioner, åtgärder och så vidare. Genom att lägga till $metadata-åtgärden i slutet av slutpunkten för REST API-api för Media Services kan du komma åt den här identifieringstjänsten.
+## <a name="discover-and-browse-the-media-services-entity-model"></a>Identifiera och bläddra i Media Services Entity-modellen
+För att göra Media Services entiteter mer synliga kan $metadatas åtgärden användas. Du kan hämta alla giltiga entitetstyper, entitets egenskaper, associationer, funktioner, åtgärder och så vidare. Genom att lägga till åtgärden $metadata i slutet av Media Services REST API slut punkten kan du komma åt den här identifierings tjänsten.
 
- /api/$metadata.
+ /API/$metadata.
 
-Du bör lägga till "?api-version=2.x" i slutet av URI om du vill visa metadata i en webbläsare, eller inte inkludera x-ms-versionshuvudet i din begäran.
+Du bör lägga till "? API-version = 2. x" i slutet av URI: n om du vill visa metadata i en webbläsare eller inte innehåller huvudet x-MS-version i din begäran.
 
 ## <a name="authenticate-with-media-services-rest-using-azure-active-directory"></a>Autentisera med Media Services REST med Azure Active Directory
 
-Autentisering på REST API görs via Azure Active Directory(AAD).
-Mer information om hur du får nödvändig autentiseringsinformation för ditt Media Services-konto från Azure Portal finns i [Komma åt Azure Media Services API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md).
+Autentisering på REST API görs via Azure Active Directory (AAD).
+Mer information om hur du hämtar nödvändig autentiseringsinformation för ditt Media Services-konto från Azure-portalen finns i [få åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md).
 
-Mer information om hur du skriver kod som ansluter till REST API med Azure AD-autentisering finns i artikeln [Använd Azure AD-autentisering för att komma åt Azure Media Services API med REST](media-services-rest-connect-with-aad.md).
+Mer information om hur du skriver kod som ansluter till REST API med Azure AD-autentisering finns i artikeln [använda Azure AD-autentisering för att få åtkomst till Azure Media Services-API: et med rest](media-services-rest-connect-with-aad.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du använder Azure AD-autentisering med REST API för Media Services finns i [Använda Azure AD-autentisering för att komma åt Azure Media Services API med REST](media-services-rest-connect-with-aad.md).
+Information om hur du använder Azure AD-autentisering med Media Services REST API finns i [använda Azure AD-autentisering för att få åtkomst till Azure Media Services API med rest](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,92 +1,92 @@
 ---
 title: Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
-description: Beskriver hur du aktiverar säkerhetskopiering när du skapar en Virtuell Azure-dator med Azure Backup.
+description: Beskriver hur du aktiverar säkerhets kopiering när du skapar en virtuell Azure-dator med Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80672812"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
-Använd Azure Backup-tjänsten för att säkerhetskopiera virtuella Azure-datorer (VIRTUELLA datorer). Virtuella datorer säkerhetskopieras enligt ett schema som anges i en säkerhetskopieringsprincip och återställningspunkter skapas från säkerhetskopior. Återställningspunkter lagras i Recovery Services-valv.
+Använd Azure Backup tjänsten för att säkerhetskopiera virtuella datorer i Azure. Virtuella datorer säkerhets kopie ras enligt ett schema som anges i en säkerhets kopierings princip och återställnings punkter skapas från säkerhets kopieringar. Återställnings punkter lagras i Recovery Services valv.
 
-I den här artikeln beskrivs hur du aktiverar säkerhetskopiering när du skapar en virtuell dator (VM) i Azure-portalen.  
+Den här artikeln beskriver hur du aktiverar säkerhets kopiering när du skapar en virtuell dator (VM) i Azure Portal.  
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- [Kontrollera](backup-support-matrix-iaas.md#supported-backup-actions) vilka operativsystem som stöds om du aktiverar säkerhetskopiering när du skapar en virtuell dator.
+- [Kontrol lera](backup-support-matrix-iaas.md#supported-backup-actions) vilka operativ system som stöds om du aktiverar säkerhets kopiering när du skapar en virtuell dator.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Om du inte redan är inloggad på ditt konto loggar du in på [Azure-portalen](https://portal.azure.com).
+Om du inte redan har loggat in på ditt konto loggar du in på [Azure Portal](https://portal.azure.com).
 
-## <a name="create-a-vm-with-backup-configured"></a>Skapa en virtuell dator med konfigurerad säkerhetskopiering
+## <a name="create-a-vm-with-backup-configured"></a>Skapa en virtuell dator med säkerhets kopia konfigurerad
 
-1. Klicka på **Skapa en resurs**i Azure-portalen .
+1. Klicka på **skapa en resurs**i Azure Portal.
 
-2. Klicka på **Beräkna**på Azure Marketplace och välj sedan en vm-avbildning.
+2. I Azure Marketplace klickar du på **Compute**och väljer sedan en VM-avbildning.
 
-3. Konfigurera den virtuella datorn i enlighet med Instruktionerna för [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) eller [Linux.](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+3. Konfigurera den virtuella datorn i enlighet med [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) -eller [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) -instruktionerna.
 
-4. Klicka på **På**i **Aktivera säkerhetskopiering**på fliken **Hantering** .
-5. Säkerhetskopior av Azure Backup till ett Recovery Services-valv. Klicka på **Skapa ny** om du inte har ett befintligt valv.
-6. Acceptera det föreslagna valvets namn eller ange ditt eget.
-7. Ange eller skapa en resursgrupp där valvet ska placeras. Resursgruppsvalvet kan skilja sig från resursgruppen för virtuell dator.
+4. Klicka på **på**fliken **hantering** i **Aktivera säkerhets kopiering**.
+5. Azure Backup säkerhets kopieringar till ett Recovery Services-valv. Klicka på **Skapa nytt** om du inte har ett befintligt valv.
+6. Acceptera det föreslagna valv namnet eller ange ditt eget.
+7. Ange eller skapa en resurs grupp där valvet ska placeras. Resurs grupps valvet kan skilja sig från resurs gruppen för den virtuella datorn.
 
-    ![Aktivera säkerhetskopiering för en virtuell dator](./media/backup-during-vm-creation/enable-backup.png)
+    ![Aktivera säkerhets kopiering för en virtuell dator](./media/backup-during-vm-creation/enable-backup.png)
 
-8. Acceptera standardprincipen för säkerhetskopiering eller ändra inställningarna.
-    - En princip för säkerhetskopiering anger hur ofta ögonblicksbilder av den virtuella datorn ska ta säkerhetskopior och hur lång tid det tar att behålla dessa säkerhetskopior.
-    - Standardprincipen säkerhetskopierar den virtuella datorn en gång om dagen.
-    - Du kan anpassa din egen säkerhetskopieringsprincip för en Azure VM för att ta säkerhetskopior dagligen eller veckovis.
-    - [Läs mer](backup-azure-vms-introduction.md#backup-and-restore-considerations) om säkerhetskopieringsöverväganden för virtuella Azure-datorer.
+8. Godkänn standard principen för säkerhets kopiering eller ändra inställningarna.
+    - En säkerhets kopierings princip anger hur ofta ögonblicks bilder av den virtuella datorn ska säkerhets kopie ras och hur länge säkerhets kopiorna ska bevaras.
+    - Standard principen säkerhetskopierar den virtuella datorn en gång om dagen.
+    - Du kan anpassa en egen säkerhets kopierings princip för en virtuell Azure-dator för att ta säkerhets kopior varje dag eller varje vecka.
+    - [Läs mer](backup-azure-vms-introduction.md#backup-and-restore-considerations) om säkerhets kopierings överväganden för virtuella Azure-datorer.
     - [Läs mer](backup-instant-restore-capability.md) om funktionen för omedelbar återställning.
 
-      ![Standardprincip för säkerhetskopiering](./media/backup-during-vm-creation/daily-policy.png)
+      ![Standard princip för säkerhets kopiering](./media/backup-during-vm-creation/daily-policy.png)
 
-## <a name="azure-backup-resource-group-for-virtual-machines"></a>Resursgrupp för Azure Backup för virtuella datorer
+## <a name="azure-backup-resource-group-for-virtual-machines"></a>Azure Backup resurs grupp för Virtual Machines
 
-Säkerhetskopieringstjänsten skapar en separat resursgrupp (RG), som skiljer sig från resursgruppen för den virtuella datorn för att lagra återställningspunktsamlingen (RPC). RPC rymmer de omedelbara återställningspunkterna för hanterade virtuella datorer. Standardnamnformatet för resursgruppen som skapats av `AzureBackupRG_<Geo>_<number>`säkerhetskopieringstjänsten är: . Till exempel: *AzureBackupRG_northeurope_1*. Nu kan du anpassa resursgruppnamnet som skapats av Azure Backup.
+Säkerhets kopierings tjänsten skapar en separat resurs grupp (RG), inte en annan resurs grupp än den virtuella datorns resurs grupp för att lagra återställnings punkt samlingen (RPC). RPC-anläggningarna återställnings punkter för hanterade virtuella datorer. Standard namngivnings formatet för resurs gruppen som skapas av säkerhets kopierings tjänsten är `AzureBackupRG_<Geo>_<number>`:. Exempel: *AzureBackupRG_northeurope_1*. Nu kan du anpassa resurs grupps namnet som skapats av Azure Backup.
 
-Punkter att notera:
+Poäng till Anmärkning:
 
-1. Du kan antingen använda standardnamnet på RG eller redigera den enligt företagets krav.
-2. Du anger RG-namnmönstret som indata när vm-säkerhetskopieringsprincipen skapas. RG-namnet ska vara av `<alpha-numeric string>* n <alpha-numeric string>`följande format: . 'n' ersätts med ett heltal (från 1) och används för att skala ut om den första RG är full. En RG kan ha max 600 varvtal idag.
-              ![Välj namn när du skapar princip](./media/backup-during-vm-creation/create-policy.png)
-3. Mönstret bör följa RG namngivningsreglerna nedan och den totala längden bör inte överstiga den högsta tillåtna RG-namnlängden.
-    1. Resursgruppsnamn tillåter bara alfanumeriska tecken, punkter, understreck, bindestreck och parentes. De kan inte sluta i en period.
-    2. Resursgruppsnamn kan innehålla upp till 74 tecken, inklusive namnet på RG och suffixet.
-4. Den `<alpha-numeric-string>` första är obligatorisk medan den andra efter 'n' är valfri. Detta gäller endast om du ger ett anpassat namn. Om du inte anger något i någon av textrutorna används standardnamnet.
-5. Du kan redigera namnet på RG genom att ändra principen om och när det behövs. Om namnmönstret ändras skapas nya RPs i den nya RG.If the name pattern is changed, new RPs will be created in the new RG. De gamla RPs-skivorna finns dock fortfarande kvar i den gamla RG:et och flyttas inte, eftersom RP-samlingen inte stöder resursflyttning. Så småningom RPs kommer att få skräp samlas in när poängen löper ut.
+1. Du kan antingen använda standard namnet på RG eller redigera det enligt företagets krav.
+2. Du anger RG namn-mönstret som ininformation när du skapar en princip för säkerhets kopiering av virtuella datorer. RG namn ska ha följande format: `<alpha-numeric string>* n <alpha-numeric string>`. ' n ' ersätts med ett heltal (från 1) och används för att skala ut om den första RG är full. En RG kan ha högst 600 RPC-anrop idag.
+              ![Välj namn när du skapar en princip](./media/backup-during-vm-creation/create-policy.png)
+3. Mönstret bör följa reglerna för namngivning av RG nedan och den totala längden får inte överskrida den maximalt tillåtna längden för RG namn.
+    1. Resurs grupp namn får bara innehålla alfanumeriska tecken, punkter, under streck, bindestreck och parenteser. De kan inte sluta med en punkt.
+    2. Resurs grupp namn får innehålla upp till 74 tecken, inklusive namnet på RG och suffixet.
+4. Det första `<alpha-numeric-string>` är obligatoriskt medan den andra efter "n" är valfri. Detta gäller endast om du ger ett anpassat namn. Om du inte anger något i någon av text rutorna används standard namnet.
+5. Du kan redigera namnet på RG genom att ändra principen om och när det behövs. Om namn mönstret ändras kommer nya RPs att skapas i den nya RG. Den gamla RPs kommer dock fortfarande att finnas i den gamla RG och flyttas inte, eftersom RP-samlingen inte stöder resurs flytt. Slutligen kommer RPs att få skräp insamlat när poängen går ut.
 ![Ändra namn vid ändring av princip](./media/backup-during-vm-creation/modify-policy.png)
-6. Det rekommenderas att inte låsa resursgruppen som skapats för användning av säkerhetskopieringstjänsten.
+6. Vi rekommenderar att du inte låser resurs gruppen som skapas för användning av säkerhets kopierings tjänsten.
 
-Information om hur du konfigurerar azure backup-resursgruppen för virtuella datorer med PowerShell läser du [Skapa Azure Backup-resursgrupp under bevarande av ögonblicksbilder](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
+Information om hur du konfigurerar Azure Backup resurs grupp för Virtual Machines med hjälp av PowerShell finns i [skapa Azure Backup resurs grupp under kvarhållning av ögonblicks bilder](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
-## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhetskopia när du har skapat den virtuella datorn
+## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhets kopiering när du har skapat den virtuella datorn
 
-Säkerhetskopieringen av den virtuella datorn körs i enlighet med din säkerhetskopieringsprincip. Vi rekommenderar dock att du kör en första säkerhetskopia.
+Säkerhets kopian av den virtuella datorn kommer att köras enligt säkerhets kopierings principen. Vi rekommenderar dock att du kör en första säkerhets kopiering.
 
 När den virtuella datorn har skapats gör du följande:
 
-1. Klicka på **Säkerhetskopiering**i egenskaperna för den virtuella datorn. VM-statusen är Inledande väntande säkerhetskopiering tills den första säkerhetskopieringen körs
-2. Klicka på **Säkerhetskopiera nu** om du vill köra en säkerhetskopiering på begäran.
+1. I egenskaperna för den virtuella datorn klickar du på **säkerhetskopiera**. VM-statusen är den första säkerhets kopieringen väntar tills den första säkerhets kopieringen körs
+2. Klicka på **Säkerhetskopiera nu** för att köra en säkerhets kopiering på begäran.
 
-    ![Kör en säkerhetskopiering på begäran](./media/backup-during-vm-creation/run-backup.png)
+    ![Köra en säkerhets kopiering på begäran](./media/backup-during-vm-creation/run-backup.png)
 
-## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Använda en Resource Manager-mall för att distribuera en skyddad virtuell dator
+## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Använd en Resource Manager-mall för att distribuera en skyddad virtuell dator
 
-De föregående stegen förklarar hur du använder Azure-portalen för att skapa en virtuell dator och skydda den i ett Recovery Services-valv. Om du snabbt vill distribuera en eller flera virtuella datorer och skydda dem i ett Recovery Services-valv läser du mallen [Distribuera en Virtuell Windows-dator och aktiverar säkerhetskopiering](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+I föregående steg förklaras hur du använder Azure Portal för att skapa en virtuell dator och skydda den i ett Recovery Services-valv. Om du snabbt vill distribuera en eller flera virtuella datorer och skydda dem i ett Recovery Services valv, se mallen [distribuera en virtuell Windows-dator och aktivera säkerhets kopiering](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skyddat den virtuella datorn kan du läsa om hur du hanterar och återställer dem.
+Nu när du har skyddat din virtuella dator kan du läsa om hur du hanterar och återställer dem.
 
 - [Hantera och övervaka virtuella datorer](backup-azure-manage-vms.md)
 - [Återställa virtuell dator](backup-azure-arm-restore-vms.md)
 
-Om du stöter på några problem [läser du](backup-azure-vms-troubleshoot.md) felsökningsguiden.
+Om du stöter på några problem kan du [läsa](backup-azure-vms-troubleshoot.md) fel söknings guiden.

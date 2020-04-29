@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/12/2020
 ms.author: shvija
 ms.openlocfilehash: 0b20c73ed0590f3afc19db43b4b55dd3ff6bde8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79453878"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
@@ -235,7 +235,7 @@ Blobcontainern dit du kan avbilda dina händelsedata.
 }
 ```
 
-Använd följande parametrar om du väljer Azure Data Lake Store Gen 1 som mål. Du måste ange behörigheter för den Data Lake Store-sökväg som du vill avbilda händelsen på. Information om hur du anger behörigheter finns [i Samla in data till Azure Data Lake Storage Gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
+Använd följande parametrar om du väljer Azure Data Lake Store gen 1 som mål. Du måste ange behörigheter för den Data Lake Store-sökväg som du vill avbilda händelsen på. Om du vill ange behörigheter, se [samla in data till Azure Data Lake Storage gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
 
 ### <a name="subscriptionid"></a>subscriptionId
 

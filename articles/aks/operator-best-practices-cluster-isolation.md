@@ -1,65 +1,65 @@
 ---
 title: Metodtips för isolering av kluster
 titleSuffix: Azure Kubernetes Service
-description: Lär dig metodtips för klusteroperatören för isolering i Azure Kubernetes Service (AKS)
+description: Lär dig metod tips för kluster operatörer för isolering i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 00643dc1699d1cbd47efd271738015ea05e895e2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80668346"
 ---
-# <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Metodtips för klusterisolering i Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Metod tips för kluster isolering i Azure Kubernetes service (AKS)
 
-När du hanterar kluster i Azure Kubernetes Service (AKS) måste du ofta isolera team och arbetsbelastningar. AKS ger flexibilitet i hur du kan köra kluster med flera innehavare och isolera resurser. För att maximera din investering i Kubernetes bör dessa multi-arrendator och isoleringsfunktioner förstås och implementeras.
+När du hanterar kluster i Azure Kubernetes service (AKS) behöver du ofta isolera team och arbets belastningar. AKS ger flexibilitet i hur du kan köra kluster med flera klienter och isolera resurser. För att maximera din investering i Kubernetes bör dessa funktioner för flera innehavare och isolering förstås och implementeras.
 
-Den här artikeln om metodtips fokuserar på isolering för klusteroperatorer. I den här artikeln kan du se hur du:
+I den här artikeln fokuserar vi på isolering för kluster operatörer. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Planera för kluster med flera innehavare och separation av resurser
-> * Använda logisk eller fysisk isolering i AKS-kluster
+> * Planera för kluster med flera klienter och separering av resurser
+> * Använd logisk eller fysisk isolering i AKS-kluster
 
-## <a name="design-clusters-for-multi-tenancy"></a>Designkluster för flerargsinnehavare
+## <a name="design-clusters-for-multi-tenancy"></a>Design kluster för flera innehavare
 
-Kubernetes innehåller funktioner som gör det möjligt att logiskt isolera team och arbetsbelastningar i samma kluster. Målet bör vara att ange minsta möjliga antal privilegier, som är begränsade till de resurser som varje team behöver. Ett [namnområde][k8s-namespaces] i Kubernetes skapar en logisk isoleringsgräns. Ytterligare Kubernetes-funktioner och överväganden för isolering och flerargsinnehavare inkluderar följande områden:
+Kubernetes innehåller funktioner som gör det möjligt att logiskt isolera team och arbetsbelastningar i samma kluster. Målet bör vara att ange minsta möjliga antal privilegier, som är begränsade till de resurser som varje team behöver. Ett [namn område][k8s-namespaces] i Kubernetes skapar en logisk isolerings gränser. Ytterligare Kubernetes funktioner och överväganden för isolering och flera organisationer inkluderar följande områden:
 
-* **Schemaläggning** omfattar användning av grundläggande funktioner som resurskvoter och pod avbrott budgetar. Mer information om dessa funktioner finns i [Metodtips för grundläggande schemaläggarfunktioner i AKS][aks-best-practices-scheduler].
-  * Mer avancerade schemaläggarfunktioner inkluderar taints och tolerations, nodväljare och nod- och pod-tillhörighet eller anti-tillhörighet. Mer information om dessa funktioner finns i [Metodtips för avancerade schemaläggarfunktioner i AKS][aks-best-practices-advanced-scheduler].
-* **Nätverk omfattar** användning av nätverksprinciper för att styra trafikflödet in och ut ur poddar.
-* **Autentisering och auktorisering** omfattar användaren av RBAC-integrering (Role-Based Access Control) och Azure Active Directory (AD), pod-identiteter och hemligheter i Azure Key Vault. Mer information om dessa funktioner finns [i Metodtips för autentisering och auktorisering i AKS][aks-best-practices-identity].
-* **Behållare** inkluderar pod säkerhetsprinciper, pod säkerhetskontexter, skanna bilder och körningar för sårbarheter. Innebär också att använda App Armor eller Seccomp (Secure Computing) för att begränsa behållaråtkomsten till den underliggande noden.
+* **Schemaläggning** inkluderar användning av grundläggande funktioner som resurs kvoter och Pod avbrott i budget. Mer information om dessa funktioner finns i [metod tips för grundläggande funktioner i Schemaläggaren i AKS][aks-best-practices-scheduler].
+  * Fler avancerade funktioner i Schemaläggaren är bland annat-och-skydd, Node-väljare och Node-och Pod-tillhörighet eller anti-tillhörighet. Mer information om dessa funktioner finns i [metod tips för avancerade funktioner i Schemaläggaren i AKS][aks-best-practices-advanced-scheduler].
+* **Nätverk** omfattar användningen av nätverks principer för att styra trafik flödet i och ut ur poddar.
+* **Autentisering och auktorisering** inkluderar användaren av rollbaserad åtkomst kontroll (RBAC) och Azure Active Directory (AD)-integration, Pod-identiteter och hemligheter i Azure Key Vault. Mer information om dessa funktioner finns i [metod tips för autentisering och auktorisering i AKS][aks-best-practices-identity].
+* **Behållare** inkluderar Pod säkerhets principer, Pod säkerhets kontexter, skanning av avbildningar och körningar för sårbarheter. Inbegriper också användning av app-skydd eller Seccomp (säker data behandling) för att begränsa behållar åtkomsten till den underliggande noden.
 
 ## <a name="logically-isolate-clusters"></a>Isolera kluster logiskt
 
-**Vägledning för bästa praxis** - Använd logisk isolering för att separera team och projekt. Försök att minimera antalet fysiska AKS-kluster som du distribuerar för att isolera team eller program.
+**Vägledning för bästa praxis** – Använd logisk isolering för att separera team och projekt. Försök att minimera antalet fysiska AKS-kluster som du distribuerar för att isolera team eller program.
 
-Med logisk isolering kan ett enda AKS-kluster användas för flera arbetsbelastningar, team eller miljöer. Kubernetes namnområden utgör den logiska [isoleringsgränsen][k8s-namespaces] för arbetsbelastningar och resurser.
+Med logisk isolering kan ett enda AKS-kluster användas för flera arbets belastningar, team eller miljöer. Kubernetes- [namnområden][k8s-namespaces] utgör den logiska isolerings gränser för arbets belastningar och resurser.
 
 ![Logisk isolering av ett Kubernetes-kluster i AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
-Logisk separation av kluster ger vanligtvis en högre pod densitet än fysiskt isolerade kluster. Det finns mindre överskjutande beräkningskapacitet som sitter inaktiv i klustret. I kombination med Kubernetes-kluster automatisk skalning kan du skala antalet noder uppåt eller nedåt för att uppfylla kraven. Med den här metod för bästa praxis för automatisk skalning kan du bara köra antalet noder som krävs och minimera kostnaderna.
+Logisk separering av kluster ger vanligt vis en högre Pod-densitet än fysiskt isolerade kluster. Det finns mindre överskott av beräknings kapaciteten som är inaktiv i klustret. När du kombineras med Kubernetes-klustret kan du skala upp eller ned antalet noder för att uppfylla kraven. Med den här bästa metoden för automatisk skalning kan du bara köra antalet noder som krävs och minimera kostnaderna.
 
-Kubernetes miljöer, i AKS eller någon annanstans, är inte helt säkra för fientlig användning av flera innehavare. I en miljö med flera innehavare arbetar flera klienter med en gemensam, delad infrastruktur. Därför om alla klienter inte kan lita på, måste du göra ytterligare planering för att undvika att en klient påverkar säkerheten och tjänsten för en annan. Ytterligare säkerhetsfunktioner som *Pod Security Policy* och mer detaljerade rollbaserade åtkomstkontroller (RBAC) för noder gör det svårare att utnyttja. Men för verklig säkerhet när du kör fientliga arbetsbelastningar med flera innehavare är en hypervisor den enda säkerhetsnivå som du bör lita på. Säkerhetsdomänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av fientliga arbetsbelastningar med flera innehavare bör du använda fysiskt isolerade kluster.
+Kubernetes-miljöer, i AKS eller någon annan stans, är inte helt säkra för att ta skydd på flera klienter. I en miljö med flera klienter arbetar flera klienter på en gemensam, delad infrastruktur. Om alla klienter inte kan vara betrodda måste du göra ytterligare planeringen för att undvika att en klient som påverkar säkerheten och tjänsten för en annan. Ytterligare säkerhetsfunktioner, till exempel *Pod säkerhets policy* och mer detaljerade rollbaserade åtkomst kontroller (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster.
 
 ## <a name="physically-isolate-clusters"></a>Isolera kluster fysiskt
 
-**Vägledning för bästa praxis** – Minimera användningen av fysisk isolering för varje separat team eller programdistribution. Använd i stället *logisk* isolering, som beskrivs i föregående avsnitt.
+**Vägledning för bästa praxis** – minimera användningen av fysisk isolering för varje separat grupp eller program distribution. Använd i stället *logisk* isolering, enligt beskrivningen i föregående avsnitt.
 
-En vanlig metod för klusterisolering är att använda fysiskt separata AKS-kluster. I den här isoleringsmodellen tilldelas team eller arbetsbelastningar sitt eget AKS-kluster. Den här metoden ser ofta ut som det enklaste sättet att isolera arbetsbelastningar eller team, men lägger till ytterligare hantering och ekonomiska omkostnader. Du måste nu underhålla dessa flera kluster och måste individuellt ge åtkomst och tilldela behörigheter. Du faktureras också för alla enskilda noder.
+En vanlig metod för kluster isolering är att använda fysiskt separata AKS-kluster. I den här isolerings modellen tilldelas team eller arbets belastningar sina egna AKS-kluster. Den här metoden ser ofta ut som det enklaste sättet att isolera arbets belastningar eller team, men lägger till ytterligare hantering och ekonomisk omkostnader. Du måste nu underhålla dessa flera kluster och måste individuellt ge åtkomst och tilldela behörigheter. Du debiteras också för alla enskilda noder.
 
 ![Fysisk isolering av enskilda Kubernetes-kluster i AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-Fysiskt separata kluster har vanligtvis en låg pod densitet. Eftersom varje team eller arbetsbelastning har sitt eget AKS-kluster överetableras klustret ofta med beräkningsresurser. Ofta är ett litet antal poddar schemalagda på dessa noder. Oanvänd kapacitet på noderna kan inte användas för program eller tjänster under utveckling av andra team. Dessa överskjutande resurser bidrar till merkostnaderna i fysiskt separata kluster.
+Fysiskt separata kluster har vanligt vis en låg Pod-densitet. Eftersom varje team eller arbets belastning har sitt eget AKS-kluster, är klustret ofta överallokerat med beräknings resurser. Ofta schemaläggs ett litet antal poddar på noderna. Oanvänd kapacitet på noderna kan inte användas för program eller tjänster som utvecklas av andra team. Dessa överskott resurser bidrar till ytterligare kostnader i fysiskt separata kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln fokuserade på klusterisolering. Mer information om klusteråtgärder i AKS finns i följande metodtips:
+Den här artikeln fokuserar på kluster isolering. Mer information om kluster åtgärder i AKS finns i följande metod tips:
 
-* [Grundläggande kubernetes-schemaläggare][aks-best-practices-scheduler]
-* [Avancerade Kubernetes-schemaläggare][aks-best-practices-advanced-scheduler]
+* [Basic Kubernetes Scheduler-funktioner][aks-best-practices-scheduler]
+* [Avancerade funktioner i Kubernetes Scheduler][aks-best-practices-advanced-scheduler]
 * [Autentisering och auktorisering][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

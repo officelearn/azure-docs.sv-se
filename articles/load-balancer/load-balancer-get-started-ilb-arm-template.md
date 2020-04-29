@@ -1,5 +1,5 @@
 ---
-title: Skapa en intern belastningsutjämnare - Azure-mall
+title: Skapa en intern Load Balancer – Azure-mall
 titleSuffix: Azure Load Balancer
 description: Lär dig hur du skapar en intern lastbalanserare med hjälp av en mall i Resource Manager
 services: load-balancer
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 0d7cc4d571ddeb0b57fd4f025b8cbf7b204f61e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456972"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Skapa en intern lastbalanserare med hjälp av en mall
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
-> * [Powershell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
@@ -42,10 +42,10 @@ Exempelmallen som är tillgänglig i den offentliga databasen använder en param
 
 Följ stegen nedan om du vill distribuera mallen som du hämtat med hjälp av PowerShell.
 
-1. Om du aldrig har använt Azure PowerShell läser du [Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/overview) och följer instruktionerna hela vägen till slutet för att logga in på Azure och välja din prenumeration.
+1. Om du aldrig har använt Azure PowerShell, se [hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/overview) och följer anvisningarna i slutet för att logga in på Azure och välja din prenumeration.
 2. Hämta parameterfilen till din lokala disk.
 3. Redigera filen och spara den.
-4. Kör cmdleten **New-AzResourceGroupDeployment** för att skapa en resursgrupp med mallen.
+4. Kör cmdleten **New-AzResourceGroupDeployment** för att skapa en resurs grupp med hjälp av mallen.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -57,8 +57,8 @@ Följ stegen nedan om du vill distribuera mallen som du hämtat med hjälp av Po
 
 Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 
-1. Om du aldrig har använt Azure CLI läser du [Installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följer instruktionerna fram till den punkt där du väljer ditt Azure-konto och din prenumeration.
-2. Gå [https://shell.azure.com](https://shell.azure.com) till för att öppna Cloud Shell i din webbläsare. Kör kommandot **azure config mode** för att växla till Resource Manager-läge, som det visas nedan.
+1. Om du aldrig har använt Azure CLI, se [Installera och konfigurera Azure CLI](../cli-install-nodejs.md) och följ instruktionerna upp till den punkt där du väljer ditt Azure-konto och din prenumeration.
+2. Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren. Kör kommandot **azure config mode** för att växla till Resource Manager-läge, som det visas nedan.
 
     ```console
     azure config mode arm
@@ -81,4 +81,4 @@ Följ stegen nedan om du vill distribuera mallen med hjälp av Azure CLI.
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)
 
-JSON-syntaxen och egenskaperna för en belastningsutjämnare i en mall finns i [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).
+JSON-syntaxen och egenskaperna för en belastningsutjämnare i en mall finns i [Microsoft. Network/belastningsutjämnare](/azure/templates/microsoft.network/loadbalancers).

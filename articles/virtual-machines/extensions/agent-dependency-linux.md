@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Dependency virtual machine-tillägg för Linux
-description: Distribuera Azure Monitor Dependency Agent på Linux virtuell dator med hjälp av en virtuell dator tillägg.
+title: Azure Monitor beroende virtuell dators tillägg för Linux
+description: Distribuera den Azure Monitor beroende agenten på en virtuell Linux-dator med hjälp av ett tillägg för virtuell dator.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mgoedtel
@@ -15,25 +15,25 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 82f9c5a67cb056752cf8310be3b7c9f0bd2501e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254045"
 ---
-# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Azure Monitor Dependency virtual machine-tillägg för Linux
+# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Azure Monitor beroende virtuell dators tillägg för Linux
 
-Funktionen Azure Monitor för virtuella datorer kart får sina data från Microsoft Dependency Agent. Virtual Machine-tillägget för azure VM Dependency-agent för Linux publiceras och stöds av Microsoft. Tillägget installerar beroendeagenten på virtuella Azure-datorer. Det här dokumentet beskriver de plattformar, konfigurationer och distributionsalternativ som stöds för azure VM Dependency agent virtual machine-tillägget för Linux.
+Azure Monitor for VMs Map-funktionen hämtar data från Microsoft-beroende agenten. Tillägget virtuell dator i Azure VM-beroende agent för Linux publiceras och stöds av Microsoft. Tillägget installerar beroende agenten på virtuella Azure-datorer. Det här dokumentet innehåller information om de plattformar, konfigurationer och distributions alternativ som stöds för Azure VM-beroende agent för virtuell dator tillägg för Linux.
 
 ## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
-Azure VM Dependency agent-tillägget för Linux kan köras mot de operativsystem som stöds i avsnittet [Operativsystem som stöds](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) i distributionsartikeln för Azure Monitor för virtuella datorer.
+Tillägget Azure VM Dependency agent för Linux kan köras mot de operativ system som stöds i avsnittet [operativ system som stöds](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) i artikeln Azure Monitor for VMS distribution.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Azure VM Dependency agent-tillägget på en Azure Linux VM. 
+Följande JSON visar schemat för tillägget Azure VM Dependency agent på en virtuell Azure Linux-dator. 
 
 ```json
 {
@@ -71,22 +71,22 @@ Följande JSON visar schemat för Azure VM Dependency agent-tillägget på en Az
 }
 ```
 
-### <a name="property-values"></a>Egenskapsvärden
+### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel |
+| Name | Värde/exempel |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| utgivare | Microsoft.Azure.Monitoring.DependencyAgent |
-| typ | BeroendeAgentLinux |
-| typHandlerVersion | 9.5 |
+| utgivare | Microsoft. Azure. Monitoring. DependencyAgent |
+| typ | DependencyAgentLinux |
+| typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Du kan distribuera Azure VM-tillägg med Azure Resource Manager-mallar. Du kan använda JSON-schemat som beskrivs i föregående avsnitt i en Azure Resource Manager-mall för att köra azure VM Dependency agent-tillägget under en Azure Resource Manager-malldistribution.
+Du kan distribuera virtuella Azure-tillägg med Azure Resource Manager mallar. Du kan använda JSON-schemat som beskrivs i föregående avsnitt i en Azure Resource Manager mall för att köra tillägget Azure VM-beroende agent under en Azure Resource Manager mall-distribution.
 
-JSON för en virtuell dator förlängning kan kapslas inuti den virtuella datorn resurs. Du kan också placera den på rot- eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resursnamnet och resurstypen. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/templates/child-resource-name-type.md).
+JSON för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen. Eller så kan du placera den på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/templates/child-resource-name-type.md).
 
-I följande exempel förutsätts att tillägget beroendeagent är kapslat i resursen för den virtuella datorn. När du kapslar tilläggsresursen placeras `"resources": []` JSON i objektet för den virtuella datorn.
+I följande exempel förutsätts att tillägget för beroende agent är kapslat i den virtuella dator resursen. När du kapslar in tilläggs resursen placeras JSON i `"resources": []` objektet på den virtuella datorn.
 
 
 ```json
@@ -107,7 +107,7 @@ I följande exempel förutsätts att tillägget beroendeagent är kapslat i resu
 }
 ```
 
-När du placerar tillägget JSON i roten av mallen innehåller resursnamnet en referens till den överordnade virtuella datorn. Typen återspeglar den kapslade konfigurationen. 
+När du placerar tillägget JSON i roten för mallen innehåller resurs namnet en referens till den överordnade virtuella datorn. Typen visar den kapslade konfigurationen. 
 
 ```json
 {
@@ -129,7 +129,7 @@ När du placerar tillägget JSON i roten av mallen innehåller resursnamnet en r
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Du kan använda Azure CLI för att distribuera VM-tillägget för beroendeagent till en befintlig virtuell dator.  
+Du kan använda Azure CLI för att distribuera beroende agentens VM-tillägg till en befintlig virtuell dator.  
 
 ```azurecli
 
@@ -145,13 +145,13 @@ az vm extension set \
 
 ### <a name="troubleshoot"></a>Felsöka
 
-Data om tillståndet för tilläggsdistributioner kan hämtas från Azure-portalen och med hjälp av Azure CLI. Om du vill se distributionstillståndet för tillägg för en viss virtuell dator kör du följande kommando med hjälp av Azure CLI:
+Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI:
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Utdata för tilläggskörning loggas till följande fil:
+Utökning av utdata loggas i följande fil:
 
 ```
 /opt/microsoft/dependcency-agent/log/install.log 
@@ -159,4 +159,4 @@ Utdata för tilläggskörning loggas till följande fil:
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kontaktar du Azure-experterna på [MSDN Azure- och Stack Overflow-forumen](https://azure.microsoft.com/support/forums/). Du kan också arkivera en Azure-supportincident. Gå till [Azure-supportwebbplatsen](https://azure.microsoft.com/support/options/) och välj **Hämta support**. Information om hur du använder Azure Support finns i [vanliga frågor och svar om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

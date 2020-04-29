@@ -1,69 +1,69 @@
 ---
 title: Referens för appinställningar för Azure Functions
-description: Referensdokumentation för appinställningarna eller miljövariablerna för Azure Functions.
+description: Referens dokumentation för Azure Functions app-inställningar eller miljövariabler.
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: e2d168d8828d17e13f875e3b2555c7db0d4ba32d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656787"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
-Appinställningar i en funktionsapp innehåller globala konfigurationsalternativ som påverkar alla funktioner för funktionsappen. När du kör lokalt används dessa inställningar som lokala [miljövariabler](functions-run-local.md#local-settings-file). I den här artikeln visas de appinställningar som är tillgängliga i funktionsappar.
+App-inställningar i en Function-app innehåller globala konfigurations alternativ som påverkar alla funktioner för den Function-appen. När du kör lokalt öppnas de här inställningarna som lokala [miljövariabler](functions-run-local.md#local-settings-file). Den här artikeln innehåller appinställningar som är tillgängliga i Function Apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Det finns andra globala konfigurationsalternativ i [filen host.json](functions-host-json.md) och i filen [local.settings.json.](functions-run-local.md#local-settings-file)
+Det finns andra globala konfigurations alternativ i [Host. JSON](functions-host-json.md) -filen och i den [lokala. Settings. JSON](functions-run-local.md#local-settings-file) -filen.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Instrumenteringsnyckeln för Application Insights. Använd endast `APPINSIGHTS_INSTRUMENTATIONKEY` en `APPLICATIONINSIGHTS_CONNECTIONSTRING`av eller . Mer information finns i [Övervaka Azure-funktioner](functions-monitoring.md). 
+Instrumentation-nyckeln för Application Insights. Använd bara en av `APPINSIGHTS_INSTRUMENTATIONKEY` eller `APPLICATIONINSIGHTS_CONNECTIONSTRING`. Mer information finns i [övervaka Azure Functions](functions-monitoring.md). 
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|APPINSIGHTS_INSTRUMENTATIONKEY|5555555-af77-484b-9032-64f83bb83bb|
+|APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
 
 ## <a name="applicationinsights_connectionstring"></a>APPLICATIONINSIGHTS_CONNECTIONSTRING
 
-Anslutningssträngen för Application Insights. Använd `APPLICATIONINSIGHTS_CONNECTIONSTRING` i `APPINSIGHTS_INSTRUMENTATIONKEY` stället för när funktionsappen kräver de tillagda anpassningar som stöds med hjälp av anslutningssträngen. Mer information finns i [Anslutningssträngar](../azure-monitor/app/sdk-connection-string.md). 
+Anslutnings strängen för Application Insights. Använd `APPLICATIONINSIGHTS_CONNECTIONSTRING` i stället `APPINSIGHTS_INSTRUMENTATIONKEY` för när din funktions app kräver tillagda anpassningar som stöds med hjälp av anslutnings strängen. Mer information finns i [anslutnings strängar](../azure-monitor/app/sdk-connection-string.md). 
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey=[key];IngestionEndpoint=[url]; LiveEndpoint=[url]; ProfilerEndpoint=[url]; SnapshotEndpoint=[url];|
+|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey = [key]; IngestionEndpoint = [URL]; LiveEndpoint = [URL]; ProfilerEndpoint = [URL]; SnapshotEndpoint = [URL];|
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-I version 2.x och senare versioner av funktionskörningen konfigurerar appbeteende baserat på körningsmiljön. Det här värdet [läss under initieringen](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Du kan `AZURE_FUNCTIONS_ENVIRONMENT` ange vilket värde som helst, men [tre värden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) stöds: [Utveckling,](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development) [Mellanlagring](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)och [Produktion](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). När `AZURE_FUNCTIONS_ENVIRONMENT` den inte är inställd, `Development` är det `Production` standard på en lokal miljö och på Azure. Den här inställningen bör `ASPNETCORE_ENVIRONMENT` användas i stället för för att ställa in körningsmiljön. 
+I version 2. x och senare versioner av Functions-körningen konfigurerar du appens beteende baserat på körnings miljön. Det här värdet [läses vid initiering](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Du kan ange `AZURE_FUNCTIONS_ENVIRONMENT` valfritt värde, men [tre värden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) stöds: [utveckling](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [mellanlagring](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)och [produktion](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). När `AZURE_FUNCTIONS_ENVIRONMENT` inte har angetts används standardvärdet `Development` i en lokal miljö `Production` och på Azure. Den här inställningen ska användas i stället `ASPNETCORE_ENVIRONMENT` för att ställa in körnings miljön. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Valfri anslutningssträng för lagring av lagringskonto för lagring av loggar och visning av dem på fliken **Bildskärm** i portalen. Den här inställningen gäller endast för appar som är inriktade på version 1.x av Azure Functions-körningen. Lagringskontot måste vara ett allmänt syfte som stöder blobbar, köer och tabeller. Mer information finns i [Krav på lagringskonto](storage-considerations.md#storage-account-requirements).
+Valfri anslutnings sträng för lagrings konto för att lagra loggar och visa dem på fliken **övervakning** i portalen. Den här inställningen är endast giltig för appar som är riktade till version 1. x i Azure Functions Runtime. Lagrings kontot måste vara ett allmänt syfte som stöder blobbar, köer och tabeller. Mer information finns i [krav för lagrings konton](storage-considerations.md#storage-account-requirements).
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https; Kontonamn=<name>; AccountKey=<key>|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName =<name>; AccountKey =<key>|
 
 > [!NOTE]
-> För bättre prestanda och upplevelse använder runtime version 2.x och senare versioner APPINSIGHTS_INSTRUMENTATIONKEY `AzureWebJobsDashboard`och App Insights för övervakning i stället för .
+> För bättre prestanda och erfarenhet använder kör som version 2. x och senare versioner APPINSIGHTS_INSTRUMENTATIONKEY och App Insights för övervakning i stället för `AzureWebJobsDashboard`.
 
-## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHemsida
+## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true`innebär att inaktivera standardmålsidan som visas för rot-URL:en för en funktionsapp. Standardvärdet är `false`.
+`true`innebär att inaktivera standard sidan för landning som visas för rot-URL: en för en Function-app. Standardvärdet är `false`.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDisableHemsida|true|
+|AzureWebJobsDisableHomepage|true|
 
-När den här appinställningen utelämnas eller ställs in på `false`visas en sida `<functionappname>.azurewebsites.net`som liknar följande exempel som svar på webbadressen .
+När den här appens inställning utelämnas eller `false`anges till visas en sida som liknar följande exempel som svar på URL: `<functionappname>.azurewebsites.net`en.
 
-![Målsida för funktionsapp](media/functions-app-settings/function-app-landing-page.png)
+![Funktion för programmets landnings sida](media/functions-app-settings/function-app-landing-page.png)
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true`avser användning Avgivningsläge vid kompilering av .NET-kod. `false` innebär att använda felsökningsläge. Standardvärdet är `true`.
+`true`innebär användning av versions läge när .NET-kod kompileras. `false` betyder Använd fel söknings läge. Standardvärdet är `true`.
 
 |Nyckel|Exempelvärde|
 |---|------------|
@@ -71,15 +71,15 @@ När den här appinställningen utelämnas eller ställs in på `false`visas en 
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
-En kommaavgränsad lista över betafunktioner som ska aktiveras. Betafunktioner som aktiveras av dessa flaggor är inte produktionsklara, men kan aktiveras för experimentell användning innan de publiceras.
+En kommaavgränsad lista över beta funktioner som ska aktive ras. Beta funktioner som aktive ras av de här flaggorna är inte produktion klara, men kan aktive ras för experimentell användning innan de går live.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsFeatureFlags|funktion1,feature2|
+|AzureWebJobsFeatureFlags|feature1,feature2|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Anger den databas eller leverantör som ska användas för nyckellagring. För närvarande är de databaser som stöds bloblagring ("Blob") och det lokala filsystemet ("Filer"). Standard är blob i version 2 och filsystem i version 1.
+Anger lagrings platsen eller providern som ska användas för nyckel lagring. För närvarande är de databaser som stöds Blob Storage ("BLOB") och det lokala fil systemet ("filer"). Standardvärdet är BLOB i version 2 och fil system i version 1.
 
 |Nyckel|Exempelvärde|
 |---|------------|
@@ -87,134 +87,134 @@ Anger den databas eller leverantör som ska användas för nyckellagring. För n
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Azure Functions-körningen använder den här anslutningssträngen för lagringskonto för alla funktioner utom HTTP-utlösta funktioner. Lagringskontot måste vara ett allmänt syfte som stöder blobbar, köer och tabeller. Se Krav [på lagringskonto](functions-infrastructure-as-code.md#storage-account) [och lagringskonto](storage-considerations.md#storage-account-requirements).
+Azure Functions runtime använder den här anslutnings strängen för lagrings kontot för alla funktioner utom för HTTP-utlösta funktioner. Lagrings kontot måste vara ett allmänt syfte som stöder blobbar, köer och tabeller. Se krav för [lagrings konto](functions-infrastructure-as-code.md#storage-account) och [lagrings konto](storage-considerations.md#storage-account-requirements).
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsStorage|DefaultEndpointsProtocol=https; AccountName=[namn]; AccountKey=[nyckel]|
+|AzureWebJobsStorage|DefaultEndpointsProtocol = https; AccountName = [namn]; AccountKey = [nyckel]|
 
 ## <a name="azurewebjobs_typescriptpath"></a>AzureWebJobs_TypeScriptPath
 
-Sökväg till kompilatorn som används för TypeScript. Gör att du kan åsidosätta standardinställningen om du behöver.
+Sökväg till den kompilator som används för TypeScript. Gör att du kan åsidosätta standardvärdet om du behöver.
 
 |Nyckel|Exempelvärde|
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%HOME%\typescript|
 
-## <a name="function_app_edit_mode"></a>\_REDIGERINGSLÄGE\_FÖR FUNKTIONSAPP\_
+## <a name="function_app_edit_mode"></a>redigerings\_\_läge\_för Function-appen
 
-Dikterar om redigering i Azure-portalen är aktiverat. Giltiga värden är "readwrite" och "readonly".
-
-|Nyckel|Exempelvärde|
-|---|------------|
-|\_REDIGERINGSLÄGE\_FÖR FUNKTIONSAPP\_|ReadOnly|
-
-## <a name="functions_extension_version"></a>TILLÄGGSVERSION\_\_AV FUNKTIONER
-
-Den version av funktionskörningen som ska användas i den här funktionsappen. En tilde med huvudversion innebär att använda den senaste versionen av huvudversionen (till exempel "~2"). När nya versioner för samma huvudversion är tillgängliga installeras de automatiskt i funktionsappen. Om du vill fästa appen på en viss version använder du det fullständiga versionsnumret (till exempel "2.0.12345"). Standard är "~2". Värdet på `~1` fäster appen på version 1.x av körningen.
+Avgör om redigering i Azure Portal är aktive rad. Giltiga värden är "readwrite" och "ReadOnly".
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|TILLÄGGSVERSION\_\_AV FUNKTIONER|~2|
+|redigerings\_\_läge\_för Function-appen|ReadOnly|
 
-## <a name="functions_v2_compatibility_mode"></a>KOMPATIBILITETSLÄGE\_\_FÖR FUNKTIONER V2\_
+## <a name="functions_extension_version"></a>FUNKTIONS\_tilläggs\_version
 
-Med den här inställningen kan funktionsappen köras i ett version 2.x-kompatibelt läge på version 3.x-körningen. Använd den här inställningen endast om du stöter på problem när [du uppgraderar funktionsappen från version 2.x till 3.x av körningen](functions-versions.md#migrating-from-2x-to-3x). 
+Den version av Functions runtime som ska användas i den här Function-appen. Ett tilde med huvud version innebär att använda den senaste versionen av den högre versionen (till exempel "~ 2"). När nya versioner av samma huvud version är tillgängliga installeras de automatiskt i Function-appen. Använd det fullständiga versions numret (till exempel "2.0.12345") för att fästa appen till en angiven version. Standardvärdet är "~ 2". Ett värde för `~1` PIN-modulen till version 1. x av körnings miljön.
+
+|Nyckel|Exempelvärde|
+|---|------------|
+|FUNKTIONS\_tilläggs\_version|~ 2|
+
+## <a name="functions_v2_compatibility_mode"></a>\_Functions\_v2\_-kompatibilitetsläge
+
+Den här inställningen gör att din Function-app kan köras i version 2. x-kompatibelt läge på version 3. x-körningsmiljön. Använd endast den här inställningen om du stöter på problem när [du uppgraderar din Function-app från version 2. x till 3. x i körnings miljön](functions-versions.md#migrating-from-2x-to-3x). 
 
 >[!IMPORTANT]
-> Den här inställningen är endast avsedd som en kortsiktig lösning medan du uppdaterar appen så att den körs korrekt i version 3.x. Den här inställningen stöds så länge [2.x-körningen stöds](functions-versions.md). Om du stöter på problem som hindrar din app från att köras på version 3.x utan att använda den här inställningen kan du [rapportera problemet](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
+> Den här inställningen är endast avsedd som en kortsiktig lösning medan du uppdaterar appen så att den körs korrekt på version 3. x. Den här inställningen stöds så länge [2. x-körningen stöds](functions-versions.md). Om du stöter på problem som förhindrar att din app körs på version 3. x utan att använda den här inställningen kan du [rapportera problemet](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
-Kräver att [FUNKTIONSFÖRLÄNGNINGSVERSION\_\_](functions-app-settings.md#functions_extension_version) ställs in på . `~3`
-
-|Nyckel|Exempelvärde|
-|---|------------|
-|KOMPATIBILITETSLÄGE\_\_FÖR FUNKTIONER V2\_|true|
-
-## <a name="functions_worker_process_count"></a>ANTAL\_\_FUNKTIONER\_FÖR ARBETSPROCESS
-
-Anger det maximala antalet språkarbetsprocesser, med `1`ett standardvärde på . Det högsta tillåtna värdet är `10`. Funktionsanrop fördelas jämnt mellan språkarbetarprocesser. Språkarbetsprocesser skapas var 10:e sekund\_\_tills antalet som anges av FUNCTIONS WORKER PROCESS\_COUNT har uppnåtts. Att använda flera språkarbetsprocesser är inte samma sak som [skalning](functions-scale.md). Överväg att använda den här inställningen när din arbetsbelastning har en blandning av CPU-bundna och I/O-bundna anrop. Den här inställningen gäller för alla non-.NET språk.
+Kräver att [tilläggs\_\_versionen av funktioner](functions-app-settings.md#functions_extension_version) anges till `~3`.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|ANTAL\_\_FUNKTIONER\_FÖR ARBETSPROCESS|2|
+|\_Functions\_v2\_-kompatibilitetsläge|true|
 
+## <a name="functions_worker_process_count"></a>FUNKTIONER\_arbets\_process\_antal
 
-## <a name="functions_worker_runtime"></a>FUNKTIONER\_\_ARBETARE RUNTIME
-
-Språkarbetarens körning som ska läsas in i funktionsappen.  Detta motsvarar det språk som används i ditt program (till exempel "dotnet"). För funktioner på flera språk måste du publicera dem på flera appar, var och en med motsvarande arbetskörningsvärde.  Giltiga värden `dotnet` `node` är (C#/F#), `java` (JavaScript/TypeScript), (Java), `python` `powershell` (PowerShell) och (Python).
+Anger det maximala antalet språk arbets processer, med standardvärdet `1`. Det högsta tillåtna värdet är `10`. Funktions anrop distribueras jämnt mellan olika språk arbets processer. Språk arbets processer har skapats var 10: e sekund tills antalet arbets\_\_\_processer som har angetts av funktioner har nåtts. Användning av flera språk arbets processer är inte samma sak som [skalning](functions-scale.md). Överväg att använda den här inställningen när din arbets belastning har en blandning av processor gränser och I/O-kopplade anrop. Den här inställningen gäller för alla non-.NET-språk.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|FUNKTIONER\_\_ARBETARE RUNTIME|dotnet|
+|FUNKTIONER\_arbets\_process\_antal|2|
+
+
+## <a name="functions_worker_runtime"></a>FUNKTIONER\_Worker\_runtime
+
+Språk arbets körningen som ska läsas in i Function-appen.  Detta motsvarar det språk som används i ditt program (till exempel "dotNet"). För funktioner på flera språk måste du publicera dem till flera appar, var och en med motsvarande arbetares körnings värde.  Giltiga värden är `dotnet` (C#/f #), `node` (Java Script/typescript) `java` , (Java) `powershell` , (PowerShell) och `python` (python).
+
+|Nyckel|Exempelvärde|
+|---|------------|
+|FUNKTIONER\_Worker\_runtime|dotnet|
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Endast för & Premium-abonnemang. Anslutningssträng för lagringskonto där funktionsappkoden och konfigurationen lagras. Se [Skapa en funktionsapp](functions-infrastructure-as-code.md#create-a-function-app).
+Endast för förbruknings & Premium-planer. Anslutnings sträng för lagrings kontot där programmets kod och konfiguration lagras. Se [skapa en Function-app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https; AccountName=[namn]; AccountKey=[nyckel]|
+|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [namn]; AccountKey = [nyckel]|
 
-## <a name="website_contentshare"></a>WEBBPLATS\_INNEHÅLLSDELNING
+## <a name="website_contentshare"></a>WEBBPLATS\_CONTENTSHARE
 
-Endast för & Premium-abonnemang. Filsökvägen till funktionsappkoden och konfigurationen. Används med WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Standard är en unik sträng som börjar med funktionsappnamnet. Se [Skapa en funktionsapp](functions-infrastructure-as-code.md#create-a-function-app).
+Endast för förbruknings & Premium-planer. Fil Sök vägen till programmets kod och konfiguration. Används med WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Standard är en unik sträng som börjar med namnet på Function-appen. Se [skapa en Function-app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|WEBSITE_CONTENTSHARE|funktionapp091999e2|
+|WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-## <a name="website_max_dynamic_application_scale_out"></a>WEBBPLATS\_\_MAX\_\_DYNAMISK\_APPLIKATION SKALA UT
+## <a name="website_max_dynamic_application_scale_out"></a>WEBBPLATS\_högsta\_dynamiska\_program\_skala\_ut
 
-Det maximala antalet instanser som funktionsappen kan skala ut till. Standard är ingen gräns.
+Det maximala antalet instanser som Function-appen kan skala ut till. Standardvärdet är ingen gräns.
 
 > [!NOTE]
-> Den här inställningen är en förhandsgranskningsfunktion - och endast tillförlitlig om den är inställd på ett värde <= 5
+> Den här inställningen är en förhands gransknings funktion – och är bara tillförlitlig om värdet <= 5
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|WEBBPLATS\_\_MAX\_\_DYNAMISK\_APPLIKATION SKALA UT|5|
+|WEBBPLATS\_högsta\_dynamiska\_program\_skala\_ut|5|
 
-## <a name="website_node_default_version"></a>WEBBPLATSNOD\_\_DEFAULT_VERSION
+## <a name="website_node_default_version"></a>noden\_\_webbplats DEFAULT_VERSION
 
 _Endast Windows._  
-Anger vilken version av Nod.js som ska användas när du kör funktionsappen i Windows. Du bör använda en tilde (~) för att få körningen att använda den senaste tillgängliga versionen av den riktade huvudversionen. När du till `~10`exempel är inställd på används den senaste versionen av Node.js 10. När en huvudversion är riktad med en tilde behöver du inte uppdatera delversionen manuellt. 
+Anger den version av Node. js som ska användas när du kör din Function-app i Windows. Du bör använda tilde (~) om du vill att körnings miljön ska använda den senaste tillgängliga versionen av mål versionen. Om till `~10`exempel är inställt på, används den senaste versionen av Node. js 10. När en högre version är riktad mot ett tilde behöver du inte uppdatera den lägre versionen manuellt. 
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|WEBBPLATSNOD\_\_DEFAULT_VERSION|~ 10|
+|noden\_\_webbplats DEFAULT_VERSION|~ 10|
 
-## <a name="website_run_from_package"></a>WEBBPLATS\_\_KÖRA\_FRÅN PAKETET
+## <a name="website_run_from_package"></a>WEBBPLATS\_som\_körs\_från paket
 
-Gör att funktionsappen kan köras från en monterad paketfil.
+Gör att din Function-app kan köras från en monterad paket fil.
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|WEBBPLATS\_\_KÖRA\_FRÅN PAKETET|1|
+|WEBBPLATS\_som\_körs\_från paket|1|
 
-Giltiga värden är antingen en URL som matchas till `1`platsen för en distributionspaketfil eller . När det `1`är inställt på `d:\home\data\SitePackages` måste paketet finnas i mappen. När du använder zip-distribution med den här inställningen överförs paketet automatiskt till den här platsen. I förhandsgranskningen fick `WEBSITE_RUN_FROM_ZIP`den här inställningen namnet . Mer information finns i [Kör dina funktioner från en paketfil](run-functions-from-deployment-package.md).
+Giltiga värden är antingen en URL som matchar platsen för en distributions paket fil eller `1`. När det är `1`inställt på måste paketet finnas `d:\home\data\SitePackages` i mappen. När du använder zip-distribution med den här inställningen överförs paketet automatiskt till den här platsen. I för hands versionen hette den här `WEBSITE_RUN_FROM_ZIP`inställningen. Mer information finns i [köra funktioner från en paket fil](run-functions-from-deployment-package.md).
 
 ## <a name="azure_function_proxy_disable_local_call"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
-Som standard Fungerar proxyservrar kommer att använda en genväg för att skicka API-anrop från proxyservrar direkt till funktioner i samma funktion App, snarare än att skapa en ny HTTP-begäran. Med den här inställningen kan du inaktivera det beteendet.
+Som standard använder proxyservrar en genväg för att skicka API-anrop från proxyservrar direkt till funktioner i samma Funktionsapp istället för att skapa en ny HTTP-begäran. Med den här inställningen kan du inaktivera beteendet.
 
 |Nyckel|Värde|Beskrivning|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Samtal med en serverdels-URL som pekar på en funktion i den lokala funktionsappen skickas inte längre direkt till funktionen och dirigeras i stället tillbaka till HTTP-klientdelen för funktionsappen|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Detta är standardvärdet. Samtal med en backend-URL som pekar på en funktion i den lokala funktionsappen vidarebefordras direkt till den funktionen|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Anrop med en server dels-URL som pekar på en funktion i den lokala Funktionsapp kommer inte längre att skickas direkt till funktionen och kommer i stället att dirigeras tillbaka till HTTP-frontend för Funktionsapp|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|falskt|Detta är standardvärdet. Anrop med en server dels-URL som pekar på en funktion i den lokala Funktionsapp vidarebefordras direkt till den funktionen|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
-Den här inställningen styr om %2F avkodas som snedstreck i flödesparametrar när de infogas i backend-URL:en. 
+Den här inställningen styr om% 2F avkodas som snedstreck i väg parametrar när de infogas i Server dels-URL: en. 
 
 |Nyckel|Värde|Beskrivning|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Vägparametrar med kodade snedstreck kommer att få dem avkodade. `example.com/api%2ftest`kommer att bli`example.com/api/test`|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Det här är standardbeteendet. Alla ruttparametrar kommer att skickas längs oförändrade|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Väg parametrar med kodade snedstreck kommer att avkodas. `example.com/api%2ftest`blir`example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|falskt|Det här är standardbeteendet. Alla väg parametrar kommer att skickas längs oförändrade|
 
 ### <a name="example"></a>Exempel
 
-Här är ett exempel proxies.json i en funktionsapp på URL-myfunction.com
+Här är ett exempel på proxy. json i en Function-app på URL-myfunction.com
 
 ```JSON
 {
@@ -232,13 +232,13 @@ Här är ett exempel proxies.json i en funktionsapp på URL-myfunction.com
 |URL-avkodning|Indata|Resultat|
 |-|-|-|
 |true|myfunction.com/test%2fapi|example.com/test/api
-|false|myfunction.com/test%2fapi|example.com/test%2fapi|
+|falskt|myfunction.com/test%2fapi|example.com/test%2fapi|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs om hur du uppdaterar appinställningar](functions-how-to-use-azure-function-app-settings.md#settings)
+[Lär dig hur du uppdaterar appinställningar](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[Se globala inställningar i filen host.json](functions-host-json.md)
+[Se globala inställningar i Host. JSON-filen](functions-host-json.md)
 
-[Visa andra appinställningar för App Service-appar](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
+[Se andra app-inställningar för App Service appar](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

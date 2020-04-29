@@ -1,6 +1,6 @@
 ---
-title: Så här kontrollerar du hur jobbet fortskrider med REST API | Microsoft-dokument
-description: Den här artikeln visar hur du kontrollerar jobbstatus med Hjälp av Azure Media Services v2 REST API.
+title: Så här kontrollerar du jobb förloppet med REST API | Microsoft Docs
+description: Den här artikeln visar hur du kontrollerar jobb förloppet med hjälp av Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: cac8622c95ca2cb08ef412ac7117caac0c52ca56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773618"
 ---
-# <a name="how-to-check-job-progress"></a>Så här kontrollerar du hur jobbet fortskrider
+# <a name="how-to-check-job-progress"></a>Gör så här: kontrol lera jobb förloppet
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-När du kör jobb behöver du ofta ett sätt att spåra jobbframsteg. Du kan ta reda på jobbstatusen med hjälp av egenskapen Jobbtillstånd. Mer information om egenskapen State finns i [Egenskaper för entitet](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties)för jobb.
+När du kör jobb krävs ofta ett sätt att spåra jobbets förlopp. Du kan ta reda på jobbets status genom att använda jobbets egenskap State. Mer information om egenskapen state finns i egenskaper för [jobb enheter](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
-Information om hur du ansluter till AMS-API:et finns [i Komma åt Azure Media Services API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS-API: et finns i [komma åt Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="check-job-progress"></a>Kontrollera jobbförlopp
 
@@ -70,4 +70,4 @@ Svar:
 
 ## <a name="see-also"></a>Se även
 
-[Översikt över REST-API-API för Media Services-åtgärder](media-services-rest-how-to-use.md)
+[Översikt över Media Services åtgärder REST API](media-services-rest-how-to-use.md)

@@ -1,6 +1,6 @@
 ---
-title: Händelser framåt till Event Grid-molnet – Azure Event Grid IoT Edge | Microsoft-dokument
-description: Händelser framåt till moln för händelserutnät
+title: Forward Edge-händelser till Event Grid Cloud-Azure Event Grid IoT Edge | Microsoft Docs
+description: Forward Edge-händelser till Event Grid Cloud
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,41 +10,41 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76844725"
 ---
-# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Självstudiekurs: Vidarebefordra händelser till moln för Händelserutnät
+# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Självstudie: vidarebefordra händelser till Event Grid Cloud
 
-Den här artikeln går igenom alla steg som behövs för att vidarebefordra kanthändelser till Event Grid i Azure-molnet. Du kanske vill göra det av följande skäl:
+Den här artikeln vägleder dig igenom alla steg som krävs för att vidarebefordra Edge-händelser till Event Grid i Azure-molnet. Du kanske vill göra det av följande orsaker:
 
-* Reagera på kanthändelser i molnet.
-* Vidarebefordra händelser till Event Grid i molnet och använd Azure Event Hubs eller Azure Storage-köer för att buffra händelser innan du bearbetar dem i molnet.
+* Reagera på gräns händelser i molnet.
+* Vidarebefordra händelser till Event Grid i molnet och använda Azure Event Hubs eller Azure Storage köer för att buffra händelser innan de bearbetas i molnet.
 
- För att slutföra den här självstudien måste du ha en förståelse för eventrutnätsbegrepp på [kant](concepts.md) och [Azure](../concepts.md). Ytterligare måltyper finns i [händelsehanterare](event-handlers.md). 
+ För att slutföra den här självstudien måste du ha en förståelse för Event Grid koncept på [Edge](concepts.md) och [Azure](../concepts.md). För ytterligare mål typer, se [händelse hanterare](event-handlers.md). 
 
 ## <a name="prerequisites"></a>Krav 
-För att slutföra den här guiden behöver du:
+För att kunna slutföra den här självstudien behöver du:
 
-* **Azure-prenumeration** - Skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 
-* **Azure IoT Hub och IoT Edge-enhet** – Följ stegen i snabbstarten för [Linux-](../../iot-edge/quickstart-linux.md) eller [Windows-enheter](../../iot-edge/quickstart.md) om du inte redan har en.
+* **Azure-prenumeration** – skapa ett [kostnads fritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 
+* **Azure IoT Hub-och IoT Edge-enhet** – Följ anvisningarna i snabb start för [Linux](../../iot-edge/quickstart-linux.md) -eller [Windows-enheter](../../iot-edge/quickstart.md) om du inte redan har en.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
-## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Skapa ämne och prenumeration i händelserutnät i molnet
+## <a name="create-event-grid-topic-and-subscription-in-cloud"></a>Skapa event Grid-ämne och-prenumeration i molnet
 
-Skapa ett ämne och en prenumeration i molnet genom att följa den [här självstudien](../custom-event-quickstart-portal.md). `topicURL`Anmför `sasKey`, `topicName` och det nyskapade ämne som du ska använda senare i självstudien.
+Skapa ett event Grid-ämne och en prenumeration i molnet genom att följa [den här självstudien](../custom-event-quickstart-portal.md). Anteckna `topicURL`, `sasKey`och `topicName` av det nyligen skapade avsnittet som du kommer att använda senare i självstudien.
 
-Om du till exempel har `testegcloudtopic` skapat ett ämne med namnet i västra USA skulle värdena se ut ungefär som:
+Om du till exempel har skapat ett ämne som `testegcloudtopic` heter västra USA, skulle värdena se ut ungefär så här:
 
 * **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
 * **TopicName**:`testegcloudtopic`
-* **SasKey:** Tillgänglig under **AccessKey** av ditt ämne. Använd **key1**.
+* **SasKey**: tillgänglig under **Accesskey** i ditt ämne. Använd **KEY1**.
 
-## <a name="create-event-grid-topic-at-the-edge"></a>Skapa händelserutnätsämne vid kanten
+## <a name="create-event-grid-topic-at-the-edge"></a>Avsnittet Skapa händelse rutnät i kanten
 
-1. Skapa topic3.json med följande innehåll. Mer information om nyttolasten finns i vår [API-dokumentation.](api.md)
+1. Skapa topic3. JSON med följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
 
     ```json
         {
@@ -54,12 +54,12 @@ Om du till exempel har `testegcloudtopic` skapat ett ämne med namnet i västra 
           }
         }
     ```
-1. Kör följande kommando för att skapa ämnet. HTTP-statuskoden för 200 OK ska returneras.
+1. Kör följande kommando för att skapa ämnet. HTTP-statuskod på 200 OK ska returneras.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
-1. Kör följande kommando för att verifiera att ämnet har skapats. HTTP-statuskoden för 200 OK ska returneras.
+1. Kör följande kommando för att kontrol lera att avsnittet har skapats. HTTP-statuskod på 200 OK ska returneras.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
@@ -81,11 +81,11 @@ Om du till exempel har `testegcloudtopic` skapat ett ämne med namnet i västra 
         ]
    ```
   
-## <a name="create-event-grid-subscription-at-the-edge"></a>Skapa prenumeration på Event Grid-abonnemang på gränsen
+## <a name="create-event-grid-subscription-at-the-edge"></a>Skapa Event Grid prenumeration vid gränsen
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Skapa prenumeration3.json med följande innehåll. Mer information om nyttolasten finns i vår [API-dokumentation.](api.md)
+1. Skapa subscription3. JSON med följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
 
    ```json
         {
@@ -103,7 +103,7 @@ Om du till exempel har `testegcloudtopic` skapat ett ämne med namnet i västra 
    ```
 
    >[!NOTE]
-   > **SlutpunktenUrl** anger att händelsen Rutnätsämne URL i molnet. **SasKey** refererar till händelsen Grid molnämnets nyckel. Värdet i **topicName** används för att stämpla alla utgående händelser till Event Grid. Detta kan vara användbart när du bokför ett domänavsnitt för Event Grid. Mer information om domänavsnittet För Händelserutnät finns i [Händelsedomäner](../event-domains.md)
+   > **EndpointUrl** anger att URL: en för Event Grid avsnittet i molnet. **SasKey** refererar till Event Grid moln ämnets nyckel. Värdet i **topicName** kommer att användas för att stämpla alla utgående händelser till Event Grid. Detta kan vara användbart när du publicerar i ett Event Grid domän ämne. Mer information om Event Grid domän finns i [händelse domäner](../event-domains.md)
 
     Exempel:
   
@@ -122,13 +122,13 @@ Om du till exempel har `testegcloudtopic` skapat ett ämne med namnet i västra 
         }
     ```
 
-2. Kör följande kommando för att skapa prenumerationen. HTTP-statuskoden för 200 OK ska returneras.
+2. Kör följande kommando för att skapa prenumerationen. HTTP-statuskod på 200 OK ska returneras.
 
      ```sh
      curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
      ```
 
-3. Kör följande kommando för att verifiera att prenumerationen har skapats. HTTP-statuskoden för 200 OK ska returneras.
+3. Kör följande kommando för att kontrol lera att prenumerationen har skapats. HTTP-statuskod på 200 OK ska returneras.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
@@ -155,9 +155,9 @@ Om du till exempel har `testegcloudtopic` skapat ett ämne med namnet i västra 
         }
     ```
 
-## <a name="publish-an-event-at-the-edge"></a>Publicera en händelse vid kanten
+## <a name="publish-an-event-at-the-edge"></a>Publicera en händelse i kanten
 
-1. Skapa event3.json med följande innehåll. Mer information om nyttolasten finns i [API-dokumentationen.](api.md)
+1. Skapa event3. JSON med följande innehåll. Se [API-dokumentationen](api.md) för mer information om nytto lasten.
 
     ```json
         [
@@ -181,25 +181,25 @@ Om du till exempel har `testegcloudtopic` skapat ett ämne med namnet i västra 
     curl -k -H "Content-Type: application/json" -X POST -g -d @event3.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/events?api-version=2019-01-01-preview
     ```
 
-## <a name="verify-edge-event-in-cloud"></a>Verifiera kanthändelse i molnet
+## <a name="verify-edge-event-in-cloud"></a>Kontrol lera Edge-händelsen i molnet
 
-Information om hur du visar händelser som levereras av molnämnet finns i [självstudien](../custom-event-quickstart-portal.md).
+Information om hur du visar händelser som levereras av moln ämnet finns i [självstudien](../custom-event-quickstart-portal.md).
 
 ## <a name="cleanup-resources"></a>Rensa resurser
 
-* Kör följande kommando för att ta bort ämnet och alla dess prenumerationer
+* Kör följande kommando för att ta bort ämnet och alla prenumerationer
 
     ```sh
     curl -k -H "Content-Type: application/json" -X DELETE https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
 
-* Ta bort ämne och prenumerationer som skapats i molnet (Azure Event Grid) också.
+* Ta bort avsnittet och prenumerationerna som skapats i molnet (Azure Event Grid) också.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien publicerade du en händelse på kanten och vidarebefordras till Event Grid i Azure-molnet. Nu när du vet de grundläggande stegen för att vidarebefordra till Event Grid i molnet:
+I den här självstudien publicerade du en händelse på gränsen och vidarebefordrad till Event Grid i Azure-molnet. Nu när du känner till de grundläggande stegen för att vidarebefordra till Event Grid i molnet:
 
-* Information om felsökning av problem med att använda Azure Event Grid på IoT Edge finns i [felsökningsguide .](troubleshoot.md)
+* Information om hur du felsöker problem med att använda Azure Event Grid på IoT Edge finns i [fel söknings guide](troubleshoot.md).
 * Vidarebefordra händelser till IoTHub genom att följa den här [självstudien](forward-events-iothub.md)
-* Vidarebefordra händelser till Webhook i molnet genom att följa den här [självstudien](pub-sub-events-webhook-cloud.md)
+* Vidarebefordra händelser till webhook i molnet genom att följa den här [självstudien](pub-sub-events-webhook-cloud.md)
 * [Övervaka ämnen och prenumerationer på gränsen](monitor-topics-subscriptions.md)

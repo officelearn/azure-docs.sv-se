@@ -9,36 +9,36 @@ ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
 ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73182286"
 ---
 ### <a name="what-is-expressroute-direct"></a>Vad är ExpressRoute Direct?
 
-Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microsofts globala nätverk vid peering-platser strategiskt fördelade runt om i världen. ExpressRoute Direct ger dubbla 100 eller 10 Gbit/s-anslutning, som stöder aktiv/aktiv anslutning i stor skala. 
+Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microsofts globala nätverk vid peering-platser strategiskt fördelade runt om i världen. ExpressRoute Direct tillhandahåller dubbla 100-eller 10 Gbit/s-anslutningar, som har stöd för aktiv/aktiv anslutning i stor skala. 
 
-### <a name="how-do-customers-connect-to-expressroute-direct"></a>Hur ansluter kunder till ExpressRoute Direct? 
+### <a name="how-do-customers-connect-to-expressroute-direct"></a>Hur ansluter kunderna till ExpressRoute Direct? 
 
-Kunderna måste arbeta med sina lokala operatörer och samlokaliseringsleverantörer för att få anslutning till ExpressRoute-routrar för att dra nytta av ExpressRoute Direct.
+Kunderna måste arbeta med sina lokala operatörer och samlokaliserings leverantörer för att få anslutning till ExpressRoute-routrar för att kunna dra nytta av ExpressRoute Direct.
 
-### <a name="what-locations-currently-support-expressroute-direct"></a>Vilka platser har för närvarande stöd för ExpressRoute Direct? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>Vilka platser stöder för närvarande ExpressRoute Direct? 
 
-Kontrollera tillgängligheten på [platssidan](../articles/expressroute/expressroute-locations-providers.md). 
+Kontrol lera tillgängligheten på [sidan plats](../articles/expressroute/expressroute-locations-providers.md). 
 
-### <a name="what-is-the-sla-for-expressroute-direct"></a>Vad är SLA för ExpressRoute Direct?
+### <a name="what-is-the-sla-for-expressroute-direct"></a>Vad är service avtalet för ExpressRoute Direct?
 
-ExpressRoute Direct kommer att använda samma [företagsklass på ExpressRoute](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/). 
+ExpressRoute Direct kommer att använda samma [ExpressRoute i företags klass](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/). 
 
-### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Vilka scenarier bör kunderna tänka på med ExpressRoute Direct?  
+### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Vilka scenarier bör kunderna överväga med ExpressRoute Direct?  
 
-ExpressRoute Direct ger kunderna direkt 100 eller 10 Gbps portpar i Microsofts globala ryggrad. De scenarier som ger kunderna de största fördelarna är: Massiv datainmatning, fysisk isolering för reglerade marknader och dedikerad kapacitet för burst-scenario, som rendering. 
+ExpressRoute Direct tillhandahåller kunder med port par för Direct 100 eller 10 Gbit/s i Microsofts globala stamnät. De scenarier som ger kunderna de största fördelarna är: massiv data inmatning, fysisk isolering för reglerade marknader och dedikerad kapacitet för burst-scenario, som åter givning. 
 
-### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Vad är faktureringsmodellen för ExpressRoute Direct? 
+### <a name="what-is-the-billing-model-for-expressroute-direct"></a>Vad är fakturerings modellen för ExpressRoute Direct? 
 
-ExpressRoute Direct faktureras för portparet till ett fast belopp. Standardkretsar kommer att inkluderas utan ytterligare timmar och premium kommer att ha en liten tilläggsavgift. Utgående kommer att faktureras per krets baserat på zonen för peering-platsen.
+ExpressRoute Direct debiteras för port paret vid ett fast belopp. Standard kretsar tas med utan ytterligare timmar och Premium har en kort avgift. Utgående kommer att debiteras per krets baserat på peering-platsens zon.
 
-### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>När startar faktureringen för ExpressRoute Direct-portpar?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>När startar faktureringen för ExpressRoute Direct-port par?
 
-ExpressRoute Directs portpar faktureras 45 dagar in i skapandet av ExpressRoute Direct-resursen eller när 1 eller båda länkarna är aktiverade, beroende på vilket som inträffar först. Respitperioden på 45 dagar beviljas för att tillåta kunder att slutföra anslutningsprocessen med samlokaliseringsleverantören.
+ExpressRoute Directs port par faktureras 45 dagar i skapandet av ExpressRoute Direct-resursen eller när 1 eller båda länkarna är aktiverade, beroende på vilket som kommer först. Perioden på 45 dagar beviljas för att tillåta kunder att slutföra processen för kors anslutnings processen med en provider för samlokalisering.

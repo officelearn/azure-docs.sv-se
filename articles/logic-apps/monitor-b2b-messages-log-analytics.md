@@ -1,145 +1,145 @@
 ---
 title: Övervaka B2B-meddelanden med hjälp av Azure Monitor
-description: Felsöka AS2-, X12- och EDIFACT-meddelanden genom att konfigurera Azure Monitor-loggar och samla in diagnostikdata för Azure Logic Apps
+description: Felsök AS2-, X12-och EDIFACT-meddelanden genom att konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: e9ba5a516293eb72a715dc9d0df7db4d5a4ea3c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76907986"
 ---
-# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Konfigurera Azure Monitor-loggar och samla in diagnostikdata för B2B-meddelanden i Azure Logic Apps
+# <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Konfigurera Azure Monitor loggar och samla in diagnostikdata för B2B-meddelanden i Azure Logic Apps
 
-När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan dessa partner utbyta meddelanden med hjälp av protokoll som AS2, X12 och EDIFACT. Om du vill kontrollera att den här kommunikationen fungerar som förväntat kan du konfigurera [Azure Monitor-loggar](../azure-monitor/platform/data-platform-logs.md) för ditt integrationskonto. [Azure Monitor](../azure-monitor/overview.md) hjälper dig att övervaka dina molnmiljöer och lokala miljöer så att du lättare kan underhålla deras tillgänglighet och prestanda. Genom att använda Azure Monitor-loggar kan du registrera och lagra data om körningsdata och händelser, till exempel utlösarhändelser, köra händelser och åtgärdshändelser på en [Log Analytics-arbetsyta](../azure-monitor/platform/resource-logs-collect-workspace.md). För meddelanden samlar loggning också in information som:
+När du har konfigurerat B2B-kommunikation mellan handels partner i ditt integrations konto kan dessa partners utbyta meddelanden med hjälp av protokoll som AS2, X12 och EDIFACT. För att kontrol lera att den här kommunikationen fungerar som du förväntar dig kan du konfigurera [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md) för ditt integrations konto. [Azure Monitor](../azure-monitor/overview.md) hjälper dig att övervaka molnet och lokala miljöer så att du enklare kan underhålla deras tillgänglighet och prestanda. Genom att använda Azure Monitor loggar kan du registrera och lagra data om körnings data och händelser, t. ex. utlösa händelser, köra händelser och åtgärds händelser i en [Log Analytics arbets yta](../azure-monitor/platform/resource-logs-collect-workspace.md). För meddelanden samlar loggning även in information som:
 
 * Antal meddelanden och status
-* Status för bekräftelser
+* Bekräftelse status
 * Korrelationer mellan meddelanden och bekräftelser
-* Detaljerade felbeskrivningar för fel
+* Detaljerade fel beskrivningar för fel
 
-Med Azure Monitor kan du skapa [loggfrågor](../azure-monitor/log-query/log-query-overview.md) som hjälper dig att hitta och granska den här informationen. Du kan också [använda dessa diagnostikdata med andra Azure-tjänster](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), till exempel Azure Storage och Azure Event Hubs.
+Med Azure Monitor kan du skapa [logg frågor](../azure-monitor/log-query/log-query-overview.md) som hjälper dig att hitta och granska den här informationen. Du kan också [använda dessa diagnostikdata med andra Azure-tjänster](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), till exempel Azure Storage och Azure Event Hubs.
 
-Installera [Logic Apps B2B-lösningen](#install-b2b-solution) i Azure-portalen om du vill konfigurera loggning för ditt integrationskonto. Den här lösningen innehåller aggregerad information för B2B-meddelandehändelser. Sedan, för att aktivera loggning och skapa frågor för den här informationen, ställa in [Azure Monitor loggar](#set-up-resource-logs).
+Om du vill konfigurera loggning för ditt integrations konto [installerar du Logic Apps B2B-lösningen](#install-b2b-solution) i Azure Portal. Den här lösningen tillhandahåller sammanställd information för B2B-meddelande händelser. Om du vill aktivera loggning och skapa frågor för den här informationen konfigurerar du [Azure Monitor loggar](#set-up-resource-logs).
 
-Den här artikeln visar hur du aktiverar Azure Monitor-loggning för ditt integrationskonto.
+Den här artikeln visar hur du aktiverar Azure Monitor loggning för ditt integrations konto.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-* En Log Analytics-arbetsyta. Om du inte har en Log Analytics-arbetsyta kan du läsa om hur du [skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
+* En Log Analytics-arbetsyta. Om du inte har en Log Analytics arbets yta, lär du dig [hur du skapar en Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md).
 
-* En logikapp som konfigureras med Azure Monitor-loggning och skickar den informationen till en Log Analytics-arbetsyta. Lär dig hur du [konfigurerar Azure Monitor-loggar för logikappen](../logic-apps/monitor-logic-apps.md).
+* En Logic-app som har kon figurer ATS med Azure Monitor loggning och skickar informationen till en Log Analytics arbets yta. Lär dig [hur du konfigurerar Azure Monitor loggar för din Logic app](../logic-apps/monitor-logic-apps.md).
 
-* Ett integrationskonto som är länkat till logikappen. Läs om hur du [länkar ditt integrationskonto till logikappen](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+* Ett integrations konto som är länkat till din Logic app. Lär dig [hur du länkar ditt integrations konto till din Logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 <a name="install-b2b-solution"></a>
 
-## <a name="install-logic-apps-b2b-solution"></a>Installera Logic Apps B2B-lösning
+## <a name="install-logic-apps-b2b-solution"></a>Installera Logic Apps B2B lösning
 
-Innan Azure Monitor-loggar kan spåra B2B-meddelandena för logikappen lägger du till **Logic Apps B2B-lösningen** på din Log Analytics-arbetsyta.
+Innan Azure Monitor loggar kan spåra B2B-meddelanden för din Logic app lägger du till **Logic Apps B2B** -lösningen i din Log Analytics-arbetsyta.
 
-1. I sökrutan [för Azure-portalen](https://portal.azure.com)anger du `log analytics workspaces`och väljer sedan Log **Analytics-arbetsytor**.
+1. I sökrutan [Azure Portal](https://portal.azure.com)anger `log analytics workspaces`du och väljer **Log Analytics arbets ytor**.
 
-   ![Välj "Log Analytics-arbetsytor"](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
+   ![Välj Log Analytics arbets ytor](./media/monitor-b2b-messages-log-analytics/find-select-log-analytics-workspaces.png)
 
-1. Välj arbetsyta under **Log Analytics-arbetsytor.**
+1. Under **Log Analytics arbets ytor**väljer du din arbets yta.
 
-   ![Välj arbetsytan Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
+   ![Välj din Log Analytics arbets yta](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. Välj **Visa lösningar**under **Kom igång med Logganalys** > **Konfigurera övervakningslösningar**i fönstret Översikt .
+1. I fönstret Översikt, under **Kom igång med Log Analytics** > **Konfigurera övervaknings lösningar**, väljer du **Visa lösningar**.
 
-   ![I fönstret Översikt väljer du "Visa lösningar"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
+   ![I översikts fönstret väljer du "Visa lösningar"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
-1. Välj **Lägg till**i fönstret Översikt .
+1. I översikts fönstret väljer du **Lägg till**.
 
-   ![Lägg till ny lösning i översiktsfönstret](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
+   ![Lägg till ny lösning i översikts fönstret](./media/monitor-b2b-messages-log-analytics/add-logic-apps-management-solution.png)
 
-1. När **Marketplace** har öppnats anger `logic apps b2b`du i sökrutan och väljer **Logic Apps B2B**.
+1. När **Marketplace** öppnas i rutan Sök anger `logic apps b2b`du och väljer **Logic Apps B2B**.
 
-   ![På Marketplace väljer du "Logic Apps Management"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
+   ![Från Marketplace väljer du "Logic Apps hantering"](./media/monitor-b2b-messages-log-analytics/select-logic-apps-b2b-solution.png)
 
-1. Välj **Skapa**i fönstret lösningsbeskrivning .
+1. I fönstret lösnings Beskrivning väljer du **skapa**.
 
-   ![Välj "Skapa" om du vill lägga till "Logic Apps B2B"-lösning](./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png)
+   ![Välj "skapa" för att lägga till "Logic Apps B2B"-lösning](./media/monitor-b2b-messages-log-analytics/create-logic-apps-b2b-solution.png)
 
-1. Granska och bekräfta log analytics-arbetsytan där du vill installera lösningen och välj **Skapa** igen.
+1. Granska och bekräfta Log Analytics arbets ytan där du vill installera lösningen och välj sedan **skapa** igen.
 
-   ![Välj "Skapa" för "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png)
+   ![Välj "skapa" för "Logic Apps B2B"](./media/monitor-b2b-messages-log-analytics/confirm-log-analytics-workspace.png)
 
-   När Azure har distribuerat lösningen till Azure-resursgruppen som innehåller din Log Analytics-arbetsyta visas lösningen i arbetsytans sammanfattningsfönster. När B2B-meddelanden bearbetas uppdateras meddelandeantalet i det här fönstret.
+   När Azure har distribuerat lösningen till den Azure-resurs grupp som innehåller din Log Analytics arbets yta, visas lösningen i arbets ytans sammanfattnings fönster. När B2B-meddelanden bearbetas uppdateras antalet meddelanden i den här rutan.
 
-   ![Sammanfattningsfönster för arbetsyta](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
+   ![Fönstret Sammanfattning av arbets yta](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
 <a name="set-up-resource-logs"></a>
 
-## <a name="set-up-azure-monitor-logs"></a>Konfigurera Azure Monitor-loggar
+## <a name="set-up-azure-monitor-logs"></a>Konfigurera Azure Monitor loggar
 
-Du kan aktivera Azure Monitor-loggning direkt från ditt integrationskonto.
+Du kan aktivera Azure Monitor loggning direkt från ditt integrations konto.
 
-1. Leta reda på och välj ditt integrationskonto i [Azure-portalen.](https://portal.azure.com)
+1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer ditt integrations konto.
 
-   ![Hitta och välj ditt integrationskonto](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
+   ![Hitta och välj ditt integrations konto](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
 
-1. Välj Diagnostikinställningar under **Övervakning**på integrationskontots **meny.** Välj **Lägg till diagnostikinställning**.
+1. På integrations kontots meny, under **övervakning**, väljer du **diagnostikinställningar**. Välj **Lägg till diagnostisk inställning**.
 
-   ![Under "Övervakning" väljer du "Diagnostikinställningar"](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
+   ![Under "övervakning" väljer du inställningar för diagnostik](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
 
-1. Så här skapar du inställningen:
+1. Följ de här stegen för att skapa inställningen:
 
    1. Ange ett namn för inställningen.
 
-   1. Välj **Skicka till logganalys**.
+   1. Välj **Skicka till Log Analytics**.
 
-   1. För **prenumeration**väljer du den Azure-prenumeration som är associerad med din Log Analytics-arbetsyta.
+   1. För **prenumeration**väljer du den Azure-prenumeration som är kopplad till din Log Analytics-arbetsyta.
 
-   1. För **Logganalysarbetsyta**väljer du den arbetsyta som du vill använda.
+   1. För **Log Analytics arbets yta**väljer du den arbets yta som du vill använda.
 
-   1. Under **loggen**väljer du kategorin **IntegrationAccountTrackingEvents,** som anger den händelsekategori som du vill spela in.
+   1. Under **loggen**väljer du kategorin **IntegrationAccountTrackingEvents** som anger den händelse kategori som du vill registrera.
 
    1. När du är klar väljer du **Spara**.
 
    Ett exempel: 
 
-   ![Konfigurera Azure Monitor-loggar för att samla in diagnostikdata](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
+   ![Konfigurera Azure Monitor loggar för att samla in diagnostikdata](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
 <a name="view-message-status"></a>
 
-## <a name="view-message-status"></a>Visa meddelandestatus
+## <a name="view-message-status"></a>Visa meddelande status
 
-När logikappen har körts kan du visa status och data om dessa meddelanden på logganalysarbetsytan.
+När din Logic App körs kan du Visa status och information om dessa meddelanden i din Log Analytics-arbetsyta.
 
-1. Leta reda på och öppna arbetsytan Log Analytics i sökrutan för [Azure Portal.](https://portal.azure.com)
+1. Leta upp och öppna arbets ytan Log Analytics i rutan [Azure Portal](https://portal.azure.com) Sök.
 
-1. På arbetsytans meny väljer du**Logic Apps B2B**för **arbetsytan.** > 
+1. På arbets ytans meny väljer du **Sammanfattning** > av arbets yta**Logic Apps B2B**.
 
-   ![Sammanfattningsfönster för arbetsyta](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
+   ![Fönstret Sammanfattning av arbets yta](./media/monitor-b2b-messages-log-analytics/b2b-overview-messages-summary.png)
 
    > [!NOTE]
-   > Om panelen Logic Apps B2B inte omedelbart visar resultat efter en körning kan du prova att välja **Uppdatera** eller vänta en kort stund innan du försöker igen.
+   > Om Logic Apps B2B panelen inte omedelbart visar resultat efter en körning, försök att välja **Uppdatera** eller vänta en stund innan du försöker igen.
 
-   Som standard visar panelen **Logic Apps B2B** data baserat på en enda dag. Om du vill ändra dataomfånget till ett annat intervall markerar du scopekontrollen högst upp på sidan:
+   Som standard visar panelen **Logic Apps B2B** data baserat på en enda dag. Om du vill ändra data omfånget till ett annat intervall väljer du kontrollen omfång överst på sidan:
 
    ![Ändra intervall](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
 
-1. När instrumentpanelen för meddelandestatus har visats kan du visa mer information för en viss meddelandetyp, som visar data baserat på en enda dag. Välj panelen för **AS2,** **X12**eller **EDIFACT**.
+1. När instrument panelen för meddelande status visas kan du Visa mer information om en viss meddelande typ, som visar data baserat på en enda dag. Välj panelen för **AS2**, **X12**eller **EDIFACT**.
 
    ![Visa status för meddelanden](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
 
-   En lista med meddelanden visas för den valda panelen. Så här kan det till exempel se ut i en AS2-meddelandelista:
+   En lista med meddelanden visas för din valda panel. Till exempel kan en lista över AS2-meddelanden se ut så här:
 
-   ![Statusar och information för AS2-meddelanden](./media/monitor-b2b-messages-log-analytics/as2-message-results-list.png)
+   ![Status och information för AS2-meddelanden](./media/monitor-b2b-messages-log-analytics/as2-message-results-list.png)
 
-   Mer information om egenskaperna för varje meddelandetyp finns i följande beskrivningar av meddelandeegenskaper:
+   Mer information om egenskaperna för varje meddelande typ finns i följande beskrivningar av meddelande egenskaper:
 
-   * [EGENSKAPER FÖR AS2-meddelande](#as2-message-properties)
-   * [Egenskaper för X12-meddelanden](#x12-message-properties)
-   * [Egenskaper för EDIFACT-meddelanden](#EDIFACT-message-properties)
+   * [Egenskaper för AS2-meddelande](#as2-message-properties)
+   * [Egenskaper för X12-meddelande](#x12-message-properties)
+   * [Egenskaper för EDIFACT-meddelande](#EDIFACT-message-properties)
 
 <!--
 1. To view or export the inputs and outputs for specific messages, select those messages, and select **Download**. When you're prompted, save the .zip file to your local computer, and then extract that file.
@@ -170,27 +170,27 @@ När logikappen har körts kan du visa status och data om dessa meddelanden på 
 
 <a name="message-list-property-descriptions"></a>
 
-## <a name="property-descriptions-and-name-formats-for-as2-x12-and-edifact-messages"></a>Egenskapsbeskrivningar och namnformat för AS2-, X12- och EDIFACT-meddelanden
+## <a name="property-descriptions-and-name-formats-for-as2-x12-and-edifact-messages"></a>Egenskaps beskrivningar och namn format för AS2-, X12-och EDIFACT-meddelanden
 
-För varje meddelandetyp följer här egenskapsbeskrivningarna och namnformaten för nedladdade meddelandefiler.
+Här är egenskaps beskrivningar och namn format för hämtade meddelandefiler för varje meddelande typ.
 
 <a name="as2-message-properties"></a>
 
-### <a name="as2-message-property-descriptions"></a>Beskrivningar av AS2-meddelandeegenskap
+### <a name="as2-message-property-descriptions"></a>Beskrivningar av AS2 meddelande egenskaper
 
-Här är egenskapsbeskrivningarna för varje AS2-meddelande.
+Här är egenskaps beskrivningarna för varje AS2-meddelande.
 
 | Egenskap | Beskrivning |
 |----------|-------------|
-| **Avsändare** | Gästpartnern som anges i **Mottagningsinställningar**eller den värdpartner som anges i **Skicka inställningar** för ett AS2-avtal |
-| **Mottagare** | Värdpartnern som anges i **Mottagningsinställningar**eller gästpartnern som anges i **Skicka inställningar** för ett AS2-avtal |
-| **Logikapp** | Logikappen där AS2-åtgärderna ställs in |
-| **Status** | Status för AS2-meddelandet <br>Framgång = Tog emot eller skickade ett giltigt AS2-meddelande. Inget MDN har konfigurerats. <br>Framgång = Tog emot eller skickade ett giltigt AS2-meddelande. MDN har konfigurerats och tagits emot eller så skickas MDN. <br>Misslyckades = Tog emot ett ogiltigt AS2-meddelande. Inget MDN har konfigurerats. <br>Väntande = Tog emot eller skickade ett giltigt AS2-meddelande. MDN har konfigurerats och MDN förväntas. |
-| **ACK (se)** | Mdn-meddelandestatus <br>Accepterad = Tog emot eller skickade ett positivt MDN. <br>Väntande = Väntar på att ta emot eller skicka ett MDN. <br>Avvisad = Tog emot eller skickade ett negativt MDN. <br>Krävs inte = MDN har inte ställts in i avtalet. |
-| **Riktning** | AS2-meddelanderiktningen |
-| **Spårnings-ID** | ID:t som korrelerar alla utlösare och åtgärder i en logikapp |
-| **Meddelande-ID** | AS2-meddelande-ID:et från AS2-meddelanderubrikerna |
-| **Tidsstämpel** | Den tidpunkt då AS2-åtgärden bearbetade meddelandet |
+| **Avsändare** | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett AS2-avtal |
+| **Mottagare** | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett AS2-avtal |
+| **Logikapp** | Den Logic app där AS2-åtgärderna har kon figurer ATS |
+| **Status** | Status för AS2-meddelande <br>Lyckades = tar emot eller skickade ett giltigt AS2-meddelande. Ingen MDN har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt AS2-meddelande. MDN konfigureras och tas emot, eller så skickas MDN. <br>Misslyckades = ett ogiltigt AS2-meddelande togs emot. Ingen MDN har kon figurer ATS. <br>Väntar = tar emot eller skickade ett giltigt AS2-meddelande. MDN har ställts in och MDN förväntas. |
+| **Följ** | Status för MDN-meddelande <br>Accepterad = mottagen eller skickad positiv MDN. <br>Väntar = väntar på att ta emot eller skicka en MDN. <br>Avvisad = ta emot eller skicka ett negativt MDN. <br>Krävs inte = MDN har inte ställts in i avtalet. |
+| **Position** | AS2 meddelande riktning |
+| **Spårnings-ID** | Det ID som motsvarar alla utlösare och åtgärder i en Logic app |
+| **Meddelande-ID** | AS2 meddelande-ID från AS2-meddelandehuvuden |
+| **Tidsstämpel** | Tiden då AS2-åtgärden bearbetade meddelandet |
 |||
 
 <!--
@@ -209,23 +209,23 @@ Here are the name formats for each downloaded AS2 message folder and files.
 
 <a name="x12-message-properties"></a>
 
-### <a name="x12-message-property-descriptions"></a>Beskrivningar av X12-meddelandeegenskap
+### <a name="x12-message-property-descriptions"></a>Beskrivningar av X12 meddelande egenskaper
 
-Här är egenskapsbeskrivningarna för varje X12-meddelande.
+Här är egenskaps beskrivningarna för varje X12-meddelande.
 
 | Egenskap | Beskrivning |
 |----------|-------------|
-| **Avsändare** | Gästpartnern som anges i **Mottagningsinställningar**eller den värdpartner som anges i **Skicka inställningar** för ett X12-avtal |
-| **Mottagare** | Värdpartnern som anges i **Mottagningsinställningar**eller gästpartnern som anges i **Skicka inställningar** för ett X12-avtal |
-| **Logikapp** | Logikappen där X12-åtgärderna ställs in |
-| **Status** | Status för X12-meddelandet <br>Framgång = Tog emot eller skickade ett giltigt X12-meddelande. Ingen funktionell ack har ställts in. <br>Framgång = Tog emot eller skickade ett giltigt X12-meddelande. Funktionell ack ställs in och tas emot, eller så skickas en funktionell ack. <br>Misslyckades = Tog emot eller skickade ett ogiltigt X12-meddelande. <br>Väntande = Tog emot eller skickade ett giltigt X12-meddelande. Funktionell ack är inställd och en funktionell ack förväntas. |
-| **ACK (se)** | Funktionell Ack (997) status <br>Accepterad = Tog emot eller skickade en positiv funktionell ack. <br>Avvisad = Tog emot eller skickade ett negativt funktionellt ack. <br>Väntande = Väntar på en funktionell ack men inte mottagen. <br>Väntande = Genererade en funktionell ack men kan inte skicka till partner. <br>Krävs inte = Funktionell ack har inte ställts in. |
-| **Riktning** | X12-meddelanderiktningen |
-| **Spårnings-ID** | ID:t som korrelerar alla utlösare och åtgärder i en logikapp |
-| **Msg Typ** | Meddelandetypen EDI X12 |
-| **Icn** | Utväxlingskontrollnumret för X12-meddelandet |
-| **TSCN (TSCN)** | Kontrollnumret för transaktionsuppsättningen för X12-meddelandet |
-| **Tidsstämpel** | Den tidpunkt då X12-åtgärden bearbetade meddelandet |
+| **Avsändare** | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett X12-avtal |
+| **Mottagare** | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett X12-avtal |
+| **Logikapp** | Den Logic app där X12-åtgärderna har kon figurer ATS |
+| **Status** | Status för X12-meddelande <br>Lyckades = tar emot eller skickade ett giltigt X12-meddelande. Ingen funktions ack har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt X12-meddelande. Funktions ack har kon figurer ATS och tagits emot, eller en funktionell ack skickas. <br>Misslyckades = mottog eller skickade ett ogiltigt X12-meddelande. <br>Väntar = tar emot eller skickade ett giltigt X12-meddelande. Funktions ack har kon figurer ATS och en funktionell ack förväntas. |
+| **Följ** | Status för funktionell ack (997) <br>Accepterad = mottagen eller skickade en positiv funktionell ack. <br>Nekad = mottagen eller skickad negativ funktionell ack. <br>Väntar = en funktions ack förväntas men tas inte emot. <br>Väntar = genererar en funktionell ack men kan inte skicka till partner. <br>Inte obligatoriskt = funktions ack har inte kon figurer ATS. |
+| **Position** | X12 meddelande riktning |
+| **Spårnings-ID** | Det ID som motsvarar alla utlösare och åtgärder i en Logic app |
+| **Typ av meddelande** | Meddelande typen EDI-X12 |
+| **ICN** | Utbytes kontroll numret för X12-meddelandet |
+| **TSCN** | Kontroll nummer för transaktions uppsättning för X12-meddelandet |
+| **Tidsstämpel** | Tiden då X12-åtgärden bearbetade meddelandet |
 |||
 
 <!--
@@ -244,23 +244,23 @@ Here are the name formats for each downloaded X12 message folder and files.
 
 <a name="EDIFACT-message-properties"></a>
 
-### <a name="edifact-message-property-descriptions"></a>EDIFACT-meddelandeegenskapsbeskrivningar
+### <a name="edifact-message-property-descriptions"></a>Beskrivningar av EDIFACT meddelande egenskaper
 
-Här är egenskapsbeskrivningarna för varje EDIFACT-meddelande.
+Här är egenskaps beskrivningarna för varje EDIFACT-meddelande.
 
 | Egenskap | Beskrivning |
 |----------|-------------|
-| **Avsändare** | Gästpartnern som anges i **Mottagningsinställningar**eller den värdpartner som anges i **Skicka inställningar** för ett EDIFACT-avtal |
-| **Mottagare** | Värdpartnern som anges i **Mottagningsinställningar**eller gästpartnern som anges i **Skicka inställningar** för ett EDIFACT-avtal |
-| **Logikapp** | Logikappen där EDIFACT-åtgärderna ställs in |
-| **Status** | Status för EDIFACT-meddelandet <br>Framgång = Tog emot eller skickade ett giltigt EDIFACT-meddelande. Ingen funktionell ack har ställts in. <br>Framgång = Tog emot eller skickade ett giltigt EDIFACT-meddelande. Funktionell ack ställs in och tas emot, eller så skickas en funktionell ack. <br>Misslyckades = Tog emot eller skickade ett ogiltigt EDIFACT-meddelande <br>Väntande = Tog emot eller skickade ett giltigt EDIFACT-meddelande. Funktionell ack är inställd och en funktionell ack förväntas. |
-| **ACK (se)** | Funktionell Ack-status (CONTRL) <br>Accepterad = Tog emot eller skickade en positiv funktionell ack. <br>Avvisad = Tog emot eller skickade ett negativt funktionellt ack. <br>Väntande = Väntar på en funktionell ack men inte mottagen. <br>Väntande = Genererade en funktionell ack men kan inte skicka till partner. <br>Krävs inte = Funktionell Ack har inte ställts in. |
-| **Riktning** | EDIFACT-meddelanderiktningen |
-| **Spårnings-ID** | ID:t som korrelerar alla utlösare och åtgärder i en logikapp |
-| **Msg Typ** | Meddelandetypen EDIFACT |
-| **Icn** | Utväxlingskontrollnumret för EDIFACT-meddelandet |
-| **TSCN (TSCN)** | Kontrollnumret för transaktionsuppsättningen för EDIFACT-meddelandet |
-| **Tidsstämpel** | Den tidpunkt då EDIFACT-åtgärden bearbetade meddelandet |
+| **Avsändare** | Gäst partnern som anges i **ta emot inställningar**eller värd partnern som anges i **Skicka inställningar** för ett EDIFACT-avtal |
+| **Mottagare** | Värd partnern som anges i **ta emot inställningar**eller gäst partnern som anges i **Skicka inställningar** för ett EDIFACT-avtal |
+| **Logikapp** | Den Logic app där EDIFACT-åtgärderna har kon figurer ATS |
+| **Status** | Status för EDIFACT-meddelande <br>Lyckades = tar emot eller skickade ett giltigt EDIFACT-meddelande. Ingen funktions ack har kon figurer ATS. <br>Lyckades = tar emot eller skickade ett giltigt EDIFACT-meddelande. Funktions ack har kon figurer ATS och tagits emot, eller en funktionell ack skickas. <br>Misslyckades = mottaget eller skickat ett ogiltigt EDIFACT-meddelande <br>Väntar = tar emot eller skickade ett giltigt EDIFACT-meddelande. Funktions ack har kon figurer ATS och en funktionell ack förväntas. |
+| **Följ** | Status för funktionell ack (CONTRL) <br>Accepterad = mottagen eller skickade en positiv funktionell ack. <br>Nekad = mottagen eller skickad negativ funktionell ack. <br>Väntar = en funktions ack förväntas men tas inte emot. <br>Väntar = genererar en funktionell ack men kan inte skicka till partner. <br>Inte obligatoriskt = funktions ack har inte kon figurer ATS. |
+| **Position** | EDIFACT meddelande riktning |
+| **Spårnings-ID** | Det ID som motsvarar alla utlösare och åtgärder i en Logic app |
+| **Typ av meddelande** | Meddelande typen EDIFACT |
+| **ICN** | Utbytes kontroll numret för EDIFACT-meddelandet |
+| **TSCN** | Kontroll nummer för transaktions uppsättning för EDIFACT-meddelandet |
+| **Tidsstämpel** | Tiden då EDIFACT-åtgärden bearbetade meddelandet |
 |||
 
 <!--

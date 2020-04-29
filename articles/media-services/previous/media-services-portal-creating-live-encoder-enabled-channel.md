@@ -1,5 +1,5 @@
 ---
-title: Utföra livestreaming med Azure Media Services för att skapa flerbitratströmmar med Azure Portal | Microsoft-dokument
+title: Utför direkt uppspelning med Azure Media Services för att skapa strömmar med flera bit hastigheter med Azure Portal | Microsoft Docs
 description: De här självstudierna visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med flera bithastigheter med hjälp av Azure-portalen.
 services: media-services
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162573"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Utföra livestreaming med Media Services för att skapa flerbitratströmmar med Azure-portal  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Utföra Direktsänd strömning med Media Services för att skapa strömmar med flera bit hastigheter med Azure Portal  
 > [!div class="op_single_selector"]
-> * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+> * [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Den här självstudien visar dig stegen för att skapa en **kanal** som tar emot en  direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet.
 
@@ -41,10 +41,10 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 > [!NOTE]
 > Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amshelp@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 
-1. Anslut en videokamera till en dator. <br/>För setup idéer, kolla in [Enkel och bärbar händelse video redskap setup]( https://link.medium.com/KNTtiN6IeT).
+1. Anslut en videokamera till en dator. <br/>För installations tips kan du läsa mer i installations [programmet för enkel och bärbar händelse]( https://link.medium.com/KNTtiN6IeT).
 
-    Om du inte har tillgång till en kamera kan verktyg som [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) användas generera en live-feed från en videofil.
-1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och direktsända kodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Kolla också in den här bloggen: [Live streaming produktion med OBS](https://link.medium.com/ttuwHpaJeT).
+    Om du inte har åtkomst till en kamera kan du använda verktyg som t. ex. [Wirecast för multistream](media-services-configure-wirecast-live-encoder.md) för att generera en live-feed från en videofil.
+1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och direktsända kodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Ta också en titt på den här bloggen: [produktion av Direktsänd strömning med onlinebanksystem](https://link.medium.com/ttuwHpaJeT).
 
     Det här steget kan också utföras när du har skapat din kanal.
 1. Skapa och starta en kanal. 
@@ -94,7 +94,7 @@ Följande krävs för att kunna genomföra självstudien.
         Du kan inte ändra protokollalternativ när kanalen eller dess associerade händelse/program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje strömningsprotokoll.  
    2. Du kan använda IP-begränsning på inmatningen. 
 
-       Du kan definiera de IP-adresser som får mata in en video på den här kanalen. Tillåtna IP-adresser kan anges som antingen en enda IP-adress (t.ex. "10.0.0.1/22") eller ett IP-intervall med en IP-adress och en prickad decimalnätmask (t.ex. "10.0.0.1(255.255.252.0)").
+       Du kan definiera de IP-adresser som får mata in en video på den här kanalen. Tillåtna IP-adresser kan anges antingen som en enskild IP-adress (t. ex. 10.0.0.1), ett IP-intervall med en IP-adress och en CIDR-nätmask (t. ex. 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en punktavgränsad decimal näts mask (t. ex. 10.0.0.1 (255.255.252.0)).
 
        Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 6. På fliken **Förhandsvisning** appliceras IP-begränsning på förhandsgranskningen.
@@ -114,7 +114,7 @@ Mer information finns i [Direktsänd strömning med Azure Media Services för at
 ## <a name="get-ingest-urls"></a>Hämta infognings-URL:er
 När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
-![intag webbadresser](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![URL för inmatning](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Skapa och hantera händelser
 
@@ -149,7 +149,7 @@ Det finns två sätt att starta en händelse:
 
     Ange: händelsens namn, tillgångsnamn, arkivfönster och krypteringsalternativ.
 
-    ![skapa program](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Skapa program](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Om du markerat **Publicera denna live-händelse nu** skapas händelsens PUBLICERINGS-URL:ER.
 
@@ -181,7 +181,7 @@ Följ stegen nedan om du är klar med strömningen av händelser och vill rensa 
 ## <a name="view-archived-content"></a>Visa arkiverat innehåll
 Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången. En tillgång kan inte tas bort om den används av en händelse. Händelsen måste tas bort först. 
 
-Om du vill hantera dina tillgångar väljer du **Ange** och klickar på **Tillgångar**.
+Om du vill hantera dina till gångar väljer du **inställning** och klickar på **till gångar**.
 
 ![Tillgångar](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 

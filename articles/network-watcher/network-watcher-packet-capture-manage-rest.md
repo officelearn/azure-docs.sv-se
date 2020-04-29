@@ -1,6 +1,6 @@
 ---
-title: Hantera paketinsamlingar med Azure Network Watcher - REST API | Microsoft-dokument
-description: På den här sidan beskrivs hur du hanterar paketinsamlingsfunktionen i Network Watcher med Azure REST API
+title: Hantera paket fångster med Azure Network Watcher-REST API | Microsoft Docs
+description: På den här sidan förklaras hur du hanterar funktionen för att skapa paket i Network Watcher med Azure REST API
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,41 +12,41 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 5199cf95452f93db2c2dd747fcabc67a6722d31e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840901"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Hantera paketinsamlingar med Azure Network Watcher med Azure REST API
+# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Hantera paket fångster med Azure Network Watcher med Azure REST API
 
 > [!div class="op_single_selector"]
-> - [Azure-portal](network-watcher-packet-capture-manage-portal.md)
-> - [Powershell](network-watcher-packet-capture-manage-powershell.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
+> - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [REST-API för Azure](network-watcher-packet-capture-manage-rest.md)
 
-Med network watcher-paketfånget kan du skapa insamlingssessioner för att spåra trafik till och från en virtuell dator. Filter tillhandahålls för insamlingssessionen för att säkerställa att du bara samlar in den trafik du vill ha. Paketinsamling hjälper till att diagnostisera nätverksavvikelser både reaktivt och proaktivt. Andra användningsområden inkluderar att samla in nätverksstatistik, få information om nätverksintrång, att felsöka klient-server kommunikation och mycket mer. Genom att fjärrutlösa paketinfångningar, underlättar den här funktionen bördan av att köra en paketfångst manuellt och på önskad maskin, vilket sparar värdefull tid.
+Med Network Watcher paket insamling kan du skapa avbildnings sessioner för att spåra trafik till och från en virtuell dator. Filter tillhandahålls för insamlingsbufferten för att se till att du bara fångar den trafik som du vill använda. Med paket fångst kan du diagnostisera nätverks avvikelser både återaktivt och proaktivt. Andra användnings områden innefattar insamling av nätverks statistik, få information om nätverks intrång, för att felsöka klient-server-kommunikation och mycket mer. Genom att kunna fjärrutlös paket fångster kan den här funktionen under lätta belastningen på att köra en paket registrering manuellt och på önskad dator, vilket sparar värdefull tid.
 
-Den här artikeln tar dig igenom de olika hanteringsuppgifter som för närvarande är tillgängliga för paketinsamling.
+Den här artikeln tar dig igenom de olika hanterings uppgifter som för närvarande är tillgängliga för paket fångst.
 
-- [**Hämta en paketfångst**](#get-a-packet-capture)
-- [**Lista alla paketinfång**](#list-all-packet-captures)
-- [**Fråga status för en paketfångst**](#query-packet-capture-status)
-- [**Starta en paketfångst**](#start-packet-capture)
-- [**Stoppa en paketfångst**](#stop-packet-capture)
-- [**Ta bort en paketfångst**](#delete-packet-capture)
+- [**Hämta en paket fångst**](#get-a-packet-capture)
+- [**Lista alla paket fångster**](#list-all-packet-captures)
+- [**Fråga om status för en paket fångst**](#query-packet-capture-status)
+- [**Starta en paket fångst**](#start-packet-capture)
+- [**Stoppa en paket fångst**](#stop-packet-capture)
+- [**Ta bort en paket avbildning**](#delete-packet-capture)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I det här fallet anropar du API:et för nätverksbevakare för att köra IP Flow Verify. ARMclient används för att anropa REST API med PowerShell. ARMClient finns på chocolatey på [ARMClient på Chocolatey](https://chocolatey.org/packages/ARMClient)
+I det här scenariot anropar du Network Watcher REST API för att köra kontrol lera IP-flöde. ARMclient används för att anropa REST API med hjälp av PowerShell. ARMClient finns på choklad på [ARMClient](https://chocolatey.org/packages/ARMClient)
 
-Det här scenariot förutsätter att du redan har följt stegen i [Skapa en nätverksbevakare](network-watcher-create.md) för att skapa en Network Watcher.
+Det här scenariot förutsätter att du redan har följt stegen i [skapa ett Network Watcher](network-watcher-create.md) för att skapa ett Network Watcher.
 
-> Paketfångsten kräver `AzureNetworkWatcherExtension`ett tillägg för den virtuella datorn . För att installera tillägget på en Windows VM besök [Azure Network Watcher Agent virtuell dator tillägg för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besök Azure Network [Watcher Agent virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Paket fångst kräver ett tillägg `AzureNetworkWatcherExtension`för virtuell dator. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Logga in med ARMClient
 
@@ -56,12 +56,12 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Hämta en virtuell dator
 
-Kör följande skript för att returnera en virtuell dator. Den här informationen behövs för att starta en paketfångst.
+Kör följande skript för att returnera en virtuell dator. Den här informationen krävs för att starta en paket fångst.
 
 Följande kod behöver variabler:
 
-- **subscriptionId** - Prenumerations-ID kan också hämtas med **Cmdlet Get-AzSubscription.**
-- **resourceGroupName** - Namnet på en resursgrupp som innehåller virtuella datorer.
+- **subscriptionId** -prenumerations-ID kan också hämtas med cmdleten **Get-AzSubscription** .
+- **resourceGroupName** – namnet på en resurs grupp som innehåller virtuella datorer.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -70,7 +70,7 @@ $resourceGroupName = "<resource group name>"
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Från följande utdata används id:t för den virtuella datorn i nästa exempel.
+I följande utdata används ID: t för den virtuella datorn i nästa exempel.
 
 ```json
 ...
@@ -86,9 +86,9 @@ Från följande utdata används id:t för den virtuella datorn i nästa exempel.
 ```
 
 
-## <a name="get-a-packet-capture"></a>Hämta en paketfångst
+## <a name="get-a-packet-capture"></a>Hämta en paket fångst
 
-Följande exempel hämtar status för en enda paketfångst
+I följande exempel hämtas status för en enda paket fångst
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -97,7 +97,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Följande svar är exempel på ett typiskt svar som returneras när du frågar status för en paketfångst.
+Följande svar är exempel på ett typiskt svar som returneras när du frågar efter status för en paket fångst.
 
 ```json
 {
@@ -120,9 +120,9 @@ Följande svar är exempel på ett typiskt svar som returneras när du frågar s
 }
 ```
 
-## <a name="list-all-packet-captures"></a>Lista alla paketinfång
+## <a name="list-all-packet-captures"></a>Lista alla paket fångster
 
-I följande exempel hämtas alla paketfångstsessioner i en region.
+I följande exempel hämtas alla paket avbildnings sessioner i en region.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -131,7 +131,7 @@ $networkWatcherName = "NetworkWatcher_westcentralus"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures?api-version=2016-12-01"
 ```
 
-Följande svar är ett exempel på ett typiskt svar som returneras när alla paketinsamlingar
+Följande svar är ett exempel på ett typiskt svar som returneras när alla paket fångster hämtas
 
 ```json
 {
@@ -194,9 +194,9 @@ ture_17_23_15_364.cap",
 }
 ```
 
-## <a name="query-packet-capture-status"></a>Status för insamling av frågepaket
+## <a name="query-packet-capture-status"></a>Status för att hämta paket
 
-I följande exempel hämtas alla paketfångstsessioner i en region.
+I följande exempel hämtas alla paket avbildnings sessioner i en region.
 
 ```powershell
 $subscriptionId = "<subscription id>"
@@ -206,7 +206,7 @@ $packetCaptureName = "TestPacketCapture5"
 armclient get "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/querystatus?api-version=2016-12-01"
 ```
 
-Följande svar är ett exempel på ett typiskt svar som returneras när du frågar status för en paketfångst.
+Följande svar är ett exempel på ett typiskt svar som returneras när du frågar efter status för en paket fångst.
 
 ```json
 {
@@ -219,9 +219,9 @@ Följande svar är ett exempel på ett typiskt svar som returneras när du fråg
 }
 ```
 
-## <a name="start-packet-capture"></a>Starta pakethämtning
+## <a name="start-packet-capture"></a>Starta paket fångst
 
-I följande exempel skapas en paketfångst på en virtuell dator.  Exemplet är parameteriserat för att möjliggöra flexibilitet när du skapar ett exempel.
+I följande exempel skapas en paket avbildning på en virtuell dator.  Exemplet är parameter för att ge flexibilitet i att skapa ett exempel.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -271,9 +271,9 @@ $requestBody = @"
 armclient PUT "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}?api-version=2016-07-01" $requestbody
 ```
 
-## <a name="stop-packet-capture"></a>Stoppa paketfångst
+## <a name="stop-packet-capture"></a>Stoppa paket fångst
 
-I följande exempel stoppas en paketfångst på en virtuell dator.  Exemplet är parameteriserat för att möjliggöra flexibilitet när du skapar ett exempel.
+I följande exempel stoppas en paket avbildning på en virtuell dator.  Exemplet är parameter för att ge flexibilitet i att skapa ett exempel.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -283,9 +283,9 @@ $packetCaptureName = "TestPacketCapture5"
 armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/packetCaptures/${packetCaptureName}/stop?api-version=2016-12-01"
 ```
 
-## <a name="delete-packet-capture"></a>Ta bort paketinsamling
+## <a name="delete-packet-capture"></a>Ta bort paket fångst
 
-I följande exempel tas en paketfångst bort på en virtuell dator.  Exemplet är parameteriserat för att möjliggöra flexibilitet när du skapar ett exempel.
+I följande exempel tas en paket avbildning bort från en virtuell dator.  Exemplet är parameter för att ge flexibilitet i att skapa ett exempel.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -297,13 +297,13 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 ```
 
 > [!NOTE]
-> Om du tar bort en paketinsamling tas inte filen bort i lagringskontot
+> När du tar bort en paket insamling tas inte filen bort i lagrings kontot
 
 ## <a name="next-steps"></a>Nästa steg
 
-Instruktioner om hur du hämtar filer från azure storage-konton finns i [Komma igång med Azure Blob-lagring med .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer finns här på följande länk: [Storage Explorer](https://storageexplorer.com/)
+Anvisningar om hur du laddar ned filer från Azure Storage-konton finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer hittar du här på följande länk: [Storage Explorer](https://storageexplorer.com/)
 
-Lär dig hur du automatiserar paketinsamlingar med aviseringar för virtuella datorer genom att visa [Skapa en aviseringsutlöst paketfångst](network-watcher-alert-triggered-packet-capture.md)
+Lär dig hur du automatiserar paket fångster med aviseringar för virtuella datorer genom att visa [skapa en varning utlöst paket fångst](network-watcher-alert-triggered-packet-capture.md)
 
 
 

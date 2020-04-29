@@ -1,6 +1,6 @@
 ---
-title: Så här använder du Enkel inloggning med molnetablering
-description: I den här artikeln beskrivs hur du installerar och använder sso med molnetablering.
+title: Använda enkel inloggning med moln etablering
+description: Den här artikeln beskriver hur du installerar och använder SSO med moln etablering.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,14 +12,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3667dd529ce5542be84c5e357053d8cd11eb91e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76908997"
 ---
-# <a name="using-single-sign-on-with-cloud-provisioning"></a>Använda enkel inloggning med molnetablering
-I följande dokument beskrivs hur du använder enkel inloggning med molnetablering.
+# <a name="using-single-sign-on-with-cloud-provisioning"></a>Använda enkel inloggning med moln etablering
+I följande dokument beskrivs hur du använder enkel inloggning med moln etablering.
 
 [!INCLUDE [active-directory-cloud-provisioning-sso.md](../../../includes/active-directory-cloud-provisioning-sso.md)]
 

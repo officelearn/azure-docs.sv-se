@@ -1,6 +1,6 @@
 ---
-title: Affärssyssning i Team Data Science Process
-description: Mål, uppgifter och resultat för affärsförståelsestadiet för dina datavetenskapliga projekt i Team Data Science Process.
+title: Affärs förståelse i team data science process
+description: Mål, uppgifter och slut produkter för affärs förståelses fasen för dina data vetenskaps projekt i team data science-processen.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,15 +12,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76710328"
 ---
-# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Affärsöverensningsfasen av teamdatavetenskapsprocessens livscykel
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Affärs förståelses fasen i livs cykeln för team data science process
 
-I den här artikeln beskrivs de mål, uppgifter och resultat som är associerade med affärsförståelsestadiet i Team Data Science Process (TDSP). Den här processen innehåller en rekommenderad livscykel som du kan använda för att strukturera dina datavetenskapsprojekt. Livscykeln beskriver de stora faserna som projekt vanligtvis körs, ofta iterativt:
+Den här artikeln beskriver de mål, uppgifter och slut produkter som är associerade med affärs förståelses fasen för team data science-processen (TDSP). Den här processen ger en rekommenderad livs cykel som du kan använda för att strukturera data vetenskaps projekt. Livs cykeln beskriver de viktigaste faserna som projekt vanligt vis körs, ofta iterativt:
 
    1. **Förståelse för verksamheten**
    2. **Förvärv och förståelse av data**
@@ -28,62 +28,62 @@ I den här artikeln beskrivs de mål, uppgifter och resultat som är associerade
    4. **Distribution**
    5. **Kundgodkännande**
 
-Här är en visuell representation av TDSP livscykel: 
+Här är en visuell representation av TDSP-livs cykeln: 
 
 ![TDSP-livscykel](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Mål
-* Ange de nyckelvariabler som ska fungera som modellmål och vars relaterade mått används avgör projektets framgång.
-* Identifiera relevanta datakällor som företaget har åtkomst till eller behöver hämta.
+* Ange de nyckelattribut som ska fungera som modell mål och vars relaterade mått används för att fastställa projektets framgångar.
+* Identifiera relevanta data källor som företaget har åtkomst till eller behöver skaffa.
 
-## <a name="how-to-do-it"></a>Hur man gör det
-Det finns två huvuduppgifter som tas upp i detta skede: 
+## <a name="how-to-do-it"></a>Gör så här
+Det finns två huvudsakliga uppgifter i det här steget: 
 
-   * **Definiera mål**: Arbeta med din kund och andra intressenter för att förstå och identifiera affärsproblemen. Formulera frågor som definierar de affärsmål som datavetenskapsteknikerna kan inrikta sig på.
-   * **Identifiera datakällor**: Hitta relevanta data som hjälper dig att svara på de frågor som definierar projektets mål.
+   * **Definiera mål**: arbeta med din kund och andra intressenter för att förstå och identifiera affärs problem. Formulera frågor som definierar de affärs mål som teknikerna för data vetenskap kan rikta in sig på.
+   * **Identifiera data källor**: hitta relevanta data som hjälper dig att besvara frågorna som definierar projektets mål.
 
 ### <a name="define-objectives"></a>Definiera mål
-1. Ett centralt mål för detta steg är att identifiera de viktigaste affärsvariabler som analysen behöver förutsäga. Vi refererar till dessa variabler som *modellmål*och vi använder de mått som är associerade med dem för att avgöra projektets framgång. Två exempel på sådana mål är försäljningsprognoser eller sannolikheten för att en order ska vara bedräglig.
+1. Ett centralt mål i det här steget är att identifiera de viktiga affärsvariabler som analysen behöver förutsäga. Vi refererar till dessa variabler som *modell mål*, och vi använder de mått som är kopplade till dem för att fastställa projektets framgångar. Två exempel på sådana mål är försäljnings prognoser eller sannolikheten för att en beställning tas till bedräglig.
 
-2. Definiera projektmålen genom att ställa och förfina "skarpa" frågor som är relevanta, specifika och otvetydiga. Datavetenskap är en process som använder namn och siffror för att svara på sådana frågor. Du använder vanligtvis datavetenskap eller maskininlärning för att svara på fem typer av frågor:
+2. Definiera projekt målen genom att fråga och förfina "skarpa" frågor som är relevanta, speciella och otvetydiga. Data science är en process som använder namn och siffror för att besvara sådana frågor. Du använder vanligt vis data vetenskap eller maskin inlärning för att besvara fem typer av frågor:
  
-   * Hur mycket eller hur många? (regression)
-   * Vilken kategori? (klassificering)
-   * Vilken grupp? (klustring)
-   * Är det här konstigt? (avvikelseidentifiering)
-   * Vilket alternativ bör tas? (rekommendation)
+   * Hur mycket eller hur många? regression
+   * Vilken kategori? klassning
+   * Vilken grupp? redundanskluster
+   * Är det här underligt? (avvikelse identifiering)
+   * Vilket alternativ ska vidtas? rekommenderade
 
-   Bestäm vilka av dessa frågor du ställer och hur du svarar på den uppnår dina affärsmål.
+   Ta reda på vilka av dessa frågor som du frågar och hur du får svar på dina affärs mål.
 
-3. Definiera projektgruppen genom att ange medlemmarnas roller och ansvarsområden. Utveckla en milstolpeplan på hög nivå som du itererar på när du upptäcker mer information. 
+3. Definiera projekt gruppen genom att ange roller och ansvars områden för dess medlemmar. Utveckla en mil stolpe plan på hög nivå som du itererar när du upptäcker mer information. 
 
-4. Definiera framgångsmåtten. Du kanske till exempel vill uppnå en förutsägelse om kundomsättning. Du behöver en noggrannhetsfrekvens på "x" procent i slutet av detta tremånadersprojekt. Med dessa data kan du erbjuda kundkampanjer för att minska omsättningen. Måtten måste vara **SMART:** 
+4. Definiera måtten för framgång. Till exempel kanske du vill uppnå en förutsägelse av kund omsättning. Du behöver en noggrannhets grad på "x" procent i slutet av det här tre månaders projektet. Med dessa data kan du erbjuda kund kampanjer för att minska omsättningen. Måtten måste vara **smarta**: 
 
-   * **S**pecific 
+   * **S**pecifika 
    * **M**easurable
    * **En**chievable 
-   * **R**elevant 
-   * **T**ime-bundna 
+   * **R**-Elevant 
+   * **T**IME-kopplad 
 
 ### <a name="identify-data-sources"></a>Identifiera datakällor
-Identifiera datakällor som innehåller kända exempel på svar på dina skarpa frågor. Leta efter följande data:
+Identifiera data källor som innehåller kända exempel på svar på dina skarpa frågor. Leta efter följande data:
 
-* Data som är relevanta för frågan. Har du mått på målet och funktioner som är relaterade till målet?
-* Data som är ett korrekt mått på modellmålet och intressanta funktioner.
+* Data som är relevanta för frågan. Har du mått på det mål och de funktioner som är relaterade till målet?
+* Data som är ett korrekt mått för ditt modell mål och funktionerna i intresse.
 
-Du kanske till exempel upptäcker att de befintliga systemen måste samla in och logga in ytterligare typer av data för att lösa problemet och uppnå projektmålen. I det här fallet kanske du vill leta efter externa datakällor eller uppdatera dina system för att samla in nya data.
+Du kan till exempel se att de befintliga systemen behöver samla in och logga ytterligare typer av data för att lösa problemet och uppnå projekt målen. I så fall kanske du vill söka efter externa data källor eller uppdatera dina system för att samla in nya data.
 
 ## <a name="artifacts"></a>Artefakter
-Här är slutprodukterna i detta skede:
+Här är slut produkterna i det här skedet:
 
-   * [Charterdokument](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): En standardmall finns i TDSP-projektstrukturdefinitionen. Stadgedokumentet är ett levande dokument. Du uppdaterar mallen i hela projektet när du gör nya upptäckter och när affärskraven ändras. Nyckeln är att iterera på det här dokumentet, lägga till mer information, som du framsteg genom identifieringsprocessen. Håll kunden och andra intressenter involverade i att göra ändringarna och tydligt kommunicera orsakerna till ändringarna till dem.  
-   * [Datakällor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): Avsnittet **Rådatakällor** i rapporten **Datadefinitioner** som finns i mappen **Datarapport** för TDSP-projekt innehåller datakällorna. Det här avsnittet anger ursprungliga platser och målplatser för rådata. I senare steg fyller du i ytterligare information som skripten för att flytta data till din analytiska miljö.  
-   * [Dataordlistor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Det här dokumentet innehåller beskrivningar av de data som tillhandahålls av klienten. Dessa beskrivningar innehåller information om schemat (datatyper och information om eventuella valideringsregler) och entitetsrelationsdiagram, om sådana finns tillgängliga.
+   * [Charter dokument](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): en standardmall finns i TDSP-projektets struktur definition. Stadgan-dokumentet är ett levande dokument. Du uppdaterar mallen i projektet när du gör nya identifieringar och när affärs behoven ändras. Nyckeln är att iterera till det här dokumentet, vilket innebär att du kan lägga till mer information när du går igenom identifierings processen. Låt kunden och andra intressenter delta i att göra ändringarna och på ett tydligt sätt meddela orsakerna till ändringarna.  
+   * [Data källor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): avsnittet **rå data källor** i rapporten **data definitioner** som finns i mappen TDSP Project **data Report** innehåller data källorna. I det här avsnittet anges de ursprungliga och mål platserna för rå data. I senare steg kan du fylla i ytterligare information som skripten för att flytta data till din analys miljö.  
+   * [Data ord listor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): det här dokumentet innehåller beskrivningar av de data som tillhandahålls av klienten. Dessa beskrivningar innehåller information om schemat (data typer och information om verifierings reglerna, om det finns några) och diagram över entitetsrelationer, om det är tillgängligt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här är länkar till varje steg i livscykeln för TDSP:
+Här följer länkar till varje steg i livs cykeln för TDSP:
 
    1. [Förståelse för verksamheten](lifecycle-business-understanding.md)
    2. [Förvärv och förståelse av data](lifecycle-data.md)
@@ -91,4 +91,4 @@ Här är länkar till varje steg i livscykeln för TDSP:
    4. [Distribution](lifecycle-deployment.md)
    5. [Kundgodkännande](lifecycle-acceptance.md)
 
-Vi tillhandahåller fullständiga genomgångar som visar alla steg i processen för specifika scenarier. I artikeln [Exempelgenomgångar](walkthroughs.md) finns en lista över scenarier med länkar och miniatyrbeskrivningar. Genomgångarna illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbetsflöde eller en pipeline för att skapa ett intelligent program. 
+Vi tillhandahåller fullständiga genom gångar som demonstrerar alla steg i processen för olika scenarier. [Exempel](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genom gången illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 

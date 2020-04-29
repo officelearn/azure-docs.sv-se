@@ -1,7 +1,7 @@
 ---
-title: Felsöka dataåtgärder med diagnostik och Meddelandeanalys
+title: Fel sökning av data åtgärder med diagnostik och analys av meddelanden
 titleSuffix: Azure Storage
-description: En självstudiekurs som visar felsökning från på nytt med Azure Storage Analytics, AzCopy och Microsoft Message Analyzer
+description: En självstudie som demonstrerar fel sökning från slut punkt till slut punkt med Azure-lagringsanalys, AzCopy och Microsoft Message Analyzer
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -10,323 +10,323 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76314767"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Felsökning från slutpunkt till slutpunkt med Azure Storage-mått och -loggning, AzCopy och Message Analyzer
 
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-Att diagnostisera och felsöka är en viktig färdighet för att skapa och stödja klientprogram med Microsoft Azure Storage. På grund av den distribuerade karaktären av ett Azure-program kan det vara mer komplicerat att diagnostisera och felsöka fel och prestandaproblem än i traditionella miljöer.
+Diagnostisering och fel sökning är en viktig kunskap för att skapa och stödja klient program med Microsoft Azure Storage. På grund av den distribuerade typen av ett Azure-program kan det vara mer komplicerat än i traditionella miljöer att diagnostisera och felsöka fel och prestanda problem.
 
-I den här självstudien visar vi hur du identifierar vissa fel som kan påverka prestanda och felsöker dessa fel från heltäckande verktyg som tillhandahålls av Microsoft och Azure Storage, för att optimera klientprogrammet.
+I den här självstudien visar vi hur du kan identifiera vissa fel som kan påverka prestandan och felsöka felen från slut punkt till slut punkt med hjälp av verktyg från Microsoft och Azure Storage för att optimera klient programmet.
 
-Den här självstudien ger en praktisk utforskning av ett felsökningsscenario från på alla dagar. En detaljerad konceptuell guide för felsökning av Azure-lagringsprogram finns i [Övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+I den här självstudien får du en praktisk utforskning av ett scenario för fel sökning från slut punkt till slut punkt. En djupgående konceptuell guide för att felsöka Azure Storage-program finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Verktyg för felsökning av Azure Storage-program
+## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Verktyg för fel sökning av Azure Storage program
 
-Om du vill felsöka klientprogram med Microsoft Azure Storage kan du använda en kombination av verktyg för att avgöra när ett problem har uppstått och vad problemet kan vara. Dessa verktyg innefattar:
+Om du vill felsöka klient program med hjälp av Microsoft Azure Storage kan du använda en kombination av verktyg för att avgöra när ett problem har inträffat och vad orsaken till problemet kan vara. Dessa verktyg innefattar:
 
-* **Azure Storage Analytics**. [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) tillhandahåller mått och loggning för Azure Storage.
+* **Azure-lagringsanalys**. [Azure-lagringsanalys](/rest/api/storageservices/Storage-Analytics) tillhandahåller mått och loggning för Azure Storage.
 
-  * **Lagringsmått** spårar transaktionsmått och kapacitetsmått för ditt lagringskonto. Med hjälp av mått kan du bestämma hur ditt program fungerar enligt en mängd olika mått. Mer information om vilka typer av mått som spåras av Storage Analytics finns i Tabellschema för [Lagringsanalys.](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)
-  * **Lagringsloggning** loggar varje begäran till Azure Storage-tjänsterna till en serverlogg. Loggen spårar detaljerade data för varje begäran, inklusive den utförda åtgärden, åtgärdens status och svarstidsinformation. Mer information om begäran och svarsdata som skrivs till loggarna från Storage Analytics finns i [Loggformat](/rest/api/storageservices/Storage-Analytics-Log-Format) för lagringsanalys.
+  * **Lagrings mått** spårar transaktions mått och kapacitets mått för ditt lagrings konto. Med hjälp av mått kan du bestämma hur programmet ska utföras enligt olika mått. Se [Lagringsanalys Metrics tabell schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) för mer information om de typer av mått som spåras av Lagringsanalys.
+  * **Lagrings loggning** loggar varje begäran till Azure Storage-tjänsterna till en logg på Server sidan. Loggen spårar detaljerade data för varje begäran, inklusive den utförda åtgärden, status för åtgärden och latens information. Se [Lagringsanalys logg format](/rest/api/storageservices/Storage-Analytics-Log-Format) för mer information om begär ande-och svars data som skrivs till loggarna av Lagringsanalys.
 
-* **Azure-portal**. Du kan konfigurera mått och loggning för ditt lagringskonto i [Azure-portalen](https://portal.azure.com). Du kan också visa diagram och diagram som visar hur programmet fungerar över tid och konfigurera aviseringar för att meddela dig om ditt program fungerar annorlunda än förväntat för ett angivet mått.
+* **Azure Portal**. Du kan konfigurera mått och loggning för ditt lagrings konto i [Azure Portal](https://portal.azure.com). Du kan också visa diagram och diagram som visar hur programmet presterar över tid och konfigurera aviseringar för att meddela dig om programmet fungerar annorlunda än förväntat för ett angivet mått.
 
-    Mer information om hur du konfigurerar övervakning i Azure-portalen finns [i Övervaka ett lagringskonto i Azure-portalen.](storage-monitor-storage-account.md)
-* **AzCopy**. Serverloggar för Azure Storage lagras som blobbar, så du kan använda AzCopy för att kopiera loggblobar till en lokal katalog för analys med Microsoft Message Analyzer. Mer information om AzCopy finns i [Överföra data med kommandoradsverktyget AzCopy.](storage-use-azcopy.md)
-* **Microsoft Message Analyzer**. Message Analyzer är ett verktyg som använder loggfiler och visar loggdata i ett visuellt format som gör det enkelt att filtrera, söka och gruppera loggdata till användbara uppsättningar som du kan använda för att analysera fel och prestandaproblem. Mer information om Message [Analyzer finns](https://technet.microsoft.com/library/jj649776.aspx) i bruksanvisningen för Microsoft Message Analyzer.
+    Se [övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md) för information om hur du konfigurerar övervakning i Azure Portal.
+* **AzCopy**. Server loggar för Azure Storage lagras som blobbar, så du kan använda AzCopy för att kopiera logg-blobar till en lokal katalog för analys med Microsoft Message Analyzer. Mer information om AzCopy finns i [överföra data med kommando rads verktyget AzCopy](storage-use-azcopy.md) .
+* **Microsoft Message Analyzer**. Message Analyzer är ett verktyg som använder loggfiler och visar loggdata i ett visuellt format som gör det enkelt att filtrera, söka i och gruppera logg data i användbara uppsättningar som du kan använda för att analysera fel-och prestanda problem. Mer information om Message Analyzer finns i [funktions guiden för Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) .
 
-## <a name="about-the-sample-scenario"></a>Om exempelscenariot
+## <a name="about-the-sample-scenario"></a>Om exempel scenariot
 
-För den här självstudien undersöker vi ett scenario där Azure Storage-mått indikerar en låg procentig framgång för ett program som anropar Azure-lagring. Måttet med låg procentig framgång (visas som **Procentsuccess** i [Azure-portalen](https://portal.azure.com) och i måtttabellerna) spårar åtgärder som lyckas, men som returnerar en HTTP-statuskod som är större än 299. I lagringsloggfilerna på serversidan registreras dessa åtgärder med transaktionsstatus **för ClientOtherErrors**. Mer information om måttet med låg procentig framgång finns i [Mått visar låga procentresultat eller analysloggposter har operationer med transaktionsstatus för ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+I den här självstudien granskar vi ett scenario där Azure Storage mått anger en låg procent andel lyckade för ett program som anropar Azure Storage. Måttet för låg procents frekvens i procent (visas som **PercentSuccess** i [Azure Portal](https://portal.azure.com) och i mått tabeller) spårar åtgärder som lyckas, men som returnerar en HTTP-statuskod som är större än 299. I loggfilerna för lagring på Server sidan registreras dessa åtgärder med transaktions statusen **ClientOtherErrors**. Mer information om måttet låg procents ATS finns i [måtten Visa poster med låg PercentSuccess eller Analytics-logg har åtgärder med transaktions status ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
-Azure Storage-åtgärder kan returnera HTTP-statuskoder som är större än 299 som en del av deras normala funktionalitet. Men dessa fel i vissa fall tyder på att du kanske kan optimera klientprogrammet för bättre prestanda.
+Azure Storage åtgärder kan returnera HTTP-statuskod som är större än 299 som en del av deras normala funktion. Men dessa fel i vissa fall indikerar att du kan optimera ditt klient program för att få bättre prestanda.
 
-I det här scenariot kommer vi att betrakta en låg procentig framgång vara något under 100%. Du kan dock välja en annan måttnivå enligt dina behov. Vi rekommenderar att du under testningen av ditt program upprättar en baslinjetolerans för dina nyckeltal. Du kan till exempel bestämma, baserat på testning, att ditt program ska ha en konsekvent procentig framgång på 90 % eller 85 %. Om dina mätdata visar att programmet avviker från det numret kan du undersöka vad som kan orsaka ökningen.
+I det här scenariot ska vi ta en låg procent andel av framgång som är allt lägre än 100%. Du kan dock välja en annan mått nivå, beroende på dina behov. Vi rekommenderar att du under testning av ditt program upprättar en bas linje tolerans för dina viktiga prestanda mått. Du kan till exempel bestämma, baserat på testning, att ditt program ska ha en konsekvent procents ATS på 90% eller 85%. Om dina mått data visar att programmet är deviating från det numret kan du undersöka vad som kan orsaka ökningen.
 
-När vi har fastställt att måttet för procentframgång är under 100 % för vårt exempelscenario undersöker vi loggarna för att hitta de fel som korrelerar med måtten och använder dem för att ta reda på vad som orsakar den lägre procentframgångsfrekvensen. Vi tittar specifikt på fel i 400-området. Då ska vi närmare undersöka 404 (Hittades) fel.
+När vi har upp100 rättat ett exempel scenario, kommer vi att undersöka loggarna för att hitta de fel som motsvarar måtten och använda dem för att ta reda på vad som orsakar lägre procent andel lyckade. Vi ska titta närmare på fel i 400-intervallet. Sedan undersöker vi 404-fel (hittades inte).
 
-### <a name="some-causes-of-400-range-errors"></a>Vissa orsaker till 400-intervallfel
+### <a name="some-causes-of-400-range-errors"></a>Några orsaker till 400-intervall fel
 
-Exemplen nedan visar ett urval av cirka 400 intervallfel för begäranden mot Azure Blob Storage och deras möjliga orsaker. Något av dessa fel, samt fel i 300-intervallet och 500-intervallet, kan bidra till en låg procentig framgång.
+I exemplen nedan visas en sampling av vissa 400-intervall-fel för begär Anden mot Azure Blob Storage och deras möjliga orsaker. Alla dessa fel, samt fel i intervallet 300 och 500-intervallet, kan bidra till en låg procent andel lyckade.
 
-Observera att listorna nedan är långt ifrån fullständiga. Se [Status- och felkoder](https://msdn.microsoft.com/library/azure/dd179382.aspx) på MSDN för information om allmänna Azure Storage-fel och om fel som är specifika för var och en av lagringstjänsterna.
+Observera att listorna nedan är långt från att slutföras. Se [status-och felkoder](https://msdn.microsoft.com/library/azure/dd179382.aspx) på MSDN för information om allmänna Azure Storage fel och om fel som är speciella för var och en av lagrings tjänsterna.
 
-#### <a name="status-code-404-not-found-examples"></a>Exempel på statuskod 404 (hittades inte)
+#### <a name="status-code-404-not-found-examples"></a>Status kod 404 (hittades inte)-exempel
 
-Inträffar när en läsåtgärd mot en behållare eller blob misslyckas eftersom blob eller behållaren inte hittas.
+Inträffar när en Läs åtgärd mot en container eller BLOB Miss lyckas eftersom blobben eller containern inte hittas.
 
-* Inträffar om en behållare eller blob har tagits bort av en annan klient före den här begäran.
-* Inträffar om du använder ett API-anrop som skapar behållaren eller bloben efter att ha kontrollerat om den finns. Api:erna CreateIfNotExists gör ett HEAD-anrop först för att kontrollera om det finns en behållare eller blob. Om det inte finns returneras ett 404-fel och sedan görs ett andra PUT-anrop för att skriva behållaren eller bloben.
+* Inträffar om en behållare eller BLOB har tagits bort av en annan klient före denna begäran.
+* Inträffar om du använder ett API-anrop som skapar behållaren eller blobben när du har kontrollerat om det finns. CreateIfNotExists-API: er gör ett huvud anrop först för att söka efter förekomsten av containern eller blobben. om det inte finns returneras ett 404-fel och ett andra anrop görs för att skriva behållaren eller blobben.
 
-#### <a name="status-code-409-conflict-examples"></a>Exempel på statuskod 409 (konflikt)
+#### <a name="status-code-409-conflict-examples"></a>Exempel på status kod 409 (konflikt)
 
-* Inträffar om du använder ett Skapa API för att skapa en ny behållare eller blob, utan att söka efter existens först, och det redan finns en behållare eller blob med det namnet.
-* Inträffar om en behållare tas bort och du försöker skapa en ny behållare med samma namn innan borttagningen är klar.
-* Inträffar om du anger ett lån på en behållare eller blob och det redan finns ett lån.
+* Inträffar om du använder ett skapa-API för att skapa en ny behållare eller BLOB, utan att först söka efter den, och det finns redan en behållare eller BLOB med det namnet.
+* Inträffar om en behållare tas bort och du försöker skapa en ny behållare med samma namn innan borttagnings åtgärden har slutförts.
+* Inträffar om du anger ett lån på en behållare eller BLOB och det redan finns ett lån.
 
-#### <a name="status-code-412-precondition-failed-examples"></a>Exempel på statuskod 412 (förutsättning misslyckades)
+#### <a name="status-code-412-precondition-failed-examples"></a>Status kod 412 (villkoret misslyckades) exempel
 
-* Inträffar när villkoret som anges av ett villkorligt huvud inte har uppfyllts.
-* Inträffar när det angivna låne-ID:t inte matchar låne-ID:t på behållaren eller bloben.
+* Inträffar när villkoret som anges av ett villkors huvud inte har uppfyllts.
+* Inträffar när det angivna låne-ID: t inte matchar låne-ID: t för containern eller blobben.
 
 ## <a name="generate-log-files-for-analysis"></a>Generera loggfiler för analys
 
-I den här självstudien använder vi Message Analyzer för att arbeta med tre olika typer av loggfiler, även om du kan välja att arbeta med någon av dessa:
+I den här självstudien använder vi Message Analyzer för att arbeta med tre olika typer av loggfiler, men du kan välja att arbeta med något av följande:
 
-* **Serverloggen**, som skapas när du aktiverar Azure Storage-loggning. Serverloggen innehåller data om varje åtgärd som anropas mot en av Azure Storage-tjänsterna - blob, kö, tabell och fil. Serverloggen anger vilken åtgärd som anropades och vilken statuskod som returnerades, samt annan information om begäran och svaret.
-* **.NET-klientloggen**, som skapas när du aktiverar loggning på klientsidan inifrån .NET-programmet. Klientloggen innehåller detaljerad information om hur klienten förbereder begäran och tar emot och bearbetar svaret.
-* **HTTP-nätverksspårningsloggen**, som samlar in data på HTTP/HTTPS-begärande- och svarsdata, inklusive för åtgärder mot Azure Storage. I den här självstudien genererar vi nätverksspårningen via Message Analyzer.
+* **Server loggen**, som skapas när du aktiverar Azure Storage loggning. Server loggen innehåller information om varje åtgärd som anropas mot en av Azure Storage Services – BLOB, kö, tabell och fil. Server loggen visar vilken åtgärd som anropades och vilken status kod som returnerades, samt annan information om begäran och svar.
+* **.Net-klient loggen**, som skapas när du aktiverar loggning på klient sidan från ditt .NET-program. Klient loggen innehåller detaljerad information om hur klienten förbereder begäran och tar emot och bearbetar svaret.
+* **Spårnings loggen för http-nätverk**, som samlar in data på http/https-begäran och svars data, inklusive för åtgärder mot Azure Storage. I den här självstudien genererar vi nätverks spårning via Message Analyzer.
 
-### <a name="configure-server-side-logging-and-metrics"></a>Konfigurera loggning och mått på serversidan
+### <a name="configure-server-side-logging-and-metrics"></a>Konfigurera loggning och mått på Server Sidan
 
-Först måste vi konfigurera Azure Storage-loggning och mått, så att vi har data från tjänstsidan att analysera. Du kan konfigurera loggning och mått på en mängd olika sätt – via [Azure-portalen](https://portal.azure.com), med hjälp av PowerShell eller programmässigt. Se [Aktivera mått](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) och Aktivera [loggning](storage-analytics-logging.md#enable-storage-logging) för information om hur du konfigurerar loggning och mått.
+Först måste vi konfigurera Azure Storage loggning och mått, så att vi kan analysera data från tjänst sidan. Du kan konfigurera loggning och mått på flera olika sätt – via [Azure Portal](https://portal.azure.com), genom att använda PowerShell eller program mässigt. Se [Aktivera mått](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) och [Aktivera loggning](storage-analytics-logging.md#enable-storage-logging) för information om hur du konfigurerar loggning och mått.
 
-### <a name="configure-net-client-side-logging"></a>Konfigurera LOGGNING på .NET-klientsidan
+### <a name="configure-net-client-side-logging"></a>Konfigurera loggning av .NET-klient Sidan
 
-Om du vill konfigurera loggning på klientsidan för ett .NET-program aktiverar du .NET-diagnostik i programmets konfigurationsfil (web.config eller app.config). Mer information finns [i LOGGNING på klientsidan](https://msdn.microsoft.com/library/azure/dn782839.aspx) på .NET Storage Client Library och [loggning på klientsidan med Microsoft Azure Storage SDK för Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) på MSDN.
+Aktivera .NET Diagnostics i programmets konfigurations fil (Web. config eller app. config) om du vill konfigurera loggning på klient sidan för ett .NET-program. Mer information finns i [Logga in på klient sidan med .net-lagrings klient biblioteket](https://msdn.microsoft.com/library/azure/dn782839.aspx) och [loggning på klient sidan med Microsoft Azure Storage SDK för Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) på MSDN.
 
-Loggen på klientsidan innehåller detaljerad information om hur klienten förbereder begäran och tar emot och bearbetar svaret.
+Loggen på klient sidan innehåller detaljerad information om hur klienten förbereder begäran och tar emot och bearbetar svaret.
 
-Storage Client Library lagrar loggdata på klientsidan på den plats som anges i programmets konfigurationsfil (web.config eller app.config).
+Lagrings klient biblioteket lagrar logg data på klient sidan på den plats som anges i programmets konfigurations fil (Web. config eller app. config).
 
-### <a name="collect-a-network-trace"></a>Samla in en nätverksspårning
+### <a name="collect-a-network-trace"></a>Samla in ett nätverks spår
 
-Du kan använda Message Analyzer för att samla in en HTTP/HTTPS-nätverksspårning medan klientprogrammet körs. Message Analyzer använder [Fiddler](https://www.telerik.com/fiddler) på baksidan. Innan du samlar in nätverksspårningen rekommenderar vi att du konfigurerar Fiddler för att spela in okrypterad HTTPS-trafik:
+Du kan använda Message Analyzer för att samla in en HTTP/HTTPS-nätverks spårning medan ditt klient program körs. Message Analyzer använder [Fiddler](https://www.telerik.com/fiddler) på Server delen. Innan du samlar in nätverks spårningen rekommenderar vi att du konfigurerar Fiddler för att registrera okrypterad HTTPS-trafik:
 
 1. Installera [Fiddler](https://www.telerik.com/download/fiddler).
 2. Starta Fiddler.
-3. Välj **verktyg | Spelman Alternativ**.
-4. Se till att **fånga HTTPS CONNECTs** och **Decrypt HTTPS Traffic** är markerade, som visas nedan.
+3. Välj **verktyg | Fiddler alternativ**.
+4. I dialog rutan alternativ kontrollerar du att **avbildnings-https ansluter** och **dekrypterar HTTPS-trafik** båda är markerade, som du ser nedan.
 
-![Konfigurera fiddler-alternativ](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
+![Konfigurera Fiddler-alternativ](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
-För självstudiekursen samlar du in och sparar en nätverksspårning först i Message Analyzer och skapar sedan en analyssession för att analysera spårningen och loggarna. Så här samlar du in en nätverksspårning i Message Analyzer:
+För självstudien samlar du in och sparar en nätverks spårning först i Message Analyzer och skapar sedan en Analysis-session för att analysera spårningen och loggarna. Så här samlar du in en nätverks spårning i Message Analyzer:
 
-1. Välj **Arkiv | Snabbspårning | Okrypterad HTTPS**.
-2. Spårningen börjar omedelbart. Välj **Stoppa** om du vill stoppa spårningen så att vi kan konfigurera den så att den bara spårar lagringstrafik.
-3. Välj **Redigera** om du vill redigera kalkeringssessionen.
-4. Välj länken **Konfigurera** till höger om **Microsoft-Pef-WebProxy** ETW-providern.
-5. Klicka på fliken **Provider** i dialogrutan **Avancerade inställningar.**
-6. I fältet **Värdnamnsfilter** anger du lagringsslutpunkterna, avgränsade med mellanslag. Du kan till exempel ange dina slutpunkter enligt följande; ändra `storagesample` namnet på ditt lagringskonto:
+1. I Message Analyzer väljer du **fil | Snabb spårning | Okrypterad HTTPS**.
+2. Spårningen påbörjas omedelbart. Välj **stoppa** för att stoppa spårningen så att vi kan konfigurera den att enbart spåra lagrings trafik.
+3. Redigera spårningssessionen genom att välja **Redigera** .
+4. Välj länken **Konfigurera** till höger om **Microsoft-PEF-WebProxy ETW-** providern.
+5. I dialog rutan **Avancerade inställningar** klickar du på fliken **Provider** .
+6. I fältet **hostname filter** anger du dina lagrings slut punkter, avgränsade med blank steg. Du kan till exempel ange dina slut punkter enligt följande: ändra `storagesample` till namnet på ditt lagrings konto:
 
     `storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net`
 
-7. Avsluta dialogrutan och klicka på **Starta om** för att börja samla in spårningen med värdnamnsfiltret på plats, så att endast Azure Storage-nätverkstrafik ingår i spårningen.
+7. Stäng dialog rutan och klicka på **starta om** för att börja samla in spårningen med hostname-filtret på plats, så att endast Azure Storage nätverks trafik ingår i spårningen.
 
 > [!NOTE]
-> När du har samlat in nätverksspårningen rekommenderar vi starkt att du återställer de inställningar som du kan ha ändrat i Fiddler för att dekryptera HTTPS-trafik. Avmarkera kryssrutan **Fånga HTTPS CONNECTs** och **Dekryptera HTTPS Traffic** i dialogrutan Spelmansalternativ.
+> När du är färdig med att samla in din nätverks spårning rekommenderar vi starkt att du återställer de inställningar som du kan ha ändrat i Fiddler för att dekryptera HTTPS-trafik. I dialog rutan Fiddler alternativ avmarkerar du kryss rutorna **avbilda https ansluter** och **DEkrypterar HTTPS-trafik** .
 
-Mer information [finns i Använda nätverksspårningsfunktionerna](https://technet.microsoft.com/library/jj674819.aspx) på Technet.
+Mer information finns i [använda funktionerna för nätverks spårning](https://technet.microsoft.com/library/jj674819.aspx) på TechNet.
 
-## <a name="review-metrics-data-in-the-azure-portal"></a>Granska måttdata i Azure-portalen
+## <a name="review-metrics-data-in-the-azure-portal"></a>Granska mått data i Azure Portal
 
-När ditt program har körts under en viss tid kan du granska måttdiagrammen som visas i [Azure-portalen](https://portal.azure.com) för att observera hur din tjänst har presterat.
+När ditt program har körts under en viss tids period kan du granska mått diagram som visas i [Azure Portal](https://portal.azure.com) för att se hur tjänsten har utförts.
 
-Navigera först till ditt lagringskonto i Azure-portalen. Som standard visas ett övervakningsdiagram med måttet **Framgångsprocent** på kontobladet. Om du tidigare har ändrat diagrammet så att det visar olika mått lägger du till måttet **Framgångsprocent.**
+Börja med att navigera till ditt lagrings konto i Azure Portal. Som standard visas ett övervaknings diagram med måttet **slutförd procent** på konto bladet. Om du tidigare har ändrat diagrammet för att visa olika mått, lägger du till måttet **slutförd procent** .
 
-Du ser nu **andelen lyckade resultat** i övervakningsdiagrammet, tillsammans med alla andra mått som du kan ha lagt till. I scenariot ska vi undersöka nästa genom att analysera loggarna i Message Analyzer, procent framgång är något under 100%.
+Nu visas **procent andelen lyckade** i övervaknings diagrammet, tillsammans med alla andra mått som du kan ha lagt till. I det scenario vi ska undersöka härnäst genom att analysera loggarna i Message Analyzer, är procent andelen lyckade under 100%.
 
-Mer information om hur du lägger till och anpassar måttdiagram finns i [Anpassa måttdiagram](storage-monitor-storage-account.md#customize-metrics-charts).
+Mer information om hur du lägger till och anpassar mått diagram finns i [Anpassa mått diagram](storage-monitor-storage-account.md#customize-metrics-charts).
 
 > [!NOTE]
-> Det kan ta lite tid innan dina måttdata visas i Azure-portalen när du har aktiverat lagringsmått. Detta beror på att timmått för föregående timme inte visas i Azure-portalen förrän den aktuella timmen har förflutit. Dessutom visas inte minutmått för närvarande i Azure-portalen. Så beroende på när du aktiverar mått kan det ta upp till två timmar att se måttdata.
+> Det kan ta lite tid innan dina mått data visas i Azure Portal när du har aktiverat lagrings mått. Detta beror på att Tim mått för föregående timme inte visas i Azure Portal förrän den aktuella timmen har förflutit. Dessutom visas inte minut mått för närvarande i Azure Portal. Det kan ta upp till två timmar att se mått data, beroende på när du aktiverar mått.
 >
 >
 
-## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Använda AzCopy för att kopiera serverloggar till en lokal katalog
+## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Använda AzCopy för att kopiera Server loggar till en lokal katalog
 
-Azure Storage skriver serverloggdata till blobbar, medan mått skrivs till tabeller. Loggblobar finns i den välkända `$logs` behållaren för ditt lagringskonto. Loggblobar namnges hierarkiskt efter år, månad, dag och timme, så att du enkelt kan hitta det tidsintervall som du vill undersöka. I `storagesample` kontot är `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`till exempel behållaren för loggblobar för 2015-01-02, från 8 till 09.00 . De enskilda blobbar i den här behållaren namnges sekventiellt, med början i `000000.log`.
+Azure Storage skriver serverns loggdata till blobbar, medan mått skrivs till tabeller. Log-blobbar är tillgängliga i den välkända `$logs` behållaren för ditt lagrings konto. Log-blobbar namnges hierarkiskt efter år, månad, dag och timme, så att du enkelt kan hitta det tidsintervall som du vill undersöka. I `storagesample` kontot är `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`till exempel behållaren för log-Blobbarna för 01/02/2015, från 8-9 am,. De enskilda Blobbarna i den här behållaren namnges sekventiellt, från `000000.log`och med.
 
-Du kan använda kommandoradsverktyget AzCopy för att hämta dessa loggfiler på serversidan till valfri plats på den lokala datorn. Du kan till exempel använda följande kommando för att hämta loggfilerna för blob-åtgärder som ägde `C:\Temp\Logs\Server`rum den 2 januari 2015 till mappen . ersätt `<storageaccountname>` med namnet på ditt lagringskonto:
+Du kan använda kommando rads verktyget AzCopy för att hämta dessa loggfiler på Server sidan till en valfri plats på den lokala datorn. Du kan till exempel använda följande kommando för att ladda ned loggfilerna för BLOB-åtgärder som ägde rum den 2 januari 2015 till mappen `C:\Temp\Logs\Server`. Ersätt `<storageaccountname>` med namnet på ditt lagrings konto:
 
 ```azcopy
 azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
 ```
 
-AzCopy är tillgängligt för hämtning på sidan [Azure Downloads.](https://azure.microsoft.com/downloads/) Mer information om hur du använder AzCopy finns i [Överföra data med kommandoradsverktyget AzCopy](storage-use-azcopy.md).
+AzCopy kan hämtas på sidan för [Azure-nedladdningar](https://azure.microsoft.com/downloads/) . Mer information om hur du använder AzCopy finns i [överföra data med kommando rads verktyget AzCopy](storage-use-azcopy.md).
 
-Mer information om hur du hämtar serverloggar finns i [Hämta lagringsloggdata](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Mer information om hur du hämtar loggar på Server sidan finns i [Hämta logg data för lagrings loggning](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
-## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Använda Microsoft Message Analyzer för att analysera loggdata
+## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Analysera loggdata med Microsoft Message Analyzer
 
-Microsoft Message Analyzer är ett verktyg för att samla in, visa och analysera trafik, händelser och andra system- eller programmeddelanden i felsöknings- och diagnostikscenarier. Med Message Analyzer kan du också läsa in, aggregera och analysera data från logg- och sparade spårningsfiler. Mer information om Message Analyzer finns i [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx).
+Microsoft Message Analyzer är ett verktyg för att samla in, Visa och analysera protokoll meddelande trafik, händelser och andra system-eller program meddelanden i fel söknings-och diagnostiska scenarier. Med Message Analyzer kan du också läsa in, sammanställa och analysera data från loggar och sparade spårningsfiler. Mer information om Message Analyzer finns i [funktions guide för Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
 
-Message Analyzer innehåller resurser för Azure Storage som hjälper dig att analysera server-, klient- och nätverksloggar. I det här avsnittet kommer vi att diskutera hur du använder dessa verktyg för att hantera problemet med låg procentig framgång i lagringsloggarna.
+Message Analyzer innehåller till gångar för Azure Storage som hjälper dig att analysera Server-, klient-och nätverks loggar. I det här avsnittet diskuterar vi hur du använder dessa verktyg för att lösa problemet med låg procents ATS i lagrings loggarna.
 
-### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Hämta och installera Message Analyzer och Azure Storage Assets
+### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Hämta och installera Message Analyzer och Azure Storage till gångar
 
-1. Hämta [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) från Microsoft Download Center och kör installationsprogrammet.
-2. Starta Meddelandeanalysator.
-3. Välj **Resurshanteraren**på **Verktyg-menyn** . Välj **Hämtare**i dialogrutan **Asset Manager** och filtrera sedan på **Azure Storage**. Du kommer att se Azure Storage Assets, som visas i bilden nedan.
-4. Klicka på **Synkronisera alla objekt som visas** för att installera Azure Storage Assets. De tillgängliga tillgångarna omfattar:
-   * **Färgregler för Azure-lagring:** Med Azure Storage-färgregler kan du definiera särskilda filter som använder färg, text och teckensnitt för att markera meddelanden som innehåller specifik information i en spårning.
-   * **Azure Storage-diagram:** Azure Storage-diagram är fördefinierade diagram som diagramserverloggdata. Observera att om du använder Azure Storage-diagram just nu kan du bara läsa in serverloggen i Analysrutnätet.
-   * **Azure Storage-delsmakare:** Azure Storage-tolkar tolkar Azure Storage-klienten, servern och HTTP-loggarna för att visa dem i Analysis Grid.
-   * **Azure-lagringsfilter:** Azure Storage-filter är fördefinierade villkor som du kan använda för att fråga dina data i Analysrutnätet.
-   * **Azure Storage View Layouter:** Azure Storage-vylayouter är fördefinierade kolumnlayouter och grupperingar i analysrutnätet.
-5. Starta om Meddelandeanalysatorn när du har installerat tillgångarna.
+1. Hämta [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) från Microsoft Download Center och kör installations programmet.
+2. Starta Message Analyzer.
+3. Från **verktyg** -menyn väljer du **till gångs hanteraren**. I dialog rutan **till gångs hanteraren** väljer du **hämtningar**och filtrerar sedan **Azure Storage**. Du ser Azure Storage till gångar, som du ser i bilden nedan.
+4. Klicka på **synkronisera alla visade objekt** för att installera Azure Storage till gångar. Tillgängliga till gångar inkluderar:
+   * **Azure Storage färg regler:** Med Azure Storage färg regler kan du definiera särskilda filter som använder färg-, text-och teckensnitts stilar för att markera meddelanden som innehåller specifik information i en spårning.
+   * **Azure Storage diagram:** Azure Storage diagram är fördefinierade diagram som data i Graph Server-loggen. Observera att om du vill använda Azure Storage diagram just nu kan du bara läsa in Server loggen i analys rutnätet.
+   * **Azure Storage tolkare:** Azure Storage Parsers parsar Azure Storage klient-, server-och HTTP-loggar för att visa dem i analys rutnätet.
+   * **Azure Storage filter:** Azure Storage filter är fördefinierade villkor som du kan använda för att fråga data i analys rutnätet.
+   * **Azure Storage Visa layouter:** Azure Storage se layouter är fördefinierade kolumnlayouter och grupperingar i analys rutnätet.
+5. Starta om Message Analyzer när du har installerat till gångarna.
 
-![Tillgångshanteraren för Meddelandeanalysator](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
+![Message Analyzer-Asset Manager](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
 > [!NOTE]
-> Installera alla Azure Storage-resurser som visas i den här självstudien.
+> Installera alla Azure Storage till gångar som visas i den här självstudien.
 >
 >
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importera dina loggfiler till Message Analyzer
 
-Du kan importera alla sparade loggfiler (serversidan, klientsidan och nätverket) till en enda session i Microsoft Message Analyzer för analys.
+Du kan importera alla sparade loggfiler (Server sidan, klient sidan och nätverket) till en enda session i Microsoft Message Analyzer för analys.
 
-1. Klicka på **Ny session**på **Arkiv-menyn** i Microsoft Message Analyzer och klicka sedan på **Tom session**. Ange ett namn på analyssessionen i dialogrutan **Ny session.** Klicka på knappen **Filer** på panelen **Sessionsinformation.**
-2. Om du vill läsa in nätverksspårningsdata som genereras av Message Analyzer klickar du på **Lägg till filer,** bläddrar till den plats där du sparade TRACpsfilen från webbspårningssessionen, väljer matp-filen och klickar på **Öppna**.
-3. Om du vill läsa in loggdata på serversidan klickar du på **Lägg till filer,** bläddrar till den plats där du hämtade loggarna på serversidan, markerar loggfilerna för det tidsintervall du vill analysera och klickar på **Öppna**. Ange sedan listrutan **Textloggkonfiguration** för varje loggfil på serversidan **på** panelen **Sessionsinformation** för att säkerställa att Microsoft Message Analyzer kan tolka loggfilen korrekt.
-4. Om du vill läsa in loggdata på klientsidan klickar du på **Lägg till filer,** bläddrar till den plats där du sparade loggarna på klientsidan, markerar de loggfiler som du vill analysera och klickar på **Öppna**. Ange sedan **Session Details** listrutan **Textloggkonfiguration** för varje loggfil på klientsidan på **azureStorageClientDotNetV4** för att säkerställa att Microsoft Message Analyzer kan tolka loggfilen korrekt.
-5. Klicka på **Start** i dialogrutan **Ny session** om du vill läsa in och tolka loggdata. Loggdata visas i meddelandeanalysrutnätet.
+1. Klicka på **ny session**på **Arkiv** -menyn i Microsoft Message Analyzer och klicka sedan på **Tom session**. I dialog rutan **ny session** anger du ett namn för din Analysis-session. Klicka på knappen **filer** på panelen **sessionsinformation** .
+2. Om du vill läsa in de nätverks spårnings data som genereras av Message Analyzer klickar du på **Lägg till filer**, bläddrar till den plats där du sparade. matp-filen från webbspårning-sessionen, väljer. matp-filen och klickar på **Öppna**.
+3. Läs in Server sidans loggdata genom att klicka på **Lägg till filer**, bläddra till den plats där du laddade ned dina loggar på Server sidan, Välj loggfilerna för det tidsintervall som du vill analysera och klicka på **Öppna**. I panelen **sessionsinformation** anger du sedan List rutan **text logg konfiguration** för varje logg fil på Server sidan till **AzureStorageLog** för att säkerställa att Microsoft Message Analyzer kan tolka logg filen korrekt.
+4. Om du vill läsa in loggdata på klient sidan klickar du på **Lägg till filer**, bläddrar till den plats där du sparade loggar på klient sidan, väljer de loggfiler som du vill analysera och klickar på **Öppna**. I panelen **sessionsinformation** anger du sedan List rutan **text logg konfiguration** för varje logg fil på klient sidan till **AzureStorageClientDotNetV4** för att säkerställa att Microsoft Message Analyzer kan tolka logg filen korrekt.
+5. Klicka på **Starta** i dialog rutan **ny session** för att läsa in och parsa loggdata. Loggdata visas i rutnätet analys verktyg för analys.
 
-Bilden nedan visar en exempelsession som konfigurerats med loggfiler för server-, klient- och nätverksspårning.
+Bilden nedan visar en exempel-session som kon figurer ATS med Server-, klient-och nätverks spårnings loggar.
 
-![Konfigurera meddelandeanalyssession](./media/storage-e2e-troubleshooting/configure-mma-session-1.png)
+![Konfigurera Message Analyzer-session](./media/storage-e2e-troubleshooting/configure-mma-session-1.png)
 
-Observera att Message Analyzer läser in loggfiler i minnet. Om du har en stor uppsättning loggdata vill du filtrera den för att få bästa prestanda från Message Analyzer.
+Observera att Message Analyzer läser in loggfiler i minnet. Om du har en stor uppsättning loggdata ska du filtrera den för att få bästa möjliga prestanda från analys verktyget.
 
-Bestäm först den tidsram som du är intresserad av att granska och håll den här tidsramen så liten som möjligt. I många fall kommer du vill granska en period av minuter eller timmar som mest. Importera den minsta uppsättningen loggar som kan uppfylla dina behov.
+Börja med att bestämma den tidsram som du är intresse rad av och se till att den här tids ramen är så liten som möjligt. I många fall vill du bara granska en period på några minuter eller timmar. Importera den minsta uppsättningen loggar som kan uppfylla dina behov.
 
-Om du fortfarande har en stor mängd loggdata kanske du vill ange ett sessionsfilter för att filtrera loggdata innan du läser in dem. I rutan **Sessionsfilter** väljer du knappen **Bibliotek** för att välja ett fördefinierat filter. Välj till exempel **Globalt tidsfilter I** från Azure Storage-filtren för att filtrera med ett tidsintervall. Du kan sedan redigera filtervillkoren för att ange start- och sluttidsstämpeln för det intervall som du vill visa. Du kan också filtrera efter en viss statuskod. Du kan till exempel välja att bara läsa in loggposter där statuskoden är 404.
+Om du fortfarande har en stor mängd loggdata kanske du vill ange ett sessions filter för att filtrera dina loggdata innan du läser in dem. I rutan **session filter** väljer du knappen **bibliotek** för att välja ett fördefinierat filter. Välj till exempel **globalt tids filter** i från Azure Storage filter för att filtrera efter ett tidsintervall. Du kan sedan Redigera filter villkoren för att ange start-och slut tids stämpling för det intervall som du vill se. Du kan också filtrera efter en viss status kod. Du kan till exempel välja att bara läsa in logg poster där status koden är 404.
 
-Mer information om hur du importerar loggdata till Microsoft Message Analyzer finns i [Hämta meddelandedata](https://technet.microsoft.com/library/dn772437.aspx) på TechNet.
+Mer information om hur du importerar loggdata till Microsoft Message Analyzer finns i [Hämta meddelande data](https://technet.microsoft.com/library/dn772437.aspx) på TechNet.
 
-### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Använd klientbegärans-ID:et för att korrelera loggfilsdata
+### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Använd klient förfrågnings-ID: t för att korrelera logg fils data
 
-Azure Storage Client Library genererar automatiskt ett unikt klientbegärande-ID för varje begäran. Det här värdet skrivs till klientloggen, serverloggen och nätverksspårningen, så du kan använda det för att korrelera data över alla tre loggarna i Message Analyzer. Se [klientbegärande-ID](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) för ytterligare information om klientbegäran-ID.
+Azure Storage klient biblioteket genererar automatiskt ett unikt ID för klient förfrågan för varje begäran. Det här värdet skrivs till klient loggen, Server loggen och nätverks spårningen, så att du kan använda den för att korrelera data mellan alla tre loggar i Message Analyzer. Se [ID för klientbegäran](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) om du vill ha mer information om klient förfrågnings-ID: t.
 
-I avsnitten nedan beskrivs hur du använder förkonfigurerade och anpassade layoutvyer för att korrelera och gruppera data baserat på klientbegärande-ID.
+I avsnitten nedan beskrivs hur du använder förkonfigurerade och anpassade vyer för att korrelera och gruppera data baserat på klientens förfrågnings-ID.
 
-### <a name="select-a-view-layout-to-display-in-the-analysis-grid"></a>Välj en vylayout som ska visas i analysrutnätet
+### <a name="select-a-view-layout-to-display-in-the-analysis-grid"></a>Välj en visnings-layout som ska visas i analys rutnätet
 
-Storage Assets for Message Analyzer innehåller Azure Storage View Layouts, som är förkonfigurerade vyer som du kan använda för att visa dina data med användbara grupperingar och kolumner för olika scenarier. Du kan också skapa anpassade vylayouter och spara dem för återanvändning.
+Lagrings resurserna för Message Analyzer innehåller Azure Storage Visa layouter, som är förkonfigurerade vyer som du kan använda för att visa dina data med användbara grupperingar och kolumner för olika scenarier. Du kan också skapa anpassade vyer och spara dem för åter användning.
 
-Bilden nedan visar menyn **Visa layout,** tillgänglig genom att välja **Visa layout** i menyfliksområdet i verktygsfältet. Vylayouterna för Azure Storage grupperas under **Azure Storage-noden** på menyn. Du kan `Azure Storage` söka efter i sökrutan för att filtrera endast på Azure Storage-vylayouter. Du kan också välja stjärnan bredvid en vylayout för att göra den till en favorit och visa den högst upp på menyn.
+I bilden nedan visas menyn **Visa layout** , som är tillgänglig genom att välja **Visa layout** i menyfliksområdet verktygsfält. Vyerna för Azure Storage grupperas under noden **Azure Storage** på menyn. Du kan söka efter `Azure Storage` i rutan Sök för att filtrera på Azure Storage endast Visa layouter. Du kan också välja stjärnan bredvid en visnings-layout för att göra den till en favorit och visa den överst på menyn.
 
-![Menyn Visa layout](./media/storage-e2e-troubleshooting/view-layout-menu.png)
+![Visa Layout-menyn](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
-Till att börja med väljer du **Grupperad efter ClientRequestID och Modul**. Den här vylayouten grupperar loggdata från alla tre loggarna först efter klientbegärande-ID och sedan efter källloggfil (eller **Modul** i Meddelandeanalys). Med den här vyn kan du öka detaljnivån i ett visst klientfråre och se data från alla tre loggfilerna för klientbegärande-ID.
+Börja med genom att välja **grupperat efter ClientRequestID och modul**. I den här vyn visas logg data från alla tre loggarna först efter klient-ID för begäran, sedan efter käll logg fil (eller **modul** i Message Analyzer). I den här vyn kan du öka detalj nivån för ett visst ID för klientbegäran och se data från alla tre loggfiler för klientens begär ande-ID.
 
-Bilden nedan visar den här layoutvyn som tillämpas på exempelloggdata, med en delmängd av kolumnerna. Du kan se att för ett visst klientfrårebegärande-ID visar Analysis Grid data från klientloggen, serverloggen och nätverksspårningen.
+I bilden nedan visas den här vyn som används i exempel logg data, med en delmängd av kolumner som visas. Du kan se att för ett visst klient förfrågnings-ID visas data från klient loggen, Server loggen och nätverks spårningen i analys rutnätet.
 
-![Azure Storage View Layout](./media/storage-e2e-troubleshooting/view-layout-client-request-id-module.png)
+![Azure Storage vy-layout](./media/storage-e2e-troubleshooting/view-layout-client-request-id-module.png)
 
 > [!NOTE]
-> Olika loggfiler har olika kolumner, så när data från flera loggfiler visas i analysrutnätet kanske vissa kolumner inte innehåller några data för en viss rad. I bilden ovan visar klientloggraderna till exempel inga data för kolumnerna **Timestamp**, **TimeElapsed**, **Source**och **Destination,** eftersom dessa kolumner inte finns i klientloggen, men finns i nätverksspårningen. På samma sätt visar kolumnen **Tidsstämpel** tidsstämpel tidsstämpeldata från serverloggen, men inga data visas för kolumnerna **TimeElapsed**, **Source**och **Destination,** som inte ingår i serverloggen.
+> Olika loggfiler har olika kolumner, så när data från flera loggfiler visas i analys rutnätet får vissa kolumner inte innehålla några data för en viss rad. I bilden ovan visar till exempel klient logg raderna inga data för kolumnerna **timestamp**, **TimeElapsed**, **Source**och **destination** , eftersom dessa kolumner inte finns i klient loggen, men finns i nätverks spårningen. På samma sätt visar kolumnen **tidsstämpelkolumn** tidsstämpel-data från Server loggen, men inga data visas för kolumnerna **TimeElapsed**, **Source**och **destination** , som inte ingår i Server loggen.
 >
 >
 
-Förutom att använda Azure Storage-vylayouter kan du också definiera och spara egna vylayouter. Du kan välja andra önskade fält för att gruppera data och spara grupperingen som en del av din anpassade layout också.
+Förutom att använda Azure Storage Visa layouter kan du också definiera och spara dina egna vyer. Du kan också välja andra önskade fält för gruppering av data och spara grupperingen som en del av din anpassade layout.
 
-### <a name="apply-color-rules-to-the-analysis-grid"></a>Tillämpa färgregler på analysrutnätet
+### <a name="apply-color-rules-to-the-analysis-grid"></a>Använd färg regler för analys rutnätet
 
-Lagringstillgångarna innehåller också färgregler som erbjuder ett visuellt sätt att identifiera olika typer av fel i analysrutnätet. De fördefinierade färgreglerna gäller för HTTP-fel, så de visas bara för serverloggen och nätverksspårningen.
+Lagrings resurserna innehåller också färg regler som ger ett visuellt sätt att identifiera olika typer av fel i analys rutnätet. De fördefinierade färg reglerna gäller HTTP-fel, så de visas bara för Server loggen och nätverks spårningen.
 
-Om du vill använda färgregler väljer du **Färgregler** i menyfliksområdet i verktygsfältet. Färgreglerna för Azure Storage visas på menyn. För självstudiekursen väljer du **Klientfel (StatusCode mellan 400 och 499),** som visas på bilden nedan.
+Om du vill använda färg regler väljer du **färg regler** i menyfliksområdet verktygsfält. Du ser Azure Storage färg regler på menyn. I självstudien väljer du **klient fel (StatusCode mellan 400 och 499)**, som du ser i bilden nedan.
 
-![Azure Storage View Layout](./media/storage-e2e-troubleshooting/color-rules-menu.png)
+![Azure Storage vy-layout](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
-Förutom att använda azure storage-färgreglerna kan du också definiera och spara dina egna färgregler.
+Förutom att använda Azure Storage färg regler kan du också definiera och spara egna färg regler.
 
-### <a name="group-and-filter-log-data-to-find-400-range-errors"></a>Gruppera och filtrera loggdata för att hitta 400-intervallfel
+### <a name="group-and-filter-log-data-to-find-400-range-errors"></a>Gruppera och filtrera logg data för att hitta 400-intervall fel
 
-Därefter grupperar och filtrerar vi loggdata för att hitta alla fel i intervallet 400.
+Sedan ska vi gruppera och filtrera loggdata för att hitta alla fel i 400-intervallet.
 
-1. Leta upp **kolumnen Statuskod** i analysrutnätet, högerklicka på kolumnrubriken och välj **Gruppera**.
-2. Därefter grupperar du i kolumnen **ClientRequestId.** Du ser att data i analysrutnätet nu är ordnade efter statuskod och klientbegärande-ID.
-3. Visa verktygsfönstret Visa filter om det inte redan visas. Välj **Verktygsfönster**i menyfliksområdet i verktygsfältet och visa sedan **filter**.
-4. Om du vill filtrera loggdata så att endast 400 intervallfel visas lägger du till följande filtervillkor i fönstret **Visa filter** och klickar på **Använd:**
+1. Leta upp kolumnen **StatusCode** i analys rutnätet, högerklicka på kolumn rubriken och välj **grupp**.
+2. Gruppera sedan efter i kolumnen **ClientRequestId** . Du ser att data i analys rutnätet nu är ordnade efter status kod och efter klient förfrågnings-ID.
+3. Visa fönstret för visnings filter om det inte redan visas. I menyfliksområdet verktygsfält väljer du **verktygs fönster**och sedan **Visa filter**.
+4. Om du vill filtrera loggdata så att endast 400-intervall fel visas lägger du till följande filter villkor i fönstret **Visa filter** och klickar på **Använd**:
 
     `(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)`
 
-Bilden nedan visar resultatet av denna gruppering och filtret. Om du expanderar **fältet ClientRequestID** under gruppningen för statuskod 409 visas till exempel en åtgärd som resulterade i den statuskoden.
+Bilden nedan visar resultatet av den här grupperingen och filtret. Om du expanderar fältet **ClientRequestID** under grupperingen för status kod 409, till exempel, visas en åtgärd som resulterade i status koden.
 
-![Azure Storage View Layout](./media/storage-e2e-troubleshooting/400-range-errors1.png)
+![Azure Storage vy-layout](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-När du har använt det här filtret ser du att rader från klientloggen är undantagna, eftersom klientloggen inte innehåller en **StatusCode-kolumn.** Till att börja med granskar vi server- och nätverksspårningsloggarna för att hitta 404 fel, och sedan återgår vi till klientloggen för att undersöka klientåtgärder som ledde till dem.
+När du har tillämpat det här filtret ser du att rader från klient loggen utesluts, eftersom klient loggen inte innehåller kolumnen **StatusCode** . För att börja med granskar vi Server-och nätverks spårnings loggarna för att hitta 404-fel och sedan återgår vi till klient loggen för att undersöka de klient åtgärder som ledde till dem.
 
 > [!NOTE]
-> Du kan filtrera på **kolumnen StatusKod** och fortfarande visa data från alla tre loggarna, inklusive klientloggen, om du lägger till ett uttryck i filtret som innehåller loggposter där statuskoden är null. Om du vill konstruera det här filteruttrycket använder du:
+> Du kan filtrera efter kolumnen **StatusCode** och fortfarande visa data från alla tre loggarna, inklusive klient loggen, om du lägger till ett uttryck i filtret som innehåller logg poster där status koden är null. Använd följande för att skapa det här filter uttrycket:
 >
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
 >
-> Det här filtret returnerar alla rader från klientloggen och endast rader från serverloggen och HTTP-loggen där statuskoden är större än 400. Om du använder den på vylayouten grupperad efter klientbegärande-ID och modul kan du söka eller bläddra igenom loggposterna för att hitta de där alla tre loggarna finns representerade.
+> Det här filtret returnerar alla rader från klient loggen och endast rader från Server loggen och HTTP-loggen där status koden är större än 400. Om du använder den i vyn layout grupperad efter ID och modul för klientbegäran, kan du söka i eller bläddra igenom logg posterna för att hitta dem där alla tre loggarna visas.
 
-### <a name="filter-log-data-to-find-404-errors"></a>Filtrera loggdata för att hitta 404 fel
+### <a name="filter-log-data-to-find-404-errors"></a>Filtrera loggdata för att hitta 404-fel
 
-Lagringstillgångarna innehåller fördefinierade filter som du kan använda för att begränsa loggdata för att hitta de fel eller trender du letar efter. Därefter tillämpar vi två fördefinierade filter: ett som filtrerar server- och nätverksspårningsloggarna för 404 fel och en som filtrerar data på ett angivet tidsintervall.
+Lagrings resurserna innehåller fördefinierade filter som du kan använda för att begränsa loggdata för att hitta de fel eller trender som du letar efter. Nu ska vi tillämpa två fördefinierade filter: en som filtrerar Server-och nätverks spårnings loggarna för 404 fel och en som filtrerar data i ett angivet tidsintervall.
 
-1. Visa verktygsfönstret Visa filter om det inte redan visas. Välj **Verktygsfönster**i menyfliksområdet i verktygsfältet och visa sedan **filter**.
-2. I fönstret Visa filter **Library**väljer du `Azure Storage` Bibliotek och söker efter azure storage-filtren. Välj filtret för **404 (hittades inte) meddelanden i alla loggar**.
-3. Visa **biblioteksmenyn** igen och leta reda på och välj **det globala tidsfiltret**.
-4. Redigera tidsstämplarna som visas i filtret till det område du vill visa. Detta kommer att bidra till att begränsa dataomfånget att analysera.
-5. Filtret ska se ut ungefär som exemplet nedan. Klicka på **Använd** om du vill använda filtret i analysrutnätet.
+1. Visa fönstret för visnings filter om det inte redan visas. I menyfliksområdet verktygsfält väljer du **verktygs fönster**och sedan **Visa filter**.
+2. I fönstret Visa filter väljer du **bibliotek**och söker `Azure Storage` efter Azure Storage filter. Välj filtret för **404-meddelanden (hittades inte) i alla loggar**.
+3. Visa **biblioteks** menyn igen och leta upp och välj det **globala tids filtret**.
+4. Redigera de tidsstämplar som visas i filtret för det intervall som du vill visa. På så sätt kan du begränsa det data intervall som ska analyseras.
+5. Filtret bör se ut ungefär som i exemplet nedan. Tillämpa filtret i analys rutnätet genom att klicka på **Använd** .
 
     `((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
     (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)`
 
-    ![Azure Storage View Layout](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
+    ![Azure Storage vy-layout](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
 
 ### <a name="analyze-your-log-data"></a>Analysera dina loggdata
 
-Nu när du har grupperat och filtrerat dina data kan du undersöka information om enskilda begäranden som genererade 404 fel. I den aktuella vylayouten grupperas data efter klientbegärande-ID och sedan efter loggkälla. Eftersom vi filtrerar på begäranden där fältet StatusCode innehåller 404 ser vi bara server- och nätverksspårningsdata, inte klientloggdata.
+Nu när du har grupperat och filtrerat dina data kan du granska information om enskilda förfrågningar som genererade 404-fel. I den aktuella vyns layout grupperas data efter klient-ID för begäran, sedan efter logg källa. Eftersom vi filtrerar på begär Anden där fältet StatusCode innehåller 404, ser vi bara server-och nätverks spårnings data, inte klientens loggdata.
 
-Bilden nedan visar en specifik begäran där en Get Blob-åtgärd gav en 404 eftersom bloben inte fanns. Observera att vissa kolumner har tagits bort från standardvyn för att visa relevanta data.
+Bilden nedan visar en speciell begäran där en get BLOB-åtgärd gav en 404 eftersom blobben inte finns. Observera att vissa kolumner har tagits bort från standardvyn för att visa relevanta data.
 
-![Filtrerade server- och nätverksspårningsloggar](./media/storage-e2e-troubleshooting/server-filtered-404-error.png)
+![Filtrerade Server-och nätverks spårnings loggar](./media/storage-e2e-troubleshooting/server-filtered-404-error.png)
 
-Därefter korrelerar vi det här klientbegärande-ID:et med klientloggdata för att se vilka åtgärder klienten utförde när felet inträffade. Du kan visa en ny analysrutnätsvy för den här sessionen om du vill visa klientloggdata som öppnas på en andra flik:
+Därefter korrelerar vi detta ID för klientbegäran med klient logg data för att se vilka åtgärder klienten tog när felet inträffade. Du kan visa en ny Analysis Grid-vy för den här sessionen om du vill visa klient logg data som öppnas på en andra flik:
 
-1. Kopiera först värdet för fältet **ClientRequestId** till Urklipp. Du kan göra detta genom att välja endera raden, hitta **fältet ClientRequestId,** högerklicka på datavärdet och välja **Kopiera "ClientRequestId".**
-2. Välj **Nytt visningsprogram**i menyfliksområdet i verktygsfältet och välj sedan **Analysrutnät** för att öppna en ny flik. På den nya fliken visas alla data i loggfilerna, utan att gruppera, filtrera eller färga regler.
-3. Välj **Visa layout**i menyfliksområdet i verktygsfältet och välj sedan **Alla .NET-klientkolumner** under avsnittet **Azure Storage.** Den här vylayouten visar data från klientloggen samt server- och nätverksspårningsloggarna. Som standard sorteras den i kolumnen **MessageNumber.**
-4. Sök sedan i klientloggen efter klientbegärande-ID. Välj Sök meddelanden i menyfliksområdet i **verktygsfältet**och ange sedan ett anpassat filter på klientbegäran-ID:t i fältet **Sök.** Använd den här syntaxen för filtret och ange ditt eget klientfrågefråge-ID:
+1. Kopiera först värdet för fältet **ClientRequestId** till Urklipp. Du kan göra detta genom att välja någon av raderna, leta upp fältet **ClientRequestId** , högerklicka på datavärdet och välja **Kopiera ' ClientRequestId '**.
+2. I menyfliksområdet verktygsfält väljer du **ny Viewer**och väljer sedan **analys rutnät** för att öppna en ny flik. Den nya fliken visar alla data i dina loggfiler, utan gruppering, filtrering eller färg regler.
+3. I menyfliksområdet verktygsfält väljer du **Visa layout**och väljer sedan **alla .net-klient kolumner** i avsnittet **Azure Storage** . I den här vyn visas data från klient loggen samt Server-och nätverks spårnings loggarna. Som standard sorteras den i kolumnen **MessageNumber** .
+4. Sök sedan efter klient förfrågan-ID i klient loggen. I menyfliksområdet verktygsfält väljer du **Sök meddelanden**och anger sedan ett anpassat filter för klient förfrågnings-ID: t i fältet **Sök** . Använd den här syntaxen för filtret och ange ditt eget ID för klientbegäran:
 
     `*ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"`
 
-Message Analyzer lokaliserar och väljer den första loggposten där sökvillkoren matchar klientbegäran-ID. I klientloggen finns det flera transaktioner för varje klientbegärande-ID, så du kanske vill gruppera dem i fältet **ClientRequestId** för att göra det lättare att se dem alla tillsammans. Bilden nedan visar alla meddelanden i klientloggen för det angivna klientbegärande-ID:et.
+Message Analyzer söker efter och väljer den första logg posten där Sök kriterierna matchar ID för klientbegäran. I klient loggen finns det flera poster för varje klient förfrågnings-ID, så du kanske vill gruppera dem i fältet **ClientRequestId** för att göra det lättare att se dem tillsammans. I bilden nedan visas alla meddelanden i klient loggen för det angivna ID: t för klient förfrågan.
 
-![Klientlogg som visar 404 fel](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
+![Klient loggen visar 404 fel](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
-Med hjälp av data som visas i vylayouterna på dessa två flikar kan du analysera begärandedata för att avgöra vad som kan ha orsakat felet. Du kan också titta på begäranden som föregick den här för att se om en tidigare händelse kan ha lett till 404-felet. Du kan till exempel granska klientloggposterna före det här klientbegärande-ID:t för att avgöra om blobben kan ha tagits bort eller om felet berodde på att klientprogrammet anropar ett CreateIfNotExists API på en behållare eller blob. I klientloggen hittar du blobens adress i fältet **Beskrivning.** I server- och nätverksspårningsloggarna visas den här informationen i fältet **Sammanfattning.**
+Med hjälp av de data som visas i vyerna i dessa två flikar kan du analysera begär ande data för att avgöra vad som kan ha orsakat felet. Du kan också titta på begär Anden som föregår denna för att se om en tidigare händelse kan leda till 404-felet. Du kan till exempel granska posterna i klient loggen före detta ID för klientbegäran för att avgöra om blobben kan ha tagits bort eller om felet berodde på att klient programmet anropade ett CreateIfNotExists-API på en behållare eller BLOB. I klient loggen kan du hitta blobb adressen i fältet **Beskrivning** ; i Server-och nätverks spårnings loggarna visas den här informationen i fältet **Sammanfattning** .
 
-När du vet adressen till blob som gav 404-felet kan du undersöka vidare. Om du söker i loggposterna efter andra meddelanden som är associerade med åtgärder på samma blob kan du kontrollera om klienten tidigare har tagit bort entiteten.
+När du känner till adressen till blobben som gav upphov till 404-felet kan du undersöka ytterligare. Om du söker i logg poster efter andra meddelanden som är kopplade till åtgärder på samma BLOB kan du kontrol lera om klienten tidigare tog bort entiteten.
 
-## <a name="analyze-other-types-of-storage-errors"></a>Analysera andra typer av lagringsfel
+## <a name="analyze-other-types-of-storage-errors"></a>Analysera andra typer av lagrings fel
 
-Nu när du är bekant med att använda Message Analyzer för att analysera loggdata kan du analysera andra typer av fel med hjälp av vylayouter, färgregler och sökning/filtrering. I tabellerna nedan visas några problem som kan uppstå och de filtervillkor som du kan använda för att hitta dem. Mer information om hur du konstruerar filter och filtret för Meddelandeanalyser finns i [Filtrera meddelandedata](https://technet.microsoft.com/library/jj819365.aspx).
+Nu när du har lärt dig att använda Message Analyzer för att analysera dina loggdata kan du analysera andra typer av fel med hjälp av Visa layouter, färg regler och sökning/filtrering. I tabellerna nedan visas några problem som kan uppstå och filter villkor som du kan använda för att hitta dem. Mer information om hur du skapar filter och filter språket för Message Analyzer finns i [filtrera meddelande data](https://technet.microsoft.com/library/jj819365.aspx).
 
-| För att undersöka... | Använd filteruttryck... | Uttrycket gäller för logg (klient, server, nätverk, alla) |
+| Att undersöka... | Använd filter uttryck... | Uttrycket gäller för loggen (klient, Server, nätverk, alla) |
 | --- | --- | --- |
-| Oväntade förseningar i meddelandeleverans i en kö |AzureStorageClientDotNetV4.Description innehåller "Försök igen misslyckades". |Client |
-| HTTP-ökning i PercentThrottlingError |HTTP. Response.StatusCode == 500 &#124;&#124; HTTP. Response.StatusCode == 503 |Nätverk |
-| Ökning av ProcentTimeoutError |HTTP. Response.StatusCode == 500 |Nätverk |
-| Ökning av PercentTimeoutError (alla) |*StatusCode == 500 |Alla |
-| Ökning av PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level < 2 |Client |
-| HTTP 403-meddelanden (Förbjudet) |HTTP. Response.StatusCode == 403 |Nätverk |
-| HTTP 404-meddelanden (Hittades inte) |HTTP. Response.StatusCode == 404 |Nätverk |
-| 404 (alla) |*StatusCode == 404 |Alla |
-| Det är problem med SAS-autentiseringen (signatur för delad åtkomst) |AzureStorageLog.RequestStatus == "SASAuthorizationError" |Nätverk |
-| HTTP 409-meddelanden (Konflikt) |HTTP. Response.StatusCode == 409 |Nätverk |
-| 409 (alla) |*StatusCode == 409 |Alla |
-| Låg procentsuccess eller analysloggposter har operationer med transaktionsstatus för ClientOtherErrors |AzureStorageLog.RequestStatus == "ClientOtherError" |Server |
-| Nagle Varning |((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) och (AzureStorageLog.RequestPacketSize <1460) och (AzureStorageLog.EndToEndencyLatMS - AzureStorageLog.ServerLatencyMS >= 200) |Server |
-| Tidsintervall i server- och nätverksloggar |#Timestamp >= 2014-10-20T16:36:38 och #Timestamp <= 2014-10-20T16:36:39 |Server, Nätverk |
-| Tidsintervall i serverloggar |AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 och AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 |Server |
+| Oväntade fördröjningar i meddelande leverans i en kö |AzureStorageClientDotNetV4. Description innehåller "försök att försöka igen." |Client |
+| HTTP-ökning i PercentThrottlingError |Inkommande. Response. StatusCode = = 500 &#124;&#124; HTTP. Response. StatusCode = = 503 |Nätverk |
+| Ökning i PercentTimeoutError |Inkommande. Response. StatusCode = = 500 |Nätverk |
+| Ökning i PercentTimeoutError (alla) |* StatusCode = = 500 |Alla |
+| Ökning i PercentNetworkError |AzureStorageClientDotNetV4. EventLogEntry. level < 2 |Client |
+| HTTP 403-meddelanden (Förbjudet) |Inkommande. Response. StatusCode = = 403 |Nätverk |
+| HTTP 404-meddelanden (Hittades inte) |Inkommande. Response. StatusCode = = 404 |Nätverk |
+| 404 (alla) |* StatusCode = = 404 |Alla |
+| Det är problem med SAS-autentiseringen (signatur för delad åtkomst) |AzureStorageLog. RequestStatus = = "SASAuthorizationError" |Nätverk |
+| HTTP 409-meddelanden (Konflikt) |Inkommande. Response. StatusCode = = 409 |Nätverk |
+| 409 (alla) |* StatusCode = = 409 |Alla |
+| Låga PercentSuccess-eller analys logg poster har åtgärder med transaktions status ClientOtherErrors |AzureStorageLog. RequestStatus = = "ClientOtherError" |Server |
+| Nagle-varning |((AzureStorageLog. EndToEndLatencyMS-AzureStorageLog. ServerLatencyMS) > (AzureStorageLog. ServerLatencyMS * 1,5)) och (AzureStorageLog. RequestPacketSize <1460) och (AzureStorageLog. EndToEndLatencyMS-AzureStorageLog. ServerLatencyMS >= 200) |Server |
+| Tidsintervall i Server-och nätverks loggar |#Timestamp >= 2014-10-20T16:36:38 och #Timestamp <= 2014-10-20T16:36:39 |Server, nätverk |
+| Tidsintervall i Server loggar |AzureStorageLog. tidsstämpel >= 2014-10-20T16:36:38 och AzureStorageLog. tidsstämpel <= 2014-10-20T16:36:39 |Server |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om felsökning av heltäckande scenarier i Azure Storage finns i följande resurser:
+Mer information om fel sökning av scenarier från slut punkt till slut punkt i Azure Storage finns i följande resurser:
 
 * [Övervaka, diagnostisera och felsök Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 * [Lagringsanalys](https://msdn.microsoft.com/library/azure/hh343270.aspx)

@@ -1,34 +1,34 @@
 ---
-title: Gränssnittselement för IdentitySelector
-description: Beskriver användargränssnittselementet Microsoft.ManagedIdentity.IdentitySelector för Azure-portalen. Används för att tilldela hanterade identiteter till en resurs.
+title: IdentitySelector-GRÄNSSNITTs element
+description: Beskriver användar gränssnitts elementet Microsoft. ManagedIdentity. IdentitySelector för Azure Portal. Används för att tilldela hanterade identiteter till en resurs.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
 ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77087549"
 ---
-# <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Microsoft.ManagedIdentity.IdentitySelector UI element
+# <a name="microsoftmanagedidentityidentityselector-ui-element"></a>GRÄNSSNITTs element för Microsoft. ManagedIdentity. IdentitySelector
 
-En kontroll för tilldelning av [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) för en resurs i en distribution.
+En kontroll för att tilldela [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) för en resurs i en distribution.
 
-## <a name="ui-sample"></a>Exempel på användargränssnitt
+## <a name="ui-sample"></a>UI-exempel
 
 Kontrollen består av följande element:
 
-![Microsoft.ManagedIdentity.IdentitySelector första steget](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
+![Första steget i Microsoft. ManagedIdentity. IdentitySelector](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
 
-När användaren väljer **Lägg till**öppnas följande formulär. Användaren kan välja en eller flera användartilldelade identiteter för resursen.
+När användaren väljer **Lägg till**öppnas följande formulär. Användaren kan välja en eller flera användar-tilldelade identiteter för resursen.
 
-![Microsoft.ManagedIdentity.IdentitySelector andra steget](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
+![Andra steg för Microsoft. ManagedIdentity. IdentitySelector](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
 
 De valda identiteterna visas i tabellen. Användaren kan lägga till eller ta bort objekt från den här tabellen.
 
-![Microsoft.ManagedIdentity.IdentitySelector tredje steget](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
+![Tredje steget Microsoft. ManagedIdentity. IdentitySelector](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
 
 ## <a name="schema"></a>Schema
 
@@ -69,16 +69,16 @@ De valda identiteterna visas i tabellen. Användaren kan lägga till eller ta bo
 
 ## <a name="remarks"></a>Anmärkningar
 
-- Använd **defaultValue.systemAssignedIdentity** om du vill ange ett initialt värde för kontrollen systemtilldelade identitetsalternativ. Standardvärdet är **Av**. Följande värden är tillåtna:
-  - **På** – Ett system tilldelat identitet tilldelas resursen.
-  - **Av** – Ett system som tilldelats identitet tilldelas inte resursen.
-  - **OnOnly** – En tilldelad identitet tilldelas resursen. Användare kan inte redigera det här värdet under distributionen.
-  - **OffOnly** – Ett system som tilldelats identitet tilldelas inte till resursen. Användare kan inte redigera det här värdet under distributionen.
+- Använd **DefaultValue. systemAssignedIdentity** för att ange ett ursprungligt värde för den tilldelade identitets alternativ kontrollen. Standardvärdet är **inaktiverat**. Följande värden är tillåtna:
+  - **På** – en tilldelad dator identitet tilldelas till resursen.
+  - **Av** – en tilldelad system identitet är inte tilldelad till resursen.
+  - **OnOnly** – en tilldelad dator identitet tilldelas till resursen. Användare kan inte redigera det här värdet under distributionen.
+  - **OffOnly** – en tilldelad system identitet är inte tilldelad till resursen. Användare kan inte redigera det här värdet under distributionen.
 
-- Om **options.hideSystemAssignedIdentity** är inställt på **true**visas inte användargränssnittet för att konfigurera den tilldelade datorn. Standardvärdet för det här alternativet är **falskt**.
-- Om **options.hideUserAssignedIdentity** är inställt på **true**visas inte användargränssnittet för att konfigurera den tilldelade användarens identitet. Resursen tilldelas inte en användartilldelad identitet. Standardvärdet för det här alternativet är **falskt**.
+- Om **Options. hideSystemAssignedIdentity** har angetts till **True**visas inte gränssnittet för att konfigurera den tilldelade identiteten. Standardvärdet för det här alternativet är **false**.
+- Om **Options. hideUserAssignedIdentity** har angetts till **True**visas inte användar gränssnittet för att konfigurera den tilldelade identiteten. Resursen har inte tilldelats någon tilldelad identitet. Standardvärdet för det här alternativet är **false**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-- En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+- En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+- En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

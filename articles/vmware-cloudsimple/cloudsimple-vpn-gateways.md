@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning från CloudSimple - VPN-gateways
-description: Lär dig mer om CloudSimple-VPN-koncept för plats-till-plats och VPN-koncept för punkt till plats
+title: Azure VMware-lösning av CloudSimple-VPN-gatewayer
+description: Lär dig mer om CloudSimple för plats-till-plats-VPN och punkt-till-plats-VPN-koncept
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,69 +9,69 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024865"
 ---
-# <a name="vpn-gateways-overview"></a>Översikt över VPN-gateways
+# <a name="vpn-gateways-overview"></a>Översikt över VPN-gatewayer
 
-En VPN-gateway används för att skicka krypterad trafik mellan ett CloudSimple-regionnätverk på en lokal plats eller en dator via det offentliga internet.  Varje region kan ha en VPN-gateway, som kan stödja flera anslutningar. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar på den tillgängliga bandbredden.
+En VPN-gateway används för att skicka krypterad trafik mellan ett CloudSimple regions nätverk på en lokal plats eller en dator via det offentliga Internet.  Varje region kan ha en VPN-gateway som har stöd för flera anslutningar. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar på den tillgängliga bandbredden.
 
-CloudSimple tillhandahåller två typer av VPN-gateways:
+CloudSimple tillhandahåller två typer av VPN-gatewayer:
 
-* VPN-gateway för plats till plats
-* VPN-gateway för punkt till plats
+* Plats-till-plats-VPN-gateway
+* Punkt-till-plats-VPN-gateway
 
-## <a name="site-to-site-vpn-gateway"></a>VPN-gateway för plats till plats
+## <a name="site-to-site-vpn-gateway"></a>Plats-till-plats-VPN-gateway
 
-En VPN-gateway från plats till plats används för att skicka krypterad trafik mellan ett CloudSimple-regionnätverk och ett lokalt datacenter. Använd den här anslutningen för att definiera undernät/CIDR-intervall för nätverkstrafik mellan det lokala nätverket och CloudSimple-regionnätverket.
+En plats-till-plats-VPN-gateway används för att skicka krypterad trafik mellan ett CloudSimple region nätverk och ett lokalt Data Center. Använd den här anslutningen för att definiera undernät/CIDR-intervall för nätverks trafik mellan ditt lokala nätverk och CloudSimple regions nätverk.
 
-Med VPN-gatewayen kan du använda tjänster från lokalt i ditt privata moln och tjänster i ditt privata moln från det lokala nätverket.  CloudSimple tillhandahåller en principbaserad VPN-server för upprättande av anslutningen från ditt lokala nätverk.
+VPN-gatewayen gör att du kan använda tjänster lokalt i ditt privata moln och tjänster i ditt privata moln från det lokala nätverket.  CloudSimple tillhandahåller en principbaserad VPN-server för att upprätta anslutningen från ditt lokala nätverk.
 
-Användningsfall för VPN från plats till plats:
+Användnings fall för plats-till-plats-VPN:
 
-* Hjälpmedel för ditt privata moln vCenter från alla arbetsstationer i ditt lokala nätverk.
-* Användning av din lokala Active Directory som en vCenter-identitetskälla.
-* Bekväm överföring av VM-mallar, Iso-filer och andra filer från lokala resurser till ditt privata moln vCenter.
-* Hjälpmedel för arbetsbelastningar som körs i ditt privata moln från ditt lokala nätverk.
+* Tillgänglighet för ditt privata moln vCenter från valfri arbets station i ditt lokala nätverk.
+* Användning av din lokala Active Directory som vCenter-identitets källa.
+* Bekväm överföring av VM-mallar, ISO och andra filer från dina lokala resurser till ditt privata moln vCenter.
+* Tillgänglighet för arbets belastningar som körs i ditt privata moln från ditt lokala nätverk.
 
-![Topologi för VPN-anslutning från plats till plats](media/cloudsimple-site-to-site-vpn-connection.png)
+![Topologi för plats-till-plats-VPN-anslutning](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### <a name="cryptographic-parameters"></a>Kryptografiska parametrar
 
-En VPN-anslutning från plats till plats använder följande standardkryptografiiska parametrar för att upprätta en säker anslutning.  När du skapar en anslutning från din lokala VPN-enhet använder du någon av följande parametrar som stöds av din lokala VPN-gateway.
+En plats-till-plats-VPN-anslutning använder följande kryptografiska standard parametrar för att upprätta en säker anslutning.  När du skapar en anslutning från din lokala VPN-enhet använder du någon av följande parametrar som stöds av din lokala VPN-gateway.
 
-#### <a name="phase-1-proposals"></a>Förslag till fas 1
+#### <a name="phase-1-proposals"></a>Fas 1-förslag
 
 | Parameter | Förslag 1 | Förslag 2 | Förslag 3 |
 |-----------|------------|------------|------------|
 | IKE-version | IKEv1 | IKEv1 | IKEv1 |
 | Kryptering | AES 128 | AES 256 | AES 256 |
-| Hash-algoritm| SHA 256 | SHA 256 | SHA 1 (PÅ) |
-| Diffie Hellman-gruppen (DH-gruppen) | 2 | 2 | 2 |
-| Livstid | 28 800 sekunder | 28 800 sekunder | 28 800 sekunder |
-| Datastorlek | 4 GB | 4 GB | 4 GB |
+| Hash-algoritm| SHA 256 | SHA 256 | SHA 1 |
+| Diffie Hellman-grupp (DH-grupp) | 2 | 2 | 2 |
+| Livs längd | 28 800 sekunder | 28 800 sekunder | 28 800 sekunder |
+| Data storlek | 4 GB | 4 GB | 4 GB |
 
-#### <a name="phase-2-proposals"></a>Förslag till fas 2
+#### <a name="phase-2-proposals"></a>Fas 2-förslag
 
 | Parameter | Förslag 1 | Förslag 2 | Förslag 3 |
 |-----------|------------|------------|------------|
 | Kryptering | AES 128 | AES 256 | AES 256 |
-| Hash-algoritm| SHA 256 | SHA 256 | SHA 1 (PÅ) |
-| Perfect Forward Secrecy Group (PFS Group) | Inget | Inget | Inget |
-| Livstid | 1 800 sekunder | 1 800 sekunder | 1 800 sekunder |
-| Datastorlek | 4 GB | 4 GB | 4 GB |
+| Hash-algoritm| SHA 256 | SHA 256 | SHA 1 |
+| PFS-grupp (Perfect Forward Secrecy) | Inga | Inga | Inga |
+| Livs längd | 1 800 sekunder | 1 800 sekunder | 1 800 sekunder |
+| Data storlek | 4 GB | 4 GB | 4 GB |
 
 
 > [!IMPORTANT]
-> Ställ in TCP MSS Clamping vid 1200 på din VPN-enhet. Eller om dina VPN-enheter inte stöder MSS-fastspänning kan du alternativt ställa in MTU på tunnelgränssnittet på 1240 byte istället.
+> Ange TCP MSS-ihopfogning vid 1200 på VPN-enheten. Eller om VPN-enheterna inte stöder MSS-ihopfogning kan du i stället ange MTU för tunnel gränssnittet till 1240 byte.
 
-## <a name="point-to-site-vpn-gateway"></a>VPN-gateway för punkt till plats
+## <a name="point-to-site-vpn-gateway"></a>Punkt-till-plats-VPN-gateway
 
-En punkt-till-plats-VPN används för att skicka krypterad trafik mellan ett CloudSimple-regionnätverk och en klientdator.  Point-to-Site VPN är det enklaste sättet att komma åt ditt privata molnnätverk, inklusive ditt privata molnvCenter och virtuella virtuella arbetsbelastningar.  Använd Punkt-till-plats VPN-anslutning om du ansluter till det privata molnet på distans.
+En punkt-till-plats-VPN används för att skicka krypterad trafik mellan ett CloudSimple region nätverk och en klient dator.  Punkt-till-plats-VPN är det enklaste sättet att komma åt ditt privata moln nätverk, inklusive ditt privata moln vCenter och virtuella datorer för arbets belastning.  Använd punkt-till-plats-VPN-anslutning om du ansluter till det privata molnet via en fjärr anslutning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera VPN-gateway](vpn-gateway.md)
+* [Konfigurera VPN gateway](vpn-gateway.md)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77086144"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 i Azure Service Bus-och Event Hubs-protokoll guide
@@ -370,14 +370,14 @@ Begär ande meddelandet har följande program egenskaper:
 
 | Nyckel | Valfri | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| reparation |Inga |sträng |**Skicka token** |
-| typ |Inga |sträng |Typ av token som ska beställas. |
-| namn |Inga |sträng |Mål gruppen som token gäller. |
+| reparation |Nej |sträng |**Skicka token** |
+| typ |Nej |sträng |Typ av token som ska beställas. |
+| name |Nej |sträng |Mål gruppen som token gäller. |
 | dag |Ja |timestamp |Utgångs tiden för token. |
 
 Egenskapen *Name* identifierar den entitet som token ska associeras med. I Service Bus är det sökvägen till kön, eller ämnet/prenumerationen. *Typ* egenskapen identifierar tokentypen:
 
-| Tokentyp | Beskrivning av token | Typ av brödtext | Anteckningar |
+| Tokentyp | Beskrivning av token | Typ av brödtext | Obs! |
 | --- | --- | --- | --- |
 | AMQP: JWT |JSON Web Token (JWT) |AMQP-värde (sträng) |Ännu inte tillgängligt. |
 | AMQP: SWT |Enkel webb-token (SWT) |AMQP-värde (sträng) |Stöds endast för SWT-token som utfärdats av AAD/ACS |
@@ -389,7 +389,7 @@ Svarsmeddelandet har följande *program egenskaps* värden
 
 | Nyckel | Valfri | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| status kod |Inga |int |HTTP-svarskod **[RFC2616]**. |
+| status kod |Nej |int |HTTP-svarskod **[RFC2616]**. |
 | status-Beskrivning |Ja |sträng |Beskrivning av status. |
 
 Klienten kan anropa in *-token* upprepade gånger och för alla entiteter i meddelande infrastrukturen. Token är begränsade till den aktuella klienten och fästs på den aktuella anslutningen, vilket innebär att servern släpper alla kvarhållna token när anslutningen uppkommer.

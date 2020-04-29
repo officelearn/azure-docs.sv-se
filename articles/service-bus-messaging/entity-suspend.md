@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus – pausa meddelandeentiteter
-description: I den här artikeln beskrivs hur du tillfälligt pausar och återaktiverar Azure Service Bus-meddelandeentiteter (köer, ämnen och prenumerationer).
+title: Azure Service Bus – pausa meddelande enheter
+description: Den här artikeln förklarar hur du tillfälligt inaktiverar och återaktiverar Azure Service Bus meddelande enheter (köer, ämnen och prenumerationer).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,40 +14,40 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760393"
 ---
-# <a name="suspend-and-reactivate-messaging-entities-disable"></a>Pausa och återaktivera meddelandeentiteter (inaktivera)
+# <a name="suspend-and-reactivate-messaging-entities-disable"></a>Pausa och återaktivera meddelande enheter (inaktivera)
 
-Köer, ämnen och prenumerationer kan tillfälligt stängas av. Suspension försätter entiteten i ett inaktiverat tillstånd där alla meddelanden lagras. Meddelanden kan dock inte tas bort eller läggas till, och respektive protokollåtgärder ger fel.
+Köer, ämnen och prenumerationer kan tillfälligt avbrytas. SUS Pension placerar entiteten i ett inaktiverat tillstånd där alla meddelanden bevaras i lagrings utrymmet. Meddelanden kan dock inte tas bort eller läggas till, och motsvarande protokoll åtgärder ger fel.
 
-Att avbryta en entitet görs vanligtvis av brådskande administrativa skäl. Ett scenario är att ha distribuerat en felaktig mottagare som tar meddelanden från kön, misslyckas bearbetning, och ändå felaktigt slutför meddelanden och tar bort dem. Om det beteendet diagnostiseras kan kön inaktiveras för mottagning tills korrigerad kod har distribuerats och ytterligare dataförlust orsakad av den felaktiga koden kan förhindras.
+Att pausa en entitet görs vanligt vis av brådskande administrativa skäl. Ett scenario har distribuerat en felaktig mottagare som tar emot meddelanden från kön, Miss lyckas bearbetningen och sedan tar bort alla meddelanden på ett felaktigt sätt. Om detta beteende är diagnostiserat kan kön inaktive ras för mottagning tills korrigerad kod har distribuerats och ytterligare data förlust som orsakas av fel koden kan förhindras.
 
-En suspension eller reaktivering kan utföras antingen av användaren eller av systemet. Systemet avbryter endast enheter på grund av allvarliga administrativa skäl som att träffa gränsen för prenumerationsutgifter. Systemaktiverade entiteter kan inte återaktiveras av användaren, men återställs när orsaken till avstängningen har åtgärdats.
+En SUS pension eller reaktivering kan utföras antingen av användaren eller av systemet. Systemet pausar endast enheter på grund av grava administrativa skäl, till exempel genom att trycka på prenumerations utgifts gränsen. System-inaktiverade entiteter kan inte återaktiveras av användaren, men återställs när orsaken till uppskjutningen har åtgärd ATS.
 
-I portalen gör avsnittet **Egenskaper** för respektive entitet det möjligt att ändra tillståndet. följande skärmbild visar växlingsknappen för en kö:
+I portalen gör avsnittet **Egenskaper** för respektive entitet att ändra tillstånd. följande skärm bild visar växlingen för en kö:
 
 ![][1]
 
-Portalen tillåter endast att köerna inaktiveras helt. Du kan också inaktivera skicka och ta emot åtgärder separat med hjälp av Api:erna för Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) i .NET Framework SDK eller med en Azure Resource Manager-mall via Azure CLI eller Azure PowerShell.
+Portalen tillåter bara fullständigt inaktive ring av köer. Du kan också inaktivera åtgärderna skicka och ta emot separat med Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) -API: er i .NET Framework SDK eller med en Azure Resource Manager-mall via Azure CLI eller Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="suspension-states"></a>Avstängningstillstånd
+## <a name="suspension-states"></a>SUS pensions tillstånd
 
 De tillstånd som kan ställas in för en kö är:
 
--   **Aktiv**: Kön är aktivt.
--   **Inaktiverad**: Kön är avbrutet.
--   **SendDisabled**: Kön är delvis avbruten, och mottagning tillåts.
--   **ReceiveDisabled**: Kön är delvis avbruten, med skicka tillåten.
+-   **Aktiv**: kön är aktiv.
+-   **Inaktive rad**: kön har pausats.
+-   **SendDisabled**: kön är delvis inaktive rad, med mottagning tillåten.
+-   **ReceiveDisabled**: kön är delvis inaktive rad, med skicka som tillåten.
 
-För prenumerationer och ämnen kan endast **Active** och **Disabled** ställas in.
+Endast **aktiv** och **inaktive rad** kan anges för prenumerationer och ämnen.
 
-[Uppräkningen för entitystatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) definierar också en uppsättning övergångstillstånd som bara kan ställas in av systemet. PowerShell-kommandot för att inaktivera en kö visas i följande exempel. Kommandot reaktivering är likvärdigt `Status` och inställningen till **Aktiv**.
+[EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) -uppräkningen definierar också en uppsättning över gångs tillstånd som bara kan ställas in av systemet. PowerShell-kommandot för att inaktivera en kö visas i följande exempel. Kommandot reaktive ras är detsamma, `Status` inställningen **aktiv**.
 
 ```powershell
 $q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -59,10 +59,10 @@ Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueu
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Service Bus-meddelanden finns i följande avsnitt:
+Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Komma igång med servicebussköer](service-bus-dotnet-get-started-with-queues.md)
+* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [1]: ./media/entity-suspend/queue-disable.png

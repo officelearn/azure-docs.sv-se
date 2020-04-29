@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 592be1710893791e80dfe4b20e1323e789b33e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77157100"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet
@@ -236,7 +236,7 @@ Du kan utöka det här exemplet för att fånga upp ett större antal förfrågn
 
 Om du har gjort tröskelvärdena för att växla ditt program till skrivskyddat läge, blir det enklare att testa beteendet med icke-produktions transaktions volymer.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Mer information om hur du läser från den sekundära regionen, inklusive ett annat exempel på hur den senaste synkroniseringstid-egenskapen anges finns [Azure Storage alternativ för redundans och Geo-redundant lagring med Läs behörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

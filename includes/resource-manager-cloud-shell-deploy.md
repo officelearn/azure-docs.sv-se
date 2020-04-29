@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74451644"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Distribuera mallen från Cloud Shell
 
-Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att distribuera mallen. Om du vill distribuera en extern mall anger du URI-listan för mallen precis som för en extern distribution. Om du vill distribuera en lokal mall måste du först läsa in mallen i lagringskontot för ditt Cloud Shell. I det här avsnittet beskrivs hur du läser in mallen till ditt molnskalkonto och distribuerar den som en lokal fil. Om du inte har använt Cloud Shell läser du [Översikt över Azure Cloud Shell](../articles/cloud-shell/overview.md) för information om hur du konfigurerar det.
+Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att distribuera mallen. Om du vill distribuera en extern mall anger du URI för mallen exakt som du skulle göra för alla externa distributioner. Om du vill distribuera en lokal mall måste du först läsa in din mall till lagrings kontot för Cloud Shell. I det här avsnittet beskrivs hur du läser in mallen till ditt Cloud Shell-konto och distribuerar den som en lokal fil. Om du inte har använt Cloud Shell går du till [Översikt över Azure Cloud Shell](../articles/cloud-shell/overview.md) för information om hur du konfigurerar den.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -25,7 +25,7 @@ Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att dist
 
    ![Välj lagringskonto](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. Välj **Blobbar**.
+1. Välj **blobbar**.
 
    ![Välj blobbar](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
@@ -33,9 +33,9 @@ Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att dist
 
    ![Lägga till containern](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. Ge din behållare ett namn och en åtkomstnivå. Exempelmallen i den här artikeln innehåller ingen känslig information, så tillåt anonym läsåtkomst. Välj **OK**.
+1. Ge din behållare ett namn och en åtkomst nivå. Exempel mal len i den här artikeln innehåller ingen känslig information, så Tillåt anonym Läs åtkomst. Välj **OK**.
 
-   ![Ange behållarvärden](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
+   ![Ange container värden](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
 1. Välj den container som du skapade.
 
@@ -43,7 +43,7 @@ Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att dist
 
 1. Välj **Överför**.
 
-   ![Ladda upp blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
+   ![Ladda upp BLOB](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Leta upp och överför mallen.
 

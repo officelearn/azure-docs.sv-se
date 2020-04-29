@@ -1,6 +1,6 @@
 ---
-title: Hierarkiskt namnområde för Azure Data Lake Storage Gen2
-description: Beskriver konceptet med ett hierarkiskt namnområde för Azure Data Lake Storage Gen2
+title: Azure Data Lake Storage Gen2 hierarkiskt namn område
+description: Beskriver konceptet ett hierarkiskt namn område för Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,42 +9,42 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 6ce94590a1d0de6941c27d972bdd1c4194080e95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77153085"
 ---
-# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 hierarkiskt namnområde
+# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 hierarkiskt namn område
 
-En nyckelmekanism som gör att Azure Data Lake Storage Gen2 kan ge filsystemprestanda vid objektlagringsskala och priser är tillägget av ett **hierarkiskt namnområde**. På så sätt kan insamlingen av objekt/filer i ett konto ordnas i en hierarki av kataloger och kapslade underkataloger på samma sätt som filsystemet på datorn är organiserat. Med ett hierarkiskt namnområde aktiverat kan ett lagringskonto ge skalbarhet och kostnadseffektivitet för objektlagring, med filsystemssenmantik som är välbekanta för analysmotorer och ramverk.
+En nyckel mekanism som gör det möjligt för Azure Data Lake Storage Gen2 att tillhandahålla fil system prestanda vid objekt lagrings skala och priser är att lägga till ett **hierarkiskt namn område**. På så sätt kan samling av objekt/filer i ett konto ordnas i en hierarki med kataloger och kapslade under kataloger på samma sätt som fil systemet på datorn är ordnat. När ett hierarkiskt namn område är aktiverat kan ett lagrings konto tillhandahålla skalbarhet och kostnads effektivitet för objekt lagring, med semantiska fil system som är välkända för analys motorer och ramverk.
 
-## <a name="the-benefits-of-a-hierarchical-namespace"></a>Fördelarna med ett hierarkiskt namnområde
+## <a name="the-benefits-of-a-hierarchical-namespace"></a>Fördelarna med ett hierarkiskt namn område
 
-Följande fördelar är associerade med filsystem som implementerar ett hierarkiskt namnområde över blob-data:
+Följande fördelar är kopplade till fil system som implementerar ett hierarkiskt namn område över BLOB-data:
 
-- **Atomär katalog manipulation:** Objektet lagrar ungefär en kataloghierarki genom att anta en konvention om inbäddning av snedstreck (/) i objektnamnet för att beteckna sökvägssegment. Även om den här konventionen fungerar för att organisera objekt, ger konventionen ingen hjälp för åtgärder som att flytta, byta namn på eller ta bort kataloger. Utan riktiga kataloger måste program bearbeta potentiellt miljontals enskilda blobbar för att uppnå uppgifter på katalognivå. Ett hierarkiskt namnområde bearbetar däremot dessa uppgifter genom att uppdatera en enda post (den överordnade katalogen).
+- **Atomic Directory-manipulering:** Objekt lager uppskattar en katalog-hierarki genom att använda en konvention för att bädda in snedstreck (/) i objekt namnet för att ange Sök vägs segment. Även om den här konventionen används för att ordna objekt ger konventionen ingen hjälp för åtgärder som att flytta, byta namn på eller ta bort kataloger. Utan riktiga kataloger måste program bearbeta potentiellt miljon tals enskilda blobbar för att kunna uppnå aktiviteter på katalog nivå. Ett hierarkiskt namn område bearbetar däremot dessa uppgifter genom att uppdatera en enskild post (överordnad katalog).
 
-    Denna dramatiska optimering är särskilt viktig för många ramverk för stordataanalys. Verktyg som Hive, Spark, etc. skriver ofta utdata till tillfälliga platser och byter sedan namn på platsen när jobbet är avslutat. Utan ett hierarkiskt namnområde kan det här namnet ofta ta längre tid än själva analysprocessen. Lägre jobbfördröjning är lika med lägre total ägandekostnad (TCO) för analysarbetsbelastningar.
+    Den här dramatiska optimeringen är särskilt viktig för många Big data Analytics-ramverk. Verktyg som Hive, Spark osv. skriver ofta utdata till tillfälliga platser och byter sedan namn på platsen i slutet av jobbet. Utan ett hierarkiskt namn område kan detta namn ofta ta längre tid än själva analys processen. Lägre jobb fördröjning motsvarar lägre totala ägande kostnader (TCO) för analyser av arbets belastningar.
 
-- **Välbekanta gränssnitt stil:** Filsystem är väl förstås av utvecklare och användare. Det finns ingen anledning att lära sig ett nytt lagringsparadigm när du flyttar till molnet eftersom filsystemgränssnittet som exponeras av Data Lake Storage Gen2 är samma paradigm som används av datorer, stora som små.
+- **Välbekant gränssnitts stil:** Fil systemen kan förstås av både utvecklare och användare. Du behöver inte lära dig ett nytt lagrings paradigm när du flyttar till molnet eftersom fil system gränssnittet som exponeras av Data Lake Storage Gen2 är samma paradigm som används av datorer, stora och små.
 
-En av anledningarna till att objektlager inte historiskt har stöd för ett hierarkiskt namnområde är att ett hierarkiskt namnområde begränsar skalan. Hierarkiska namnområde datasjölagring gen2 skalas dock linjärt och försämrar inte vare sig datakapaciteten eller prestandan.
+En av orsakerna till att objektet inte tidigare har stöd för ett hierarkiskt namn område är att ett hierarkiskt namn område begränsar skala. Men den hierarkiska namn rymden för Data Lake Storage Gen2 skalas linjärt och försämrar inte data kapaciteten eller prestandan.
 
-## <a name="deciding-whether-to-enable-a-hierarchical-namespace"></a>Bestämma om ett hierarkiskt namnområde ska aktiveras
+## <a name="deciding-whether-to-enable-a-hierarchical-namespace"></a>Bestämma om du vill aktivera ett hierarkiskt namn område
 
-När du har aktiverat ett hierarkiskt namnområde för ditt konto kan du inte återställa det till ett platt namnområde. Tänk därför på om det är meningsfullt att aktivera ett hierarkiskt namnområde baserat på vilken typ av arbetsbelastningar för objektlagringen är.
+När du har aktiverat ett hierarkiskt namn område på ditt konto kan du inte återställa det till ett plant namn område. Därför bör du överväga om det är klokt att aktivera ett hierarkiskt namn område baserat på objekt lagringens arbets belastningar.
 
-Vissa arbetsbelastningar kanske inte får någon fördel genom att aktivera ett hierarkiskt namnområde. Exempel på detta är säkerhetskopior, bildlagring och andra program där objektorganisationen lagras separat från själva objekten (till exempel i en separat databas). 
+Vissa arbets belastningar kanske inte får någon förmån genom att aktivera ett hierarkiskt namn område. Exempel på detta är säkerhets kopior, avbildnings lagring och andra program där objekt organisation lagras separat från själva objekten (till exempel: i en separat databas). 
 
-Även om stödet för Blob-lagringsfunktioner och Azure-tjänstekosystemet fortsätter att växa, finns det fortfarande vissa funktioner och Azure-tjänster som ännu inte stöds i konton som har ett hierarkiskt namnområde. Se [kända problem](data-lake-storage-known-issues.md). 
+Även om stöd för Blob Storage-funktioner och Azure-tjänstens eko system fortsätter att växa, finns det fortfarande vissa funktioner och Azure-tjänster som ännu inte stöds i konton som har ett hierarkiskt namn område. Se [kända problem](data-lake-storage-known-issues.md). 
 
-I allmänhet rekommenderar vi att du aktiverar ett hierarkiskt namnområde för lagringsarbetsbelastningar som är utformade för filsystem som manipulerar kataloger. Detta inkluderar alla arbetsbelastningar som främst är för analysbearbetning. Datauppsättningar som kräver en hög grad av organisation kommer också att gynnas genom att aktivera ett hierarkiskt namnområde.
+I allmänhet rekommenderar vi att du aktiverar ett hierarkiskt namn område för lagrings arbets belastningar som är utformade för fil system som manipulerar kataloger. Detta omfattar alla arbets belastningar som främst används för analys bearbetning. Data uppsättningar som kräver en hög grad av organisation kommer också att ha nytta av att aktivera ett hierarkiskt namn område.
 
-Orsakerna till att aktivera ett hierarkiskt namnområde bestäms av en TCO-analys. Generellt sett kräver förbättringar i arbetsbelastningsfördröjning på grund av lagringsacceleration beräkningsresurser för kortare tid. Svarstid för många arbetsbelastningar kan förbättras på grund av atomkatalogmanipulering som aktiveras av ett hierarkiskt namnområde. I många arbetsbelastningar representerar beräkningsresursen > 85 % av den totala kostnaden och därför motsvarar även en blygsam minskning av svarstiden för arbetsbelastningen en betydande mängd TCO-besparingar. Även i de fall där aktivering av ett hierarkiskt namnområde ökar lagringskostnaderna sänks TCO fortfarande på grund av minskade beräkningskostnader.
+Orsakerna till att aktivera ett hierarkiskt namn område bestäms av en TCO-analys. I allmänhet kan förbättringar av arbets belastnings fördröjningen på grund av lagrings acceleration kräva beräknings resurser för kortare tid. Svars tiden för många arbets belastningar kan förbättras på grund av atomisk katalog manipulation som aktive ras av ett hierarkiskt namn område. I många arbets belastningar representerar beräknings resursen > 85% av den totala kostnaden och så vidare är en liten minskning av arbets belastnings fördröjningen lika med en betydande mängd TCO-besparingar. Även i de fall där aktivering av ett hierarkiskt namn område ökar lagrings kostnaderna sänks ägande kostnaden fortfarande på grund av sänkta beräknings kostnader.
 
-Information om hur du analyserar skillnader i priser för datalagring, transaktionspriser och prissättning för lagringskapacitetsreservation mellan konton som har ett platt hierarkiskt namnområde jämfört med ett hierarkiskt namnområde finns i [Azure Data Lake Storage Gen2-priser](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+Information om hur du analyserar skillnader i priser för data lagring, transaktions priser och reservation av lagrings kapacitet mellan konton som har ett hierarkiskt hierarkiskt namn område jämfört med ett hierarkiskt namn område finns [Azure Data Lake Storage Gen2 prissättning](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa ett lagringskonto](./data-lake-storage-quickstart-create-account.md)
+- [Skapa ett lagrings konto](./data-lake-storage-quickstart-create-account.md)

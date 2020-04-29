@@ -1,7 +1,7 @@
 ---
 title: Extrahera text från bilder
 titleSuffix: Azure Cognitive Search
-description: Bearbeta och extrahera text och annan information från avbildningar i Azure Cognitive Search-pipelines.
+description: Behandla och extrahera text och annan information från bilder i Azure Kognitiv sökning pipelines.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -9,40 +9,40 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76838266"
 ---
-# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Så här bearbetar och extraherar du information från bilder i AI-anrikningsscenarier
+# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Så här bearbetar och extraherar du information från bilder i AI-anriknings scenarier
 
-Azure Cognitive Search har flera funktioner för att arbeta med avbildningar och bildfiler. Under dokumentsprickning kan du använda parametern *imageAction* för att extrahera text från foton eller bilder som innehåller alfanumerisk text, till exempel ordet "STOP" i ett stopptecken. Andra scenarier är att generera en textrepresentation av en bild, till exempel "maskros" för ett foto av en maskros, eller färgen "gul". Du kan också extrahera metadata om bilden, till exempel dess storlek.
+Azure Kognitiv sökning har flera funktioner för att arbeta med bilder och bildfiler. Under dokument sprickor kan du använda parametern *imageAction* för att extrahera text från foton eller bilder som innehåller alfanumerisk text, till exempel ordet "Stop" i ett stopp tecken. Andra scenarier är att generera en text representation av en bild, till exempel "Dandelion" för ett foto av en Dandelion eller färgen "gul". Du kan också extrahera metadata om avbildningen, till exempel dess storlek.
 
-Den här artikeln beskriver bildbehandling mer i detalj och ger vägledning för att arbeta med bilder i en AI-anrikningspipeline.
+Den här artikeln beskriver bild bearbetning i mer detalj och ger vägledning för att arbeta med bilder i en pipeline för AI-anrikning.
 
 <a name="get-normalized-images"></a>
 
-## <a name="get-normalized-images"></a>Få normaliserade bilder
+## <a name="get-normalized-images"></a>Hämta normaliserade avbildningar
 
-Som en del av dokumentsprickor finns det en ny uppsättning indexeringskonfigurationsparametrar för hantering av bildfiler eller bilder inbäddade i filer. Dessa parametrar används för att normalisera bilder för ytterligare nedströmsbearbetning. Normalisering av bilder gör dem mer enhetliga. Stora bilder ändras till en maximal höjd och bredd för att göra dem förbrukningsbara. För bilder som tillhandahåller metadata om orientering justeras bildrotationen för vertikal inläsning. Metadatajusteringar fångas in i en komplex typ som skapas för varje bild. 
+Som en del av dokument sprickor finns det en ny uppsättning konfigurations parametrar för indexerare för att hantera bildfiler eller avbildningar som är inbäddade i filer. De här parametrarna används för att normalisera bilder för vidare bearbetning i efterföljande bearbetning. Normalisera bilder gör dem mer enhetliga. Stora bilder ändrar storlek till maximal höjd och bredd så att de kan använda dem. För bilder som tillhandahåller metadata i orienteringen justeras bild rotation för vertikal inläsning. Metadata-justeringar samlas in i en komplex typ som skapas för varje bild. 
 
-Du kan inte stänga av bildens normalisering. Färdigheter som itererar över bilder förväntar sig normaliserade bilder. För att aktivera bildnormalisering på en indexerare krävs att en kompetens kopplas till den indexeraren.
+Du kan inte inaktivera avbildnings-normalisering. De färdigheter som itereras över bilder förväntar sig normaliserade avbildningar. Om du aktiverar avbildnings-normalisering på en indexerare krävs det att en färdigheter är kopplad till den indexeraren.
 
-| Parameter för konfiguration | Beskrivning |
+| Konfigurations parameter | Beskrivning |
 |--------------------|-------------|
-| bildAction   | Ange "ingen" om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler påträffas. <br/>Ställ in på "generateNormalizedImages" för att generera en rad normaliserade bilder som en del av dokumentsprickor.<br/>Ställ in på "generateNormalizedImagePerPage" för att generera en matris med normaliserade bilder där varje sida återges till en utdatabild för PDF-filer i datakällan.  Funktionaliteten är densamma som "generateNormalizedImages" för icke-PDF-filtyper.<br/>För alla alternativ som inte är "ingen" kommer bilderna att exponeras i *fältet normalized_images.* <br/>Standard är "ingen". Den här konfigurationen är endast relevant för blob-datakällor, när "dataToExtract" är inställt på "contentAndMetadata". <br/>Högst 1000 bilder kommer att extraheras från ett visst dokument. Om det finns fler än 1 000 bilder i ett dokument extraheras de första 1000 och en varning genereras. |
-|  normaliseradBildbildMaxWidth | Den maximala bredden (i pixlar) för normaliserade bilder som genereras. Standardvärdet är 2 000. Det högsta tillåtna värdet är 10000. | 
-|  normaliseradBildbildaMaxHeight | Den maximala höjden (i pixlar) för normaliserade bilder som genereras. Standardvärdet är 2 000. Det högsta tillåtna värdet är 10000.|
+| imageAction   | Ange till "ingen" om ingen åtgärd ska vidtas när inbäddade bilder eller bildfiler påträffas. <br/>Ange till "generateNormalizedImages" om du vill generera en matris med normaliserade avbildningar som en del av dokument sprickor.<br/>Ange till "generateNormalizedImagePerPage" om du vill generera en matris med normaliserade avbildningar där varje sida visas till en utgående bild för PDF-filer i data källan.  Funktionen är samma som "generateNormalizedImages" för filtyper som inte är PDF-filer.<br/>För alla alternativ som inte är "ingen" visas bilderna i fältet *normalized_images* . <br/>Standardvärdet är "ingen". Den här konfigurationen är bara relevant för BLOB-datakällor, när "dataToExtract" är inställt på "contentAndMetadata". <br/>Högst 1000 avbildningar kommer att extraheras från ett givet dokument. Om det finns fler än 1000 avbildningar i ett dokument kommer den första 1000 att extraheras och en varning genereras. |
+|  normalizedImageMaxWidth | Den maximala bredden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2 000. Det högsta tillåtna värdet är 10000. | 
+|  normalizedImageMaxHeight | Den maximala höjden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2 000. Det högsta tillåtna värdet är 10000.|
 
 > [!NOTE]
-> Om du ställer in egenskapen *imageAction* till något annat än "ingen", kan du inte ställa in *egenskapen parsingMode* till något annat än "standard".  Du kan bara ange en av dessa två egenskaper till ett icke-standardvärde i indexerkonfigurationen.
+> Om du anger egenskapen *imageAction* till något annat än "ingen" kan du inte ange egenskapen *parsingMode* till något annat än "default".  Du kan bara ange en av dessa två egenskaper till ett värde som inte är standardvärdet i din indexerare-konfiguration.
 
-Ange **parametern parsingMode** till (för att `json` indexera `jsonArray` varje blob som ett enda dokument) eller (om blobbar innehåller JSON-matriser och du behöver varje element i en matris som ska behandlas som ett separat dokument).
+Ange parametern **parsingMode** till `json` (för att indexera varje blob som ett enskilt dokument) eller `jsonArray` (om Blobbarna innehåller JSON-matriser och du behöver varje element i en matris för att behandlas som ett separat dokument).
 
-Standardvärdet på 2 000 pixlar för de normaliserade bildernas maximala bredd och höjd baseras på de maximala storlekar som stöds av [OCR-färdigheten](cognitive-search-skill-ocr.md) och [bildanalysfärdigheten](cognitive-search-skill-image-analysis.md). [OCR-färdigheten](cognitive-search-skill-ocr.md) stöder en maximal bredd och höjd på 4200 för icke-engelska språk och 10000 för engelska.  Om du ökar maxgränserna kan bearbetningen misslyckas med större bilder beroende på din kompetensdefinition och dokumentens språk. 
+Standardvärdet på 2000 bild punkter för de normaliserade bildernas maximala bredd och höjd baseras på de maximala storlekar som stöds av [OCR-kompetensen](cognitive-search-skill-ocr.md) och [bild analysens färdighet](cognitive-search-skill-image-analysis.md). [OCR-kunskaper](cognitive-search-skill-ocr.md) stöder maximal bredd och höjd på 4200 för andra språk än engelska och 10000 för engelska.  Om du ökar Max gränsen kan bearbetningen av större avbildningar gå sönder beroende på din färdigheter-definition och dokumentets språk. 
 
-Du anger bildenÅtgärder i [indexeringsdefinitionen](https://docs.microsoft.com/rest/api/searchservice/create-indexer) enligt följande:
+Du anger imageAction i [Indexer-definitionen](https://docs.microsoft.com/rest/api/searchservice/create-indexer) enligt följande:
 
 ```json
 {
@@ -58,20 +58,20 @@ Du anger bildenÅtgärder i [indexeringsdefinitionen](https://docs.microsoft.com
 }
 ```
 
-När *bildenAction* är inställd på ett annat värde än "ingen", kommer det nya *normalized_images* fältet innehålla en matris med bilder. Varje bild är en komplex typ som har följande medlemmar:
+När *imageAction* är inställt på ett annat värde än "ingen", kommer fältet ny *normalized_images* innehålla en matris med bilder. Varje bild är en komplex typ som har följande medlemmar:
 
-| Bildmedlem       | Beskrivning                             |
+| Bild medlem       | Beskrivning                             |
 |--------------------|-----------------------------------------|
-| data               | BASE64 kodade strängen för den normaliserade bilden i JPEG-format.   |
-| bredd              | Bredden på den normaliserade bilden i pixlar. |
-| höjd             | Höjden på den normaliserade bilden i pixlar. |
-| originalBredd      | Bildens ursprungliga bredd före normalisering. |
-| originalHeight      | Den ursprungliga höjden på bilden före normalisering. |
-| rotationFrånOriginal |  Moturs rotation i grader som inträffade för att skapa den normaliserade bilden. Ett värde mellan 0 grader och 360 grader. Det här steget läser metadata från bilden som genereras av en kamera eller skanner. Vanligtvis en multipel av 90 grader. |
-| innehållOffset | Teckenförskjutningen i innehållsfältet där bilden extraherades från. Det här fältet är endast tillämpligt för filer med inbäddade bilder. |
-| Pagenumber | Om bilden extraherades eller återges från en PDF-fil innehåller det här fältet sidnumret i pdf-filen som den extraherades eller återges från från och med 1.  Om bilden inte kom från en PDF-fil blir det här fältet 0.  |
+| data               | BASE64-kodad sträng för den normaliserade bilden i JPEG-format.   |
+| bredd              | Den normaliserade bildens bredd i bild punkter. |
+| höjd             | Den normaliserade bildens höjd i bild punkter. |
+| originalWidth      | Bildens ursprungliga bredd före normalisering. |
+| originalHeight      | Bildens ursprungliga höjd innan normalisering. |
+| rotationFromOriginal |  Räknaren medsols rotation i grader som uppstod när den normaliserade bilden skulle skapas. Ett värde mellan 0 och 360 grader. Det här steget läser metadata från den avbildning som genereras av en kamera eller skanner. Vanligt vis en multipel av 90 grader. |
+| contentOffset | Den teckenuppsättning i innehålls fältet där avbildningen extraherades. Det här fältet gäller endast för filer med inbäddade bilder. |
+| pageNumber | Om avbildningen extraherades eller renderades från en PDF innehåller det här fältet sid numret i PDF-filen som extraherades eller renderades från från 1.  Om avbildningen inte är från en PDF-fil kommer det här fältet att vara 0.  |
 
- Provvärde *för normalized_images:*
+ Exempel värde för *normalized_images*:
 ```json
 [
   {
@@ -87,31 +87,31 @@ När *bildenAction* är inställd på ett annat värde än "ingen", kommer det n
 ]
 ```
 
-## <a name="image-related-skills"></a>Bildrelaterade färdigheter
+## <a name="image-related-skills"></a>Bildrelaterade kunskaper
 
-Det finns två inbyggda kognitiva färdigheter som tar bilder som en ingång: [OCR](cognitive-search-skill-ocr.md) och [bildanalys](cognitive-search-skill-image-analysis.md). 
+Det finns två inbyggda kognitiva färdigheter som tar bilder som indata: [OCR](cognitive-search-skill-ocr.md) -och [bild analys](cognitive-search-skill-image-analysis.md). 
 
-För närvarande fungerar dessa kunskaper endast med bilder som genereras från dokumentsprickningssteget. Den enda indata som `"/document/normalized_images"`stöds är därför .
+Dessa kunskaper fungerar för närvarande bara med bilder som genereras från dokument sprickors steget. Därför är `"/document/normalized_images"`det enda som stöds.
 
-### <a name="image-analysis-skill"></a>Bildanalys skicklighet
+### <a name="image-analysis-skill"></a>Bild analys kunskaper
 
-Med [bildanalysen](cognitive-search-skill-image-analysis.md) extraheras en omfattande uppsättning visuella funktioner baserat på bildinnehållet. Du kan till exempel generera en bildtext från en bild, generera taggar eller identifiera kändisar och landmärken.
+I [bild analysens kunskap](cognitive-search-skill-image-analysis.md) extraheras en omfattande uppsättning visuella funktioner baserat på avbildningens innehåll. Du kan till exempel generera en under text från en bild, generera taggar eller identifiera kändisar och landmärken.
 
-### <a name="ocr-skill"></a>OCR-skicklighet
+### <a name="ocr-skill"></a>OCR-kunskaper
 
-[OCR-färdigheten](cognitive-search-skill-ocr.md) extraherar text från bildfiler som JPGs, PNGs och bitmappar. Det kan extrahera text samt layoutinformation. Layoutinformationen innehåller begränsningsrutor för var och en av de identifierade strängarna.
+[OCR-kompetensen](cognitive-search-skill-ocr.md) extraherar text från bildfiler som JPGs, PNGs och bitmappar. Den kan extrahera text samt layoutinformation. I layoutinformation visas avgränsnings rutor för var och en av de angivna strängarna.
 
-## <a name="embedded-image-scenario"></a>Inbäddat bildscenario
+## <a name="embedded-image-scenario"></a>Scenario för inbäddad bild
 
-Ett vanligt scenario innebär att skapa en enda sträng som innehåller allt filinnehåll, både text och text om bildursprung, genom att utföra följande steg:  
+Ett vanligt scenario är att skapa en enskild sträng som innehåller allt fil innehåll, både text-och bilds Origin text, genom att utföra följande steg:  
 
-1. [Utdrag normalized_images](#get-normalized-images)
-1. Kör OCR-färdigheten med som `"/document/normalized_images"` indata
-1. Sammanfoga textrepresentationen av dessa bilder med den råa text som extraherats från filen. Du kan använda [färdigheten Koppla text](cognitive-search-skill-textmerger.md) för att konsolidera båda textsegmenten till en enda stor sträng.
+1. [Extrahera normalized_images](#get-normalized-images)
+1. Kör OCR-kompetensen `"/document/normalized_images"` med som indatamängd
+1. Sammanfoga text representationen av dessa bilder med den obehandlade text som extraherats från filen. Du kan använda [text sammanfognings](cognitive-search-skill-textmerger.md) kunskapen för att konsolidera båda text segmenten i en enda stor sträng.
 
-I följande exempel skapar kunskaper ett *merged_text* fält som innehåller dokumentets textinnehåll. Den innehåller också OCRed text från var och en av de inbäddade bilderna. 
+I följande exempel färdigheter skapas ett *merged_text* -fält som innehåller text innehållet i ditt dokument. Den innehåller också OCRed-texten från var och en av de inbäddade bilderna. 
 
-#### <a name="request-body-syntax"></a>Syntax för begäran om brödtext
+#### <a name="request-body-syntax"></a>Syntax för begär ande text
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -162,15 +162,15 @@ I följande exempel skapar kunskaper ett *merged_text* fält som innehåller dok
 }
 ```
 
-Nu när du har ett merged_text fält kan du mappa det som ett sökbart fält i indexeringsdefinitionen. Allt innehåll i dina filer, inklusive texten i bilderna, kommer att vara sökbart.
+Nu när du har ett merged_text fält kan du mappa det som ett sökbart fält i din index definition. Alla filernas innehåll, inklusive texten i bilderna, är sökbara.
 
-## <a name="visualize-bounding-boxes-of-extracted-text"></a>Visualisera markeringsrutor med extraherad text
+## <a name="visualize-bounding-boxes-of-extracted-text"></a>Visualisera avgränsnings rutor för extraherad text
 
-Ett annat vanligt scenario är att visualisera layoutinformation för sökresultat. Du kanske till exempel vill markera var en textbit hittades i en bild som en del av sökresultaten.
+Ett annat vanligt scenario är visualisering av information om Sök resultatens layout. Du kanske till exempel vill markera var en del av texten påträffades i en bild som en del av dina Sök resultat.
 
-Eftersom OCR-steget utförs på de normaliserade bilderna finns layoutkoordinaterna i det normaliserade bildutrymmet. När du visar den normaliserade bilden är förekomsten av koordinater i allmänhet inte ett problem, men i vissa situationer kanske du vill visa den ursprungliga bilden. I det här fallet konverterar var och en av koordinatpunkterna i layouten till det ursprungliga bildkoordinatsystemet. 
+Eftersom OCR-steget utförs på de normaliserade bilderna, är det normaliserade bild utrymmet. När du visar den normaliserade bilden är förekomsten av koordinater vanligt vis inte ett problem, men i vissa fall kanske du vill visa den ursprungliga bilden. I det här fallet konverterar du varje koordinat punkter i layouten till det ursprungliga bild koordinat systemet. 
 
-Som hjälprepare kan du använda följande algoritm om du behöver omvandla normaliserade koordinater till det ursprungliga koordinatutrymmet:
+Om du behöver transformera normaliserade koordinater till det ursprungliga koordinat utrymmet som hjälp kan du använda följande algoritm:
 
 ```csharp
         /// <summary>
@@ -215,8 +215,8 @@ Som hjälprepare kan du använda följande algoritm om du behöver omvandla norm
 
 ## <a name="see-also"></a>Se även
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Bildanalys skicklighet](cognitive-search-skill-image-analysis.md)
-+ [OCR-skicklighet](cognitive-search-skill-ocr.md)
-+ [Färdighet för kopplad text](cognitive-search-skill-textmerger.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
-+ [Så här mappar du berikade fält](cognitive-search-output-field-mapping.md)
++ [Bild analys kunskaper](cognitive-search-skill-image-analysis.md)
++ [OCR-kunskaper](cognitive-search-skill-ocr.md)
++ [Text sammanfognings kunskaper](cognitive-search-skill-textmerger.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Så här mappar du omfattande fält](cognitive-search-output-field-mapping.md)

@@ -1,6 +1,6 @@
 ---
-title: Chef-tillägg för virtuella Azure-datorer
-description: Distribuera chefklienten till en virtuell dator med hjälp av chef-VM-tillägget.
+title: Chefs tillägg för virtuella Azure-datorer
+description: Distribuera chefs klienten till en virtuell dator med hjälp av VM-tillägget kock.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,29 +14,29 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76544726"
 ---
-# <a name="chef-vm-extension-for-linux-and-windows"></a>Chef VM-tillägg för Linux och Windows
+# <a name="chef-vm-extension-for-linux-and-windows"></a>Kock VM-tillägg för Linux och Windows
 
-Chef Software tillhandahåller en DevOps-plattform för automatisering för Linux och Windows som möjliggör hantering av både fysiska och virtuella serverkonfigurationer. Chef VM Extension är ett tillägg som aktiverar Chef på virtuella datorer.
+Chef Software tillhandahåller en DevOps-plattform för automatisering för Linux och Windows som möjliggör hantering av både fysiska och virtuella serverkonfigurationer. Kock VM-tillägget är ett tillägg som möjliggör chef på virtuella datorer.
 
 ## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
-Chef VM-tillägget stöds på alla [operativsystem för tillägg som stöds](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems) i Azure.
+VM-tillägget för chef stöds för alla [tillägg som stöds av operativ systemet](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems) i Azure.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Chef VM-tillägget kräver att målvirkad dator är ansluten till internet för att hämta chefklientens nyttolast från cdn (Content Delivery Network).  
+VM-tillägget för chef kräver att den virtuella mål datorn är ansluten till Internet för att hämta chefs klientens nytto Last från Content Delivery Network (CDN).  
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Chef VM Extension. Tillägget kräver minst chefserver-URL:en, valideringsklientnamnet och valideringsnyckeln för Chef-servern. dessa värden finns i `knife.rb` filen i starter-kit.zip som hämtas när du installerar [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) eller en fristående [Chef Server](https://downloads.chef.io/chef-server). Eftersom valideringsnyckeln ska behandlas som känsliga data bör den konfigureras under elementet **protectedSettings,** vilket innebär att den bara dekrypteras på den virtuella måldatorn.
+Följande JSON visar schemat för VM-tillägget för chef. Tillägget kräver minst chefs serverns URL, verifierings klientens namn och validerings nyckeln för chefs servern. dessa värden finns i `knife.rb` filen Starter-Kit. zip som hämtas när du installerar chef för [Automatisk](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) eller fristående [chefs Server](https://downloads.chef.io/chef-server). Eftersom validerings nyckeln ska behandlas som känsliga data, bör den konfigureras under **protectedSettings** -elementet, vilket innebär att den endast dekrypteras på den virtuella mål datorn.
 
 ```json
 {
@@ -65,28 +65,28 @@ Följande JSON visar schemat för Chef VM Extension. Tillägget kräver minst ch
 }  
 ```
 
-### <a name="core-property-values"></a>Värden för grundläggande egenskaper
+### <a name="core-property-values"></a>Egenskaps värden för kärna
 
-| Namn | Värde / Exempel | Datatyp
+| Name | Värde/exempel | Datatyp
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | sträng (datum) |
 | utgivare | `Chef.Bootstrap.WindowsAzure` | sträng |
 | typ | `LinuxChefClient`(Linux), `ChefClient` (Windows) | sträng |
-| typHandlerVersion | `1210.13` | sträng (dubbel) |
+| typeHandlerVersion | `1210.13` | sträng (dubbel) |
 
 ### <a name="settings"></a>Inställningar
 
-| Namn | Värde / Exempel | Datatyp | Krävs?
+| Name | Värde/exempel | Datatyp | Obligatoriskt?
 | ---- | ---- | ---- | ----
-| inställningar/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | sträng (url) | Y |
+| inställningar/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | sträng (URL) | Y |
 | inställningar/bootstrap_options/validation_client_name | `myorg-validator` | sträng | Y |
-| inställningar/körlista | `recipe[mycookbook::default]` | sträng | Y |
+| inställningar/Runlist | `recipe[mycookbook::default]` | sträng | Y |
 
 ### <a name="protected-settings"></a>Skyddade inställningar
 
-| Namn | Exempel | Datatyp | Krävs?
+| Name | Exempel | Datatyp | Obligatoriskt?
 | ---- | ---- | ---- | ---- |
-| protectedSetts/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | sträng | Y |
 
 <!--
 ### Linux-specific settings
@@ -102,15 +102,15 @@ Följande JSON visar schemat för Chef VM Extension. Tillägget kräver minst ch
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar kan användas för att distribuera en eller flera virtuella datorer, installera chefklienten, ansluta till Chef Server och utföra den första konfigurationen på servern enligt definitionen i [körlistan](https://docs.chef.io/run_lists.html)
+Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar kan användas för att distribuera en eller flera virtuella datorer, installera chefs klienten, ansluta till chefs servern och utföra den inledande konfigurationen på servern som definieras i [körnings listen](https://docs.chef.io/run_lists.html)
 
-En exempelmall för Resource Manager som innehåller chef-VM-tillägget finns i [snabbstartsgalleriet i Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+En exempel Resource Manager-mall som innehåller det virtuella chefs tillägget för VM finns i [Azure snabb starts galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
-JSON-konfigurationen för ett tillägg för virtuella datorer kan kapslas inuti resursen för den virtuella datorn eller placeras på rot- eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamnet och resurstypen. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md).
+JSON-konfigurationen för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md).
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera chef-VM-tillägget till en befintlig virtuell dator. Ersätt **validation_key** med innehållet i valideringsnyckeln (den `.pem` här filen som ett tillägg).  Ersätt **validation_client_name,** **chef_server_url** och **run_list** med dessa värden från `knife.rb` filen i startpaketet.
+Azure CLI kan användas för att distribuera kock VM-tillägget till en befintlig virtuell dator. Ersätt **validation_key** med innehållet i validerings nyckeln (filen som ett `.pem` tillägg).  Ersätt **validation_client_name** **chef_server_url** och **run_list** med dessa värden från `knife.rb` filen i ditt Start paket.
 
 ```azurecli
 az vm extension set \
@@ -122,15 +122,15 @@ az vm extension set \
   --settings '{ "bootstrap_options": { "chef_server_url": "<chef_server_url>", "validation_client_name": "<validation_client_name>" }, "runlist": "<run_list>" }'
 ```
 
-## <a name="troubleshooting-and-support"></a>Felsökning och support
+## <a name="troubleshooting-and-support"></a>Fel sökning och support
 
-Data om tillståndet för tilläggsdistributioner kan hämtas från Azure-portalen och med hjälp av Azure CLI. Om du vill se distributionstillståndet för tillägg för en viss virtuell dator kör du följande kommando med Azure CLI.
+Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myExistingVM -o table
 ```
 
-Utdata för tilläggskörning loggas till följande fil:
+Utökning av utdata loggas i följande fil:
 
 ### <a name="linux"></a>Linux
 
@@ -146,15 +146,15 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 
 ### <a name="error-codes-and-their-meanings"></a>Felkoder och deras betydelser
 
-| Felkod | Betydelse | Möjliga åtgärder |
+| Felkod | Betydelse | Möjlig åtgärd |
 | :---: | --- | --- |
-| 51 | Det här tillägget stöds inte på den virtuella datorns operativsystem | |
+| 51 | Det här tillägget stöds inte på den virtuella datorns operativ system | |
 
-Ytterligare felsökningsinformation finns i [den avläsningstjänst för chef-VM-tillägg](https://github.com/chef-partners/azure-chef-extension).
+Ytterligare felsöknings information finns i [filen chef VM Extension](https://github.com/chef-partners/azure-chef-extension).
 
 > [!NOTE]
-> För något annat direkt relaterat till Chef, kontakta [Chef Support](https://www.chef.io/support/).
+> Kontakta [chefens support](https://www.chef.io/support/)för allt annat som är direkt relaterat till chef.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna på [MSDN Azure- och Stack Overflow-forumen](https://azure.microsoft.com/support/forums/). Du kan också arkivera en Azure-supportincident. Gå till [Azure-supportwebbplatsen](https://azure.microsoft.com/support/options/) och välj Hämta support. Information om hur du använder Azure Support finns i [vanliga frågor och svar om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

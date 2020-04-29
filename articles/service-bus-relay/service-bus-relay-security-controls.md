@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskontroller för Azure Service Bus Relay
-description: Den här artikeln innehåller en checklista med inbyggda säkerhetskontroller för utvärdering av Azure Service Bus Relay.
+title: Säkerhets kontroller för Azure Service Bus relä
+description: De här artiklarna innehåller en check lista över inbyggda säkerhets kontroller för att utvärdera Azure Service Bus relä.
 services: service-bus-relay
 ms.service: service-bus-relay
 author: spelluru
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 28d3ba14aa7769ac4f3fc22bd2b5bd7acd30557c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514025"
 ---
-# <a name="security-controls-for-azure-service-bus-relay"></a>Säkerhetskontroller för Azure Service Bus Relay
+# <a name="security-controls-for-azure-service-bus-relay"></a>Säkerhets kontroller för Azure Service Bus relä
 
-Den här artikeln dokumenterar de säkerhetskontroller som är inbyggda i Azure Service Bus Relay.
+I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azure Service Bus relä.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhetskontroll | Ja/nej | Anteckningar | Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation |
 |---|---|--|--|
-| Support för tjänstens slutpunkt| Inga |  |   |
-| Stöd för nätverksisolering och brandväggar| Inga |  |   |
-| Stöd för påtvingad tunnelning| Ej tillämpligt | Relä är TLS-tunneln  |   |
+| Stöd för tjänst slut punkt| Nej |  |   |
+| Stöd för nätverks isolering och brand vägg| Nej |  |   |
+| Stöd för Tvingad tunnel trafik| Ej tillämpligt | Relä är TLS-tunneln  |   |
 
-## <a name="monitoring--logging"></a>Övervakning & loggning
+## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation |
 |---|---|--|--|
-| Azure övervakningsstöd (Logganalys, App insikter, etc.)| Ja | |   |
-| Kontroll- och hanteringsplan loggning och revision| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
-| Loggning och granskning av dataplan| Ja | Anslutningsframgång/fel och fel och loggade.  |   |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | |   |
+| Loggning och granskning av kontroll-och hanterings plan| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
+| Loggning och granskning av data planet| Ja | Lyckad/misslyckad anslutning och fel och loggad.  |   |
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation |
 |---|---|--|--|
-| Autentisering| Ja | Via SAS. | [Azure Relay-autentisering och auktorisering](relay-authentication-and-authorization.md) |
-| Auktorisering|  Ja | Via SAS. | [Azure Relay-autentisering och auktorisering](relay-authentication-and-authorization.md) |
+| Autentisering| Ja | Via SAS. | [Azure Relay autentisering och auktorisering](relay-authentication-and-authorization.md) |
+| Auktorisering|  Ja | Via SAS. | [Azure Relay autentisering och auktorisering](relay-authentication-and-authorization.md) |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhetskontroll | Ja/nej | Anteckningar | Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation |
 |---|---|--|--|
-| Kryptering på serversidan i vila: Microsoft-hanterade nycklar |  Ej tillämpligt | Relay är en webbsockel och beständiga data. |   |
-| Kryptering på serversidan i vila: kundhanterade nycklar (BYOK) | Inga | Använder endast Microsoft TLS-certifikat.  |   |
-| Kryptering på kolumnnivå (Azure Data Services)| Ej tillämpligt | |   |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, vnet-kryptering och VNet-VNet-kryptering)| Ja | Tjänsten kräver TLS. |   |
-| API-anrop krypterade| Ja | HTTPS. |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  Ej tillämpligt | Relay är en webbsocket och bevarar inte data. |   |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Nej | Använder endast Microsoft TLS-certifikat.  |   |
+| Kryptering på kolumn nivå (Azure Data Services)| Ej tillämpligt | |   |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Tjänsten kräver TLS. |   |
+| Krypterade API-anrop| Ja | HTTPS. |
 
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhets kontroll | Ja/nej | Obs!| Dokumentation |
 |---|---|--|--|
-| Stöd för konfigurationshantering (versionshantering av konfiguration osv.)| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml).|   |
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml).|   |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om de [inbyggda säkerhetskontrollerna för Azure-tjänster](../security/fundamentals/security-controls.md).
+- Lär dig mer om de [inbyggda säkerhets kontrollerna i Azure-tjänster](../security/fundamentals/security-controls.md).

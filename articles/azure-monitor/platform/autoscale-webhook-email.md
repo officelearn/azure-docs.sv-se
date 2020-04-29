@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77120698"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använd åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor
@@ -106,7 +106,7 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 | Edit |ja |Åtgärds kontext för autoskalning |
 | timestamp |ja |Tidstämpel när åtgärden för autoskalning utlöstes |
 | id |Ja |Resource Manager-ID för den automatiska skalnings inställningen |
-| namn |Ja |Namnet på den automatiska skalnings inställningen |
+| name |Ja |Namnet på den automatiska skalnings inställningen |
 | information |Ja |Förklaring av åtgärden att AutoScale-tjänsten tog och ändringen i instans antalet |
 | subscriptionId |Ja |Prenumerations-ID för mål resursen som skalas |
 | resourceGroupName |Ja |Resurs grupp namn för den mål resurs som skalas |
@@ -116,5 +116,5 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 | portalLink |Ja |Azure Portal länk till sidan Sammanfattning för mål resursen |
 | oldCapacity |Ja |Det aktuella (gamla) instans antalet när autoskalning vidtog en skalnings åtgärd |
 | newCapacity |Ja |Den nya instansen räknas som autoskalning som skalar resursen till |
-| properties |Inga |Valfri. Uppsättning <nyckel, värde> par (till exempel ord lista <sträng, sträng>). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
+| properties |Nej |Valfritt. Uppsättning <nyckel, värde> par (till exempel ord lista <sträng, sträng>). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
 

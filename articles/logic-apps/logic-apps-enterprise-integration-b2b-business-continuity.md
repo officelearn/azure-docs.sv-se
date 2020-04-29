@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
 ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905135"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Konfigurera katastrof återställning mellan regioner för integrations konton i Azure Logic Apps
@@ -81,7 +81,7 @@ Affärs kontinuitet för EDI X12-dokument baseras på kontroll nummer:
 > [!TIP]
 > Du kan också använda [snabb starts mal len X12](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) för att skapa Logic Apps. Du måste skapa primära och sekundära integrations konton för att kunna använda mallen. Mallen hjälper till att skapa två Logic Apps, en för mottagna kontroll nummer och en annan för genererade kontroll nummer. Respektive utlösare och åtgärder skapas i Logi Kap par och ansluter utlösaren till det primära integrations kontot och åtgärden till det sekundära integrations kontot.
 
-**Krav**
+**Förutsättningar**
 
 Om du vill aktivera haveri beredskap för inkommande meddelanden väljer du de duplicerade kontroll inställningarna i X12-avtalets mottagnings inställningar.
 
@@ -136,7 +136,7 @@ Baserat på tidsintervallet replikeras den stegvisa körnings statusen från en 
 
 Affärs kontinuitet för EDI EDIFACT-dokument baseras på kontroll nummer.
 
-**Krav**
+**Förutsättningar**
 
 Om du vill aktivera haveri beredskap för inkommande meddelanden väljer du de duplicerade kontroll inställningarna i EDIFACT-avtalets mottagnings inställningar.
 

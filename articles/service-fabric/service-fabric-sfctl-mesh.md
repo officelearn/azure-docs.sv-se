@@ -1,35 +1,35 @@
 ---
-title: AZURE Service Fabric CLI- sfctl mesh
-description: Lär dig mer om sfctl, kommandoradsgränssnittet i Azure Service Fabric. Innehåller en lista med kommandon för hantering av Service Fabric Mesh-program.
+title: Azure Service Fabric CLI – sfctl-nät
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera Service Fabric nät program.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 40d0f70b0dabdc02434fa662663a2fd105431f0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905892"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
-Ta bort och hantera Service Fabric Mesh-program.
+Ta bort och hantera Service Fabric nät-program.
 
-## <a name="subgroups"></a>Undergrupper
-|Undergrupp|Beskrivning|
+## <a name="subgroups"></a>Under grupper
+|Under grupp|Beskrivning|
 | --- | --- |
-| [App](service-fabric-sfctl-mesh-app.md) | Hämta och ta bort programresurser. |
-| [kod-paket-logg](service-fabric-sfctl-mesh-code-package-log.md) | Hämta loggarna för behållaren för det angivna kodpaketet för den angivna tjänstrepliken. |
-| [Distribution](service-fabric-sfctl-mesh-deployment.md) | Skapa service fabric mesh-resurser. |
-| [Gateway](service-fabric-sfctl-mesh-gateway.md) | Hämta och ta bort nätgatewayresurser. |
-| [Nätverk](service-fabric-sfctl-mesh-network.md) | Hämta och ta bort nätverksresurser för mesh. |
-| [Hemliga](service-fabric-sfctl-mesh-secret.md) | Hämta och ta bort hemliga resurser för mesh. |
-| [hemligavärde](service-fabric-sfctl-mesh-secretvalue.md) | Hämta och ta bort resurser för hemligvärde av nät. |
-| [tjänst](service-fabric-sfctl-mesh-service.md) | Hämta serviceinformation och listtjänster för en programresurs. |
-| [tjänst-replik](service-fabric-sfctl-mesh-service-replica.md) | Hämta replikinformation och lista repliker av en viss tjänst i en programresurs. |
-| [Volym](service-fabric-sfctl-mesh-volume.md) | Hämta och ta bort volymresurser. |
+| [mobilappar](service-fabric-sfctl-mesh-app.md) | Hämta och ta bort program resurser. |
+| [kod-paket-logg](service-fabric-sfctl-mesh-code-package-log.md) | Hämta loggarna för behållaren för det angivna kod paketet för den angivna tjänst repliken. |
+| [spridningen](service-fabric-sfctl-mesh-deployment.md) | Skapa Service Fabric nät resurser. |
+| [nyckeln](service-fabric-sfctl-mesh-gateway.md) | Hämta och ta bort nät gateway-resurser. |
+| [nätverks](service-fabric-sfctl-mesh-network.md) | Hämta och ta bort nätverks resurser för nätverk. |
+| [icke](service-fabric-sfctl-mesh-secret.md) | Hämta och ta bort resurser för nät hemlighet. |
+| [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | Hämta och ta bort nät secretvalue-resurser. |
+| [telefonitjänstprovider](service-fabric-sfctl-mesh-service.md) | Hämta tjänst information och lista över tjänster för en program resurs. |
+| [tjänst-replik](service-fabric-sfctl-mesh-service-replica.md) | Hämta replik information och lista repliker för en specifik tjänst i en program resurs. |
+| [volym](service-fabric-sfctl-mesh-volume.md) | Hämta och ta bort volym resurser. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Ställ in](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempelskripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

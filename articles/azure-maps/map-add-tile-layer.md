@@ -1,6 +1,6 @@
 ---
-title: Lägga till ett panellager på en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du överlagrar ett panellager på en karta med hjälp av Microsoft Azure Maps Web SDK. Med panellager kan du återge bilder på en karta.
+title: Lägga till ett panel lager till en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig att täcka ett panel lager på en karta med hjälp av Microsoft Azure Maps-webbsdk. Med panel lager kan du återge bilder på en karta.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,37 +10,37 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988608"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Lägga till ett panelskikt till en karta
 
-I den här artikeln visas hur du överlagrar ett panellager på kartan. Med panellager kan du lägga över avbildningar ovanpå Azure Maps-baskartpaneler. Mer information om Azure Maps plattsättningssystem finns i [Zooma nivåer och panelrutnät](zoom-levels-and-tile-grid.md).
+Den här artikeln visar hur du lägger till ett panel lager på kartan. Med panel lager kan du placera bilder ovanpå Azure Maps bas kart paneler. Mer information om hur du Azure Maps i systemet finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
 
-Ett panellager läses in i paneler från en server. Dessa bilder kan antingen göras i föråtergivning eller återges dynamiskt. Förrederade bilder lagras som alla andra bilder på en server med hjälp av en namngivningskonvention som panellagret förstår. Dynamiskt renderade bilder använder en tjänst för att läsa in bilderna nära realtid. Det finns tre olika namngivningskonventioner för paneltjänster som stöds av klassen Azure [Maps TileLayer:](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) 
+Ett panel lager läses in i paneler från en server. Dessa bilder kan antingen förrenderas eller renderas dynamiskt. Förrenderade bilder lagras som en annan bild på en server med hjälp av en namngivnings konvention som panel lagret förstår. Dynamiskt återgivna bilder använder en tjänst för att läsa in bilderna nära real tid. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) -klassen: 
 
-* X, Y, Zoom notation - X är kolumnen, Y är raden position kakel i kakel rutnätet, och Zoom notation ett värde baserat på zoomnivå.
-* Quadkey notation - Kombinerar x, y och zooma information till ett enda strängvärde. Det här strängvärdet blir en unik identifierare för en enda panel.
-* Begränsningsram - Ange en bild i formatet `{west},{south},{east},{north}`Markeringsramkoordinater: . Det här formatet används ofta av [WMS (Web Mapping Services).](https://www.opengeospatial.org/standards/wms)
+* X, Y, zoom notation-X är kolumnen, Y är panelens rad position i panel rutnätet och zoomningen formaterar ett värde baserat på zoomnivån.
+* Quadkey-notation – kombinerar x-, y-och zoomnings information till ett enda sträng värde. Detta sträng värde blir en unik identifierare för en enda panel.
+* Avgränsnings ruta – ange en bild i markerings rutans koordinater- `{west},{south},{east},{north}`format:. Det här formatet används ofta av [Web mappnings tjänster (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> En [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) är ett bra sätt att visualisera stora datauppsättningar på kartan. Inte bara kan ett panellager genereras från en bild, vektordata kan också återges som ett panellager också. Genom att återge vektordata som ett panellager behöver kartkontrollen bara läsa in panelerna som är mindre i filstorlek än de vektordata som de representerar. Den här tekniken används ofta för att återge miljontals rader med data på kartan.
+> En [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) är ett bra sätt att visualisera stora data uppsättningar på kartan. Om du inte bara vill att ett panel lager ska genereras från en bild kan vektor data även återges som ett panel lager. Genom att återge vektor data som ett panel lager behöver kart kontrollen bara läsa in panelerna som är mindre i fil storleken än de vektor data de representerar. Den här tekniken används ofta för att återge miljon tals rader med data på kartan.
 
-Panel-URL:en som skickas till ett panellager måste vara en http- eller https-URL till en TileJSON-resurs eller en url-mall för panelen som använder följande parametrar: 
+Panel-URL: en som skickas till ett panel lager måste vara en http-eller HTTPS-URL till en TileJSON-resurs eller en panel-URL-mall som använder följande parametrar: 
 
-* `{x}`- X-placering på plattan. Också `{y}` behov `{z}`och .
-* `{y}`- Y-position på plattan. Också `{x}` behov `{z}`och .
-* `{z}`- Zooma nivå av kakel. Också `{x}` behov `{y}`och .
-* `{quadkey}`- Tile quadkey-identifierare baserat på namngivningskonventionen för Bing Maps-panelsystemet.
-* `{bbox-epsg-3857}`- En markeringsramssträng `{west},{south},{east},{north}` med formatet i EPSG 3857 Spatial Reference System.
-* `{subdomain}`- En platshållare för underdomänvärdena, `subdomain` om det anges att testamentet ska läggas till.
+* `{x}`-X position i rutan. Du måste `{y}` också `{z}`ha och.
+* `{y}`-Y position i panelen. Du måste `{x}` också `{z}`ha och.
+* `{z}`-Zoomnings nivå i panelen. Du måste `{x}` också `{y}`ha och.
+* `{quadkey}`-Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
+* `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
+* `{subdomain}`– En plats hållare för under domänens värden, om den `subdomain` är angiven, kommer att läggas till.
 
 ## <a name="add-a-tile-layer"></a>Lägga till ett panelskikt
 
- Det här exemplet visar hur du skapar ett panellager som pekar på en uppsättning paneler. I det här exemplet används x-, y-, zooma plattsättningssystemet. Källan till detta kakel lager är ett väder radar overlay från [Iowa Environmental Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). När du tittar på radardata, helst användare skulle tydligt se etiketterna i städer när de navigerar på kartan. Detta kan implementeras genom att infoga panellagret under `labels` lagret.
+ Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler. I det här exemplet används systemet x, y, zoom-inpassning. Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). När du visar radar data skulle användarna tydligt se etiketterna för städer när de navigerar i kartan. Detta beteende kan implementeras genom att infoga panel lagret under `labels` lagret.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -52,20 +52,20 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-Nedan visas det fullständiga kodexemplet för ovanstående funktioner.
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Panellager med X, Y och Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>Pennpanellagret med X, Y och</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>Z av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Panel lager med X, Y och Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Penn <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>panels lagret med X, Y och Z</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-tile-layer"></a>Anpassa ett panellager
+## <a name="customize-a-tile-layer"></a>Anpassa ett panel lager
 
-Klassen kakellager har många formateringsalternativ. Här är ett verktyg för att prova dem.
+Panel skikts klassen har många format alternativ. Här är ett verktyg för att testa dem.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Alternativ för lager med panel' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>pennpanellager</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Alternativ för panel lager' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativ för Penn <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>panels lager</a> efter Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -73,12 +73,12 @@ Klassen kakellager har många formateringsalternativ. Här är ett verktyg för 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [KakelLager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)
+> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions?view=azure-iot-typescript-latest)
 
-Se följande artiklar för fler kodexempel att lägga till i dina kartor:
+Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
 > [Lägga till ett avbildningsskikt](./map-add-image-layer.md)

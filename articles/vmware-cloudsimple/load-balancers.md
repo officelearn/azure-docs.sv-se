@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple - Välj en belastningsutjämningslösning för CloudSimple Private Clouds
-description: Beskriver alternativen för belastningsutjämning som distribuerar ett program i ett privat moln
+title: Azure VMware-lösning av CloudSimple – Välj en lösning för belastnings utjämning för CloudSimple privata moln
+description: Beskriver alternativen för belastnings utjämning som distribuerar ett program i ett privat moln
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -9,38 +9,38 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77014886"
 ---
-# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Välj en belastningsutjämningslösning för CloudSimple Private Clouds
+# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Välj en lösning för belastnings utjämning för CloudSimple privata moln
 
-När du distribuerar ett program i ett CloudSimple Private Cloud kan du välja något av flera alternativ för belastningsutjämning.
+När du distribuerar ett program i ett privat CloudSimple-moln kan du välja något av flera alternativ för belastnings utjämning.
 
-Du kan välja en virtuell eller programvarubaserad belastningsutjämnare i ditt CloudSimple privata moln eller till och med använda Azure L7-belastningsutjämnare som körs i din Azure-prenumeration för att frontend-datorerna på webbnivå som körs i CloudSimple Private Cloud. Här listar vi några alternativ:
+Du kan välja en virtuell eller programvarubaserad belastningsutjämnare i ditt CloudSimple privata moln eller även använda Azure L7-belastningsutjämnaren som körs i din Azure-prenumeration på klient sidan för virtuella datorer som körs i det CloudSimple privata molnet. Här listas några alternativ:
 
 ## <a name="virtual-load-balancers"></a>Virtuella belastningsutjämnare
 
-Du kan distribuera virtuella belastningsutjämnare i din VMware-miljö via vCenter-gränssnittet och konfigurera dem så att programtrafiken fronten avslutas.
+Du kan distribuera virtuella belastningsutjämnare i VMware-miljön via vCenter-gränssnittet och konfigurera dem för att placera program trafiken på klient sidan.
 
-Några populära leverantörer är: NginX: http://nginx.org/en/docs/http/load_balancing.html F5- BigIP - Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC:https://www.citrix.com/products/citrix-adc/
+Några populära leverantörer är: NginX: http://nginx.org/en/docs/http/load_balancing.html F5-BigIP-Traffic Manager: https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC:https://www.citrix.com/products/citrix-adc/
 
-## <a name="azure-l7-load-balancer"></a>Azure L7 belastningsutjämnare
+## <a name="azure-l7-load-balancer"></a>Azure L7-belastningsutjämnare
 
-När du använder Azure Application Gateway som L7-belastningsutjämnare för ditt program som körs i ett privat moln behöver du inte hantera belastningsutjämnaren. Belastningsutjämnarens programvara hanteras av Azure. Alla virtuella webbnivå-datorer i det privata molnet använder privata IP-adresser och kräver inte ytterligare NAT-regler eller offentliga IP-adresser för att matcha namn. Virtuella datorer på webbnivå kommunicerar med Azure Application Gateway via en privat anslutning med låg latens med hög bandbredd.
+När du använder Azure Application Gateway som en L7-belastningsutjämnare för ditt program som körs i ett privat moln behöver du inte hantera program varan för belastningsutjämnare. Belastnings Utjämnings program varan hanteras av Azure. Alla virtuella datorer i det privata molnet använder privata IP-adresser och kräver inte ytterligare NAT-regler eller offentliga IP-adresser för att matcha namn. Virtuella datorer i virtuella datorer kommunicerar med Azure Application Gateway över en privat, låg latens-anslutning med hög bandbredd.
 
-Mer information om hur du konfigurerar den här lösningen finns i lösningsguiden för att använda Azure Application Gateway som L7-belastningsutjämnare.
+Mer information om hur du konfigurerar den här lösningen finns i lösnings guiden för att använda Azure Application Gateway som en L7-belastningsutjämnare.
 
-## <a name="azure-internal-load-balancer"></a>Azure intern belastningsutjämnare
+## <a name="azure-internal-load-balancer"></a>Intern Azure-belastningsutjämnare
 
-Om du väljer att köra ditt program i en hybriddistribution där webbfrontdnivån körs inom ett Azure-vNet i din Azure-prenumeration och DB-nivån för programmet körs i virtuella datorer med VMware i CloudSimple Private Cloud, kan du använda Azure intern belastning balanseraren (L4 belastningsutjämnare) framför dina virtuella db-nivå-datorer för trafikhantering.
+Om du väljer att köra programmet i en hybrid distribution där front webb nivån körs i ett Azure vNet i din Azure-prenumeration och databas nivån för programmet körs i virtuella VMware-datorer i CloudSimple privata moln kan du använda Azures interna belastningsutjämnare (L4 Load Balancer) framför dina virtuella datorer i DB-nivån för trafik hantering.
 
-Mer information finns i Azures interna [dokumentation för belastningsutjämning.](../load-balancer/concepts-limitations.md#internalloadbalancer)
+Mer information finns i dokumentationen till Azure [intern Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer) .
 
-## <a name="global-server-load-balancer"></a>Global belastningsutjämnare för servrar
+## <a name="global-server-load-balancer"></a>Global Server belastnings utjämning
 
-Om du letar efter en DNS-baserad belastningsutjämnare kan du antingen använda tredjepartslösningar som är tillgängliga på Azure Marketplace eller gå med den inbyggda Azure-lösningen.
+Om du letar efter en DNS-baserad belastningsutjämnare kan du antingen använda lösningar från tredje part som är tillgängliga på Azure Marketplace eller gå med i den interna Azure-lösningen.
 
-Azure Traffic Manager är en DNS-baserad trafikbelastningsutjämningsfaktor som gör att du kan distribuera trafik optimalt till tjänster i globala Azure-regioner och lokala, samtidigt som du tillhandahåller hög tillgänglighet och svarstider. Mer information finns i Azure [Traffic Manager-dokumentationen.](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)
+Azure Traffic Manager är en DNS-baserad trafikbelastnings utjämning som gör att du kan distribuera trafik optimalt till tjänster i globala Azure-regioner och lokalt, samtidigt som du ger hög tillgänglighet och svars tider. Mer information finns i Azure [Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) -dokumentationen.

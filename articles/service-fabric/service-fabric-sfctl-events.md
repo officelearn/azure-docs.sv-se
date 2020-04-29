@@ -1,40 +1,40 @@
 ---
-title: Azure Service Fabric CLI- sfctl-händelser
-description: Beskriver kommandona Service Fabric CLI sfctl-händelser.
+title: Azure Service Fabric CLI – sfctl-händelser
+description: Beskriver sfctl-kommandon Service Fabric för CLI-.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 635bddef1a98d6ed2b112662d8c9c44fe65e9e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906104"
 ---
-# <a name="sfctl-events"></a>sfctl händelser
-Hämta händelser från händelsearkivet (om EventStore-tjänsten redan är installerad).
+# <a name="sfctl-events"></a>sfctl-händelser
+Hämta händelser från händelse lagret (om EventStore-tjänsten redan är installerad).
 
-EventStore-systemtjänsten kan läggas till genom en konfigurationsuppgradering till alla SFRP-kluster som körs >=6.4. Kontrollera följande webbadress\: \:https //docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-eventstore.
+System tjänsten EventStore kan läggas till via en konfigurations uppgradering till valfritt SFRP-kluster som kör >= 6,4. Kontrol lera följande URL\: -https\://docs.Microsoft.com/Azure/Service-Fabric/Service-Fabric-Diagnostics-eventstore.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| lista över alla program | Hämtar alla programrelaterade händelser. |
-| all-noder-lista | Hämtar alla noderrelaterade händelser. |
-| all-partitioner-lista | Hämtar alla partitioner-relaterade händelser. |
-| lista över alla tjänster | Hämtar alla tjänster-relaterade händelser. |
-| programlista | Hämtar en programrelaterad händelse. |
-| klusterlista | Hämtar alla klusterrelaterade händelser. |
-| nodlista | Hämtar en nodrelaterade händelser. |
-| partition-alla-repliker-lista | Hämtar alla replikrelaterade händelser för en partition. |
-| partitionslista | Hämtar partitionsrelaterade händelser. |
-| partition-replik-lista | Hämtar en partitionsreplikrelaterade händelser. |
-| servicelista | Hämtar en tjänstrelaterad händelse. |
+| lista över alla program | Hämtar alla program-relaterade händelser. |
+| lista över alla noder | Hämtar alla noder-relaterade händelser. |
+| lista över alla partitioner | Hämtar alla partitioner relaterade händelser. |
+| alla-tjänster-lista | Hämtar alla tjänster-relaterade händelser. |
+| program lista | Hämtar program relaterade händelser. |
+| kluster lista | Hämtar alla kluster relaterade händelser. |
+| Node-List | Hämtar ett Node-relaterade händelser. |
+| partition – alla-repliker – lista | Hämtar alla repliker-relaterade händelser för en partition. |
+| partition – lista | Hämtar en partition-relaterade händelser. |
+| partition-Replica-List | Hämtar en partitions replik-relaterade händelser. |
+| tjänst lista | Hämtar ett service-relaterade händelser. |
 
-## <a name="sfctl-events-all-applications-list"></a>sfctl händelser alla program-lista
-Hämtar alla programrelaterade händelser.
+## <a name="sfctl-events-all-applications-list"></a>sfctl-lista över alla program – lista
+Hämtar alla program-relaterade händelser.
 
 Svaret är en lista över ApplicationEvent-objekt.
 
@@ -42,25 +42,25 @@ Svaret är en lista över ApplicationEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-all-nodes-list"></a>sfctl händelser all-noder-lista
-Hämtar alla noderrelaterade händelser.
+## <a name="sfctl-events-all-nodes-list"></a>sfctl-händelser alla-noder-lista
+Hämtar alla noder-relaterade händelser.
 
 Svaret är en lista över NodeEvent-objekt.
 
@@ -68,25 +68,25 @@ Svaret är en lista över NodeEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-all-partitions-list"></a>sfctl-händelser allpartitioner-lista
-Hämtar alla partitioner-relaterade händelser.
+## <a name="sfctl-events-all-partitions-list"></a>sfctl händelser alla-partitioner-lista
+Hämtar alla partitioner relaterade händelser.
 
 Svaret är en lista över PartitionEvent-objekt.
 
@@ -94,24 +94,24 @@ Svaret är en lista över PartitionEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-all-services-list"></a>sfctl-evenemangslista för alla tjänster
+## <a name="sfctl-events-all-services-list"></a>sfctl-händelser alla-tjänster-lista
 Hämtar alla tjänster-relaterade händelser.
 
 Svaret är en lista över ServiceEvent-objekt.
@@ -120,25 +120,25 @@ Svaret är en lista över ServiceEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-application-list"></a>sfctl händelser ansökan-lista
-Hämtar en programrelaterad händelse.
+## <a name="sfctl-events-application-list"></a>sfctl Events-program-List
+Hämtar program relaterade händelser.
 
 Svaret är en lista över ApplicationEvent-objekt.
 
@@ -146,26 +146,26 @@ Svaret är en lista över ApplicationEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat\:"Fabric". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-symbolen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" skulle program identiteten vara "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-cluster-list"></a>klusterlista för sfctl-händelser
-Hämtar alla klusterrelaterade händelser.
+## <a name="sfctl-events-cluster-list"></a>sfctl händelser kluster-lista
+Hämtar alla kluster relaterade händelser.
 
 Svaret är en lista över ClusterEvent-objekt.
 
@@ -173,25 +173,25 @@ Svaret är en lista över ClusterEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-node-list"></a>sfctl-händelsenod-lista
-Hämtar en nodrelaterade händelser.
+## <a name="sfctl-events-node-list"></a>noden sfctl Events-List
+Hämtar ett Node-relaterade händelser.
 
 Svaret är en lista över NodeEvent-objekt.
 
@@ -199,26 +199,26 @@ Svaret är en lista över NodeEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --nodnamn [Obligatoriskt] | Namnet på noden. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --Node-Name [required] | Nodens namn. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-partition-all-replicas-list"></a>sfctl-händelser partition-alla-repliker-lista
-Hämtar alla replikrelaterade händelser för en partition.
+## <a name="sfctl-events-partition-all-replicas-list"></a>sfctl Events partition-alla-Replicas-List
+Hämtar alla repliker-relaterade händelser för en partition.
 
 Svaret är en lista över ReplicaEvent-objekt.
 
@@ -226,26 +226,26 @@ Svaret är en lista över ReplicaEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --partition-id [Obligatoriskt] | Partitionens identitet. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --partitions-ID [required] | Partitionens identitet. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-partition-list"></a>partitionslista för sfctl-händelser
-Hämtar partitionsrelaterade händelser.
+## <a name="sfctl-events-partition-list"></a>sfctl Events partition-List
+Hämtar en partition-relaterade händelser.
 
 Svaret är en lista över PartitionEvent-objekt.
 
@@ -253,26 +253,26 @@ Svaret är en lista över PartitionEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --partition-id [Obligatoriskt] | Partitionens identitet. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --partitions-ID [required] | Partitionens identitet. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-partition-replica-list"></a>sfctl-händelser partition-replik-lista
-Hämtar en partitionsreplikrelaterade händelser.
+## <a name="sfctl-events-partition-replica-list"></a>sfctl Events partition-Replica-List
+Hämtar en partitions replik-relaterade händelser.
 
 Svaret är en lista över ReplicaEvent-objekt.
 
@@ -280,27 +280,27 @@ Svaret är en lista över ReplicaEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --partition-id [Obligatoriskt] | Partitionens identitet. |
-| --replica-id [Obligatoriskt] | Identifieraren för repliken. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --partitions-ID [required] | Partitionens identitet. |
+| --replik-ID [obligatoriskt] | Replikens identifierare. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-events-service-list"></a>tjänstlista för sfctl-händelser
-Hämtar en tjänstrelaterad händelse.
+## <a name="sfctl-events-service-list"></a>sfctl Events service-list
+Hämtar ett service-relaterade händelser.
 
 Svaret är en lista över ServiceEvent-objekt.
 
@@ -308,21 +308,21 @@ Svaret är en lista över ServiceEvent-objekt.
 
 |Argument|Beskrivning|
 | --- | --- |
-| --end-time-utc [Krävs] | Sluttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --service-id [Obligatoriskt] | Tjänstens identitet. Detta ID är vanligtvis det fullständiga namnet\:på tjänsten utan URI-schemat för tyg. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om tjänstnamnet till exempel är\:"fabric /myapp/app1/svc1", skulle tjänstidentiteten vara "myapp\~app1\~svc1" i 6.0+ och "myapp/app1/svc1" i tidigare versioner. |
-| --start-time-utc [Obligatoriskt] | Starttiden för en uppslagsfråga i ISO UTC yyyy-MM-ddTHH\:mm\:ssZ. |
-| --events-types-filter | Det här är en kommaavgränsad sträng som anger de typer av FabricEvents som endast ska inkluderas i svaret. |
-| --exkludera-analys-händelser | Den här param inaktiverar hämtning av AnalysisEvents om sant skickas. |
-| --skip-correlation-lookup --skip-correlation-lookup --skip-correlation-lookup -- | Den här param inaktiverar sökningen av CorrelatedEvents information om sant skickas. Annars bearbetas fältet CorrelationEvents och fältet HasCorrelatedEvents i varje FabricEvent. |
-| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --slut tid UTC [required] | Slut tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --tjänst-ID [obligatoriskt] | Tjänstens identitet. Detta ID är vanligt vis det fullständiga namnet på tjänsten utan URI-schemat\:"Fabric". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-symbolen. Om tjänst namnet till exempel är "Fabric\:/MyApp/APP1/svc1" skulle tjänst identiteten vara "MyApp\~APP1\~svc1" i 6.0 + och "MyApp/APP1/svc1" i tidigare versioner. |
+| --Start-Time-UTC [required] | Start tiden för en uppslags fråga i ISO UTC ÅÅÅÅ-MM-\:ddTHH\:mm-SSZ. |
+| --händelse-types-filter | Det här är en kommaavgränsad sträng som anger vilka typer av FabricEvents som endast ska tas med i svaret. |
+| --Exkludera-analys-händelser | Den här paramen inaktiverar hämtning av AnalysisEvents om True har skickats. |
+| --hoppa över korrelations uppslag | Den här paramen inaktiverar sökningen av CorrelatedEvents-information om True har skickats. annars fylls fältet CorrelationEvents bearbetas och HasCorrelatedEvents i varje FabricEvent. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 

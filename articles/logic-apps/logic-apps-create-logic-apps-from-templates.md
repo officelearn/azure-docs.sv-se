@@ -1,6 +1,6 @@
 ---
-title: Skapa arbetsflöden för logikapp snabbare med hjälp av fördefinierade mallar
-description: Skapa snabbt arbetsflöden för logikappar med hjälp av färdiga mallar som tillhandahålls av Azure Logic Apps
+title: Skapa Logic app-arbetsflöden snabbare genom att använda fördefinierade mallar
+description: Skapa snabbt Logic app-arbetsflöden genom att använda fördefinierade mallar som tillhandahålls av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -9,34 +9,34 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905109"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Skapa logikappsarbetsflöden från fördefinierade mallar
 
-För att komma igång med att skapa arbetsflöden snabbare tillhandahåller Logic Apps mallar som är färdiga logikappar som följer vanliga mönster. Använd dessa mallar enligt dem eller redigera dem för att passa ditt scenario.
+För att komma igång med att skapa arbets flöden snabbare, innehåller Logic Apps mallar, som är förbyggda Logic Apps som följer vanliga mönster. Använd de här mallarna som de har angett eller redigera dem så att de passar ditt scenario.
 
-Här är några mallkategorier:
+Här följer några Mallkategorier:
 
 | Malltyp | Beskrivning | 
 | ------------- | ----------- | 
-| Molnmallar för företag | För att integrera Azure Blob, Dynamics CRM, Salesforce, Box och innehåller andra kopplingar för företagets molnbehov. Du kan till exempel använda dessa mallar för att ordna affärsleads eller säkerhetskopiera företagets fildata. | 
-| Mallar för personlig produktivitet | Förbättra den personliga produktiviteten genom att ställa in dagliga påminnelser, omvandla viktiga arbetsobjekt till att göra-listor och automatisera långa uppgifter ner till ett enda användargodkännandesteg. | 
-| Molnmallar för konsumenter | För att integrera sociala medietjänster som Twitter, Slack och e-post. Användbart för att stärka sociala medier marknadsföring initiativ. Dessa mallar innehåller också uppgifter som molnkopiering, vilket ökar produktiviteten genom att spara tid på traditionellt repetitiva uppgifter. | 
-| Mallar för företagsintegreringspaket | För att konfigurera VETER-pipelines (validera, extrahera, omvandla, berika, dirigera), ta emot ett X12 EDI-dokument via AS2 och omvandla till XML och hantera X12-, EDIFACT- och AS2-meddelanden. | 
-| Mallar för protokollmönster | För implementering av protokollmönster som begäran-svar över HTTP och integrationer över FTP och SFTP. Använd dessa mallar enligt de angivna mallarna eller bygg vidare på dem för komplexa protokollmönster. | 
+| Mallar för företags moln | För integrering av Azure Blob, Dynamics CRM, Salesforce, Box och innehåller andra anslutningar för företagets moln behov. Du kan till exempel använda dessa mallar för att organisera affärs leads eller säkerhetskopiera företagets fildata. | 
+| Personliga produktivitets mallar | Förbättra den personliga produktiviteten genom att ställa in dagliga påminnelser, omvandla viktiga arbets objekt till att göra-listor och automatisera långvariga uppgifter till ett enda användar godkännande steg. | 
+| Mallar för konsument moln | För att integrera sociala medie tjänster som Twitter, slack och e-post. Användbart för att stärka marknadsförings initiativ för sociala medier. Dessa mallar innehåller också uppgifter som moln kopiering, vilket ökar produktiviteten genom att spara tid på traditionellt återkommande uppgifter. | 
+| Mallar för Enterprise integration Pack | För att konfigurera VETER (validera, extrahera, transformera, utöka, Route), ta emot ett X12 EDI-dokument via AS2 och transformera till XML och hantera X12-, EDIFACT-och AS2-meddelanden. | 
+| Mallar för protokoll mönster | För att implementera protokoll mönster som Request-Response över HTTP och integreringar över FTP och SFTP. Använd de här mallarna som anges eller utveckla dem för komplexa protokoll mönster. | 
 ||| 
 
-Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar. Mer information om hur du skapar en logikapp finns i [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar. Mer information om hur du skapar en Logic app finns i [skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-logic-apps-from-templates"></a>Skapa Logic Apps från mallar
 
-1. Om du inte redan har gjort det loggar du in på [Azure-portalen](https://portal.azure.com "Azure Portal").
+1. Om du inte redan har gjort det loggar du in på [Azure Portal](https://portal.azure.com "Azure Portal").
 
-2. På Azure-huvudmenyn väljer du **Skapa en resurs** > **Enterprise Integration** > **Logic App**.
+2. Välj **skapa en resurs** > **Enterprise-integration** > **Logic app**på huvud menyn i Azure.
 
    ![Azure Portal, Ny, Enterprise-integration, Logikapp](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -48,9 +48,9 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    | ------- | ----- | ----------- | 
    | **Namn** | *logikappens-namn* | Ange ett unikt namn för logikappen. | 
    | **Prenumeration** | *namn-på-Azure-prenumerationen* | Ange den prenumeration som du vill använda. | 
-   | **Resursgrupp** | *namn-på-Azure-resursgruppen* | Skapa eller välj en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) för den här logikappen och ordna alla resurser som är associerade med den här appen. | 
-   | **Location** | *din-Azure-datacenter-region* | Välj datacenterregion för att distribuera logikappen, till exempel USA, västra. | 
-   | **Logga Analytics** | **Av** (standard) eller **På** | Konfigurera [diagnostikloggning](../logic-apps/monitor-logic-apps-log-analytics.md) för logikappen med hjälp av [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md). Kräver att du redan har en Log Analytics-arbetsyta. | 
+   | **Resursgrupp** | *namn-på-Azure-resursgruppen* | Skapa eller Välj en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) för den här Logic-appen och organisera alla resurser som är associerade med den här appen. | 
+   | **Position** | *din-Azure-datacenter-region* | Välj datacenterregion för att distribuera logikappen, till exempel USA, västra. | 
+   | **Log Analytics** | **Av** (standard) eller **på** | Konfigurera [diagnostikloggning](../logic-apps/monitor-logic-apps-log-analytics.md) för din Logic app med hjälp av [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Kräver att du redan har en Log Analytics-arbetsyta. | 
    |||| 
 
 4. När du är klar väljer du **Fäst på instrumentpanelen**. På så sätt visas logikappen automatiskt på din Azure-instrumentpanel och öppnas efter distributionen. Välj **Skapa**.
@@ -61,88 +61,88 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    När Azure har distribuerat din logikapp öppnas Logic Apps Designer och visar en sida med en introduktionsvideo. 
    Under videon finns mallar för vanliga logikappmönster. 
 
-5. Bläddra förbi introduktionsvideon och vanliga utlösare till **Mallar**. Välj en fördefinierad mall. Ett exempel:
+5. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Ett exempel:
 
-   ![Välj en logikappmall](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
+   ![Välj en mall för Logic app](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    > [!TIP]
-   > Om du vill skapa logikappen från grunden väljer du **Tom Logikapp**.
+   > Om du vill skapa din Logic app från grunden väljer du **Tom Logic app**.
 
-   När du väljer en fördefinierad mall kan du visa mer information om mallen. 
+   När du väljer en fördefinierad mall kan du Visa mer information om mallen. 
    Ett exempel:
 
    ![Välj en fördefinierad mall](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-6. Om du vill fortsätta med den markerade mallen väljer du **Använd den här mallen**. 
+6. Välj **Använd den här mallen**om du vill fortsätta med den valda mallen. 
 
-7. Baserat på kopplingarna i mallen uppmanas du att utföra något av följande steg:
+7. Baserat på kopplingarna i mallen uppmanas du att göra något av följande:
 
-   * Logga in med dina autentiseringsuppgifter på system eller tjänster som refereras av mallen.
+   * Logga in med dina autentiseringsuppgifter för system eller tjänster som mallen refererar till.
 
-   * Skapa anslutningar för alla tjänster eller system som refereras av mallen. Om du vill skapa en anslutning anger du ett namn för anslutningen och väljer vid behov den resurs som du vill använda. 
+   * Skapa anslutningar för tjänster eller system som refereras av mallen. Om du vill skapa en anslutning anger du ett namn för anslutningen och väljer sedan den resurs som du vill använda, om det behövs. 
 
-   * Om du redan har konfigurerat dessa anslutningar väljer du **Fortsätt**.
+   * Om du redan har konfigurerat de här anslutningarna väljer du **Fortsätt**.
 
    Ett exempel:
 
    ![Skapa anslutningar](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
-   När du är klar öppnas logikappen och visas i Logic Apps Designer.
+   När du är klar öppnas din Logic app och visas i Logic Apps designer.
 
    > [!TIP]
-   > Om du vill återgå till mallvisaren väljer du **Mallar** i designerverktygsfältet. Den här åtgärden ignorerar alla ändringar som inte sparats, så ett varningsmeddelande visas för att bekräfta din begäran.
+   > Om du vill återgå till mal Lav visaren väljer du **mallar** i verktygsfältet designer. Den här åtgärden tar bort alla ändringar som inte sparats, så ett varnings meddelande visas för att bekräfta din begäran.
 
-8. Fortsätt att bygga logikappen.
+8. Fortsätt att skapa din Logic app.
 
    > [!NOTE] 
-   > Många mallar innehåller kopplingar som kanske redan har förifyllda obligatoriska egenskaper. Vissa mallar kan dock fortfarande kräva att du anger värden innan du kan distribuera logikappen på rätt sätt. Om du försöker distribuera utan att fylla i de saknade egenskapsfälten visas ett felmeddelande. 
+   > Många mallar innehåller kopplingar som redan har förifyllda nödvändiga egenskaper. Vissa mallar kan dock fortfarande kräva att du anger värden innan du kan distribuera Logic app på rätt sätt. Om du försöker distribuera utan att fylla i de saknade egenskaps fälten visas ett fel meddelande. 
 
-## <a name="update-logic-apps-with-templates"></a>Uppdatera logikappar med mallar
+## <a name="update-logic-apps-with-templates"></a>Uppdatera Logic Apps med mallar
 
-1. I [Azure-portalen](https://portal.azure.com "Azure Portal")hittar och öppnar du logikappen i logikappdesignern.
+1. I [Azure Portal](https://portal.azure.com "Azure Portal")kan du söka efter och öppna din Logic app i th Logic App Designer.
 
-2. Välj Mallar i **designerverktygsfältet**. Den här åtgärden ignorerar alla ändringar som inte sparats, så ett varningsmeddelande visas så att du kan bekräfta att du vill fortsätta. För att bekräfta väljer du **OK**. Ett exempel:
+2. I verktygsfältet designer väljer du **mallar**. Den här åtgärden tar bort alla ändringar som inte sparats, så ett varnings meddelande visas så att du kan bekräfta att du vill fortsätta. Bekräfta genom att välja **OK**. Ett exempel:
 
-   ![Välj "Mallar"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
+   ![Välj "mallar"](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Bläddra förbi introduktionsvideon och vanliga utlösare till **Mallar**. Välj en fördefinierad mall. Ett exempel:
+3. Rulla förbi introduktions videon och vanliga utlösare till **mallar**. Välj en fördefinierad mall. Ett exempel:
 
-   ![Välj en logikappmall](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
+   ![Välj en mall för Logic app](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
-   När du väljer en fördefinierad mall kan du visa mer information om mallen. 
+   När du väljer en fördefinierad mall kan du Visa mer information om mallen. 
    Ett exempel:
 
    ![Välj en fördefinierad mall](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-4. Om du vill fortsätta med den markerade mallen väljer du **Använd den här mallen**. 
+4. Välj **Använd den här mallen**om du vill fortsätta med den valda mallen. 
 
-5. Baserat på kopplingarna i mallen uppmanas du att utföra något av följande steg:
+5. Baserat på kopplingarna i mallen uppmanas du att göra något av följande:
 
-   * Logga in med dina autentiseringsuppgifter på system eller tjänster som refereras av mallen.
+   * Logga in med dina autentiseringsuppgifter för system eller tjänster som mallen refererar till.
 
-   * Skapa anslutningar för alla tjänster eller system som refereras av mallen. Om du vill skapa en anslutning anger du ett namn för anslutningen och väljer vid behov den resurs som du vill använda. 
+   * Skapa anslutningar för tjänster eller system som refereras av mallen. Om du vill skapa en anslutning anger du ett namn för anslutningen och väljer sedan den resurs som du vill använda, om det behövs. 
 
-   * Om du redan har konfigurerat dessa anslutningar väljer du **Fortsätt**.
+   * Om du redan har konfigurerat de här anslutningarna väljer du **Fortsätt**.
 
    ![Skapa anslutningar](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
-   Logikappen öppnas och visas nu i Logic Apps Designer.
+   Din Logic app öppnas nu och visas i Logic Apps designer.
 
-8. Fortsätt att bygga logikappen. 
+8. Fortsätt att skapa din Logic app. 
 
    > [!TIP]
-   > Om du inte har sparat ändringarna kan du ignorera ditt arbete och återgå till din tidigare logikapp. Välj **Ignorera**i designerverktygsfältet .
+   > Om du inte har sparat ändringarna kan du ignorera ditt arbete och återgå till din tidigare Logic-app. I verktygsfältet designer väljer du **Ignorera**.
 
 > [!NOTE] 
-> Många mallar innehåller kopplingar som kanske redan har förifyllda obligatoriska egenskaper. Vissa mallar kan dock fortfarande kräva att du anger värden innan du kan distribuera logikappen på rätt sätt. Om du försöker distribuera utan att fylla i de saknade egenskapsfälten visas ett felmeddelande.
+> Många mallar innehåller kopplingar som redan har förifyllda nödvändiga egenskaper. Vissa mallar kan dock fortfarande kräva att du anger värden innan du kan distribuera Logic app på rätt sätt. Om du försöker distribuera utan att fylla i de saknade egenskaps fälten visas ett fel meddelande.
 
-## <a name="deploy-logic-apps-built-from-templates"></a>Distribuera logikappar byggda från mallar
+## <a name="deploy-logic-apps-built-from-templates"></a>Distribuera Logic Apps som skapats utifrån mallar
 
-När du har gjort ändringarna i mallen kan du spara ändringarna. Den här åtgärden publicerar också logikappen automatiskt.
+När du har gjort dina ändringar i mallen kan du spara ändringarna. Den här åtgärden publicerar också den logiska appen automatiskt.
 
 Välj **Spara** i designerverktygsfältet.
 
-![Spara och publicera logikappen](./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png)  
+![Spara och publicera din Logic app](./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png)  
 
 ## <a name="get-support"></a>Få support
 
@@ -151,7 +151,7 @@ Välj **Spara** i designerverktygsfältet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur du skapar logikappar genom exempel, scenarier, kundberättelser och genomgångar.
+Lär dig mer om att skapa Logi Kap par med exempel, scenarier, kund berättelser och genom gångar.
 
 > [!div class="nextstepaction"]
-> [Granska exempel, scenarier och genomgångar av logikappar](../logic-apps/logic-apps-examples-and-scenarios.md)
+> [Granska exempel på logiska appar, scenarier och genom gångar](../logic-apps/logic-apps-examples-and-scenarios.md)

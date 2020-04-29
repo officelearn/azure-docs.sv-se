@@ -1,7 +1,7 @@
 ---
-title: OData språköversikt
+title: OData-språk översikt
 titleSuffix: Azure Cognitive Search
-description: OData-språköversikt för filter, val och order-by för Azure Cognitive Search-frågor.
+description: OData-språk översikt för filter, Välj och sortera efter för Azure Kognitiv sökning-frågor.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,33 +20,33 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77153884"
 ---
-# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>OData-språköversikt `$orderby`för `$select` `$filter`, och i Azure Cognitive Search
+# <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>OData-språk översikt `$filter`för `$orderby`, och `$select` i Azure kognitiv sökning
 
-Azure Cognitive Search stöder en delmängd av OData-uttryckssyntaxen för **$filter,** **$orderby**och **$select** uttryck. Filteruttryck utvärderas under frågetolka, begränsa sökning till specifika fält eller lägga till matchningsvillkor som används vid indexsökningar. Order-by-uttryck används som ett efterbearbetningssteg över en resultatuppsättning för att sortera de dokument som returneras. Välj uttryck avgör vilka dokumentfält som ska ingå i resultatuppsättningen. Syntaxen för dessa uttryck skiljer sig från den [enkla](query-simple-syntax.md) eller [fullständiga](query-lucene-syntax.md) frågesyntax som används i sökparametern, även om det finns en viss överlappning i syntaxen för referensfält. **search**
+Azure Kognitiv sökning stöder en delmängd av OData-uttryckets syntax för **$filter**, **$OrderBy**och **$Select** uttryck. Filter uttryck utvärderas under analys av frågor, vilket begränsar sökningen till vissa fält eller lägger till matchnings villkor som används vid index genomsökningar. Order by-uttryck används som ett steg efter bearbetning över en resultat uppsättning för att sortera de dokument som returneras. Välj uttryck avgör vilka dokument fält som ska ingå i resultat uppsättningen. Syntaxen för dessa uttryck skiljer sig från den [enkla](query-simple-syntax.md) eller [fullständiga](query-lucene-syntax.md) frågesyntaxen som används i **Sök** parametern, men det finns vissa överlappande i syntaxen för att referera till fält.
 
-Den här artikeln innehåller en översikt över OData-uttrycksspråket som används i filter, ordna efter och välja uttryck. Språket presenteras "nedifrån och upp", med början i de mest grundläggande elementen och bygger på dem. Syntaxen på den översta nivån för varje parameter beskrivs i en separat artikel:
+Den här artikeln innehåller en översikt över det OData Expression-språk som används i filter, order by och SELECT-uttryck. Språket visas som "bottom-up", som börjar med de mest grundläggande elementen och bygger på dem. Syntaxen på den översta nivån för varje parameter beskrivs i en separat artikel:
 
 - [$filter syntax](search-query-odata-filter.md)
 - [$orderby syntax](search-query-odata-orderby.md)
 - [$select syntax](search-query-odata-select.md)
 
-OData-uttryck sträcker sig från enkla till mycket komplexa, men de har alla gemensamma element. De mest grundläggande delarna av ett OData-uttryck i Azure Cognitive Search är:
+OData-uttryck sträcker sig från enkla till mycket komplexa, men alla delar gemensamma element. De mest grundläggande delarna av ett OData-uttryck i Azure Kognitiv sökning:
 
-- **Fältsökvägar**som refererar till specifika fält i indexet.
-- **Konstanter**, som är litterala värden av en viss datatyp.
+- **Fält Sök vägar**, som refererar till vissa fält i ditt index.
+- **Konstanter**, som är litterala värden för en viss datatyp.
 
 > [!NOTE]
-> Terminologin i Azure Cognitive Search skiljer sig från [OData-standarden](https://www.odata.org/documentation/) på några olika sätt. Det vi kallar ett **fält** i Azure Cognitive Search kallas **egenskap** i OData och på samma sätt för **fältsökväg** kontra **egenskapssökväg**. Ett **index** som innehåller **dokument** i Azure Cognitive Search refereras mer allmänt i OData som en **entitetsuppsättning** som innehåller **entiteter**. Azure Cognitive Search-terminologin används i den här referensen.
+> Terminologi i Azure Kognitiv sökning skiljer sig från [OData-standarden](https://www.odata.org/documentation/) på några få sätt. Det som vi kallar ett **fält** i Azure kognitiv sökning kallas för en **egenskap** i OData och på samma sätt för **fält Sök väg** respektive **egenskaps Sök väg**. Ett **index** som innehåller **dokument** i Azure kognitiv sökning kallas oftare i OData som en **enhets uppsättning** som innehåller **entiteter**. Azure Kognitiv sökning-terminologin används i hela den här referensen.
 
-## <a name="field-paths"></a>Fältbanor
+## <a name="field-paths"></a>Fält Sök vägar
 
-Följande EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för fältbanor.
+Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för fält Sök vägar.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -56,62 +56,62 @@ field_path ::= identifier('/'identifier)*
 identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 ```
 
-Det finns också ett interaktivt syntaxdiagram:
+Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagram för Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
+> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
 
 > [!NOTE]
-> Se [OData-uttryckssyntaxreferens för Azure Cognitive Search](search-query-odata-syntax-reference.md) för hela EBNF.
+> Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-En fältsökväg består av en eller flera **identifierare** avgränsade med snedstreck. Varje identifierare är en sekvens av tecken som måste börja med en ASCII-bokstav eller understreck och som bara innehåller ASCII-bokstäver, siffror eller understreck. Bokstäverna kan vara versaler eller gemener.
+En fält Sök väg består av en eller flera **identifierare** avgränsade med snedstreck. Varje identifierare är en sekvens med tecken som måste inledas med en ASCII-bokstav eller ett under streck och får bara innehålla ASCII-bokstäver, siffror eller under streck. Bokstäverna kan vara versaler eller gemener.
 
-En identifierare kan referera antingen till namnet på ett fält eller till en`any` `all` **områdesvariabel** i kontexten för ett [samlingsuttryck](search-query-odata-collection-operators.md) ( eller ) i ett filter. En intervallvariabel är som en loopvariabel som representerar det aktuella elementet i samlingen. För komplexa samlingar representerar variabeln ett objekt, vilket är anledningen till att du kan använda fältsökvägar för att referera till underfält i variabeln. Detta är analogt med punkt notation i många programmeringsspråk.
+En identifierare kan referera antingen till namnet på ett fält eller till en **intervall variabel** i kontexten för ett [samlings uttryck](search-query-odata-collection-operators.md) (`any` eller `all`) i ett filter. En Range-variabel är som en loop-variabel som representerar det aktuella elementet i mängden. För komplexa samlingar representerar variabeln ett objekt, vilket är anledningen till att du kan använda fält Sök vägar för att referera till underordnade fält i variabeln. Detta motsvarar punkt notation i många programmeringsspråk.
 
-Exempel på fältsökvägar visas i följande tabell:
+Exempel på fält Sök vägar visas i följande tabell:
 
-| Fältbana | Beskrivning |
+| Fält Sök väg | Beskrivning |
 | --- | --- |
-| `HotelName` | Refererar till ett fält på den högsta nivån i indexet |
-| `Address/City` | Refererar till `City` delfältet i ett komplext fält i indexet. `Address` är av `Edm.ComplexType` typen i det här exemplet |
-| `Rooms/Type` | Refererar till `Type` delfältet i ett komplext samlingsfält i indexet. `Rooms` är av `Collection(Edm.ComplexType)` typen i det här exemplet |
-| `Stores/Address/Country` | Refererar till `Country` delfältet i `Address` delfältet i ett komplext samlingsfält i indexet. `Stores` är av `Collection(Edm.ComplexType)` `Address` typen och `Edm.ComplexType` är av typen i det här exemplet |
-| `room/Type` | Refererar till `Type` delfältet i `room` intervallvariabeln, till exempel i filteruttrycket`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Refererar till `Country` delfältet i `Address` delfältet i `store` intervallvariabeln, till exempel i filteruttrycket`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `HotelName` | Refererar till ett fält på översta nivån i indexet |
+| `Address/City` | Refererar till `City` under fältet för ett komplext fält i indexet. `Address` är av typen `Edm.ComplexType` i det här exemplet |
+| `Rooms/Type` | Refererar till `Type` under fältet för ett komplext samlings fält i indexet. `Rooms` är av typen `Collection(Edm.ComplexType)` i det här exemplet |
+| `Stores/Address/Country` | Refererar till `Country` under fältet för `Address` under fältet för ett komplext samlings fält i indexet. `Stores` är av typen `Collection(Edm.ComplexType)` och `Address` är av typen `Edm.ComplexType` i det här exemplet |
+| `room/Type` | Refererar till `Type` under fältet för variabeln `room` Range, till exempel i filter uttrycket`Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Refererar till `Country` under fältet i `Address` under fältet för variabeln `store` Range, till exempel i filter uttrycket`Stores/any(store: store/Address/Country eq 'Canada')` |
 
-Innebörden av en fältbana skiljer sig åt beroende på sammanhanget. I filter refererar en fältsökväg till värdet för en *enskild förekomst* av ett fält i det aktuella dokumentet. I andra sammanhang, till exempel **$orderby**, **$select**eller i [fältsökning i den fullständiga Lucene-syntaxen,](query-lucene-syntax.md#bkmk_fields)refererar en fältsökväg till själva fältet. Den här skillnaden får vissa konsekvenser för hur du använder fältsökvägar i filter.
+Betydelsen av en fält Sök väg varierar beroende på kontexten. I filter refererar en fält Sök väg till värdet för en *enda instans* av ett fält i det aktuella dokumentet. I andra sammanhang, t. ex. **$OrderBy**, **$Select**eller i [fältet sökning i den fullständiga Lucene-syntaxen](query-lucene-syntax.md#bkmk_fields), refererar en fält Sök väg till själva fältet. Denna skillnad har vissa följder för hur du använder fält Sök vägar i filter.
 
-Tänk på `Address/City`fältsökvägen . I ett filter refererar detta till en enda stad för det aktuella dokumentet, till exempel "San Francisco". Däremot `Rooms/Type` hänvisar till `Type` delfältet för många rum (som "standard" för det första rummet, "deluxe" för det andra rummet, och så vidare). Eftersom `Rooms/Type` det inte refererar till en enda `Type` *instans* av underfältet kan den inte användas direkt i ett filter. Om du i stället vill filtrera efter rumstyp använder du ett [lambda-uttryck](search-query-odata-collection-operators.md) med en intervallvariabel, så här:
+Överväg fält Sök vägen `Address/City`. I ett filter refererar detta till en enda stad för det aktuella dokumentet, t. ex. "San Francisco". Till skillnad från `Rooms/Type` `Type` , refererar till under fältet för många rum (som "standard" för det första rummet, "Deluxe" för det andra rummet osv.). Eftersom `Rooms/Type` inte refererar till en *enskild instans* av det underordnade fältet `Type`, kan den inte användas direkt i ett filter. Om du i stället vill filtrera efter rums typ använder du ett [lambda-uttryck](search-query-odata-collection-operators.md) med en intervall variabel, så här:
 
     Rooms/any(room: room/Type eq 'deluxe')
 
-I det här exemplet `room` visas `room/Type` områdesvariabeln i fältsökvägen. På så `room/Type` sätt refererar du till typen av det aktuella rummet i det aktuella dokumentet. Detta är en enda `Type` instans av delfältet, så det kan användas direkt i filtret.
+I det här exemplet visas variabeln `room` Range i `room/Type` fält Sök vägen. På så sätt `room/Type` refererar du till typen av aktuellt rum i det aktuella dokumentet. Det här är en enskild instans av `Type` under fältet, så den kan användas direkt i filtret.
 
-### <a name="using-field-paths"></a>Använda fältbanor
+### <a name="using-field-paths"></a>Använda fält Sök vägar
 
-Fältsökvägar används i många parametrar för [AZURE Cognitive Search REST API:er](https://docs.microsoft.com/rest/api/searchservice/). I följande tabell visas alla platser där de kan användas, plus eventuella begränsningar för deras användning:
+Fält Sök vägar används i många parametrar för [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice/). I följande tabell visas alla platser där de kan användas, samt eventuella begränsningar för användningen:
 
 | API | Parameternamn | Begränsningar |
 | --- | --- | --- |
-| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `suggesters/sourceFields` | Inget |
-| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/text/weights` | Kan bara referera till **sökbara** fält |
-| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/functions/fieldName` | Kan bara referera till **filterbara** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`när `queryType` är`full` | Kan bara referera till **sökbara** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Kan bara referera till **facetable** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Kan bara referera till **sökbara** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Kan bara referera till **sökbara** fält |
-| [Föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Det går bara att referera till fält som ingår i en [förslagsman](index-add-suggesters.md) |
-| [Sök,](https://docs.microsoft.com/rest/api/searchservice/search-documents) [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions)och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Kan bara referera till **filterbara** fält |
-| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) och [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Kan bara referera till **sorterbara** fält |
-| [Sök,](https://docs.microsoft.com/rest/api/searchservice/search-documents) [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions)och [uppslag](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Kan bara referera till **hämtningsbara** fält |
+| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `suggesters/sourceFields` | Inga |
+| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/text/weights` | Kan endast referera till **sökbara** fält |
+| [Skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [Uppdatera](https://docs.microsoft.com/rest/api/searchservice/update-index) index | `scoringProfiles/functions/fieldName` | Kan endast referera till **filter** bara fält |
+| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`När `queryType` är`full` | Kan endast referera till **sökbara** fält |
+| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Kan endast referera till **fasettiska** fält |
+| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Kan endast referera till **sökbara** fält |
+| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Kan endast referera till **sökbara** fält |
+| [Föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Kan endast referera till fält som ingår i en [förslags ställare](index-add-suggesters.md) |
+| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents), [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions)och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Kan endast referera till **filter** bara fält |
+| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents) och [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Kan endast referera till **sorterbara** fält |
+| [Sök](https://docs.microsoft.com/rest/api/searchservice/search-documents), [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions)och [uppslag](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Kan endast referera till **hämtnings** bara fält |
 
 ## <a name="constants"></a>Konstanter
 
-Konstanter i OData är litterala värden för en viss EDM-typ [(Entity Data Model).](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) Se [Datatyper som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) för en lista över typer som stöds i Azure Cognitive Search. Konstanter av samlingstyper stöds inte.
+Konstanter i OData är litterala värden för en specifik EDM-typ ( [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) ). Se [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) för en lista över typer som stöds i Azure kognitiv sökning. Konstanter för samlings typer stöds inte.
 
-I följande tabell visas exempel på konstanter för var och en av de datatyper som stöds av Azure Cognitive Search:
+I följande tabell visas exempel på konstanter för var och en av de data typer som stöds av Azure Kognitiv sökning:
 
-| Datatyp | Exempel konstanter |
+| Datatyp | Exempel på konstanter |
 | --- | --- |
 | `Edm.Boolean` | `true`, `false` |
 | `Edm.DateTimeOffset` | `2019-05-06T12:30:05.451Z` |
@@ -122,18 +122,18 @@ I följande tabell visas exempel på konstanter för var och en av de datatyper 
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
 
-### <a name="escaping-special-characters-in-string-constants"></a>Fly specialtecken i strängkonstanter
+### <a name="escaping-special-characters-in-string-constants"></a>Hoppar över specialtecken i strängkonstant
 
-Strängkonstanter i OData avgränsas med enstaka citattecken. Om du behöver skapa en fråga med en strängkonstant som i sig kan innehålla enstaka citattecken kan du undkomma de inbäddade citaten genom att fördubbla dem.
+Sträng konstanter i OData är avgränsade med enkla citat tecken. Om du behöver skapa en fråga med en strängkonstant som kanske bara innehåller enkla citat tecken kan du undanta de inbäddade citat tecknen genom att dubblera dem.
 
-Till exempel skulle en fras med en oformaterad apostrof som "Alice bil" representeras `'Alice''s car'`i OData som strängkonstant .
+Till exempel skulle en fras med en oformaterad apostrof som "Alices bil" visas i OData som strängkonstant `'Alice''s car'`.
 
 > [!IMPORTANT]
-> När du konstruerar filter programmässigt är det viktigt att komma ihåg att komma ihåg att fly strängkonstanter som kommer från användarindata. Detta för att minska risken för [injektionsattacker](https://wikipedia.org/wiki/SQL_injection), särskilt när du använder filter för att implementera [säkerhetstrimning](search-security-trimming-for-azure-search.md).
+> När du skapar filter program mässigt är det viktigt att komma ihåg att undvika sträng konstanter som kommer från användarindata. Detta är att minska risken för [injektions attacker](https://wikipedia.org/wiki/SQL_injection), särskilt när du använder filter för att implementera [säkerhets trimning](search-security-trimming-for-azure-search.md).
 
-### <a name="constants-syntax"></a>Syntaxen för konstanter
+### <a name="constants-syntax"></a>Konstant syntax
 
-Följande EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för de flesta konstanter som visas i tabellen ovan. Grammatiken för geospatisiska typer finns i [OData geo-spatial funktioner i Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
+Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för de flesta konstanter som visas i tabellen ovan. Grammatiken för geo-spatial-typer finns i [OData geo-spatial-funktioner i Azure kognitiv sökning](search-query-odata-geo-spatial-functions.md).
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -195,21 +195,21 @@ exponent ::= 'e' sign? integer_literal
 boolean_literal ::= 'true' | 'false'
 ```
 
-Det finns också ett interaktivt syntaxdiagram:
+Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagram för Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
+> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/#constant)
 
 > [!NOTE]
-> Se [OData-uttryckssyntaxreferens för Azure Cognitive Search](search-query-odata-syntax-reference.md) för hela EBNF.
+> Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-## <a name="building-expressions-from-field-paths-and-constants"></a>Skapa uttryck från fältbanor och konstanter
+## <a name="building-expressions-from-field-paths-and-constants"></a>Skapa uttryck från fält Sök vägar och konstanter
 
-Fältsökvägar och konstanter är den mest grundläggande delen av ett OData-uttryck, men de är redan själva fullständiga uttryck. Faktum är att **$select** parametern i Azure Cognitive Search är inget annat än en kommaavgränsad lista över fältsökvägar, och **$orderby** är inte mycket mer komplicerat än **$select**. Om du råkar ha ett `Edm.Boolean` fält av typen i indexet kan du till och med skriva ett filter som bara är sökvägen till det fältet. Konstanterna `true` och `false` är jämväl giltiga filtrerar.
+Fält Sök vägar och konstanter är den mest grundläggande delen av ett OData-uttryck, men de är redan fullständiga uttryck. I själva verket är **$Select** -parametern i Azure kognitiv sökning inget, men en kommaavgränsad lista över fält Sök vägar, och **$OrderBy** är inte mycket mer komplicerad än **$Select**. Om du har ett fält av typen `Edm.Boolean` i ditt index kan du till och med skriva ett filter som inte är något, utan fältets sökväg. Konstanterna `true` och `false` är också giltiga filter.
 
-Men för det mesta behöver du mer komplexa uttryck som refererar till mer än ett fält och konstant. Dessa uttryck är inbyggda på olika sätt beroende på parametern.
+I de flesta fall behöver du dock mer komplexa uttryck som refererar till mer än ett fält och konstant. Dessa uttryck är inbyggda på olika sätt beroende på parametern.
 
-Följande EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för **parametrarna $filter,** **$orderby**och **$select.** Dessa är uppbyggda från enklare uttryck som refererar till fältbanor och konstanter:
+Följande EBNF ([Extended backable-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken för parametrarna **$filter**, **$OrderBy**och **$Select** . Dessa är skapade med enklare uttryck som refererar till fält Sök vägar och konstanter:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -221,26 +221,26 @@ order_by_expression ::= order_by_clause(',' order_by_clause)*
 select_expression ::= '*' | field_path(',' field_path)*
 ```
 
-Det finns också ett interaktivt syntaxdiagram:
+Ett interaktivt syntax diagram är också tillgängligt:
 
 > [!div class="nextstepaction"]
-> [OData-syntaxdiagram för Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
+> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
 > [!NOTE]
-> Se [OData-uttryckssyntaxreferens för Azure Cognitive Search](search-query-odata-syntax-reference.md) för hela EBNF.
+> Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
 
-Parametrarna **$orderby** och **$select** är båda kommaavgränsade listor med enklare uttryck. Parametern **$filter** är ett booleskt uttryck som består av enklare underuttryck. Dessa underuttryck kombineras med logiska operatorer som [ `and`, `or`och `not` ](search-query-odata-logical-operators.md), jämförelseoperatorer som [ `eq`, `lt`, `gt`och så vidare](search-query-odata-comparison-operators.md)och samlingsoperatorer som [ `any` och `all` ](search-query-odata-collection-operators.md).
+Parametrarna **$OrderBy** och **$Select** är båda kommaavgränsade listor med enklare uttryck. Parametern **$filter** är ett booleskt uttryck som består av enklare del uttryck. Dessa under uttryck kombineras med logiska operatorer som [ `and` `or`,, `not`och ](search-query-odata-logical-operators.md), jämförelse operatorer som [ `eq`, `lt` `gt`, och så](search-query-odata-comparison-operators.md)vidare, och samlings operatorer som [ `any` och `all` ](search-query-odata-collection-operators.md).
 
-Parametrarna **$filter**, **$orderby**och **$select** utforskas mer i detalj i följande artiklar:
+Parametrarna **$filter**, **$OrderBy**och **$Select** visas mer ingående i följande artiklar:
 
-- [OData $filter syntax i Azure Cognitive Search](search-query-odata-filter.md)
-- [OData $orderby syntax i Azure Cognitive Search](search-query-odata-orderby.md)
-- [OData $select syntax i Azure Cognitive Search](search-query-odata-select.md)
+- [OData $filter-syntax i Azure Kognitiv sökning](search-query-odata-filter.md)
+- [OData $orderby-syntax i Azure Kognitiv sökning](search-query-odata-orderby.md)
+- [OData $select-syntax i Azure Kognitiv sökning](search-query-odata-select.md)
 
 ## <a name="see-also"></a>Se även  
 
-- [Fasterad navigering i Azure Cognitive Search](search-faceted-navigation.md)
-- [Filter i Azure Cognitive Search](search-filters.md)
-- [Sökdokument &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Fasettisk navigering i Azure Kognitiv sökning](search-faceted-navigation.md)
+- [Filter i Azure Kognitiv sökning](search-filters.md)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Lucene-frågesyntax](query-lucene-syntax.md)
-- [Enkel frågesyntax i Azure Cognitive Search](query-simple-syntax.md)
+- [Enkel frågesyntax i Azure Kognitiv sökning](query-simple-syntax.md)

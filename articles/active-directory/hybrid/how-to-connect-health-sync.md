@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897202"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
@@ -70,7 +70,7 @@ Denna funktion tillhandahåller en rapport om synkroniseringsfel som kan uppstå
 * Rapporten avser fel registrerade av synkroniseringsklienten (Azure AD Connect version 1.1.281.0 eller senare)
 * Den innehåller de fel som uppstod under den senaste synkroniseringen på synkroniseringsmotorn. (”Export” i Azure AD Connector.)
 * Azure AD Connect Health-agenten för synkronisering måste ha en utgående anslutning till de nödvändiga slutpunkterna för rapporten för att inkludera den senaste informationen.
-* Rapporten **uppdateras efter var 30:e minut** med hjälp av data som överförs av Azure AD Connect Health-agenten för synkronisering. Det ger följande viktiga funktioner
+* Rapporten **uppdateras efter var 30: e minut** med hjälp av data som laddats upp av Azure AD Connect Health Agent för synkronisering. Det ger följande viktiga funktioner
 
   * Kategorisering av fel
   * Lista över objekt med fel per kategori
@@ -114,12 +114,12 @@ Du kan hämta en CSV-fil med all information om felen genom att klicka på Expor
 Synkroniseringsfel med duplicerade attribut som omfattar källfästpunktsuppdatering för användare kan åtgärdas direkt från portalen. Läs mer om att [diagnostisera och åtgärda synkroniseringsfel med duplicerade attribut](how-to-connect-health-diagnose-sync-errors.md)
 
 ## <a name="related-links"></a>Relaterade länkar
-* [Felsöka fel under synkroniseringen](tshoot-connect-sync-errors.md)
+* [Fel sökning av fel under synkronisering](tshoot-connect-sync-errors.md)
 * [Återhämtning av duplicerat attribut](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installation av Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)
-* [Hälsoåtgärder för Azure AD Connect](how-to-connect-health-operations.md)
+* [Azure AD Connect Health-åtgärder](how-to-connect-health-operations.md)
 * [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md)
 * [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](reference-connect-health-faq.md)
-* [Azure AD Connect-historik för hälsoversion](reference-connect-health-version-history.md)
+* [Azure AD Connect Health versions historik](reference-connect-health-version-history.md)

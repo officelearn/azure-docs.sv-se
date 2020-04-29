@@ -1,6 +1,6 @@
 ---
-title: Subclip en video vid kodning med Azure Media Services REST
-description: I det här avsnittet beskrivs hur du underklipp en video när du kodar med Azure Media Services med REST
+title: Under klipp en video vid kodning med Azure Media Services REST
+description: I det här avsnittet beskrivs hur du klipper en video när du kodar med Azure Media Services med hjälp av REST
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,40 +14,40 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
 ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514331"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclip en video vid kodning med Media Services - REST
+# <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Under klipp en video vid kodning med Media Services REST
 
-Du kan trimma eller klippa en video när du kodar den med hjälp av ett [jobb](https://docs.microsoft.com/rest/api/media/jobs). Den här funktionen fungerar med alla [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) som skapas med hjälp av antingen [förinställningarna BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) eller [förinställningarna StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 
+Du kan trimma eller under klipp en video när du kodar den med ett [jobb](https://docs.microsoft.com/rest/api/media/jobs). Den här funktionen fungerar med alla [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) som har skapats med antingen [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) för inställningar eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) för inställningar. 
 
-I avsnittet REST i det här avsnittet skapas ett jobb som trimmar en video när den skickar ett kodningsjobb. 
+RESTEN av exemplet i det här avsnittet skapar ett jobb som rensar en video när den skickar ett kodnings jobb. 
 
 ## <a name="prerequisites"></a>Krav
 
-För att kunna utföra stegen som beskrivs i det här avsnittet måste du:
+För att slutföra stegen som beskrivs i det här avsnittet måste du:
 
 - [Skapa ett Azure Media Services-konto](create-account-cli-how-to.md).
-- [Konfigurera Postman för REST API-anrop för Azure Media Services](media-rest-apis-with-postman.md).
+- [Konfigurera PostMan för Azure Media Services REST API-anrop](media-rest-apis-with-postman.md).
     
-    Se till att följa det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 
-- Skapa en transformering och en utdatatillgångar. Du kan se hur du skapar en transformering och en utdatatillgångar i [koda en fjärrfil baserat på URL och strömma videon -](stream-files-tutorial-with-rest.md) REST-självstudien.
-- Gå igenom [begreppsämnet Kodning.](encoding-concept.md)
+    Kontrol lera att du följer det sista steget i avsnittet [Hämta Azure AD-token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+- Skapa en transformering och en utmatnings till gångar. Du kan se hur du skapar en transformering och en utmatnings till gångar i [koda en fjärrfil baserat på URL och strömma video rest-](stream-files-tutorial-with-rest.md) kursen.
+- Läs avsnittet [encoding Concept](encoding-concept.md) .
 
-## <a name="create-a-subclipping-job"></a>Skapa ett underklippsjobb
+## <a name="create-a-subclipping-job"></a>Skapa ett under urklipps jobb
 
-1. I postmansamlingen som du hämtade väljer du **Omvandlar och jobb** -> **Skapa jobb med underurklipp**.
+1. I Postman-samlingen som du laddade ned väljer du **transformeringar och jobb** -> **skapa jobb med under Urklipp**.
     
-    **PUT-begäran** ser ut så här:
+    **Placerings** förfrågan ser ut så här:
     
     ```
     https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
     ```
-1. Uppdatera värdet för miljövariabeln "transformName" med ditt transformeringsnamn. 
-1. Välj fliken **Brödtext** och uppdatera "myOutputAsset" med ditt utdatatillgångsnamn.
+1. Uppdatera värdet för miljövariabeln "transformName" med Transformations namnet. 
+1. Välj fliken **brödtext** och uppdatera "myOutputAsset" med namnet på din utmatnings till gång.
 
     ```
     {
@@ -82,8 +82,8 @@ För att kunna utföra stegen som beskrivs i det här avsnittet måste du:
     ```
 1. Tryck på **Skicka**.
 
-    Du ser **svar med** information om jobbet som skapades och skickades och jobbets status. 
+    Du kan se **svaret** med information om jobbet som skapades och skickades och jobbets status. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Så här kodar du med en anpassad transformering](custom-preset-rest-howto.md) 
+[Koda med en anpassad transformering](custom-preset-rest-howto.md) 

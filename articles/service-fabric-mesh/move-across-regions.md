@@ -1,58 +1,58 @@
 ---
-title: Flytta ett Service Fabric Mesh-program till en annan region
-description: Du kan flytta Service Fabric Mesh-resurser genom att distribuera en kopia av din aktuella mall till en ny Azure-region.
+title: Flytta ett Service Fabric nät-program till en annan region
+description: Du kan flytta Service Fabric nät resurser genom att distribuera en kopia av din aktuella mall till en ny Azure-region.
 author: erikadoyle
 ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 376808a6d8f61d4dc03d17061323a473d48053a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76908168"
 ---
-# <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Flytta ett Service Fabric Mesh-program till en annan Azure-region
+# <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Flytta ett Service Fabric nät program till en annan Azure-region
 
-I den här artikeln beskrivs hur du flyttar ditt Service Fabric Mesh-program och dess resurser till en annan Azure-region. Du kan flytta dina resurser till en annan region av flera skäl. Till exempel, som svar på avbrott, för att få funktioner eller tjänster som är tillgängliga i specifika regioner, för att uppfylla interna princip- och styrningskrav eller som svar på kapacitetsplaneringskrav.
+Den här artikeln beskriver hur du flyttar ditt Service Fabric-nätprogram och dess resurser till en annan Azure-region. Du kan flytta dina resurser till en annan region av olika anledningar. Till exempel, som svar på drifts störningar, för att få funktioner eller tjänster som endast är tillgängliga i vissa regioner, för att uppfylla interna principer och styrnings krav, eller som svar på kapacitets planerings kraven.
 
- [Service Fabric Mesh stöder inte](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) möjligheten att direkt flytta resurser över Azure-regioner. Du kan dock flytta resurser indirekt genom att distribuera en kopia av din aktuella Azure Resource Manager-mall till den nya målregionen och sedan omdirigera inkommande trafik och beroenden till det nyligen skapade Service Fabric Mesh-programmet.
+ [Service Fabric nät har inte stöd](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) för möjligheten att direkt flytta resurser mellan Azure-regioner. Du kan dock flytta resurser indirekt genom att distribuera en kopia av din aktuella Azure Resource Manager-mall till den nya mål regionen och sedan omdirigera inkommande trafik och beroenden till det nyskapade Service Fabric-Nätprogrammet.
 
 ## <a name="prerequisites"></a>Krav
 
-* Ingress controller (till exempel [Application Gateway)](https://docs.microsoft.com/azure/application-gateway/)för att fungera som en mellanhand för routning trafik mellan klienter och ditt Service Fabric Mesh-program
-* Tillgänglighet för Service Fabric Mesh (förhandsversion)`westus` `eastus`i `westeurope`målområdet Azure ( , , eller )
+* Ingångs kontroll (till exempel [Application Gateway](https://docs.microsoft.com/azure/application-gateway/)) som fungerar som en mellanhand för att dirigera trafik mellan klienter och ditt Service Fabric-nätprogram
+* Service Fabric nät (för hands version) tillgänglighet i Azure-regionen`westus`för `eastus`målet ( `westeurope`, eller)
 
 ## <a name="prepare"></a>Förbereda
 
-1. Ta en "ögonblicksbild" av det aktuella tillståndet för ditt Service Fabric Mesh-program genom att exportera Azure Resource Manager-mallen och parametrarna från den senaste distributionen. Det gör du genom att följa stegen i [mallen Exportera efter distribution](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) med Azure-portalen. Du kan också använda [Azure CLI,](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates) [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)eller [REST API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate).
+1. Ta en ögonblicks bild av det aktuella läget för ditt Service Fabric nätprogram genom att exportera Azure Resource Manager-mallen och parametrarna från den senaste distributionen. Det gör du genom att följa stegen i [Exportera mall efter distributionen](../azure-resource-manager/templates/export-template-portal.md#export-template-after-deployment) med hjälp av Azure Portal. Du kan också använda [Azure CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)eller [REST API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate).
 
-2. Om tillämpligt [exporterar du andra resurser i samma resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal#export-template-from-a-resource-group) för omfördelning i målregionen.
+2. Vid behov kan du [Exportera andra resurser i samma resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal#export-template-from-a-resource-group) för omdistribution i mål regionen.
 
-3. Granska (och redigera om det behövs) den exporterade mallen för att säkerställa att de befintliga egenskapsvärdena är de som du vill använda i målområdet. Den `location` nya (Azure-regionen) är en parameter som du ska ange under omdistribution.
+3. Granska (och redigera vid behov) den exporterade mallen för att se till att de befintliga egenskapsvärdena är de som du vill använda i mål regionen. Den nya `location` (Azure-region) är en parameter som du kommer att ange under omdistributionen.
 
 ## <a name="move"></a>Flytta
 
-1. Skapa en ny resursgrupp (eller använd en befintlig) i målområdet.
+1. Skapa en ny resurs grupp (eller Använd en befintlig) i mål regionen.
 
-2. Med den exporterade mallen följer du stegen i [Distribuera resurser från anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) med hjälp av Azure-portalen. Du kan också använda [Azure CLI,](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli) [Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)eller [REST API](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-rest).
+2. Med den exporterade mallen följer du stegen i [distribuera resurser från anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template) med hjälp av Azure Portal. Du kan också använda [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)eller [REST API](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-rest).
 
-3. Mer information om hur du flyttar relaterade resurser, till exempel [Azure Storage-konton,](../storage/common/storage-account-move.md)finns i vägledning för enskilda tjänster som anges under avsnittet [Flytta Azure-resurser över regioner](../azure-resource-manager/management/move-region.md).
+3. Information om hur du flyttar relaterade resurser som [Azure Storage konton](../storage/common/storage-account-move.md)finns i rikt linjer för enskilda tjänster som listas under avsnittet [Flytta Azure-resurser mellan regioner](../azure-resource-manager/management/move-region.md).
 
 ## <a name="verify"></a>Verifiera
 
-1. När distributionen är klar testar du programslutpunkterna för att verifiera programmets funktioner.
+1. När distributionen är klar testar du programmets slut punkter för att verifiera programmets funktioner.
 
-2. Du kan också verifiera status för ditt program genom att kontrollera programstatus[(az mesh app show)](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)och granska programloggar och[(az mesh code-package-log)](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)kommandon med hjälp av [Azure Service Fabric Mesh CLI](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container#set-up-service-fabric-mesh-cli).
+2. Du kan också kontrol lera status för programmet genom att kontrol lera program status ([AZ nät app show](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show)) och granska program loggarna och ([AZ-paket-log](https://docs.microsoft.com/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) kommandon med hjälp av [Azure Service Fabric nät masken](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container#set-up-service-fabric-mesh-cli).
 
 ## <a name="commit"></a>Checka in
 
-När du har bekräftat motsvarande funktioner i ditt Service Fabric Mesh-program i målregionen konfigurerar du ingress-styrenheten (till exempel [Application Gateway)](../application-gateway/redirect-overview.md)för att omdirigera trafik till det nya programmet.
+När du har bekräftat motsvarande funktioner i ditt Service Fabric nätprogram i mål regionen konfigurerar du ingångs styrenheten (till exempel [Application Gateway](../application-gateway/redirect-overview.md)) för att dirigera om trafik till det nya programmet.
 
-## <a name="clean-up-source-resources"></a>Rensa källresurser
+## <a name="clean-up-source-resources"></a>Rensa käll resurser
 
-Om du vill slutföra flytten av Programmet Service Fabric Mesh [tar du bort källprogrammet och/eller den överordnade resursgruppen](../azure-resource-manager/management/delete-resource-group.md).
+[Ta bort käll programmet och/eller den överordnade resurs gruppen](../azure-resource-manager/management/delete-resource-group.md)om du vill slutföra flytten av Service Fabric nätappen.
 
 ## <a name="next-steps"></a>Nästa steg
 

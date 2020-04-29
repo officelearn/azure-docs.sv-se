@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure-brandväggsloggar och mått
+title: Översikt över Azure Firewall-loggar och-mått
 description: Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser.
 services: firewall
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/22/2020
 ms.author: victorh
 ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76315039"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och mått
@@ -20,7 +20,7 @@ Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också
 
 Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar till [Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md), Storage och Event Hubs samt analysera dem i Azure Monitor-loggar eller med andra verktyg såsom Excel och Power BI.
 
-Mått är lätta och kan stödja scenarier i nära realtid vilket gör dem användbara för aviseringar och snabb problemidentifiering.
+Måtten är lätta att använda och kan ge stöd för scenarier i nästan real tid, vilket gör dem användbara för varningar och snabb problem identifiering.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
@@ -28,7 +28,7 @@ Mått är lätta och kan stödja scenarier i nära realtid vilket gör dem anvä
 
 * **Programregelloggen**
 
-   Programregelloggen sparas i ett lagringskonto, strömmas till händelsehubbar och/eller skickas till Azure Monitor-loggar endast om du har aktiverat den för varje Azure-brandvägg. Varje ny anslutning som matchar en av de konfigurerade programreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
+   Program regel loggen sparas till ett lagrings konto, strömmas till händelse nav och/eller skickas till Azure Monitor loggar endast om du har aktiverat det för varje Azure-brandvägg. Varje ny anslutning som matchar en av de konfigurerade programreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
 
    ```
    Category: application rule logs.
@@ -51,7 +51,7 @@ Mått är lätta och kan stödja scenarier i nära realtid vilket gör dem anvä
 
 * **Nätverksregellogg**
 
-   Nätverksregelloggen sparas i ett lagringskonto, strömmas till händelsehubbar och/eller skickas till Azure Monitor-loggar endast om du har aktiverat det för varje Azure-brandvägg. Varje ny anslutning som matchar en av de konfigurerade nätverksreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
+   Nätverks regel loggen sparas till ett lagrings konto, strömmas till händelse nav och/eller skickas till Azure Monitor loggar endast om du har aktiverat det för varje Azure-brandvägg. Varje ny anslutning som matchar en av de konfigurerade nätverksreglerna genererar en loggpost för den accepterade eller nekade anslutningen. Data loggas i JSON-format, här är ett exempel:
 
    ```
    Category: network rule logs.
@@ -77,55 +77,55 @@ Du har tre alternativ för att lagra dina loggar:
 
 * **Storage-konto**: Storage-konton passar bäst när loggarna ska lagras en längre tid och granskas vid behov.
 * **Händelsehubbar**: Händelsehubbar är ett bra alternativ vid integrering med andra verktyg för säkerhetsinformation och händelsehantering (SEIM), när du vill få aviseringar om dina resurser.
-* **Azure Monitor loggar:** Azure Monitor loggar används bäst för allmän realtidsövervakning av ditt program eller titta på trender.
+* **Azure Monitor loggar**: Azure Monitor loggar används bäst för allmän övervakning i real tid av ditt program eller tittar på trender.
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
    Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
 
-   Du kan använda [Azure-aktivitetsloggar](../azure-resource-manager/management/view-activity-logs.md) (tidigare kallade driftloggar och granskningsloggar) för att visa alla åtgärder som skickas till din Azure-prenumeration.
+   Du kan använda [Azure aktivitets loggar](../azure-resource-manager/management/view-activity-logs.md) (tidigare kallade drift loggar och gransknings loggar) för att visa alla åtgärder som skickats till din Azure-prenumeration.
 
 ## <a name="metrics"></a>Mått
 
-Mått i Azure Monitor är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. Mått samlas in varje minut och är användbara för aviseringar eftersom de kan samplas ofta. En avisering kan avfyras snabbt med relativt enkel logik.
+Mått i Azure Monitor är numeriska värden som beskriver viss aspekt av ett system vid en viss tidpunkt. Mått samlas in varje minut och är användbara för aviseringar eftersom de kan samplas ofta. En avisering kan utlösas snabbt med relativt enkel logik.
 
-Följande mått är tillgängliga för Azure-brandväggen:
+Följande mått är tillgängliga för Azure-brand väggen:
 
-- **Antal programregler** – Antalet gånger en programregel har nåtts.
-
-    Enhet: antal
-
-- **Antal nätverksregler** – Antalet gånger en nätverksregel har nåtts.
+- **Antal träffar för program regler** – antalet gånger som en program regel har nåtts.
 
     Enhet: antal
 
-- **Data som bearbetas** - Mängden data som passerar brandväggen.
+- **Antal träffar för nätverks regler** – antalet gånger som en nätverks regel har nåtts.
+
+    Enhet: antal
+
+- **Bearbetade data** – mängden data som passerar brand väggen.
 
     Enhet: byte
 
-- **Brandväggshälsotillstånd** - Anger hälsotillståndet för brandväggen baserat på SNAT-porttillgänglighet.
+- **Hälso tillstånd för brand vägg** – anger hälso tillståndet för brand väggen baserat på SNAT-portens tillgänglighet.
 
     Enhet: procent
 
    Det här måttet har två dimensioner:
-  - Status: Möjliga värden är *felfria*, *försämrade*, *ohälsosamma*.
-  - Orsak: Anger orsaken till brandväggens motsvarande status. 
+  - Status: möjliga värden är *felfria*, *degraderade*, *felaktiga*.
+  - Orsak: anger orsaken till brand väggens aktuella status. 
 
-     Om SNAT-portar används > 95 %, anses de vara uttömda och hälsan är 50 % med status=**Försämrad** och orsak=**SNAT-port**. Brandväggen fortsätter att bearbeta trafik och befintliga anslutningar påverkas inte. Nya anslutningar kanske inte upprättas periodvis.
+     Om SNAT-portar används > 95% anses de vara uttömda och hälsan är 50% med status =**degraderad** och orsak =**SNAT-port**. Brand väggen fortsätter att bearbeta trafik och befintliga anslutningar påverkas inte. Nya anslutningar kanske däremot inte upprättas tillfälligt.
 
-     Om SNAT-portar används < 95 %, betraktas brandväggen som felfri och hälsotillstånd visas som 100 %.
+     Om SNAT-portar används < 95%, anses brand väggen vara felfri och hälsa visas som 100%.
 
-     Om ingen SNAT-portanvändning rapporteras visas hälsotillståndet som 0 %. 
+     Om ingen användning av SNAT-portar rapporteras visas hälsan som 0%. 
 
-- **SNAT-portanvändning** - Procentandelen SNAT-portar som har använts av brandväggen.
+- **SNAT-port användning** – procent andelen SNAT-portar som används av brand väggen.
 
     Enhet: procent
 
-   När du lägger till fler offentliga IP-adresser i brandväggen finns fler SNAT-portar tillgängliga, vilket minskar användningen av SNAT-portar. Dessutom, när brandväggen skalas ut av olika skäl (till exempel CPU eller dataflöde) ytterligare SNAT-portar blir också tillgängliga. Så effektivt, en viss procentandel av SNAT-portar utnyttjande kan gå ner utan att du lägger till några offentliga IP-adresser, bara för att tjänsten skalas ut. Du kan styra direkt antalet offentliga IP-adresser som är tillgängliga för att öka de portar som är tillgängliga i brandväggen. Men du kan inte direkt styra skalning av brandväggar. För närvarande läggs SNAT-portar bara till för de första fem offentliga IP-adresserna.   
+   När du lägger till fler offentliga IP-adresser i brand väggen är fler SNAT-portar tillgängliga, vilket minskar användningen av SNAT-portar. Dessutom, när brand väggen skalas ut av olika orsaker (till exempel CPU eller data flöde), blir ytterligare SNAT-portar också tillgängliga. I praktiken kan en viss procent andel av SNAT-portarna gå nedåt utan att du behöver lägga till några offentliga IP-adresser, bara för att tjänsten ska skalas ut. Du kan styra antalet offentliga IP-adresser som är tillgängliga för att öka portarna i brand väggen direkt. Men du kan inte styra skalning av brand väggen direkt. För närvarande läggs bara SNAT-portar till för de första fem offentliga IP-adresserna.   
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du övervakar Azure-brandväggsloggar och mått finns i [Självstudiekurs: Övervaka Azure-brandväggsloggar](tutorial-diagnostics.md).
+- Information om hur du övervakar Azure Firewall-loggar och-mått finns i [självstudie: övervaka Azure Firewall-loggar](tutorial-diagnostics.md).
 
-- Mer information om mått i Azure Monitor finns [i Mått i Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+- Mer information om mått i Azure Monitor finns i [mått i Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

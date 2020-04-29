@@ -10,43 +10,43 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187569"
 ---
-**Serverkrav för konfiguration/process för fysisk serverreplikering**
+**Krav på konfiguration/Processerver för fysisk server-replikering**
 
 **Komponent** | **Krav** 
 --- | ---
-**INSTÄLLNINGAR FÖR MASKINVARA** | 
+**MASKIN VARU INSTÄLLNINGAR** | 
 Processorkärnor | 8 
 RAM | 16 GB
-Antal diskar | 3, inklusive OS-disken, processservercachedisken och kvarhållningsenheten för återställning av fel 
-Ledigt diskutrymme (processservercache) | 600 GB
-Ledigt diskutrymme (kvarhållningsdisk) | 600 GB
+Antal diskar | 3, inklusive OS-disken, cache-disk för processerver och lagrings enhet för återställning efter fel 
+Ledigt disk utrymme (bearbetnings serverns cacheminne) | 600 GB
+Ledigt disk utrymme (kvarhållning av disk) | 600 GB
  | 
-**INSTÄLLNINGAR FÖR PROGRAMVARA** | 
+**PROGRAM VARU INSTÄLLNINGAR** | 
 Operativsystem | Windows Server 2012 R2 <br> Windows Server 2016
 Nationella inställningar för operativsystem | Engelska (en-us)
-Windows Server-roller | Aktivera inte dessa roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
-Grupprinciper | Aktivera inte dessa grupprinciper: <br> - Förhindra åtkomst till kommandotolken. <br> - Förhindra åtkomst till registerredigeringsverktyg. <br> - Förtroendelogik för bifogade filer. <br> - Aktivera skriptkörning. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - Ingen befintlig standardwebbplats <br> - Ingen befintlig webbplats / ansökan lyssna på port 443 <br>- Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Aktivera [FastCGI-inställning.](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
+Windows Server-roller | Aktivera inte följande roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
+Grup principer | Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> – Förtroende logik för bifogade filer. <br> – Aktivera skript körning. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | -Ingen befintlig standard webbplats <br> – Ingen befintlig webbplats/program lyssnar på port 443 <br>-Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> – Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställningen.
 IP-adresstyp | Statisk 
 | 
-**INSTÄLLNINGAR FÖR ÅTKOMST** | 
-Mysql | MySQL bör installeras på konfigurationsservern. Du kan installera manuellt eller site recovery kan installera det under distributionen. Kontrollera att enheten kan nå http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
- URL:er | Konfigurationsservern behöver åtkomst till dessa webbadresser (direkt eller via proxy):<br/><br/> Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`;`*.accesscontrol.windows.net`<br/><br/> Överföring av `*.backup.windowsazure.com`replikeringsdata: ;`*.backup.windowsazure.us`<br/><br/> Replikeringshantering: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`;`*.services.visualstudio.com`<br/><br/> Tillgång till `*.blob.core.windows.net`lagring: ;`*.blob.core.usgovcloudapi.net`<br/><br/> Tidssynkronisering: `time.nist.gov`;`time.windows.com`<br/><br/> Telemetri (valfritt):`dc.services.visualstudio.com`
-Brandvägg | IP-adressbaserade brandväggsregler bör tillåta kommunikation till Azure-url:er. För att förenkla och begränsa IP-intervallen rekommenderar vi att du använder URL-filtrering.<br/><br/>**För kommersiella IPs:**<br/><br/>- Tillåt [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653)och HTTPS-porten (443).<br/><br/> - Tillåt IP-adressintervall för västra USA (används för åtkomstkontroll och identitetshantering).<br/><br/> - Tillåt IP-adressintervall för Azure-regionen för din prenumeration, för att stödja de url:er som behövs för Azure Active Directory, säkerhetskopiering, replikering och lagring.<br/><br/> **För myndighets-IPs:**<br/><br/> - Tillåt Azure Government Datacenter IP Ranges och HTTPS-porten (443).<br/><br/> - Tillåt IP-adressintervall för alla amerikanska govregioner (Virginia, Texas, Arizona och Iowa) för att stödja de webbadresser som behövs för Azure Active Directory, säkerhetskopiering, replikering och lagring.
-Portar | Tillåt 443 (Kontrollkanalorkestrering)<br/><br/> Tillåt 9443 (Datatransport) 
+**ÅTKOMST INSTÄLLNINGAR** | 
+MYSQL | MySQL bör installeras på konfigurations servern. Du kan installera manuellt, eller så kan Site Recovery installera det under distributionen. Om du vill Site Recovery installera, kontrollerar du att datorn kan http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msikomma åt.
+Webbadresser | Konfigurations servern behöver åtkomst till dessa URL: er (direkt eller via proxy):<br/><br/> Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`;`*.accesscontrol.windows.net`<br/><br/> Överföring av replikeringsdata: `*.backup.windowsazure.com`;`*.backup.windowsazure.us`<br/><br/> Hantering av replikering `*.hypervrecoverymanager.windowsazure.com`:; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`;`*.services.visualstudio.com`<br/><br/> Lagrings åtkomst `*.blob.core.windows.net`:;`*.blob.core.usgovcloudapi.net`<br/><br/> Tidssynkronisering: `time.nist.gov`;`time.windows.com`<br/><br/> Telemetri (valfritt):`dc.services.visualstudio.com`
+Brandvägg | IP-adressbaserade brand Väggs regler ska tillåta kommunikation till Azure-URL: er. Vi rekommenderar att du använder URL-filtrering för att förenkla och begränsa IP-intervall.<br/><br/>**För kommersiella IP-adresser:**<br/><br/>-Tillåt [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653)och HTTPS-porten (443).<br/><br/> – Tillåt IP-adressintervall för USA, västra (som används för Access Control-och identitets hantering).<br/><br/> – Tillåt IP-adressintervall för Azure-regionen för din prenumeration, för att stödja de URL: er som behövs för Azure Active Directory, säkerhets kopiering, replikering och lagring.<br/><br/> **För myndighets-IP: er:**<br/><br/> -Tillåt IP-intervall för Azure Government-datacenter och HTTPS-porten (443).<br/><br/> – Tillåt IP-adressintervall för alla US Gov regioner (Virginia, Texas, Arizona och Iowa) för att stödja de URL: er som krävs för Azure Active Directory, säkerhets kopiering, replikering och lagring.
+Portar | Tillåt 443 (kontroll av kanal dirigering)<br/><br/> Tillåt 9443 (data transport) 
 
 
-**Krav på storlek på konfigurations-/processserver**
+**Krav på konfiguration/processervern storlek**
 
-**Cpu** | **Minne** | **Cachedisk** | **Dataändringshastighet** | **Replikerade datorer**
+**REGISTRERA** | **Minnesoptimerade** | **Cachelagra disk** | **Data ändrings takt** | **Replikerade datorer**
 --- | --- | --- | --- | ---
-8 virtuella processorer<br/><br/> 2 uttag * 4 \@ kärnor 2,5 GHz | 16 GB | 300 GB | 500 GB eller mindre | < 100 maskiner
-12 virtuella processorer<br/><br/> 2 strumpor * 6 \@ kärnor 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 till 150 maskiner
-16 virtuella processorer<br/><br/> 2 strumpor * 8 \@ kärnor 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 maskiner
+8 virtuella processorer<br/><br/> 2 Sockets * 4 kärnor \@ 2,5 GHz | GB | 300 GB | 500 GB eller mindre | < 100-datorer
+12 virtuella processorer<br/><br/> 2 SOCKS * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 till 150-datorer
+16 virtuella processorer<br/><br/> 2 SOCKS * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200-datorer
 

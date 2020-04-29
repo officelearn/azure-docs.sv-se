@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 2b0149bd2bb46de87b4575ccb5d44836dd74bde9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66242119"
 ---
-Här är en lista över webbläsare som stöds för det lokala webbgränssnittet.
+Här är en lista över webbläsare som stöds för det lokala webb gränssnittet.
 
-| **Webbläsare** | **Versioner** | **Ytterligare krav/anmärkningar** |
+| **Webbläsare** | **5** | **Ytterligare krav/anteckningar** |
 | --- | --- | --- |
-| Google Chrome |Senaste versionen |Testad med Chrome|
-| Microsoft Edge |Senaste versionen | |
-| Firefox | Senaste versionen | Testad med Firefox|
-| Internet Explorer |Senaste versionen |Om du inte kan logga in kontrollerar du om cookies och Javascript är aktiverade. Om du vill aktivera åtkomst till användargränssnittet lägger du till enhetens IP **i sekretessåtgärder** så att enheten kan komma åt cookies. |
+| Google Chrome |Senaste version |Testat med Chrome|
+| Microsoft Edge |Senaste version | |
+| FireFox | Senaste version | Testat med FireFox|
+| Internet Explorer |Senaste version |Om du inte kan logga in kontrollerar du om cookies och Java Script är aktiverade. Om du vill aktivera användar gränssnitts åtkomst lägger du till enhetens IP-adress i **Sekretess åtgärder** så att enheten kan komma åt cookies. |

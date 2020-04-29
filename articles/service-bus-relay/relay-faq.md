@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor om Azure Relay | Microsoft-dokument
-description: Den här artikeln innehåller svar på några av de vanligaste frågorna om Azure Relay-tjänsten.
+title: Azure Relay FAQ | Microsoft Docs
+description: Den här artikeln innehåller svar på några vanliga frågor om Azure Relay tjänsten.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,102 +15,102 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: d5032b427316a3c4e07013af4e8214e239a6efb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514008"
 ---
-# <a name="azure-relay-faqs"></a>Vanliga frågor om Azure Relay
+# <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor
 
-Den här artikeln besvarar några vanliga frågor om [Azure Relay](https://azure.microsoft.com/services/service-bus/). Allmän Azure-pris- och supportinformation finns i vanliga frågor och frågor om [Azure-support](https://azure.microsoft.com/support/faq/).
+I den här artikeln besvaras några vanliga frågor och svar om [Azure Relay](https://azure.microsoft.com/services/service-bus/). Allmän information om priser och support för Azure finns i [vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Allmänna frågor
 ### <a name="what-is-azure-relay"></a>Vad är Azure Relay?
-[Azure Relay-tjänsten](relay-what-is-it.md) underlättar dina hybridprogram genom att hjälpa dig att på ett säkrare sätt exponera tjänster som finns i ett företagsnätverk för det offentliga molnet. Du kan exponera tjänsterna utan att öppna en brandväggsanslutning och utan att kräva påträngande ändringar i en företagsnätverksinfrastruktur.
+[Tjänsten Azure Relay](relay-what-is-it.md) underlättar dina hybrid program genom att hjälpa dig att på ett säkert sätt exponera tjänster som finns i ett företags nätverk till det offentliga molnet. Du kan exponera tjänsterna utan att öppna en brand Väggs anslutning och utan att kräva påträngande ändringar i företags nätverkets infrastruktur.
 
-### <a name="what-is-a-relay-namespace"></a>Vad är ett relay-namnområde?
-Ett [namnområde](relay-create-namespace-portal.md) är en omfångsbehållare som du kan använda för att adressera Relay-resurser i ditt program. Du måste skapa ett namnområde för att kunna använda Relay. Detta är ett av de första stegen för att komma igång.
+### <a name="what-is-a-relay-namespace"></a>Vad är ett relä namn område?
+Ett [namn område](relay-create-namespace-portal.md) är en omfattnings behållare som du kan använda för att adressera relä resurser i ditt program. Du måste skapa ett namn område för att kunna använda reläet. Det här är ett av de första stegen för att komma igång.
 
-### <a name="what-happened-to-service-bus-relay-service"></a>Vad hände med servicebussrelästjänsten?
-Den tidigare namngivna tjänsten Service Bus Relay kallas nu [WCF Relay](service-bus-relay-tutorial.md). Du kan fortsätta att använda den här tjänsten som vanligt. Funktionen Hybridanslutningar är en uppdaterad version av en tjänst som har transplanterats från Azure BizTalk Services. WCF Relay- och Hybridanslutningar stöds båda.
+### <a name="what-happened-to-service-bus-relay-service"></a>Vad hände med att Service Bus Relay tjänsten?
+Den tidigare namngivna Service Bus Relays tjänsten kallas nu [WCF Relay](service-bus-relay-tutorial.md). Du kan fortsätta att använda den här tjänsten som vanligt. Den Hybridanslutningar funktionen är en uppdaterad version av en tjänst som har planterats från Azure BizTalk Services. WCF Relay och Hybridanslutningar fortsätter att stödjas.
 
 ## <a name="pricing"></a>Prissättning
-Det här avsnittet besvarar några vanliga frågor om Relay-prisstrukturen. Du kan också se vanliga frågor om [Azure-support](https://azure.microsoft.com/support/faq/) för allmän Azure-prisinformation. Fullständig information om Relay-priser finns i [Prisinformation för Service Bus][Pricing overview].
+I det här avsnittet besvaras några vanliga frågor om relä pris strukturen. Du kan också se [vanliga frågor och svar om Azure-support](https://azure.microsoft.com/support/faq/) för allmän pris information om Azure. Fullständig information om priser för Reläering finns [Service Bus pris information][Pricing overview].
 
-### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Hur laddar du för hybridanslutningar och WCF Relay?
-Fullständig information om Relay-priser finns i tabellen [Hybridanslutningar och WCF Relays][Pricing overview] på prisinformationssidan för Service Bus. Utöver de priser som anges på den sidan debiteras du för associerade dataöverföringar för utgående utanför det datacenter där ditt program etableras.
+### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Hur debiteras du för Hybridanslutningar och WCF Relay?
+Fullständig information om priser för Reläering finns i tabellen [hybridanslutningar-och WCF-reläer][Pricing overview] på sidan med pris information för Service Bus. Utöver de priser som anges på sidan debiteras du för tillhör ande data överföringar för utgående trafik utanför data centret där ditt program är etablerad.
 
-### <a name="how-am-i-billed-for-hybrid-connections"></a>Hur faktureras jag för hybridanslutningar?
-Här är tre exempel på faktureringsscenarier för hybridanslutningar:
+### <a name="how-am-i-billed-for-hybrid-connections"></a>Hur faktureras jag för Hybridanslutningar?
+Här är tre exempel på fakturerings scenarier för Hybridanslutningar:
 
 *   Scenario 1:
-    *   Du har en enda lyssnare, till exempel en instans av Hybrid Connections Manager installerad och kontinuerligt igång för hela månaden.
+    *   Du har en enda lyssnare, till exempel en instans av Hybridanslutningar Manager som är installerad och körs kontinuerligt under hela månaden.
     *   Du skickar 3 GB data över anslutningen under månaden. 
-    *   Din totala avgift är $ 5.
+    *   Den totala kostnaden är $5.
 *   Scenario 2:
-    *   Du har en enda lyssnare, till exempel en instans av Hybrid Connections Manager installerad och kontinuerligt igång för hela månaden.
+    *   Du har en enda lyssnare, till exempel en instans av Hybridanslutningar Manager som är installerad och körs kontinuerligt under hela månaden.
     *   Du skickar 10 GB data över anslutningen under månaden.
-    *   Din totala avgift är $ 7,50. Det är $ 5 för anslutningen och första 5 GB + $ 2,50 för ytterligare 5 GB data.
+    *   Den totala kostnaden är $7,50. Det är $5 för anslutningen och de första 5 GB + $2,50 för ytterligare 5 GB data.
 *   Scenario 3:
-    *   Du har två instanser, A och B, i Hybrid Connections Manager installerade och kontinuerligt körs under hela månaden.
+    *   Du har två instanser, A och B, av Hybridanslutningar Manager installerat och körs kontinuerligt under hela månaden.
     *   Du skickar 3 GB data över anslutning A under månaden.
-    *   Du skickar 6 GB data över anslutning B under månaden.
-    *   Din totala avgift är $ 10,50. Det är $ 5 för anslutning A + $ 5 för anslutning B + $ 0,50 (för den sjätte gigabyte på anslutning B).
+    *   Du skickar 6 GB data över Connection B under månaden.
+    *   Den totala kostnaden är $10,50. Det är $5 för anslutning A + $5 för anslutning B + $0,50 (för den sjätte gigabyte på anslutning B).
 
-Observera att de priser som används i exemplen endast gäller under förhandsgranskningsperioden Hybridanslutningar. Priserna kan komma att ändras vid allmän tillgänglighet för hybridanslutningar.
+Observera att priserna som används i exemplen endast gäller under Hybridanslutningar för hands versions perioden. Priserna kan komma att ändras vid allmän tillgänglighet för Hybridanslutningar.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Hur beräknas timmar för relä?
 
-WCF Relay är endast tillgängligt i namnområden på standardnivå. Priser och [anslutningskvoter](../service-bus-messaging/service-bus-quotas.md) för reläer har annars inte ändrats. Det innebär att reläer fortsätter att debiteras baserat på antalet meddelanden (inte operationer) och relätimmar. Mer information finns i tabellen ["Hybridanslutningar och WCF-reläer"](https://azure.microsoft.com/pricing/details/service-bus/) på prisinformationssidan.
+WCF Relay är endast tillgängligt i namn områden på standard nivån. Priser och [anslutnings kvoter](../service-bus-messaging/service-bus-quotas.md) för reläer har annars inte ändrats. Det innebär att reläerna fortsätter att debiteras baserat på antalet meddelanden (inte åtgärder) och relä timmar. Mer information finns i tabellen ["hybridanslutningar-och WCF-reläer"](https://azure.microsoft.com/pricing/details/service-bus/) på sidan med pris information.
 
-### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>Vad händer om jag har fler än en lyssnare ansluten till ett visst relä?
-I vissa fall kan ett enda relä ha flera anslutna lyssnare. Ett relä anses vara öppet när minst en relälyssnare är ansluten till den. Att lägga till lyssnare i ett öppet relä resulterar i ytterligare relätimmar. Antalet reläavsändare (klienter som anropar eller skickar meddelanden till reläer) som är anslutna till ett relä påverkar inte beräkningen av relätimmar.
+### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>Vad händer om jag har fler än en lyssnare ansluten till ett speciellt relä?
+I vissa fall kan ett enda relä ha flera anslutna lyssnare. Ett relä anses öppet när minst en relä lyssnare är ansluten till den. Att lägga till lyssnare till ett öppet relä resultat i ytterligare relä timmar. Antalet relä avsändare (klienter som anropar eller skickar meddelanden till reläer) som är anslutna till ett relä påverkar inte beräkningen av relä timmar.
 
-### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Hur beräknas meddelandemätaren för WCF Relays?
-(**Detta gäller endast WCF-reläer. Meddelanden är inte en kostnad för hybridanslutningar.**)
+### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Hur beräknas meddelande mätaren för WCF-reläer?
+(**Detta gäller endast WCF-reläer. Meddelanden är inte en kostnad för Hybridanslutningar.**)
 
-I allmänhet beräknas fakturerbara meddelanden för reläer med samma metod som används för förmedlade entiteter (köer, ämnen och prenumerationer), som beskrivits tidigare. Det finns dock några anmärkningsvärda skillnader.
+I allmänhet beräknas fakturerbara meddelanden för reläer med samma metod som används för sammanställda entiteter (köer, ämnen och prenumerationer), som beskrivs ovan. Det finns dock några viktiga skillnader.
 
-Att skicka ett meddelande till ett Service Bus-relä behandlas som en "full through" skicka till relälyssen som tar emot meddelandet. Det behandlas inte som en sändningsåtgärd till servicebussreläet, följt av en leverans till relälyssen. En tjänstanropstjänstanrop (på upp till 64 kB) mot en relay listener resulterar i två fakturerbara meddelanden: ett fakturerbart meddelande för begäran och ett fakturerbart meddelande för svaret (förutsatt att svaret också är 64 kB eller mindre). Detta skiljer sig från att använda en kö för att medla mellan en klient och en tjänst. Om du använder en kö för att medla mellan en klient och en tjänst kräver samma mönstret för begäran och svar en begäran som skickas till kön, följt av en dequeue/leverans från kön till tjänsten. Detta följs av ett svar som skickas till en annan kö och en dequeue/leverans från den kön till klienten. Med samma storlek antaganden i hela (upp till 64 KB), den medierade kömönstret resulterar i 4 fakturerbara meddelanden. Du skulle faktureras för dubbelt så många meddelanden för att implementera samma mönster som du utför med hjälp av relä. Naturligtvis finns det fördelar med att använda köer för att uppnå detta mönster, till exempel hållbarhet och belastningsutjämning. Dessa fördelar kan motivera den extra kostnaden.
+Att skicka ett meddelande till ett Service Bus relä behandlas som en "fullständig via" Skicka till relä lyssnaren som tar emot meddelandet. Den behandlas inte som en skicka-åtgärd till Service Bus reläet, följt av en leverans till relä lyssnaren. Ett anrop till tjänsten Request-Reply-service (på upp till 64 KB) mot en relä lyssnare resulterar i två fakturerbara meddelanden: ett fakturerbart meddelande för begäran och ett fakturerbart meddelande för svaret (förutsatt att svaret också är 64 KB eller mindre). Detta skiljer sig från att använda en kö för att tjänstassisterad mellan en klient och en tjänst. Om du använder en kö för att tjänstassisterad mellan en klient och en tjänst, kräver samma Request-Reply-mönster att en begäran skickas till kön, följt av en ur kö/leverans från kön till tjänsten. Detta följs av ett svar som skickas till en annan kö och en ur kö/leverans från den kön till klienten. Med samma storleks antaganden i hela (upp till 64 KB) resulterar det i det reparerade kön i 4 fakturerbara meddelanden. Du faktureras för dubbelt så många meddelanden att implementera samma mönster som du utför med hjälp av reläet. Det finns naturligtvis fördelar med att använda köer för att uppnå det här mönstret, till exempel hållbarhet och belastnings utjämning. Dessa förmåner kan motivera ytterligare kostnader.
 
-Reläer som öppnas med hjälp av **netTCPRelay** WCF-bindningen behandlar meddelanden inte som enskilda meddelanden, utan som en dataström som flödar genom systemet. När du använder den här bindningen är det bara avsändaren och lyssnaren som kan se hur de enskilda meddelandena som skickas och tas emot. För reläer som använder **netTCPRelay-bindningen** behandlas alla data som en ström för beräkning av fakturerbara meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskilt relä på 5-minuters basis. Sedan dividerar den totala mängden data med 64 KB för att bestämma antalet fakturerbara meddelanden för det reläet under den tidsperioden.
+Reläer som öppnas med hjälp av **netTCPRelay** WCF-bindning behandla meddelanden som inte är enskilda meddelanden, men som data strömmar i systemet. När du använder den här bindningen får bara avsändaren och lyssnaren insyn i ram för de enskilda meddelanden som skickas och tas emot. För reläer som använder **netTCPRelay** -bindningen behandlas alla data som en ström för att beräkna fakturerbara meddelanden. I det här fallet beräknar Service Bus den totala mängden data som skickas eller tas emot via varje enskilt relä på en 5 minuters basis. Sedan delar den upp den totala mängden data med 64 KB för att fastställa antalet fakturerbara meddelanden för det reläet under den tids perioden.
 
 ## <a name="quotas"></a>Kvoter
-| Kvotnamn | Omfång |  Anteckningar | Värde |
+| Kvot namn | Omfång |  Obs! | Värde |
 | --- | --- | --- | --- |
-| Samtidiga lyssnare på ett relä |Entitet |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
-| Samtidiga reläanslutningar per alla relay-slutpunkter i ett tjänstnamnområde |Namnområde |- |5 000 |
-| Reläslutpunkter per tjänstnamnområde |Namnområde |- |10 000 |
-| Meddelandestorlek för [nätonewayrelaybinding-](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) och [neteventrelaybinding-reläer](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Namnområde |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |64 kB |
-| Meddelandestorlek för relayer för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Namnområde |Ingen gräns för meddelandestorlek. |Unlimited |
+| Samtidiga lyssnare i ett relä |Entitet |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |25 |
+| Samtidiga relä anslutningar per alla relä slut punkter i ett tjänst namn område |Namnområde |- |5 000 |
+| Relä slut punkter per tjänst namn område |Namnområde |- |10 000 |
+| Meddelande storlek för [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) -och [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) -reläer |Namnområde |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |64 kB |
+| Meddelande storlek för [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) -och [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) -reläer |Namnområde |Ingen gräns för meddelande storlek. |Obegränsat |
 
-### <a name="does-relay-have-any-usage-quotas"></a>Har Relay några användningskvoter?
-Som standard anger Microsoft en sammanlagd månatlig användningskvot som beräknas för alla en kunds prenumerationer för alla molntjänster. Vi förstår att dina behov ibland kan överskrida dessa gränser. Du kan kontakta kundtjänst när som helst, så att vi kan förstå dina behov och justera dessa gränser på lämpligt sätt. För Service Bus är de sammanlagda användningskvoterna följande:
+### <a name="does-relay-have-any-usage-quotas"></a>Har reläet några användnings kvoter?
+För alla moln tjänster anger Microsoft som standard en sammanställd kvot för månatlig användning som beräknas för alla kund prenumerationer. Vi förstår att när dina behov kan överskrida dessa gränser. Du kan när som helst kontakta kund tjänst så att vi kan förstå dina behov och justera dessa gränser på lämpligt sätt. För Service Bus är de aggregerade användnings kvoterna följande:
 
-* 5 miljarder meddelanden
-* 2 miljoner relätimmar
+* 5 000 000 000 meddelanden
+* 2 000 000 relä timmar
 
-Även om vi förbehåller oss rätten att inaktivera ett konto som överskrider dess månatliga användningskvoter, tillhandahåller vi e-postmeddelanden och vi gör flera försök att kontakta kunden innan vi vidtar några åtgärder. Kunder som överskrider dessa kvoter är fortfarande ansvariga för överskjutande avgifter.
+Även om vi förbehåller oss rätten att inaktivera ett konto som överskrider den månatliga användnings kvoten ger vi e-postaviseringar, och vi gör flera försök att kontakta kunden innan du vidtar åtgärder. Kunder som överskrider dessa kvoter ansvarar fortfarande för överförbruknings kostnader.
 
-### <a name="naming-restrictions"></a>Namngivningsbegränsningar
-Ett relay-namnområdesnamn måste vara mellan 6 och 50 tecken långt.
+### <a name="naming-restrictions"></a>Namngivnings begränsningar
+Ett namn på en Relay-namnrymd måste vara mellan 6 och 50 tecken långt.
 
-## <a name="subscription-and-namespace-management"></a>Prenumerations- och namnområdeshantering
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hur migrerar jag ett namnområde till en annan Azure-prenumeration?
+## <a name="subscription-and-namespace-management"></a>Hantering av prenumerationer och namn område
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Hur gör jag för att migrera ett namn område till en annan Azure-prenumeration?
 
-Om du vill flytta ett namnområde från en Azure-prenumeration till en annan prenumeration kan du antingen använda [Azure-portalen](https://portal.azure.com) eller använda PowerShell-kommandon. Om du vill flytta ett namnområde till en annan prenumeration måste namnområdet redan vara aktivt. Användaren som kör kommandona måste vara administratörsanvändare på både käll- och målprenumerationerna.
+Om du vill flytta ett namn område från en Azure-prenumeration till en annan prenumeration kan du antingen använda [Azure Portal](https://portal.azure.com) eller använda PowerShell-kommandon. Om du vill flytta ett namn område till en annan prenumeration måste namn området redan vara aktivt. Användaren som kör kommandona måste vara administratörs användare på både käll-och mål prenumerationer.
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Information om hur du använder Azure-portalen för att migrera Azure Relay-namnområden från en prenumeration till en annan prenumeration finns i [Flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
+Om du vill använda Azure Portal för att migrera Azure Relay namnrum från en prenumeration till en annan prenumeration kan du läsa mer i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
-Om du vill använda PowerShell för att flytta ett namnområde från en Azure-prenumeration till en annan prenumeration använder du följande sekvens av kommandon. För att kunna utföra den här åtgärden måste namnområdet redan vara aktivt och användaren som kör PowerShell-kommandona måste vara administratörsanvändare på både käll- och målprenumerationerna.
+Använd följande kommandosekvens för att använda PowerShell för att flytta ett namn område från en Azure-prenumeration till en annan prenumeration. För att kunna utföra den här åtgärden måste namn området redan vara aktivt och användaren som kör PowerShell-kommandon måste vara en administratörs användare på både käll-och mål prenumerationer.
 
 ```azurepowershell-interactive
 # Create a new resource group in the target subscription.
@@ -124,18 +124,18 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ```
 
 ## <a name="troubleshooting"></a>Felsökning
-### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Vilka är några av de undantag som genereras av Azure Relay API:er och föreslagna åtgärder som du kan vidta?
-En beskrivning av vanliga undantag och föreslagna åtgärder som du kan vidta finns i [Återutläsa undantag][Relay exceptions].
+### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Vilka är några av undantagen som genereras av Azure Relay API: er och föreslagna åtgärder som du kan vidta?
+En beskrivning av vanliga undantag och föreslagna åtgärder som du kan utföra finns i [undantag för vidarebefordran][Relay exceptions].
 
-### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk kan jag använda för att generera en signatur?
-SAS (Shared Access Signatures) är en autentiseringsmekanism som baseras på SHA-256-secure hashar eller URI:er. Information om hur du genererar egna signaturer i Node.js, PHP, Python, Java, C och C#, finns i [Service Bus-autentisering med signaturer för delad åtkomst][Shared Access Signatures].
+### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Vad är en signatur för delad åtkomst och vilka språk kan jag använda för att skapa en signatur?
+Signaturer för delad åtkomst (SAS) är en autentiseringsmekanism baserad på SHA-256-säkra hash-värden eller URI: er. Information om hur du genererar egna signaturer i Node. js, PHP, python, Java, C och C# finns [Service Bus autentisering med signaturer för delad åtkomst][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att vitlista reläslutpunkter?
-Ja. Relay-klienten upprättar anslutningar till Azure Relay-tjänsten med hjälp av fullständigt kvalificerade domännamn. Kunder kan lägga `*.servicebus.windows.net` till en post för brandväggar som stöder DNS-vitlistning.
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Är det möjligt att vitlista relä slut punkter?
+Ja. Relä klienten ansluter till Azure Relay tjänsten med hjälp av fullständigt kvalificerade domän namn. Kunder kan lägga till en post `*.servicebus.windows.net` för i brand väggar som stöder DNS-vit listning.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa ett namnområde](relay-create-namespace-portal.md)
-* [Komma igång med .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Kom igång med .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Kom igång med Node](relay-hybrid-connections-node-get-started.md)
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/

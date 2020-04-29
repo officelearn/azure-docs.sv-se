@@ -1,6 +1,6 @@
 ---
-title: Operationalisera Spark-byggda maskininlärningsmodeller - Team Data Science Process
-description: Så här läser du in och poängar utbildningsmodeller som lagras i Azure Blob Storage (WASB) med Python.
+title: Operationalisera Spark – inbyggda Machine Learning-modeller – team data science process
+description: Så här läser du in och betygs ätt inlärnings modeller lagrade i Azure Blob Storage (WASB) med python.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,50 +12,50 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3f02690d7c54581ed80b521e8222d1bd5964c878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76718556"
 ---
-# <a name="operationalize-spark-built-machine-learning-models"></a>Operationalisera Spark-byggda maskininlärningsmodeller
+# <a name="operationalize-spark-built-machine-learning-models"></a>Operationalisera Spark – inbyggda Machine Learning-modeller
 
-Det här avsnittet visar hur du kan operationalisera en sparad maskininlärningsmodell (ML) med Python på HDInsight Spark-kluster. Den beskriver hur du läser in maskininlärningsmodeller som har byggts med Spark MLlib och lagras i Azure Blob Storage (WASB) och hur du poängar dem med datauppsättningar som också har lagrats i WASB. Den visar hur du förbehandlar indata, omvandlar funktioner med hjälp av indexerings- och kodningsfunktionerna i MLlib-verktygslådan och hur du skapar ett märkt punktdataobjekt som kan användas som indata för bedömning med ML-modellerna. Modellerna som används för bedömning är linjär regression, logistisk regression, slumpmässiga skogsmodeller och gradienthöjande trädmodeller.
+Det här avsnittet visar hur du operationalisera en sparad Machine Learning-modell (ML) med python på HDInsight Spark-kluster. Den beskriver hur du läser in maskin inlärnings modeller som har skapats med Spark-MLlib och lagrats i Azure Blob Storage (WASB) och hur du visar dem med data uppsättningar som också har lagrats i WASB. Det visar hur du förbearbetar indata, transformerar funktioner med hjälp av indexerings-och kodnings funktionerna i MLlib Toolkit och hur du skapar ett etikettat punkt data objekt som kan användas som indata för poängsättning med ML-modeller. De modeller som används för poängsättning är linjär regression, Logistisk regression, slumpmässiga skogs modeller och träd modeller för tonings förstärkning.
 
-## <a name="spark-clusters-and-jupyter-notebooks"></a>Spark kluster och Jupyter bärbara datorer
-Installationssteg och koden för att operationalize en ML-modell finns i den här genomgången för att använda ett HDInsight Spark 1.6-kluster samt ett Spark 2.0-kluster. Koden för dessa procedurer finns också i Jupyter-anteckningsböcker.
+## <a name="spark-clusters-and-jupyter-notebooks"></a>Spark-kluster och Jupyter-anteckningsböcker
+Installations stegen och koden för att operationalisera en ML-modell finns i den här genom gången för att använda ett HDInsight Spark 1,6-kluster samt ett Spark 2,0-kluster. Koden för de här procedurerna finns också i Jupyter Notebooks.
 
-### <a name="notebook-for-spark-16"></a>Bärbar dator för Spark 1.6
-Den [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) Jupyter anteckningsbok visar hur man operationalize en sparad modell med Python på HDInsight kluster. 
+### <a name="notebook-for-spark-16"></a>Notebook för Spark 1,6
+[PySpark-Machine-Learning-data-science-Spark-Model-förbrukning. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) Jupyter Notebook visar hur du operationalisera en sparad modell med python i HDInsight-kluster. 
 
-### <a name="notebook-for-spark-20"></a>Bärbar dator för Spark 2.0
-Om du vill ändra den Jupyter-anteckningsboken som Spark 1.6 ska använda med ett HDInsight Spark 2.0-kluster ersätter du Python-kodfilen med den [här filen](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Den här koden visar hur du använder de modeller som skapats i Spark 2.0.
+### <a name="notebook-for-spark-20"></a>Notebook för Spark 2,0
+Om du vill ändra den Jupyter Notebook för Spark 1,6 att använda med ett HDInsight Spark 2,0-kluster ersätter du python-kodfragmentet med [den här filen](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Den här koden visar hur du använder de modeller som skapats i Spark 2,0.
 
 
 ## <a name="prerequisites"></a>Krav
 
-1. Du behöver ett Azure-konto och ett Spark 1.6 -(eller Spark 2.0) HDInsight-kluster för att slutföra den här genomgången. Se [översikten över datavetenskap med Spark på Azure HDInsight](spark-overview.md) för instruktioner om hur du uppfyller dessa krav. Det avsnittet innehåller också en beskrivning av NYC 2013 Taxi data som används här och instruktioner om hur man kör kod från en Jupyter anteckningsbok på Spark klustret. 
-2. Skapa de maskininlärningsmodeller som ska poängsättas här genom att arbeta igenom [datautforskning och modellering med Spark-avsnittet](spark-data-exploration-modeling.md) för Spark 1.6-klustret eller Spark 2.0-anteckningsböckerna. 
-3. Spark 2.0-anteckningsböckerna använder ytterligare en datauppsättning för klassificeringsuppgiften, den välkända avgångsdatauppsättningen för flygbolagsavgång från 2011 och 2012. En beskrivning av anteckningsböckerna och länkarna till dem finns i [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) för GitHub-databasen som innehåller dem. Dessutom är koden här och i de länkade anteckningsböckerna allmän och bör fungera på alla Spark-kluster. Om du inte använder HDInsight Spark kan stegen för klusterinställningar och hantering skilja sig något från vad som visas här. 
+1. Du behöver ett Azure-konto och ett Spark 1,6-kluster (eller Spark 2,0) för att slutföra den här genom gången. Mer information om hur du uppfyller dessa krav finns i [Översikt över data vetenskap med Spark på Azure HDInsight](spark-overview.md) . Avsnittet innehåller också en beskrivning av NYC 2013 taxi-data som används här och instruktioner om hur man kör kod från en Jupyter-anteckningsbok i Spark-klustret. 
+2. Skapa maskin inlärnings modeller som ska poängas här genom att gå igenom [data utforskningen och modelleringen med Spark](spark-data-exploration-modeling.md) -avsnittet för Spark 1,6-klustret eller Spark 2,0-anteckningsboken. 
+3. De bärbara Spark 2,0-datorerna använder ytterligare en data uppsättning för klassificerings uppgiften, den välkända flyg data uppsättningen från 2011 och 2012. En beskrivning av antecknings böckerna och länkar till dem finns i [Readme.MD](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) för GitHub-databasen som innehåller dem. Dessutom är koden här och i de länkade antecknings böckerna generisk och bör fungera på alla Spark-kluster. Om du inte använder HDInsight Spark kan konfigurations-och hanterings stegen för klustret skilja sig något från vad som visas här. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Inställningar: lagringsplatser, bibliotek och den förinställda Spark-kontexten
-Spark kan läsa och skriva till en Azure Storage Blob (WASB). Så alla dina befintliga data som lagras där kan bearbetas med Spark och resultaten lagras igen i WASB.
+## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Installation: lagrings platser, bibliotek och den förinställda Spark-kontexten
+Spark kan läsa och skriva till en Azure Storage Blob (WASB). Så alla dina befintliga data som lagras kan bearbetas med Spark och resultaten lagras igen i WASB.
 
-Om du vill spara modeller eller filer i WASB måste sökvägen anges korrekt. Standardbehållaren som är kopplad till Spark-klustret kan refereras med hjälp av en sökväg som börjar med: *"wasb///".* Följande kodexempel anger platsen för de data som ska läsas och sökvägen för den modelllagringskatalog som modellutdata sparas till. 
+Om du vill spara modeller eller filer i WASB måste sökvägen anges korrekt. Standard behållaren som är kopplad till Spark-klustret kan refereras med hjälp av en sökväg som börjar med: *"wasb///"*. I följande kod exempel anges platsen för de data som ska läsas och sökvägen för den modell lagrings katalog som modellens utdata sparas i. 
 
-### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Ange katalogsökvägar för lagringsplatser i WASB
-Modeller sparas i: "wasb:///user/remoteuser/NYCTaxi/Models". Om den här sökvägen inte är korrekt inställd läses inte modeller in för bedömning.
+### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Ange katalog Sök vägar för lagrings platser i WASB
+Modeller sparas i: "wasb:///user/remoteuser/NYCTaxi/Models". Om den här sökvägen inte anges korrekt, läses inte modeller in för poängsättning.
 
-De poängsatta resultaten har sparats i: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". Om sökvägen till mappen är felaktig sparas inte resultaten i den mappen.   
+De resultat resultat som har sparats i: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". Om sökvägen till mappen är felaktig sparas inte resultaten i den mappen.   
 
 > [!NOTE]
-> Filsökvägsplatserna kan kopieras och klistras in i platshållarna i den här koden från utdata från den sista cellen i anteckningsboken **machine-learning-data-science-spark-data-exploration.ipynb.**   
+> Sökvägen för fil Sök vägar kan kopieras och klistras in i plats hållarna i den här koden från utdatan från den sista cellen i **datorn-inlärning-data-science-Spark-data-utforskning-modellering. ipynb** Notebook.   
 > 
 > 
 
-Här är koden för att ställa in katalogsökvägar: 
+Här är koden för att ange katalog Sök vägar: 
 
     # LOCATION OF DATA TO BE SCORED (TEST DATA)
     taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
@@ -80,12 +80,12 @@ Här är koden för att ställa in katalogsökvägar:
     import datetime
     datetime.datetime.now()
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
+DateTime. DateTime (2016, 4, 25, 23, 56, 19, 229403)
 
 ### <a name="import-libraries"></a>Importera bibliotek
-Ange gnistkontext och importera nödvändiga bibliotek med följande kod
+Ange Spark-kontext och importera nödvändiga bibliotek med följande kod
 
     #IMPORT LIBRARIES
     import pyspark
@@ -103,24 +103,24 @@ Ange gnistkontext och importera nödvändiga bibliotek med följande kod
     import datetime
 
 
-### <a name="preset-spark-context-and-pyspark-magics"></a>Preset Spark sammanhang och PySpark magi
-PySpark-kärnorna som medföljer Jupyter-anteckningsböcker har en förinställd kontext. Därför behöver du inte ange Spark- eller Hive-kontexterna uttryckligen innan du börjar arbeta med det program du utvecklar. Dessa sammanhang är tillgängliga som standard:
+### <a name="preset-spark-context-and-pyspark-magics"></a>Förinställt Spark-kontext och PySpark MAGICS
+PySpark-kernelerna som medföljer Jupyter notebook-datorer har en förinställd kontext. Därför behöver du inte ange Spark-eller Hive-kontexterna explicit innan du börjar arbeta med programmet som du utvecklar. Dessa kontexter är tillgängliga som standard:
 
-* sc - för Spark 
-* sqlContext - för Hive
+* SC – för Spark 
+* sqlContext-för Hive
 
-PySpark-kärnan tillhandahåller några fördefinierade "magi", som är speciella kommandon som du kan anropa med %%. Det finns två sådana kommandon som används i dessa kodexempel.
+PySpark-kärnan innehåller fördefinierade "MAGICS", som är särskilda kommandon som du kan anropa med%%. Det finns två sådana kommandon som används i dessa kod exempel.
 
-* **%%lokal** Anger att koden i efterföljande rader körs lokalt. Koden måste vara giltig Python-kod.
-* **%%sql -o \<variabelnamn>** 
-* Kör en Hive-fråga mot sqlContext. Om parametern -o skickas sparas resultatet av frågan i kontexten %%lokal Python som en Pandas-dataram.
+* **%% lokal** Angav att koden i efterföljande rader körs lokalt. Koden måste vara en giltig python-kod.
+* **%% SQL-o \<variabel namn>** 
+* Kör en Hive-fråga mot sqlContext. Om-o-parametern skickas sparas resultatet av frågan i den lokala python-kontexten%% som en Pandas-dataframe.
 
-Mer information om kärnorna för Jupyter-anteckningsböcker och de fördefinierade "magi" som de tillhandahåller finns i [Kärnor som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster på HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
+Mer information om kerneler för Jupyter-anteckningsböcker och de fördefinierade "magiska" som de tillhandahåller finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
-## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Ta data och skapa en rensad dataram
-Det här avsnittet innehåller koden för en serie uppgifter som krävs för att ange de data som ska poängsättas. Läs i ett sammanfogat 0,1% exempel på taxiresa och biljettfil (lagras som en TSV-fil), formatera data och skapa sedan en ren dataram.
+## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Mata in data och skapa en rensad data ram
+Det här avsnittet innehåller koden för en serie uppgifter som krävs för att mata in data som ska poängas. Läs i ett kopplat 0,1%-exempel på taxi resan och avgifts filen (lagras som en. TSV-fil), formatera data och skapa sedan en ren data-ram.
 
-Taxi-rese- och biljettfilerna anslöts baserat på proceduren i: [Team Data Science Process i aktion: med hjälp av HDInsight Hadoop-klusterämnet.](hive-walkthrough.md)
+Taxi-och biljett-filerna anslöts utifrån proceduren i avsnittet: [team data science-processen i praktiken: använda HDInsight Hadoop-kluster](hive-walkthrough.md) .
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -180,19 +180,19 @@ Taxi-rese- och biljettfilerna anslöts baserat på proceduren i: [Team Data Scie
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-Tid det tar att köra över cellen: 46,37 sekunder
+Tids åtgång för att köra ovanför cell: 46,37 sekunder
 
-## <a name="prepare-data-for-scoring-in-spark"></a>Förbereda data för bedömning i Spark
-Det här avsnittet visar hur du indexerar, kodar och skalar kategoriska funktioner för att förbereda dem för användning i MLlib-övervakade inlärningsalgoritmer för klassificering och regression.
+## <a name="prepare-data-for-scoring-in-spark"></a>Förbereda data för poängsättning i Spark
+Det här avsnittet visar hur du kan indexera, koda och skala kategoriska-funktioner för att förbereda dem för användning i MLlib övervakade inlärnings algoritmer för klassificering och regression.
 
-### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Funktionsomvandling: index och koda kategoriska funktioner för indata till modeller för bedömning
-Det här avsnittet visar hur du indexerar kategoriska data med hjälp av en `StringIndexer` och kodar funktioner med `OneHotEncoder` indata i modellerna.
+### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Funktions omvandling: indexera och koda kategoriska-funktioner för inmatade modeller för poängsättning
+I det här avsnittet visas hur du indexerar kategoriska `StringIndexer` -data med hjälp av `OneHotEncoder` och kodar funktioner med indata till modeller.
 
-[StringIndexer kodar](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) en strängkolumn med etiketter till en kolumn med etikettindex. Indexen sorteras efter etikettfrekvenser. 
+[StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) kodar en sträng kolumn med etiketter till en kolumn med etikett index. Indexen ordnas efter etikett frekvenser. 
 
-[OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mappar en kolumn med etikettindex till en kolumn med binära vektorer, med högst ett enda värde. Med den här kodningen kan algoritmer som förväntar sig kontinuerliga värdefunktioner, till exempel logistisk regression, tillämpas på kategoriska funktioner.
+[OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mappar en kolumn med etikett index till en kolumn med binära vektorer, med högst ett enda värde. Den här kodningen tillåter algoritmer som förväntar sig kontinuerliga värde funktioner, till exempel Logistisk regression, som ska användas för kategoriska-funktioner.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -252,14 +252,14 @@ Det här avsnittet visar hur du indexerar kategoriska data med hjälp av en `Str
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-Tid det tar att köra över cellen: 5,37 sekunder
+Tids åtgång för att köra ovanför cell: 5,37 sekunder
 
-### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Skapa RDD-objekt med funktionsmatriser för indata i modeller
-Det här avsnittet innehåller kod som visar hur du indexerar kategoriska textdata som ett RDD-objekt och en-het koda den så att den kan användas för att träna och testa MLlib logistisk regression och trädbaserade modeller. Indexerade data lagras i [RDD-objekt (Resilient Distributed Dataset).](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) RDD:erna är den grundläggande abstraktionen i Spark. Ett RDD-objekt representerar en oföränderlig, partitionerad samling element som kan användas parallellt med Spark.
+### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Skapa RDD-objekt med funktions mat ris för inmatade modeller
+Det här avsnittet innehåller kod som visar hur du kan indexera kategoriska text data som ett RDD-objekt och en-frekvent kod så att det kan användas för att träna och testa MLlib logistik regression och trädbaserade modeller. Indexerade data lagras i [elastiska data mängds objekt (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . RDD är den grundläggande abstraktionen i Spark. Ett RDD-objekt representerar en oföränderlig, partitionerad samling element som kan köras parallellt med Spark.
 
-Den innehåller också kod som visar hur `StandardScalar` man skalar data med den som tillhandahålls av MLlib för användning i linjär regression med Stokastisk Gradient Descent (SGD), en populär algoritm för utbildning av ett brett spektrum av maskininlärningsmodeller. [Standardscaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) används för att skala funktionerna till enhetsavvikelse. Funktionsskalning, även känd som datanormalisering, försäkrar att funktioner med allmänt utbetalda värden inte ges överdriven vägning i målfunktionen. 
+Den innehåller också kod som visar hur du skalar data med `StandardScalar` MLlib för användning i linjär regression med Stochastic gradient BRANTASTE (SGD), en populär algoritm för att träna en mängd olika Machine Learning-modeller. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) används för att skala funktionerna till enhets avvikelse. Funktions skalning, även kallat data normalisering, säkerställer att funktioner med de vanligaste värdena för uppfyllande värden inte får orimlig väg i mål funktionen. 
 
     # CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS
 
@@ -326,12 +326,12 @@ Den innehåller också kod som visar hur `StandardScalar` man skalar data med de
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-Tid det tar att köra över cellen: 11,72 sekunder
+Tids åtgång för att köra ovanför cell: 11,72 sekunder
 
-## <a name="score-with-the-logistic-regression-model-and-save-output-to-blob"></a>Poäng med logistikregressionsmodellen och spara utdata till blob
-Koden i det här avsnittet visar hur du läser in en logistisk regressionsmodell som har sparats i Azure blob storage och använder den för att förutsäga om ett tips betalas på en taxiresa, poängsätta den med standardklassificeringsmått och sedan spara och rita resultaten för att blob-lagring . De poängsatta resultaten lagras i RDD-objekt. 
+## <a name="score-with-the-logistic-regression-model-and-save-output-to-blob"></a>Poängen med logistik Regressions modellen och spara utdata till BLOB
+Koden i det här avsnittet visar hur du läser in en logistik Regressions modell som har sparats i Azure Blob Storage och använder den för att förutsäga om ett tips har betalats på en taxi resa, visar det med standard klassificerings mått och sparar och ritar sedan resultaten till Blob Storage. De resultat som visas lagras i RDD-objekt. 
 
     # SCORE AND EVALUATE LOGISTIC REGRESSION MODEL
 
@@ -357,14 +357,14 @@ Koden i det här avsnittet visar hur du läser in en logistisk regressionsmodell
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-Tid det tar att köra över cellen: 19,22 sekunder
+Tids åtgång för att köra ovanför cell: 19,22 sekunder
 
-## <a name="score-a-linear-regression-model"></a>Betyg en linjär regressionsmodell
-Vi använde [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) för att träna en linjär regressionsmodell med stokastisk gradient descent (SGD) för optimering för att förutsäga mängden tips som betalas. 
+## <a name="score-a-linear-regression-model"></a>Score en linjär Regressions modell
+Vi använde [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) för att träna en linjär Regressions modell med Stochastic gradient BRANTASTE (SGD) för optimering för att förutsäga den mängd Tip som du betalar. 
 
-Koden i det här avsnittet visar hur du läser in en linjär regressionsmodell från Azure blob storage, poäng med hjälp av skalade variabler och sedan spara resultaten tillbaka till blob.
+Koden i det här avsnittet visar hur du läser in en linjär Regressions modell från Azure Blob Storage, poängen med skalade variabler och sedan sparar tillbaka resultatet till blobben.
 
     #SCORE LINEAR REGRESSION MODEL
 
@@ -390,16 +390,16 @@ Koden i det här avsnittet visar hur du läser in en linjär regressionsmodell f
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-Tid det tar att köra över cellen: 16,63 sekunder
+Tids åtgång för att köra ovanför cell: 16,63 sekunder
 
-## <a name="score-classification-and-regression-random-forest-models"></a>Poängklassificering och regression Slumpmässiga skogsmodeller
-Koden i det här avsnittet visar hur du läser in den sparade klassificeringen och regressionen Random Forest Models som sparats i Azure blob storage, poängar deras prestanda med standardklassificerare och regressionsmått och sparar sedan tillbaka resultaten till blob-lagring.
+## <a name="score-classification-and-regression-random-forest-models"></a>Resultat klassificering och Regressions slumpmässiga skogs modeller
+Koden i det här avsnittet visar hur du läser in de sparade klassificerings-och Regressions modellerna som är sparade i Azure Blob Storage, visar prestanda med standardklassificeraren och Regressions mått och sparar sedan resultatet till Blob Storage.
 
-[Slumpmässiga skogar](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) är ensembler av beslutsträd.  De kombinerar många beslutsträd för att minska risken för övermontering. Slumpmässiga skogar kan hantera kategoriska funktioner, utöka till klassificeringsinställningen för fleraklasser, inte kräver funktionskalning och kan fånga icke-linjäriteter och funktionsinteraktioner. Slumpmässiga skogar är en av de mest framgångsrika maskininlärningsmodellerna för klassificering och regression.
+[Slumpmässiga skogar](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) är ensembler för besluts träd.  De kombinerar många besluts träd för att minska risken för överanpassning. Slumpmässiga skogar kan hantera kategoriska-funktioner, utöka till klassificerings inställningen multiklass, behöver inte funktion skalning och kan fånga icke-linjära och funktions interaktioner. Slumpmässiga skogar är en av de mest fungerande maskin inlärnings modellerna för klassificering och regression.
 
-[spark.mllib](https://spark.apache.org/mllib/) stöder slumpmässiga skogar för binär och multiklassklassificering och för regression, med hjälp av både kontinuerliga och kategoriska funktioner. 
+[Spark. mllib](https://spark.apache.org/mllib/) stöder slumpmässiga skogar för binär och multiklass-klassificering och för regression med både kontinuerliga och kategoriska funktioner. 
 
     # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -436,16 +436,16 @@ Koden i det här avsnittet visar hur du läser in den sparade klassificeringen o
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-Tid det tar att köra över cellen: 31,07 sekunder
+Tids åtgång för att köra ovanför cell: 31,07 sekunder
 
-## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>Poängklassificering och regressionsövergrading öka trädmodeller
-Koden i det här avsnittet visar hur du läser in klassificering och regressionsövertoningshöjande trädmodeller från Azure blob storage, poängar deras prestanda med standardklassificerare och regressionsmått och sparar sedan resultaten tillbaka till blob-lagring. 
+## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>Poäng klassificering och modell modeller för Regressions tonings förstärkning
+Koden i det här avsnittet visar hur du läser in klassificerings-och Regressions tonings träd modeller från Azure Blob Storage, visar prestanda med standardklassificeraren och Regressions mått och sparar sedan resultatet till Blob Storage igen. 
 
-**spark.mllib** stöder GBTS för binär klassificering och regression, med hjälp av både kontinuerliga och kategoriska funktioner. 
+**Spark. mllib** stöder GBTS för binära klassificering och för regression med både kontinuerliga och kategoriska funktioner. 
 
-[Gradient Öka träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) är ensembler av beslut träd. GBTS tåg beslut träd iterativt för att minimera en förlust funktion. GBTS kan hantera kategoriska funktioner, kräver inte funktionsskalning och kan fånga icke-linjäriteter och funktionsinteraktioner. Den här algoritmen kan också användas i en multiklassklassificeringsinställning.
+GBTS ( [gradient Boosting trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) är ensembler i besluts träd. GBTS träna besluts träd iterativt för att minimera en förlust funktion. GBTS kan hantera kategoriska-funktioner, kräver inte funktions skalning och kan fånga icke-linjära och funktions interaktioner. Den här algoritmen kan också användas i en inställning för multiklass-klassificering.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -486,11 +486,11 @@ Koden i det här avsnittet visar hur du läser in klassificering och regressions
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-Tid det tar att köra över cellen: 14,6 sekunder
+Tids åtgång för att köra ovanför cell: 14,6 sekunder
 
-## <a name="clean-up-objects-from-memory-and-print-scored-file-locations"></a>Rensa objekt från minnet och skriva ut poängsatta filplatser
+## <a name="clean-up-objects-from-memory-and-print-scored-file-locations"></a>Rensa objekt från minnes-och utskrifts platser med Poäng
     # UNPERSIST OBJECTS CACHED IN MEMORY
     taxi_df_test_cleaned.unpersist()
     indexedTESTbinary.unpersist();
@@ -509,47 +509,47 @@ Tid det tar att köra över cellen: 14,6 sekunder
     print "BoostedTreeRegressionFileLoc: " + btregressionfilename;
 
 
-**Produktionen:**
+**UTDATAPARAMETRAR**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22_38.953814.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05 -0317_22_ 38.953814. txt
 
-linjärRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22_58.878949
+linearRegFileLoc: LinearRegressionWithSGD_2016 05 -0317 _22_ 58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23_15.939247.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-05 -0317_23_ 15.939247. txt
 
-randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23_31.459140.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05 -0317_23_ 31.459140. txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23_49.648334.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05 -0317_23_ 49.648334. txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05 -0317_23_ 56.860740. txt
 
-## <a name="consume-spark-models-through-a-web-interface"></a>Förbruka Spark-modeller via ett webbgränssnitt
-Spark tillhandahåller en mekanism för att fjärrse skicka batchjobb eller interaktiva frågor via ett REST-gränssnitt med en komponent som heter Livy. Livy är aktiverat som standard i ditt HDInsight Spark-kluster. Mer information om Livy finns i: [Skicka Spark-jobb på distans med Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+## <a name="consume-spark-models-through-a-web-interface"></a>Använda Spark-modeller via ett webb gränssnitt
+Spark tillhandahåller en mekanism för att fjärrskicka batchjobb eller interaktiva frågor via ett REST-gränssnitt med en komponent som heter livy. Livy är aktiverat som standard i ditt HDInsight Spark-kluster. Mer information om livy finns i: [Skicka Spark-jobb via fjärr anslutning med livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
-Du kan använda Livy för att fjärrsända ett jobb som batchpoängar en fil som lagras i en Azure-blob och sedan skriver resultaten till en annan blob. För att göra detta laddar du upp Python-skriptet från  
-[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) till bloben för Spark-klustret. Du kan använda ett verktyg som **Microsoft Azure Storage Explorer** eller **AzCopy** för att kopiera skriptet till klusterbloben. I vårt fall laddade vi upp skriptet till ***wasb:///example/python/ConsumeGBNYCReg.py***.   
+Du kan använda livy för att skicka ett jobb som batchen skickar en fil som lagras i en Azure-blob och sedan skriver resultatet till en annan blob. Det gör du genom att överföra python-skriptet från  
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) till bloben för Spark-klustret. Du kan använda ett verktyg som **Microsoft Azure Storage Explorer** eller **AzCopy** för att kopiera skriptet till kluster-bloben. I vårt fall överförde vi skriptet till ***wasb:///example/python/ConsumeGBNYCReg.py***.   
 
 > [!NOTE]
-> De åtkomstnycklar som du behöver finns på portalen för lagringskontot som är associerat med Spark-klustret. 
+> De åtkomst nycklar som du behöver finns på portalen för det lagrings konto som är kopplat till Spark-klustret. 
 > 
 > 
 
-När det här skriptet har överförts till den här platsen körs det i Spark-klustret i en distribuerad kontext. Den laddar modellen och kör förutsägelser på indatafiler baserat på modellen.  
+När det här skriptet har laddats upp till den här platsen körs det i Spark-klustret i en distribuerad kontext. Den läser in modellen och kör förutsägelser på indatafiler baserat på modellen.  
 
-Du kan anropa skriptet på distans genom att göra en enkel HTTPS/REST-begäran på Livy.  Här är ett curl-kommando för att konstruera HTTP-begäran om att anropa Python-skriptet på distans. Ersätt CLUSTERLOGIN, CLUSTERPASSWORD, CLUSTERNAME med lämpliga värden för Spark-klustret.
+Du kan anropa det här skriptet via fjärr anslutning genom att göra en enkel HTTPS/REST-begäran på livy.  Här är ett spiral kommando för att skapa HTTP-begäran för att anropa python-skriptet via fjärr anslutning. Ersätt CLUSTERLOGIN, CLUSTERPASSWORD, kluster namn med lämpliga värden för ditt Spark-kluster.
 
     # CURL COMMAND TO INVOKE PYTHON SCRIPT WITH HTTP REQUEST
 
     curl -k --user "CLUSTERLOGIN:CLUSTERPASSWORD" -X POST --data "{\"file\": \"wasb:///example/python/ConsumeGBNYCReg.py\"}" -H "Content-Type: application/json" https://CLUSTERNAME.azurehdinsight.net/livy/batches
 
-Du kan använda vilket språk som helst på fjärrsystemet för att anropa Spark-jobbet via Livy genom att ringa ett enkelt HTTPS-samtal med grundläggande autentisering.   
+Du kan använda valfritt språk på fjärrdatorn för att anropa Spark-jobbet via livy genom att göra ett enkelt HTTPS-anrop med grundläggande autentisering.   
 
 > [!NOTE]
-> Det skulle vara praktiskt att använda Python Requests-biblioteket när du ringer det här HTTP-anropet, men det är för närvarande inte installerat som standard i Azure Functions. Så äldre HTTP-bibliotek används i stället.   
+> Det är praktiskt att använda python-begärandena-biblioteket när du gör detta HTTP-anrop, men det är för närvarande inte installerat som standard i Azure Functions. Därför används äldre HTTP-bibliotek i stället.   
 > 
 > 
 
-Här är Python-koden för HTTP-anropet:
+Här är python-koden för HTTP-anropet:
 
     #MAKE AN HTTPS CALL ON LIVY. 
 
@@ -576,16 +576,16 @@ Här är Python-koden för HTTP-anropet:
     conn.close()
 
 
-Du kan också lägga till den här Python-koden i [Azure Functions](https://azure.microsoft.com/documentation/services/functions/) för att utlösa en Spark-jobböverföring som får en blob baserat på olika händelser som en timer, skapande eller uppdatering av en blob. 
+Du kan också lägga till den här python-koden till [Azure Functions](https://azure.microsoft.com/documentation/services/functions/) för att utlösa ett Spark-jobb som tar en BLOB baserat på olika händelser som en timer, skapande eller uppdatering av en blob. 
 
-Om du föredrar en kodfri klientupplevelse använder du [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) för att anropa Spark-batchbedömningen genom att definiera en HTTP-åtgärd på Logic Apps **Designer** och ange dess parametrar. 
+Om du föredrar en kod kostnads fri klient upplevelse använder du [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) för att anropa Spark-batch-poängen genom att definiera en HTTP-åtgärd i **Logic Apps designer** och ange dess parametrar. 
 
-* Skapa en ny Logikapp från Azure-portalen genom att välja **+Ny** -> **webb + Mobile** -> **Logic App**. 
-* Om du vill visa **Logic Apps Designer**anger du namnet på Logic App och App Service Plan.
-* Välj en HTTP-åtgärd och ange de parametrar som visas i följande bild:
+* Skapa en ny Logic-app från Azure Portal genom att välja **+ ny** -> **webb och mobilt** -> **Logic app**. 
+* För att öppna **Logic Apps designer**, ange namnet på Logic App och App Service plan.
+* Välj en HTTP-åtgärd och ange de parametrar som visas i följande figur:
 
 ![Logikappdesigner](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Nästa steg
-**Korsvalidering och hyperparametersvepning:** Se [Avancerad datautforskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med korsvalidering och hyperparametersvepning.
+**Cross-Validation och Cross-parameter svep**: se [Avancerad data granskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med kors validering och rensning av Hyper-parameter.
 

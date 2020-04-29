@@ -1,19 +1,19 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh kod-paket-logg
-description: Lär dig mer om sfctl, kommandoradsgränssnittet i Azure Service Fabric. Innehåller en lista över kommandon för att hämta loggar för ett angivet kodpaket.
+title: Azure Service Fabric CLI – sfctl-nätkod – paket-logg
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hämta loggar för ett angivet kod paket.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f8665e75e4c921a3305c9965601e2ee0825c8995
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906044"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
-Hämta loggarna för behållaren för det angivna kodpaketet för den angivna tjänstrepliken.
+Hämta loggarna för behållaren för det angivna kod paketet för den angivna tjänst repliken.
 
 ## <a name="commands"></a>Kommandon
 
@@ -21,32 +21,32 @@ Hämta loggarna för behållaren för det angivna kodpaketet för den angivna tj
 | --- | --- |
 | get | Hämtar loggarna från behållaren. |
 
-## <a name="sfctl-mesh-code-package-log-get"></a>sfctl mesh kod-paket-logg få
+## <a name="sfctl-mesh-code-package-log-get"></a>sfctl-nätkod-paket-logg hämtning
 Hämtar loggarna från behållaren.
 
-Hämtar loggarna för behållaren för det angivna kodpaketet för tjänstrepliken.
+Hämtar loggarna för behållaren för det angivna kod paketet för tjänst repliken.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --app-name --application-name [Obligatoriskt] | Namnet på programmet. |
-| --kod-paket-namn [Obligatoriskt] | Namnet på tjänstens kodpaket. |
-| --repliknamn [Obligatoriskt] | Repliknamn för Service Fabric. |
-| --service-name [Obligatoriskt] | Namnet på tjänsten. |
-| --svans | Antal rader som ska visas från slutet av loggarna. Standard är 100. "alla" för att visa hela loggarna. |
+| --App-Name--program-Name [required] | Namnet på programmet. |
+| --kod-paket namn [obligatoriskt] | Namn på tjänstens kod paket. |
+| --replik-Name [required] | Service Fabric replikens namn. |
+| --tjänst namn [obligatoriskt] | Namnet på tjänsten. |
+| --pilslut | Antal rader som ska visas från slutet av loggarna. Standardvärdet är 100. all för att visa fullständiga loggar. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
-| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
-| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
-| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
-| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Ställ in](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempelskripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

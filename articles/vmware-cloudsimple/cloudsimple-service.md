@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning från CloudSimple - Tjänst
-description: Ger en översikt över CloudSimple-tjänsten och koncepten.
+title: Azure VMware-lösning per CloudSimple-tjänst
+description: Innehåller en översikt över CloudSimple-tjänster och-koncept.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -9,19 +9,19 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d128a248c2e6e1e2e35e3b633975ba081e77f028
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024967"
 ---
-# <a name="cloudsimple-service-overview"></a>CloudSimple-tjänstöversikt
+# <a name="cloudsimple-service-overview"></a>Översikt över CloudSimple-tjänsten
 
-Med CloudSimple-tjänsten kan du använda Azure VMware-lösning från CloudSimple.  Genom att skapa tjänsten kan du köpa noder, reservera noder och skapa privata moln.  Du skapar CloudSimple-tjänsten i varje Azure-region där CloudSimple-tjänsten är tillgänglig. Tjänsten definierar edge-nätverket för Azure VMware-lösning av CloudSimple. Edge-nätverket stöder tjänster som inkluderar VPN, ExpressRoute och internetanslutning till dina privata moln.
+Med CloudSimple-tjänsten kan du använda Azure VMware-lösningen från CloudSimple.  Genom att skapa tjänsten kan du köpa noder, reservera noder och skapa privata moln.  Du skapar CloudSimple-tjänsten i varje Azure-region där CloudSimple-tjänsten är tillgänglig. Tjänsten definierar Edge-nätverket för Azure VMware-lösningen från CloudSimple. Edge-nätverket stöder tjänster som omfattar VPN, ExpressRoute och Internet anslutning till dina privata moln.
 
 ## <a name="gateway-subnet"></a>Gateway-undernät 
 
-Ett gateway-undernät krävs per CloudSimple-tjänst och är unikt för den region där den skapas. Gateway-undernätet används när edge-nätverket skapas och kräver ett /28 CIDR-block.  Gateway-undernätsadressutrymmet måste vara unikt. Den får inte överlappa med något nätverk som kommunicerar med CloudSimple-miljön. De nätverk som kommunicerar med CloudSimple inkluderar lokala nätverk och virtuella Azure-nätverk.  Det går inte att ta bort ett gateway-undernät när det har skapats.  Gateway-undernätet tas bort när tjänsten tas bort.
+Ett Gateway-undernät krävs per CloudSimple-tjänst och är unikt för den region där det skapats. Gateway-undernätet används när du skapar Edge-nätverket och kräver ett/28 CIDR-block.  Adress utrymmet för Gateway-under nätet måste vara unikt. Det får inte överlappa något nätverk som kommunicerar med CloudSimple-miljön. De nätverk som kommunicerar med CloudSimple inkluderar lokala nätverk och Azure Virtual Network.  Det går inte att ta bort ett Gateway-undernät när det har skapats.  Gateway-undernätet tas bort när tjänsten tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

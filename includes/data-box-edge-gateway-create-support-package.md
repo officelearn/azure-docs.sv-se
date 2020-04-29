@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187802"
 ---
-Om du upplever några enhetsproblem kan du skapa ett supportpaket från systemloggarna. Microsoft Support använder det här paketet för att felsöka problemen. Så här skapar du ett supportpaket:
+Om du får problem med enheten kan du skapa ett support paket från system loggarna. Microsoft Support använder det här paketet för att felsöka problemen. Följ de här stegen för att skapa ett support paket:
 
-1. [Anslut till Enhetens PowerShell-gränssnitt](#connect-to-the-powershell-interface).
-2. Använd `Get-HcsNodeSupportPackage` kommandot för att skapa ett supportpaket. Användningen av cmdlet är följande:
+1. [Anslut till PowerShell-gränssnittet på enheten](#connect-to-the-powershell-interface).
+2. Använd `Get-HcsNodeSupportPackage` kommandot för att skapa ett support paket. Användningen av cmdleten är följande:
 
     ```powershell
     Get-HcsNodeSupportPackage [-Path] <string> [-Zip] [-ZipFileName <string>] [-Include {None | RegistryKeys | EtwLogs
@@ -27,15 +27,15 @@ Om du upplever några enhetsproblem kan du skapa ett supportpaket från systemlo
             [-IncludeArchived] [-IncludePeriodicStats] [-Credential <pscredential>]  [<CommonParameters>]
     ```
 
-    Cmdlet samlar in loggar från enheten och kopierar loggarna till ett angivet nätverk eller lokal resurs.
+    Cmdlet: en samlar in loggar från enheten och kopierar dessa loggar till ett angivet nätverk eller en lokal resurs.
 
     De parametrar som används är följande:
 
-    - `-Path`- Ange nätverket eller den lokala sökvägen som supportpaketet ska kopieras till. (krävs)
-    - `-Credential`- Ange autentiseringsuppgifter för att komma åt den skyddade sökvägen.
-    - `-Zip`- Ange att generera en zip-fil.
-    - `-Include`- Ange att de komponenter som ska ingå i supportpaketet ska ingå. Om inte anges, `Default` antas.
-    - `-IncludeArchived`- Ange att inkludera arkiverade loggar i supportpaketet.
-    - `-IncludePeriodicStats`- Ange att inkludera periodiska stat loggar i supportpaketet.
+    - `-Path`-Ange nätverket eller den lokala sökvägen för att kopiera support paketet till. kunna
+    - `-Credential`– Ange autentiseringsuppgifterna för att få åtkomst till den skyddade sökvägen.
+    - `-Zip`-Ange om du vill generera en zip-fil.
+    - `-Include`-Ange om du vill inkludera de komponenter som ska ingå i support paketet. Om inget anges antas `Default` detta.
+    - `-IncludeArchived`-Ange om du vill inkludera arkiverade loggar i support paketet.
+    - `-IncludePeriodicStats`-Ange om du vill inkludera periodiska stat loggar i support paketet.
 
     

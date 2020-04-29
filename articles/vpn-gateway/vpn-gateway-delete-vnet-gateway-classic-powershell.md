@@ -1,6 +1,6 @@
 ---
-title: 'Ta bort en virtuell nätverksgateway: Azure classic'
-description: Ta bort en virtuell nätverksgateway med PowerShell i den klassiska distributionsmodellen.
+title: 'Ta bort en virtuell nätverksgateway: Azure Classic'
+description: Ta bort en virtuell nätverksgateway med PowerShell i den klassiska distributions modellen.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: e7283f5e28edc6f7beaad3a2743aa155f6ea6e14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77198657"
 ---
-# <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Ta bort en virtuell nätverksgateway med PowerShell (klassiskt)
+# <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Ta bort en virtuell nätverksgateway med PowerShell (klassisk)
 
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager – PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-> * [Klassiskt – PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+> * [Klassisk – PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
 
-Den här artikeln hjälper dig att ta bort en VPN-gateway i den klassiska distributionsmodellen med hjälp av PowerShell. När den virtuella nätverksgatewayen har tagits bort ändrar du nätverkskonfigurationsfilen för att ta bort element som du inte längre använder.
+Den här artikeln hjälper dig att ta bort en VPN-gateway i den klassiska distributions modellen med hjälp av PowerShell. När den virtuella Nätverksgatewayen har tagits bort ändrar du nätverks konfigurations filen för att ta bort element som du inte längre använder.
 
-## <a name="step-1-connect-to-azure"></a><a name="connect"></a>Steg 1: Ansluta till Azure
+## <a name="step-1-connect-to-azure"></a><a name="connect"></a>Steg 1: Anslut till Azure
 
-### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Installera de senaste PowerShell-cmdlets.
+### <a name="1-install-the-latest-powershell-cmdlets"></a>1. installera de senaste PowerShell-cmdletarna.
 
 [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -35,7 +35,7 @@ Den här artikeln hjälper dig att ta bort en VPN-gateway i den klassiska distri
 
 Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto. Använd följande exempel för att ansluta:
 
-1. Öppna PowerShell-konsolen med förhöjda rättigheter. Om du vill växla till tjänsthantering använder du det här kommandot:
+1. Öppna PowerShell-konsolen med utökade rättigheter. Använd följande kommando för att växla till Service Management:
 
    ```powershell
    azure config mode asm
@@ -46,9 +46,9 @@ Den här artikeln hjälper dig att ta bort en VPN-gateway i den klassiska distri
    Add-AzureAccount
    ```
 
-## <a name="step-2-export-and-view-the-network-configuration-file"></a><a name="export"></a>Steg 2: Exportera och visa nätverkskonfigurationsfilen
+## <a name="step-2-export-and-view-the-network-configuration-file"></a><a name="export"></a>Steg 2: exportera och Visa nätverks konfigurations filen
 
-Skapa en katalog på datorn och exportera sedan nätverkskonfigurationsfilen till katalogen. Du använder den här filen för att både visa aktuell konfigurationsinformation och även för att ändra nätverkskonfigurationen.
+Skapa en katalog på datorn och exportera sedan nätverkskonfigurationsfilen till katalogen. Du kan använda den här filen för att visa den aktuella konfigurations informationen och även ändra nätverks konfigurationen.
 
 I det här exemplet exporteras nätverkskonfigurationsfilen till C:\AzureNet.
 
@@ -56,31 +56,31 @@ I det här exemplet exporteras nätverkskonfigurationsfilen till C:\AzureNet.
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Öppna filen med en textredigerare och visa namnet på ditt klassiska virtuella nätverk. När du skapar ett virtuella nätverk i Azure-portalen visas inte det fullständiga namnet som Azure använder i portalen. Ett virtuella nätverk som verkar heta "ClassicVNet1" i Azure-portalen kan till exempel ha ett mycket längre namn i nätverkskonfigurationsfilen. Namnet kan se ut ungefär som: "Group ClassicRG1 ClassicVNet1". Virtuella nätverksnamn listas som **"VirtualNetworkSite name ='**. Använd namnen i nätverkskonfigurationsfilen när du kör dina PowerShell-cmdlets.
+Öppna filen med en text redigerare och visa namnet på det klassiska VNet. När du skapar ett VNet i Azure Portal, visas inte det fullständiga namnet som används i Azure i portalen. Ett VNet som till exempel verkar ha namnet "ClassicVNet1" i Azure Portal kan ha ett mycket längre namn i nätverks konfigurations filen. Namnet kan se ut ungefär så här: "Group ClassicRG1 ClassicVNet1". Virtuella nätverks namn anges som **"VirtualNetworkSite Name ="**. Använd namnen i nätverks konfigurations filen när du kör dina PowerShell-cmdlets.
 
-## <a name="step-3-delete-the-virtual-network-gateway"></a><a name="delete"></a>Steg 3: Ta bort den virtuella nätverksgatewayen
+## <a name="step-3-delete-the-virtual-network-gateway"></a><a name="delete"></a>Steg 3: ta bort den virtuella Nätverksgatewayen
 
-När du tar bort en virtuell nätverksgateway kopplas alla anslutningar till det virtuella nätverket via gatewayen från. Om du har P2S-klienter anslutna till det virtuella nätverket kopplas de bort utan förvarning.
+När du tar bort en virtuell nätverksgateway frånkopplas alla anslutningar till det virtuella nätverket via gatewayen. Om du har P2S-klienter som är anslutna till det virtuella nätverket kommer de att frånkopplas utan varning.
 
-I det här exemplet tas den virtuella nätverksgatewayen bort. Se till att använda det fullständiga namnet på det virtuella nätverket från nätverkskonfigurationsfilen.
+Det här exemplet tar bort den virtuella Nätverksgatewayen. Se till att använda det fullständiga namnet på det virtuella nätverket från nätverks konfigurations filen.
 
 ```powershell
 Remove-AzureVNetGateway -VNetName "Group ClassicRG1 ClassicVNet1"
 ```
 
-Om det lyckas visar returen:
+Om det lyckas visas RETUR:
 
 ```
 Status : Successful
 ```
 
-## <a name="step-4-modify-the-network-configuration-file"></a><a name="modify"></a>Steg 4: Ändra nätverkskonfigurationsfilen
+## <a name="step-4-modify-the-network-configuration-file"></a><a name="modify"></a>Steg 4: ändra nätverks konfigurations filen
 
-När du tar bort en virtuell nätverksgateway ändrar cmdleten inte nätverkskonfigurationsfilen. Du måste ändra filen för att ta bort de element som inte längre används. Följande avsnitt hjälper dig att ändra nätverkskonfigurationsfilen som du hämtade.
+När du tar bort en virtuell nätverksgateway, ändrar cmdleten inte nätverks konfigurations filen. Du måste ändra filen för att ta bort de element som inte längre används. Följande avsnitt hjälper dig att ändra nätverks konfigurations filen som du laddade ned.
 
-### <a name="local-network-site-references"></a><a name="lnsref"></a>Referenser till lokala nätverkswebbplatser
+### <a name="local-network-site-references"></a><a name="lnsref"></a>Referenser till lokala nätverks platser
 
-Om du vill ta bort platsreferensinformation gör du **konfigurationsändringar i ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Om du tar bort en lokal platsreferens utlöses Azure för att ta bort en tunnel. Beroende på vilken konfiguration du har skapat kanske du inte har en **LocalNetworkSiteRef** i listan.
+Om du vill ta bort referens information för webbplatsen gör du konfigurations ändringar i **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Att ta bort en lokal plats referens utlöser Azure för att ta bort en tunnel. Beroende på vilken konfiguration du har skapat kanske du inte har någon **LocalNetworkSiteRef** angiven.
 
 ```
 <Gateway>
@@ -101,9 +101,9 @@ Exempel:
  </Gateway>
 ```
 
-### <a name="local-network-sites"></a><a name="lns"></a>Lokala nätverkswebbplatser
+### <a name="local-network-sites"></a><a name="lns"></a>Lokala nätverks platser
 
-Ta bort alla lokala webbplatser som du inte längre använder. Beroende på vilken konfiguration du har skapat är det möjligt att du inte har en **LocalNetworkSite** i listan.
+Ta bort alla lokala platser som du inte längre använder. Beroende på vilken konfiguration du har skapat, är det möjligt att du inte har en **LocalNetworkSite** listad.
 
 ```
 <LocalNetworkSites>
@@ -135,9 +135,9 @@ I det här exemplet har vi bara tagit bort Site3.
  </LocalNetworkSites>
 ```
 
-### <a name="client-addresspool"></a><a name="clientaddresss"></a>Klientadresspool
+### <a name="client-addresspool"></a><a name="clientaddresss"></a>Klientadresspool för klient
 
-Om du hade en P2S-anslutning till ditt virtuella nätverk har du en **VPNClientAddressPool**. Ta bort klientadresspoolerna som motsvarar den virtuella nätverksgateway som du har tagit bort.
+Om du har en P2S-anslutning till ditt VNet kommer du att ha en **VPNClientAddressPool**. Ta bort de klient adress grupper som motsvarar den virtuella Nätverksgatewayen som du har tagit bort.
 
 ```
 <Gateway>
@@ -181,15 +181,15 @@ Exempel:
  </Subnets>
 ```
 
-## <a name="step-5-upload-the-network-configuration-file"></a><a name="upload"></a>Steg 5: Ladda upp nätverkskonfigurationsfilen
+## <a name="step-5-upload-the-network-configuration-file"></a><a name="upload"></a>Steg 5: Ladda upp nätverks konfigurations filen
 
-Spara ändringarna och ladda upp nätverkskonfigurationsfilen till Azure. Se till att du ändrar sökvägen efter behov för din miljö.
+Spara ändringarna och överför nätverks konfigurations filen till Azure. Se till att du ändrar fil Sök vägen efter behov för din miljö.
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
 ```
 
-Om det lyckas visar returen något som liknar det här exemplet:
+Om det lyckas, visar returen något som liknar det här exemplet:
 
 ```
 OperationDescription        OperationId                      OperationStatus                                                

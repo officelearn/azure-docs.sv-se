@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning från CloudSimple - Tilldela offentliga IP-adresser
-description: Beskriver hur du allokerar offentliga IP-adresser för virtuella datorer i private cloud-miljön
+title: Azure VMware-lösning av CloudSimple-allokerade offentliga IP-adresser
+description: Beskriver hur du allokerar offentliga IP-adresser för virtuella datorer i den privata moln miljön
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -9,29 +9,29 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024304"
 ---
-# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Allokera offentliga IP-adresser för private cloud-miljö
+# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Allokera offentliga IP-adresser för privat moln miljö
 
-Öppna fliken Offentliga IP-adresser på sidan Nätverk om du vill allokera offentliga IP-adresser för virtuella datorer i din privata molnmiljö.
+Öppna fliken offentliga IP-adresser på sidan nätverk för att allokera offentliga IP-adresser för virtuella datorer i din privata moln miljö.
 
-1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md) och välj **Nätverk** på sidomenyn.
-2. Välj **Offentliga IPs**.
-3. Klicka på **Ny offentlig IP**.
+1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
+2. Välj **offentliga IP-adresser**.
+3. Klicka på **ny offentlig IP-adress**.
 
-    ![Offentlig sida av IPs](media/public-ips-page.png)
+    ![Sidan offentliga IP-adresser](media/public-ips-page.png)
 
-4. Ange ett namn för att identifiera IP-adressposten.
-5. Behåll standardplatsen.
-6. Använd skjutreglaget för att ändra tidsgränsen för inaktiv tid om det behövs.
+4. Ange ett namn för att identifiera IP-adress posten.
+5. Behåll standard platsen.
+6. Använd skjutreglaget för att ändra tids gränsen för inaktivitet, om det behövs.
 7. Ange den lokala IP-adress som du vill tilldela en offentlig IP-adress för.
 8. Ange ett associerat DNS-namn.
 9. Klicka på **Skicka**.
 
-![Tilldela offentliga IPs](media/network-public-ip-allocate.png)
+![Allokera offentliga IP-adresser](media/network-public-ip-allocate.png)
 
-Uppgiften att allokera den offentliga IP-adressen börjar. Du kan kontrollera status för aktiviteten på sidan **Aktivitet > Aktiviteter.** När allokeringen är klar visas den nya transaktionen på sidan Offentliga IPs.
+Uppgiften att allokera den offentliga IP-adressen börjar. Du kan kontrol lera status för aktiviteten på sidan **aktiviteter > uppgifter** . När allokeringen är klar visas den nya posten på sidan offentliga IP-adresser.

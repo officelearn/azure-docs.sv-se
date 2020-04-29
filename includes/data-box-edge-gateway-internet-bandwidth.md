@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187791"
 ---
-Enheterna är utformade för att fortsätta att fungera när internetanslutningen är långsam eller avbryts. Under normala driftsförhållanden rekommenderar vi att du använder: 
+Enheterna är utformade för att fortsätta att arbeta när Internet anslutningen är långsam eller avbryts. I normala drift villkor rekommenderar vi att du använder: 
 
-- Minst 10 Mbit/s hämtar bandbredd för att säkerställa att enheten förblir uppdaterad.
-- Minst 20 Mbit/s dedikerad uppladdning och nedladdning av bandbredd för att överföra filer.
+- Minst 10 Mbit/s Ladda ned bandbredd för att se till att enheten förblir uppdaterad.
+- Minst 20 Mbit/s dedikerad överföring och nedladdning av bandbredd för överföring av filer.
 

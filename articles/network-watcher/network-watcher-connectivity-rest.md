@@ -1,7 +1,7 @@
 ---
-title: Felsöka anslutningar - Azure REST API
+title: Felsöka anslutningar – Azure REST API
 titleSuffix: Azure Network Watcher
-description: Lär dig hur du använder funktionen för anslutningsfelsökning i Azure Network Watcher med Hjälp av Azure REST API.
+description: Lär dig hur du använder anslutningen fel söknings funktion i Azure Network Watcher med Azure-REST API.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,35 +13,35 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
 ms.openlocfilehash: f1d4b02731f9e0f22fb1eaba03e55e49f84cd87a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76845092"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Felsöka anslutningar med Azure Network Watcher med Azure REST API
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Felsöka anslutningar med Azure Network Watcher med Azure-REST API
 
 > [!div class="op_single_selector"]
-> - [Portal](network-watcher-connectivity-portal.md)
-> - [Powershell](network-watcher-connectivity-powershell.md)
+> - [Portalen](network-watcher-connectivity-portal.md)
+> - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [REST-API för Azure](network-watcher-connectivity-rest.md)
 
-Lär dig hur du använder felsöka anslutningar för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
+Lär dig hur du använder anslutnings fel sökning för att kontrol lera om en direkt TCP-anslutning från en virtuell dator till en specifik slut punkt kan upprättas.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har följande resurser:
 
-* En instans av Network Watcher i den region som du vill felsöka en anslutning.
-* Virtuella datorer att felsöka anslutningar med.
+* En instans av Network Watcher i den region där du vill felsöka en anslutning.
+* Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Felsöka anslutningar kräver att den virtuella `AzureNetworkWatcherExtension` datorn som du felsöker från har vm-tillägget installerat. För att installera tillägget på en Windows VM besök [Azure Network Watcher Agent virtuell dator tillägg för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för Linux VM besök Azure Network [Watcher Agent virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på målslutpunkten.
+> Fel sökning av anslutning kräver att den virtuella datorn som du `AzureNetworkWatcherExtension` felsöker från har VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
 
 ## <a name="log-in-with-armclient"></a>Logga in med ARMClient
 
-Logga in för att armkla ientera dina Azure-autentiseringsuppgifter.
+Logga in på armclient med dina Azure-autentiseringsuppgifter.
 
 ```powershell
 armclient login
@@ -53,8 +53,8 @@ Kör följande skript för att returnera en virtuell dator. Den här information
 
 Följande kod behöver värden för följande variabler:
 
-- **subscriptionId** - Prenumerations-ID som ska användas.
-- **resourceGroupName** - Namnet på en resursgrupp som innehåller virtuella datorer.
+- **subscriptionId** – PRENUMERATIONS-ID som ska användas.
+- **resourceGroupName** – namnet på en resurs grupp som innehåller virtuella datorer.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -63,7 +63,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Från följande utdata används ID:t för den virtuella datorn i följande exempel:
+I följande utdata används ID: t för den virtuella datorn i följande exempel:
 
 ```json
 ...
@@ -78,9 +78,9 @@ Från följande utdata används ID:t för den virtuella datorn i följande exemp
 }
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrollera anslutningen till en virtuell dator
+## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrol lera anslutningen till en virtuell dator
 
-I det här exemplet kontrolleras anslutningen till en virtuell måldator över port 80.
+Det här exemplet kontrollerar anslutningen till en virtuell mål dator via port 80.
 
 ### <a name="example"></a>Exempel
 
@@ -107,11 +107,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Eftersom den här åtgärden är tidskrävande returneras URI för resultatet i svarshuvudet enligt följande svar:
+Eftersom den här åtgärden körs, returneras URI för resultatet i svars huvudet, vilket visas i följande svar:
 
 **Viktiga värden**
 
-* **Plats** - Den här egenskapen innehåller URI där resultaten är när åtgärden är klar
+* **Plats** – den här egenskapen innehåller URI: n där resultatet är när åtgärden har slutförts
 
 ```
 HTTP/1.1 202 Accepted
@@ -132,7 +132,7 @@ null
 
 ### <a name="response"></a>Svar
 
-Följande svar kommer från föregående exempel.  I det här `ConnectionStatus` svaret är det **inte kan nås**. Du kan se att alla skickade avsökningar misslyckades. Anslutningen misslyckades vid den virtuella installationen på grund `NetworkSecurityRule` av en användarkonfigurerad med namnet **UserRule_Port80**, konfigurerad för att blockera inkommande trafik på port 80. Denna information kan användas för att undersöka anslutningsproblem.
+Följande svar är från föregående exempel.  I det här svaret går `ConnectionStatus` det inte att **komma åt**. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen kunde inte utföras på den virtuella installationen på grund av en `NetworkSecurityRule` användardefinierad namngiven **UserRule_Port80**som kon figurer ATS för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
 
 ```json
 {
@@ -194,7 +194,7 @@ Följande svar kommer från föregående exempel.  I det här `ConnectionStatus`
 }
 ```
 
-## <a name="validate-routing-issues"></a>Verifiera routningsproblem
+## <a name="validate-routing-issues"></a>Verifiera problem med Routning
 
 Exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkt.
 
@@ -223,11 +223,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Eftersom den här åtgärden är tidskrävande returneras URI för resultatet i svarshuvudet enligt följande svar:
+Eftersom den här åtgärden körs, returneras URI för resultatet i svars huvudet, vilket visas i följande svar:
 
 **Viktiga värden**
 
-* **Plats** - Den här egenskapen innehåller URI där resultaten är när åtgärden är klar
+* **Plats** – den här egenskapen innehåller URI: n där resultatet är när åtgärden har slutförts
 
 ```
 HTTP/1.1 202 Accepted
@@ -248,7 +248,7 @@ null
 
 ### <a name="response"></a>Svar
 
-I följande exempel `connectionStatus` visas den som **kan inte nås**. I `hops` informationen kan du `issues` se under att trafiken `UserDefinedRoute`blockerades på grund av en .
+I följande exempel visas den `connectionStatus` som **oåtkomlig**. I `hops` informationen kan du se `issues` att trafiken blockerades på grund av en. `UserDefinedRoute`
 
 ```json
 {
@@ -290,9 +290,9 @@ I följande exempel `connectionStatus` visas den som **kan inte nås**. I `hops`
 }
 ```
 
-## <a name="check-website-latency"></a>Kontrollera svarstid för webbplatsen
+## <a name="check-website-latency"></a>Kontrol lera svars tid för webbplats
 
-I följande exempel kontrolleras anslutningen till en webbplats.
+I följande exempel kontrol leras anslutningen till en webbplats.
 
 ### <a name="example"></a>Exempel
 
@@ -319,11 +319,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Eftersom den här åtgärden är tidskrävande returneras URI för resultatet i svarshuvudet enligt följande svar:
+Eftersom den här åtgärden körs, returneras URI för resultatet i svars huvudet, vilket visas i följande svar:
 
 **Viktiga värden**
 
-* **Plats** - Den här egenskapen innehåller URI där resultaten är när åtgärden är klar
+* **Plats** – den här egenskapen innehåller URI: n där resultatet är när åtgärden har slutförts
 
 ```
 HTTP/1.1 202 Accepted
@@ -344,7 +344,7 @@ null
 
 ### <a name="response"></a>Svar
 
-I följande svar kan du `connectionStatus` se program som **Nåbara**. När en anslutning lyckas anges svarstidsvärden.
+I följande svar kan du se `connectionStatus` programmen som **tillgängliga**. När en anslutning lyckas, anges latens värden.
 
 ```json
 {
@@ -377,9 +377,9 @@ I följande svar kan du `connectionStatus` se program som **Nåbara**. När en a
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Kontrollera anslutningen till en lagringsslutpunkt
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Kontrol lera anslutningen till en lagrings slut punkt
 
-I följande exempel kontrolleras anslutningen från en virtuell dator till ett blogglagringskonto.
+I följande exempel kontrol leras anslutningen från en virtuell dator till ett blogg lagrings konto.
 
 ### <a name="example"></a>Exempel
 
@@ -406,11 +406,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Eftersom den här åtgärden är tidskrävande returneras URI för resultatet i svarshuvudet enligt följande svar:
+Eftersom den här åtgärden körs, returneras URI för resultatet i svars huvudet, vilket visas i följande svar:
 
 **Viktiga värden**
 
-* **Plats** - Den här egenskapen innehåller URI där resultaten är när åtgärden är klar
+* **Plats** – den här egenskapen innehåller URI: n där resultatet är när åtgärden har slutförts
 
 ```
 HTTP/1.1 202 Accepted
@@ -431,7 +431,7 @@ null
 
 ### <a name="response"></a>Svar
 
-Följande exempel är svaret från att köra det tidigare API-anropet. När kontrollen lyckas visas `connectionStatus` egenskapen som **nåbar**.  Du får information om hur många hopp som krävs för att nå lagringsblobben och svarstiden.
+I följande exempel är svaret på att köra det tidigare API-anropet. När kontrollen har slutförts visas `connectionStatus` egenskapen som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
 
 ```json
 {
@@ -466,6 +466,6 @@ Följande exempel är svaret från att köra det tidigare API-anropet. När kont
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du automatiserar paketinsamlingar med aviseringar för virtuella datorer genom att visa [Skapa en aviseringsutlöst paketfång fånga](network-watcher-alert-triggered-packet-capture.md).
+Lär dig hur du automatiserar paket fångster med aviseringar för virtuella datorer genom att visa [skapa en varning utlösd paket avbildning](network-watcher-alert-triggered-packet-capture.md).
 
-Ta reda på om viss trafik tillåts i eller från den virtuella datorn genom att besöka [Kontrollera IP-flödeskontroll](diagnose-vm-network-traffic-filtering-problem.md).
+Ta reda på om en viss trafik tillåts i eller från den virtuella datorn genom [att gå igenom kontrol lera IP-flöde verifiera](diagnose-vm-network-traffic-filtering-problem.md).

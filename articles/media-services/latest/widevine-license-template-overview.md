@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services v3 med Widevine-licensmall översikt
-description: Det här avsnittet innehåller en översikt över en Widevine-licensmall som används för att konfigurera Widevine-licenser.
+title: Översikt över Azure Media Services v3 med Widevine-licens mal len
+description: Det här avsnittet ger en översikt över en Widevine-licens mal len som används för att konfigurera Widevine-licenser.
 author: juliako
 manager: femila
 editor: ''
@@ -14,20 +14,20 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 94ce5e45a9a43e81020096ddc0a67429b286d9b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76705640"
 ---
-# <a name="media-services-v3-with-widevine-license-template-overview"></a>Media Services v3 med Widevine-licensmall översikt
+# <a name="media-services-v3-with-widevine-license-template-overview"></a>Översikt över Media Services v3 med Widevine-licens mal len
 
-Med Azure Media Services kan du kryptera ditt innehåll med **Google Widevine**. Media Services tillhandahåller också en tjänst för att leverera Widevine-licenser. Du kan använda Azure Media Services API:er för att konfigurera Widevine-licenser. När en spelare försöker spela upp ditt Widevine-skyddade innehåll skickas en begäran till licensleveranstjänsten för att få licensen. Om licenstjänsten godkänner begäran utfärdar tjänsten licensen. Den skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
+Med Azure Media Services kan du kryptera ditt innehåll med **Google Widevine**. Media Services tillhandahåller också en tjänst för att leverera Widevine-licenser. Du kan konfigurera Widevine-licenser med hjälp av API: er för Azure Media Services. När en spelare försöker spela upp ditt Widevinet innehåll skickas en begäran till licens leverans tjänsten för att erhålla licensen. Om licens tjänsten godkänner begäran utfärdar tjänsten licensen. Den skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
 
-En Widevine-licensbegäran formateras som ett JSON-meddelande.  
+En begäran om Widevine-licens formateras som ett JSON-meddelande.  
 
 >[!NOTE]
-> Du kan skapa ett tomt meddelande{}utan värden, bara " ." Sedan skapas en licensmall med standardvärden. Standardfunktionen fungerar i de flesta fall. Microsoft-baserade scenarier för licensleverans bör alltid använda standardinställningarna. Om du behöver ange värdena "provider" och "content_id" måste en provider matcha Widevine-autentiseringsuppgifter.
+> Du kan skapa ett tomt meddelande utan värden, bara "{}." Sedan skapas en licens mal len med standardinställningar. Standard fungerar i de flesta fall. Microsoft-baserade licens leverans scenarier bör alltid använda standardvärdena. Om du behöver ställa in värdena "Provider" och "content_id" måste en provider matcha Widevine-autentiseringsuppgifter.
 
     {  
        "payload":"<license challenge>",
@@ -60,63 +60,63 @@ En Widevine-licensbegäran formateras som ett JSON-meddelande.
 
 ## <a name="json-message"></a>JSON-meddelande
 
-| Namn | Värde | Beskrivning |
+| Name | Värde | Beskrivning |
 | --- | --- | --- |
-| payload |Base64-kodad sträng |Licensbegäran som skickas av en klient. |
-| content_id |Base64-kodad sträng |Identifieraren som används för att härleda nyckel-ID- och innehållsnyckeln för varje content_key_specs.track_type. |
-| Leverantör |sträng |Används för att slå upp innehållsnycklar och principer. Om Microsoft-nyckelleverans används för Widevine-licensleverans ignoreras den här parametern. |
-| policy_name |sträng |Namn på en tidigare registrerad princip. Valfri. |
-| allowed_track_types |Enum |SD_ONLY eller SD_HD. Styr vilka innehållsnycklar som ingår i en licens. |
-| content_key_specs |Matris med JSON-strukturer, se avsnittet "Innehållsnyckelspecifikationer".  |En finarekornig kontroll över vilka innehållsnycklar som ska returneras. Mer information finns i avsnittet "Specifikationer för innehållsnyckel". Det går bara att ange ett av allowed_track_types- och content_key_specs-värdena. |
-| use_policy_overrides_exclusively |Boolesk, sann eller falsk |Använd principattribut som anges av policy_overrides och utelämna alla tidigare lagrade principen. |
-| policy_overrides |JSON-struktur, se avsnittet "Princip åsidosättningar". |Principinställningar för den här licensen.  I händelse av att den här tillgången har en fördefinierad princip används dessa angivna värden. |
-| session_init |JSON-struktur, se avsnittet "Sessioninitualisering". |Valfria data skickas till licensen. |
-| parse_only |Boolesk, sann eller falsk |Licensbegäran tolkas, men ingen licens utfärdas. Värden från licensbegäran returneras dock i svaret. |
+| payload |Base64-kodad sträng |Den licens förfrågan som skickas av en klient. |
+| content_id |Base64-kodad sträng |Identifierare som används för att härleda nyckel-ID och innehålls nyckel för varje content_key_specs. track_type. |
+| CSP |sträng |Används för att söka efter innehålls nycklar och principer. Om Microsoft Key Delivery används för Widevine License Delivery ignoreras den här parametern. |
+| policy_name |sträng |Namnet på en tidigare registrerad princip. Valfritt. |
+| allowed_track_types |räkning |SD_ONLY eller SD_HD. Styr vilka innehålls nycklar som ingår i en licens. |
+| content_key_specs |Matrisen med JSON-strukturer finns i avsnittet "innehålls nyckel-specifikationer".  |En detaljerad kontroll som visar vilka innehålls nycklar som ska returneras. Mer information finns i avsnittet "innehålls nyckel specifikationer". Det går bara att ange ett av värdena allowed_track_types och content_key_specs. |
+| use_policy_overrides_exclusively |Booleskt värde, sant eller falskt |Använd de principmallar som anges av policy_overrides och utelämna alla tidigare lagrade principer. |
+| policy_overrides |JSON-strukturen finns i avsnittet "princip åsidosättningar". |Princip inställningar för den här licensen.  I händelse av att den här till gången har en fördefinierad princip används de angivna värdena. |
+| session_init |JSON-strukturen finns i avsnittet "session-initiering". |Valfria data överförs till licensen. |
+| parse_only |Booleskt värde, sant eller falskt |Begäran om licens tolkas, men ingen licens utfärdas. Värden från licens förfrågan returneras dock i svaret. |
 
-## <a name="content-key-specs"></a>Viktiga specifikationer för innehåll
-Om det finns en befintlig princip behöver du inte ange något av värdena i innehållsnyckelspecifikationen. Den befintliga principen som är associerad med det här innehållet används för att bestämma utdataskyddet, till exempel HDCP (High-bandwidth Digital Content Protection) och CGMS (Copy General Management System). Om en befintlig princip inte är registrerad hos Widevine-licensservern kan innehållsleverantören injicera värdena i licensbegäran.   
+## <a name="content-key-specs"></a>Specifikationer för innehålls nyckel
+Om det finns en befintlig princip behöver du inte ange något av värdena i innehålls nyckel specifikationen. Den befintliga principen som är associerad med det här innehållet används för att fastställa utmatnings skyddet, t. ex. digitala Content Protection med hög bandbredd (HDCP) och kopiering av General Management system (CGMS). Om en befintlig princip inte är registrerad med Widevine-licensserver, kan innehålls leverantören mata in värdena i licens förfrågan.   
 
-Varje content_key_specs värde måste anges för alla spår, oavsett use_policy_overrides_exclusively alternativet. 
+Varje content_key_specs värde måste anges för alla spår, oavsett alternativet use_policy_overrides_exclusively. 
 
-| Namn | Värde | Beskrivning |
+| Name | Värde | Beskrivning |
 | --- | --- | --- |
-| content_key_specs. track_type |sträng |Ett namn på spårtyp. Om content_key_specs anges i licensbegäran måste du uttryckligen ange alla spårtyper. Underlåtenhet att göra detta resulterar i underlåtenhet att spela upp senaste 10 sekunder. |
-| content_key_specs  <br/> security_level |uint32 (på andra) |Definierar klients robusthetskrav för uppspelning. <br/> - Programvarubaserad white-box-kryptografi krävs. <br/> - Programvarukryptografi och en fördunklad dekoder krävs. <br/> - Nyckelmaterial- och kryptografiåtgärderna måste utföras i en maskinvarustödd betrodd körningsmiljö. <br/> - Kryptografi och avkodning av innehåll måste utföras i en maskinvarustödd betrodd körningsmiljö.  <br/> - Kryptografi, avkodning och all hantering av mediet (komprimerad och okomprimerad) måste hanteras i en maskinvarustödd betrodd körningsmiljö. |
-| content_key_specs <br/> required_output_protection.hdc |sträng, en av HDCP_NONE, HDCP_V1, HDCP_V2 |Anger om HDCP krävs. |
-| content_key_specs <br/>key |Base64-<br/>kodad sträng |Innehållsnyckel som ska användas för det här spåret. Om det anges krävs track_type eller key_id. Innehållsleverantören kan använda det här alternativet för att injicera innehållsnyckeln för det här spåret i stället för att låta Widevine-licensservern generera eller slå upp en nyckel. |
-| content_key_specs.key_id |Base64-kodad sträng binär, 16 byte |Unik identifierare för nyckeln. |
+| content_key_specs. track_type |sträng |Ett namn på spår typ. Om content_key_specs anges i licens förfrågan, se till att ange alla spår typer explicit. Det gick inte att spela upp det senaste 10 sekunderna. |
+| content_key_specs  <br/> security_level |UInt32 |Definierar stabilitets kraven för klienten för uppspelning. <br/> -Programvarubaserad kryptografisk kryptering krävs. <br/> – Program kryptering och en fördunklade-avkodare krävs. <br/> -Nyckel materialet och kryptografi åtgärderna måste utföras inom en maskinvarubaserad miljö med en maskin varu återställning. <br/> -Kryptering och avkodning av innehåll måste utföras inom en maskinvarubaserad miljö med en maskin varu återställning.  <br/> – Kryptering, avkodning och all hantering av mediet (komprimerade och okomprimerade) måste hanteras i en maskin varu hanterare som är en betrodd körnings miljö. |
+| content_key_specs <br/> required_output_protection. HDC |sträng, en av HDCP_NONE HDCP_V1, HDCP_V2 |Anger om HDCP krävs. |
+| content_key_specs <br/>key |Base64<br/>kodad sträng |Innehålls nyckel som ska användas för den här spårningen. Om det här alternativet anges måste track_type eller key_id. Innehålls leverantören kan använda det här alternativet för att mata in innehålls nyckeln för det här spåret i stället för att låta Widevine-licensservern generera eller slå upp en nyckel. |
+| content_key_specs. key_id |Base64-kodad sträng binär, 16 byte |Unik identifierare för nyckeln. |
 
 ## <a name="policy-overrides"></a>Princip åsidosättningar
-| Namn | Värde | Beskrivning |
+| Name | Värde | Beskrivning |
 | --- | --- | --- |
-| policy_overrides&#46;can_play |Boolesk, sann eller falsk |Anger att uppspelning av innehållet är tillåtet. Standardvärdet är false. |
-| policy_overrides&#46;can_persist |Boolesk, sann eller falsk |Anger att licensen kan sparas i icke-flyktig lagring för offlineanvändning. Standardvärdet är false. |
-| policy_overrides&#46;can_renew |Boolesk, sann eller falsk |Anger att förnyelse av den här licensen är tillåten. Om värdet är true kan licensens varaktighet förlängas med pulsslag. Standardvärdet är false. |
-| policy_overrides&#46;license_duration_seconds |int64 (int64) |Anger tidsfönstret för den här specifika licensen. Värdet 0 anger att det inte finns någon gräns för varaktigheten. Standard är 0. |
-| policy_overrides&#46;rental_duration_seconds |int64 (int64) |Anger tidsfönstret medan uppspelning är tillåten. Värdet 0 anger att det inte finns någon gräns för varaktigheten. Standard är 0. |
-| policy_overrides&#46;playback_duration_seconds |int64 (int64) |Visningsfönstret efter uppspelningen startar inom licensens varaktighet. Värdet 0 anger att det inte finns någon gräns för varaktigheten. Standard är 0. |
-| policy_overrides&#46;renewal_server_url |sträng |Alla pulsslagsbegäranden (förnyelse) för den här licensen dirigeras till den angivna webbadressen. Det här fältet används bara om can_renew är sant. |
-| policy_overrides&#46;renewal_delay_seconds |int64 (int64) |Hur många sekunder efter license_start_time innan förnyelse görs första gången. Det här fältet används bara om can_renew är sant. Standard är 0. |
-| policy_overrides&#46;renewal_retry_interval_seconds |int64 (int64) |Anger fördröjningen i sekunder mellan efterföljande begäranden om förnyelse av licenser, i händelse av fel. Det här fältet används bara om can_renew är sant. |
-| policy_overrides&#46;renewal_recovery_duration_seconds |int64 (int64) |Det tidsfönster då uppspelningen kan fortsätta medan förnyelse görs, men misslyckas på grund av backend-problem med licensservern. Värdet 0 anger att det inte finns någon gräns för varaktigheten. Det här fältet används bara om can_renew är sant. |
-| policy_overrides&#46;renew_with_usage |Boolesk, sann eller falsk |Anger att licensen skickas för förnyelse när användningen startar. Det här fältet används bara om can_renew är sant. |
+| policy_overrides&#46;can_play |Booleskt värde, sant eller falskt |Anger att uppspelning av innehållet är tillåten. Standardvärdet är false. |
+| policy_overrides&#46;can_persist |Booleskt värde, sant eller falskt |Anger att licensen kan vara bestående av Nonvolatile Storage för offline-användning. Standardvärdet är false. |
+| policy_overrides&#46;can_renew |Booleskt värde, sant eller falskt |Anger att förnyelse av den här licensen är tillåten. Om värdet är true kan licensens giltighets tid utökas med pulsslag. Standardvärdet är false. |
+| policy_overrides&#46;license_duration_seconds |Int64 |Anger tids perioden för den här speciella licensen. Värdet 0 anger att det inte finns någon gräns för varaktigheten. Standardvärdet är 0. |
+| policy_overrides&#46;rental_duration_seconds |Int64 |Anger tidsfönstret då uppspelning tillåts. Värdet 0 anger att det inte finns någon gräns för varaktigheten. Standardvärdet är 0. |
+| policy_overrides&#46;playback_duration_seconds |Int64 |Visnings fönstret av tiden efter uppspelningen startar inom licensens varaktighet. Värdet 0 anger att det inte finns någon gräns för varaktigheten. Standardvärdet är 0. |
+| policy_overrides&#46;renewal_server_url |sträng |Alla pulsslags begär Anden (förnyelse) för den här licensen dirigeras till den angivna URL: en. Det här fältet används endast om can_renew är sant. |
+| policy_overrides&#46;renewal_delay_seconds |Int64 |Hur många sekunder efter license_start_time innan förnyelsen försöktes första gången. Det här fältet används endast om can_renew är sant. Standardvärdet är 0. |
+| policy_overrides&#46;renewal_retry_interval_seconds |Int64 |Anger fördröjningen i sekunder mellan efterföljande begär Anden om licens förnyelse, i händelse av ett haveri. Det här fältet används endast om can_renew är sant. |
+| policy_overrides&#46;renewal_recovery_duration_seconds |Int64 |Tids period då uppspelningen kan fortsätta medan förnyelsen görs, men som inte lyckas på grund av backend-problem med licens servern. Värdet 0 anger att det inte finns någon gräns för varaktigheten. Det här fältet används endast om can_renew är sant. |
+| policy_overrides&#46;renew_with_usage |Booleskt värde, sant eller falskt |Anger att licensen har skickats för förnyelse när användningen startar. Det här fältet används endast om can_renew är sant. |
 
 ## <a name="session-initialization"></a>Initiering av session
-| Namn | Värde | Beskrivning |
+| Name | Värde | Beskrivning |
 | --- | --- | --- |
-| provider_session_token |Base64-kodad sträng |Den här sessionstoken skickas tillbaka i licensen och finns i efterföljande förnyelser. Sessionstoken finns inte kvar än sessioner. |
-| provider_client_token |Base64-kodad sträng |Klienttoken för att skicka tillbaka licenssvaret. Om licensbegäran innehåller en klienttoken ignoreras det här värdet. Klienttoken kvarstår utöver licenssessioner. |
-| override_provider_client_token |Boolesk, sann eller falsk |Om false och licensbegäran innehåller en klienttoken använder du token från begäran även om en klienttoken angavs i den här strukturen. Om värdet är true använder du alltid den token som anges i den här strukturen. |
+| provider_session_token |Base64-kodad sträng |Denna sessionstoken skickas tillbaka i licensen och finns i efterföljande förnyelser. Sessionstoken kvarstår utanför sessioner. |
+| provider_client_token |Base64-kodad sträng |Klient-token att skicka tillbaka i licens svaret. Om licens förfrågan innehåller en klient-token ignoreras värdet. Klientens token kvarstår utanför licens-sessioner. |
+| override_provider_client_token |Booleskt värde, sant eller falskt |Om värdet är false och licens förfrågan innehåller en klient-token använder du token från begäran även om en klient-token har angetts i den här strukturen. Om värdet är true, ska du alltid använda den token som anges i den här strukturen. |
 
 ## <a name="configure-your-widevine-license-with-net"></a>Konfigurera din Widevine-licens med .NET 
 
-Media Services tillhandahåller en klass där du kan konfigurera en Widevine-licens. För att konstruera licensen, passera JSON till [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
+Media Services tillhandahåller en klass som låter dig konfigurera en Widevine-licens. Om du vill konstruera licensen skickar du JSON till [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
 
 Om du vill konfigurera mallen kan du:
 
 ### <a name="directly-construct-a-json-string"></a>Konstruera en JSON-sträng direkt
 
-Den här metoden kan vara felbenägen. Vi rekommenderar att du använder annan metod som beskrivs i [Definiera nödvändiga klasser och serialisera till JSON](#classes).
+Den här metoden kan vara fel känslig. Vi rekommenderar att du använder andra metoder, som beskrivs i [definiera nödvändiga klasser och seriellt till JSON](#classes).
 
 ```csharp
 ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
@@ -129,7 +129,7 @@ ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration =
 
 #### <a name="define-classes"></a>Definiera klasser
 
-I följande exempel visas ett exempel på definitioner av klasser som mappas till Widevine JSON-schema. Du kan instansiera klasserna innan serialisera dem till JSON-strängen.  
+I följande exempel visas ett exempel på definitioner av klasser som mappar till Widevine JSON-schemat. Du kan instansiera klasserna innan du serialiserar dem till JSON-sträng.  
 
 ```csharp
 public class PolicyOverrides
@@ -164,7 +164,7 @@ public class WidevineTemplate
 
 #### <a name="configure-the-license"></a>Konfigurera licensen
 
-Använd klasser som definierats i föregående avsnitt för att skapa JSON som används för att konfigurera [WidevineTemplate:](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate)
+Använd klasser som definierats i föregående avsnitt för att skapa JSON som används för att konfigurera [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
 
 ```csharp
 private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()
@@ -205,8 +205,8 @@ private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTem
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in hur du [skyddar med DRM](protect-with-drm.md)
+Ta en titt på hur du [skyddar med DRM](protect-with-drm.md)

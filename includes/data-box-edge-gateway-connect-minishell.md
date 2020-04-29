@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 348f7bdd333da4f4a6cb41a438b7aee08d6a6bbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187805"
 ---
-Beroende på klientens operativsystem är procedurerna för att fjärransluta till enheten olika.
+Beroende på klientens operativ system är procedurerna för fjärr anslutning till enheten olika.
 
-### <a name="remotely-connect-from-a-windows-client"></a>Fjärransluta från en Windows-klient
+### <a name="remotely-connect-from-a-windows-client"></a>Fjärrans luta från en Windows-klient
 
-Innan du börjar kontrollerar du att Windows-klienten kör Windows PowerShell 5.0 eller senare.
+Innan du börjar kontrollerar du att Windows-klienten kör Windows PowerShell 5,0 eller senare.
 
-Följ dessa steg för att fjärransluta från en Windows-klient.
+Följ de här stegen för att fjärrans luta från en Windows-klient.
 
 1. Kör en Windows PowerShell-session som administratör.
-2. Kontrollera att Windows Remote Management-tjänsten körs på klienten. Skriv följande i kommandotolken:
+2. Kontrol lera att tjänsten Windows Remote Management körs på klienten. Skriv följande i kommandotolken:
 
     `winrm quickconfig`
 
@@ -30,7 +30,7 @@ Följ dessa steg för att fjärransluta från en Windows-klient.
 
     Ersätt `<device_ip>` med enhetens IP-adress.
 
-4. Om du vill lägga till ENHETENS IP-adress i klientens lista över betrodda värdar skriver du följande kommando:
+4. Om du vill lägga till IP-adressen för enheten i klientens lista över betrodda värdar, skriver du följande kommando:
 
     `Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Concatenate -Force`
 
@@ -38,7 +38,7 @@ Följ dessa steg för att fjärransluta från en Windows-klient.
 
     `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell`
 
-6. Ange lösenordet när du uppmanas att göra det. Använd samma lösenord som används för att logga in på det lokala webbgränssnittet. Standardlösenordet för lokalt webbgränssnitt är *Password1*. NÃ¤r du ã¶00 ansluter till enheten med fjÃ¤rrut powershell visas fÃ¶nde fÃ¶nde:  
+6. Ange lösen ordet när du uppmanas till det. Använd samma lösen ord som används för att logga in på det lokala webb gränssnittet. Standard lösen ordet för lokalt webb gränssnitt är *Password1*. När du ansluter till enheten via fjärr-PowerShell visas följande exempel på utdata:  
 
     ```
     Windows PowerShell
@@ -54,27 +54,27 @@ Följ dessa steg för att fjärransluta från en Windows-klient.
     [10.100.10.10]: PS>
     ```
 
-### <a name="remotely-connect-from-a-linux-client"></a>Fjärransluta från en Linux-klient
+### <a name="remotely-connect-from-a-linux-client"></a>Fjärrans luta från en Linux-klient
 
-På Linux-klienten som du ska använda för att ansluta:
+På den Linux-klient som du ska använda för att ansluta:
 
-- [Installera den senaste PowerShell Core för Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) från GitHub för att få SSH-ommotsättningsfunktionen. 
-- [Installera endast `gss-ntlmssp` paketet från NTLM-modulen](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Använd följande kommando för Ubuntu-klienter:
+- [Installera den senaste PowerShell Core för Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) från GitHub för att hämta SSH-funktionen för fjärr kommunikation. 
+- [Installera endast `gss-ntlmssp` paketet från NTLM-modulen](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). För Ubuntu-klienter använder du följande kommando:
     - `sudo apt-get install gss-ntlmssp`
 
-Mer information finns i [PowerShell-omkreditering via SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
+Mer information finns i PowerShell- [fjärrkommunikation via SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
 
-Följ dessa steg för att fjärransluta från en NFS-klient.
+Följ de här stegen för att fjärrans luta från en NFS-klient.
 
-1. Om du vill öppna PowerShell-sessionen skriver du:
+1. Öppna PowerShell-sessionen genom att skriva:
 
     `sudo pwsh`
  
-2. För anslutning med fjärrklienten skriver du:
+2. För att ansluta med fjärran sluten klient skriver du:
 
     `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
-    Ange lösenordet som används för att logga in på enheten när du uppmanas att göra det.
+    Ange det lösen ord som används för att logga in på enheten när du uppmanas till det.
  
 > [!NOTE]
 > Den här proceduren fungerar inte på Mac OS.

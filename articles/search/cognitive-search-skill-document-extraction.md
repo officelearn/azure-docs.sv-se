@@ -1,7 +1,7 @@
 ---
-title: Kognitiv dokumentextrahering (förhandsgranskning)
+title: Dokument extrahering kognitiv kunskap (för hands version)
 titleSuffix: Azure Cognitive Search
-description: Extraherar innehåll från en fil i anrikningspipelinen. Den här färdigheten är för närvarande i offentlig förhandsversion.
+description: Extraherar innehåll från en fil inom en pipeline för anrikning. Den här kunskapen är för närvarande en offentlig för hands version.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
@@ -9,51 +9,51 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
 ms.openlocfilehash: 0f67caad03c4ebd1cf8f3721f377d8362219016a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76837739"
 ---
-# <a name="document-extraction-cognitive-skill"></a>Kognitiv dokumentextrahering
+# <a name="document-extraction-cognitive-skill"></a>Inlärnings kunskap för dokument extrahering
 
 > [!IMPORTANT] 
-> Den här färdigheten är för närvarande i offentlig förhandsversion. Förhandsversionsfunktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för portal eller .NET SDK.
+> Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
-**Dokumentextraheringsfärdigheten** extraherar innehåll från en fil i anrikningspipelinen. På så sätt kan du dra nytta av det steg för dokumentextrahering som normalt sker innan kompetensutnyttjningen med filer som kan genereras av andra kunskaper.
+**Dokument extraherings** kunskapen extraherar innehåll från en fil i pipelinen för anrikning. På så sätt kan du utnyttja det steg för dokument extrahering som normalt inträffar innan färdigheter-körningen med filer som kan genereras av andra färdigheter.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka bearbetningsfrekvensen, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [bifoga en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifter ackumuleras när du anropar API:er i Cognitive Services och för bildextrahering som en del av dokumentsprickningsfasen i indexeringen. Det finns inga avgifter för textextrahering från dokument.
+> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet dokument sprickor i indexering. Det finns inga kostnader för text extrahering från dokument.
 >
-> Utförande av inbyggda färdigheter debiteras på den befintliga [Cognitive Services pay-as-you go pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Priser för bildutvinning beskrivs på [prissidan](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400).
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.documentExtractionSkill
+Microsoft. färdigheter. util. DocumentExtractionSkill
 
-## <a name="skill-parameters"></a>Färdighetsparametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
 Parametrar är skiftlägeskänsliga.
 
 | Indata            | Tillåtna värden | Beskrivning |
 |-----------------|----------------|-------------|
-| `parsingMode`   | `default` <br/> `text` <br/> `json`  | Ange `default` till för dokumentextrahering från filer som inte är ren text eller json. Ställ `text` in på att förbättra prestanda på oformaterade textfiler. Ange `json` att extrahera strukturerat innehåll från json-filer. Om `parsingMode` inte definieras explicit, kommer `default`det att ställas in på . |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Ange `contentAndMetadata` att extrahera alla metadata och textinnehåll från varje fil. Ange `allMetadata` att extrahera endast [innehållstyp specifika metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (till exempel metadata som är unika för bara PNG-filer). Om `dataToExtract` inte definieras explicit, kommer `contentAndMetadata`det att ställas in på . |
-| `configuration` | Se nedan. | En ordlista med valfria parametrar som justerar hur dokumentutextraheringen utförs. Se tabellen nedan för beskrivningar av konfigurationsegenskaper som stöds. |
+| `parsingMode`   | `default` <br/> `text` <br/> `json`  | Ange som `default` dokument extrahering från filer som inte är rena text eller JSON. Ange till `text` för att förbättra prestandan på filer med oformaterad text. Ange till `json` om du vill extrahera strukturerat innehåll från JSON-filer. Om `parsingMode` inte uttryckligen definieras anges det som `default`. |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Ange till `contentAndMetadata` om du vill extrahera alla metadata och text innehåll från varje fil. Ange till `allMetadata` om du bara vill extrahera de metadata som är [specifika för innehålls typen](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (till exempel metadata som är unika för bara PNG-filer). Om `dataToExtract` inte uttryckligen definieras anges det som `contentAndMetadata`. |
+| `configuration` | Se nedan. | En ord lista med valfria parametrar som justerar hur dokument extraheringen utförs. I tabellen nedan finns beskrivningar av de konfigurations egenskaper som stöds. |
 
-| Parameter för konfiguration   | Tillåtna värden | Beskrivning |
+| Konfigurations parameter   | Tillåtna värden | Beskrivning |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Ställ `none` in på att ignorera inbäddade bilder eller bildfiler i datauppsättningen. Det här är standard. <br/>För [bildanalys med hjälp av kognitiva färdigheter,](cognitive-search-concept-image-scenarios.md)inställd på `generateNormalizedImages` att ha färdigheten skapa en matris med normaliserade bilder som en del av dokument sprickbildning. Den här `parsingMode` åtgärden kräver `default` `dataToExtract` att den `contentAndMetadata`är inställd på och är inställd på . En normaliserad bild refererar till ytterligare bearbetning som resulterar i enhetlig bildutmatning, storlek och roteras för att främja konsekvent rendering när du inkluderar bilder i visuella sökresultat (till exempel fotografier i samma storlek i en grafkontroll som visas i [JFK-demon).](https://github.com/Microsoft/AzureSearch_JFK_Files) Den här informationen genereras för varje bild när du använder det här alternativet.  <br/>Om du `generateNormalizedImagePerPage`ställer in på , PDF-filer kommer att behandlas annorlunda i det istället för att extrahera inbäddade bilder, kommer varje sida återges som en bild och normaliseras därefter.  Filtyper som inte är PDF-filer `generateNormalizedImages` behandlas på samma sätt som om de angavs.
-| `normalizedImageMaxWidth` | Alla heltal mellan 50-10000 | Den maximala bredden (i pixlar) för normaliserade bilder som genereras. Standardvärdet är 2 000. | 
-| `normalizedImageMaxHeight` | Alla heltal mellan 50-10000 | Den maximala höjden (i pixlar) för normaliserade bilder som genereras. Standardvärdet är 2 000. |
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Ange till `none` om du vill ignorera inbäddade bilder eller bildfiler i data uppsättningen. Det här är standard. <br/>För [bild analys med kognitiva kunskaper](cognitive-search-concept-image-scenarios.md)kan du `generateNormalizedImages` ange att kunskapen ska skapa en matris med normaliserade avbildningar som en del av dokument-sprickor. Den här åtgärden kräver `parsingMode` att har värdet `default` och `dataToExtract` är inställt på `contentAndMetadata`. En normaliserad bild syftar på ytterligare bearbetning som resulterar i enhetlig bild utmatning, storleks ändring och rotation för att främja konsekvent åter givning när du inkluderar bilder i visuella Sök resultat (till exempel samma storlek som fotografier i en diagram kontroll som visas i [JFK-demonstrationen](https://github.com/Microsoft/AzureSearch_JFK_Files)). Den här informationen genereras för varje avbildning när du använder det här alternativet.  <br/>Om du väljer till `generateNormalizedImagePerPage`kommer PDF-filer att behandlas på ett annat sätt i stället för att extrahera inbäddade bilder. varje sida återges som en bild och normaliseras därefter.  Filtyper som inte är PDF-filer kommer att behandlas på `generateNormalizedImages` samma sätt som om har angetts.
+| `normalizedImageMaxWidth` | Ett heltal mellan 50-10000 | Den maximala bredden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2 000. | 
+| `normalizedImageMaxHeight` | Ett heltal mellan 50-10000 | Den maximala höjden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2 000. |
 
 > [!NOTE]
-> Standardvärdet på 2 000 pixlar för de normaliserade bildernas maximala bredd och höjd baseras på de maximala storlekar som stöds av [OCR-färdigheten](cognitive-search-skill-ocr.md) och [bildanalysfärdigheten](cognitive-search-skill-image-analysis.md). [OCR-färdigheten](cognitive-search-skill-ocr.md) stöder en maximal bredd och höjd på 4200 för icke-engelska språk och 10000 för engelska.  Om du ökar maxgränserna kan bearbetningen misslyckas med större bilder beroende på din kompetensdefinition och dokumentens språk. 
-## <a name="skill-inputs"></a>Indata för färdighet
+> Standardvärdet på 2000 bild punkter för de normaliserade bildernas maximala bredd och höjd baseras på de maximala storlekar som stöds av [OCR-kompetensen](cognitive-search-skill-ocr.md) och [bild analysens färdighet](cognitive-search-skill-image-analysis.md). [OCR-kunskaper](cognitive-search-skill-ocr.md) stöder maximal bredd och höjd på 4200 för andra språk än engelska och 10000 för engelska.  Om du ökar Max gränsen kan bearbetningen av större avbildningar gå sönder beroende på din färdigheter-definition och dokumentets språk. 
+## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamn     | Beskrivning |
+| Inmatat namn     | Beskrivning |
 |--------------------|-------------|
 | file_data | Filen som innehållet ska extraheras från. |
 
-Indata för "file_data" måste vara ett objekt som definieras på följande sätt:
+Inmatade file_data måste vara ett objekt som definieras enligt följande:
 
 ```json
 {
@@ -62,22 +62,22 @@ Indata för "file_data" måste vara ett objekt som definieras på följande sät
 }
 ```
 
-Det här filreferensobjektet kan genereras på ett av tre sätt:
+Detta fil referens objekt kan genereras av tre sätt:
 
- - Ställa `allowSkillsetToReadFileData` in parametern på indexeringsdefinitionen på "true".  Då skapas `/document/file_data` en sökväg som är ett objekt som representerar de ursprungliga fildata som hämtats från blob-datakällan. Den här parametern gäller endast för data i Blob-lagring.
+ - Ställer in `allowSkillsetToReadFileData` parametern på index-definitionen på "true".  Då skapas en sökväg `/document/file_data` som representerar de ursprungliga fil data som hämtas från BLOB-datakällan. Den här parametern gäller endast för data i Blob Storage.
 
- - Ange `imageAction` parametern på indexeringsdefinitionen `none`på ett annat värde än .  Detta skapar en matris med bilder som följer den nödvändiga konventionen för inmatning `/document/normalized_images/*`till den här färdigheten om den skickas individuellt (dvs. ).
+ - Ange ett `imageAction` annat värde än `none`för parametern i Indexer-definitionen.  Detta skapar en matris med bilder som följer den konvention som krävs för inmatade kunskaper om den har skickats separat `/document/normalized_images/*`(dvs.).
 
- - Om du har en anpassad färdighet returnerar ett json-objekt som definieras exakt som ovan.  Parametern `$type` måste anges `file` till `data` exakt och parametern måste vara bas 64-kodade bytematrisdata för filinnehållet.
+ - En anpassad kunskap returnerar ett JSON-objekt som definieras exakt som ovan.  `$type` Parametern måste anges till exakt `file` och `data` parametern måste vara bas 64-kodade byte mat ris data för fil innehållet.
 
-## <a name="skill-outputs"></a>Utdata för färdighet
+## <a name="skill-outputs"></a>Kunskaps utmatningar
 
-| Utdatanamn    | Beskrivning |
+| Namn på utdata    | Beskrivning |
 |--------------|-------------|
-| innehåll | Dokumentets textinnehåll. |
-| normalized_images | När `imageAction` värdet är inställt på `none`ett annat värde innehåller det nya *normalized_images* fältet en matris med bilder. Mer information om utdataformatet för varje bild finns [i dokumentationen för bildextrahering.](cognitive-search-concept-image-scenarios.md) |
+| innehåll | Dokumentets text innehåll. |
+| normalized_images | Om `imageAction` är inställt på ett värde annat `none`kommer fältet ny *normalized_images* innehålla en matris med bilder. I [dokumentationen för avbildnings extrahering](cognitive-search-concept-image-scenarios.md) finns mer information om utdataformatet för varje bild. |
 
-##  <a name="sample-definition"></a>Exempeldefinition
+##  <a name="sample-definition"></a>Exempel definition
 
 ```json
  {
@@ -109,7 +109,7 @@ Det här filreferensobjektet kan genereras på ett av tre sätt:
   }
 ```
 
-##  <a name="sample-input"></a>Exempelinmatning
+##  <a name="sample-input"></a>Exempel på inmatade
 
 ```json
 {
@@ -148,5 +148,5 @@ Det här filreferensobjektet kan genereras på ett av tre sätt:
 ## <a name="see-also"></a>Se även
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
-+ [Så här bearbetar och extraherar du information från bilder i kognitiva sökscenarier](cognitive-search-concept-image-scenarios.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Så här bearbetar och extraherar du information från bilder i kognitiva Sök scenarier](cognitive-search-concept-image-scenarios.md)

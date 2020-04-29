@@ -1,6 +1,6 @@
 ---
-title: Lokal konfiguration av säkerhetsagenten (C#)
-description: Läs mer om Azure Security Center for IoT security service, säkerhetsagent lokal konfigurationsfil för C#.
+title: Lokal konfiguration av säkerhets agent (C#)
+description: Läs mer om Azure Security Center för IoT Security Service, den lokala konfigurations filen för säkerhets agenten för C#.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,53 +16,53 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311667"
 ---
-# <a name="understanding-the-local-configuration-file-c-agent"></a>Förstå den lokala konfigurationsfilen (C#-agenten)
+# <a name="understanding-the-local-configuration-file-c-agent"></a>Förstå den lokala konfigurations filen (C#-agenten)
 
-Azure Security Center för IoT-säkerhetsagent använder konfigurationer från en lokal konfigurationsfil.
+Azure Security Center för IoT Security Agent använder konfigurationer från en lokal konfigurations fil.
 
-Säkerhetsagenten läser konfigurationsfilen en gång när agenten startar. Konfigurationer som finns i den lokala konfigurationsfilen innehåller både autentiseringskonfiguration och andra agentrelaterade konfigurationer.
+Säkerhets agenten läser konfigurations filen en gång när agenten startar. Konfigurationer som finns i den lokala konfigurations filen innehåller både konfiguration av autentisering och andra Agent-relaterade konfigurationer.
 
-C#-säkerhetsagenten använder flera konfigurationsfiler:
+C#-säkerhets agenten använder flera konfigurationsfiler:
 
-- **General.config** - Agentrelaterade konfigurationer.
-- **Authentication.config** - Autentiseringsrelaterad konfiguration (inklusive autentiseringsinformation).
-- **SecurityIotInterface.config** - IoT-relaterade konfigurationer.
+- **Allmänna. config** -Agent-relaterade konfigurationer.
+- **Autentisering. config** – autentisering relaterad konfiguration (inklusive autentiseringsinformation).
+- **SecurityIotInterface. config** -IoT-relaterade konfigurationer.
 
-Konfigurationsfilerna innehåller standardkonfigurationen. Autentiseringskonfigurationen fylls i under agentinstallationen och ändringar i konfigurationsfilen görs när agenten startas om.
+Konfigurationsfilerna innehåller standard konfigurationen. Konfiguration av autentisering fylls under Agent installationen och ändringar i konfigurations filen görs när agenten startas om.
 
-## <a name="configuration-file-location"></a>Plats för konfigurationsfil
+## <a name="configuration-file-location"></a>Plats för konfigurations fil
 
 För Linux:
 
-- Konfigurationsfiler för operativsystemet finns i `/var/ASCIoTAgent`.
+- Konfigurationsfiler för operativ system finns i `/var/ASCIoTAgent`.
 
 För Windows:
 
-- Konfigurationsfiler för operativsystemet finns i säkerhetsagentens katalog.
+- Konfigurationsfiler för operativ system finns i säkerhets agentens katalog.
 
-### <a name="generalconfig-configurations"></a>General.config-konfigurationer
+### <a name="generalconfig-configurations"></a>Allmänna konfigurations inställningar
 
-| Konfigurationsnamn | Möjliga värden | Information |
+| Konfigurations namn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
-| agentId (agentId) | GUID | Agent unik identifierare |
-| readRemoteConfigurationTimeout | TimeSpan | Tidsperiod för hämtning av fjärrkonfiguration från IoT Hub. Om agenten inte kan hämta konfigurationen inom den angivna tiden kommer åtgärden att time out.|
-| schedulerInterval | TimeSpan | Internt schemaintervall. |
-| producentInterval | TimeSpan | Händelseproducentarintervall. |
-| konsumentenInterval | TimeSpan | Intervall för händelsekonsumentarbetare. |
-| highPriorityQueueSizePercentage | 0 < nummer < 1 | Den del av den totala cachen som är avsedd för meddelanden med hög prioritet. |
-| logLevel | "Av", "Fatal", "Error", "Warning", "Information", "Debug"  | Loggmeddelanden som är lika och över den här allvarlighetsgraden loggas för att felsöka konsolen (Syslog i Linux). |
-| filLoggLevel |  "Av", "Fatal", "Error", "Warning", "Information", "Debug"| Loggmeddelanden som är lika och över den här allvarlighetsgraden loggas till filen (Syslog i Linux). |
-| diagnostikVerbosityNivå | "Ingen", "Vissa", "Alla", | Verbositet nivå av diagnostiska händelser. Inga - diagnostiska händelser skickas inte, Vissa - Endast diagnostiska händelser med stor betydelse skickas, Alla - alla loggar skickas också som diagnostiska händelser. |
-| logFilePath | Sökväg till fil | Om fileLogLevel > Off skrivs loggar till den här filen. |
-| defaultEventPriority | "Hög", "Låg", "Av" | Standardhändelseprioritet. |
+| agentId | GUID | Unikt ID för agent |
+| readRemoteConfigurationTimeout | TimeSpan | Tids period för att hämta fjärrkonfiguration från IoT Hub. Om agenten inte kan hämta konfigurationen inom den angivna tiden, kommer åtgärden att ta slut.|
+| schedulerInterval | TimeSpan | Internt schema intervall. |
+| producerInterval | TimeSpan | Arbets intervall för händelse producent. |
+| consumerInterval | TimeSpan | Arbets intervall för händelse förbrukare. |
+| highPriorityQueueSizePercentage | 0 < nummer < 1 | Den del av total cache dedikerat för meddelanden med hög prioritet. |
+| logLevel | "Off", "oåterkallelig", "fel", "varning", "information", "Felsök"  | Logg meddelanden som är lika med eller större än den här allvarlighets graden loggas i fel söknings konsolen (syslog i Linux). |
+| fileLogLevel |  "Off", "oåterkallelig", "fel", "varning", "information", "Felsök"| Logg meddelanden som är lika med eller större än den här allvarlighets graden är inloggade i filen (syslog i Linux). |
+| diagnosticVerbosityLevel | "Ingen", "vissa", "alla", | Utförlig nivå för diagnostiska händelser. Inga-diagnostiska händelser skickas, vissa-diagnostiska händelser med hög prioritet skickas, alla loggar skickas också som diagnostiska händelser. |
+| logFilePath | Sökväg till fil | Om fileLogLevel > av skrivs loggar till den här filen. |
+| defaultEventPriority | "Hög", "låg", "av" | Standard händelse prioritet. |
 
-### <a name="generalconfig-example"></a>Allmänt.config exempel
+### <a name="generalconfig-example"></a>Allmänt. config-exempel
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -81,22 +81,22 @@ För Windows:
 </General>
 ```
 
-### <a name="authenticationconfig"></a>Authentication.config
+### <a name="authenticationconfig"></a>Autentisering. config
 
-| Konfigurationsnamn | Möjliga värden | Information |
+| Konfigurations namn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
-| moduleName (modulNamn) | sträng | Namn på säkerhetsmodulens identitet. Det här namnet måste motsvara modulens identitetsnamn i enheten. |
-| deviceId | sträng | ID för enheten (som registrerats i Azure IoT Hub). || schedulerInterval | TimeSpan sträng | Internt schemaintervall. |
-| gatewayHostname | sträng | Värdnamn för Azure Iot Hub. Vanligtvis <min-hubb>.azure-devices.net |
-| Filepath | sträng - sökväg till fil | Sökväg till filen som innehåller autentiseringshemligheten.|
-| typ | "SymmetricKey", "SjälvsigneradCertifiera" | Användarhemligheten för autentisering. Välj *SymmetricKey* om användarhemligheten är en symmetrisk nyckel väljer du *självsignerat certifikat* om hemligheten är ett självsignerat certifikat. |
-| identity | "DPS", "Modul", "Enhet" | Autentiseringsidentitet - DPS om autentisering görs via DPS, Modul om autentisering görs med modulautentisering eller enhet om autentisering görs med hjälp av enhetsautentiseringsuppgifter.
-| certifikatLokaliseringKintt |  "LocalFile", "Store" | LocalFile om certifikatet lagras i en fil, lagra om certifikatet finns i ett certifikatarkiv. |
-| idScope | sträng | DPS-ID-scope |
-| registrationId (registreringId) | sträng  | REGISTRERINGS-ID för DPS-enheter. |
+| moduleName | sträng | Namn på säkerhetsmodulens identitet. Namnet måste motsvara modulens identitets namn i enheten. |
+| deviceId | sträng | ID för enheten (som registrerats i Azure IoT Hub). || schedulerInterval | TimeSpan-sträng | Internt schema intervall. |
+| gatewayHostname | sträng | Värd namnet för Azure IoT Hub. <vanligt vis>. azure-devices.net |
+| filePath | sträng-sökväg till fil | Sökväg till filen som innehåller hemligheten för autentisering.|
+| typ | "SymmetricKey", "SelfSignedCertificate" | Användar hemligheten för autentisering. Välj *SymmetricKey* om användar hemligheten är en symmetrisk nyckel väljer du *självsignerat certifikat* om hemligheten är ett självsignerat certifikat. |
+| identity | "DPS", "modul", "enhet" | Autentiseringsidentitet – DPS om autentisering görs via DPS, modul om autentisering görs med autentiseringsuppgifter för modulen eller om autentisering görs med autentiseringsuppgifter för enheten.
+| certificateLocationKind |  "Lokalfil", "Store" | Lokalfil om certifikatet lagras i en fil, lagrar du om certifikatet finns i ett certifikat arkiv. |
+| idScope | sträng | ID-omfång för DPS |
+| registrationId | sträng  | Registrerings-ID för DPS-enhet. |
 |
 
-### <a name="authenticationconfig-example"></a>Exempel på authentication.config
+### <a name="authenticationconfig-example"></a>Authentication. config-exempel
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -113,14 +113,14 @@ För Windows:
 </Authentication>
 ```
 
-### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config
+### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface. config
 
-| Konfigurationsnamn | Möjliga värden | Information |
+| Konfigurations namn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
-| transportTyp | "Ampq" "Mqtt" | Transporttyp för IoT Hub. |
+| transportType | "Ampq" "MQTT" | IoT Hub Transport typ. |
 |
 
-### <a name="securityiotinterfaceconfig-example"></a>SecurityIotInterface.config exempel
+### <a name="securityiotinterfaceconfig-example"></a>SecurityIotInterface. config-exempel
 
 ```XML
 <ExternalInterface>
@@ -131,10 +131,10 @@ För Windows:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [översikt](overview.md) över Azure Security Center for IoT-tjänsten
-- Läs mer om Azure Security Center för [IoT-arkitektur](architecture.md)
-- Aktivera Azure Security Center för [IoT-tjänsten](quickstart-onboard-iot-hub.md)
-- Läs [vanliga frågor och svar](resources-frequently-asked-questions.md) om Azure Security Center för IoT-tjänsten
-- Lär dig hur du kommer åt [rådata om säkerhet](how-to-security-data-access.md)
+- Läs [översikten över](overview.md) Azure Security Center för IoT-tjänsten
+- Läs mer om Azure Security Center för IoT- [arkitektur](architecture.md)
+- Aktivera Azure Security Center för IoT [-tjänsten](quickstart-onboard-iot-hub.md)
+- Läs [vanliga frågor och svar](resources-frequently-asked-questions.md) om tjänsten Azure Security Center for IoT
+- Lär dig hur du kommer åt [rå säkerhets data](how-to-security-data-access.md)
 - Förstå [rekommendationer](concept-recommendations.md)
-- Förstå [säkerhetsaviseringar](concept-security-alerts.md)
+- Förstå säkerhets [aviseringar](concept-security-alerts.md)

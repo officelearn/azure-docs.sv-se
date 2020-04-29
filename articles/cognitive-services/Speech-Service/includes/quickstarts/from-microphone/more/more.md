@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
 ms.openlocfilehash: 08686e7b5330dcd734a6ebdc911aa480e6706aef
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400708"
 ---
-## <a name="additional-language-and-platform-support"></a>Ytterligare språk- och plattformsstöd
+## <a name="additional-language-and-platform-support"></a>Ytterligare språk-och plattforms stöd
 
-Om du har klickat på den här fliken har du förmodligen inte sett en snabbstart i ditt favoritprogrammeringsspråk. Oroa dig inte, vi har ytterligare snabbstartsmaterial och kodexempel tillgängliga på GitHub. Använd tabellen för att hitta rätt exempel för ditt programmeringsspråk och plattform/OS-kombination.
+Om du har klickat på den här fliken ser du förmodligen ingen snabb start på ditt favorit språk. Oroa dig inte, vi har ytterligare snabb starts material och kod exempel som är tillgängliga på GitHub. Använd tabellen för att hitta rätt exempel för ditt programmeringsspråk och kombinationen av Platform/OS.
 
-| Språk | Ytterligare snabbstarter | Kodexempel |
+| Språk | Ytterligare snabb starter | Kodexempel |
 |--|--|--|
-| C# | [Från fil][1-file], [Från blob][1-blob] | [.NET Framework][dotnet], [.NET Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
-| C++ | [Från fil][2-file], [Från blob][2-blob] | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac] |
-| Java | [Från fil][3-file], [Från blob][3-blob] | [Android][java-android], [JRE][java-jre] |
-| JavaScript | [Webbläsare från mikrofon][js-browser], [Node.js från fil][js-node] | [Windows, Linux, macOS][js-code] |
-| Objective-C | [iOS][obj-iOS-qck], [macOS][obj-macOS-qck] | [iOS][obj-iOS], [macOS][obj-macOS] |
-| Python | [Från fil][4-file], [Från blob][4-blob] | [Windows, Linux, macOS][python] |
-| Swift | [iOS][swift-iOS-qck], [macOS][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |
+| C# | [Från-fil][1-file], [från BLOB][1-blob] | [.NET Framework][dotnet], [.net Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
+| C++ | [Från-fil][2-file], [från BLOB][2-blob] | [Windows][cpp-windows], [Linux][cpp-linux], [MacOS][cpp-mac] |
+| Java | [Från-fil][3-file], [från BLOB][3-blob] | [Android][java-android], [JRE][java-jre] |
+| JavaScript | [Webbläsare från Mic][js-browser], [Node. js från fil][js-node] | [Windows, Linux, macOS][js-code] |
+| Objective-C | [iOS][obj-iOS-qck], [MacOS][obj-macOS-qck] | [iOS][obj-iOS], [MacOS][obj-macOS] |
+| Python | [Från-fil][4-file], [från BLOB][4-blob] | [Windows, Linux, macOS][python] |
+| Swift | [iOS][swift-iOS-qck], [MacOS][swift-macOS-qck] | [iOS][swift-iOS], [MacOS][swift-macOS] |
 
 [1-file]: ../../../../quickstarts/speech-to-text-from-file.md?pivots=programming-language-csharp
 [1-blob]: ../../../../quickstarts/from-blob.md?pivots=programming-language-csharp

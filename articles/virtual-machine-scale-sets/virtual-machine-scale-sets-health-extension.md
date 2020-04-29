@@ -1,6 +1,6 @@
 ---
-title: Använda programhälsotillägg med Azure-skalningsuppsättningar för virtuella datorer
-description: Lär dig hur du använder tillägget Programhälsa för att övervaka hälsotillståndet för dina program som distribueras på skalningsuppsättningar för virtuella datorer.
+title: Använda program hälso tillägg med skalnings uppsättningar för virtuella Azure-datorer
+description: Lär dig hur du använder tillägget för program hälsa för att övervaka hälso tillståndet för dina program som distribueras på virtuella datorers skalnings uppsättningar.
 author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mimckitt
 ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273740"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Använda tillägget för programmets hälsotillstånd med VM-skalningsuppsättningar
-Att övervaka programmets hälsa är en viktig signal för att hantera och uppgradera distributionen. Azure-skalningsuppsättningar för virtuella datorer ger stöd för [rullande uppgraderingar,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) inklusive automatiska uppgraderingar av [OS-avbildningar](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälsoövervakning av de enskilda instanserna för att uppgradera distributionen.
+Övervakning av din program hälsa är en viktig signal för att hantera och uppgradera distributionen. Skalnings uppsättningar för virtuella Azure-datorer ger stöd för [rullande uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , inklusive [automatiska uppgraderingar av operativ system avbildningar](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälso övervakning av de enskilda instanserna för att uppgradera distributionen.
 
-I den här artikeln beskrivs hur du kan använda tillägget Programhälsa för att övervaka hälsotillståndet för dina program som distribueras på skalningsuppsättningar för virtuella datorer.
+I den här artikeln beskrivs hur du kan använda tillägget för program hälsa för att övervaka hälso tillståndet för dina program som distribueras på virtuella datorers skalnings uppsättningar.
 
 ## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du är bekant med:
--   [Azure-tillägg](../virtual-machines/extensions/overview.md) för virtuella datorer
--   [Ändra](virtual-machine-scale-sets-upgrade-scale-set.md) skalningsuppsättningar för virtuella datorer
+-   [Tillägg](../virtual-machines/extensions/overview.md) för virtuella Azure-datorer
+-   [Ändra](virtual-machine-scale-sets-upgrade-scale-set.md) skalnings uppsättningar för virtuella datorer
 
-## <a name="when-to-use-the-application-health-extension"></a>När du ska använda tillägget Programhälsa
-Tillägget Programhälsa distribueras i en skalningsuppsättningsinstans för virtuell dator och rapporterar om vm-hälso- och sjukvård inifrån skalningsuppsättningsinstansen. Du kan konfigurera tillägget så att det avsöker på en programslutpunkt och uppdaterar programmets status i den instansen. Den här instansstatusen kontrolleras av Azure för att avgöra om en instans är berättigad till uppgraderingsåtgärder.
+## <a name="when-to-use-the-application-health-extension"></a>När du ska använda program hälso tillägget
+Program hälso tillägget distribueras i en instans av en skalnings uppsättning för virtuella datorer och rapporter om VM-hälsa inifrån skalnings uppsättnings instansen. Du kan konfigurera tillägget för avsökning på en program slut punkt och uppdatera status för programmet på den instansen. Den här instans statusen kontrol leras av Azure för att avgöra om en instans är tillgänglig för uppgraderings åtgärder.
 
-Eftersom tillägget rapporterar hälsotillstånd inifrån en virtuell dator kan tillägget användas i situationer där externa avsökningar som Application Health Probes (som använder anpassade Azure Load [Balancer-avsökningar)](../load-balancer/load-balancer-custom-probe-overview.md)inte kan användas.
+När tillägget rapporterar hälso tillstånd från en virtuell dator kan tillägget användas i situationer där externa avsökningar, till exempel program hälso avsökningar (som använder anpassade Azure Load Balancer [avsökningar](../load-balancer/load-balancer-custom-probe-overview.md)) inte kan användas.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för tillägget Programhälsa. Tillägget kräver minst antingen en "tcp" eller "http"-begäran med en associerad port respektive begäran sökväg.
+Följande JSON visar schemat för program hälso tillägget. Tillägget kräver minst en "TCP"-eller http-begäran med en associerad port eller begär ande sökväg.
 
 ```json
 {
@@ -53,29 +53,29 @@ Följande JSON visar schemat för tillägget Programhälsa. Tillägget kräver m
 }  
 ```
 
-### <a name="property-values"></a>Egenskapsvärden
+### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde / Exempel | Datatyp
+| Name | Värde/exempel | Datatyp
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | utgivare | `Microsoft.ManagedServices` | sträng |
 | typ | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | sträng |
-| typHandlerVersion | `1.0` | int |
+| typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Inställningar
 
-| Namn | Värde / Exempel | Datatyp
+| Name | Värde/exempel | Datatyp
 | ---- | ---- | ----
-| Protokollet | `http` eller `tcp` | sträng |
-| port | Valfritt när `http`protokollet är obligatoriskt när protokollet är`tcp` | int |
-| requestPath (requestPath) | Obligatoriskt när `http`protokollet är , inte tillåtet när protokollet är`tcp` | sträng |
+| protokollhanterare | `http` eller `tcp` | sträng |
+| port | Valfritt om protokollet är `http`obligatoriskt när protokollet är`tcp` | int |
+| requestPath | Obligatoriskt när protokollet är `http`, tillåts inte när protokollet är`tcp` | sträng |
 
-## <a name="deploy-the-application-health-extension"></a>Distribuera tillägget Programhälsa
-Det finns flera sätt att distribuera tillägget Programhälsa till skalningsuppsättningarna enligt beskrivningen i exemplen nedan.
+## <a name="deploy-the-application-health-extension"></a>Distribuera program hälso tillägget
+Det finns flera sätt att distribuera program hälso tillägget till dina skalnings uppsättningar enligt beskrivningen i exemplen nedan.
 
 ### <a name="rest-api"></a>REST-API
 
-I följande exempel läggs tillägget Application Health (med namnet myHealthExtension) till tilläggetProfile i skalningsuppsättningsmodellen för en Windows-baserad skalningsuppsättning.
+I följande exempel läggs program hälso tillägget (med namnet myHealthExtension) till i extensionProfile i skalnings uppsättnings modellen för en Windows-baserad skalnings uppsättning.
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/myHealthExtension?api-version=2018-10-01`
@@ -101,9 +101,9 @@ Används `PATCH` för att redigera ett redan distribuerat tillägg.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Använd [cmdleten Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) för att lägga till tillägget Programhälsa i skalningsuppsättningsmodelldefinitionen.
+Använd cmdleten [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) för att lägga till program hälso tillägget i modell definitionen för skalnings uppsättningen.
 
-I följande exempel läggs tillägget `extensionProfile` Programhälsa till i skalningsuppsättningsmodellen för en Windows-baserad skaluppsättning. I exemplet används den nya Az PowerShell-modulen.
+`extensionProfile` I följande exempel läggs program hälso tillägget till i skalnings uppsättnings modellen för en Windows-baserad skalnings uppsättning. Exemplet använder den nya AZ PowerShell-modulen.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -139,9 +139,9 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Använd [az vmss-tillägget för](/cli/azure/vmss/extension#az-vmss-extension-set) att lägga till tillägget Programhälsa i skalningsuppsättningsmodelldefinitionen.
+Använd [AZ VMSS Extension set](/cli/azure/vmss/extension#az-vmss-extension-set) för att lägga till program hälso tillägget i modell definitionen för skalnings uppsättningen.
 
-I följande exempel läggs tillägget Programhälsa till skalningsuppsättningsmodellen för en Linux-baserad skaluppsättning.
+I följande exempel läggs program hälso tillägget till i skalnings uppsättnings modellen för en Linux-baserad skalnings uppsättning.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -152,7 +152,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-Filinnehållet extension.json.
+Innehållet i fil namns tillägget. JSON.
 
 ```json
 {
@@ -164,7 +164,7 @@ Filinnehållet extension.json.
 
 
 ## <a name="troubleshoot"></a>Felsöka
-Utdata för tilläggskörning loggas till filer som finns i följande kataloger:
+Utökning av utdata loggas till filer som finns i följande kataloger:
 
 ```Windows
 C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\<version>\
@@ -174,7 +174,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 /var/lib/waagent/apphealth
 ```
 
-Loggarna fångar också regelbundet programmets hälsostatus.
+Loggarna avbildar också program hälso status regelbundet.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [distribuerar ditt program](virtual-machine-scale-sets-deploy-app.md) på skalningsuppsättningar för virtuella datorer.
+Lär dig hur du [distribuerar ditt program](virtual-machine-scale-sets-deploy-app.md) på virtuella datorers skalnings uppsättningar.

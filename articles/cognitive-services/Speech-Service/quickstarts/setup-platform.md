@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Konfigurera utvecklingsplattform'
+title: 'Snabb start: Konfigurera en dev-plattform'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten får du lära dig hur du installerar Tal-SDK för önskad plattform och programmeringsspråkkombination.
+description: I den här snabb starten får du lära dig hur du installerar tal-SDK för den plattform och kombination av programmeringsspråk som du föredrar.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,17 +12,17 @@ ms.date: 04/04/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-three
 ms.openlocfilehash: 67ade64cdb3b2da6f78f77beb4d0cdc993715c9a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400865"
 ---
-# <a name="quickstart-setup-development-environment"></a>Snabbstart: Installationsutvecklingsmiljö
+# <a name="quickstart-setup-development-environment"></a>Snabb start: Konfigurera utvecklings miljö
 
 ::: zone pivot="programming-language-csharp"
 
-**Välj målgruppsmiljö**
+**Välj mål miljö**
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -49,7 +49,7 @@ ms.locfileid: "81400865"
 
 ::: zone pivot="programming-language-cpp"
 
-**Välj målgruppsmiljö**
+**Välj mål miljö**
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
@@ -68,9 +68,9 @@ ms.locfileid: "81400865"
 
 ::: zone pivot="programming-language-java"
 
-**Välj målgruppsmiljö**
+**Välj mål miljö**
 
-# <a name="java-runtime"></a>[Java Körtid](#tab/jre)
+# <a name="java-runtime"></a>[Java-körning](#tab/jre)
 
 [!INCLUDE [jre](../includes/quickstarts/platform/java-jre.md)]
 

@@ -1,43 +1,43 @@
 ---
 title: Arbeta med fjärentiteter i Unity
-description: Självstudiekurs som visar hur du arbetar med ARR-entiteter.
+description: Självstudie som visar hur du arbetar med ARR-entiteter.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
 ms.openlocfilehash: db1f6a53121e05b29f7e3441af027985a141bc2e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81310201"
 ---
-# <a name="tutorial-working-with-remote-entities-in-unity"></a>Självstudiekurs: Arbeta med fjärrenheter i Unity
+# <a name="tutorial-working-with-remote-entities-in-unity"></a>Självstudie: arbeta med fjär entiteter i enhet
 
-[Självstudiekurs: Ställa in ett Unity-projekt från grunden](project-setup.md) visade hur du konfigurerar ett nytt Unity-projekt för att arbeta med Azure Remote Rendering. I den här guiden har vi en titt på de vanligaste funktionerna som varje ARR-användare behöver.
+[Självstudie: skapa ett Unity-projekt från grunden](project-setup.md) som visade hur man konfigurerar ett nytt Unity-projekt för att arbeta med Azure-fjärrrendering. I den här självstudien har vi en titt på de vanligaste funktionerna som varje ARR-användare behöver.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Plocka objekt med hjälp av stråle avgjutningar.
-> * Åsidosätta objektlägen som färgtonsfärg, markeringsläge och synlighet.
-> * Ta bort fjärrentiteter.
-> * Flytta fjärrentiteter runt.
-> * Använd klippta plan för att titta inuti objekt.
+> * Välj objekt med hjälp av Ray-sändningar.
+> * Åsidosätt objekt tillstånd som färg tons färg, markerings tillstånd och synlighet.
+> * Ta bort fjär entiteter.
+> * Flytta fjär entiteter runt.
+> * Använd klipp ut plan för att titta inuti objekt.
 
 ## <a name="prerequisites"></a>Krav
 
-* Den här självstudien bygger på [handledning: Ställa in ett Unity-projekt från grunden](project-setup.md).
+* Den här själv studie Kursen bygger vidare på [Självstudier: Konfigurera ett Unity-projekt från grunden](project-setup.md).
 
 > [!TIP]
-> [ARR-exempeldatabasen](https://github.com/Azure/azure-remote-rendering) innehåller förberedda Unity-projekt för *Unity* alla självstudier i unity-mappen, som du kan använda som referens.
+> [Plats för arr-exempel](https://github.com/Azure/azure-remote-rendering) innehåller för beredda Unit-projekt för alla självstudier i mappen *Unity* , som du kan använda som referens.
 
-## <a name="pick-objects"></a>Plocka objekt
+## <a name="pick-objects"></a>Välj objekt
 
-Vi vill interagera med objekt, så det första vi behöver, är att plocka objekt under muspekaren.
+Vi vill interagera med objekt, så det första vi behöver, är att plocka objekt under mus markören.
 
-Skapa ett [nytt skript](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) som heter **RemoteRaycaster** och ersätt hela innehållet med koden nedan:
+Skapa ett [nytt skript](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) med namnet **RemoteRaycaster** och ersätt hela innehållet med koden nedan:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -109,20 +109,20 @@ public class RemoteRaycaster : MonoBehaviour
 }
 ```
 
-Lägg till den här komponenten i *RemoteRendering-objektet* i scenen.
+Lägg till den här komponenten i *RemoteRendering* -objektet i din scen.
 
 > [!WARNING]
 >
-> *RemoteRaycaster-komponenten* kräver att en *ARRServiceUnity-komponent* ska kopplas till samma objekt. *ARRServiceUnity* är en hjälpare klass för att komma åt vissa ARR-funktioner lättare. Det kan dock bara finnas en enda instans av den här komponenten i scenen. Se därför till att lägga till alla komponenter som kräver *ARRServiceUnity* till samma GameObject.
-> Om du vill komma åt ARR-funktioner från flera spelobjekt lägger du antingen till *ARRServiceUnity-komponenten* bara i ett av dem och refererar till den i de andra skripten eller kommer åt ARR-funktionen direkt.
+> *RemoteRaycaster* -komponenten kräver att en *ARRServiceUnity* -komponent är kopplad till samma objekt. *ARRServiceUnity* är en hjälp klass för att få åtkomst till vissa arr-funktioner lättare. Det kan dock bara finnas en enda instans av den här komponenten i scenen. Se därför till att lägga till alla komponenter som kräver *ARRServiceUnity* till samma GameObject.
+> Om du vill få åtkomst till ARR-funktioner från flera spel objekt, lägger du antingen till *ARRServiceUnity* -komponenten till en av dem och referensen som finns i de andra skripten eller får åtkomst till arr-funktionen direkt.
 
-Tryck på play, anslut till en session och ladda en modell. Peka nu på objekt i scenen och titta på konsolen utgång. Objektnamnet för varje del som du hovrar över ska skrivas ut.
+Tryck på Play, Anslut till en session och Läs in en modell. Peka nu på objekt i scenen och titta på konsolens utdata. Den ska skriva ut objekt namnet för varje del som du hovrar över.
 
 ## <a name="highlight-objects"></a>Markera objekt
 
-Som ett nästa steg vill vi ge visuell feedback, vilka delar av en modell som användaren pekar på. För att uppnå detta bifogar vi en [HierarchicalStateOverrideComponent](../../overview/features/override-hierarchical-state.md) till den entitet som vi valde. Den här komponenten kan användas för att aktivera eller inaktivera olika funktioner på ett objekt. Här använder vi den för att ställa in en nyans färg och aktivera [kontur rendering](../../overview/features/outlines.md).
+Som nästa steg vill vi ge visuell feedback, vilka delar av en modell som användaren pekar på. För att uppnå detta kopplar vi en [HierarchicalStateOverrideComponent](../../overview/features/override-hierarchical-state.md) till den entitet som vi har valt. Den här komponenten kan användas för att aktivera eller inaktivera olika funktioner på ett objekt. Här använder vi den för att ange en färg tons färg och aktivera [dispositions åter givning](../../overview/features/outlines.md).
 
-Skapa en annan skriptfil som heter **RemoteModelEntity** och ersätt innehållet med följande kod:
+Skapa en annan skript fil med namnet **RemoteModelEntity** och ersätt dess innehåll med följande kod:
 
 ```csharp
 using System.Collections;
@@ -192,11 +192,11 @@ public class RemoteModelEntity : MonoBehaviour
 }
 ```
 > [!CAUTION]
-> Tilldela inte skriptet till något spelobjekt eftersom det kommer att tilldelas programmässigt av koden nedan.
+> Tilldela inte det här skriptet till något Game-objekt eftersom det kommer att tilldelas program mässigt av koden nedan.
 
-Nästa upp, vi måste utöka vår *RemoteRaycaster* att lägga till *RemoteModelEntity* komponenten till objektet som vi just plockade.
+Härnäst måste vi utöka vår *RemoteRaycaster* för att lägga till *RemoteModelEntity* -komponenten till objektet som vi nyss har valt.
 
-Lägg till följande kod i **RemoteRaycaster-implementeringen** och ta bort dubblettfunktionerna:
+Lägg till följande kod i **RemoteRaycaster** -implementeringen och ta bort de duplicerade funktionerna:
 
 ```csharp
     private RemoteModelEntity focusedModel = null;
@@ -242,11 +242,11 @@ Lägg till följande kod i **RemoteRaycaster-implementeringen** och ta bort dubb
     }
 ```
 
-Kör ditt projekt och peka på en modell, bör du se det få en röd nyans och en vit markeringskontur.
+Kör ditt projekt och peka på en modell. du bör se det får en röd nyans och en vit markerings disposition.
 
-## <a name="isolate-the-selected-object"></a>Isolera det markerade objektet
+## <a name="isolate-the-selected-object"></a>Isolera det valda objektet
 
-En annan användning av [HierarchicalStateOverrideComponent](../../overview/features/override-hierarchical-state.md) är möjligheten att åsidosätta synligheten. På så sätt kan du isolera ett markerat objekt från resten av modellen. Öppna **remotemodelEntity-skriptet,** lägg till följande kod och ta bort dubblettfunktionerna:
+En annan användning av [HierarchicalStateOverrideComponent](../../overview/features/override-hierarchical-state.md) är möjligheten att åsidosätta synlighet. På så sätt kan du isolera ett markerat objekt från resten av modellen. Öppna **RemoteModelEntity** -skriptet, Lägg till följande kod och ta bort de duplicerade funktionerna:
 
 ```csharp
     private bool isolated = false;
@@ -304,9 +304,9 @@ En annan användning av [HierarchicalStateOverrideComponent](../../overview/feat
     }
 ```
 
-Den här koden är beroende av att ha en tillståndssidosättningskomponent högst upp i hierarkin, vilket gör alla objekt osynliga. Sedan åsidosätter den synligheten igen vid det markerade objektet, så att det blir synligt för ett objekt. Därför måste vi skapa en tillståndssidosättningskomponent vid rotobjektet.
+Den här koden förlitar sig på att en komponent för tillstånds åsidosättning finns i det översta objektet i hierarkin, vilket gör alla objekt osynliga. Sedan åsidosätter den synligheten igen vid det valda objektet, så att ett objekt visas. Därför måste vi skapa en komponent för tillstånds åsidosättning vid rotobjektet.
 
-Öppna **Fjärrrenderingsskriptet** och infoga koden nedan högst upp i *funktionen LoadModel:*
+Öppna **RemoteRendering** -skriptet och infoga koden nedan överst i *LoadModel* -funktionen:
 
 ```csharp
     public async void LoadModel()
@@ -319,7 +319,7 @@ Den här koden är beroende av att ha en tillståndssidosättningskomponent hög
     }
 ```
 
-Slutligen behöver vi ett sätt att göra synligheten synlig. Öppna **RemoteRaycaster-skriptet** och ersätt *uppdateringsfunktionen:*
+Slutligen behöver vi ett sätt att växla synlighet. Öppna **RemoteRaycaster** -skriptet och Ersätt *Update* -funktionen:
 
 ```csharp
     private void Update()
@@ -340,15 +340,15 @@ Slutligen behöver vi ett sätt att göra synligheten synlig. Öppna **RemoteRay
     }
 ```
 
-Kör koden och högerklicka på en del av modellen. Resten av modellen kommer att försvinna och endast den markerade pjäsen kommer att förbli synlig.
+Kör koden och högerklicka på en del av modellen. Resten av modellen försvinner och endast den markerade pjäsen förblir synlig.
 
-## <a name="remove-gameobject-instances-of-remote-entities"></a>Ta bort GameObject-instanser av fjärrenheter
+## <a name="remove-gameobject-instances-of-remote-entities"></a>Ta bort GameObject instanser av fjär entiteter
 
-Du kanske har märkt att koden fortsätter att skapa objekt, men aldrig rensar upp dem. Detta visas också på objekthierarkipanelen. När du expanderar fjärrobjekthierarkin under simuleringen kan du se fler och fler objekt som visas varje gång du hovrar över en ny del av modellen.
+Du kanske har märkt att koden behåller skapandet av objekt, men rensar aldrig upp dem. Detta är också synligt i objektets hierarki panel. När du expanderar Fjärrobjektets hierarki under simuleringen kan du se fler och fler objekt som visas varje gång du hovrar över en ny del av modellen.
 
-Att ha många objekt i en scen påverkar prestanda negativt. Du bör alltid rensa upp objekt som inte behövs längre.
+Om många objekt i en scen påverkar prestanda negativt. Du bör alltid Rensa objekt som inte behövs längre.
 
-Sätt in koden nedan i **RemoteRaycaster-skriptet** och ta bort dubblettfunktionerna:
+Infoga koden nedan i **RemoteRaycaster** -skriptet och ta bort de duplicerade funktionerna:
 
 ```csharp
     private void ClearFocus()
@@ -372,7 +372,7 @@ Sätt in koden nedan i **RemoteRaycaster-skriptet** och ta bort dubblettfunktion
 
 ## <a name="move-objects"></a>Flytta objekt
 
-Som ett nästa steg vill vi flytta runt ett markerat objekt. I **RemoteRaycaster-skriptet infogar** du den här koden och tar bort dubblettfunktionen:
+Som nästa steg vill vi flytta ett markerat objekt runt. I **RemoteRaycaster** -skriptet infogar du den här koden och tar bort funktionen duplicera:
 
 ```csharp
     private Vector3 lastPosition = Vector3.zero;
@@ -412,9 +412,9 @@ Som ett nästa steg vill vi flytta runt ett markerat objekt. I **RemoteRaycaster
 ```
 
 > [!IMPORTANT]
-> Om du kör den här koden kommer du att märka att ingenting händer. Det beror på att om du ändrar ett objekts transformering automatiskt synkroniseras tillståndsändringen till servern, av prestandaskäl. I stället måste du antingen skicka den här tillståndsändringen till servern manuellt eller aktivera **SyncEveryFrame** på *RemoteEntitySyncObject-komponenten.*
+> Om du kör den här koden ser du att ingenting händer. Det beror på att om du ändrar ett objekts transformering synkroniserar inte tillstånds ändringen automatiskt på servern av prestanda skäl. I stället måste du antingen skicka den här tillstånds ändringen till servern manuellt, eller så aktiverar du **SyncEveryFrame** på *RemoteEntitySyncObject* -komponenten.
 
-Öppna **remotemodelEntity-skriptet** och lägg till den här raden:
+Öppna **RemoteModelEntity** -skriptet och Lägg till den här raden:
 
 ```csharp
     public void OnEnable()
@@ -425,15 +425,15 @@ Som ett nästa steg vill vi flytta runt ett markerat objekt. I **RemoteRaycaster
     }
 ```
 
-Köra koden igen, bör du kunna vänsterklicka på ett objekt och dra runt.
+Om du kör koden igen bör du kunna vänsterklicka på ett objekt och dra det runt.
 
-## <a name="add-a-cut-plane"></a>Lägg till ett snittplan
+## <a name="add-a-cut-plane"></a>Lägg till ett klipp plan
 
-Den sista funktionen vi vill prova i den här guiden, använder [klippa plan](../../overview/features/cut-planes.md). Ett snittplan skär bort delar av renderade objekt, så att du kan titta inuti dem.
+Den sista funktionen vi vill testa i den här självstudien använder [klipp plan](../../overview/features/cut-planes.md). Ett klipp plan klipper bort delar av återgivna objekt, som du kan titta på i dem.
 
-Skapa en ny GameObject i scenen **CutPlane**. Skapa ett nytt skript och kalla det **RemoteCutPlane**. Lägg till komponenten i det nya GameObject.
+Skapa en ny GameObject i scenen **CutPlane**. Skapa ett nytt skript och anropa det **RemoteCutPlane**. Lägg till komponenten i den nya GameObject.
 
-Öppna skriptfilen och ersätt innehållet med följande kod:
+Öppna skript filen och ersätt innehållet med följande kod:
 
 ```csharp
 using Microsoft.Azure.RemoteRendering;
@@ -487,11 +487,11 @@ public class RemoteCutPlane : MonoBehaviour
 }
 ```
 
-När du kör koden nu bör du se hur modellen skärs upp av planet. Du kan markera *CutPlane-objektet* och flytta och rotera det i *scenfönstret.* Du kan växla det skurna planet på och av genom att inaktivera det skurna planet objektet.
+När du kör din kod nu bör du se hur modellen klipps ut öppen av planet. Du kan välja *CutPlane* -objektet och flytta och rotera det i *scen* fönstret. Du kan växla mellan avskurna planet genom att inaktivera objektet klipp ut plan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du vet nu den viktigaste funktionen för att interagera med fjärrobjekt. I nästa handledning kommer vi att ta en titt på att anpassa en scen utseende.
+Nu vet du de viktigaste funktionerna för att interagera med fjärrobjekt. I nästa självstudie får vi en titt på hur du anpassar en scens utseende.
 
 > [!div class="nextstepaction"]
-> [Handledning: Ändra miljö och material](changing-environment-and-materials.md)
+> [Självstudie: ändra miljö och material](changing-environment-and-materials.md)

@@ -1,7 +1,7 @@
 ---
-title: Generera självsignerat certifikat med en anpassad rotcertifikatutfärdaren
+title: Generera ett självsignerat certifikat med en anpassad rot certifikat utfärdare
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du skapar ett självsignerat Azure Application Gateway-certifikat med en anpassad rotcertifikatutfärdaren
+description: Lär dig hur du skapar ett självsignerat Azure Application-Gateway-certifikat med en anpassad rot certifikat utfärdare
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,99 +9,99 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
 ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311948"
 ---
-# <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat Azure Application Gateway-certifikat med en anpassad rotcertifikatutfärdaren
+# <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat certifikat för Azure Application Gateway med en anpassad rot certifikat utfärdare
 
-Application Gateway v2 SKU introducerar användningen av betrodda rotcertifikat för att tillåta serverdserver. Detta tar bort autentiseringscertifikat som krävdes i v1 SKU. *Rotcertifikatet* är en Base-64-kodad X.509(. CER)-formatrotcertifikat från serverdingscertifikatservern. Den identifierar rotcertifikatutfärdaren som utfärdade servercertifikatet och servercertifikatet används sedan för TLS/SSL-kommunikationen.
+Application Gateway v2-SKU: n introducerar användningen av betrodda rot certifikat för att tillåta backend-servrar. Detta tar bort autentiseringscertifikat som krävs i v1 SKU. *Rot certifikatet* är en Base-64-kodad X. 509 (. CER) formatera rot certifikat från Server dels certifikat servern. Den identifierar rot certifikat utfärdaren (CA) som utfärdade Server certifikatet och Server certifikatet används sedan för TLS/SSL-kommunikation.
 
-Application Gateway litar på webbplatsens certifikat som standard om det är signerat av en välkänd certifikatutfärdare (till exempel GoDaddy eller DigiCert). Du behöver inte uttryckligen överföra rotcertifikatet i så fall. Mer information finns i [Översikt över TLS-avslutning och till TLS med Application Gateway](ssl-overview.md). Men om du har en utvecklings-/testmiljö och inte vill köpa ett verifierat certifikat för certifikatutfärdare kan du skapa en egen anpassad certifikatutfärdare och skapa ett självsignerat certifikat med den. 
+Application Gateway litar på din webbplats certifikat som standard om det är signerat av en välkänd certifikat utfärdare (till exempel GoDaddy eller DigiCert). Du behöver inte uttryckligen ladda upp rot certifikatet i detta fall. Mer information finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md). Men om du har en utvecklings-/test miljö och inte vill köpa ett verifierat CA-signerat certifikat, kan du skapa en egen anpassad certifikat utfärdare och skapa ett självsignerat certifikat med det. 
 
 > [!NOTE]
-> Självsignerade certifikat är inte betrodda som standard och de kan vara svåra att underhålla. Dessutom kan de använda föråldrade hash- och chiffersviter som kanske inte är starka. För bättre säkerhet, köpa ett certifikat som signerats av en välkänd certifikatutfärdar.
+> Självsignerade certifikat är inte betrodda som standard och de kan vara svåra att underhålla. De kan också använda inaktuella hash-och chiffersviter som kanske inte är starka. Köp ett certifikat som signerats av en välkänd certifikat utfärdare för bättre säkerhet.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln får du lära dig att:
 
-- Skapa en egen anpassad certifikatutfärdarmyndighet
-- Skapa ett självsignerat certifikat signerat av din anpassade certifikatutfärdaren
-- Ladda upp ett självsignerat rotcertifikat till en programgateway för att autentisera serveråtkomstservern
+- Skapa din egen anpassade certifikat utfärdare
+- Skapa ett självsignerat certifikat signerat av din anpassade certifikat utfärdare
+- Ladda upp ett självsignerat rot certifikat till en Application Gateway för att autentisera backend-servern
 
 ## <a name="prerequisites"></a>Krav
 
-- **[OpenSSL](https://www.openssl.org/) på en dator som kör Windows eller Linux** 
+- **[Openssl](https://www.openssl.org/) på en dator som kör Windows eller Linux** 
 
-   Det kan finnas andra verktyg för certifikathantering, men den här självstudien använder OpenSSL. Du kan hitta OpenSSL levereras med många Linux-distributioner, såsom Ubuntu.
-- **En webbserver**
+   Även om andra verktyg är tillgängliga för certifikat hantering, använder den här självstudien OpenSSL. Du kan hitta OpenSSL med många Linux-distributioner, till exempel Ubuntu.
+- **En webb server**
 
-   Apache, IIS eller NGINX för att testa certifikaten.
+   Till exempel Apache, IIS eller NGINX för att testa certifikaten.
 
-- **En programgateway v2 SKU**
+- **En Application Gateway v2-SKU**
    
-  Om du inte har en befintlig programgateway läser du [Snabbstart: Direkt webbtrafik med Azure Application Gateway - Azure portal](quick-create-portal.md).
+  Om du inte har en befintlig Application Gateway, se [snabb start: direkt webb trafik med Azure Application Gateway-Azure Portal](quick-create-portal.md).
 
-## <a name="create-a-root-ca-certificate"></a>Skapa ett rotcertifikatutfärdarcertifikat
+## <a name="create-a-root-ca-certificate"></a>Skapa ett rot certifikat för certifikat utfärdare
 
-Skapa rotcertifikatutfärdaren med OpenSSL.
+Skapa ditt rot certifikat för certifikat utfärdare med hjälp av OpenSSL.
 
-### <a name="create-the-root-key"></a>Skapa rotnyckeln
+### <a name="create-the-root-key"></a>Skapa rot nyckeln
 
 1. Logga in på datorn där OpenSSL är installerat och kör följande kommando. Detta skapar en lösenordsskyddad nyckel.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
-1. Skriv ett starkt lösenord vid prompten. Till exempel minst nio tecken med versaler, gemener, siffror och symboler.
+1. Ange ett starkt lösen ord i prompten. Till exempel, minst nio tecken, med versaler, gemener, siffror och symboler.
 
-### <a name="create-a-root-certificate-and-self-sign-it"></a>Skapa ett rotcertifikat och signera det själv
+### <a name="create-a-root-certificate-and-self-sign-it"></a>Skapa ett rot certifikat och registrera det själv
 
-1. Använd följande kommandon för att generera csr och certifikatet.
+1. Använd följande kommandon för att skapa CSR och certifikat.
 
    ```
    openssl req -new -sha256 -key contoso.key -out contoso.csr
 
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
-   De tidigare kommandona skapar rotcertifikatet. Du ska använda detta för att signera servercertifikatet.
+   Föregående kommandon skapar rot certifikatet. Du kommer att använda den här för att signera Server certifikatet.
 
-1. När du uppmanas till det skriver du lösenordet för rotnyckeln och organisationsinformationen för den anpassade certifikatutfärdaren, till exempel Land, Stat, Org, OU och det fullständigt kvalificerade domännamnet (det här är utfärdarens domän).
+1. När du uppmanas till det anger du lösen ordet för rot nyckeln och organisations informationen för den anpassade certifikat utfärdaren, till exempel land, delstat, org, OU och det fullständigt kvalificerade domän namnet (detta är domän för utfärdaren).
 
-   ![skapa rotcertifikat](media/self-signed-certificates/root-cert.png)
+   ![Skapa rot certifikat](media/self-signed-certificates/root-cert.png)
 
-## <a name="create-a-server-certificate"></a>Skapa ett servercertifikat
+## <a name="create-a-server-certificate"></a>Skapa ett Server certifikat
 
-Därefter ska du skapa ett servercertifikat med OpenSSL.
+Därefter skapar du ett Server certifikat med hjälp av OpenSSL.
 
-### <a name="create-the-certificates-key"></a>Skapa certifikatets nyckel
+### <a name="create-the-certificates-key"></a>Skapa Certifikatets nyckel
 
-Använd följande kommando för att generera nyckeln för servercertifikatet.
+Använd följande kommando för att generera nyckeln för Server certifikatet.
 
    ```
    openssl ecparam -out fabrikam.key -name prime256v1 -genkey
    ```
 
-### <a name="create-the-csr-certificate-signing-request"></a>Skapa kundtjänstrepresentanten (begäran om certifikatsignering)
+### <a name="create-the-csr-certificate-signing-request"></a>Skapa CSR (certifikat signerings förfrågan)
 
-Kundtjänstrepresentanten är en offentlig nyckel som ges till en certifikatutfärdare när du begär ett certifikat. Certifikatutfärdaren utfärdar certifikatet för den här specifika begäran.
+CSR är en offentlig nyckel som tilldelas en certifikat utfärdare när ett certifikat begärs. CA: n utfärdar certifikatet för den här specifika begäran.
 
 > [!NOTE]
-> Servercertifikatet (gemensamt namn) måste skilja sig från utfärdarens domän. I det här fallet är `www.contoso.com` till exempel CN för utfärdaren och `www.fabrikam.com`servercertifikatets CN är .
+> CN (eget namn) för Server certifikatet måste skilja sig från utfärdarens domän. I det här fallet är `www.contoso.com` till exempel CN för utfärdaren och Server certifikatets CN. `www.fabrikam.com`
 
 
-1. Använd följande kommando för att generera kundtjänstrepresentanten:
+1. Använd följande kommando för att generera CSR:
 
    ```
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. När du uppmanas till det skriver du lösenordet för rotnyckeln och organisationsinformationen för den anpassade certifikatutfärdaren: Land, Delstat, Org, OU och det fullständigt kvalificerade domännamnet. Detta är webbplatsens område och det bör skilja sig från emittenten.
+1. När du uppmanas till det anger du lösen ordet för rot nyckeln och organisationens information för den anpassade certifikat utfärdaren: land, delstat, org, OU och det fullständigt kvalificerade domän namnet. Det här är domänen för webbplatsen och den bör inte vara samma som utfärdaren.
 
-   ![Servercertifikat](media/self-signed-certificates/server-cert.png)
+   ![Server certifikat](media/self-signed-certificates/server-cert.png)
 
-### <a name="generate-the-certificate-with-the-csr-and-the-key-and-sign-it-with-the-cas-root-key"></a>Generera certifikatet med kundtjänstrepresentanten och nyckeln och signera det med certifikatutfärdarens rotnyckel
+### <a name="generate-the-certificate-with-the-csr-and-the-key-and-sign-it-with-the-cas-root-key"></a>Generera certifikatet med CSR och nyckeln och signera det med certifikat utfärdarens rot nyckel
 
 1. Använd följande kommando för att skapa certifikatet:
 
@@ -110,34 +110,34 @@ Kundtjänstrepresentanten är en offentlig nyckel som ges till en certifikatutf�
    ```
 ### <a name="verify-the-newly-created-certificate"></a>Verifiera det nyligen skapade certifikatet
 
-1. Använd följande kommando för att skriva ut utdata från CRT-filen och verifiera dess innehåll:
+1. Använd följande kommando för att skriva ut utdata från CRT-filen och kontrol lera dess innehåll:
 
    ```
    openssl x509 -in fabrikam.crt -text -noout
    ```
 
-   ![Kontroll av certifikat](media/self-signed-certificates/verify-cert.png)
+   ![Certifikat verifiering](media/self-signed-certificates/verify-cert.png)
 
-1. Kontrollera filerna i katalogen och se till att du har följande filer:
+1. Kontrol lera filerna i din katalog och se till att du har följande filer:
 
-   - contoso.crt (contoso.crt)
-   - contoso.key (contoso.key)
-   - fabrikam.crt
-   - fabrikam.key
+   - contoso. CRT
+   - contoso. Key
+   - Fabrikam. CRT
+   - Fabrikam. Key
 
-## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Konfigurera certifikatet i TLS-inställningarna för webbservern
+## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Konfigurera certifikatet på webb serverns TLS-inställningar
 
-Konfigurera TLS på webbservern med filerna fabrikam.crt och fabrikam.key. Om webbservern inte kan ta två filer kan du kombinera dem med en enda .pem- eller .pfx-fil med OpenSSL-kommandon.
+Konfigurera TLS i webb servern med hjälp av filerna fabrikam. CRT och fabrikam. Key. Om webb servern inte kan ta två filer kan du kombinera dem till en enda. pem-eller. pfx-fil med hjälp av OpenSSL-kommandon.
 
 ### <a name="iis"></a>IIS
 
-Instruktioner om hur du importerar certifikat och överför dem som servercertifikat på IIS finns i [SÅ HÄR: Installera importerade certifikat på en webbserver i Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
+Anvisningar om hur du importerar certifikat och laddar upp dem som server certifikat i IIS finns i [så här gör du: Installera importerade certifikat på en webb server i Windows server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Instruktioner för TLS-bindning finns i [Så här konfigurerar du SSL på IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Instruktioner för TLS-bindning finns i [så här konfigurerar du SSL i IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
-Följande konfiguration är ett exempel [virtuell värd konfigurerad för SSL](https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts) i Apache:
+Följande konfiguration är ett exempel på en [virtuell värd som kon figurer ATS för SSL](https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts) i Apache:
 
 ```
 <VirtualHost www.fabrikam:443>
@@ -151,19 +151,19 @@ Följande konfiguration är ett exempel [virtuell värd konfigurerad för SSL](h
 
 ### <a name="nginx"></a>NGINX
 
-Följande konfiguration är ett exempel [på NGINX-serverblock](https://nginx.org/docs/http/configuring_https_servers.html) med TLS-konfiguration:
+Följande konfiguration är ett exempel på [nginx Server block](https://nginx.org/docs/http/configuring_https_servers.html) med TLS-konfiguration:
 
 ![NGINX med TLS](media/self-signed-certificates/nginx-ssl.png)
 
-## <a name="access-the-server-to-verify-the-configuration"></a>Öppna servern för att verifiera konfigurationen
+## <a name="access-the-server-to-verify-the-configuration"></a>Få åtkomst till servern för att verifiera konfigurationen
 
-1. Lägg till rotcertifikatet i datorns betrodda rotarkiv. När du öppnar webbplatsen, se till att hela certifikatkedjan ses i webbläsaren.
+1. Lägg till rot certifikatet i datorns betrodda rot arkiv. När du ansluter till webbplatsen kontrollerar du att hela certifikat kedjan visas i webbläsaren.
 
    ![Betrodda rotcertifikat](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > Det förutsätts att DNS har konfigurerats för att peka webbserverns namn (i det här exemplet www.fabrikam.com) till webbserverns IP-adress. Om inte, kan du redigera [hosts-filen](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) för att matcha namnet.
-1. Bläddra till din webbplats och klicka på låsikonen i webbläsarens adressruta för att verifiera webbplatsens och certifikatinformationen.
+   > Det förutsätts att DNS har kon figurer ATS för att peka på webb serverns namn (i det här exemplet www.fabrikam.com) till din webb servers IP-adress. Om inte, kan du redigera [hosts-filen](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) för att matcha namnet.
+1. Bläddra till din webbplats och klicka på Lås ikonen i webbläsarens Adress fält för att kontrol lera plats-och certifikat information.
 
 ## <a name="verify-the-configuration-with-openssl"></a>Verifiera konfigurationen med OpenSSL
 
@@ -173,24 +173,24 @@ Du kan också använda OpenSSL för att verifiera certifikatet.
 openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 ```
 
-![OpenSSL-certifikatverifiering](media/self-signed-certificates/openssl-verify.png)
+![Verifiering av OpenSSL-certifikat](media/self-signed-certificates/openssl-verify.png)
 
-## <a name="upload-the-root-certificate-to-application-gateways-http-settings"></a>Ladda upp rotcertifikatet till HTTP-inställningar för Programgateway
+## <a name="upload-the-root-certificate-to-application-gateways-http-settings"></a>Ladda upp rot certifikatet till Application Gateway HTTP-inställningar
 
-Om du vill överföra certifikatet i Application Gateway måste du exportera CRT-certifikatet till en .cer-format Base-64-kodad. Eftersom .crt redan innehåller den offentliga nyckeln i base-64 kodade format, bara byta namn på filändelsen från .crt till .cer. 
+Om du vill överföra certifikatet i Application Gateway måste du exportera. CRT-certifikatet till ett. cer-format Base-64-kodat. Eftersom. CRT redan innehåller den offentliga nyckeln i formatet Base-64-kodat byter du bara namn på fil namns tillägget från. CRT till. cer. 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill överföra det betrodda rotcertifikatet från portalen väljer du **HTTP-inställningarna** och väljer **HTTPS-protokollet.**
+Om du vill ladda upp det betrodda rot certifikatet från portalen väljer du **http-inställningar** och sedan **https** -protokollet.
 
-![Lägga till ett certifikat med portalen](media/self-signed-certificates/portal-cert.png)
+![Lägga till ett certifikat med hjälp av portalen](media/self-signed-certificates/portal-cert.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Du kan också använda Azure CLI eller Azure PowerShell för att överföra rotcertifikatet. Följande kod är ett Azure PowerShell-exempel.
+Du kan också använda Azure CLI eller Azure PowerShell för att ladda upp rot certifikatet. Följande kod är ett Azure PowerShell exempel.
 
 > [!NOTE]
-> I följande exempel läggs ett betrott rotcertifikat till i programgatewayen, en ny HTTP-inställning skapas och en ny regel läggs till, förutsatt att serverdapoolen och lyssnaren redan finns.
+> Följande exempel lägger till ett betrott rot certifikat till Application Gateway, skapar en ny HTTP-inställning och lägger till en ny regel, förutsatt att Server dels-poolen och lyssnaren redan finns.
 
 ```azurepowershell
 ## Add the trusted root certificate to the Application Gateway
@@ -263,14 +263,14 @@ Add-AzApplicationGatewayRequestRoutingRule `
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
 
-### <a name="verify-the-application-gateway-backend-health"></a>Verifiera återställningshälsa för programgateway
+### <a name="verify-the-application-gateway-backend-health"></a>Verifiera Server delen för Application Gateway
 
-1. Klicka på vyn **Serverdhälsa** för programgatewayen för att kontrollera om avsökningen är felfri.
-1. Du bör se att statusen är **felfri** för HTTPS-avsökningen.
+1. Klicka på **Server delens hälso** läge för din Application Gateway för att kontrol lera om avsökningen är felfri.
+1. Du bör se att statusen är **felfri** för https-avsökningen.
 
-![HTTPS-sond](media/self-signed-certificates/https-probe.png)
+![HTTPS-avsökning](media/self-signed-certificates/https-probe.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om SSL\TLS i Application Gateway finns i [Översikt över TLS-avslutning och slutpunkt till TLS med Application Gateway](ssl-overview.md).
+Mer information om SSL\TLS i Application Gateway finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md).
 

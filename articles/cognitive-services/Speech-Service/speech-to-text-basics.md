@@ -1,7 +1,7 @@
 ---
-title: Grunderna i taligenkänning - Taltjänst
+title: Grunderna i tal igenkänning – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder Tal-SDK för att konvertera tal till text. I den här artikeln får du lära dig mer om objektkonstruktion, ljudinmatningsformat som stöds och konfigurationsalternativ för taligenkänning.
+description: Lär dig hur du använder tal-SDK för att konvertera tal till text. I den här artikeln får du lära dig om objekt konstruktion, stödda inspelnings format och konfigurations alternativ för tal igenkänning.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,18 +12,18 @@ ms.date: 04/14/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-sixteen
 ms.openlocfilehash: bdf8db4a7c946a50698d35aada5950ded671afb7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81399758"
 ---
-# <a name="learn-the-basics-of-speech-recognition"></a>Lär dig grunderna i taligenkänning
+# <a name="learn-the-basics-of-speech-recognition"></a>Lär dig grunderna för tal igenkänning
 
-En av de viktigaste funktionerna i taltjänsten är förmågan att känna igen och transkribera mänskligt tal (ofta kallat tal till text). I den här artikeln får du lära dig hur du använder Tal-SDK i dina appar och produkter för att utföra taligenkänning av hög kvalitet.
+En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här artikeln får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra tal igenkänning med hög kvalitet.
 
 > [!TIP]
-> Om du inte har haft en chans att slutföra en av våra snabbstarter, uppmuntrar vi dig att sparka däcken och prova taligenkänning ut själv.
+> Om du inte har haft möjlighet att slutföra en av våra snabb starter, rekommenderar vi att du använder däcken och provar tal igenkänningen för dig själv.
 > * [Identifiera tal från en mikrofon](quickstarts/speech-to-text-from-microphone.md)
 
 ::: zone pivot="programming-language-csharp"
@@ -52,4 +52,4 @@ En av de viktigaste funktionerna i taltjänsten är förmågan att känna igen o
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda codec-komprimerade ljudformat](how-to-use-codec-compressed-audio-input-streams.md)
+* [Använd codec-komprimerade ljud format](how-to-use-codec-compressed-audio-input-streams.md)

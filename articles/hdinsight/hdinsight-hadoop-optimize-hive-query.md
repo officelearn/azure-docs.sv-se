@@ -1,6 +1,6 @@
 ---
 title: Optimera Hive-frågor i Azure HDInsight
-description: I den här artikeln beskrivs hur du optimerar dina Apache Hive-frågor för Hadoop i HDInsight.
+description: Den här artikeln beskriver hur du optimerar dina Apache Hive frågor för Hadoop i HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,71 +9,71 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: 4955df718dcc8f169232052979ccf4a636c3be80
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81390301"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
-I Azure HDInsight finns det flera klustertyper och tekniker som kan köra Apache Hive-frågor. Välj lämplig klustertyp för att optimera prestanda för dina arbetsbelastningsbehov.
+I Azure HDInsight finns det flera kluster typer och tekniker som kan köra Apache Hive-frågor. Välj lämplig kluster typ för att optimera prestanda för dina arbets belastnings behov.
 
-Välj till exempel **klustertyp för** `ad hoc`interaktiva frågor för att optimera för interaktiva frågor. Välj Apache **Hadoop-klustertyp** för att optimera för Hive-frågor som används som en batchprocess. **Spark-** och **HBase-klustertyper** kan också köra Hive-frågor. Mer information om hur du kör Hive-frågor på olika HDInsight-klustertyper finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Välj till exempel **interaktiv fråga** kluster typ för att optimera för `ad hoc`interaktiva frågor. Välj Apache **Hadoop** kluster typ för att optimera för Hive-frågor som används som en batch-process. **Spark** -och **HBase** -kluster typer kan också köra Hive-frågor. Mer information om att köra Hive-frågor på olika typer av HDInsight-kluster finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
-HDInsight-kluster av Hadoop-klustertyp är inte optimerade för prestanda som standard. I den här artikeln beskrivs några av de vanligaste Hive-prestandaoptimeringsmetoderna som du kan använda på dina frågor.
+HDInsight-kluster av typen Hadoop-kluster är inte optimerade för prestanda som standard. I den här artikeln beskrivs några av de vanligaste prestanda optimerings metoderna i Hive som du kan använda för dina frågor.
 
 ## <a name="scale-out-worker-nodes"></a>Skala ut arbetsnoder
 
-Om du ökar antalet arbetsnoder i ett HDInsight-kluster kan arbetet använda fler mappers och reducerare som ska köras parallellt. Det finns två sätt att öka skala ut i HDInsight:
+Om du ökar antalet arbetsnoder i ett HDInsight-kluster kan arbetet använda fler mappningar och reducerare som ska köras parallellt. Det finns två sätt att öka utskalning i HDInsight:
 
-* När du skapar ett kluster kan du ange antalet arbetsnoder med Azure-portalen, Azure PowerShell eller kommandoradsgränssnittet.  Mer information finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Följande skärmbild visar konfigurationen av arbetsnoden på Azure-portalen:
+* När du skapar ett kluster kan du ange antalet arbetsnoder med hjälp av Azure Portal, Azure PowerShell eller kommando rads gränssnittet.  Mer information finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Följande skärm bild visar konfigurationen för arbetsnoden på Azure Portal:
   
-    ![Noder för azure-portalsklusterstorlek](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
+    ![Noder i Azure Portal kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 
-* När du har skapat det kan du också redigera antalet arbetsnoder för att skala ut ett kluster ytterligare utan att återskapa ett:
+* När du har skapat kan du också redigera antalet arbetsnoder för att skala ut ett kluster ytterligare utan att skapa ett nytt:
 
-    ![Klusterstorlek för Azure Portal-skala](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
+    ![Azure Portal skalnings kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
 
-Mer information om hur du skalar HDInsight finns i [Skala HDInsight-kluster](hdinsight-scaling-best-practices.md)
+Mer information om hur du skalar HDInsight finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md)
 
-## <a name="use-apache-tez-instead-of-map-reduce"></a>Använd Apache Tez istället för Att minska kartan
+## <a name="use-apache-tez-instead-of-map-reduce"></a>Använd Apache Tez i stället för kart minskning
 
-[Apache Tez](https://tez.apache.org/) är en alternativ exekveringsmotor till MapReduce-motorn. Linux-baserade HDInsight-kluster har Tez aktiverat som standard.
+[Apache Tez](https://tez.apache.org/) är en alternativ körnings motor till MapReduce-motorn. Linux-baserade HDInsight-kluster har Tez aktiverat som standard.
 
-![Översiktsdiagram för HDInsight Apache Tez](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+![HDInsight Apache Tez-översikt diagram](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez är snabbare eftersom:
 
-* **Kör riktad acyklisk graf (DAG) som ett enda jobb i MapReduce-motorn**. DAG kräver att varje uppsättning mappers följs av en uppsättning reducerare. Det här kravet gör att flera MapReduce-jobb avknoppades för varje Hive-fråga. Tez har inte en sådan begränsning och kan bearbeta komplexa DAG som ett jobb minimera jobb start overhead.
-* **Undviker onödiga skrivningar**. Flera jobb används för att bearbeta samma Hive-fråga i MapReduce-motorn. Utdata för varje MapReduce-jobb skrivs till HDFS för mellanliggande data. Eftersom Tez minimerar antalet jobb för varje Hive-fråga kan den undvika onödiga skrivningar.
-* **Minimerar uppstartsfördröjningar**. Tez är bättre på att minimera startfördröjning genom att minska antalet mappers det behöver för att starta och även förbättra optimering hela.
-* **Återanvänder behållare**. När det är möjligt kommer Tez att återanvända behållare för att säkerställa att latensen från att starta behållare minskas.
-* **Kontinuerlig optimeringstekniker**. Traditionellt gjordes optimering under kompileringsfasen. Men mer information om indata finns tillgänglig som möjliggör bättre optimering under körning. Tez använder kontinuerlig optimeringstekniker som gör det möjligt att optimera planen längre in i körningsfasen.
+* **Kör riktat acykliska diagram (dag) som ett enda jobb i MapReduce-motorn**. DAG kräver att varje uppsättning med mappningar ska följas av en uppsättning med reducerare. Detta krav gör att flera MapReduce-jobb kan läsas av för varje Hive-fråga. Tez har inte någon sådan begränsning och kan bearbeta komplexa DAG som ett jobb som minimerar jobbets start kostnader.
+* **Undviker onödiga skrivningar**. Flera jobb används för att bearbeta samma Hive-fråga i MapReduce-motorn. Utdata från varje MapReduce-jobb skrivs till HDFS för mellanliggande data. Eftersom Tez minimerar antalet jobb för varje Hive-fråga, kan det undvika onödiga skrivningar.
+* **Minimerar start fördröjningar**. Tez kan förbättra start fördröjningen genom att minska antalet mappningar som krävs för att starta och även förbättra optimeringen i hela.
+* **Återåteranvänd behållare**. När möjligt kan Tez återanvända behållare för att se till att svars tiden för att starta behållare minskas.
+* **Metoder för kontinuerlig optimering**. Traditionellt gjorda optimering skedde under kompilerings fasen. Det finns dock mer information om indata som möjliggör bättre optimering under körning. Tez använder kontinuerlig optimerings teknik som gör det möjligt att optimera planen ytterligare i körnings fasen.
 
 Mer information om dessa begrepp finns i [Apache TEZ](https://tez.apache.org/).
 
-Du kan göra valfri Hive-fråga Tez aktiverad genom att prefixera frågan med följande uppsättningskommando:
+Du kan göra eventuella Hive-Tez aktiverade genom att aktivera frågan med följande set-kommando:
 
 ```hive
 set hive.execution.engine=tez;
 ```
 
-## <a name="hive-partitioning"></a>Uppdelning av Hive
+## <a name="hive-partitioning"></a>Hive-partitionering
 
-I/O-åtgärder är den största flaskhalsen för prestanda för att köra Hive-frågor. Prestanda kan förbättras om mängden data som behöver läsas kan minskas. Som standard genomsöker Hive-frågor hela Hive-tabeller. Men för frågor som bara behöver skanna en liten mängd data (till exempel frågor med filtrering) skapar detta beteende onödiga omkostnader. Hive-partitionering gör att Hive-frågor kan komma åt endast den nödvändiga mängden data i Hive-tabeller.
+I/O-åtgärder är den stora prestanda Flask halsen för att köra Hive-frågor. Prestanda kan förbättras om mängden data som behöver läsas kan minskas. Hive-frågor söker som standard igenom hela Hive-tabeller. Men för frågor som bara behöver söka igenom en liten mängd data (till exempel frågor med filtrering), skapar det här beteendet onödig omkostnader. Hive-partitionering gör det möjligt för Hive-frågor att endast komma åt den nödvändiga mängden data i Hive-tabeller.
 
-Hive-partitionering implementeras genom att omorganisera rådata till nya kataloger. Varje partition har en egen filkatalog. Partitioneringen definieras av användaren. Följande diagram illustrerar partitionering av en Hive-tabell efter kolumnen *År*. En ny katalog skapas för varje år.
+Hive-partitionering implementeras genom att organisera om rå data i nya kataloger. Varje partition har en egen fil katalog. Partitioneringen definieras av användaren. Följande diagram illustrerar partitionering av en Hive-tabell efter kolumn *året*. En ny katalog skapas för varje år.
 
-![HDInsight Apache Hive-partitionering](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+![HDInsight Apache Hive partitionering](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Några partitionering överväganden:
 
-* **Inte under partition** - Partitionering på kolumner med endast ett fåtal värden kan orsaka få partitioner. Partitionering på kön skapar till exempel bara två partitioner som ska skapas (man och kvinna), så minska svarstiden med högst hälften.
-* **Don't over partition** - På den andra ytterligheten orsakar skapandet av en partition i en kolumn med ett unikt värde (till exempel userid) flera partitioner. Över partition orsakar mycket stress på klusternamnnoden eftersom den måste hantera det stora antalet kataloger.
-* **Undvik data skeva** - Välj din partitioneringsnyckel klokt så att alla partitioner är jämna storlek. Partitionering i *kolumnen Tillstånd* kan till exempel skeva distributionen av data. Eftersom delstaten Kalifornien har en befolkning nästan 30x som Vermont, är partitionen storlek potentiellt skev och prestanda kan variera enormt.
+* **Under partitionerings** partitionering i kolumner med bara några få värden kan det uppstå några partitioner. Till exempel skapar partitionering på kön bara två partitioner som ska skapas (hane och hona), så minska svars tiden med högst hälften.
+* **Inte över partition** – på de andra extrema, skapar en partition i en kolumn med ett unikt värde (till exempel UserID) flera partitioner. Över-partitionen orsakar mycket stress på klustrets namenode eftersom det måste hantera det stora antalet kataloger.
+* **Undvik data skevning** – Välj partitionerings nyckeln på ett bra sätt så att alla partitioner är jämnt utformade. Till exempel kan partitionering i kolumnen *State* snedställa data fördelningen. Eftersom status för California har en population som är nästan 30 i Vermont, är partitionsstorleken potentiellt skevad och prestandan kan variera med stor mängd.
 
-Om du vill skapa en partitionstabell använder du *partitionerad* efter-satsen:
+Om du vill skapa en partitionstabell använder du den *partitionerade by* -satsen:
 
 ```sql
 CREATE TABLE lineitem_part
@@ -89,7 +89,7 @@ STORED AS TEXTFILE;
 
 När den partitionerade tabellen har skapats kan du antingen skapa statisk partitionering eller dynamisk partitionering.
 
-* **Statisk partitionering** innebär att du redan har fragmenterade data i lämpliga kataloger. Med statiska partitioner lägger du till Hive-partitioner manuellt baserat på katalogplatsen. Följande kodavsnitt är ett exempel.
+* **Statisk partitionering** innebär att du redan har shardade data i lämpliga kataloger. Med statiska partitioner lägger du till Hive-partitioner manuellt utifrån katalogens plats. Följande kodfragment är ett exempel.
   
    ```sql
    INSERT OVERWRITE TABLE lineitem_part
@@ -101,7 +101,7 @@ När den partitionerade tabellen har skapats kan du antingen skapa statisk parti
    LOCATION 'wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
 
-* **Dynamisk partitionering** innebär att du vill att Hive ska skapa partitioner automatiskt åt dig. Eftersom du redan har skapat partitioneringstabellen från mellanlagringstabellen behöver du bara infoga data i den partitionerade tabellen:
+* **Dynamisk partitionering** innebär att du vill att Hive ska skapa partitioner automatiskt åt dig. Eftersom du redan har skapat partitionerings tabellen från mellanlagrings tabellen behöver du bara infoga data i den partitionerade tabellen:
   
    ```hive
    SET hive.exec.dynamic.partition = true;
@@ -118,24 +118,24 @@ När den partitionerade tabellen har skapats kan du antingen skapa statisk parti
        L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
 
-Mer information finns i [Partitionerade tabeller](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
+Mer information finns i [partitionerade tabeller](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
-## <a name="use-the-orcfile-format"></a>Använda ORCFile-formatet
+## <a name="use-the-orcfile-format"></a>Använd ORCFile-formatet
 
-Hive stöder olika filformat. Ett exempel:
+Hive stöder olika fil format. Ett exempel:
 
-* **Text**: standardfilformatet och fungerar med de flesta scenarier.
-* **Avro**: fungerar bra för scenarier för interoperabilitet.
-* **ORC/Parkquet**: bäst lämpad för prestanda.
+* **Text**: standard fil formatet och fungerar med de flesta scenarier.
+* **Avro**: fungerar bra för samverkans scenarier.
+* **Orc/Parquet**: passar bäst för prestanda.
 
-ORC-format (Optimized Row Columnar) är ett mycket effektivt sätt att lagra Hive-data. Jämfört med andra format har ORC följande fördelar:
+ORC-formatet (optimerad rad kolumn) är ett mycket effektivt sätt att lagra Hive-data på. Jämfört med andra format har ORC följande fördelar:
 
-* stöd för komplexa typer, inklusive DateTime och komplexa och halvstrukturerade typer.
+* stöd för komplexa typer inklusive DateTime och komplexa och halv strukturerade typer.
 * upp till 70% komprimering.
-* indexerar var 10 000 rader, vilket gör att du kan hoppa över rader.
-* en betydande minskning av körningen av körningen.
+* indexerar varje 10 000 rader, vilket tillåter att rader hoppas över.
+* en betydande minskning av körningen av körnings tid.
 
-Om du vill aktivera ORC-format skapar du först en tabell med satsen *Lagrad som ORC:*
+Om du vill aktivera ORC-formatet skapar du först en tabell med satsen *lagrad som Orc*:
 
 ```sql
 CREATE TABLE lineitem_orc_part
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Därefter infogar du data i ORC-tabellen från mellanlagringstabellen. Ett exempel:
+Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Ett exempel:
 
 ```sql
 INSERT INTO TABLE lineitem_orc
@@ -171,32 +171,32 @@ SELECT L_ORDERKEY as L_ORDERKEY,
 FROM lineitem;
 ```
 
-Du kan läsa mer om ORC-formatet i [Apache Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+Du kan läsa mer om ORC-formatet i [språk hand boken för Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
-## <a name="vectorization"></a>Vektorisering
+## <a name="vectorization"></a>Vectorization
 
-Vectorization tillåter Hive att bearbeta en batch med 1024 rader tillsammans i stället för att bearbeta en rad i taget. Det innebär att enkla åtgärder utförs snabbare eftersom mindre intern kod måste köras.
+Vectorization tillåter att Hive bearbetar en batch med 1024 rader i stället för att bearbeta en rad i taget. Det innebär att enkla åtgärder utförs snabbare eftersom mindre intern kod måste köras.
 
-Så här aktiverar du vektoriseringsprefix din Hive-fråga med följande inställning:
+Så här aktiverar du vectorization-prefix för Hive-frågan med följande inställning:
 
 ```hive
 set hive.vectorized.execution.enabled = true;
 ```
 
-Mer information finns i [Vektoriserad frågekörning](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
+Mer information finns i [Vector Query Execution](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
-## <a name="other-optimization-methods"></a>Andra optimeringsmetoder
+## <a name="other-optimization-methods"></a>Andra optimerings metoder
 
-Det finns fler optimeringsmetoder som du kan tänka på, till exempel:
+Det finns fler optimerings metoder som du kan överväga, till exempel:
 
-* **Hive-bucketing:** en teknik som gör det möjligt att gruppera eller segmentera stora uppsättningar data för att optimera frågeprestanda.
-* **Gå med optimering:** optimering av Hive fråga körning planering för att förbättra effektiviteten i kopplingar och minska behovet av användare tips. Mer information finns i [Gå med i optimering](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Öka reducerarna**.
+* **Hive-Bucket:** en teknik som gör det möjligt att klustra eller segmentera stora data uppsättningar för att optimera prestanda för frågor.
+* **Delta i optimering:** optimering av Hive-planering för att förbättra effektiviteten i kopplingar och minska behovet av användar tips. Mer information finns i [delta optimering](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
+* **Öka minskaren**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig flera vanliga Hive frågeoptimeringsmetoder. Mer information finns i följande artiklar:
+I den här artikeln har du lärt dig flera vanliga optimerings metoder för Hive-frågor. Mer information finns i följande artiklar:
 
-* [Använd Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analysera flygfördröjningsdata med hjälp av interaktiv fråga i HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Använda Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
+* [Analysera flyg fördröjnings data med hjälp av interaktiv fråga i HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data-linux.md)

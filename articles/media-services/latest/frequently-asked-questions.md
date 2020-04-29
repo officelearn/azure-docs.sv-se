@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar på Azure Media Services v3 vanliga frågor| Microsoft-dokument
+title: Vanliga frågor och svar om Azure Media Services v3 | Microsoft Docs
 description: Den här artikeln innehåller svar på vanliga frågor om Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -12,106 +12,106 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
 ms.openlocfilehash: 713acbd098255af2869d7a462c9990f3d7e10bf1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81309188"
 ---
-# <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 vanliga frågor och svar
+# <a name="media-services-v3-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v3
 
 Den här artikeln innehåller svar på vanliga frågor om Azure Media Services v3.
 
 ## <a name="general"></a>Allmänt
 
-### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Vilka Azure-roller kan utföra åtgärder på Azure Media Services-resurser? 
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Vilka Azure-roller kan utföra åtgärder på Azure Media Services resurser? 
 
-Se [Rollbaserad åtkomstkontroll (RBAC) för Media Services-konton](rbac-overview.md).
+Se [rollbaserad åtkomst kontroll (RBAC) för Media Services-konton](rbac-overview.md).
 
-### <a name="how-do-i-stream-to-apple-ios-devices"></a>Hur streamar jag till Apple iOS-enheter?
+### <a name="how-do-i-stream-to-apple-ios-devices"></a>Vill du Hur gör jag för att Stream till Apple iOS-enheter?
 
-Kontrollera att du har **(format=m3u8-aapl)** i slutet av sökvägen (efter **den /manifestdel** av WEBBADRESSEN) som talar om för att servern för direktuppspelning ska returnera HTTP Live Streaming (HLS) innehåll för förbrukning på Apple iOS-inbyggda enheter. Mer information finns i [Leverera innehåll](dynamic-packaging-overview.md).
+Kontrol lera att du har **(format = M3U8-AAPL)** i slutet av din sökväg (efter **/manifest** -delen av URL: en) för att meddela att den strömmande ursprungs servern returnerar HTTP Live Streaming (HLS) innehåll för användning på Apple iOS-enheter. Mer information finns i avsnittet om att [leverera innehåll](dynamic-packaging-overview.md).
 
-### <a name="how-do-i-configure-media-reserved-units"></a>Hur konfigurerar jag mediereserverade enheter?
+### <a name="how-do-i-configure-media-reserved-units"></a>Hur gör jag för att konfigurerar du reserverade enheter?
 
-För jobben Ljudanalys och videoanalys som utlöses av Media Services v3 eller Video Indexer rekommenderar vi att du etablerar ditt konto med 10 S3-mediereserverade enheter (MRUs). Om du behöver mer än 10 S3 MRUs öppnar du en supportbiljett med hjälp av [Azure-portalen](https://portal.azure.com/).
+För ljud analys-och video analys jobb som utlöses av Media Services v3 eller Video Indexer, rekommenderar vi att du etablerar ditt konto med 10 MRUs (S3 Media reserverad Unit). Om du behöver fler än 10 S3-MRUs öppnar du ett support ärende med hjälp av [Azure Portal](https://portal.azure.com/).
 
-Mer information finns i [Skala mediebearbetning](media-reserved-units-cli-how-to.md).
+Mer information finns i [skala medie bearbetning](media-reserved-units-cli-how-to.md).
 
-### <a name="what-is-the-recommended-method-to-process-videos"></a>Vilken är den rekommenderade metoden för att bearbeta videor?
+### <a name="what-is-the-recommended-method-to-process-videos"></a>Vad är den rekommenderade metoden för att bearbeta videor?
 
-Använd [Transformeringar](https://docs.microsoft.com/rest/api/media/transforms) för att konfigurera vanliga uppgifter för kodning eller analys av videor. Varje transformering beskriver ett recept eller ett arbetsflöde med uppgifter för bearbetning av video- eller ljudfiler. Ett [jobb](https://docs.microsoft.com/rest/api/media/jobs) är den faktiska begäran till Media Services om att tillämpa Transform på ett indatavideo- eller ljudinnehåll. När transformeringen har skapats kan du skicka jobb med hjälp av Api:er för Media Services eller någon av de publicerade SDK:erna. Mer information finns i [Transformeringar och jobb](transforms-jobs-concept.md).
+Använd [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) för att konfigurera vanliga aktiviteter för kodning eller analys av videor. Varje transformering beskriver ett recept, eller ett arbets flöde för uppgifter för bearbetning av video-eller ljudfiler. Ett [jobb](https://docs.microsoft.com/rest/api/media/jobs) är den faktiska begäran om Media Services att tillämpa transformeringen på ett indata-eller ljud innehåll. När transformeringen har skapats kan du skicka jobb genom att använda Media Services API: er eller någon av de publicerade SDK: erna. Mer information finns i [Transformeringar och jobb](transforms-jobs-concept.md).
 
-### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Jag laddade upp, kodade och publicerade en video. Varför spelas inte videon upp när jag försöker streama den?
+### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>Jag har laddat upp, kodat och publicerat en video. Varför spelas inte videon upp när jag försöker strömma den?
 
-En av de vanligaste orsakerna är att du inte har den slutpunkt för direktuppspelning som du försöker spela upp i läget Kör.
+En av de vanligaste orsakerna är att du inte har den slut punkt för direkt uppspelning som du försöker spela upp i körnings läge.
 
-### <a name="how-does-pagination-work"></a>Hur fungerar sidnumrering?
+### <a name="how-does-pagination-work"></a>Hur fungerar sid brytning?
 
-När du använder sidnumrering bör du alltid använda nästa länk för att räkna upp samlingen och inte vara beroende av en viss sidstorlek. Mer information och exempel finns i [Filtrera, beställa, söka](entities-overview.md).
+När du använder sid brytning bör du alltid använda nästa länk för att räkna upp samlingen och inte beroende av en viss sid storlek. Mer information och exempel finns i [filtrering, sortering, växling](entities-overview.md).
 
-### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Vilka funktioner är ännu inte tillgängliga i Azure Media Services v3?
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Vilka funktioner är inte tillgängliga än i Azure Media Services v3?
 
-Mer information finns i [Funktionsluckor med avseende på v2 API:er](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+Mer information finns i [funktions luckor med avseende på v2-API: er](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
-### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Vad är processen med att flytta ett Media Services-konto mellan prenumerationer?  
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Vad är processen att flytta ett Media Services konto mellan prenumerationer?  
 
-Mer information finns i [Flytta ett Media Services-konto mellan prenumerationer](media-services-account-concept.md).
+Mer information finns i [Flytta ett Media Services konto mellan prenumerationer](media-services-account-concept.md).
 
 ## <a name="live-streaming"></a>Liveuppspelning 
 
-### <a name="how-do-i-stop-the-live-stream-after-the-broadcast-is-done"></a>Hur stoppar jag livestreamen när sändningen är klar?
+### <a name="how-do-i-stop-the-live-stream-after-the-broadcast-is-done"></a>Hur gör jag för att stoppar du den aktiva strömmen när sändningen är färdig?
 
-Du kan närma dig den från klientsidan eller serversidan.
+Du kan närma dig detta från klient sidan eller Server sidan.
 
-#### <a name="client-side"></a>Klientsidan
+#### <a name="client-side"></a>Klient Sidan
 
-Webbprogrammet bör fråga användaren om de vill avsluta sändningen när de stänger webbläsaren. Detta är en webbläsarhändelse som webbprogrammet kan hantera.
+Ditt webb program bör fråga användaren om de vill avsluta sändningen när webbläsaren stängs. Detta är en webb läsar händelse som ditt webb program kan hantera.
 
-#### <a name="server-side"></a>Serversidan
+#### <a name="server-side"></a>Server sida
 
-Du kan övervaka livehändelser genom att prenumerera på Azure Event Grid-händelser. Mer information finns i [EventGrids händelseschema](media-services-event-schemas.md#live-event-types).
+Du kan övervaka Live-händelser genom att prenumerera på Azure Event Grid händelser. Mer information finns i [händelse schema för EventGrid](media-services-event-schemas.md#live-event-types).
 
 Du kan antingen:
 
-* [Prenumerera på](reacting-to-media-services-events.md) [dataströmsnivå Microsoft.Media.LiveEventEncoderUppkopplade](media-services-event-schemas.md#liveeventencoderdisconnected) händelser och övervaka att inga återanslutningar kommer in på ett tag för att stoppa och ta bort din livehändelse.
-* [Prenumerera på](reacting-to-media-services-events.md) [pulsslagshändelser](media-services-event-schemas.md#liveeventingestheartbeat) på spårnivå. Om alla spår har en inkommande bitrate släppa till 0 eller den sista gången stämpeln inte längre ökar, kan du säkert stänga av live-händelsen. Hjärtslagen händelser kommer in på var 20 sekunder för varje spår, så det kan vara lite utförlig.
+* [Prenumerera](reacting-to-media-services-events.md) på data strömmens [Microsoft. Media. LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) -händelser och övervaka att det inte finns några åter anslutningar i ett tag för att stoppa och ta bort din Live-händelse.
+* [Prenumerera](reacting-to-media-services-events.md) på händelser på spår nivåns [pulsslag](media-services-event-schemas.md#liveeventingestheartbeat) . Om alla spår har en inkommande bit hastighet som släpps till 0 eller om den sista tidsstämpeln inte längre ökar, kan du stänga av direkt sändningen på ett säkert sätt. Pulsslags händelserna kommer in var 20: e sekund för varje spår, så det kan vara en bit utförlig.
 
-###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Hur infogar jag raster/videor och bildskiffer under en livestream?
+###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Hur gör jag för att infoga brytningar/videor och bildfärgare under en Live-ström?
 
-Media Services v3 live-kodning har ännu inte stöd för att infoga video- eller bildskiffer under livestreamen. 
+Media Services v3 Live encoding stöder ännu inte infogning av video-eller bildskärmar under Live Stream. 
 
-Du kan använda en [lokal kodare](recommended-on-premises-live-encoders.md) för att växla källvideon. Många appar ger möjlighet att byta källor, inklusive Telestream Wirecast, Switcher Studio (på iOS) och OBS Studio (gratis app).
+Du kan använda en [aktiv lokal kodare](recommended-on-premises-live-encoders.md) för att växla mellan käll videon. Många appar ger möjlighet att byta källor, inklusive Wirecast för multistream, växlaren Studio (på iOS) och ONLINEBANKSYSTEM Studio (gratis app).
 
 ## <a name="content-protection"></a>Innehållsskydd
 
-### <a name="should-i-use-aes-128-clear-key-encryption-or-a-drm-system"></a>Ska jag använda AES-128 clear key kryptering eller ett DRM-system?
+### <a name="should-i-use-aes-128-clear-key-encryption-or-a-drm-system"></a>Bör jag använda AES-128-kryptering av nyckel eller DRM-system?
 
-Kunderna undrar ofta om de ska använda AES-kryptering eller ett DRM-system. Den största skillnaden mellan de två systemen är att med AES-kryptering överförs innehållsnyckeln till klienten via TLS så att nyckeln krypteras under överföring men utan ytterligare kryptering ("i klartext"). Därför är nyckeln som används för att dekryptera innehållet tillgänglig för klientspelaren och kan visas i en nätverksspårning på klienten i oformaterad text. AES-128 tydlig nyckel kryptering är lämplig för användningsfall där betraktaren är en betrodd part (till exempel kryptera företagsvideor distribueras inom ett företag som ska ses av anställda).
+Kunderna undrar ofta om de ska använda AES-kryptering eller ett DRM-system. Den största skillnaden mellan de två systemen är att med AES-kryptering överförs innehålls nyckeln till klienten via TLS så att nyckeln krypteras under överföringen men utan ytterligare kryptering ("i klartext"). Det innebär att den nyckel som används för att dekryptera innehållet är tillgänglig för klient spelaren och kan visas i ett nätverks spår på klienten i klartext. AES-128-kryptering är lämplig för användnings fall där visnings programmet är en betrodd part (till exempel kryptering av företags videor som distribueras i ett företag som kan ses av anställda).
 
-DRM-system som PlayReady, Widevine och FairPlay ger alla en extra krypteringsnivå på nyckeln som används för att dekryptera innehållet, jämfört med en klar nyckel för AES-128. Innehållsnyckeln krypteras till en nyckel som skyddas av DRM-körningen utöver all kryptering på transportnivå som tillhandahålls av TLS. Dessutom hanteras dekryptering i en säker miljö på operativsystemsnivå, där det är svårare för en obehörig användare att attackera. Vi rekommenderar DRM för användningsfall där visningsprogrammet kanske inte är en betrodd part och du behöver den högsta säkerhetsnivån.
+DRM-system som PlayReady, Widevine och FairPlay ger alla ytterligare krypterings nivåer på den nyckel som används för att dekryptera innehållet, jämfört med en AES-128-klar nyckel. Innehålls nyckeln krypteras till en nyckel som skyddas av DRM-körningen utöver all kryptering på transport nivå som tillhandahålls av TLS. Dekrypteringen hanteras dessutom i en säker miljö på nivån operativ system, där det är svårare för en angripare att attackera angrepp. Vi rekommenderar DRM för användnings fall där visnings programmet kanske inte är en betrodd part och du behöver den högsta säkerhets nivån.
 
-### <a name="how-do-i-show-a-video-to-only-users-who-have-a-specific-permission-without-using-azure-ad"></a>Hur visar jag en video för endast användare som har en specifik behörighet, utan att använda Azure AD?
+### <a name="how-do-i-show-a-video-to-only-users-who-have-a-specific-permission-without-using-azure-ad"></a>Hur gör jag för att bara visa en video till användare som har en särskild behörighet utan att använda Azure AD?
 
-Du behöver inte använda någon specifik tokenprovider som Azure Active Directory (Azure AD). Du kan skapa din egen [JWT-leverantör](https://jwt.io/) (så kallad Secure Token Service eller STS) med hjälp av asymmetrisk nyckelkryptering. I din anpassade STS kan du lägga till anspråk baserat på din affärslogik.
+Du behöver inte använda någon speciell token-provider som Azure Active Directory (Azure AD). Du kan skapa en egen [JWT](https://jwt.io/) -Provider (so-kallas Secure token service) eller STS genom att använda asymmetrisk nyckel kryptering. I din anpassade STS kan du lägga till anspråk baserat på din affärs logik.
 
-Se till att utfärdaren, publiken och anspråken stämmer överens exakt mellan `ContentKeyPolicyRestriction` vad som `ContentKeyPolicy`finns i JWT och det värde som används i .
+Se till att utfärdaren, mål gruppen och alla anspråk matchar exakt mellan vad som är i JWT och `ContentKeyPolicyRestriction` värdet som används i. `ContentKeyPolicy`
 
-Mer information finns i [Skydda ditt innehåll med hjälp av dynamisk kryptering av Media Services](content-protection-overview.md).
+Mer information finns i [skydda ditt innehåll med hjälp av Media Services dynamisk kryptering](content-protection-overview.md).
 
-### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Hur och var fick jag en JWT-token innan jag använde den för att begära en licens eller nyckel?
+### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Hur och var fick jag en JWT-token innan jag använder den för att begära en licens eller nyckel?
 
-För produktion måste du ha Secure Token Service (det vill säga en webbtjänst), som utfärdar en JWT-token på en HTTPS-begäran. För test kan du använda koden `GetTokenAsync` som visas i den metod som definieras i [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+För produktion måste du ha en säker token-tjänst (det vill säga en webb tjänst), som utfärdar en JWT-token vid en HTTPS-begäran. För test kan du använda koden som visas i den `GetTokenAsync` metod som definierats i [program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
-Spelaren gör en begäran, efter att en användare har autentiserats, till STS för en sådan token och tilldelar den som värdet av token. Du kan använda [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
+Spelaren gör en begäran, efter att en användare har autentiserats, till STS för en sådan token och tilldelar den som token-värde. Du kan använda [Azure Media Player-API: et](https://amp.azure.net/libs/amp/latest/docs/).
 
-Ett exempel på att köra STS med antingen en symmetrisk nyckel eller en asymmetrisk nyckel finns i [JWT-verktyget](https://aka.ms/jwt). Ett exempel på en spelare som baseras på Azure Media Player med en sådan JWT-token finns i [Testverktyget för Azure Media](https://aka.ms/amtest). (Expandera **länken player_settings** för att se tokenindatan.)
+Ett exempel på att köra STS med antingen en symmetrisk nyckel eller en asymmetrisk nyckel finns i [JWT-verktyget](https://aka.ms/jwt). Ett exempel på en spelare som bygger på Azure Media Player som använder en sådan JWT-token finns i [Azure Media Test Tool](https://aka.ms/amtest). (Expandera **player_settings** -länken för att Visa token-indatamängden.)
 
-### <a name="how-do-i-authorize-requests-to-stream-videos-with-aes-encryption"></a>Hur godkänner jag begäranden om att strömma videor med AES-kryptering?
+### <a name="how-do-i-authorize-requests-to-stream-videos-with-aes-encryption"></a>Hur gör jag för att tillåta förfrågningar om att strömma videor med AES-kryptering?
 
-Den korrekta metoden är att använda Secure Token Service. I STS, beroende på användarprofilen, lägger du till olika anspråk (till exempel "Premium-användare", "Grundläggande användare", "Kostnadsfri utvärderingsanvändare"). Med olika anspråk i en JWT kan användaren se olika innehåll. För olika innehåll `ContentKeyPolicyRestriction` eller tillgångar, `RequiredClaims` kommer att ha motsvarande värde.
+Den korrekta metoden är att använda Secure token service. I STS, beroende på användar profilen, lägger du till olika anspråk (till exempel "Premium användare", "grundläggande användare," "kostnads fri utvärderings användare"). Med olika anspråk i ett JWT kan användaren se olika innehåll. För olika innehåll och till gångar `ContentKeyPolicyRestriction` får motsvarande `RequiredClaims` värde.
 
-Använd Azure Media Services API:er för att konfigurera licens-/nyckelleverans och kryptera dina tillgångar (som visas i [det här exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+Använd Azure Media Services-API: er för att konfigurera licens-/nyckel leverans och kryptera dina till gångar (som visas i [det här exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 Mer information finns i:
 
@@ -119,85 +119,85 @@ Mer information finns i:
 - [Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
 
 ### <a name="should-i-use-http-or-https"></a>Ska jag använda HTTP eller HTTPS?
-Programmet ASP.NET MVC-spelare måste ha stöd för följande:
+ASP.NET MVC Player-programmet måste ha stöd för följande:
 
 * Användarautentisering via Azure AD, som är under HTTPS.
-* JWT-utbyte mellan klienten och Azure AD, som ligger under HTTPS.
-* DRM-licensförvärv av klienten, som måste vara under HTTPS om licensleverans tillhandahålls av Media Services. Produktpaketet PlayReady föreskriver inte HTTPS för licensleverans. Om licensservern för PlayReady ligger utanför Media Services kan du använda http- eller HTTPS-tjänster.
+* JWT Exchange mellan klienten och Azure AD, som är under HTTPS.
+* Hämtning av DRM-licenser av klienten, som måste vara under HTTPS om licens leverans tillhandahålls av Media Services. PlayReady-produktsortimentet mäter inte HTTPS för licens leverans. Om din PlayReady-licensserver är utanför Media Services kan du använda antingen HTTP eller HTTPS.
 
-Programmet ASP.NET spelare använder HTTPS som bästa praxis, så Media Player finns på en sida under HTTPS. HTTP är dock att föredra för direktuppspelning, så du måste överväga dessa problem med blandat innehåll:
+ASP.NET Player-programmet använder HTTPS som bästa praxis, så Media Player finns på en sida under HTTPS. HTTP rekommenderas dock för strömning, så du måste tänka på de här problemen med blandat innehåll:
 
-* Webbläsaren tillåter inte blandat innehåll. Men plug-ins som Silverlight och OSMF plug-in för Smooth och DASH tillåter det. Blandat innehåll är ett säkerhetsproblem på grund av hotet om möjligheten att injicera skadliga JavaScript, vilket kan äventyra kunddata. Webbläsare blockerar den här funktionen som standard. Det enda sättet att komma runt det är på serversidan (ursprung) genom att tillåta alla domäner (oavsett HTTPS eller HTTP). Detta är förmodligen inte en bra idé heller.
-* Undvik blandat innehåll. Både spelarprogrammet och Media Player ska använda HTTP eller HTTPS. När du spelar upp blandat innehåll kräver SilverlightSS-tekniken att du rensar en varning med blandat innehåll. FlashSS-tekniken hanterar blandat innehåll utan en varning om blandat innehåll.
-* Om slutpunkten för direktuppspelning skapades före augusti 2014 stöder den inte HTTPS. I det här fallet skapar och använder du en ny slutpunkt för direktuppspelning för HTTPS.
+* Webbläsaren tillåter inte blandat innehåll. Men plugin-program som Silverlight och OSMF-plugin-programmet för smidig och streck tillåter det. Blandat innehåll är ett säkerhets problem på grund av hotet om möjligheten att mata in skadlig Java Script, vilket kan ge kund information till risk. Webbläsare blockerar den här funktionen som standard. Det enda sättet att undvika det finns på servern (ursprungs sidan) genom att tillåta alla domäner (oavsett HTTPS eller HTTP). Detta är förmodligen ingen bra idé.
+* Undvik blandat innehåll. Både Player-programmet och Media Player ska använda HTTP eller HTTPS. När du spelar blandat innehåll kräver Silverlight-Tech att du avmarkerar en varning med blandat innehåll. Den blixt tekniska tekniken hanterar blandat innehåll utan varnings meddelande med blandat innehåll.
+* Om slut punkten för direkt uppspelning skapades före 2014 augusti stöder den inte HTTPS. I det här fallet skapar och använder du en ny slut punkt för direkt uppspelning för HTTPS.
 
-### <a name="what-about-live-streaming"></a>Vad sägs om live streaming?
+### <a name="what-about-live-streaming"></a>Vad händer om Direktsänd strömning?
 
-Du kan använda exakt samma design och implementering för att skydda livestreaming i Media Services genom att behandla tillgången som är associerad med ett program som en VOD-tillgång. Om du vill ge ett multi-DRM-skydd av live-innehållet använder du samma inställning/bearbetning på tillgången som om den vore en VOD-tillgång innan du associerar tillgången med live-utdata.
+Du kan använda exakt samma design och implementering för att skydda Direktsänd strömning i Media Services genom att behandla till gången som är kopplad till ett program som en VOD till gång. Om du vill tillhandahålla ett multi-DRM-skydd för Live-innehållet använder du samma installation/bearbetning till till gången som om det vore en VOD till gång innan du kopplar till gången till Live-utdata.
 
-### <a name="what-about-license-servers-outside-media-services"></a>Hur är det med licensservrar utanför Media Services?
+### <a name="what-about-license-servers-outside-media-services"></a>Vad gäller för licens servrar utanför Media Services?
 
-Ofta har kunder investerat i en licensservergrupp antingen i sitt eget datacenter eller i ett som finns hos DRM-tjänsteleverantörer. Med Innehållsskydd för Media Services kan du arbeta i hybridläge. Innehållet kan vara värd och dynamiskt skyddat i Media Services, medan DRM-licenser levereras av servrar utanför Media Services. I så fall bör du tänka på följande ändringar:
+Kunder har ofta investerat i en licens Server grupp, antingen i ett eget Data Center eller i en värd av DRM-tjänst leverantörer. Med Media Services innehålls skydd kan du arbeta i hybrid läge. Innehåll kan vara värd för och dynamiskt skyddas i Media Services, medan DRM-licenser levereras av servrar utanför Media Services. I det här fallet bör du tänka på följande ändringar:
 
-* STS måste utfärda token som är acceptabla och som kan verifieras av licensservergruppen. Till exempel kräver Widevine-licensservrarna som tillhandahålls av Axinom en specifik JWT som innehåller ett berättigandemeddelande. Du måste ha en STS att utfärda en sådan JWT. 
-* Du behöver inte längre konfigurera licensleveranstjänsten i Media Services. Du måste ange url:erna för licensförvärv (för PlayReady, `ContentKeyPolicy`Widevine och FairPlay) när du konfigurerar .
+* STS måste utfärda token som är acceptabla och kan verifieras av licens Server gruppen. Till exempel kräver Widevine-licensservern som tillhandahålls av Axinom ett speciellt JWT som innehåller ett rättighets meddelande. Du måste ha en STS för att kunna utfärda ett JWT. 
+* Du behöver inte längre konfigurera licens leverans tjänsten i Media Services. Du måste ange URL: er för licens hämtning (för PlayReady, Widevine och FairPlay) när du konfigurerar `ContentKeyPolicy`.
 
 > [!NOTE]
-> Widevine är en tjänst som tillhandahålls av Google och omfattas av användarvillkoren och sekretesspolicyn för Google.
+> Widevine är en tjänst som tillhandahålls av Google och omfattas av villkoren i tjänste-och sekretess policyn för Google.
 
-## <a name="media-services-v2-vs-v3"></a>Media Services v2 vs v3 
+## <a name="media-services-v2-vs-v3"></a>Media Services v2 vs. v3 
 
-### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Kan jag använda Azure-portalen för att hantera v3-resurser?
+### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Kan jag använda Azure Portal för att hantera v3-resurser?
 
-För närvarande kan du använda [Azure-portalen](https://portal.azure.com/) för att:
+För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att:
 
-* Hantera [livehändelser](live-events-outputs-concept.md) i Media Services v3. 
-* Visa (inte hantera) [v3-tillgångar](assets-concept.md). 
-* [Få information om hur du använder API:er](access-api-portal.md). 
+* Hantera [Live-händelser](live-events-outputs-concept.md) i Media Services v3. 
+* Visa (inte hantera) v3- [till gångar](assets-concept.md). 
+* [Hämta information om att komma åt API: er](access-api-portal.md). 
 
-För alla andra hanteringsuppgifter (till exempel [Transforms and Jobs](transforms-jobs-concept.md) och [content protection)](content-protection-overview.md)använder du [REST API](https://docs.microsoft.com/rest/api/media/), Azure [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK:er](media-services-apis-overview.md#sdks)som stöds .
+För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](https://docs.microsoft.com/rest/api/media/), [Azure CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
-### <a name="is-there-an-assetfile-concept-in-v3"></a>Finns det ett AssetFile koncept i v3?
+### <a name="is-there-an-assetfile-concept-in-v3"></a>Finns det ett AssetFile-koncept i v3?
 
-Konceptet `AssetFile` togs bort från API:et för mediatjänster för att separera Media Services från Storage SDK-beroende. Nu Azure Storage, inte Media Services, behåller den information som hör hemma i Storage SDK. 
+`AssetFile` Konceptet togs bort från Media Services API för att separera Media Services från Storage SDK-beroendet. Nu Azure Storage, inte Media Services, behåller den information som ingår i Storage SDK: n. 
 
-Mer information finns i [Migrera till Media Services v3](media-services-v2-vs-v3.md).
+Mer information finns i [migrera till Media Services v3](media-services-v2-vs-v3.md).
 
-### <a name="where-did-client-side-storage-encryption-go"></a>Vart tog kryptering på klientsidan plats?
+### <a name="where-did-client-side-storage-encryption-go"></a>Var finns lagrings kryptering på klient Sidan?
 
-Vi rekommenderar nu att du använder lagringskryptering på serversidan (som är aktiverat som standard). Mer information finns i [Azure Storage Service Encryption för data i vila](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+Vi rekommenderar nu att du använder lagrings kryptering på Server sidan (som är aktiverat som standard). Mer information finns i [Azure Storage tjänst kryptering för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-## <a name="offline-streaming"></a>Direktuppspelning offline
+## <a name="offline-streaming"></a>Offline-direktuppspelning
 
-### <a name="fairplay-streaming-for-ios"></a>FairPlay Streaming för iOS
+### <a name="fairplay-streaming-for-ios"></a>FairPlay-strömning för iOS
 
-Följande vanliga frågor ger hjälp med felsökning offline FairPlay streaming för iOS.
+Följande vanliga frågor ger hjälp med fel sökning av offline-FairPlay strömning för iOS.
 
 #### <a name="why-does-only-audio-play-but-not-video-during-offline-mode"></a>Varför spelas bara ljud upp men inte video i offlineläge?
 
-Det här beteendet verkar vara avsiktligt i exempelappen. När det finns ett alternativt ljudspår (vilket är fallet för HLS) i offlineläge, standard både iOS 10 och iOS 11 det alternativa ljudspåret. Om du vill kompensera för det här beteendet för FPS-offlineläge tar du bort det alternativa ljudspåret från strömmen. Om du vill göra detta på Media Services lägger du till det dynamiska manifestfiltret **audio-only=false**. Med andra ord slutar en HLS-URL med **.ism/manifest(format=m3u8-aapl,audio-only=false).** 
+Det här beteendet verkar vara avsiktligt av exempel appen. När ett alternativt ljud spår finns (vilket är fallet för HLS) under offlineläge, är både iOS 10 och iOS 11 standardvärdet för det alternativa ljud spåret. För att kompensera det här beteendet för offline-läge för FPS tar du bort det alternativa ljud spåret från data strömmen. Om du vill göra detta på Media Services lägger du till det dynamiska manifest filtret **endast ljud-Only = false**. Med andra ord slutar en HLS-URL med **. ISM/manifest (format = M3U8-AAPL, endast ljud = falskt)**. 
 
-#### <a name="why-does-it-still-play-audio-only-without-video-during-offline-mode-after-i-add-audio-onlyfalse"></a>Varför spelar den fortfarande upp ljud endast utan video i offlineläge efter att jag har lagt till ljud-only=false?
+#### <a name="why-does-it-still-play-audio-only-without-video-during-offline-mode-after-i-add-audio-onlyfalse"></a>Varför spelar det fortfarande bara ljud utan video i offlineläge efter att jag lagt till endast ljud = falskt?
 
-Beroende på cachenyckeldesignen för innehållsleveransnätverket kan innehållet cachelagras. Rensa cacheminnet.
+Beroende på den cachelagrade nyckel designen för Content Delivery Network kan innehållet vara cachelagrat. Rensa cacheminnet.
 
-#### <a name="is-fps-offline-mode-supported-on-ios-11-in-addition-to-ios-10"></a>Stöds FPS-offlineläge på iOS 11 utöver iOS 10?
+#### <a name="is-fps-offline-mode-supported-on-ios-11-in-addition-to-ios-10"></a>Stöds offline-läge för FPS i iOS 11 förutom iOS 10?
 
-Ja. FPS-offlineläge stöds för iOS 10 och iOS 11.
+Ja. Offline-läge för FPS stöds för iOS 10 och iOS 11.
 
-#### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Varför hittar jag inte dokumentet "Offlineuppspelning med FairPlay Streaming och HTTP Live Streaming" i FPS Server SDK?
+#### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Varför kan jag inte hitta dokumentet "offline-uppspelning med FairPlay streaming och HTTP Live Streaming" i serverns SDK för FPS?
 
-Sedan FPS Server SDK version 4 har det här dokumentet slagits samman till "FairPlay Streaming Programming Guide".
+Eftersom FPS Server SDK version 4 har det här dokumentet slagits samman i programmerings guiden "FairPlay streaming".
 
-#### <a name="what-is-the-downloadedoffline-file-structure-on-ios-devices"></a>Vad är den nedladdade/offlinefilstrukturen på iOS-enheter?
+#### <a name="what-is-the-downloadedoffline-file-structure-on-ios-devices"></a>Vad är den nedladdade/offline-filstrukturen på iOS-enheter?
 
-Den nedladdade filstrukturen på en iOS-enhet ser ut som följande skärmbild. Mappen `_keys` lagrar nedladdade FPS-licenser, med en butiksfil för varje licenstjänstvärd. Mappen `.movpkg` lagrar ljud- och videoinnehåll. 
+Den nedladdade fil strukturen på en iOS-enhet ser ut som på följande skärm bild. `_keys` Mappen lagrar hämtade fps-licenser med en lagrings fil för varje licens tjänst värd. `.movpkg` Mappen lagrar ljud-och video innehåll. 
 
-Den första mappen med ett namn som slutar med ett streck följt av ett nummer innehåller videoinnehåll. Det numeriska värdet är den högsta bandbredden för videoåtergivningarna. Den andra mappen med ett namn som slutar med ett streck följt av 0 innehåller ljudinnehåll. Den tredje `Data` mappen som heter innehåller huvudspellistan för FPS-innehållet. Slutligen ger boot.xml en fullständig `.movpkg` beskrivning av mappinnehållet. 
+Den första mappen med ett namn som slutar med ett streck följt av ett tal innehåller video innehåll. Det numeriska värdet är video åter givningarnas högsta bandbredd. Den andra mappen med ett namn som slutar med ett bindestreck följt av 0 innehåller ljud innehåll. Den tredje mappen `Data` innehåller huvud spelnings listan för innehållet i FPS. Slutligen innehåller Boot. XML en fullständig beskrivning av innehållet i `.movpkg` mappen. 
 
-![Offlinefilstruktur för exempelappen FairPlay iOS](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+![Fil struktur offline för FairPlay iOS-exempelprogrammet](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
 
-Här är en exempel boot.xml-fil:
+Här är en exempel-Boot. XML-fil:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -227,39 +227,39 @@ Här är en exempel boot.xml-fil:
 </HLSMoviePackage>
 ```
 
-### <a name="widevine-streaming-for-android"></a>Widevine streaming för Android
+### <a name="widevine-streaming-for-android"></a>Widevine-strömning för Android
 
-#### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-keys"></a>Hur kan jag leverera beständiga licenser (offlineaktiverade) för vissa klienter/användare och icke-beständiga licenser (offline inaktiverade) för andra? Måste jag duplicera innehållet och använda separata innehållsnycklar?
+#### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-keys"></a>Hur kan jag leverera beständiga licenser (offline aktiverat) för vissa klienter/användare och icke-beständiga licenser (offline-inaktive rad) för andra? Måste jag duplicera innehållet och använda separata innehålls nycklar?
 
-Eftersom Media Services v3 gör `StreamingLocator` att en tillgång kan ha flera instanser kan du ha:
+Eftersom Media Services v3 tillåter att en till gång har `StreamingLocator` flera instanser kan du ha:
 
-* En `ContentKeyPolicy` instans `license_type = "persistent"` `ContentKeyPolicyRestriction` med , `"persistent"`med `StreamingLocator`anspråk på , och dess .
-* En `ContentKeyPolicy` annan `license_type="nonpersistent"` `ContentKeyPolicyRestriction` instans med `"nonpersistent`, med `StreamingLocator`anspråk på ", och dess .
-* Två `StreamingLocator` instanser som `ContentKey` har olika värden.
+* En `ContentKeyPolicy` instans med `license_type = "persistent"`, `ContentKeyPolicyRestriction` med anspråk på `"persistent"`och dess `StreamingLocator`.
+* En `ContentKeyPolicy` annan instans `license_type="nonpersistent"`med `ContentKeyPolicyRestriction` , med anspråk `"nonpersistent`på "och dess `StreamingLocator`.
+* Två `StreamingLocator` instanser som har olika `ContentKey` värden.
 
-Beroende på affärslogiken för anpassade STS utfärdas olika anspråk i JWT-token. Med token kan endast motsvarande licens erhållas och endast motsvarande WEBBADRESS kan spelas upp.
+Beroende på affärs logik för anpassad STS utfärdas olika anspråk i JWT-token. Med token kan endast motsvarande licens hämtas, och endast motsvarande URL kan spelas upp.
 
-#### <a name="what-is-the-mapping-between-the-widevine-and-media-services-drm-security-levels"></a>Vad är mappningen mellan Widevine- och Media Services DRM-säkerhetsnivåerna?
+#### <a name="what-is-the-mapping-between-the-widevine-and-media-services-drm-security-levels"></a>Vad är mappningen mellan Widevine och Media Services säkerhets nivåer för DRM?
 
-Googles "Widevine DRM Architecture Overview" definierar tre säkerhetsnivåer. [I Azure Media Services-dokumentationen på Widevine-licensmallen](widevine-license-template-overview.md) beskrivs dock fem säkerhetsnivåer (klientkontensitetskrav för uppspelning). I det här avsnittet beskrivs hur säkerhetsnivåerna mappas.
+Översikt över Googles "Widevine DRM-arkitektur" definierar tre säkerhets nivåer. [Azure Media Services-dokumentationen i Widevine-licensservern](widevine-license-template-overview.md) beskriver dock fem säkerhets nivåer (krav för klient stabilitet för uppspelning). I det här avsnittet beskrivs hur säkerhets nivåer kartan.
 
-Båda uppsättningarna säkerhetsnivåer definieras av Google Widevine. Skillnaden är i användningsnivå: arkitektur eller API. De fem säkerhetsnivåerna används i Widevine API. Objektet, `content_key_specs` som innehåller `security_level`, avserialiseras och skickas till Widevine globala leveranstjänsten av Azure Media Services Widevine-licenstjänsten. I följande tabell visas mappningen mellan de två uppsättningarna säkerhetsnivåer.
+Båda uppsättningarna med säkerhets nivåer definieras av Google Widevine. Skillnaden är i användnings nivå: arkitektur eller API. De fem säkerhets nivåerna används i Widevine-API: et. `content_key_specs` Objektet som innehåller `security_level`deserialiseras och skickas till den globala Widevine-leverans tjänsten av tjänsten Azure Media Services Widevine License. I följande tabell visas mappningen mellan de två uppsättningarna med säkerhets nivåer.
 
-| **Säkerhetsnivåer definierade i Widevine-arkitektur** |**Säkerhetsnivåer som används i Widevine API**|
+| **Säkerhets nivåer som definieras i Widevine-arkitekturen** |**Säkerhets nivåer som används i Widevine-API**|
 |---|---| 
-| **Säkerhetsnivå 1:** All innehållsbearbetning, kryptografi och kontroll utförs i TEE (Trusted Execution Environment). I vissa implementeringsmodeller kan säkerhetsbearbetning utföras i olika marker.|**security_level=5**: Krypto, avkodning och all hantering av mediet (komprimerad och okomprimerad) måste hanteras inom en maskinvarubaserad TEE.<br/><br/>**security_level=4**: Krypto och avkodning av innehåll måste utföras i en maskinvarubaserad TEE.|
-**Säkerhetsnivå 2:** Kryptografi (men inte videobearbetning) utförs inom TEE. Dekrypterade buffertar returneras till programdomänen och bearbetas via separat videomaskinvara eller programvara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.| **security_level=3**: Nyckelmaterialet och kryptoåtgärderna måste utföras inom en maskinvarubaserad TEE. |
-| **Säkerhet nivå 3:** Det finns ingen TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll i värdoperativsystemet. En nivå 3-implementering kan också innehålla en kryptografisk maskinvarumotor, men som bara förbättrar prestanda, inte säkerhet. | **security_level=2**: Programvarukrypt och en fördunklad dekoder krävs.<br/><br/>**security_level=1**: Programvarubaserad white-box krypto krävs.|
+| **Säkerhets nivå 1**: all innehålls bearbetning, kryptografi och kontroll utförs i tee (Trusted Execution Environment). I vissa implementerings modeller kan säkerhets bearbetningen utföras i olika kretsar.|**security_level = 5**: kryptering, avkodning och all hantering av mediet (komprimerade och okomprimerade) måste hanteras inom en maskinvarubaserad tee.<br/><br/>**security_level = 4**: kryptering och avkodning av innehåll måste utföras inom en maskinvarubaserad tee.|
+**Säkerhets nivå 2**: kryptografi (men inte video bearbetning) utförs i tee. Dekrypterade buffertar returneras till program domänen och bearbetas via separat video maskin vara eller program vara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.| **security_level = 3**: nyckel material-och krypterings åtgärder måste utföras inom en maskinvarubaserad tee. |
+| **Säkerhets nivå 3**: det finns ingen tee på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll på värd operativ system. En nivå 3-implementering kan också innehålla en kryptografisk motor för maskin vara, men den förbättrar bara prestanda, inte säkerhet. | **security_level = 2**: program varu kryptering och en fördunklade-avkodare krävs.<br/><br/>**security_level = 1**: programvarubaserade kryptografiska krypteringar krävs.|
 
-#### <a name="why-does-content-download-take-so-long"></a>Varför tar nedladdningen av innehåll så lång tid?
+#### <a name="why-does-content-download-take-so-long"></a>Varför tar det lång tid för innehålls hämtningen?
 
-Det finns två sätt att förbättra nedladdningshastigheten:
+Det finns två sätt att förbättra nedladdnings hastigheten:
 
-* Aktivera ett nätverk för innehållsleverans så att användarna är mer benägna att slå till det i stället för slutpunkten för innehåll/direktuppspelning för nedladdning av innehåll. Om en användare träffar en slutpunkt för direktuppspelning paketeras och krypteras varje HLS-segment eller DASH-fragment dynamiskt. Även om den här svarstiden är i millisekundskala för varje segment eller fragment, kan den ackumulerade svarstiden vara stor när du har en timmes lång video och orsaka en längre hämtning.
-* Ge användarna möjlighet att selektivt ladda ner lager videokvalitet och ljudspår i stället för allt innehåll. För offline-läge är det ingen idé att hämta alla kvalitetslager. Det finns två sätt att uppnå detta:
+* Aktivera ett nätverk för innehålls leverans så att användarna är mer sannolika i stället för slut punkten för slut punkten/direkt uppspelningen för innehålls hämtning. Om en användare träffar en slut punkt för direkt uppspelning paketeras och krypteras varje HLS segment eller ett streck fragment. Även om den här svars tiden är i millisekunder för varje segment eller fragment, kan den ackumulerade svars tiden vara stor och göra en längre nedladdning om du har en timmes lång video.
+* Ge användarna möjlighet att selektivt Hämta video kvalitets lager och ljud spår i stället för allt innehåll. För offline-läge finns det ingen punkt där du kan hämta alla kvalitets lager. Det finns två sätt att åstadkomma detta:
 
-  * Klientkontrollerad: Spelarens app väljer automatiskt, eller användaren väljer, videokvalitetslagret och de ljudspår som ska hämtas.
-  * Tjänststyrd: Du kan använda funktionen Dynamiskt manifest i Azure Media Services för att skapa ett (globalt) filter som begränsar HLS-spellista eller DASH MPD till ett enda videokvalitetslager och valda ljudspår. Då nedladdningsadressen presenteras för användarna kommer att innehålla detta filter.
+  * Kontrollerad klient: Player-appen väljs automatiskt, eller så väljer användaren video kvalitet lagret och ljud spåren som ska laddas ned.
+  * Tjänsten kontrollerad: du kan använda funktionen för dynamiskt manifest i Azure Media Services för att skapa ett (Globalt) filter, vilket begränsar HLS-spelnings lista eller streck-MPD till ett enda video kvalitets lager och valda ljud spår. Hämtnings-URL: en som visas för användarna kommer att inkludera det här filtret.
 
 ## <a name="next-steps"></a>Nästa steg
 

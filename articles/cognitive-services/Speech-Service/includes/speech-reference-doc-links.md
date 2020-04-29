@@ -10,19 +10,19 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
 ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399698"
 ---
-## <a name="reference-docs"></a>Referensdokument
+## <a name="reference-docs"></a>Referens dokument
 
-Taltjänsten tillhandahåller två SDK:er. Den första SDK är den primära [Tal-SDK](../speech-sdk.md) och ger de flesta funktioner som behövs för att interagera med taltjänsten. Den andra SDK är specifik för enheter, med lämplig benämning [talenheter SDK](../speech-devices-sdk.md). Båda SDK:erna finns på många språk.
+Tal tjänsten tillhandahåller två SDK: er. Det första SDK: n är den främsta [talet SDK](../speech-sdk.md) och innehåller de flesta funktioner som krävs för att interagera med tal tjänsten. Det andra SDK: n är bara avsedd för enheter, med samma namn som [tal enheternas SDK](../speech-devices-sdk.md). Båda SDK: erna är tillgängliga på många språk.
 
-### <a name="speech-sdk-reference-docs"></a>Tal-SDK-referensdokument
+### <a name="speech-sdk-reference-docs"></a>Referens dokument för tal-SDK
 
-Använd följande lista för att hitta lämpliga tal-SDK-referensdokument:
+Använd följande lista för att hitta lämpliga referens dokument för tal-SDK:
 
 - <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
@@ -32,16 +32,16 @@ Använd följande lista för att hitta lämpliga tal-SDK-referensdokument:
 - <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Mål-C SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 > [!TIP]
-> Taltjänsten SDK underhålls aktivt och uppdateras. Om du vill spåra ändringar, uppdateringar och tillägg finns i [versionsanteckningarna för Tal SDK](../releasenotes.md).
+> Speech service SDK underhålls och uppdateras aktivt. Information om hur du spårar ändringar, uppdateringar och funktioner finns i [viktig information om tal SDK](../releasenotes.md).
 
-### <a name="speech-devices-sdk-reference-docs"></a>SDK-referensdokument för talenheter
+### <a name="speech-devices-sdk-reference-docs"></a>Referens dokument för tal enheter SDK
 
-[Speech Devices SDK](../speech-devices-sdk.md) är en superuppsättning av Tal-SDK, med utökad funktionalitet för specifika enheter. Om du vill hämta SDK för talenheter måste du först [välja ett utvecklingspaket](../get-speech-devices-sdk.md#choose-a-development-kit).
+[Tal enheter SDK](../speech-devices-sdk.md) är en supermängd av talet SDK, med utökade funktioner för vissa enheter. Om du vill hämta SDK: n för tal enheter måste du först [välja ett utvecklings paket](../get-speech-devices-sdk.md#choose-a-development-kit).
 
-### <a name="rest-api-references"></a>REST API-referenser
+### <a name="rest-api-references"></a>REST API referenser
 
-För referenser till olika REST-API:er för taltjänst, se listan nedan:
+Referenser till olika tal service REST-API: er finns i listan nedan:
 
-- [REST API: Tal-till-text](../rest-speech-to-text.md)
-- [REST API: Text-till-tal](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: Batch transkription och anpassning<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- [REST API: tal till text](../rest-speech-to-text.md)
+- [REST API: text till tal](../rest-text-to-speech.md)
+- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: batch-avskrift och anpassning<span class="docon docon-navigate-external x-hidden-focus"></span></a>

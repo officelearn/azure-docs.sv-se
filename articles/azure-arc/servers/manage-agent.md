@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Arc för servrar (förhandsversion) agent
-description: I den här artikeln beskrivs de olika hanteringsuppgifter som du vanligtvis utför under livscykeln för Azure Arc för servrar Connected Machine agent.
+title: Hantera Azure Arc for servers-agenten (för hands version)
+description: I den här artikeln beskrivs de olika hanterings aktiviteter som du normalt kommer att utföra under livs cykeln för Azure-bågen för servrar som är anslutna till dator agenten.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -9,212 +9,212 @@ ms.author: magoedte
 ms.date: 04/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5ad2127b4cb9da3ca83aa04bd1885908a88dba62
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81308960"
 ---
-# <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna maskinagenten
+# <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
 
-Efter den första distributionen av Azure Arc för servrar (förhandsversion) Connected Machine agent för Windows eller Linux, kan du behöva konfigurera om agenten, uppgradera den eller ta bort den från datorn om den har nått pensioneringsstadiet i sin livscykel. Du kan enkelt hantera dessa rutinmässiga underhållsuppgifter manuellt eller genom automatisering, vilket minskar både driftfel och kostnader.
+Efter den första distributionen av Azure Arc for Servers (Preview) Connected Machine agent för Windows eller Linux, kan du behöva konfigurera om agenten, uppgradera den eller ta bort den från datorn om den har nått indragnings fasen i livs cykeln. Du kan enkelt hantera dessa rutin underhålls aktiviteter manuellt eller via Automation, vilket minskar både drift fel och kostnader.
 
-## <a name="upgrading-agent"></a>Uppgraderingsagent
+## <a name="upgrading-agent"></a>Uppgraderar agent
 
-Azure Connected Machine-agenten för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. I följande tabell beskrivs de metoder som stöds för att utföra agentuppgraderingen.
+Azure Connected Machine agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. I följande tabell beskrivs de metoder som stöds för att utföra agent uppgraderingen.
 
 | Operativsystem | Uppgraderingsmetod |
 |------------------|----------------|
 | Windows | Manuellt<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
-| SUSE Linux Enterprise Server | [zypper (zypper)](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| RedHat Enterprise, Amazon, CentOS Linux | [Yum](https://wiki.centos.org/PackageManagement/Yum) | 
+| SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
+| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
 
 ### <a name="windows-agent"></a>Windows-agent
 
-Om du vill uppdatera agenten på en Windows-dator till den senaste versionen är agenten tillgänglig från Microsoft Update och kan distribueras med hjälp av din befintliga programuppdateringshanteringsprocess. Den kan också köras manuellt från Kommandotolken, från ett skript eller en annan `AzureConnectedMachine.msi`automatiseringslösning, eller från användargränssnittsguiden genom att köra . 
+Om du vill uppdatera agenten på en Windows-dator till den senaste versionen, är agenten tillgänglig från Microsoft Update och kan distribueras med den befintliga processen för hantering av program uppdateringar. Den kan också köras manuellt från kommando tolken, från ett skript eller någon annan Automation-lösning eller från användar gränssnitts guiden genom att `AzureConnectedMachine.msi`köra. 
 
 > [!NOTE]
-> * Om du vill uppgradera agenten måste du ha *administratörsbehörighet.*
-> * Om du vill uppgradera manuellt måste du först hämta och kopiera installationspaketet till en mapp på målservern eller från en delad nätverksmapp. 
+> * Du måste ha *Administratörs* behörighet för att kunna uppgradera agenten.
+> * Om du vill uppgradera manuellt måste du först hämta och kopiera installations paketet till en mapp på mål servern eller från en delad nätverksmapp. 
 
-Om du inte känner till kommandoradsalternativen för Windows Installer-paket läser du [Msiexecs standardkommandoradsalternativ](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) och [msiexec-kommandoradsalternativ](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+Om du inte känner till kommando rads alternativen för Windows Installer-paket kan du läsa mer om kommando rads alternativ i [msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) och [kommando rads alternativ i msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
-#### <a name="to-upgrade-using-the-setup-wizard"></a>Så här uppgraderar du med installationsguiden
+#### <a name="to-upgrade-using-the-setup-wizard"></a>Uppgradera med installations guiden
 
-1. Logga in på datorn med ett konto som har administratörsrättigheter.
+1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Kör **AzureConnectedMachineAgent.msi** för att starta installationsguiden.
+2. Kör **AzureConnectedMachineAgent. msi** för att starta installations guiden.
 
-Installationsguiden identifierar om det finns en tidigare version och sedan automatiskt en uppgradering av agenten. När uppgraderingen är klar stängs installationsguiden automatiskt.
+Installations guiden identifierar om en tidigare version finns och utför sedan automatiskt en uppgradering av agenten. När uppgraderingen är klar stängs installations guiden automatiskt.
 
-#### <a name="to-upgrade-from-the-command-line"></a>Så här uppgraderar du från kommandoraden
+#### <a name="to-upgrade-from-the-command-line"></a>Uppgradera från kommando raden
 
-1. Logga in på datorn med ett konto som har administratörsrättigheter.
+1. Logga in på datorn med ett konto som har administratörs behörighet.
 
-2. Om du vill uppgradera agenten tyst och `C:\Support\Logs` skapa en installationsloggfil i mappen kör du följande kommando.
+2. Kör följande kommando för att uppgradera agenten tyst och skapa en installations logg `C:\Support\Logs` fil i mappen.
 
     ```dos
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentupgradesetup.log"
     ```
 
-### <a name="linux-agent"></a>Linux-agent
+### <a name="linux-agent"></a>Linux-Agent
 
-För att uppdatera agenten på en Linux-dator till den senaste versionen, innebär det två kommandon. Ett kommando för att uppdatera det lokala paketindexet med listan över de senaste tillgängliga paketen från databaserna och ett kommando för att uppgradera det lokala paketet. 
+Om du vill uppdatera agenten på en Linux-dator till den senaste versionen, omfattar den två kommandon. Ett kommando för att uppdatera det lokala paket indexet med listan över senaste tillgängliga paket från databaserna och ett kommando för att uppgradera det lokala paketet. 
 
 > [!NOTE]
-> Om du vill uppgradera *root* agenten måste du ha root-åtkomstbehörigheter eller med ett konto som har förhöjda rättigheter med Sudo.
+> Om du vill uppgradera agenten måste du ha behörighet som *rot* åtkomst eller med ett konto som har utökade rättigheter med sudo.
 
 #### <a name="upgrade-ubuntu"></a>Uppgradera Ubuntu
 
-1. Om du vill uppdatera det lokala paketindexet med de senaste ändringarna i databaserna kör du följande kommando:
+1. Kör följande kommando för att uppdatera det lokala paket indexet med de senaste ändringarna som gjorts i databaserna:
 
     ```bash
     apt update
     ```
 
-2. Om du vill uppgradera systemet kör du följande kommando:
+2. Kör följande kommando för att uppgradera systemet:
 
     ```bash
     apt upgrade
     ```
 
-Åtgärder för [apt-kommandot,](https://help.ubuntu.com/lts/serverguide/apt.html) till exempel installation och borttagning `/var/log/dpkg.log` av paket, loggas i loggfilen.
+Åtgärder för kommandot [apt](https://help.ubuntu.com/lts/serverguide/apt.html) , till exempel installation och borttagning av paket, loggas i `/var/log/dpkg.log` logg filen.
 
 #### <a name="upgrade-red-hatcentosamazon-linux"></a>Uppgradera Red Hat/CentOS/Amazon Linux
 
-1. Om du vill uppdatera det lokala paketindexet med de senaste ändringarna i databaserna kör du följande kommando:
+1. Kör följande kommando för att uppdatera det lokala paket indexet med de senaste ändringarna som gjorts i databaserna:
 
     ```bash
     yum check-update
     ```
 
-2. Om du vill uppgradera systemet kör du följande kommando:
+2. Kör följande kommando för att uppgradera systemet:
 
     ```bash
     yum update
     ```
 
-Åtgärder för [yum-kommandot,](https://access.redhat.com/articles/yum-cheat-sheet) till exempel installation och borttagning `/var/log/yum.log` av paket, loggas i loggfilen. 
+Åtgärder för kommandot [yum](https://access.redhat.com/articles/yum-cheat-sheet) , till exempel installation och borttagning av paket, loggas i `/var/log/yum.log` logg filen. 
 
 #### <a name="upgrade-suse-linux-enterprise"></a>Uppgradera SUSE Linux Enterprise
 
-1. Om du vill uppdatera det lokala paketindexet med de senaste ändringarna i databaserna kör du följande kommando:
+1. Kör följande kommando för att uppdatera det lokala paket indexet med de senaste ändringarna som gjorts i databaserna:
 
     ```bash
     zypper refresh
     ```
 
-2. Om du vill uppgradera systemet kör du följande kommando:
+2. Kör följande kommando för att uppgradera systemet:
 
     ```bash
     zypper update
     ```
 
-Åtgärder av [zypper](https://en.opensuse.org/Portal:Zypper) kommandot, såsom installation och borttagning av `/var/log/zypper.log` paket, loggas i loggfilen. 
+Åtgärder för kommandot [zypper](https://en.opensuse.org/Portal:Zypper) , till exempel installation och borttagning av paket, loggas i `/var/log/zypper.log` logg filen. 
 
-## <a name="about-the-azcmagent-tool"></a>Om Azcmagent-verktyget
+## <a name="about-the-azcmagent-tool"></a>Om verktyget Azcmagent
 
-Azcmagent-verktyget (Azcmagent.exe) används för att konfigurera Azure Arc för servrar (förhandsversion) Connected Machine-agenten under installationen eller ändra agentens första konfiguration efter installationen. Azcmagent.exe tillhandahåller kommandoradsparametrar för att anpassa agenten och visa dess status:
+Verktyget Azcmagent (Azcmagent. exe) används för att konfigurera Azure-bågen för servrar (förhands granskning) anslutna dator agenter under installationen eller ändra den inledande konfigurationen av agenten efter installationen. Azcmagent. exe tillhandahåller kommando rads parametrar för att anpassa agenten och visa dess status:
 
-* **Anslut** - För att ansluta datorn till Azure Arc
+* **Anslut** – för att ansluta datorn till Azure-bågen
 
-* **Koppla från** - För att koppla från datorn från Azure Arc
+* **Koppla** från-koppla bort datorn från Azure-bågen
 
-* **Återanslut** - Om du vill återansluta en frånkopplad dator till Azure Arc
+* **Återanslut** – för att återansluta en frånkopplad dator till Azure-bågen
 
-* **Visa** - Visa agentstatus och dess konfigurationsegenskaper (resursgruppsnamn, prenumerations-ID, version osv.), vilket kan vara till hjälp vid felsökning av ett problem med agenten.
+* **Visa** agent status och dess konfigurations egenskaper (resurs gruppens namn, PRENUMERATIONS-ID, version osv.), som kan hjälpa dig att felsöka ett problem med agenten.
 
-* **-h eller --help** - Visar tillgängliga kommandoradsparametrar
+* **-h eller--help** – visar tillgängliga kommando rads parametrar
 
-    Om du till exempel vill se detaljerad `azcmagent reconnect -h`hjälp för parametern **Återanslutning** skriver du . 
+    Om du till exempel vill visa detaljerad hjälp för parametern **reconnect** skriver `azcmagent reconnect -h`du. 
 
-* **-v eller --verbose** - Aktivera utförlig loggning
+* **-v eller--utförlig** -Aktivera utförlig loggning
 
-Du kan utföra en **Connect,** **Disconnect**och **Återanslut** manuellt när du är inloggad interaktivt, eller automatisera med samma tjänsthuvudnamn som du använde för att registrera flera agenter eller med en Microsoft-åtkomsttoken för identitetsplattform . [access token](../../active-directory/develop/access-tokens.md) Om du inte använde ett tjänsthuvudnamn för att registrera datorn med Azure Arc för servrar (förhandsversion) läser du följande [artikel](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) för att skapa ett huvudnamn för tjänsten.
+Du kan utföra en **anslutning**, koppla **från**och **återansluta** manuellt när du är inloggad interaktivt eller automatisera med samma tjänst huvud namn som du använde för att publicera flera agenter eller med en [åtkomsttoken för Microsoft Identity Platform.](../../active-directory/develop/access-tokens.md) Om du inte använde ett huvud namn för tjänsten för att registrera datorn med Azure Arc for Servers (för hands version) kan du läsa följande [artikel](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) för att skapa ett huvud namn för tjänsten.
 
 ### <a name="connect"></a>Anslut
 
-Den här parametern anger en resurs i Azure Resource Manager som representerar datorn skapas i Azure. Resursen finns i den angivna prenumerations- och resursgruppen och data om datorn `--location` lagras i Azure-regionen som anges av inställningen. Standardresursnamnet är den här datorns värdnamn om det inte anges.
+Den här parametern anger en resurs i Azure Resource Manager som representerar datorn som skapas i Azure. Resursen är i den angivna prenumerations-och resurs gruppen och data om datorn lagras i den Azure-region som anges av `--location` inställningen. Standard resurs namnet är värd namnet för den här datorn om inget värde anges.
 
-Ett certifikat som motsvarar datorns systemtilldelade identitet hämtas och lagras sedan lokalt. När det här steget är klart börjar Azure Connected Machine Metadata Service och Guest Configuration Agent synkronisera med Azure Arc för servrar (förhandsversion).
+Ett certifikat som motsvarar systemets tilldelade identitet för datorn laddas ned och lagras lokalt. När det här steget har slutförts börjar den Azure Connected Machine-Metadata Service och gäst konfigurations agenten att synkronisera med Azure Arc for Servers (för hands version).
 
-Om du vill ansluta med hjälp av ett huvudnamn för tjänsten kör du följande kommando:
+Om du vill ansluta med ett huvud namn för tjänsten kör du följande kommando:
 
 `azcmagent connect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
-Om du vill ansluta med hjälp av en åtkomsttoken kör du följande kommando:
+Kör följande kommando för att ansluta med hjälp av en åtkomsttoken:
 
 `azcmagent connect --access-token <> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
-Om du vill ansluta till dina förhöjda inloggningsuppgifter (interaktiv) kör du följande kommando:
+Kör följande kommando för att ansluta till dina förhöjda inloggade autentiseringsuppgifter (interaktiva):
 
 `azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
 ### <a name="disconnect"></a>Koppla från
 
-Den här parametern anger en resurs i Azure Resource Manager som representerar att datorn tas bort i Azure. Det tar inte bort agenten från maskinen, detta måste göras som ett separat steg. När datorn har kopplats från, om du vill registrera den igen `azcmagent connect` med Azure Arc för servrar (förhandsversion), använd så att en ny resurs skapas för den i Azure.
+Den här parametern anger en resurs i Azure Resource Manager som representerar datorn som tas bort i Azure. Agenten tas inte bort från datorn. Detta måste göras som ett separat steg. När datorn har kopplats från, om du vill omregistrera den med Azure Arc for Servers (för hands version), använder `azcmagent connect` du så att en ny resurs skapas för den i Azure.
 
-Om du vill koppla från med ett tjänsthuvudnamn kör du följande kommando:
+Kör följande kommando för att koppla från med ett huvud namn för tjänsten:
 
 `azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
 
-Om du vill koppla från med hjälp av en åtkomsttoken kör du följande kommando:
+Kör följande kommando för att koppla från med hjälp av en åtkomsttoken:
 
 `azcmagent disconnect --access-token <accessToken>`
 
-Om du vill koppla från med dina förhöjda inloggningsuppgifter (interaktiv) kör du följande kommando:
+Kör följande kommando för att koppla bort med dina förhöjda inloggade autentiseringsuppgifter (interaktiva):
 
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>Återansluta
 
-Den här parametern återansluter den redan registrerade eller anslutna datorn med Azure Arc för servrar (förhandsversion). Detta kan vara nödvändigt om maskinen har stängts av, minst 45 dagar, för att certifikatet ska upphöra att gälla. Den här parametern använder de autentiseringsalternativ som anges för att hämta nya autentiseringsuppgifter som motsvarar Azure Resource Manager-resursen som representerar den här datorn.
+Den här parametern återansluter den redan registrerade eller anslutna datorn med Azure Arc for Servers (för hands version). Detta kan vara nödvändigt om datorn har inaktiverats, minst 45 dagar, för att certifikatet ska upphöra att gälla. Den här parametern använder de autentiseringsalternativ som finns för att hämta nya autentiseringsuppgifter som motsvarar den Azure Resource Manager resursen som representerar den här datorn.
 
-Det här kommandot kräver högre behörighet än azure [connected machine onboarding-rollen.](overview.md#required-permissions)
+Det här kommandot kräver högre privilegier än den [Azure Connected Machine onboarding](overview.md#required-permissions) -rollen.
 
-Om du vill återansluta med ett huvudnamn för tjänsten kör du följande kommando:
+Kör följande kommando för att återansluta med ett huvud namn för tjänsten:
 
 `azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
 
-Om du vill återansluta med hjälp av en åtkomsttoken kör du följande kommando:
+Kör följande kommando för att återansluta med hjälp av en åtkomsttoken:
 
 `azcmagent reconnect --access-token <accessToken>`
 
-Om du vill återansluta till dina förhöjda inloggningsuppgifter (interaktiv) kör du följande kommando:
+Kör följande kommando för att återansluta med dina förhöjda inloggade autentiseringsuppgifter (interaktiva):
 
 `azcmagent reconnect --tenant-id <tenantID>`
 
 ## <a name="remove-the-agent"></a>Ta bort agenten
 
-Utför någon av följande metoder för att avinstallera Windows- eller Linux Connected Machine-agenten från datorn. Om du tar bort agenten avregistrerar du inte datorn med Arc för servrar (förhandsversion), det här är en separat process som du utför när du inte längre behöver hantera datorn i Azure.
+Utför någon av följande metoder för att avinstallera den Windows-eller Linux-anslutna dator agenten från datorn. Att ta bort agenten avregistrerar inte datorn med ARC for Servers (för hands version), det här är en separat process som du utför när du inte längre behöver hantera datorn i Azure.
 
 ### <a name="windows-agent"></a>Windows-agent
 
-Båda följande metoder tar bort agenten, men de tar inte bort mappen *C:\Program\AzureConnectedMachineAgent* på datorn.
+Följande metoder tar bort agenten, men tar inte bort mappen *C:\Program Files\AzureConnectedMachineAgent* på datorn.
 
-#### <a name="uninstall-from-control-panel"></a>Avinstallera från Kontrollpanelen
+#### <a name="uninstall-from-control-panel"></a>Avinstallera från kontroll panelen
 
-1. Så här avinstallerar du Windows-agenten från datorn:
+1. Om du vill avinstallera Windows-agenten från datorn gör du följande:
 
-    a. Logga in på datorn med ett konto som har administratörsbehörighet.  
-    b. Välj **Program och funktioner**på **Kontrollpanelen**.  
-    c. I **Program och funktioner**väljer du Azure Connected Machine **Agent**, väljer **Avinstallera**och väljer sedan **Ja**.  
+    a. Logga in på datorn med ett konto som har administratörs behörighet.  
+    b. Välj **program och funktioner**på **kontroll panelen**.  
+    c. I **program och funktioner**väljer du **Azure Connected Machine agent**, väljer **Avinstallera**och väljer sedan **Ja**.  
 
     >[!NOTE]
-    > Du kan också köra guiden agentinstallation genom att dubbelklicka på **installationspaketet för AzureConnectedMachineAgent.msi.**
+    > Du kan också köra installations guiden för agenten genom att dubbelklicka på installations paketet **AzureConnectedMachineAgent. msi** .
 
-#### <a name="uninstall-from-the-command-line"></a>Avinstallera från kommandoraden
+#### <a name="uninstall-from-the-command-line"></a>Avinstallera från kommando raden
 
-Om du vill avinstallera agenten manuellt från kommandotolken eller använda en automatiserad metod, till exempel ett skript, kan du använda följande exempel. Först måste du hämta produktkoden, som är ett GUID som är huvudidentifieraren för programpaketet, från operativsystemet. Avinstallationen utförs med hjälp av kommandoraden Msiexec.exe - `msiexec /x {Product Code}`.
+Om du vill avinstallera agenten manuellt från kommando tolken eller använda en automatiserad metod, till exempel ett skript, kan du använda följande exempel. Först måste du hämta produkt koden, som är en GUID som är huvud-ID för programpaketet, från operativ systemet. Avinstallationen utförs med hjälp av kommando raden msiexec. exe – `msiexec /x {Product Code}`.
     
 1. Öppna Registereditorn.
 
-2. Leta efter `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`och kopiera produktkoden GUID under registernyckeln.
+2. Leta upp och `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`kopiera produkt kod-GUID under register nyckel.
 
 3. Du kan sedan avinstallera agenten med hjälp av Msiexec med hjälp av följande exempel:
 
-   * Från kommandoradstypen:
+   * Från kommando rads typ:
 
        ```dos
        msiexec.exe /x {product code GUID} /qn
@@ -229,35 +229,35 @@ Om du vill avinstallera agenten manuellt från kommandotolken eller använda en 
        ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
        ```
 
-### <a name="linux-agent"></a>Linux-agent
+### <a name="linux-agent"></a>Linux-Agent
 
 > [!NOTE]
-> Om du vill avinstallera *root* agenten måste du ha root-åtkomstbehörigheter eller med ett konto som har förhöjda rättigheter med Sudo.
+> Om du vill avinstallera agenten måste du ha behörighet som *rot* åtkomst eller med ett konto som har utökade rättigheter med sudo.
 
-För att avinstallera Linux-agenten beror kommandot som ska användas på Operativsystemet Linux.
+Om du vill avinstallera Linux-agenten är kommandot som ska användas beroende av operativ systemet Linux.
 
-- För Ubuntu kör du följande kommando:
+- Kör följande kommando för Ubuntu:
 
     ```bash
     sudo apt purge azcmagent
     ```
 
-- För RHEL, CentOS och Amazon Linux kör du följande kommando:
+- Kör följande kommando för RHEL, CentOS och Amazon Linux:
 
     ```bash
     sudo yum remove azcmagent
     ```
 
-- För SLES kör du följande kommando:
+- Kör följande kommando för SLES:
 
     ```bash
     sudo zypper remove azcmagent
     ```
 
-## <a name="unregister-machine"></a>Avregistrera dator
+## <a name="unregister-machine"></a>Avregistrera datorn
 
-Om du planerar att sluta hantera datorn med stödtjänster i Azure utför du följande steg för att avregistrera datorn med Arc för servrar (förhandsversion). Du kan utföra dessa steg antingen före eller efter att du har tagit bort agenten ansluten dator från maskinen.
+Om du planerar att stoppa hanteringen av datorn med stöd tjänster i Azure utför du följande steg för att avregistrera datorn med ARC for Servers (för hands version). Du kan utföra de här stegen antingen innan eller efter att du har tagit bort den anslutna dator agenten från datorn.
 
-1. Öppna Azure Arc för servrar (förhandsversion) genom att gå till [Azure-portalen](https://aka.ms/hybridmachineportal).
+1. Öppna Azure båg for Servers (för hands version) genom att gå till [Azure Portal](https://aka.ms/hybridmachineportal).
 
-2. Välj maskinen i listan, välj ellipsen (**...**) och välj sedan **Ta bort**.
+2. Välj datorn i listan, Välj ellipsen (..**.**) och välj sedan **ta bort**.

@@ -1,7 +1,7 @@
 ---
-title: Skapa klient för modell som distribueras som webbtjänst
+title: Skapa klient för modell distribuerad som webb tjänst
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du anropar en slutpunkt för webbtjänsten som genererades när en modell distribuerades från Azure Machine Learning. Slutpunkten visar ett REST API, som du kan anropa för att utföra inferens med modellen. Skapa klienter för det här API:et med hjälp av det programmeringsspråk du väljer.
+description: Lär dig hur du anropar en webb tjänst slut punkt som genererades när en modell distribuerades från Azure Machine Learning. Slut punkten visar en REST API, som du kan anropa för att utföra en härledning med modellen. Skapa klienter för detta API genom att använda valfritt programmeringsspråk.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,43 +12,43 @@ ms.reviewer: larryfr
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383394"
 ---
-# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning-modell som distribueras som en webbtjänst
+# <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning modell som distribueras som en webb tjänst
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Distribuera en Azure Machine Learning-modell som en webbtjänst skapar en REST API-slutpunkt. Du kan skicka data till den här slutpunkten och ta emot förutsägelsen som returneras av modellen. I det här dokumentet får du lära dig hur du skapar klienter för webbtjänsten med hjälp av C#, Go, Java och Python.
+Om du distribuerar en Azure Machine Learning modell som en webb tjänst skapas en REST API-slutpunkt. Du kan skicka data till den här slut punkten och ta emot den förutsägelse som returneras av modellen. I det här dokumentet får du lära dig hur du skapar klienter för webb tjänsten med hjälp av C#, go, Java och python.
 
-Du skapar en webbtjänst när du distribuerar en modell till din lokala miljö, Azure Container Instances, Azure Kubernetes Service eller fältprogrammerbara gate arrayer (FPGA). Du hämtar URI som används för att komma åt webbtjänsten med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Om autentisering är aktiverat kan du också använda SDK för att hämta autentiseringsnycklarna eller token.
+Du skapar en webb tjänst när du distribuerar en modell till din lokala miljö, Azure Container Instances, Azure Kubernetes-tjänsten eller FPGA (Field-programmerbara grind mat ris). Du hämtar den URI som används för att få åtkomst till webb tjänsten med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Om autentisering är aktive rad kan du också använda SDK: n för att hämta nycklar eller tokens för autentisering.
 
-Det allmänna arbetsflödet för att skapa en klient som använder en datorinlärningswebbtjänst är:
+Det allmänna arbets flödet för att skapa en klient som använder en Machine Learning-webbtjänst är:
 
-1. Använd SDK för att hämta anslutningsinformationen.
-1. Bestäm vilken typ av begärandedata som används av modellen.
-1. Skapa ett program som anropar webbtjänsten.
+1. Hämta anslutnings informationen med hjälp av SDK.
+1. Bestäm vilken typ av begär ande data som används av modellen.
+1. Skapa ett program som anropar webb tjänsten.
 
 > [!TIP]
-> Exemplen i det här dokumentet skapas manuellt utan användning av OpenAPI-specifikationer (Swagger). Om du har aktiverat en OpenAPI-specifikation för distributionen kan du använda verktyg som [swagger-codegen](https://github.com/swagger-api/swagger-codegen) för att skapa klientbibliotek för tjänsten.
+> Exemplen i det här dokumentet skapas manuellt utan användning av OpenAPI-specifikationer (Swagger). Om du har aktiverat en OpenAPI-specifikation för distributionen kan du använda verktyg som [Swagger-CODEGEN](https://github.com/swagger-api/swagger-codegen) för att skapa klient bibliotek för din tjänst.
 
-## <a name="connection-information"></a>Anslutningsinformation
+## <a name="connection-information"></a>Anslutnings information
 
 > [!NOTE]
-> Använd Azure Machine Learning SDK för att hämta webbtjänstinformation. Det här är en Python SDK. Du kan använda vilket språk som helst för att skapa en klient för tjänsten.
+> Använd Azure Machine Learning SDK för att hämta information om webb tjänsten. Det här är en python SDK. Du kan använda valfritt språk för att skapa en klient för tjänsten.
 
-Klassen [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) innehåller den information du behöver för att skapa en klient. Följande `Webservice` egenskaper är användbara när du vill skapa ett klientprogram:
+[Azureml. Core. WebService-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller den information du behöver för att skapa en-klient. Följande `Webservice` egenskaper är användbara när du skapar ett klient program:
 
-* `auth_enabled`- Om nyckelautentisering är `True`aktiverat, ; annars. `False`
-* `token_auth_enabled`- Om tokenautentisering är `True`aktiverad; annars. `False`
-* `scoring_uri`- REST API-adressen.
-* `swagger_uri`- Adressen till OpenAPI-specifikationen. Den här URI:n är tillgänglig om du har aktiverat automatisk schemagenerering. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+* `auth_enabled`– Om autentisering av nycklar är aktiverat `True`,; Annars, `False`.
+* `token_auth_enabled`– Om token-autentisering är `True`aktiverat,; Annars, `False`.
+* `scoring_uri`– REST API-adressen.
+* `swagger_uri`– Adressen till OpenAPI-specifikationen. Denna URI är tillgänglig om du har aktiverat automatiskt skapande av schema. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-Det finns tre sätt att hämta den här informationen för distribuerade webbtjänster:
+Det finns tre sätt att hämta den här informationen för distribuerade webb tjänster:
 
-* När du distribuerar `Webservice` en modell returneras ett objekt med information om tjänsten:
+* När du distribuerar en modell returneras ett `Webservice` objekt med information om tjänsten:
 
     ```python
     service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
@@ -57,7 +57,7 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     print(service.swagger_uri)
     ```
 
-* Du kan `Webservice.list` använda för att hämta en lista över distribuerade webbtjänster för modeller på arbetsytan. Du kan lägga till filter för att begränsa listan med returnerad information. Mer information om vad som kan filtreras på finns i referensdokumentationen [för Webservice.list.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py)
+* Du kan använda `Webservice.list` för att hämta en lista över distribuerade webb tjänster för modeller i din arbets yta. Du kan lägga till filter för att begränsa listan med information som returneras. Mer information om vad som kan filtreras finns i referens dokumentationen för [WebService. list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) .
 
     ```python
     services = Webservice.list(ws)
@@ -65,7 +65,7 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     print(services[0].swagger_uri)
     ```
 
-* Om du känner till namnet på den distribuerade `Webservice`tjänsten kan du skapa en ny instans av och ange arbetsytan och tjänstnamnet som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
+* Om du känner till namnet på den distribuerade tjänsten kan du skapa en ny instans av `Webservice`och ange arbets ytan och tjänstens namn som parametrar. Det nya objektet innehåller information om den distribuerade tjänsten.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -73,36 +73,36 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     print(service.swagger_uri)
     ```
 
-### <a name="secured-web-service"></a>Skyddad webbtjänst
+### <a name="secured-web-service"></a>Skyddad webb tjänst
 
-Om du har säkrat den distribuerade webbtjänsten med hjälp av ett TLS/SSL-certifikat kan du använda [HTTPS](https://en.wikipedia.org/wiki/HTTPS) för att ansluta till tjänsten med bedömnings- eller skryt-URI. HTTPS hjälper till att skydda kommunikationen mellan en klient och en webbtjänst genom att kryptera kommunikation mellan de två. Kryptering använder [TLS (Transport Layer Security).](https://en.wikipedia.org/wiki/Transport_Layer_Security) TLS kallas ibland fortfarande *SSL (Secure Sockets Layer),* som var föregångaren till TLS.
+Om du har skyddat den distribuerade webb tjänsten med ett TLS/SSL-certifikat kan du använda [https](https://en.wikipedia.org/wiki/HTTPS) för att ansluta till tjänsten med hjälp av bedömnings-eller Swagger-URI: n. HTTPS skyddar kommunikationen mellan en klient och en webb tjänst genom att kryptera kommunikationen mellan de två. Kryptering använder [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS kallas ibland även *Secure Sockets Layer* (SSL), som var den föregående aktiviteten TLS.
 
 > [!IMPORTANT]
-> Webbtjänster som distribueras av Azure Machine Learning stöder endast TLS version 1.2. När du skapar ett klientprogram kontrollerar du att det stöder den här versionen.
+> Webb tjänster som distribueras av Azure Machine Learning endast stöd för TLS version 1,2. När du skapar ett klient program måste du kontrol lera att den har stöd för den här versionen.
 
-Mer information finns i [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md).
+Mer information finns i [använda TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md).
 
 ### <a name="authentication-for-services"></a>Autentisering för tjänster
 
-Azure Machine Learning innehåller två sätt att styra åtkomsten till dina webbtjänster.
+Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tjänster på två sätt.
 
-|Autentiseringsmetod|Aci|AKS|
+|Autentiseringsmetod|ACI|AKS|
 |---|---|---|
-|Nyckel|Inaktiverad som standard| Aktiverat som standard|
-|Token| Inte tillgänglig| Inaktiverad som standard |
+|Nyckel|Inaktiverat som standard| Aktiverat som standard|
+|Token| Inte tillgängligt| Inaktiverat som standard |
 
-När du skickar en begäran till en tjänst som är skyddad med en nyckel eller token använder du __auktoriseringshuvudet__ för att skicka nyckeln eller token. Nyckeln eller token måste formateras `Bearer <key-or-token>`som `<key-or-token>` , var är din nyckel eller token värde.
+När du skickar en begäran till en tjänst som skyddas med en nyckel eller token ska du använda __Authorization__ -huvudet för att skicka nyckeln eller token. Nyckeln eller token måste formateras som `Bearer <key-or-token>`, där `<key-or-token>` är nyckel-eller token-värdet.
 
 #### <a name="authentication-with-keys"></a>Autentisering med nycklar
 
-När du aktiverar autentisering för en distribution skapar du automatiskt autentiseringsnycklar.
+När du aktiverar autentisering för en distribution skapar du automatiskt nycklar för autentisering.
 
-* Autentisering är aktiverat som standard när du distribuerar till Azure Kubernetes Service.
-* Autentisering är inaktiverat som standard när du distribuerar till Azure Container Instances.
+* Autentisering aktive ras som standard när du distribuerar till Azure Kubernetes-tjänsten.
+* Autentisering inaktive ras som standard när du distribuerar till Azure Container Instances.
 
-Om du vill `auth_enabled` styra autentiseringen använder du parametern när du skapar eller uppdaterar en distribution.
+Om du vill kontrol lera autentiseringen använder du `auth_enabled` parametern när du skapar eller uppdaterar en distribution.
 
-Om autentisering är aktiverat kan `get_keys` du använda metoden för att hämta en primär och sekundär autentiseringsnyckel:
+Om autentisering är aktive rad kan du använda `get_keys` metoden för att hämta en primär och sekundär autentiseringsnyckel:
 
 ```python
 primary, secondary = service.get_keys()
@@ -110,18 +110,18 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Om du behöver återskapa en [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)nyckel använder du .
+> Om du behöver återskapa en nyckel använder [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)du.
 
 #### <a name="authentication-with-tokens"></a>Autentisering med token
 
-När du aktiverar tokenautentisering för en webbtjänst måste en användare tillhandahålla en Azure Machine Learning JWT-token till webbtjänsten för att komma åt den. 
+När du aktiverar token-autentisering för en webb tjänst måste en användare ange en Azure Machine Learning JWT-token för webb tjänsten för att få åtkomst till den. 
 
-* Tokenautentisering inaktiveras som standard när du distribuerar till Azure Kubernetes Service.
-* Tokenautentisering stöds inte när du distribuerar till Azure Container Instances.
+* Token-autentisering inaktive ras som standard när du distribuerar till Azure Kubernetes-tjänsten.
+* Token-autentisering stöds inte när du distribuerar till Azure Container Instances.
 
-Om du vill styra `token_auth_enabled` tokenautentisering använder du parametern när du skapar eller uppdaterar en distribution.
+Om du vill kontrol lera token `token_auth_enabled` -autentisering använder du parametern när du skapar eller uppdaterar en distribution.
 
-Om tokenautentisering är aktiverat kan `get_token` du använda metoden för att hämta en innehavartoken och att tokens förfallotid:
+Om token-autentisering har Aktiver ATS kan `get_token` du använda metoden för att hämta en Bearer-token och förfallo tiden för token:
 
 ```python
 token, refresh_by = service.get_token()
@@ -129,11 +129,11 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter `refresh_by` tokens tid. 
+> Du måste begära en ny token efter det att token `refresh_by` har uppnåtts. 
 
 ## <a name="request-data"></a>Begär data
 
-REST API förväntar sig att brödtexten för begäran ska vara ett JSON-dokument med följande struktur:
+I REST API förväntas bröd texten i begäran vara ett JSON-dokument med följande struktur:
 
 ```json
 {
@@ -145,9 +145,9 @@ REST API förväntar sig att brödtexten för begäran ska vara ett JSON-dokumen
 ```
 
 > [!IMPORTANT]
-> Datastrukturen måste matcha vad bedömningsskriptet och modellen i tjänsten förväntar sig. Bedömningsskriptet kan ändra data innan det går till modellen.
+> Data strukturen måste matcha vad bedömnings skriptet och modellen i tjänsten förväntar sig. Bedömnings skriptet kan ändra data innan de skickas till modellen.
 
-Modellen i exemplet [Tåg i anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) förväntar sig till exempel en matris med 10 nummer. Bedömningsskriptet för det här exemplet skapar en Numpy-matris från begäran och skickar den till modellen. I följande exempel visas de data som den här tjänsten förväntar sig:
+Modellen i exemplet [träna i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) förväntar sig till exempel en matris med 10 siffror. Bedömnings skriptet för det här exemplet skapar en numpy-matris från begäran och skickar den till modellen. I följande exempel visas de data som tjänsten förväntar sig:
 
 ```json
 {
@@ -169,14 +169,14 @@ Modellen i exemplet [Tåg i anteckningsboken](https://github.com/Azure/MachineLe
 }
 ```
 
-Webbtjänsten kan acceptera flera uppsättningar data i en begäran. Det returnerar ett JSON-dokument som innehåller en matris med svar.
+Webb tjänsten kan acceptera flera uppsättningar data i en begäran. Den returnerar ett JSON-dokument som innehåller en matris med svar.
 
 ### <a name="binary-data"></a>Binära data
 
-Information om hur du aktiverar stöd för binära data i tjänsten finns i [Binära data](how-to-deploy-and-where.md#binary).
+Information om hur du aktiverar stöd för binära data i tjänsten finns i [binära data](how-to-deploy-and-where.md#binary).
 
 > [!TIP]
-> Aktivera stöd för binära data sker i den score.py filen som används av den distribuerade modellen. Från klienten använder du HTTP-funktionen för programmeringsspråket. Följande kodavsnitt skickar till exempel innehållet i en JPG-fil till en webbtjänst:
+> Aktivering av stöd för binära data sker i den score.py-fil som används av den distribuerade modellen. Använd HTTP-funktionerna i ditt programmeringsspråk från klienten. Följande fragment skickar till exempel innehållet i en JPG-fil till en webb tjänst:
 >
 > ```python
 > import requests
@@ -186,13 +186,13 @@ Information om hur du aktiverar stöd för binära data i tjänsten finns i [Bin
 > res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
 > ```
 
-### <a name="cross-origin-resource-sharing-cors"></a>Gemensamt för resursdelning (CORS)
+### <a name="cross-origin-resource-sharing-cors"></a>Resurs delning mellan ursprung (CORS)
 
-Information om hur du aktiverar CORS-support i din tjänst finns i [Resursdelning över flera källor](how-to-deploy-and-where.md#cors).
+Information om hur du aktiverar CORS-stöd i tjänsten finns i [resurs delning mellan ursprung](how-to-deploy-and-where.md#cors).
 
-## <a name="call-the-service-c"></a>Ring tjänsten (C#)
+## <a name="call-the-service-c"></a>Anropa tjänsten (C#)
 
-Det här exemplet visar hur du använder C# för att anropa webbtjänsten som skapats från exemplet [Tåg i anteckningsbok:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Det här exemplet visar hur du använder C# för att anropa webb tjänsten som skapats från [träna i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) -exempel:
 
 ```csharp
 using System;
@@ -279,9 +279,9 @@ De resultat som returneras liknar följande JSON-dokument:
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-go"></a>Ring tjänsten (Gå)
+## <a name="call-the-service-go"></a>Anropa tjänsten (go)
 
-Det här exemplet visar hur du använder Gå för att anropa webbtjänsten som skapats från exemplet [Tåg i anteckningsbok:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Det här exemplet visar hur du använder Go för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) -exemplet:
 
 ```go
 package main
@@ -371,9 +371,9 @@ De resultat som returneras liknar följande JSON-dokument:
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-java"></a>Ring tjänsten (Java)
+## <a name="call-the-service-java"></a>Anropa tjänsten (Java)
 
-Det här exemplet visar hur du använder Java för att anropa webbtjänsten som skapats från exemplet [Tåg i anteckningsbok:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Det här exemplet visar hur du använder Java för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) -exemplet:
 
 ```java
 import java.io.IOException;
@@ -451,9 +451,9 @@ De resultat som returneras liknar följande JSON-dokument:
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="call-the-service-python"></a>Anropa tjänsten (Python)
+## <a name="call-the-service-python"></a>Anropa tjänsten (python)
 
-Det här exemplet visar hur du använder Python för att anropa webbtjänsten som skapats från exemplet [Tåg i anteckningsbok:](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)
+Det här exemplet visar hur du använder python för att anropa webb tjänsten som skapats från [tåget i Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) -exemplet:
 
 ```python
 import requests
@@ -513,12 +513,12 @@ De resultat som returneras liknar följande JSON-dokument:
 
 ## <a name="consume-the-service-from-power-bi"></a>Använda tjänsten från Power BI
 
-Power BI stöder förbrukning av Azure Machine Learning-webbtjänster för att berika data i Power BI med förutsägelser. 
+Power BI stöder användning av Azure Machine Learning webb tjänster för att utöka data i Power BI med förutsägelser. 
 
-Om du vill generera en webbtjänst som stöds för förbrukning i Power BI måste schemat ha stöd för det format som krävs av Power BI. [Lär dig hur du skapar ett Power BI-stödda schema](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
+Om du vill generera en webb tjänst som stöds för användning i Power BI måste schemat ha stöd för det format som krävs av Power BI. [Lär dig hur du skapar ett schema som stöds av Power BI](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
 
-När webbtjänsten har distribuerats kan den användas från Power BI-dataflöden. [Lär dig hur du använder en Azure Machine Learning-webbtjänst från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+När webb tjänsten har distribuerats kan den förbrukas från Power BI data flöden. [Lär dig hur du använder en Azure Machine Learning-webb tjänst från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill visa en referensarkitektur för realtidsbedömning av Python- och djupinlärningsmodeller går du till [Azure Architecture Center](/azure/architecture/reference-architectures/ai/realtime-scoring-python).
+Om du vill visa en referens arkitektur för real tids poängsättning av python-och djup inlärnings modeller går du till [Azure Architecture Center](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

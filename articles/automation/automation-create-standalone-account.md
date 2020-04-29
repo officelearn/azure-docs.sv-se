@@ -1,113 +1,113 @@
 ---
 title: Skapa ett fristående Azure Automation-konto
-description: I den här artikeln får du hjälp med stegen för att skapa, testa och använda en exempelsäkerhetsautentisering i Azure Automation.
+description: Den här artikeln vägleder dig genom stegen för att skapa, testa och använda ett exempel på säkerhets objekts autentisering i Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 72a40363edf0e83eea26ee697ce992226da0db4f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392295"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
-Den här artikeln visar hur du skapar ett Azure Automation-konto i Azure-portalen. Du kan använda portalautomationskontot för att utvärdera och lära dig mer om Automation utan att använda ytterligare hanteringslösningar eller integrering med Azure Monitor-loggar. Du kan lägga till dessa hanteringslösningar eller integrera med Azure Monitor-loggar för avancerad övervakning av runbook-jobb när som helst i framtiden.
+Den här artikeln visar hur du skapar ett Azure Automation konto i Azure Portal. Du kan använda Portal Automation-kontot för att utvärdera och lära dig om automatisering utan att använda ytterligare hanterings lösningar eller integrering med Azure Monitor loggar. Du kan lägga till dessa hanterings lösningar eller integrera med Azure Monitor loggar för avancerad övervakning av Runbook-jobb när som helst i framtiden.
 
-Med ett Automation-konto kan du autentisera runbooks genom att hantera resurser i Antingen Azure Resource Manager eller den klassiska distributionsmodellen. Ett Automation-konto kan hantera resurser i alla regioner och prenumerationer för en viss klientorganisation.
+Med ett Automation-konto kan du autentisera runbooks genom att hantera resurser i antingen Azure Resource Manager eller den klassiska distributions modellen. Ett Automation-konto kan hantera resurser i alla regioner och prenumerationer för en viss klientorganisation.
 
-När du skapar ett Automation-konto i Azure-portalen skapas **kontot Kör som** automatiskt. Det här kontot utför följande uppgifter:
+När du skapar ett Automation-konto i Azure Portal skapas **Kör som** -kontot automatiskt. Detta konto utför följande aktiviteter:
 
-* Skapar ett tjänsthuvudnamn i Azure Active Directory (Azure AD).
+* Skapar ett huvud namn för tjänsten i Azure Active Directory (Azure AD).
 * Skapar ett certifikat.
-* Tilldelar CONTRIBUTOR Role-Based Access Control (RBAC), som hanterar Azure Resource Manager-resurser med hjälp av runbooks.
+* Tilldelar rollbaserade Access Control i rollen medarbetare (RBAC) som hanterar Azure Resource Manager resurser med hjälp av Runbooks.
 
-Med det här kontot skapat åt dig kan du snabbt börja skapa och distribuera runbooks för att stödja dina automatiseringsbehov.
+Med det här kontot skapat kan du snabbt börja skapa och distribuera Runbooks som stöder dina automatiserings behov.
 
 ## <a name="permissions-required-to-create-an-automation-account"></a>Behörigheter som krävs för att skapa ett Automation-konto
 
-Om du vill skapa eller uppdatera ett Automation-konto och slutföra de uppgifter som beskrivs i den här artikeln måste du ha följande behörigheter och behörigheter:
+Om du vill skapa eller uppdatera ett Automation-konto och utföra de uppgifter som beskrivs i den här artikeln måste du ha följande behörigheter och behörigheter:
 
-* Om du vill skapa ett Automation-konto måste ditt Azure AD-användarkonto läggas `Microsoft.Automation` till i en roll med behörigheter som motsvarar ägarrollen för resurser. Mer information finns i [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
-* I Azure-portalen, under **Azure Active Directory** > **MANAGE-användarinställningar,****MANAGE** > om **appregistreringar** är inställda på **Ja**kan användare som inte är administratörer i din Azure AD-klient [registrera Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Om **Appregistreringar** är inställt på **Nej**måste användaren som utför den här åtgärden vara en global administratör i Azure AD.
+* För att skapa ett Automation-konto måste ditt Azure AD-användarkonto läggas till i en roll med behörigheter som motsvarar ägar rollen för `Microsoft.Automation` resurser. Mer information finns i [rollbaserad Access Control i Azure Automation](automation-role-based-access-control.md).
+* I Azure Portal, under **Azure Active Directory** > **Hantera** > **användar inställningar**, om **Appregistreringar** är inställt på **Ja**kan användare som inte är administratörer i Azure AD-klienten [Registrera Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Om **Appregistreringar** är inställt på **Nej**, måste den användare som utför den här åtgärden vara en global administratör i Azure AD.
 
-Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till i prenumerationens globala administratörs-/coadministratorroll läggs du till i Active Directory som gäst. I det här fallet visas det här meddelandet i fönstret Lägg till automationskonto:`You do not have permissions to create.`
+Om du inte är medlem i prenumerationens Active Directory instans innan du lägger till den globala administratören/rollen som administratör i prenumerationen, läggs du till Active Directory som gäst. I det här scenariot ser du det här meddelandet i fönstret Lägg till Automation-konto:`You do not have permissions to create.`
 
-Om en användare läggs till i rollen global administratör/coadministrator först kan du ta bort användaren från prenumerationens Active Directory-instans. Du kan läsa användaren till användarrollen i Active Directory.
+Om du först lägger till en användare i rollen global administratör/superadministratör kan du ta bort användaren från prenumerationens Active Directory instans. Du kan läsa användaren till användar rollen i Active Directory.
 
-Så här verifierar du användarroller:
+Så här verifierar du användar roller:
 
-1. Gå till Azure Active Directory i Azure-portalen.
+1. I Azure Portal går du till fönstret Azure Active Directory.
 1. Välj **Användare och grupper**.
-1. Välj **Alla användare**.
-1. När du har valt en viss användare väljer du **Profil**. Värdet för attributet **Användartyp** under användarens profil ska inte vara **Gäst**.
+1. Välj **alla användare**.
+1. När du har valt en speciell användare väljer du **profil**. Värdet för attributet **användar typ** under användarens profil ska inte vara **gäst**.
 
-## <a name="create-a-new-automation-account-in-the-azure-portal"></a>Skapa ett nytt Automation-konto i Azure-portalen
+## <a name="create-a-new-automation-account-in-the-azure-portal"></a>Skapa ett nytt Automation-konto i Azure Portal
 
-Så här skapar du ett Azure Automation-konto i Azure-portalen:
+Utför följande steg för att skapa ett Azure Automation konto i Azure Portal:
 
-1. Logga in på Azure-portalen med ett konto som är medlem i rollen administratörer för prenumerationen och en medadministratör för prenumerationen.
-1. Välj **+ Skapa en resurs**.
-1. Sök efter **Automation**. Välj **Automatisering**i sökresultaten .
+1. Logga in på Azure Portal med ett konto som är medlem i rollen prenumerations administratörer och en administratör för prenumerationen.
+1. Välj **+ skapa en resurs**.
+1. Sök efter **Automation**. I Sök resultaten väljer du **Automation**.
 
-   ![Sök efter och välj Automation &-kontroll på Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
+   ![Sök efter och välj Automation & Control på Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
-1. På nästa skärm väljer du **Skapa ny**.
+1. På nästa skärm väljer du **Skapa nytt**.
 
-   ![Lägg till automationskonto](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Lägg till Automation-konto](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
    > [!NOTE]
-   > Om följande meddelande visas i fönstret Lägg till automationskonto är ditt konto inte medlem i rollen administratörer för prenumerationen och en medadministrator för prenumerationen.
+   > Om du ser följande meddelande i fönstret Lägg till Automation-konto är ditt konto inte medlem i rollen prenumerations administratörer och en administratör för prenumerationen.
    >
-   > ![Lägg till varning för automationskonto](media/automation-create-standalone-account/create-account-without-perms.png)
+   > ![Varning för Lägg till Automation-konto](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. Ange ett namn på ditt nya Automation-konto i fältet **Namn** i fönstret Lägg till automationskonto. Du kan inte ändra det här namnet när det har valts. 
+1. I fönstret Lägg till Automation-konto anger du ett namn för det nya Automation-kontot i fältet **namn** . Du kan inte ändra det här namnet efter att det har valts. 
 
     > [!NOTE]
-    > Automation-kontonamn är unika per region och resursgrupp. Namn för borttagna Automation-konton kanske inte är omedelbart tillgängliga.
+    > Namn på Automation-konton är unika per region och resurs grupp. Namn för borttagna Automation-konton kanske inte är omedelbart tillgängliga.
 
-1. Om du har fler än en prenumeration använder du fältet **Prenumeration** för att ange vilken prenumeration som ska användas för det nya kontot.
-1. För **resursgrupp**anger eller väljer du en ny eller befintlig resursgrupp.
-1. För **Plats**väljer du en Azure datacenterplats.
-1. För alternativet **Skapa Azure Kör som konto,** se till att **Ja** är markerat och klicka sedan på **Skapa**.
+1. Om du har mer än en prenumeration använder du fältet **prenumeration** för att ange vilken prenumeration som ska användas för det nya kontot.
+1. För **resurs grupp**anger eller väljer du en ny eller befintlig resurs grupp.
+1. För **plats**väljer du en plats för Azure-datacenter.
+1. För alternativet **Skapa Azure kör som-konto** kontrollerar du att **Ja** är markerat och klickar sedan på **skapa**.
 
    > [!NOTE]
-   > Om du väljer att inte skapa kontot Kör som genom att välja **Nej** för **Skapa Azure Kör som konto**visas ett meddelande i fönstret Lägg till automationskonto. Även om kontot skapas i Azure-portalen har kontot inte en motsvarande autentiseringsidentitet i din klassiska distributionsmodellprenumeration eller i prenumerationskatalogtjänsten för Azure Resource Manager. Därför har Automation-kontot inte åtkomst till resurser i din prenumeration. Detta förhindrar att alla runbooks som refererar till det här kontot kan autentisera och utföra uppgifter mot resurser i dessa distributionsmodeller.
+   > Om du väljer att inte skapa kör som-kontot genom att välja **Nej** för **skapa kör som-konto för Azure**visas ett meddelande i fönstret Lägg till Automation-konto. Även om kontot har skapats i Azure Portal, har kontot inte någon motsvarande Autentiseringsidentitet i den klassiska distributions modell prenumerationen eller i Azure Resource Manager prenumerations katalog tjänst. Automation-kontot har därför inte åtkomst till resurser i din prenumeration. Detta förhindrar att Runbooks som refererar till det här kontot kan autentisera och utföra åtgärder mot resurser i dessa distributions modeller.
    >
-   > ![Lägg till varning för automationskonto](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > ![Varning för Lägg till Automation-konto](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
    >
-   > När tjänstens huvudnamn inte skapas tilldelas inte rollen Deltagare.
+   > När tjänstens huvud namn inte har skapats är deltagar rollen inte tilldelad.
    >
 
-1. Om du vill spåra hur du skapar automationskontot väljer du **Meddelanden** på menyn.
+1. Om du vill följa förloppet för att skapa Automation-kontot väljer du **meddelanden** på menyn.
 
 ### <a name="resources-included"></a>Resurser som ingår
 
-När Automation-kontot har skapats skapas flera resurser automatiskt. När dessa runbooks har skapats kan de tas bort på ett säkert sätt om du inte vill behålla dem. Kör som-konton, kan användas för att autentisera till ditt konto i en runbook, och bör lämnas om du inte skapar en annan eller inte kräver dem. I följande tabell sammanfattas resurserna för Kör som-kontot.
+När Automation-kontot har skapats skapas flera resurser automatiskt. När du har skapat dessa Runbooks kan de tas bort på ett säkert sätt om du inte vill behålla dem. Kör som-kontona kan användas för att autentisera till ditt konto i en Runbook och bör vara kvar om du inte skapar ett annat eller inte behöver det. I följande tabell sammanfattas resurserna för Kör som-kontot.
 
 | Resurs | Beskrivning |
 | --- | --- |
-| AzureAutomationTutorial-runbook |En grafisk runbook som exempel på hur du autentiserar med hjälp av kontot Kör som. Runbook hämtar alla Resource Manager-resurser. |
-| AzureAutomationTutorialScript-runbook |Ett exempel på PowerShell-runbook som visar hur du autentiserar med hjälp av kontot Kör som. Runbook hämtar alla Resource Manager-resurser. |
-| AzureAutomationTutorialPython2 Runbook |Ett exempel på Python-runbook som visar hur du autentiserar med hjälp av kontot Kör som. Runbook listar alla resursgrupper som finns i prenumerationen. |
-| AzureRunAsCertificate |En certifikattillgång som skapas automatiskt när Automation-kontot skapas eller med hjälp av ett PowerShell-skript för ett befintligt konto. Certifikatet autentiserar med Azure så att du kan hantera Azure Resource Manager-resurser från runbooks. Det här certifikatet har en livslängd på ett år. |
-| AzureRunAsConnection |En anslutningstillgång som skapas automatiskt när Automation-kontot skapas eller med hjälp av ett PowerShell-skript för ett befintligt konto. |
+| AzureAutomationTutorial-runbook |Ett exempel på en grafisk Runbook som visar hur du autentiserar med hjälp av kör som-kontot. Runbook hämtar alla Resource Manager-resurser. |
+| AzureAutomationTutorialScript-runbook |Ett exempel på en PowerShell-Runbook som visar hur du autentiserar med hjälp av kör som-kontot. Runbook hämtar alla Resource Manager-resurser. |
+| AzureAutomationTutorialPython2 Runbook |Ett exempel på en python-Runbook som visar hur du autentiserar med hjälp av kör som-kontot. Runbooken visar en lista över alla resurs grupper som finns i prenumerationen. |
+| AzureRunAsCertificate |En certifikat till gång som skapas automatiskt när Automation-kontot skapas, eller genom att använda ett PowerShell-skript för ett befintligt konto. Certifikatet autentiseras med Azure så att du kan hantera Azure Resource Manager resurser från Runbooks. Det här certifikatet har en livslängd på ett år. |
+| AzureRunAsConnection |En anslutnings till gång som skapas automatiskt när Automation-kontot skapas, eller genom att använda ett PowerShell-skript för ett befintligt konto. |
 
-## <a name="create-a-classic-run-as-account"></a>Skapa ett klassiskt körningskonto
+## <a name="create-a-classic-run-as-account"></a>Skapa ett klassiskt kör som-konto
 
-Klassiska kör som-konton skapas inte längre som standard när du skapar ett Azure Automation-konto. Om du fortfarande behöver ett Classic Run As-konto:
+Klassiska kör som-konton skapas inte längre som standard när du skapar ett Azure Automation-konto. Om du fortfarande behöver ett klassiskt kör som-konto:
 
-1. Välj Kör som **konton** under **Kontoinställningar**i ditt Automation-konto .
-2. Välj **Azure Classic-körning som konto**.
-3. Klicka på **Skapa** om du vill fortsätta med skapandet av klassiska kör som konto.
+1. Från ditt Automation-konto väljer du **Kör som-konton** under **konto inställningar**.
+2. Välj **det klassiska kör som-kontot i Azure**.
+3. Klicka på **skapa** för att fortsätta med att skapa det klassiska kör som-kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om grafisk redigering finns [i Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
+* Mer information om grafisk redigering finns [i grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
 * Information om hur du kommer igång med PowerShell-runbooks finns i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
-* Information om hur du kommer igång med PowerShell-arbetsflödeskörningsböcker finns i [Min första PowerShell-arbetsflödeskörningsbok](automation-first-runbook-textual.md).
-* Kom igång med Python 2-runbooks finns i [Min första Python2-runbook](automation-first-runbook-textual-python2.md).
-* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+* Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [min första PowerShell Workflow-Runbook](automation-first-runbook-textual.md).
+* För att komma igång med python 2-Runbooks, se [min första Python2 Runbook](automation-first-runbook-textual-python2.md).
+* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

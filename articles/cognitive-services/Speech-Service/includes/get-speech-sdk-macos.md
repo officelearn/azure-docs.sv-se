@@ -5,30 +5,30 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 57de7f1e7c37fec66cda666d3f144e52849a026f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400048"
 ---
-När du utvecklar för macOS finns det tre Tal-SDK:er tillgängliga.
+När du utvecklar för macOS finns det tre tal-SDK: er tillgängliga.
 
-- Objective-C Speech SDK finns internt som ett CocoaPod-paket
-- .NET Speech SDK kan användas med **Xamarin.Mac** när den implementerar .NET Standard 2.0
-- Python Speech SDK finns som en PyPI-modul
+- Mål-C-talet SDK är internt tillgängligt som ett CocoaPod-paket
+- .NET Speech SDK kan användas med **Xamarin. Mac** eftersom det implementerar .net standard 2,0
+- Python Speech SDK är tillgänglig som en PyPI-modul
 
 > [!TIP]
-> Mer information om hur du använder Objective-C-talet SDK med Swift finns <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">i Importera <span class="docon docon-navigate-external x-hidden-focus"> </span>Objective-C till Swift </a>.
+> Mer information om hur du använder mål-C tal-SDK med Swift finns i <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importera mål- <span class="docon docon-navigate-external x-hidden-focus"> </span>c till SWIFT </a>.
 
 ### <a name="system-requirements"></a>Systemkrav
 
-- En macOS version 10.13 eller senare
+- MacOS version 10,13 eller senare
 
 # <a name="xcode"></a>[Xcode](#tab/mac-xcode)
 
 :::row:::
     :::column span="3":::
-        MacOS CocoaPod-paketet är tillgängligt för nedladdning och användning med <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (eller senare) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> integrerad utvecklingsmiljö (IDE). Först <a href="https://aka.ms/csspeech/macosbinary" target="_blank">ladda ner den <span class="docon docon-navigate-external x-hidden-focus"> </span>binära CocoaPod </a>. Extrahera podden i samma katalog för dess avsedda användning, skapa `pod` en `target` *Podfile* och lista som en .
+        MacOS CocoaPod-paketet finns tillgängligt för hämtning och användning med <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode-9.4.1 (eller senare) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Integrated Development Environment (IDE). Börja <a href="https://aka.ms/csspeech/macosbinary" target="_blank">med att hämta binärfilen <span class="docon docon-navigate-external x-hidden-focus"> </span>CocoaPod </a>. Extrahera Pod i samma katalog för den avsedda användningen, skapa en *Podfile* och lista `pod` som `target`.
     :::column-end:::
     :::column:::
         <br>
@@ -47,11 +47,11 @@ target 'MyApp' do
 end
 ```
 
-# <a name="xamarinmac"></a>[Xamarin.Mac (på andra)](#tab/mac-xamarin)
+# <a name="xamarinmac"></a>[Xamarin. Mac](#tab/mac-xamarin)
 
 :::row:::
     :::column span="3":::
-        Xamarin.Mac exponerar hela macOS SDK för .NET-utvecklare för att skapa inbyggda Mac-program med C#. Mer information finns i <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+        Xamarin. Mac visar hela macOS SDK för .NET-utvecklare för att bygga inbyggda Mac-program med C#. Mer information finns i <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin. Mac <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -71,5 +71,5 @@ end
 
 #### <a name="additional-resources"></a>Ytterligare resurser
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">macOS Tal SDK snabbstart Objective-C källkod<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">macOS Tal SDK snabbstart Snabb källkod<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos" target="_blank">macOS tal SDK snabb start mål – C källkod<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos" target="_blank">macOS tal SDK snabb starts källa kod<span class="docon docon-navigate-external x-hidden-focus"></span></a>

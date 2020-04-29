@@ -1,6 +1,6 @@
 ---
-title: Brandväggsregler för Azure Event Hubs | Microsoft-dokument
-description: Använd brandväggsregler för att tillåta anslutningar från specifika IP-adresser till Azure Event Hubs.
+title: Regler för Azure Event Hubs-brandvägg | Microsoft Docs
+description: Använd brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: spelluru
@@ -12,67 +12,67 @@ ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
 ms.openlocfilehash: 18212726f0ab921a05a3b640a32754c62958d047
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393133"
 ---
-# <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Konfigurera IP-brandväggsregler för ett namnområde för Azure Event Hubs
-Som standard är Event Hubs namnområden tillgängliga från internet så länge begäran levereras med giltig autentisering och auktorisering. Med IP-brandväggen kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adressintervall i [CIDR-notation (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+# <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Konfigurera IP-brandväggens regler för ett Azure Event Hubs-namnområde
+Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
-Den här funktionen är användbar i scenarier där Azure Event Hubs endast bör vara tillgängliga från vissa välkända platser. Med brandväggsregler kan du konfigurera regler för att acceptera trafik som kommer från specifika IPv4-adresser. Om du till exempel använder Event Hubs med [Azure Express Route][express-route]kan du skapa en **brandväggsregel** för att tillåta trafik från endast dina lokala IP-adresser för infrastruktur. 
+Den här funktionen är användbar i scenarier där Azure Event Hubs bör endast vara tillgängligt från vissa välkända webbplatser. Med brand Väggs regler kan du konfigurera regler för att acceptera trafik som kommer från vissa IPv4-adresser. Om du till exempel använder Event Hubs med [Azure Express Route][express-route], kan du skapa en **brand Väggs regel** som tillåter trafik från enbart lokala infrastruktur-IP-adresser. 
 
 >[!WARNING]
-> Aktivera IP-filtrering kan förhindra att andra Azure-tjänster interagerar med eventhubbar.
+> Att aktivera IP-filtrering kan förhindra att andra Azure-tjänster interagerar med Event Hubs.
 >
 > Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
 >
-> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (observera att listan **INTE** är uttömmande) -
-> - Azure Monitor (diagnostikinställning)
+> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
+> - Azure Monitor (diagnostisk inställning)
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
-> - Azure IoT Hub Rutter
-> - Utforskaren för Azure IoT-enhet
+> - Azure IoT Hub vägar
+> - Azure IoT-Device Explorer
 >
 > Följande Microsoft-tjänster måste finnas i ett virtuellt nätverk
 > - Azure Web Apps
 > - Azure Functions
 
 
-## <a name="ip-firewall-rules"></a>REGLER för IP-brandväggen
-IP-brandväggsreglerna tillämpas på namnområdesnivån Event Hubs. Därför gäller reglerna för alla anslutningar från klienter som använder protokoll som stöds. Alla anslutningsförsök från en IP-adress som inte matchar en tillåten IP-regel på namnområdet Event Hubs avvisas som obehörigt. Svaret nämner inte IP-regeln. IP-filterregler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden acceptera eller avvisa.
+## <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
+IP-brandväggens regler tillämpas på Event Hubs namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Hubs namn området nekas som obehörig. Svaret innehåller ingen IP-regel. IP filter regler tillämpas i ordning och den första regeln som matchar IP-adressen avgör vilken åtgärd som godkänns eller nekas.
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen
-I det här avsnittet visas hur du använder Azure-portalen för att skapa IP-brandväggsregler för ett namnområde för eventhubner. 
+Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandvägg för ett Event Hubs namn område. 
 
-1. Navigera till **namnområdet Event Hubs** i [Azure-portalen](https://portal.azure.com).
-2. Välj **Nätverksalternativ** på den vänstra menyn. Om du väljer alternativet **Alla nätverk** accepterar händelsehubben anslutningar från valfri IP-adress. Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
+1. Navigera till **Event Hubs namn området** i [Azure Portal](https://portal.azure.com).
+2. Välj alternativet **nätverk** på den vänstra menyn. Om du väljer alternativet **alla nätverk** , godkänner händelsehubben anslutningar från alla IP-adresser. Den här inställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0. 
 
-    ![Brandvägg - Alla nätverk alternativet valt](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Om du vill begränsa åtkomsten till specifika nätverk och IP-adresser väljer du alternativet **Valda nätverk.** Gör så här i avsnittet **Brandvägg:**
-    1. Välj **Lägg till alternativet För klient-IP-adress** för att ge din nuvarande klient-IP åtkomst till namnområdet. 
-    2. För **adressintervall**anger du en specifik IPv4-adress eller ett intervall med IPv4-adress i CIDR-notation. 
-    3. Ange om du vill tillåta **betrodda Microsoft-tjänster att kringgå den här brandväggen**. 
+    ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. Om du vill begränsa åtkomsten till vissa nätverk och IP-adresser väljer du alternativet **valda nätverk** . I avsnittet **brand vägg** följer du dessa steg:
+    1. Välj alternativet **Lägg till klientens IP-adress** för att ge din aktuella klient-IP åtkomst till namn området. 
+    2. För **adress intervall**anger du en angiven IPv4-adress eller ett intervall med IPv4-adresser i CIDR-notering. 
+    3. Ange om du vill **tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen**. 
 
-        ![Brandvägg - Alla nätverk alternativet valt](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
-3. Välj **Spara** i verktygsfältet för att spara inställningarna. Vänta några minuter innan bekräftelsen visas på portalmeddelandena.
+        ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+3. Spara inställningarna genom att välja **Spara** i verktygsfältet. Vänta några minuter tills bekräftelsen visas på Portal meddelandena.
 
 
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 
 > [!IMPORTANT]
-> Brandväggsregler stöds i **standard-** och **dedikerade** nivåer av händelsehubbar. De stöds inte på grundläggande nivå.
+> Brand Väggs regler stöds i **standard** -och **dedikerade** nivåer av Event Hubs. De stöds inte på grundläggande nivå.
 
-Med följande Resource Manager-mall kan du lägga till en IP-filterregel i ett befintligt namnområde för händelsehubbar.
+Följande Resource Manager-mall gör det möjligt att lägga till en IP-filterlista till ett befintligt Event Hubs-namnområde.
 
 Mallparametrar:
 
-- **ipMask** är en enda IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation 70.37.104.0/24 representerar till exempel 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255, med 24 som anger antalet signifikanta prefixbitar för intervallet.
+- **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation 70.37.104.0/24 representerar till exempel 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255, med 24 som anger antalet signifikanta prefix för intervallet.
 
 > [!NOTE]
-> Även om det inte finns några möjliga neka regler, har Azure Resource Manager-mallen standardåtgärden inställd på **"Tillåt"** som inte begränsar anslutningar.
-> När du gör regler för virtuella nätverk eller brandväggar måste vi ändra ***"defaultAction"***
+> Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
+> När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
 > 
 > Från
 > ```json
@@ -146,13 +146,13 @@ Mallparametrar:
   }
 ```
 
-Om du vill distribuera mallen följer du instruktionerna för [Azure Resource Manager][lnk-deploy].
+Följ anvisningarna för [Azure Resource Manager][lnk-deploy]om du vill distribuera mallen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du begränsar åtkomsten till händelsehubbar till virtuella Azure-nätverk finns i följande länk:
+Information om hur du begränsar åtkomsten till Event Hubs till virtuella Azure-nätverk finns i följande länk:
 
-- [Slutpunkter för virtuella nätverkstjänst för händelsehubbar][lnk-vnet]
+- [Virtual Network tjänst slut punkter för Event Hubs][lnk-vnet]
 
 <!-- Links -->
 

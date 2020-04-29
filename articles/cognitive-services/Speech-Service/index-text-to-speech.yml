@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Dokumentation om text till tal
-summary: Text-till-tal från taltjänsten gör det möjligt för dina program, verktyg eller enheter att konvertera text till människoliknande syntetiserat tal.
+summary: Text till tal från tal-tjänsten gör det möjligt för program, verktyg eller enheter att konvertera text till humant syntetiskt tal.
 metadata:
-  title: Text-till-tal-dokumentation - Självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
+  title: Dokumentation om text till tal – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 03/10/2020
   ms.author: trbye
   ms.openlocfilehash: 83bf5f9e623d1d777834e5efdd26fa4cdbc42819
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401471"
 landingContent:
-- title: Om text-till-tal
+- title: Om text till tal
   linkLists:
   - linkListType: overview
     links:
@@ -34,7 +34,7 @@ landingContent:
       url: quickstarts/text-to-speech-audio-file.md
     - text: Syntetisera tal med dikteringsljud
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-- title: Utveckla med text-till-tal
+- title: Utveckla med text till tal
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -62,5 +62,5 @@ landingContent:
       url: language-support.md#neural-voices
     - text: Fonetiska SSML-uppsättningar
       url: speech-ssml-phonetic-sets.md
-    - text: Prissättning mellan text och tal
+    - text: Text till tal-prissättning
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

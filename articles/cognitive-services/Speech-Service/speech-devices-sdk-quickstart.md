@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Kör talenheter SDK på Windows, Linux eller Android - Taltjänst'
+title: 'Snabb start: kör tal enheter SDK på Windows-, Linux-eller Android-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: Förutsättningar och instruktioner för att komma igång med en Windows, Linux eller Android Speech Devices SDK.
+description: Krav och anvisningar för att komma igång med ett Windows-, Linux-eller Android-tal enheter SDK.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/20/2020
 ms.author: trbye
 zone_pivot_groups: platforms-set-of-three
 ms.openlocfilehash: 9303661efc65eb660093c01643073650f360f564
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400108"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Snabbstart: Kör SDK-exempelappen Talenheter på Windows, Linux eller Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Snabb start: Kör exempel programmet för tal enheter SDK i Windows, Linux eller Android
 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Windows platform](includes/speech-devices-sdk-windows-quickstart.md)]
@@ -35,4 +35,4 @@ ms.locfileid: "81400108"
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Granska viktig information](devices-sdk-release-notes.md)
+> [Läs viktig information](devices-sdk-release-notes.md)

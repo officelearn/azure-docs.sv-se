@@ -1,6 +1,6 @@
 ---
-title: Virtuell nätverksarkitektur i Azure HDInsight
-description: Lär dig vilka resurser som är tillgängliga när du skapar ett HDInsight-kluster i ett Virtuellt Azure-nätverk.
+title: Azure HDInsight Virtual Network-arkitektur
+description: Lär dig mer om de resurser som är tillgängliga när du skapar ett HDInsight-kluster i en Azure-Virtual Network.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,80 +8,80 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81390206"
 ---
-# <a name="azure-hdinsight-virtual-network-architecture"></a>Virtuell nätverksarkitektur i Azure HDInsight
+# <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight Virtual Network-arkitektur
 
-I den här artikeln beskrivs de resurser som finns när du distribuerar ett HDInsight-kluster till ett anpassat Azure Virtual Network. Den här informationen hjälper dig att ansluta lokala resurser till ditt HDInsight-kluster i Azure. Mer information om Virtuella Azure-nätverk finns i [Vad är Virtuellt Azure-nätverk?](../virtual-network/virtual-networks-overview.md)
+I den här artikeln förklaras de resurser som finns när du distribuerar ett HDInsight-kluster till en anpassad Azure-Virtual Network. Med den här informationen kan du ansluta lokala resurser till ditt HDInsight-kluster i Azure. Mer information om virtuella Azure-nätverk finns i [Vad är azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
 
-## <a name="resource-types-in-azure-hdinsight-clusters"></a>Resurstyper i Azure HDInsight-kluster
+## <a name="resource-types-in-azure-hdinsight-clusters"></a>Resurs typer i Azure HDInsight-kluster
 
-Azure HDInsight-kluster har olika typer av virtuella datorer eller noder. Varje nodtyp spelar en roll i systemets funktion. I följande tabell sammanfattas dessa nodtyper och deras roller i klustret.
+Azure HDInsight-kluster har olika typer av virtuella datorer eller noder. Varje nodtyp spelar en roll i systemets funktion. I följande tabell sammanfattas de olika nodtyper och deras roller i klustret.
 
 | Typ | Beskrivning |
 | --- | --- |
-| Huvudnod |  För alla klustertyper utom Apache Storm är huvudnoderna värd för de processer som hanterar körningen av det distribuerade programmet. Huvudnoden är också den nod som du kan SSH i och köra program som sedan samordnas för att köras över klusterresurserna. Antalet huvudnoder är fast vid två för alla klustertyper. |
-| ZooKeeper-nod | Zookeeper samordnar uppgifter mellan noderna som utför databearbetning. Det gör också ledare val av huvudet noden, och håller reda på vilken huvudnod kör en viss huvudtjänst. Antalet ZooKeeper-noder är fast till tre. |
-| Arbetsnod | Representerar de noder som stöder databehandlingsfunktioner. Arbetsnoder kan läggas till eller tas bort från klustret för att skala datorfunktioner och hantera kostnader. |
-| R Server kantnod | R Server-kanten-noden representerar den nod som du kan SSH i och köra program som sedan samordnas för att köras över klusterresurserna. En kantnod deltar inte i dataanalys i klustret. Den här noden är också värd för R Studio Server, så att du kan köra R-program med hjälp av en webbläsare. |
-| Regionnod | För HBase-klustertypen kör regionnoden (kallas även en datanod) regionservern. Regionservrar betjänar och hanterar en del av de data som hanteras av HBase. Regionnoder kan läggas till eller tas bort från klustret för att skala datorfunktioner och hantera kostnader.|
-| Nimbus-nod | För klustertypen Storm tillhandahåller Noden Nimbus funktioner som liknar noden Huvud. Noden Nimbus tilldelar uppgifter till andra noder i ett kluster genom Zookeeper, som koordinerar körningen av Stormtopologier. |
-| Handledare nod | För klustertypen Storm kör övervakarnoden instruktionerna från noden Nimbus för att bearbeta. |
+| Huvudnod |  För alla kluster typer förutom Apache Storm är huvudnoderna värdar för de processer som hanterar körningen av det distribuerade programmet. Head-noden är också den nod som du kan använda SSH i och köra program som sedan koordineras för att köras över kluster resurserna. Antalet huvudnoder är fast på två för alla kluster typer. |
+| ZooKeeper-nod | Zookeeper samordnar aktiviteter mellan noderna som utför data bearbetning. Det påverkar också Head-noden och håller reda på vilken Head-nod som kör en speciell huvud tjänst. Antalet ZooKeeper-noder är fasta på tre. |
+| Arbetsnoden | Representerar de noder som stöder data bearbetnings funktioner. Arbetsnoder kan läggas till eller tas bort från klustret för att skala data behandlings kapacitet och hantera kostnader. |
+| R Server Edge-nod | Noden R Server Edge representerar noden som du kan använda SSH i och köra program som sedan koordineras för att köras över kluster resurserna. En Edge-nod deltar inte i data analysen i klustret. Den här noden är också värd för R Studio Server, så att du kan köra R-program med hjälp av en webbläsare. |
+| Region nod | Regions-noden (kallas även en datanode) för HBase-kluster typen kör region servern. Region servrar hanterar och hanterar en del av de data som hanteras av HBase. Det går att lägga till eller ta bort regionfiler från klustret för att skala data behandlings kapacitet och hantera kostnader.|
+| Nimbus-nod | För Storm-klustret tillhandahåller Nimbus-noden funktioner som liknar Head-noden. Nimbus-noden tilldelar uppgifter till andra noder i ett kluster via Zookeeper, vilket samordnar körningen av storm-topologier. |
+| Ansvarig nod | För Storm-klustret kör den överordnade noden de instruktioner som tillhandahålls av Nimbus-noden för att utföra bearbetningen. |
 
-## <a name="resource-naming-conventions"></a>Konventioner för namngivning av resurser
+## <a name="resource-naming-conventions"></a>Namngivnings konventioner för resurser
 
-Använd fullständigt kvalificerade domännamn (FQDN) när du adresserar noder i klustret. Du kan hämta FQDN för olika nodtyper i klustret med [Ambari API](hdinsight-hadoop-manage-ambari-rest-api.md).
+Använd fullständigt kvalificerade domän namn (FQDN) vid adressering av noder i klustret. Du kan hämta FQDN: er för olika nodtyper i klustret med hjälp av [Ambari-API: et](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Dessa FQDN kommer att `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`vara av formuläret .
+Dessa FQDN kommer att ha formen `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
 
-Den `<node-type-prefix>` kommer att *hn* för headnodes, *wn* för arbetstagare noder och *zn* för zookeeper noder.
+Kommer att vara *HN* för *huvudnoderna, till och med för* arbetsnoder och Zn för Zookeeper-noder. *zn* `<node-type-prefix>`
 
-Om du bara behöver värdnamnet använder du bara den första delen av FQDN:`<node-type-prefix><instance-number>-<abbreviated-clustername>`
+Om du bara behöver värd namnet använder du bara den första delen av FQDN:`<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
-## <a name="basic-virtual-network-resources"></a>Grundläggande virtuella nätverksresurser
+## <a name="basic-virtual-network-resources"></a>Grundläggande virtuella nätverks resurser
 
-Följande diagram visar placeringen av HDInsight-noder och nätverksresurser i Azure.
+Följande diagram visar placeringen av HDInsight-noder och nätverks resurser i Azure.
 
-![Diagram över HDInsight-entiteter som skapats i Azure custom VNET](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
+![Diagram över HDInsight-entiteter som skapats i Azure anpassat VNET](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
 
-Standardresurserna i ett Virtuellt Azure-nätverk innehåller de klusternodtyper som nämns i föregående tabell. Och nätverksenheter som stöder kommunikation mellan det virtuella nätverket och externa nätverk.
+Standard resurserna i en Azure-Virtual Network omfattar de typer av klusternoder som anges i föregående tabell. Och nätverks enheter som stöder kommunikation mellan det virtuella nätverket och externa nätverk.
 
-I följande tabell sammanfattas de nio klusternoder som skapas när HDInsight distribueras till ett anpassat Azure Virtual Network.
+I följande tabell sammanfattas de nio klusternoder som skapas när HDInsight distribueras till en anpassad Azure-Virtual Network.
 
 | Resurstyp | Antal närvarande | Information |
 | --- | --- | --- |
 |Huvudnod | två |    |
 |Zookeeper-nod | tre | |
-|Arbetsnod | två | Det här antalet kan variera beroende på klusterkonfiguration och skalning. Minst tre arbetsnoder behövs för Apache Kafka.  |
-|Gateway-nod | två | Gateway-noder är virtuella Azure-datorer som skapas på Azure, men som inte visas i din prenumeration. Kontakta supporten om du behöver starta om dessa noder. |
+|Arbetsnoden | två | Det här antalet kan variera beroende på kluster konfiguration och skalning. Minst tre arbetsnoder behövs för Apache Kafka.  |
+|Gateway-nod | två | Gateway-noder är virtuella Azure-datorer som skapas på Azure, men som inte är synliga i din prenumeration. Kontakta supporten om du behöver starta om noderna. |
 
-Följande nätverksresurser skapas automatiskt i det virtuella nätverket som används med HDInsight:
+Följande nätverks resurser som finns skapas automatiskt i det virtuella nätverk som används med HDInsight:
 
-| Nätverksresurs | Antal närvarande | Information |
+| Nätverks resurs | Antal närvarande | Information |
 | --- | --- | --- |
 |Lastbalanserare | tre | |
-|Nätverksgränssnitt | Nio | Det här värdet baseras på ett normalt kluster, där varje nod har ett eget nätverksgränssnitt. De nio gränssnitten är för: två huvudnoder, tre zookeepernoder, två arbetsnoder och två gatewaynoder som nämns i föregående tabell. |
+|Nätverksgränssnitt | 9 | Det här värdet baseras på ett vanligt kluster där varje nod har sitt eget nätverks gränssnitt. De nio gränssnitten är: två huvudnoder, tre Zookeeper-noder, två arbetsnoder och två Gateway-noder som nämns i föregående tabell. |
 |Offentliga IP-adresser | två |    |
 
-## <a name="endpoints-for-connecting-to-hdinsight"></a>Slutpunkter för anslutning till HDInsight
+## <a name="endpoints-for-connecting-to-hdinsight"></a>Slut punkter för att ansluta till HDInsight
 
 Du kan komma åt ditt HDInsight-kluster på tre sätt:
 
-- En HTTPS-slutpunkt utanför det `CLUSTERNAME.azurehdinsight.net`virtuella nätverket på .
-- En SSH-slutpunkt för direkt anslutning till `CLUSTERNAME-ssh.azurehdinsight.net`headnoden på .
-- En HTTPS-slutpunkt i `CLUSTERNAME-int.azurehdinsight.net`det virtuella nätverket . Lägg märke`-int`till " " i den här webbadressen. Den här slutpunkten kommer att matcha till en privat IP i det virtuella nätverket och är inte tillgänglig från det offentliga internet.
+- En HTTPS-slutpunkt utanför det virtuella nätverket på `CLUSTERNAME.azurehdinsight.net`.
+- En SSH-slutpunkt för direkt anslutning till huvudnoden på `CLUSTERNAME-ssh.azurehdinsight.net`.
+- En HTTPS-slutpunkt i det virtuella `CLUSTERNAME-int.azurehdinsight.net`nätverket. Lägg märke till`-int`"" i den här URL: en. Den här slut punkten kommer att matcha en privat IP-adress i det virtuella nätverket och är inte tillgänglig från det offentliga Internet.
 
-Dessa tre slutpunkter tilldelas var och en en belastningsutjämnare.
+Dessa tre slut punkter är varje tilldelad belastningsutjämnare.
 
-Offentliga IP-adresser tillhandahålls också till de två slutpunkter som tillåter anslutning från utanför det virtuella nätverket.
+Offentliga IP-adresser tillhandahålls också till de två slut punkter som tillåter anslutning från utanför det virtuella nätverket.
 
-1. En offentlig IP tilldelas belastningsutjämnaren för det fullständigt kvalificerade domännamnet (FQDN) `CLUSTERNAME.azurehdinsight.net`som ska användas vid anslutning till klustret från internet .
-1. Den andra offentliga IP-adressen används endast `CLUSTERNAME-ssh.azurehdinsight.net`för domännamnet SSH .
+1. En offentlig IP-adress tilldelas belastningsutjämnaren för det fullständigt kvalificerade domän namnet (FQDN) som ska användas vid anslutning till klustret från Internet `CLUSTERNAME.azurehdinsight.net`.
+1. Den andra offentliga IP-adressen används för domän namnet `CLUSTERNAME-ssh.azurehdinsight.net`endast SSH.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Säker inkommande trafik till HDInsight-kluster i ett virtuellt nätverk med privat slutpunkt](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+- [Skydda inkommande trafik till HDInsight-kluster i ett virtuellt nätverk med privat slut punkt](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

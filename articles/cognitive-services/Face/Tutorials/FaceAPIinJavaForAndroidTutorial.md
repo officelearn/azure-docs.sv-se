@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Identifiera och rama in ansikten i en bild med hjälp av Android SDK'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du en enkel Android-app som använder Ansiktstjänsten för att upptäcka och rama in ansikten i en bild.
+description: I den här självstudien får du skapa en enkel Android-app som använder ansikts tjänsten för att identifiera och visa en bilds ansikten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: dd986a7557f468b939aefe1da825c9834618047f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81402925"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Självstudie: Skapa en Android-app för att upptäcka och rama in ansikten i en bild
 
-I den här självstudien skapar du ett Android-program som använder Azure Face-tjänsten, via Java SDK, för att identifiera mänskliga ansikten i en avbildning. Appen visar en utvald bild och ritar en ram runt varje identifierat ansikte.
+I den här självstudien skapar du ett Android-program som använder Azures ansikts tjänst, via Java SDK, för att identifiera mänskliga ansikten i en bild. Appen visar en utvald bild och ritar en ram runt varje identifierat ansikte.
 
 I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > - Skapa ett Android-program
-> - Installera face-klientbiblioteket
+> - Installera ansikts klient biblioteket
 > - Använda klientbiblioteket för att identifiera ansikten i en bild
 > - Rita en ram runt varje identifierat ansikte
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Krav
 
-- En Face-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Ansiktstjänsten och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och `FACE_SUBSCRIPTION_KEY` tjänstslutpunktssträngen, med namnet respektive `FACE_ENDPOINT`.
+- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `FACE_SUBSCRIPTION_KEY` med `FACE_ENDPOINT`namnet respektive.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) med API-nivå 22 eller senare.
 
@@ -99,11 +99,11 @@ I fönsterrutan **Project** (Projekt) expanderar du **app** och sedan **manifest
 
 ## <a name="upload-image-and-detect-faces"></a>Ladda upp bilden och identifiera ansikten
 
-Din app identifierar ansikten genom att anropa **metoden faceClient.Face.DetectWithStreamAsync,** som sveper in REST-API:et och returnerar en lista över [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) **ansiktsinstanser.**
+Din app identifierar ansikten genom att anropa metoden **faceClient. Face. DetectWithStreamAsync** , som omsluter [identifierings](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API och returnerar en lista över **Face** -instanser.
 
 Varje returnerat **ansikte** innehåller en rektangel för att ange dess plats samt en serie med valfria ansiktsattribut. I det här exemplet begärs bara ansiktsrektanglarna.
 
-Infoga följande två metoder i klassen **MainActivity**. När ansiktsidentifieringen är klar anropar appen metoden **drawFaceRectanglesOnBitmap** för att ändra **ImageView**. Du definierar den metoden härnäst.
+Infoga följande två metoder i klassen **MainActivity**. När ansikts identifieringen är klar anropar appen **drawFaceRectanglesOnBitmap** -metoden för att ändra **ImageView**. Du definierar den metoden härnäst.
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 
@@ -123,7 +123,7 @@ Kör programmet och bläddra efter en bild med ett ansikte. Vänta några sekund
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du använder Face Java SDK för att skapa ett program för att upptäcka och rama in ansikten i en bild. Härnäst får du mer information om ansiktsigenkänning.
+I den här självstudien har du lärt dig hur du använder Java SDK i ansikte för att skapa ett program för att identifiera och Visa bild rutor i en bild. Härnäst får du mer information om ansiktsigenkänning.
 
 > [!div class="nextstepaction"]
 > [Så identifierar du ansikten i en bild](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

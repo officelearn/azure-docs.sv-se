@@ -1,6 +1,6 @@
 ---
-title: Komponenter & förutsättningar
-description: Information om allt som behövs för att komma igång med Azure Security Center för IoT-tjänstförutsättning.
+title: Komponenter & krav
+description: Information om allt som behövs för att komma igång med Azure Security Center för IoT service-krav.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,31 +16,31 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.openlocfilehash: fb5c42ad490ed04f14ff150093a44b552434ed9e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310587"
 ---
-# <a name="azure-security-center-for-iot-prerequisites"></a>Azure Security Center för IoT-förutsättningar
+# <a name="azure-security-center-for-iot-prerequisites"></a>Azure Security Center för IoT-krav
 
-Den här artikeln innehåller en förklaring av de olika komponenterna i Azure Security Center for IoT-tjänsten, vad du behöver börja och förklarar de grundläggande begreppen för att förstå tjänsten.
+Den här artikeln innehåller en förklaring av de olika komponenterna i Azure Security Center för IoT-tjänsten, vad du behöver för att börja och beskriver de grundläggande begreppen för att hjälpa till att förstå tjänsten.
 
 ## <a name="minimum-requirements"></a>Minimikrav
 
-- Standardnivå för IoT Hub
-  - Privilegier på **RBAC-rollägare**
-- [Arbetsyta för logganalys](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+- IoT Hub standard nivå
+  - Behörigheter för **ägare** av RBAC-roll
+- [Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 - Azure Security Center (rekommenderas)
-  - Användning av Azure Security Center är en rekommendation och inte ett krav. Utan Azure Security Center kan du inte visa dina andra Azure-resurser i IoT Hub.
+  - Användning av Azure Security Center är en rekommendation och inte ett krav. Utan Azure Security Center kan du inte Visa dina andra Azure-resurser i IoT Hub.
 
-## <a name="working-with-azure-security-center-for-iot-service"></a>Arbeta med Azure Security Center för IoT-tjänst
+## <a name="working-with-azure-security-center-for-iot-service"></a>Arbeta med Azure Security Center för IoT-tjänsten
 
-Azure Security Center för IoT-insikter och rapportering är tillgängliga med Azure IoT Hub och Azure Security Center. För att aktivera Azure Security Center för IoT på din Azure IoT Hub krävs ett konto med behörighet på **ägarnivå.** När du har aktiverat ASC för IoT i din IoT-hubb visas Azure Security Center for IoT-insikter som **säkerhetsfunktionen** i Azure IoT Hub och som **IoT** i Azure Security Center.
+Azure Security Center för IoT Insights och rapportering finns i Azure IoT Hub och Azure Security Center. För att aktivera Azure Security Center för IoT på din Azure-IoT Hub krävs ett konto med behörighet som **ägares** nivå. När du har aktiverat ASC för IoT i din IoT Hub visas Azure Security Center för IoT Insights som **säkerhetsfunktionen** i Azure IoT Hub och som **IoT** i Azure Security Center.
 
-## <a name="supported-service-regions"></a>Serviceregioner som stöds
+## <a name="supported-service-regions"></a>Service regioner som stöds
 
-Azure Security Center för IoT stöds för närvarande för IoT-hubbar i följande Azure-regioner:
+Azure Security Center for IoT stöds för närvarande för IoT Hub i följande Azure-regioner:
 
 - USA, centrala
 - USA, östra
@@ -48,7 +48,7 @@ Azure Security Center för IoT stöds för närvarande för IoT-hubbar i följan
 - USA, västra centrala
 - USA, västra
 - USA, västra 2
-- Centrala SÖDRA USA
+- Centrala USA, södra
 - USA, norra centrala
 - Kanada, centrala
 - Kanada, östra
@@ -70,23 +70,23 @@ Azure Security Center för IoT stöds för närvarande för IoT-hubbar i följan
 - Indien, centrala
 - Indien, södra
 
-Azure Security Center för IoT dirigerar all trafik från alla europeiska regioner till det regionala datacentret i Västeuropa och alla återstående regioner till det centrala regionala datacentret i USA.
+Azure Security Center for IoT dirigerar all trafik från alla europeiska regioner till regionala Data Center i västra Europa och alla återstående regioner till det centrala amerikanska regionala data centret.
 
-## <a name="wheres-my-iot-hub"></a>Var är min IoT Hub?
+## <a name="wheres-my-iot-hub"></a>Var finns mina IoT Hub?
 
-Kontrollera din IoT Hub-plats för att verifiera tjänstens tillgänglighet innan du börjar.
+Kontrol lera din IoT Hub plats för att kontrol lera tjänstens tillgänglighet innan du börjar.
 
 1. Öppna din IoT Hub.
 1. Klicka på **Översikt**.
-1. Verifiera platsen i listan matchar en av de [serviceområden som stöds](#supported-service-regions).
+1. Kontrol lera att platsen i listan matchar någon av de [tjänst regioner som stöds](#supported-service-regions).
 
 ## <a name="supported-platforms-for-agents"></a>Plattformar som stöds för agenter
 
-Azure Security Center för IoT-agenter stöder en växande lista över enheter och plattformar. Se [plattformslistan som stöds](how-to-deploy-agent.md) för att kontrollera ditt befintliga eller planerade enhetsbibliotek.
+Azure Security Center för IoT-agenter har stöd för en växande lista med enheter och plattformar. Se [listan över plattformar som stöds](how-to-deploy-agent.md) för att kontrol lera det befintliga eller planerade enhets biblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [översikten](overview.md) över Azure IoT-säkerhet
-- Läs om hur du [aktiverar tjänsten](quickstart-onboard-iot-hub.md)
-- Läs vanliga frågor om [Azure Security Center för IoT](resources-frequently-asked-questions.md)
+- Läs [översikten över](overview.md) Azure IoT-säkerhet
+- Lär dig hur du [aktiverar tjänsten](quickstart-onboard-iot-hub.md)
+- Läs [vanliga frågor och svar om Azure Security Center for IoT](resources-frequently-asked-questions.md)
 - Utforska hur du [förstår Azure Security Center för IoT-aviseringar](concept-security-alerts.md)

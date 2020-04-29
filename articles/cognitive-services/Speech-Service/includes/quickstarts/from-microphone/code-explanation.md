@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: trbye
 ms.openlocfilehash: fdcb5bb57afe145b57cb1223242d4d5625a2dfb7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400806"
 ---
-Prenumerationsnyckeln och regionen Talresurs krävs för att skapa ett talkonfigurationsobjekt. Konfigurationsobjektet behövs för att instansiera ett talidentifierareobjekt.
+Tal resurs prenumerations nyckel och region krävs för att skapa ett tal konfigurations objekt. Konfigurationsobjektet krävs för att instansiera ett tal igenkännings objekt.
 
-Den igenkännings-instansen visar flera sätt att känna igen tal. I det här exemplet känns tal igen en gång. Med den här funktionen kan taltjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta känna igen tal. När resultatet har getts skriver koden igenkänningsorsaken till konsolen.
+Tolks instansen visar flera olika sätt att känna igen tal. I det här exemplet identifieras tal en gång. Den här funktionen gör att tjänsten Speech vet att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal. När resultatet har lämnats kommer koden att skriva igenkännings orsaken till-konsolen.
 
 > [!TIP]
-> Tal-SDK kommer som `en-us` standard att känna igen med hjälp av språket, se [Ange källspråk för tal till text](../../../how-to-specify-source-language.md) för information om hur du väljer källspråk.
+> Tal-SDK: n kommer att känna igen `en-us` med språket, se [Ange käll språk för tal till text](../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.

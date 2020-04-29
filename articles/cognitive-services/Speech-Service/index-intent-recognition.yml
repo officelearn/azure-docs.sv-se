@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Dokumentation om avsiktsigenkänning
-summary: Avsiktsigenkänning med LUIS-tjänsterna (Speech and Language Understanding) möjliggör transkription i realtid av ljudströmmar till text, samtidigt som avsikt och entiteter identifierars.
+summary: Avsikts igenkänning med tal-och Language Understanding-tjänster (LUIS) gör att ljud strömmar i real tid kan identifieras i text, samtidigt som den identifierar avsikt och entiteter.
 metadata:
-  title: Dokumentation för avsiktsigenkänning – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
+  title: Dokumentation om avsikts igenkänning – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,19 +12,19 @@ metadata:
   ms.date: 03/10/2020
   ms.author: trbye
   ms.openlocfilehash: 65b3f2322c4683eedef8cdfbc328664d4597df58
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401492"
 landingContent:
-- title: Om avsiktsigenkänning
+- title: Om avsikts igenkänning
   linkLists:
   - linkListType: quickstart
     links:
     - text: Känna igen tal, avsikter och entiteter
       url: quickstarts/intent-recognition.md
-- title: Utveckla med avsiktskännedom
+- title: Utveckla med avsikts igenkänning
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -40,5 +40,5 @@ landingContent:
       url: ../luis/developer-reference-resource.md
     - text: Stöd för språk
       url: ../luis/luis-language-support.md#languages-supported
-    - text: Prissättning för avsiktsredovisning
+    - text: Prissättning för avsikts igenkänning
       url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services

@@ -5,37 +5,37 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
 ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312850"
 ---
-* De multitenantsystem som stöder hela skalan av prisplaner utom Isolerade.
-* App Service Environment, som distribueras till ditt virtuella nätverk och stöder appar för isolerade prisplaner.
+* De flera klient system som har stöd för alla pris avtal förutom isolerade.
+* App Service-miljön, som distribueras till ditt VNet och stöder isolerade program för prissättnings planer.
 
-Funktionen VNet-integrering används i appar med flera innehavare. Om din app finns i [App Service Environment][ASEintro]finns den redan i ett virtuella nätverk och kräver inte användning av funktionen VNet-integrering för att nå resurser i samma virtuella nätverk. Mer information om alla nätverksfunktioner finns i [App Service-nätverksfunktioner][Networkingfeatures].
+Funktionen VNet-integrering används i appar för flera klient organisationer. Om din app är i [App Service-miljön][ASEintro]är den redan i ett VNet och kräver inte att funktionen VNet-integrering används för att komma åt resurser i samma VNet. Mer information om alla nätverksfunktioner finns i [App Service nätverksfunktioner][Networkingfeatures].
 
-VNet-integrering ger din app åtkomst till resurser i ditt virtuella nätverk, men det ger inte inkommande privat åtkomst till din app från det virtuella nätverket. Privat webbplatsåtkomst avser att göra en app endast tillgänglig från ett privat nätverk, till exempel från ett virtuellt Azure-nätverk. VNet-integrering används endast för att ringa utgående samtal från din app till ditt virtuella nätverk. Funktionen VNet-integrering fungerar annorlunda när den används med VNet i samma region och med VNet i andra regioner. Funktionen VNet-integrering har två varianter:
+VNet-integrering ger din app åtkomst till resurser i ditt VNet, men den beviljar inte inkommande privat åtkomst till din app från det virtuella nätverket. Åtkomst till privata webbplatser syftar bara på att göra en app tillgänglig från ett privat nätverk, till exempel från ett virtuellt Azure-nätverk. VNet-integrering används bara för att göra utgående samtal från din app till ditt VNet. Funktionen för VNet-integrering fungerar annorlunda när den används med VNet i samma region och med VNet i andra regioner. Funktionen för VNet-integrering har två varianter:
 
-* **Regional VNet-integrering:** När du ansluter till virtuella Azure Resource Manager-nätverk i samma region måste du ha ett dedikerat undernät i det virtuella nätverk som du integrerar med.
-* **Gateway-obligatorisk VNet-integrering:** När du ansluter till VNet i andra regioner eller till ett klassiskt virtuellt nätverk i samma region behöver du en Azure Virtual Network gateway som etablerats i mål-virtuella nätverk.
+* **Regional VNet-integrering**: när du ansluter till Azure Resource Manager virtuella nätverk i samma region måste du ha ett dedikerat undernät i det virtuella nätverk som du integrerar med.
+* **Gateway-nödvändig VNet-integrering**: när du ansluter till VNet i andra regioner eller till ett klassiskt virtuellt nätverk i samma region behöver du en Azure Virtual Network Gateway etablerad i det virtuella mål nätverket.
 
 Funktionerna för VNet-integrering:
 
-* Kräv en prisplan för Standard, Premium, PremiumV2 eller Elastic Premium.
-* Stöd TCP och UDP.
-* Arbeta med Azure App Service-appar och funktionsappar.
+* Kräv en pris plan för standard, Premium, PremiumV2 eller elastisk Premium.
+* Stöd för TCP och UDP.
+* Arbeta med Azure App Service appar och Function-appar.
 
-Det finns några saker som VNet Integration inte stöder, till exempel:
+Det finns vissa saker som VNet-integrering inte stöder, t. ex.:
 
-* Montera en drivning.
+* Montera en enhet.
 * Active Directory-integrering.
-* Netbios.
+* NetBIOS.
 
-Gateway-obligatorisk VNet-integrering ger endast åtkomst till resurser i mål-virtuella nätverk eller i nätverk som är anslutna till mål-virtuella nätverk med peering eller VPN. Gateway-obligatorisk VNet-integrering möjliggör inte åtkomst till resurser som är tillgängliga för Azure ExpressRoute-anslutningar eller fungerar med tjänstslutpunkter.
+Gateway-nödvändig VNet-integrering ger endast åtkomst till resurser i målets virtuella nätverk eller i nätverk som är anslutna till målets virtuella nätverk med peering eller VPN. Gateway-nödvändig VNet-integrering ger inte åtkomst till resurser som är tillgängliga i Azure ExpressRoute-anslutningar eller fungerar med tjänst slut punkter.
 
-Oavsett vilken version som används ger VNet Integration din app åtkomst till resurser i ditt virtuella nätverk, men det ger inte inkommande privat åtkomst till din app från det virtuella nätverket. Privat webbplatsåtkomst avser att göra din app endast tillgänglig från ett privat nätverk, till exempel från ett Azure-nätverk. VNet-integrering är endast till för att ringa utgående samtal från din app till ditt virtuella nätverk.
+Oavsett vilken version som används ger VNet-integration appen åtkomst till resurser i ditt VNet, men den beviljar inte inkommande privat åtkomst till din app från det virtuella nätverket. Åtkomst till privata webbplatser syftar bara på att göra appen tillgänglig från ett privat nätverk, t. ex. inifrån ett Azure VNet. VNet-integrering är bara för att göra utgående samtal från din app till ditt VNet.
 
 <!--Links-->
 [ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro

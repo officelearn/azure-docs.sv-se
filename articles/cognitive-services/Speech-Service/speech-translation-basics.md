@@ -1,7 +1,7 @@
 ---
-title: Grunderna i talöversättning - Taltjänst
+title: Grunder för tal översättning – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Läs om hur du använder Tal-SDK för att översätta tal. I den här artikeln får du lära dig mer om objektkonstruktion, ljudinmatningsformat som stöds och konfigurationsalternativ för talöversättning.
+description: Lär dig hur du använder tal-SDK för att översätta tal. I den här artikeln får du lära dig om objekt konstruktion, stödda inspelnings format och konfigurations alternativ för tal översättning.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,18 +12,18 @@ ms.date: 04/13/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399629"
 ---
-# <a name="learn-the-basics-of-speech-translation"></a>Lär dig grunderna i talöversättning
+# <a name="learn-the-basics-of-speech-translation"></a>Lär dig grunderna för tal Översättning
 
-En av de viktigaste funktionerna i taltjänsten är förmågan att känna igen mänskligt tal och översätta det till andra språk. I den här artikeln får du lära dig hur du använder Tal-SDK i dina appar och produkter för att utföra talöversättning av hög kvalitet.
+En av de viktigaste funktionerna i tal tjänsten är möjligheten att identifiera mänskligt tal och översätta den till andra språk. I den här artikeln får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativ tal översättning.
 
 > [!TIP]
-> Om du inte har haft en chans att slutföra en av våra snabbstarter, uppmuntrar vi dig att sparka däcken och prova tal översättning ut själv.
+> Om du inte har haft möjlighet att slutföra en av våra snabb starter, rekommenderar vi att du använder däcken och provar röst översättningen för dig själv.
 > * [Översätta tal till text](quickstarts/translate-speech-to-text.md)
 > * [Översätta tal till flera språk](quickstarts/translate-speech-to-text-multiple-languages.md)
 > * [Översätta tal-till-tal](quickstarts/translate-speech-to-speech.md)
@@ -50,4 +50,4 @@ En av de viktigaste funktionerna i taltjänsten är förmågan att känna igen m
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda codec-komprimerade ljudformat](how-to-use-codec-compressed-audio-input-streams.md)
+* [Använd codec-komprimerade ljud format](how-to-use-codec-compressed-audio-input-streams.md)

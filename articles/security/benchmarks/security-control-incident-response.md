@@ -1,6 +1,6 @@
 ---
-title: Azure Security Control - Incident Response
-description: Incidenthantering för Azure Security Control
+title: Azure säkerhets kontroll – incident svar
+description: Incident svar för Azure Security Control
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -8,87 +8,87 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 993793d21e6253188dfc199d8701cbe117503517
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408424"
 ---
-# <a name="security-control-incident-response"></a>Säkerhetskontroll: Incident response
+# <a name="security-control-incident-response"></a>Säkerhets kontroll: incident svar
 
-Skydda organisationens information, liksom dess rykte, genom att utveckla och implementera en infrastruktur för incidenthantering (t.ex. planer, definierade roller, utbildning, kommunikation, ledningstillsyn) för att snabbt upptäcka en attack och sedan effektivt begränsa skadan, eliminera angriparens närvaro och återställa integriteten i nätverket och systemen.
+Skydda organisationens information, samt dess rykte, genom att utveckla och implementera en infrastruktur för incident svar (t. ex. planer, definierade roller, utbildning, kommunikation, hanterings övervakning) för att snabbt upptäcka ett angrepp och sedan effektivt ta med skadan, utrota angriparens närvaro och återställa nätverkets och systemens integritet.
 
-## <a name="101-create-an-incident-response-guide"></a>10.1: Skapa en vägledning för incidenthantering
+## <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 10.1 | 19.1, 19.2, 19.3 | Kund |
+| 10.1 | 19,1, 19,2, 19,3 | Kund |
 
-Skapa en incidenthanteringsguide för din organisation. Se till att det finns skriftliga incidenthanteringsplaner som definierar alla roller för personal samt faser av incidenthantering/hantering från identifiering till granskning efter incidenten.  
+Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten.  
 
-- [Vägledning om hur du bygger din egen process för hantering av säkerhetsincidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+- [Vägledning om hur du skapar en egen svars process för säkerhets incidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-- [Microsoft Security Response Center anatomi av en incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
+- [Microsoft Security Response Centers Beskrivning av en incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-- [Utnyttja NIST:s guide för hantering av datasäkerhetsincidenter för att underlätta skapandet av en egen incidenthanteringsplan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [Utnyttja NISTs hanterings guide för dator säkerhet för att hjälpa dig att skapa en egen incident svars plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-## <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Skapa en incidentbedömning och prioriteringsprocedur
+## <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: skapa en incident bedömnings-och prioriterings procedur
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 10.2 | 19.8 | Kund |
+| 10.2 | 19,8 | Kund |
 
-Security Center tilldelar varje avisering en allvarlighetsgrad för att hjälpa dig att prioritera vilka aviseringar som ska undersökas först. Allvarlighetsgraden baseras på hur säker Security Center är i att hitta eller analytiska används för att utfärda aviseringen samt den konfidensnivå som det fanns ont uppsåt bakom aktiviteten som ledde till aviseringen. 
+Security Center tilldelar en allvarlighets grad till varje avisering för att hjälpa dig att prioritera vilka aviseringar som bör undersökas först. Allvarlighets graden baseras på hur tillförlitlig Security Center befinner sig i att söka efter eller det analytiska som används för att utfärda aviseringen samt vilken konfidensnivå som det fanns skadlig avsikt bakom den aktivitet som ledde till aviseringen. 
 
-Dessutom tydligt markera abonnemang (för ex. produktion, icke-prod) med hjälp av taggar och skapa ett namngivningssystem för att tydligt identifiera och kategorisera Azure-resurser, särskilt de som bearbetar känsliga data.  Det är ditt ansvar att prioritera reparation av aviseringar baserat på kritiskt azure-resurser och miljö där incidenten inträffade.
+Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data.  Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
 - [Säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-- [Använda taggar för att ordna dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Använd taggar för att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-## <a name="103-test-security-response-procedures"></a>10.3: Testsäkerhetssvarsprocedurer
+## <a name="103-test-security-response-procedures"></a>10,3: testa säkerhets svars procedurer
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 10.3 | 19 | Kund |
+| 10,3 | 19 | Kund |
 
-Utför övningar för att testa systemens funktioner för incidentsvar på en regelbunden kadens för att skydda dina Azure-resurser. Identifiera svaga punkter och luckor och revidera planen efter behov.
+Genomför övningar för att testa dina Systems svar på incident hantering på en vanlig takt för att skydda dina Azure-resurser. Identifiera svaga punkter och luckor och ändra planen efter behov.
 
-- [NIST:s publikation - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
+- [NIST-guide för att testa, träna och träna program för IT-planer och funktioner](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Ange kontaktinformation för säkerhetsincidenter och konfigurera varningsmeddelanden för säkerhetsincidenter
+## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: Ange kontakt information för säkerhets incidenter och konfigurera aviseringar för säkerhets incidenter
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 10.4 | 19.5 | Kund |
+| 10,4 | 19,5 | Kund |
 
-Kontaktinformation för säkerhetsincidenter används av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olaglig eller obehörig part. Granska incidenter i efterhand för att säkerställa att problemen löses.
+Kontakt information om säkerhets incidenter används av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har öppnats av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta.
 
-- [Så här ställer du in säkerhetskontakten för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Så här ställer du in Azure Security Center säkerhets kontakt](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
-## <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Införliva säkerhetsvarningar i ditt incidenthanteringssystem
+## <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: införliva säkerhets aviseringar i ditt incident svars system
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 10.5 | 19.6 | Kund |
+| 10.5 | 19,6 | Kund |
 
-Exportera dina Azure Security Center-aviseringar och rekommendationer med hjälp av funktionen Kontinuerlig export för att identifiera risker för Azure-resurser. Kontinuerlig export gör att du kan exportera aviseringar och rekommendationer antingen manuellt eller på ett kontinuerligt sätt. Du kan använda Azure Security Center-dataanslutningen för att strömma aviseringarna till Azure Sentinel.
+Exportera dina Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export för att identifiera risker med Azure-resurser. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
-- [Konfigurera kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Så här konfigurerar du kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export)
 
-- [Så här streamar du aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Strömma aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
-## <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatisera svaret på säkerhetsvarningar
+## <a name="106-automate-the-response-to-security-alerts"></a>10,6: automatisera svaret på säkerhets aviseringar
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 10.6 | 19 | Kund |
+| 10,6 | 19 | Kund |
 
-Använd funktionen Arbetsflödesautomatisering i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" på säkerhetsaviseringar och rekommendationer för att skydda dina Azure-resurser.
+Använd funktionen för automatisering av arbets flöde i Azure Security Center att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer för att skydda dina Azure-resurser.
 
-- [Konfigurera automatiserings- och logikappar för arbetsflöde](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Konfigurera automatisering av arbets flöden och Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se nästa säkerhetskontroll: [Penetrationstester och röda teamövningar](security-control-penetration-tests-red-team-exercises.md)
+- Se nästa säkerhets kontroll: [inträngande tester och röda team övningar](security-control-penetration-tests-red-team-exercises.md)

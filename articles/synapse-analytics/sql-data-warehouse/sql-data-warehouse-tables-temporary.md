@@ -1,6 +1,6 @@
 ---
 title: Temporära tabeller
-description: Viktig vägledning för att använda temporära tabeller i Synapse SQL-pool, och lyfta fram principerna för temporära tabeller på sessionsnivå.
+description: Grundläggande rikt linjer för att använda temporära tabeller i Synapse SQL-pool, som markerar principerna för temporära tabeller på sidnivå.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,33 +11,33 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408029"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Temporära tabeller i Synapse SQL-pool
-Den här artikeln innehåller viktiga riktlinjer för hur du använder temporära tabeller och belyser principerna för temporära tabeller på sessionsnivå. 
+Den här artikeln innehåller grundläggande information om hur du använder temporära tabeller och visar principerna för temporära tabeller på sidnivå. 
 
-Med hjälp av informationen i den här artikeln kan hjälpa dig att modularisera din kod, förbättra både återanvändning och enkel underhåll.
+Med hjälp av informationen i den här artikeln kan hjälpa dig att modularize din kod, förbättra både åter användning och enklare underhåll.
 
 ## <a name="what-are-temporary-tables"></a>Vad är temporära tabeller?
-Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är övergående. I SQL-poolen finns tillfälliga tabeller på sessionsnivå.  
+Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är tillfälliga. I SQL-poolen finns temporära tabeller på den tillfälliga nivån.  
 
-Temporära tabeller visas bara för den session där de skapades och tas bort automatiskt när sessionen loggas ut.  
+Temporära tabeller visas bara för den session där de skapades och tas bort automatiskt när sessionen loggar ut.  
 
-Temporära tabeller erbjuder en prestandafördel eftersom deras resultat skrivs till lokal lagring i stället för fjärrlagring.
+Temporära tabeller ger en prestanda förmån eftersom deras resultat skrivs till lokala platser i stället för Fjärrlagring.
 
-Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är övergående. Med SQL Analytics finns tillfälliga tabeller på sessionsnivå.  De är bara synliga för den session där de skapades. De släpps därför automatiskt när sessionen loggas ut. 
+Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är tillfälliga. Med SQL Analytics finns temporära tabeller på sessions nivå.  De är bara synliga för den session där de skapades. De tas då bort automatiskt när sessionen loggar ut. 
 
 ## <a name="temporary-tables-in-sql-pool"></a>Temporära tabeller i SQL-poolen
 
-I SQL-poolresursen erbjuder temporära tabeller en prestandafördel eftersom deras resultat skrivs till lokal i stället för fjärrlagring.
+I SQL-gruppresursen ger temporära tabeller en prestanda förmån eftersom deras resultat skrivs till lokala platser i stället för Fjärrlagring.
 
 ### <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
 
-Temporära tabeller skapas genom att `#`du förebeskar tabellnamnet med en .  Ett exempel:
+Temporära tabeller skapas genom att prefixet för ditt tabell namn `#`används.  Ett exempel:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -57,7 +57,7 @@ WITH
 )
 ```
 
-Temporära tabeller kan `CTAS` också skapas med exakt samma metod:
+Temporära tabeller kan också skapas med en `CTAS` med exakt samma metod:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -98,14 +98,14 @@ GROUP BY
 ```
 
 > [!NOTE]
-> `CTAS`är ett kraftfullt kommando och har den extra fördelen av att vara effektiv i sin användning av transaktionsloggutrymme. 
+> `CTAS`är ett kraftfullt kommando och har den extra fördelen att vara effektiv i användningen av transaktions logg utrymme. 
 > 
 > 
 
-## <a name="dropping-temporary-tables"></a>Släppa temporära tabeller
-När en ny session skapas bör det inte finnas några temporära tabeller.  
+## <a name="dropping-temporary-tables"></a>Släpper temporära tabeller
+Inga temporära tabeller bör finnas när en ny session skapas.  
 
-Om du anropar samma lagrade procedur, som skapar en tillfällig `CREATE TABLE` med samma namn, för att säkerställa `DROP` att dina satser lyckas, kan en enkel förvarokontroll med en användas som i följande exempel:
+Om du anropar samma lagrade procedur, som skapar en tillfällig med samma namn, för att se till att dina `CREATE TABLE` instruktioner lyckas, kan en enkel för hands kontroll med en `DROP` användas som i följande exempel:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -114,18 +114,18 @@ BEGIN
 END
 ```
 
-För kodning konsekvens, det är en bra idé att använda detta mönster för både tabeller och temporära tabeller.  Det är också en bra `DROP TABLE` idé att använda för att ta bort temporära tabeller när du är klar med dem i koden.  
+För att koda konsekvens är det en bra idé att använda det här mönstret för både tabeller och temporära tabeller.  Det är också en bra idé att använda `DROP TABLE` för att ta bort temporära tabeller när du är klar med dem i din kod.  
 
-I utvecklingen av lagrade procedurer är det vanligt att se släppkommandona som buntas ihop i slutet av en procedur för att säkerställa att dessa objekt rensas.
+Vid utveckling av lagrade procedurer är det vanligt att se Drop-kommandon som samlats ihop i slutet av en procedur för att se till att dessa objekt rensas.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
-## <a name="modularizing-code"></a>Modulariseringskod
-Eftersom temporära tabeller kan ses var som helst i en användarsession kan den här funktionen utnyttjas för att hjälpa dig att modularisera programkoden.  
+## <a name="modularizing-code"></a>Modulär kod
+Eftersom temporära tabeller kan ses var som helst i en användarsession, kan den här funktionen utnyttjas för att hjälpa dig att modularize program koden.  
 
-Följande lagrade procedur genererar till exempel DDL för att uppdatera all statistik i databasen efter statistiknamn:
+Följande lagrade procedur genererar till exempel DDL för att uppdatera all statistik i databasen efter statistik namn:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -199,13 +199,13 @@ FROM    t1
 GO
 ```
 
-I det här skedet är den enda åtgärd som har inträffat skapandet av en lagrad procedur som genererar en tillfällig tabell, #stats_ddl, med DDL-satser.  
+I det här skedet är den enda åtgärd som har inträffat skapandet av en lagrad procedur som genererar en temporär tabell, #stats_ddl, med DDL-instruktioner.  
 
-Den här lagrade proceduren släpper en befintlig #stats_ddl för att säkerställa att den inte misslyckas om den körs mer än en gång i en session.  
+Den här lagrade proceduren släpper en befintlig #stats_ddl för att säkerställa att den inte fungerar om den körs mer än en gång i en session.  
 
-Men eftersom det `DROP TABLE` inte finns någon i slutet av den lagrade proceduren, när den lagrade proceduren är klar, lämnar den den skapade tabellen så att den kan läsas utanför den lagrade proceduren.  
+Men eftersom det inte finns något `DROP TABLE` i slutet av den lagrade proceduren när den lagrade proceduren har slutförts, så lämnar den den skapade tabellen så att den kan läsas utanför den lagrade proceduren.  
 
-I SQL-poolen, till skillnad från andra SQL Server-databaser, är det möjligt att använda den temporära tabellen utanför proceduren som skapade den.  Sql pool temporära tabeller kan användas **var som helst** i sessionen. Den här funktionen kan leda till mer modulär och hanterbar kod som i följande exempel:
+I SQL-poolen, till skillnad från andra SQL Server databaser, är det möjligt att använda den temporära tabellen utanför proceduren som skapade den.  Tillfälliga tabeller i SQL-pool kan användas **var som helst** i sessionen. Den här funktionen kan leda till mer modulär och hanterbar kod som i följande exempel:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -226,12 +226,12 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-## <a name="temporary-table-limitations"></a>Tillfälliga tabellbegränsningar
-SQL-pool medför ett par begränsningar när tillfälliga tabeller implementeras.  För närvarande stöds endast temporära sessionsomfattade tabeller.  Globala temporära tabeller stöds inte.  
+## <a name="temporary-table-limitations"></a>Tillfälligt tabell begränsningar
+SQL-poolen ger ett par begränsningar när du implementerar tillfälliga tabeller.  För närvarande stöds endast temporära tabeller för session definitions område.  Globala temporära tabeller stöds inte.  
 
-Det går inte heller att skapa vyer i temporära tabeller.  Temporära tabeller kan bara skapas med hash- eller round robin-distribution.  Replikerad tillfällig tabelldistribution stöds inte. 
+Vyer kan inte heller skapas i temporära tabeller.  Temporära tabeller kan bara skapas med hash-eller resursallokering-distribution.  Replikerad temporär tabell distribution stöds inte. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utvecklar tabeller finns i [designtabellerna med hjälp av sql analytics-resurser.](sql-data-warehouse-tables-overview.md)
+Mer information om hur du utvecklar tabeller finns i artikeln [designa tabeller med hjälp av SQL Analytics-resurser](sql-data-warehouse-tables-overview.md) .
 

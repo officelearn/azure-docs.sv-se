@@ -1,6 +1,6 @@
 ---
-title: Delar av e-postmeddelandet med B2B-inbjudan – Azure Active Directory | Microsoft-dokument
-description: E-postmall för e-postmall för azure Active Directory B2B-samarbetsanbjudan
+title: Element i e-postinbjudanen B2B – Azure Active Directory | Microsoft Docs
+description: E-postmall för inbjudan till Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,86 +13,86 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81407179"
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i e-postmeddelandet med inbjudan till B2B-samarbete - Azure Active Directory
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i e-postinbjudanen B2B – Azure Active Directory
 
-E-postmeddelanden med inbjudningar är en viktig komponent för att få med partner som B2B-samarbetsanvändare i Azure AD. Även om det [inte krävs att du skickar ett e-postmeddelande för att bjuda in någon som använder B2B-samarbete,](add-user-without-invite.md)ger detta användaren all information de behöver för att fatta ett beslut om huruvida du ska acceptera din inbjudan. Det ger dem också en länk som de alltid kan hänvisa till i framtiden när de behöver återvända till dina resurser.
+E-postinbjudningar är en viktig komponent för att ta fram partner till användare i B2B-samarbete i Azure AD. Även om det [inte krävs att du skickar ett e-postmeddelande för att bjuda in någon med B2B-samarbete](add-user-without-invite.md), ger användaren all information som de behöver för att fatta ett beslut om att godkänna din inbjudan. Det ger också en länk som de kan alltid referera till i framtiden när de behöver gå tillbaka till dina resurser.
 
-![Skärmbild som visar e-postmeddelandet med B2B-inbjudan](media/invitation-email-elements/invitation-email.png)
+![Skärm bild som visar e-postinbjudan om B2B](media/invitation-email-elements/invitation-email.png)
 
 > [!NOTE]
-> Den här nya e-postmallen distribueras fortfarande till alla klienter, så vissa klienter använder fortfarande en äldre design. I slutet av maj 2020 kommer inbjudningar från alla klienter att använda den här mallen.
+> Den nya e-postmallen distribueras fortfarande till alla klienter så att vissa klienter fortfarande använder en äldre design. I slutet av maj 2020 kommer inbjudningar från alla klienter att använda den här mallen.
 
-## <a name="explaining-the-email"></a>Förklara e-postmeddelandet
+## <a name="explaining-the-email"></a>Förklarar e-postmeddelandet
 
-Låt oss titta på några delar av e-postmeddelandet så att du vet hur du bäst använder deras funktioner.
+Nu ska vi titta på några av de olika elementen i e-postmeddelandet så att du vet hur du bäst använder funktionerna.
 
 ### <a name="subject"></a>Subjekt
 
-Ämnet för e-postmeddelandet följer detta mönster:
+Ämnet för e-postmeddelandet följer det här mönstret:
 
-&lt;användarnamnet&gt; uppmanade dig att komma åt ansökningar inom organisationen.
+&lt;användar&gt; namnet uppmanade dig att få åtkomst till program i organisationen.
 
 ### <a name="from-address"></a>Avsändaradress
 
-Vi använder ett LinkedIn-liknande mönster för Från-adressen. Detta mönster bör göra det klart invites@microsoft.comatt även om e-postmeddelandet kommer från , inbjudan är från en annan organisation. Formatet är: Microsoft-inbjudningar <invites@microsoft.com> eller &lt;Microsoft-inbjudningar för klientnamn&gt; <invites@microsoft.com>. 
+Vi använder ett LinkedIn-liknande mönster för från-adressen. Detta mönster bör göra det tydligt att även om e-postmeddelandet kommer från invites@microsoft.comen annan organisation. Formatet är: Microsoft-inbjudningar <invites@microsoft.com> eller Microsoft-inbjudningar å &lt;tenantname&gt; <invites@microsoft.com>vägnar. 
 
 ### <a name="reply-to"></a>Svara på
 
-Svarsmeddelandet är inställt på inbjudnas e-post när den är tillgänglig, så att svaret på e-postmeddelandet skickar ett e-postmeddelande tillbaka till inbjudna.
+Svars-e-postmeddelandet är inställt på inbjudans e-postadress när det är tillgängligt, så att svar på e-postmeddelandet skickar ett e-postmeddelande tillbaka till inbjudan.
 
-### <a name="phishing-warning"></a>Varning för nätfiske
+### <a name="phishing-warning"></a>Nät fiske varning
 
-E-postmeddelandet börjar med en kort varning till användaren om nätfiske och varnar dem om att de bara ska acceptera inbjudningar som de förväntar sig. Det är god praxis att se till att de partner du bjuder in inte blir förvånade över din inbjudan genom att nämna det för dem i förväg.
+E-postmeddelandet börjar med en kort varning till användaren om nätfiske, som varnar dem att de bara ska acceptera inbjudningar som de förväntar sig. Det är en bra idé att se till att de partner som du bjuder in inte blir förvånad i din inbjudan genom att nämna dem i förväg.
 
-![Bild av nätfiskevarningen i e-postmeddelandet](media/invitation-email-elements/phishing-warning.png)
+![Bild av nät fiske varningen i e-postmeddelandet](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Inbjudnas information
+### <a name="inviters-information"></a>Information om bjudaren
 
-E-postmeddelandet innehåller information om inbjudna och organisationen de skickar inbjudan från. Detta inkluderar avsändarens namn och e-postadress, samt namn och primär domän som är associerad med organisationen. All denna information bör hjälpa den inbjudna att fatta ett välgrundat beslut om att acceptera inbjudan.
+E-postmeddelandet innehåller information om den inbjudna och den organisation som de skickar inbjudan från. Detta inkluderar avsändarens namn och e-postadress, samt namnet och den primära domän som är associerad med organisationen. All den här informationen bör hjälpa inbjudan att fatta ett välgrundat beslut om att godkänna inbjudan.
 
-![Bild av inbjudnas information i e-postmeddelandet](media/invitation-email-elements/inviters-information.png)
+![Bild av inbjudans information i e-postmeddelandet](media/invitation-email-elements/inviters-information.png)
 
-### <a name="invitation-message"></a>Meddelande om inbjudan
+### <a name="invitation-message"></a>Inbjudnings meddelande
 
-Om inbjudna innehåller ett meddelande som en del av sin inbjudan när de [bjuder in en gästanvändare till katalogen, gruppen eller appen](add-users-administrator.md) eller när de [använder inbjudnings-API:et](customize-invitation-api.md)markeras meddelandet i huvudavsnittet i e-postmeddelandet. Dessutom ingår inbjudnas namn och profilbild om de har ställt in en. Själva meddelandet är ett textområde, så av säkerhetsskäl bearbetas html-taggar inte.
+Om deltagaren innehåller ett meddelande som en del av sin inbjudan när de [bjuder in en gäst användare till katalogen, gruppen eller appen](add-users-administrator.md) eller när de [använder Inbjudnings-API: t](customize-invitation-api.md)markeras meddelandet i huvud avsnittet av e-postmeddelandet. Här ingår också inbjudans namn och profil avbildning om de har ställt in ett. Själva meddelandet är ett text utrymme, så av säkerhets skäl bearbetar det inte HTML-taggar.
 
-![Bild av inbjudningsmeddelandet i e-postmeddelandet](media/invitation-email-elements/invitation-message.png)
+![Bild av Inbjudnings meddelandet i e-postmeddelandet](media/invitation-email-elements/invitation-message.png)
 
-### <a name="accept-button-and-redirect-url"></a>Acceptera knapp- och omdirigerings-URL
+### <a name="accept-button-and-redirect-url"></a>Acceptera knapp och omdirigerings-URL
 
-Nästa avsnitt i e-postmeddelandet innehåller information om var den inbjudna kommer att tas efter att de har accepterat inbjudan, samt en knapp för att göra det.  I framtiden kan den inbjudna alltid använda den här länken för att återgå till dina resurser direkt.
+Nästa avsnitt i e-postmeddelandet innehåller information om var inbjudan ska tas när de accepterar inbjudan, samt en knapp för att göra det.  I framtiden kan inbjudna alltid använda den här länken för att återgå till dina resurser direkt.
 
-![Bild av knappen acceptera och omdirigera URL i e-postmeddelandet](media/invitation-email-elements/accept-button.png)
+![Bild av knappen acceptera och omdirigerings-URL i e-postmeddelandet](media/invitation-email-elements/accept-button.png)
 
-### <a name="footer-section"></a>Sidfot avsnitt
+### <a name="footer-section"></a>Fot nots avsnitt
 
-Sidfoten innehåller mer information om inbjudan som skickas. Det finns alltid ett alternativ för den inbjudna att blockera framtida inbjudningar. Om organisationen har [angett en sekretesspolicy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area)visas länken till satsen här.  Annars anger en anteckning att organisationen inte har angett någon sekretesspolicy.
+Sidfoten innehåller mer information om den inbjudan som skickas. Det finns alltid ett alternativ för inbjudan att blockera framtida inbjudningar. Om organisationen har [angett en sekretess policy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area)visas länken till instruktionen här.  Annars visar en anteckning att organisationen inte har angett en sekretess policy.
 
-![Bild av sidfotsavsnittet i e-postmeddelandet](media/invitation-email-elements/footer-section.png)
+![Bild av avsnittet sidfot i e-postmeddelandet](media/invitation-email-elements/footer-section.png)
  
-## <a name="how-the-language-is-determined"></a>Hur språket bestäms
+## <a name="how-the-language-is-determined"></a>Hur språket fastställs
 
-Språket som presenteras för gästanvändaren i e-postmeddelandet med inbjudan bestäms av följande inställningar. Dessa inställningar visas i prioritetsordning. Om en inställning inte är konfigurerad avgör nästa inställning i listan språket.
+Det språk som visas för gäst användaren i e-postinbjudan avgörs av följande inställningar. De här inställningarna visas i prioritetsordning. Om en inställning inte är konfigurerad, bestämmer nästa inställning i listan språket.
 
-- **Egenskapen messageLanguage** för det [inbjudnaUserMessageInfo-objektet](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) om API:et Skapa inbjudan används
--   Den **önskade Språkegenskapen** som anges i gästens [användarobjekt](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
--   **Meddelandespråket** som anges i egenskaperna för gästanvändarens hemklient (endast för Azure AD-klienter)
--   **Meddelandespråket** som anges i resursklientens egenskaper
+- Egenskapen **messageLanguage** för objektet [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) om API för att skapa inbjudan används
+-   Egenskapen **preferredLanguage** som angetts i gästens [användar objekt](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
+-   **Meddelande språket** som anges i egenskaperna för gäst användarens hem klient organisation (endast för Azure AD-klienter)
+-   **Meddelande språket** som anges i egenskaperna för resurs klienten
 
-Om ingen av dessa inställningar är konfigurerade är språket som standard engelska (USA).
+Om ingen av dessa inställningar har kon figurer ATS, använder språket engelska (US) som standard.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se följande artiklar om Azure AD B2B-samarbete:
 
-- [Vad är Azure AD B2B-samarbete](what-is-b2b.md)
-- [Hur lägger Azure Active Directory-administratörer till B2B-samarbetsanvändare?](add-users-administrator.md)
-- [Hur lägger informationsarbetare till B2B-samarbetsanvändare?](add-users-information-worker.md)
-- [B2B samarbete inbjudan inlösen](redemption-experience.md)
-- [Lägga till B2B-samarbetsanvändare utan inbjudan](add-user-without-invite.md)
+- [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
+- [Hur lägger Azure Active Directory administratörer till B2B-samarbets användare?](add-users-administrator.md)
+- [Hur lägger informations anställda till B2B-samarbets användare?](add-users-information-worker.md)
+- [Inlösen av B2B-samarbets inbjudningar](redemption-experience.md)
+- [Lägg till B2B-samarbets användare utan inbjudan](add-user-without-invite.md)

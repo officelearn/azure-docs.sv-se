@@ -1,6 +1,6 @@
 ---
-title: Tjänst utan säkerhetsagenter
-description: Kom igång med det inbyggda arbetsflödet för Azure Security Center för IoT-tjänst.
+title: Tjänsten saknar säkerhets agenter
+description: Kom igång med det inbyggda arbets flödet för Azure Security Center för IoT-tjänsten.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,28 +16,28 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 175ed3b06e9d2b0293dd6c72e9a0713ca01be4a3
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310908"
 ---
-# <a name="get-started-with-built-in-iot-hub-integration"></a>Komma igång med inbyggd IoT Hub-integrering
+# <a name="get-started-with-built-in-iot-hub-integration"></a>Kom igång med inbyggd IoT Hub-integrering
 
 Med det här alternativet kan du använda tjänsten utan att använda Azure Security Center för IoT-säkerhetsagenter.
 
 ## <a name="enable-built-in-iot-hub-integration"></a>Aktivera inbyggd IoT Hub-integrering
 
-Så här aktiverar du övervakning av enhetsidentitetshantering, enhet till moln och kommunikationsmönster från molnet till enheten:
+Om du vill aktivera övervakning av enhets identitets hantering, enhets-till-moln-och moln-till-enhets kommunikations mönster, gör du följande för att starta tjänsten:
 
-1. Öppna **din IoT Hub**.
-1. Välj menyn **Säkerhetsöversikt.**
-1. Klicka på **Säkra din IoT-lösning** och fyll i introduktionsformuläret.
+1. Öppna din **IoT Hub**.
+1. Välj menyn **säkerhets översikt** .
+1. Klicka på **skydda din IoT-lösning** och fyll i formuläret onboarding.
 
-Grattis! Du har slutfört aktiveringen av Azure Security Center for IoT-tjänsten på din IoT Hub.
+Grattis! Du har slutfört aktiveringen av Azure Security Center för IoT-tjänsten på din IoT Hub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Konfigurera [din lösning](quickstart-configure-your-solution.md)
+- Konfigurera din [lösning](quickstart-configure-your-solution.md)
 - [Skapa säkerhetsmoduler](quickstart-create-security-twin.md)
 - Konfigurera [anpassade aviseringar](quickstart-create-custom-alerts.md)

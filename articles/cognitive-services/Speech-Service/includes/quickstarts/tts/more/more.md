@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: trbye
 ms.openlocfilehash: d694d3f9b76c1ded912bbd584cdc2aaac076ae15
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400367"
 ---
-## <a name="additional-language-and-platform-support"></a>Ytterligare språk- och plattformsstöd
+## <a name="additional-language-and-platform-support"></a>Ytterligare språk-och plattforms stöd
 
-Om du har klickat på den här fliken har du förmodligen inte sett en snabbstart i ditt favoritprogrammeringsspråk. Oroa dig inte, vi har ytterligare snabbstartsmaterial och kodexempel tillgängliga på GitHub. Använd tabellen för att hitta rätt exempel för ditt programmeringsspråk och plattform/OS-kombination.
+Om du har klickat på den här fliken ser du förmodligen ingen snabb start på ditt favorit språk. Oroa dig inte, vi har ytterligare snabb starts material och kod exempel som är tillgängliga på GitHub. Använd tabellen för att hitta rätt exempel för ditt programmeringsspråk och kombinationen av Platform/OS.
 
-| Språk | Ytterligare snabbstarter | Kodexempel |
+| Språk | Ytterligare snabb starter | Kodexempel |
 |--|--|--|
-| C# | [Till en ljudfil][1-file] | [.NET Framework][dotnet], [.NET Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
-| C++ | [Till en ljudfil][2-file] | [Windows][cpp-windows], [Linux][cpp-linux], [macOS][cpp-mac] |
+| C# | [Till en ljudfil][1-file] | [.NET Framework][dotnet], [.net Core][netcore], [UWP][uwp], [Unity][unity], [Xamarin][xamarin] |
+| C++ | [Till en ljudfil][2-file] | [Windows][cpp-windows], [Linux][cpp-linux], [MacOS][cpp-mac] |
 | Java | [Till en ljudfil][3-file] | [Android][java-android], [JRE][java-jre] |
-| JavaScript | [Nod.js till en ljudfil][js-node] | [Windows, Linux, macOS][js-code] |
-| Objective-C | [iOS till högtalare][obj-iOS-qck], [macOS till högtalare][obj-macOS-qck] | [iOS][obj-iOS], [macOS][obj-macOS] |
+| JavaScript | [Node. js-fil till en ljudfil][js-node] | [Windows, Linux, macOS][js-code] |
+| Objective-C | [iOS till talare][obj-iOS-qck], [MacOS till talare][obj-macOS-qck] | [iOS][obj-iOS], [MacOS][obj-macOS] |
 | Python | [Till en ljudfil][4-file] | [Windows, Linux, macOS][python] |
-| Swift | [iOS till högtalare][swift-iOS-qck], [macOS till högtalare][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |
+| Swift | [iOS till talare][swift-iOS-qck], [MacOS till talare][swift-macOS-qck] | [iOS][swift-iOS], [MacOS][swift-macOS] |
 
 [1-file]: ../../../../quickstarts/text-to-speech-audio-file.md?pivots=programming-language-csharp
 

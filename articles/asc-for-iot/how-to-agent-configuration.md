@@ -1,6 +1,6 @@
 ---
 title: Konfigurera säkerhetsagenter
-description: Lär dig hur du konfigurerar Azure Security Center för IoT-säkerhetsagenter för användning med azure security center för IoT-säkerhetstjänst.
+description: Lär dig hur du konfigurerar Azure Security Center för IoT-säkerhetsagenter som ska användas med tjänsten Azure Security Center for IoT Security.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,38 +16,38 @@ ms.workload: na
 ms.date: 02/18/2020
 ms.author: mlottner
 ms.openlocfilehash: e41b7222ca89976674973e1eb700d62765b306f0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311331"
 ---
-# <a name="tutorial-configure-security-agents"></a>Självstudiekurs: Konfigurera säkerhetsagenter
+# <a name="tutorial-configure-security-agents"></a>Självstudie: Konfigurera säkerhets agenter
 
 I den här artikeln beskrivs Azure Security Center för IoT-säkerhetsagenter och information om hur du ändrar och konfigurerar dem.
 
 > [!div class="checklist"]
 > * Konfigurera säkerhetsagenter
-> * Ändra agentbeteende genom att redigera dubbla egenskaper
-> * Identifiera standardkonfiguration
+> * Ändra agent beteende genom att redigera dubbla egenskaper
+> * Identifiera standard konfiguration
 
 ## <a name="agents"></a>Agenter
 
-Azure Security Center för IoT-säkerhetsagenter samlar in data från IoT-enheter och utför säkerhetsåtgärder för att minska de identifierade säkerhetsproblemen. Konfigurationen av säkerhetsagenter kan kontrolleras med hjälp av en uppsättning modultvillingegenskaper som du kan anpassa. I allmänhet är sekundära uppdateringar av dessa egenskaper sällsynta.
+Azure Security Center för IoT-säkerhetsagenter samlar in data från IoT-enheter och utför säkerhets åtgärder för att minimera identifierade sårbarheter. Konfigurationen av säkerhets agenten kan kontrol leras med hjälp av en uppsättning av modulens dubbla egenskaper som du kan anpassa. I allmänhet är sekundära uppdateringar av dessa egenskaper ovanliga.
 
-Azure Security Center för IoT:s tvillingkonfigurationsobjekt för säkerhetsagenter är ett JSON-formatobjekt. Konfigurationsobjektet är en uppsättning kontrollerbara egenskaper som du kan definiera för att styra agentens beteende.
+Azure Security Center för IoT: s Säkerhetsagenten med dubbla konfigurations objekt är ett JSON-format-objekt. Konfigurationsobjektet är en uppsättning kontrollerbara egenskaper som du kan definiera för att styra agentens beteende.
 
-Dessa konfigurationer hjälper dig att anpassa agenten för varje scenario som krävs. Det går till exempel att automatiskt utesluta vissa händelser eller hålla strömförbrukningen till en minimal nivå genom att konfigurera dessa egenskaper.
+Med de här konfigurationerna kan du anpassa agenten för varje scenario som krävs. Du kan till exempel automatiskt utesluta vissa händelser eller behålla energi förbrukningen till en minimal nivå genom att konfigurera dessa egenskaper.
 
-Använd Azure Security Center för IoT-konfigurationsschema för säkerhetsagenter för att göra ändringar. [schema](https://aka.ms/iot-security-github-module-schema)
+Använd Azure Security Center för konfigurations [schema](https://aka.ms/iot-security-github-module-schema) för IoT-Säkerhetsagenten för att göra ändringar.
 
-## <a name="configuration-objects"></a>Konfigurationsobjekt
+## <a name="configuration-objects"></a>Konfigurations objekt
 
-Egenskaper som är relaterade till alla Azure Security Center för IoT-säkerhetsagent finns i agentkonfigurationsobjektet, inom avsnittet önskade egenskaper, i **azureiotsecurity-modulen.**
+Egenskaper som är relaterade till varje Azure Security Center för IoT Security Agent finns i agentens konfigurations objekt, i avsnittet önskade egenskaper i **azureiotsecurity** -modulen.
 
-Om du vill ändra konfigurationen skapar och ändrar du det här objektet i den tvillingidentitet för **azureiotsecurity-modulen.**
+Ändra konfigurationen genom att skapa och ändra det här objektet i **azureiotsecurity** -modulens dubbla identitet.
 
-Om agentkonfigurationsobjektet inte finns i **azureiotsecurity-modulen** twin, är alla säkerhetsagentens egenskapsvärden inställda på standard.
+Om agentens konfigurations objekt inte finns i **azureiotsecurity** -modulen, anges alla egenskaps värden för säkerhets agenten till default.
 
 ```json
 "desired": {
@@ -56,43 +56,43 @@ Om agentkonfigurationsobjektet inte finns i **azureiotsecurity-modulen** twin, �
 }
 ```
 
-## <a name="configuration-schema-and-validation"></a>Konfigurationsschema och validering
+## <a name="configuration-schema-and-validation"></a>Konfigurations schema och verifiering
 
-Se till att validera agentkonfigurationen mot det här [schemat](https://aka.ms/iot-security-github-module-schema). En agent startar inte om konfigurationsobjektet inte matchar schemat.
+Se till att verifiera agent konfigurationen mot [schemat](https://aka.ms/iot-security-github-module-schema). En agent startas inte om konfigurationsobjektet inte matchar schemat.
 
-Om konfigurationsobjektet ändras till en ogiltig konfiguration medan agenten körs (konfigurationen matchar inte schemat), ignorerar agenten den ogiltiga konfigurationen och fortsätter att använda den aktuella konfigurationen.
+Om agenten körs ändras konfigurationsobjektet till en icke-giltig konfiguration (konfigurationen matchar inte schemat), men agenten ignorerar den ogiltiga konfigurationen och fortsätter att använda den aktuella konfigurationen.
 
-### <a name="configuration-validation"></a>Validering av konfiguration
+### <a name="configuration-validation"></a>Konfigurations validering
 
-Azure Security Center för IoT-säkerhetsagenten rapporterar sin aktuella konfiguration i avsnittet rapporterade egenskaper i den tvillingidentitet för **azureiotsecurity-modulen.**
-Agenten rapporterar alla tillgängliga egenskaper, om en egenskap inte har angetts av användaren, rapporterar agenten standardkonfigurationen.
+Azure Security Center för IoT Security Agent rapporterar den aktuella konfigurationen i avsnittet rapporterade egenskaper i **azureiotsecurity** -modulens dubbla identitet.
+Agenten rapporterar alla tillgängliga egenskaper, om en egenskap inte har angetts av användaren, rapporterar agenten standard konfigurationen.
 
-För att validera konfigurationen jämför du de värden som angetts i önskat avsnitt med de värden som rapporteras i det rapporterade avsnittet.
+Jämför värdena som anges i det önskade avsnittet med de värden som rapporteras i avsnittet rapportering för att verifiera konfigurationen.
 
-Om det finns en obalans mellan de önskade och de rapporterade egenskaperna kunde agenten inte tolka konfigurationen.
+Om det finns ett matchnings fel mellan de önskade och de rapporterade egenskaperna, kunde agenten inte parsa konfigurationen.
 
-Validera önskade egenskaper mot [schemat,](https://aka.ms/iot-security-github-module-schema)åtgärda felen och ange önskade egenskaper igen!
+Verifiera dina önskade egenskaper mot [schemat](https://aka.ms/iot-security-github-module-schema), korrigera felen och ange önskade egenskaper igen!
 
 > [!NOTE]
-> En konfigurationsfelavisering kommer att avfyras från agenten om agenten inte kunde tolka önskad konfiguration.
+> En konfigurations fel avisering kommer att skickas från agenten om agenten inte kunde parsa den önskade konfigurationen.
 > Jämför det rapporterade och önskade avsnittet för att förstå om aviseringen fortfarande gäller
 
 ## <a name="editing-a-property"></a>Redigera en egenskap
 
-Alla anpassade egenskaper måste anges i agentkonfigurationsobjektet i **azureiotsecurity-modulen** twin.
-Om du vill använda ett standardegenskapsvärde tar du bort egenskapen från konfigurationsobjektet.
+Alla anpassade egenskaper måste anges inuti agentens konfigurations objekt i **azureiotsecurity** -modulen.
+Om du vill använda ett standard egenskaps värde tar du bort egenskapen från konfigurationsobjektet.
 
-### <a name="setting-a-property"></a>Ställa in en egenskap
+### <a name="setting-a-property"></a>Ange en egenskap
 
-1. Leta reda på och välj den enhet du vill ändra i IoT Hub.
+1. Leta upp och välj den enhet som du vill ändra i IoT Hub.
 
-1. Klicka på enheten och sedan på **azureiotsecurity-modulen.**
+1. Klicka på enheten och sedan på **azureiotsecurity** -modulen.
 
-1. Klicka på **Module Identity Twin**.
+1. Klicka på **modulens identitet, delad**.
 
-1. Redigera de egenskaper som du vill ändra i säkerhetsmodulen.
+1. Redigera egenskaperna som du vill ändra i säkerhetsmodulen.
 
-   Om du till exempel vill konfigurera anslutningshändelser som högprioriterade händelser och samla in händelser med hög prioritet var 7:e minut använder du följande konfiguration.
+   Om du till exempel vill konfigurera anslutnings händelser som hög prioritet och samla in händelser med hög prioritet var 7: e minut, använder du följande konfiguration.
 
     ```json
     "desired": {
@@ -111,40 +111,40 @@ Om du vill använda ett standardegenskapsvärde tar du bort egenskapen från kon
 
 ### <a name="using-a-default-value"></a>Använda ett standardvärde
 
-Om du vill använda ett standardegenskapsvärde tar du bort egenskapen från konfigurationsobjektet.
+Om du vill använda ett standard egenskaps värde tar du bort egenskapen från konfigurationsobjektet.
 
-## <a name="default-properties"></a>Standardegenskaper
+## <a name="default-properties"></a>Standard egenskaper
 
 Följande tabell innehåller de kontrollerbara egenskaperna för Azure Security Center för IoT-säkerhetsagenter.
 
 Standardvärden är tillgängliga i rätt schema i [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Namn| Status | Giltiga värden| Standardvärden| Beskrivning |
+| Name| Status | Giltiga värden| Standardvärden| Beskrivning |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Obligatoriskt: falskt |Giltiga värden: Varaktighet i ISO 8601-format |Standardvärde: PT7M |Maxtidsintervall innan meddelanden med hög prioritet skickas.|
-|lowPriorityMessageFrequency |Obligatoriskt: falskt|Giltiga värden: Varaktighet i ISO 8601-format |Standardvärde: PT5H |Max tid innan meddelanden med låg prioritet skickas.|
-|snapshotFrequency snapshotFrequency snapshotFrequency snapshotFre |Kräv: falskt|Giltiga värden: Varaktighet i ISO 8601-format |Standardvärde PT13H |Tidsintervall för att skapa ögonblicksbilder av enhetsstatus.|
-|maxLocalCacheSizeInBytes |Obligatoriskt: falskt |Giltiga värden: |Standardvärde: 2560000, större än 8192 | Maximal lagring (i byte) tillåts för meddelandecachen för en agent. Maximalt utrymme som tillåts lagra meddelanden på enheten innan meddelanden skickas.|
-|maxMessageSizeInBytes |Obligatoriskt: falskt |Giltiga värden: Ett positivt tal, större än 8192, mindre än 262144 |Standardvärde: 204800 |Maximal tillåten storlek för en agent till molnmeddelande. Den här inställningen styr mängden maximala data som skickas i varje meddelande. |
-|eventPriority${EventName} |Obligatoriskt: falskt |Giltiga värden: Hög, Låg, Av |Standardvärden: |Prioritet för varje agentgenererad händelse |
+|highPriorityMessageFrequency|Krävs: falskt |Giltiga värden: varaktighet i ISO 8601-format |Standardvärde: PT7M |Max tidsintervall innan meddelanden med hög prioritet skickas.|
+|lowPriorityMessageFrequency |Krävs: falskt|Giltiga värden: varaktighet i ISO 8601-format |Standardvärde: PT5H |Max tid innan meddelanden med låg prioritet skickas.|
+|snapshotFrequency |Kräv: falskt|Giltiga värden: varaktighet i ISO 8601-format |Standardvärde PT13H |Tidsintervall för att skapa ögonblicks bilder av enhets status.|
+|maxLocalCacheSizeInBytes |Krävs: falskt |Giltiga värden: |Standardvärde: 2560000, större än 8192 | Maximalt lagrings utrymme (i byte) som tillåts för meddelande-cache för en agent. Högsta mängd utrymme som tillåts för att lagra meddelanden på enheten innan meddelanden skickas.|
+|maxMessageSizeInBytes |Krävs: falskt |Giltiga värden: ett positivt tal som är större än 8192, mindre än 262144 |Standardvärde: 204800 |Högsta tillåtna storlek på en agent till moln meddelande. Den här inställningen styr mängden maximalt antal data som skickas i varje meddelande. |
+|eventPriority $ {EventName} |Krävs: falskt |Giltiga värden: hög, låg, av |Standardvärden: |Prioritet för varje agent-genererad händelse |
 
-### <a name="supported-security-events"></a>Säkerhetshändelser som stöds
+### <a name="supported-security-events"></a>Säkerhets händelser som stöds
 
-|Händelsenamn| PropertyName | Standardvärde| Händelse för ögonblicksbilder| Informationsstatus  |
+|Händelse namn| PropertyName | Standardvärde| Ögonblicks bilds händelse| Information status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Diagnostisk händelse|eventPriorityDiagnostic| Av| False| Agentrelaterade diagnostiska händelser. Använd den här händelsen för utförlig loggning.|
-|Konfigurationsfel |eventPriorityConfigurationError |Låg |False |Agenten kunde inte tolka konfigurationen. Verifiera konfigurationen mot schemat.|
-|Statistik över tappade händelser |eventPriorityDroppedEventsStatik |Låg |True|Agentrelaterad händelsestatistik. |
-|Ansluten maskinvara|eventPriorityConnectedHardware |Låg |True |Ögonblicksbild av all maskinvara som är ansluten till enheten.|
-|Lyssna portar|eventPriorityListeringPortar |Hög |True |Ögonblicksbild av alla öppna lyssningsportar på enheten.|
-|Skapa process |eventPriorityProcessCreate |Låg |False |Granskningar bearbetar skapandet på enheten.|
-|Processen avslutas|eventPriorityProcessTerminate |Låg |False |Granskningar process uppsägning på enheten.|
-|Systeminformation |eventPrioritySystemInformation |Låg |True |En ögonblicksbild av systeminformation (till exempel: OS eller CPU).|
-|Lokala användare| eventPriorityLocalUsers |Hög |True|En ögonblicksbild av registrerade lokala användare i systemet. |
-|Inloggning|  eventPriorityLogin |Hög|False|Granska inloggningshändelserna till enheten (lokala och fjärrinloggningar).|
-|Skapa anslutning |eventPriorityConnectionCreate|Låg|False|Granskar TCP-anslutningar som skapats till och från enheten. |
-|Konfigurering av brandvägg| eventPriorityFirewallKonfigurering|Låg|True|Ögonblicksbild av enhetsbrandväggskonfiguration (brandväggsregler). |
-|Operativsystemets baslinje| händelsePriorityOSBaseline| Låg|True|Ögonblicksbild av enhet OS baslinjekontroll.|
+|Diagnostisk händelse|eventPriorityDiagnostic| Av| Falskt| Agent relaterade diagnostiska händelser. Använd den här händelsen för utförlig loggning.|
+|Konfigurations fel |eventPriorityConfigurationError |Låg |Falskt |Agenten kunde inte parsa konfigurationen. Verifiera konfigurationen mot schemat.|
+|Statistik över ignorerade händelser |eventPriorityDroppedEventsStatistics |Låg |Sant|Agent relaterad händelse statistik. |
+|Ansluten maskin vara|eventPriorityConnectedHardware |Låg |Sant |Ögonblicks bild av all maskin vara som är ansluten till enheten.|
+|Lyssnande portar|eventPriorityListeningPorts |Hög |Sant |Ögonblicks bild av alla öppna lyssnings portar på enheten.|
+|Skapa process |eventPriorityProcessCreate |Låg |Falskt |Granskar process skapande på enheten.|
+|Processen avslutas|eventPriorityProcessTerminate |Låg |Falskt |Granskar avslutning av processen på enheten.|
+|System information |eventPrioritySystemInformation |Låg |Sant |En ögonblicks bild av system information (till exempel: OS eller CPU).|
+|Lokala användare| eventPriorityLocalUsers |Hög |Sant|En ögonblicks bild av registrerade lokala användare i systemet. |
+|Inloggning|  eventPriorityLogin |Hög|Falskt|Granska inloggnings händelser för enheten (lokala och fjärranslutna inloggningar).|
+|Skapa anslutning |eventPriorityConnectionCreate|Låg|Falskt|Granskar TCP-anslutningar som skapats till och från enheten. |
+|Konfigurering av brandvägg| eventPriorityFirewallConfiguration|Låg|Sant|Ögonblicks bild av enhets brand Väggs konfiguration (brand Väggs regler). |
+|OS-bas linje| eventPriorityOSBaseline| Låg|Sant|Ögonblicks bild av bas linje kontroll för enhetens operativ system.|
 |
 
 ## <a name="next-steps"></a>Nästa steg

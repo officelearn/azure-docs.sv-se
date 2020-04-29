@@ -1,6 +1,6 @@
 ---
 title: Felsöka anslutning
-description: Felsöka anslutning i Synapse SQL-pool.
+description: Felsöka anslutningar i SQL-poolen Synapse.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,63 +12,63 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408120"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Felsökning av anslutningsproblem
 
-I den här artikeln visas vanliga felsökningstekniker för anslutning till SQL Analytics-databasen.
+Den här artikeln innehåller vanliga fel söknings tekniker för att ansluta till SQL Analytics-databasen.
 
-## <a name="check-service-availability"></a>Kontrollera tjänstens tillgänglighet
+## <a name="check-service-availability"></a>Kontrol lera tjänstens tillgänglighet
 
-Kontrollera om tjänsten är tillgänglig. Gå till Den Synapse SQL-pool som du försöker ansluta i Azure-portalen. I den vänstra TOC-panelen klickar du på **Diagnostisera och lösa problem**.
+Kontrol lera om tjänsten är tillgänglig. I Azure Portal går du till den Synapse SQL-pool som du försöker ansluta. Klicka på **diagnostisera och lös problem**i den vänstra panelen i innehålls förteckningen.
 
-![Välj resurshälsa](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
+![Välj resurs hälsa](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Statusen för din Synapse SQL-pool visas här. Om tjänsten inte visas som **Tillgänglig**kontrollerar du ytterligare steg.
+Status för Synapse SQL-poolen visas här. Om tjänsten inte visas som **tillgänglig**kontrollerar du ytterligare steg.
 
 ![Tjänsten är tillgänglig](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Om din resurshälsa visar att Din Synapse SQL-poolinstans är pausad eller skalning följer du anvisningarna för att återuppta din instans.
+Om din resurs hälsa visar att din Synapse-instans av SQL-poolen har pausats eller skalas, följer du anvisningarna för att återuppta instansen.
 
-![Pausad](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) tjänst Ytterligare information om Resurshälsa finns här.
+![Tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) ytterligare information om Resource Health finns här.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Kontrollera om tjänsten är pausad eller håller på att skalas om
 
-Kontrollera portalen för att se om din Synapse SQL-poolinstans är pausad eller skalning.
+Kontrol lera portalen för att se om din Synapse för SQL-poolen är pausad eller skalning.
 
-![Tjänsten pausad](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Om du ser att tjänsten är pausad eller skalning kontrollerar du att den inte finns under underhållsschemat. På portalen för din Synapse SQL-pool *Översikt*visas det valda underhållsschemat.
+Om du ser att tjänsten har pausats eller skalas kan du kontrol lera att den inte finns under ditt underhålls schema. I portalen för din Synapse *SQL-pool visas schemat*för valt underhåll.
 
-![Översikt Underhåll Schema](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
+![Översikt över underhålls schema](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Annars kontaktar du IT-administratören för att kontrollera att underhållet inte är en schemalagd händelse. Så här återupptar du SQL Analytics-instansen [.](pause-and-resume-compute-portal.md)
+Annars kan du kontakta IT-administratören för att kontrol lera att det här underhållet inte är en schemalagd händelse. Följ [dessa steg](pause-and-resume-compute-portal.md)om du vill återuppta SQL Analytics-instansen.
 
 ## <a name="check-your-firewall-settings"></a>Kontrollera brandväggsinställningarna
 
-SQL Analytics-databasen kommunicerar via port 1433.Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL Database-servern såvida inte IT-avdelningen öppnar port 1433. Ytterligare information om brandväggskonfigurationer finns [här](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+SQL Analytics-databasen kommunicerar via port 1433.Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL Database-servern såvida inte IT-avdelningen öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Kontrollera inställningarna för det virtuella nätverket/tjänstslutpunkten
 
-Om du får fel 40914 och 40615 läser du [felbeskrivning och lösning här](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Om du får fel 40914 och 40615, se [fel beskrivning och lösning här](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## <a name="check-for-the-latest-drivers"></a>Kontrollera om det finns nya drivrutiner
 
 ### <a name="software"></a>Programvara
 
-Kontrollera att du använder de senaste verktygen för att ansluta till din Synapse SQL-pool:
+Kontrol lera att du använder de senaste verktygen för att ansluta till din Synapse SQL-pool:
 
 - SSMS
 - Azure Data Studio
-- SQL Server-dataverktyg (Visual Studio)
+- SQL Server Data Tools (Visual Studio)
 
 ### <a name="drivers"></a>Drivrutiner
 
-Kontrollera att du använder de senaste drivrutinsversionerna.Om du använder en äldre version av drivrutinerna kan det leda till oväntade beteenden eftersom de äldre drivrutinerna kanske inte stöder nya funktioner.
+Kontrol lera att du använder de senaste driv rutins versionerna.Om du använder en äldre version av driv rutinerna kan det leda till oväntade beteenden eftersom de äldre driv rutinerna kanske inte stöder nya funktioner.
 
 - [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -77,7 +77,7 @@ Kontrollera att du använder de senaste drivrutinsversionerna.Om du använder en
 
 ## <a name="check-your-connection-string"></a>Kontrollera anslutningssträngen
 
-Se till att anslutningssträngarna är inställda på rätt sätt.  Nedan följer några prover.  Du kan läsa mer om [anslutningssträngar här](sql-data-warehouse-connection-strings.md).
+Se till att anslutningssträngarna är inställda på rätt sätt.  Nedan visas några exempel.  Du kan läsa mer om [anslutningssträngar här](sql-data-warehouse-connection-strings.md).
 
 ADO.NET-anslutningssträng
 
@@ -85,7 +85,7 @@ ADO.NET-anslutningssträng
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-OdBC-anslutningssträng
+ODBC-anslutningssträng
 
 ```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
@@ -105,12 +105,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Tillfälliga anslutningsproblem
 
-Kontrollera om servern är hårt belastad med ett stort antal köade förfrågningar. Du kan behöva skala upp Din Synapse SQL-pool för ytterligare resurser.
+Kontrollera om servern är hårt belastad med ett stort antal köade förfrågningar. Du kan behöva skala upp din Synapse SQL-pool för ytterligare resurser.
 
 ## <a name="common-error-messages"></a>Vanliga felmeddelanden
 
-Fel 40914 och 40615, se [felbeskrivning och lösning här](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Fel 40914 och 40615, se [fel beskrivningen och lösningen här](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
-## <a name="still-having-connectivity-issues"></a>Har du fortfarande anslutningsproblem?
+## <a name="still-having-connectivity-issues"></a>Har du fortfarande problem med anslutningen?
 
-Skapa en [supportbiljett](sql-data-warehouse-get-started-create-support-ticket.md) så att ingenjörsteamet kan stödja dig.
+Skapa ett [support ärende](sql-data-warehouse-get-started-create-support-ticket.md) så att teknik teamet kan stödja dig.

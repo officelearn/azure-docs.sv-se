@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Känna igen tal som lagras i blob-lagring'
+title: 'Snabb start: identifiera tal som lagras i Blob Storage'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten ska du använda REST API:et för batchavskrifter för att asynkront känna igen tal som lagrats i en SAS-blob.
+description: I den här snabb starten använder du batch-avskriften REST API för att identifiera tal som lagras i en SAS-BLOB asynkront.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: b302180257ec6624ebd6144a7680755a2856899e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400907"
 ---
-# <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Snabbstart: Känna igen tal som lagras i blob-lagring
+# <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Snabb start: identifiera tal som lagras i Blob Storage
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]

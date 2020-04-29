@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 138a9ef9d483ca0d460bab7185d646669650f83e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399871"
 ---
 :::row:::
     :::column span="3":::
-        Speech SDK stöder Windows 10 och Windows Server 2016 eller senare versioner. Tidigare versioner stöds **inte** officiellt. Det är möjligt att använda delar av Tal-SDK med tidigare versioner av Windows, även om det inte rekommenderas.
+        Tal-SDK: n stöder Windows 10 och Windows Server 2016 eller senare versioner. Tidigare versioner stöds **inte** officiellt. Det är möjligt att använda delar av talet SDK med tidigare versioner av Windows, även om det inte rekommenderas.
     :::column-end:::
     :::column:::
         <br>
@@ -25,7 +25,7 @@ ms.locfileid: "81399871"
 
 ### <a name="system-requirements"></a>Systemkrav
 
-Tal-SDK i Windows kräver <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redist som <span class="docon docon-navigate-external x-hidden-focus"></span> kan tillskrivas Visual Studio 2019</a> på systemet.
+Talet SDK i Windows kräver <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable för Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i systemet.
 
 - <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installera för x86<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installera för x64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
@@ -35,20 +35,20 @@ Tal-SDK i Windows kräver <a href="https://support.microsoft.com/help/2977003/th
 
 [!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
-För mikrofoninmatning måste Media Foundations bibliotek installeras. Dessa bibliotek är en del av Windows 10 och Windows Server 2016. Det är möjligt att använda Tal SDK utan dessa bibliotek, så länge en mikrofon inte används som ljudingångsenhet.
+För inmatade mikrofoner måste Media Foundation-bibliotek installeras. Dessa bibliotek är en del av Windows 10 och Windows Server 2016. Det är möjligt att använda tal-SDK utan dessa bibliotek, så länge en mikrofon inte används som enhet för ljud inspelning.
 
-De tal-SDK-filer som krävs kan distribueras i samma katalog som ditt program. På så sätt kan ditt program komma åt biblioteken direkt. Kontrollera att du väljer rätt version (x86/x64) som matchar ditt program.
+De nödvändiga SDK-filerna för tal kan distribueras i samma katalog som ditt program. På så sätt kan ditt program komma åt biblioteken direkt. Kontrol lera att du väljer rätt version (x86/x64) som matchar ditt program.
 
-| Namn                                            | Funktion                                             |
+| Name                                            | Funktion                                             |
 |-------------------------------------------------|------------------------------------------------------|
-| `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, som krävs för inbyggd och hanterad distribution |
+| `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, krävs för intern och hanterad distribution |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Krävs för hanterad distribution                      |
 
 > [!NOTE]
-> Från och med utgivningen 1.3.0 behövs inte filen `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (levererad i tidigare versioner) längre. Funktionaliteten är nu integrerad i kärnan SDK.
+> Från och med versionen av 1.3.0 behövs `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` inte längre filen (levererades i tidigare versioner). Funktionerna är nu integrerade i Core SDK.
 
 > [!IMPORTANT]
-> För Projektet Windows Forms App (.NET Framework) C# kontrollerar du att biblioteken ingår i projektets distributionsinställningar. Du kan kontrollera `Properties -> Publish Section`detta under . Klicka `Application Files` på knappen och hitta motsvarande bibliotek från rullningslistan. Kontrollera att värdet är `Included`inställt på . Visual Studio kommer att innehålla filen när projektet publiceras/distribueras.
+> Se till att biblioteken ingår i projektets distributions inställningar för Windows Forms app (.NET Framework) C#-projekt. Du kan kontrol lera detta `Properties -> Publish Section`under. Klicka på `Application Files` knappen och hitta motsvarande bibliotek i listan rulla nedåt. Kontrol lera att värdet är inställt på `Included`. Visual Studio kommer att inkludera filen när projektet publiceras/distribueras.
 
 ### <a name="c"></a>C++
 

@@ -1,20 +1,20 @@
 ---
-title: 'Självstudiekurs: Mönster - LUIS'
-description: Använd mönster för att öka avsikts- och entitetsförutsägelsen samtidigt som du tillhandahåller färre exempelyttranden i den här självstudien. Mönstret tillhandahålls som ett mallutseende exempel, som innehåller syntax för att identifiera entiteter och ignorerande text.
+title: 'Självstudie: mönster – LUIS'
+description: Använd mönster för att öka avsikt och enhets förutsägelse samtidigt som du ger färre exempel yttranden i den här självstudien. Mönstret anges som en mall uttryck exempel som innehåller syntax för att identifiera entiteter och text som kan ignoreras.
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81380774"
 ---
-# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudiekurs: Lägg till vanliga uttrycksformat för mönstermallar för att förbättra förutsägelser
+# <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudie: Lägg till vanliga mönster mal len uttryck format för att förbättra förutsägelser
 
-I den här självstudien använder du mönster för att öka avsikt och entitetsförutsägels, vilket gör att du kan ge färre exempelyttranden. Mönstret är ett mallutseende som tilldelats en avsikt, som innehåller syntax för att identifiera entiteter och ignorerande text.
+I den här självstudien använder du mönster för att öka avsikt och enhets förutsägelse, vilket gör att du kan ange färre exempel yttranden. Mönstret är en mall som uttryck tilldelas till en avsikt, som innehåller syntax för att identifiera entiteter och text som kan ignoreras.
 
-**I den här självstudiekursen får du lära du dig att:**
+**I den här guiden får du lära dig att:**
 
 > [!div class="checklist"]
 > * Skapa ett mönster
@@ -26,38 +26,38 @@ I den här självstudien använder du mönster för att öka avsikt och entitets
 
 ## <a name="utterances-in-intent-and-pattern"></a>Yttranden i avsikt och mönster
 
-Det finns två typer av yttranden som lagras i LUIS-appen:
+Det finns två typer av yttranden lagrade i LUIS-appen:
 
-* Exempel yttranden i avsikt
-* Mallyttranden i mönstret
+* Exempel på yttranden i avsikten
+* Mallens yttranden i mönstret
 
-Genom att lägga till mallyttranden som ett mönster kan du ge färre exempelyttranden totalt sett till en avsikt.
+Genom att lägga till mallen yttranden som ett mönster kan du ange färre exempel-yttranden för ett avsikts sätt.
 
-Ett mönster används som en kombination av textmatchning och maskininlärning.  Mallutsikten i mönstret, tillsammans med exempelyttrandena i avsikten, ger LUIS en bättre förståelse för vilka yttranden som passar avsikten.
+Ett mönster används som en kombination av text matchning och maskin inlärning.  Mallen uttryck i mönstret, tillsammans med exemplet yttranden i avsikten, ger LUIS en bättre förståelse för vad yttranden passar avsikten.
 
-## <a name="import-example-app-and-clone-to-new-version"></a>Importera exempelapp och klona till ny version
+## <a name="import-example-app-and-clone-to-new-version"></a>Importera exempel App och klon till ny version
 
 Använd följande steg:
 
-1.  Ladda ner och spara [appen JSON-fil](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
+1.  Ladda ned och spara [app-JSON-filen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Importera JSON till en ny app till [luis-portalen för förhandsversionen](https://preview.luis.ai). På sidan **Mina appar** väljer du + Ny app **för konversation**och väljer sedan Importera **som JSON**. Markera filen som du hämtade i föregående steg.
+1. Importera JSON till en ny app till LUIS- [portalen för förhands granskning](https://preview.luis.ai). På sidan **Mina appar** väljer du **+ ny app för konversation**och väljer sedan **Importera som JSON**. Välj den fil som du laddade ned i föregående steg.
 
-1. Välj den aktiva versionen **på** fliken Hantera på fliken **Versioner** och välj sedan **Klona**. Namnge den klonade versionen `patterns`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
+1. Välj den aktiva versionen på fliken **versioner** i avsnittet **Hantera** och välj sedan **klona**. Namnge den klonade versionen `patterns`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Skapa nya avsikter och deras yttranden
 
-De två avsikterna hittar chefens eller chefens direkta rapporter, baserat på uttryckstexten. Svårigheten är att de två avsikter _betyder_ olika saker, men de flesta av orden är desamma. Bara ordordningen är annorlunda. För att avsikten ska kunna förutsägas korrekt måste den ha många exempel.
+De två avsikterna hittar chefen eller chefens direkt rapporter baserat på uttryck-texten. Det är svårt att de två avsikterna _betyder_ olika saker men de flesta av orden är desamma. Endast ord ordningen är annorlunda. För att avsikten ska kunna förutsägas korrekt måste det ha många exempel.
 
-1. Välj **Bygg** i navigeringsfältet.
+1. Välj **build** i navigerings fältet.
 
-1. På sidan **Avsikter** väljer du **+ Skapa** för att skapa en ny avsikt.
+1. På sidan **avsikter** väljer du **+ skapa** för att skapa en ny avsikt.
 
 1. Ange `OrgChart-Manager` i popup-dialogrutan och välj sedan **Done** (Klar).
 
     ![Skapa ett nytt popup-fönster för meddelanden](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
-1. Lägg till exempel på yttranden i avsikten. Dessa yttranden är inte _exakt_ likadana men har ett mönster som kan extraheras.
+1. Lägg till exempel på yttranden i avsikten. Dessa yttranden är inte _lika identiska_ , men har ett mönster som kan extraheras.
 
     |Exempel på yttranden|
     |--|
@@ -71,7 +71,7 @@ De två avsikterna hittar chefens eller chefens direkta rapporter, baserat på u
 
 1. Välj **Intents** (Avsikter) i det vänstra navigeringsfältet.
 
-1. Välj **+ Skapa** om du vill skapa en ny avsikt. Ange `OrgChart-Reports` i popup-dialogrutan och välj sedan **Done** (Klar).
+1. Välj **+ skapa** för att skapa en ny avsikt. Ange `OrgChart-Reports` i popup-dialogrutan och välj sedan **Done** (Klar).
 
 1. Lägg till exempel på yttranden i avsikten.
 
@@ -99,7 +99,7 @@ De två avsikterna hittar chefens eller chefens direkta rapporter, baserat på u
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av webbadressen i _YOUR_QUERY_HERE_ adressfältet och ersätt `Who is the boss of Jill Jones?`YOUR_QUERY_HERE med: .
+1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med: `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -189,16 +189,16 @@ De två avsikterna hittar chefens eller chefens direkta rapporter, baserat på u
     }
     ```
 
-Poängen för de två bästa avsikter är nära men den högsta avsikten är inte signifikant hög (över 60%) och är inte tillräckligt långt över nästa avsikt poäng.
+Poängen för de två främsta syftena är nära men den högsta avsikten är inte märkbart hög (över 60%) och är inte tillräckligt långt än nästa avsikts resultat.
 
-Eftersom LUIS utbildning är inte exakt samma varje gång (det finns lite variation), dessa två högsta poäng kan invertera på nästa träningscykel. Resultatet är att fel avsikt kan returneras.
+Eftersom LUIS-utbildningen inte är exakt samma gång varje gång (det finns en variant av variationen) kan de två främsta poängen inverteras vid nästa utbildning. Resultatet är att fel avsikt kan returneras.
 
 Använd mönster för att göra den korrekta avsiktens poäng betydligt högre procentuellt och längre ifrån den näst högsta poängen.
 
 Lämna det här andra webbläsarfönstret öppet. Du använder det igen senare i den här kursen.
 
 ## <a name="template-utterances"></a>Mallyttranden
-På grund av den typ av personal ämnesdomän, det finns några vanliga sätt att fråga om anställdas relationer i organisationer. Ett exempel:
+På grund av typen av mänsklig resurs ämnes domän finns det några vanliga sätt att fråga om medarbetar relationer i organisationer. Ett exempel:
 
 |Yttranden|
 |--|
@@ -211,18 +211,18 @@ Exempel på mallyttranden för den här avsikten är:
 
 |Exempel på mallyttranden|syntaxbetydelse|
 |--|--|
-|`Who does {Employee} report to[?]`|Utbytbara`{Employee}`<br>Ignorera`[?]`|
-|`Who reports to {Employee}[?]`|Utbytbara`{Employee}`<br>Ignorera`[?]`|
+|`Who does {Employee} report to[?]`|utbytbara`{Employee}`<br>Ignorera`[?]`|
+|`Who reports to {Employee}[?]`|utbytbara`{Employee}`<br>Ignorera`[?]`|
 
-Syntaxen `{Employee}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Den valfria `[?]`syntaxen, markerar ord eller [skiljetecken](luis-reference-application-settings.md#punctuation-normalization) som är valfri. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
+Syntaxen `{Employee}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Valfri syntax, `[?]`, markerar ord eller [interpunktion](luis-reference-application-settings.md#punctuation-normalization) som är valfria. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
 
-Syntaxen ser ut som ett reguljärt uttryck, men det är inte ett reguljärt uttryck. Endast syntax inom klamrar, `{}`, och hakparentes, `[]`, stöds. De kan kapslas upp till två nivåer.
+När syntaxen ser ut som ett reguljärt uttryck är det inte ett reguljärt uttryck. Endast syntax inom klamrar, `{}`, och hakparentes, `[]`, stöds. De kan kapslas upp till två nivåer.
 
-För att ett mönster ska matchas mot ett uttryck måste _först_ entiteterna i uttrycket matcha entiteterna i mallyttrandet. Det innebär att entiteterna måste ha tillräckligt med exempel i exempelyttranden med en hög grad av förutsägelse innan mönster med entiteter lyckas. Men mallen hjälper inte att förutsäga entiteter, bara avsikter.
+För att ett mönster ska matchas med en uttryck måste _först_ entiteterna i uttryck matcha entiteterna i mallen uttryck. Det innebär att entiteterna måste ha tillräckligt många exempel i exempel yttranden med en hög grad av förutsägelse innan mönster med entiteter har lyckats. Men mallen hjälper inte att förutsäga entiteter, bara avsikter.
 
 **Med mönster kan du ge färre exempelyttranden, men om entiteterna inte identifieras matchar inte mönstret.**
 
-### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Lägg till mönstren för orgchart-manager-avsikten
+### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Lägg till mönster för organisationens chefs avsikt
 
 1. Välj **Build** (Skapa) i huvudmenyn.
 
@@ -239,9 +239,9 @@ För att ett mönster ska matchas mot ett uttryck måste _först_ entiteterna i 
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
-    Dessa mallyttranden inkluderar **den anställdatiteten** med den lockiga gafflingsetenationen.
+    Dessa mallar yttranden inkluderar entiteten **anställda** med klammerns notation.
 
-1. När du fortfarande är på sidan Mönster väljer du avsikten **Med OrgChart-Reports** och anger sedan följande mallyttranden:
+1. Medan du fortfarande finns på sidan mönster väljer du **schema för organisations schema** , och anger sedan följande mall yttranden:
 
     |Mallyttranden|
     |:--|
@@ -254,13 +254,13 @@ För att ett mönster ska matchas mot ett uttryck måste _först_ entiteterna i 
 
 ### <a name="query-endpoint-when-patterns-are-used"></a>Frågeslutpunkt där mönster används
 
-Nu när mönstren läggs till i appen tränar, tränar, publicerar och frågar appen vid slutpunkten för förutsägelsekörning.
+Nu när mönstren har lagts till i appen, träna, publicera och fråga appen på den förutsägelse körnings slut punkten.
 
-1. Välj **Tåg**. När utbildningen är klar väljer du **Publicera** och väljer **produktionsplatsen** och väljer sedan **Klar**.
+1. Välj **träna**. När utbildningen är klar väljer du **publicera** och väljer **produktions** platsen och väljer sedan **klar**.
 
-1. När publiceringen är klar växlar du tillbaka webbläsarflikarna till url-fliken för slutpunkt.
+1. När publiceringen är klar växlar du tillbaka till fliken slut punkts-URL i webbläsarens flik.
 
-1. Gå till slutet av webbadressen i adressfältet och ersätt _YOUR_QUERY_HERE_ med:`Who is the boss of Jill Jones?`
+1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med:`Who is the boss of Jill Jones?`
 
     ```json
     {
@@ -350,11 +350,11 @@ Nu när mönstren läggs till i appen tränar, tränar, publicerar och frågar a
     }
     ```
 
-Avsikten förutsägelse är nu betydligt mer självsäker och den näst högsta avsikten poäng är betydligt lägre. Dessa två avsikter kommer inte att flip-flop när du tränar.
+Avsikten med avsikten är nu avsevärt mer tryggt och den näst högsta avsikten är betydligt lägre. Dessa två avsikter vänder inte sig på vippa vid träning.
 
 ### <a name="working-with-optional-text-and-prebuilt-entities"></a>Arbeta med valfri text och fördefinierade entiteter
 
-Föregående mallyttranden för mönster i den här kursen hade några exempel på valfri text, som possessiv användning av bokstaven s `'s` (se exemplen på engelska) och användningen av frågetecken, `?`. Anta att du måste tillåta aktuella och framtida datum i uttryckstexten.
+Föregående mallyttranden för mönster i den här kursen hade några exempel på valfri text, som possessiv användning av bokstaven s `'s` (se exemplen på engelska) och användningen av frågetecken, `?`. Anta att du behöver tillåta aktuella och framtida datum i uttryck-texten.
 
 Exempelyttranden är:
 
@@ -365,9 +365,9 @@ Exempelyttranden är:
 |OrgChart-Manager (Organisationsschema-Chef)|`Who will be Jill Jones manager in a month?`|
 |OrgChart-Manager (Organisationsschema-Chef)|`Who will be Jill Jones manager on March 3?`|
 
-Alla dessa exempel använder ett verbtempus, `was`, `is`, `will be` samt ett datum, `March 3`, `now` och `in a month`, som LUIS behöver för att förutsäga korrekt. Observera att de två sista exemplen i tabellen `in` `on`använder nästan samma text förutom och .
+Alla dessa exempel använder ett verbtempus, `was`, `is`, `will be` samt ett datum, `March 3`, `now` och `in a month`, som LUIS behöver för att förutsäga korrekt. Observera att de två sista exemplen i tabellen använder nästan samma text förutom `in` och. `on`
 
-Exempel på mallyttranden som tillåter den här valfria informationen:
+Exempel mal yttranden som tillåter denna valfria information:
 
 |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
 |:--|:--|
@@ -378,11 +378,11 @@ Exempel på mallyttranden som tillåter den här valfria informationen:
 Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria texten enkel att lägga till i mallyttrandet och kan kapslas upp till en andra nivå, `[[]]`, och innehåller entiteter eller text.
 
 
-**Fråga: Varför är `w` alla bokstäver, den första bokstaven i varje mall yttrande, gemener? Borde de inte vara valfria versaler eller gemener?** Yttrandet som skickas till frågeslutpunkten, av frågeslutpunkten, konverteras till gemener. Mallyttrandet kan vara versaler eller gemener och slutpunktsyttrandet kan också vara antingen eller. Jämförelsen görs alltid efter konverteringen till gemener.
+**Fråga: Varför är alla `w` bokstäver, den första bokstaven i varje mall uttryck, gemener? Bör de inte vara alternativt övre eller små?** Yttrandet som skickas till frågeslutpunkten, av frågeslutpunkten, konverteras till gemener. Mallyttrandet kan vara versaler eller gemener och slutpunktsyttrandet kan också vara antingen eller. Jämförelsen görs alltid efter konverteringen till gemener.
 
 **Fråga: Varför är inte fördefinierat tal ett mallyttrande om 3 mars förutsägs både som talet `3` och datumet `March 3`?** Mallyttrandet använder kontextuellt ett datum, antingen bokstavligen som i `March 3` eller abstraheras som `in a month`. Ett datum innehåller ett tal men ett tal kanske inte nödvändigtvis ses som ett datum. Använd alltid entiteten som bäst representerar den typ du vill ska returneras i resultatet för förutsägelse-JSON.
 
-**Fråga: Hur är det med dåligt uttryckta yttranden som `Who will {Employee}['s] manager be on March 3?`?** Grammatiskt olika verbtempus som det här där `will` och `be` är åtskilda måste vara ett nytt mallyttrande. Det befintliga mallyttrandet kommer inte att matcha det. Avsikten för yttrandet har inte ändrats men ordets placering i yttrandet har ändrats. Den här ändringen påverkar förutsägelsen i LUIS. Du kan [gruppera och eller](#use-the-or-operator-and-groups) verb-tempus för att kombinera dessa yttranden.
+**Fråga: Hur är det med dåligt uttryckta yttranden som `Who will {Employee}['s] manager be on March 3?`?** Grammatiskt olika verbtempus som det här där `will` och `be` är åtskilda måste vara ett nytt mallyttrande. Det befintliga mallyttrandet kommer inte att matcha det. Avsikten för yttrandet har inte ändrats men ordets placering i yttrandet har ändrats. Den här ändringen påverkar förutsägelsen i LUIS. Du kan [gruppera och eller](#use-the-or-operator-and-groups) verben för att kombinera dessa yttranden.
 
 **Kom ihåg: entiteter hittas först, sedan matchas mönstret.**
 
@@ -396,13 +396,13 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
     |OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-2. Välj **Träna** i navigeringsfältet för att träna appen.
+2. Välj **träna** i navigerings fältet för att träna appen.
 
-3. När träningen är klar väljer du **Testa** högst upp på panelen för att öppna testpanelen.
+3. När utbildningen är klar väljer du **testa** överst i panelen för att öppna test panelen.
 
 4. Ange flera testyttranden för att verifiera att mönstret matchas och avsiktspoängen är mycket höga.
 
-    När du har angett det första yttrandet väljer du **Inspect** (Granska) under resultatet så att du kan se alla förutsägelseresultat. Varje uttryck ska ha avsikten **OrgChart-Manager** och extrahera värdena för entiteterna för medarbetare och datetimeV2.
+    När du har angett det första yttrandet väljer du **Inspect** (Granska) under resultatet så att du kan se alla förutsägelseresultat. Varje uttryck bör ha ett **organisations schema som organisations chef** och ska extrahera värdena för enheterna för anställda och datetimeV2.
 
     |Yttrande|
     |--|
@@ -413,45 +413,45 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
     |`Who will be Jill Jones manager next Month`|
     |`Who will be Jill Jones manager in a month?`|
 
-Alla dessa yttranden hittade entiteterna inuti, och därför matchar de samma mönster, och har höga förutsägelsepoäng. Du har lagt till några mönster som matchar många varianter av yttranden. Du behövde inte lägga till några exempel yttranden i avsikt att ha mall yttrande arbete i mönstret.
+Alla dessa yttranden hittade entiteterna inuti, och därför matchar de samma mönster, och har höga förutsägelsepoäng. Du har lagt till några mönster som ska matcha många varianter av yttranden. Du behöver inte lägga till några exempel yttranden i avsikten för att mal len uttryck ska fungera i mönstret.
 
-Denna användning av mönster som:
-* Högre förutsägelsepoäng
-* Med samma exempel yttranden i avsikt
-* Med bara några välkonstruerade mall yttranden i mönstret
+Användningen av mönster har angetts:
+* Högre förutsägelse resultat
+* Med samma exempel yttranden i avsikten
+* Med bara en liten och yttranden mall i mönstret
 
-### <a name="use-the-or-operator-and-groups"></a>Använda operatorn ELLER och grupper
+### <a name="use-the-or-operator-and-groups"></a>Använd operator och grupper
 
-Flera av de tidigare mallyttrandena är mycket nära. Använd **syntaxen för gruppen** `()` och **ELLER** `|` för att minska mallyttrandena.
+Flera av de tidigare mallarna yttranden är mycket nära. Använd **gruppen** `()` och **eller** `|` syntaxen för att minska mallen yttranden.
 
-Följande 2 mönster kan kombineras till ett `()` enda `|` mönster med hjälp av gruppen och ELLER-syntaxen.
+Följande 2-mönster kan kombineras i ett enda mönster med hjälp `()` av gruppen `|` och eller syntaxen.
 
 |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
 |--|--|
 |OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
-Den nya mallutseendet kommer att vara:
+Den nya mallens uttryck kommer att vara:
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
-Detta använder en **grupp** runt det `in` nödvändiga `on` verbet spänt och det valfria och med en **eller** pipe mellan dem.
+Detta använder en **grupp** som omger de nödvändiga verben och de valfria `in` och `on` med en **eller** ett rör mellan dem.
 
-1. Välj filtret **OrgChart-Manager** på sidan **Mönster.** Begränsa listan genom `manager`att söka efter .
+1. På sidan **mönster** väljer du filtret **organisations hanterare** . Begränsa listan genom att söka efter `manager`.
 
-1. Behåll en version av mallutlysningen (för att redigera i nästa steg) och ta bort de andra varianterna.
+1. Behåll en version av mallen uttryck (för att redigera i nästa steg) och ta bort de andra varianterna.
 
 1. Ändra mallyttrandet till: 
 
     `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`
 
-2. Välj **Träna** i navigeringsfältet för att träna appen.
+2. Välj **träna** i navigerings fältet för att träna appen.
 
-3. När träningen är klar väljer du **Testa** högst upp på panelen för att öppna testpanelen.
+3. När utbildningen är klar väljer du **testa** överst i panelen för att öppna test panelen.
 
-    Använd testfönstret för att testa versioner av uttrycket:
+    Använd test fönstret för att testa versioner av uttryck:
 
-    |Yttranden som ska skrivas in i testfönstret|
+    |Yttranden att ange i test fönstret|
     |--|
     |`Who is Jill Jones manager this month`|
     |`Who is Jill Jones manager on July 5th`|
@@ -460,11 +460,11 @@ Detta använder en **grupp** runt det `in` nödvändiga `on` verbet spänt och d
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-Genom att använda mer mönstersyntax minskar du antalet mallyttranden som du måste behålla i appen, samtidigt som du har en hög förutsägelsepoäng.
+Genom att använda fler mönstermatchningssyntax minskar du antalet yttranden som du måste underhålla i din app, samtidigt som du fortfarande har en hög förutsägelse poäng.
 
-### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Använda början- och slutankringsankringsankare för uttryck
+### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Använd uttryck start-och slut ankare
 
-Mönstersyntaxen ger början- och slutsynpunktsankaresyntax för en caret. `^` Början och uttryck ankare kan användas tillsammans för att rikta mycket specifika och eventuellt bokstavlig uttryck eller användas separat för att rikta avsikter.
+Pattern-syntaxen ger inledande och avslutande uttryck Anchor- `^`syntax för ett cirkumflex. De inledande och avslutande uttryck-ankarena kan användas tillsammans för att rikta in sig på mycket specifika och eventuellt exakta uttryck eller som används separat för mål avsikter.
 
 ## <a name="using-patternany-entity"></a>Med Pattern.any-entitet
 
@@ -496,29 +496,29 @@ Den varierande längden innehåller ord som kan förvirra LUIS om var entiteten 
 |Vem skapade {FormName}[?]|
 |Har {FormName} publicerats på franska[?]|
 
-### <a name="add-example-utterances-with-patternany"></a>Lägg till exempelyttranden med Pattern.any
+### <a name="add-example-utterances-with-patternany"></a>Lägg till exempel yttranden med mönster. alla
 
 1. Välj **Skapa** från det övre navigeringsfältet, och välj sedan **Avsikter** i det vänstra navigeringsfältet.
 
 1. Välj **FindForm** från listan över avsikter.
 
-1. Lägg till några exempel yttranden. Texten som ska förutsägas som en Pattern.any är i **fetstil**. Formulärnamnet är svårt att avgöra från de andra orden runt det i uttryck. Den Pattern.any kommer att hjälpa genom att markera gränserna för entiteten.
+1. Lägg till några exempel yttranden. Den text som ska förutsägas som ett mönster. det finns i **fet text**. Formulär namnet är svårt att avgöra från de andra orden runt det i uttryck. Mönstret. om du vill kan du markera gränserna för entiteten.
 
-    |Exempel på yttrande|Formulärnamn|
+    |Exempel på yttrande|Formulär namn|
     |--|--|
-    |Var finns formuläret **Vad gör du vid eldsvåda i laboratoriet** och vem behöver signera det när jag har läst det?|Vad ska man göra när en brand bryter ut i labbet
-    |Var finns **Begär flytt från medarbetare som är ny i företaget** på servern?|Begär flytt från medarbetare till företaget|
-    |Vem skapade "**Hälsofrågor på huvudcampus**" och vilken version är mest aktuell?|Hälso- och friskvårdsförfrågningar på huvudcampuset|
-    |Jag letar efter formuläret med namnet "**Begäran om kontorsflytt inklusive fysiska tillgångar**". |Office flytta begäran inklusive fysiska tillgångar|
+    |Var finns formuläret **Vad gör du vid eldsvåda i laboratoriet** och vem behöver signera det när jag har läst det?|Vad du kan göra när en brand släcks i labbet
+    |Var finns **Begär flytt från medarbetare som är ny i företaget** på servern?|Begär omlokalisering från medarbetare som är ny för företaget|
+    |Vem skapade "**Hälsofrågor på huvudcampus**" och vilken version är mest aktuell?|Hälso-och Wellness förfrågningar om huvud Campus|
+    |Jag letar efter formuläret med namnet "**Begäran om kontorsflytt inklusive fysiska tillgångar**". |Begäran om att flytta kontor inklusive fysiska till gångar|
 
     Utan en Pattern.any-entitet skulle det vara svårt för LUIS för att förstå var formulärrubriken slutar på grund av de många varianterna på formulärnamn.
 
 ### <a name="create-a-patternany-entity"></a>Skapa en Pattern.any-entitet
-Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i ett mönster eftersom mönstret markerar början och slutet av entiteten med syntax.
+Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i ett mönster eftersom det innehåller ett mönster som anger att entitetens början och slut har syntax.
 
 1. Välj **Entiteter** i det vänstra navigeringsfältet.
 
-1. Välj **+ Skapa**, `FormName`ange namnet och välj **Pattern.any** som typ. Välj **Skapa**.
+1. Välj **+ skapa**, ange namnet `FormName`och välj **mönster. vilken** typ som helst. Välj **Skapa**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Lägga till ett mönster som använder Pattern.any
 
@@ -554,9 +554,9 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](reference-pattern-syntax.md#explicit-lists).
 
-## <a name="what-did-this-tutorial-accomplish"></a>Vad gjorde den här guiden åstadkomma?
+## <a name="what-did-this-tutorial-accomplish"></a>Vad har den här självstudien att göra?
 
-Den här självstudien lade till mönster för att hjälpa LUIS att förutsäga avsikten med en betydligt högre poäng utan att behöva lägga till fler exempelyttranden. Markera entiteter och ignorerbar text tillåtna LUIS för att tillämpa mönstret på en mängd olika yttranden.
+Den här självstudien har lagt till mönster för att hjälpa LUIS att förutse avsikten med en betydligt högre poäng utan att behöva lägga till fler exempel yttranden. Markera entiteter och ignorerbar text tillåtna LUIS för att tillämpa mönstret på en mängd olika yttranden.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

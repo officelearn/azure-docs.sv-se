@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Dokumentation om talöversättning
-summary: Talöversättning från taltjänsten möjliggör tal-till-tal-översättning i realtid och tal-till-text-översättning av ljudströmmar
+summary: Tal översättning från Speech service möjliggör real tids-, tal-till-tal-och tal-till-text-översättning i real tid av ljud strömmar
 metadata:
-  title: Dokumentation för talöversättning – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
+  title: Dokumentation om tal översättning – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 04/13/2020
   ms.author: trbye
   ms.openlocfilehash: 5d5c1cdae695b68f45d55b51b76d88c2f93c50d1
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401425"
 landingContent:
-- title: Om talöversättning
+- title: Om tal Översättning
   linkLists:
   - linkListType: overview
     links:
@@ -34,11 +34,11 @@ landingContent:
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: Översätta tal-till-tal
       url: quickstarts/translate-speech-to-speech.md
-- title: Utveckla med talöversättning
+- title: Utveckla med tal Översättning
   linkLists:
   - linkListType: learn
     links:
-    - text: Översätt tal i realtid
+    - text: Översätt tal i real tid
       url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
@@ -52,5 +52,5 @@ landingContent:
       url: language-support.md#speech-translation
     - text: Vanliga frågor och svar om talöversättning
       url: https://www.microsoft.com/translator/business/faq/
-    - text: Priser för talöversättning
+    - text: Prissättning för tal Översättning
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 3cb583502f1ccf3d88cf8307bb62ab5ed261ce03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81403382"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Snabbstart: Identifiera ansikten i en bild med REST API och JavaScript
 
-I den här snabbstarten använder du Azure Face REST API med JavaScript för att identifiera mänskliga ansikten i en avbildning.
+I den här snabb starten ska du använda Azures ansikts REST API med Java Script för att identifiera mänskliga ansikten i en bild.
 
 ## <a name="prerequisites"></a>Krav
 
-- En Face-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Ansiktstjänsten och hämta din nyckel.
+- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel.
 - En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="initialize-the-html-file"></a>Initiera HTML-filen
@@ -41,7 +41,7 @@ Skapa en ny HTML-fil, *detectFaces.html*, och lägg till följande kod.
 </html>
 ```
 
-Lägg sedan till följande kod i elementet `body` i dokumentet. Den här koden konfigurerar ett grundläggande användargränssnitt med ett URL-fält, en **analysera ansiktsknapp,** ett svarsfönster och en bildvisningsfönster.
+Lägg sedan till följande kod i elementet `body` i dokumentet. Den här koden konfigurerar ett grundläggande användar gränssnitt med ett URL-fält, en **analys ansikte** -knapp, ett svars fönster och ett fönster för bild visning.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Skriva JavaScript-skriptet
 
-Lägg till följande kod direkt ovanför elementet `h1` i dokumentet. Den här koden konfigurerar JavaScript-koden som anropar Ansikts-API:et.
+Lägg till följande kod direkt ovanför elementet `h1` i dokumentet. Den här koden konfigurerar den JavaScript-kod som anropar Ansikts-API.
 
 ```html
 <script type="text/javascript">
@@ -124,7 +124,7 @@ Lägg till följande kod direkt ovanför elementet `h1` i dokumentet. Den här k
 </script>
 ```
 
-Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerationsnyckel och `uriBase` du måste ändra strängen så att den innehåller rätt slutpunktssträng. Fältet `returnFaceAttributes` anger vilka ansiktsattribut som ska hämtas. Du kan behöva ändra den här strängen beroende på hur din användning kommer att bli.
+Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du måste ändra `uriBase` strängen så att den innehåller rätt slut punkts sträng. Fältet `returnFaceAttributes` anger vilka ansiktsattribut som ska hämtas. Du kan behöva ändra den här strängen beroende på hur din användning kommer att bli.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -230,7 +230,7 @@ Följande text är ett exempel på ett lyckat JSON-svar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skrev du ett JavaScript-skript som anropar Azure Face-tjänsten för att identifiera ansikten i en avbildning och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
+I den här snabb starten skrev du ett JavaScript-skript som anropar Azure Face service för att identifiera ansikten i en bild och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

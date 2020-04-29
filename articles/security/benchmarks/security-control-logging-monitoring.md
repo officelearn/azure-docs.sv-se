@@ -1,6 +1,6 @@
 ---
-title: Azure Security Control - Loggning och övervakning
-description: Loggning och övervakning av Azure Security Control
+title: Azure säkerhets kontroll – loggning och övervakning
+description: Loggning och övervakning av Azures säkerhets kontroll
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -8,143 +8,143 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: e58df0997c62a131a3c9987369f8e076a62d6654
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408343"
 ---
-# <a name="security-control-logging-and-monitoring"></a>Säkerhetskontroll: Loggning och övervakning
+# <a name="security-control-logging-and-monitoring"></a>Säkerhets kontroll: loggning och övervakning
 
-Säkerhetsloggning och övervakning fokuserar på aktiviteter som är relaterade till att aktivera, hämta och lagra granskningsloggar för Azure-tjänster.
+Säkerhets loggning och övervakning fokuserar på aktiviteter som rör aktivering, hämtning och lagring av gransknings loggar för Azure-tjänster.
 
-## <a name="21-use-approved-time-synchronization-sources"></a>2.1: Använd godkända tidssynkroniseringskällor
+## <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 2.1 | 6.1 | Microsoft |
 
-Microsoft underhåller tidskällor för Azure-resurser, men du har möjlighet att hantera tidssynkroniseringsinställningarna för dina beräkningsresurser.
+Microsoft hanterar tids källor för Azure-resurser, men du har möjlighet att hantera tidssynkroniserings inställningarna för dina beräknings resurser.
 
-- [Konfigurera tidssynkronisering för Azure Windows-beräkningsresurser](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+- [Så här konfigurerar du tidssynkronisering för Azure Windows Compute-resurser](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
 
-- [Konfigurera tidssynkronisering för Azure Linux-beräkningsresurser](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
+- [Så här konfigurerar du tidssynkronisering för Azure Linux-beräknings resurser](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
 
-## <a name="22-configure-central-security-log-management"></a>2.2: Konfigurera hantering av centrala säkerhetsloggar
+## <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 2.2 | 6.5, 6.6 | Kund |
+| 2.2 | 6,5, 6,6 | Kund |
 
-Inta loggar via Azure Monitor för att aggregera säkerhetsdata som genereras av slutpunktsenheter, nätverksresurser och andra säkerhetssystem. I Azure Monitor använder du Log Analytics Workspace(s) för att fråga och utföra analyser och använda Azure Storage-konton för långsiktig/arkiveringslagring.
+Mata in loggar via Azure Monitor för att samla in säkerhets data som genererats av slut punkts enheter, nätverks resurser och andra säkerhets system. I Azure Monitor använder du Log Analytics arbets ytor för att fråga och utföra analyser och använda Azure Storage konton för långsiktig lagring.
 
-Alternativt kan du aktivera och ombord data till Azure Sentinel eller en tredje part SIEM. 
+Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part. 
 
-- [Så här går du ombord på Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-- [Samla in plattformsloggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Samla in plattforms loggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Samla in interna värdloggar för Virtuella Azure-datorer med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Så här samlar du in interna värd loggar för virtuella Azure-datorer med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [Så här kommer du igång med Azure Monitor och SIEM-integrering från tredje part](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+- [Komma igång med Azure Monitor och SIEM-integrering från tredje part](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-## <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Aktivera granskningsloggning för Azure-resurser
+## <a name="23-enable-audit-logging-for-azure-resources"></a>2,3: Aktivera gransknings loggning för Azure-resurser
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 2.3 | 6.2, 6.3 | Kund |
+| 2.3 | 6,2, 6,3 | Kund |
 
-Aktivera diagnostikinställningar på Azure-resurser för åtkomst till gransknings-, säkerhets- och diagnostikloggar. Aktivitetsloggar, som är automatiskt tillgängliga, inkluderar händelsekälla, datum, användare, tidsstämpel, källadresser, måladresser och andra användbara element.
+Aktivera diagnostiska inställningar på Azure-resurser för åtkomst till gransknings-, säkerhets-och diagnostikloggar. Aktivitets loggar, som är automatiskt tillgängliga, innehåller händelse källa, datum, användare, tidsstämpel, käll adresser, mål adresser och andra användbara element.
 
-- [Samla in plattformsloggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Samla in plattforms loggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Förstå loggning och olika loggtyper i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+- [Förstå loggning och olika logg typer i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
 
-## <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Samla in säkerhetsloggar från operativsystem
+## <a name="24-collect-security-logs-from-operating-systems"></a>2,4: samla in säkerhets loggar från operativ system
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 2.4 | 6.2, 6.3 | Kund |
+| 2.4 | 6,2, 6,3 | Kund |
 
-Om beräkningsresursen ägs av Microsoft ansvarar Microsoft för att övervaka den. Om beräkningsresursen ägs av din organisation är det ditt ansvar att övervaka den. Du kan använda Azure Security Center för att övervaka operativsystemet. Data som samlas in av Security Center från operativsystemet innehåller OS-typ och version, OS (Windows Event Logs), processer som körs, datornamn, IP-adresser och inloggade användare. Log Analytics Agent samlar också in kraschdumpfiler.
+Om beräknings resursen ägs av Microsoft ansvarar Microsoft för att övervaka den. Om beräknings resursen ägs av din organisation är det ditt ansvar att övervaka den. Du kan använda Azure Security Center för att övervaka operativ systemet. Data som samlas in av Security Center från operativ systemet innehåller OS-typ och version, OS (Windows-händelseloggen), processer som körs, dator namn, IP-adresser och inloggad användare. Log Analytics agent samlar även in krasch dum par-filer.
 
-- [Samla in interna värdloggar för Virtuella Azure-datorer med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Så här samlar du in interna värd loggar för virtuella Azure-datorer med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [Förstå datainsamling i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+- [Förstå Azure Security Center insamling av data](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
 
-## <a name="25-configure-security-log-storage-retention"></a>2.5: Konfigurera lagring av säkerhetslogglagring
+## <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurera säkerhets logg lagrings kvarhållning
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 2.5 | 6.4 | Kund |
 
-I Azure Monitor anger du lagringsperioden för Logganalysarbetsyta enligt organisationens efterlevnadsregler. Använd Azure Storage-konton för långsiktig/arkiveringslagring.
+I Azure Monitor anger Log Analytics du arbets ytans lagrings period enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig/Arkiv lagring.
 
-- [Ändra datalagringsperioden i Logganalys](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Ändra data lagrings perioden i Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
-- [Konfigurera bevarandeprincip för Azure Storage-kontologgar](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Konfigurera bevarande princip för Azure Storage konto loggar](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
-## <a name="26-monitor-and-review-logs"></a>2.6: Övervaka och granska loggar
+## <a name="26-monitor-and-review-logs"></a>2,6: övervaka och granska loggar
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 2,6 | 6.7 | Kund |
 
-Analysera och övervaka loggar för avvikande beteende och granska regelbundet resultat. Använd Azure Monitor's Log Analytics Workspace för att granska loggar och utföra frågor om loggdata.
+Analysera och övervaka loggar för avvikande beteende och granska resultaten regelbundet. Använd Azure Monitor Log Analytics arbets ytan för att granska loggar och köra frågor om loggdata.
 
-Alternativt kan du aktivera och ombord data till Azure Sentinel eller en tredje part SIEM. 
+Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel eller en SIEM från tredje part. 
 
-- [Så här går du ombord på Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
-- [Förstå logganalysarbetsyta](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Förstå Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
 - [Så här utför du anpassade frågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
-## <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Aktivera aviseringar för avvikande aktiviteter
+## <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: aktivera aviseringar för avvikande aktiviteter
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 2.7 | 6.8 | Kund |
 
-Använd Azure Security Center med Log Analytics Workspace för övervakning och avisering om avvikande aktivitet som finns i säkerhetsloggar och händelser.
+Använd Azure Security Center med Log Analytics arbets yta för övervakning och aviseringar om avvikande aktivitet i säkerhets loggar och händelser.
 
-Alternativt kan du aktivera och ombord data till Azure Sentinel.
+Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
-- [Så här går du ombord på Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 - [Hantera aviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
-- [Så här varnar du för logganalysloggdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Så här aviserar du om Log Analytics-loggdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-## <a name="28-centralize-anti-malware-logging"></a>2.8: Centralisera loggning av skadlig kod
+## <a name="28-centralize-anti-malware-logging"></a>2,8: centralisera loggning mot skadlig kod
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 2.8 | 8.6 | Kund |
+| 2.8 | 8,6 | Kund |
 
-Aktivera händelsesamling mot skadlig kod för virtuella Azure-datorer och molntjänster.
+Aktivera insamling av händelse samling för program mot skadlig kod för Azure Virtual Machines och Cloud Services.
 
-- [Konfigurera Microsoft Antimalware för virtuella datorer](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [Så här konfigurerar du Microsoft Antimalware för Virtual Machines](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
 
-- [Konfigurera Microsoft Antimalware för molntjänster](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [Så här konfigurerar du Microsoft Antimalware för Cloud Services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Förstå Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
-## <a name="29-enable-dns-query-logging"></a>2.9: Aktivera DNS-frågeloggning
+## <a name="29-enable-dns-query-logging"></a>2,9: Aktivera loggning av DNS-frågor
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 2.9 | 8.7 | Kund |
 
-Implementera en tredjepartslösning från Azure Marketplace för DNS-loggningslösning enligt dina organisationers behov.  
+Implementera en lösning från tredje part från Azure Marketplace för DNS-loggning av lösningar enligt organisationens behov.  
 
-## <a name="210-enable-command-line-audit-logging"></a>2.10: Aktivera granskningsloggning på kommandoraden
+## <a name="210-enable-command-line-audit-logging"></a>2,10: Aktivera loggning av kommando rads granskning
 
-| Azure-ID | CIS-ID:er | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 2,10 | 8.8 | Kund |
+| 2,10 | 8,8 | Kund |
 
-Använd Microsoft Monitoring Agent på alla virtuella Azure Windows-datorer som stöds för att logga händelsen för att skapa processer och CommandLine-fältet.   För Azure Linux Virtual-datorer som stöds kan du manuellt konfigurera konsolloggning per nod och använda Syslog för att lagra data.  Använd också Azure Monitors Log Analytics-arbetsyta för att granska loggar och utföra frågor om loggade data från Virtuella Azure-datorer. 
+Använd Microsoft Monitoring Agent på alla virtuella Azure Windows-datorer som stöds för att logga skapande händelsen för processen och fältet kommandorad.   För virtuella Azure Linux-datorer som stöds kan du manuellt konfigurera konsol loggning per nod och använda syslog för att lagra data.  Använd också Azure Monitor Log Analytics arbets ytan för att granska loggar och köra frågor om loggade data från virtuella Azure-datorer. 
 
 - [Datainsamling i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
 
@@ -155,4 +155,4 @@ Använd Microsoft Monitoring Agent på alla virtuella Azure Windows-datorer som 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se nästa säkerhetskontroll: [Identitets- och åtkomstkontroll](security-control-identity-access-control.md)
+- Se nästa säkerhets kontroll: [identitet och Access Control](security-control-identity-access-control.md)

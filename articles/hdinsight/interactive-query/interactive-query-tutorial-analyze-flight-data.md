@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: ETL-åtgärder med interaktiv fråga – Azure HDInsight'
-description: Självstudiekurs - Lär dig hur du extraherar data från en rå CSV-datauppsättning. Omvandla den med interaktiv fråga på HDInsight. Läs sedan in transformerade data i Azure SQL-databasen med hjälp av Apache Sqoop.
+title: 'Självstudie: ETL-åtgärder med interaktiv fråga – Azure HDInsight'
+description: Självstudie – lär dig hur du extraherar data från en rå CSV-datauppsättning. Transformera den med interaktiv fråga i HDInsight. Läs sedan in transformerade data i Azure SQL Database med hjälp av Apache Sqoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,30 +9,30 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
 ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81313746"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudiekurs: Extrahera, transformera och läsa in data med interaktiv fråga i Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av interaktiv fråga i Azure HDInsight
 
-I den här självstudien hämtar du en rå CSV-datafil med offentligt tillgängliga flygdata. Importera den till HDInsight-klusterlagring och omvandla sedan data med hjälp av interaktiv fråga i Azure HDInsight. När dessa data har transformerats läser du in dem till en Azure SQL-databas med hjälp av [Apache Sqoop](https://sqoop.apache.org/).
+I den här självstudien hämtar du en rå CSV-datafil med offentligt tillgängliga flyg data. Importera den till HDInsight-kluster lagring och omvandla sedan data med hjälp av interaktiv fråga i Azure HDInsight. När dessa data har transformerats läser du in dem till en Azure SQL-databas med hjälp av [Apache Sqoop](https://sqoop.apache.org/).
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Ladda ned exempelflygdata
 > * Ladda upp data till ett HDInsight-kluster
-> * Omvandla data med hjälp av interaktiv fråga
+> * Transformera data med interaktiv fråga
 > * Skapa en tabell i en Azure SQL-databas
 > * Använda Sqoop för att exportera data till en Azure SQL-databas
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett interaktivt frågekluster på HDInsight. Se [Skapa Apache Hadoop-kluster med Azure-portalen](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Interaktiv fråga** för **klustertyp**.
+* Ett interaktivt Query-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **interaktiv fråga** för **kluster typ**.
 
-* En Azure SQL-databas. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](/azure/sql-database/sql-database-single-database-get-started).
+* En Azure SQL Database. Du använder en Azure SQL-databas som måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](/azure/sql-database/sql-database-single-database-get-started).
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -40,9 +40,9 @@ Den här självstudien omfattar följande uppgifter:
 
 1. Gå till [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-2. Avmarkera alla fält på sidan och välj sedan följande värden:
+2. På sidan rensar du alla fält och väljer sedan följande värden:
 
-   | Namn | Värde |
+   | Name | Värde |
    | --- | --- |
    | Filtrera år |2019 |
    | Filtrera period |Januari |
@@ -54,21 +54,21 @@ Den här självstudien omfattar följande uppgifter:
 
 Det finns många sätt att överföra data till lagring som är associerade med ett HDInsight-kluster. I det här avsnittet använder du `scp` för att ladda upp data. Om du vill veta mer om andra sätt att ladda upp data kan du läsa [Överföra data till HDInsight](../hdinsight-upload-data.md).
 
-1. Ladda upp ZIP-filen till HDInsight-klusterhuvudnoden. Redigera kommandot nedan `FILENAME` genom att ersätta med namnet `CLUSTERNAME` på ZIP-filen och med namnet på HDInsight-klustret. Öppna sedan en kommandotolk, ställ in arbetskatalogen på filplatsen och ange kommandot.
+1. Överför. zip-filen till HDInsight-klustrets huvud nod. Redigera kommandot nedan genom att ersätta `FILENAME` med namnet på. zip-filen och `CLUSTERNAME` med namnet på HDInsight-klustret. Öppna sedan en kommando tolk, ange din arbets katalog till fil platsen och ange sedan kommandot.
 
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    Ange ja eller nej om du vill fortsätta om du uppmanas att göra det. Texten visas inte i fönstret medan du skriver.
+    Ange Ja eller Nej för att fortsätta om du uppmanas att göra det. Texten visas inte i fönstret när du skriver.
 
-2. När uppladdningen är klar kan du ansluta till klustret med hjälp av SSH. Redigera kommandot nedan `CLUSTERNAME` genom att ersätta med namnet på HDInsight-klustret. Ange sedan följande kommando:
+2. När uppladdningen är klar kan du ansluta till klustret med hjälp av SSH. Redigera kommandot nedan genom att ersätta `CLUSTERNAME` med namnet på HDInsight-klustret. Ange sedan följande kommando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Ställ in miljövariabel när en SSH-anslutning har upprättats. Ersätt `FILE_NAME` `SQL_SERVERNAME`, `SQL_DATABASE` `SQL_USER`, `SQL_PASWORD` , och med lämpliga värden. Ange sedan kommandot:
+3. Konfigurera en miljö variabel när en SSH-anslutning har upprättats. Ersätt `FILE_NAME`, `SQL_SERVERNAME` `SQL_DATABASE`,, och `SQL_PASWORD` med lämpliga värden. `SQL_USER` Ange sedan kommandot:
 
     ```bash
     export FILENAME=FILE_NAME
@@ -78,13 +78,13 @@ Det finns många sätt att överföra data till lagring som är associerade med 
     export SQLPASWORD='SQL_PASWORD'
     ```
 
-4. Packa upp ZIP-filen genom att ange kommandot nedan:
+4. Zippa upp zip-filen genom att ange kommandot nedan:
 
     ```bash
     unzip $FILENAME.zip
     ```
 
-5. Skapa en katalog på HDInsight-lagring och kopiera sedan CSV-filen till katalogen genom att ange kommandot nedan:
+5. Skapa en katalog på HDInsight-lagring och kopiera CSV-filen till katalogen genom att ange kommandot nedan:
 
     ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
@@ -97,7 +97,7 @@ Det finns många sätt att köra ett Hive-jobb på ett HDInsight-kluster. I det 
 
 Som en del av Hive-jobbet importerar du data från .csv-filen till en Hive-tabell med namnet **Delays** (Fördröjningar).
 
-1. Från SSH-prompten som du redan har för HDInsight-klustret använder du följande kommando för att skapa och redigera en ny fil med namnet **flightdelays.hql:**
+1. Från SSH-prompten som du redan har för HDInsight-klustret använder du följande kommando för att skapa och redigera en ny fil med namnet **flightdelays. HQL**:
 
     ```bash
     nano flightdelays.hql
@@ -165,7 +165,7 @@ Som en del av Hive-jobbet importerar du data från .csv-filen till en Hive-tabel
     FROM delays_raw;
     ```
 
-3. Om du vill spara filen trycker du på **Ctrl + X**och sedan **y**och anger sedan.
+3. Spara filen genom att trycka på **CTRL + X**, sedan på **y**och sedan på RETUR.
 
 4. Om du vill starta Hive och köra filen **flightdelays.hql** använder du följande kommando:
 
@@ -232,7 +232,7 @@ Det finns många sätt att ansluta till SQL Database och skapa en tabell. Följa
     GO
     ```
 
-    När instruktionen `GO` har angivits värderas de föregående instruktionerna. Den här satsen skapar en tabell med namnet **fördröjningar**med ett klustrade index.
+    När instruktionen `GO` har angivits värderas de föregående instruktionerna. Den här instruktionen skapar en tabell med namnet **fördröjningar**, med ett grupperat index.
 
     Använd följande fråga för att verifiera att tabellen har skapats:
 
@@ -254,23 +254,23 @@ Det finns många sätt att ansluta till SQL Database och skapa en tabell. Följa
 
 I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays/output`. I det här avsnittet använder du Sqoop för att exportera data från `/tutorials/flightdelays/output` till tabellen du skapade i Azure SQL Database.
 
-1. Kontrollera att Sqoop kan se din SQL-databas genom att ange kommandot nedan:
+1. Kontrol lera att Sqoop kan se din SQL-databas genom att ange kommandot nedan:
 
     ```bash
     sqoop list-databases --connect jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
     ```
 
-    Det här kommandot returnerar en lista över databaser, `delays` inklusive databasen där du skapade tabellen tidigare.
+    Det här kommandot returnerar en lista över databaser, inklusive databasen där du skapade `delays` tabellen tidigare.
 
-2. Exportera data `/tutorials/flightdelays/output` från `delays` till tabellen genom att ange kommandot nedan:
+2. Exportera data från `/tutorials/flightdelays/output` till `delays` tabellen genom att ange kommandot nedan:
 
     ```bash
     sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop ansluter till databasen som `delays` innehåller tabellen och exporterar data `delays` från katalogen `/tutorials/flightdelays/output` till tabellen.
+    Sqoop ansluter till databasen som innehåller `delays` tabellen och exporterar data från `/tutorials/flightdelays/output` katalogen till `delays` tabellen.
 
-3. När sqoop-kommandot är klart använder du tsql-verktyget för att ansluta till databasen genom att ange kommandot nedan:
+3. När Sqoop-kommandot har slutförts använder du tsql-verktyget för att ansluta till databasen genom att ange kommandot nedan:
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
@@ -289,13 +289,13 @@ I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage, så att du kan ta bort ett kluster på ett säkert sätt när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är många gånger högre än avgifterna för lagring, är det ekonomiskt meningsfullt att ta bort kluster när de inte används.
+När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage, så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger mer än avgifterna för lagring, är det ekonomiskt klokt att ta bort kluster när de inte används.
 
-Information om hur du tar bort ett kluster finns i [Ta bort ett HDInsight-kluster med webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
+Om du vill ta bort ett kluster läser du [ta bort ett HDInsight-kluster med hjälp av webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien tog du en rå CSV-datafil, importerade den till en HDInsight-klusterlagring och omvandlade sedan data med hjälp av Interaktiv fråga i Azure HDInsight.  Gå vidare till nästa självstudiekurs för att lära dig mer om Apache Hive Warehouse Connector.
+I den här självstudien tog du en rå CSV-datafil, importerade den till en HDInsight-kluster lagring och transformerade sedan data med hjälp av interaktiv fråga i Azure HDInsight.  Gå vidare till nästa självstudie om du vill lära dig mer om Apache Hive lager koppling.
 
 > [!div class="nextstepaction"]
-> [Integrera Apache Spark och Apache Hive med Hive Warehouse Connector](./apache-hive-warehouse-connector.md)
+> [Integrera Apache Spark och Apache Hive med Hive-lagrets koppling](./apache-hive-warehouse-connector.md)

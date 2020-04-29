@@ -1,5 +1,5 @@
 ---
-title: Konversation med flera enheter (förhandsgranskning) – taltjänst
+title: Konversation med flera enheter (för hands version) – tal service
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -11,119 +11,119 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81401052"
 ---
-# <a name="what-is-multi-device-conversation-preview"></a>Vad är konversation med flera enheter (förhandsgranskning)?
+# <a name="what-is-multi-device-conversation-preview"></a>Vad är en konversation med flera enheter (för hands version)?
 
-**Konversation med flera enheter** gör det enkelt att skapa en tal- eller textkonversation mellan flera klienter och samordna de meddelanden som skickas mellan dem.
+**Med en konversation med flera enheter** blir det enkelt att skapa en röst-eller textkonversation mellan flera klienter och koordinera meddelanden som skickas mellan dem.
 
-Med **konversation med flera enheter**kan du:
+Med en **konversation med flera enheter**kan du:
 
 - Anslut flera klienter till samma konversation och hantera sändning och mottagning av meddelanden mellan dem.
-- Transkribera enkelt ljud från varje klient och skicka transkriptionen till de andra, med valfri översättning.
-- Skicka enkelt textmeddelanden mellan klienter, med valfri översättning.
+- Du kan enkelt skriva över ljud från varje klient och skicka avskriften till de andra, med valfri översättning.
+- Skicka SMS-meddelanden mellan klienter, med valfri översättning.
 
-Du kan skapa en funktion eller lösning som fungerar på en rad enheter. Varje enhet kan självständigt skicka meddelanden (antingen transkriptioner av ljud eller snabbmeddelanden) till alla andra enheter.
+Du kan bygga en funktion eller lösning som fungerar över en matris med enheter. Varje enhet kan skicka meddelanden separat (antingen avskrifter av ljud eller snabb meddelanden) till alla andra enheter.
 
-Medan [**konversationsavskription**](conversation-transcription.md) fungerar på en enda enhet med en flerkanalig mikrofonmatris, är **konversation med flera enheter** lämplig för scenarier med flera enheter, var och en med en enda mikrofon.
+[**Konversations avskrift**](conversation-transcription.md) fungerar på en enda enhet med en mikrofon mat ris för flera kanaler, och en **konversation** med flera enheter lämpar sig för scenarier med flera enheter, var och en med en enda mikrofon.
 
 >[!IMPORTANT]
-> Konversationer med flera enheter stöder **inte** att skicka ljudfiler mellan klienter: endast transkription och/eller översättning.
+> Konversationen med flera enheter stöder **inte** sändning av ljudfiler mellan klienter: endast avskrifter och/eller översättning.
 
 ## <a name="key-features"></a>Huvudfunktioner
 
-- **Transkription** i realtid – Alla får en utskrift av konversationen, så att de kan följa med texten i realtid eller spara den till senare.
-- **Översättning i realtid** – Med fler än 60 [språk som stöds](language-support.md#text-languages) för textöversättning kan användare översätta konversationen till önskade språk.
-- **Läsbara transkriptioner** – Transkriptionen och översättningen är lätta att följa, med skiljetecken och meningsbrytningar.
-- **Röst- eller textinmatning** – Varje användare kan tala eller skriva på sin egen enhet, beroende på vilka språkstödsfunktioner som är aktiverade för deltagarens valda språk. Se [Språkstöd](language-support.md#speech-to-text).
-- **Meddelanderelä** - Konversationstjänsten för flera enheter distribuerar meddelanden som skickas av en klient till alla andra på det eller de språk som de själva väljer.
-- **Meddelandeidentifiering** – Alla meddelanden som användarna får i konversationen kommer att taggas med smeknamnet på den användare som skickade det.
+- **Real tids avskrift** – alla får en avskrift av konversationen så att de kan följa efter texten i real tid eller spara den för senare.
+- **Real tids översättning** – med fler än 60 [språk som stöds](language-support.md#text-languages) för text översättning kan användare översätta konversationen till deras önskade språk.
+- **Läsbara avskrifter** – avskriften och översättningen är enkla att följa, med skiljetecken och menings brytningar.
+- **Röst-eller text inmatning** – varje användare kan tala eller skriva på sin egen enhet, beroende på vilka språk stöd som har Aktiver ATS för deltagarens valda språk. Se [språk stöd](language-support.md#speech-to-text).
+- **Meddelande relä** – konversations tjänsten för flera enheter distribuerar meddelanden som skickas av en klient till alla andra på de språk som du väljer.
+- **Meddelande identifiering** – varje meddelande som användare får i konversationen taggas med smek namnet för den användare som skickade den.
 
 ## <a name="use-cases"></a>Användningsfall
 
-### <a name="lightweight-conversations"></a>Lätta konversationer
+### <a name="lightweight-conversations"></a>Lätta samtal
 
-Det är enkelt att skapa och delta i en konversation. En användare kommer att fungera som "värd" och skapa en konversation, som genererar en slumpmässig fem bokstäver konversation kod och en QR-kod. Alla andra användare kan delta i konversationen genom att skriva in konversationskoden eller skanna QR-koden. 
+Det är enkelt att skapa och ansluta till en konversation. En användare fungerar som "värd" och skapar en konversation, som genererar en slumpmässig samtals kod för fem brev och en QR-kod. Alla andra användare kan delta i konversationen genom att skriva i konversations koden eller skanna QR-koden. 
 
-Eftersom användare går med via konversationskoden och inte behöver dela kontaktinformation är det enkelt att skapa snabba konversationer på plats.
+Eftersom användare ansluter via konversations koden och inte behöver dela kontakt information, är det enkelt att skapa snabba, på plats-konversationer.
 
-### <a name="inclusive-meetings"></a>Inkluderande möten
+### <a name="inclusive-meetings"></a>Inkluderade möten
 
-Transkription och översättning i realtid kan bidra till att göra konversationer tillgängliga för personer som talar olika språk och/eller är döva eller hörselskadade. Varje person kan också delta aktivt i konversationen genom att tala sitt språk eller skicka snabbmeddelanden.
+Real tids avskrift och översättning kan hjälpa till att göra konversationer tillgängliga för personer som talar olika språk och/eller är döva eller är hörselskadade. Varje person kan också aktivt delta i konversationen genom att tala om vilket språk som helst eller skicka snabb meddelanden.
 
 ### <a name="presentations"></a>Presentationer
 
-Du kan också tillhandahålla bildtexter för presentationer och föreläsningar både på skärmen och på åhörarnas egna enheter. När publiken har anslutit sig till konversationskoden kan de se avskriften på sitt önskade språk på sin egen enhet.
+Du kan också ange bild texter för presentationer och föreläsningar både på skärmen och på mål grupps medlemmarnas egna enheter. När mål gruppen har anslutits till en konversations kod kan de se avskriften på deras önskade språk på sin egen enhet.
 
 > [!NOTE]
-> Om du vill se ett exempel kan du läsa [Presentationsöversättare](https://www.microsoft.com/translator/apps/presentation-translator/), ett PowerPoint-tillägg som använder konversationstjänsten för flera enheter. Du kan ladda ned den [här](https://www.microsoft.com/download/details.aspx?id=55024).
+> Om du vill se ett exempel kan du titta på [presentations översättare](https://www.microsoft.com/translator/apps/presentation-translator/), ett PowerPoint-tillägg som använder konversations tjänsten för flera enheter. Du kan ladda ned den [här](https://www.microsoft.com/download/details.aspx?id=55024).
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-Alla klienter använder Tal-SDK för att skapa eller delta i en konversation. Tal-SDK interagerar med konversationstjänsten för flera enheter, som hanterar konversationens livstid, inklusive listan över deltagare, varje klients valda språk och meddelanden som skickas.  
+Alla klienter kommer att använda tal-SDK för att skapa eller ansluta till en konversation. Tal-SDK: n samverkar med konversations tjänsten för flera enheter, som hanterar livs längden för en konversation, inklusive deltagar listan, varje klients valda språk och meddelanden som skickas.  
 
-Varje klient kan skicka ljud eller snabbmeddelanden. Tjänsten använder taligenkänning för att konvertera ljud till text och skicka snabbmeddelanden som de är. Om klienter väljer olika språk översätter tjänsten alla meddelanden till det angivna språket för varje klient.
+Varje klient kan skicka ljud-eller snabb meddelanden. Tjänsten använder tal igenkänning för att konvertera ljud till text och skicka snabb meddelanden som de är. Om klienter väljer olika språk kommer tjänsten att översätta alla meddelanden till de angivna språken för varje klient.
 
-![Översiktsdiagram för konversationer med flera enheter](media/scenarios/multi-device-conversation.png)
+![Översikts diagram över flera enheter](media/scenarios/multi-device-conversation.png)
 
 ## <a name="overview-of-conversation-host-and-participant"></a>Översikt över konversation, värd och deltagare
 
-En **konversation** är en session som en användare startar för de andra deltagande användarna att gå med i. Alla klienter ansluter till konversationen med hjälp av **konversationskoden**med fem bokstäver .
+En **konversation** är en session som en användare startar för att de andra deltagande användarna ska kunna ansluta. Alla klienter ansluter till konversationen med en **konversations kod**på fem bokstäver.
 
 Varje konversation skapar metadata som innehåller:
--    Tidsstämplar för när konversationen startade och avslutades
--    Lista över alla deltagare i konversationen, som innehåller varje användares valda smeknamn och primära språk för tal- eller textinmatning.
+-    Tidsstämpel för när konversationen startades och avslutades
+-    Lista över alla deltagare i konversationen som innehåller varje användares valda smek namn och primärt språk för tal-eller text indata.
 
 
 Det finns två typer av användare i en konversation: **värd** och **deltagare**.
 
-Värden **host** är den användare som startar en konversation och som fungerar som administratör för den konversationen.
+**Värden** är den användare som startar en konversation och som agerar som administratör för den konversationen.
 - Varje konversation kan bara ha en värd
-- Värden måste vara ansluten till konversationen under hela konversationen. Om värden lämnar konversationen avslutas konversationen för alla andra deltagare.
+- Värden måste vara ansluten till konversationen under konversationens varaktighet. Om värden lämnar konversationen avslutas konversationen för alla andra deltagare.
 - Värden har några extra kontroller för att hantera konversationen: 
-    - Lås konversationen – förhindra att ytterligare deltagare går med
-    - Stäng av ljudet för alla deltagare – hindra andra deltagare från att skicka meddelanden till konversationen, oavsett om de transkriberas från tal eller snabbmeddelanden
-    - Stänga av ljudet för enskilda deltagare
-    - Slå på ljudet för alla deltagare
-    - Slå på ljudet för enskilda deltagare
+    - Lås konversationen – förhindra att fler deltagare ansluter sig
+    - Stäng av alla deltagare – hindra andra deltagare från att skicka meddelanden till konversationen, oavsett om de är tilldelade från tal eller snabb meddelanden
+    - Stänga av enskilda deltagare
+    - Stäng av alla deltagare
+    - Slå av enskilda deltagare
 
 En **deltagare** är en användare som ansluter till en konversation.
-- En deltagare kan när som helst lämna och återansluta samma konversation, utan att avsluta konversationen för andra deltagare.
-- Deltagarna kan inte låsa konversationen eller stänga av/slå på ljudet för andra
+- En deltagare kan när som helst lämna och återansluta till samma konversation utan att avsluta konversationen för andra deltagare.
+- Deltagare kan inte låsa konversationen eller stänga av/stänga av andra
 
 > [!NOTE]
-> Varje konversation kan ha upp till 100 deltagare, varav 10 kan tala samtidigt vid varje given tidpunkt.
+> Varje konversation kan ha upp till 100 deltagare, varav 10 kan läsas samtidigt vid en bestämd tidpunkt.
 
 ## <a name="language-support"></a>Stöd för språk
 
-När du skapar eller går med i en konversation måste varje användare välja ett **primärt språk:** det språk som de ska tala och skicka snabbmeddelanden på, och även det språk de kommer att se andra användares meddelanden.
+När du skapar eller ansluter till en konversation måste varje användare välja ett **primärt språk**: det språk som de ska tala om och skicka snabb meddelanden i, och även det språk som de kommer att se andra användares meddelanden.
 
-Det finns två typer av språk: **tal-till-text** och **endast text:**
-- Om användaren väljer ett **tal-till-text-språk** som sitt primära språk kan han eller hon använda både tal- och textinmatning i konversationen.
+Det finns två typer av språk: **tal till text** och **endast text**:
+- Om användaren väljer ett **tal-till-text-** språk som primärt språk kommer de att kunna använda både tal-och text indata i konversationen.
 
-- Om användaren väljer ett **språk med endast text** kan han eller hon bara använda textinmatning och skicka snabbmeddelanden i konversationen. Språk med enbart text är de språk som stöds för textöversättning, men inte tal-till-text. Du kan se tillgängliga språk på [språkstödsidan.](supported-languages.md)
+- Om användaren väljer ett språk som **bara är text** , kommer de bara att kunna använda text indata och skicka snabb meddelanden i konversationen. Text språk är de språk som stöds för text översättning, men inte tal-till-text. Du kan se tillgängliga språk på sidan [språk stöd](supported-languages.md) .
 
-Förutom sitt primära språk kan varje deltagare också ange ytterligare språk för att översätta konversationen.
+Förutom det primära språket kan varje deltagare också ange ytterligare språk för översättning av konversationen.
 
-Nedan följer en sammanfattning av vad användaren kommer att kunna göra i en konversation med flera enheter, baserat på deras valda primära språk.
+Nedan visas en sammanfattning av vad användaren kan göra i en konversation med flera enheter, baserat på deras valda primära språk.
 
 
 | Vad användaren kan göra i konversationen | Tal till text | Endast text |
 |-----------------------------------|----------------|------|
-| Använda talinmatning | ✔️ | ❌ |
-| Skicka snabbmeddelanden | ✔️ | ✔️ |
+| Använd tal ingångar | ✔️ | ❌ |
+| Skicka snabb meddelanden | ✔️ | ✔️ |
 | Översätt konversationen | ✔️ | ✔️ |
 
 > [!NOTE]
-> Listor över tillgängliga tal-till-text- och textöversättningsspråk finns [i språk som stöds](supported-languages.md).
+> Listor över tillgängliga språk för tal till text och text översättning finns i språk som [stöds](supported-languages.md).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Översätt konversationer i realtid](quickstarts/multi-device-conversation.md)
+> [Översätt konversationer i real tid](quickstarts/multi-device-conversation.md)

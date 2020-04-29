@@ -1,7 +1,7 @@
 ---
-title: Så här använder du automatisk språkidentifiering för tal till text
+title: Så här använder du automatisk språk identifiering för tal till text
 titleSuffix: Azure Cognitive Services
-description: Tal-SDK stöder automatisk språkidentifiering för tal till text. När du använder den här funktionen jämförs ljudet mot en lista med språk som tillhandahålls och den mest sannolika matchningen bestäms. Det returnerade värdet kan sedan användas för att välja den språkmodell som används för tal till text.
+description: 'Tal-SDK: n stöder automatisk språk identifiering för tal till text. När du använder den här funktionen jämförs ljudet med den angivna listan med språk och den mest sannolika matchningen fastställs. Det returnerade värdet kan sedan användas för att välja den språk modell som används för tal till text.'
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,29 +12,29 @@ ms.date: 03/16/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402203"
 ---
-# <a name="automatic-language-detection-for-speech-to-text"></a>Automatisk språkidentifiering för tal till text
+# <a name="automatic-language-detection-for-speech-to-text"></a>Automatisk språk identifiering för tal till text
 
-Automatisk språkidentifiering används för att avgöra den mest sannolika matchningen för ljud som skickas till Tal-SDK jämfört med en lista över angivna språk. Värdet som returneras av automatisk språkidentifiering används sedan för att välja språkmodell för tal till text, vilket ger dig en mer exakt transkription. Information om vilka språk som är tillgängliga finns i [Språkstöd](language-support.md).
+Automatisk språk identifiering används för att avgöra den mest sannolika matchningen för ljud som skickas till tal-SDK: n jämfört med en lista med angivna språk. Värdet som returneras av automatisk språk identifiering används sedan för att välja språk modell för tal till text, vilket ger en mer exakt avskrift. Information om vilka språk som är tillgängliga finns i [språk stöd](language-support.md).
 
-I den här artikeln får du `AutoDetectSourceLanguageConfig` lära `SpeechRecognizer` dig hur du använder för att skapa ett objekt och hämta det identifierade språket.
+I den här artikeln får du lära dig hur du `AutoDetectSourceLanguageConfig` använder för att `SpeechRecognizer` skapa ett objekt och hämta det identifierade språket.
 
 > [!IMPORTANT]
-> Den här funktionen är endast tillgänglig för Speech SDK för C#, C++, Java och Python.
+> Den här funktionen är endast tillgänglig för tal-SDK för C#, C++, Java och python.
 
-## <a name="automatic-language-detection-with-the-speech-sdk"></a>Automatisk språkidentifiering med Tal-SDK
+## <a name="automatic-language-detection-with-the-speech-sdk"></a>Automatisk språk identifiering med talet SDK
 
-Automatisk språkidentifiering har för närvarande en gräns på två språk per identifiering på tjänstsidan. Ha denna begränsning i `AudoDetectSourceLanguageConfig` åtanke när du bygger ditt objekt. I exemplen nedan ska du `AutoDetectSourceLanguageConfig`skapa en och `SpeechRecognizer`sedan använda den för att skapa en .
+Automatisk språk identifiering har för närvarande en gräns på Server sidan på två språk per identifiering. Behåll den här begränsningen i åtanke när `AudoDetectSourceLanguageConfig` du har byggt ditt objekt. I exemplen nedan skapar du en `AutoDetectSourceLanguageConfig`och använder den sedan för att skapa en. `SpeechRecognizer`
 
 > [!TIP]
-> Du kan också ange en anpassad modell som ska användas när du utför tal till text. Mer information finns i [Använda en anpassad modell för automatisk språkidentifiering](#use-a-custom-model-for-automatic-language-detection).
+> Du kan också ange en anpassad modell som ska användas när du utför tal till text. Mer information finns i [använda en anpassad modell för automatisk språk identifiering](#use-a-custom-model-for-automatic-language-detection).
 
-Följande kodavsnitt illustrerar hur du använder automatisk språkidentifiering i dina appar:
+Följande kodfragment visar hur du använder automatisk språk identifiering i dina appar:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -118,11 +118,11 @@ detected_language = auto_detect_source_language_result.language
 
 ::: zone-end
 
-## <a name="use-a-custom-model-for-automatic-language-detection"></a>Använda en anpassad modell för automatisk språkidentifiering
+## <a name="use-a-custom-model-for-automatic-language-detection"></a>Använd en anpassad modell för automatisk språk identifiering
 
-Förutom språkidentifiering med taltjänstmodeller kan du ange en anpassad modell för förbättrad igenkänning. Om en anpassad modell inte tillhandahålls använder tjänsten standardspråkmodellen.
+Förutom språk identifiering med tal tjänst modeller kan du ange en anpassad modell för bättre igenkänning. Om ingen anpassad modell har angetts använder tjänsten standard språk modellen.
 
-Kodavsnitten nedan visar hur du anger en anpassad modell i anropet till taltjänsten. Om det identifierade `en-US`språket är används standardmodellen. Om det identifierade `fr-FR`språket är används slutpunkten för den anpassade modellen:
+Kodfragmenten nedan visar hur du anger en anpassad modell i ditt anrop till röst tjänsten. Om det identifierade språket `en-US`är, används standard modellen. Om det identifierade språket `fr-FR`är, används slut punkten för den anpassade modellen:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -184,4 +184,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Referensdokumentation för Tal SDK](speech-sdk.md)
+- [Dokumentation om tal SDK-referens](speech-sdk.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid-prenumerationer via portal
-description: I den här artikeln beskrivs hur du skapar Event Grid-prenumerationer för källor som stöds, till exempel Azure Blob Storage, med hjälp av Azure-portalen.
+title: Azure Event Grid prenumerationer via portalen
+description: I den här artikeln beskrivs hur du skapar Event Grid prenumerationer för källor som stöds, till exempel Azure Blob Storage, genom att använda Azure Portal.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,64 +8,64 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393166"
 ---
-# <a name="subscribe-to-events-through-portal"></a>Prenumerera på evenemang via portal
+# <a name="subscribe-to-events-through-portal"></a>Prenumerera på händelser via portalen
 
-I den här artikeln beskrivs hur du skapar Event Grid-prenumerationer via portalen.
+Den här artikeln beskriver hur du skapar Event Grid prenumerationer via portalen.
 
-## <a name="create-event-subscriptions"></a>Skapa händelseprenumerationer
+## <a name="create-event-subscriptions"></a>Skapa händelse prenumerationer
 
-Om du vill skapa en Event Grid-prenumeration för någon av de [händelsekällor](overview.md#event-sources)som stöds använder du följande steg. Den här artikeln visar hur du skapar en Event Grid-prenumeration för en Azure-prenumeration.
+Följ stegen nedan om du vill skapa en Event Grid-prenumeration för någon av de [händelse källor](overview.md#event-sources)som stöds. Den här artikeln visar hur du skapar en Event Grid-prenumeration för en Azure-prenumeration.
 
 1. Välj **Alla tjänster**.
 
    ![Välj alla tjänster](./media/subscribe-through-portal/select-all-services.png)
 
-1. Sök efter prenumerationer på **eventrutnät** och välj dem bland de tillgängliga alternativen.
+1. Sök efter **Event Grid prenumerationer** och välj den från de tillgängliga alternativen.
 
-   ![Search](./media/subscribe-through-portal/search.png)
+   ![Sök](./media/subscribe-through-portal/search.png)
 
 1. Välj **+ Händelseprenumeration**.
 
    ![Lägg till en prenumeration](./media/subscribe-through-portal/add-subscription.png)
 
-1. Välj den typ av prenumeration som du vill skapa. Om du till exempel vill prenumerera på händelser för din Azure-prenumeration väljer du **Azure-prenumerationer** och målprenumerationen.
+1. Välj den typ av prenumeration som du vill skapa. Om du till exempel vill prenumerera på händelser för din Azure-prenumeration väljer du **Azure-prenumerationer** och mål prenumerationen.
 
    ![Välj Azure-prenumeration](./media/subscribe-through-portal/azure-subscription.png)
 
-1. Om du vill prenumerera på alla händelsetyper för den här händelsekällan håller du alternativet **Prenumerera på alla händelsetyper** markerat. Annars väljer du händelsetyperna för den här prenumerationen.
+1. Om du vill prenumerera på alla händelse typer för den här händelse källan ska du se till att alternativet **Prenumerera på alla händelse typer** är markerat. Annars väljer du händelse typer för den här prenumerationen.
 
-   ![Välj händelsetyper](./media/subscribe-through-portal/select-event-types.png)
+   ![Välj händelse typer](./media/subscribe-through-portal/select-event-types.png)
 
-1. Ange ytterligare information om händelseprenumerationen, till exempel slutpunkten för hantering av händelser och ett prenumerationsnamn.
+1. Ange ytterligare information om händelse prenumerationen, till exempel slut punkten för hantering av händelser och ett prenumerations namn.
 
-   ![Ange prenumerationsinformation](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![Ange prenumerations information](./media/subscribe-through-portal/provide-subscription-details.png)
 
-1. Om du vill aktivera principer för obeställbara bokstäver och anpassa återförsök väljer du **Ytterligare funktioner**.
+1. Om du vill aktivera inaktive brevering och anpassa principer för återförsök väljer du **ytterligare funktioner**.
 
    ![Välj ytterligare funktioner](./media/subscribe-through-portal/select-additional-features.png)
 
 1. Välj en behållare som ska användas för att lagra händelser som inte levereras och ange hur återförsök ska skickas.
 
-   ![Aktivera obeställbara bokstäver och försök igen](./media/subscribe-through-portal/set-deadletter-retry.png)
+   ![Aktivera obeställbara meddelanden och försök igen](./media/subscribe-through-portal/set-deadletter-retry.png)
 
 1. Välj **Skapa** när du är klar.
 
 ## <a name="create-subscription-on-resource"></a>Skapa prenumeration på resurs
 
-Vissa händelsekällor stöder att skapa en händelseprenumeration via portalgränssnittet för den resursen. Välj händelsekälla och leta efter **händelser** i den vänstra rutan.
+Vissa händelse källor har stöd för att skapa en händelse prenumeration via Portal gränssnittet för den resursen. Välj händelse källa och Sök efter **händelser** i det vänstra fönstret.
 
-![Ange prenumerationsinformation](./media/subscribe-through-portal/resource-events.png)
+![Ange prenumerations information](./media/subscribe-through-portal/resource-events.png)
 
-Portalen ger dig alternativ för att skapa en händelseprenumeration som är relevant för den källan.
+Portalen innehåller alternativ för att skapa en händelse prenumeration som är relevant för den källan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* För information om händelseleverans och återförsök, [Leverans av eventrutnätsmeddelanden och återförsök](delivery-and-retry.md).
+* Om du vill ha information om händelse leverans och försök kan du [Event Grid meddelande leverans och försöka igen](delivery-and-retry.md).
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Information om hur du snabbt kommer igång med Event Grid finns i [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

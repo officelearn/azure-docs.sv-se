@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera Oracle Cloud Infrastructure Console för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Läs om hur du automatiskt etablerar och avserlar användarkonton från Azure AD till Oracle Cloud Infrastructure Console.
+title: 'Självstudie: Konfigurera Oracle Cloud Infrastructure-konsolen för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du automatiskt etablerar och avetablerar användar konton från Azure AD till en Oracle Cloud Infrastructure-konsol.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,113 +16,113 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5aa33529a1957b6e7728b3a87bacf6bb91d987ae
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81378956"
 ---
-# <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Oracle Cloud Infrastructure Console för automatisk användaretablering
+# <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en Oracle Cloud Infrastructure-konsol för automatisk användar etablering
 
-I den här självstudien beskrivs de steg du behöver utföra i både Oracle Cloud Infrastructure Console och Azure Active Directory (Azure AD) för att konfigurera automatisk användaretablering. När azure AD är konfigurerat avsersättningar och avsersättningar avsättningar till [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) med hjälp av Azure AD-etableringstjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+I den här självstudien beskrivs de steg du behöver utföra i både Oracle Cloud Infrastructure-konsolen och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [Oracle Cloud Infrastructure-konsolen](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
-> * Skapa användare i Oracles molninfrastrukturkonsol
-> * Ta bort användare i Oracle Cloud Infrastructure Console när de inte längre behöver åtkomst
-> * Synkronisera användarattribut mellan Azure AD och Oracle Cloud Infrastructure Console
-> * Etableringsgrupper och gruppmedlemskap i Oracles molninfrastrukturkonsol
-> * [Enkel inloggning till](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial) Oracle Cloud Infrastructure Console (rekommenderas)
+> * Skapa användare i Oracle Cloud Infrastructure-konsolen
+> * Ta bort användare i Oracle Cloud Infrastructure-konsolen när de inte behöver åtkomst längre
+> * Behåll användarattribut synkroniserade mellan Azure AD och Oracle Cloud Infrastructure Console
+> * Etablera grupper och grupp medlemskap i Oracle Cloud Infrastructure-konsolen
+> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial) till Oracle Cloud Infrastructure Console (rekommenderas)
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Ett användarkonto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
-* En Oracle Cloud Infrastructure [Control-klient](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton).
-* Ett användarkonto i Oracle Cloud Infrastructure Control med administratörsbehörighet.
+* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör). 
+* En Oracle Cloud Infrastructure-kontroll [klient](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton).
+* Ett användar konto i Oracle Cloud Infrastructure Control med administratörs behörighet.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera distributionen av etableringen
-1. Läs mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Bestäm vem som ska vara i [omfång för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Bestäm vilka data som ska [mappas mellan Azure AD och Oracle Cloud Infrastructure Console](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
+1. Läs om [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Ta reda på vem som kommer att vara inom [omfånget för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och Oracle Cloud Infrastructure Console](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Oracle Cloud Infrastructure Console för att stödja etablering med Azure AD
+## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Oracle Cloud Infrastructure-konsolen så att den stöder etablering med Azure AD
 
-1. Logga in på Administrationskonportalen för Oracle Cloud Infrastructure Console. I det övre vänstra hörnet av skärmen navigerar du till **Identity > Federation**.
+1. Logga in på administrations portalen för Oracle Cloud Infrastructure-konsolen. I det övre vänstra hörnet på skärmen navigerar du till **Identity > Federation**.
 
     ![Oracle-administratör](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/identity.png)
 
-2. Klicka på webbadressen som visas på sidan bredvid Oracle Identity Cloud Service Console.
+2. Klicka på den URL som visas på sidan bredvid Oracle Identity Cloud Service-konsolen.
 
-    ![Oracle URL](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/url.png)
+    ![Oracle-URL](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/url.png)
 
-3. Klicka på **Lägg till identitetsprovider** för att skapa en ny identitetsleverantör. Spara IdP-ID:et som ska användas som en del av klient-URL:en. Klicka på plusikonen bredvid **fliken Program** för att skapa en OAuth-klient och Grant IDCS Identity Domain Administrator AppRole.
+3. Skapa en ny identitetsprovider genom att klicka på **Lägg till identitets leverantör** . Spara IdP-ID: t som ska användas som en del av klient-URL: en. Klicka på plus-ikonen bredvid fliken **program** för att skapa en OAuth-klient och tilldela IDCS identitet domän administratör AppRole.
 
-    ![Ikon för Oracle Cloud](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/add.png)
+    ![Ikon för Oracle-moln](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/add.png)
 
-4. Följ skärmbilderna nedan för att konfigurera ditt program. När konfigurationen är klar klicka på **Spara**.
+4. Konfigurera ditt program genom att följa skärm bilderna nedan. När konfigurationen är färdig klickar du på **Spara**.
 
     ![Oracle-konfiguration](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/configuration.png)
 
-    ![Policy för utgivning av Oracle-token](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/token-issuance.png)
+    ![Utgivnings princip för Oracle-token](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/token-issuance.png)
 
-5. Under fliken Konfigurationer i ditt program expandera alternativet **Allmän information** för att hämta klient-ID och klienthemlighet.
+5. Under fliken konfigurationer i programmet expanderar du alternativet **allmän information** för att hämta klient-ID och klient hemlighet.
 
-    ![Oracle token generation](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
+    ![Generering av Oracle-token](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
 
-6. Så här skapar du en hemlig token Base64 koda klient-ID och klienthemlighet i formatet **klient-ID:Client Secret**. Spara den hemliga token. Det här värdet anges i fältet **Hemlig token** på etableringsfliken i ditt Oracle Cloud Infrastructure Console-program i Azure-portalen.
+6. Så här skapar du en hemlig token base64 koda klient-ID och klient hemlighet i formatet **klient-ID: klient hemlighet**. Spara den hemliga token. Det här värdet anges i fältet **hemlig token** på fliken etablering i program vara för Oracle Cloud Infrastructure-konsolen i Azure Portal.
 
-## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Steg 3. Lägga till Oracle Cloud Infrastructure Console från Azure AD-programgalleriet
+## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Oracle Cloud Infrastructure-konsolen från Azure AD-programgalleriet
 
-Lägg till Oracle Cloud Infrastructure Console från Azure AD-programgalleriet för att börja hantera etablering till Oracle Cloud Infrastructure Console. Om du tidigare har konfigurerat Oracle Cloud Infrastructure Console för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integrationen från början. Läs mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Lägg till Oracle Cloud Infrastructure-konsolen från Azure AD-programgalleriet för att börja hantera etablering till Oracle Cloud Infrastructure Console. Om du tidigare har konfigurerat Oracle Cloud Infrastructure-konsolen för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen från början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska vara i utrymme för etablering 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas inom omfånget för etablering 
 
-Azure AD-etableringstjänsten gör att du kan begränsa vem som ska etableras baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att begränsa vem som ska etableras i din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att begränsa vem som ska etableras enbart baserat på attribut för användaren eller gruppen kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på attribut för användaren eller gruppen kan du använda ett omfångs filter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* När du tilldelar användare och grupper till Oracle Cloud Infrastructure Console måste du välja en annan roll än **standardåtkomst**. Användare med rollen Standardåtkomst är undantagna från etablering och markeras som inte effektivt berättigade i etableringsloggarna. Om den enda roll som är tillgänglig för programmet är standardåtkomstrollen kan du [uppdatera programmanifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
+* När du tilldelar användare och grupper till en Oracle Cloud Infrastructure-konsol måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
 
-* Börja i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När omfång för etablering är inställt på tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När scopet är inställt på alla användare och grupper kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-oracle-cloud-infrastructure-console"></a>Steg 5. Konfigurera automatisk användaretablering till Oracle Cloud Infrastructure Console 
+## <a name="step-5-configure-automatic-user-provisioning-to-oracle-cloud-infrastructure-console"></a>Steg 5. Konfigurera automatisk användar etablering till Oracle Cloud Infrastructure Console 
 
-I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar- och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för Oracle Cloud Infrastructure Console i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Konfigurera automatisk användar etablering för Oracle Cloud Infrastructure-konsolen i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj Oracle Cloud **Infrastructure Console**i programlistan .
+2. I listan program väljer du **Oracle Cloud Infrastructure-konsol**.
 
-    ![Länken Oracle Cloud Infrastructure Console i programlistan](common/all-applications.png)
+    ![Länk till Oracle Cloud Infrastructure-konsolen i program listan](common/all-applications.png)
 
-3. Välj fliken **Etablering.**
+3. Välj fliken **etablering** .
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **Administratörsautentiseringsuppgifter** anger du `https://<IdP ID>.identity.oraclecloud.com/admin/v1` **klient-URL:en** i formatet . Till exempel `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Mata in det hemliga tokenvärdet som hämtats tidigare i **hemlig token**. Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till Oracles molninfrastrukturkonsol. Om anslutningen misslyckas kontrollerar du att ditt Oracle Cloud Infrastructure Console-konto har administratörsbehörighet och försöker igen.
+5. Under avsnittet **admin credentials** , skriver du in **klient webb adressen** i `https://<IdP ID>.identity.oraclecloud.com/admin/v1` formatet. Till exempel `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Oracle Cloud Infrastructure-konsolen. Om anslutningen Miss lyckas ser du till att du har administratörs behörighet för ditt konto för Oracle Cloud Infrastructure-konsolen och försöker igen.
 
-    ![Etableringen](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
+    ![etablerings](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
-6. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan **Skicka ett e-postmeddelande när ett fel inträffar.**
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
 7. Välj **Spara**.
 
-8. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till Oracle Cloud Infrastructure Console**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Oracle Cloud Infrastructure-konsolen**.
 
-9. Granska användarattributen som synkroniseras från Azure AD till Oracle Cloud Infrastructure Console i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Oracle Cloud Infrastructure Console för uppdateringsåtgärder. Om du väljer att ändra [det matchande målattributet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att Oracles API för molninfrastrukturkonsol stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+9. Granska de användarattribut som synkroniseras från Azure AD till Oracle Cloud Infrastructure-konsolen i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Oracle Cloud Infrastructure-konsolen för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att Oracle Cloud Infrastructure Console API stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
       |Attribut|Typ|
       |---|---|
@@ -130,63 +130,63 @@ I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-eta
       |userName|Sträng|
       |aktiv|Boolesk|
       |title|Sträng|
-      |e-postmeddelanden[typ eq "arbete"].värde|Sträng|
+      |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
       |preferredLanguage|Sträng|
-      |name.givenName|Sträng|
-      |name.familyName|Sträng|
-      |adresser[skriv eq "work"].formaterad|Sträng|
-      |adresser[typ eq "work"].locality|Sträng|
-      |adresser[typ eq "arbete"].region|Sträng|
-      |adresser[typ eq "arbete"].postalCode|Sträng|
-      |adresser[typ eq "arbete"].land|Sträng|
-      |adresser[typ eq "work"].streetAddress|Sträng|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Sträng|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Sträng|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Sträng|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Sträng|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referens|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|Sträng|
-      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Boolesk|
-      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolesk|
+      |Name. givenName|Sträng|
+      |Name. familyName|Sträng|
+      |adresser [Type EQ "Work"]. formaterad|Sträng|
+      |adresser [Type EQ "Work"]. plats|Sträng|
+      |adresser [Type EQ "Work"]. region|Sträng|
+      |adresser [Type EQ "Work"]. Postnr|Sträng|
+      |adresser [Type EQ "Work"]. land|Sträng|
+      |adresser [Type EQ "Work"]. streetAddress|Sträng|
+      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|Sträng|
+      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
+      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: costCenter|Sträng|
+      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Division|Sträng|
+      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Referens|
+      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: organisation|Sträng|
+      |urn: IETF: params: scim: schemas: Oracle: idcs: tillägg: användare: användare: bypassNotification|Boolesk|
+      |urn: IETF: params: scim: schemas: Oracle: idcs: tillägg: användare: användare: isFederatedUser|Boolesk|
 
-10. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-grupper till Oracle Cloud Infrastructure Console**.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Oracle Cloud Infrastructure-konsolen**.
 
-11. Granska gruppattributen som synkroniseras från Azure AD till Oracle Cloud Infrastructure Console i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha grupperna i Oracle Cloud Infrastructure Console för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+11. Granska gruppattributen som synkroniseras från Azure AD till Oracle Cloud Infrastructure console i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Oracle Cloud Infrastructure-konsolen för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
       |Attribut|Typ|
       |---|---|
       |displayName|Sträng|
-      |externt|Sträng|
+      |externalId|Sträng|
       |medlemmar|Referens|
 
-12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Om du vill aktivera Azure AD-etableringstjänsten för Oracle Cloud Infrastructure Console ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
+13. Om du vill aktivera Azure AD Provisioning-tjänsten för Oracle Cloud Infrastructure-konsolen ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-14. Definiera de användare och/eller grupper som du vill etablera till Oracles molninfrastrukturkonsol genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
+14. Definiera de användare och/eller grupper som du vill etablera till Oracle Cloud Infrastructure-konsolen genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etableringsomfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
 15. När du är redo att etablera klickar du på **Spara**.
 
-    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den inledande synkroniseringscykeln för alla användare och grupper som **definierats** i Scope i avsnittet **Inställningar.** Den inledande cykeln tar längre tid att utföra än efterföljande cykler, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. 
+Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfånget** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40: e minut, förutsatt att Azure AD Provisioning-tjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
 
-* Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller utan framgång
-* Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är till slutförande
-* Om etableringskonfigurationen verkar vara i feltillstånd kommer programmet att placeras i karantän. Läs mer om karantäntillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+* Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
+* Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
+* Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)

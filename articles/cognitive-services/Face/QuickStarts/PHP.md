@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten upptäcker du ansikten från en bild med hjälp av Face REST API med PHP.
+description: I den här snabb starten identifierar du ansikten från en bild med hjälp av ansikts REST API med PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: f2584892bb349d126b73c3f8df211f745a362bd8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81403352"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP
 
-I den här snabbstarten använder du Azure Face REST API med PHP för att identifiera mänskliga ansikten i en avbildning.
+I den här snabb starten ska du använda Azures ansikts REST API med PHP för att identifiera mänskliga ansikten i en bild.
 
 ## <a name="prerequisites"></a>Krav
 
-- En Face-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Ansiktstjänsten och hämta din nyckel.
-- En kodredigerare som [Visual Studio Code](https://code.visualstudio.com/download).
-- [PHP-paketet HTTP_Request2.](https://pear.php.net/package/HTTP_Request2)
-- En PHP-aktiverad webbläsare. Om du inte har ställt in detta kan du göra det genom att installera och konfigurera [XAMPP](https://www.apachefriends.org/) på din dator.
+- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel.
+- En kod redigerare som [Visual Studio Code](https://code.visualstudio.com/download).
+- PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) -paketet.
+- En PHP-aktiverad webbläsare. Om du inte har konfigurerat detta kan du göra det genom att installera och konfigurera [XAMPP](https://www.apachefriends.org/) på datorn.
 
 ## <a name="initialize-the-html-file"></a>Initiera HTML-filen
 
@@ -43,7 +43,7 @@ Skapa en ny HTML-fil, *detectFaces.html*, och lägg till följande kod.
 
 ## <a name="write-the-php-script"></a>Skriva PHP-skriptet
 
-Lägg till följande kod i elementet `body` i dokumentet. Den här koden konfigurerar ett grundläggande användargränssnitt med ett URL-fält, en **analysera ansiktsknapp,** ett svarsfönster och en bildvisningsfönster.
+Lägg till följande kod i elementet `body` i dokumentet. Den här koden konfigurerar ett grundläggande användar gränssnitt med ett URL-fält, en **analys ansikte** -knapp, ett svars fönster och ett fönster för bild visning.
 
 ```php
 <?php
@@ -99,7 +99,7 @@ catch (HttpException $ex)
 ?>
 ```
 
-Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerationsnyckel och `uriBase` du måste ändra strängen så att den innehåller rätt slutpunktssträng. Fältet `returnFaceAttributes` anger vilka ansiktsattribut som ska hämtas. Du kan behöva ändra den här strängen beroende på hur din användning kommer att bli.
+Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du måste ändra `uriBase` strängen så att den innehåller rätt slut punkts sträng. Fältet `returnFaceAttributes` anger vilka ansiktsattribut som ska hämtas. Du kan behöva ändra den här strängen beroende på hur din användning kommer att bli.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -288,7 +288,7 @@ Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumeration
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ansikts-API:et som används för att identifiera mänskliga ansikten i en bild, avgränsa ansiktena med rektanglar och returnera attribut som ålder och kön.
+Utforska Ansikts-API som används för att identifiera mänskliga ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

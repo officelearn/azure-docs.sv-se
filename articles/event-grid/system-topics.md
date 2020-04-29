@@ -1,6 +1,6 @@
 ---
-title: Systemavsnitt i Azure Event Grid
-description: Beskriver systemavsnitt i Azure Event Grid.
+title: System avsnitt i Azure Event Grid
+description: Beskriver system avsnitt i Azure Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393156"
 ---
-# <a name="system-topics-in-azure-event-grid"></a>Systemavsnitt i Azure Event Grid
-Azure Event Grid-tjänsten skapar systemavsnitt när du skapar en första händelseprenumeration för en Azure-händelsekälla. För närvarande skapar Event Grid inte systemavsnitt för ämneskällor som skapades före den 15 mars 2020. För alla ämneskällor som du skapade på eller efter det här datumet skapar Event Grid automatiskt systemavsnitt. I den här artikeln beskrivs **systemavsnitt** i Azure Event Grid.
+# <a name="system-topics-in-azure-event-grid"></a>System avsnitt i Azure Event Grid
+Azure Event Grids tjänsten skapar system ämnen när du skapar en första händelse prenumeration för en Azure-händelse källa. För närvarande skapar Event Grid inte system ämnen för ämnes källor som skapades före Mar, 15, 2020. För alla ämnes källor som du skapade på eller efter det här datumet skapas automatiskt system ämnen i Event Grid. I den här artikeln beskrivs **system ämnen** i Azure Event Grid.
 
 > [!NOTE]
-> Den här funktionen är för närvarande inte aktiverad för Azure Government-molnet. 
+> Den här funktionen är för närvarande inte aktive rad för Azure Government molnet. 
 
 ## <a name="overview"></a>Översikt
-När du skapar första händelseprenumerationen för en Azure-händelsekälla, till exempel Azure Storage-konto, skapar etableringsprocessen för prenumerationen ytterligare en resurs av typen **Microsoft.EventGrid/systemTopics**. När den senaste händelseprenumerationen till Azure-händelsekällan tas bort tas systemämnet automatiskt bort.
+När du skapar en första händelse prenumeration för en Azure-händelseloggen, till exempel Azure Storage konto, skapar etablerings processen för prenumerationen en ytterligare resurs av typen **Microsoft. EventGrid/systemTopics**. När den sista händelse prenumerationen på Azures händelse källa tas bort, tas system avsnittet bort automatiskt.
 
-Systemämnet är inte tillämpligt på anpassade ämnesscenarier, det vill än avsnitt om Händelserutnät och domäner i händelserutnät. 
+System avsnittet är inte tillämpligt för anpassade ämnes scenarier, det vill säga Event Grid ämnen och Event Grid domäner. 
 
-## <a name="location"></a>Location
-För Azure-händelsekällor som finns i en viss region/plats skapas systemämnet på samma plats som Azure-händelsekällan. Om du till exempel skapar en händelseprenumeration för en Azure blob-lagring i östra USA skapas systemämnet i östra USA. För globala Azure-händelsekällor som Azure-prenumerationer, resursgrupper eller Azure Maps skapar Event Grid systemämnet på **global** plats. 
+## <a name="location"></a>Plats
+För Azure Event-källor som finns i en speciell region/plats skapas system ämne på samma plats som Azure-händelseloggen. Om du till exempel skapar en händelse prenumeration för en Azure Blob Storage i östra USA skapas avsnittet system i USA, östra. För globala Azure-händelseloggar som Azure-prenumerationer, resurs grupper eller Azure Maps, skapar Event Grid system-avsnittet i den **globala** platsen. 
 
 ## <a name="resource-group"></a>Resursgrupp 
-I allmänhet skapas systemämnet i samma resursgrupp som Azure-händelsekällan finns i. För händelseprenumerationer som skapats i Azure-prenumerationsomfattningen skapas systemämnet under resursgruppen **Default-EventGrid**. Om resursgruppen inte finns skapar Azure Event Grid den innan systemämnet skapas. 
+I allmänhet skapas system ämne i samma resurs grupp som Azures händelse källa. För händelse prenumerationer som skapats i Azure-prenumerationens omfattning skapas system avsnittet under resurs gruppens **standard-EventGrid**. Om resurs gruppen inte finns skapar Azure Event Grid den innan du skapar system avsnittet. 
 
-NÃ¤r du fÃ¶rsÃ¶k fÃ¶rsÃ¶k fÃ¶rsÃ¶k att ta bort resursgruppen med lagringskontot visas systemämnet i listan över berörda resurser.  
+När du försöker ta bort resurs gruppen med lagrings kontot visas avsnittet system i listan över resurser som påverkas.  
 
 ![Ta bort resursgrupp](./media/system-topics/delete-resource-group.png)
 

@@ -1,7 +1,7 @@
 ---
-title: Textmoderation - Innehållsmoderator
+title: Text moderator – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Använd textmoderering för oönskad text, personuppgifter och anpassade listor med termer.
+description: Använd text redigering för möjlig oönskad text, personliga data och anpassade listor med villkor.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,30 +11,30 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81274018"
 ---
-# <a name="learn-text-moderation-concepts"></a>Lär dig begrepp för textmoderering
+# <a name="learn-text-moderation-concepts"></a>Lär dig om text moderator koncept
 
-Använd Content Moderators datorstödda textmodering och [funktioner för mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) för att moderera textinnehållet.
+Använd Content Moderator datorns stöd för text redigering och [mänsklig granskning](Review-Tool-User-Guide/human-in-the-loop.md) för att förstå text innehåll.
 
-Du blockerar, godkänner eller granskar innehållet utifrån dina principer och tröskelvärden. Använd den för att öka den mänskliga måttfullheten i miljöer där partners, anställda och konsumenter genererar textinnehåll. Det kan vara chattrum, diskussionstavlor, chattrobotar, e-handelskataloger dokument. 
+Du blockerar, godkänner eller granskar innehållet utifrån dina principer och tröskelvärden. Använd den för att förstärka mänsklig kontroll av miljöer där partner, anställda och konsumenter genererar text innehåll. Det kan vara chattrum, diskussionstavlor, chattrobotar, e-handelskataloger dokument. 
 
 Tjänstsvaret innehåller följande information:
 
-- Svordomar: termbaserad matchning med inbyggd lista över profana termer på olika språk
-- Klassificering: maskinassisterad klassificering i tre kategorier
+- Svordomar: term-baserad matchning med inbyggd lista över flera svordomar på olika språk
+- Klassificering: maskinvarustödd klassificering i tre kategorier
 - Personuppgifter
 - Automatiskt korrigerad text
-- Originaltext
+- Ursprunglig text
 - Språk
 
 ## <a name="profanity"></a>Olämpligt språk
 
-Om API:et upptäcker några profana termer på något av de [språk som stöds](Text-Moderation-API-Languages.md)inkluderas dessa termer i svaret. Svaret innehåller också deras`Index`placering ( ) i den ursprungliga texten. I `ListId` följande prov JSON refererar till termer som finns i [anpassade termlistor](try-terms-list-api.md) om sådana finns tillgängliga.
+Om API: n identifierar eventuella svordomar i något av de [språk som stöds](Text-Moderation-API-Languages.md), inkluderas dessa villkor i svaret. Svaret innehåller också deras plats (`Index`) i den ursprungliga texten. I `ListId` följande exempel-JSON refererar de termer som finns i [anpassade term listor](try-terms-list-api.md) om de är tillgängliga.
 
     "Terms": [
     {
@@ -45,15 +45,15 @@ Om API:et upptäcker några profana termer på något av de [språk som stöds](
     }
 
 > [!NOTE]
-> För **language** språkparametern `eng` tilldelar eller lämnar den tom för att se det maskinstödda **klassificeringssvaret** (förhandsgranskningsfunktionen). **Den här funktionen stöder endast engelska**.
+> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
 >
-> För identifiering av **svordomar termer,** använd [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln, eller lämna den tom.
+> För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
 ## <a name="classification"></a>Klassificering
 
-Innehållsmoderatorns maskinstödda **textklassificeringsfunktion** stöder **endast engelska**och hjälper till att identifiera potentiellt oönskat innehåll. Det flaggade innehållet kan bedömas som olämpligt beroende på sammanhanget. Det förmedlar sannolikheten för varje kategori och kan rekommendera en mänsklig översyn. Funktionen använder en utbildad modell för att identifiera ett eventuellt kränkande, nedsättande eller diskriminerande språk. Detta inkluderar slang, förkortade ord, stötande och avsiktligt felstavade ord för granskning. 
+Content Moderator funktionen för maskin stöd för **text klassificering** stöder **endast engelska**och hjälper till att identifiera potentiellt oönskat innehåll. Det flaggade innehållet kan utvärderas som olämpligt beroende på kontext. Den förmedlar sannolikheten för varje kategori och kan rekommendera en mänsklig granskning. Funktionen använder en tränad modell för att identifiera eventuellt stötande, avvikande eller diskriminerande språk. Detta omfattar slang, förkortade ord, stötande och avsiktligt felstavade ord för granskning. 
 
-Följande utdrag i JSON-extraktet visar ett exempel på utdata:
+Följande utdrag i JSON-extraheringen visar ett exempel på utdata:
 
     "Classification": {
         "ReviewRecommended": true,
@@ -70,22 +70,22 @@ Följande utdrag i JSON-extraktet visar ett exempel på utdata:
 
 ### <a name="explanation"></a>Förklaring
 
-- `Category1`avser potentiell förekomst av språk som kan betraktas som sexuellt explicit eller vuxen i vissa situationer.
-- `Category2`avser potentiell närvaro av språk som kan anses vara sexuellt suggestivt eller moget i vissa situationer.
-- `Category3`avser potentiell närvaro av språk som kan anses stötande i vissa situationer.
-- `Score`är mellan 0 och 1. Ju högre poäng, desto högre modell förutspår att kategorin kan vara tillämplig. Den här funktionen är beroende av en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig till dina krav.
-- `ReviewRecommended`är antingen sant eller falskt beroende på de interna poängtrösklarna. Kunder bör bedöma om de ska använda det här värdet eller besluta om anpassade tröskelvärden baserat på deras innehållsprinciper.
+- `Category1`avser potentiell närvaro av ett språk som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
+- `Category2`avser potentiell närvaro av ett språk som kan anses vara sexuellt eller mogna i vissa situationer.
+- `Category3`avser potentiell närvaro av ett språk som kan betraktas som stötande i vissa situationer.
+- `Score`är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här funktionen förlitar sig på en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
+- `ReviewRecommended`är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
 
 ## <a name="personal-data"></a>Personuppgifter
 
-Personuppgiftsfunktionen identifierar den potentiella förekomsten av denna information:
+Funktionen personliga data identifierar potentiell närvaro av den här informationen:
 
 - E-postadress
-- Amerikansk postadress
+- E-postadress till oss
 - IP-adress
-- Amerikanskt telefonnummer
+- Telefonnummer till USA
 
-I följande exempel visas ett exempelsvar:
+I följande exempel visas ett exempel svar:
 
 ```json
 "pii":{
@@ -125,7 +125,7 @@ I följande exempel visas ett exempelsvar:
 
 ## <a name="auto-correction"></a>Automatisk korrigering
 
-Anta att indatatexten är ("lzay" och "f0x" är avsiktliga):
+Anta att indatamängden är ("lzay" och "f0x" är avsiktliga):
 
     The qu!ck brown f0x jumps over the lzay dog.
 
@@ -133,15 +133,15 @@ Om du ber om automatisk korrigering innehåller svaret den korrigerade versionen
 
     The quick brown fox jumps over the lazy dog.
 
-## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Skapa och hantera dina anpassade listor med termer
+## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Skapa och hantera dina anpassade listor med villkor
 
-Även om standardlistan över termer fungerar bra för de flesta fall kanske du vill söka mot termer som är specifika för dina affärsbehov. Du kanske till exempel vill filtrera bort alla konkurrenskraftiga varumärken från inlägg från användare.
+Standardinställningen är att den globala listan över termer fungerar bra i de flesta fall, men du kanske vill skärmen mot de villkor som är specifika för dina affärs behov. Du kanske till exempel vill filtrera bort eventuella konkurrens märkes namn från inlägg av användare.
 
 > [!NOTE]
 > Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer**.
 >
 
-I följande exempel visas matchande list-ID:
+I följande exempel visas matchnings List-ID:
 
     "Terms": [
     {
@@ -151,8 +151,8 @@ I följande exempel visas matchande list-ID:
         "Term": "crap"
     }
 
-Innehållsmoderatorn tillhandahåller [ett termlist-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) med åtgärder för att hantera anpassade termlistor. Börja med [API-konsolen Term Lists](try-terms-list-api.md) och använd rest-API-kodexemplen. Kolla också in [snabbstarten Term List .NET](term-lists-quickstart-dotnet.md) om du är bekant med Visual Studio och C#.
+Content Moderator innehåller ett [API för term listor](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) med åtgärder för att hantera anpassade term listor. Börja med [villkoret listar API-konsolen](try-terms-list-api.md) och Använd REST API kod exempel. Ta också en titt på [termen listar .net snabb start](term-lists-quickstart-dotnet.md) om du är bekant med Visual Studio och C#.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa [api-konsolen textmodering](try-text-api.md) och använd rest-API-kodexemplen. Kolla också in avsnittet Textmodering i [snabbstarten för .NET SDK](dotnet-sdk-quickstart.md) om du är bekant med Visual Studio och C#.
+Testa API- [konsolen för text redigering](try-text-api.md) och Använd REST API kod exempel. Se även avsnittet text redigering i snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) om du är bekant med Visual Studio och C#.

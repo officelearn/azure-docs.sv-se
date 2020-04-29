@@ -1,6 +1,6 @@
 ---
-title: Lokal konfiguration av säkerhetsagent (C)
-description: Lär dig mer om Azure Security Center för agentlokala konfigurationer för C.
+title: Lokal konfiguration av säkerhets agent (C)
+description: Läs mer om att Azure Security Center för lokala Gent konfigurationer för C.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,44 +16,44 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311695"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Förstå filen LocalConfiguration.json – C-agent
 
-Azure Security Center för IoT-säkerhetsagent använder konfigurationer från en lokal konfigurationsfil.
-Säkerhetsagenten läser konfigurationen en gång, vid agentstart.
-Konfigurationen som finns i den lokala konfigurationsfilen innehåller autentiseringskonfiguration och andra agentrelaterade konfigurationer.
-Filen innehåller konfigurationer i "Key-Value" par i JSON-notation och konfigurationerna fylls i när agenten installeras.
+Azure Security Center för IoT Security Agent använder konfigurationer från en lokal konfigurations fil.
+Säkerhets agenten läser konfigurationen en gång, vid agent start.
+Konfigurationen som påträffades i den lokala konfigurations filen innehåller konfiguration av autentisering och andra Agent-relaterade konfigurationer.
+Filen innehåller konfigurationer i nyckel värdes par i JSON-format och konfigurationerna fylls i när agenten installeras.
 
-Som standard finns filen på: /var/ASCIoTAgent/LocalConfiguration.json
+Filen finns som standard på:/var/ASCIoTAgent/LocalConfiguration.json
 
-Ändringar i konfigurationsfilen sker när agenten startas om.
+Ändringar i konfigurations filen sker när agenten startas om.
 
-## <a name="security-agent-configurations-for-c"></a>Konfigurationer av säkerhetsagenter för C
+## <a name="security-agent-configurations-for-c"></a>Konfigurationer för säkerhets agent för C
 
-| Konfigurationsnamn | Möjliga värden | Information |
+| Konfigurations namn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
-| AgentId (på andra) | GUID | Agenten Unik identifierare |
-| TriggerdEventsInterval | ISO8601 sträng | Schemaschemaintervall för utlöst händelser insamling |
-| AnslutningTimeout | ISO8601 sträng | Tidsperiod innan anslutningen till IoThub tar time out |
-| Autentisering | JsonObject (olika) | Autentiseringskonfiguration. Det här objektet innehåller all information som behövs för autentisering mot IoTHub |
-| Identitet | "DPS", "SecurityModule", "Enhet" | Autentiseringsidentitet - DPS om autentisering görs via DPS, SecurityModule om autentisering görs via autentiseringsmodulen eller enhet om autentisering görs med enhetsautentiseringsuppgifter |
-| AuthenticationMethod | "SasToken", "Självsigneradcertifiera" | användarhemligheten för autentisering - Välj SasToken om användningshemligheten är en symmetrisk nyckel, välj självsignerat certifikat om hemligheten är ett självsignerat certifikat  |
-| Filepath | Sökväg till fil (sträng) | Sökväg till filen som innehåller autentiseringshemligheten |
-| Värdnamn | sträng | Värdnamnet för azure iot-hubben. vanligtvis <min-hubb>.azure-devices.net |
-| DeviceId | sträng | Enhetens ID (som registrerats i Azure IoT Hub) |
-| Dps | JsonObject (olika) | DPS-relaterade konfigurationer |
-| IDScope | sträng | DPS-ID-scope |
-| RegistrationId (RegistreringId) | sträng  | Registrerings-ID för DPS-enheter |
-| Loggning | JsonObject (olika) | Agent logger relaterade konfigurationer |
-| SystemLoggerMinimumSeverity | 0 <= antal <= 4 | loggmeddelanden som är lika och ovanför den här allvarlighetsgraden loggas till /var/log/syslog (0 är den lägsta allvarlighetsgraden) |
-| DiagnosticEventMinimumSeverity | 0 <= antal <= 4 | loggmeddelanden som är lika och ovanför den här allvarlighetsgraden kommer att skickas som diagnostiska händelser (0 är den lägsta allvarlighetsgraden) |
+| AgentId | GUID | Agentens unika identifierare |
+| TriggerdEventsInterval | ISO8601 sträng | Scheduler-intervall för insamling av utlöst händelser |
+| ConnectionTimeout | ISO8601 sträng | Tids gränsen för tids gränsen uppnåddes för anslutningen till IoThub |
+| Autentisering | JsonObject | Konfiguration av autentisering. Det här objektet innehåller all information som behövs för autentisering mot IoTHub |
+| Identitet | "DPS", "SecurityModule", "Device" | Autentiseringsidentitet – DPS om autentisering görs via DPS, SecurityModule om autentisering görs via autentiseringsuppgifter för säkerhetsmodulen eller enheten om autentisering görs med autentiseringsuppgifter för enhet |
+| AuthenticationMethod | "SasToken", "SelfSignedCertificate" | användar hemlighet för autentisering – Välj SasToken om användnings hemligheten är en symmetrisk nyckel väljer du självsignerat certifikat om hemligheten är ett självsignerat certifikat  |
+| FilePath | Sökväg till fil (sträng) | Sökväg till filen som innehåller hemligheten för autentisering |
+| Värdnamn | sträng | Värd namnet för Azure IoT Hub. <vanligt vis>. azure-devices.net |
+| DeviceId | sträng | ID för enheten (som registrerats i Azure IoT Hub) |
+| – | JsonObject | DPS-relaterade konfigurationer |
+| IDScope | sträng | ID-omfång för DPS |
+| RegistrationId | sträng  | Registrerings-ID för DPS-enhet |
+| Loggning | JsonObject | Konfigurationer för agent loggning |
+| SystemLoggerMinimumSeverity | 0 <= antal <= 4 | logg meddelanden som är lika med eller större än den här allvarlighets graden loggas till/var/log/syslog (0 är den lägsta allvarlighets graden) |
+| DiagnosticEventMinimumSeverity | 0 <= antal <= 4 | logg meddelanden som är lika med eller större än den här allvarlighets graden skickas som diagnostiska händelser (0 är den lägsta allvarlighets graden) |
 
-## <a name="security-agent-configurations-code-example"></a>Exempel på kodex för säkerhetsagentkonfigurationer
+## <a name="security-agent-configurations-code-example"></a>Kod exempel för konfiguration av säkerhets agent
 
 ```JSON
 {
@@ -82,10 +82,10 @@ Som standard finns filen på: /var/ASCIoTAgent/LocalConfiguration.json
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [översikt](overview.md) över Azure Security Center for IoT-tjänsten
-- Läs mer om Azure Security Center för [IoT-arkitektur](architecture.md)
-- Aktivera Azure Security Center för [IoT-tjänsten](quickstart-onboard-iot-hub.md)
-- Läs [vanliga frågor och svar](resources-frequently-asked-questions.md) om Azure Security Center för IoT-tjänsten
-- Lär dig hur du kommer åt [rådata om säkerhet](how-to-security-data-access.md)
+- Läs [översikten över](overview.md) Azure Security Center för IoT-tjänsten
+- Läs mer om Azure Security Center för IoT- [arkitektur](architecture.md)
+- Aktivera Azure Security Center för IoT [-tjänsten](quickstart-onboard-iot-hub.md)
+- Läs [vanliga frågor och svar](resources-frequently-asked-questions.md) om tjänsten Azure Security Center for IoT
+- Lär dig hur du kommer åt [rå säkerhets data](how-to-security-data-access.md)
 - Förstå [rekommendationer](concept-recommendations.md)
-- Förstå [säkerhetsaviseringar](concept-security-alerts.md)
+- Förstå säkerhets [aviseringar](concept-security-alerts.md)

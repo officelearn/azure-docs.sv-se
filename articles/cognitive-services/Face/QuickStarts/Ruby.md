@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Identifiera ansikten i en bild med REST API och Ruby'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten identifierar du ansikten från en bild med Face REST API med Ruby.
+description: I den här snabb starten identifierar du ansikten från en bild med hjälp av ansikts REST API med ruby.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 3ec6eb60a7325eb87ca637541c5f4222eab98053
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81403167"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Ruby
 
-I den här snabbstarten använder du Azure Face REST API med Ruby för att identifiera mänskliga ansikten i en avbildning.
+I den här snabb starten ska du använda Azures ansikts REST API med ruby för att identifiera mänskliga ansikten i en bild.
 
 ## <a name="prerequisites"></a>Krav
 
-- En Face-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Ansiktstjänsten och hämta din nyckel.
+- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel.
 - En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Skriva skriptet
 
-Skapa den nya filen _faceDetection.rb_ och lägg till följande kod. Den här koden anropar Ansikts-API:et för en viss bild-URL.
+Skapa den nya filen _faceDetection.rb_ och lägg till följande kod. Den här koden anropar Ansikts-API för en viss bild-URL.
 
 ```ruby
 require 'net/http'
@@ -60,11 +60,11 @@ end
 puts response.body
 ```
 
-Du måste uppdatera `request['Ocp-Apim-Subscription-Key']` värdet med din prenumerationsnyckel `uri` och ändra strängen så att den innehåller rätt slutpunkt.
+Du måste uppdatera `request['Ocp-Apim-Subscription-Key']` värdet med din prenumerations nyckel och ändra `uri` strängen så att den innehåller rätt slut punkt.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-Du kanske också vill ändra fältet `imageUri` så att det pekar på din egna inmatade bild. Du kanske också vill `returnFaceAttributes` ändra fältet, som anger vilka ansiktsattribut som ska hämtas.
+Du kanske också vill ändra fältet `imageUri` så att det pekar på din egna inmatade bild. Du kanske också vill ändra `returnFaceAttributes` fältet, som anger vilka ansikts attribut som ska hämtas.
 
 ## <a name="run-the-script"></a>Kör skriptet
 
@@ -257,7 +257,7 @@ Du bör se en JSON-sträng för identifierade ansiktsdata i konsolen. Följande 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skrev du ett Ruby-skript som anropar Azure Face-tjänsten för att identifiera ansikten i en avbildning och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
+I den här snabb starten skrev du ett ruby-skript som anropar Azure Face service för att identifiera ansikten i en bild och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

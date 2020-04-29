@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312591"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Skapa en anpassad avsökning för Azure Application Gateway med hjälp av PowerShell för Azure Resource Manager
@@ -22,15 +22,15 @@ ms.locfileid: "81312591"
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
-I den här artikeln lägger du till en anpassad avsökning i en befintlig programgateway med PowerShell. Anpassade avsökningar är användbara för program som har en specifik hälsokontrollsida eller för program som inte ger ett lyckat svar i standardwebbprogrammet.
+I den här artikeln lägger du till en anpassad avsökning i en befintlig Application Gateway med PowerShell. Anpassade avsökningar är användbara för program som har en specifik hälso kontroll sida eller för program som inte ger ett lyckat svar på standard webb programmet.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway-with-a-custom-probe"></a>Skapa en programgateway med en anpassad avsökning
+## <a name="create-an-application-gateway-with-a-custom-probe"></a>Skapa en Programgateway med en anpassad avsökning
 
-### <a name="sign-in-and-create-resource-group"></a>Logga in och skapa resursgrupp
+### <a name="sign-in-and-create-resource-group"></a>Logga in och skapa resurs grupp
 
 1. Används `Connect-AzAccount` för att autentisera.
 
@@ -50,19 +50,19 @@ I den här artikeln lägger du till en anpassad avsökning i en befintlig progra
    Select-AzSubscription -Subscriptionid '{subscriptionGuid}'
    ```
 
-1. Skapa en resursgrupp. Du kan hoppa över det här steget om du har en befintlig resursgrupp.
+1. Skapa en resursgrupp. Du kan hoppa över det här steget om du har en befintlig resurs grupp.
 
    ```powershell
    New-AzResourceGroup -Name appgw-rg -Location 'West US'
    ```
 
-Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standardplats för resurserna i den resursgruppen. Kontrollera att alla kommandon för att skapa en programgateway använder samma resursgrupp.
+Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standardplats för resurserna i den resursgruppen. Se till att alla kommandon för att skapa en Application Gateway använder samma resurs grupp.
 
-I föregående exempel skapade vi en resursgrupp som heter **appgw-RG** på plats **västra USA**.
+I föregående exempel skapade vi en resurs grupp med namnet **appgw-RG** på platsen **västra USA**.
 
 ### <a name="create-a-virtual-network-and-a-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 
-I följande exempel skapas ett virtuellt nätverk och ett undernät för programgatewayen. Programgateway kräver ett eget undernät för användning. Därför bör undernätet som skapas för programgatewayen vara mindre än adressutrymmet i det virtuella nätverket så att andra undernät kan skapas och användas.
+I följande exempel skapas ett virtuellt nätverk och ett undernät för Application Gateway. Application Gateway kräver att ett eget undernät används. Därför bör under nätet som skapas för programgatewayen vara mindre än adress utrymmet för det virtuella nätverket så att andra undernät kan skapas och användas.
 
 ```powershell
 # Assign the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
@@ -77,7 +77,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Skapa en offentlig IP-adress för frontend-konfigurationen
 
-Skapa en offentlig IP-resurs **publicIP01** i resursgruppsappgw-rg för regionen Västra USA. **appgw-rg** I det här exemplet används en offentlig IP-adress för klient-TV-adressen för programgatewayen.  Programgateway kräver att den offentliga IP-adressen har `-DomainNameLabel` ett dynamiskt skapat DNS-namn, varför det inte kan anges när den offentliga IP-adressen skapas.
+Skapa en offentlig IP- **publicIP01** i resurs gruppen **appgw-RG** för regionen USA, västra. I det här exemplet används en offentlig IP-adress för klient delens IP-adress för Application Gateway.  Application Gateway kräver att den offentliga IP-adressen har ett dynamiskt skapat DNS-namn `-DomainNameLabel` och kan därför inte anges när den offentliga IP-adressen skapas.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
@@ -85,17 +85,17 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -
 
 ### <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Du kan ställa in alla konfigurationsobjekt innan du skapar programgatewayen. I följande exempel skapas de konfigurationsobjekt som behövs för en programgatewayresurs.
+Du konfigurerar alla konfigurations objekt innan du skapar programgatewayen. I följande exempel skapas de konfigurations objekt som behövs för en Application Gateway-resurs.
 
 | **Komponent** | **Beskrivning** |
 |---|---|
-| **IP-konfiguration för gateway** | En IP-konfiguration för en programgateway.|
-| **Backend pool** | En pool med IP-adresser, FQDN: s eller nätverkskort som är till de programservrar som är värd för webbprogrammet|
-| **Hälsoavsökning** | En anpassad avsökning som används för att övervaka hälsan hos serverda poolmedlemmar|
-| **HTTP-inställningar** | En samling inställningar, inklusive port, protokoll, cookie-baserad tillhörighet, avsökning och timeout.  De här inställningarna avgör hur trafiken dirigeras till backend-poolmedlemmarna|
-| **Frontend-port** | Porten som programgatewayen lyssnar på efter trafik på|
-| **Lyssnaren** | En kombination av ett protokoll, klientdels-IP-konfiguration och frontend-port. Detta är vad som lyssnar på inkommande förfrågningar.
-|**Regel**| Dirigerar trafiken till rätt backend baserat på HTTP-inställningar.|
+| **IP-konfiguration för gateway** | En IP-konfiguration för en Application Gateway.|
+| **Backend-pool** | En pool med IP-adresser, FQDN: er eller nätverkskort som är till de program servrar som är värdar för webb programmet|
+| **Hälsoavsökning** | En anpassad avsökning som används för att övervaka hälso tillståndet för medlemmar i backend-poolen|
+| **HTTP-inställningar** | En samling inställningar inklusive port, protokoll, cookie-baserad tillhörighet, avsökning och tids gräns.  De här inställningarna bestämmer hur trafik dirigeras till medlemmar i Server delen|
+| **Frontend-port** | Porten som Application Gateway lyssnar efter trafik på|
+| **Lyssnare** | En kombination av ett protokoll, en IP-konfiguration för klient delen och frontend-porten. Detta är vad som lyssnar efter inkommande begär Anden.
+|**Regel**| Dirigerar trafiken till lämplig server del baserat på HTTP-inställningar.|
 
 ```powershell
 # Creates an application gateway Frontend IP configuration named gatewayIP01
@@ -129,9 +129,9 @@ $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'West US' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-## <a name="add-a-probe-to-an-existing-application-gateway"></a>Lägga till en avsökning i en befintlig programgateway
+## <a name="add-a-probe-to-an-existing-application-gateway"></a>Lägga till en avsökning i en befintlig Application Gateway
 
-Följande kodavsnitt lägger till en avsökning i en befintlig programgateway.
+Följande kodfragment lägger till en avsökning i en befintlig Application Gateway.
 
 ```powershell
 # Load the application gateway resource into a PowerShell variable by using Get-AzApplicationGateway.
@@ -147,9 +147,9 @@ $getgw = Set-AzApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw 
 Set-AzApplicationGateway -ApplicationGateway $getgw
 ```
 
-## <a name="remove-a-probe-from-an-existing-application-gateway"></a>Ta bort en avsökning från en befintlig programgateway
+## <a name="remove-a-probe-from-an-existing-application-gateway"></a>Ta bort en avsökning från en befintlig Application Gateway
 
-Följande kodavsnitt tar bort en avsökning från en befintlig programgateway.
+Följande kodfragment tar bort en avsökning från en befintlig Application Gateway.
 
 ```powershell
 # Load the application gateway resource into a PowerShell variable by using Get-AzApplicationGateway.
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att konfigurera TLS-avlastning genom att besöka: [Konfigurera TLS-avlastning](application-gateway-ssl-arm.md)
+Lär dig hur du konfigurerar TLS-avlastning genom att besöka: [Konfigurera TLS-avläsning](application-gateway-ssl-arm.md)
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: 871f992f6457a846d29a7145d53a7e382cbe10dd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400689"
 ---
 ## <a name="prerequisites"></a>Krav
@@ -16,20 +16,20 @@ ms.locfileid: "81400689"
 Innan du börjar:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure Speech-resurs<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
-> * Se till att du har tillgång till en mikrofon för ljudinspelning
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
 ## <a name="open-your-project-in-visual-studio"></a>Öppna projektet i Visual Studio
 
 Det första steget är att se till att projektet är öppet i Visual Studio.
 
 1. Starta **Visual Studio 2019**.
-2. Ladda projektet och öppna *Program.cs*.
+2. Läs in projektet och öppna *program.cs*.
 
 ## <a name="source-code"></a>Källkod
 
-Ersätt innehållet i *Program.cs-filen* med följande C#-kod.
+Ersätt innehållet i *program.cs* -filen med följande C#-kod.
 
 ```csharp
 using System;
@@ -91,11 +91,11 @@ namespace Speech.Recognition
 
 ## <a name="build-and-run-app"></a>Skapa och kör app
 
-Nu är du redo att bygga om appen och testa taligenkänningsfunktionen med hjälp av taltjänsten.
+Nu är du redo att återskapa appen och testa funktionen för tal igenkänning med hjälp av tal tjänsten.
 
-1. **Kompilera koden** - Välj **Bygg** > **bygglösning**på menyraden i Visual Studio .
-2. **Starta appen** - Välj Felsökning **Debug** > **Avsöka Startfelsökning** på menyraden eller tryck på <kbd>F5</kbd>.
-3. **Starta erkännande** - Det kommer att uppmana dig att tala en fras på engelska. Ditt tal skickas till taltjänsten, transkriberas som text och återges i konsolen.
+1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge** > **build-lösning**.
+2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på <kbd>F5</kbd>.
+3. **Starta igenkänning** – du uppmanas att tala om en fras på engelska. Ditt tal skickas till tal tjänsten, skrivs som text och återges i-konsolen.
 
 ## <a name="next-steps"></a>Nästa steg
 

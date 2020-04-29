@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
 ms.openlocfilehash: d9bc744292922fd127e983392199fa21554d3c62
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400599"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure Speech-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -26,17 +26,17 @@ Innan du börjar måste du:
 Det första steget är att se till att projektet är öppet i Visual Studio.
 
 1. Starta Visual Studio 2019.
-2. Ladda projektet och `Program.cs`öppna .
-3. Ladda ner <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike.wav <span class="docon docon-download x-hidden-focus"></span> </a> och lägg till den i ditt projekt.
-    - Spara *filen Whatstheweatherlike.wav bredvid* `Program.cs` filen.
-    - Välj **Lägg till > befintligt objekt**i projektets lösningsutforskare . **Solution Explorer**
-    - Välj *filen Whatstheweatherlike.wav* och välj sedan knappen **Lägg till.**
-    - Högerklicka på den nyligen tillagda filen, välj **Egenskaper**.
-    - Ändra **kopian till utdatakatalogen** så att **den alltid kopieras**.
+2. Läs in projektet och öppna `Program.cs`.
+3. Ladda ned <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/whatstheweatherlike.wav" download="whatstheweatherlike" target="_blank">whatstheweatherlike. wav <span class="docon docon-download x-hidden-focus"></span> </a> och Lägg till den i projektet.
+    - Spara filen *whatstheweatherlike. wav* bredvid `Program.cs` filen.
+    - Från **Solution Explorer** högerklickar du på projektet och väljer **Lägg till > befintligt objekt**.
+    - Välj filen *whatstheweatherlike. wav* och välj sedan knappen **Lägg till** .
+    - Högerklicka på den nyligen tillagda filen och välj **Egenskaper**.
+    - Ändra **kopian till utdata-katalogen** till **Kopiera alltid**.
 
-## <a name="start-with-some-boilerplate-code"></a>Börja med en standardkod
+## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
-Låt oss lägga till lite kod som fungerar som ett skelett för vårt projekt. Observera att du har skapat en `RecognizeSpeechAsync()`asynkron metod som kallas .
+Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Observera att du har skapat en async-metod som `RecognizeSpeechAsync()`kallas.
 
 ```csharp
 using System;
@@ -60,22 +60,22 @@ namespace HelloWorld
 }
 ```
 
-## <a name="create-a-speech-configuration"></a>Skapa en talkonfiguration
+## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Innan du kan `SpeechRecognizer` initiera ett objekt måste du skapa en konfiguration som använder din prenumerationsnyckel och prenumerationsregion. Infoga den här `RecognizeSpeechAsync()` koden i metoden.
+Innan du kan initiera ett `SpeechRecognizer` objekt måste du skapa en konfiguration som använder din prenumerations nyckel och din prenumerations region. Infoga den här koden i `RecognizeSpeechAsync()` -metoden.
 
 > [!NOTE]
-> I det `FromSubscription()` här exemplet `SpeechConfig`används metoden för att skapa . En fullständig lista över tillgängliga metoder finns i [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
-> Tal-SDK kommer som standard att känna igen med hjälp av en-us för språket, se [Ange källspråk för tal till text](../../../../how-to-specify-source-language.md) för information om hur du väljer källspråk.
+> I det här exemplet `FromSubscription()` används metoden för att `SpeechConfig`bygga. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ```csharp
 // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-## <a name="create-an-audio-configuration"></a>Skapa en ljudkonfiguration
+## <a name="create-an-audio-configuration"></a>Skapa en ljud konfiguration
 
-Nu måste du skapa `AudioConfig` ett objekt som pekar på ljudfilen. Det här objektet skapas inuti en medsats för att säkerställa korrekt frisläppande av ohanterat resurser. Infoga den `RecognizeSpeechAsync()` här koden i metoden, precis under talkonfigurationen.
+Nu måste du skapa ett `AudioConfig` objekt som pekar på ljud filen. Det här objektet skapas i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i `RecognizeSpeechAsync()` metoden, precis under din tal konfiguration.
 
 ```csharp
 using (var audioInput = AudioConfig.FromWavFileInput("whatstheweatherlike.wav"))
@@ -85,7 +85,7 @@ using (var audioInput = AudioConfig.FromWavFileInput("whatstheweatherlike.wav"))
 
 ## <a name="initialize-a-speechrecognizer"></a>Initiera en SpeechRecognizer
 
-Nu ska vi skapa `SpeechRecognizer` objektet `SpeechConfig` med `AudioConfig` hjälp av och objekt som skapats tidigare. Det här objektet skapas också inuti en medsats för att säkerställa korrekt frisläppande av ohanterat resurser. Infoga den `RecognizeSpeechAsync()` här koden i metoden i den ```AudioConfig``` medsats som radbryts i objektet.
+Nu ska vi skapa `SpeechRecognizer` objektet med de `SpeechConfig` objekt som `AudioConfig` skapades tidigare. Det här objektet skapas också i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i `RecognizeSpeechAsync()` -metoden, inuti instruktionen using som omger ```AudioConfig``` objektet.
 
 ```csharp
 using (var recognizer = new SpeechRecognizer(config, audioInput))
@@ -93,22 +93,22 @@ using (var recognizer = new SpeechRecognizer(config, audioInput))
 }
 ```
 
-## <a name="recognize-a-phrase"></a>Känna igen en fras
+## <a name="recognize-a-phrase"></a>Identifiera en fras
 
-Från `SpeechRecognizer` objektet ska du anropa `RecognizeOnceAsync()` metoden. Med den här metoden kan taltjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta känna igen tal.
+Från- `SpeechRecognizer` objektet kommer du att anropa- `RecognizeOnceAsync()` metoden. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
 
-Lägg till den här koden i satsen med användningssatsen:
+I using-instruktionen lägger du till följande kod:
 
 ```csharp
 Console.WriteLine("Recognizing first result...");
 var result = await recognizer.RecognizeOnceAsync();
 ```
 
-## <a name="display-the-recognition-results-or-errors"></a>Visa igenkänningsresultat (eller fel)
+## <a name="display-the-recognition-results-or-errors"></a>Visa tolknings resultat (eller fel)
 
-När igenkänningsresultatet returneras av taltjänsten bör du göra något med den. Vi ska hålla det enkelt och skriva ut resultatet till konsolen.
+När igenkännings resultatet returneras av tal tjänsten vill du göra något med det. Vi ska hålla det enkelt och skriva ut resultatet till-konsolen.
 
-Lägg till den `RecognizeOnceAsync()`här koden i satsen nedan:
+I using-instruktionen nedan `RecognizeOnceAsync()`lägger du till den här koden:
 
 ```csharp
 switch (result.Reason)
@@ -133,9 +133,9 @@ switch (result.Reason)
 }
 ```
 
-## <a name="check-your-code"></a>Kontrollera din kod
+## <a name="check-your-code"></a>Kontrol lera koden
 
-Nu ska koden se ut så här:
+Nu bör din kod se ut så här:
 
 ```csharp
 //
@@ -195,11 +195,11 @@ namespace HelloWorld
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-Nu är du redo att bygga din app och testa vår taligenkänning med taltjänsten.
+Nu är du redo att bygga din app och testa vår tal igenkänning med röst tjänsten.
 
-1. Kompilera koden: Välj **Bygg** > **bygglösning**på menyraden *i Visual Studio*.
-2. Starta appen: Välj > **Felsökning Avsöka Startfelsökning** på menyraden eller tryck på **F5**. **Debug**
-3. Startigenkänning: Ljudfilen skickas till taltjänsten, transkriberas som text och återges i konsolen.
+1. Kompilera koden: Välj **bygge** > **build-lösning**från meny raden i *Visual Studio*.
+2. Starta din app: Välj **Felsök** > **Starta fel sökning** eller tryck på **F5**på Meny raden.
+3. Starta igenkänning: ljud filen skickas till tal tjänsten, skrivs med text och återges i-konsolen.
 
    ```console
    Recognizing first result...

@@ -1,7 +1,7 @@
 ---
-title: Förbereda data för tjänsten Custom Speech - Tal
+title: Förbereda data för Custom Speech tal-tjänsten
 titleSuffix: Azure Cognitive Services
-description: När du testar riktigheten i Microsofts taligenkänning eller utbildning av dina anpassade modeller behöver du ljud- och textdata. På den här sidan täcker vi vilka typer av data som används, hur du använder och hanterar dem.
+description: När du testar precisionen för Microsoft tal igenkänning eller tränar dina anpassade modeller, behöver du ljud-och text data. På den här sidan tar vi upp de typer av data, hur de används och hur de hanteras.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,92 +11,92 @@ ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402131"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
-När du testar riktigheten i Microsofts taligenkänning eller utbildning av dina anpassade modeller behöver du ljud- och textdata. På den här sidan täcker vi vilka typer av data som används, hur du använder och hanterar dem.
+När du testar precisionen för Microsoft tal igenkänning eller tränar dina anpassade modeller, behöver du ljud-och text data. På den här sidan tar vi upp de typer av data, hur de används och hur de hanteras.
 
 ## <a name="data-types"></a>Datatyper
 
-I den här tabellen visas godkända datatyper när varje datatyp ska användas och den rekommenderade kvantiteten. Alla datatyper krävs inte för att skapa en modell. Datakraven varierar beroende på om du skapar ett test eller tränar en modell.
+I den här tabellen listas godkända data typer, när varje datatyp ska användas och den rekommenderade kvantiteten. Det krävs inte alla data typer för att skapa en modell. Data kraven varierar beroende på om du skapar ett test eller tränar en modell.
 
 | Datatyp | Används för testning | Rekommenderad kvantitet | Används för utbildning | Rekommenderad kvantitet |
 |-----------|-----------------|----------|-------------------|----------|
-| [Ljud](#audio-data-for-testing) | Ja<br>Används för okulärbesiktning | 5+ ljudfiler | Inga | Ej mycket |
-| [Ljud + Mänskligt märkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5-5 timmars ljud | Ja | 1-1000 timmars ljud |
-| [Relaterad text](#related-text-data-for-training) | Inga | Ej mycket | Ja | 1-200 MB relaterad text |
+| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | Ej tillämpligt |
+| [Ljud + medmärkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmars ljud | Ja | 1 – 1000 timmars ljud |
+| [Relaterad text](#related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1-200 MB relaterad text |
 
-Filer ska grupperas efter typ i en datauppsättning och överföras som en ZIP-fil. Varje datauppsättning kan bara innehålla en enda datatyp.
+Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip-fil. Varje data uppsättning får bara innehålla en enda datatyp.
 
 > [!TIP]
-> Om du snabbt vill komma igång bör du överväga att använda exempeldata. Se den här GitHub-databasen för <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">exempel på anpassade taldata <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
+> Överväg att använda exempel data för att snabbt komma igång. <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">Exempel Custom Speech data <span class="docon docon-navigate-external x-hidden-focus"></span> </a> finns i den här GitHub-lagringsplatsen
 
 ## <a name="upload-data"></a>Ladda upp data
 
-Om du vill ladda upp dina data navigerar du till <a href="https://speech.microsoft.com/customspeech" target="_blank">portalen <span class="docon docon-navigate-external x-hidden-focus"> </span>Anpassat tal </a>. Klicka på **Ladda upp data** från portalen för att starta guiden och skapa din första datauppsättning. Du blir ombedd att välja en taldatatyp för datauppsättningen innan du kan ladda upp dina data.
+Om du vill överföra dina data går du till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech <span class="docon docon-navigate-external x-hidden-focus"> </span>Portal </a>. Från portalen klickar du på **överför data** för att starta guiden och skapa din första data uppsättning. Du uppmanas att välja en tal data typ för din data uppsättning innan du tillåter att du överför dina data.
 
-![Välj ljud från Talportalen](./media/custom-speech/custom-speech-select-audio.png)
+![Välj ljud från tal portalen](./media/custom-speech/custom-speech-select-audio.png)
 
-Varje datauppsättning som du laddar upp måste uppfylla kraven för den datatyp som du väljer. Dina data måste vara korrekt formaterade innan de laddas upp. Korrekt formaterade data säkerställer att de bearbetas korrekt av tjänsten Custom Speech. Kraven anges i följande avsnitt.
+Varje data uppsättning som du överför måste uppfylla kraven för den datatyp som du väljer. Dina data måste vara korrekt formaterade innan de överförs. Korrekt formaterade data säkerställer att de bearbetas korrekt av tjänsten Custom Speech. Kraven visas i följande avsnitt.
 
-När datauppsättningen har laddats upp har du några alternativ:
+När din data uppsättning har laddats upp har du några alternativ:
 
-* Du kan navigera till fliken **Testning** och inspektera endast ljud eller ljud + data med mänskligt märkt transkription.
-* Du kan navigera till fliken **Utbildning** och använda ljud + data för mänsklig transkription eller relaterade textdata för att träna en anpassad modell.
+* Du kan navigera till fliken **test** och visuellt inspektera enbart ljud eller ljud + mänskligt avskrifts data.
+* Du kan navigera till fliken **utbildning** och använda ljud-och färg SKRIFTS data eller relaterade text data för att träna en anpassad modell.
 
-## <a name="audio-data-for-testing"></a>Ljuddata för testning
+## <a name="audio-data-for-testing"></a>Ljud data för testning
 
-Ljuddata är optimala för att testa noggrannheten i Microsofts tal-till-text-modell vid baslinjen eller en anpassad modell. Tänk på att ljuddata används för att kontrollera hur exakt tal är när det gäller en viss modells prestanda. Om du vill kvantifiera riktigheten av en modell använder du [ljud + mänskligt märkt transkriptionsdata](#audio--human-labeled-transcript-data-for-testingtraining).
+Ljuddata är optimala för att testa noggrannheten hos Microsofts bas linje tal-till-text-modell eller en anpassad modell. Kom ihåg att ljuddata används för att kontrol lera precisionen för tal med avseende på en speciell modells prestanda. Om du vill kvantifiera precisionen för en modell använder du [ljud + mänskligt avskrifts data](#audio--human-labeled-transcript-data-for-testingtraining).
 
-Använd den här tabellen för att se till att dina ljudfiler är korrekt formaterade för användning med anpassat tal:
+Använd den här tabellen för att se till att ljudfilerna är korrekt formaterade för användning med Custom Speech:
 
 | Egenskap                 | Värde                 |
 |--------------------------|-----------------------|
-| Filformat              | RIFF (WAV)            |
-| Samplingsfrekvens              | 8 000 Hz eller 16 000 Hz |
+| Fil format              | RIFF (WAV)            |
+| Samplings frekvens              | 8 000 Hz eller 16 000 Hz |
 | Kanaler                 | 1 (mono)              |
 | Maximal längd per ljud | 2 timmar               |
-| Exempelformat            | PCM, 16-bitars           |
-| Arkivformat           | .zip                  |
-| Maximal arkivstorlek     | 2 GB                  |
+| Exempel format            | PCM, 16-bitars           |
+| Arkiv format           | .zip                  |
+| Maximal Arkiv storlek     | 2 GB                  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
-> När du överför tränings- och testdata får zip-filstorleken inte överstiga 2 GB. Om du behöver mer data för utbildning delar du upp den i flera ZIP-filer och laddar upp dem separat. Senare kan du välja att träna från *flera* datauppsättningar. Du kan dock bara testa från en *enda* datauppsättning.
+> När du överför utbildning och testar data får. zip-filens storlek inte överskrida 2 GB. Om du behöver mer data för utbildning delar du in det i flera. zip-filer och laddar upp dem separat. Senare kan du välja att träna från *flera* data uppsättningar. Du kan dock bara testa från en *enda* data uppsättning.
 
-Använd <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <span class="docon docon-navigate-external x-hidden-focus"></span> </a> för att verifiera ljudegenskaper eller konvertera befintligt ljud till lämpliga format. Nedan följer några exempel på hur var och en av dessa aktiviteter kan göras via SoX-kommandoraden:
+Använd <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <span class="docon docon-navigate-external x-hidden-focus"></span> </a> för att verifiera ljud egenskaperna eller konvertera det befintliga ljudet till rätt format. Nedan visas några exempel på hur var och en av dessa aktiviteter kan göras via SoX-kommando raden:
 
-| Aktivitet | Beskrivning | SoX, kommando |
+| Aktivitet | Beskrivning | SoX-kommando |
 |----------|-------------|-------------|
-| Kontrollera ljudformat | Använd det här kommandot för att kontrollera<br>ljudfilsformatet. | `sox --i <filename>` |
-| Konvertera ljudformat | Använd det här kommandot för att konvertera<br>ljudfilen till en kanal, 16-bitars, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+| Kontrol lera ljud formatet | Använd det här kommandot för att kontrol lera<br>ljud fil formatet. | `sox --i <filename>` |
+| Konvertera ljud format | Använd det här kommandot för att konvertera<br>ljud filen till en kanal, 16-bitars 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
-## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Ljud + mänskligt märkta transkriptionsdata för testning/utbildning
+## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Ljud + mänskligt avskrifts data för testning/utbildning
 
-Om du vill mäta riktigheten i Microsofts tal-till-text-noggrannhet när du bearbetar ljudfilerna måste du ange utskrifter med mänskligt namn (ord för ord) för jämförelse. Medan mänskligt märkt transkription är ofta tidskrävande, är det nödvändigt att utvärdera noggrannheten och att träna modellen för dina användningsfall. Tänk på att förbättringarna i erkännandet bara kommer att vara lika bra som de data som tillhandahålls. Därför är det viktigt att endast högkvalitativa utskrifter laddas upp.
+För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetning av ljudfiler, måste du tillhandahålla medmärkta avskrifter (ord för ord) för jämförelse. Även om det ofta finns tids krävande avskrifter, är det nödvändigt att utvärdera precisionen och träna modellen för dina användnings fall. Kom ihåg att förbättringarna i igenkänningen bara är lika lämpliga som de data som tillhandahålls. Därför är det viktigt att endast avskrifter av hög kvalitet överförs.
 
 | Egenskap                 | Värde                               |
 |--------------------------|-------------------------------------|
-| Filformat              | RIFF (WAV)                          |
-| Samplingsfrekvens              | 8 000 Hz eller 16 000 Hz               |
+| Fil format              | RIFF (WAV)                          |
+| Samplings frekvens              | 8 000 Hz eller 16 000 Hz               |
 | Kanaler                 | 1 (mono)                            |
-| Maximal längd per ljud | 2 timmar (testning) / 60 s (utbildning) |
-| Exempelformat            | PCM, 16-bitars                         |
-| Arkivformat           | .zip                                |
+| Maximal längd per ljud | 2 timmar (testning)/60 s (utbildning) |
+| Exempel format            | PCM, 16-bitars                         |
+| Arkiv format           | .zip                                |
 | Maximal zip-storlek         | 2 GB                                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!NOTE]
-> När du överför tränings- och testdata får zip-filstorleken inte överstiga 2 GB. Du kan bara testa från en *enda* datauppsättning, se till att hålla den inom lämplig filstorlek. Dessutom kan varje träningsfil inte överstiga 60 sekunder annars kommer det att fel ut.
+> När du överför utbildning och testar data får. zip-filens storlek inte överskrida 2 GB. Du kan bara testa från en *enda* data uppsättning, se till att hålla den inom lämplig fil storlek. Dessutom kan varje tränings fil inte överstiga 60 sekunder, annars kommer den att vara fel.
 
-För att ta itu med problem som borttagning av ord eller ersättning krävs en betydande mängd data för att förbättra igenkänningen. I allmänhet rekommenderas att tillhandahålla transkriptioner ord för ord för ungefär 10 till 1 000 timmars ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
+För att lösa problem som Word-borttagning eller ersättning krävs en stor mängd data för att förbättra igenkänningen. I allmänhet rekommenderar vi att du ger ord för ord-avskrifter i ungefär 10 till 1 000 timmar av ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
 
   Ett exempel:
 ```
@@ -108,29 +108,29 @@ För att ta itu med problem som borttagning av ord eller ersättning krävs en b
 > [!IMPORTANT]
 > Transkriptionen ska kodas som UTF-8-byteordningsmärke (BOM).
 
-Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock några viktiga normaliseringar som måste göras innan du överför data till Talstudion. För rätt språk att använda när du förbereder dina transkriptioner, se [Hur du skapar en mänsklig märkt transkription](how-to-custom-speech-human-labeled-transcriptions.md)
+Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock några viktiga normaliseringar som måste utföras innan data överförs till tal Studio. För det språk som ska användas när du förbereder dina avskrifter, se [så här skapar du en](how-to-custom-speech-human-labeled-transcriptions.md) medhjälpad avskrift
 
-När du har samlat in ljudfiler och motsvarande transkriptioner paketerar du dem som en enda ZIP-fil innan du laddar upp till <a href="https://speech.microsoft.com/customspeech" target="_blank">portalen <span class="docon docon-navigate-external x-hidden-focus"> </span>Anpassat tal </a>. Nedan följer ett exempel på datauppsättning med tre ljudfiler och en mänskligt märkt transkriptionsfil:
+När du har samlat in dina ljudfiler och motsvarande avskrifter, paketera dem som en enda. zip-fil innan du överför till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech Portal <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Nedan visas ett exempel på en data uppsättning med tre ljudfiler och en fil med mänsklig märkning:
 
 > [!div class="mx-imgBorder"]
-> ![Välj ljud från Talportalen](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+> ![Välj ljud från tal portalen](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-## <a name="related-text-data-for-training"></a>Relaterade textdata för utbildning
+## <a name="related-text-data-for-training"></a>Relaterade text data för utbildning
 
-Produktnamn eller funktioner som är unika bör innehålla relaterade textdata för utbildning. Relaterad text bidrar till att säkerställa korrekt igenkänning. Två typer av relaterade textdata kan tillhandahållas för att förbättra igenkänningen:
+Produkt namn eller funktioner som är unika bör innehålla relaterade text data för utbildning. Relaterad text hjälper till att säkerställa korrekt igenkänning. Två typer av relaterade text data kan tillhandahållas för att förbättra igenkänningen:
 
 | Datatyp | Hur dessa data förbättrar igenkänningen |
 |-----------|------------------------------------|
-| Meningar (yttranden) | Förbättra noggrannheten när du känner igen produktnamn, eller branschspecifikt ordförråd inom ramen för en mening. |
-| Uttal | Förbättra uttalet av ovanliga termer, förkortningar, eller andra ord med odefinierade uttal. |
+| Meningar (yttranden) | Förbättra precisionen när du känner igen produkt namn eller branschspecifika vokabulär inom ramen för en mening. |
+| Uttal | Förbättra uttal av ovanliga termer, akronymer eller andra ord med odefinierade uttal. |
 
-Meningar kan tillhandahållas som en enda textfil eller flera textfiler. Om du vill förbättra noggrannheten använder du textdata som ligger närmare de förväntade talade yttrandena. Uttal bör tillhandahållas som en enda textfil. Allt kan paketeras som en enda zip-fil och laddas upp till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Meningar kan anges som en enda textfil eller flera textfiler. För att förbättra precisionen använder du text data som är närmare den förväntade talade yttranden. Uttal ska anges som en enskild textfil. Allt kan paketeras som en enda zip-fil och överföras till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech <span class="docon docon-navigate-external x-hidden-focus"> </span>Portal </a>.
 
-### <a name="guidelines-to-create-a-sentences-file"></a>Riktlinjer för att skapa en meningsfil
+### <a name="guidelines-to-create-a-sentences-file"></a>Rikt linjer för att skapa en menings fil
 
-Om du vill skapa en anpassad modell med meningar måste du ange en lista över exempelyttranden. Yttranden behöver _inte_ vara fullständiga eller grammatiskt korrekta, men de måste korrekt återspegla den talade indata du förväntar dig i produktionen. Om du vill att vissa termer ska ha ökad vikt lägger du till flera meningar som innehåller dessa specifika termer.
+Om du vill skapa en anpassad modell med hjälp av meningar måste du ange en lista över exempel-yttranden. Yttranden behöver _inte_ vara slutförd eller grammatiskt korrekt, men de måste avspegla den talade ingången som du förväntar dig i produktionen. Om du vill att vissa villkor har ökat vikt, lägger du till flera meningar som innehåller dessa specifika villkor.
 
-Som allmän vägledning är modellanpassning mest effektiv när utbildningstexten ligger så nära den verkliga text som förväntas i produktionen. Domänspecifika jargonger och fraser som du riktar dig till för att förbättra bör ingå i utbildningstexten. Försök om möjligt att få en mening eller ett nyckelord styrt på en separat rad. För sökord och fraser som är viktiga för dig (till exempel produktnamn) kan du kopiera dem några gånger. Men kom ihåg, kopiera inte för mycket - det kan påverka den totala igenkänningsfrekvensen.
+Som allmän vägledning är modell anpassningen effektiv när övnings texten är så nära som möjligt för den verkliga text som förväntas i produktionen. Kundspecifika jargong och fraser som du riktar in dig på bör tas med i övnings texten. När det är möjligt kan du försöka att ha en mening eller ett nyckelord som styrs på en separat rad. För nyckelord och fraser som är viktiga för dig (till exempel produkt namn) kan du kopiera dem några gånger. Men kom ihåg att inte kopiera för mycket – det kan påverka den övergripande igenkännings hastigheten.
 
 Använd den här tabellen för att se till att din relaterade datafil för yttranden är korrekt formaterad:
 
@@ -140,47 +140,47 @@ Använd den här tabellen för att se till att din relaterade datafil för yttra
 | antal yttrande per rad | 1 |
 | Maximal filstorlek | 200 MB |
 
-Dessutom vill du ta hänsyn till följande begränsningar:
+Dessutom bör du ta hänsyn till följande begränsningar:
 
-* Undvik att upprepa tecken mer än fyra gånger. Till exempel: "aaaa" eller "uuuu".
-* Använd inte specialtecken eller UTF-8 `U+00A1`tecken ovan .
-* Uri:er kommer att avvisas.
+* Undvik upprepade tecken mer än fyra gånger. Till exempel: "AAAA" eller "uuuu".
+* Använd inte specialtecken eller UTF-8-tecken ovan `U+00A1`.
+* URI: er kommer att avvisas.
 
-### <a name="guidelines-to-create-a-pronunciation-file"></a>Riktlinjer för att skapa en uttalsfil
+### <a name="guidelines-to-create-a-pronunciation-file"></a>Rikt linjer för att skapa en uttal-fil
 
-Om det finns ovanliga termer utan standarduttal som användarna kommer att stöta på eller använda, kan du ange en anpassad uttalsfil för att förbättra igenkänningen.
+Om det finns ovanliga termer utan standard uttal som användarna kommer att stöta på eller använder, kan du ange en anpassad uttal-fil för att förbättra igenkänningen.
 
 > [!IMPORTANT]
-> Det rekommenderas inte att använda anpassade uttalsfiler för att ändra uttalet av vanliga ord.
+> Vi rekommenderar inte att du använder anpassade uttal-filer för att ändra uttal av vanliga ord.
 
-Detta inkluderar exempel på ett talat uttryck och ett anpassat uttal för varje:
+Detta inkluderar exempel på en talade uttryck och ett anpassat uttal för var och en:
 
-| Formulär som känns igen/visas | Talad form |
+| Identifierat/visat formulär | Tal format |
 |--------------|--------------------------|
-| 3CPO (30) | tre c p o |
+| 3CPO | tre c p o |
 | CNTK | c n t k |
-| Ieee | jag trefaldigt e |
+| STANDARDEN | i tredubbel e |
 
-Den talade formen är den fonetiska sekvensen som stavas. Den kan bestå av bokstav, ord, stavelser eller en kombination av alla tre.
+Det talade formuläret är den fonetiska sekvensen som har stavats ut. Det kan bestå av bokstäver, ord, stavelser eller en kombination av alla tre.
 
-Anpassat uttal finns på engelska`en-US`( )`de-DE`och tyska ( ). I den här tabellen visas tecken som stöds efter språk:
+Ett anpassat uttal är tillgängligt på engelska`en-US`() och tyska`de-DE`(). I den här tabellen visas tecken som stöds efter språk:
 
-| Språk | Nationell inställning | Tecken |
+| Språk | Nationell inställning | Tabbtecken |
 |----------|--------|------------|
 | Svenska | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Tyska | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
-Använd följande tabell för att se till att din relaterade datafil för uttal är korrekt formaterad. Uttalsfiler är små, och bör bara vara några kilobyte i storlek.
+Använd följande tabell för att kontrol lera att den relaterade data filen för uttal är korrekt formaterad. Uttal-filerna är små och får bara bestå av några kilobyte i storlek.
 
 | Egenskap | Värde |
 |----------|-------|
-| Textkodning | UTF-8 BOM (ANSI stöds också för engelska) |
-| Antal uttal per rad | 1 |
-| Maximal filstorlek | 1 MB (1 KB för gratis nivå) |
+| Textkodning | UTF-8-struktur (ANSI stöds också för engelska) |
+| antal uttal per rad | 1 |
+| Maximal filstorlek | 1 MB (1 KB ledig nivå) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Granska dina data](how-to-custom-speech-inspect-data.md)
+* [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 * [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
 * [Träna din modell](how-to-custom-speech-train-model.md)
 * [Distribuera din modell](how-to-custom-speech-deploy-model.md)

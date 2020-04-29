@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Dokumentation om Speech-enheter
-summary: Speech Devices SDK är ett förinstämt bibliotek som är parat med specialbyggda utvecklingspaket för mikrofonmatriser.
+summary: Tal enheter SDK är ett förjusterat bibliotek som är länkat till bygg satser med syftes utveckling, mikrofon mat ris.
 metadata:
-  title: Dokumentation för talenheter – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
+  title: Dokumentation om tal enheter – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 03/10/2020
   ms.author: trbye
   ms.openlocfilehash: 76bb63654778a08244e2207839e12812b7227dff
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401364"
 landingContent:
-- title: Om Talenheterna SDK
+- title: Om tal enheter SDK
   linkLists:
   - linkListType: overview
     links:
@@ -26,19 +26,19 @@ landingContent:
       url: speech-devices-sdk.md
   - linkListType: quickstart
     links:
-    - text: Använda Talenheter SDK (Windows)
+    - text: Använda tal enheter SDK (Windows)
       url: speech-devices-sdk-quickstart.md?pivots=platform-windows
-    - text: Använda Talenheter SDK (Linux)
+    - text: Använda tal enheter SDK (Linux)
       url: speech-devices-sdk-quickstart.md?pivots=platform-linux
-    - text: Använda Talenheter SDK (Android)
+    - text: Använda tal enheter SDK (Android)
       url: speech-devices-sdk-quickstart.md?pivots=platform-android
-- title: Utveckla med Talenheter SDK
+- title: Utveckla med tal enheter SDK
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Designa en mikrofonmatris
+    - text: Utforma en mikrofon mat ris
       url: speech-devices-sdk-microphone.md
-    - text: Konfigurera Roobo v1 Kit
+    - text: Konfigurera Roobo v1-paketet
       url: speech-devices-sdk-roobo-v1.md
 - title: Referens
   linkLists:

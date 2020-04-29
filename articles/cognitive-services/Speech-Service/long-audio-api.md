@@ -1,7 +1,7 @@
 ---
-title: Long Audio API (Preview) - Taltjänst
+title: Tids krävande ljud-API (för hands version) – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur Long Audio API är utformat för asynkron syntes av långformad text till tal.
+description: 'Lär dig hur den långa ljud-API: n är utformad för asynkron syntes av lång Forms text till tal.'
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,79 +11,79 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
 ms.openlocfilehash: b7cca314ec59e46cf17751b1aec28b5c3ea029ed
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81401059"
 ---
-# <a name="long-audio-api-preview"></a>Långt ljud-API (förhandsgranskning)
+# <a name="long-audio-api-preview"></a>Långt ljud-API (för hands version)
 
-Long Audio API är utformat för asynkron syntes av långformad text till tal (till exempel: ljudböcker). Detta API returnerar inte syntetiserat ljud i realtid, istället är förhoppningen att du kommer att söka efter svaren (er) och förbruka utdata (er) som de görs tillgängliga från tjänsten. Till skillnad från texten till tal-API:et som används av Speech SDK kan API:et för långt ljud skapa syntetiserat ljud längre än 10 minuter, vilket gör det idealiskt för utgivare och ljudinnehållsplattformar.
+Den långa ljud-API: n är utformad för asynkron syntes av lång Forms text till tal (till exempel: ljud böcker). Det här API: t returnerar inte syntetiskt ljud i real tid, i stället är det förväntat att du ska söka efter svar och använda de utdata som de görs tillgängliga från tjänsten. Till skillnad från text till tal-API som används av talet SDK, kan det långa ljud-API: et skapa syntetiskt ljud som är längre än 10 minuter, vilket gör det perfekt för utgivare och ljud innehålls plattformar.
 
-Ytterligare fördelar med Long Audio API:
+Ytterligare fördelar med den långa ljud-API: et:
 
-* Syntetiserat tal som returneras av tjänsten använder neurala röster, vilket säkerställer hifi-ljudutgångar.
-* Eftersom svar i realtid inte stöds behöver du inte distribuera en röstslutpunkt.
+* Syntetiskt tal som returneras av tjänsten använder neurala-röster, som säkerställer ljud uppspelning med hög åter givning.
+* Eftersom real tids svar inte stöds behöver du inte distribuera en röst slut punkt.
 
 > [!NOTE]
-> Long Audio API stöder nu endast [Custom Neural Voice](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> API för långa ljud stöder nu bara [anpassad neurala röst](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## <a name="workflow"></a>Arbetsflöde
 
-När du använder Long Audio API skickar du vanligtvis en textfil eller filer som ska syntetiseras, avsöka status och sedan om statusen lyckas kan du hämta ljudutdata.
+När du använder det långa ljud-API: et skickar du normalt en textfil eller filer som ska syntetiseras, avsöker efter status. om statusen är klar kan du ladda ned ljud uppspelningen.
 
-Det här diagrammet ger en översikt på hög nivå över arbetsflödet.
+Det här diagrammet innehåller en översikt över arbets flödet.
 
-![Arbetsflödesdiagram för långt ljud-API](media/long-audio-api/long-audio-api-workflow.png)
+![Arbets flödes diagram för långt ljud-API](media/long-audio-api/long-audio-api-workflow.png)
 
 ## <a name="prepare-content-for-synthesis"></a>Förbered innehåll för syntes
 
-När du förbereder textfilen kontrollerar du att den:
+När du förbereder text filen måste du se till att den:
 
-* Är antingen oformaterad text (.txt) eller SSML-text (.txt)
-* Kodas som [UTF-8 med byteordermark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
-* Är en enda fil, inte en zip
-* Innehåller mer än 400 tecken för oformaterad text eller 400 [fakturerbara tecken](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) för SSML-text och mindre än 10 000 stycken
-  * För oformaterad text avgränsas varje stycke genom att trycka **på Indataexempel för retur** - visa [oformaterad text](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
-  * För SSML-text betraktas varje SSML-del som ett stycke. SSML-delar ska avgränsas med olika stycken - Visa [exempel på SSML-textinmatning](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
+* Är antingen oformaterad text (. txt) eller SSML text (. txt)
+* Kodas som [UTF-8 med byte ordnings tecken (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
+* Är en enskild fil, inte ett zip
+* Innehåller fler än 400 tecken för oformaterad text eller 400 [fakturerbara tecken](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) för SSML text och färre än 10 000 stycken
+  * För oformaterad text separeras varje stycke genom att trycka på **RETUR/retur** -Visa [text ingångs exempel](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
+  * För SSML text betraktas varje SSML-enhet som ett stycke. SSML bitar separeras av olika stycken – Visa [SSML text ingångs exempel](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
-> För kinesiska (fastlandet), kinesiska (Hongkong), kinesiska (Taiwan), japanska och koreanska räknas ett ord som två tecken. 
+> För kinesiska (fast), kinesiska (Hongkong), kinesiska (Taiwan), japanska och koreanska, räknas ett ord som två tecken. 
 
-## <a name="submit-synthesis-requests"></a>Skicka syntesbegäranden
+## <a name="submit-synthesis-requests"></a>Skicka syntes begär Anden
 
-När du har förberett indatainnehållet följer du snabbstarten för [den långa ljudsyntesen](https://aka.ms/long-audio-python) för att skicka begäran. Om du har mer än en indatafil måste du skicka flera begäranden. Det finns vissa begränsningar att vara medveten om: 
-* Klienten tillåts skicka upp till 5 begäranden till servern per sekund för varje Azure-prenumerationskonto. Om det överskrider begränsningen får klienten en felkod på 429 (för många begäranden). Minska begäran om belopp per sekund
-* Servern tillåts köra och köa upp till 120 begäranden för varje Azure-prenumerationskonto. Om det överskrider begränsningen returnerar servern en felkod på 429 (för många begäranden). Vänta och undvik att skicka in en ny begäran tills vissa begäranden har slutförts
-* Servern behåller upp till 20 000 begäranden för varje Azure-prenumerationskonto. Om det överskrider begränsningen, ta bort några förfrågningar innan du skickar in nya
+När du har bearbetat indata-innehållet följer du snabb starten för det [långa form ljud syntesen](https://aka.ms/long-audio-python) för att skicka begäran. Om du har fler än en indatafil måste du skicka flera begär Anden. Det finns vissa begränsningar som du bör känna till: 
+* Klienten får skicka upp till 5 förfrågningar till server per sekund för varje Azure-prenumerations konto. Om den överskrider begränsningen får klienten en 429-felkod (för många begär Anden). Minska antalet begär Anden per sekund
+* Servern kan köra och köa upp till 120 förfrågningar för varje Azure-prenumerations konto. Om den överskrider begränsningen returnerar servern en 429-felkod (för många begär Anden). Vänta och Undvik att skicka ny begäran förrän vissa begär Anden har slutförts
+* Servern kommer att behålla upp till 20 000 förfrågningar för varje Azure-prenumerations konto. Om det överskrider begränsningen tar du bort några begär Anden innan du skickar nya
 
-## <a name="audio-output-formats"></a>Format för ljudutdata
+## <a name="audio-output-formats"></a>Format för ljud uppspelning
 
-Vi stöder flexibla ljudutmatningsformat. Du kan generera ljudutgångar per stycke eller sammanfoga ljuden till en utgång genom att ställa in parametern "concatenateResult". Följande ljudutdataformat stöds av Long Audio API:
+Vi har stöd för flexibla format för ljud uppspelning. Du kan generera ljud utmatningar per stycke eller slå ihop ljuden till en utmatning genom att ange parametern "concatenateResult". Följande format för ljudutdata stöds av den långa ljud-API: et:
 
 > [!NOTE]
-> Standardljudformatet är riff-16khz-16bit-mono-pcm.
+> Standard ljud formatet är riff-16khz-bitarsläge-mono-PCM.
 
-* riff-8khz-16bit-mono-pcm
-* riff-16khz-16bit-mono-pcm
-* riff-24khz-16bit-mono-pcm
-* riff-48khz-16bit-mono-pcm
-* audio-16khz-32kbitrate-mono-mp3
-* audio-16khz-64kbitrate-mono-mp3
-* audio-16khz-128kbitrate-mono-mp3
-* audio-24khz-48kbitrate-mono-mp3
-* audio-24khz-96kbitrate-mono-mp3
-* audio-24khz-160kbitrate-mono-mp3
+* riff-8khz-bitarsläge-mono-PCM
+* riff-16khz-bitarsläge-mono-PCM
+* riff-24khz-bitarsläge-mono-PCM
+* riff-48kHz-bitarsläge-mono-PCM
+* Audio-16khz-32kbitrate-mono-MP3
+* Audio-16khz-64kbitrate-mono-MP3
+* Audio-16khz-128kbitrate-mono-MP3
+* Audio-24khz-48kbitrate-mono-MP3
+* Audio-24khz-96kbitrate-mono-MP3
+* Audio-24khz-160kbitrate-mono-MP3
 
 ## <a name="quickstarts"></a>Snabbstarter
 
-Vi erbjuder snabbstarter som utformats för att hjälpa dig att köra Long Audio API framgångsrikt. Den här tabellen innehåller en lista över snabbstarter för Long Audio API ordnade efter språk.
+Vi erbjuder snabb starter som har utformats för att hjälpa dig att köra den långa ljud-API: n. Den här tabellen innehåller en lista med snabb starter för långa ljud-API ordnade efter språk.
 
-* [Snabbstart: Python](https://aka.ms/long-audio-python)
+* [Snabb start: python](https://aka.ms/long-audio-python)
 
 ## <a name="sample-code"></a>Exempelkod
-Exempelkod för Long Audio API är tillgänglig på GitHub.
+Exempel kod för långsiktigt ljud-API finns på GitHub.
 
-* [Exempelkod: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
-* [Exempelkod: C #](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
-* [Exempelkod: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
+* [Exempel kod: python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
+* [Exempel kod: C #](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [Exempel kod: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)

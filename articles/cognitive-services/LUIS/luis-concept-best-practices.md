@@ -1,162 +1,162 @@
 ---
-title: Metodtips för att skapa luis-appen
-description: Lär dig de bästa metoderna för att få bästa resultat från LUIS-appens modell.
+title: Metod tips för att skapa en LUIS-app
+description: Lär dig mer om bästa praxis för att få bästa möjliga resultat från LUIS-appens modell.
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: diberry
 ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382391"
 ---
-# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Metodtips för att skapa en LUIS-app (Language Understanding)
-Använd apputfattningsprocessen för att skapa luis-appen:
+# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Metod tips för att skapa en LUIS-app (Language förståelseing)
+Använd redigerings processen för appar för att skapa LUIS-appen:
 
-* Skapa språkmodeller (avsikter och entiteter)
-* Lägg till några exempelyttranden för träning (15–30 per avsikt)
-* Publicera till slutpunkt
-* Testa från slutpunkten
+* Bygg språks modeller (avsikter och entiteter)
+* Lägg till några utbildnings exempel yttranden (15-30 per avsikt)
+* Publicera till slut punkt
+* Testa från slut punkt
 
-När appen [har publicerats](luis-how-to-publish-app.md)använder du utvecklingslivscykeln för att lägga till funktioner, publicera och testa från slutpunkten. Börja inte nästa redigeringscykel genom att lägga till fler exempelyttranden eftersom det inte låter LUIS lära sig din modell med verkliga användaryttranden.
+När din app har [publicerats](luis-how-to-publish-app.md)använder du utvecklings livs cykeln för att lägga till funktioner, publicera och testa från slut punkten. Påbörja inte nästa redigerings cykel genom att lägga till fler exempel yttranden eftersom det inte tillåter LUIS att lära sig din modell med verkliga användar yttranden.
 
-Expandera inte yttrandena förrän den aktuella uppsättningen med både exempel- och slutpunktsyttranden returnerar självsäkra, höga förutsägelsepoäng. Förbättra poäng med [aktivt lärande](luis-concept-review-endpoint-utterances.md).
+Expandera inte yttranden förrän den aktuella uppsättningen av både exempel-och slut punkts yttranden returnerar trygg, hög förutsägelse poäng. Förbättra poängen med hjälp av [aktiv inlärning](luis-concept-review-endpoint-utterances.md).
 
 
 
 
 ## <a name="do-and-dont"></a>Gör och inte
-Följande lista innehåller metodtips för LUIS-appar:
+I följande lista finns metod tips för LUIS-appar:
 
 |Gör följande|Gör inte följande|
 |--|--|
-|[Definiera distinkta avsikter](#do-define-distinct-intents)<br>[Lägga till beskrivningar i avsikter](#do-add-descriptors-to-intents) |[Lägga till många exempelyttranden i avsikter](#dont-add-many-example-utterances-to-intents)<br>[Använda få eller enkla entiteter](#dont-use-few-or-simple-entities) |
-|[Hitta en sweet spot mellan för generisk och för specifik för varje avsikt](#do-find-sweet-spot-for-intents)|[Använda LUIS som träningsplattform](#dont-use-luis-as-a-training-platform)|
-|[Skapa din app iterativt med versioner](#do-build-your-app-iteratively-with-versions)<br>[Skapa entiteter för modelldets sönderdelning](#do-build-for-model-decomposition)|[Lägga till många exempel yttranden av samma format, ignorera andra format](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Definiera distinkta avsikter](#do-define-distinct-intents)<br>[Lägg till beskrivningar till avsikter](#do-add-descriptors-to-intents) |[Lägg till många exempel yttranden till avsikter](#dont-add-many-example-utterances-to-intents)<br>[Använd få eller enkla entiteter](#dont-use-few-or-simple-entities) |
+|[Hitta en söt punkt mellan för allmän och för varje avsikt](#do-find-sweet-spot-for-intents)|[Använd LUIS som utbildnings plattform](#dont-use-luis-as-a-training-platform)|
+|[Bygg din app iterativt med versioner](#do-build-your-app-iteratively-with-versions)<br>[Bygg entiteter för modell nedbrytning](#do-build-for-model-decomposition)|[Lägg till många exempel yttranden i samma format, ignorera andra format](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Lägga till mönster i senare iterationer](#do-add-patterns-in-later-iterations)|[Blanda definitionen av avsikter och entiteter](#dont-mix-the-definition-of-intents-and-entities)|
-|[Balansera dina yttranden över alla avsikter](#balance-your-utterances-across-all-intents) utom avsikten Ingen.<br>[Lägga till exempelyttranden i ingen avsikt](#do-add-example-utterances-to-none-intent)|[Skapa beskrivningar med alla möjliga värden](#dont-create-descriptors-with-all-the-possible-values)|
-|[Utnyttja förslagsfunktionen för aktiv inlärning](#do-leverage-the-suggest-feature-for-active-learning)|[Lägga till för många mönster](#dont-add-many-patterns)|
-|[Övervaka appens prestanda med batchtestning](#do-monitor-the-performance-of-your-app)|[Träna och publicera med varje enskilt exempel yttrande tillagd](#dont-train-and-publish-with-every-single-example-utterance)|
+|[Balansera din yttranden för alla syften](#balance-your-utterances-across-all-intents) förutom ingen avsikt.<br>[Lägg till exempel yttranden i ingen avsikt](#do-add-example-utterances-to-none-intent)|[Skapa beskrivningar med alla möjliga värden](#dont-create-descriptors-with-all-the-possible-values)|
+|[Dra nytta av funktionen föreslå för aktiv inlärning](#do-leverage-the-suggest-feature-for-active-learning)|[Lägg till för många mönster](#dont-add-many-patterns)|
+|[Övervaka appens prestanda med batch-testning](#do-monitor-the-performance-of-your-app)|[Träna och publicera med varje enda exempel-uttryck tillagt](#dont-train-and-publish-with-every-single-example-utterance)|
 
-## <a name="do-define-distinct-intents"></a>Definierar olika avsikter
-Se till att ordförrådet för varje avsikt är bara för den avsikten och inte överlappande med en annan avsikt. Om du till exempel vill ha en app som hanterar researrangemang som flyg och hotell kan du välja att ha dessa ämnesområden som separata avsikter eller samma avsikt med entiteter för specifika data i uttrycket.
+## <a name="do-define-distinct-intents"></a>Definiera distinkta avsikter
+Se till att ord listan för varje avsikt är just för den avsikten och inte överlappar med en annan avsikt. Om du till exempel vill ha en app som hanterar rese arrangemang som flyg bolags flygningar och hotell kan du välja att ha dessa ämnes områden som separata avsikter eller samma avsikt med entiteter för särskilda data inuti uttryck.
 
-Om ordförrådet mellan två avsikter är detsamma kombinerar du avsikten och använder entiteter.
+Om ord listan mellan två avsikter är densamma kombinerar du avsikten och använder entiteter.
 
-Tänk på följande exempelyttranden:
+Överväg följande exempel yttranden:
 
 |Exempel på yttranden|
 |--|
-|Boka ett flyg|
+|Boka en flygning|
 |Boka ett hotell|
 
-`Book a flight`och `Book a hotel` använda samma ordförråd `book a `. Det här formatet är detsamma så det bör `flight` vara `hotel` samma avsikt med de olika orden i och som extraherade entiteter.
+`Book a flight`och `Book a hotel` Använd samma vokabulär i `book a `. Det här formatet är detsamma, så det bör vara samma avsikt med de olika orden av `flight` och `hotel` som extraherade entiteter.
 
-## <a name="do-add-descriptors-to-intents"></a>Lägg till beskrivningar i avsikter
+## <a name="do-add-descriptors-to-intents"></a>Lägg till beskrivningar till avsikter
 
-Deskriptorer hjälper till att beskriva funktioner för en avsikt. En deskriptor kan vara en fraslista med ord som är viktiga för den avsikten eller en entitet som är viktig för den avsikten.
+Med hjälp av beskrivningar kan du beskriva funktioner för ett avsikts sätt. En beskrivning kan vara en fras lista med ord som är viktiga för avsikten eller en enhet som är viktig för avsikten.
 
-## <a name="do-find-sweet-spot-for-intents"></a>Hittar sweet spot för avsikter
-Använd förutsägelsedata från LUIS för att avgöra om dina avsikter överlappar varandra. Överlappande avsikter förvirrar LUIS. Resultatet är att den högsta poängavsikten är för nära en annan avsikt. Eftersom LUIS inte använder exakt samma sökväg genom data för träning varje gång, har en överlappande avsikt en chans att bli första eller andra i träning. Du vill att yttrandets poäng för varje avsikt ska vara längre ifrån varandra så att denna flip /flop inte händer. Bra distinktion för avsikter bör resultera i den förväntade högsta avsikten varje gång.
+## <a name="do-find-sweet-spot-for-intents"></a>Hittar du söt för avsikter
+Använd förutsägelse data från LUIS för att avgöra om dina avsikter överlappar. Överlappande avsikter förvirrar LUIS. Resultatet är att den översta bedömnings avsikten är för nära en annan avsikt. Eftersom LUIS inte använder exakt samma sökväg via data för utbildning varje gång, har en överlappande avsikt möjlighet att vara första eller andra i utbildningen. Du vill att uttryck-poängen för varje avsikt att ligga längre bort, så att den här flip/vippa inte sker. Bra distinktion för avsikter bör resultera i förväntat topp-avsikt varje gång.
 
 <a name="#do-build-the-app-iteratively"></a>
 
-## <a name="do-build-your-app-iteratively-with-versions"></a>Bygg din app iterativt med versioner
+## <a name="do-build-your-app-iteratively-with-versions"></a>Skapa en app iterativt med versioner
 
-Varje redigeringscykel ska finnas i en ny [version](luis-concept-version.md), klonad från en befintlig version.
+Varje redigerings cykel bör vara i en ny [version](luis-concept-version.md)som klonas från en befintlig version.
 
-## <a name="do-build-for-model-decomposition"></a>Gör bygg för modelldets sönderdelning
+## <a name="do-build-for-model-decomposition"></a>Skapa modell sammansättning
 
-Modell nedbrytning har en typisk process av:
+Modell dispositionen har en typisk process för:
 
-* skapa **avsikt** baserat på klient-appens användaravsikter
-* lägga till 15-30 exempel yttranden baserat på verkliga användarindata
-* etikett på den översta nivåns datakoncept i exempelutsyn
-* bryta datakoncept i delkomponenter
-* lägga till beskrivningar (funktioner) i delkomponenter
-* lägga till beskrivningar (funktioner) i avsikt
+* skapa **avsikt** baserat på klientens användar avsikter
+* Lägg till 15-30-exempel yttranden baserat på verkliga indata från användaren
+* Märk data koncept på översta nivån i exemplet uttryck
+* Bryt data koncept i del komponenter
+* Lägg till beskrivningar (funktioner) i under komponenter
+* Lägg till beskrivningar (funktioner) i avsikten
 
-När du har skapat avsikten och lagt till exempelyttranden beskriver följande exempel entitetsuppdelning.
+När du har skapat avsikten och lagt till exempel yttranden, beskriver följande exempel enhets diskompositionen.
 
-Börja med att identifiera fullständiga databegrepp som du vill extrahera i ett uttryck. Det här är din maskininlärda entitet. Sedan sönderdelas frasen i dess delar. Detta inkluderar identifiering av delkomponenter (som entiteter), tillsammans med beskrivningar och begränsningar.
+Börja med att identifiera fullständiga data koncept som du vill extrahera i en uttryck. Det här är din enhet som du har lärt dig. Dela sedan upp frasen i dess delar. Detta omfattar att identifiera under komponenter (som entiteter) tillsammans med beskrivningar och begränsningar.
 
-Om du till exempel vill extrahera en adress kan den `Address`översta datorinlärda entiteten kallas . När du skapar adressen identifierar du några av dess underkomponenter, till exempel gatuadress, ort, delstat och postnummer.
+Om du t. ex. vill extrahera en adress kan den översta enheten som sparats på datorn `Address`anropas. När du skapar adressen identifierar du några av dess del komponenter, till exempel gatuadress, stad, region och post nummer.
 
-Fortsätt att förmultna dessa element genom **att begränsa** postnumret till ett reguljärt uttryck. Förmultna gatuadressen i delar av ett gatunummer (med ett fördefinierat nummer), ett gatunamn och en gatutyp. Gatutypen kan beskrivas med en **beskrivningslista** som aveny, cirkel, väg och körfält.
+Fortsätt sammanställningen av dessa element genom att **begränsa** post numret till ett reguljärt uttryck. Dela upp gatuadressen i delar av ett gatu nummer (med ett fördefinierat nummer), ett gatu namn och en gatu typ. Gatu typen kan beskrivas med en **beskrivnings** lista, till exempel minimering, cirkel, väg och Lane.
 
-V3-redigerings-API:et möjliggör nedbrytning av modeller.
+V3-redigerings-API: n möjliggör modell dekomposition.
 
 ## <a name="do-add-patterns-in-later-iterations"></a>Lägg till mönster i senare iterationer
 
-Du bör förstå hur appen beter sig innan du lägger till [mönster](luis-concept-patterns.md) eftersom mönster viktas hårdare än exempelyttranden och förvränger förtroendet.
+Du bör förstå hur appen beter sig innan du lägger till [mönster](luis-concept-patterns.md) eftersom mönstren viktas mer kraftigt än yttranden och kommer att skeva förtroendet.
 
-När du förstår hur appen fungerar lägger du till mönster när de gäller för din app. Du behöver inte lägga till dem med varje [iteration](luis-concept-app-iteration.md).
+När du förstår hur appen beter sig lägger du till mönster som de gäller för din app. Du behöver inte lägga till dem med varje [iteration](luis-concept-app-iteration.md).
 
-Det skadar inte att lägga till dem i början av modelldesignen, men det är lättare att se hur varje mönster ändrar modellen efter att modellen har testats med yttranden.
+Det går inte att lägga till dem i början av din modell design, men det är enklare att se hur varje mönster ändrar modellen när modellen har testats med yttranden.
 
 <a name="balance-your-utterances-across-all-intents"></a>
 
-## <a name="do-balance-your-utterances-across-all-intents"></a>Balansera dina yttranden över alla avsikter
+## <a name="do-balance-your-utterances-across-all-intents"></a>Balansera din yttranden för alla avsikter
 
-För att LUIS-förutsägelser ska vara korrekta måste antalet exempelyttranden i varje avsikt (förutom avsikten Ingen) vara relativt lika.
+För att LUIS-förutsägelserna ska vara korrekta, måste antalet exempel yttranden i varje avsikt (utom för ingen avsikt) vara relativt lika.
 
-Om du har en avsikt med 100 exempelyttranden och en avsikt med 20 exempelyttranden, har 100-yttrandet en högre förutsägelsehastighet.
+Om du har en avsikt med 100-exempel yttranden och en avsikt med 20 exempel yttranden, har 100-uttryck-avsikten en högre frekvens av förutsägelse.
 
-## <a name="do-add-example-utterances-to-none-intent"></a>Lägg till exempelyttranden i ingen avsikt
+## <a name="do-add-example-utterances-to-none-intent"></a>Lägg till exempel yttranden i ingen avsikt
 
-Den här avsikten är reservavsikten och anger allt utanför ditt program. Lägg till ett exempel yttrande till ingen avsikt för varje 10 exempel yttranden i resten av luis-appen.
+Avsikten är återställnings avsikten, vilket indikerar allt utanför ditt program. Lägg till ett exempel uttryck till ingen avsikt för varje 10-exempel yttranden i resten av din LUIS-app.
 
-## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Utnyttja funktionen föreslå för aktivt lärande
+## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Använd funktionen föreslå funktion för aktiv inlärning
 
-Använd [aktivt inlärnings](luis-how-to-review-endpoint-utterances.md) **granskningsslutpunktsyttranden** regelbundet, i stället för att lägga till fler exempelyttranden i avsikter. Eftersom appen ständigt tar emot slutpunktsyttranden växer och ändras den här listan.
+Använd den [aktiva utbildnings](luis-how-to-review-endpoint-utterances.md) **slut punkten yttranden** regelbundet, i stället för att lägga till fler exempel yttranden till avsikter. Eftersom appen ständigt tar emot slut punkts yttranden, växer och ändras den här listan.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Övervaka appens prestanda
 
-Övervaka förutsägelsenoggrannheten med hjälp av en [batchtestuppsättning.](luis-concept-batch-test.md)
+Övervaka förutsägelse noggrannheten med hjälp av [batch](luis-concept-batch-test.md) -testuppsättningen.
 
-Behåll en separat uppsättning yttranden som inte används som [exempelyttranden](luis-concept-utterance.md) eller slutpunktsyttranden. Fortsätt att förbättra appen för din testuppsättning. Anpassa testuppsättningen så att den återspeglar verkliga användaryttranden. Använd den här testuppsättningen för att utvärdera varje iteration eller version av appen.
+Behåll en separat uppsättning yttranden som inte används som [exempel yttranden](luis-concept-utterance.md) eller slut punkts yttranden. Fortsätt att förbättra appen för din test uppsättning. Anpassa test uppsättningen så att den återspeglar Real User yttranden. Använd den här test uppsättningen för att utvärdera varje iteration eller version av appen.
 
-## <a name="dont-add-many-example-utterances-to-intents"></a>Lägg inte till många exempelyttranden i avsikter
+## <a name="dont-add-many-example-utterances-to-intents"></a>Lägg inte till många exempel yttranden till avsikter
 
-När appen har publicerats lägger du bara till yttranden från aktiv inlärning i livscykelprocessen för utveckling. Om yttranden är för lika lägger du till ett mönster.
+När appen har publicerats kan du bara lägga till yttranden från Active Learning i utvecklings livs cykel processen. Om yttranden är för likartade lägger du till ett mönster.
 
-## <a name="dont-use-few-or-simple-entities"></a>Använd inte få eller enkla entiteter
+## <a name="dont-use-few-or-simple-entities"></a>Använd inte några få eller enkla entiteter
 
-Entiteter är byggda för datautvinning och förutsägelse. Det är viktigt att varje avsikt har datorinlärda entiteter som beskriver data i avsikten. Detta hjälper LUIS förutsäga avsikten, även om klientprogrammet inte behöver använda den extraherade entiteten.
+Entiteter skapas för data extrahering och förutsägelser. Det är viktigt att varje avsikt har enheter som har registrerats av enheten som beskriver data i avsikten. Det hjälper LUIS att förutsäga avsikten, även om klient programmet inte behöver använda den extraherade entiteten.
 
-## <a name="dont-use-luis-as-a-training-platform"></a>Använd inte LUIS som träningsplattform
+## <a name="dont-use-luis-as-a-training-platform"></a>Använd inte LUIS som utbildnings plattform
 
-LUIS är specifikt för en språkmodells domän. Det är inte tänkt att fungera som en allmän naturlig språk utbildning plattform.
+LUIS är specifik för en språk modells domän. Den är inte avsedd att fungera som en allmän utbildnings plattform för naturliga språk.
 
-## <a name="dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats"></a>Lägg inte till många exempelyttranden i samma format och ignorera andra format
+## <a name="dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats"></a>Lägg inte till många exempel yttranden i samma format, ignorera andra format
 
-LUIS förväntar sig variationer i en avsikts yttranden. Yttrandena kan variera samtidigt som de har samma övergripande innebörd. Variationer kan omfatta uttryckslängd, ordval och ordplacering.
+LUIS förväntar sig variationer i ett avsikts yttranden. Yttranden kan variera med samma övergripande betydelse. Variationer kan vara uttryck längd, Word-val och ord placering.
 
 |Använd inte samma format|Använd varierande format|
 |--|--|
-|Köp en biljett till Seattle<br>Köp en biljett till Paris<br>Köp en biljett till Orlando|Köp 1 biljett till Seattle<br>Boka två platser på röda ögon till Paris nästa måndag<br>Jag skulle vilja boka 3 biljetter till Orlando för vårlovet|
+|Köp ett ärende till Seattle<br>Köp ett ärende till Paris<br>Köp ett ärende till Orlando|Köp 1-biljett till Seattle<br>Reservera två platser på det röda ögat till Paris nästa måndag<br>Jag vill boka 3 biljetter till Orlando för fjädrad rast|
 
-Den andra kolumnen använder olika verb (köp, reserv, bok), olika kvantiteter (1, två, 3) och olika ordarrangemang, men alla har samma avsikt att köpa flygbiljetter för resor.
+Den andra kolumnen använder olika verb (Köp, reservera, bok), olika kvantiteter (1, 2, 3) och olika ordningar av ord, men alla har samma avsikt att köpa flyg biljetter för resor.
 
 ## <a name="dont-mix-the-definition-of-intents-and-entities"></a>Blanda inte definitionen av avsikter och entiteter
 
-Skapa en avsikt för alla åtgärder som din bot kommer att vidta. Använd entiteter som parametrar som gör åtgärden möjlig.
+Skapa ett avsikts sätt för alla åtgärder som din robot tar. Använd entiteter som parametrar som gör åtgärden möjlig.
 
-Skapa en **BookFlight-avsikt** för en robot som bokar flygresor. Skapa inte en avsikt för varje flygbolag eller varje destination. Använd dessa data som [entiteter](luis-concept-entity-types.md) och markera dem i exempelyttrandena.
+För en robot som ska boka flyg Plans flygningar skapar du en **BookFlight** avsikt. Skapa inte en avsikt för varje flyg bolag eller varje mål. Använd dessa delar av data som [entiteter](luis-concept-entity-types.md) och markera dem i exemplet yttranden.
 
-## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Skapa inte deskriptorer med alla möjliga värden
+## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Skapa inte beskrivningar med alla möjliga värden
 
-Ge några exempel i [deskriptorfraslistorna](luis-concept-feature.md) men inte varje ord. LUIS generaliserar och tar hänsyn till sammanhanget.
+Ange några exempel i [listorna](luis-concept-feature.md) beskrivnings fraser, men inte alla ord. LUIS generaliserar och tar hänsyn till sammanhang i kontot.
 
 ## <a name="dont-add-many-patterns"></a>Lägg inte till många mönster
 
-Lägg inte till för många [mönster.](luis-concept-patterns.md) LUIS är tänkt att lära sig snabbt med färre exempel. Överbelasta inte systemet i onödan.
+Lägg inte till för många [mönster](luis-concept-patterns.md). LUIS är tänkt att lära sig snabbt med färre exempel. Överbelasta inte systemet i onödan.
 
-## <a name="dont-train-and-publish-with-every-single-example-utterance"></a>Träna och publicera inte med varje enskilt exempel yttrande
+## <a name="dont-train-and-publish-with-every-single-example-utterance"></a>Träna och publicera inte med alla enkla exempel uttryck
 
-Lägg till 10 eller 15 yttranden före utbildning och publicering. Det gör att du kan se effekten på förutsägelse noggrannhet. Att lägga till ett enda uttryck kanske inte har en synlig inverkan på poängen.
+Lägg till 10 eller 15 yttranden innan du tränar och publicerar. Det gör att du kan se påverkan på förutsägelse noggrannhet. Att lägga till en enskild uttryck kanske inte har en synlig inverkan på poängen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om hur du [planerar appen](luis-how-plan-your-app.md) i LUIS-appen.
+* Lär dig hur du [planerar din app](luis-how-plan-your-app.md) i Luis-appen.

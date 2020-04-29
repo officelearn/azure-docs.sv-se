@@ -5,41 +5,41 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
 ms.openlocfilehash: 8c63c979300af4c180751b3824def0cb974ee186
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400948"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
-> * [Skapa en Azure Speech-resurs](../../../../get-started.md)
-> * [Ladda upp en källfil till en Azure-blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programmming-language-csharp)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Ladda upp en källfil till en Azure-Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="open-your-project-in-visual-studio"></a>Öppna projektet i Visual Studio
 
 Det första steget är att se till att projektet är öppet i Visual Studio.
 
 1. Starta Visual Studio 2019.
-2. Ladda projektet och `Program.cs`öppna .
+2. Läs in projektet och öppna `Program.cs`.
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>Lägg till en referens till Newtonsoft.Json
+## <a name="add-a-reference-to-newtonsoftjson"></a>Lägg till en referens till Newtonsoft. JSON
 
-1. Högerklicka på **helloworld-projektet** i Solution Explorer och välj sedan **Hantera NuGet-paket** för att visa NuGet Package Manager.
-1. Leta reda på den övre högra hörnet i listrutan **Paketkälla** och se till att den **`nuget.org`** är markerad.
+1. I Solution Explorer högerklickar du på projektet **HelloWorld** och väljer sedan **Hantera NuGet-paket** för att Visa NuGet Package Manager.
+1. Leta upp List rutan **paket källa** i det övre högra hörnet och se till att **`nuget.org`** är markerad.
 1. I det övre vänstra hörnet väljer du **Bläddra**.
-1. Skriv *newtonsoft.json* i sökrutan och välj **Enter**.
-1. Från sökresultaten väljer du [**Newtonsoft.Json-paketet**](https://www.nuget.org/packages/Newtonsoft.Json) och väljer sedan **Installera** för att installera den senaste stabila versionen.
+1. Skriv *Newtonsoft. JSON* i rutan Sök och välj **RETUR**.
+1. Från Sök resultaten väljer du paketet [**Newtonsoft. JSON**](https://www.nuget.org/packages/Newtonsoft.Json) och väljer sedan **Installera** för att installera den senaste stabila versionen.
 1. Acceptera alla avtal och licenser för att starta installationen.
-   När paketet har installerats visas en bekräftelse i fönstret **Package Manager Console.**
+   När paketet har installerats visas en bekräftelse i fönstret **Package Manager-konsol** .
 
-## <a name="start-with-some-boilerplate-code"></a>Börja med en standardkod
+## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
-Låt oss lägga till lite kod som fungerar som ett skelett för vårt projekt.
+Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 ```csharp
 class Program
@@ -79,12 +79,12 @@ class Program
 
 [!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
-## <a name="json-wrappers"></a>JSON Omslag
+## <a name="json-wrappers"></a>JSON-omslutningar
 
-Eftersom REST API: s ta förfrågningar i JSON-format och även returnera resultat i JSON vi kunde interagera med dem med bara strängar, men det rekommenderas inte.
-För att göra förfrågningar och svar lättare att hantera, kommer vi att deklarera några klasser att använda för serialisering / deserializing JSON.
+Som REST API utföra begär anden i JSON-format och även returnera resultat i JSON kan vi interagera med dem med enbart strängar, men det rekommenderas inte.
+För att göra det lättare att hantera förfrågningar och svar kan vi deklarera några klasser som ska användas för serialisering/deserialisering av JSON.
 
-Gå vidare och sätta `TranscribeAsync`sina deklarationer efter .
+Gå vidare och placera deras deklarationer `TranscribeAsync`efter.
 
 ```csharp
 public class ModelIdentity
@@ -185,9 +185,9 @@ public class TranscriptionDefinition
 }
 ```
 
-## <a name="create-and-configure-an-http-client"></a>Skapa och konfigurera en Http-klient
-Det första vi behöver är en Http-klient som har en korrekt bas-URL och autentiseringsuppsättning.
-Infoga den `TranscribeAsync`här koden i .
+## <a name="create-and-configure-an-http-client"></a>Skapa och konfigurera en http-klient
+Det första vi behöver är en http-klient som har rätt bas-URL och autentisering.
+Infoga den här koden `TranscribeAsync`i.
 
 ```csharp
 var client = new HttpClient
@@ -201,8 +201,8 @@ var client = new HttpClient
 };
 ```
 
-## <a name="generate-a-transcription-request"></a>Generera en begäran om transkription
-Därefter genererar vi begäran om transkription. Lägg till `TranscribeAsync`den här koden i .
+## <a name="generate-a-transcription-request"></a>Generera en avskrifts förfrågan
+Nu ska vi skapa en avskrifts förfrågan. Lägg till den här `TranscribeAsync`koden i.
 
 ```csharp
 var transcriptionDefinition =
@@ -217,8 +217,8 @@ var sc = new StringContent(res);
 sc.Headers.ContentType = JsonMediaTypeFormatter.DefaultMediaType;
 ```
 
-## <a name="send-the-request-and-check-its-status"></a>Skicka begäran och kontrollera dess status
-Nu lägger vi upp begäran till taltjänsten och kontrollerar den ursprungliga svarskoden. Den här svarskoden anger helt enkelt om tjänsten har tagit emot begäran. Tjänsten returnerar en url i svarsrubrikerna som är den plats där den lagrar transkriptionsstatusen.
+## <a name="send-the-request-and-check-its-status"></a>Skicka begäran och kontrol lera dess status
+Nu ska vi publicera begäran till tal tjänsten och kontrol lera den ursprungliga svars koden. Den här svars koden anger bara om tjänsten har tagit emot begäran. Tjänsten returnerar en URL i svarshuvuden som är den plats där den kommer att lagra avskrifts status.
 
 ```csharp
 Uri transcriptionLocation = null;
@@ -234,12 +234,12 @@ using (var response = await client.PostAsync($"{SpeechToTextBasePath}Transcripti
 }
 ```
 
-## <a name="wait-for-the-transcription-to-complete"></a>Vänta tills transkriptionen är klar
-Eftersom tjänsten bearbetar transkriptionen asynkront, måste vi enkät för sin status varje så ofta. Vi kollar var femte sekund.
+## <a name="wait-for-the-transcription-to-complete"></a>Vänta tills avskriften har slutförts
+Eftersom tjänsten bearbetar avskriften asynkront måste vi avsöka efter status varje så ofta. Vi ska kontrol lera var femte sekund.
 
-Vi kan kontrollera status genom att hämta innehållet på webbadressen vi fick när den postat begäran. När vi får tillbaka innehållet deserialiserar vi det till en av våra hjälpklasser för att göra det lättare att interagera med.
+Vi kan kontrol lera statusen genom att hämta innehållet på URL: en som vi fick när du publicerade begäran. När vi får tillbaka innehållet deserialiserar vi det till någon av våra hjälp klasser för att göra det enklare att interagera med.
 
-Här är avsökningskoden med statusvisning för allt utom ett framgångsrikt slutförande, vi gör det nästa.
+Här är avsöknings koden med status visning för allt, förutom att slutföra slut för ande, vi ska göra det härnäst.
 
 ```csharp
 Console.WriteLine($"Created transcription at location {transcriptionLocation}.");
@@ -292,9 +292,9 @@ Console.WriteLine("Press any key...");
 Console.ReadKey();
 ```
 
-## <a name="display-the-transcription-results"></a>Visa transkriptionsresultaten
-När tjänsten har slutfört transkriptionen kommer resultaten att lagras i en annan webbadress som vi kan få från statussvaret. Här gör vi en begäran om att ladda ner dessa resultat i en tillfällig fil innan du läser och avserialisera dem.
-När resultaten är laddade kan vi skriva ut dem till konsolen. Lägg till följande `case "Succeeded":` kod på etiketten.
+## <a name="display-the-transcription-results"></a>Visa avskrifts resultatet
+När tjänsten har slutfört avskriften kommer resultatet att lagras i en annan URL som vi kan få från status svaret. Här gör vi en begäran om att ladda ned dessa resultat till en temporär fil innan de läser och deserialiserar dem.
+När resultatet har lästs in kan vi skriva ut dem till-konsolen. Lägg till följande kod i `case "Succeeded":` etiketten.
 
 ```csharp
 completed = true;
@@ -306,8 +306,8 @@ Console.WriteLine($"Transcription succeeded. Results: {Environment.NewLine}{resu
 File.Delete(filename);
 ```
 
-## <a name="check-your-code"></a>Kontrollera din kod
-Nu bör din kod se ut så här: (Vi har lagt till några kommentarer till den här versionen)
+## <a name="check-your-code"></a>Kontrol lera koden
+I det här läget bör din kod se ut så här: (vi har lagt till några kommentarer till den här versionen)
 
 ```csharp
 using Newtonsoft.Json;
@@ -549,11 +549,11 @@ namespace BatchClient
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-Nu är du redo att bygga din app och testa vår taligenkänning med taltjänsten.
+Nu är du redo att bygga din app och testa vår tal igenkänning med röst tjänsten.
 
-1. **Kompilera koden** - Välj **Bygg** > **bygglösning**på menyraden i Visual Studio .
-2. **Starta appen** - Välj Felsökning **Debug** > **Avsöka Startfelsökning** på menyraden eller tryck på **F5**.
-3. **Starta erkännande** - Det kommer att uppmana dig att tala en fras på engelska. Ditt tal skickas till taltjänsten, transkriberas som text och återges i konsolen.
+1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge** > **build-lösning**.
+2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på **F5**.
+3. **Starta igenkänning** – du uppmanas att tala en fras på engelska. Ditt tal skickas till tal tjänsten, skrivs som text och återges i-konsolen.
 
 ## <a name="next-steps"></a>Nästa steg
 

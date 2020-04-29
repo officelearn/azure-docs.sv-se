@@ -5,15 +5,15 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392723"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
-För att interagera med Azure API:er kräver ett AKS-kluster antingen [ett huvudnamn för Azure Active Directory (AD)][aad-service-principal] eller en [hanterad identitet](use-managed-identity.md). Ett tjänsthuvudnamn eller hanterad identitet behövs för att dynamiskt skapa och hantera andra Azure-resurser, till exempel en Azure load balancer eller containerregistry (ACR).
+För att interagera med Azure-API: er, kräver ett AKS-kluster antingen ett [huvud namn för Azure Active Directory (AD)][aad-service-principal] eller en [hanterad identitet](use-managed-identity.md). Ett tjänst huvud namn eller en hanterad identitet krävs för att dynamiskt skapa och hantera andra Azure-resurser, till exempel en Azure Load Balancer eller container Registry (ACR).
 
 Den här artikeln visar hur du skapar och använder ett tjänstens huvudnamn för AKS-kluster.
 
@@ -21,9 +21,9 @@ Den här artikeln visar hur du skapar och använder ett tjänstens huvudnamn fö
 
 För att skapa ett Azure AD-huvudnamn för tjänsten måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Om du inte har de behörigheter som du behöver kan du be din Azure AD- eller prenumerationsadministratör att tilldela de nödvändiga behörigheterna eller att skapa ett tjänstens huvudnamn att använda med AKS-klustret.
 
-Om du använder ett tjänsthuvudnamn från en annan Azure AD-klient finns det ytterligare överväganden kring de behörigheter som är tillgängliga när du distribuerar klustret. Du kanske inte har rätt behörighet att läsa och skriva kataloginformation. Mer information finns [i Vilka är standardanvändarbehörigheterna i Azure Active Directory?][azure-ad-permissions]
+Om du använder ett huvud namn för tjänsten från en annan Azure AD-klient finns det ytterligare överväganden kring de behörigheter som är tillgängliga när du distribuerar klustret. Du kanske inte har rätt behörighet för att läsa och skriva katalog information. Mer information finns i [Vad är standard användar behörigheter i Azure Active Directory?][azure-ad-permissions]
 
-Du behöver också Azure CLI version 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Skapa och använda ett tjänstens huvudnamn automatiskt
 
@@ -68,7 +68,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> Om du använder ett befintligt tjänsthuvudnamn med anpassad hemlighet kontrollerar du att hemligheten inte är längre än 190 byte.
+> Om du använder ett befintligt huvud namn för tjänsten med anpassad hemlighet, se till att hemligheten inte är längre än 190 byte.
 
 Om du distribuerar ett AKS-kluster med hjälp av Azure Portal, så välj **Konfigurera tjänstens huvudnamn** i dialogrutan **Skapa Kubernetes-kluster** på sidan *Autentisering*. Välj **Använd befintlig** och ange följande värden:
 
@@ -79,9 +79,9 @@ Om du distribuerar ett AKS-kluster med hjälp av Azure Portal, så välj **Konfi
 
 ## <a name="delegate-access-to-other-azure-resources"></a>Delegera åtkomst till andra Azure-resurser
 
-Tjänstens huvudnamn för AKS-klustret kan användas för att komma åt andra resurser. Om du till exempel vill distribuera AKS-klustret till ett befintligt Azure-virtuellt nätverksundernät eller ansluta till Azure Container Registry (ACR), måste du delegera åtkomst till dessa resurser till tjänstens huvudnamn.
+Tjänstens huvudnamn för AKS-klustret kan användas för att komma åt andra resurser. Om du till exempel vill distribuera ditt AKS-kluster till ett befintligt Azure Virtual Network-undernät eller ansluta till Azure Container Registry (ACR), måste du delegera åtkomst till dessa resurser till tjänstens huvud namn.
 
-Om du vill delegera behörigheter skapar du en rolltilldelning med kommandot [az role assignment create.][az-role-assignment-create] Tilldela `appId` till ett visst scope, till exempel en resursgrupp eller virtuell nätverksresurs. En roll definierar därefter vilka behörigheter som tjänstens huvudnamn har på resursen, som visas i följande exempel:
+Om du vill delegera behörigheter skapar du en roll tilldelning med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Tilldela `appId` till ett visst omfång, till exempel en resurs grupp eller en virtuell nätverks resurs. En roll definierar därefter vilka behörigheter som tjänstens huvudnamn har på resursen, som visas i följande exempel:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -93,7 +93,7 @@ Följande avsnitt beskriver vanliga delegeringar som du kan behöva göra.
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-Om du använder Azure Container Registry (ACR) som behållaravbildningsarkiv måste du bevilja behörigheter till tjänstens huvudnamn för aks-klustret för att läsa och hämta avbildningar. För närvarande är den rekommenderade konfigurationen att använda az [aks skapa][az-aks-create] eller [az aks uppdatera][az-aks-update] kommandot för att integrera med ett register och tilldela lämplig roll för tjänstens huvudnamn. Detaljerade steg finns [i Autentisera med Azure Container Registry från Azure Kubernetes Service][aks-to-acr].
+Om du använder Azure Container Registry (ACR) som behållar avbildnings arkiv måste du bevilja behörighet till tjänstens huvud namn för ditt AKS-kluster för att läsa och hämta avbildningar. För närvarande är den rekommenderade konfigurationen att använda kommandot [AZ AKS Create][az-aks-create] eller [AZ AKS Update][az-aks-update] för att integrera med ett register och tilldela lämplig roll för tjänstens huvud namn. Detaljerade anvisningar finns i [autentisera med Azure Container Registry från Azure Kubernetes-tjänsten][aks-to-acr].
 
 ### <a name="networking"></a>Nätverk
 
@@ -102,7 +102,7 @@ Du kan använda avancerade nätverk där det virtuella nätverket och undernäte
 - Skapa en [anpassad roll][rbac-custom-role] och definiera följande rollbehörigheter:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/undernät/skrivning*
+  - *Microsoft. Network/virtualNetworks/subnets/Write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
@@ -126,13 +126,13 @@ Om du använder Virtual Kubelet för att integrera med AKS och väljer att köra
 Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 
 - Tjänstobjektet för Kubernetes är en del av klusterkonfigurationen. Men använd inte identiteten för att distribuera klustret.
-- Som standard är tjänstens huvudreferenser giltiga i ett år. Du kan [uppdatera eller rotera tjänstens huvudreferenser][update-credentials] när som helst.
-- Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänsthuvudhuvudet för ett Kubernetes-kluster kan associeras med alla *https://www.contoso.org/example*giltiga Azure AD-programnamn (till exempel: ). URL:en för programmet behöver inte vara en verklig slutpunkt.
+- Som standard är autentiseringsuppgifterna för tjänstens huvud namn giltiga i ett år. Du kan när som helst [Uppdatera eller rotera autentiseringsuppgifterna för tjänstens huvud namn][update-credentials] .
+- Varje tjänstobjekt är associerat med ett Azure AD-program. Tjänstens huvud namn för ett Kubernetes-kluster kan associeras med ett giltigt namn för Azure AD-program *https://www.contoso.org/example*(till exempel:). URL:en för programmet behöver inte vara en verklig slutpunkt.
 - När du anger **Klient-ID** för tjänstens huvudnamn använder du värdet för `appId`.
-- På virtuella agentnoder i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstens huvudnamn i filen`/etc/kubernetes/azure.json`
+- På virtuella datorer i agent-noden i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstens huvud namn i filen`/etc/kubernetes/azure.json`
 - Om du använder kommandot [az aks create][az-aks-create] för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
-- Om du inte specifikt skickar ett tjänsthuvudnamn i ytterligare AKS CLI-kommandon används standardtjänstens huvudnamn som finns på. `~/.azure/aksServicePrincipal.json`  
-- Du kan också ta bort filen aksServicePrincipal.json och AKS skapar ett nytt huvudnamn för tjänsten.
+- Om du inte specifikt skickar ett huvud namn för tjänsten i ytterligare AKS CLI-kommandon används det standard tjänst huvud `~/.azure/aksServicePrincipal.json` namn som finns på.  
+- Du kan också ta bort filen aksServicePrincipal. JSON och AKS skapar ett nytt huvud namn för tjänsten.
 - När du tar bort ett AKS-kluster som skapats av [az aks create][az-aks-create] tas tjänstens huvudnamn som skapades automatiskt inte bort.
     - För att ta bort tjänstens huvudnamn kör du en fråga efter ditt kluster *servicePrincipalProfile.clientId* och tar sedan bort med [az ad app delete][az-ad-app-delete]. Ersätt följande resursgruppsnamn och klisternamn med dina egna värden:
 
@@ -142,7 +142,7 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Tjänsthuvudprincipautentiseringsuppgifterna för ett AKS-kluster cachelagras av Azure CLI. Om dessa autentiseringsuppgifter har upphört att gälla uppstår fel som distribuerar AKS-kluster. Följande felmeddelande när [az aks create][az-aks-create] körs kan tyda på ett problem med de cachelagrade huvudbehörighetsuppgifterna för cachelagrade tjänsten:
+Autentiseringsuppgifterna för tjänstens huvud namn för ett AKS-kluster cachelagras av Azure CLI. Om autentiseringsuppgifterna har upphört att gälla uppstår fel vid distribution av AKS-kluster. Följande fel meddelande visas när du kör [AZ AKS Create][az-aks-create] kan tyda på ett problem med de cachelagrade tjänstens huvud namns uppgifter:
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -150,19 +150,19 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 (Details: adal: Refresh request failed. Status Code = '401'.
 ```
 
-Kontrollera ålder på autentiseringsfilen med följande kommando:
+Kontrol lera åldern på filen med autentiseringsuppgifter med följande kommando:
 
 ```console
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-Standardtiden för förfallodatum för tjänstens huvudbehörighet är ett år. Om filen *aksServicePrincipal.json* är äldre än ett år tar du bort filen och försöker distribuera ett AKS-kluster igen.
+Standard förfallo tiden för autentiseringsuppgifterna för tjänstens huvud namn är ett år. Om din *aksServicePrincipal. JSON* -fil är äldre än ett år tar du bort filen och försöker distribuera ett AKS-kluster igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Active Directory-tjänsthuvudnamn finns i [Program- och tjänsthuvudobjekt][service-principal].
+Mer information om Azure Active Directory tjänstens huvud namn finns i [objekt för program-och tjänst objekt][service-principal].
 
-Information om hur du uppdaterar autentiseringsuppgifterna finns i [Uppdatera eller rotera autentiseringsuppgifterna för ett tjänsthuvudnamn i AKS][update-credentials].
+Information om hur du uppdaterar autentiseringsuppgifterna finns i [Uppdatera eller rotera autentiseringsuppgifterna för ett huvud namn för tjänsten i AKS][update-credentials].
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md

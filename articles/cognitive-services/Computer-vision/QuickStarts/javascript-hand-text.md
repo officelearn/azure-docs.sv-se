@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Computer Vision 2.0 och 2.1 - Extrahera tryckt och handskriven text - REST, JavaScript'
+title: 'Snabb start: Visuellt innehåll 2,0 och 2,1 – extrahera skriven text – REST, Java Script'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten extraherar du utskriven och handskriven text från en bild med hjälp av API:et för datorseende med JavaScript.
+description: I den här snabb starten extraherar du utskriven och handskriven text från en bild med hjälp av API för visuellt innehåll med Java Script.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,34 +12,34 @@ ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 35988f10703967bd5986015ccb0fb480679b94e9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81404749"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Snabbstart: Extrahera tryckt och handskriven text med HJÄLP AV REST API FÖR visuellt innehåll och JavaScript
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och Java Script
 
-I den här snabbstarten extraherar du utskriven och/eller handskriven text från en bild med HJÄLP AV REST-APIN för visuellt innehåll. Med metoderna [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [läsåtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera tolkade tecken till en maskinläsbar teckenström. API:et avgör vilken igenkänningsmodell som ska användas för varje textrad, så den stöder bilder med både utskriven och handskriven text.
+I den här snabb starten ska du extrahera tryckt och/eller handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
 
-Den här funktionen är tillgänglig i både ett v2.1 API och ett v3.0 Public Preview API. Jämfört med v2.1 har 3.0 API:
+Den här funktionen är tillgänglig i både ett v 2.1-API och en v 3.0-API för offentlig för hands version. Jämfört med v 2.1 har 3,0 API:
 
-* Förbättrad noggrannhet
-* Konfidenspoäng för ord
-* Stöd för både spanska och `language` engelska med ytterligare parameter
+* Förbättrad precision
+* Förtroende poäng för ord
+* Stöd för både spanska och engelska med ytterligare `language` parameter
 * Ett annat utdataformat
 
-Välj fliken nedan för den version du använder.
+Välj fliken nedan för den version som du använder.
 
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 > [!IMPORTANT]
-> Metoden [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Batchläsning en URI i värdet för `Operation-Location` svarshuvudfältet. Du kan sedan anropa den här URI:n, som representerar [API:et för läsåtgärdsresultat,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) för att både kontrollera status och returnera resultatet av batchläsningsmetodanropet.
+> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
-#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
 
 > [!IMPORTANT]
-> Metoden [Batchläsning](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Batchläsning en URI i värdet för `Operation-Location` svarshuvudfältet. Du kan sedan anropa den här URI:n, som representerar [API:et för läsåtgärdsresultat,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) för att både kontrollera status och returnera resultatet av batchläsningsmetodanropet.
+> Läs metoden för [batch](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
 ---
 
@@ -47,7 +47,7 @@ Välj fliken nedan för den version du använder.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
 
-Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Spara prenumerationsnyckeln och slutpunkts-URL:en på en tillfällig plats.
+Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Spara prenumerations nyckeln och slut punkts-URL: en på en tillfällig plats.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
@@ -55,12 +55,12 @@ Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kost
 
 Så här skapar du och kör exemplet:
 
-1. Skapa en fil som heter _get-text.html,_ öppna den i en textredigerare och kopiera följande kod till den.
-1. Du kan också ersätta `value` värdet för `inputImage` attributet för kontrollen med URL:en för en annan bild som du vill extrahera text från.
+1. Skapa en fil med namnet _Get-text. html_, öppna den i en text redigerare och kopiera följande kod till den.
+1. Du kan också ersätta värdet på `value` attributet för `inputImage` kontrollen med URL: en till en annan bild som du vill extrahera text från.
 1. Öppna ett webbläsarfönster.
 1. Dra och släpp filen till webbläsarfönstret i webbläsaren.
-1. När webbsidan visas i webbläsaren klistrar du in prenumerationsnyckeln och slutpunkts-URL:en i lämpliga inmatningsrutor.
-1. Välj knappen **Läs bild.**
+1. När webb sidan visas i webbläsaren klistrar du in din prenumerations nyckel och slut punkts-URL i lämpliga inmatade rutor.
+1. Välj knappen **Läs avbildning** .
 
 ```html
 <!DOCTYPE html>
@@ -201,15 +201,15 @@ Image to read:
 </html>
 ```
 
-#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
 
 Så här skapar du och kör exemplet:
 
 1. Kopiera följande kod till en textredigerare.
-1. Du kan också ersätta `value` värdet för `inputImage` attributet för kontrollen med URL:en för en annan bild som du vill extrahera text från.
+1. Du kan också ersätta värdet på `value` attributet för `inputImage` kontrollen med URL: en till en annan bild som du vill extrahera text från.
 1. Spara koden som en fil med tillägget `.html`. Till exempel `get-text.html`.
 1. Öppna ett webbläsarfönster.
-1. När webbsidan visas i webbläsaren fyller du de parametrar som krävs och väljer knappen **Läs bild.**
+1. När webb sidan visas i webbläsaren fyller du i de nödvändiga parametrarna och klickar på knappen **Läs avbildning** .
 
 ```html
 <!DOCTYPE html>
@@ -471,7 +471,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 }
 ```
 
-#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
 
 ```json
 {
@@ -786,7 +786,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett JavaScript-program som använder datorseende för optisk teckenigenkänning (OCR); skapa smartbeskurna miniatyrer. identifiera, kategorisera, tagga och beskriva visuella funktioner i bilder. 
+Utforska ett JavaScript-program som använder Visuellt innehåll för att utföra optisk tecken igenkänning (OCR). Skapa Smart-beskurna miniatyrer; identifiera, kategorisera, tagga och beskriv visuella funktioner i bilder. 
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med JavaScript](../Tutorials/javascript-tutorial.md)

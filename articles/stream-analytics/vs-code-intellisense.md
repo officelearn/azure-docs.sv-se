@@ -1,77 +1,77 @@
 ---
-title: IntelliSense i Azure Stream Analytics-verktyg för Visual Studio-kod
-description: I den här artikeln beskrivs hur du använder IntelliSense-funktioner i Azure Stream Analytics-verktyg för Visual Studio-kod.
+title: IntelliSense i Azure Stream Analytics verktyg för Visual Studio Code
+description: Den här artikeln beskriver hur du använder IntelliSense-funktioner i Azure Stream Analytics verktyg för Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: conceptual
 ms.openlocfilehash: 25ece3174cd65df9c665888d913cf6b9029904b1
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81394402"
 ---
-# <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense i Azure Stream Analytics-verktyg för Visual Studio-kod
+# <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense i Azure Stream Analytics verktyg för Visual Studio Code
 
-IntelliSense är tillgängligt för [Query Language Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstream-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json) i Azure Stream [Analytics-verktyg för VS-kod](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense är ett stöd för kodkomplettering som innehåller ett antal funktioner: Listmedlemmar, Parameterinformation, Snabbinformation och Fullständigt Word. IntelliSense-funktioner kallas ibland av andra namn som "kodkomplettering", "innehållsassistent" och "kodtips".
+IntelliSense är tillgängligt för [Stream Analytics frågespråk](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstream-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json) i [Azure Stream Analytics Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense är ett stöd för kod komplettering som innehåller ett antal funktioner: list medlemmar, parameter information, snabb information och fullständig ord. IntelliSense-funktioner anropas ibland av andra namn som "kod komplettering", "innehålls stöd" och "kodtips".
 
-![IntelliSense demo](./media/vs-code-intellisense/intellisense.gif)
+![IntelliSense-demonstration](./media/vs-code-intellisense/intellisense.gif)
 
 ## <a name="intellisense-features"></a>IntelliSense-funktioner
 
-IntelliSense-funktionerna i Stream Analytics-verktyg för VS-kod drivs av en språktjänst. En språktjänst analyserar källkoden och ger intelligenta kodkompletter baserade på språksenmantik. Om en språktjänst vet möjliga kompletteringar dyker IntelliSense-förslag upp medan du skriver. Om du fortsätter att skriva filtreras en lista med medlemmar, till exempel variabler och metoder, så att endast medlemmar som innehåller de tecken som du har skrivit. När du `Tab` trycker `Enter` på tangenterna infogas intelliSense den medlem du valde.
+IntelliSense-funktionerna i Stream Analytics verktyg för VS Code drivs av en språk tjänst. En språk tjänst analyserar din käll kod och ger intelligent kod komplettering baserad på språksemantik. Om en språk tjänst vet att det går att slutföra kan IntelliSense-förslag visas när du skriver. Om du fortsätter att skriva, filtreras en lista över medlemmar, till exempel variabler och metoder, för att bara inkludera medlemmar som innehåller de tecken som du har angett. När du trycker på `Tab` tangenterna eller `Enter` , infogar IntelliSense den medlem som du har valt.
 
-Du kan utlösa IntelliSense i ett redigeringsfönster genom att `.`skriva ett utlösartecken, till exempel punkttecknet .
+Du kan utlösa IntelliSense i alla redigerings fönster genom att ange ett utlösnings steg, till exempel `.`punkt symbolen.
 
-![intellisense automatisk komplettering](./media/vs-code-intellisense/auto-completion.gif)
+![autoifyllning av IntelliSense](./media/vs-code-intellisense/auto-completion.gif)
 
 > [!TIP]
-> Den förslag widget stöttar CamelCase filtrering. Du kan skriva bokstäverna som är uppercased i ett metodnamn för att begränsa förslagen. Till exempel kommer "cra" snabbt att ta upp "createApplication".
+> Widgeten förslag stöder CamelCase filtrering. Du kan ange bokstäver som är versaler i ett metod namn för att begränsa förslagen. Exempel: "CRA" kommer att snabbt ta upp "createApplication".
 
-### <a name="types-of-completions"></a>Typer av kompletteringar
+### <a name="types-of-completions"></a>Typer av slut för ande
 
-Stream Analytics-verktyg för VS-kod IntelliSense erbjuder olika typer av kompletteringar, inklusive språkserverförslag, utdrag och enkla ordbaserade textkompletter.
+I Stream Analytics Tools för VS Code-IntelliSense finns olika typer av slut för ande, inklusive förslag på språk Server, kodfragment och enkel Word-baserad text komplettering.
 
 |       |         |       |
 | ----- | ------- | ----- |
 | Nyckelord | `keyword`
 | Functions | `build-in function`, `user defined function`  |
-| Namn på datauppsättning| `input`, `output`, `intermediate result set`|
-| Kolumnnamn för datauppsättning|`input`, `intermediate result set`|
+| Data uppsättnings namn| `input`, `output`, `intermediate result set`|
+| Kolumn namn för data uppsättning|`input`, `intermediate result set`|
 |
 
-#### <a name="name-completion"></a>Namnkomplettering
+#### <a name="name-completion"></a>Namn komplettering
 
-Förutom automatisk komplettering av sökord läser Stream Analytics-verktyg för VS-kod listan över jobbinmatnings- och utdatanamn samt namnen på kolumnerna i dina datakällor när de konfigureras. Tillägget kommer ihåg den här informationen för att ge funktioner för namnkomplettering som är användbara för att skriva in satser med få tangenttryckningar:
+Förutom automatisk komplettering av nyckelord, Stream Analytics Tools för VS Code läser listan över jobb-och utdatafiler, samt namnen på kolumnerna i dina data källor när de har kon figurer ATS. Tillägget kommer ihåg den här informationen för att tillhandahålla funktioner för namn komplettering som är användbara för att lägga till instruktioner med några tangenttryckningar:
 
-När du kodar behöver du inte låta redigeraren utföra sökningar på jobbinmatningsnamn, utdatanamn och kolumnnamn. Du kan behålla ditt sammanhang, hitta den information du behöver, infoga element direkt i koden och låta IntelliSense slutföra din maskinskrivning åt dig.
+När du kodar behöver du inte lämna redigeraren för att utföra sökningar efter jobbnamn, utmatnings namn och kolumn namn. Du kan hålla ditt sammanhang, hitta den information du behöver, infoga element direkt i koden och låta IntelliSense-filen vara klar.
 
-Observera att du måste konfigurera antingen lokal indata eller live-indata och spara konfigurationsfilen för att kunna använda namnkomplettering.
+Observera att du måste konfigurera antingen lokal inmatning eller Live-inmatning och spara konfigurations filen för att kunna använda namn komplettering.
 
-![namnkomplettering](./media/vs-code-intellisense/name-completion.gif)
+![namn komplettering](./media/vs-code-intellisense/name-completion.gif)
 
-### <a name="parameter-info"></a>Information om parameter
+### <a name="parameter-info"></a>Parameter information
 
-Alternativet IntelliSense **Parameter Info** öppnar en parameterlista som innehåller information om antalet, namnen och typerna av de parametrar som krävs av en funktion. Parametern i fetstil anger nästa parameter som krävs när du skriver en funktion.
+Alternativet för IntelliSense- **parameter information** öppnar en parameter lista som innehåller information om antalet, namn och typer för de parametrar som krävs av en funktion. Parametern i fetstil anger nästa parameter som krävs när du skriver en funktion.
 
-Parameterlistan visas också för kapslade funktioner. Om du skriver en funktion som parameter till en annan funktion visas parametrarna för den inre funktionen i parameterlistan. När parameterlistan för den inre funktionen är klar återgår parameterlistan till att visa de yttre funktionsparametrarna.
+Parameter listan visas också för kapslade funktioner. Om du skriver en funktion som en parameter till en annan funktion visas parametrarna för den inre funktionen i parameter listan. När den inre funktions parameter listan har slutförts, återgår parameter listan till att visa de yttre funktions parametrarna.
 
-![parameterinfo](./media/vs-code-intellisense/parameter-info.gif)
+![parameter information](./media/vs-code-intellisense/parameter-info.gif)
 
-### <a name="quick-info"></a>Snabbinfo
+### <a name="quick-info"></a>Snabb information
 
-I enlighet med språktjänsten kan du se **Snabbinformation** för varje identifierare i koden. Några exempel på identifierare är indata, utdata, en mellanliggande resultatuppsättning eller funktion. När du flyttar muspekaren över en identifierare visas deklarationen i ett popup-fönster. Egenskaper och datascheman för indata, om de är konfigurerade, och mellanliggande datauppsättning visas.
+Som anges av språk tjänsten kan du se **snabb information** för varje identifierare i koden. Några exempel på identifierare är indata, utdata, en mellanliggande resultat uppsättning eller funktion. När du flyttar mus pekaren över en identifierare visas dess deklaration i ett popup-fönster. Egenskaperna och data scheman för indata, om det är konfigurerat, och mellanliggande data uppsättning visas.
 
 ![snabb information](./media/vs-code-intellisense/quick-info.gif)
 
 ## <a name="troubleshoot-intellisense"></a>Felsöka IntelliSense
 
-Det här problemet orsakas av att indatakonfiguration saknas som tillhandahåller data. Du kan kontrollera om en [lokal indata](visual-studio-code-local-run.md#define-a-local-input) eller [live-indata](visual-studio-code-local-run-live-input.md#define-a-live-stream-input) har konfigurerats korrekt.
+Det här problemet orsakas av att inmatnings konfigurationen som tillhandahåller data saknas. Du kan kontrol lera om en [lokal](visual-studio-code-local-run.md#define-a-local-input) indatamängd eller [Live-indatamängd](visual-studio-code-local-run-live-input.md#define-a-live-stream-input) har kon figurer ATS korrekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Skapa ett Azure Stream Analytics-jobb i Visual Studio-kod](quick-create-vs-code.md)
-* [Testa Stream Analytics-frågor lokalt med exempeldata med Visual Studio-kod](visual-studio-code-local-run.md)
-* [Testa Stream Analytics-frågor lokalt mot livestreamindata med hjälp av Visual Studio-kod](visual-studio-code-local-run-live-input.md)
+* [Snabb start: skapa ett Azure Stream Analytics jobb i Visual Studio Code](quick-create-vs-code.md)
+* [Testa Stream Analytics frågor lokalt med exempel data med Visual Studio Code](visual-studio-code-local-run.md)
+* [Testa Stream Analytics frågor lokalt mot Real tids indata med hjälp av Visual Studio Code](visual-studio-code-local-run-live-input.md)

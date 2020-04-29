@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: bac2ed447c9055f095e604725591c487378f5091
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399665"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln förutsätter att du har en Azure-konto- och taltjänstprenumeration. Om du inte har ett konto och en prenumeration [provar du taltjänsten utan kostnad](../../../get-started.md).
+Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Innan du kan göra något måste du installera Tal-SDK. Beroende på din plattform följer du instruktionerna under avsnittet <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Hämta tal-SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i artikeln Tal-SDK.
+Innan du kan göra något måste du installera talet SDK. Beroende på din plattform följer du anvisningarna under Hämta avsnittet för <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">tal-SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i tal SDK-artikeln.
 
 ## <a name="import-dependencies"></a>Importera beroenden
 
-Om du vill köra exemplen `using` i den här artikeln tar du med följande satser högst upp i *Program.cs* filen.
+Om du vill köra exemplen i den här artikeln inkluderar `using` du följande instruktioner överst i *program.cs* -filen.
 
 ```csharp
 using System;
@@ -34,9 +34,9 @@ using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Translation;
 ```
 
-## <a name="sensitive-data-and-environment-variables"></a>Känsliga data- och miljövariabler
+## <a name="sensitive-data-and-environment-variables"></a>Känsliga data och miljövariabler
 
-Exempelkällkoden i den här artikeln beror på miljövariabler för lagring av känsliga data, till exempel prenumerationsnyckeln talresurs och region. Klassen `Program` innehåller två `static readonly string` värden som tilldelas från värddatorernas `SPEECH__SUBSCRIPTION__KEY` miljövariabler, nämligen och `SPEECH__SERVICE__REGION`. Båda dessa fält är i klassen omfattning, vilket gör dem tillgängliga inom metod organ i klassen. Mer information om miljövariabler finns i [miljövariabler och programkonfiguration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+Exempel käll koden i den här artikeln är beroende av miljövariabler för lagring av känsliga data, till exempel nyckel och region för tal resurs prenumerationen. `Program` Klassen innehåller två `static readonly string` värden som tilldelas från värd datorns miljövariabler, nämligen `SPEECH__SUBSCRIPTION__KEY` och `SPEECH__SERVICE__REGION`. Båda dessa fält är i klass omfånget, vilket gör dem tillgängliga inom metod kroppar av klassen. Mer information om miljövariabler finns i [miljövariabler och program konfiguration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```csharp
 public class Program
@@ -51,21 +51,21 @@ public class Program
 }
 ```
 
-## <a name="create-a-speech-translation-configuration"></a>Skapa en konfiguration av talöversättning
+## <a name="create-a-speech-translation-configuration"></a>Skapa en konfiguration för tal Översättning
 
-Om du vill anropa taltjänsten med tal-SDK måste du skapa en [`SpeechTranslationConfig`][config]. Den här klassen innehåller information om din prenumeration, till exempel din nyckel och associerade region, slutpunkt, värd eller auktoriseringstoken.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa [`SpeechTranslationConfig`][config]en. Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
 
 > [!TIP]
-> Oavsett om du utför taligenkänning, talsyntes, översättning eller avsiktsigenkänning skapar du alltid en konfiguration.
+> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
 
-Det finns några sätt som du [`SpeechTranslationConfig`][config]kan initiera en:
+Det finns några sätt som du kan initiera en [`SpeechTranslationConfig`][config]:
 
-* Med en prenumeration: skicka in en nyckel och den associerade regionen.
-* Med en slutpunkt: passera i en taltjänstslutpunkt. En nyckel eller auktoriseringstoken är valfri.
-* Med en värd: skicka in en värdadress. En nyckel eller auktoriseringstoken är valfri.
-* Med en auktoriseringstoken: skicka in en auktoriseringstoken och den associerade regionen.
+* Med en prenumeration: skicka i en nyckel och tillhör ande region.
+* Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
+* Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
+* Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
 
-Låt oss ta en titt [`SpeechTranslationConfig`][config] på hur en skapas med hjälp av en nyckel och region. Se [regionens supportsida](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regionidentifierare.
+Låt oss ta en titt på hur en [`SpeechTranslationConfig`][config] har skapats med hjälp av en nyckel och region. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID.
 
 ```csharp
 public class Program
@@ -86,9 +86,9 @@ public class Program
 }
 ```
 
-## <a name="change-source-language"></a>Ändra källspråk
+## <a name="change-source-language"></a>Ändra käll språk
 
-En gemensam uppgift för talöversättning är att ange indataspråk (eller källspråk). Låt oss ta en titt på hur du skulle ändra inmatningsspråket till italienska. I koden interagerar [`SpeechTranslationConfig`][config] du med instansen `SpeechRecognitionLanguage` och tilldelar egenskapen.
+En vanlig uppgift för tal översättning anger indata (eller käll språket). Låt oss ta en titt på hur du ändrar indatamängds språk till italienska. I din kod interagerar du [`SpeechTranslationConfig`][config] med instansen och `SpeechRecognitionLanguage` tilldelar egenskapen.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -101,11 +101,11 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-Egenskapen [`SpeechRecognitionLanguage`][recognitionlang] förväntar sig en språkspråksformatsträng. Du kan ange valfritt värde i kolumnen **Språk i** listan över [språk/språk](../../../language-support.md)som stöds .
+[`SpeechRecognitionLanguage`][recognitionlang] Egenskapen förväntar sig en språk språks format sträng. Du kan ange valfritt värde i kolumnen **språk** i listan [över språk som stöds.](../../../language-support.md)
 
-## <a name="add-translation-language"></a>Lägga till översättningsspråk
+## <a name="add-translation-language"></a>Lägg till översättnings språk
 
-En annan gemensam uppgift för talöversättning är att ange målöversättningsspråk, minst ett krävs men multiplar stöds. I följande kodavsnitt, både franska och tyska som översättning språk mål.
+En annan vanlig uppgift för tal översättning är att ange språk för mål översättning, minst ett krävs men multiplar stöds. I följande kodfragment, både franska och tyska som översättnings språk mål.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -121,13 +121,13 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-Vid varje [`AddTargetLanguage`][addlang]samtal till anges ett nytt målöversättningsspråk. Med andra ord, när tal känns igen från källspråket, är varje målöversättning tillgänglig som en del av den resulterande översättningen.
+Med varje anrop till [`AddTargetLanguage`][addlang]anges ett nytt mål översättnings språk. Med andra ord, när tal identifieras från käll språket, är varje mål översättning tillgänglig som en del av den resulterande översättnings åtgärden.
 
-## <a name="initialize-a-translation-recognizer"></a>Initiera en översättningsre recognizeer
+## <a name="initialize-a-translation-recognizer"></a>Initiera en översättnings tolk
 
-När du har [`SpeechTranslationConfig`][config]skapat en är nästa steg [`TranslationRecognizer`][recognizer]att initiera en . När du initierar en [`TranslationRecognizer`][recognizer]måste du skicka `translationConfig`den till . Konfigurationsobjektet innehåller de autentiseringsuppgifter som taltjänsten kräver för att validera din begäran.
+När du har skapat en [`SpeechTranslationConfig`][config]är nästa steg att initiera en [`TranslationRecognizer`][recognizer]. När du initierar en [`TranslationRecognizer`][recognizer]måste du skicka den `translationConfig`. Konfigurationsobjektet ger de autentiseringsuppgifter som krävs av tal tjänsten för att verifiera din begäran.
 
-Så här ser du ut så här [`TranslationRecognizer`][recognizer] om du känner igen tal med enhetens standardmikrofon:
+Om du känner igen tal med hjälp av enhetens standard mikrofon ska du [`TranslationRecognizer`][recognizer] se vad som ska se ut så här:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -144,12 +144,12 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-Om du vill ange ljudinmatningsenheten måste du [`AudioConfig`][audioconfig] skapa en `audioConfig` och ange [`TranslationRecognizer`][recognizer]parametern när du initierar .
+Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`][audioconfig] och ange `audioConfig` parametern när du initierar. [`TranslationRecognizer`][recognizer]
 
 > [!TIP]
-> [Läs om hur du hämtar enhets-ID:et för ljudinmatningsenheten](../../../how-to-select-audio-input-devices.md).
+> [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
 
-Först ska du referera `AudioConfig` till objektet på följande sätt:
+Först ska du referera till `AudioConfig` objektet på följande sätt:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -167,7 +167,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-Om du vill tillhandahålla en ljudfil i stället för att använda `audioConfig`en mikrofon måste du fortfarande ange en . Men när du [`AudioConfig`][audioconfig]skapar en `FromDefaultMicrophoneInput`, i stället `FromWavFileInput` för `filename` att ringa , kommer du att anropa och skicka parametern.
+Om du vill ange en ljudfil i stället för att använda en mikrofon måste du ändå ange en `audioConfig`. Men när du skapar [`AudioConfig`][audioconfig]en, i stället för att `FromDefaultMicrophoneInput`anropa, kommer du `FromWavFileInput` att `filename` anropa och skicka parametern.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -187,7 +187,7 @@ static async Task TranslateSpeechAsync()
 
 ## <a name="translate-speech"></a>Översätt tal
 
-Om du vill översätta tal förlitar sig Speech SDK på en mikrofon eller en ljudfilsingång. Taligenkänning sker före talöversättning. När alla objekt har initierats, anropa funktionen recognize-once och få resultatet.
+För att översätta tal är tal-SDK: n beroende av en mikrofon eller en inspelning av ljud filen. Tal igenkänning inträffar före tal översättning. När alla objekt har initierats anropar du funktionen recognize-Once och hämtar resultatet.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -217,18 +217,18 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-Mer information om tal-till-text finns [i grunderna i taligenkänning](../../../speech-to-text-basics.md).
+Mer information om tal till text finns i [grunderna i tal igenkänning](../../../speech-to-text-basics.md).
 
 ## <a name="synthesize-translations"></a>Syntetisera översättningar
 
-Efter en lyckad taligenkänning och översättning innehåller resultatet alla översättningar i en ordlista. Ordlistenyckeln [`Translations`][translations] är målöversättningsspråket och värdet är den översatta texten. Igenkänd tal kan översättas och sedan syntetiseras på ett annat språk (tal till tal).
+Efter en lyckad tal igenkänning och översättning innehåller resultatet alla översättningar i en ord lista. [`Translations`][translations] Ord listans nyckel är mål översättnings språket och värdet är den översatta texten. Identifierat tal kan översättas och sedan syntetiseras på ett annat språk (tal-till-tal).
 
-### <a name="event-based-synthesis"></a>Händelsebaserad syntes
+### <a name="event-based-synthesis"></a>Händelse-baserad syntes
 
-Objektet `TranslationRecognizer` exponerar `Synthesizing` en händelse. Händelsen utlöses flera gånger och ger en mekanism för att hämta det syntetiserade ljudet från resultatet för översättningsigenkänning. Om du översätter till flera språk läser du [manuell syntes](#manual-synthesis). Ange syntesrösten genom [`VoiceName`][voicename] att tilldela en och `Synthesizing` ange en händelsehanterare för händelsen, hämta ljudet. I följande exempel sparas det översatta ljudet som en *WAV-fil.*
+`TranslationRecognizer` Objektet visar en `Synthesizing` händelse. Händelsen utlöses flera gånger och ger en mekanism för att hämta det syntetiserade ljudet från resultatet av översättnings igenkänningen. Om du översätter till flera språk, se [manuell syntes](#manual-synthesis). Ange syntes rösten genom att tilldela [`VoiceName`][voicename] en och ange en händelse hanterare för `Synthesizing` händelsen, Hämta ljudet. I följande exempel sparas det översatta ljudet som en *. wav* -fil.
 
 > [!IMPORTANT]
-> Den händelsebaserade syntesen fungerar bara med en enda översättning, lägg **inte** till flera målöversättningsspråk. Dessutom bör [`VoiceName`][voicename] det vara samma språk som målöversättningsspråket, till exempel. `"de"` kunde mappa till `"de-DE-Hedda"`.
+> Den händelsebaserade syntesen fungerar bara med en enda översättning, Lägg **inte** till flera mål översättnings språk. Dessutom bör det [`VoiceName`][voicename] vara samma språk som mål översättnings språket, till exempel. `"de"` det gick att `"de-DE-Hedda"`mappa till.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -271,7 +271,7 @@ static async Task TranslateSpeechAsync()
 
 ### <a name="manual-synthesis"></a>Manuell syntes
 
-Ordlistan [`Translations`][translations] kan användas för att syntetisera ljud från översättningstexten. Iterera genom varje översättning och syntetisera översättningen. När du `SpeechSynthesizer` skapar `SpeechConfig` en instans måste [`SpeechSynthesisVoiceName`][speechsynthesisvoicename] objektet ha egenskapen inställd på önskad röst. Följande exempel översätts till fem språk, och varje översättning syntetiseras sedan till en ljudfil på motsvarande neurala språk.
+[`Translations`][translations] Ord listan kan användas för att syntetisera ljud från översättnings texten. Iterera igenom varje översättning och syntetisera översättningen. När du skapar `SpeechSynthesizer` en instans måste `SpeechConfig` dess [`SpeechSynthesisVoiceName`][speechsynthesisvoicename] egenskap ha angetts till önskad röst för objektet. I följande exempel översätts till fem språk och varje översättning syntetiseras sedan till en ljudfil på motsvarande neurala-språk.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -322,7 +322,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-Mer information om talsyntes [finns i grunderna i talsyntes](../../../text-to-speech-basics.md).
+Mer information om tal syntes finns i [grunderna för tal syntes](../../../text-to-speech-basics.md).
 
 [config]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig?view=azure-dotnet
 [audioconfig]: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet

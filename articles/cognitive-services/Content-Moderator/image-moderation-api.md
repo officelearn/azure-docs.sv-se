@@ -1,7 +1,7 @@
 ---
-title: Bildmoderation - Innehållsmoderator
+title: Bild moderator – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Använd Content Moderators maskinstödda bildmoderation och verktyget Granska för mänskliga produkter i slingan för att moderera bilder för barn- och racyinnehåll.
+description: Använd Content Moderator dator redigering och gransknings verktyget för mänskligt-in-loop till måttliga bilder för vuxna och vågat innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81404266"
 ---
-# <a name="learn-image-moderation-concepts"></a>Lär dig begrepp för bildmoderering
+# <a name="learn-image-moderation-concepts"></a>Lär dig om bild moderator koncept
 
-Använd Content Moderators maskinstödda bildmoderation och [verktyget Granska för mänskliga produkter i slingan](Review-Tool-User-Guide/human-in-the-loop.md) för att moderera bilder för barn- och racyinnehåll. Sök igenom bilder efter textinnehåll och extrahera texten och identifiera ansikten. Du kan matcha bilder mot anpassade listor och vidta ytterligare åtgärder.
+Använd Content Moderator dator redigering och [gransknings verktyget för mänskligt-in-loop](Review-Tool-User-Guide/human-in-the-loop.md) till måttliga bilder för vuxna och vågat innehåll. Skanna bilder för text innehåll och extrahera texten och identifiera ansikten. Du kan matcha bilder mot anpassade listor och vidta ytterligare åtgärder.
 
-## <a name="evaluating-for-adult-and-racy-content"></a>Utvärdering för barnförbjudet och racyinnehåll
+## <a name="evaluating-for-adult-and-racy-content"></a>Utvärdera för vuxna och vågat innehåll
 
-Åtgärden **Utvärdera** returnerar en konfidenspoäng mellan 0 och 1. Den returnerar också booleska data som är lika med sant eller falskt. Dessa värden förutsäger om bilden innehåller potentiellt innehåll för vuxna eller racy. När du anropar API:et med avbildningen (fil eller URL) innehåller det returnerade svaret följande information:
+**Utläsningen** returnerar en förtroende poäng mellan 0 och 1. Den returnerar även booleska data som är lika med sant eller falskt. Dessa värden förutsäger om avbildningen innehåller potentiellt vuxen eller vågat innehåll. När du anropar API: et med din avbildning (fil eller URL) innehåller det returnerade svaret följande information:
 
     "ImageModeration": {
       .............
@@ -38,18 +38,18 @@ Använd Content Moderators maskinstödda bildmoderation och [verktyget Granska f
 > 
 > - `isImageAdultClassified` representerar den potentiella förekomsten av bilder som kan uppfattas som sexuellt explicita eller ämnade för vuxna.
 > - `isImageRacyClassified` representerar den potentiella förekomsten av bilder som kan uppfattas som sexuellt laddade eller ämnade för vuxna.
-> - Poängen är mellan 0 och 1. Ju högre poäng, desto högre modell förutspår att kategorin kan vara tillämplig. Den här förhandsversionen bygger på en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig till dina krav.
-> - De booleska värdena är antingen sanna eller falska beroende på de interna poängtrösklarna. Kunder bör bedöma om de ska använda det här värdet eller besluta om anpassade tröskelvärden baserat på deras innehållsprinciper.
+> - Poängen är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här förhands granskningen använder en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
+> - De booleska värdena är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
 
-## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Identifiera text med optisk teckenigenkänning (OCR)
+## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Identifiera text med optisk tecken igenkänning (OCR)
 
-**Ocr-åtgärden (Optical Character Recognition)** förutsäger förekomsten av textinnehåll i en bild och extraherar det för textmoderering, bland annat. Du kan ange språket. Om du inte anger något språk är identifieringen som standard på engelska.
+**OCR-åtgärden (optisk tecken läsning)** förutsäger förekomsten av text innehåll i en bild och extraherar den för text redigering, bland annat. Du kan ange språket. Om du inte anger något språk används engelska som standard.
 
 Svaret innehåller följande information:
 - Den ursprungliga texten.
-- De identifierade textelementen med sina konfidenspoäng.
+- De identifierade text elementen med sina konfidens resultat.
 
-Exempel utdrag:
+Exempel på extrahering:
 
     "TextDetection": {
       "status": {
@@ -66,14 +66,14 @@ Exempel utdrag:
 
 ## <a name="detecting-faces"></a>Identifiera ansikten
 
-Att upptäcka ansikten hjälper till att upptäcka personuppgifter som ansikten i bilderna. Du upptäcker potentiella ansikten och antalet potentiella ansikten i varje bild.
+Att identifiera ansikten hjälper till att identifiera personliga data, till exempel ansikten i bilderna. Du identifierar potentiella ansikten och antalet potentiella ansikten i varje bild.
 
-Ett svar innehåller denna information:
+Ett svar innehåller följande information:
 
-- Antalet ansikten
-- Lista över platser för upptäckta ansikten
+- Antal ansikten
+- Lista över platser för ansikten som identifieras
 
-Exempel utdrag:
+Exempel på extrahering:
 
 
     "FaceDetection": {
@@ -101,28 +101,28 @@ Exempel utdrag:
 
 ## <a name="creating-and-managing-custom-lists"></a>Skapa och hantera anpassade listor
 
-I många onlinegrupper kan stötande objekt delas flera gånger efter följande dagar, veckor och månader när användare har laddat upp bilder eller annan typ av innehåll. Kostnaderna för upprepade skanning och filtrering av samma bild eller till och med något modifierade versioner av bilden från flera ställen kan vara dyra och felbenägna.
+I många online-communities kan stötande objekt delas flera gånger under följande dagar, veckor och månader efter att användare överför bilder eller annan typ av innehåll. Kostnaderna för att söka igenom och filtrera ut samma bild eller till och med något ändrat versioner av avbildningen från flera platser kan vara dyra och fel känsliga.
 
-I stället för att moderera samma bild flera gånger lägger du till stötande bilder i din anpassade lista över blockerat innehåll. På så sätt jämför ditt innehåll modereringssystem inkommande bilder med dina anpassade listor och stoppar ytterligare bearbetning.
+I stället för att använda samma avbildning flera gånger, lägger du till de stötande bilderna i din anpassade lista över blockerat innehåll. På så sätt jämför ditt innehålls redigerings system inkommande avbildningar mot dina anpassade listor och stoppar all ytterligare bearbetning.
 
 > [!NOTE]
 > Det finns en maxgräns på **5 bildlistor** där varje lista **inte får överstiga 10 000 bilder**.
 >
 
-Innehållsmoderatorn tillhandahåller ett komplett API för [bildlisthantering](try-image-list-api.md) med åtgärder för att hantera listor med anpassade avbildningar. Börja med [API-konsolen Image Lists](try-image-list-api.md) och använd rest-API-kodexemplen. Kolla också in [snabbstarten för bildlistan .NET](image-lists-quickstart-dotnet.md) om du är bekant med Visual Studio och C#.
+Content Moderator innehåller en fullständig [hanterings-API för bild listor](try-image-list-api.md) med åtgärder för att hantera listor med anpassade avbildningar. Börja med [avbildningen listar API-konsolen](try-image-list-api.md) och Använd REST API kod exempel. Ta också en titt på [avbildnings listan .net snabb start](image-lists-quickstart-dotnet.md) om du är bekant med Visual Studio och C#.
 
-## <a name="matching-against-your-custom-lists"></a>Matcha mot dina anpassade listor
+## <a name="matching-against-your-custom-lists"></a>Matchning mot dina anpassade listor
 
-Åtgärden Matchning möjliggör luddig matchning av inkommande bilder mot någon av dina anpassade listor, som skapats och hanterats med hjälp av liståtgärderna.
+Matchnings åtgärden tillåter fuzzy matchning av inkommande bilder mot någon av dina anpassade listor, som skapas och hanteras med hjälp av list åtgärderna.
 
-Om en matchning hittas returnerar åtgärden identifieraren och modereringstaggarna för den matchade bilden. Svaret innehåller denna information:
+Om en matchning hittas returnerar åtgärden identifieraren och kontrollanten för den matchade bilden. Svaret innehåller följande information:
 
-- Matchpoäng (mellan 0 och 1)
+- Matcha Poäng (mellan 0 och 1)
 - Matchad bild
-- Bildtaggar (som tilldelats under tidigare moderering)
-- Bildetiketter
+- Bildtaggar (tilldelas under föregående moderator)
+- Bild etiketter
 
-Exempel utdrag:
+Exempel på extrahering:
 
     {
     ..............,
@@ -141,10 +141,10 @@ Exempel utdrag:
 
 ## <a name="review-tool"></a>Granskningsverktyg
 
-För mer nyanserade fall, använd content moderator [review-verktyget](Review-Tool-User-Guide/human-in-the-loop.md) och dess API för att visa modereringsresultat och innehåll i granskningen för dina mänskliga moderatorer. De granskar de maskintilldelade taggarna och bekräftar sina slutliga beslut.
+Om du vill ha fler nyanserade-fall använder du [gransknings verktyget](Review-Tool-User-Guide/human-in-the-loop.md) Content moderator och dess API för att Visa kontroll resultaten och innehållet i granskningen för dina mänskliga moderatorer. De granskar de tilldelade taggarna och bekräftar sina slutgiltiga beslut.
 
 ![Bildgranskning för mänskliga moderatorer](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa [api-konsolen Image Moderation](try-image-api.md) och använd rest API-kodexemplen. Kolla också in avsnittet Bildmoderering i [snabbstarten för .NET SDK](dotnet-sdk-quickstart.md) om du är bekant med Visual Studio och C#.
+Testa API- [konsolen för bild moderator](try-image-api.md) och Använd REST API kod exempel. Se även avsnittet avbildnings moderator i snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) om du är bekant med Visual Studio och C#.

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Känna igen tal från en ljudfil - Taltjänst'
+title: 'Snabb start: identifiera tal från en ljud fil – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten ska du använda Tal-SDK för att känna igen tal från en ljudfil.
+description: I den här snabb starten använder du tal-SDK för att känna igen tal från en ljudfil.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 0480177bd504052804c9aa833f18d827f688f661
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81400463"
 ---
-# <a name="quickstart-recognize-speech-from-an-audio-file"></a>Snabbstart: Känna igen tal från en ljudfil
+# <a name="quickstart-recognize-speech-from-an-audio-file"></a>Snabb start: identifiera tal från en ljudfil
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]

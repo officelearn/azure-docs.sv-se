@@ -1,7 +1,7 @@
 ---
-title: HTTP till HTTPS-omdirigering med CLI
+title: Omdirigering av HTTP till HTTPS med CLI
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för TLS-avslutning med Azure CLI.
+description: Lär dig hur du skapar en Programgateway och lägger till ett certifikat för TLS-avslutning med hjälp av Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312143"
 ---
-# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en programgateway med HTTP till HTTPS-omdirigering med Azure CLI
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Application Gateway med HTTP till HTTPS-omdirigering med hjälp av Azure CLI
 
-Du kan använda Azure CLI för att skapa en [programgateway](overview.md) med ett certifikat för TLS/SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS-porten i programgatewayen. I det här exemplet skapar du också en [skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för den virtuella datorn för serverdapoolen för programgatewayen som innehåller två instanser av virtuella datorer.
+Du kan använda Azure CLI för att skapa en [Programgateway](overview.md) med ett certifikat för TLS/SSL-avslutning. En regel för routning används för att omdirigera HTTP-trafik till HTTPS-porten i din Programgateway. I det här exemplet skapar du också en [skalnings uppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för den Programgateway som innehåller två instanser av virtuella datorer.
 
 I den här artikeln kan du se hur du:
 
@@ -25,7 +25,7 @@ I den här artikeln kan du se hur du:
 > * Skapa ett självsignerat certifikat
 > * Konfigurera ett nätverk
 > * Skapa en programgateway med certifikatet
-> * Lägga till en lyssnare och omdirigeringsregel
+> * Lägg till en regel för avlyssning och omdirigering
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
@@ -36,7 +36,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-För produktionsanvändning bör du importera ett giltigt certifikat som signerats av en betrodd provider. I den här självstudiekursen skapar du ett självsignerat certifikat och en pfx-fil med kommandot openssl.
+För produktions användning bör du importera ett giltigt certifikat signerat av en betrodd Provider. I den här självstudiekursen skapar du ett självsignerat certifikat och en pfx-fil med kommandot openssl.
 
 ```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -115,11 +115,11 @@ az network application-gateway create \
 - *appGatewayFrontendIP* – tilldelar *myAGPublicIPAddress* till *appGatewayHttpListener*.
 - *regel 1* – standardroutningsregel som är associerad med *appGatewayHttpListener*.
 
-## <a name="add-a-listener-and-redirection-rule"></a>Lägga till en lyssnare och omdirigeringsregel
+## <a name="add-a-listener-and-redirection-rule"></a>Lägg till en regel för avlyssning och omdirigering
 
-### <a name="add-the-http-port"></a>Lägga till HTTP-porten
+### <a name="add-the-http-port"></a>Lägg till HTTP-porten
 
-Du kan använda [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) för att lägga till HTTP-porten i programgatewayen.
+Du kan använda [AZ Network Application-Gateway frontend-port Create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create) för att lägga till http-porten till Application Gateway.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -129,9 +129,9 @@ az network application-gateway frontend-port create \
   --name httpPort
 ```
 
-### <a name="add-the-http-listener"></a>Lägga till HTTP-lyssnaren
+### <a name="add-the-http-listener"></a>Lägg till HTTP-lyssnaren
 
-Du kan använda [az network application-gateway http-lyssnare skapa](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) för att lägga till lyssnaren heter *myListener* till programmet gateway.
+Du kan använda [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) för att lägga till lyssnaren med namnet ' *lyssnare* till programgatewayen.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -142,9 +142,9 @@ az network application-gateway http-listener create \
   --gateway-name myAppGateway
 ```
 
-### <a name="add-the-redirection-configuration"></a>Lägga till omdirigeringskonfigurationen
+### <a name="add-the-redirection-configuration"></a>Lägg till omdirigerings konfigurationen
 
-Lägg till HTTP-omdirigeringskonfigurationen i programmets gateway med [az-network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Lägg till konfigurationen för omdirigering av HTTP till HTTPS i Application Gateway med [AZ Network Application-Gateway Redirect-config Create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -157,9 +157,9 @@ az network application-gateway redirect-config create \
   --include-query-string true
 ```
 
-### <a name="add-the-routing-rule"></a>Lägga till routningsregeln
+### <a name="add-the-routing-rule"></a>Lägg till regel för routning
 
-Lägg till routningsregeln med namnet *rule2* med omdirigeringskonfigurationen i programgatewayen med [az-nätverksprogramgatewayregel skapa](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
+Lägg till Routningsprincipen med namnet *regel 2* med omdirigerings konfigurationen till Application Gateway med [AZ Network Application-Gateway Rule Create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -173,7 +173,7 @@ az network application-gateway rule create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
-I det här exemplet skapar du en skalauppsättning för virtuella datorer med namnet *myvmss* som tillhandahåller servrar för serverdapoolen i programgatewayen. De virtuella datorerna i skalningsuppsättningen är associerade med undernätet *myBackendSubnet* och *appGatewayBackendPool*. Du kan skapa skalningsuppsättningen med [az vmss create](/cli/azure/vmss#az-vmss-create).
+I det här exemplet skapar du en skalnings uppsättning för virtuell dator med namnet *myvmss* som tillhandahåller servrar för backend-poolen i Application Gateway. De virtuella datorerna i skalningsuppsättningen är associerade med undernätet *myBackendSubnet* och *appGatewayBackendPool*. Du kan skapa skalningsuppsättningen med [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -230,7 +230,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa ett självsignerat certifikat
 > * Konfigurera ett nätverk
 > * Skapa en programgateway med certifikatet
-> * Lägga till en lyssnare och omdirigeringsregel
+> * Lägg till en regel för avlyssning och omdirigering
 > * Skapa en VM-skalningsuppsättning med serverdelens standardpool
 
 

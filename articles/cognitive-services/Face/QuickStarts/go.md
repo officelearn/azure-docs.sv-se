@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och Go'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten identifierar du ansikten från en bild med hjälp av Ansiktstjänsten med Go.
+description: I den här snabb starten identifierar du ansikten från en bild med hjälp av ansikts tjänsten med go.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: b3e6f5746df6197938d3a91de5ff11b1a311d762
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81402956"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och Go
 
-I den här snabbstarten använder du Azure Face REST API med Go för att identifiera mänskliga ansikten i en avbildning.
+I den här snabb starten ska du använda Azures ansikts REST API med Go för att identifiera mänskliga ansikten i en bild.
 
 ## <a name="prerequisites"></a>Krav
 
-- En Face-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Ansiktstjänsten och hämta din nyckel.
+- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel.
 - En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Skriva skriptet
@@ -108,11 +108,11 @@ func main() {
 }
 ```
 
-Du måste uppdatera `subscriptionKey` värdet med din prenumerationsnyckel `uriBase` och ändra strängen så att den innehåller rätt slutpunktssträng.
+Du måste uppdatera `subscriptionKey` värdet med din prenumerations nyckel och ändra `uriBase` strängen så att den innehåller rätt slut punkts sträng.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-Du kanske också vill ändra fältet `imageUrl` så att det pekar på din egna inmatade bild. Du kanske också vill `returnFaceAttributes` ändra fältet som anger vilka ansiktsattribut som ska hämtas.
+Du kanske också vill ändra fältet `imageUrl` så att det pekar på din egna inmatade bild. Du kanske också vill ändra `returnFaceAttributes` fältet som anger vilka ansikts attribut som ska hämtas.
 
 ## <a name="run-the-script"></a>Kör skriptet
 
@@ -311,7 +311,7 @@ Du bör se en JSON-sträng för identifierade ansiktsdata i konsolen. Följande 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skrev du ett Go Console-program som anropar Azure Face-tjänsten för att identifiera ansikten i en avbildning och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
+I den här snabb starten har du skapat ett Go-konsolprogram som anropar Azure Face service för att identifiera ansikten i en bild och returnera sina attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

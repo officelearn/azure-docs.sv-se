@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - Använd Apache HBase i Azure HDInsight
-description: Följ denna Apache HBase handledning för att börja använda hadoop på HDInsight. Skapa tabeller från HBase-gränssnittet och ställ frågor för dem med Hive.
+title: Självstudie – Använd Apache HBase i Azure HDInsight
+description: Följ den här Apache HBase-självstudien för att börja använda Hadoop på HDInsight. Skapa tabeller från HBase-gränssnittet och ställ frågor för dem med Hive.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
 ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81390268"
 ---
-# <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Självstudiekurs: Använd Apache HBase i Azure HDInsight
+# <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Självstudie: använda Apache HBase i Azure HDInsight
 
 Den här självstudien visar hur du skapar ett Apache HBase-kluster i Azure HDInsight, skapar HBase-tabeller och frågetabeller med hjälp av Apache Hive.  Allmän HBase-information finns i [HDInsight HBase-översikt](./apache-hbase-overview.md).
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa Apache HBase-kluster
 > * Skapa HBase-tabeller och infoga data
-> * Använd Apache Hive för att fråga Apache HBase
+> * Använda Apache Hive för att fråga Apache HBase
 > * Använd HBase REST API:er med Curl
 > * Kontrollera klusterstatus
 
@@ -32,30 +32,30 @@ I den här guiden får du lära dig att:
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. Exemplen i den här artikeln använder bash-skalet på Windows 10 för curl-kommandona. Mer ominstallationssteg finns i [Installationsguiden för Windows Undersystem för Linux för Windows 10.](https://docs.microsoft.com/windows/wsl/install-win10)  Andra [Unix-skal](https://www.gnu.org/software/bash/) fungerar också.  Curl-exemplen, med några smärre ändringar, kan fungera på en Kommandotolken i Windows.  Du kan också använda Windows PowerShell-cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+* Bash. I exemplen i den här artikeln används bash-gränssnittet i Windows 10 för Vändnings kommandona. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Andra [UNIX-gränssnitt](https://www.gnu.org/software/bash/) fungerar också.  Exempel på vändning, med vissa små ändringar, kan fungera i en kommando tolk i Windows.  Du kan också använda Windows PowerShell-cmdleten [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## <a name="create-apache-hbase-cluster"></a>Skapa Apache HBase-kluster
 
-Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster. Mallen skapar också det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+I följande procedur används en Azure Resource Manager-mall för att skapa ett HBase-kluster. Mallen skapar även det beroende standard Azure Storage-kontot. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Välj följande avbildning för att öppna mallen i Azure-portalen. Mallen finns i [Snabbstartsmallar](https://azure.microsoft.com/resources/templates/)för Azure .
+1. Välj följande bild för att öppna mallen i Azure Portal. Mallen finns i [snabb starts mallar för Azure](https://azure.microsoft.com/resources/templates/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Ange följande värden i dialogrutan **Anpassad distribution:**
+2. I dialog rutan **Anpassad distribution** anger du följande värden:
 
     |Egenskap |Beskrivning |
     |---|---|
     |Prenumeration|Välj din Azure-prenumeration som används för att skapa klustret.|
-    |Resursgrupp|Skapa en Azure Resource-hanteringsgrupp eller använd en befintlig.|
-    |Location|Ange resursgruppens plats. |
-    |ClusterName|Ange ett namn på HBase-klustret.|
-    |Inloggningsnamn och lösenord för klustret|Standardinloggningsnamnet är **admin**.|
+    |Resursgrupp|Skapa en Azure-resurs hanterings grupp eller Använd en befintlig.|
+    |Plats|Ange platsen för resurs gruppen. |
+    |ClusterName|Ange ett namn för HBase-klustret.|
+    |Inloggningsnamn och lösenord för klustret|Standard inloggnings namnet är **admin**.|
     |SSH-användarnamn och lösenord|Standardanvändarnamnet är **sshuser**.|
 
     Andra parametrar är valfria.  
 
-    Varje kluster är beroende av ett Azure Storage-konto. När du har tagit bort ett kluster finns data kvar i lagringskontot. Klustrets lagringskonto av standardtyp har det klusternamn som omfattar tillägget ”store”. Det är hårdkodat i avsnittet mallvariabler.
+    Varje kluster är beroende av ett Azure Storage-konto. När du har tagit bort ett kluster finns data kvar i lagrings kontot. Klustrets lagringskonto av standardtyp har det klusternamn som omfattar tillägget ”store”. Det är hårdkodad i avsnittet mallens variabler.
 
 3. Välj **Jag godkänner villkoren som anges ovan** och välj sedan **Köp**. Det tar cirka 20 minuter att skapa ett kluster.
 
@@ -67,39 +67,39 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apac
 
 För de flesta visas data i tabellformat:
 
-![Tabelldata för HDInsight Apache HBase](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+![HDInsight Apache HBase tabell data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
 
-I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable/)) ser samma data ut:
+I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable/)) ser samma data ut så här:
 
 ![HDInsight Apache HBase BigTable-data](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
 
 **Använda HBase-gränssnittet**
 
-1. Använd `ssh` kommandot för att ansluta till HBase-klustret. Redigera kommandot nedan `CLUSTERNAME` genom att ersätta med namnet på klustret och ange sedan kommandot:
+1. Använd `ssh` kommandot för att ansluta till ditt HBase-kluster. Redigera kommandot nedan genom att ersätta `CLUSTERNAME` med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Använd `hbase shell` kommandot för att starta det interaktiva HBase-skalet. Ange följande kommando i SSH-anslutningen:
+1. Använd `hbase shell` kommandot för att starta det interaktiva HBase-gränssnittet. Ange följande kommando i SSH-anslutningen:
 
     ```bash
     hbase shell
     ```
 
-1. Använd `create` kommandot för att skapa en HBase-tabell med familjer med två kolumner. Tabell- och kolumnnamnen är skiftlägeskänsliga. Ange följande kommando:
+1. Använd `create` kommandot för att skapa en HBase-tabell med två kolumn serier. Tabell-och kolumn namn är Skift läges känsliga. Ange följande kommando:
 
     ```hbaseshell
     create 'Contacts', 'Personal', 'Office'
     ```
 
-1. Använd `list` kommandot för att lista alla tabeller i HBase. Ange följande kommando:
+1. Använd `list` kommandot för att visa en lista över alla tabeller i HBase. Ange följande kommando:
 
     ```hbase
     list
     ```
 
-1. Använd `put` kommandot för att infoga värden vid en angiven kolumn på en angiven rad i en viss tabell. Ange följande kommandon:
+1. Använd `put` kommandot för att infoga värden i en angiven kolumn i en angiven rad i en viss tabell. Ange följande kommandon:
 
     ```hbaseshell
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -108,13 +108,13 @@ I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-1. Använd `scan` kommandot för att `Contacts` skanna och returnera tabelldata. Ange följande kommando:
+1. Använd `scan` kommandot för att genomsöka och `Contacts` returnera tabell data. Ange följande kommando:
 
     ```hbase
     scan 'Contacts'
     ```
 
-    ![HDInsight Apache Hadoop HBase skal](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    ![HDInsight Apache Hadoop HBase-gränssnitt](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
 
 1. Använd `get` kommandot för att hämta innehållet i en rad. Ange följande kommando:
 
@@ -122,11 +122,11 @@ I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable
     get 'Contacts', '1000'
     ```
 
-    Du ser liknande resultat `scan` som att använda kommandot eftersom det bara finns en rad.
+    Du ser liknande resultat som när du `scan` använder kommandot eftersom det bara finns en rad.
 
-    Mer information om HBase-tabellschemat finns i [Introduktion till Apache HBase Schemadesign](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Fler HBase-kommandon finns i [referensguiden för Apache HBase](https://hbase.apache.org/book.html#quickstart).
+    Mer information om HBase Table-schemat finns i [Introduktion till Apache HBase schema design](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf). Fler HBase-kommandon finns i [referensguiden för Apache HBase](https://hbase.apache.org/book.html#quickstart).
 
-1. Använd `exit` kommandot för att stoppa det interaktiva HBase-skalet. Ange följande kommando:
+1. Använd `exit` kommandot för att stoppa det interaktiva HBase-gränssnittet. Ange följande kommando:
 
     ```hbaseshell
     exit
@@ -149,29 +149,29 @@ En exempeldatafil finns i en offentlig blob-container, `wasb://hbasecontacts\@hd
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Du kan även skapa en textfil och överföra filen till ditt eget lagringskonto. Instruktioner finns i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
+Du kan även skapa en textfil och överföra filen till ditt eget lagringskonto. Anvisningar finns i [överföra data för Apache Hadoop jobb i HDInsight](../hdinsight-upload-data.md).
 
-Den här `Contacts` proceduren använder den HBase-tabell som du skapade i den sista proceduren.
+I den här proceduren `Contacts` används HBase-tabellen som du skapade i den senaste proceduren.
 
-1. Från den öppna ssh-anslutningen kör du följande kommando för att omvandla datafilen till `Dimporttsv.bulk.output`StoreFiles och lagra på en relativ sökväg som anges av .
+1. Kör följande kommando från den öppna ssh-anslutningen för att transformera data filen till StoreFiles och lagra på en relativ sökväg som anges av `Dimporttsv.bulk.output`.
 
     ```bash
     hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
     ```
 
-2. Kör följande kommando för att `/example/data/storeDataFileOutput` överföra data från till HBase-tabellen:
+2. Kör följande kommando för att överföra data från `/example/data/storeDataFileOutput` till tabellen HBase:
 
     ```bash
     hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
     ```
 
-3. Du kan öppna HBase-skalet `scan` och använda kommandot för att visa tabellinnehållet.
+3. Du kan öppna HBase-gränssnittet och använda `scan` kommandot för att Visa tabell innehållet.
 
-## <a name="use-apache-hive-to-query-apache-hbase"></a>Använd Apache Hive för att fråga Apache HBase
+## <a name="use-apache-hive-to-query-apache-hbase"></a>Använda Apache Hive för att fråga Apache HBase
 
-Du kan fråga data i HBase-tabeller med hjälp av [Apache Hive](https://hive.apache.org/). I det här avsnittet skapar du en Hive-tabell som mappar till HBase-tabellen och använder den för att fråga efter data i din HBase-tabell.
+Du kan fråga efter data i HBase-tabeller med hjälp av [Apache Hive](https://hive.apache.org/). I det här avsnittet skapar du en Hive-tabell som mappar till HBase-tabellen och använder den för att fråga efter data i din HBase-tabell.
 
-1. Från din öppna ssh-anslutning använder du följande kommando för att starta Beeline:
+1. Använd följande kommando för att starta Beeline från den öppna ssh-anslutningen:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
@@ -179,7 +179,7 @@ Du kan fråga data i HBase-tabeller med hjälp av [Apache Hive](https://hive.apa
 
     Mer information om Beeline finns i [Use Hive with Hadoop in HDInsight with Beeline](../hadoop/apache-hadoop-use-hive-beeline.md) (Använda Hive med Hadoop i HDInsight med Beeline).
 
-1. Kör följande [HiveQL-skript](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) för att skapa en Hive-tabell som mappar till HBase-tabellen. Kontrollera att du har skapat exempeltabellen som refererades tidigare i den här artikeln med hbase-skalet innan du kör den här satsen.
+1. Kör följande [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) -skript för att skapa en Hive-tabell som mappar till HBase-tabellen. Se till att du har skapat exempel tabellen som refereras tidigare i den här artikeln med hjälp av HBase-gränssnittet innan du kör den här instruktionen.
 
     ```hiveql
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -194,15 +194,15 @@ Du kan fråga data i HBase-tabeller med hjälp av [Apache Hive](https://hive.apa
     SELECT count(rowkey) AS rk_count FROM hbasecontacts;
     ```
 
-1. Om du vill avsluta `!exit`Beeline använder du .
+1. Om du vill avsluta Beeline `!exit`använder du.
 
-1. Om du vill avsluta `exit`ssh-anslutningen använder du .
+1. Använd `exit`om du vill avsluta ssh-anslutningen.
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Använd HBase REST API:er med Curl
 
 REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
-1. Ställ in miljövariabel för enkel användning. Redigera kommandona nedan `MYPASSWORD` genom att ersätta med lösenordet för klusterinloggning. Ersätt `MYCLUSTERNAME` med namnet på ditt HBase-kluster. Ange sedan kommandona.
+1. Ställ in miljö variabel för enkel användning. Redigera kommandona nedan genom att `MYPASSWORD` ersätta med lösen ordet för kluster inloggning. Ersätt `MYCLUSTERNAME` med namnet på ditt HBase-kluster. Ange sedan kommandona.
 
     ```bash
     export password='MYPASSWORD'
@@ -239,10 +239,10 @@ REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wik
     -v
     ```
 
-    Base64 kodar de värden som anges i växeln -d. I exemplet:
+    Base64 koda värdena som anges i växeln-d. I exemplet:
 
    * MTAwMA ==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personligt: Namn
+   * UGVyc29uYWw6TmFtZQ = =: personligt: namn
    * Sm9obiBEb2xl: John Dole
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) gör att du kan infoga flera (gruppbaserade) värden.
@@ -277,11 +277,11 @@ HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster
 
 **Så här får du åtkomst till HBase Master UI**
 
-1. Logga in på Ambari `https://CLUSTERNAME.azurehdinsight.net` Web `CLUSTERNAME` UI där är namnet på ditt HBase-kluster.
+1. Logga in på Ambari- `https://CLUSTERNAME.azurehdinsight.net` webbgränssnittet `CLUSTERNAME` på där är namnet på ditt HBase-kluster.
 
-1. Välj **HBase** på den vänstra menyn.
+1. Välj **HBase** på menyn till vänster.
 
-1. Välj **Snabblänkar** högst upp på sidan, peka på den aktiva zookeepernodlänken och välj sedan **HBase Master UI**.  Gränssnittet har öppnats i en annan webbläsarflik:
+1. Välj **snabb länkar** överst på sidan, peka på länken aktiva Zookeeper och välj sedan **HBase Master användar gränssnitt**.  Gränssnittet har öppnats i en annan webbläsarflik:
 
    ![HDInsight Apache HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -295,17 +295,17 @@ HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret. Du kan använda kommandot `disable 'Contacts'`HBase . Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
+Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret. Du kan använda kommandot `disable 'Contacts'`HBase. Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien.
-1. Klicka på **Ta bort**. Klicka på **Ja**.
+1. Klicka på **ta bort**. Klicka på **Ja**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du skapar ett Apache HBase-kluster. Och hur du skapar tabeller och visa data i dessa tabeller från HBase-skalet. Du har också lärt dig hur du använder en Hive-fråga om data i HBase-tabeller. Och hur du använder HBase C# REST API:er för att skapa en HBase-tabell och hämta data från tabellen. Du kan läsa mer här:
+I den här självstudien har du lärt dig hur du skapar ett Apache HBase-kluster. Och hur du skapar tabeller och visar data i dessa tabeller från HBase-gränssnittet. Du har också lärt dig hur du använder en Hive-fråga på data i HBase-tabeller. Och hur du använder HBase C# REST-API: er för att skapa en HBase-tabell och hämta data från tabellen. Du kan läsa mer här:
 
 > [!div class="nextstepaction"]
-> [Översikt över HDInsight HBase](./apache-hbase-overview.md)
+> [HDInsight HBase-översikt](./apache-hbase-overview.md)

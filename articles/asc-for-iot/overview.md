@@ -1,6 +1,6 @@
 ---
 title: Tjänstöversikt
-description: Läs mer om Azure Security Center för IoT-funktioner och -tjänster och förstå hur Azure Security Center för IoT ger omfattande IoT-säkerhet.
+description: Lär dig mer om att Azure Security Center för IoT-funktioner och-tjänster och förstå hur Azure Security Center för IoT tillhandahåller omfattande IoT-säkerhet.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,43 +15,43 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f4601de6ee495def43d1267131193762ea482d2a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81310925"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Vi presenterar Azure Security Center for IoT
 
-Förena säkerhetshantering och aktivera identifiering och analys från på säkerhet över hybridmolnarbetsbelastningar och din Azure IoT-lösning.
+Förena säkerhets hanteringen och aktivera hot identifiering och analys från slut punkt till slut punkt och analys över hybrid moln arbets belastningar och din Azure IoT-lösning.
 
-## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Skydda hela din IoT-lösning från IoT-enheter till Azure-molnet
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Skydda hela IoT-lösningen från IoT-enheter till Azure-molnet
 
-Välj från vår sömlösa agentlösa lösning eller dra nytta av agentbaserad omfattande säkerhet, Azure Security Center for IoT ger hotförebyggande och analys för varje enhet, IoT Edge och IoT Hub, över dina IoT-tillgångar.
+Välj någon av våra sömlösa lösningar för att lösa problemet eller dra nytta av agentbaserade omfattande säkerhet, Azure Security Center för IoT, som ger skydd mot hot och analys för varje enhet, IoT Edge och IoT Hub, på dina IoT-tillgångar.
 
-Eftersom miljarder nya enheter är anslutna till Internet och integreras i vårt dagliga liv och våra företag, måste dina säkerhetsoperationsteam se till att deras säkerhetsstrategier utvecklas tillräckligt snabbt för att täcka varje ny attackyta. Precis som alla andra system, för att fullständigt säkra din IoT-lösning, kräver det skydd i varje skede av implementeringen.
+Eftersom miljard tals nya enheter är anslutna till Internet och integreras i våra dagliga liv och våra företag, måste dina säkerhets strategier se till att deras säkerhets strategier utvecklas tillräckligt snabbt för att kunna avse varje ny attack yta. Precis som andra system, för att på ett omfattande sätt skydda din IoT-lösning, krävs skydd i varje steg i implementeringen.
 
-Azure Security Center for IoT förenklar skyddet av hybridarbetsbelastningen genom att leverera enhetlig synlighet och kontroll, adaptiv hotförebyggande och intelligent hotidentifiering och respons över arbetsbelastningar som körs på kant, lokalt, i Azure och i andra moln.
+Azure Security Center för IoT fören klar hybrid arbets belastnings skyddet genom att leverera enhetlig synlighet och kontroll, anpassningsbart hot skydd och intelligent hot identifiering och-svar mellan arbets belastningar som körs på Edge, lokalt, i Azure och i andra moln.
 
 ![Arkitektur för Azure Security Center for IoT](./media/architecture/azure-iot-security-architecture.png)
 
 ### <a name="unified-visibility-and-control"></a>Enhetlig synlighet och kontroll
 
-Få en enhetlig vy över säkerheten för alla dina lokala arbetsbelastningar och molnarbetsbelastningar, inklusive din Azure IoT-lösning. Ombord på nya enheter och tillämpa säkerhetsprinciper över dina arbetsbelastningar (Leaf-enheter, Microsoft Edge-enheter, IoT Hub) för att säkerställa efterlevnad av säkerhetsstandarder och förbättrad säkerhetsposition.
+Få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbets belastningar, inklusive din Azure IoT-lösning. Publicera nya enheter och Använd säkerhets principer för dina arbets belastningar (löv enheter, Microsoft Edge-enheter IoT Hub) för att säkerställa efterlevnaden av säkerhets standarder och förbättrad säkerhets position.
 
-### <a name="adaptive-threat-prevention"></a>Adaptivt hotförebyggande
+### <a name="adaptive-threat-prevention"></a>Anpassningsbart skydd
 
-Använd Azure Security Center för IoT för att kontinuerligt övervaka säkerheten för datorer, nätverk och Azure-tjänster. Välj bland hundratals inbyggda säkerhetsbedömningar eller skapa egna i den centrala Azure Security Center for IoT Hub-instrumentpanelen. Optimera dina säkerhetsinställningar och förbättra dina säkerhetspoäng med användbara rekommendationer över virtuella datorer, nätverk, appar och data. Med nyligen tillagda IoT-funktioner kan du nu minska angreppsytan för din Azure IoT-lösning och åtgärda problem innan de kan utnyttjas.
+Använd Azure Security Center för IoT för att kontinuerligt övervaka säkerheten för datorer, nätverk och Azure-tjänster. Välj mellan hundratals inbyggda säkerhets utvärderingar eller skapa egna i den centrala Azure Security Center för IoT Hub instrument panel. Optimera dina säkerhets inställningar och förbättra dina säkerhets poäng med rekommenderade rekommendationer för virtuella datorer, nätverk, appar och data. Med nyligen tillagda IoT-funktioner kan du nu minska angrepps ytan för din Azure IoT-lösning och åtgärda problem innan de kan utnyttjas.
 
-### <a name="intelligent-threat-detection-and-response"></a>Intelligent hotdetektering och reaktion
+### <a name="intelligent-threat-detection-and-response"></a>Intelligent hot identifiering och-svar
 
-Använd avancerad analys och Microsoft Intelligent Security Graph för att få ett försprång jämfört med nya cyberattacker. Inbyggda beteendeanalyser och maskininlärning identifierar attacker och zero-day-kryphål. Övervaka din IoT-lösning för inkommande attacker och aktivitet efter överträdelsen. Effektivisera enhetsutredning och reparation med interaktiva verktyg och kontextuell hotinformation.
+Använd avancerad analys och Microsoft Intelligent Security Graph för att få en gräns över de växande cyberhot-angrepp. Inbyggd beteende analys och maskin inlärning identifierar attacker och ingen nytta av noll dagar. Övervaka din IoT-lösning för inkommande attacker och aktiviteter efter intrång. Effektivisera undersökning och reparation av enheter med interaktiva verktyg och information om kontextuella hot.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här översikten har du lärt dig mer om funktionerna och tjänsterna i Azure Security Center för IoT. Mer information om Azure Security Center för IoT-arkitektur, förutsättningar och lär dig hur du kommer igång finns i följande artiklar:
+I den här översikten har du lärt dig om funktionerna och tjänsterna i Azure Security Center for IoT. Mer information om Azure Security Center för IoT-arkitektur, förutsättningar och lär dig hur du kommer igång finns i följande artiklar:
 
-- [Arkitektur](architecture.md)
+- [Designen](architecture.md)
 - [Förutsättningar för tjänsten](service-prerequisites.md)
 - [Komma igång](getting-started.md)
 - [Definiera din lösning](quickstart-configure-your-solution.md)

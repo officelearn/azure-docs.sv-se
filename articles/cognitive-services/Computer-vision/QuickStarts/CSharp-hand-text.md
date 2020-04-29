@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Datorseende 2.0 och 2.1 - Utdrag utskriven och handskriven text - REST, C #'
+title: 'Snabb start: Visuellt innehåll 2,0 och 2,1 – extrahera tryckt och handskriven text – vila, C #'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten extraherar du utskriven och handskriven text från en bild med api:et för visuellt innehåll med C#.
+description: I den här snabb starten extraherar du utskriven och handskriven text från en bild med hjälp av API för visuellt innehåll med C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,32 +12,32 @@ ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: b5bb1e80ac7a2a7fca053365b1062df61b2acc03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81405138"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Snabbstart: Extrahera tryckt och handskriven text med hjälp av datorseende 2.0 och 2.1 REST API och C #
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll 2,0 och 2,1 REST API och C #
 
-I den här snabbstarten extraherar du utskriven och/eller handskriven text från en bild med HJÄLP AV REST-APIN för visuellt innehåll. Med metoderna [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [läsåtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera tolkade tecken till en maskinläsbar teckenström. API:et avgör vilken igenkänningsmodell som ska användas för varje textrad, så den stöder bilder med både utskriven och handskriven text.
+I den här snabb starten ska du extrahera tryckt och/eller handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
 
-Jämfört med Computer Vision 2.0 och 2.1 innehåller Den offentliga förhandsversionen av Computer Vision 3.0:
+Jämfört med Visuellt innehåll 2,0 och 2,1 ger Visuellt innehåll 3,0 offentlig för hands version:
 
-* ännu bättre noggrannhet
+* ännu bättre precision
 * ett ändrat utdataformat
 * förtroende poäng för ord
-* stöd för både spanska och engelska språk med den ytterligare språkparametern
+* stöd för både spanska och engelska språk med ytterligare språk parameter
 
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 > [!IMPORTANT]
-> Metoden [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Batchläsning en URI i värdet för `Operation-Location` svarshuvudfältet. Du kan sedan anropa den här URI:n, som representerar [API:et för läsåtgärdsresultat,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) för att både kontrollera status och returnera resultatet av batchläsningsmetodanropet.
+> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
-#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
 
 > [!IMPORTANT]
-> Metoden [Batchläsning](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Batchläsning en URI i värdet för `Operation-Location` svarshuvudfältet. Du kan sedan anropa den här URI:n, som representerar [API:et för läsåtgärdsresultat,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) för att både kontrollera status och returnera resultatet av batchläsningsmetodanropet.
+> Läs metoden för [batch](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
 ---
 
@@ -47,7 +47,7 @@ Jämfört med Computer Vision 2.0 och 2.1 innehåller Den offentliga förhandsve
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
 
 - Du måste ha [Visual Studio 2015 eller senare](https://visualstudio.microsoft.com/downloads/).
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och `COMPUTER_VISION_SUBSCRIPTION_KEY` tjänstslutpunktssträngen, med namnet respektive `COMPUTER_VISION_ENDPOINT`.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
@@ -224,7 +224,7 @@ namespace CSHttpClientSample
 }
 ```
 
-#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
 
 Skapa exemplet i Visual Studio enligt följande:
 
@@ -234,7 +234,7 @@ Skapa exemplet i Visual Studio enligt följande:
     1. Klicka på fliken **Bläddra** och skriv ”Newtonsoft.Json” i rutan **Sök**.
     1. Välj **Newtonsoft.Json** när det visas och klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
 1. Kör programmet.
-1. Vid prompten anger du sökvägen till en lokal bild och det språk som ska kännas igen.
+1. I prompten anger du sökvägen till en lokal avbildning och språket som ska identifieras.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -555,7 +555,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet 
 }
 ```
 
-#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
 
 
 ```json

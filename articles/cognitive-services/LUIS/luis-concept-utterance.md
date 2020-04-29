@@ -1,88 +1,88 @@
 ---
-title: Gott exempel yttranden - LUIS
-description: Yttranden är indata från användaren som appen behöver tolka. Samla in fraser som du tror att användarna kommer att ange. Inkludera yttranden som betyder samma sak men är konstruerade på olika sätt i ordlängd och ordplacering.
+title: Användbart exempel yttranden – LUIS
+description: Yttranden är indata från användaren som appen behöver tolka. Samla in fraser som du tror att användarna kommer att ange. Inkludera yttranden som betyder samma sak, men som har utformats annorlunda i ord-längd och ord placering.
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382279"
 ---
-# <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vad bra yttranden är för din LUIS-app
+# <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vilka bra yttranden är för din LUIS-app
 
-**Yttranden matas** in från användaren som appen behöver tolka. Om du vill träna LUIS att extrahera avsikter och entiteter från dem är det viktigt att fånga en mängd olika exempelyttranden för varje avsikt. Aktivt lärande, eller processen att fortsätta att träna på nya yttranden, är avgörande för maskininlärd intelligens som LUIS tillhandahåller.
+**Yttranden** är indata från användaren som appen behöver tolka. För att träna LUIS att extrahera avsikter och entiteter från dem är det viktigt att samla in en mängd olika exempel yttranden för varje avsikt. Active Learning eller processen att fortsätta träna på nya yttranden är viktigt för att kunna registrera information som LUIS tillhandahåller.
 
-Samla yttranden som du tror att användarna kommer att ange. Inkludera yttranden, vilket betyder samma sak men är konstruerade på en mängd olika sätt:
+Samla in yttranden som du tror att användarna kommer att ange. Ta med yttranden, vilket innebär att samma sak är konstruerad på olika sätt:
 
-* Utterance längd - kort, medium och lång för din klient-ansökan
-* Ord- och fraslängd
-* Ordplacering - entitet i början, mitten och slutet av yttrandet
-* Grammatik
-* Pluralisering
-* Avledning
-* Substantiv och verb val
-* [Interpunktion](luis-reference-application-settings.md#punctuation-normalization) - en bra sort med korrekt, felaktig och ingen grammatik
+* Uttryck length – Short, medium och Long för ditt klient program
+* Ord och fras längd
+* Ord placering – entitet i början, mitten och slutet av uttryck
+* Grammatikfel
+* Pluralization
+* Följd
+* Val av Substantiv och verb
+* [Interpunktion](luis-reference-application-settings.md#punctuation-normalization) – en lämplig mängd som använder korrekt, felaktig och ingen grammatik
 
-## <a name="how-to-choose-varied-utterances"></a>Hur man väljer olika yttranden
+## <a name="how-to-choose-varied-utterances"></a>Så här väljer du varierande yttranden
 
-När du först kommer igång genom att [lägga till exempel yttranden](luis-how-to-add-example-utterances.md) till din LUIS-modell, här är några principer att tänka på.
+När du först börjar med att [lägga till exempel yttranden](luis-how-to-add-example-utterances.md) i din Luis-modell finns det några principer som du bör tänka på.
 
-### <a name="utterances-arent-always-well-formed"></a>Yttranden är inte alltid välformade
+### <a name="utterances-arent-always-well-formed"></a>Yttranden är inte alltid korrekt utformade
 
-Det kan vara en mening, som "Boka en biljett till Paris för mig", eller ett fragment av en mening, som "Bokning" eller "Paris flygning."  Användare gör ofta stavfel. När du planerar appen bör du överväga om du använder Stavningskontroll av [Bing](luis-tutorial-bing-spellcheck.md) för att korrigera användarindata innan du skickar den till LUIS.
+Det kan vara en mening, t. ex. "boka en biljett till Paris för mig" eller ett fragment i en mening, t. ex. "bokning" eller "Paris flygning".  Användare gör ofta stavfel. När du planerar din app bör du överväga om du använder [stavningskontroll i Bing](luis-tutorial-bing-spellcheck.md) för att korrigera användarindata innan du skickar den till Luis.
 
-Om du inte stavningskontroll användare yttranden, bör du träna LUIS på yttranden som innehåller stavfel och felstavningar.
+Om du inte stavningskontrollerar användar yttranden bör du träna LUIS på yttranden som innehåller skrivfel och fel stavningar.
 
 ### <a name="use-the-representative-language-of-the-user"></a>Använd användarens representativa språk
 
-När du väljer yttranden bör du vara medveten om att det du tycker är en vanlig term eller fras kanske inte är korrekt för den typiska användaren av klientprogrammet. De kanske inte har domänerfarenhet. Var försiktig när du använder termer eller fraser som en användare bara skulle säga om de var en expert.
+När du väljer yttranden bör du tänka på att vad du tycker är en vanlig term eller fras kanske inte är korrekt för den typiska användaren av klient programmet. De har kanske inte domän erfarenhet. Var försiktig när du använder termer eller fraser som en användare bara skulle säga om de vore en expert.
 
-### <a name="choose-varied-terminology-as-well-as-phrasing"></a>Välj varierad terminologi samt frasering
+### <a name="choose-varied-terminology-as-well-as-phrasing"></a>Välj varierande terminologi och formuleringen
 
-Du kommer att upptäcka att även om du gör ansträngningar för att skapa olika mening mönster, kommer du fortfarande upprepa några ordförråd.
+Du kommer att se att även om du gör ansträngningar för att skapa olika menings mönster, kommer du fortfarande att upprepa vissa ord listor.
 
-Ta så här exempelyttranden:
+Gör följande exempel yttranden:
 
 |Exempel på yttranden|
 |--|
 |Hur får jag en dator?|
-|Var får jag tag i en dator?|
-|Jag vill skaffa en dator, hur gör jag det?|
-|När kan jag få en dator?|
+|Var får jag en dator?|
+|Jag vill skaffa en dator, hur gör jag?|
+|När kan jag ha en dator?|
 
-Kärntermen här, "dator", är inte varierad. Använd alternativ som stationär dator, bärbar dator, arbetsstation eller bara maskin. LUIS kan på ett intelligent sätt härleda synonymer från kontexten, men när du skapar yttranden för träning är det alltid bättre att variera dem.
+Kärn termen här, "dator", är inte varierande. Använd alternativ som stationär dator, bärbar dator, arbets Station eller till och med bara dator. LUIS kan på ett intelligent sätt härleda synonymer från kontexten, men när du skapar yttranden för utbildning är det alltid bättre att variera dem.
 
 ## <a name="example-utterances-in-each-intent"></a>Exempel på yttranden i varje avsikt
 
-Varje avsikt måste ha exempel yttranden, minst 15. Om du har en avsikt som inte har några exempel yttranden, kommer du inte att kunna träna LUIS. Om du har en avsikt med ett eller mycket få exempel yttranden, LUIS kanske inte exakt förutsäga avsikten.
+Varje avsikt måste ha exempel yttranden, minst 15. Om du har en avsikt som inte har något exempel yttranden, kan du inte träna LUIS. Om du har en avsikt med ett eller väldigt få exempel yttranden kan LUIS inte förutse avsikten korrekt.
 
-## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Lägga till små grupper med 15 yttranden för varje redigeringsiteration
+## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Lägg till små grupper på 15 yttranden för varje redigering av iterationer
 
-I varje iteration av modellen ska du inte lägga till en stor mängd yttranden. Lägg till yttranden i kvantiteter om 15. [Träna,](luis-how-to-train.md) [publicera](luis-how-to-publish-app.md)och [testa](luis-interactive-test.md) igen.
+I varje iteration av modellen ska du inte lägga till en stor mängd yttranden. Lägg till yttranden i kvantiteter på 15. [Träna](luis-how-to-train.md), [publicera](luis-how-to-publish-app.md)och [testa](luis-interactive-test.md) igen.
 
-LUIS bygger effektiva modeller med yttranden som är noggrant utvalda av LUIS-modellförfattaren. Att lägga till för många yttranden är inte värdefullt eftersom det skapar förvirring.
+LUIS skapar effektiva modeller med yttranden som väljs noggrant av LUIS Model-författaren. Att lägga till för många yttranden är inte värdefullt eftersom det introducerar förvirring.
 
-Det är bättre att börja med några yttranden och sedan [granska slutpunktsyttranden](luis-how-to-review-endpoint-utterances.md) för korrekt avsiktsförutsägels och entitetsextrahering.
+Det är bättre att börja med några få yttranden och sedan [Granska slut punkts yttranden](luis-how-to-review-endpoint-utterances.md) för korrekt matchning av avsikts förutsägelse och enhets extrahering.
 
-## <a name="utterance-normalization"></a>Normalisering av yttrande
+## <a name="utterance-normalization"></a>Uttryck-normalisering
 
-Utterance normalisering är processen att ignorera effekterna av skiljetecken och diakritiska tecken under träning och förutsägelse. Använd [programinställningar för](luis-reference-application-settings.md) att styra hur uttrycksnormalisering påverkar uttrycksförutsägelser.
+Uttryck normalisering är processen att ignorera effekterna av interpunktion och dia kritiska tecken under utbildning och förutsägelse. Använd [program inställningarna](luis-reference-application-settings.md) för att styra hur uttryck-normalisering påverkar uttryck förutsägelser.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Utterance normalisering för diakritiska tecken och interpunktion
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Uttryck-normalisering för dia kritiska tecken och interpunktion
 
-Uttrycksnormalisering definieras när du skapar eller importerar appen eftersom det är en inställning i appen JSON-filen. Normaliseringsinställningarna för uttryck är inaktiverade som standard.
+Uttryck-normalisering definieras när du skapar eller importerar appen eftersom den är en inställning i appens JSON-fil. Inställningarna för uttryck-normalisering är inaktiverade som standard.
 
-Diakritiska tecken är märken eller tecken i texten, till exempel:
+Dia kritiska tecken markeras eller signeras i texten, t. ex.:
 
 ```
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Om din app aktiverar normalisering ändras poäng i **testfönstret,** batchtester och slutpunktsfrågor för alla yttranden med hjälp av diakritiska tecken eller skiljetecken.
+Om din app aktiverar normalisering på, kommer resultat i **test** fönstret, batch-test och slut punkts frågor att ändras för alla yttranden med dia kritiska tecken eller skiljetecken.
 
-Aktivera uttrycksnormalisering för diakritiska tecken eller interpunktion till `settings` luis Json-appfilen i parametern.
+Aktivera uttryck-normalisering för dia kritiska tecken eller interpunktion till din LUIS JSON-app-fil i `settings` parametern.
 
 ```JSON
 "settings": [
@@ -91,57 +91,57 @@ Aktivera uttrycksnormalisering för diakritiska tecken eller interpunktion till 
 ]
 ```
 
-Normalisering **av interpunktion** innebär att innan dina modeller får utbildning och innan dina slutpunktsfrågor förutses, kommer skiljetecken att tas bort från yttrandena.
+Normalisera **interpunktion** innebär att innan dina modeller blir utbildade och innan dina slut punkts frågor hämtas, tas skiljetecken bort från yttranden.
 
-Normaliserande **diakritiska tecken ersätter** tecknen med diakritiska tecken i yttranden med vanliga tecken. Till `Je parle français` exempel: `Je parle francais`blir .
+Normaliserar **dia kritiska** tecken ersätter tecknen med dia kritiska tecken i yttranden med vanliga tecken. Till exempel: `Je parle français` blir `Je parle francais`.
 
-Normalisering betyder inte att du inte kommer att se skiljetecken och diakritiska tecken i ditt exempel yttranden eller förutsägelse svar, bara att de kommer att ignoreras under utbildning och förutsägelse.
+Normalisering innebär inte att du inte ser interpunktion och dia kritiska tecken i dina exempel yttranden eller förutsägelse svar, bara att de kommer att ignoreras vid inlärning och förutsägelse.
 
 ### <a name="punctuation-marks"></a>Skiljetecken
 
-Interpunktion är en separat token i LUIS. Ett uttryck som innehåller en period i slutet kontra ett uttryck som inte innehåller en period i slutet är två separata yttranden och kan få två olika förutsägelser.
+Interpunktion är en separat token i LUIS. En uttryck som innehåller en period i slutet jämfört med en uttryck som inte innehåller en period i slutet är två separata yttranden och kan få två olika förutsägelser.
 
-Om interpunktion inte normaliseras ignorerar LUIS inte interpunktionstecken som standard eftersom vissa klientprogram kan placera betydelse på dessa märken. Kontrollera att dina exempelyttranden använder både interpunktion och ingen interpunktion för att båda formaten ska kunna returnera samma relativa poäng.
+Om interpunktion inte är normaliserad ignorerar LUIS inte skiljetecken som standard eftersom vissa klient program kan placera signifikans på dessa märken. Se till att ditt exempel yttranden använder både skiljetecken och ingen interpunktion för att båda formaten ska returnera samma relativa resultat.
 
-Kontrollera att modellen hanterar skiljetecken antingen i exempelyttrandena (med och inte har skiljetecken) eller i de [mönster](luis-concept-patterns.md) där det är lättare att ignorera interpunktion med den speciella syntaxen:`I am applying for the {Job} position[.]`
+Se till att modellen hanterar skiljetecken antingen i exemplet yttranden (med och utan interpunktion) eller i [mönstren](luis-concept-patterns.md) där det är enklare att ignorera interpunktion med den särskilda syntaxen:`I am applying for the {Job} position[.]`
 
-Om interpunktion inte har någon specifik betydelse i klientprogrammet kan du [ignorera interpunktion](#utterance-normalization) genom att normalisera interpunktion.
+Om interpunktionen inte har någon specifik betydelse i klient programmet, bör du överväga att [Ignorera interpunktion](#utterance-normalization) genom normalisera interpunktion.
 
-### <a name="ignoring-words-and-punctuation"></a>Ignorera ord och interpunktion
+### <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och interpunktion
 
-Om du vill ignorera specifika ord eller skiljetecken i mönster använder du ett `[]` [mönster](luis-concept-patterns.md#pattern-syntax) med ignorerasyntaxen för hakparenteser. _ignore_
+Om du vill ignorera vissa ord eller interpunktion i mönster, använder du ett [mönster](luis-concept-patterns.md#pattern-syntax) med kommandot _Ignore_ för hakparenteser `[]`.
 
 ## <a name="training-utterances"></a>Utbildning yttranden
 
-Utbildning är i allmänhet inte deterministisk: uttryck förutsägelse kan variera något mellan versioner eller appar.
-Du kan ta bort icke-deterministisk utbildning genom `UseAllTrainingData` att uppdatera [API:et](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) för versionsinställningar med namn-/värdeparet för att använda alla träningsdata.
+Träning är vanligt vis icke-deterministiskt: uttryck förutsägelse kan variera något mellan versioner eller appar.
+Du kan ta bort icke-deterministisk utbildning genom att uppdatera API för [versions inställningar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med `UseAllTrainingData` namn/värde-paret för att använda alla tränings data.
 
 ## <a name="testing-utterances"></a>Testa yttranden
 
-Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skicka yttranden till [url:en för förutsägelseslutpunkt.](luis-how-to-azure-subscription.md) Dessa yttranden används för att förbättra prestanda för avsikter och entiteter med [granska yttranden](luis-how-to-review-endpoint-utterances.md). Tester som skickas med testfönstret på LUIS-webbplatsen skickas inte via slutpunkten och bidrar därför inte till aktiv inlärning.
+Utvecklare bör börja testa sitt LUIS-program med verklig trafik genom att skicka yttranden till [förutsägelse slut punktens](luis-how-to-azure-subscription.md) URL. Dessa yttranden används för att förbättra prestanda för avsikter och entiteter med [gransknings yttranden](luis-how-to-review-endpoint-utterances.md). Tester som skickats med LUIS webbplats test panel skickas inte via slut punkten och bidrar därför inte till aktiv inlärning.
 
 ## <a name="review-utterances"></a>Granska yttranden
 
-När din modell har tränats, publicerats och tagit emot [slutpunktsfrågor](luis-glossary.md#endpoint) [granskar du de yttranden](luis-how-to-review-endpoint-utterances.md) som luis föreslår. LUIS väljer slutpunktsyttranden som har låga poäng för antingen avsikten eller entiteten.
+När din modell har tränat, publicerat och tagit emot [slut punkts](luis-glossary.md#endpoint) frågor, [granskar du yttranden](luis-how-to-review-endpoint-utterances.md) som föreslås av Luis. LUIS väljer slut punkts yttranden som har låga Poäng för antingen avsikten eller entiteten.
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Granska [metodtips](luis-concept-best-practices.md) och tillämpa dem som en del av din vanliga redigeringscykel.
+Granska [metod tips](luis-concept-best-practices.md) och Använd dem som en del av din vanliga redigerings cykel.
 
-## <a name="label-for-word-meaning"></a>Etikett för ordbestelse
+## <a name="label-for-word-meaning"></a>Etikett för ord betydelse
 
-Om ordet val eller ord arrangemang är samma, men betyder inte samma sak, inte märka det med entiteten.
+Om Word-valet eller ord ordningen är detsamma, men inte samma sak, ska du inte märka det med entiteten.
 
-Följande yttranden, ordet `fair` är en homograf. Det stavas samma men har en annan innebörd:
+I följande yttranden är ordet `fair` ett homograph. Den har stavats likadan men har en annan betydelse:
 
 |Yttrande|
 |--|
-|Vilken typ av county mässor händer i Seattle-området i sommar?|
-|Är det nuvarande betyget för Seattle översyn rättvist?|
+|Vilken typ av regions mässor sker i Seattle-arean på sommaren?|
+|Är det aktuella omdömet för översynen i Stockholm?|
 
-Om du vill att en händelseentitet `fair` ska hitta alla händelsedata märker du ordet i det första uttrycket, men inte i det andra.
+Om du vill att en händelse entitet ska hitta alla händelse data kan du märka `fair` ordet i den första uttryck, men inte i den andra.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Se [Lägga till exempelyttranden](luis-how-to-add-example-utterances.md) för information om hur du utbildar en LUIS-app för att förstå användaryttranden.
+Se [Lägg till exempel yttranden](luis-how-to-add-example-utterances.md) för information om hur du tränar en Luis-app för att förstå användar yttranden.
 

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 0b59321bf04a8230342be706b88cd208c19d76ea
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81404180"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Självstudier: Använd en ONNX-modell från Custom Vision med Windows ML (förhandsversion)
@@ -33,7 +33,7 @@ Informationen i det här dokumentet visar hur du använder en ONNX-fil som expor
 
 * Windows 10 version 1809 eller senare
 
-* Windows SDK för byggversion 17763 eller senare
+* Windows SDK för build 17763 eller högre
 
 * Visual Studio 2017 version 15.7 eller senare med arbetsbelastningen för __Universal Windows Platform-utveckling__ aktiverad.
 
@@ -45,7 +45,7 @@ Programmet är ett allmänt Windows UWP-program. Här kan du välja en bild frå
 
 ## <a name="get-the-example-code"></a>Hämta exempelkoden
 
-Exempelprogrammet finns på [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample).
+Exempel programmet finns på [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample).
 
 ## <a name="run-the-example"></a>Kör exemplet
 
@@ -59,7 +59,7 @@ Om du vill använda din egen modell gör du så här:
 
 1. [Skapa och träna](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) en klassificerare med Custom Vision Service. Om du vill exportera modellen väljer du en __kompakt__ domän som **General (compact)** Allmän (kompakt)). Om du vill exportera en befintlig klassificerare konverterar du domänen till kompakt genom att välja kugghjulsikonen högst upp till höger. I __Inställningar__ väljer du en kompakt modell, spara och träna projektet.  
 
-1. [Exportera din modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) genom att gå till fliken Prestanda. Välj en iteration tränad med en kompakt domän, en "Export"-knapp visas. Välj *Exportera*, *ONNX*och *exportera*sedan . När filen är klar väljer du knappen *Ladda ned*.
+1. [Exportera modellen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) genom att gå till fliken prestanda. Välj en iteration som är utbildad med en komprimerad domän. knappen "Exportera" visas. Välj *Exportera*, *ONNX*och sedan *Exportera*. När filen är klar väljer du knappen *Ladda ned*.
 
 1. Släpp ONNX-filen i projektets mapp __Tillgångar__. 
 
@@ -67,8 +67,8 @@ Om du vill använda din egen modell gör du så här:
 
 1. I Solutions Explorer väljer du ONNX-filen i mappen Tillgångar. Ändra följande egenskaper för filen:
 
-    * __Skapa__ -> __åtgärdsinnehåll__
-    * __Kopiera till utdatakatalogkopia__ -> __om nyare__
+    * __Bygg åtgärds__ -> __innehåll__
+    * __Kopiera till utdata katalog__ -> __kopia om nyare__
 
 1. Ändra variabeln `_onnxFileNames` till namnet på ONNX-filen. Ändra även `ClassLabel` till antalet etiketter som modellen innehåller.
 

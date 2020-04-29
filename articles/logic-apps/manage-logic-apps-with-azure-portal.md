@@ -1,6 +1,6 @@
 ---
-title: Hantera logikappar i Azure-portalen
-description: Redigera, aktivera, inaktivera eller ta bort logikappar med hjälp av Azure-portalen.
+title: Hantera Logic Apps i Azure Portal
+description: Redigera, aktivera, inaktivera eller ta bort Logic Apps med hjälp av Azure Portal.
 services: logic-apps
 ms.suite: integration
 author: lauradolan
@@ -10,213 +10,213 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/13/2020
 ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415984"
 ---
-# <a name="manage-logic-apps-in-the-azure-portal"></a>Hantera logikappar i Azure-portalen
+# <a name="manage-logic-apps-in-the-azure-portal"></a>Hantera Logic Apps i Azure Portal
 
-Du kan hantera logikappar med [Azure-portalen](https://portal.azure.com) eller [Visual Studio](manage-logic-apps-with-visual-studio.md). Den här artikeln visar hur du redigerar, inaktiverar, aktiverar eller tar bort logikappar i Azure-portalen. Om du inte har gjort det tidigare i Azure Logic Apps läser du [Vad är Azure Logic Apps?](logic-apps-overview.md)
+Du kan hantera Logic Apps med hjälp av [Azure Portal](https://portal.azure.com) eller [Visual Studio](manage-logic-apps-with-visual-studio.md). Den här artikeln visar hur du redigerar, inaktiverar, aktiverar eller tar bort Logic Apps i Azure Portal. Om du inte har använt Azure Logic Apps, se [Vad är Azure Logic Apps](logic-apps-overview.md)?
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En befintlig logikapp. Mer information om hur du skapar en logikapp i Azure-portalen finns i [Snabbstart: Skapa ditt första arbetsflöde med hjälp av Azure Logic Apps - Azure portal](quickstart-create-first-logic-app-workflow.md).
+* En befintlig Logic-app. Information om hur du skapar en Logic app i Azure Portal finns i [snabb start: skapa ditt första arbets flöde med hjälp av Azure Logic Apps-Azure Portal](quickstart-create-first-logic-app-workflow.md).
 
 <a name="find-logic-app"></a>
 
-## <a name="find-your-logic-apps"></a>Hitta dina logikappar
+## <a name="find-your-logic-apps"></a>Hitta dina Logi Kap par
 
-Så här hittar du och öppnar logikappen:
+Följ dessa steg om du vill söka efter och öppna din Logic app:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ditt Azure-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
-1. I Sökfältet i `logic apps`Azure anger du och väljer **Logic Apps**.
+1. I Azure Search-fältet anger `logic apps`du och väljer **Logic Apps**.
 
-   ![Sök efter och välj "Logikappar"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
+   ![Sök efter och välj "Logic Apps"](./media/manage-logic-apps-with-azure-portal/find-select-logic-apps.png)
 
-1. På sidan **Logikappar** hittar du och väljer den logikapp som du vill hantera.
+1. På sidan **Logic Apps** letar du reda på och väljer den Logic-app som du vill hantera.
 
-   När logikappens **översiktsfönster** har öppnats kan du filtrera listan som visas på sidan **Logic Apps** på följande sätt:
+   När **översikts** fönstret för Logic Apps öppnas kan du filtrera listan som visas på sidan **Logic Apps** på följande sätt:
 
-   * Sök efter logikappar efter namn
-   * Filtrera logikappar efter prenumeration, resursgrupp, plats och taggar
-   * Gruppera logikappar efter resursgrupp, typ, prenumeration och plats
+   * Sök efter Logic Apps efter namn
+   * Filtrera Logic Apps efter prenumeration, resurs grupp, plats och Taggar
+   * Gruppera Logic Apps efter resurs grupp, typ, prenumeration och plats
 
-## <a name="view-logic-app-properties"></a>Visa egenskaper för logikapp
+## <a name="view-logic-app-properties"></a>Visa egenskaper för Logic app
 
-1. I Azure-portalen [kan du hitta och öppna logikappen](#find-logic-app).
+1. [Leta upp och öppna din Logic app](#find-logic-app)i Azure Portal.
 
-1. Välj **Egenskaper**under **Inställningar**på logikappens meny .
+1. Från din Logic Apps-meny, under **Inställningar**, väljer du **Egenskaper**.
 
-1. I fönstret **Egenskaper** kan du visa och kopiera följande information om logikappen:
+1. I fönstret **Egenskaper** kan du Visa och kopiera följande information om din Logic app:
 
    * **Namn**
    * **Resurs-ID**
    * **Resursgrupp**
-   * **Location**
+   * **Position**
    * **Typ** 
-   * **Namn på prenumeration**
+   * **Prenumerations namn**
    * **Prenumerations-ID**
-   * **Slutpunkt för Åtkomst**
+   * **Åtkomst slut punkt**
    * **Utgående IP-adresser för körning**
-   * **IP-adresser för åtkomst till slutpunkter**
+   * **Åtkomst till slut punktens IP-adresser**
    * **Ansluta utgående IP-adresser**
 
-## <a name="disable-or-enable-logic-apps"></a>Inaktivera eller aktivera logikappar
+## <a name="disable-or-enable-logic-apps"></a>Inaktivera eller aktivera Logic Apps
 
-Du kan aktivera eller inaktivera en [enda logikapp](#disable-enable-single-logic-app) eller [flera logikappar samtidigt](#disable-or-enable-multiple-logic-apps) i Azure-portalen. Du kan också [aktivera eller inaktivera logikappar i Visual Studio](manage-logic-apps-with-visual-studio.md#disable-or-enable-logic-app).
+Du kan aktivera eller inaktivera en [enda Logic-app](#disable-enable-single-logic-app) eller [flera Logic apps samtidigt](#disable-or-enable-multiple-logic-apps) i Azure Portal. Du kan också [Aktivera eller inaktivera Logic Apps i Visual Studio](manage-logic-apps-with-visual-studio.md#disable-or-enable-logic-app).
 
-Om du inaktiverar logikappen påverkas dina arbetsflödesinstanser och körs på följande sätt:
+Att inaktivera din Logic app påverkar arbets flödes instanserna och körs på följande sätt:
 
-* Alla pågående och väntande körningar fortsätter tills de är klara. Beroende på antalet av dessa körningar kan den här processen ta lite tid.
+* Alla pågående och väntande körningar fortsätter tills de är klara. Den här processen kan ta lite tid beroende på hur många körningar som körs.
 
-* Logic Apps-motorn skapar eller kör inte nya arbetsflödesinstanser.
+* Logic Appss motorn skapar eller kör inte nya arbets flödes instanser.
 
-* Utlösaren avfyras inte nästa gång dess villkor är uppfyllda.
+* Utlösaren utlöses inte nästa gången dess villkor är uppfyllda.
 
-* Utlösarläget kommer ihåg den punkt där logikappen stoppades. Så om du återaktiverar logikappen utlöses utlösaren för alla obearbetade objekt sedan den senaste körningen.
+* Utlösarens tillstånd ommedlemmar den tidpunkt då Logic app stoppades. Så om du aktiverar Logic-appen igen utlöses utlösaren för alla obearbetade objekt sedan den senaste körningen.
 
-  Om du vill förhindra att logikappen aktiveras på obearbetade objekt sedan den senaste körningen avmarkerar du utlösarens tillstånd innan du återaktiverar logikappen:
+  Om du inte vill att din Logi Kap par ska initieras på obearbetade objekt sedan den senaste körningen rensar du utlösarens tillstånd innan du aktiverar Logic-appen igen:
 
-  1. I Azure-portalen [kan du hitta och öppna logikappen](#find-logic-app).
+  1. [Leta upp och öppna din Logic app](#find-logic-app)i Azure Portal.
 
-  1. Redigera någon del av logikappens utlösare.
+  1. Redigera valfri del av Logic Apps-utlösaren.
 
-  1. Spara ändringarna. Det här steget återställer utlösarens aktuella tillstånd.
+  1. Spara ändringarna. Det här steget återställer utlösarens aktuella status.
 
-  1. [Återaktivera logikappen](#disable-enable-single-logic-app).
+  1. Återaktivera [din Logic app](#disable-enable-single-logic-app).
 
 <a name="disable-enable-single-logic-app"></a>
 
-### <a name="disable-or-enable-single-logic-app"></a>Inaktivera eller aktivera en logikapp
+### <a name="disable-or-enable-single-logic-app"></a>Inaktivera eller aktivera en enda Logic-app
 
-1. I Azure-portalen [kan du hitta och öppna logikappen](#find-logic-app).
+1. [Leta upp och öppna din Logic app](#find-logic-app)i Azure Portal.
 
-1. På logikappens meny väljer du **Översikt**. Välj bland följande alternativ:
+1. I din Logic Apps-meny väljer du **Översikt**. Välj bland följande alternativ:
 
-   * Välj **Inaktivera**i verktygsfältet .
+   * Välj **inaktivera**i verktygsfältet.
 
-     ![Inaktivera en logikapp i Azure Portal](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
+     ![Inaktivera en app för enskild logik i Azure Portal](./media/manage-logic-apps-with-azure-portal/disable-single-logic-app.png)
 
-     Om logikappen redan är inaktiverad visas bara alternativet **Aktivera.**
+     Om din Logic app redan är inaktive rad visas bara alternativet **Aktivera** .
 
-   * Välj **Aktivera**i verktygsfältet .
+   * Välj **Aktivera**i verktygsfältet.
 
-     ![Aktivera en logikapp i Azure portal](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
+     ![Aktivera en enda Logic-app i Azure Portal](./media/manage-logic-apps-with-azure-portal/enable-single-logic-app.png)
 
-     Om logikappen redan är aktiverad visas bara alternativet **Inaktivera.** 
+     Om din Logic app redan är aktive rad visas bara alternativet **inaktivera** . 
 
-   Azure-portalen visar ett meddelande i huvudverktygsfältet i Azure som bekräftar om åtgärden lyckades eller misslyckades.
+   Azure Portal visar ett meddelande i Azures huvud verktygsfält som bekräftar om åtgärden lyckades eller misslyckades.
 
-   ![Meddelande för att bekräfta åtgärdsstatus](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
+   ![Meddelande för att bekräfta åtgärds status](./media/manage-logic-apps-with-azure-portal/operation-confirmation-notification.png)
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 
-### <a name="disable-or-enable-multiple-logic-apps"></a>Inaktivera eller aktivera flera logikappar
+### <a name="disable-or-enable-multiple-logic-apps"></a>Inaktivera eller aktivera flera Logic Apps
 
-1. Leta reda på de logikappar som du vill inaktivera eller aktivera [i Azure-portalen.](#find-logic-app)
+1. [Leta upp de](#find-logic-app) Logi Kap par som du vill inaktivera eller aktivera i Azure Portal.
 
-1. Om du vill kontrollera om en logikapp är aktiverad eller inaktiverad granskar du kolumnen **Status** för logikappen på sidan **Logic Apps.** 
+1. Om du vill kontrol lera om en Logic app är aktive rad eller inaktive rad går du till sidan **Logic Apps** och granskar kolumnen **status** för den Logic-appen. 
 
-   ![Statuskolumn för Logic Apps](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
+   ![Kolumnen Logic Apps status](./media/manage-logic-apps-with-azure-portal/view-logic-app-status.png)
 
-   Om kolumnen **Status** inte visas väljer du Prova **förhandsgranska**i verktygsfältet **Logic Apps.**
+   Om kolumnen **status** inte visas går du till **Logic Apps** verktygsfältet och väljer **prova för hands version**.
 
-   ![Aktivera förhandsgranskning](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
+   ![Aktivera för hands version](./media/manage-logic-apps-with-azure-portal/select-try-preview.png)
 
-1. Markera de logikappar som du vill inaktivera eller aktivera i kryssrutan. Välj **Inaktivera** eller **Aktivera**i verktygsfältet .
+1. I CheckBox-kolumnen väljer du de Logi Kap par som du vill inaktivera eller aktivera. Välj **inaktivera** eller **Aktivera**i verktygsfältet.
 
-   ![Aktivera eller inaktivera flera logikappar i Azure-portalen](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
+   ![Aktivera eller inaktivera flera Logic Apps i Azure Portal](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
 
-1. När bekräftelserutan visas väljer du **Ja** för att fortsätta.
+1. När rutan bekräftelse visas väljer du **Ja** för att fortsätta.
 
-   Azure-portalen visar ett meddelande i huvudverktygsfältet i Azure som bekräftar om åtgärden lyckades eller misslyckades.
+   Azure Portal visar ett meddelande i Azures huvud verktygsfält som bekräftar om åtgärden lyckades eller misslyckades.
 
-## <a name="delete-logic-apps"></a>Ta bort logikappar
+## <a name="delete-logic-apps"></a>Ta bort Logic Apps
 
-Du kan [ta bort en enda logikapp](#delete-single-logic-app) eller ta bort flera [logikappar samtidigt](#delete-multiple-logic-apps) i Azure-portalen. Du kan också [ta bort logikappen i Visual Studio](manage-logic-apps-with-visual-studio.md#delete-your-logic-app).
+Du kan [ta bort en enda Logic-app](#delete-single-logic-app) eller [ta bort flera Logic apps samtidigt](#delete-multiple-logic-apps) i Azure Portal. Du kan också [ta bort din Logic app i Visual Studio](manage-logic-apps-with-visual-studio.md#delete-your-logic-app).
 
-Om du tar bort logikappen påverkas dina arbetsflödesinstanser på följande sätt:
+Att ta bort din Logic app påverkar arbets flödes instanserna på följande sätt:
 
-* Alla pågående och väntande körningar fortsätter tills de är klara. Beroende på antalet av dessa körningar kan den här processen ta lite tid.
+* Alla pågående och väntande körningar fortsätter tills de är klara. Den här processen kan ta lite tid beroende på hur många körningar som körs.
 
-* Logic Apps-motorn skapar eller kör inte nya arbetsflödesinstanser.
+* Logic Appss motorn skapar eller kör inte nya arbets flödes instanser.
 
 <a name="delete-single-logic-app"></a>
 
-### <a name="delete-single-logic-app"></a>Ta bort en logikapp
+### <a name="delete-single-logic-app"></a>Ta bort appen med en enda logik
 
-1. I Azure-portalen [kan du hitta och öppna logikappen](#find-logic-app).
+1. [Leta upp och öppna din Logic app](#find-logic-app)i Azure Portal.
 
-1. På logikappens meny väljer du **Översikt**. Välj **Ta bort**i logikappens verktygsfält .
+1. I din Logic Apps-meny väljer du **Översikt**. I din Logic Apps-verktygsfält väljer du **ta bort**.
 
-   ![Välj Ta bort i verktygsfältet Logikapp](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
+   ![I verktygsfältet för Logic app väljer du ta bort](./media/manage-logic-apps-with-azure-portal/delete-single-logic-app.png)
 
-1. När bekräftelserutan visas anger du logikappens namn och väljer **Ta bort**.
+1. När rutan bekräftelse visas anger du namnet på din Logic Apps och väljer **ta bort**.
 
-   ![Bekräfta att du tar bort logikappen](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
+   ![Bekräfta att du vill ta bort din Logic app](./media/manage-logic-apps-with-azure-portal/delete-confirmation-single-logic-app.png)
 
-   Azure-portalen visar ett meddelande i huvudverktygsfältet i Azure som bekräftar om åtgärden lyckades eller misslyckades.
+   Azure Portal visar ett meddelande i Azures huvud verktygsfält som bekräftar om åtgärden lyckades eller misslyckades.
 
 <a name="delete-multiple-logic-apps"></a>
 
-### <a name="delete-multiple-logic-apps"></a>Ta bort flera logikappar
+### <a name="delete-multiple-logic-apps"></a>Ta bort flera Logic Apps
 
-1. I Azure-portalen [hittar du de logikappar som du vill ta bort](#find-logic-app).
+1. I Azure Portal [letar du reda på de Logi Kap par som du vill ta bort](#find-logic-app).
 
-1. Markera de logikappar som du vill ta bort i kryssrutans kolumn. Välj **Ta bort**i verktygsfältet .
+1. I kryss Rute kolumnen väljer du de Logi Kap par som du vill ta bort. Välj **ta bort**i verktygsfältet.
 
-   ![Ta bort flera logikappar](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
+   ![Ta bort flera Logic Apps](./media/manage-logic-apps-with-azure-portal/delete-multiple-logic-apps.png)
 
-1. När bekräftelserutan visas `yes`anger du och väljer **Ta bort**.
+1. När bekräftelse rutan visas anger `yes`du och väljer **ta bort**.
 
-   ![Bekräfta att du tar bort logikapparna](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
+   ![Bekräfta att du vill ta bort dina Logic Apps](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
-   Azure-portalen visar ett meddelande i huvudverktygsfältet i Azure som bekräftar om åtgärden lyckades eller misslyckades.
+   Azure Portal visar ett meddelande i Azures huvud verktygsfält som bekräftar om åtgärden lyckades eller misslyckades.
 
 <a name="manage-logic-app-versions"></a>
 
-## <a name="manage-logic-app-versions"></a>Hantera logikappversioner
+## <a name="manage-logic-app-versions"></a>Hantera Logic app-versioner
 
-Du kan använda Azure-portalen för versionskontroll av dina logikappar. Du kan hitta logikappens versionshistorik och marknadsföra tidigare versioner.
+Du kan använda Azure Portal för versions kontroll av dina Logic Apps. Du hittar din Logic Apps versions historik och höjer tidigare versioner.
 
 <a name="find-version-history"></a>
 
-### <a name="find-and-view-previous-versions"></a>Söka efter och visa tidigare versioner
+### <a name="find-and-view-previous-versions"></a>Hitta och Visa tidigare versioner
 
-1. I Azure-portalen [hittar du logikappen som du vill hantera](#find-logic-app).
+1. [Leta upp den Logic-app som du vill hantera](#find-logic-app)i Azure Portal.
 
-1. Välj **Versioner**under **Utvecklingsverktyg**på logikappens meny .
+1. I din Logic Apps-meny, under **utvecklingsverktyg**, väljer du **versioner**.
 
-   ![På logikappens meny väljer du "Versioner" under "Utvecklingsverktyg"](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+   ![På din Logic Apps-meny väljer du versioner under utvecklings verktyg](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
-1. Välj **den version** av logikappen som du vill hantera i listan. Du kan **Version** ange versionsidentifieraren i sökfältet för att filtrera listan.
+1. Välj den **version** av din Logic-app som ska hanteras från listan. Du kan ange **versions** identifieraren i Sök fältet för att filtrera listan.
 
-1. På sidan **Historikversion** visas informationen i den tidigare versionen i skrivskyddat läge. Du kan välja mellan lägena **Logikappdesigner** och **kodvy.**
+1. På sidan **Historik version** visas den tidigare versionens information i skrivskyddat läge. Du kan välja mellan lägena Logic Apps **Designer** och **kodvy** .
 
-   ![Historikversionssida för logikapp med kodvy och logikappdesignervyn](./media/manage-logic-apps-with-azure-portal/history-version.png)
+   ![Sidan historik version för Logic app med vyn kodvyn och vyn Logic Apps designer](./media/manage-logic-apps-with-azure-portal/history-version.png)
 
 <a name="promote-previous-versions"></a>
 
-### <a name="promote-previous-versions"></a>Befordra tidigare versioner
+### <a name="promote-previous-versions"></a>Höj upp tidigare versioner
 
-1. Leta reda på och välj den version som du vill marknadsföra i [logikappens](#find-version-history)versionshistorik .
+1. [Leta upp och välj den version som du vill befordra](#find-version-history)i din Logic Apps versions historik.
 
-1. På sidan **Historikversion** väljer du **Befordra**.
+1. På sidan **Historik version** väljer du **befordra**.
 
-   ![Knappen Marknadsför i logikappens versionshistorik](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+   ![Knappen befordra i Logic Apps versions historik](./media/manage-logic-apps-with-azure-portal/promote-button.png)
 
-1. På sidan **Logic Apps Designer** som öppnas redigerar du den version som du marknadsför efter behov. Du kan växla mellan **lägena Designer** och **kodvy.** Du kan också uppdatera **parametrar,** **mallar**och **kopplingar**.
+1. På sidan **Logic Apps designer** som öppnas redigerar du den version som du vill uppgradera efter behov. Du kan växla mellan **Designer** och **kod visnings** lägen. Du kan också uppdatera **parametrar**, **mallar**och **kopplingar**.
 
-   ![Sidan Logic Apps Designer för att marknadsföra en tidigare version](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+   ![Logic Apps designer-sida för att uppgradera en tidigare version](./media/manage-logic-apps-with-azure-portal/promote-page.png)
 
-1. Om du vill spara uppdateringar och slutföra främjandet av den tidigare versionen väljer du **Spara**. (Om du vill avbryta ändringarna väljer du **Ignorera**.) 
+1. Om du vill spara uppdateringar och slutföra befordran av den tidigare versionen väljer du **Spara**. (Om du vill avbryta ändringarna väljer du **Ignorera**.) 
 
-   När du [visar logikappens versionshistorik](#find-version-history) igen visas den marknadsförda versionen högst upp i listan och har en ny identifierare.
+   När du [visar versions historiken för din Logic Apps](#find-version-history) igen visas den uppgraderade versionen överst i listan och har en ny identifierare.
 
 ## <a name="next-steps"></a>Nästa steg
 

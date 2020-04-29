@@ -1,6 +1,6 @@
 ---
-title: Käbbel dataflöden i Azure Data Factory
-description: En översikt över käbbel dataflöden i Azure Data Factory
+title: Datatransformering data flöden i Azure Data Factory
+description: En översikt över datatransformering data flöden i Azure Data Factory
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: gamal
@@ -8,62 +8,62 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408991"
 ---
-# <a name="what-are-wrangling-data-flows"></a>Vad är käbbel dataflöden?
+# <a name="what-are-wrangling-data-flows"></a>Vad är datatransformering data flöden?
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Organisationer måste göra dataförberedelser och käbbel för korrekt analys av komplexa data som fortsätter att växa varje dag. Dataförberedelse krävs så att organisationer kan använda data i olika affärsprocesser och minska tiden till värde.
+Organisationer behöver utföra förberedelse av data och datatransformering för korrekt analys av komplexa data som fortsätter att växa varje dag. Förberedelse av data krävs så att organisationer kan använda data i olika affärs processer och minska tiden till värde.
 
-Med käbbeldataflöden i Azure Data Factory kan du göra kodfria dataförberedelser i molnskala iterativt. Käbbel dataflöden integreras med [Power Query Online](https://docs.microsoft.com/power-query/) och gör Power Query M-funktioner tillgängliga för datafabriksanvändare.
+Med datatransformering data flöden i Azure Data Factory kan du göra kod fria data förberedelser i moln skala upprepade gånger. Datatransformering data flöden integreras med [Power Query online](https://docs.microsoft.com/power-query/) och gör Power Query M-funktioner tillgängliga för Data Factory-användare.
 
-Käbbel dataflöde översätter M genereras av Power Query Online Mashup Editor till spark-kod för molnskala körning.
+Datatransformering Data Flow översätter M som genereras av Power Query online mashup-redigeraren till Spark-kod för moln skalnings körning.
 
-Käbbel dataflöden är särskilt användbara för dataingenjörer eller "medborgare dataintegratörer".
+Datatransformering data flöden är särskilt användbara för data tekniker eller "medborgarnas data integratorer".
 
 ## <a name="use-cases"></a>Användningsfall
 
-### <a name="fast-interactive-data-exploration-and-preparation"></a>Snabb interaktiv datautforskning och förberedelse
+### <a name="fast-interactive-data-exploration-and-preparation"></a>Snabb interaktiv data utforskning och förberedelse
 
-Flera datatekniker och medborgare dataintegratörer kan interaktivt utforska och förbereda datauppsättningar i molnskala. Med ökningen av volym, variation och hastighet av data i datasjöar, användare behöver ett effektivt sätt att utforska och förbereda datamängder. Du kan till exempel behöva skapa en datauppsättning som "har all kunddemografisk information för nya kunder sedan 2017". Du mappar inte till ett känt mål. Du utforskar, käbbel och prepping datauppsättningar för att uppfylla ett krav innan du publicerar den i sjön. Käbbel dataflöden används ofta för mindre formella analytics scenarier. De förberedda datauppsättningarna kan användas för att göra omvandlingar och maskininlärningsåtgärder nedströms.
+Flera data tekniker och medborgarnas Data Integrator kan interaktivt utforska och förbereda data uppsättningar i moln skala. Med ökningen av volym, variation och hastighet av data i data sjöar behöver användarna ett effektivt sätt att utforska och förbereda data uppsättningar. Du kan till exempel behöva skapa en data uppsättning som har all kund demografisk information för nya kunder sedan 2017. Du mappar inte till ett känt mål. Du är utforska, datatransformering och förberedelser data uppsättningar för att uppfylla ett krav innan du publicerar det i sjön. Datatransformering data flöden används ofta för mindre formella analys scenarier. Beredd-datauppsättningarna kan användas för att utföra omvandlingar och maskin inlärnings åtgärder.
 
-### <a name="code-free-agile-data-preparation"></a>Code-free agile data förberedelse
+### <a name="code-free-agile-data-preparation"></a>Kod – kostnads fri förberedelse av smidig data behandling
 
-Citizen data integratörer tillbringar mer än 60% av sin tid att leta efter och förbereda data. De är ute efter att göra det på ett kodfritt sätt för att förbättra den operativa produktiviteten. Att tillåta medborgare dataintegratörer att berika, forma och publicera data med hjälp av kända verktyg som Power Query Online på ett skalbart sätt drastiskt förbättrar deras produktivitet. Med ett käbbeldataflöde i Azure Data Factory kan den välbekanta Power Query Online-mashup-redigeraren tillåta medborgaredataintegratörer att åtgärda fel snabbt, standardisera data och producera data av hög kvalitet för att stödja affärsbeslut.
+Medborgarnas data integratorer ägnar mer än 60% av tiden att söka efter och förbereda data. De vill göra det med en kod gratis för att förbättra drift produktiviteten. Genom att tillåta att medborgarna integrerar, formar och publicerar data med hjälp av kända verktyg som Power Query online på ett skalbart sätt förbättrar produktiviteten avsevärt. Datatransformering data flöde i Azure Data Factory gör att den välbekanta Power Querys mashup-redigeraren kan göra det möjligt för medborgarna att åtgärda fel snabbt, standardisera data och skapa data med hög kvalitet för att stödja affärs beslut.
 
 ### <a name="data-validation"></a>Datavalidering
 
-Skanna dina data visuellt på ett kodfritt sätt för att ta bort eventuella avvikare, avvikelser och anpassa dem till en form för snabb analys.
+Genomsök data visuellt i ett kod fritt sätt för att ta bort eventuella avvikare, avvikelser och anpassa dem till en form för snabb analys.
 
 ## <a name="supported-sources"></a>Källor som stöds
 
 | Anslutningsprogram | Dataformat | Autentiseringstyp |
 | -- | -- | --|
-| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parkett | Kontonyckel |
+| [Azure-Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Konto nyckel |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Tjänstens huvudnamn |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parkett | Kontonyckel, Tjänstens huvudman |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Konto nyckel, tjänstens huvud namn |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | SQL-autentisering |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | SQL-autentisering |
 
-## <a name="the-mashup-editor"></a>Den mashup redaktör
+## <a name="the-mashup-editor"></a>Mashup-redigeraren
 
-När du skapar ett käbbeldataflöde blir alla källdatauppsättningar datauppsättningsfrågor och placeras i mappen **ADFResource.** Som standard pekar UserQuery på den första datauppsättningsfrågan. Alla omvandlingar bör göras på UserQuery som ändringar i datauppsättningsfrågor stöds inte heller kommer de att bevaras. Det går inte att byta namn på, lägga till och ta bort frågor.
+När du skapar ett datatransformering-dataflöde blir alla käll data uppsättningar av data uppsättnings frågor och placeras i mappen **ADFResource** . Som standard pekar UserQuery på den första data uppsättnings frågan. Alla transformeringar bör utföras på UserQuery eftersom ändringar av data uppsättnings frågor inte stöds och inte kommer att vara kvar. Det finns för närvarande inte stöd för att byta namn på, lägga till och ta bort frågor.
 
-![Gräl](media/wrangling-data-flow/editor.png)
+![Datatransformering](media/wrangling-data-flow/editor.png)
 
-För närvarande stöds inte alla Power Query M-funktioner för datakäbbel trots att de är tillgängliga under redigeringen. När du skapar dina käbbeldataflöden uppmanas du att få följande felmeddelande om en funktion inte stöds:
+För närvarande stöds inte alla Power Query M-funktioner för data datatransformering trots att de är tillgängliga under redigeringen. När du skapar dina datatransformering-dataflöden uppmanas du att ange följande fel meddelande om en funktion inte stöds:
 
 `The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
 
-Mer information om omvandlingar som stöds finns i [käbbel med dataflödesfunktioner](wrangling-data-flow-functions.md).
+Mer information om omvandlingar som stöds finns i [datatransformering Data Flow Functions](wrangling-data-flow-functions.md).
 
-För närvarande käbbel dataflödet stöder bara skriva till en diskbänk.
+För närvarande stöder datatransformering Data Flow endast skrivning till en mottagare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [skapar ett käbbeldataflöde](wrangling-data-flow-tutorial.md).
+Lär dig hur du [skapar ett datatransformering-dataflöde](wrangling-data-flow-tutorial.md).

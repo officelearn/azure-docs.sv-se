@@ -1,6 +1,6 @@
 ---
-title: Bestäm ditt publiceringsalternativ i Microsofts kommersiella marknadsplatsfönster
-description: I den här artikeln beskrivs kvalificeringskriterierna och publiceringskraven för partner som försöker förstå hur du publicerar appar på Microsoft AppSource och Azure Marketplace.
+title: Fastställ publicerings alternativet på Microsofts butiker för kommersiella marknads platser
+description: I den här artikeln beskrivs villkoren för berättigande och publicerings krav för partner som försöker förstå hur man publicerar appar till Microsoft AppSource och Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,72 +8,72 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
 ms.openlocfilehash: e91ca0334276dbe9118eb0e40d042f598e8b3c0f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415744"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 
-Publiceringsalternativet som du väljer för ditt erbjudande gäller direkt till både behörighetskraven och gtm-förmåner på kommersiella marknadsplatser. Ännu viktigare är att valet av publiceringsalternativ och erbjudandetyp definierar hur användarna kommer att interagera med ditt kommersiella marknadsplatserbjudande.
+Det publicerings alternativ som du väljer för ditt erbjudande relaterar direkt till både behörighets kraven och GTM-förmånerna för kommersiella platser. Det är viktigt att valet av publicerings alternativ och erbjudande typ definierar hur användarna ska interagera med ditt kommersiella Marketplace-erbjudande.
 
-För att konfigurera erbjudandet måste du förstå följande viktiga kommersiella marknadsplatskoncept: publiceringsalternativen, erbjudandetyperna och konfigurationen och uppmaningar som styr hur och var ditt erbjudande presenteras i de kommersiella marknadsplatsfönsteren.
+Om du vill konfigurera ditt erbjudande måste du förstå följande viktiga kommersiella Marketplace-koncept: publicerings alternativ, erbjudande typer och konfiguration samt anrop till åtgärd som styr hur och var ditt erbjudande presenteras i den kommersiella Marketplace-butiker.
 
 I den här artikeln lär du dig att:
 
-- Så här avgör du lämpligt skyltfönster för din lösning
-- Vilka publiceringsalternativ och uppmaningar som är tillgängliga i varje skyltfönster
-- Vilka erbjudandetyper som är tillgängliga för varje publiceringsalternativ
+- Så här fastställer du lämpliga butik för din lösning
+- Vilka publicerings alternativ och anrop till åtgärd som är tillgängliga i varje butik
+- Vilka erbjudande typer som är tillgängliga för varje publicerings alternativ
 
-## <a name="commercial-marketplace-publishing-options"></a>Kommersiella marknadsplatspubliceringsalternativ
+## <a name="commercial-marketplace-publishing-options"></a>Publicerings alternativ för kommersiell Marketplace
 
-I följande tabell visas publiceringsalternativen för erbjudandetyper i Microsoft AppSource och Azure Marketplace.
+I följande tabell visas publicerings alternativen för erbjudande typer i Microsoft AppSource och Azure Marketplace.
 
-|   | **Lista (Kontakt)**  | **Lista (Rättegång)**  | **Kostnadsfri** | **BYOL (BYOL)** | **Transact**|
+|   | **Lista (kontakt)**  | **Lista (utvärderings version)**  | **Kostnadsfri** | **BYOL** | **Transact**|
 | :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
 | **Virtuell dator** |  |  |  | Azure Marketplace |  Azure Marketplace |
 | **Azure-appar (flera virtuella datorer)** |  |  | Azure Marketplace | Azure Marketplace | Azure Marketplace  |
-| **Arkivbild.** |  |  | Azure Marketplace | Azure Marketplace |   |
-| **IoT Edge-modul** |  |  | Azure Marketplace | Azure Marketplace |   |
+| **Behållar avbildning** |  |  | Azure Marketplace | Azure Marketplace |   |
+| **IoT Edge modul** |  |  | Azure Marketplace | Azure Marketplace |   |
 | **Hanterade tjänster** |  |  |  | Azure Marketplace |   |
-| **Konsulttjänster** | Båda skyltfönster |  |  |  |   |
-| **SaaS-app** | Båda skyltfönster | Båda skyltfönster | Båda skyltfönster |  | Båda skyltfönster * |
-| **Microsoft 365-appen** | AppSource | AppSource |  |  | AppSource**  |
+| **Konsulttjänster** | Båda butiker |  |  |  |   |
+| **SaaS-app** | Båda butiker | Båda butiker | Båda butiker |  | Både butiker * |
+| **Microsoft 365 app** | AppSource | AppSource |  |  | AppSource * *  |
 | **Dynamics 365-tillägg** |  AppSource | AppSource |  |  |   |
 | **PowerApps** | AppSource |AppSource  |  |  |   |
 
-&#42; SaaS-appTransact-erbjudanden i Microsoft AppSource är för närvarande endast kreditkort.
+&#42; Transact-erbjudanden för SaaS-program i Microsoft AppSource är för närvarande endast kredit kort.
 
-&#42;&#42; Microsoft 365-erbjudanden är gratis att installera och kan tjäna pengar via SaaS erbjudande som en licensieringstjänst. Mer information finns [i Tjäna pengar på ditt Office 365-tillägg via Microsofts kommersiella marknadsplats](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+&#42;&#42; Microsoft 365 erbjudanden är kostnads fria att installeras och kan säljas via SaaS-erbjudandet som en licens tjänst. Mer information finns i köpa [ditt Office 365-tillägg via Microsofts kommersiella Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="selecting-a-storefront"></a>Välja ett skyltfönster
+## <a name="selecting-a-storefront"></a>Välja en butik
 
-Innan du väljer ett publiceringsalternativ är det viktigt att du förstår kraven på åtkomstbehörande i skyltfönster för kommersiella marketplace-lösningar, appar och tjänster. Varje skyltfönster betjänar unika kundkrav och riktar sig till specifika målgrupper. Din erbjudandetyp, transact-funktioner och kategori eller bransch avgör var ditt erbjudande ska publiceras.
+Innan du väljer ett publicerings alternativ är det viktigt att förstå kraven på butik för kommersiella Marketplace-lösningar, appar och tjänster. Varje butik hanterar unika kund krav och riktar sig till specifika mål grupper. Din erbjudande typ, Transact-funktioner och kategori eller bransch bestämmer var du vill publicera erbjudandet.
 
-**Microsoft AppSource-program** är affärsspecifika lösningar som kan byggas på Azure eller byggas för: Dynamics 365, Office 365, Power BI eller Power Apps. AppSource konsulttjänster är professionella tjänster erbjudanden som hjälper kunderna att komma igång med eller påskynda användningen av Dynamics 365 och Power BI.
+**Microsoft AppSource** program är branschspecifika lösningar som kan vara inbyggda i Azure eller som är inbyggda för: Dynamics 365, Office 365, Power BI eller Power Apps. AppSource Consulting Services är erbjudanden för professionella tjänster som hjälper kunder att komma igång med eller påskynda användningen av Dynamics 365 och Power BI.
 
-**Azure Marketplace-program** är tekniska "byggblockslösningar" inbyggda eller inbyggda för Azure och avsedda för en IT- eller utvecklarpublik. Azure Marketplace konsulttjänster är professionella tjänster erbjudanden som hjälper kunder att komma igång med eller påskynda användningen av Azure.
+**Azure Marketplace** -program är tekniska "Build-block"-lösningar som är inbyggda eller inbyggda för Azure och som är avsedda för en IT-eller Developer-publik. Konsult tjänster för Azure Marketplace är professionella tjänster som hjälper kunder att komma igång med eller påskynda användningen av Azure.
 
 >[!Note]
->Korsnotering (endast för SaaS-appar): När ett listas- eller utvärderingsbaserat erbjudande uppfyller kriterierna för både en teknisk och företagsanvändarmålgrupp visas ditt erbjudande i båda skyltfönsteren. Läs mer om publiceringsalternativen nedan.
+>Cross-List (endast för SaaS-appar): när en lista eller ett testbaserat erbjudande uppfyller kriterierna för både en teknisk användare och en affärs användare visas ditt erbjudande i båda butiker. Läs mer om publicerings alternativen nedan.
 
-## <a name="choose-a-publishing-option"></a>Välj ett publiceringsalternativ
+## <a name="choose-a-publishing-option"></a>Välj ett publicerings alternativ
 
-De tillgängliga publiceringsalternativen erbjuder differentierat kundengagemang samtidigt som du får tillgång till leaddelning och [kommersiella marknadsplatsfördelar.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits) Observera de uppmaningar som motsvarar publiceringsalternativet:
+De publicerings alternativ som är tillgängliga erbjuder differentierade kund engagemang samtidigt som du får åtkomst till lead-delning och [kommersiella marknads förmåner](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Anteckna anrop till åtgärd som motsvarar publicerings alternativet:
 
-| **Publiceringsalternativ**    | **Beskrivning**  |
+| **Publicerings alternativ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| **Lista** | Enkel lista över ditt program eller din tjänst som gör det möjligt för en kommersiell marknadsplatsanvändare att begära att du kontaktar kunden via **appellen Kontakta** mig. |
-| **Utvärdering** | Använd den kommersiella marknadsplatsen för att förbättra upptäckbarheten och automatisera etableringen av lösningens utvärderingsupplevelse, så att potentiella användare kan använda din SaaS-, IaaS- eller Microsoft-upplevelse utan kostnad under en begränsad tid innan de köper. De uppmaningar som används för utvärderingspubliceringsalternativet är antingen **kostnadsfri utvärderingsversion** eller **provkörning**. |
-| **BYOL (BYOL)** | Använd den kommersiella marknaden för att förbättra upptäckbarheten och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. BYOL-erbjudandetyper är idealiska för lokala till molnmigreringar. Uppmaningen är Get **it Now**.
-| **Transact** | Transact erbjudanden säljs via den kommersiella marknaden. Microsoft ansvarar för fakturering och samlingar. Uppmaningen är Get **it Now**.|
+| **Lista** | En enkel lista över ditt program eller din tjänst som gör det möjligt för en kommersiell Marketplace-användare att be dig att ansluta till kunden via **kontakten mig** samtal till åtgärd. |
+| **Utvärdering** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av lösningens utvärderings version, vilket gör det möjligt för potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. Anrop till åtgärd som används för alternativet för utvärdering av utvärdering är antingen **kostnads fri utvärderings version** eller **test enhet**. |
+| **BYOL** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. Typer av BYOL-erbjudanden är idealiska för lokala och molnbaserade migreringar. Anropet till åtgärd är att **Hämta det nu**.
+| **Transact** | Transact-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. Anropet till åtgärd är att **Hämta det nu**.|
 
 > [!Note]
-> När du använder alternativet Handla publicering är det viktigt att du förstår pris-, fakturerings-, fakturerings- och utbetalningsövervägandena innan du väljer en erbjudandetyp och skapar ditt erbjudande. Mer information finns i artikeln [Commercial Marketplace Transact Capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+> När du använder alternativet för Transact-publicering är det viktigt att förstå pris-, fakturerings-, fakturerings-och utbetalnings aspekter innan du väljer en erbjudande typ och skapar ditt erbjudande. Läs mer i artikeln om de [kommersiella Transact-funktionerna i Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du har bestämt dig för ett publiceringsalternativ är du redo att [välja den erbjudandetyp](./publisher-guide-by-offer-type.md) som ska användas för att presentera erbjudandet.
-- Granska behörighetskraven i publiceringsalternativen efter avsnitt om erbjudandetyp för att slutföra valet och konfigurationen av erbjudandet.
-- Läs publiceringsmönstren efter skyltfönster för exempel på hur lösningen mappar till en erbjudandetyp och konfiguration.
+- När du bestämmer dig för ett publicerings alternativ kan du [välja den erbjudande typ](./publisher-guide-by-offer-type.md) som ska användas för att presentera ditt erbjudande.
+- Granska behörighets kraven i avsnittet publicerings alternativ per erbjudande typ för att slutföra valet och konfigurationen av ditt erbjudande.
+- Granska publicerings mönstren efter butik för exempel på hur din lösning mappar till en erbjudande typ och konfiguration.

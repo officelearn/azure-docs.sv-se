@@ -1,5 +1,5 @@
 ---
-title: 'Omvandla data med hjälp av Spark i Azure Data Factory '
+title: 'Transformera data med hjälp av spark i Azure Data Factory '
 description: Den här självstudiekursen innehåller stegvisa instruktioner för hur du transformerar data genom att använda en Spark-aktivitet i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81409265"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure-lagringskonto**. Du skapar ett Python-skript och en indatafil, och laddar upp dem till Azure Storage. Utdata från Spark-programmet lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
+* **Azure Storage-konto**. Du skapar ett Python-skript och en indatafil, och laddar upp dem till Azure Storage. Utdata från Spark-programmet lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 
 > [!NOTE]
 > HdInsight stöder endast lagringskonton för generell användning med standardnivån. Kontrollera att kontot inte är ett lagringskonto enbart för premium- eller bloblagring.
@@ -71,7 +71,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     if __name__ == "__main__":
         main()
     ```
-1. Ersätt * &lt;storageAccountName&gt; * med namnet på ditt Azure-lagringskonto. Spara sedan filen. 
+1. Ersätt * &lt;storageAccountName&gt; * med namnet på ditt Azure Storage-konto. Spara sedan filen. 
 1. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte redan finns. 
 1. Skapa en mapp med namnet **spark**.
 1. Skapa en undermapp med namnet **script** under mappen **spark**. 
@@ -93,16 +93,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
       
    ![Fönstret Ny datafabrik](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   Namnet på Azure-datafabriken måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd ** &lt;till exempel&gt;ditt ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd ** &lt;till exempel&gt;dittnamn ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 1. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
 1. Gör något av följande för **Resursgrupp**:
      
-   - Välj **Använd befintlig**och välj en befintlig resursgrupp i listrutan. 
-   - Välj **Skapa ny**och ange namnet på en resursgrupp.   
+   - Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan. 
+   - Välj **Skapa ny**och ange namnet på en resurs grupp.   
          
-   Några av stegen i den här snabbstarten förutsätter att du använder namnet **ADFTutorialResourceGroup** för resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
+   Några av stegen i den här snabb starten förutsätter att du använder namnet **ADFTutorialResourceGroup** för resurs gruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 1. För **Version** väljer du **V2**.
 1. För **Plats** väljer du en plats för datafabriken. 
 
@@ -110,15 +110,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 1. Välj **Skapa**.
 
-1. När skapandet är klart visas sidan **Datafabrik.** Välj ikonen **Författare och övervakare** för att starta programmet Data Factory UI på en separat flik.
+1. När den har skapats visas sidan **data fabrik** . Välj ikonen **Författare och övervakare** för att starta programmet Data Factory UI på en separat flik.
 
     ![Startsidan för datafabriken med panelen Författare och övervakare](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 Du skapar två länkade tjänster i det här avsnittet: 
     
-- En **Azure Storage-länkad tjänst** som länkar ett Azure-lagringskonto till datafabriken. Den här lagringen används av HDInsight-kluster på begäran. Den innehåller också Spark-skriptet som ska köras. 
-- En **hdinsight-länkad tjänst på begäran**. Azure Data Factory skapar automatiskt ett HDInsight-kluster och kör Spark-programmet. HDInsight-klustret tas bort när det har varit inaktivt under en förinställd tid. 
+- En **Azure Storage länkad tjänst** som länkar ett Azure Storage-konto till data fabriken. Den här lagringen används av HDInsight-kluster på begäran. Den innehåller också Spark-skriptet som ska köras. 
+- En **länkad HDInsight-tjänst på begäran**. Azure Data Factory skapar automatiskt ett HDInsight-kluster och kör Spark-programmet. HDInsight-klustret tas bort när det har varit inaktivt under en förinställd tid. 
 
 ### <a name="create-an-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
 
@@ -149,13 +149,13 @@ Du skapar två länkade tjänster i det här avsnittet:
    
    b. För **Typ** kontrollerar du att **HDInsight på begäran** är valt.
    
-   c. För **Azure Storage Linked Service**väljer du **AzureBlobStorage1**. Du skapade den här länkade tjänsten tidigare. Ange rätt namn här om du tidigare använde ett annat namn. 
+   c. För **Azure Storage länkad tjänst**väljer du **AzureBlobStorage1**. Du skapade den här länkade tjänsten tidigare. Ange rätt namn här om du tidigare använde ett annat namn. 
    
    d. För **Klustertyp** väljer du **spark**.
    
    e. För **ID för tjänstens huvudnamn** anger du det ID för tjänsten huvudman som har behörighet att skapa ett HDInsight-kluster. 
    
-      Tjänstens huvudnamn måste vara medlem i rollen Deltagare för prenumerationen eller resursgruppen som klustret har skapats i. Mer information finns i [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (Skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten). **Huvud-ID:et** för Tjänsten motsvarar *program-ID:t*och en **huvudnyckel** för tjänsten motsvarar värdet för en *klienthemlighet*.
+      Tjänstens huvudnamn måste vara medlem i rollen Deltagare för prenumerationen eller resursgruppen som klustret har skapats i. Mer information finns i [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (Skapa ett Azure Active Directory-program och ett huvudnamn för tjänsten). **Tjänstens huvud namn-ID** motsvarar *program-ID: t*och en **huvud nyckel för tjänsten** motsvarar värdet för en *klient hemlighet*.
    
    f. Ange nyckeln i **Nyckel för tjänstens huvudnamn**. 
    
@@ -176,7 +176,7 @@ Du skapar två länkade tjänster i det här avsnittet:
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-1. Välj **+** knappen (plus) och välj sedan **Pipeline** på menyn.
+1. Välj knappen **+** (plus) och välj sedan **pipeline** på menyn.
 
    ![Knappar för att skapa en ny pipeline](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
 1. Gå till verktygsfältet **Aktiviteter** och expandera **HDInsight**. Dra aktiviteten **Spark** från verktygsfältet **Aktiviteter** till pipelinedesignytan. 
@@ -184,14 +184,14 @@ Du skapar två länkade tjänster i det här avsnittet:
    ![Dra Spark-aktiviteten](./media/tutorial-transform-data-spark-portal/drag-drop-spark-activity.png)
 1. Utför följande steg i egenskaperna för **Spark**-aktivitetsfönstret längst ned: 
 
-   a. Växla till fliken **HDI-kluster.**
+   a. Växla till fliken **HDI-kluster** .
    
    b. Välj **AzureHDInsightLinkedService** (som du skapade i föregående procedur). 
         
    ![Ange den länkade HDInsight-tjänsten](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Växla till fliken **Skript/Jar** och utför följande steg: 
 
-   a. För **jobblänkade tjänster**väljer du **AzureBlobStorage1**.
+   a. För **länkad jobb tjänst**väljer du **AzureBlobStorage1**.
    
    b. Välj **Bläddra i lagring**.
 
@@ -199,7 +199,7 @@ Du skapar två länkade tjänster i det här avsnittet:
    
    c. Bläddra till mappen **adftutorial/spark/script**, välj **WordCount_Spark.py** och välj sedan **Slutför**.      
 
-1. Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Markera **>>** knappen (högerpil) för att stänga valideringsfönstret. 
+1. Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Klicka på **>>** knappen (högerpil) för att stänga verifierings fönstret. 
     
    ![knappen Verifiera](./media/tutorial-transform-data-spark-portal/validate-button.png)
 1. Välj **Publicera alla**. Data Factory-gränssnittet publicerar entiteter (länkade tjänster och pipelines) till Azure Data Factory-tjänsten. 
@@ -208,13 +208,13 @@ Du skapar två länkade tjänster i det här avsnittet:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
-Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlösare nu**. 
+Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**. 
 
 ![knapparna Utlös och Utlös nu](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1. Växla till fliken **Bildskärm.** Bekräfta att du ser en pipeline-körning. Det tar ungefär 20 minuter att skapa ett Spark-kluster. 
+1. Växla till fliken **övervakare** . bekräfta att du ser en pipeline-körning. Det tar ungefär 20 minuter att skapa ett Spark-kluster. 
    
 1. Klicka på **Uppdatera** då och då så att du ser pipelinekörningens status. 
 
@@ -224,7 +224,7 @@ Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlösare nu*
 
    ![Status för pipelinekörning](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Du kan växla tillbaka till vyn pipelinekörningar genom att välja länken **Alla pipelinekörningar** högst upp.
+   Du kan gå tillbaka till pipeline-körningarna genom att välja länken **alla pipeline-körningar** överst.
 
    ![vyn Aktivitetskörningar](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

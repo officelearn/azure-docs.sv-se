@@ -5,15 +5,15 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
 ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411009"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
 
-I den här artikeln lär du dig hur du distribuerar ett Linux Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNET)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är klar körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+I den här artikeln får du lära dig hur du distribuerar ett Linux Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md) med Azure CLI och en mall. När du är klar körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -22,8 +22,8 @@ Innan du börjar:
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Service Fabric CLI](service-fabric-cli.md)
 * Installera [Azure CLI](/cli/azure/install-azure-cli)
-* Om du vill lära dig de viktigaste begreppen i kluster läser [du Översikt över Azure-kluster](service-fabric-azure-clusters-overview.md)
-* [Planera och förbered](service-fabric-cluster-azure-deployment-preparation.md) för en distribution av produktionskluster.
+* Läs [Översikt över Azure-kluster](service-fabric-azure-clusters-overview.md) för att lära dig viktiga begrepp i kluster
+* [Planera och förbereda](service-fabric-cluster-azure-deployment-preparation.md) för distribution av produktions kluster.
 
 Följande procedurer skapar ett Service Fabric-kluster med sju noder. Du kan beräkna kostnaden för att köra ett Service Fabric-kluster i Azure med [Azures prissättningsberäknare](https://azure.microsoft.com/pricing/calculator/).
 
@@ -31,27 +31,27 @@ Följande procedurer skapar ett Service Fabric-kluster med sju noder. Du kan ber
 
 Ladda ned följande mallfiler för Resource Manager:
 
-För Ubuntu 16.04 LTS:
+För Ubuntu 16,04-LTS:
 
-* [AzureDeploy.json][template]
-* [AzureDeploy.Parameters.json][parameters]
+* [AzureDeploy. JSON][template]
+* [AzureDeploy. Parameters. JSON][parameters]
 
-För Ubuntu 18,04 LTS:
+För Ubuntu 18,04-LTS:
 
-* [AzureDeploy.json][template2]
-* [AzureDeploy.Parameters.json][parameters2]
+* [AzureDeploy. JSON][template2]
+* [AzureDeploy. Parameters. JSON][parameters2]
 
-Skillnaden mellan de två mallarna är attributet **vmImageSku** som anges till "18.04-LTS" och varje nods **typeHandlerVersion** ställs in på 1.1.
+Skillnaden mellan de två mallarna är att attributet **vmImageSku** anges till "18,04-LTS" och varje nods **typeHandlerVersion** anges till 1,1.
 
-Den här mallen distribuerar ett säkert kluster med sju virtuella datorer och tre nodtyper till ett virtuellt nätverk.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy.json][template] distribuerar ett antal resurser, inklusive följande.
+Den här mallen distribuerar ett säkert kluster med sju virtuella datorer och tre nodtyper till ett virtuellt nätverk.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [AzureDeploy. JSON][template] distribuerar ett antal resurser, inklusive följande.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-kluster
 
 I resursen **Microsoft.ServiceFabric/clusters** distribueras ett Linux-kluster med följande egenskaper:
 
 * tre nodtyper
-* fem noder i den primära nodtypen (konfigurerbara i mallparametrarna), en nod i var och en av de andra nodtyperna
-* OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (konfigurerbar i mallparametrarna)
+* fem noder i den primära nodtypen (kan konfigureras i mallparametrar), en nod i var och en av de andra Node-typerna
+* OS: (Ubuntu 16,04 LTS/Ubuntu 18,04 LTS) (kan konfigureras i mallparametrar)
 * skyddat med certifikat (kan konfigureras i mallparametrarna)
 * [DNS-tjänst](service-fabric-dnsservice.md) är aktiverad
 * [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
@@ -79,16 +79,16 @@ Om du behöver andra programportar måste du justera resursen Microsoft.Network/
 
 ## <a name="set-template-parameters"></a>Ställa in mallparametrar
 
-**Filen AzureDeploy.Parameters** deklarerar många värden som används för att distribuera klustret och associerade resurser. Här är några av parametrarna du kan behöva ändra för distributionen:
+Filen **AzureDeploy. Parameters** deklarerar många värden som används för att distribuera klustret och associerade resurser. Här är några av parametrarna du kan behöva ändra för distributionen:
 
-|Parameter|Exempelvärde|Anteckningar|
+|Parameter|Exempelvärde|Obs!|
 |---|---||
 |adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. |
 |adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret.|
 |clusterName|mysfcluster123| Namnet på klustret. |
 |location|southcentralus| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”. </p>|
-|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel "https:\//mykeyvault.Vault.Azure.net:443/Secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
@@ -97,7 +97,7 @@ Om du behöver andra programportar måste du justera resursen Microsoft.Network/
 
 Konfigurera sedan nätverkstopologin och distribuera Service Fabric-klustret. Resource Manager-mallen **AzureDeploy.json** skapar ett virtuellt nätverk (VNET) och ett undernät för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverad.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
 
-Mallen i den här artikeln distribuerar ett kluster som använder certifikatets tumavtryck för att identifiera klustercertifikatet.  Två certifikat kan inte ha samma tumavtryck, vilket gör certifikathantering svårare. Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare.  Du kan lära dig att uppdatera klustret till att använda vanliga certifikatnamn för certifikathantering genom att läsa avsnittet om att [ändra kluster till vanligt certifikatnamn för hantering](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+Mallen i den här artikeln distribuerar ett kluster som använder certifikatets tumavtryck för att identifiera kluster certifikatet.  Två certifikat kan inte ha samma tumavtryck, vilket gör certifikathantering svårare. Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare.  Du kan lära dig att uppdatera klustret till att använda vanliga certifikatnamn för certifikathantering genom att läsa avsnittet om att [ändra kluster till vanligt certifikatnamn för hantering](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Skapa ett kluster med ett befintligt certifikat
 
@@ -168,7 +168,7 @@ Om du inte genast fortsätter till nästa artikel kanske du vill [ta bort klustr
 
 Lär dig hur du [skalar ett kluster](service-fabric-tutorial-scale-cluster.md).
 
-Mallen i den här artikeln distribuerar ett kluster som använder certifikatets tumavtryck för att identifiera klustercertifikatet.  Två certifikat kan inte ha samma tumavtryck, vilket gör certifikathantering svårare. Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare.  Du kan lära dig att uppdatera klustret till att använda vanliga certifikatnamn för certifikathantering genom att läsa avsnittet om att [ändra kluster till vanligt certifikatnamn för hantering](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+Mallen i den här artikeln distribuerar ett kluster som använder certifikatets tumavtryck för att identifiera kluster certifikatet.  Två certifikat kan inte ha samma tumavtryck, vilket gör certifikathantering svårare. Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare.  Du kan lära dig att uppdatera klustret till att använda vanliga certifikatnamn för certifikathantering genom att läsa avsnittet om att [ändra kluster till vanligt certifikatnamn för hantering](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json

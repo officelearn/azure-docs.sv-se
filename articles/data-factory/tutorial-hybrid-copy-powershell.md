@@ -1,5 +1,5 @@
 ---
-title: Kopiera data från SQL Server till Blob-lagring med PowerShell
+title: Kopiera data från SQL Server till Blob Storage med hjälp av PowerShell
 description: Lär dig hur du kopierar data från ett lokalt datalager till Azure-molnet med hjälp av en lokal Integration Runtime i Azure Data Factory.
 services: data-factory
 author: nabhishek
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 70bc79470cd72ce01007265c6c1236c951ddd7d0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81411444"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudie: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
@@ -43,12 +43,12 @@ I den här självstudien får du göra följande:
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ### <a name="azure-roles"></a>Azure-roller
-För att skapa datafabriksinstanser måste användarkontot som du använder för att logga in på Azure tilldelas en *deltagar-* eller *ägarroll* eller måste vara *administratör för* Azure-prenumerationen.
+Om du vill skapa Data Factory-instanser måste det användar konto som du använder för att logga in på Azure vara tilldelat en *deltagar* -eller *ägar* roll eller måste vara *administratör* för Azure-prenumerationen.
 
 Om du vill visa vilka behörigheter du har i prenumerationen öppnar du Azure-portalen, väljer användarnamnet i det övre högra hörnet och sedan väljer du **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. Exempelinstruktioner för hur du lägger till en användare till en roll finns i [Hantera åtkomst med RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 och 2017
-I den här självstudien använder du en lokal SQL Server-databas som *källdatalager*. Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Azure Blob Storage (mottagare). Du skapar sedan en tabell med namnet **emp** i SQL Server-databasen och infogar ett par exempelposter i tabellen.
+I den här självstudien använder du en lokal SQL Server-databas som *källdatalager*. Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Azure Blob Storage (mottagare). Sedan skapar du en tabell med namnet **EMP** i din SQL Server-databas och infogar ett par exempel poster i tabellen.
 
 1. Starta SQL Server Management Studio. Om det inte redan är installerat på datorn öppnar du [Ladda ner SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -271,7 +271,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
     ![Registrera Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-1. Välj **Slutför**i **nodfönstret Ny integrationskörningstid (självvärd)** .
+1. I fönstret **ny integration Runtime (lokal installation) nod** väljer du **Slutför**.
 
     ![Fönstret Ny nod för Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -413,9 +413,9 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
 
     > [!IMPORTANT]
     > - Välj avsnitt baserat på vilken autentisering du använder när du ansluter till din SQL Server-instans.
-    > - Ersätt ** \<namn på integreringskörning>** med namnet på din integrationskörning.
-    > - Innan du sparar filen ** \< **ersätter ** \<** ** \< **du servernamn>, ** \<databasnamn>**, användarnamn>och lösenord>med värdena för SQL Server-instansen.
-    > - Om du behöver använda ett omvänt snedstreck (\\) i ditt användarkonto eller servernamn infogar du escape-tecknet framför det (\\). Till exempel, använd *mydomain\\\\myuser*.
+    > - Ersätt ** \<integration runtime-namnet>** med namnet på din integration Runtime.
+    > - Innan du sparar filen ersätter ** \<du servername>**, ** \<databasename>**, ** \<username>** och ** \<Password>** med värdena för SQL Server-instansen.
+    > - Om du behöver använda ett omvänt snedstreck (\\) i ditt användarkonto eller servernamn infogar du escape-tecknet framför det (\\). Använd till exempel min *domän\\\\-användare*.
 
 1. Kör `New-AzDataFactoryV2LinkedServiceEncryptedCredential`-cmdlet för att kryptera känsliga data (användarnamn, lösenord och så vidare).  
     Den här krypteringen ser till att autentiseringsuppgifterna krypteras med Data Protection Application Programming Interface (DPAPI). Krypterade autentiseringsuppgifter lagras lokalt på en IR-nod med egen värd (lokal dator). Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet *encryptedLinkedService.json*) som innehåller krypterade autentiseringsuppgifter.

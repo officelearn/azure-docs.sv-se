@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Hive med Azure Data Factory
-description: Lär dig hur du kopierar data från Hive till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från Hive till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,27 +12,27 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 3720d917d71fa4e8c5a14bb60fdc7c405be4bfdb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410442"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Hive. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från Hive. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Hive-kopplingen stöds för följande aktiviteter:
+Den här Hive-anslutningen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Hive till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
+Du kan kopiera data från Hive till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
+Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -42,32 +42,32 @@ Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslu
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för Hive-anslutningsappen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Hive-anslutningsprogram.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för Hive-länkad tjänst:
+Följande egenskaper stöds för den länkade Hive-tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste ställas in på: **Hive** | Ja |
-| värd | IP-adress eller värdnamn för Hive-servern, avgränsat med ';' för flera värdar (endast när serviceDiscoveryMode är aktiverat).  | Ja |
-| port | TCP-porten som Hive-servern använder för att lyssna efter klientanslutningar. Om du ansluter till Azure HDInsights anger du porten som 443. | Ja |
-| serverTyp | Typ av Hive-server. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Inga |
-| sparsamhetTransportProtocol | Transportprotokollet som ska användas i sparsamhetslagret. <br/>Tillåtna värden är: **Binär**, **SASL**, **HTTP** | Inga |
-| authenticationType | Autentiseringsmetoden som används för att komma åt Hive-servern. <br/>Tillåtna värden är: **Anonym**, **Användarnamn**, **AnvändarnamnOchPassword**, **WindowsAzureHDInsightService** | Ja |
-| serviceDiscoveryMode | sant att ange med hjälp av ZooKeeper tjänsten, falskt inte.  | Inga |
-| zooKeeperNameSpace | Namnområdet på ZooKeeper som Hive Server 2-noder läggs till under.  | Inga |
-| användaNativeQuery | Anger om drivrutinen använder inbyggda HiveQL-frågor eller konverterar dem till ett motsvarande formulär i HiveQL.  | Inga |
-| användarnamn | Det användarnamn som du använder för att komma åt Hive Server.  | Inga |
-| password | Lösenordet som motsvarar användaren. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| httpPath (på ett sätt) | Den partiella URL som motsvarar Hive-servern.  | Inga |
-| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Inga |
-| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara ställas in när du använder TLS på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
-| användaSystemTrustStore | Anger om ett CERTIFIKAT FRÅN systemförtroendearkivet eller från en angiven PEM-fil ska användas. Standardvärdet är false.  | Inga |
-| allowHostNameCNMismatch | Anger om ett certifikatutfärdat TLS/SSL-certifikatnamn ska krävas för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är false.  | Inga |
-| tillåtVälsignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Inga |
-| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
+| typ | Egenskapen Type måste anges till: **Hive** | Ja |
+| värd | IP-adressen eller värd namnet för registrerings data filen, avgränsat med ";" för flera värdar (endast när serviceDiscoveryMode har Aktiver ATS).  | Ja |
+| port | TCP-porten som Hive-servern använder för att lyssna efter klient anslutningar. Om du ansluter till Azure HDInsights anger du port som 443. | Ja |
+| serverType | Typ av Hive-Server. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nej |
+| thriftTransportProtocol | Transport protokollet som ska användas i Thrift-skiktet. <br/>Tillåtna värden är: **Binary**, **sasl**, **http** | Nej |
+| authenticationType | Autentiseringsmetoden som används för att få åtkomst till Hive-servern. <br/>Tillåtna värden är: **Anonym**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| serviceDiscoveryMode | sant om du vill ange att använda ZooKeeper-tjänsten, falskt.  | Nej |
+| zooKeeperNameSpace | Namn området på ZooKeeper under vilka Hive-Server 2 noder läggs till.  | Nej |
+| useNativeQuery | Anger om driv rutinen använder interna HiveQL-frågor eller konverterar dem till ett motsvarande formulär i HiveQL.  | Nej |
+| användarnamn | Det användar namn som du använder för att komma åt Hive-servern.  | Nej |
+| password | Lösen ordet som motsvarar användaren. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| httpPath | Den partiella URL som motsvarar Hive-servern.  | Nej |
+| enableSsl | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Nej |
+| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare för att verifiera servern vid anslutning via TLS. Den här egenskapen kan bara anges när du använder TLS på IR med egen värd. Standardvärdet är den cacerts. PEM-fil som installeras med IR.  | Nej |
+| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |
+| allowHostNameCNMismatch | Anger om ett CA-utfärdat TLS/SSL-certifikat namn ska matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är false.  | Nej |
+| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Nej |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -92,16 +92,16 @@ Följande egenskaper stöds för Hive-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Hive-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Hive-datauppsättningen.
 
-Om du vill kopiera data från Hive anger du egenskapen typ för datauppsättningen till **HiveObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Hive anger du egenskapen type för data uppsättningen till **HiveObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Datauppsättningens typegenskap måste ställas in på: **HiveObject** | Ja |
-| Schemat | Namnet på schemat. |Nej (om "fråga" i aktivitetskällan har angetts)  |
-| tabell | Tabellens namn. |Nej (om "fråga" i aktivitetskällan har angetts)  |
-| tableName | Namn på tabellen inklusive schemadel. Den här egenskapen stöds för bakåtkompatibilitet. För ny arbetsbelastning använder du `schema` och `table`. | Nej (om "fråga" i aktivitetskällan har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **HiveObject** | Ja |
+| schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| tabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| tableName | Namnet på tabellen inklusive schema del. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table`för ny arbets belastning. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -122,16 +122,16 @@ Om du vill kopiera data från Hive anger du egenskapen typ för datauppsättning
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Hive-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Hive-källan.
 
 ### <a name="hivesource-as-source"></a>HiveSource som källa
 
-Om du vill kopiera data från Hive anger du källtypen i kopieringsaktiviteten till **HiveSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
+Om du vill kopiera data från Hive anger du käll typen i kopierings aktiviteten till **HiveSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **HiveSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **HiveSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -165,10 +165,10 @@ Om du vill kopiera data från Hive anger du källtypen i kopieringsaktiviteten t
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -5,26 +5,26 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.custom: sfrev
 ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415679"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Konfigurera stöd för hanterad identitet i ett befintligt Service Fabric-kluster
 
-Om du vill använda [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) i tjänstinfrastrukturprogrammen aktiverar du först *tjänsten Hanterad identitetstoken i* klustret. Den här tjänsten ansvarar för autentisering av Service Fabric-program med hjälp av deras hanterade identiteter och för att erhålla åtkomsttoken för deras räkning. När tjänsten är aktiverad kan du se den i Service Fabric Explorer under avsnittet **System** i den vänstra rutan och köras under namnet **fabric:/System/ManagedIdentityTokenService**.
+Om du vill använda [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) i dina Service Fabric-program aktiverar du först den *hanterade identitets-token* i klustret. Den här tjänsten ansvarar för autentiseringen av Service Fabric program med hjälp av deras hanterade identiteter och för att få åtkomst till token för deras räkning. När tjänsten är aktive rad kan du se den i Service Fabric Explorer under **system** avsnittet i det vänstra fönstret, som körs under namnet **Fabric:/system/ManagedIdentityTokenService**.
 
 > [!NOTE]
-> Service Fabric runtime version 6.5.658.9590 eller högre krävs för att aktivera **tjänsten Hanterad identitetstoken**.  
+> Service Fabric runtime-version 6.5.658.9590 eller högre krävs för att aktivera den **hanterade Identity token-tjänsten**.  
 >
-> Du hittar Service Fabric-versionen av ett kluster från Azure-portalen genom att öppna klusterresursen och kontrollera egenskapen **Service Fabric-version** i avsnittet **Essentials.**
+> Du kan hitta Service Fabric versionen av ett kluster från Azure Portal genom att öppna kluster resursen och kontrol lera egenskapen **Service Fabric version** i avsnittet **Essentials** .
 >
-> Om klustret är i **manuellt** uppgraderingsläge måste du först uppgradera det till 6.5.658.9590 eller senare.
+> Om klustret är i **manuellt** uppgraderings läge måste du först uppgradera det till 6.5.658.9590 eller senare.
 
-## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>Aktivera *tjänst för hanterad identitetstoken* i ett befintligt kluster
+## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>Aktivera *hanterad identitets-token* i ett befintligt kluster
 
-Om du vill aktivera tjänsten Hanterad identitetstoken i ett befintligt kluster måste du initiera en klusteruppgradering som anger två ändringar: (1) Aktivera den hanterade identitetstokentjänsten och (2) begära en omstart av varje nod. Lägg först till följande kodavsnitt i klustrets Azure Resource Manager-mall:
+Om du vill aktivera tjänsten hanterad identitets-token i ett befintligt kluster måste du initiera en kluster uppgradering som anger två ändringar: (1) som aktiverar hanterad Identity token-tjänst och (2) begär en omstart av varje nod. Lägg först till följande fragment ditt kluster Azure Resource Manager-mall:
 
 ```json
 "fabricSettings": [
@@ -40,7 +40,7 @@ Om du vill aktivera tjänsten Hanterad identitetstoken i ett befintligt kluster 
 ]
 ```
 
-För att ändringarna ska börja gälla måste du också ändra uppgraderingsprincipen för att ange en kraftfull omstart av Service Fabric-körningen på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade systemtjänsten startas och körs på varje nod. I kodavsnittet nedan `forceRestart` är den viktigaste inställningen för att aktivera omstart. För de återstående parametrarna använder du värden som beskrivs nedan eller använder befintliga anpassade värden som redan har angetts för klusterresursen. Anpassade inställningar för fabric upgrade policy ("upgradeDescription") kan visas från Azure Portal genom att välja alternativet Fabric Upgrades på Service Fabric-resursen eller resources.azure.com. Standardalternativ för uppgraderingsprincipen (upgradeDescription) kan inte visas från powershell eller resources.azure.com. Mer information finns i [ClusterUpgradePolicy.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet)  
+För att ändringarna ska träda i kraft måste du också ändra uppgraderings principen för att ange en tvingande omstart av Service Fabric runtime på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade system tjänsten startas och körs på varje nod. I kodfragmentet nedan `forceRestart` är den viktigaste inställningen för att aktivera omstart. Använd värden som beskrivs nedan eller använd befintliga anpassade värden som redan har angetts för kluster resursen för de återstående parametrarna. Anpassade inställningar för uppgraderings principen för infrastruktur (' upgradeDescription ') kan visas från Azure Portal genom att välja alternativet för Fabric-uppgraderingar på Service Fabric resurs eller resources.azure.com. Standard alternativ för uppgraderings principen (' upgradeDescription ') kan inte visas från PowerShell eller resources.azure.com. Mer information finns i [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) .  
 
 ```json
 "upgradeDescription": {
@@ -55,11 +55,11 @@ För att ändringarna ska börja gälla måste du också ändra uppgraderingspri
 ```
 
 > [!NOTE]
-> När uppgraderingen har slutförts, glöm inte `forceRestart` att återställa inställningen, för att minimera effekten av efterföljande uppgraderingar. 
+> När uppgraderingen är klar ska du inte glömma att återställa `forceRestart` inställningen för att minimera effekten av efterföljande uppgraderingar. 
 
-## <a name="errors-and-troubleshooting"></a>Fel och felsökning
+## <a name="errors-and-troubleshooting"></a>Fel och fel sökning
 
-Om distributionen misslyckas med följande meddelande betyder det att klustret inte körs på en tillräckligt hög Service Fabric-version:
+Om distributionen Miss lyckas med följande meddelande innebär det att klustret inte körs på en hög nog Service Fabric version:
 
 ```json
 {
@@ -70,6 +70,6 @@ Om distributionen misslyckas med följande meddelande betyder det att klustret i
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera ett Azure Service Fabric-program med en systemtilldelad hanterad identitet](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Distribuera ett Azure Service Fabric-program med en användartilldelad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Utnyttja den hanterade identiteten för ett Service Fabric-program från servicekod](./how-to-managed-identity-service-fabric-app-code.md)
-* [Bevilja en Azure Service Fabric-programåtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)
+* [Distribuera ett Azure Service Fabric-program med en användardefinierad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Utnyttja den hanterade identiteten för ett Service Fabric program från service code](./how-to-managed-identity-service-fabric-app-code.md)
+* [Bevilja ett Azure Service Fabric program åtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)

@@ -1,5 +1,5 @@
 ---
-title: Kopiera data stegvis efter
+title: Kopiera data stegvis med
 description: Dessa självstudier visar hur du inkrementellt kopierar data från ett källdatalager till ett måldatalager. Den första kopierar data från en tabell.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 00d54f9adcab93152881852b6fcac417e9d7c7d9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81409907"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Läsa in data stegvis från ett källdatalager till ett måldatalager
@@ -34,7 +34,7 @@ Stegvisa instruktioner finns i följande självstudier:
 - [Kopiera data stegvis från en tabell i Azure SQL Database till Azure Blob Storage](tutorial-incremental-copy-powershell.md)
 - [Kopiera data stegvist från flera tabeller i en lokal SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
-För mallar finns i följande:
+För mallar, se följande:
 - [Deltakopiera med kontrolltabellen](solution-template-delta-copy-with-control-table.md)
 
 ## <a name="delta-data-loading-from-sql-db-by-using-the-change-tracking-technology"></a>Inläsning av deltadata från SQL DB med tekniken Ändringsspårning
@@ -48,16 +48,16 @@ Stegvisa instruktioner finns i följande självstudie: <br/>
 - [Kopiera data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsteknik](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>Läsa in endast nya och ändrade filer med hjälp av LastModifiedDate
-Du kan bara kopiera de nya och ändrade filerna genom att använda LastModifiedDate i målarkivet. ADF kommer att skanna alla filer från källarkivet, tillämpa filfiltret med deras LastModifiedDate och bara kopiera den nya och uppdaterade filen sedan förra gången till målarkivet.  Tänk på om du låter ADF skanna enorma mängder filer men bara kopiera några filer till destinationen, skulle du fortfarande förvänta dig den långa varaktigheten på grund av filskanning är tidskrävande också.   
+Du kan bara kopiera nya och ändrade filer genom att använda LastModifiedDate i mål arkivet. ADF genomsöker alla filer från käll arkivet, tillämpar fil filtret med deras LastModifiedDate och kopierar bara den nya och uppdaterade filen sedan senaste gången till mål lagret.  Tänk på att om du låter ADF Skanna enorma mängder filer, men bara kopiera några filer till målet, förväntar du dig fortfarande den långa varaktigheten på grund av att fil genomsökningen också tar lång tid.   
 
 Stegvisa instruktioner finns i följande självstudie: <br/>
 - [Kopiera stegvis nya och ändrade filer baserat på LastModifiedDate från Azure Blob Storage till Azure Blob Storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
-För mallar finns i följande:
+För mallar, se följande:
 - [Kopiera nya filer genom LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>Läsa in endast nya filer med hjälp av tidspartitionerat mapp- eller filnamn.
-Du kan kopiera endast nya filer, där filer eller mappar redan har tidspartitionerats med tidssektorinformation som en del av fil- eller mappnamnet (till exempel /åååå/mm/dd/fil.csv). Det är den mest högpresterande metoden för att stegvis läsa in nya filer. 
+Du kan kopiera endast nya filer, där filer eller mappar redan har tidspartitionerats med tidssektorinformation som en del av fil- eller mappnamnet (till exempel /åååå/mm/dd/fil.csv). Det är den mest effektiva metoden för att stegvis läsa in nya filer. 
 
 Stegvisa instruktioner finns i följande självstudie: <br/>
 - [Kopiera stegvis nya filer baserat på tidspartitionerat mapp- eller filnamn från Azure Blob Storage till Azure Blob Storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

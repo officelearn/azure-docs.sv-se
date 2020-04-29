@@ -1,5 +1,5 @@
 ---
-title: Kopiera en tabell stegvis med Azure-portal
+title: Kopiera en tabell stegvis med Azure Portal
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
 services: data-factory
 author: dearandyxu
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81409322"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Inkrementellt läsa in data från en Azure SQL-databas till Azure Blob-lagring med Azure-portalen
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av Azure Portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -53,7 +53,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 2. **Förbered datalagringen för att lagra värdet för vattenstämpeln**. I den här självstudien lagrar du storleksgränsen i en SQL-databas.
 
-3. **Skapa en pipeline med följande arbetsflöde:**
+3. **Skapa en pipeline med följande arbets flöde**:
 
     Pipelinen i den här lösningen har följande aktiviteter:
 
@@ -62,10 +62,10 @@ Här är några viktiga steg för att skapa den här lösningen:
     * Skapa en StoredProcedure-aktivitet som uppdaterar vattenstämpelvärdet för den pipeline som körs nästa gång.
 
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
-* **Azure SQL-databas**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Skapa en container med namnet adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Skapa en datatabell i din SQL-databas
@@ -152,20 +152,20 @@ END
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **Skapa en resurs** > **Analytics** > **Data Factory:**
+2. På den vänstra menyn väljer du **skapa en resurs** > **analys** > **Data Factory**:
 
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. På sidan **Ny datafabrik** anger du **ADFIncCopyTutorialDF** som **namn**.
 
-   Namnet på Azure-datafabriken måste vara **globalt unikt**. Om du ser ett rött utropstecken med följande fel ändrar du namnet på datafabriken (till exempel dittnamnADFIncCopyTutorialDF) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+   Namnet på Azure Data Factory måste vara **globalt unikt**. Om du ser ett rött utropstecken med följande fel ändrar du namnet på datafabriken (till exempel dittnamnADFIncCopyTutorialDF) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
 
        `Data factory name "ADFIncCopyTutorialDF" is not available`
 4. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
 5. För **resursgruppen** utför du något av följande steg:
 
-      - Välj **Använd befintlig**och välj en befintlig resursgrupp i listrutan.
-      - Välj **Skapa ny**och ange namnet på en resursgrupp.   
+      - Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan.
+      - Välj **Skapa ny**och ange namnet på en resurs grupp.   
          
         Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 6. Välj **V2** för **versionen**.
@@ -189,23 +189,23 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
    ![Den första sökningsaktiviteten – namn](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Växla till fliken **Inställningar** och klicka på **+ Ny** för **källdatauppsättningen**. I det här steget skapar du en datauppsättning för att representera data i **watermarktable**. Den här tabellen innehåller den gamla vattenstämpeln som användes i den tidigare kopieringen.
 
-6. Välj **Azure SQL Database**i fönstret Ny **datauppsättning** och klicka på **Fortsätt**. Du ser ett nytt fönster som öppnats för datauppsättningen.
+6. I fönstret **ny data uppsättning** väljer du **Azure SQL Database**och klickar på **Fortsätt**. Du ser ett nytt fönster som har öppnats för data uppsättningen.
 
-7. I fönstret **Ange egenskaper** för datauppsättningen anger du **WatermarkDataset** för **Namn**.
+7. I fönstret **Ange egenskaper** för data uppsättningen anger du **WatermarkDataset** som **namn**.
 
-8. För **länkad tjänst**väljer du **Ny**och gör sedan följande steg:
+8. För **länkad tjänst**väljer du **ny**och utför sedan följande steg:
 
     1. Ange **AzureSqlDatabaseLinkedService** som **namn**.
-    2. Välj namnet på Azure SQL-servern för **Server**.
-    3. Välj **databasnamnet** i listrutan.
-    4. Ange ditt **användarnamn** & **Lösenord**.
+    2. Välj din Azure SQL-Server som **Server namn**.
+    3. Välj ditt **databas namn** i list rutan.
+    4. Ange**lösen ordet**för **användar namnet** & .
     5. Om du vill testa anslutningen till Azure SQL-databasen klickar du på **Testanslutning**.
     6. Klicka på **Slutför**.
-    7. Bekräfta att **AzureSqlDatabaseLinkedService** har valts för **länkad tjänst**.
+    7. Bekräfta att **AzureSqlDatabaseLinkedService** har valts för den **länkade tjänsten**.
 
         ![Fönster för ny länkad tjänst](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
     8. Välj **Slutför**.
-9. Välj **Connection** **[dbo].[ vattenstämpelbar]** för **tabell**. Om du vill förhandsgranska data i tabellen klickar du på **Förhandsgranska data**.
+9. På fliken **anslutning** väljer du **[dbo]. [ watermarktable]** för **tabell**. Om du vill förhandsgranska data i tabellen klickar du på **Förhandsgranska data**.
 
     ![Datauppsättning för vattenstämpel – anslutningsinställningar](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
 10. Växla till pipeline-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. I egenskapsfönstret för **sökningsaktiviteten** bekräftar du att **WatermarkDataset** är valt för fältet **Source Dataset** (Källdatauppsättning).
@@ -214,19 +214,19 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
 12. I egenskapsfönstret för den andra **sökningsaktiviteten** växlar du till fliken **Inställningar** och klickar på **New** (Nytt). Du skapar en datauppsättning för att peka på källtabellen som innehåller det nya vattenstämpelvärdet (det högsta värdet för LastModifyTime).
 
-13. Välj **Azure SQL Database**i fönstret Ny **datauppsättning** och klicka på **Fortsätt**.
-14. I fönstret **Ange egenskaper** anger du **SourceDataset** för **namn**. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
-15. Välj **[dbo].[ data_source_table]** för Tabell. Du kan ange en fråga för den här datauppsättningen senare under kursen. Frågan åsidosätter den tabell som du anger i det här steget.
+13. I fönstret **ny data uppsättning** väljer du **Azure SQL Database**och klickar på **Fortsätt**.
+14. I fönstret **Ange egenskaper** anger du **SourceDataset** som **namn**. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
+15. Välj **[dbo]. [ data_source_table]** för tabell. Du kan ange en fråga för den här datauppsättningen senare under kursen. Frågan åsidosätter den tabell som du anger i det här steget.
 16. Välj **Slutför**.
 17. Växla till pipeline-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster. I egenskapsfönstret för **sökningsaktiviteten** bekräftar du att **SourceDataset** är valt för fältet **Source Dataset** (Källdatauppsättning).
-18. Välj **Fråga** i fältet **Använd fråga** och ange följande fråga: du väljer endast det högsta värdet för **LastModifytime** från **data_source_table**. Kontrollera att du också har markerat **endast första raden**.
+18. Välj **Fråga** i fältet **Använd fråga** och ange följande fråga: du väljer endast det högsta värdet för **LastModifytime** från **data_source_table**. Kontrol lera att du också har markerat **enbart första raden**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
     ```
 
     ![Den andra sökningsaktiviteten – fråga](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
-19. Expandera **Flytta & Transformera i** **verktygslådan Aktiviteter** och dra ned aktiviteten **Kopiera** från verktygslådan Aktiviteter och ange namnet på **IncrementalCopyActivity**.
+19. I verktygs lådan **aktiviteter** expanderar du **Flytta & Transform**och drar och släpper **kopierings** aktiviteten i aktivitets verktygs lådan och anger namnet till **IncrementalCopyActivity**.
 
 20. **Anslut båda sökningsaktiviteterna till kopieringsaktiviteten** genom att dra den **gröna knappen** som är ansluten till sökningsaktiviteterna till kopieringsaktiviteten. Släpp musknappen när du ser att kantlinjefärgen för kopieringsaktiviteten ändras till blått.
 
@@ -246,19 +246,19 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
         ![Kopiera aktivitet – källa](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
 23. Växla till fliken **Sink** (Mottagare) och klicka på **+ Ny** för fältet för **datauppsättning för mottagare**.
 
-24. I den här självstudien är datalager för mottagare av typen Azure Blob Storage. Välj därför **Azure Blob Storage**och klicka på **Fortsätt** i fönstret **Ny datauppsättning.**
-25. I fönstret **Välj format** markerar du formattypen för dina data och klickar på **Fortsätt**.
-25. I fönstret **Ange egenskaper** anger du **SinkDataset** för **Namn**. För **länkad tjänst**väljer du **+ Ny**. I det här steget skapar du en anslutning (länkad tjänst) till **Azure Blob Storage**.
-26. Gör följande i fönstret **Ny länkad tjänst (Azure Blob Storage):**
+24. I den här självstudien är datalager för mottagare av typen Azure Blob Storage. Välj därför **Azure Blob Storage**och klicka på **Fortsätt** i fönstret **ny data uppsättning** .
+25. I fönstret **Välj format** väljer du format typ för dina data och klickar på **Fortsätt**.
+25. I fönstret **Ange egenskaper** anger du **SinkDataset** som **namn**. För **länkad tjänst**väljer du **+ ny**. I det här steget skapar du en anslutning (länkad tjänst) till **Azure Blob Storage**.
+26. Utför följande steg i fönstret **ny länkad tjänst (Azure Blob Storage)** :
 
     1. Ange **AzureStorageLinkedService** som **namn**.
     2. Välj ditt Azure-lagringskonto som **Lagringskontonamn**.
-    3. Testa anslutning och klicka sedan på **Slutför**.
+    3. Testa anslutningen och klicka sedan på **Slutför**.
 
-27. I fönstret **Ange egenskaper** bekräftar du att **AzureStorageLinkedService** har valts för **länkad tjänst**. Välj sedan **Slutför**.
-28. Gå till fliken **Anslutning** i SinkDataset och gör följande:
-    1. För fältet **Filsökväg** anger du **adftutorial/incrementalcopy**. **adftutorial** är blobcontainerns namn och **incrementalcopy** är mappens namn. Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen **incrementalcopy** om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer.
-    2. För **fildelen** av **sökvägen** till filen väljer du Lägg till `@CONCAT('Incremental-', pipeline().RunId, '.txt')` **dynamiskt innehåll [Alt+P]** och anger sedan i det öppnade fönstret. Välj sedan **Slutför**. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet.
+27. I fönstret **Ange egenskaper** bekräftar du att **AzureStorageLinkedService** har valts för den **länkade tjänsten**. Välj sedan **Slutför**.
+28. Gå till fliken **anslutning** i SinkDataset och utför följande steg:
+    1. I fältet **fil Sök väg** anger du **adftutorial/incrementalcopy**. **adftutorial** är blobcontainerns namn och **incrementalcopy** är mappens namn. Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Azure Data Factory skapar automatiskt utdatamappen **incrementalcopy** om den inte finns. Du kan också använda knappen **Bläddra** för **Filsökväg** för att navigera till en mapp i en blobcontainer.
+    2. För **fil** delen av fältet **fil Sök väg** väljer du **Lägg till dynamiskt innehåll [ALT + P]** och anger `@CONCAT('Incremental-', pipeline().RunId, '.txt')`sedan i det öppnade fönstret. Välj sedan **Slutför**. Filnamnet genereras dynamiskt med uttrycket. Varje pipelinekörning har ett unikt ID. Kopieringsaktiviteten använder körnings-ID för att generera filnamnet.
 
 28. Växla till **pipeline**-redigeringsprogrammet genom att klicka på pipelinefliken högst upp eller på pipelinenamnet i trädvyn till vänster.
 29. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignerytan. **Anslut** gröna utdata (lyckades) från aktiviteten **Kopiera** till den **lagrade proceduraktiviteten**.
@@ -272,7 +272,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     1. Som **Namn på lagrad procedur** väljer du **usp_write_watermark**.
     2. När du ska ange värden för parametrarna för lagrad procedur klickar du på **Importera parameter** och anger följande värden för parametern:
 
-        | Namn | Typ | Värde |
+        | Name | Typ | Värde |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
@@ -284,7 +284,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
 
 ## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
-1. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlösare nu**.
+1. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlös nu**.
 
 2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**.
 
@@ -348,9 +348,9 @@ PersonID | Name | LastModifytime
 
 
 ## <a name="trigger-another-pipeline-run"></a>Utlös ytterligare en pipelinekörning
-1. Växla till fliken **Redigera.** Klicka på pipelinen i trädvyn om den inte öppnas i designern.
+1. Växla till fliken **redigera** . Klicka på pipelinen i trädvyn om den inte är öppen i designern.
 
-2. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlösare nu**.
+2. Klicka på **Lägg till utlösare** i verktygsfältet och klicka på **Utlös nu**.
 
 
 ## <a name="monitor-the-second-pipeline-run"></a>Övervaka den andra pipelinekörningen

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Google AdWords
-description: Lär dig hur du kopierar data från Google AdWords till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från Google AdWords till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
 ms.openlocfilehash: 79e277cb3d512ee17da866a61e9d6d66a50cd902
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415028"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Kopiera data från Google AdWords med Azure Data Factory
@@ -23,43 +23,43 @@ ms.locfileid: "81415028"
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Google AdWords. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från Google AdWords. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Google AdWords-kopplingen stöds för följande aktiviteter:
+Den här Google AdWords-anslutningen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
 
-Du kan kopiera data från Google AdWords till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
+Du kan kopiera data från Google AdWords till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
+Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för Google AdWords-anslutningsappen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Google AdWords-anslutningen.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för den länkade tjänsten i Google AdWords:
+Följande egenskaper stöds för den länkade Google AdWords-tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste vara inställd på: **GoogleAdWords** | Ja |
-| klientKundID | Kund-ID:t för det AdWords-konto som du vill hämta rapportdata för.  | Ja |
-| utvecklareToken | Utvecklartoken som är kopplad till förvaltarkontot som du använder för att bevilja åtkomst till AdWords-API:et.  Du kan välja att markera det här fältet som en SecureString för att lagra det säkert i ADF, eller lagra lösenord i Azure Key Vault och låta ADF kopiera aktivitet hämta därifrån när du utför datakopiering - läs mer från [Store-autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
-| authenticationType | OAuth 2.0-autentiseringsmekanismen som används för autentisering. ServiceAuthentication kan endast användas på självvärdbaserad IR. <br/>Tillåtna värden är: **ServiceAuthentication**, **UserAuthentication** | Ja |
-| uppdateraToken | Uppdateringstoken som hämtats från Google för att ha auktoriserat åtkomst till AdWords för UserAuthentication. Du kan välja att markera det här fältet som en SecureString för att lagra det säkert i ADF, eller lagra lösenord i Azure Key Vault och låta ADF kopiera aktivitet hämta därifrån när du utför datakopiering - läs mer från [Store-autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Inga |
-| ClientID | Klient-ID för Google-programmet som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det säkert i ADF, eller lagra lösenord i Azure Key Vault och låta ADF kopiera aktivitet hämta därifrån när du utför datakopiering - läs mer från [Store-autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Inga |
-| clientSecret (klientSecret) | Klienthemligheten för google-programmet som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det säkert i ADF, eller lagra lösenord i Azure Key Vault och låta ADF kopiera aktivitet hämta därifrån när du utför datakopiering - läs mer från [Store-autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Inga |
-| e-post | E-post-ID för tjänstkontot som används för ServiceAuthentication och kan endast användas på självvärdbaserad IR.  | Inga |
-| keyFilePath | Den fullständiga sökvägen till .p12-nyckelfilen som används för att autentisera e-postadressen för tjänstkontot och som endast kan användas på självvärdbaserad IR.  | Inga |
-| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara ställas in när du använder TLS på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
-| användaSystemTrustStore | Anger om ett CERTIFIKAT FRÅN systemförtroendearkivet eller från en angiven PEM-fil ska användas. Standardvärdet är false.  | Inga |
+| typ | Egenskapen Type måste anges till: **GoogleAdWords** | Ja |
+| clientCustomerID | Klientens kund-ID för det AdWords-konto som du vill hämta rapport data för.  | Ja |
+| developerToken | Den utvecklare-token som associeras med det hanterings konto som du använder för att bevilja åtkomst till AdWords-API: et.  Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
+| authenticationType | OAuth 2,0-autentiseringsmekanismen som används för autentisering. ServiceAuthentication kan bara användas för IR med egen värd. <br/>Tillåtna värden är: **ServiceAuthentication**, **UserAuthentication** | Ja |
+| refreshToken | Den uppdateringstoken som hämtades från Google för auktorisering av åtkomst till AdWords för UserAuthentication. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
+| ClientID | Klient-ID för det Google-program som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
+| clientSecret | Klient hemligheten för det Google-program som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
+| e-post | Tjänst kontots e-post-ID som används för ServiceAuthentication och kan bara användas på IR med egen värd.  | Nej |
+| keyFilePath | Den fullständiga sökvägen till nyckel filen. p12 som används för att autentisera tjänst kontots e-postadress och kan bara användas på IR med egen värd.  | Nej |
+| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare för att verifiera servern vid anslutning via TLS. Den här egenskapen kan bara anges när du använder TLS på IR med egen värd. Standardvärdet är den cacerts. PEM-fil som installeras med IR.  | Nej |
+| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |
 
 **Exempel:**
 
@@ -99,14 +99,14 @@ Följande egenskaper stöds för den länkade tjänsten i Google AdWords:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Google AdWords-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Google dataAdWordss-datauppsättning.
 
-Om du vill kopiera data från Google AdWords anger du datauppsättningens typegenskap på **GoogleAdWordsObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Google AdWords anger du egenskapen type för data uppsättningen till **GoogleAdWordsObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Datauppsättningens typegenskap måste anges till: **GoogleAdWordsObject** | Ja |
-| tableName | Tabellens namn. | Nej (om "fråga" i aktivitetskällan har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **GoogleAdWordsObject** | Ja |
+| tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -128,16 +128,16 @@ Om du vill kopiera data från Google AdWords anger du datauppsättningens typege
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Google AdWords-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Google AdWords-källan.
 
 ### <a name="google-adwords-as-source"></a>Google AdWords som källa
 
-Om du vill kopiera data från Google AdWords anger du källtypen i kopieringsaktiviteten till **GoogleAdWordsSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
+Om du vill kopiera data från Google AdWords anger du käll typen i kopierings aktiviteten till **GoogleAdWordsSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type property för kopians aktivitet måste anges till: **GoogleAdWordsSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **GoogleAdWordsSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -171,10 +171,10 @@ Om du vill kopiera data från Google AdWords anger du källtypen i kopieringsakt
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,101 +1,101 @@
 ---
-title: Vanliga frågor och svar om Azure Dev Spaces
+title: Vanliga frågor och svar om Azure dev Spaces
 services: azure-dev-spaces
 ms.date: 01/28/2020
 ms.topic: conceptual
-description: Hitta svar på några av de vanligaste frågorna om Azure Dev Spaces
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s '
+description: Hitta svar på några vanliga frågor om Azure dev Spaces
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414313"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure Dev Spaces
+# <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure dev Spaces
 
-Detta tar upp vanliga frågor om Azure Dev Spaces.
+Här är några vanliga frågor om Azure dev Spaces.
 
-## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Vilka versioner av Kubernetes stöds för Azure Dev Spaces?
+## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Vilka versioner av Kubernetes stöds för Azure dev Spaces?
 
-Azure Dev Spaces stöder alla [ga-versioner (General Availability) (För närvarande stöds av Kubernetes i AKS][aks-supported-k8s].
+Azure dev Spaces stöder alla [ga-versioner (General Availability) som stöds av Kubernetes i AKS][aks-supported-k8s].
 
-## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Vilka Azure-regioner tillhandahåller för närvarande Azure Dev Spaces?
+## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Vilka Azure-regioner tillhandahåller för närvarande Azure dev Spaces?
 
 Se [regioner som stöds][supported-regions] för en fullständig lista över tillgängliga regioner.
 
-## <a name="can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region"></a>Kan jag migrera mitt AKS-kluster med Azure Dev Spaces till en annan region?
+## <a name="can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region"></a>Kan jag migrera mitt AKS-kluster med Azure dev Spaces till en annan region?
 
-Ja, om du vill flytta aks-klustret med Azure Dev Spaces till en annan [region som stöds][supported-regions]rekommenderar vi att du skapar ett nytt kluster i den andra regionen och sedan installerar och konfigurerar Azure Dev Spaces och distribuerar dina resurser och program till ditt nya kluster. Mer information om hur du migrerar AKS finns i [Migrera till Azure Kubernetes Service (AKS)][aks-migration].
+Ja, om du vill flytta ditt AKS-kluster med Azure dev Spaces till en annan [region som stöds][supported-regions], rekommenderar vi att du skapar ett nytt kluster i den andra regionen och sedan installerar och konfigurerar Azure dev Spaces och distribuerar dina resurser och program till det nya klustret. Mer information om hur du migrerar AKS finns i [migrera till Azure Kubernetes service (AKS)][aks-migration].
 
-## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Kan jag använda Azure Dev Spaces med befintliga Dockerfiles eller Helm-diagram?
+## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Kan jag använda Azure dev Spaces med befintliga Dockerfiles-eller Helm-diagram?
 
-Ja, om projektet redan har en Dockerfile eller ett Helm-diagram kan du använda dessa filer med Azure Dev Spaces. När du `azds prep`kör `--chart` använder du parametern och anger platsen för diagrammet. Azure Dev Spaces genererar fortfarande en *filen azds.yaml* och *Dockerfile.develop,* men den ersätter eller ändrar inte en befintlig Dockerfile eller ett Helm-diagram. Du kan behöva ändra *filerna azds.yaml* och *Dockerfile.develop* för att allt ska `azds up`fungera korrekt med ditt befintliga program när du kör .
+Ja, om projektet redan har ett Dockerfile-eller Helm-diagram kan du använda dessa filer med Azure dev Spaces. När du kör `azds prep`använder du `--chart` parametern och anger placeringen för diagrammet. Azure dev Spaces kommer fortfarande att generera en *azds. yaml* -och *Dockerfile. utvecklar* -fil, men den ersätter eller ändrar inte ett befintligt Dockerfile eller ett Helm-diagram. Du kan behöva ändra *azds. yaml* och *Dockerfile. utveckla* filer för att allt ska fungera korrekt med ditt befintliga program när du kör `azds up`.
 
-När du använder ditt eget Dockerfile- eller Helm-diagram finns följande begränsningar:
-* Om du bara använder en Dockerfile måste den innehålla allt du behöver för att aktivera utvecklingsscenarier, till exempel språket SDK inte bara körningen. Om du använder en separat Dockerfile för Azure Dev Spaces, till exempel en Dockerfile.develop, måste allt du behöver för att aktivera utvecklingsscenarier inkluderas i den Dockerfile.
-* Helm-diagrammet måste ha stöd för att skicka en del av eller hela bildtaggen som ett värde från *values.yaml*.
-* Om du ändrar något med ingående kan du också uppdatera Helm-diagrammet för att använda den inkommande lösningen som tillhandahålls av Azure Dev Spaces.
-* Om du vill använda [routningsfunktionerna i Azure Dev Spaces][dev-spaces-routing]måste alla tjänster för ett enskilt projekt passa in i ett enda Kubernetes-namnområde och måste distribueras med enkel namngivning, till exempel *service-a*. I standarddiagram för Helm kan den här namngivningsuppdateringen göras genom att ange ett värde för egenskapen *fullnameOverride.*
+När du använder ett eget Dockerfile-eller Helm-diagram finns följande begränsningar:
+* Om du bara använder en Dockerfile måste den innehålla allt du behöver för att aktivera utvecklings scenarier, till exempel språk-SDK inte bara för körning. Om du använder en separat Dockerfile för Azure dev Spaces, till exempel en Dockerfile. utveckla, måste allt du behöver för att aktivera utvecklings scenarier ingå i Dockerfile.
+* Helm-diagrammet måste ha stöd för att skicka delar av eller hela bildtaggen som ett värde från *Values. yaml*.
+* Om du ändrar något med ingress kan du också uppdatera Helm-diagrammet för att använda den ingångs lösning som tillhandahålls av Azure dev Spaces.
+* Om du vill använda [routningsfunktioner som tillhandahålls av Azure dev Spaces][dev-spaces-routing]måste alla tjänster för ett enskilt projekt rymmas i ett enda Kubernetes-namnområde och måste distribueras med enkel namngivning, till exempel *service-a*. I standard Helm-diagram kan den här namngivnings uppdateringen göras genom att ange ett värde för egenskapen *fullnameOverride* .
 
-Om du vill jämföra ditt eget Dockerfile- eller Helm-diagram med en befintlig version som fungerar med Azure Dev Spaces granskar du de filer som genereras i [snabbstarten][quickstart-cli].
+Om du vill jämföra ditt eget Dockerfile-eller Helm-diagram med en befintlig version som fungerar med Azure dev Spaces, granskar du filerna som genereras i [snabb][quickstart-cli]starten.
 
 
-## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>Kan jag ändra de filer som genereras av Azure Dev Spaces?
+## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>Kan jag ändra filerna som genereras av Azure dev Spaces?
 
-Ja, du kan ändra *azds.yaml-filen,* Dockerfile och Helm-diagrammet [som genereras av Azure Dev Spaces när du förbereder projektet][dev-spaces-prep]. Om du ändrar dessa filer ändras hur projektet byggs och körs.
+Ja, du kan ändra *azds. yaml* -filen, Dockerfile och Helm-diagrammet [som genereras av Azure dev Spaces när du förbereder projektet][dev-spaces-prep]. Om du ändrar de här filerna ändras hur projektet skapas och körs.
 
-## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>Kan jag använda Azure Dev Spaces utan en offentlig IP-adress?
+## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>Kan jag använda Azure dev Spaces utan en offentlig IP-adress?
 
-Nej, du kan inte etablera Azure Dev Spaces på ett AKS-kluster utan en offentlig IP. En offentlig IP [behövs av Azure Dev Spaces för routning][dev-spaces-routing].
+Nej, du kan inte etablera Azure dev Spaces i ett AKS-kluster utan en offentlig IP-adress. En offentlig IP [krävs av Azure dev Spaces för routning][dev-spaces-routing].
 
-## <a name="can-i-use-my-own-ingress-with-azure-dev-spaces"></a>Kan jag använda min egen inträngning med Azure Dev Spaces?
+## <a name="can-i-use-my-own-ingress-with-azure-dev-spaces"></a>Kan jag använda mina egna ingress med Azure dev Spaces?
 
-Ja, du kan konfigurera din egen inträngning längs sidan den ingång Azure Dev Spaces skapar. Du kan till exempel använda [traefik][ingress-traefik] eller [NGINX][ingress-nginx].
+Ja, du kan konfigurera dina egna ingångs sidor på sidan ingångs steg för Azure dev. Du kan till exempel använda [traefik][ingress-traefik] eller [nginx][ingress-nginx].
 
-## <a name="can-i-use-https-with-azure-dev-spaces"></a>Kan jag använda HTTPS med Azure Dev Spaces?
+## <a name="can-i-use-https-with-azure-dev-spaces"></a>Kan jag använda HTTPS med Azure dev Spaces?
 
-Ja, du kan konfigurera din egen inträngning med HTTPS med [traefik][ingress-https-traefik] eller [NGINX][ingress-https-nginx].
+Ja, du kan konfigurera dina egna ingress med HTTPS med hjälp av [traefik][ingress-https-traefik] eller [nginx][ingress-https-nginx].
 
-## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>Kan jag använda Azure Dev Spaces i ett kluster som använder CNI i stället för kubenet? 
+## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>Kan jag använda Azure dev Spaces i ett kluster som använder CNI i stället för Kubernetes? 
 
-Ja, du kan använda Azure Dev Spaces i ett AKS-kluster som använder CNI för nätverk. Du kan till exempel använda Azure Dev Spaces i ett AKS-kluster med [befintliga Windows-behållare][windows-containers], som använder CNI för nätverk. Mer information om hur du använder CNI för nätverk med Azure Dev Spaces finns [här](configure-networking.md#using-azure-cni).
+Ja, du kan använda Azure dev Spaces i ett AKS-kluster som använder CNI för nätverk. Du kan till exempel använda Azure dev Spaces i ett AKS-kluster med [befintliga Windows-behållare][windows-containers]som använder cni för nätverk. Mer information om hur du använder CNI för nätverk med Azure dev Spaces finns [här](configure-networking.md#using-azure-cni).
 
-## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>Kan jag använda Azure Dev Spaces med Windows-behållare?
+## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>Kan jag använda Azure dev Spaces med Windows-behållare?
 
-För närvarande är Azure Dev Spaces endast avsett att köras på Linux-poddar och noder, men du kan köra Azure Dev Spaces i ett AKS-kluster med [befintliga Windows-behållare][windows-containers].
+För närvarande är Azure dev Spaces endast avsett att köras på Linux-poddar och noder, men du kan köra Azure dev Spaces i ett AKS-kluster med [befintliga Windows-behållare][windows-containers].
 
-## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>Kan jag använda Azure Dev Spaces i AKS-kluster med API-serverauktoriserat IP-adressintervall aktiverat?
+## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>Kan jag använda Azure dev Spaces på AKS-kluster med autentiserade IP-adressintervall för API-servern?
 
-Ja, du kan använda Azure Dev Spaces på AKS-kluster med [API-serverauktoriserat IP-adressintervall][aks-auth-range] aktiverat. Mer information om hur du använder ett AKS-kluster med API-serverauktoriserade IP-adressintervall som är aktiverade med Azure Dev Spaces finns [här](configure-networking.md#using-api-server-authorized-ip-ranges).
+Ja, du kan använda Azure dev Spaces på AKS-kluster med [autentiserade IP-adressintervall för API-servern][aks-auth-range] aktiverat. Mer information om hur du använder ett AKS-kluster med auktoriserade IP-adressintervall med API-server som är aktiverade med Azure dev Spaces finns [här](configure-networking.md#using-api-server-authorized-ip-ranges).
 
-## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Kan jag använda Azure Dev Spaces i AKS-kluster med begränsad utgående trafik för klusternoder?
+## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Kan jag använda Azure dev Spaces på AKS-kluster med begränsad utgående trafik för klusternoder?
 
-Ja, du kan använda Azure Dev Spaces på AKS-kluster med [begränsad utgående trafik för klusternoder][aks-restrict-egress-traffic] aktiverade när rätt FQDN har tillåtits. Mer information om hur du använder ett AKS-kluster med begränsad utgående trafik för klusternoder som är aktiverade med Azure Dev Spaces finns [här](configure-networking.md#ingress-and-egress-network-traffic-requirements).
+Ja, du kan använda Azure dev Spaces på AKS-kluster med [begränsad utgående trafik för klusternoder][aks-restrict-egress-traffic] aktiverade när rätt fullständiga domän namn har tillåtits. Mer information om hur du använder ett AKS-kluster med begränsad utgående trafik för klusternoder som är aktiverade med Azure dev Spaces finns [här](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
-## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Kan jag använda Azure Dev Spaces på RBAC-aktiverade AKS-kluster?
+## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Kan jag använda Azure dev Spaces på RBAC-aktiverade AKS-kluster?
 
-Ja, du kan använda Azure Dev Spaces på AKS-kluster med eller utan RBAC aktiverat.
+Ja, du kan använda Azure dev Spaces på AKS-kluster med eller utan RBAC-aktiverat.
 
-## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Vad händer när jag aktiverar inträngning för projekt i Visual Studio?
+## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Vad händer när jag aktiverar ingress för projekt i Visual Studio?
 
-När du använder Visual Studio för att förbereda projektet kan du aktivera inträngning för din tjänst. Om du aktiverar ingress skapas en offentlig slutpunkt för att komma åt din tjänst när du kör på AKS-klustret, vilket är valfritt. Om du inte aktiverar inträngning är tjänsten endast tillgänglig inifrån AKS-klustret.
+När du använder Visual Studio för att förbereda ditt projekt har du möjlighet att aktivera ingångar för din tjänst. Genom att aktivera ingångar skapas en offentlig slut punkt för att komma åt tjänsten när den körs på ditt AKS-kluster, vilket är valfritt. Om du inte aktiverar ingress är din tjänst bara tillgänglig i AKS-klustret.
 
-## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Kan jag använda pod-hanterade identiteter med Azure Dev Spaces?
+## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Kan jag använda Pod Managed Identities med Azure dev Spaces?
 
-Ja, du kan använda [pod-hanterade identiteter][aks-pod-managed-id] på AKS-kluster med Azure Dev Spaces aktiverat, men det finns [ytterligare konfigurationssteg][dev-spaces-pod-managed-id-steps] när du har aktiverat Azure Dev Spaces i klustret med pod-hanterade identiteter. Om du har pod hanterade identiteter installerade och vill avinstallera det, kan du hitta mer information i [avinstallera anteckningar][aks-pod-managed-id-uninstall].
+Ja, du kan använda [Pod hanterade identiteter][aks-pod-managed-id] på AKS-kluster med Azure dev-utrymmen aktiverade, men det finns [ytterligare konfigurations steg][dev-spaces-pod-managed-id-steps] när du har aktiverat Azure dev Spaces i klustret med Pod hanterade identiteter. Om du har Pod hanterade identiteter installerade och vill avinstallera den, kan du hitta mer information i [avinstallations anteckningarna][aks-pod-managed-id-uninstall].
 
-## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>Kan jag använda Azure Dev Spaces med flera mikrotjänster i ett program?
+## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>Kan jag använda Azure dev Spaces med flera mikrotjänster i ett program?
 
-Ja, du kan använda Azure Dev Spaces i ett program med flera mikrotjänster, men du måste förbereda och köra de enskilda mikrotjänsterna vid roten. Azure Dev Spaces CLI, Azure Dev Spaces VS-kodtillägg och Visual Studio Azure Development-arbetsbelastningen förväntar sig att *azds.yaml-filen* ska vara roten till mikrotjänsten för att köra och felsöka. Se [exempelprogrammet Bike Sharing][bike-sharing] för ett exempel på flera mikrotjänster i ett enda program.
+Ja, du kan använda Azure dev Spaces i ett program med flera mikrotjänster, men du måste förbereda och köra enskilda mikrotjänster i roten. Azure dev Spaces CLI, Azure dev Spaces VS Code extension och Visual Studio Azure Development-arbetsbelastningen förväntar sig att filen *azds. yaml* ska vara i roten av mikrotjänsten för att kunna köra och felsöka. Se exempel [programmet cykel delning][bike-sharing] för att se ett exempel på flera mikrotjänster i ett enda program.
 
-I Visual Studio-kod är det möjligt att [öppna separata projekt på en enda arbetsyta][vs-code-multi-root-workspaces] och felsöka dem separat via Azure Dev Spaces. Vart och ett av projekten måste vara fristående och förberedda för Azure Dev Spaces.
+I Visual Studio Code är det möjligt att [Öppna separata projekt i en enda arbets yta][vs-code-multi-root-workspaces] och felsöka dem separat via Azure dev Spaces. Varje projekt måste vara fristående och för beredda för Azure dev Spaces.
 
-I Visual Studio är det möjligt att konfigurera .NET Core-lösningar för felsökning via Azure Dev Spaces.
+I Visual Studio är det möjligt att konfigurera .NET Core-lösningar för fel sökning via Azure dev Spaces.
 
-## <a name="can-i-use-azure-dev-spaces-with-a-service-mesh"></a>Kan jag använda Azure Dev Spaces med ett tjänstnät?
+## <a name="can-i-use-azure-dev-spaces-with-a-service-mesh"></a>Kan jag använda Azure dev Spaces med ett service nät?
 
-För närvarande kan du inte använda Azure Dev Spaces med tjänstnät som [Istio][istio] eller [Linkerd][linkerd]. Du kan köra Azure Dev Spaces och ett tjänstnät i samma AKS-kluster, men du kan inte ha både Azure Dev Spaces och ett tjänstnät aktiverat i samma namnområde.
+För närvarande kan du inte använda Azure dev Spaces med service nät som [Istio][istio] eller [Linkerd][linkerd]. Du kan köra Azure dev Spaces och ett service nät i samma AKS-kluster, men du kan inte ha både Azure dev Spaces och ett service nät aktiverat i samma namnrymd.
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled

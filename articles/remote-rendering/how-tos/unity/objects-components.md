@@ -1,30 +1,30 @@
 ---
-title: Unity spel objekt och komponenter
-description: Beskriver Unity-specifika metoder för att arbeta med fjärrrenderingsentiteter och komponenter.
+title: Unity Game-objekt och-komponenter
+description: Beskriver Unity-metoder för att arbeta med entiteter och komponenter för fjär åter givning.
 author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81409857"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interagera med spelobjekt och komponenter i Unity
 
-Azure Remote Rendering (ARR) är optimerad för ett stort antal objekt (se [Begränsningar](../../reference/limits.md)). Även om det är möjligt att hantera stora och komplexa hierarkier på värden, är det omöjligt att replikera dem alla i Unity på lågdrivna enheter.
+ARR (Azure Remote rendering) är optimerat för stora antal objekt (se [begränsningar](../../reference/limits.md)). Även om det är möjligt att hantera stora och komplexa hierarkier på värden, är det omöjligt att replikera dem på enheter med låg belastning.
 
-När en modell läses in på värden speglar Azure Remote Rendering därför informationen om modellstrukturen på klientenheten (som kommer att ådra sig nätverkstrafik), men replikerar inte objekt och komponenter i Unity. Istället förväntar den sig att du begär de nödvändiga Unity-spelobjekten och komponenterna manuellt, så att du kan begränsa omkostnaderna till vad som faktiskt behövs. På så sätt har du mer kontroll över klientsidans prestanda.
+När en modell läses in på värden speglar därför Azure-fjärrrenderingen informationen om modell strukturen på klient enheten (vilket kommer att ådra sig nätverks trafik), men replikerar inte objekten och komponenterna i enhet. I stället förväntar vi dig att begära de enhets spels objekt och komponenter som krävs manuellt, så att du kan begränsa omkostnaderna till vad som verkligen behövs. På så sätt får du mer kontroll över prestanda på klient sidan.
 
-Därför levereras Unity-integreringen av Azure Remote Rendering med ytterligare funktioner för att replikera fjärråtergivningsstrukturen på begäran.
+Det innebär att unions integreringen av Azure fjärrrendering kommer att ha ytterligare funktioner för att replikera fjär åter givnings strukturen på begäran.
 
-## <a name="load-a-model-in-unity"></a>Ladda en modell i Unity
+## <a name="load-a-model-in-unity"></a>Läs in en modell i Unity
 
-När du läser in en modell får du en referens till rotobjektet för den inlästa modellen. Den här referensen är inte ett Unity-spelobjekt, men `Entity.GetOrCreateGameObject()`du kan förvandla det till ett med hjälp av tilläggsmetoden . Den funktionen förväntar sig `UnityCreationMode`ett argument av typen . Om du `CreateUnityComponents`klarar dig fylls det nyligen skapade Unity-spelobjektet dessutom med proxykomponenter för alla fjärrrenderingskomponenter som finns på värden. Det rekommenderas dock att `DoNotCreateUnityComponents`föredra , att hålla overhead minimal.
+När du läser in en modell får du en referens till det inlästa modellens rot objekt. Den här referensen är inte ett enhets spel objekt, men du kan göra det till ett med `Entity.GetOrCreateGameObject()`hjälp av tilläggs metoden. Funktionen förväntar sig ett argument av `UnityCreationMode`typen. Om du skickar `CreateUnityComponents`så fylls det nya enhets spels objektet i med proxy-komponenter för alla komponenter för fjärrrendering som finns på värden. Vi rekommenderar att, men för att föredra `DoNotCreateUnityComponents`, behålla den lägsta omkostnaden.
 
-### <a name="load-model-with-task"></a>Läs in modell med uppgift
+### <a name="load-model-with-task"></a>Läs in modell med aktivitet
 
 ```cs
 LoadModelAsync _pendingLoadTask = null;
@@ -50,7 +50,7 @@ void LoadModelWithTask()
 }
 ```
 
-### <a name="load-model-with-unity-coroutines"></a>Ladda modell med Unity coroutines
+### <a name="load-model-with-unity-coroutines"></a>Läs in modell med enhets driv rutiner
 
 ```cs
 IEnumerator LoadModelWithCoroutine()
@@ -72,7 +72,7 @@ IEnumerator LoadModelWithCoroutine()
 }
 ```
 
-### <a name="load-model-with-await-pattern"></a>Ladda modell med inväntningsmönster
+### <a name="load-model-with-await-pattern"></a>Läs in modell med väntande mönster
 
 ```cs
 async void LoadModelWithAwait()
@@ -82,33 +82,33 @@ async void LoadModelWithAwait()
 }
 ```
 
-Kodexemplen ovan använde modellen lastning sökvägen via SAS eftersom den inbyggda modellen är inläst. Att adressera modellen via blob-behållare (med och `LoadModelAsync` `LoadModelParams`) fungerar helt analogt.
+I kod exemplen ovan används modell inläsnings Sök vägen via SAS eftersom den inbyggda modellen har lästs in. Att adressera modellen via BLOB-behållare (med `LoadModelAsync` och `LoadModelParams`) fungerar helt analogously.
 
 ## <a name="remoteentitysyncobject"></a>RemoteEntitySyncObject
 
-Om du skapar ett Unity-spelobjekt läggs en `RemoteEntitySyncObject` komponent implicit till i spelobjektet. Den här komponenten används för att synkronisera entitetens transformering till servern. Som `RemoteEntitySyncObject` standard kräver användaren `SyncToRemote()` att uttryckligen ringa för att synkronisera den lokala Unity tillstånd till servern. Om `SyncEveryFrame` du aktiverar objektet synkroniseras objektet automatiskt.
+När du skapar ett enhets spels objekt `RemoteEntitySyncObject` läggs en komponent till i Game-objektet implicit. Den här komponenten används för att synkronisera enhets omvandlingen till servern. Som standard `RemoteEntitySyncObject` behöver användaren uttryckligen anropa `SyncToRemote()` för att synkronisera lokal enhets status till servern. Aktivera `SyncEveryFrame` kommer att synkronisera objektet automatiskt.
 
-Objekt med `RemoteEntitySyncObject` en kan få sina avlägsna barn instansierade och visas i Unity-redigeraren via knappen **Visa barn.**
+Objekt med en `RemoteEntitySyncObject` kan ha sina fjärrnoder instansierade och visas i Unity-redigeraren via knappen **Visa underordnade** .
 
 ![RemoteEntitySyncObject](media/remote-entity-sync-object.png)
 
-## <a name="wrapper-components"></a>Omslagskomponenter
+## <a name="wrapper-components"></a>Omslutnings komponenter
 
-[Komponenter](../../concepts/components.md) som är kopplade till fjärrrenderingsentiteter exponeras för Unity via proxy. `MonoBehavior` Dessa proxyservrar representerar fjärrkomponenten i Unity och vidarebefordrar alla ändringar till värden.
+[Komponenter](../../concepts/components.md) som är kopplade till fjärrstyrda entiteter exponeras `MonoBehavior`för enhets hantering via proxy s. Dessa proxyservrar representerar fjärrkomponenten i enhet och vidarebefordrar alla ändringar av värden.
 
-Om du vill skapa proxykomponenter `GetOrCreateArrComponent`för fjärråtergivning använder du tilläggsmetoden:
+Använd tilläggs metoden `GetOrCreateArrComponent`för att skapa proxy Remote rendering-komponenter:
 
 ```cs
 var cutplane = gameObject.GetOrCreateArrComponent<ARRCutPlaneComponent>(RemoteManagerUnity.CurrentSession);
 ```
 
-## <a name="coupled-lifetimes"></a>Kopplade livstider
+## <a name="coupled-lifetimes"></a>Kopplade livs längder
 
-Livslängden för en [fjärrenhet](../../concepts/entities.md) och ett Unity-spelobjekt kopplas ihop medan de är bundna genom en `RemoteEntitySyncObject`. Om du `UnityEngine.Object.Destroy(...)` ringer med ett sådant spelobjekt tas även fjärrentiteten bort.
+Livs längden för en fjärran sluten [entitet](../../concepts/entities.md) och ett enhets spels objekt är kopplade när `RemoteEntitySyncObject`de är kopplade till en. Om du anropar `UnityEngine.Object.Destroy(...)` med ett sådant spel objekt tas även den fjärranslutna entiteten bort.
 
-För att förstöra Unity-spelobjektet, utan att påverka `Unbind()` fjärrentiteten, måste du först anropa `RemoteEntitySyncObject`.
+Om du vill förstöra enhetens spel objekt utan att påverka fjärrentiteten måste du först anropa `Unbind()` `RemoteEntitySyncObject`.
 
-Detsamma gäller för alla proxykomponenter. Om du bara vill förstöra representationen `Unbind()` på klientsidan måste du först anropa proxykomponenten:
+Samma sak gäller för alla proxy-komponenter. Om du bara vill förstöra en representation på klient sidan måste du först `Unbind()` anropa proxy-komponenten:
 
 ```cs
 var cutplane = gameObject.GetComponent<ARRCutPlaneComponent>();
@@ -122,4 +122,4 @@ if (cutplane != null)
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera Remote Rendering för Unity](unity-setup.md)
-* [Självstudiekurs: Arbeta med fjärrenheter i Unity](../../tutorials/unity/working-with-remote-entities.md)
+* [Självstudie: arbeta med fjär entiteter i enhet](../../tutorials/unity/working-with-remote-entities.md)

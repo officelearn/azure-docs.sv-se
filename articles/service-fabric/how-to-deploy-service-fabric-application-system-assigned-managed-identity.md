@@ -4,24 +4,24 @@ description: Den här artikeln visar hur du tilldelar en systemtilldelad hantera
 ms.topic: article
 ms.date: 07/25/2019
 ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415659"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Distribuera Service Fabric-program med systemtilldelad hanterad identitet
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Distribuera Service Fabric program med systemtilldelad hanterad identitet
 
-För att komma åt funktionen hanterad identitet för Azure Service Fabric-program måste du först aktivera den hanterade identitetstokentjänsten i klustret. Den här tjänsten ansvarar för autentisering av Service Fabric-program med hjälp av deras hanterade identiteter och för att erhålla åtkomsttoken för deras räkning. När tjänsten är aktiverad kan du se den i Service Fabric Explorer under avsnittet **System** i den vänstra rutan och köras under namnet **fabric:/System/ManagedIdentityTokenService** bredvid andra systemtjänster.
+För att få åtkomst till funktionen för hanterad identitet för Azure Service Fabric-program måste du först aktivera hanterad identitetsprovider i klustret. Den här tjänsten ansvarar för autentiseringen av Service Fabric program med hjälp av deras hanterade identiteter och för att få åtkomst till token för deras räkning. När tjänsten är aktive rad kan du se den i Service Fabric Explorer under **system** avsnittet i det vänstra fönstret, som körs under namnet **Fabric:/system/ManagedIdentityTokenService** bredvid andra system tjänster.
 
 > [!NOTE] 
-> Distribution av Service Fabric-program med hanterade `"2019-06-01-preview"`identiteter stöds från och med API-version . Du kan också använda samma API-version för programtyp, programtypsversion och tjänstresurser. Minsta service fabric-körning som stöds är 6,5 CU2. I additoin bör bygg- och paketmiljön också ha SF .Net SDK på CU2 eller högre
+> Distribution av Service Fabric program med hanterade identiteter stöds från och med API `"2019-06-01-preview"`-versionen. Du kan också använda samma API-version för program typ, version av program typ och tjänst resurser. Den lägsta Service Fabric runtime som stöds är 6,5 CU2. I additoin bör Bygg-/paket miljön också ha SF .NET SDK på CU2 eller högre
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
 
 ### <a name="application-template"></a>Programmall
 
-Om du vill aktivera program med en **identity** systemtilldelad hanterad identitet lägger du till identitetsegenskapen i programresursen, med typ **systemAssigned** som visas i exemplet nedan:
+Om du vill aktivera program med en systemtilldelad hanterad identitet lägger du till egenskapen **identitet** i program resursen med typen **systemAssigned** som visas i exemplet nedan:
 
 ```json
     {
@@ -43,11 +43,11 @@ Om du vill aktivera program med en **identity** systemtilldelad hanterad identit
       }
     }
 ```
-Den här egenskapen deklarerar (till Azure Resource Manager och resursleverantörerna för hanterad identitet`system assigned`och tjänstinfrastruktur, respektive att den här resursen ska ha en implicit ( ) hanterad identitet.
+Den här egenskapen deklarerar (till Azure Resource Manager och de hanterade identitets-och Service Fabric resurs leverantörerna, som denna resurs måste ha en`system assigned`implicit () hanterad identitet.
 
-### <a name="application-and-service-package"></a>Program- och servicepaket
+### <a name="application-and-service-package"></a>Program-och tjänst paket
 
-1. Uppdatera programmanifestet för att lägga till ett **ManagedIdentity-element** i avsnittet **Huvudnamn,** som innehåller en enda post enligt nedan:
+1. Uppdatera applikations manifestet för att lägga till ett **ManagedIdentity** -element i avsnittet **säkerhets objekt** , som innehåller en enda post som visas nedan:
 
     **ApplicationManifest.xml**
 
@@ -58,9 +58,9 @@ Den här egenskapen deklarerar (till Azure Resource Manager och resursleverantö
       </ManagedIdentities>
     </Principals>
     ```
-    Detta mappar identiteten som tilldelats programmet som en resurs till ett eget namn, för ytterligare tilldelning till de tjänster som ingår i programmet. 
+    Detta mappar den identitet som är tilldelad till programmet som en resurs till ett eget namn, för ytterligare tilldelning till de tjänster som omfattar programmet. 
 
-2. I avsnittet **ServiceManifestImport** som motsvarar den tjänst som tilldelas den hanterade identiteten lägger du till ett **IdentityBindingPolicy-element** enligt nedan:
+2. I avsnittet **service manifest import** som motsvarar den tjänst som tilldelas den hanterade identiteten lägger du till ett **IdentityBindingPolicy** -element enligt nedan:
 
     **ApplicationManifest.xml**
 
@@ -72,9 +72,9 @@ Den här egenskapen deklarerar (till Azure Resource Manager och resursleverantö
         </ServiceManifestImport>
       ```
 
-    Det här elementet tilldelar programmets identitet till tjänsten. Utan den här tilldelningen kommer tjänsten inte att kunna komma åt programmets identitet. I kodavsnittet ovan `SystemAssigned` mappas identiteten (som är ett reserverat nyckelord) till `WebAdmin`tjänstens definition under det egna namnet .
+    Det här elementet tilldelar identiteten för programmet till tjänsten. utan den här tilldelningen kommer tjänsten inte att kunna komma åt appens identitet. I kodfragmentet ovan mappas `SystemAssigned` identiteten (som är ett reserverat nyckelord) till tjänstens definition under det egna namnet `WebAdmin`.
 
-3. Uppdatera tjänstmanifestet om du vill lägga till ett **ManagedIdentity-element** i `IdentityBindingPolicy` avsnittet **Resurser** med namnet som matchar värdet för `ServiceIdentityRef` inställningen från definitionen i programmanifestet:
+3. Uppdatera tjänst manifestet för att lägga till ett **ManagedIdentity** -element i avsnittet **Resources** med namnet som matchar `ServiceIdentityRef` värdet för inställningen `IdentityBindingPolicy` från definitionen i applikations manifestet:
 
     **ServiceManifest.xml**
 
@@ -86,12 +86,12 @@ Den här egenskapen deklarerar (till Azure Resource Manager och resursleverantö
         </ManagedIdentities>
       </Resources>
     ```
-    Detta är motsvarande mappning av en identitet till en tjänst som beskrivs ovan, men ur tjänstdefinitionen. Identiteten refereras här av dess`WebAdmin`eget namn ( ), som deklarerats i ansökan manifestet.
+    Detta är den likvärdiga mappningen av en identitet till en tjänst enligt beskrivningen ovan, men ur tjänst definitionens perspektiv. Identiteten hänvisas till här med sitt egna namn (`WebAdmin`), enligt vad som har deklarerats i applikations manifestet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * Granska [stöd för hanterad identitet](./concepts-managed-identity.md) i Azure Service Fabric
 * [Distribuera en ny](./configure-new-azure-service-fabric-enable-managed-identity.md) Azure Service Fabric-kluster med stöd för hanterad identitet 
 * [Aktivera hanterad identitet](./configure-existing-cluster-enable-managed-identity-token-service.md) i ett befintligt Azure Service Fabric-kluster
-* Utnyttja ett Service Fabric-programs [hanterade identitet från källkoden](./how-to-managed-identity-service-fabric-app-code.md)
-* [Distribuera ett Azure Service Fabric-program med en användartilldelad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Bevilja en Azure Service Fabric-programåtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)
+* Utnyttja ett Service Fabric programmets [hanterade identitet från käll koden](./how-to-managed-identity-service-fabric-app-code.md)
+* [Distribuera ett Azure Service Fabric-program med en användardefinierad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Bevilja ett Azure Service Fabric program åtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)

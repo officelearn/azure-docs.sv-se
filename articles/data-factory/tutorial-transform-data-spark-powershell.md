@@ -1,5 +1,5 @@
 ---
-title: 'Omvandla data med Spark i Azure Data Factory '
+title: 'Transformera data med Spark i Azure Data Factory '
 description: Den här självstudiekursen innehåller stegvisa instruktioner för hur du transformerar data genom att använda en Spark-aktivitet i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81409090"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
@@ -30,18 +30,18 @@ I den här självstudien använder du Azure PowerShell för att skapa en Data Fa
 > * Starta en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure Storage-konto**. Du skapar ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
+* **Azure Storage konto**. Du skapar ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 * **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps).
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Överföra Python-skriptet till ditt Blob Storage-konto
-1. Skapa en python-fil med namnet **WordCount_Spark.py** med följande innehåll: 
+1. Skapa en python-fil med namnet **WordCount_Spark. py** med följande innehåll: 
 
     ```python
     import sys
@@ -135,8 +135,8 @@ Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definit
 Uppdatera värden för följande egenskaper i definitionen för den länkade tjänsten: 
 
 - **hostSubscriptionId**. Ersätt &lt;subscriptionId&gt; med ID:t för din Azure-prenumeration. Klustret HDInsight på begäran skapas i den här prenumerationen. 
-- **hyresgäst .** Ersätt &lt;tenantID&gt; med Azure-klientens ID. 
-- **servicePrincipalId**, **servicePrincipalKey**. Ersätt &lt;servicePrincipalID&gt; och &lt;servicePrincipalKey&gt; med ID och nyckel för tjänstens huvudnamn i Azure Active Directory. Tjänstens huvudnamn måste vara medlem av prenumerationens deltagarrollen eller resursgruppen som klustret har skapats i. Mer information finns i [create Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (skapa Azure Active Directory-program och ett huvudnamn för tjänsten). **Tjänstens huvud-ID** motsvarar *program-ID:t* och en **huvudnyckel** för tjänsten motsvarar värdet för en *klienthemlighet*.
+- **klient**. Ersätt &lt;tenantID&gt; med Azure-klientens ID. 
+- **servicePrincipalId**, **servicePrincipalKey**. Ersätt &lt;servicePrincipalID&gt; och &lt;servicePrincipalKey&gt; med ID och nyckel för tjänstens huvudnamn i Azure Active Directory. Tjänstens huvudnamn måste vara medlem av prenumerationens deltagarrollen eller resursgruppen som klustret har skapats i. Mer information finns i [create Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md) (skapa Azure Active Directory-program och ett huvudnamn för tjänsten). **Tjänstens huvud namn-ID** motsvarar *program-ID:* t och en **nyckel för tjänstens huvud namn** motsvarar värdet för en *klient hemlighet*.
 - **clusterResourceGroup**. Ersätt &lt;resourceGroupOfHDICluster&gt; med namnet på resursgruppen som HDInsight-klustret ska skapas i. 
 
 > [!NOTE]
@@ -186,12 +186,12 @@ Du har skapat definitioner för länkad tjänst och pipeline i JSON-filer. Nu sk
 
 1. Ange variabler en i taget.
 
-    **Namn på resursgrupp**
+    **Resurs grupps namn**
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup" 
     ```
 
-    **Data fabriksnamn. Måste vara globalt unik** 
+    **Data Factory namn. Måste vara globalt unikt** 
     ```powershell
     $dataFactoryName = "MyDataFactory09102017"
     ```
@@ -344,7 +344,7 @@ Pipeline i det här exemplet kopierar data från en plats till en annan i Azure 
 Gå vidare till nästa självstudiekurs för att lära dig hur du transformerar data genom att köra Hive-skript på ett Azure HDInsight-kluster som är i ett virtuellt nätverk. 
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: omvandla data med Hive i Azure Virtual Network](tutorial-transform-data-hive-virtual-network.md).
+> [Självstudie: transformera data med Hive i Azure Virtual Network](tutorial-transform-data-hive-virtual-network.md).
 
 
 

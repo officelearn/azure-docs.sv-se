@@ -1,6 +1,6 @@
 ---
 title: Kopiera data till eller från Azure Data Lake Storage Gen1
-description: Lär dig hur du kopierar data från källdatalager som stöds till Azure Data Lake Store eller från DataSjölagret till sink-butiker som stöds med hjälp av Data Factory.
+description: Lär dig hur du kopierar data från käll data lager som stöds till Azure Data Lake Store eller från Data Lake Store till mottagar mottagar lager med hjälp av Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
 ms.openlocfilehash: 61bb8fe950de8cd9be91bc76bd24aa0151f3fb79
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415416"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Kopiera data till eller från Azure Data Lake Storage Gen1 med Azure Data Factory
@@ -26,70 +26,70 @@ ms.locfileid: "81415416"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du kopierar data till och från Azure Data Lake Storage Gen1. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
+Den här artikeln beskriver hur du kopierar data till och från Azure Data Lake Storage Gen1. Läs den [inledande artikeln](introduction.md)om du vill veta mer om Azure Data Factory.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Azure Data Lake Storage Gen1-anslutningen stöds för följande aktiviteter:
+Den här Azure Data Lake Storage Gen1 anslutningen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md) 
-- [Mappa dataflöde](concepts-data-flow-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md) 
+- [Mappa data flöde](concepts-data-flow-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 - [Ta bort aktivitet](delete-activity.md)
 
-Med den här kontakten kan du:
+Med den här anslutningen kan du särskilt:
 
-- Kopiera filer med hjälp av någon av följande autentiseringsmetoder: tjänstens huvudnamn eller hanterade identiteter för Azure-resurser.
-- Kopiera filer som de är eller tolka eller generera filer med [de filformat och komprimeringskoderna som stöds](supported-file-formats-and-compression-codecs.md).
-- [Bevara ACL:er](#preserve-acls-to-data-lake-storage-gen2) när du kopierar till Azure Data Lake Storage Gen2.
+- Kopiera filer med någon av följande autentiseringsmetoder: tjänstens huvud namn eller hanterade identiteter för Azure-resurser.
+- Kopiera filer som är eller tolka eller generera filer med de [fil format och komprimerings-codecar som stöds](supported-file-formats-and-compression-codecs.md).
+- [Bevara ACL: er](#preserve-acls-to-data-lake-storage-gen2) när du kopierar till Azure Data Lake Storage Gen2.
 
 > [!IMPORTANT]
-> Om du kopierar data med hjälp av den självvärderade integrationskörningen `<ADLS account name>.azuredatalakestore.net` `login.microsoftonline.com/<tenant>/oauth2/token` konfigurerar du företagsbrandväggen så att utgående trafik tillåts till och på port 443. Den senare är Azure Security Token Service som integrationen körtid måste kommunicera med för att få åtkomsttoken.
+> Om du kopierar data med hjälp av integration runtime med egen värd konfigurerar du företags brand väggen så att den tillåter utgående `<ADLS account name>.azuredatalakestore.net` trafik `login.microsoftonline.com/<tenant>/oauth2/token` till och på port 443. Det sistnämnda är den Azure-säkerhetstokentjänst som integration runtime måste kommunicera med för att få åtkomst-token.
 
 ## <a name="get-started"></a>Kom igång
 
 > [!TIP]
-> En genomgång av hur du använder Azure Data Lake Store-kopplingen finns [i Läsa in data i Azure Data Lake Store](load-azure-data-lake-store.md).
+> En genom gång av hur du använder Azure Data Lake Store-anslutningen finns i [läsa in data i Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Azure Data Lake Store.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure Data Lake Store.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för den länkade azure datasjölagringstjänsten:
+Följande egenskaper stöds för den länkade tjänsten Azure Data Lake Store:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen `type` måste anges till **AzureDataLakeStore**. | Ja |
-| dataLakeStoreUri | Information om Azure Data Lake Store-kontot. Den här informationen tar något `https://[accountname].azuredatalakestore.net/webhdfs/v1` av `adl://[accountname].azuredatalakestore.net/`följande format: eller . | Ja |
-| subscriptionId | Det Azure-prenumerations-ID som Data Lake Store-kontot tillhör. | Krävs för diskbänk |
-| resourceGroupName | Namnet på Azure-resursgruppen som datasjölagringskontot tillhör. | Krävs för diskbänk |
-| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Du kan använda Azure-integreringskörningen eller en självvärderad integrationskörning om ditt datalager finns i ett privat nätverk. Om den här egenskapen inte anges används standardkörningen för Azure-integrering. |Inga |
+| typ | `type` Egenskapen måste anges till **AzureDataLakeStore**. | Ja |
+| dataLakeStoreUri | Information om Azure Data Lake Store-kontot. Den här informationen tar något av följande format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` eller `adl://[accountname].azuredatalakestore.net/`. | Ja |
+| subscriptionId | ID för Azure-prenumerationen som Data Lake Store kontot tillhör. | Krävs för Sink |
+| resourceGroupName | Namnet på den Azure-resurs grupp som Data Lake Store kontot tillhör. | Krävs för Sink |
+| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure integration runtime eller en lokal integration Runtime om ditt data lager finns i ett privat nätverk. Om den här egenskapen inte anges används standard körningen av Azure integration. |Nej |
 
-### <a name="use-service-principal-authentication"></a>Använd autentisering av tjänstens huvudnamn
+### <a name="use-service-principal-authentication"></a>Använd tjänstens huvud namns autentisering
 
-Så här använder du autentisering av tjänstens huvudnamn.
+Följ dessa steg om du vill använda autentisering av tjänstens huvud namn.
 
-1. Registrera en programentitet i Azure Active Directory och ge den åtkomst till DataSjö store. Detaljerade steg finns i [Autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)från tjänst till tjänst . Anteckna följande värden, som du använder för att definiera den länkade tjänsten:
+1. Registrera en program enhet i Azure Active Directory och ge den till gång till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
     - Program-ID:t
-    - Programnyckel
-    - Klient-ID:t
+    - Program nyckel
+    - Klientorganisations-ID
 
-2. Ge tjänstens huvudnamn rätt tillstånd. Se exempel på hur behörighet fungerar i Data Lake Storage Gen1 från [Åtkomstkontroll i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+2. Ge tjänstens huvud behörighet rätt behörighet. Se exempel på hur behörigheten fungerar i Data Lake Storage Gen1 från [åtkomst kontroll i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
-    - **Som källa:** I **Data Explorer** > **Access**, bevilja åtminstone **Kör** behörighet för alla uppströms mappar inklusive roten, tillsammans med läsbehörighet för filerna att kopiera. **Read** Du kan välja att lägga till **i den här mappen och alla underordnade** för rekursiv, och lägga till som en **åtkomstbehörighet och en standardbehörighetspost**. Det finns inget krav på åtkomstkontroll på kontonivå (IAM).
-    - **Som mottagare:** I **Data explorer** > **Access**, bevilja åtminstone **Kör** behörighet för alla uppströmsmappar, inklusive roten, tillsammans med **skrivbehörighet** för sink-mappen. Du kan välja att lägga till **i den här mappen och alla underordnade** för rekursiv, och lägga till som en **åtkomstbehörighet och en standardbehörighetspost**. Om du använder en Azure-integreringskörning för att kopiera (både källa och diskho finns i molnet) bevilja du åtminstone **reader-rollen** i IAM för att låta Data Factory identifiera regionen för DataSjölagring. Om du vill undvika den här IAM-rollen skapar du uttryckligen [en Azure-integreringskörning](create-azure-integration-runtime.md#create-azure-ir) med platsen för Data Lake Store. Om ditt DataSjölag till exempel finns i Västeuropa skapar du en Azure-integreringskörning med plats inställd på "Västeuropa". Associera dem i den länkade tjänsten DataSjölager enligt följande exempel.
+    - **Som källa**: i **Data Explorer** > -**åtkomst**, beviljar du minst **Kör** behörighet för alla överordnade mappar, inklusive roten, tillsammans med **Läs** behörighet för de filer som ska kopieras. Du kan välja att lägga till i **den här mappen och alla underordnade objekt** för rekursivt, och lägga till som **åtkomst behörighet och en standard behörighets post**. Det finns inget krav på konto nivå åtkomst kontroll (IAM).
+    - **Som mottagare**: i **Data Explorer** > -**åtkomst**beviljar du minst **Kör** behörighet för alla överordnade mappar, inklusive roten, tillsammans med **Skriv** behörighet för mappen mottagare. Du kan välja att lägga till i **den här mappen och alla underordnade objekt** för rekursivt, och lägga till som **åtkomst behörighet och en standard behörighets post**. Om du använder en Azure integration runtime för att kopiera (både källa och mottagare finns i molnet) kan du, i IAM, bevilja minst rollen **läsare** för att låta Data Factory identifiera regionen för data Lake Store. Om du vill undvika den här IAM-rollen kan du uttryckligen [skapa en Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) med platsen för data Lake Store. Om din Data Lake Store till exempel är i Västeuropa, skapar du en Azure integration runtime med plats inställt på "Västeuropa". Koppla dem till den länkade tjänsten Data Lake Store så som visas i följande exempel.
 
 Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange programmets nyckel. Markera det här `SecureString` fältet som en för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| tenant | Ange klientinformation, till exempel domännamn eller klient-ID, som programmet finns under. Du kan hämta den genom att hålla musen i det övre högra hörnet av Azure-portalen. | Ja |
+| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som `SecureString` en för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tenant | Ange klient information, till exempel domän namn eller klient-ID, under vilken ditt program finns. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
 
 **Exempel:**
 
@@ -117,20 +117,20 @@ Följande egenskaper stöds:
 }
 ```
 
-### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Använda hanterade identiteter för Azure-resursautentisering
+### <a name="use-managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Använda hanterade identiteter för Azure-resurser-autentisering
 
-En datafabrik kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md), som representerar den här specifika datafabriken. Du kan direkt använda den här hanterade identiteten för DataSjölagringsautentisering, på samma sätt som med ditt eget tjänsthuvudnamn. Det gör att denna utsedda fabrik för att komma åt och kopiera data till eller från Data Lake Store.
+En data fabrik kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md)som representerar den aktuella data fabriken. Du kan använda den här hanterade identiteten direkt för Data Lake Store autentisering, på samma sätt som du använder ditt eget tjänst huvud namn. Det gör att den här fabriken kan komma åt och kopiera data till eller från Data Lake Store.
 
-Så här använder du hanterade identiteter för Azure-resursautentisering.
+Följ dessa steg om du vill använda hanterade identiteter för autentisering med Azure-resurser.
 
-1. [Hämta datafabrikens hanterade identitetsinformation](data-factory-service-identity.md#retrieve-managed-identity) genom att kopiera värdet för "Service Identity Application ID" som genereras tillsammans med din fabrik.
+1. [Hämta Data Factory-hanterad identitets information](data-factory-service-identity.md#retrieve-managed-identity) genom att kopiera värdet för "tjänst identitetens program-ID" som genererats tillsammans med din fabrik.
 
-2. Bevilja den hanterade identitetsåtkomsten till Data Lake Store. Se exempel på hur behörighet fungerar i Data Lake Storage Gen1 från [Åtkomstkontroll i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+2. Ge åtkomst till hanterad identitet till Data Lake Store. Se exempel på hur behörigheten fungerar i Data Lake Storage Gen1 från [åtkomst kontroll i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
-    - **Som källa:** I **Data Explorer** > **Access**, bevilja åtminstone **Kör** behörighet för alla uppströms mappar inklusive roten, tillsammans med läsbehörighet för filerna att kopiera. **Read** Du kan välja att lägga till **i den här mappen och alla underordnade** för rekursiv, och lägga till som en **åtkomstbehörighet och en standardbehörighetspost**. Det finns inget krav på åtkomstkontroll på kontonivå (IAM).
-    - **Som mottagare:** I **Data explorer** > **Access**, bevilja åtminstone **Kör** behörighet för alla uppströmsmappar, inklusive roten, tillsammans med **skrivbehörighet** för sink-mappen. Du kan välja att lägga till **i den här mappen och alla underordnade** för rekursiv, och lägga till som en **åtkomstbehörighet och en standardbehörighetspost**. Om du använder en Azure-integreringskörning för att kopiera (både källa och diskho finns i molnet) bevilja du åtminstone **reader-rollen** i IAM för att låta Data Factory identifiera regionen för DataSjölagring. Om du vill undvika den här IAM-rollen skapar du uttryckligen [en Azure-integreringskörning](create-azure-integration-runtime.md#create-azure-ir) med platsen för Data Lake Store. Associera dem i den länkade tjänsten DataSjölager enligt följande exempel.
+    - **Som källa**: i **Data Explorer** > -**åtkomst**, beviljar du minst **Kör** behörighet för alla överordnade mappar, inklusive roten, tillsammans med **Läs** behörighet för de filer som ska kopieras. Du kan välja att lägga till i **den här mappen och alla underordnade objekt** för rekursivt, och lägga till som **åtkomst behörighet och en standard behörighets post**. Det finns inget krav på konto nivå åtkomst kontroll (IAM).
+    - **Som mottagare**: i **Data Explorer** > -**åtkomst**beviljar du minst **Kör** behörighet för alla överordnade mappar, inklusive roten, tillsammans med **Skriv** behörighet för mappen mottagare. Du kan välja att lägga till i **den här mappen och alla underordnade objekt** för rekursivt, och lägga till som **åtkomst behörighet och en standard behörighets post**. Om du använder en Azure integration runtime för att kopiera (både källa och mottagare finns i molnet) kan du, i IAM, bevilja minst rollen **läsare** för att låta Data Factory identifiera regionen för data Lake Store. Om du vill undvika den här IAM-rollen kan du uttryckligen [skapa en Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) med platsen för data Lake Store. Koppla dem till den länkade tjänsten Data Lake Store så som visas i följande exempel.
 
-I Azure Data Factory behöver du inte ange några egenskaper förutom den allmänna datasjölagringsinformationen i den länkade tjänsten.
+I Azure Data Factory behöver du inte ange några egenskaper förutom den allmänna Data Lake Store informationen i den länkade tjänsten.
 
 **Exempel:**
 
@@ -154,17 +154,17 @@ I Azure Data Factory behöver du inte ange några egenskaper förutom den allmä
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Datauppsättningar.](concepts-datasets-linked-services.md) 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Följande egenskaper stöds för Azure Data Lake `location` Store Gen1 under inställningar i den formatbaserade datauppsättningen:
+Följande egenskaper stöds för Azure Data Lake Store gen1 under `location` inställningar i den formatbaserade data uppsättningen:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Egenskapen type `location` under i datauppsättningen måste anges till **AzureDataLakeStoreLocation**. | Ja      |
-| folderPath | Sökvägen till en mapp. Om du vill använda ett jokertecken för att filtrera mappar hoppar du över den här inställningen och anger den i aktivitetskällans inställningar. | Inga       |
-| fileName   | Filnamnet under den angivna folderPath. Om du vill använda ett jokertecken för att filtrera filer hoppar du över den här inställningen och anger den i aktivitetskällans inställningar. | Inga       |
+| typ       | Egenskapen Type under `location` i data uppsättningen måste anges till **AzureDataLakeStoreLocation**. | Ja      |
+| folderPath | Sökvägen till en mapp. Om du vill använda ett jokertecken för att filtrera mappar, hoppar du över den här inställningen och anger den i aktivitets källans inställningar. | Nej       |
+| fileName   | Fil namnet under den aktuella folderPath. Om du vill använda ett jokertecken för att filtrera filer, hoppar du över den här inställningen och anger den i aktivitets källans inställningar. | Nej       |
 
 **Exempel:**
 
@@ -194,23 +194,23 @@ Följande egenskaper stöds för Azure Data Lake `location` Store Gen1 under ins
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Data Lake Store-källa och diskho.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). Det här avsnittet innehåller en lista över egenskaper som stöds av Azure Data Lake Store källa och mottagare.
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store som källa
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Följande egenskaper stöds för Azure Data Lake `storeSettings` Store Gen1 under inställningar i den formatbaserade kopieringskällan:
+Följande egenskaper stöds för Azure Data Lake Store gen1 under `storeSettings` inställningar i den formatbaserade kopierings källan:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | Typegenskapen under `storeSettings` måste anges till **AzureDataLakeStoreReadSettings**. | Ja                                           |
-| Rekursiv                | Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. När rekursiv är inställd på true och diskhon är ett filbaserat arkiv kopieras eller skapas inte en tom mapp eller undermapp i diskhon. Tillåtna värden är **sanna** (standard) och **falska**. | Inga                                            |
-| jokerteckenMappspath       | Mappsökvägen med jokertecken för att filtrera källmappar. <br>Tillåtna jokertecken `*` är (matchar noll `?` eller fler tecken) och (matchar noll eller ett tecken). Används `^` för att fly om ditt faktiska mappnamn har ett jokertecken eller den här flykttecknet inuti. <br>Se fler exempel i [exempel på mapp- och filfilter](#folder-and-file-filter-examples). | Inga                                            |
-| jokerteckenFileName         | Filnamnet med jokertecken under den angivna mappenPath/wildcardFolderPath för att filtrera källfiler. <br>Tillåtna jokertecken `*` är (matchar noll `?` eller fler tecken) och (matchar noll eller ett tecken). Används `^` för att fly om ditt faktiska mappnamn har ett jokertecken eller den här flykttecknet inuti. Se fler exempel i [exempel på mapp- och filfilter](#folder-and-file-filter-examples). | Ja `fileName` om inte anges i datauppsättningen |
-| modifiedDatetimeStart    | Filfilter baserat på attributet Senast ändrad. Filerna väljs om deras senaste ändrade tid `modifiedDatetimeStart` `modifiedDatetimeEnd`ligger inom tidsintervallet mellan och . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br> Egenskaperna kan vara NULL, vilket innebär att inget filattributfilter tillämpas på datauppsättningen. När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är NULL betyder det att de filer vars senast ändrade attribut är större än eller lika med datetime-värdet är markerade. När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är NULL betyder det att de filer vars senast ändrade attribut är mindre än datetime-värdet är markerade. | Inga                                            |
-| modifiedDatetimeEnd      | Samma som ovan.                                               | Inga                                            |
-| maxConcurrentAnslutningar | Antalet anslutningar som ska anslutas till lagringsarkivet samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till datalagret. | Inga                                            |
+| typ                     | Typ egenskapen under `storeSettings` måste anges till **AzureDataLakeStoreReadSettings**. | Ja                                           |
+| rekursiva                | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. När rekursivt är inställt på True och sinken är en filbaserad lagring, kopieras inte en tom mapp eller undermapp till mottagaren. Tillåtna värden är **True** (standard) och **false**. | Nej                                            |
+| wildcardFolderPath       | Mappsökvägen med jokertecken för att filtrera källmappen. <br>Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken inuti. <br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Nej                                            |
+| wildcardFileName         | Fil namnet med jokertecken under den aktuella folderPath/wildcardFolderPath för att filtrera källfiler. <br>Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken inuti. Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Ja om `fileName` inte anges i data uppsättningen |
+| modifiedDatetimeStart    | Filter för filer baserat på det senast ändrade attributet. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br> Egenskaperna kan vara NULL, vilket innebär att inget attribut filter används för data uppsättningen. När `modifiedDatetimeStart` har ett datetime-värde `modifiedDatetimeEnd` men är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade. När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` men är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat. | Nej                                            |
+| modifiedDatetimeEnd      | Samma som ovan.                                               | Nej                                            |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lager samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej                                            |
 
 **Exempel:**
 
@@ -253,18 +253,18 @@ Följande egenskaper stöds för Azure Data Lake `storeSettings` Store Gen1 unde
 ]
 ```
 
-### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store som diskho
+### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store som mottagare
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Följande egenskaper stöds för Azure Data Lake `storeSettings` Store Gen1 under inställningar i den formatbaserade kopian sink:
+Följande egenskaper stöds för Azure Data Lake Store gen1 under `storeSettings` inställningar i den formatbaserade kopierings mottagaren:
 
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Typegenskapen under `storeSettings` måste anges till **AzureDataLakeStoreWriteSettings**. | Ja      |
-| kopieraBehavior             | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>- PreserveHierarchy (standard):</b>Bevarar filhierarkin i målmappen. Källfilens relativa sökväg till källmappen är identisk med målfilens relativa sökväg till målmappen.<br/><b>- FlattenHierarchy:</b>Alla filer från källmappen är i den första nivån i målmappen. Målfilerna har automatiskt urartade namn. <br/><b>- MergeFiles:</b>Sammanfogar alla filer från källmappen till en fil. Om filnamnet anges är det kopplade filnamnet det angivna namnet. Annars är det ett autogenererat filnamn. | Inga       |
-| expiryDateTime | Anger utgångstiden för de skrivna filerna. Tiden tillämpas på UTC-tiden i formatet "2020-03-01T08:00:00Z". Som standard är det NULL, vilket innebär att de skrivna filerna aldrig har upphört att gälla. | Inga |
-| maxConcurrentAnslutningar | Antalet anslutningar som ska anslutas till datalagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till datalagret. | Inga       |
+| typ                     | Typ egenskapen under `storeSettings` måste anges till **AzureDataLakeStoreWriteSettings**. | Ja      |
+| copyBehavior             | Definierar kopierings beteendet när källan är filer från ett filbaserat data lager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: bevarar filens hierarki i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><b>-FlattenHierarchy</b>: alla filer från källmappen är på den första nivån i målmappen. Filerna har automatiskt genererade namn. <br/><b>-MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om fil namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars är det ett automatiskt genererat fil namn. | Nej       |
+| expiryDateTime | Anger utgångs tiden för de skrivna filerna. Tiden tillämpas på UTC-tiden i formatet "2020-03-01T08:00:00Z". Som standard är den NULL, vilket innebär att de skrivna filerna aldrig upphör att gälla. | Nej |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej       |
 
 **Exempel:**
 
@@ -301,82 +301,82 @@ Följande egenskaper stöds för Azure Data Lake `storeSettings` Store Gen1 unde
 ]
 ```
 
-### <a name="folder-and-file-filter-examples"></a>Exempel på mapp- och filfilter
+### <a name="folder-and-file-filter-examples"></a>Exempel på mapp-och fil filter
 
-I det här avsnittet beskrivs det resulterande beteendet för mappsökvägen och filnamnet med jokerteckenfilter.
+I det här avsnittet beskrivs det resulterande beteendet hos mappsökvägen och fil namnet med filter för jokertecken.
 
-| folderPath | fileName | Rekursiv | Källmappstruktur och filterresultat (filer i **fetstil** hämtas)|
+| folderPath | fileName | rekursiva | Källans mappstruktur och filter resultat (filer i **fetstil** hämtas)|
 |:--- |:--- |:--- |:--- |
-| `Folder*` | (Tom, använd standard) | false | FolderA (FolderA)<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv6.csv |
-| `Folder*` | (Tom, använd standard) | true | FolderA (FolderA)<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv6.csv |
-| `Folder*` | `*.csv` | false | FolderA (FolderA)<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv6.csv |
-| `Folder*` | `*.csv` | true | FolderA (FolderA)<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Arkiv5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv6.csv |
+| `Folder*` | (Tom, Använd standard) | falskt | Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Fil1. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Fil2. JSON**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| `Folder*` | (Tom, Använd standard) | true | Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Fil1. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Fil2. JSON**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4. JSON**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5. csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| `Folder*` | `*.csv` | falskt | Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Fil1. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| `Folder*` | `*.csv` | true | Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Fil1. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5. csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
 
-### <a name="examples-of-behavior-of-the-copy-operation"></a>Exempel på kopieringsbeteende
+### <a name="examples-of-behavior-of-the-copy-operation"></a>Exempel på hur kopierings åtgärden fungerar
 
-I det här avsnittet beskrivs kopieringens resulterande beteende för olika kombinationer av `recursive` och `copyBehavior` värden.
+I det här avsnittet beskrivs det resulterande beteendet för kopierings åtgärden `recursive` för `copyBehavior` olika kombinationer av värden och värden.
 
-| Rekursiv | kopieraBehavior | Källmappstruktur | Resulterande mål |
+| rekursiva | copyBehavior | Källans mappstruktur | Resulterande mål |
 |:--- |:--- |:--- |:--- |
-| true |bevaraHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5 | Målmapp1 skapas med samma struktur som källan:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5. |
-| true |plattaHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5 | Målmapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenererat namn för Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenererat namn för File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenererat namn för File5 |
-| true |mergeFiles | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5 | Målmapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 innehåll slås samman till en fil, med ett autogenererat filnamn. |
-| false |bevaraHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5 | Målmapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/><br/>Undermapp1 med File3, File4 och File5 plockas inte upp. |
-| false |plattaHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5 | Målmapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenererat namn för Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenererat namn för File2<br/><br/>Undermapp1 med File3, File4 och File5 plockas inte upp. |
-| false |mergeFiles | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arkiv2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Undermapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arkiv5 | Målmapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + File2-innehåll sammanfogas till en fil med automatiskt uppargat filnamn. autogenererat namn för Arkiv1<br/><br/>Undermapp1 med File3, File4 och File5 plockas inte upp. |
+| true |preserveHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Mål-Mapp1 skapas med samma struktur som källan:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| true |flattenHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Mål-Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för File5 |
+| true |mergeFiles | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Mål-Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + Fil2 + File3 + File4 + File5-innehåll sammanfogas till en fil med ett automatiskt genererat fil namn. |
+| falskt |preserveHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Mål-Mapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| falskt |flattenHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Mål-Mapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererat namn för Fil2<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
+| falskt |mergeFiles | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Mål-Mapp1 skapas med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + Fil2-innehåll sammanfogas till en fil med automatiskt genererat fil namn. automatiskt genererat namn för fil1<br/><br/>Subfolder1 med File3, File4 och File5 hämtas inte. |
 
-## <a name="preserve-acls-to-data-lake-storage-gen2"></a>Bevara ACL:er till DataSjölagring Gen2
+## <a name="preserve-acls-to-data-lake-storage-gen2"></a>Bevara ACL: er till Data Lake Storage Gen2
 
 >[!TIP]
->Information om hur du kopierar data från Azure Data Lake Storage Gen1 till Gen2 i allmänhet finns i [Kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) för en genomgång och metodtips.
+>Information om hur du kopierar data från Azure Data Lake Storage Gen1 till Gen2 i allmänhet finns i [Kopiera data från Azure Data Lake Storage gen1 till Gen2 med Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) för en genom gång och bästa praxis.
 
-Om du vill replikera åtkomstkontrollistorna (ACL: er) tillsammans med datafiler när du uppgraderar från Data Lake Storage Gen1 till Data Lake Storage Gen2 läser [du Bevara ACL:er från DataSjölagring gen1](copy-activity-preserve-metadata.md#preserve-acls).
+Om du vill replikera åtkomst kontrol listorna (ACL) tillsammans med datafiler när du uppgraderar från Data Lake Storage Gen1 till Data Lake Storage Gen2, se [bevara ACL: er från data Lake Storage gen1](copy-activity-preserve-metadata.md#preserve-acls).
 
-## <a name="mapping-data-flow-properties"></a>Mappa dataflödesegenskaper
+## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
-När du omvandlar data i mappningsdataflödet kan du läsa och skriva filer från Azure Data Lake Storage Gen1 i JSON-, Avro-, avgränsat text- eller parkettformat. Mer information finns i [källomvandling](data-flow-source.md) och [sink-omvandling](data-flow-sink.md) i funktionen för mappningsdataflöde.
+När du transformerar data i mappnings data flödet kan du läsa och skriva filer från Azure Data Lake Storage Gen1 i JSON, Avro, avgränsad text eller Parquet format. Mer information finns i omvandling av [käll omvandling](data-flow-source.md) och [mottagare](data-flow-sink.md) i funktionen mappa data flöde.
 
-### <a name="source-transformation"></a>Omvandling av källa
+### <a name="source-transformation"></a>Käll omvandling
 
-I källomvandlingen kan du läsa från en behållare, mapp eller enskild fil i Azure Data Lake Storage Gen1. På fliken **Källalternativ** kan du hantera hur filerna läss. 
+I käll omvandlingen kan du läsa från en behållare, mapp eller en enskild fil i Azure Data Lake Storage Gen1. På fliken **käll alternativ** kan du hantera hur filerna får läsas. 
 
-![Alternativ för källa](media/data-flow/sourceOptions1.png "Alternativ för källa")
+![Käll alternativ](media/data-flow/sourceOptions1.png "Käll alternativ")
 
-**Jokerteckens sökväg:** Med hjälp av ett jokerteckenmönster instruerar ADF att loopa igenom varje matchande mapp och fil i en enda källomvandling. Detta är ett effektivt sätt att bearbeta flera filer inom ett enda flöde. Lägg till flera matchningsmönster med +-tecknet som visas när du hovrar över ditt befintliga jokerteckenmönster.
+**Sökväg till jokertecken:** Genom att använda jokertecken instrueras ADF att loopa igenom varje matchande mapp och fil i en enda käll omvandling. Detta är ett effektivt sätt att bearbeta flera filer i ett enda flöde. Lägg till flera matchnings mönster för jokertecken med +-tecknet som visas när du hovrar över ditt befintliga mönster i jokertecken.
 
-Välj en serie filer som matchar ett mönster från källbehållaren. Endast behållare kan anges i datauppsättningen. Jokertecknets sökväg måste därför också innehålla mappsökvägen från rotmappen.
+Från din käll behållare väljer du en serie filer som matchar ett mönster. Det går endast att ange container i data uppsättningen. Sökvägen till jokertecken måste därför även innehålla sökvägen till din mapp från rotmappen.
 
-Exempel på jokertecken:
+Jokertecken exempel:
 
-* ```*```Representerar alla teckenuppsättningar
-* ```**```Representerar rekursiv katalogkapsling
-* ```?```Ersätter ett tecken
-* ```[]```Matchar ett av flera tecken inom parenteserna
+* ```*```Representerar en uppsättning tecken
+* ```**```Representerar rekursiv katalog kapsling
+* ```?```Ersätter ett Character
+* ```[]```Matchar ett eller flera tecken inom hakparenteserna
 
-* ```/data/sales/**/*.csv```Hämtar alla csv-filer under /data/sales
-* ```/data/sales/20??/**/```Hämtar alla filer på 1900-talet
-* ```/data/sales/*/*/*.csv```Hämtar csv-filer två nivåer under /data/sales
-* ```/data/sales/2004/*/12/[XY]1?.csv```Hämtar alla csv-filer under 2004 i december med början med X eller Y som föregås av ett tvåsiffrigt nummer
+* ```/data/sales/**/*.csv```Hämtar alla CSV-filer under/data/Sales
+* ```/data/sales/20??/**/```Hämtar alla filer i 20-talet
+* ```/data/sales/*/*/*.csv```Hämtar CSV-filer två nivåer under/data/Sales
+* ```/data/sales/2004/*/12/[XY]1?.csv```Hämtar alla CSV-filer i 2004 i december från och med X eller Y som föregås av ett tvåsiffrigt tal
 
-**Sökvägen till partitionsrot:** Om du har partitionerade mappar i ```key=value``` filkällan med ett format (till exempel year=2019) kan du tilldela den översta nivån i det partitionsmappträdet till ett kolumnnamn i dataflödesdataströmmen.
+**Partitionens rot Sök väg:** Om du har partitionerade mappar i fil källan med ett ```key=value``` format (till exempel Year = 2019) kan du tilldela den översta nivån i det partitionens mappträd till ett kolumn namn i data flödet för data flödet.
 
-Ange först ett jokertecken så att alla sökvägar som är de partitionerade mapparna plus lövfilerna som du vill läsa.
+Ange först ett jokertecken för att inkludera alla sökvägar som är de partitionerade mapparna plus de löv-filer som du vill läsa.
 
-![Inställningar för partitionskälla](media/data-flow/partfile2.png "Partitionsfilinställning")
+![Inställningar för partitionens källfil](media/data-flow/partfile2.png "Fil inställning för partition")
 
-Använd inställningen Partition Root Path för att definiera vad den översta nivån i mappstrukturen är. När du visar innehållet i dina data via en förhandsgranskning av data ser du att ADF lägger till de lösta partitionerna som finns i var och en av mappnivåerna.
+Använd inställningen för partitionens rot Sök väg för att definiera vad mappstrukturen är. När du visar innehållet i dina data via en data förhands granskning kommer du att se att ADF lägger till de matchade partitioner som finns i alla mappar.
 
-![Partitionsrotsökväg](media/data-flow/partfile1.png "Förhandsgranskning av partitionsrotsökväg")
+![Partitionens rot Sök väg](media/data-flow/partfile1.png "För hands version av partitionens rot Sök väg")
 
-**Lista över filer:** Det här är en filuppsättning. Skapa en textfil som innehåller en lista över relativa sökvägsfiler som ska bearbetas. Peka på den här textfilen.
+**Lista över filer:** Detta är en fil uppsättning. Skapa en textfil som innehåller en lista över relativa Sök vägs filer som ska bearbetas. Peka på den här text filen.
 
-**Kolumn för att lagra filnamn:** Lagra namnet på källfilen i en kolumn i dina data. Ange ett nytt kolumnnamn här för att lagra filnamnssträngen.
+**Kolumn att lagra fil namn på:** Lagra namnet på käll filen i en kolumn i dina data. Ange ett nytt kolumn namn här för att lagra fil namn strängen.
 
-**Efter avslutad:** Välj att inte göra något med källfilen när dataflödet har körts, källfilen tas bort eller flyttar källfilen. Sökvägarna för flytten är relativa.
+**Efter slut för ande:** Välj att inte göra något med käll filen när data flödet körts, ta bort käll filen eller flytta käll filen. Sök vägarna för flytten är relativa.
 
-Om du vill flytta källfiler till en annan plats efterbearbetningen väljer du först "Flytta" för filåtgärd. Ställ sedan in katalogen "från". Om du inte använder några jokertecken för sökvägen kommer inställningen "från" att vara samma mapp som källmappen.
+Om du vill flytta källfilerna till en annan plats efter bearbetning väljer du först flytta för fil åtgärd. Ange sedan "från"-katalogen. Om du inte använder jokertecken för sökvägen, kommer inställningen från att vara samma mapp som källmappen.
 
-Om du har en källsökväg med jokertecken ser syntaxen ut så här nedan:
+Om du har en käll Sök väg med jokertecken så ser din syntax ut så här:
 
 ```/data/sales/20??/**/*.csv```
 
@@ -388,61 +388,61 @@ Och "till" som
 
 ```/backup/priorSales```
 
-I det här fallet flyttas alla filer som har hämtats under /data/sales till /backup/priorSales.
+I det här fallet flyttas alla filer som har ursprung under/data/Sales till/backup/priorSales.
 
 > [!NOTE]
-> Filåtgärder körs bara när du startar dataflödet från en pipeline-körning (en pipeline-felsökning eller körningskörning) som använder aktiviteten Kör dataflöde i en pipeline. Filåtgärder körs *inte* i felsökningsläge för dataflöde.
+> Fil åtgärder körs bara när du startar data flödet från en pipeline-körning (en pipeline för pipeline-fel eller körning) som använder aktiviteten kör data flöde i en pipeline. Fil åtgärder körs *inte* i fel söknings läge för data flöde.
 
-**Filtrera efter senast ändrad:** Du kan filtrera vilka filer du bearbetar genom att ange ett datumintervall för när de senast ändrades. Alla datumtider finns i UTC. 
+**Filtrera efter senast ändrad:** Du kan filtrera vilka filer du bearbetar genom att ange ett datum intervall när de senast ändrades. Alla datum-gånger är i UTC-tid. 
 
-### <a name="sink-properties"></a>Sink-egenskaper
+### <a name="sink-properties"></a>Egenskaper för mottagare
 
-I sink-omvandlingen kan du skriva till antingen en behållare eller mapp i Azure Data Lake Storage Gen1. På fliken **Inställningar** kan du hantera hur filerna skrivs.
+I omvandling av mottagare kan du skriva till antingen en behållare eller mapp i Azure Data Lake Storage Gen1. på fliken **Inställningar** kan du hantera hur filerna skrivs.
 
-![sink alternativ](media/data-flow/file-sink-settings.png "sink alternativ")
+![mottagar alternativ](media/data-flow/file-sink-settings.png "mottagar alternativ")
 
-**Rensa mappen:** Avgör om målmappen rensas innan data skrivs eller inte.
+**Rensa mappen:** Anger om målmappen ska rensas innan data skrivs.
 
-**Alternativet Filnamn:** Bestämmer hur målfilerna namnges i målmappen. Alternativen för filnamn är:
-   * **Standard**: Tillåt Spark att namnge filer baserat på DEL-standardvärden.
-   * **Mönster**: Ange ett mönster som räknar upp dina utdatafiler per partition. Till exempel, **lån [n].csv** kommer att skapa loans1.csv, loans2.csv, och så vidare.
-   * **Per partition**: Ange ett filnamn per partition.
-   * **Som data i kolumnen**: Ange utdatafilen till värdet för en kolumn. Sökvägen är relativ till datamängdsbehållaren, inte målmappen. Om du har en mappsökväg i datauppsättningen åsidosätts den.
-   * **Utdata till en enda fil**: Kombinera de partitionerade utdatafilerna till en enda namngiven fil. Sökvägen är relativ till datauppsättningsmappen. Tänk på att åtgärden för kopplad te kan eventuellt misslyckas baserat på nodstorlek. Det här alternativet rekommenderas inte för stora datauppsättningar.
+**Fil namns alternativ:** Anger hur målfiler namnges i målmappen. Fil namns alternativen är:
+   * **Standard**: Tillåt Spark att namnge filer baserat på del standarder.
+   * **Mönster**: Ange ett mönster som räknar upp dina utdatafiler per partition. Till exempel kommer **lån [n]. csv** att skapa loans1. csv, loans2. csv och så vidare.
+   * **Per partition**: Ange ett fil namn per partition.
+   * **Som data i kolumnen**: Ange utdatafilen till värdet för en kolumn. Sökvägen är relativ i förhållande till data uppsättnings behållaren, inte målmappen. Om du har en mappsökväg i din data uppsättning kommer den att åsidosättas.
+   * **Utdata till en enda fil**: kombinera de partitionerade utdatafilerna till en enda namngiven fil. Sökvägen är relativ i förhållande till dataset-mappen. Tänk på att det kan hända att te-sammanfognings åtgärder inte fungerar baserat på Node-storlek. Det här alternativet rekommenderas inte för stora data uppsättningar.
 
-**Citera alla:** Bestämmer om alla värden ska omslutas inom citationstecken
+**Offert alla:** Anger om alla värden ska anges i citat tecken
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
-## <a name="getmetadata-activity-properties"></a>Aktivitetsegenskaper för GetMetadata
+## <a name="getmetadata-activity-properties"></a>Egenskaper för GetMetadata-aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [GetMetadata-aktivitet](control-flow-get-metadata-activity.md) 
+Om du vill veta mer om egenskaperna kontrollerar du [getMetaData-aktivitet](control-flow-get-metadata-activity.md) 
 
-## <a name="delete-activity-properties"></a>Ta bort aktivitetsegenskaper
+## <a name="delete-activity-properties"></a>Ta bort aktivitets egenskaper
 
-Om du vill veta mer om egenskaperna kontrollerar du [Ta bort aktivitet](delete-activity.md)
+Om du vill veta mer om egenskaperna kontrollerar du [ta bort aktivitet](delete-activity.md)
 
 ## <a name="legacy-models"></a>Äldre modeller
 
 >[!NOTE]
->Följande modeller stöds fortfarande i sig för bakåtkompatibilitet. Du föreslås använda den nya modellen som nämns i ovanstående avsnitt framöver, och ADF-redigeringsgränssnittet har bytt till att generera den nya modellen.
+>Följande modeller stöds fortfarande för bakåtkompatibilitet. Du rekommenderar att du använder den nya modellen som anges ovan och fortsätter, och redigerings gränssnittet för ADF har växlat till att generera den nya modellen.
 
-### <a name="legacy-dataset-model"></a>Äldre datauppsättningsmodell
+### <a name="legacy-dataset-model"></a>Äldre data uppsättnings modell
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type property för datauppsättningen måste anges till **AzureDataLakeStoreFile**. |Ja |
-| folderPath | Sökväg till mappen i DataSjö store. Om det inte anges pekar den på roten. <br/><br/>Jokerteckenfilter stöds. Tillåtna jokertecken `*` är (matchar noll `?` eller fler tecken) och (matchar noll eller ett tecken). Används `^` för att fly om ditt faktiska mappnamn har ett jokertecken eller den här flykttecknet inuti. <br/><br/>Till exempel: rootfolder/subfolder/. Se fler exempel i [exempel på mapp- och filfilter](#folder-and-file-filter-examples). |Inga |
-| fileName | Namn eller jokerteckenfilter för filerna under den angivna "folderPath". Om du inte anger något värde för den här egenskapen pekar datauppsättningen på alla filer i mappen. <br/><br/>För filter är `*` de tillåtna jokerteckenen (matchar `?` noll eller fler tecken) och (matchar noll eller ett tecken).<br/>- Exempel 1:`"fileName": "*.csv"`<br/>- Exempel 2:`"fileName": "???20180427.txt"`<br/>Används `^` för att fly om ditt faktiska filnamn har ett jokertecken eller den här flykttecknet inuti.<br/><br/>När filnamn inte anges för en utdatauppsättning och **bevaraHierarchy** inte anges i aktivitetsmottagaren, genererar kopieringsaktiviteten automatiskt filnamnet med följande mönster: "*Data.[ aktivitetskörning ID GUID]. [GUID om FlattenHierarchy]. [format om det är konfigurerat]. [komprimering om den är konfigurerad]*", till exempel "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Om du kopierar från en tabellkälla med hjälp av ett tabellnamn i stället för en fråga, är namnmönstret "*[tabellnamn].[ format]. [komprimering om den är konfigurerad]*", till exempel "MyTable.csv". |Inga |
-| modifiedDatetimeStart | Filfilter baserat på attributet Senast ändrad. Filerna väljs om deras senaste ändrade tid `modifiedDatetimeStart` `modifiedDatetimeEnd`ligger inom tidsintervallet mellan och . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Den övergripande prestandan för data förflyttning påverkas genom att aktivera den här inställningen när du vill göra filfilter med stora mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filattributfilter tillämpas på datauppsättningen. När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är NULL betyder det att de filer vars senast ändrade attribut är större än eller lika med datetime-värdet är markerade. När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är NULL betyder det att de filer vars senast ändrade attribut är mindre än datetime-värdet är markerade.| Inga |
-| modifiedDatetimeEnd | Filfilter baserat på attributet Senast ändrad. Filerna väljs om deras senaste ändrade tid `modifiedDatetimeStart` `modifiedDatetimeEnd`ligger inom tidsintervallet mellan och . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Den övergripande prestandan för data förflyttning påverkas genom att aktivera den här inställningen när du vill göra filfilter med stora mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget filattributfilter tillämpas på datauppsättningen. När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är NULL betyder det att de filer vars senast ändrade attribut är större än eller lika med datetime-värdet är markerade. När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är NULL betyder det att de filer vars senast ändrade attribut är mindre än datetime-värdet är markerade.| Inga |
-| format | Om du vill kopiera filer som mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata.<br/><br/>Om du vill tolka eller generera filer med ett visst format stöds följande filformattyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Ange **type** typegenskapen under **format** till ett av dessa värden. Mer information finns i avsnitten [Textformat](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro-format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc-format](supported-file-formats-and-compression-codecs-legacy.md#orc-format)och [Parkettformat.](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) |Nej (endast för binärt kopieringsscenario) |
-| komprimering | Ange typ och komprimeringsnivå för data. Mer information finns i [Filformat och komprimeringskodicer som stöds](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Typer som stöds är **GZip**, **Deflate**, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds är **optimala** och **snabbaste.** |Inga |
+| typ | Data uppsättningens typ-egenskap måste anges till **AzureDataLakeStoreFile**. |Ja |
+| folderPath | Sökväg till mappen i Data Lake Store. Om detta inte anges pekar den på roten. <br/><br/>Wildcard-filtret stöds. Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken inuti. <br/><br/>Till exempel: RootFolder/undermapp/. Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). |Nej |
+| fileName | Namn eller Wildcard-filter för filerna under den angivna "folderPath". Om du inte anger ett värde för den här egenskapen pekar data uppsättningen på alla filer i mappen. <br/><br/>För filter är `*` tillåtna jokertecken (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken).<br/>– Exempel 1:`"fileName": "*.csv"`<br/>– Exempel 2:`"fileName": "???20180427.txt"`<br/>Används `^` för att kringgå om det faktiska fil namnet har ett jokertecken eller detta escape-tecken inuti.<br/><br/>När fil namnet inte har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren genererar kopierings aktiviteten automatiskt fil namnet med följande mönster: "*data. [ aktivitetens körnings-ID GUID]. [GUID om FlattenHierarchy]. [format om det är konfigurerat]. [komprimering om konfigurerad]*", till exempel" data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt. gz ". Om du kopierar från en tabell källa med ett tabell namn i stället för en fråga, är namn mönstret "*[tabell namn]. [ format]. [komprimering om konfigurerad]*", till exempel" Table. csv ". |Nej |
+| modifiedDatetimeStart | Filter för filer baserat på det senast ändrade attributet. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill göra fil filter till stora mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget attribut filter används för data uppsättningen. När `modifiedDatetimeStart` har ett datetime-värde `modifiedDatetimeEnd` men är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade. När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` men är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| Nej |
+| modifiedDatetimeEnd | Filter för filer baserat på det senast ändrade attributet. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill göra fil filter till stora mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget attribut filter används för data uppsättningen. När `modifiedDatetimeStart` har ett datetime-värde `modifiedDatetimeEnd` men är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade. När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` men är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| Nej |
+| format | Om du vill kopiera filer som är mellan filbaserade arkiv (binär kopia) hoppar du över avsnittet format i definitionerna för både indata och utdata.<br/><br/>Om du vill parsa eller generera filer med ett särskilt format stöds följande fil format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Ange egenskapen **Type** under **format** till något av dessa värden. Mer information finns i avsnitten [text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs-legacy.md#orc-format)och [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nej (endast för binär kopierings scenario) |
+| komprimering | Ange typ och nivå för komprimeringen för data. Mer information finns i [fil format och komprimerings-codecar som stöds](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Typer som stöds är **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**.<br/>De nivåer som stöds är **optimala** och **snabbaste**. |Nej |
 
 >[!TIP]
->Om du vill kopiera alla filer under en mapp anger du endast **folderPath.**<br>Om du vill kopiera en enskild fil med ett visst namn anger du **folderPath** med en mappdel och **filnamn** med ett filnamn.<br>Om du vill kopiera en delmängd filer under en mapp anger du **folderPath** med en mappdel och **filnamn** med ett jokerteckenfilter. 
+>Om du vill kopiera alla filer under en mapp anger du endast **folderPath** .<br>Om du vill kopiera en enskild fil med ett visst namn anger du **folderPath** med en mapp **och ett fil namn** med ett fil namn.<br>Om du vill kopiera en delmängd av filer under en mapp anger du **folderPath** med en mapp och ett **fil namn** med ett Wildcard-filter. 
 
 **Exempel:**
 
@@ -474,13 +474,13 @@ Om du vill veta mer om egenskaperna kontrollerar du [Ta bort aktivitet](delete-a
 }
 ```
 
-### <a name="legacy-copy-activity-source-model"></a>Källmodell för äldre kopieringsaktivitet
+### <a name="legacy-copy-activity-source-model"></a>Käll modell för äldre kopierings aktiviteter
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen `type` för kopiera aktivitetskällan måste anges till **AzureDataLakeStoreSource**. |Ja |
-| Rekursiv | Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. När `recursive` värdet är true och handfatet är ett filbaserat arkiv kopieras eller skapas inte en tom mapp eller undermapp i diskhon. Tillåtna värden är **sanna** (standard) och **falska**. | Inga |
-| maxConcurrentAnslutningar | Antalet anslutningar som ska anslutas till datalagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till datalagret. | Inga |
+| typ | `type` Egenskapen för kopierings aktivitets källan måste anges till **AzureDataLakeStoreSource**. |Ja |
+| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Om `recursive` är inställt på sant och mottagaren är en filbaserad lagring, kopieras eller skapas inte en tom mapp eller undermapp till mottagaren. Tillåtna värden är **True** (standard) och **false**. | Nej |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej |
 
 **Exempel:**
 
@@ -514,13 +514,13 @@ Om du vill veta mer om egenskaperna kontrollerar du [Ta bort aktivitet](delete-a
 ]
 ```
 
-### <a name="legacy-copy-activity-sink-model"></a>Äldre modell för referensmodell för kopierad aktivitet
+### <a name="legacy-copy-activity-sink-model"></a>Legacy kopierings aktivitet, mottagar modell
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen `type` för kopiera aktivitetsmottagaren måste anges till **AzureDataLakeStoreSink**. |Ja |
-| kopieraBehavior | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>- PreserveHierarchy (standard):</b>Bevarar filhierarkin i målmappen. Källfilens relativa sökväg till källmappen är identisk med målfilens relativa sökväg till målmappen.<br/><b>- FlattenHierarchy:</b>Alla filer från källmappen är i den första nivån i målmappen. Målfilerna har automatiskt urartade namn. <br/><b>- MergeFiles:</b>Sammanfogar alla filer från källmappen till en fil. Om filnamnet anges är det kopplade filnamnet det angivna namnet. Annars skapas filnamnet automatiskt. | Inga |
-| maxConcurrentAnslutningar | Antalet anslutningar som ska anslutas till datalagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till datalagret. | Inga |
+| typ | `type` Egenskapen för kopierings aktivitetens Sink måste anges till **AzureDataLakeStoreSink**. |Ja |
+| copyBehavior | Definierar kopierings beteendet när källan är filer från ett filbaserat data lager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: bevarar filens hierarki i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><b>-FlattenHierarchy</b>: alla filer från källmappen är på den första nivån i målmappen. Filerna har automatiskt genererade namn. <br/><b>-MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om fil namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars genereras fil namnet automatiskt. | Nej |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej |
 
 **Exempel:**
 
@@ -556,4 +556,4 @@ Om du vill veta mer om egenskaperna kontrollerar du [Ta bort aktivitet](delete-a
 
 ## <a name="next-steps"></a>Nästa steg
 
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

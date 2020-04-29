@@ -5,22 +5,22 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415676"
 ---
 # <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Konfigurera stöd för hanterad identitet för ett nytt Service Fabric-kluster
 
-Om du vill använda [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) i tjänstinfrastrukturprogrammen aktiverar du först *tjänsten Hanterad identitetstoken i* klustret. Den här tjänsten ansvarar för autentisering av Service Fabric-program med hjälp av deras hanterade identiteter och för att erhålla åtkomsttoken för deras räkning. När tjänsten är aktiverad kan du se den i Service Fabric Explorer under avsnittet **System** i den vänstra rutan och köras under namnet **fabric:/System/ManagedIdentityTokenService** bredvid andra systemtjänster.
+Om du vill använda [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) i dina Service Fabric-program aktiverar du först den *hanterade identitets-token* i klustret. Den här tjänsten ansvarar för autentiseringen av Service Fabric program med hjälp av deras hanterade identiteter och för att få åtkomst till token för deras räkning. När tjänsten är aktive rad kan du se den i Service Fabric Explorer under **system** avsnittet i det vänstra fönstret, som körs under namnet **Fabric:/system/ManagedIdentityTokenService** bredvid andra system tjänster.
 
 > [!NOTE]
-> Service Fabric runtime version 6.5.658.9590 eller högre krävs för att aktivera **tjänsten Hanterad identitetstoken**.  
+> Service Fabric runtime-version 6.5.658.9590 eller högre krävs för att aktivera den **hanterade Identity token-tjänsten**.  
 
-## <a name="enable-the-managed-identity-token-service"></a>Aktivera tjänsten Hanterad identitetstoken
+## <a name="enable-the-managed-identity-token-service"></a>Aktivera hanterad identitets-token
 
-Om du vill aktivera tjänsten Hanterad identitetstoken vid skapande av kluster lägger du till följande kodavsnitt i klustrets Azure Resource Manager-mall:
+Om du vill aktivera tjänsten för hanterad identitets-token när klustret skapas lägger du till följande kodfragment till klustrets Azure Resource Manager mall:
 
 ```json
 "fabricSettings": [
@@ -38,7 +38,7 @@ Om du vill aktivera tjänsten Hanterad identitetstoken vid skapande av kluster l
 
 ## <a name="errors"></a>Fel
 
-Om distributionen misslyckas med det här meddelandet betyder det att klustret inte finns på den service fabric-version som krävs (den minsta körningen som stöds är 6,5 CU2):
+Om distributionen Miss lyckas med det här meddelandet innebär det att klustret inte är på den nödvändiga Service Fabric versionen (den lägsta körning som stöds är 6,5 CU2):
 
 
 ```json
@@ -57,6 +57,6 @@ Om distributionen misslyckas med det här meddelandet betyder det att klustret i
 ## <a name="next-steps"></a>Nästa steg
 
 * [Distribuera ett Azure Service Fabric-program med en systemtilldelad hanterad identitet](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Distribuera ett Azure Service Fabric-program med en användartilldelad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Utnyttja den hanterade identiteten för ett Service Fabric-program från servicekod](./how-to-managed-identity-service-fabric-app-code.md)
-* [Bevilja en Azure Service Fabric-programåtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)
+* [Distribuera ett Azure Service Fabric-program med en användardefinierad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Utnyttja den hanterade identiteten för ett Service Fabric program från service code](./how-to-managed-identity-service-fabric-app-code.md)
+* [Bevilja ett Azure Service Fabric program åtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)

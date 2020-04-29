@@ -1,34 +1,34 @@
 ---
-title: Hantera programhemligheter för Azure Service Fabric
-description: Lär dig hur du skyddar hemliga värden i ett Service Fabric-program (plattformsoberoende).
+title: Hantera Azure Service Fabric program hemligheter
+description: Lär dig hur du skyddar hemliga värden i ett Service Fabric program (oberoende).
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414516"
 ---
-# <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Hantera krypterade hemligheter i Service Fabric-program
-Den här guiden går igenom stegen för att hantera hemligheter i ett Service Fabric-program. Hemligheter kan vara känslig information, till exempel lagringsanslutningssträngar, lösenord eller andra värden som inte ska hanteras i oformaterad text.
+# <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Hantera krypterade hemligheter i Service Fabric program
+Den här guiden vägleder dig genom stegen för att hantera hemligheter i ett Service Fabric program. Hemligheter kan vara vilken känslig information som helst, till exempel lagrings anslutnings strängar, lösen ord eller andra värden som inte ska hanteras i oformaterad text.
 
-Att använda krypterade hemligheter i ett Service Fabric-program innebär tre steg:
-* Konfigurera ett krypteringscertifikat och kryptera hemligheter.
+Att använda krypterade hemligheter i ett Service Fabric-program omfattar tre steg:
+* Konfigurera ett krypterings certifikat och kryptera hemligheter.
 * Ange krypterade hemligheter i ett program.
-* Dekryptera krypterade hemligheter från servicekod.
+* Dekryptera krypterade hemligheter från Service koden.
 
-## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Konfigurera ett krypteringscertifikat och kryptera hemligheter
-Att konfigurera ett krypteringscertifikat och använda det för att kryptera hemligheter varierar mellan Windows och Linux.
-* [Konfigurera ett krypteringscertifikat och kryptera hemligheter i Windows-kluster.][secret-management-windows-specific-link]
-* [Konfigurera ett krypteringscertifikat och kryptera hemligheter på Linux-kluster.][secret-management-linux-specific-link]
+## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Konfigurera ett krypterings certifikat och kryptera hemligheter
+Att konfigurera ett krypterings certifikat och använda det för att kryptera hemligheter varierar mellan Windows och Linux.
+* [Konfigurera ett krypterings certifikat och kryptera hemligheter på Windows-kluster.][secret-management-windows-specific-link]
+* [Konfigurera ett krypterings certifikat och kryptera hemligheter på Linux-kluster.][secret-management-linux-specific-link]
 
 ## <a name="specify-encrypted-secrets-in-an-application"></a>Ange krypterade hemligheter i ett program
-I föregående steg beskrivs hur du krypterar en hemlighet med ett certifikat och skapar en bas-64-kodad sträng för användning i ett program. Den här bas-64-kodade strängen kan anges som en krypterad [parameter][parameters-link] i en tjänsts Settings.xml eller som en krypterad [miljövariabel][environment-variables-link] i tjänstens ServiceManifest.xml.
+I föregående steg beskrivs hur du krypterar en hemlighet med ett certifikat och skapar en Base64 64-kodad sträng för användning i ett program. Den här Base-64-kodade strängen kan anges som en krypterad [parameter][parameters-link] i en tjänsts inställningar. XML eller som en krypterad [miljö variabel][environment-variables-link] i en tjänsts ServiceManifest. xml.
 
-Ange en krypterad [parameter][parameters-link] i tjänstens konfigurationsfil `IsEncrypted` Settings.xml med attributet inställt `true`på :
+Ange en krypterad [parameter][parameters-link] i tjänstens inställningar. XML-konfigurationsfil med `IsEncrypted` attributet angivet till: `true`
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -38,7 +38,7 @@ Ange en krypterad [parameter][parameters-link] i tjänstens konfigurationsfil `I
   </Section>
 </Settings>
 ```
-Ange en krypterad [miljövariabel][environment-variables-link] i tjänstens ServiceManifest.xml-fil med `Type` attributet inställt `Encrypted`på :
+Ange en krypterad [miljö variabel][environment-variables-link] i tjänstens ServiceManifest. XML-fil med `Type` attributet inställt på `Encrypted`:
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -47,7 +47,7 @@ Ange en krypterad [miljövariabel][environment-variables-link] i tjänstens Serv
 </CodePackage>
 ```
 
-Hemligheterna bör också inkluderas i ditt Service Fabric-program genom att ange ett certifikat i ansökningsmanifestet. Lägg till ett **SecretsCertificate-element** i **ApplicationManifest.xml** och inkludera önskat certifikatets tumavtryck.
+Hemligheterna bör också inkluderas i ditt Service Fabric-program genom att ange ett certifikat i applikations manifestet. Lägg till ett **SecretsCertificate** -element i **ApplicationManifest. XML** och inkludera det önskade certifikatets tumavtryck.
 
 ```xml
 <ApplicationManifest … >
@@ -58,16 +58,16 @@ Hemligheterna bör också inkluderas i ditt Service Fabric-program genom att ang
 </ApplicationManifest>
 ```
 > [!NOTE]
-> När du aktiverar ett program som anger ett SecretsCertificate hittar Service Fabric det matchande certifikatet och beviljar den identitet som programmet körs under fullständiga behörigheter till certifikatets privata nyckel. Service Fabric övervakar också certifikatet för ändringar och tillämpar behörigheterna på nytt i enlighet med detta. Om du vill identifiera ändringar för certifikat som deklarerats med gemensamt namn kör Service Fabric en periodisk uppgift som hittar alla matchande certifikat och jämför dem med en cachelagrad lista med tumavtryck. När ett nytt tumavtryck identifieras betyder det att ett certifikat av ämnet har förnyats. Aktiviteten körs en gång per minut på varje nod i klustret.
+> När du aktiverar ett program som anger en SecretsCertificate hittar Service Fabric det matchande certifikatet och tilldelar identiteten att programmet körs med fullständig behörighet till certifikatets privata nyckel. Service Fabric övervakar också certifikatet efter ändringar och tillämpar behörigheterna på nytt. Om du vill identifiera ändringar för certifikat som har deklarerats med ett eget namn kör Service Fabric en regelbunden uppgift som hittar alla matchande certifikat och jämför den med en cachelagrad lista över tumavtrycken. När ett nytt tumavtryck identifieras innebär det att ett certifikat från det ämnet har förnyats. Aktiviteten körs en gång per minut på varje nod i klustret.
 >
-> Medan SecretsCertificate tillåter ämnesbaserade deklarationer, observera att de krypterade inställningarna är kopplade till nyckelparet som användes för att kryptera inställningen på klienten. Du måste se till att det ursprungliga krypteringscertifikatet (eller motsvarande) matchar den ämnesbaserade deklarationen och att det installeras, inklusive motsvarande privat nyckel, på varje nod i klustret som kan vara värd för programmet. Alla tids giltiga certifikat som matchar den ämnesbaserade deklarationen och som byggts från samma nyckelpar som det ursprungliga krypteringscertifikatet betraktas som motsvarigheter.
+> Medan SecretsCertificate tillåter ämnesbaserade deklarationer noterar du att de krypterade inställningarna är knutna till nyckel paret som användes för att kryptera inställningen på klienten. Du måste se till att det ursprungliga krypterings certifikatet (eller motsvarande) matchar den ämnes baserade deklarationen och att det är installerat, inklusive dess motsvarande privata nyckel, på varje nod i klustret som kan vara värd för programmet. Alla tidsgiltiga certifikat som matchar den ämnesbaserade deklarationen och som bygger på samma nyckel par som det ursprungliga krypterings certifikatet betraktas som motsvarigheter.
 >
 
-### <a name="inject-application-secrets-into-application-instances"></a>Injicera programhemligheter i programinstanser
-Helst bör distributionen till olika miljöer vara så automatiserad som möjligt. Detta kan åstadkommas genom att utföra hemlig kryptering i en byggmiljö och tillhandahålla krypterade hemligheter som parametrar när du skapar programinstanser.
+### <a name="inject-application-secrets-into-application-instances"></a>Mata in program hemligheter i program instanser
+Vi rekommenderar att distribution till olika miljöer är så automatiserat som möjligt. Detta kan åstadkommas genom att utföra hemlig kryptering i en build-miljö och tillhandahålla krypterade hemligheter som parametrar när du skapar program instanser.
 
-#### <a name="use-overridable-parameters-in-settingsxml"></a>Använda åsidosättbara parametrar i Settings.xml
-Konfigurationsfilen Settings.xml tillåter tvingande parametrar som kan tillhandahållas vid skapande av program. Använd `MustOverride` attributet i stället för att ange ett värde för en parameter:
+#### <a name="use-overridable-parameters-in-settingsxml"></a>Använd åsidosättningsbar-parametrar i Settings. XML
+Konfigurations filen Settings. XML tillåter åsidosättningsbar-parametrar som kan tillhandahållas när programmet skapas. Använd `MustOverride` attributet i stället för att ange ett värde för en parameter:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,7 +78,7 @@ Konfigurationsfilen Settings.xml tillåter tvingande parametrar som kan tillhand
 </Settings>
 ```
 
-Om du vill åsidosätta värden i Settings.xml deklarerar du en åsidosättningsparameter för tjänsten i ApplicationManifest.xml:
+Om du vill åsidosätta värden i Settings. XML deklarerar du en parameter för åsidosättning för tjänsten i ApplicationManifest. XML:
 
 ```xml
 <ApplicationManifest ... >
@@ -99,15 +99,15 @@ Om du vill åsidosätta värden i Settings.xml deklarerar du en åsidosättnings
   </ServiceManifestImport>
  ```
 
-Nu kan värdet anges som en *programparameter* när du skapar en instans av programmet. Skapa en programinstans kan skriptas med PowerShell, eller skrivas i C#, för enkel integrering i en byggprocess.
+Du kan nu ange värdet som en *program parameter* när du skapar en instans av programmet. Att skapa en program instans kan skriptas med PowerShell eller skrivas i C# för enkel integrering i en build-process.
 
-Med PowerShell anges parametern som `New-ServiceFabricApplication` en [hash-tabell:](https://technet.microsoft.com/library/ee692803.aspx)
+Med PowerShell anges parametern till `New-ServiceFabricApplication` kommandot som en hash- [tabell](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-Med C#anges programparametrar `ApplicationDescription` i `NameValueCollection`en som en:
+Med C# anges program parametrar i en `ApplicationDescription` som: `NameValueCollection`
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -125,8 +125,8 @@ ApplicationDescription applicationDescription = new ApplicationDescription(
 await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescription);
 ```
 
-## <a name="decrypt-encrypted-secrets-from-service-code"></a>Dekryptera krypterade hemligheter från tjänstkod
-API:erna för åtkomst till [parametrar][parameters-link] och [miljövariabler][environment-variables-link] möjliggör enkel dekryptering av krypterade värden. Eftersom den krypterade strängen innehåller information om certifikatet som används för kryptering behöver du inte ange certifikatet manuellt. Certifikatet behöver bara installeras på noden som tjänsten körs på.
+## <a name="decrypt-encrypted-secrets-from-service-code"></a>Dekryptera krypterade hemligheter från Service koden
+API: erna för åtkomst till [parametrar][parameters-link] och [miljövariabler][environment-variables-link] möjliggör enkel dekryptering av krypterade värden. Eftersom den krypterade strängen innehåller information om certifikatet som används för kryptering behöver du inte ange certifikatet manuellt. Certifikatet behöver bara installeras på den nod där tjänsten körs.
 
 ```csharp
 // Access decrypted parameters from Settings.xml
@@ -143,8 +143,8 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Service Fabric [Secrets Store](service-fabric-application-secret-store.md) 
-* Läs mer om [program- och tjänstsäkerhet](service-fabric-application-and-service-security.md)
+* Service Fabric [hemligheter](service-fabric-application-secret-store.md) 
+* Läs mer om [säkerhet för program och tjänster](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

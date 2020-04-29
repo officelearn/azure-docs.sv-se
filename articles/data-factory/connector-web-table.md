@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från webbtabell med Azure Data Factory
-description: Lär dig mer om Web Table Connector för Azure Data Factory som gör att du kan kopiera data från en webbtabell till datalager som stöds av Data Factory som sänkor.
+title: Kopiera data från en webb tabell med Azure Data Factory
+description: Lär dig mer om webb tabell koppling till Azure Data Factory som gör att du kan kopiera data från en webb tabell till data lager som stöds av Data Factory som mottagare.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,57 +12,57 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410204"
 ---
-# <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiera data från webbtabell med hjälp av Azure Data Factory
+# <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiera data från en webb tabell med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-web-table-connector.md)
 > * [Aktuell version](connector-web-table.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en webbtabelldatabas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en webb tabell databas. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
-Skillnaden mellan den här webbtabellkopplingen, [REST-kopplingen](connector-rest.md) och [HTTP-kopplingen](connector-http.md) är:
+Skillnaden mellan den här webb tabell kopplingen, [rest-anslutningen](connector-rest.md) och [http-anslutningen](connector-http.md) är:
 
-- **Webbbordskoppling** extraherar tabellinnehåll från en HTML-webbsida.
-- **REST-anslutningsappen** har särskilt stöd för att kopiera data från RESTful API:er.
-- **HTTP-anslutningsappen** är allmän för att hämta data från valfri HTTP-slutpunkt, t.ex. 
+- **Webb tabells koppling** extraherar tabell innehåll från en HTML-webbsida.
+- **Rest Connector** har stöd för att kopiera data från RESTful-API: er.
+- **Http-anslutningen** är generisk för att hämta data från alla http-slutpunkter, t. ex. för att hämta filen. 
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här webbtabellkopplingen stöds för följande aktiviteter:
+Den här webb tabell anslutningen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från webbtabelldatabasen till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
+Du kan kopiera data från webb tabell databasen till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Den här webbtabellkopplingen stöder **extrahering av tabellinnehåll från en HTML-sida**.
+Mer specifikt stöder den här webb tabell anslutningen **extrahering av tabell innehåll från en HTML-sida**.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill använda den här webbtabellkopplingen måste du konfigurera en självvärderad integrationskörning. Mer information finns i artikeln Integration Runtime för [självvärd.](create-self-hosted-integration-runtime.md)
+Om du vill använda den här webb tabell anslutningen måste du konfigurera en egen värd Integration Runtime. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för webbtabellkopplingen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för webb tabell koppling.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för webbtabelllänkade tjänst:
+Följande egenskaper stöds för länkad webb tabell tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Web** |Ja |
-| url | URL till webbkällan |Ja |
-| authenticationType | Tillåtet värde är: **Anonym**. |Ja |
-| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. En självvärdad integrationskörning krävs som nämns i [Förutsättningar](#prerequisites). |Ja |
+| typ | Egenskapen Type måste anges till: **webb** |Ja |
+| url | URL till webb adressen |Ja |
+| authenticationType | Tillåtet värde är: **anonymt**. |Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel:**
 
@@ -85,15 +85,15 @@ Följande egenskaper stöds för webbtabelllänkade tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av webbtabelldatauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av webb tabell data uppsättning.
 
-Om du vill kopiera data från webbtabellen anger du egenskapen typ för datauppsättningen till **WebTable**. Följande egenskaper stöds:
+Om du vill kopiera data från en webb tabell anger du egenskapen type för data uppsättningen till **webtable**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Datauppsättningens typegenskap måste anges till: **WebTable** | Ja |
-| path |En relativ URL till resursen som innehåller tabellen. |Nej. När sökvägen inte anges används endast den URL som anges i den länkade tjänstdefinitionen. |
-| Index |Indexet för tabellen i resursen. Se [Hämta index över en tabell i ett HTML-sidavsnitt](#get-index-of-a-table-in-an-html-page) för steg för att hämta index över en tabell på en HTML-sida. |Ja |
+| typ | Data uppsättningens typ-egenskap måste anges till: **Webtable** | Ja |
+| path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
+| Tabbindex |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Ja |
 
 **Exempel:**
 
@@ -117,11 +117,11 @@ Om du vill kopiera data från webbtabellen anger du egenskapen typ för dataupps
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av webbtabellkällan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av webb tabellens källa.
 
-### <a name="web-table-as-source"></a>Webbtabell som källa
+### <a name="web-table-as-source"></a>Webb tabell som källa
 
-Om du vill kopiera data från webbtabellen anger du källtypen i kopieringsaktiviteten till **WebSource**, inga ytterligare egenskaper stöds.
+Om du vill kopiera data från en webb tabell anger du käll typen i kopierings aktiviteten till **Websource**. inga ytterligare egenskaper stöds.
 
 **Exempel:**
 
@@ -154,38 +154,38 @@ Om du vill kopiera data från webbtabellen anger du källtypen i kopieringsaktiv
 ]
 ```
 
-## <a name="get-index-of-a-table-in-an-html-page"></a>Hämta index över en tabell på en HTML-sida
+## <a name="get-index-of-a-table-in-an-html-page"></a>Hämta index för en tabell i en HTML-sida
 
-Om du vill hämta indexet för en tabell som du behöver konfigurera i [datauppsättningsegenskaper](#dataset-properties)kan du använda t.ex.
+Om du vill hämta indexet för en tabell som du behöver konfigurera i [data uppsättnings egenskaper](#dataset-properties)kan du använda t. ex. Excel 2016 som verktyg:
 
-1. Starta **Excel 2016** och växla till fliken **Data.**
-2. Klicka på **Ny fråga** i verktygsfältet, peka på Från **andra källor** och klicka på Från **webben**.
+1. Starta **Excel 2016** och växla till fliken **data** .
+2. Klicka på **ny fråga** i verktygsfältet, peka på **från andra källor** och klicka på **från webben**.
 
-    ![Menyn Power Query](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. I dialogrutan **Från webben** anger du **URL** som du skulle använda https://en.wikipedia.org/wiki/) i den länkade tjänsten JSON (till exempel: tillsammans med sökväg som du anger för datauppsättningen (till exempel AFI%27s_100_Years... 100_Movies) och klicka på **OK**.
+    ![Power Query-menyn](./media/copy-data-from-web-table/PowerQuery-Menu.png)
+3. I dialog rutan **från webben** anger du den **URL** som du skulle använda i länkad tjänst-JSON (till https://en.wikipedia.org/wiki/) exempel: tillsammans med sökvägen som du anger för data uppsättningen (till exempel: AFI% 27s_100_Years... 100_Movies) och klicka på **OK**.
 
-    ![Dialogrutan Från webben](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
+    ![Från webben-dialog](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
     URL som används i det här exemplet:https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. Om dialogrutan **Access-webbinnehåll** visas markerar du rätt **URL,** **autentisering**och klickar på **Anslut**.
+4. Om dialog rutan **Öppna webb innehåll** visas väljer du rätt **URL**, **autentisering**och klickar på **Anslut**.
 
-   ![Dialogrutan Access-webbinnehåll](./media/copy-data-from-web-table/AccessWebContentDialog.png)
-5. Klicka på ett **tabellobjekt** i trädvyn om du vill visa innehåll från tabellen och klicka sedan på **knappen Redigera** längst ned.  
+   ![Dialog rutan för att komma åt webb innehåll](./media/copy-data-from-web-table/AccessWebContentDialog.png)
+5. Klicka på ett **tabell** objekt i trädvyn om du vill visa innehåll från tabellen och klicka sedan på knappen **Redigera** längst ned.  
 
    ![Navigeringsdialogruta](./media/copy-data-from-web-table/Navigator-DialogBox.png)
-6. Klicka på knappen **Avancerad redigerare** i verktygsfältet i fönstret **Frågeredigeraren.**
+6. I fönstret **Frågeredigeraren** klickar du på **avancerad redigerare** knapp i verktygsfältet.
 
-    ![Knappen Avancerad redigerare](./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png)
-7. I dialogrutan Avancerad redigerare är numret bredvid "Källa" indexet.
+    ![Avancerad redigerare knapp](./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png)
+7. I dialog rutan Avancerad redigerare är talet intill "källa" indexet.
 
-    ![Avancerad redigerare - Index](./media/copy-data-from-web-table/AdvancedEditor-Index.png)
+    ![Avancerad redigerare-index](./media/copy-data-from-web-table/AdvancedEditor-Index.png)
 
-Om du använder Excel 2013 använder du [Microsoft Power Query för Excel för](https://www.microsoft.com/download/details.aspx?id=39379) att hämta indexet. Mer information finns i Artikeln Anslut [till en webbsida.](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) Stegen är liknande om du använder [Microsoft Power BI för skrivbordet](https://powerbi.microsoft.com/desktop/).
+Om du använder Excel 2013 använder du [Microsoft Power Query för Excel](https://www.microsoft.com/download/details.aspx?id=39379) för att hämta indexet. Mer information finns i artikeln om [att ansluta till en webb sida](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) . Stegen är liknande om du använder [Microsoft Power BI för skriv bord](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

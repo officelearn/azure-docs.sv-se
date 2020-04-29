@@ -1,7 +1,7 @@
 ---
-title: Konfigurera Privat Azure-länk
+title: Konfigurera privat Azure-länk
 titleSuffix: Azure Machine Learning
-description: Använd Azure Private Link för att komma åt din Azure Machine Learning-arbetsyta på ett säkert sätt från ett virtuellt nätverk.
+description: Använd Azures privata länk för att få säker åtkomst till din Azure Machine Learning-arbetsyta från ett virtuellt nätverk.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,67 +11,67 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
 ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81411201"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurera Azure Private Link för en Azure Machine Learning-arbetsyta (förhandsversion)
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurera en privat Azure-länk för en Azure Machine Learning arbets yta (förhands granskning)
 
-I det här dokumentet får du lära dig hur du använder Azure Private Link med din Azure Machine Learning-arbetsyta. Den här funktionen är för närvarande i förhandsversion och är tillgänglig i regionerna USA East, US West 2, US South Central. 
+I det här dokumentet får du lära dig hur du använder en privat Azure-länk med din Azure Machine Learning-arbetsyta. Den här funktionen är för närvarande en för hands version och är tillgänglig i regionerna USA, östra, västra USA, västra 2, södra centrala USA. 
 
-Med Azure Private Link kan du ansluta till din arbetsyta med hjälp av en privat slutpunkt. Den privata slutpunkten är en uppsättning privata IP-adresser i det virtuella nätverket. Du kan sedan begränsa åtkomsten till arbetsytan så att den bara sker via de privata IP-adresserna. Private Link hjälper till att minska risken för dataexfiltration. Mer information om privata slutpunkter finns i artikeln [Azure Private Link.](/azure/private-link/private-link-overview)
+Med Azures privata länk kan du ansluta till din arbets yta med en privat slut punkt. Den privata slut punkten är en uppsättning privata IP-adresser i det virtuella nätverket. Du kan sedan begränsa åtkomsten till din arbets yta så att den bara sker över de privata IP-adresserna. Privat länk hjälper till att minska risken för data exfiltrering. Mer information om privata slut punkter finns i artikeln [Azure Private Link](/azure/private-link/private-link-overview) .
 
 > [!IMPORTANT]
-> Azure Private Link påverkar inte Azure-kontrollplan (hanteringsåtgärder) som att ta bort arbetsytan eller hantera beräkningsresurser. Skapa, uppdatera eller ta bort ett beräkningsmål. Dessa åtgärder utförs över det offentliga Internet som vanligt.
+> Azures privata länk påverkar inte Azures kontroll plan (hanterings åtgärder) som att ta bort arbets ytan eller hantera beräknings resurser. Till exempel skapa, uppdatera eller ta bort ett beräknings mål. De här åtgärderna utförs via det offentliga Internet som normalt.
 >
-> Förhandsversionen av Azure Machine Learning-beräkningsinstanser stöds inte på en arbetsyta där Private Link är aktiverad.
+> För hands versionen av Azure Machine Learning Compute instances stöds inte i en arbets yta där privat länk är aktive rad.
 
-## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Skapa en arbetsyta som använder en privat slutpunkt
+## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Skapa en arbets yta som använder en privat slut punkt
 
-För närvarande stöder vi bara att aktivera en privat slutpunkt när du skapar en ny Azure Machine Learning-arbetsyta. Följande mallar finns för flera populära konfigurationer:
+För närvarande stöder vi bara aktivering av en privat slut punkt när du skapar en ny Azure Machine Learning-arbetsyta. Följande mallar finns för flera populära konfigurationer:
 
 > [!TIP]
-> Automatisk godkännande styr den automatiska åtkomsten till den privata länken aktiverade resursen. Mer information finns i [Vad är Azure Private Link-tjänst](../private-link/private-link-service-overview.md).
+> Automatiskt godkännande styr automatisk åtkomst till den privata länken aktiverade resursen. Mer information finns i [Vad är Azure Private Link service](../private-link/private-link-service-overview.md).
 
-* [Arbetsyta med kundhanterade nycklar och automatiskt godkännande för Private Link](#cmkaapl)
-* [Arbetsyta med kundhanterade nycklar och manuellt godkännande för Private Link](#cmkmapl)
-* [Arbetsyta med Microsoft-hanterade nycklar och automatiskt godkännande för Private Link](#mmkaapl)
-* [Arbetsyta med Microsoft-hanterade nycklar och manuellt godkännande för Private Link](#mmkmapl)
+* [Arbets yta med Kundhanterade nycklar och automatiskt godkännande för privat länk](#cmkaapl)
+* [Arbets yta med Kundhanterade nycklar och manuellt godkännande för privat länk](#cmkmapl)
+* [Arbets yta med Microsoft-hanterade nycklar och automatiskt godkännande för privat länk](#mmkaapl)
+* [Arbets yta med Microsoft-hanterade nycklar och manuellt godkännande för privat länk](#mmkmapl)
 
 När du distribuerar en mall måste du ange följande information:
 
 * Namn på arbetsyta
-* Azure-regionen för att skapa resurser i
-* Arbetsytan utgåva (Basic eller Enterprise)
-* Om hög sekretessinställningar för arbetsytan ska aktiveras
-* Om kryptering för arbetsytan med en kundhanterad nyckel ska aktiveras och associerade värden för nyckeln
-* Virtual Network och Undernät namn, kommer mallen skapa nya virtuella nätverk och undernät
+* Azure-region för att skapa resurserna i
+* Arbetsyte Edition (Basic eller Enterprise)
+* Om hög sekretess inställningar för arbets ytan ska aktive ras
+* Om kryptering för arbets ytan med en kundhanterad nyckel ska vara aktive rad och de associerade värdena för nyckeln
+* Virtual Network och under nätets namn skapas ett nytt virtuellt nätverk och undernät i mallen
 
-När en mall har skickats och etableringen har slutförts innehåller resursgruppen som innehåller arbetsytan tre nya artefakttyper som är relaterade till Privat länk:
+När en mall har skickats och etableringen har slutförts kommer resurs gruppen som innehåller din arbets yta att innehålla tre nya artefakt typer relaterade till en privat länk:
 
-* Privat slutpunkt
+* Privat slut punkt
 * Nätverksgränssnitt
 * Privat DNS-zon
 
-Arbetsytan innehåller också ett Virtuellt Azure-nätverk som kan kommunicera med arbetsytan via den privata slutpunkten.
+Arbets ytan innehåller också ett Azure-Virtual Network som kan kommunicera med arbets ytan över den privata slut punkten.
 
-### <a name="deploy-the-template-using-the-azure-portal"></a>Distribuera mallen med Azure-portalen
+### <a name="deploy-the-template-using-the-azure-portal"></a>Distribuera mallen med hjälp av Azure Portal
 
-1. Följ stegen i [Distribuera resurser från anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). När du kommer till __skärmen Redigera mall__ klistrar du in en av mallarna från slutet av det här dokumentet.
-1. Välj __Spara__ om du vill använda mallen. Ange följande information och godkänn villkoren i listan:
+1. Följ stegen i [distribuera resurser från den anpassade mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). När du kommer till skärmen __Redigera mall__ klistrar du in i någon av mallarna från slutet av det här dokumentet.
+1. Välj __Spara__ för att använda mallen. Ange följande information och godkänn de allmänna villkor som anges:
 
    * Prenumeration: Välj den Azure-prenumeration som ska användas för dessa resurser.
-   * Resursgrupp: Välj eller skapa en resursgrupp som innehåller tjänsterna.
-   * Arbetsytans namn: Namnet som ska användas för arbetsytan Azure Machine Learning som ska skapas. Arbetsytans namn måste vara mellan 3 och 33 tecken. Den får endast innehålla alfanumeriska tecken och '-'.
+   * Resurs grupp: Välj eller skapa en resurs grupp som ska innehålla tjänsterna.
+   * Namn på arbets yta: namnet som ska användas för Azure Machine Learning arbets ytan som ska skapas. Arbets ytans namn måste innehålla mellan 3 och 33 tecken. Det får bara innehålla alfanumeriska tecken och "-".
    * Plats: Välj den plats där resurserna ska skapas.
 
-Mer information finns i [Distribuera resurser från anpassad mall](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Mer information finns i [distribuera resurser från en anpassad mall](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-### <a name="deploy-the-template-using-azure-powershell"></a>Distribuera mallen med Azure PowerShell
+### <a name="deploy-the-template-using-azure-powershell"></a>Distribuera mallen med hjälp av Azure PowerShell
 
-Det här exemplet förutsätter att du har sparat en av mallarna från slutet av det här dokumentet till en fil som heter `azuredeploy.json` i den aktuella katalogen:
+I det här exemplet förutsätts att du har sparat en av mallarna från slutet av det här dokumentet till `azuredeploy.json` en fil med namnet i den aktuella katalogen:
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -80,11 +80,11 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-Mer information finns i [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och distribuera privat Resource [Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-### <a name="deploy-the-template-using-the-azure-cli"></a>Distribuera mallen med Hjälp av Azure CLI
+### <a name="deploy-the-template-using-the-azure-cli"></a>Distribuera mallen med hjälp av Azure CLI
 
-Det här exemplet förutsätter att du har sparat en av mallarna från slutet av det här dokumentet till en fil som heter `azuredeploy.json` i den aktuella katalogen:
+I det här exemplet förutsätts att du har sparat en av mallarna från slutet av det här dokumentet till `azuredeploy.json` en fil med namnet i den aktuella katalogen:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
@@ -95,46 +95,46 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-Mer information finns i [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och Distribuera privat Resource [Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## <a name="using-a-workspace-over-a-private-endpoint"></a>Använda en arbetsyta över en privat slutpunkt
+## <a name="using-a-workspace-over-a-private-endpoint"></a>Använda en arbets yta över en privat slut punkt
 
-Eftersom kommunikation till arbetsytan endast är tillåten från det virtuella nätverket måste alla utvecklingsmiljöer som använder arbetsytan vara medlemmar i det virtuella nätverket. Till exempel en virtuell dator i det virtuella nätverket eller en dator som är ansluten till det virtuella nätverket med hjälp av en VPN-gateway.
+Eftersom kommunikation till arbets ytan endast tillåts från det virtuella nätverket måste alla utvecklings miljöer som använder arbets ytan vara medlemmar i det virtuella nätverket. Till exempel en virtuell dator i det virtuella nätverket eller en dator som är ansluten till det virtuella nätverket med en VPN-gateway.
 
 > [!IMPORTANT]
-> För att undvika tillfälliga avbrott i anslutningen rekommenderar Microsoft att DNS-cachen töms på datorer som ansluter till arbetsytan efter att privat länk har aktiverats. 
+> För att undvika tillfälligt avbrott i anslutningen rekommenderar Microsoft att tömma DNS-cachen på datorer som ansluter till arbets ytan när du har aktiverat privat länk. 
 
-Information om Azure-virtuella datorer finns i [dokumentationen för virtuella datorer](/azure/virtual-machines/).
+Information om Azure Virtual Machines finns i Virtual Machines- [dokumentationen](/azure/virtual-machines/).
 
-Information om VPN-gateways finns i [Vad är VPN-gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+Information om VPN-gatewayer finns i [Vad är VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## <a name="using-azure-storage"></a>Använda Azure Storage
 
-Om du vill skydda Azure Storage-kontot som används av arbetsytan placerar du det i det virtuella nätverket.
+Om du vill skydda det Azure Storage kontot som används av din arbets yta, så Lägg det i det virtuella nätverket.
 
-Information om hur du placerar lagringskontot i det virtuella nätverket finns i [Använda ett lagringskonto för arbetsytan](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
+Information om hur du placerar lagrings kontot i det virtuella nätverket finns i [använda ett lagrings konto för din arbets yta](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
 
 ## <a name="using-azure-key-vault"></a>Använda Azure Key Vault
 
-Om du vill skydda Det Azure Key Vault som används av arbetsytan kan du antingen placera det i det virtuella nätverket eller aktivera Private Link för det.
+Om du vill skydda Azure Key Vault som används av din arbets yta kan du antingen flytta den i det virtuella nätverket eller aktivera en privat länk.
 
-Information om hur du placerar nyckelvalvet i det virtuella nätverket finns i [Använda en nyckelvalvsinstans med arbetsytan](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
+Information om hur du placerar nyckel valvet i det virtuella nätverket finns i [använda en nyckel valv instans med din arbets yta](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
 
-Information om hur du aktiverar Privat länk för nyckelvalvet finns i [Integrera nyckelvalv med Azure Private Link](/azure/key-vault/private-link-service).
+Information om hur du aktiverar privat länk för nyckel valvet finns i [integrera Key Vault med Azure privat länk](/azure/key-vault/private-link-service).
 
 ## <a name="using-azure-kubernetes-services"></a>Använda Azure Kubernetes Services
 
-Om du vill skydda Azure Kubernetes-tjänsterna som används av arbetsytan placerar du dem i ett virtuellt nätverk. Mer information finns i [Använda Azure Kubernetes Services med din arbetsyta](how-to-enable-virtual-network.md#aksvnet).
+Om du vill skydda de Azure Kubernetes-tjänster som används av din arbets yta, så Lägg till den i ett virtuellt nätverk. Mer information finns i [använda Azure Kubernetes Services med din arbets yta](how-to-enable-virtual-network.md#aksvnet).
 
 > [!WARNING]
-> Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktiverad.
+> Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktive rad.
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 
-Information om hur du skyddar Azure Container Registry i det virtuella nätverket finns i [Använda Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
+Information om hur du skyddar Azure Container Registry i det virtuella nätverket finns i [använd Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
 
 > [!IMPORTANT]
-> Om du använder Privat länk för din Azure Machine Learning-arbetsyta och placerar Azure Container-registret för din arbetsyta i ett virtuellt nätverk, måste du också använda följande Azure Resource Manager-mall. Med den här mallen kan arbetsytan kommunicera med ACR via den privata länken.
+> Om du använder en privat länk för din Azure Machine Learning arbets yta och lägger Azure Container Registry för din arbets yta i ett virtuellt nätverk, måste du också använda följande Azure Resource Manager-mall. Med den här mallen kan din arbets yta kommunicera med ACR via den privata länken.
 
 ```json
 {
@@ -189,7 +189,7 @@ Information om hur du skyddar Azure Container Registry i det virtuella nätverke
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
 <a id="cmkaapl"></a>
-### <a name="workspace-with-customer-managed-keys-and-auto-approval-for-private-link"></a>Arbetsyta med kundhanterade nycklar och automatiskt godkännande för Private Link
+### <a name="workspace-with-customer-managed-keys-and-auto-approval-for-private-link"></a>Arbets yta med Kundhanterade nycklar och automatiskt godkännande för privat länk
 
 ```json
 {
@@ -492,7 +492,7 @@ Information om hur du skyddar Azure Container Registry i det virtuella nätverke
 ```
 
 <a id="cmkmapl"></a>
-### <a name="workspace-with-customer-managed-keys-and-manual-approval-for-private-link"></a>Arbetsyta med kundhanterade nycklar och manuellt godkännande för Private Link
+### <a name="workspace-with-customer-managed-keys-and-manual-approval-for-private-link"></a>Arbets yta med Kundhanterade nycklar och manuellt godkännande för privat länk
 
 ```json
 {
@@ -718,7 +718,7 @@ Information om hur du skyddar Azure Container Registry i det virtuella nätverke
 ```
 
 <a id="mmkaapl"></a>
-### <a name="workspace-with-microsoft-managed-keys-and-auto-approval-for-private-link"></a>Arbetsyta med Microsoft-hanterade nycklar och automatiskt godkännande för Private Link
+### <a name="workspace-with-microsoft-managed-keys-and-auto-approval-for-private-link"></a>Arbets yta med Microsoft-hanterade nycklar och automatiskt godkännande för privat länk
 
 ```json
 {
@@ -979,7 +979,7 @@ Information om hur du skyddar Azure Container Registry i det virtuella nätverke
 ```
 
 <a id="mmkmapl"></a>
-### <a name="workspace-with-microsoft-managed-keys-and-manual-approval-for-private-link"></a>Arbetsyta med Microsoft-hanterade nycklar och manuellt godkännande för Private Link
+### <a name="workspace-with-microsoft-managed-keys-and-manual-approval-for-private-link"></a>Arbets yta med Microsoft-hanterade nycklar och manuellt godkännande för privat länk
 
 ```json
 {
@@ -1164,4 +1164,4 @@ Information om hur du skyddar Azure Container Registry i det virtuella nätverke
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du skyddar din Azure Machine Learning-arbetsyta finns i [företagssäkerhetsartikeln.](concept-enterprise-security.md)
+Mer information om hur du skyddar Azure Machine Learning-arbetsytan finns i artikeln [företags säkerhet](concept-enterprise-security.md) .

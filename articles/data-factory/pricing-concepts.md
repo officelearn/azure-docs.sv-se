@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Data Factory-priser via exempel
-description: I den här artikeln beskrivs och demonstreras azure data factory-prismodellen med detaljerade exempel
+title: Förstå Azure Data Factory priser via exempel
+description: Den här artikeln beskriver och demonstrerar Azure Data Factory pris modell med detaljerade exempel
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
@@ -11,167 +11,167 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414931"
 ---
-# <a name="understanding-data-factory-pricing-through-examples"></a>Förstå priser på datafabriker genom exempel
+# <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser via exempel
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Den här artikeln förklarar och demonstrerar Azure Data Factory-prismodellen med detaljerade exempel.
+I den här artikeln beskrivs och demonstreras den Azure Data Factory pris modellen med detaljerade exempel.
 
 > [!NOTE]
-> De priser som används i dessa exempel nedan är hypotetiska och är inte avsedda att innebära faktisk prissättning.
+> Priserna som används i de här exemplen nedan är hypotetiska och är inte avsedda att innebära den faktiska prissättningen.
 
-## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Kopiera data från AWS S3 till Azure Blob-lagring varje timme
+## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Kopiera data från AWS S3 till Azure Blob Storage per timme
 
-I det här fallet vill du kopiera data från AWS S3 till Azure Blob storage enligt ett timschema.
+I det här scenariot vill du kopiera data från AWS S3 till Azure Blob Storage enligt ett Tim schema.
 
-För att kunna utföra scenariot måste du skapa en pipeline med följande objekt:
+För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 
-1. En kopieringsaktivitet med indatauppsättning för de data som ska kopieras från AWS S3.
+1. En kopierings aktivitet med en indata-datauppsättning för de data som ska kopieras från AWS S3.
 
-2. En utdatauppsättning för data på Azure Storage.
+2. En data uppsättning för data i Azure Storage.
 
-3. En schemautlösare som ska köra pipelinen varje timme.
+3. En schema utlösare för att köra pipelinen varje timme.
 
    ![Scenario1](media/pricing-concepts/scenario1.png)
 
 | **Åtgärder** | **Typer och enheter** |
 | --- | --- |
-| Skapa länkad tjänst | 2 Läs/skriv entitet  |
-| Skapa datauppsättningar | 4 Läs/skriv-entiteter (2 för skapande av datauppsättning, 2 för länkade tjänstreferenser) |
-| Skapa pipeline | 3 Läs/skriv-entiteter (1 för skapande av pipeline, 2 för datauppsättningsreferenser) |
-| Hämta pipeline | 1 Läs/skriv entitet |
-| Kör pipeline | 2 Aktivitetskörningar (1 för utlösarkörning, 1 för aktivitetskörningar) |
-| Kopiera dataantagande: körningstid = 10 min | 10 \* 4 Azure Integration Runtime (standard-DIU-inställning = 4) Mer information om dataintegrationsenheter och optimering av kopieringsprestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipelineantagande: Endast 1 körning inträffade | 2 Övervakningskörningsposter som gjorts om (1 för pipelinekörning, 1 för aktivitetskörning) |
+| Skapa länkad tjänst | 2 Läs/skriv-entitet  |
+| Skapa data uppsättningar | 4 Läs-och skrivbara entiteter (2 för skapande av data uppsättning, 2 för länkade tjänst referenser) |
+| Skapa pipeline | 3 Läs-och skrivbara entiteter (1 för skapande av pipeline, 2 för data uppsättnings referenser) |
+| Hämta pipeline | 1 Läs-/skriv entitet |
+| Kör pipeline | 2 aktivitets körningar (1 för körnings körning, 1 för aktivitets körningar) |
+| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
 
-**Totalt scenario prissättning: $ 0,16811**
+**Pris för total scenario: $0,16811**
 
-- Data Fabriksoperationer = **$0.0001**
-  - Läs/skriv = 10\*00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
-  - Övervakning =\*2 000005 = $0.00001 [1 Övervakning = $0.25/50000 = 0.000005]
-- Körning av &amp; pipelineorkestrering = **$0.168**
-  - Aktivitetskörningar =\*001 2 = 0,002 [1 körning = $1/1000 = 0.001]
-  - Data movement aktiviteter = $0.166 (Proportionellt för 10 minuters körningstid. $0.25/timme på Azure Integration Runtime)
+- Data Factory åtgärder = **$0,0001**
+  - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 2\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- &amp; Körning av pipeline-dirigering = **$0,168**
+  - Aktivitet körs = 001\*2 = 0,002 [1 körning = $1/1000 = 0,001]
+  - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Kopiera data och transformera med Azure Databricks varje timme
 
-I det här fallet vill du kopiera data från AWS S3 till Azure Blob storage och omvandla data med Azure Databricks på ett timschema.
+I det här scenariot vill du kopiera data från AWS S3 till Azure Blob Storage och transformera data med Azure Databricks per tim schema.
 
-För att kunna utföra scenariot måste du skapa en pipeline med följande objekt:
+För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 
-1. En kopieringsaktivitet med indatauppsättning för de data som ska kopieras från AWS S3 och en utdatauppsättning för data på Azure-lagring.
-2. En Azure Databricks-aktivitet för dataomvandlingen.
-3. En schemautlösare för att köra pipelinen varje timme.
+1. En kopierings aktivitet med en indatamängd för data som ska kopieras från AWS S3 och en data uppsättning för data i Azure Storage.
+2. En Azure Databricks-aktivitet för data omvandlingen.
+3. En schema utlösare för att köra pipelinen varje timme.
 
 ![Scenario2](media/pricing-concepts/scenario2.png)
 
 | **Åtgärder** | **Typer och enheter** |
 | --- | --- |
-| Skapa länkad tjänst | 3 Läs/skriv entitet  |
-| Skapa datauppsättningar | 4 Läs/skriv-entiteter (2 för skapande av datauppsättning, 2 för länkade tjänstreferenser) |
-| Skapa pipeline | 3 Läs/skriv-entiteter (1 för skapande av pipeline, 2 för datauppsättningsreferenser) |
-| Hämta pipeline | 1 Läs/skriv entitet |
-| Kör pipeline | 3 Aktivitetskörningar (1 för utlösarkörning, 2 för aktivitetskörningar) |
-| Kopiera dataantagande: körningstid = 10 min | 10 \* 4 Azure Integration Runtime (standard-DIU-inställning = 4) Mer information om dataintegrationsenheter och optimering av kopieringsprestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipelineantagande: Endast 1 körning inträffade | 3 Övervakningskörningsposter har gjorts om (1 för pipelinekörning, 2 för aktivitetskörning) |
-| Kör Databricks aktivitet Antagande: exekveringstid = 10 min | 10 min extern pipeline-aktivitetskörning |
+| Skapa länkad tjänst | 3 Läs/skriv-entitet  |
+| Skapa data uppsättningar | 4 Läs-och skrivbara entiteter (2 för skapande av data uppsättning, 2 för länkade tjänst referenser) |
+| Skapa pipeline | 3 Läs-och skrivbara entiteter (1 för skapande av pipeline, 2 för data uppsättnings referenser) |
+| Hämta pipeline | 1 Läs-/skriv entitet |
+| Kör pipeline | 3 aktivitets körningar (1 för körnings körning, 2 för aktivitets körningar) |
+| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 3 försök att köra poster för övervakning (1 för pipeline-körning, 2 för aktivitets körning) |
+| Kör Databricks Activity Assumptions: körnings tid = 10 min | 10 min externa pipeline-aktivitets körning |
 
-**Totalt scenario prissättning: $ 0,16916**
+**Pris för total scenario: $0,16916**
 
-- Data Fabriksoperationer = **$0.00012**
-  - Läs/skriv = 11\*00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
-  - Övervakning =\*3 000005 = $0.00001 [1 Övervakning = $0.25/50000 = 0.000005]
-- Genomförande av &amp; pipelineorkestrering = **$0.16904**
-  - Aktivitetskörningar =\*001 3 = 0,003 [1 körning = $1/1000 = 0.001]
-  - Data movement aktiviteter = $0.166 (Proportionellt för 10 minuters körningstid. $0.25/timme på Azure Integration Runtime)
-  - Extern pipelineaktivitet = $0.000041 (Proportionellt för 10 minuters körningstid. $0.00025/timme på Azure Integration Runtime)
+- Data Factory åtgärder = **$0,00012**
+  - Läs/skriv = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 3\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- &amp; Körning av pipeline-dirigering = **$0,16904**
+  - Aktivitet körs = 001\*3 = 0,003 [1 körning = $1/1000 = 0,001]
+  - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
+  - Extern pipeline-aktivitet = $0,000041 (beräknat i 10 minuters körnings tid. $0.00025/timme på Azure Integration Runtime)
 
-## <a name="copy-data-and-transform-with-dynamic-parameters-hourly"></a>Kopiera data och omforma med dynamiska parametrar varje timme
+## <a name="copy-data-and-transform-with-dynamic-parameters-hourly"></a>Kopiera data och transformera med dynamiska parametrar varje timme
 
-I det här fallet vill du kopiera data från AWS S3 till Azure Blob storage och omvandla med Azure Databricks (med dynamiska parametrar i skriptet) på ett timschema.
+I det här scenariot vill du kopiera data från AWS S3 till Azure Blob Storage och transformera med Azure Databricks (med dynamiska parametrar i skriptet) enligt ett Tim schema.
 
-För att kunna utföra scenariot måste du skapa en pipeline med följande objekt:
+För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 
-1. En kopieringsaktivitet med indatauppsättning för de data som ska kopieras från AWS S3, en utdatauppsättning för data på Azure-lagring.
-2. En uppslagsaktivitet för att skicka parametrar dynamiskt till omvandlingsskriptet.
-3. En Azure Databricks-aktivitet för dataomvandlingen.
-4. En schemautlösare för att köra pipelinen varje timme.
+1. En kopierings aktivitet med en indatamängd för data som ska kopieras från AWS S3, en data uppsättning för data i Azure Storage.
+2. En söknings aktivitet för att skicka parametrar dynamiskt till omvandlings skriptet.
+3. En Azure Databricks-aktivitet för data omvandlingen.
+4. En schema utlösare för att köra pipelinen varje timme.
 
 ![Scenario3](media/pricing-concepts/scenario3.png)
 
 | **Åtgärder** | **Typer och enheter** |
 | --- | --- |
-| Skapa länkad tjänst | 3 Läs/skriv entitet  |
-| Skapa datauppsättningar | 4 Läs/skriv-entiteter (2 för skapande av datauppsättning, 2 för länkade tjänstreferenser) |
-| Skapa pipeline | 3 Läs/skriv-entiteter (1 för skapande av pipeline, 2 för datauppsättningsreferenser) |
-| Hämta pipeline | 1 Läs/skriv entitet |
-| Kör pipeline | 4 Aktivitetskörningar (1 för utlösarkörning, 3 för aktivitetskörningar) |
-| Kopiera dataantagande: körningstid = 10 min | 10 \* 4 Azure Integration Runtime (standard-DIU-inställning = 4) Mer information om dataintegrationsenheter och optimering av kopieringsprestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipelineantagande: Endast 1 körning inträffade | 4 Övervakningskörningsposter som gjorts om (1 för pipelinekörning, 3 för aktivitetskörning) |
-| Antagande om uppslagsaktivitet: körningstid = 1 min | 1 min körning av pipelineaktivitet |
-| Kör Databricks aktivitet Antagande: exekveringstid = 10 min | 10 min körning av extern pipelineaktivitet |
+| Skapa länkad tjänst | 3 Läs/skriv-entitet  |
+| Skapa data uppsättningar | 4 Läs-och skrivbara entiteter (2 för skapande av data uppsättning, 2 för länkade tjänst referenser) |
+| Skapa pipeline | 3 Läs-och skrivbara entiteter (1 för skapande av pipeline, 2 för data uppsättnings referenser) |
+| Hämta pipeline | 1 Läs-/skriv entitet |
+| Kör pipeline | 4 aktivitets körningar (1 för körning av Utlös punkt, 3 för aktivitets körningar) |
+| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 4 försök att köra poster för övervakning (1 för pipeline-körning, 3 för aktivitets körning) |
+| Kör söknings aktivitets antagande: körnings tid = 1 min | 1 min körning av pipeline-aktivitet |
+| Kör Databricks Activity Assumptions: körnings tid = 10 min | 10 min externa pipeline-aktivitets körning |
 
-**Totalt scenario prissättning: $ 0,17020**
+**Pris för total scenario: $0,17020**
 
-- Data Fabriksoperationer = **$0.00013**
-  - Läs/skriv = 11\*00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
-  - Övervakning =\*4 000005 = $0.00002 [1 Övervakning = $0.25/50000 = 0.000005]
-- Genomförande av &amp; pipelineorkestrering = **$0.17007**
-  - Aktivitetskörningar =\*001 4 = 0,004 [1 körning = $1/1000 = 0.001]
-  - Data movement aktiviteter = $0.166 (Proportionellt för 10 minuters körningstid. $0.25/timme på Azure Integration Runtime)
-  - Pipeline Aktivitet = $0.00003 (Proportionellt för 1 minuts körningstid. $0.002/timme på Azure Integration Runtime)
-  - Extern pipelineaktivitet = $0.000041 (Proportionellt för 10 minuters körningstid. $0.00025/timme på Azure Integration Runtime)
+- Data Factory åtgärder = **$0,00013**
+  - Läs/skriv = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 4\*000005 = $0,00002 [1 övervakning = $0,25/50000 = 0,000005]
+- &amp; Körning av pipeline-dirigering = **$0,17007**
+  - Aktivitet körs = 001\*4 = 0,004 [1 körning = $1/1000 = 0,001]
+  - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
+  - Pipeline-aktivitet = $0,00003 (beräknas för 1 minuters körnings tid. $0.002/timme på Azure Integration Runtime)
+  - Extern pipeline-aktivitet = $0,000041 (beräknat i 10 minuters körnings tid. $0.00025/timme på Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Använda felsökning av dataflöde för en normal arbetsdag
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Använda fel sökning av data flödes fel sökning för en normal arbets dag
 
-Som datatekniker ansvarar du för att utforma, skapa och testa kartläggningsdataflöden varje dag. Du loggar in i ADF-användargränssnittet på morgonen och aktiverar felsökningsläget för dataflöden. Standard-TTL för felsökningssessioner är 60 minuter. Du arbetar hela dagen i 8 timmar, så din Felsökningssession upphör aldrig att gälla. Därför kommer din avgift för dagen att vara:
+Som data tekniker ansvarar du för att utforma, skapa och testa mappnings data flöden varje dag. Du loggar in på ADF-gränssnittet i morgon och aktiverar fel söknings läge för data flöden. Standard-TTL för debug-sessioner är 60 minuter. Du arbetar under hela dagen i 8 timmar, så att din Felsök-session aldrig upphör att gälla. Avgiften för dagen blir därför:
 
-**8 (timmar) x 8 (beräkningsoptimerade kärnor) x $0.193 = $12.35**
+**8 (timmar) x 8 (Compute-optimerade kärnor) x $0,193 = $12,35**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Omvandla data i blob-arkivet med mappningsdataflöden
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformera data i BLOB Store med mappnings data flöden
 
-I det här fallet vill du omvandla data i Blob Store visuellt i ADF-mappningsdataflöden enligt ett timschema.
+I det här scenariot vill du transformera data i BLOB Store visuellt i data flöden för ADF-mappning enligt ett Tim schema.
 
-För att kunna utföra scenariot måste du skapa en pipeline med följande objekt:
+För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 
-1. En dataflödesaktivitet med omvandlingslogiken.
+1. En data flödes aktivitet med omvandlings logiken.
 
-2. En indatauppsättning för data på Azure Storage.
+2. En data uppsättning för data i Azure Storage.
 
-3. En utdatauppsättning för data på Azure Storage.
+3. En data uppsättning för data i Azure Storage.
 
-4. En schemautlösare som ska köra pipelinen varje timme.
+4. En schema utlösare för att köra pipelinen varje timme.
 
 | **Åtgärder** | **Typer och enheter** |
 | --- | --- |
-| Skapa länkad tjänst | 2 Läs/skriv entitet  |
-| Skapa datauppsättningar | 4 Läs/skriv-entiteter (2 för skapande av datauppsättning, 2 för länkade tjänstreferenser) |
-| Skapa pipeline | 3 Läs/skriv-entiteter (1 för skapande av pipeline, 2 för datauppsättningsreferenser) |
-| Hämta pipeline | 1 Läs/skriv entitet |
-| Kör pipeline | 2 Aktivitetskörningar (1 för utlösarkörning, 1 för aktivitetskörningar) |
-| Dataflödesantaganden: exekveringstid = 10 min + 10 min TTL | 10 \* 16 kärnor av General Compute med TTL av 10 |
-| Övervaka pipelineantagande: Endast 1 körning inträffade | 2 Övervakningskörningsposter som gjorts om (1 för pipelinekörning, 1 för aktivitetskörning) |
+| Skapa länkad tjänst | 2 Läs/skriv-entitet  |
+| Skapa data uppsättningar | 4 Läs-och skrivbara entiteter (2 för skapande av data uppsättning, 2 för länkade tjänst referenser) |
+| Skapa pipeline | 3 Läs-och skrivbara entiteter (1 för skapande av pipeline, 2 för data uppsättnings referenser) |
+| Hämta pipeline | 1 Läs-/skriv entitet |
+| Kör pipeline | 2 aktivitets körningar (1 för körnings körning, 1 för aktivitets körningar) |
+| Antaganden för data flöde: körnings tid = 10 min + 10 min TTL | 10 \* 16 kärnor i allmän beräkning med TTL på 10 |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
 
-**Totalt scenario prissättning: $ 1,4631**
+**Pris för total scenario: $1,4631**
 
-- Data Fabriksoperationer = **$0.0001**
-  - Läs/skriv = 10\*00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
-  - Övervakning =\*2 000005 = $0.00001 [1 Övervakning = $0.25/50000 = 0.000005]
-- Körning av &amp; pipelineorkestrering = **$1.463**
-  - Aktivitetskörningar =\*001 2 = 0,002 [1 körning = $1/1000 = 0.001]
-  - Dataflödesaktiviteter = $1.461 proportionellt i 20 minuter (10 min körningstid + 10 minuter TTL). $0.274/hour på Azure Integration Runtime med 16 kärnor allmän beräkning
+- Data Factory åtgärder = **$0,0001**
+  - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 2\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- &amp; Körning av pipeline-dirigering = **$1,463**
+  - Aktivitet körs = 001\*2 = 0,002 [1 körning = $1/1000 = 0,001]
+  - Data flödes aktiviteter = $1,461 beräknat i 20 minuter (10 minuter körnings tid + 10 minuter TTL). $0.274/timme på Azure Integration Runtime med 16 kärnor allmän beräkning
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du förstår prissättningen för Azure Data Factory kan du komma igång!
+Nu när du förstår priserna för Azure Data Factory kan du komma igång!
 
-- [Skapa en datafabrik med hjälp av Azure Data Factory UI](quickstart-create-data-factory-portal.md)
+- [Skapa en data fabrik med hjälp av Azure Data Factory gränssnittet](quickstart-create-data-factory-portal.md)
 
 - [Introduktion till Azure Data Factory](introduction.md)
 

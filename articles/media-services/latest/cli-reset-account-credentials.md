@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63f2abe7a3890efbaf4c79186467a3eb20d8afda
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80382995"
 ---
-# <a name="azure-cli-example-reset-the-account-credentials"></a>Azure CLI-exempel: Återställa kontoautentiseringsuppgifterna
+# <a name="azure-cli-example-reset-the-account-credentials"></a>Azure CLI-exempel: återställa kontoautentiseringsuppgifter
 
 Azure CLI-skriptet i den här artikeln visar hur du kan återställa autentiseringsuppgifterna för ditt konto och app.config-inställningarna.
 
@@ -45,5 +45,5 @@ az ams account sp reset-credentials \
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [az ams (aska)](/cli/azure/ams)
+* [AZ AMS](/cli/azure/ams)
 * [Återställ autentiseringsuppgifter](/cli/azure/ams/account/sp#az-ams-account-sp-reset-credentials)

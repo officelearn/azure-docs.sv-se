@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Föreslå sökfrågor med Bing Autosuggest REST API och C #'
+title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och C #'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du snabbt börjar föreslå söktermer i realtid med API:et för automatiska förslag på Bing.
+description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: 6c60516a87dbdc51e19bac5ee9b30f2f1a8b0254
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239026"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Snabbstart: Föreslå sökfrågor med Bing Autosuggest REST API och C #
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och C #
 
-Använd den här snabbstarten för att börja ringa till API:et för automatiska förslag på Bing och få JSON-svaret. Det här enkla C#-programmet skickar en partiell sökfråga till API:et och returnerar förslag för sökningar. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Det här enkla C#-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Krav
 
-* Alla utgåvor av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## <a name="create-a-visual-search-solution"></a>Skapa en visuell söklösning
+## <a name="create-a-visual-search-solution"></a>Skapa en Visuell sökning-lösning
 
 1. Skapa en ny konsollösning i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
 
@@ -40,7 +40,7 @@ Använd den här snabbstarten för att börja ringa till API:et för automatiska
     using System.Text;
     ```
 
-2. Skapa variabler för din API-värd och sökväg, [marknadskod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en partiell sökfråga i en ny klass. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. I en ny klass skapar du variabler för din API-värd och sökväg, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en partiell Sök fråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -54,7 +54,7 @@ Använd den här snabbstarten för att börja ringa till API:et för automatiska
 
 ## <a name="create-and-send-an-api-request"></a>Skapa och skicka en API-begäran
 
-1. Skapa en `Autosuggest()` funktion som anropas för att skicka en begäran till API:et. Skapa en `HttpClient()`ny och lägg till `Ocp-Apim-Subscription-Key` prenumerationsnyckeln i sidhuvudet.
+1. Skapa en funktion som `Autosuggest()` kallas för att skicka en begäran till API: et. Skapa en ny `HttpClient()`och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
 
     ```csharp
     async static void Autosuggest()
@@ -65,13 +65,13 @@ Använd den här snabbstarten för att börja ringa till API:et för automatiska
     }
     ```
 
-2. I samma funktion ovan skapar du en URI för begäran genom att kombinera din API-värd och sökväg. Lägg till din `?mkt=` marknad i parametern `&query=` och frågan till parametern. Var noga med att URL-koda din fråga. 
+2. I samma funktion ovan skapar du en begäran-URI genom att kombinera din API-värd och-sökväg. Lägg till din marknad i `?mkt=` parametern och din fråga till `&query=` parametern. Se till att URL-koda frågan. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);
     ```
 
-3. Skicka begäran till uri konstrueras ovan, och skriva ut svaret.
+3. Skicka begäran till URI: n som skapats ovan och skriv ut svaret.
 
     ```csharp
     HttpResponseMessage response = await client.GetAsync(uri);
@@ -80,7 +80,7 @@ Använd den här snabbstarten för att börja ringa till API:et för automatiska
     Console.WriteLine(contentString);
     ```
 
-4. Anropa i programmets huvudmetod `Autosuggest()`.
+4. I programmets main-metod anropar `Autosuggest()`du.
 
     ```csharp
     static void Main(string[] args)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter bilder med REST API för Bing-bildsökning och Java'
+title: 'Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och Java'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten när du vill skicka bildsökningsbegäranden till REST-API:et för bildsökning i Bing med hjälp av Java och få JSON-svar.
 services: cognitive-services
@@ -13,17 +13,17 @@ ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 979bd034b2f4d3665de64fe8ffdb33efc7a370cb
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478578"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Snabbstart: Sök efter avbildningar med API:et för bing-avbildningssökning, en cognitive tjänst i Azure 
+# <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Snabb start: Sök efter avbildningar med API för bildsökning i Bing, en Azure-tjänst för inlärning 
 
-Använd den här snabbstarten för att skicka sökförfrågningar till API:et för bing-avbildningssökning i Azure Cognitive Services. Java-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att skicka Sök begär anden till API för bildsökning i Bing i Azure Cognitive Services. Java-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden för det här exemplet är tillgänglig [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) med ytterligare felhantering och anteckningar.
+Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) med ytterligare fel hantering och anteckningar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -48,7 +48,7 @@ Källkoden för det här exemplet är tillgänglig [på GitHub](https://github.c
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. `host`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. `host`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```java
     static String subscriptionKey = "enter key here";

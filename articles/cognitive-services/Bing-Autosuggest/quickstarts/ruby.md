@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Föreslå sökfrågor med Bing Autosuggest REST API och Ruby'
+title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och ruby'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du snabbt börjar föreslå söktermer i realtid med API:et för automatiska förslag på Bing.
+description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: eac1f53d35f8175da814dba6172edc12f9e1a063
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80238933"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Snabbstart: Föreslå sökfrågor med Bing Autosuggest REST API och Ruby
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och ruby
 
-Använd den här snabbstarten för att börja ringa till API:et för automatiska förslag på Bing och få JSON-svaret. Det här enkla Ruby-programmet skickar en partiell sökfråga till API:et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Det här enkla ruby-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 
 ## <a name="prerequisites"></a>Krav
@@ -30,7 +30,7 @@ Använd den här snabbstarten för att börja ringa till API:et för automatiska
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-1. Skapa en ny Ruby-fil i din favorit-IDE eller redigerare. Lägg till följande krav:
+1. Skapa en ny ruby-fil i din favorit-IDE eller-redigerare. Lägg till följande krav:
 
     ```ruby
     require 'net/https'
@@ -38,7 +38,7 @@ Använd den här snabbstarten för att börja ringa till API:et för automatiska
     require 'json'
     ```
 
-2. Skapa variabler för din API-värd och sökväg, [marknadskod,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)partiell sökfråga. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. Skapa variabler för din API-värd och sökväg, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), partiell Sök fråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -48,7 +48,7 @@ Använd den här snabbstarten för att börja ringa till API:et för automatiska
     query = 'sail'
     ```
 
-3. Skapa en parametersträng genom att lägga `?mkt=` till din marknadskod till `&q=` parametern och lägga till frågan till parametern. Konstruera sedan din URI för begäran genom att kombinera API-värden, sökvägen och parametersträngen.
+3. Skapa en parameter sträng genom att lägga till din marknads kod i `?mkt=` parametern och Lägg till din fråga till- `&q=` parametern. Konstruera sedan din begäran-URI genom att kombinera API-värden, sökväg och parameter strängen.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query
@@ -57,7 +57,7 @@ Använd den här snabbstarten för att börja ringa till API:et för automatiska
 
 ## <a name="create-and-send-an-api-request"></a>Skapa och skicka en API-begäran
 
-1. Skapa en begäran med din URI och `Ocp-Apim-Subscription-Key` lägg till din prenumerationsnyckel i sidhuvudet.
+1. Skapa en begäran med din URI och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
     
     ```ruby
     request = Net::HTTP::Get.new(uri)
@@ -149,7 +149,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig webbapp](../tutorials/autosuggest.md)
+> [Skapa en enkelsidig webbapp](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>Se även
 

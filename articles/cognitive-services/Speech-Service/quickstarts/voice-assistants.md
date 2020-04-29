@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa en anpassad röstassistent - Taltjänst'
+title: 'Snabb start: skapa en anpassad röst assistent – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln ska du använda Tal-SDK för att skapa en anpassad röstassistent.
+description: I den här artikeln använder du talet SDK för att skapa en anpassad röst assistent.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: travisw
 zone_pivot_groups: programming-languages-set-fourteen
 ms.openlocfilehash: 4e0cf7a977e0369e6bae4a44fcb22563226a3501
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241208"
 ---
-# <a name="quickstart-create-a-custom-voice-assistant"></a>Snabbstart: Skapa en anpassad röstassistent
+# <a name="quickstart-create-a-custom-voice-assistant"></a>Snabb start: skapa en anpassad röst assistent
 
 [!INCLUDE [Header](../includes/quickstarts/voice-assistants/header.md)]
 

@@ -1,7 +1,7 @@
 ---
-title: 'Gå med i data: Modulreferens'
+title: 'Koppla data: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Join Join Data i Azure Machine Learning för att sammanfoga datauppsättningar.
+description: Lär dig hur du använder modulen Anslut till data i Azure Machine Learning för att sammanfoga data uppsättningar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,62 +10,62 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477586"
 ---
 # <a name="join-data"></a>Koppla data
 
-I den här artikeln beskrivs hur du använder modulen **Join Data** i Azure Machine Learning designer (förhandsversion) för att sammanfoga två datauppsättningar med hjälp av en anslutningsåtgärd i databasstil.  
+Den här artikeln beskriver hur du använder modulen **koppla data** i Azure Machine Learning designer (för hands version) för att slå samman två data uppsättningar med en kopplings åtgärd i databas format.  
 
-## <a name="how-to-configure-join-data"></a>Konfigurera join-data
+## <a name="how-to-configure-join-data"></a>Så här konfigurerar du kopplings data
 
-Om du vill utföra en koppling på två datauppsättningar bör de vara relaterade med en nyckelkolumn. Sammansatta nycklar med flera kolumner stöds också. 
+Om du vill utföra en koppling på två data uppsättningar ska de relateras av en nyckel kolumn. Sammansatta nycklar med flera kolumner stöds också. 
 
-1. Lägg till de datauppsättningar som du vill kombinera och dra sedan modulen **Anslut data** till pipelinen. 
+1. Lägg till de data uppsättningar som du vill kombinera och dra sedan modulen **koppla data** till din pipeline. 
 
-    Du hittar modulen i kategorin **Dataomvandling** under **Manipulation**.
+    Du hittar modulen i kategorin **data omvandling** under **manipulation**.
 
-1. Anslut datauppsättningarna till modulen **Anslut data.** 
+1. Anslut data uppsättningarna till modulen **koppla data** . 
  
-1. Välj **Starta kolumnväljare** om du vill välja nyckelkolumnerna. Kom ihåg att välja kolumner för både vänster och höger ingångar.
+1. Välj **Starta kolumn väljaren** för att välja nyckel kolumn (er). Kom ihåg att välja kolumner för både vänster och höger indata.
 
-    För en enda nyckel:
+    För en enskild nyckel:
 
-    Välj en kolumn med en tangent för båda ingångarna.
+    Välj en enskild nyckel kolumn för båda indata.
     
     För en sammansatt nyckel:
 
-    Markera alla nyckelkolumner från vänster ingång och höger ingång i samma ordning. **Modulen Koppla data** ansluter till tabellerna när alla nyckelkolumner matchar. Markera alternativet **Tillåt dubbletter och bevara kolumnordningen i markeringen** om kolumnordningen inte är densamma som den ursprungliga tabellen. 
+    Välj alla nyckel kolumner från vänster inmatad och höger indatatyp i samma ordning. Modulen **koppla data** kommer att koppla tabellerna när alla nyckel kolumner matchar. Markera alternativet **Tillåt dubbletter och behåll kolumn ordning i markering** om kolumn ordningen inte är densamma som den ursprungliga tabellen. 
 
-    ![kolumnväljare](media/module/join-data-column-selector.png)
+    ![kolumn-väljare](media/module/join-data-column-selector.png)
 
 
-1. Välj alternativet **Matcha skiftläge** om du vill bevara skiftlägeskänsligheten i en textkolumnkoppling. 
+1. Välj alternativet **Matcha gemener/versal** om du vill bevara Skift läges känslighet för en text kolumn koppling. 
    
-1. Använd listrutan **Koppla typ** för att ange hur datauppsättningarna ska kombineras.  
+1. Använd List rutan **kopplings typ** för att ange hur data uppsättningarna ska kombineras.  
   
-    * **Inre koppling:** En *inre koppling* är den vanligaste kopplingsåtgärden. De kombinerade raderna returneras endast när värdena för nyckelkolumnerna matchar.  
+    * **Inre koppling**: en *inre koppling* är den vanligaste kopplings åtgärden. Den returnerar de kombinerade raderna endast när värdena för nyckel kolumnerna matchar.  
   
-    * **Vänster yttre koppling:** En *vänster yttre koppling* returnerar sammanfogade rader för alla rader från den vänstra tabellen. När en rad i den vänstra tabellen inte har några matchande rader i den högra tabellen innehåller den returnerade raden värden som saknas för alla kolumner som kommer från den högra tabellen. Du kan också ange ett ersättningsvärde för saknade värden.  
+    * **Vänster yttre koppling**: en *vänster yttre koppling* returnerar kopplade rader för alla rader från den vänstra tabellen. När en rad i den vänstra tabellen inte har några matchande rader i den högra tabellen, innehåller den returnerade raden värden som saknas för alla kolumner som kommer från den högra tabellen. Du kan också ange ett ersättnings värde för saknade värden.  
   
-    * **Full yttre koppling:** En *fullständig yttre koppling* returnerar alla rader från den vänstra tabellen **(tabell1)** och från den högra tabellen (**tabell2**).  
+    * **Fullständig yttre koppling**: en *fullständig yttre koppling* returnerar alla rader från den vänstra tabellen (**TABLE1**) och från den högra tabellen (**tabell2**).  
   
-         För var och en av raderna i endera tabellen som inte har några matchande rader i den andra, innehåller resultatet en rad som innehåller värden som saknas.  
+         För varje rad i en tabell som inte har några matchande rader i den andra, innehåller resultatet en rad som innehåller värden som saknas.  
   
-    * **Vänster semi-join:** En *vänster halvkoppling* returnerar bara värdena från den vänstra tabellen när värdena i nyckelkolumnerna matchar.  
+    * **Vänster halv koppling**: en *vänster halv koppling* returnerar bara värdena från den vänstra tabellen när värdena för nyckel kolumnerna matchar.  
 
-1. För alternativet **Behåll höger nyckelkolumner i den kopplade tabellen:**
+1. För alternativet **Behåll rätt nyckel kolumner i en sammanfogad tabell**:
 
-    * Välj det här alternativet om du vill visa nycklarna från båda indatatabellerna.
-    * Avmarkera om du bara vill returnera nyckelkolumnerna från den vänstra ingången.
+    * Välj det här alternativet om du vill visa nycklarna från båda ingångs tabellerna.
+    * Avmarkera för att endast returnera nyckel kolumnerna från den vänstra indatatypen.
 
 1. Skicka pipelinen.
 
-1. Om du vill visa resultatet högerklickar du på **Kopplingsdata** och väljer **Visualisera**.
+1. Om du vill visa resultaten högerklickar du på **kopplings data** och väljer **visualisera**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

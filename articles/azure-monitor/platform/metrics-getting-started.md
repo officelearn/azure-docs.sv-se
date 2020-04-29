@@ -1,6 +1,6 @@
 ---
-title: Komma igång med Utforskaren för Azure-mått
-description: Lär dig hur du skapar ditt första måttdiagram med Azure-statistikutforskaren.
+title: Komma igång med Azure Metrics Explorer
+description: Lär dig hur du skapar ditt första mått diagram med Azure Metrics Explorer.
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
@@ -8,64 +8,64 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 920ff19b162843d1c2d631ad192ce1b3c4273a68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248780"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Komma igång med Azure Metrics Explorer
 
 ## <a name="where-do-i-start"></a>Var börjar jag
-Azure Monitor-måttutforskaren är en komponent i Microsoft Azure-portalen som gör det möjligt att rita diagram, visuellt korrelera trender och undersöka toppar och dips i måttens värden. Använd statistikutforskaren för att undersöka hälso- och användning av dina resurser. Börja i följande ordning:
+Azure Monitor Metrics Explorer är en komponent i Microsoft Azure-portalen som gör det möjligt att rita diagram, visuellt korrelera trender och undersöka toppar och DIP i mått värden. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av dina resurser. Starta i följande ordning:
 
-1. [Välj en resurs och ett mått](#create-your-first-metric-chart) och du ser ett enkelt diagram. Välj sedan [ett tidsintervall](#select-a-time-range) som är relevant för din undersökning.
+1. [Välj en resurs och ett mått](#create-your-first-metric-chart) så visas ett Basic-diagram. [Välj sedan ett tidsintervall](#select-a-time-range) som är relevant för din undersökning.
 
-1. Prova [att använda dimensionsfilter och dela](#apply-dimension-filters-and-splitting). Med filtren och delningen kan du analysera vilka segment av måttet som bidrar till det övergripande måttvärdet och identifiera möjliga extremvärden.
+1. Försök att [använda dimensions filter och delning](#apply-dimension-filters-and-splitting). Med filtren och delningen kan du analysera vilka segment i måttet som bidrar till det övergripande mått svärdet och identifiera möjliga avvikande Mät värden.
 
-1. Använd [avancerade inställningar](#advanced-chart-settings) för att anpassa diagrammet innan du fäster på instrumentpaneler. [Konfigurera aviseringar för](alerts-metric-overview.md) att ta emot meddelanden när måttvärdet överskrider eller sjunker under ett tröskelvärde.
+1. Använd [Avancerade inställningar](#advanced-chart-settings) för att anpassa diagrammet innan du fäster på instrument paneler. [Konfigurera aviseringar](alerts-metric-overview.md) för att ta emot meddelanden när mått svärdet överskrider eller sjunker under ett tröskelvärde.
 
-## <a name="create-your-first-metric-chart"></a>Skapa ditt första måttdiagram
+## <a name="create-your-first-metric-chart"></a>Skapa ditt första mått diagram
 
-Om du vill skapa ett måttdiagram öppnar du fliken Mått från resurs-, resursgrupp-, **prenumerations-** eller Azure Monitor-vyn:
+Om du vill skapa ett mått diagram går du till vyn resurs, resurs grupp, prenumeration eller Azure Monitor, öppnar fliken **mått** och följer de här stegen:
 
-1. Med hjälp av resursväljaren väljer du den resurs som du vill visa mått för. (Resursen är förvald om du öppnade **mått** i kontexten för en viss resurs).
+1. Använd resurs väljaren och välj den resurs som du vill visa mått för. (Resursen är förvald om du har öppnat **mått** i kontexten för en viss resurs).
 
     > ![Välj en resurs](./media/metrics-getting-started/resource-picker.png)
 
-2. För vissa resurser måste du välja ett namnområde. Namnområdet är bara ett sätt att ordna mått så att du enkelt kan hitta dem. Lagringskonton har till exempel separata namnområden för lagring av mått för filer, tabeller, blobbar och köer. Många resurstyper har bara ett namnområde.
+2. För vissa resurser måste du välja ett namn område. Namn området är bara ett sätt att organisera mått så att du lätt kan hitta dem. Lagrings konton har till exempel separata namn rymder för lagring av filer, tabeller, blobbar och köers mått. Många resurs typer har bara ett namn område.
 
-3. Välj ett mått från en lista över tillgängliga mått.
+3. Välj ett mått i en lista över tillgängliga mått.
 
     > ![Välj ett mått](./media/metrics-getting-started/metric-picker.png)
 
-4. Du kan också ändra måttaggregeringen. Du kanske till exempel vill att diagrammet ska visa minimi-, maximi- eller medelvärden för måttet.
+4. Alternativt kan du ändra mått agg regeringen. Du kanske exempelvis vill att diagrammet ska Visa lägsta, högsta eller genomsnittliga värden för måttet.
 
 > [!NOTE]
-> Använd knappen **Lägg till mått** och upprepa dessa steg om du vill se flera mått som ritas i samma diagram. För flera diagram i en vy väljer du knappen **Lägg till diagram** överst.
+> Använd knappen **Lägg till mått** och upprepa de här stegen om du vill se flera mått som är ritade i samma diagram. För flera diagram i en vy väljer du knappen **Lägg till diagram** överst.
 
 ## <a name="select-a-time-range"></a>Välj ett tidsintervall
 
-Som standard visar diagrammet de senaste 24 timmarnas mätdata. Använd **tidsväljaren** för att ändra tidsintervallet, zooma in eller zooma ut i diagrammet. 
+Som standard visar diagrammet de senaste 24 timmarna med mät data. Använd panelen **tids väljare** för att ändra tidsintervallet, zooma in eller ut i diagrammet. 
 
-![Panelen Ändra tidsintervall](./media/metrics-getting-started/time-picker.png)
+![Ändra tids områdets panel](./media/metrics-getting-started/time-picker.png)
 
 > [!NOTE]
-> Använd **tidsborsten** för att undersöka ett intressant område i diagrammet (spik eller ett dopp). Placera muspekaren i början av området, klicka och håll ned vänster musknapp, dra till andra sidan av området och släpp sedan knappen. Diagrammet zoomar in på det tidsintervallet. 
+> Använd **tids penseln** för att undersöka ett intressant ytdiagram i diagrammet (insamling eller dip). Placera mus pekaren i början av ytan, klicka och håll ned vänster MUSKNAPP, dra till den andra sidan av ytan och släpp sedan knappen. Diagrammet kommer att zooma in inom det tidsintervallet. 
 
-## <a name="apply-dimension-filters-and-splitting"></a>Använda dimensionsfilter och delning
+## <a name="apply-dimension-filters-and-splitting"></a>Använd dimensions filter och delning
 
-[Filtrering](metrics-charts.md#apply-filters-to-charts) och [delning](metrics-charts.md#apply-splitting-to-a-chart) är kraftfulla diagnosverktyg för de mått som har dimensioner. Dessa funktioner visar hur olika måttsegment ("dimensionsvärden") påverkar det totala värdet för måttet och gör att du kan identifiera möjliga extremvärden.
+[Filtrering](metrics-charts.md#apply-filters-to-charts) och [delning](metrics-charts.md#apply-splitting-to-a-chart) är kraftfulla diagnostiska verktyg för mått som har dimensioner. Dessa funktioner visar hur olika mått segment ("dimensions värden") påverkar det allmänna värdet för måttet och gör det möjligt att identifiera möjliga avvikande värden.
 
-- **Med filtrering** kan du välja vilka dimensionsvärden som ska ingå i diagrammet. Du kanske till exempel vill visa lyckade begäranden när du kartlägger *svarstiden för servern.* Du skulle behöva använda filtret på *lyckades begäran* dimension. 
+- Med **filtrering** kan du välja vilka dimensions värden som ska ingå i diagrammet. Du kanske till exempel vill visa lyckade förfrågningar när du diagramerar måttet för *Server svars tid* . Du måste använda filtret för att kunna utföra en *begär ande* dimension. 
 
-- **Dela upp** styr om diagrammet visar separata linjer för varje värde i en dimension eller sammanställer värdena till en enda rad. Du kan till exempel se en rad för en genomsnittlig svarstid i alla serverinstanser eller se separata rader för varje server. Du måste använda delning på *serverinstansdimensionen* för att se separata rader.
+- **Dela upp** styr om diagrammet ska visa separata rader för varje värde i en dimension eller mängd värden i en enda rad. Du kan till exempel se en rad för en genomsnittlig svars tid för alla Server instanser eller se separata rader för varje server. Du måste tillämpa delning på *Server instans* dimensionen för att se separata rader.
 
-Se [exempel på diagram](metric-chart-samples.md) som har filtrering och delning tillämpade. Artikeln visar stegen användes för att konfigurera diagrammen.
+Se [exempel på de diagram](metric-chart-samples.md) som har filtrering och delning tillämpad. Artikeln visar stegen som användes för att konfigurera diagram.
 
-## <a name="advanced-chart-settings"></a>Avancerade diagraminställningar
+## <a name="advanced-chart-settings"></a>Avancerade diagram inställningar
 
-Du kan anpassa diagramformat, rubrik och ändra avancerade diagraminställningar. När du är klar med anpassningen fäster du den på en instrumentpanel för att spara ditt arbete. Du kan också konfigurera måttaviseringar. Följ [produktdokumentationen](metrics-charts.md) för att lära dig mer om dessa och andra avancerade funktioner i Utforskaren för Azure Monitor-mått.
+Du kan anpassa diagram stil, rubrik och ändra avancerade diagram inställningar. När du är färdig med anpassning fäster du det på en instrument panel för att spara ditt arbete. Du kan också konfigurera mått aviseringar. Följ [produkt dokumentationen](metrics-charts.md) om du vill lära dig mer om dessa och andra avancerade funktioner i Azure Monitor Metrics Explorer.
 
 ## <a name="next-steps"></a>Nästa steg
 

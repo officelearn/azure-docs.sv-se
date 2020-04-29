@@ -9,73 +9,73 @@ ms.date: 03/25/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 57a764b62fcda333f042794e176c24c8e6cc5526
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80374066"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Vilka regioner är tillgängliga?
 
 [!INCLUDE [region](bastion-regions-include.md)]
 
-### <a name="do-i-need-a-public-ip-on-my-virtual-machine"></a><a name="publicip"></a>Behöver jag en offentlig IP på min virtuella dator?
+### <a name="do-i-need-a-public-ip-on-my-virtual-machine"></a><a name="publicip"></a>Behöver jag en offentlig IP-adress på min virtuella dator?
 
-När du ansluter till en virtuell dator med Azure Bastion behöver du INTE en offentlig IP på den virtuella Azure-datorn som du ansluter till. Bastion-tjänsten öppnar RDP/SSH-sessionen/anslutningen till din virtuella dator via den privata IP-adressen för din virtuella dator, i ditt virtuella nätverk.
+När du ansluter till en virtuell dator med hjälp av Azure skydds behöver du inte en offentlig IP-adress på den virtuella Azure-dator som du ansluter till. Skydds-tjänsten öppnar RDP/SSH-sessionen/-anslutningen till den virtuella datorn via den privata IP-adressen för den virtuella datorn i det virtuella nätverket.
 
 ### <a name="is-ipv6-supported"></a>Stöds IPv6?
 
-För närvarande stöds inte IPv6. Azure Bastion stöder endast IPv4.
+För tillfället stöds inte IPv6. Azure skydds stöder endast IPv4.
 
-### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>Behöver jag en RDP- eller SSH-klient?
+### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>Behöver jag en RDP-eller SSH-klient?
 
-Du behöver inte en RDP- eller SSH-klient för att komma åt RDP/SSH till din virtuella Azure-dator i din Azure-portal. Använd [Azure-portalen](https://portal.azure.com) för att du ska kunna få RDP/SSH-åtkomst till din virtuella dator direkt i webbläsaren.
+Du behöver inte en RDP-eller SSH-klient för att få åtkomst till RDP/SSH till din virtuella Azure-dator i din Azure Portal. Använd [Azure Portal](https://portal.azure.com) så att du kan få RDP/SSH-åtkomst till den virtuella datorn direkt i webbläsaren.
 
-### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Kräver Azure Bastion en RDS CAL för administrativa ändamål på Azure-värd virtuella datorer?
-Nej, åtkomst till virtuella Windows Server-datorer från Azure Bastion kräver inte en [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) när den används enbart för administrativa ändamål.
+### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Kräver Azure-skydds en klient åtkomst licens för fjärr skrivbords tjänster för administrativa orsaker på virtuella datorer i Azure?
+Nej, åtkomst till virtuella Windows Server-datorer med Azure skydds kräver inte en [klient åtkomst licens för fjärr skrivbords tjänster](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) när den används enbart för administrativa syfte.
 
-### <a name="how-many-concurrent-rdp-and-ssh-sessions-does-each-azure-bastion-support"></a><a name="limits"></a>Hur många samtidiga RDP- och SSH-sessioner stöder varje Azure Bastion?
-Både RDP och SSH är ett användningsbaserat protokoll. Hög användning av sessioner gör att skyddsvärden stöder ett lägre totalt antal sessioner. Siffrorna nedan förutsätter normala dagliga arbetsflöden.
+### <a name="how-many-concurrent-rdp-and-ssh-sessions-does-each-azure-bastion-support"></a><a name="limits"></a>Hur många samtidiga RDP-och SSH-sessioner gör varje Azure skydds-support?
+Både RDP och SSH är ett användnings-baserat protokoll. Med en hög användning av sessioner kan skydds-värden stödja ett lägre antal sessioner. Siffrorna nedan förutsätter normala dagliga arbets flöden.
 
 [!INCLUDE [limits](bastion-limits.md)]
 
-### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>Behöver jag en agent som körs i den virtuella Azure-datorn?
+### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>Behöver jag en agent som körs på den virtuella Azure-datorn?
 
-Du behöver inte installera en agent eller någon programvara i din webbläsare eller din virtuella Azure-dator. Bastion-tjänsten är agentlös och kräver ingen ytterligare programvara för RDP/SSH.
+Du behöver inte installera en agent eller någon program vara i din webbläsare eller din virtuella Azure-dator. Skydds-tjänsten är utan agent och kräver ingen ytterligare program vara för RDP/SSH.
 
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Vilka webbläsare stöds?
 
-Använd webbläsaren Microsoft Edge eller Google Chrome i Windows. Använd webbläsaren Google Chrome för Apple Mac. Microsoft Edge Chromium stöds också på både Windows och Mac, respektive.
+Använd Microsoft Edge-webbläsaren eller Google Chrome i Windows. För Apple Mac använder du Google Chrome-webbläsaren. Microsoft Edge-krom stöds också både för Windows och Mac.
 
-### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>Krävs några roller för att komma åt en virtuell dator?
+### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>Krävs det några roller för att få åtkomst till en virtuell dator?
 
-För att kunna ansluta krävs följande roller:
+Följande roller krävs för att upprätta en anslutning:
 
-* Läsarroll på den virtuella datorn
-* Läsarroll på nätverkskortet med den virtuella datorns privata IP
-* Läsarrollen på Azure Bastion-resursen
+* Rollen läsare på den virtuella datorn
+* Rollen läsare på NÄTVERKSKORTet med den virtuella datorns privata IP-adress
+* Läsar roll på Azure skydds-resursen
 
 ### <a name="what-is-the-pricing"></a><a name="pricingpage"></a>Vad är prissättningen?
 
 Mer information finns på sidan med [priser](https://aka.ms/BastionHostPricing).
 
-### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Varför får jag felmeddelandet "Din session har gått ut" innan Bastion-sessionen startar?
+### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Varför visas ett fel meddelande om att sessionen har upphört att gälla innan skydds-sessionen startar?
 
-En session bör endast initieras från Azure-portalen. Logga in på Azure-portalen och börja din session igen. Om du går till webbadressen direkt från en annan webbläsarsession eller flik förväntas det här felet. Det hjälper till att säkerställa att din session är säkrare och att sessionen endast kan nås via Azure-portalen.
+En session ska endast initieras från Azure Portal. Logga in på Azure Portal och påbörja sessionen igen. Om du går till URL: en direkt från en annan webbläsarsession eller TABB förväntas det här felet. Det hjälper till att säkerställa att sessionen är säkrare och att sessionen bara kan nås via Azure Portal.
 
-### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Vilka tangentbordslayouter stöds under fjärrsessionen Bastion?
+### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Vilka tangentbordslayouter stöds under skydds-fjärrsessionen?
 
-Azure Bastion stöder för närvarande tangentbordslayout för en-us-qwerty inuti den virtuella datorn.  Stöd för andra språk för tangentbordslayout pågår.
+Azure skydds stöder för närvarande en-US-QWERTY-tangentbordslayout inuti den virtuella datorn.  Stöd för andra språk för tangentbordslayout är pågående.
 
-### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>Stöds användardefinierad routning (UDR) i ett Azure Bastion-undernät?
+### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>Stöds UDR (User-Defined routing) i ett Azure skydds-undernät?
 
-Nej. UDR stöds inte på ett Azure Bastion-undernät.
-För scenarier som innehåller både Azure Bastion och Azure Firewall/Network Virtual Appliance (NVA) i samma virtuella nätverk behöver du inte tvinga trafik från ett Azure Bastion-undernät till Azure-brandväggen eftersom kommunikationen mellan Azure Bastion och dina virtuella datorer är privat. Mer information finns i [Komma åt virtuella datorer bakom Azure-brandväggen med Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+Nej. UDR stöds inte i ett Azure skydds-undernät.
+För scenarier som omfattar både Azure-skydds och Azure Firewall/Network Virtual Machine (NVA) i samma virtuella nätverk behöver du inte tvinga trafik från ett Azure skydds-undernät till Azure-brandväggen eftersom kommunikationen mellan Azure skydds och dina virtuella datorer är privat. Mer information finns i [komma åt virtuella datorer bakom Azure Firewall med skydds](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
-### <a name="is-file-transfer-supported-with-azure-bastion-rdp-session"></a><a name="filetransfer"></a>Stöds filöverföring med Azure Bastion RDP-session?
+### <a name="is-file-transfer-supported-with-azure-bastion-rdp-session"></a><a name="filetransfer"></a>Stöds fil överföring med Azure skydds RDP-sessionen?
 
-Vi arbetar hårt för att lägga till nya funktioner. Från och med nu stöds inte filöverföring, men är en del av vår färdplan. Du får gärna dela med dig av din feedback om nya funktioner på [sidan Azure Bastion Feedback](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+Vi arbetar hårt för att lägga till nya funktioner. Från och med nu stöds inte fil överföring, men är en del av vår översikt. Du kan gärna dela din feedback om nya funktioner på feedback- [sidan för Azure skydds](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
-### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Hur hanterar jag distributionsfel?
+### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Hur gör jag för att hantera distributions problem?
 
-Granska eventuella felmeddelanden och [ta upp en supportbegäran i Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) efter behov. Distributionsfel kan bero på [Azure-prenumerationsbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Specifikt kan kunder stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration som gör att Azure Bastion-distributionen misslyckas.
+Granska eventuella fel meddelanden och [få en support förfrågan i Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) efter behov. Distributions felen kan bero på [begränsningar i Azure-prenumerationen, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Mer specifikt kan kunderna stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration och som gör att Azure skydds-distributionen Miss lyckas.

@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för Bing Video Search C#-klientbibliotek
+title: Snabb start för Videosökning i Bing C#-klient bibliotek
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,20 +9,20 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: d50e1acd104916d68f7fbb84ff568cf4efc0b46b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289758"
 ---
-Använd den här snabbstarten för att börja söka efter nyheter med Bing Video Search-klientbiblioteket för C#. Bing Video Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) med ytterligare anteckningar och funktioner.
+Använd den här snabb starten för att börja söka efter nyheter med Videosökning i Bing klient biblioteket för C#. Även om Videosökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) med ytterligare kommentarer och funktioner.
 
 ## <a name="prerequisites"></a>Krav
 
-* Alla utgåvor av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
-* Den Json.NET ramen, tillgänglig [som en NuGet paket](https://www.nuget.org/packages/Newtonsoft.Json/).
+* En version av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
+* Json.NET-ramverket, [som är tillgängligt som ett NuGet-paket](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-Om du vill lägga till klientbiblioteket för Bing Video Search i projektet väljer du **Hantera NuGet-paket** från **Solution Explorer** i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
+Om du vill lägga till Videosökning i Bing klient biblioteket i projektet väljer du **Hantera NuGet-paket** från **Solution Explorer** i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 
 När du installerar [[SDK-paketet för NuGet-videosökning]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) installeras även följande beroenden:
 

@@ -1,5 +1,5 @@
 ---
-title: Bing Video Search Java-klientbibliotek snabbstart
+title: Snabb start för Java-klient bibliotek Videosökning i Bing
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
 ms.openlocfilehash: 8124afef1aa12dbf3ec51e10597cb1567fc85551
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80289772"
 ---
-Använd den här snabbstarten för att börja söka efter nyheter med Bing Video Search-klientbiblioteket för Java. Bing Video Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), med ytterligare anteckningar och funktioner.
+Använd den här snabb starten för att börja söka efter nyheter med Videosökning i Bing klient bibliotek för Java. Även om Videosökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), med ytterligare kommentarer och funktioner.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -25,7 +25,7 @@ Använd den här snabbstarten för att börja söka efter nyheter med Bing Video
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-Installera klientbiblioteksberoendena för Bing Video Search med Hjälp av Maven, Gradle eller ett annat beroendehanteringssystem. Maven POM-filen kräver följande deklaration:
+Installera Videosökning i Bing klient biblioteks beroenden med hjälp av maven, Gradle eller ett annat beroende hanterings system. Maven POM-filen kräver följande deklaration:
 
 ```xml
   <dependencies>
@@ -111,7 +111,7 @@ Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera 
         //...
         ```
 
-## <a name="send-a-search-request-and-receive-the-response"></a>Skicka en sökbegäran och få svaret 
+## <a name="send-a-search-request-and-receive-the-response"></a>Skicka en Sök förfrågan och få svaret 
 
 1. Skapa en funktion som kallas `VideoSearch()` och som tar din prenumerationsnyckel som en sträng. Instansiera den sökklient som skapades tidigare.
     

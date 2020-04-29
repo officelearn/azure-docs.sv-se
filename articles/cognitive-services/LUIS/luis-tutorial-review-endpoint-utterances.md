@@ -1,20 +1,20 @@
 ---
-title: 'Självstudiekurs: Granska slutpunktsyttranden - LUIS'
-description: I den här självstudien kan du förbättra appförutsägelser genom att verifiera eller korrigera yttranden som tas emot via LUIS HTTP-slutpunkten som LUIS är osäker på. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
+title: 'Självstudie: granska slut punkt yttranden-LUIS'
+description: I den här självstudien får du förbättra app-förutsägelserna genom att verifiera eller korrigera yttranden som mottagits via LUIS HTTP-slutpunkten som LUIS är osäker på. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
 services: cognitive-services
 ms.topic: tutorial
 ms.date: 04/01/2020
 ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548732"
 ---
-# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudiekurs: Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden
-I den här självstudien kan du förbättra appförutsägelser genom att verifiera eller korrigera yttranden, som tas emot via LUIS HTTPS-slutpunkten, som LUIS är osäker på. Du bör granska slutpunktsyttranden som en vanlig del av ditt schemalagda LUIS-underhåll.
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudie: åtgärda osäker förutsägelse genom att granska slut punkts yttranden
+I den här självstudien får du förbättra appens förutsägelser genom att verifiera eller korrigera yttranden, som tas emot via HTTPS-slutpunkten LUIS, som LUIS är osäker på. Du bör granska slut punkt yttranden som en vanlig del av ditt schemalagda LUIS-underhåll.
 
-Med den här granskningsprocessen kan LUIS lära sig din appdomän. LUIS väljer de yttranden som visas i granskningslistan. Följande gäller för listan:
+Den här gransknings processen gör det möjligt för LUIS att lära sig din app-domän. LUIS väljer den yttranden som visas i gransknings listan. Följande gäller för listan:
 
 * Den är specifik för appen.
 * Den är avsedd att förbättra noggrannheten hos appens förutsägelse.
@@ -22,13 +22,13 @@ Med den här granskningsprocessen kan LUIS lära sig din appdomän. LUIS väljer
 
 Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrandets förutsagda avsikt.
 
-**I den här självstudiekursen får du lära du dig att:**
+**I den här guiden får du lära dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Importera exempelappen
 > * Granska slutpunktsyttranden
-> * Appen Träna och publicera
+> * Träna och publicera appen
 > * Skicka en fråga till appens slutpunkt för att se LUIS JSON-svar
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
@@ -41,23 +41,23 @@ Använd följande steg för att importera en app.
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Träna appen för att tillämpa entitetsändringarna i appen
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Träna appen att tillämpa enhets ändringarna på appen
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicera appen för att komma åt den från HTTP-slutpunkten
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicera appen för att få åtkomst till den från HTTP-slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
-## <a name="add-utterances-at-the-endpoint"></a>Lägga till yttranden vid slutpunkten
+## <a name="add-utterances-at-the-endpoint"></a>Lägg till yttranden i slut punkten
 
-I den här appen har du avsikter och entiteter men du har ingen slutpunktsanvändning. Den här slutpunktsanvändningen krävs för att förbättra appen med granskningen av slutpunktsutsikten.
+I den här appen har du avsikter och entiteter, men du har inte någon slut punkts användning. Den här slut punkts användningen krävs för att förbättra appen med slut punkts uttryck granskning.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av webbadressen i adressfältet och ersätt _YOUR_QUERY_HERE_ med yttrandena i följande tabell. För varje uttryck skickar du uttryck och får resultatet. Ersätt sedan uttryck i slutet med nästa uttryck.
+1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med yttranden i följande tabell. Skicka uttryck för varje uttryck och få resultatet. Ersätt sedan uttryck i slutet med nästa uttryck.
 
-    |Slutpunktsutseende|Justerad avsikt|
+    |Slut punkt uttryck|Anpassad avsikt|
     |--|--|
     |`I'm looking for a job with Natural Language Processing`|`GetJobInformation`|
     |`I want to cancel on March 3`|`Utilities.Cancel`|
@@ -73,35 +73,35 @@ I den här appen har du avsikter och entiteter men du har ingen slutpunktsanvän
 
 ## <a name="review-endpoint-utterances"></a>Granska slutpunktsyttranden
 
-Granska slutpunktsyttrandena för korrekt justerad avsikt. Det finns en enda grupp yttranden som ska granskas i alla versioner, men processen för att justera avsikten på rätt sätt lägger till exempelutsikteringen till den aktuella _aktiva modellen._
+Granska slut punkts yttranden för korrekt justerat syfte. Även om det finns en enda pool av yttranden för att granska alla versioner, lägger processen för att justera avsikten till exempel uttryck endast till den aktuella _aktiva modellen_ .
 
-1. I avsnittet **Skapa** i portalen väljer du **Granska slutpunktsyttranden** från den vänstra navigeringen. Listan filtreras efter avsikten **ApplyForJob**.
+1. I avsnittet **build** i portalen väljer du **Granska slut punkt yttranden** i det vänstra navigerings fältet. Listan filtreras efter avsikten **ApplyForJob**.
 
     > [!div class="mx-imgBorder"]
     > ![Skärmbild av knappen Granska slutpunktstalindata i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
-    Detta uttryck, `I'm looking for a job with Natural Language Processing`, är inte i rätt avsikt.
+    Den här uttryck `I'm looking for a job with Natural Language Processing`är inte i rätt avsikt.
 
-1.  Om du vill justera det här uttrycket markerar du `GetJobInformation`rätt justerad avsikt för på **uttrycksraden** . Lägg till det ändrade uttrycket i appen genom att markera bocken.
+1.  Om du vill justera den här uttryck väljer du rätt **justerat avsikt** för `GetJobInformation`i raden uttryck. Lägg till den ändrade uttryck i appen genom att markera bock markeringen.
 
     > [!div class="mx-imgBorder"]
     > ![Skärmbild av knappen Granska slutpunktstalindata i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
 
-    Granska de återstående yttrandena i den här avsikten och korrigera den justerade avsikten efter behov. Använd den första uttryckstabellen i den här självstudien för att visa den justerade avsikten.
+    Granska återstående yttranden i det här syftet och korrigera den justerade avsikten vid behov. Använd den inledande uttryck-tabellen i den här självstudien för att visa den justerade avsikten.
 
-    Listan **Granska slutpunktsyttranden** bör inte längre ha de korrigerade yttrandena. Om fler yttranden visas fortsätter du att arbeta igenom listan och korrigerar justerade avsikter tills listan är tom.
+    Yttranden-listan för **gransknings slut punkt** bör inte längre ha den korrigerade yttranden. Om fler yttranden visas fortsätter du att arbeta genom listan och korrigerar Justerings avsikt tills listan är tom.
 
-    All korrigering av entitetsmärkning görs när avsikten har justerats från sidan Avsiktsinformation.
+    All korrigering av enhets etiketter görs när avsikten är justerad från sidan information om avsikt.
 
 1. Träna och publicera appen igen.
 
-## <a name="get-intent-prediction-from-endpoint"></a>Hämta avsiktsprediktion från slutpunkten
+## <a name="get-intent-prediction-from-endpoint"></a>Hämta förutsägelse för avsikt från slut punkt
 
-Om du vill kontrollera att de korrekt justerade exempelyttrandena har förbättrat appens förutsägelse provar du ett uttryck nära det korrigerade uttrycket.
+Om du vill kontrol lera det korrekt justerade exemplet yttranden förbättrad appens förutsägelse kan du försöka med en uttryck nära den korrigerade uttryck.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av webbadressen i _YOUR_QUERY_HERE_ adressfältet och `Are there any natural language processing jobs in my department right now?`ersätt YOUR_QUERY_HERE med .
+1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med `Are there any natural language processing jobs in my department right now?`.
 
    ```json
     {
@@ -207,7 +207,7 @@ Om du vill kontrollera att de korrekt justerade exempelyttrandena har förbättr
     }
    ```
 
-   Nu när de osäkra yttrandena är korrekt justerade, förutsades rätt avsikt med en **hög poäng**.
+   Nu när yttranden är korrekt justerade är rätt avsikt att förutsägas med en **hög poäng**.
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>Går det att ersätta granskning genom att lägga till fler yttranden?
 Du undrar kanske varför man inte bara kan lägga till fler exempelyttranden. Vad är syftet med att granska slutpunktsyttranden? I en riktig LUIS-app kommer slutpunktsyttranden från användare med ordval och ordningsföljd som du inte har använt än. Om du hade använt samma ordval och ordningsföljd skulle den ursprungliga förutsägelsen ha haft ett högre procenttal.

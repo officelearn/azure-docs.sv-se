@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Skapa en första instans för anpassad sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten om du vill skapa en anpassad Bing-förekomst som kan söka efter domäner och webbsidor som du definierar.
+description: Använd den här snabb starten för att skapa en anpassad Bing-instans som kan söka igenom domäner och webb sidor som du definierar.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: b8287250df4e278d4904e31121ed7d2df208e1c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80238858"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Snabbstart: Skapa din första instans för anpassad sökning i Bing
@@ -46,10 +46,10 @@ Så här skapar du en instans för anpassad sökning i Bing:
 
 5. Klicka på **Publicera** för att publicera ändringarna till produktionsmiljön, och uppdatera instansens slutpunkter.
 
-6.  Klicka på fliken **Produktion** under **Slutpunkter**och kopiera ditt **anpassade konfigurations-ID**. Du behöver detta ID för att anropa API:et för anpassad sökning genom att lägga till det till frågeparametern `customconfig=` i dina anrop.
+6.  Klicka på fliken **produktion** under **slut punkter**och kopiera ditt **anpassade konfigurations-ID**. Du behöver detta ID för att anropa API:et för anpassad sökning genom att lägga till det till frågeparametern `customconfig=` i dina anrop.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Anropa slutpunkten för anpassad bing-sökning](./call-endpoint-csharp.md)
+> [Snabb start: anropa din Anpassad sökning i Bing-slutpunkt](./call-endpoint-csharp.md)

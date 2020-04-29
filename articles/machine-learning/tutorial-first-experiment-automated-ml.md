@@ -11,10 +11,10 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
 ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80366533"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Självstudie: skapa en klassificerings modell med automatiserad ML i Azure Machine Learning
@@ -93,7 +93,7 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
         Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan&nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
-        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
+        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inga
 
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **Nästa**.
 
@@ -137,7 +137,7 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
         ------|---------|---
         Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|AUC_weighted
         Automatisk funktionalisering| Aktiverar för bearbetning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
-        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Ingen
+        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Inga
         Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings&nbsp;jobb&nbsp;tid (timmar): 1 <br> Mått&nbsp;poängs&nbsp;tröskel: ingen
         Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning&nbsp;kors validering <br> <br> Antal valideringar: 2
         Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max&nbsp;.&nbsp;antal samtidiga iterationer: 5

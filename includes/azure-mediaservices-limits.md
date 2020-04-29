@@ -5,56 +5,56 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 2fe091a4ff0295ecadfd69ba3f2d4ca59e9612e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334860"
 ---
 >[!NOTE]
->Öppna en supportbiljett för att be om en ökning av kvoterna för resurser som inte är fasta. Skapa inte ytterligare Azure Media Services-konton i ett försök att få högre gränser.
+>För resurser som inte har åtgärd ATS öppnar du ett support ärende för att be om en ökning av kvoterna. Skapa inte ytterligare Azure Media Services konton i ett försök att få högre gränser.
 
 | Resurs | Gräns | 
 | --- | --- | 
-| Azure Media Services-konton i en enda prenumeration | 25 (fast) |
-| Mediereserverade enheter per Media Services-konto |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Jobb per mediatjänstkonto | 50 000<sup>2</sup> |
+| Azure Media Services konton i en enda prenumeration | 25 (fast) |
+| Reserverade enheter per Media Services konto |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Jobb per Media Services konto | 50 000<sup>2</sup> |
 | Länkade uppgifter per jobb | 30 (fast) |
-| Tillgångar per mediatjänstkonto | 1,000,000|
+| Till gångar per Media Services konto | 1,000,000|
 | Tillgångar per uppgift | 50 |
 | Tillgångar per jobb | 100 |
 | Unik positionerare som är associerad med en tillgång vid ett tillfälle | 5<sup>4</sup> |
-| Livekanaler per Media Services-konto |5|
+| Live Channels per Media Services konto |5|
 | Program i stoppat tillstånd per kanal |50|
 | Program i körningstillstånd per kanal |3|
-| Strömmande slutpunkter som stoppas eller körs per Media Services-konto|2|
+| Slut punkter för direkt uppspelning som har stoppats eller körts per Media Services konto|2|
 | Strömningsenheter per slutpunkt för direktuppspelning |10 |
 | Lagringskonton | 1 000<sup>5</sup> (fast) |
 | Principer | 1 000 000<sup>6</sup> |
-| Filstorlek| I vissa fall finns det en gräns för den maximala filstorleken som stöds för bearbetning i Media Services. <sup>7.</sup> |
+| Filstorlek| I vissa fall finns det en gräns för maximal fil storlek som stöds för bearbetning i Media Services. <sup>7</sup> |
 
-<sup>1.</sup> Om du ändrar typ, till exempel från S2 till S1, återställs de maximala reserverade enhetsgränserna.
+<sup>1</sup> Om du ändrar typ, till exempel från S2 till S1, återställs de högsta reserverade enhets gränserna.
 
-<sup>2.</sup> Det här numret inkluderar köade, färdiga, aktiva och avbrutna jobb. Den innehåller inte borttagna jobb. Du kan ta bort gamla jobb med **IJob.Delete** eller **DELETE HTTP-begäran.**
+<sup>2</sup> Det här antalet inkluderar köade, avslutade, aktiva och avbrutna jobb. Det inkluderar inte borttagna jobb. Du kan ta bort gamla jobb med **IJob. Delete** eller **ta bort** http-begäran.
 
-Från och med den 1 april 2017 tas alla jobbposter i ditt konto som är äldre än 90 dagar bort automatiskt, tillsammans med tillhörande uppgiftsposter. Automatisk borttagning sker även om det totala antalet poster ligger under den maximala kvoten. Om du vill arkivera jobb- och uppgiftsinformationen använder du koden som beskrivs i [Hantera tillgångar med Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
+Från och med den 1 april 2017 raderas alla jobb poster i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med tillhör ande uppgifts poster. Automatisk borttagning sker även om det totala antalet poster unders tiger Max kvoten. Om du vill arkivera jobb-och uppgifts information använder du koden som beskrivs i [Hantera till gångar med Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3.</sup> När du gör en begäran om att lista jobbentiteter returneras högst 1 000 jobb per begäran. Om du vill hålla reda på alla inskickade jobb använder du de vanligaste frågorna eller hoppar över frågor enligt beskrivningen i [OData-systemfrågaalternativ](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
+<sup>3</sup> När du gör en begäran om att lista jobb enheter returneras högst 1 000 jobb per begäran. Om du vill hålla koll på alla skickade jobb använder du de översta eller SKIP-frågorna som beskrivs i [alternativ för OData system-frågor](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4.</sup> Lokaliseringsorgan är inte utformade för att hantera åtkomstkontroll per användare. Använd DRM-lösningar (Digital Rights Management) för att ge enskilda användare olika åtkomsträttigheter. Mer information finns i [Skydda ditt innehåll med Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup> Lokaliserare är inte utformade för att hantera åtkomst kontroll per användare. Använd Digital Rights Management-lösningar (DRM) om du vill ge olika åtkomst rättigheter till enskilda användare. Mer information finns i [skydda ditt innehåll med Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
 
-<sup>5 5</sup> Lagringskontona måste komma från samma Azure-prenumeration.
+<sup>5</sup> Lagrings kontona måste vara från samma Azure-prenumeration.
 
-<sup>6.</sup> Det finns en gräns på 1 000 000 principer för olika Media Services-principer. Ett exempel är för positionerarprincipen eller ContentKeyAuthorizationPolicy. 
+<sup>6</sup> Det finns en gräns på 1 000 000-principer för olika Media Servicess principer. Ett exempel är för lokaliserings principen eller ContentKeyAuthorizationPolicy. 
 
 >[!NOTE]
-> Om du alltid använder samma dagar och åtkomstbehörigheter använder du samma princip-ID. Information och ett exempel finns i [Hantera tillgångar med Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
+> Om du alltid använder samma dagar och åtkomst behörigheter använder du samma princip-ID. Information och ett exempel finns i [Hantera till gångar med Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7.</sup> Den maximala storleken som stöds för en enda blob är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare begränsningar gäller i Media Services baserat på de vm-storlekar som används av tjänsten. Storleksgränsen gäller för de filer som du laddar upp och även de filer som genereras som ett resultat av Media Services-bearbetning (kodning eller analys). Om källfilen är större än 260 GB misslyckas det troligen med jobbet. 
+<sup>7</sup> Den maximala storlek som stöds för en enskild BLOB är för närvarande upp till 5 TB i Azure Blob Storage. Ytterligare gränser gäller i Media Services baserat på de VM-storlekar som används av tjänsten. Storleks gränsen gäller för de filer som du överför och även de filer som genereras på grund av Media Services bearbetning (kodning eller analys). Om käll filen är större än 260 GB kommer jobbet sannolikt att Miss förväntas. 
 
-I följande tabell visas gränserna för de mediereserverade enheterna S1, S2 och S3. Om källfilen är större än de gränser som anges i tabellen misslyckas kodningsjobbet. Om du kodar 4K-upplösningskällor med lång varaktighet måste du använda S3-mediereserverade enheter för att uppnå den prestanda som behövs. Om du har 4K-innehåll som är större än gränsen på 260 GB för S3-mediereserverade enheter öppnar du en supportbiljett.
+I följande tabell visas gränserna för de medie reserverade enheterna S1, S2 och S3. Om käll filen är större än de gränser som anges i tabellen, Miss lyckas kodnings jobbet. Om du kodar 4K-resolutioner med lång varaktighet måste du använda S3-medie reserverade enheter för att uppnå de prestanda som behövs. Öppna ett support ärende om du har ett 4K-innehåll som är större än 260 GB-gränsen på S3-enheternas reserverade enheter.
 
-|Mediereserverad enhetstyp    |Maximal inmatningsstorlek (GB)|
+|Enhets typ för reserverat medium    |Maximal ingångs storlek (GB)|
 |---|---|
 |S1 |    26|
 |S2    | 60|

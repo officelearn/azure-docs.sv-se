@@ -1,6 +1,6 @@
 ---
-title: Logga in på en virtuell Linux-dator med Azure Active Directory-autentiseringsuppgifter
-description: Lär dig hur du skapar och konfigurerar en Virtuell Linux-dator för att logga in med Azure Active Directory-autentisering.
+title: Logga in på en virtuell Linux-dator med Azure Active Directory autentiseringsuppgifter
+description: Lär dig hur du skapar och konfigurerar en virtuell Linux-dator för att logga in med Azure Active Directory autentisering.
 author: iainfoulds
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -8,78 +8,78 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
 ms.openlocfilehash: 2731693667d2129a72da72455c6bbdd74c277697
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80366497"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Förhandsversion: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory-autentisering
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
-För att förbättra säkerheten för virtuella Linux-datorer (VMs) i Azure kan du integrera med Azure Active Directory (AD) autentisering. När du använder Azure AD-autentisering för virtuella Linux-datorer styr och tillämpar du principer centralt som tillåter eller nekar åtkomst till de virtuella datorerna. Den här artikeln visar hur du skapar och konfigurerar en Virtuell Linux-dator för att använda Azure AD-autentisering.
+För att förbättra säkerheten för virtuella Linux-datorer i Azure kan du integrera med autentisering med Azure Active Directory (AD). När du använder Azure AD-autentisering för virtuella Linux-datorer kan du centralt styra och tillämpa principer som tillåter eller nekar åtkomst till de virtuella datorerna. Den här artikeln visar hur du skapar och konfigurerar en virtuell Linux-dator för att använda Azure AD-autentisering.
 
 
 > [!IMPORTANT]
-> Azure Active Directory-autentisering är för närvarande i offentlig förhandsversion.
+> Azure Active Directory autentisering är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Använd den här funktionen på en virtuell testdator som du förväntar dig att ignorera efter testning.
+> Använd den här funktionen på en virtuell test dator som du förväntar dig att ignorera efter testning.
 >
 
 
 Det finns många fördelar med att använda Azure AD-autentisering för att logga in på virtuella Linux-datorer i Azure, inklusive:
 
 - **Förbättrad säkerhet:**
-  - Du kan använda dina AD-autentiseringsuppgifter för att logga in på virtuella Azure Linux-datorer. Du behöver inte skapa lokala administratörskonton och hantera livstid för autentiseringsuppgifter.
-  - Genom att minska din tillit till lokala administratörskonton behöver du inte oroa dig för förlust/stöld av autentiseringsuppgifter, användare som konfigurerar svaga autentiseringsuppgifter etc.
-  - Principer för lösenordskomplexitet och lösenord som konfigurerats för din Azure AD-katalog hjälper även till att skydda virtuella Linux-datorer.
-  - Om du vill ha ytterligare säker inloggning till virtuella Azure-datorer kan du konfigurera multifaktorautentisering.
-  - Möjligheten att logga in på virtuella Linux-datorer med Azure Active Directory fungerar också för kunder som använder [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
+  - Du kan använda företagets AD-autentiseringsuppgifter för att logga in på virtuella datorer i Azure Linux. Du behöver inte skapa lokala administratörs konton och hantera livstid för autentiseringsuppgifter.
+  - Genom att minska beroendet av lokala administratörs konton behöver du inte oroa dig för förlust/stöld av autentiseringsuppgifter, användare som konfigurerar svaga autentiseringsuppgifter osv.
+  - Principerna för lösen ords komplexitet och lösen ord är konfigurerade för Azure AD-katalogen och skyddar virtuella Linux-datorer.
+  - Du kan konfigurera Multi-Factor Authentication för att ytterligare säkra inloggning till virtuella Azure-datorer.
+  - Möjligheten att logga in på virtuella Linux-datorer med Azure Active Directory fungerar också för kunder som använder [Federations tjänster](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Sömlöst samarbete:** Med rollbaserad åtkomstkontroll (RBAC) kan du ange vem som kan logga in på en viss virtuell dator som en vanlig användare eller med administratörsbehörighet. När användare ansluter till eller lämnar teamet kan du uppdatera RBAC-principen för den virtuella datorn för att bevilja åtkomst efter behov. Den här upplevelsen är mycket enklare än att behöva skrubba virtuella datorer för att ta bort onödiga SSH-offentliga nycklar. När anställda lämnar organisationen och deras användarkonto inaktiveras eller tas bort från Azure AD har de inte längre åtkomst till dina resurser.
+- **Sömlöst samarbete:** Med rollbaserad Access Control (RBAC) kan du ange vem som kan logga in på en specifik virtuell dator som en vanlig användare eller med administratörs behörighet. När användarna ansluter till eller lämnar ditt team kan du uppdatera RBAC-principen för den virtuella datorn för att ge åtkomst vid behov. Den här upplevelsen är mycket enklare än att behöva radera virtuella datorer för att ta bort onödiga offentliga SSH-nycklar. När anställda lämnar din organisation och deras användar konto har inaktiverats eller tagits bort från Azure AD har de inte längre till gång till dina resurser.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Azure-regioner och Linux-distributioner som stöds
 
-Följande Linux-distributioner stöds för närvarande under förhandsversionen av den här funktionen:
+Följande Linux-distributioner stöds för närvarande i för hands versionen av den här funktionen:
 
 | Distribution | Version |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
-| openSUSE | openSUSE Leap 42,3 |
+| openSUSE | openSUSE skottår 42,3 |
 | Red Hat Enterprise Linux | RHEL 6, RHEL 7 | 
-| SUSE Linux Enterprise Server | SLES 12 (PÅ ANDRA) |
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 och Ubuntu Server 18.04 |
+| SUSE Linux Enterprise Server | SLES 12 |
+| Ubuntu Server | Ubuntu 14,04 LTS, Ubuntu Server 16,04 och Ubuntu Server 18,04 |
 
 
-Följande Azure-regioner stöds för närvarande under förhandsversionen av den här funktionen:
+Följande Azure-regioner stöds för närvarande i för hands versionen av den här funktionen:
 
 - Alla globala Azure-regioner
 
 >[!IMPORTANT]
-> Om du vill använda den här förhandsversionen distribuerar du bara en Linux-distribution som stöds och i en Azure-region som stöds. Funktionen stöds inte i Azure Government eller suveräna moln.
+> Om du vill använda den här förhands granskningen distribuerar du bara en Linux-distribution som stöds och i en Azure-region som stöds Funktionen stöds inte i Azure Government eller suveräna moln.
 >
-> Det stöds inte att använda det här tillägget på AKS-kluster (Azure Kubernetes Service). Mer information finns i [Supportprinciper för AKS](../../aks/support-policies.md).
+> Det går inte att använda det här tillägget på Azure Kubernetes service-kluster (AKS). Mer information finns i [support policys för AKS](../../aks/support-policies.md).
 
 
-Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.0.31 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
-Om du vill aktivera Azure AD-autentisering för dina virtuella Linux-datorer i Azure måste du se till att nätverkskonfigurationen för dina virtuella datorer tillåter utgående åtkomst till följande slutpunkter via TCP-port 443:
+Om du vill aktivera Azure AD-autentisering för dina virtuella Linux-datorer i Azure måste du se till att nätverks konfigurationen för virtuella datorer tillåter utgående åtkomst till följande slut punkter via TCP-port 443:
 
 * https:\//login.microsoftonline.com
 * https:\//login.windows.net
-* https:\//device.login.microsoftonline.com
-* https:\//pas.windows.net
+* https:\//Device.login.microsoftonline.com
+* https:\//Pas.Windows.net
 * https:\//management.azure.com
-* https:\//packages.microsoft.com
+* https:\//packages.Microsoft.com
 
 > [!NOTE]
-> För närvarande kan Azure-nätverkssäkerhetsgrupper inte konfigureras för virtuella datorer som är aktiverade med Azure AD-autentisering.
+> För närvarande går det inte att konfigurera Azures nätverks säkerhets grupper för virtuella datorer som är aktiverade med Azure AD-autentisering.
 
 ## <a name="create-a-linux-virtual-machine"></a>Skapa en virtuell Linux-dator
 
-Skapa en resursgrupp med [az-grupp skapa](/cli/azure/group#az-group-create)och skapa sedan en virtuell dator med [az vm skapa](/cli/azure/vm#az-vm-create) med hjälp av en distro och i en region som stöds. I följande exempel distribueras en virtuell dator med namnet *myVM* som använder *Ubuntu 16.04 LTS* i en resursgrupp med namnet *myResourceGroup* i *regionen southcentralus.* I följande exempel kan du ange dina egna resursgrupp- och VM-namn efter behov.
+Skapa en resurs grupp med [AZ Group Create](/cli/azure/group#az-group-create)och skapa sedan en virtuell dator med [AZ VM Create](/cli/azure/vm#az-vm-create) med en distribution som stöds och i en region som stöds. I följande exempel distribueras en virtuell dator med namnet *myVM* som använder *Ubuntu 16,04-LTS* i en resurs grupp med namnet *myResourceGroup* i regionen *usasödracentrala* . I följande exempel kan du ange dina egna resurs grupper och namn på virtuella datorer efter behov.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -94,12 +94,12 @@ az vm create \
 
 Det tar några minuter att skapa den virtuella datorn och stödresurser.
 
-## <a name="install-the-azure-ad-login-vm-extension"></a>Installera tillägget Azure AD-inloggning vm
+## <a name="install-the-azure-ad-login-vm-extension"></a>Installera tillägget Azure AD login VM
 
 > [!NOTE]
-> Om du distribuerar det här tillägget till en tidigare skapad virtuell dator säkerställer du att datorn har minst 1 GB minne som allokerats annars misslyckas tillägget att installera
+> Om du distribuerar det här tillägget till en tidigare skapad virtuell dator måste datorn ha minst 1 GB minne, annars går det inte att installera tillägget
 
-Om du vill logga in på en Virtuell Linux-dator med Azure AD-autentiseringsuppgifter installerar du azure Active Directory-tillägget för inloggnings-VM. VM-tillägg är små program som tillhandahåller konfigurations- och automatiseringsuppgifter efter distributionen på virtuella Azure-datorer. Använd [az vm-tillägget för](/cli/azure/vm/extension#az-vm-extension-set) att installera *AADLoginForLinux-tillägget* på den virtuella datorn som heter *myVM* i resursgruppen *myResourceGroup:*
+Om du vill logga in på en virtuell Linux-dator med Azure AD-autentiseringsuppgifter installerar du Azure Active Directory-inloggningens VM-tillägg. VM-tillägg är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. Använd [AZ VM Extension set](/cli/azure/vm/extension#az-vm-extension-set) för att installera *AADLoginForLinux* -tillägget på den virtuella datorn med namnet *myVM* i *myResourceGroup* -resurs gruppen:
 
 ```azurecli-interactive
 az vm extension set \
@@ -109,19 +109,19 @@ az vm extension set \
     --vm-name myVM
 ```
 
-*Etableringstaten* för *lyckades* visas när tillägget har installerats på den virtuella datorn. Den virtuella datorn behöver en vm-agent som körs för att installera tillägget. Mer information finns i [VM-agentöversikt](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+*ProvisioningState* av *lyckades* visas när tillägget har installerats på den virtuella datorn. Den virtuella datorn behöver en virtuell dator agent som körs för att installera tillägget. Mer information finns i [Översikt över VM-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
-## <a name="configure-role-assignments-for-the-vm"></a>Konfigurera rolltilldelningar för den virtuella datorn
+## <a name="configure-role-assignments-for-the-vm"></a>Konfigurera roll tilldelningar för den virtuella datorn
 
-Azure Role-Based Access Control (RBAC) princip avgör vem som kan logga in på den virtuella datorn. Två RBAC-roller används för att auktorisera VM-inloggning:
+Princip för Azure rollbaserad Access Control (RBAC) bestämmer vem som kan logga in på den virtuella datorn. Två RBAC-roller används för att auktorisera VM-inloggning:
 
-- **Inloggning för administratör för virtuell**dator: Användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med Windows-administratörs- eller Linux-rotanvändarbehörighet.
-- **Användarlogin för virtuella**datorer: Användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användarbehörigheter.
+- **Administratörs inloggning för virtuell dator**: användare med den här rollen som tilldelas kan logga in på en virtuell Azure-dator med Windows-administratör eller Linux-rot användar privilegier.
+- **Användar inloggning för virtuell dator**: användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användar behörigheter.
 
 > [!NOTE]
-> Om du vill att en användare ska kunna logga in på den virtuella datorn via SSH måste du tilldela rollen *inloggning* av administratör för virtuell dator eller *användarlogin för virtuell dator.* En Azure-användare med *ägar-* eller *deltagarrollerna* som tilldelats för en virtuell dator har inte automatiskt behörighet att logga in på den virtuella datorn via SSH.
+> Om du vill tillåta att en användare loggar in på den virtuella datorn via SSH måste du tilldela antingen rollen *Administratörs inloggning för virtuell dator* eller *användar inloggning för virtuell dator* . En Azure-användare med rollen *ägare* eller *deltagare* som har tilldelats en virtuell dator har inte automatiskt behörighet att logga in på den virtuella datorn via SSH.
 
-I följande exempel används [az-rolltilldelningsskapande](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela rollen *inloggning till den virtuella datorns administratörslogin* till den virtuella datorn för din nuvarande Azure-användare. Användarnamnet för ditt aktiva Azure-konto hämtas med [az-kontoprogram](/cli/azure/account#az-account-show)och *scopet* är inställt på den virtuella datorn som skapats i ett tidigare steg med [az vm show](/cli/azure/vm#az-vm-show). Scopet kan också tilldelas på en resursgrupp eller prenumerationsnivå och normala RBAC-arvsbehörigheter gäller. Mer information finns i [Rollbaserade åtkomstkontroller](../../role-based-access-control/overview.md)
+I följande exempel används [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den *virtuella datorns administratörs inloggnings* roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](/cli/azure/account#az-account-show), och *omfånget* ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -134,58 +134,58 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Om din AAD-domän och inloggningsanvändardomän inte matchar måste du ange objekt-ID för ditt användarkonto med *--assignee-object-id*, inte bara användarnamnet för *--assignee*. Du kan hämta objekt-ID:t för ditt användarkonto med [az ad-användarlista](/cli/azure/ad/user#az-ad-user-list).
+> Om din AAD-domän och inloggnings användar domän inte matchar, måste du ange objekt-ID: t för ditt användar konto med namnet *--* tilldelad-Object-ID, inte bara användar namnet för *--tilldelas*. Du kan hämta objekt-ID: t för ditt användar konto med [AZ AD User List](/cli/azure/ad/user#az-ad-user-list).
 
-Mer information om hur du använder RBAC för att hantera åtkomst till dina Azure-prenumerationsresurser finns i [Azure CLI,](../../role-based-access-control/role-assignments-cli.md) [Azure Portal](../../role-based-access-control/role-assignments-portal.md)eller [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Mer information om hur du använder RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i använda [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)eller [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Du kan också konfigurera Azure AD för att kräva multifaktorautentisering för en viss användare att logga in på den virtuella Linux-datorn. Mer information finns i [Komma igång med Azure Multi-Factor Authentication i molnet](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Du kan också konfigurera Azure AD så att Multi-Factor Authentication krävs för att en särskild användare ska kunna logga in på den virtuella Linux-datorn. Mer information finns i [Kom igång med Azure Multi-Factor Authentication i molnet](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
-## <a name="log-in-to-the-linux-virtual-machine"></a>Logga in på virtuella Linux-datorn
+## <a name="log-in-to-the-linux-virtual-machine"></a>Logga in på den virtuella Linux-datorn
 
-Visa först den offentliga IP-adressen för din virtuella dator med [az vm-show:](/cli/azure/vm#az-vm-show)
+Först visar du den offentliga IP-adressen för den virtuella datorn med [AZ VM show](/cli/azure/vm#az-vm-show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Logga in på den virtuella Azure Linux-datorn med dina Azure AD-autentiseringsuppgifter. Med `-l` parametern kan du ange din egen Azure AD-kontoadress. Ersätt exempelkontot med ditt eget. Kontoadresser ska anges i alla gemener. Ersätt exempel-IP-adressen med den offentliga IP-adressen för den virtuella datorn från föregående kommando.
+Logga in på den virtuella Azure Linux-datorn med dina autentiseringsuppgifter för Azure AD. Med `-l` den här parametern kan du ange din egen Azure AD-kontoinformation. Ersätt exempel kontot med ditt eget. Konto adresser måste anges i gemener. Ersätt IP-exemplet med den offentliga IP-adressen för den virtuella datorn från föregående kommando.
 
 ```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
-Du uppmanas att logga in på Azure AD med [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)en engångsanvändningskod på . Kopiera och klistra in engångskoden i enhetens inloggningssida.
+Du uppmanas att logga in på Azure AD med en engångs kod på [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin). Kopiera och klistra in koden för att använda koden på enhetens inloggnings sida.
 
-Ange dina Inloggningsuppgifter för Azure AD på inloggningssidan när du uppmanas att göra det. 
+När du uppmanas till det anger du dina inloggnings uppgifter för Azure AD på inloggnings sidan. 
 
-Följande meddelande visas i webbläsaren när du har autentiserat:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+Följande meddelande visas i webbläsaren när du har autentiserats:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
-Stäng webbläsarfönstret, gå tillbaka till SSH-prompten och tryck på **Retur.** 
+Stäng webbläsarfönstret, gå tillbaka till SSH-prompten och tryck på **RETUR** -tangenten. 
 
-Du är nu inloggad på den virtuella Azure Linux-datorn med rollbehörigheterna som tilldelade, till exempel *VM-användare* eller *VM-administratör*. Om ditt användarkonto tilldelas rollen *Inloggning för virtuell datoradministratör* kan du använda `sudo` för att köra kommandon som kräver rotbehörigheter.
+Du är nu inloggad på den virtuella Azure Linux-datorn med roll behörigheter som tilldelade, till exempel *VM-användare* eller VM- *administratör*. Om ditt användar konto har tilldelats *inloggnings rollen administratör för virtuell dator* kan du använda `sudo` för att köra kommandon som kräver rot privilegier.
 
 ## <a name="sudo-and-aad-login"></a>Sudo och AAD-inloggning
 
-Första gången du kör sudo blir du ombedd att autentisera en andra gång. Om du inte vill autentisera igen för att köra sudo kan `/etc/sudoers.d/aad_admins` du redigera filen sudoers och ersätta den här raden:
+Första gången du kör sudo blir du ombedd att autentisera en andra gång. Om du inte vill att autentiseringen ska köras igen för att köra sudo, kan du redigera sudoers `/etc/sudoers.d/aad_admins` -filen och ersätta den här raden:
 
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
 
-Med denna rad:
+Med den här raden:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
 ```
 
 
-## <a name="troubleshoot-sign-in-issues"></a>Felsöka inloggningsproblem
+## <a name="troubleshoot-sign-in-issues"></a>Felsöka inloggnings problem
 
-Några vanliga fel när du försöker SSH med Azure AD-autentiseringsuppgifter inkluderar inga RBAC-roller som tilldelats och upprepade uppmaningar om att logga in. Använd följande avsnitt för att korrigera dessa problem.
+Några vanliga fel när du försöker använda SSH med Azure AD-autentiseringsuppgifter inkluderar inga RBAC-roller tilldelade och du får upprepade frågor om att logga in. Använd följande avsnitt för att åtgärda problemen.
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>Åtkomst nekad: RBAC-rollen har inte tilldelats
 
-Om du ser följande fel i SSH-prompten kontrollerar du att du har konfigurerat RBAC-principer för den virtuella datorn som ger användaren rollen *som inloggning för virtuell datoradministratör* eller *användarlogin för virtuell dator:*
+Om du ser följande fel i SSH-prompten kontrollerar du att du har konfigurerat RBAC-principer för den virtuella datorn som beviljar användaren antingen *Administratörs inloggning för den virtuella datorn* eller *användar inloggnings* rollen för den virtuella datorn:
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com
@@ -196,21 +196,21 @@ Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute
 Access denied
 ```
 
-### <a name="continued-ssh-sign-in-prompts"></a>Fortsatta SSH-inloggningsmeddelanden
+### <a name="continued-ssh-sign-in-prompts"></a>Kontinuerliga inloggnings meddelanden i SSH
 
-Om du har slutfört autentiseringssteget i en webbläsare kan du omedelbart uppmanas att logga in igen med en ny kod. Det här felet orsakas vanligtvis av en obalans mellan inloggningsnamnet som du angav vid SSH-prompten och kontot som du loggade in på Azure AD med. Så här åtgärdar du problemet:
+Om du har slutfört Authentication-steget i en webbläsare kan du omedelbart uppmanas att logga in igen med en ny kod. Det här felet orsakas vanligt vis av ett matchnings fel mellan det inloggnings namn som du angav i SSH-prompten och det konto som du loggade in på Azure AD med. Så här löser du det här problemet:
 
-- Kontrollera att inloggningsnamnet som du angav vid SSH-prompten är korrekt. Ett stavfel i inloggningsnamnet kan orsaka en obalans mellan inloggningsnamnet som du angav vid SSH-prompten och kontot som du loggade in på Azure AD med. Du har till exempel skrivit *azuresuer\@contoso.onmicrosoft.com* i stället för *azureuser\@contoso.onmicrosoft.com*.
-- Om du har flera användarkonton kontrollerar du att du inte tillhandahåller ett annat användarkonto i webbläsarfönstret när du loggar in på Azure AD.
-- Linux är ett skiftlägeskänsligt operativsystem. Det finns enAzureuser@contoso.onmicrosoft.comskillnad mellanazureuser@contoso.onmicrosoft.com' ' och ' ', vilket kan orsaka en obalans. Se till att du anger UPN med rätt skiftlägeskänslighet vid SSH-prompten.
+- Kontrol lera att det inloggnings namn som du angav i SSH-prompten är korrekt. Ett skrivfel i inloggnings namnet kan orsaka ett matchnings fel mellan det inloggnings namn som du angav i SSH-prompten och det konto som du loggade in på Azure AD med. Du skrev till exempel *azuresuer\@contoso.onmicrosoft.com* i stället för *azureuser\@contoso.onmicrosoft.com*.
+- Om du har flera användar konton ser du till att du inte anger något annat användar konto i webbläsarfönstret när du loggar in på Azure AD.
+- Linux är ett skift läges känsligt operativ system. Det finns en skillnad mellan "Azureuser@contoso.onmicrosoft.com" och "azureuser@contoso.onmicrosoft.com", vilket kan orsaka ett matchnings fel. Se till att du anger UPN med rätt Skift läges känslighet i SSH-prompten.
 
 ### <a name="other-limitations"></a>Andra begränsningar
 
-Användare som ärver åtkomsträttigheter via kapslade grupper eller rolltilldelningar stöds för närvarande inte. Användaren eller gruppen måste tilldelas de [nödvändiga rolltilldelningarna](#configure-role-assignments-for-the-vm)direkt . Användningen av hanteringsgrupper eller kapslade grupprolltilldelningar ger till exempel inte rätt behörighet för att tillåta användaren att logga in.
+Användare som ärver åtkomst rättigheter via kapslade grupper eller roll tilldelningar stöds inte för närvarande. Användaren eller gruppen måste tilldelas direkt de [nödvändiga roll tilldelningarna](#configure-role-assignments-for-the-vm). Till exempel ger användning av hanterings grupper eller kapslade grupp roll tilldelningar inte rätt behörighet för att tillåta användaren att logga in.
 
 ## <a name="preview-feedback"></a>Feedback för förhandsversionen
 
-Dela din feedback om den här förhandsgranskningsfunktionen eller rapportera problem med att använda den på [Azure AD-feedbackforumet](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+Dela din feedback om den här för hands versions funktionen eller rapportera problem med hjälp av den i [Azure AD feedback-forumet](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Nästa steg
 

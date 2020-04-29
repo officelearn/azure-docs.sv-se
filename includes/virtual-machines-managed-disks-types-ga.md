@@ -9,67 +9,67 @@ ms.date: 03/28/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 6740ea320f2d950386da12eb44726e2c826b60a4
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80386111"
 ---
 ## <a name="premium-ssd"></a>Premium SSD
 
-Azure premium SSD-enheter ger diskstöd med hög prestanda och låg latens för virtuella datorer med indata/utdata (IO)-intensiva arbetsbelastningar. Om du vill dra nytta av hastigheten och prestandan hos premiumlagringsdiskar kan du migrera befintliga VM-diskar till Premium SSD-enheter. Premium SSD är lämpliga för verksamhetskritiska produktionsapplikationer. Premium SSD-enheter kan endast användas med VM-serier som är premiumlagringskompatibla.
+Azure Premium SSD levererar hög prestanda och disk support med låg latens för virtuella datorer med indata/utdata (i/o)-intensiva arbets belastningar. Om du vill dra nytta av hastighet och prestanda för Premium Storage-diskar kan du migrera befintliga VM-diskar till Premium-SSD. Premium-SSD är lämpliga för verksamhets kritiska produktions program. Premium-SSD kan bara användas med VM-serien som är Premium Storage-kompatibla.
 
-Mer information om enskilda vm-typer och storlekar i Azure för Windows, inklusive vilka storlekar som är premiumlagringskompatibla, finns i [Storlekarna för virtuella datorer i Windows.](../articles/virtual-machines/windows/sizes.md) Mer information om enskilda vm-typer och storlekar i Azure för Linux, inklusive vilka storlekar som är premiumlagringskompatibla, finns i [Storlekar för virtuella linux-datorer](../articles/virtual-machines/linux/sizes.md). Från någon av dessa artiklar måste du kontrollera varje enskild vm-storleksartikel för att avgöra om den är premiumlagringskompatibel.
+Mer information om enskilda VM-typer och storlekar i Azure för Windows, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella Windows-datorer](../articles/virtual-machines/windows/sizes.md). Mer information om enskilda VM-typer och storlekar i Azure för Linux, inklusive vilka storlekar är Premium Storage-kompatibla, finns i [storlekar för virtuella Linux-datorer](../articles/virtual-machines/linux/sizes.md). Från någon av dessa artiklar måste du kontrol lera varje enskild artikel för VM-storlek för att avgöra om den är Premium Storage-kompatibel.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-När du etablerar en premiumlagringsdisk, till skillnad från standardlagring, garanteras du kapaciteten, IOPS- och dataflödet för disken. Om du till exempel skapar en P50-disk, azure bestämmelser 4,095-GB lagringskapacitet, 7.500 IOPS och 250-MB / s dataflöde för den disken. Ditt program kan använda hela eller delar av kapaciteten och prestandan. Premium SSD-diskar är utformade för att ge låga ensiffriga millisekunders svarstider och mål-IOPS och dataflöde som beskrivs i föregående tabell 99,9 % av tiden.
+När du etablerar en Premium Storage-disk, till skillnad från standard lagring, garanterar du att disken har kapacitet, IOPS och data flöde. Om du till exempel skapar en P50-disk, etablerar Azure 4 095-GB lagrings kapacitet, 7 500 IOPS och 250 MB/s genom strömning för disken. Programmet kan använda hela eller delar av kapaciteten och prestandan. Premium SSD diskar har utformats för att tillhandahålla låg latens i millisekunder och mål-IOPS och data flöde som beskrivs i föregående tabell 99,9% av tiden.
 
-## <a name="bursting"></a>Spricker
+## <a name="bursting"></a>Bursting "
 
-Premium SSD storlekar mindre än P30 erbjuder nu disk spricker och kan brista sina IOPS per disk upp till 3.500 och deras bandbredd upp till 170 Mbps. Bursting är automatiserad och fungerar baserat på ett kreditsystem. Krediter ackumuleras automatiskt i en burst-bucket när disktrafiken ligger under det etablerade prestandamålet och krediter automatiskt förbrukas när trafiken spricker utanför målet, upp till max burst-gränsen. Max burst-gränsen definierar taket för disk IOPS & bandbredd även om du har burst krediter att konsumera från. Disksprickning ger bättre tolerans för oförutsägbara ändringar av IO-mönster. Du kan bäst utnyttja den för OS diskstart och applikationer med taggig trafik.    
+Premium SSD storlekar som är mindre än P30 erbjuder nu disk burst och kan överföra sina IOPS per disk upp till 3 500 och bandbredden upp till 170 Mbit/s. Burst-överföring automatiseras och fungerar baserat på ett kredit system. Krediter samlas in automatiskt i en burst-Bucket när disk trafiken är lägre än det tillhandahållna prestanda målet och krediterna förbrukas automatiskt när trafiken överförs bortom målet, upp till den maximala burst-gränsen. Max burst-gränsen definierar taket för disk-IOPS & bandbredd även om du har burst-krediter att använda. Disk burst ger bättre tolerans på oförutsägbara ändringar av IO-mönster. Du kan använda den bäst för start och program för operativ system diskar med hög belastnings trafik.    
 
-Stöd för avspricker av diskar aktiveras på nya distributioner av tillämpliga diskstorlekar som standard, utan att någon användaråtgärd krävs. För befintliga diskar av tillämpliga storlekar kan du aktivera spricker med något av två alternativ: koppla bort och sätt tillbaka disken eller stoppa och starta om den anslutna virtuella datorn. Alla burst tillämpliga diskstorlekar börjar med en fullständig burst kredit bucket när disken är ansluten till en virtuell dator som stöder en max varaktighet vid topp burst gräns på 30 minuter. Mer information om hur bursting fungerar på Azure Diskar finns i [Premium SSD-bursting](../articles/virtual-machines/linux/disk-bursting.md). 
+Disk burst-stöd kommer att aktive ras vid nya distributioner av tillämpliga disk storlekar som standard, utan någon användar åtgärd krävs. För befintliga diskar av tillämpliga storlekar kan du aktivera burst-överföring med något av följande två alternativ: koppla från och återanslut disken eller stoppa och starta om den anslutna virtuella datorn. Alla användbara disk storlekar börjar med en fullständig överförings kredit Bucket när disken är ansluten till en virtuell dator som har stöd för maximal varaktighet vid högsta burst-gräns på 30 minuter. Mer information om hur du använder burst-överföring på Azure-diskar finns [Premium SSD bursting](../articles/virtual-machines/linux/disk-bursting.md). 
 
 ### <a name="transactions"></a>Transaktioner
 
-För premium-SSD-enheter betraktas varje I/O-åtgärd som är mindre än eller lika med 256 KiB dataflöde som en enda I/O-åtgärd. I/O-operationer större än 256 KiB dataflöde anses vara flera I/Os av storlek 256 KiB.
+För Premium-SSD anses varje I/O-åtgärd som är mindre än eller lika med 256 KiB data flöde betraktas som en enda I/O-åtgärd. I/O-åtgärder som är större än 256 KiB-dataflöde betraktas som flera I/o med storleken 256 KiB.
 
 ## <a name="standard-ssd"></a>Standard SSD
 
-Azure standard SSD är ett kostnadseffektivt lagringsalternativ optimerat för arbetsbelastningar som behöver konsekvent prestanda på lägre IOPS-nivåer. Standard SSD erbjuder en bra ingångsnivå upplevelse för dem som vill flytta till molnet, särskilt om du upplever problem med variansen av arbetsbelastningar som körs på din hårddisk lösningar på plats. Jämfört med vanliga hårddiskar ger standard-SSD-enheter bättre tillgänglighet, konsekvens, tillförlitlighet och svarstid. Standard-SSD:er är lämpliga för webbservrar, låga IOPS-programservrar, lätt använda företagsprogram och arbetsbelastningar för utveckling/test. Precis som vanliga hårddiskar är standard-SSD-enheter tillgängliga på alla virtuella Azure-datorer.
+Azure standard SSD är ett kostnads effektivt lagrings alternativ som är optimerat för arbets belastningar som behöver konsekvent prestanda på lägre IOPS-nivåer. Standard SSD erbjuder en bra ingångs nivå för de som vill flytta till molnet, särskilt om du får problem med var Ian sen för arbets belastningar som körs på dina hård disk lösningar lokalt. Jämfört med standard hård diskar ger standard SSD bättre tillgänglighet, konsekvens, tillförlitlighet och latens. Standard SSD är lämpliga för webb servrar, låga IOPS-programservrar, lätt använda företags program och arbets belastningar för utveckling/testning. Som standard hård diskar är standard-SSD tillgängliga på alla virtuella Azure-datorer.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-Standard-SSD-enheter är utformade för att ge ensiffriga millisekunders svarstider och IOPS och dataflöde upp till de gränser som beskrivs i föregående tabell 99 % av tiden. Faktiska IOPS och dataflöde kan variera ibland beroende på trafikmönster. Standard-SSD-enheter ger mer konsekvent prestanda än hårddiskarna med den lägre latensen.
+Standard SSD är utformad för att tillhandahålla en ensiffrig millisekunds fördröjning och IOPS och data flöde upp till de gränser som beskrivs i föregående tabell 99% av tiden. Faktisk IOPS och data flöde kan variera ibland beroende på trafik mönstren. Standard SSD ger mer konsekvent prestanda än hård diskar med lägre latens.
 
 ### <a name="transactions"></a>Transaktioner
 
-För standard-SSD-enheter betraktas varje I/O-åtgärd som är mindre än eller lika med 256 KiB dataflöde som en enda I/O-åtgärd. I/O-operationer större än 256 KiB dataflöde anses vara flera I/Os av storlek 256 KiB. Dessa transaktioner har en faktureringseffekt.
+För standard-SSD anses varje I/O-åtgärd som är mindre än eller lika med 256 KiB data flöde betraktas som en enda I/O-åtgärd. I/O-åtgärder som är större än 256 KiB-dataflöde betraktas som flera I/o med storleken 256 KiB. Dessa transaktioner har en fakturerings påverkan.
 
 ## <a name="standard-hdd"></a>Standard HDD
 
-Azure-standard-hårddiskar ger tillförlitligt diskstöd till låg kostnad för virtuella datorer som kör latenskänsliga arbetsbelastningar. Med standardlagring lagras data på hårddiskar. Svarstid, IOPS och Dataflöde för standard hdd-diskar kan variera mer i förhållande till SSD-baserade diskar. Standard HDD Diskar är utformade för att leverera skriv latenser under 10ms och läsa latenser under 20ms för de flesta IO-åtgärder, men den faktiska prestanda kan variera beroende på IO storlek och arbetsbelastning mönster. När du arbetar med virtuella datorer kan du använda vanliga hårddiskar för utvecklings-/testscenarier och mindre kritiska arbetsbelastningar. Standard-hårddiskar är tillgängliga i alla Azure-regioner och kan användas med alla virtuella Azure-datorer.
+Azure standard-hårddiskar levererar tillförlitligt stöd för diskar med låg kostnad för virtuella datorer som kör svars känsliga arbets belastningar. Med standard lagring lagras data på hård diskar (HDD). Svars tid, IOPS och data flöde för Standard HDD diskar kan variera mycket mer jämfört med SSD-baserade diskar. Standard HDD diskar har utformats för att leverera Skriv fördröjningar under 10ms och Läs fördröjning under 20ms för de flesta i/o-åtgärder, men den faktiska prestandan kan variera beroende på i/o-storlek och arbets belastnings mönster. När du arbetar med virtuella datorer kan du använda standard diskar för hård diskar för utvecklings-och test scenarier och mindre kritiska arbets belastningar. Standard hård diskar är tillgängliga i alla Azure-regioner och kan användas med alla virtuella Azure-datorer.
 
 ### <a name="disk-size"></a>Diskstorlek
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
 ### <a name="transactions"></a>Transaktioner
 
-För standard-hårddiskar betraktas varje I/O-åtgärd som en enda transaktion, oavsett I/O-storlek. Dessa transaktioner har en faktureringseffekt.
+För standard-HDD betraktas varje IO-åtgärd som en enskild transaktion, oavsett I/O-storlek. Dessa transaktioner har en fakturerings påverkan.
 
 ## <a name="billing"></a>Fakturering
 
-När du använder hanterade diskar gäller följande faktureringsöverväganden:
+När du använder hanterade diskar gäller följande saker:
 
 - Disktyp
-- hanterad diskStorlek
+- hanterad disk storlek
 - Ögonblicksbilder
-- Övergående dataöverföringar
+- Utgående data överföringar
 - Antal transaktioner
 
-**Hanterad diskstorlek:** hanterade diskar faktureras på den etablerade storleken. Azure mappar den etablerade storleken (avrundad uppåt) till närmaste erbjudna diskstorlek. Mer information om diskstorlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett etablerat diskstorlekserbjudande som stöds och faktureras därefter. Om du till exempel har etablerat en 200 GiB Standard SSD mappas den till det skivstorlekserbjudande som erbjuds av E15 (256 GiB). Fakturering för alla etablerade diskar beräknas proportionellt per timme med hjälp av månadspriset för Premium Storage-erbjudandet. Om du till exempel har etablerat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som är proportionellt till 20 timmar. Detta oavsett mängden faktiska data som skrivs till disken.
+**Hanterad disk storlek**: hanterade diskar debiteras enligt den etablerade storleken. Azure mappar den etablerade storleken (avrundat uppåt) till den närmaste erbjudna disk storleken. Mer information om de disk storlekar som erbjuds finns i föregående tabeller. Varje disk mappar till ett erbjudande för allokerad disk storlek och debiteras enligt detta. Om du till exempel har upprättat en 200 GiB Standard SSD, mappas den till disk storleks erbjudandet för E15 (256 GiB). Faktureringen för en etablerad disk beräknas per timme genom att använda det månatliga priset för det Premium Storage erbjudandet. Om du till exempel har upprättat en E10-disk och tagit bort den efter 20 timmar debiteras du för E10-erbjudandet som har klassificerats till 20 timmar. Detta gäller oavsett hur mycket faktisk data som skrivs till disken.
 
-**Ögonblicksbilder:** Ögonblicksbilder faktureras baserat på den storlek som används. Om du till exempel skapar en ögonblicksbild av en hanterad disk med etablerad kapacitet på 64 GiB och den faktiska använda datastorleken på 10 GiB, faktureras ögonblicksbilden endast för den använda datastorleken på 10 GiB.
+**Ögonblicks bilder**: ögonblicks bilder faktureras baserat på storleken som används. Om du till exempel skapar en ögonblicks bild av en hanterad disk med en etablerad kapacitet på 64 GiB och den faktiska använda data storleken på 10 GiB faktureras ögonblicks bilden endast för den använda data storleken på 10 GiB.

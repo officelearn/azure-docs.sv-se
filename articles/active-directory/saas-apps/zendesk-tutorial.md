@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Zendesk | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Zendesk | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zendesk.
 services: active-directory
 documentationCenter: na
@@ -16,68 +16,68 @@ ms.date: 03/26/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f70e7067a78b439d3dcaf0b83460296cad7b4485
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80585810"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Zendesk
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Zendesk
 
 I den här självstudien får du lära dig hur du integrerar Zendesk med Azure Active Directory (Azure AD). När du integrerar Zendesk med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till Zendesk.
-* Gör att användarna automatiskt loggas in på Zendesk med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till Zendesk med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Zendesk enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Zendesk för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Zendesk stöder **SP**-initierad enkel inloggning
 * Zendesk har stöd för [**automatisk** användaretablering](zendesk-provisioning-tutorial.md)
-* När du har konfigurerat Zendesk kan du framtvinga sessionskontroll, som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat Zendesk kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-zendesk-from-the-gallery"></a>Lägga till Zendesk från galleriet
 
 För att konfigurera integrering av Zendesk i Azure AD måste du lägga till Zendesk från galleriet i din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Zendesk** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Zendesk** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Zendesk** i sökrutan.
+1. Välj **Zendesk** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-zendesk"></a>Konfigurera och testa en azure AD-inloggning för Zendesk
+## <a name="configure-and-test-azure-ad-single-sign-on-for-zendesk"></a>Konfigurera och testa enkel inloggning med Azure AD för Zendesk
 
-Konfigurera och testa Azure AD SSO med Zendesk med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Zendesk.
+Konfigurera och testa Azure AD SSO med Zendesk med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Zendesk.
 
-Om du vill konfigurera och testa Azure AD SSO med Zendesk slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Zendesk, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Zendesk SSO](#configure-zendesk-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa Zendesk-testanvändare](#create-zendesk-test-user)** – om du vill ha en motsvarighet till B.Simon i Zendesk som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera ZENDESK SSO](#configure-zendesk-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Zendesk test User](#create-zendesk-test-user)** -om du vill ha en motsvarighet till B. Simon i Zendesk som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet Hantera på sidan **Hantera** på sidan [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**. **Manage**
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Zendesk** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -87,7 +87,7 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.zendesk.com`
 
-    c. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<subdomain>.zendesk.com/access/saml`
+    c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<subdomain>.zendesk.com/access/saml`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Zendesk-klients supportteam](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -103,47 +103,47 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
     ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
-1. Kopiera **tumavtrycksvärdet** i avsnittet **SAML-signeringscertifikat** och spara det på datorn.
+1. I avsnittet **SAML-signeringscertifikat** , kopierar du **värdet tumavtryck** och sparar det på din dator.
 
     ![Kopiera tumavtrycksvärdet](common/copy-thumbprint.png)
 
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera Zendesk** baserat på dina krav.
+1. I avsnittet **Konfigurera Zendesk** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Zendesk.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Zendesk.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **Zendesk**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Zendesk**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ## <a name="configure-zendesk-sso"></a>Konfigurera Zendesk SSO
 
-1. Om du vill konfigurera Zendesk manuellt öppnar du ett nytt webbläsarfönster och loggar in på zendesk-företagets webbplats som administratör och utför följande steg:
+1. Om du vill konfigurera Zendesk manuellt öppnar du ett nytt webbläsarfönster och loggar in på din Zendesk-företags webbplats som administratör och utför följande steg:
 
 2. Klicka på **Admin**.
 
@@ -176,7 +176,7 @@ Målet med det här avsnittet är att skapa en användare med namnet Britta Simo
 > [!NOTE]
 > **Slutanvändarkonton** tillhandahålls automatiskt när du loggar in. Kontona **Agent** och **Admin** måste tillhandahållas manuellt i **Zendesk** innan du loggar in.
 
-1. Logga in på din **Zendesk-hyresgäst.**
+1. Logga in på din **Zendesk** -klient.
 
 2. Välj fliken **Kundlista**.
 
@@ -188,7 +188,7 @@ Målet med det här avsnittet är att skapa en användare med namnet Britta Simo
     ![Ny användare](./media/zendesk-tutorial/ic773633.png "Ny användare")
 
 > [!NOTE]
-> Du kan använda andra verktyg eller API:er för att skapa Zendesk för att etablera Azure AD-användarkonton.
+> Du kan använda andra verktyg för Zendesk av användar konton eller API: er som tillhandahålls av Zendesk för att etablera Azure AD-användarkonton.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -206,8 +206,8 @@ När du klickar på Zendesk-panelen i åtkomstpanelen så borde du automatiskt l
 
 - [Prova Zendesk med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Hur man skyddar Zendesk med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Så här skyddar du Zendesk med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Konfigurera etablering av användare](zendesk-provisioning-tutorial.md)
+- [Konfigurera användar etablering](zendesk-provisioning-tutorial.md)

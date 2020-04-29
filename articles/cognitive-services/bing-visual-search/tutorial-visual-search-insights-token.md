@@ -1,7 +1,7 @@
 ---
-title: Hitta liknande bilder från tidigare sökningar med hjälp av bildinsiktstoken och API:et för visuell sökning i Bing
+title: Hitta liknande bilder från tidigare sökningar med hjälp av image Insights-token och API för visuell sökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Använd klientbiblioteket Bing Visual Search för att hämta webbadresser till bilder från tidigare sökningar.
+description: 'Använd Visuell sökning i Bing klient bibliotek för att hämta URL: er för bilder från tidigare sökningar.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.openlocfilehash: ad24a8a194a11c3fd5f7f77ea8c52197d5438edc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80477915"
 ---
-# <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Självstudiekurs: Hitta liknande bilder från tidigare sökningar med hjälp av en bildinsiktstoken
+# <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Självstudie: hitta liknande bilder från tidigare sökningar med en image Insights-token
 
-Med visual search-klientbiblioteket kan du hitta bilder `ImageInsightsToken`online från tidigare sökningar som returnerar en . Det här `ImageInsightsToken` programmet hämtar en och använder token i en efterföljande sökning. Den skickar `ImageInsightsToken` sedan till Bing och returnerar resultat som innehåller Bing Search webbadresser och webbadresser för liknande bilder som finns online.
+Med Visuell sökning klient biblioteket kan du hitta bilder online från tidigare sökningar som returnerar en `ImageInsightsToken`. Det här programmet hämtar `ImageInsightsToken` ett och använder token i en efterföljande sökning. Den skickar sedan `ImageInsightsToken` till Bing och returnerar resultat som omfattar Bing-sökning-URL: er och URL: er för liknande bilder som hittas online.
 
-Den fullständiga källkoden för den här självstudien kan hittas med ytterligare felhantering och anteckningar på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
+Den fullständiga käll koden för den här själv studie kursen hittar du ytterligare fel hantering och anteckningar på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
 
 ## <a name="prerequisites"></a>Krav
 
-* Alla utgåvor av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
-* Om du använder Linux/MacOS kan du köra det här programmet med [Mono](https://www.mono-project.com/).
-* NuGet Visual Search och Bildsökning paket.
-    - Högerklicka på projektet på Solution Explorer i Visual Studio och välj **Hantera NuGet-paket** på menyn. Installera `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketet och `Microsoft.Azure.CognitiveServices.Search.ImageSearch` paketet. Installering av NuGet-paketet installerar även följande:
+* En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* Om du använder Linux/MacOS kan du köra det här programmet med [mono](https://www.mono-project.com/).
+* NuGet-Visuell sökning och Bildsökning-paket.
+    - Från Solution Explorer i Visual Studio högerklickar du på projektet och väljer **Hantera NuGet-paket** på menyn. Installera `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketet och `Microsoft.Azure.CognitiveServices.Search.ImageSearch` paketet. Installering av NuGet-paketet installerar även följande:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
@@ -36,9 +36,9 @@ Den fullständiga källkoden för den här självstudien kan hittas med ytterlig
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Hämta ImageInsightsToken från klientbiblioteket för Bing Image Search
+## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Hämta ImageInsightsToken från klient biblioteket för Bildsökning i Bing
 
-Det här `ImageInsightsToken` programmet använder en som erhållits via [klientbiblioteket Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Skapa en klient som anropar API:et `ImageSearchClient()`i ett nytt C#-konsolprogram med . Använd `SearchAsync()` sedan med din fråga:
+Det här programmet använder `ImageInsightsToken` en hämtade genom [bildsökning i Bing klient biblioteket](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). I ett nytt C#-konsol program skapar du en-klient för att anropa `ImageSearchClient()`API: et med. Använd `SearchAsync()` sedan med frågan:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -46,7 +46,7 @@ var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 ```
 
-Lagra det första `imageResults.Value.First()`sökresultatet med och lagra `ImageInsightsToken`sedan bildinsiktens .
+Lagra det första Sök resultatet med `imageResults.Value.First()`och lagra sedan bild insikterna `ImageInsightsToken`.
 
 ```csharp
 String insightTok = "None";
@@ -62,19 +62,19 @@ else
 }
 ```
 
-Detta `ImageInsightsToken` skickas till Bing Visual Search i en begäran.
+Detta `ImageInsightsToken` skickas till visuell sökning i Bing i en begäran.
 
-## <a name="add-the-imageinsightstoken-to-a-visual-search-request"></a>Lägga till ImageInsightsToken i en begäran om visuell sökning
+## <a name="add-the-imageinsightstoken-to-a-visual-search-request"></a>Lägg till ImageInsightsToken i en Visuell sökning begäran
 
-Ange `ImageInsightsToken` för en begäran om `ImageInfo` visuell sökning `ImageInsightsToken` genom att skapa ett objekt från de som finns i svar från Bing Visual Search.
+`ImageInsightsToken` Ange en visuell sökning begäran genom att skapa ett `ImageInfo` objekt från det `ImageInsightsToken` som finns i svar från visuell sökning i Bing.
 
 ```csharp
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
 
-## <a name="use-bing-visual-search-to-find-images-from-an-imageinsightstoken"></a>Använd Bing Visual Search för att hitta bilder från en ImageInsightsToken
+## <a name="use-bing-visual-search-to-find-images-from-an-imageinsightstoken"></a>Använda Visuell sökning i Bing för att hitta bilder från en ImageInsightsToken
 
-Objektet `VisualSearchRequest` innehåller information om bilden `ImageInfo` i som ska genomsökas. `VisualSearchMethodAsync()`-metoden hämtar resultatet. Du behöver inte ange en bild binär, eftersom bilden representeras av token.
+`VisualSearchRequest` Objektet innehåller information om bilden i `ImageInfo` som ska genomsökas. `VisualSearchMethodAsync()`-metoden hämtar resultatet. Du behöver inte ange en binär avbildning eftersom bilden representeras av token.
 
 ```csharp
 VisualSearchRequest VisualSearchRequest = new VisualSearchRequest(ImageInfo);
@@ -83,9 +83,9 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ```
 
-## <a name="iterate-through-the-visual-search-results"></a>Iterera genom visuella sökresultat
+## <a name="iterate-through-the-visual-search-results"></a>Iterera genom Visuell sökning resultat
 
-Resultaten från Visuell sökning är `ImageTag`-objekt. Varje tagg innehåller en lista med `ImageAction`-objekt. Var `ImageAction` och `Data` en innehåller ett fält, som är en lista med värden som är beroende av typen av åtgärd. Du kan iterera `ImageTag` genom `visualSearchResults.Tags`objekten i till `ImageAction` exempel och få taggen i den. I exemplet nedan skrivs `PagesIncluding` uppgifter om åtgärder:
+Resultaten från Visuell sökning är `ImageTag`-objekt. Varje tagg innehåller en lista med `ImageAction`-objekt. Varje `ImageAction` innehåller ett `Data` fält, som är en lista över värden som är beroende av typen av åtgärd. Du kan iterera igenom `ImageTag` objekten i `visualSearchResults.Tags`, till exempel och hämta `ImageAction` taggen i den. Exemplet nedan skriver ut information om `PagesIncluding` åtgärder:
 
 ```csharp
 if (visualSearchResults.Tags.Count > 0)
@@ -109,9 +109,9 @@ if (visualSearchResults.Tags.Count > 0)
 }
 ```
 
-### <a name="pagesincluding-actiontypes"></a>SidorInkludera ActionTypes
+### <a name="pagesincluding-actiontypes"></a>PagesIncluding ActionTypes
 
-För att hämta de faktiska bildadresserna från `ActionType` `ImageModuleAction`åtgärdstyper krävs `Data` en cast som läser en som , som innehåller ett element med en lista med värden. Varje värde är URL:en till en bild.  Följande kastar `PagesIncluding` åtgärdstypen `ImageModuleAction` till och läser värdena:
+Hämtning av faktiska bild-URL: er från åtgärds typer kräver en `ActionType` Cast `ImageModuleAction`som läser en as `Data` -åtgärd som innehåller ett-element med en lista med värden. Varje värde är URL:en till en bild.  Följande skickar `PagesIncluding` åtgärds typen till `ImageModuleAction` och läser värdena:
 
 ```csharp
     if (i.ActionType == "PagesIncluding")
@@ -125,23 +125,23 @@ För att hämta de faktiska bildadresserna från `ActionType` `ImageModuleAction
 
 Mer information om dessa datatyper finns i [Bilder – Visuell sökning](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
-## <a name="returned-urls"></a>Returnerade webbadresser
+## <a name="returned-urls"></a>Returnerade URL: er
 
-Det fullständiga programmet returnerar följande webbadresser:
+Det fullständiga programmet returnerar följande URL: er:
 
 |ActionType  |URL  | |
 |---------|---------|---------|
-|MerStorlekar -> WebSearchUrl     |         |
-|VisualSearch -> WebSearchUrl     |         |
-|ImageById -> WebSearchUrl    |         |
-|RelatedSearches -> WebSearchUrl:    |         |
-|DocumentLevelSuggestions -> WebSearchUrl:     |         |
-|ÄmneResultat -> WebSearchUrl    | https:\//www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fcanadian%2brocky&p=DevEx,5823.1       |
-|ImageResultat -> WebSearchUrl    |  https:\//www.bing.com/cr?IG=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID=1BA795A21EAF6A63175699B71FC36B7C&rd=1&h=PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3doutdoor&p=DevEx,5831.1       |
+|MoreSizes-> WebSearchUrl     |         |
+|VisualSearch-> WebSearchUrl     |         |
+|ImageById-> WebSearchUrl    |         |
+|RelatedSearches-> WebSearchUrl:    |         |
+|DocumentLevelSuggestions-> WebSearchUrl:     |         |
+|TopicResults-> WebSearchUrl    | https:\//www.Bing.com/CR?ig=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID = 1BA795A21EAF6A63175699B71FC36B7C&RD = 1&h = BcQifmzdKFyyBusjLxxgO42kzq1Geh7RucVVqvH-900&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fdiscover% 2fcanadian% 2brocky&p = DevEx, 5823.1       |
+|ImageResults-> WebSearchUrl    |  https:\//www.Bing.com/CR?ig=3E32CC6CA5934FBBA14ABC3B2E4651F9&CID = 1BA795A21EAF6A63175699B71FC36B7C&RD = 1&h = PV9GzMFOI0AHZp2gKeWJ8DcveSDRE3fP2jHDKMpJSU8&v = 1&r = https %3 a %2 f %2 f www. Bing. com% 2fimages% 2fsearch% 3Fq% 3doutdoor&p = DevEx, 5831.1       |
 
-Som visas ovan `TopicResults` `ImageResults` innehåller och typerna frågor för relaterade bilder. Webbadresserna länkar till Bing-sökresultat.
+Som du `TopicResults` ser ovan innehåller typerna `ImageResults` och olika frågor för relaterade bilder. URL: en länkar till Bing search-resultat.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig visuell sökwebbapp](tutorial-bing-visual-search-single-page-app.md)
+> [Skapa en Visuell sökning webb program med en enda sida](tutorial-bing-visual-search-single-page-app.md)

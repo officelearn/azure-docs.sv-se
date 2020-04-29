@@ -1,7 +1,7 @@
 ---
-title: Snabbstart - Skicka en fråga till API:et med Node.js - Bing Local Business Search
+title: 'Snabb start – skicka en fråga till API: et med Node. js – Bing lokal företags sökning'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten för att börja skicka begäranden till API:et för sökning i Bing lokalt företag, som är en Azure Cognitive Service.
+description: 'Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
 ms.openlocfilehash: d366195f9cd72e6baa88c17203ae93cbbc6cbe6a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80475536"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabbstart: Skicka en fråga till API:et för lokal företagssökning i Bing med Node.js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabb start: skicka en fråga till Bing Local Business Search API med Node. js
 
-Använd den här snabbstarten för att börja skicka begäranden till API:et för sökning i Bing lokalt företag, som är en Azure Cognitive Service. Även om detta enkla program är skrivet i Node.js, api är en RESTful webbtjänst kompatibel med alla programmeringsspråk som kan göra HTTP-förfrågningar och tolka JSON.
+Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet skrivs i Node. js är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
-Det här exemplet programmet hämtar lokala svarsdata `hotel in Bellevue`från API för sökfrågan .
+Det här exempel programmet hämtar lokala svars data från API: et för `hotel in Bellevue`Sök frågan.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -29,14 +29,14 @@ Det här exemplet programmet hämtar lokala svarsdata `hotel in Bellevue`från A
 
 * [Begäransbiblioteket för JavaScript](https://github.com/request/request)
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd åtkomstnyckeln som tillhandahålls av den kostnadsfria utvärderingsversionen.  Se även Priser för Cognitive Services –API för Bing-sökning.
+Du måste ha ett [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd den åtkomst nyckel som tillhandahålls av den kostnads fria utvärderings versionen.  Se även Priser för Cognitive Services –API för Bing-sökning.
 
 ## <a name="code-scenario"></a>Kodscenario
 
-Följande kod får definierar och skickar begäran. De implementeras i följande steg:
+Följande kod definierar och skickar begäran. De implementeras i följande steg:
 
 1. Deklarera variabler för att specificera slutpunkten med hjälp av värd och sökväg.
-2. Ange frågan och lägg till frågeparametern.
+2. Ange frågan och Lägg till Frågeparametern.
 3. Skapa en hanterarfunktion för svaret.
 4. Definiera den sökfunktion som skapar begäran och lägger till nyckeln Ocp-Apim-Subscription-Key.
 5. Köra sökfunktionen.
@@ -94,6 +94,6 @@ Search();
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart för lokal företagssökning](local-quickstart.md)
-* [Snabbstart för Java-sökning för lokal företagssökning](local-search-java-quickstart.md)
-* [Snabbstart för Lokal företagssökning i Python](local-search-python-quickstart.md)
+* [Snabb start för lokal affärs sökning](local-quickstart.md)
+* [Lokal affärs sökning Java snabb start](local-search-java-quickstart.md)
+* [Snabb start för att söka i lokalt företag](local-search-python-quickstart.md)

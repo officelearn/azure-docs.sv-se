@@ -1,6 +1,6 @@
 ---
-title: Problem med diagnostisera Windows Virtual Desktop - Azure
-description: Så här använder du diagnostikfunktionen för Windows Virtual Desktop för att diagnostisera problem.
+title: Diagnostisera problem i Windows Virtual Desktop – Azure
+description: Så här använder du funktionen Windows Virtual Desktop Diagnostics för att diagnosticera problem.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,23 +9,23 @@ ms.date: 03/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ce85fb70e1480ad285eee78fe20faa8d77b9a147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254266"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identifiera och diagnostisera problem
 
-Windows Virtual Desktop erbjuder en diagnostikfunktion som gör det möjligt för administratören att identifiera problem via ett enda gränssnitt. Windows Virtual Desktop-roller loggar en diagnostisk aktivitet när en användare interagerar med systemet. Varje logg innehåller relevant information, till exempel windows virtual desktop-roller som ingår i transaktionen, felmeddelanden, klientinformation och användarinformation. Diagnostiska aktiviteter skapas av både slutanvändare och administrativa åtgärder och kan kategoriseras i tre huvudgrupper:
+Windows Virtual Desktop erbjuder en diagnostisk funktion som gör det möjligt för administratören att identifiera problem via ett enda gränssnitt. Windows Virtual Desktop-roller loggar en diagnostisk aktivitet när en användare interagerar med systemet. Varje logg innehåller relevant information, till exempel de Windows-roller för virtuella skriv bord som ingår i transaktionen, fel meddelanden, klient information och användar information. Diagnostiska aktiviteter skapas av både slutanvändare och administrativa åtgärder och kan kategoriseras i tre huvud buckets:
 
-* Feed-prenumerationsaktiviteter: slutanvändaren utlöser dessa aktiviteter när de försöker ansluta till sin feed via Microsoft Remote Desktop-program.
-* Anslutningsaktiviteter: Slutanvändaren utlöser dessa aktiviteter när de försöker ansluta till ett skrivbord eller En RemoteApp via Microsoft Remote Desktop-program.
-* Hanteringsaktiviteter: administratören utlöser dessa aktiviteter när de utför hanteringsåtgärder på systemet, till exempel skapa värdpooler, tilldela användare till appgrupper och skapa rolltilldelningar.
+* Flödes prenumerations aktiviteter: slutanvändaren utlöser dessa aktiviteter när de försöker ansluta till sina flöden via Microsoft Fjärrskrivbord-program.
+* Anslutnings aktiviteter: slutanvändaren utlöser dessa aktiviteter när de försöker ansluta till en stationär eller RemoteApp via Microsoft Fjärrskrivbord-program.
+* Hanterings aktiviteter: administratören utlöser dessa aktiviteter när de utför hanterings åtgärder i systemet, till exempel att skapa värdar, tilldela användare till app-grupper och skapa roll tilldelningar.
   
-Anslutningar som inte når Windows Virtual Desktop visas inte i diagnostikresultat eftersom själva diagnostikrolltjänsten är en del av Windows Virtual Desktop. Anslutningsproblem med Windows Virtual Desktop kan inträffa när slutanvändaren har problem med nätverksanslutningen.
+Anslutningar som inte når Windows Virtual Desktop visas inte i diagnostiska resultat, eftersom själva roll tjänsten för diagnostik är en del av det virtuella Windows-skrivbordet. Problem med Windows anslutning till virtuella skriv bord kan inträffa när slutanvändaren har problem med nätverks anslutningen.
 
-För att komma [igång, ladda ner och importera Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som ska användas i PowerShell-sessionen om du inte redan har gjort det. Därefter kör du följande cmdlet för att logga in på ditt konto:
+Kom igång genom att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som ska användas i PowerShell-sessionen om du inte redan gjort det. Sedan kör du följande cmdlet för att logga in på ditt konto:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -33,88 +33,88 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnostisera problem med PowerShell
 
-Windows Virtual Desktop Diagnostics använder bara en PowerShell-cmdlet men innehåller många valfria parametrar för att begränsa och isolera problem. I följande avsnitt visas de cmdlets som du kan köra för att diagnostisera problem. De flesta filter kan användas tillsammans. Värden som `<tenantName>`anges inom parentes, till exempel , bör ersättas med de värden som gäller för din situation.
+Windows Virtual Desktop Diagnostics använder bara en PowerShell-cmdlet men innehåller många valfria parametrar som hjälper dig att begränsa och isolera problem. I följande avsnitt listas de cmdlets som du kan köra för att diagnosticera problem. De flesta filter kan appliceras tillsammans. Värden som anges inom hakparenteser, till `<tenantName>`exempel, ska ersättas med de värden som gäller för din situation.
 
 >[!IMPORTANT]
->Diagnostikfunktionen är för felsökning för en användare. Alla frågor som använder PowerShell måste innehålla parametrarna *-UserName* eller *-ActivityID.* Använd Log Analytics för övervakningsfunktioner. Mer information om hur du skickar diagnostikdata till arbetsytan finns i [Använda logganalys för diagnostikfunktionen.](diagnostics-log-analytics.md) 
+>Funktionen diagnostik är för fel sökning av enskilda användare. Alla frågor som använder PowerShell måste innehålla antingen parametrarna *-username* eller *-ActivityId* . Använd Log Analytics för att övervaka funktioner. Mer information om hur du skickar diagnostikdata till din arbets yta finns i [använda Log Analytics för Diagnostics-funktionen](diagnostics-log-analytics.md) . 
 
-### <a name="filter-diagnostic-activities-by-user"></a>Filtrera diagnostikaktiviteter efter användare
+### <a name="filter-diagnostic-activities-by-user"></a>Filtrera diagnostiska aktiviteter per användare
 
-Parametern **-UserName** returnerar en lista över diagnostiska aktiviteter som initierats av den angivna användaren, vilket visas i följande exempel cmdlet.
+Parametern **-username** returnerar en lista med diagnostiska aktiviteter som initierats av den angivna användaren, som du ser i följande exempel-cmdlet.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
 ```
 
-Parametern **-UserName** kan också kombineras med andra valfria filtreringsparametrar.
+Parametern **-username** kan också kombineras med andra valfria filtrerings parametrar.
 
-### <a name="filter-diagnostic-activities-by-time"></a>Filtrera diagnostikaktiviteter efter tid
+### <a name="filter-diagnostic-activities-by-time"></a>Filtrera diagnostiska aktiviteter per tid
 
-Du kan filtrera den returnerade diagnostikaktivitetslistan med parametrarna **-StartTime** och **-EndTime.** Parametern **-StartTime** returnerar en lista över diagnostikaktiviteter från ett visst datum, vilket visas i följande exempel.
+Du kan filtrera den returnerade listan med diagnostiska aktiviteter med parametrarna **-StartTime** och **-slut** tid. Parametern **-StartTime** returnerar en lista med diagnostiska aktiviteter som börjar från ett visst datum, som du ser i följande exempel.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018"
 ```
 
-Parametern **-EndTime** kan läggas till i en cmdlet med parametern **-StartTime** för att ange en viss tidsperiod som du vill ta emot resultat för. I följande exempel returneras en lista över diagnostiska aktiviteter från mellan 1 augusti och 10 augusti.
+Parametern **-** timmarsperiod kan läggas till i en cmdlet med parametern **-StartTime** för att ange en viss tids period som du vill ta emot resultat för. Följande exempel-cmdlet kommer att returnera en lista över diagnostiska aktiviteter från mellan 1 augusti och 10 augusti.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018" -EndTime "08/10/2018"
 ```
 
-Parametrarna **-StartTime** och **-EndTime** kan också kombineras med andra valfria filtreringsparametrar.
+Parametrarna **-StartTime** och **-slut** tid kan också kombineras med andra valfria filtrerings parametrar.
 
-### <a name="filter-diagnostic-activities-by-activity-type"></a>Filtrera diagnostikaktiviteter efter aktivitetstyp
+### <a name="filter-diagnostic-activities-by-activity-type"></a>Filtrera diagnostiska aktiviteter efter aktivitets typ
 
-Du kan också filtrera diagnostikaktiviteter efter aktivitetstyp med parametern **-ActivityType.** Följande cmdlet returnerar en lista över slutanvändaranslutningar:
+Du kan också filtrera diagnostiska aktiviteter efter aktivitets typ med **-activityType-** parametern. Följande cmdlet kommer att returnera en lista över slut användar anslutningar:
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -ActivityType Connection
 ```
 
-Följande cmdlet returnerar en lista över administratörshanteringsuppgifter:
+Följande cmdlet kommer att returnera en lista över administratörs hanterings aktiviteter:
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
 ```
 
-**Cmdleten Get-RdsDiagnosticActivities** stöder för närvarande inte att ange feed som ActivityType.
+**Get-RdsDiagnosticActivities** -cmdlet har för närvarande inte stöd för att ange feed som activityType.
 
-### <a name="filter-diagnostic-activities-by-outcome"></a>Filtrera diagnostikaktiviteter efter utfall
+### <a name="filter-diagnostic-activities-by-outcome"></a>Filtrera diagnostiska aktiviteter efter resultat
 
-Du kan filtrera den returnerade diagnostikaktivitetslistan efter resultat med parametern **-Outcome.** I följande exempel returneras en lista över lyckade diagnostiska aktiviteter.
+Du kan filtrera listan över returnerad diagnostisk aktivitet genom att följa resultatet med **-parametern-resultat** . Följande exempel-cmdlet kommer att returnera en lista över lyckade diagnostiska aktiviteter.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -Outcome Success
 ```
 
-I följande exempel returneras en lista över misslyckade diagnostiska aktiviteter i följande exempel.
+Följande exempel-cmdlet kommer att returnera en lista över misslyckade diagnostiska aktiviteter.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 ```
 
-**Parametern -Outcome** kan också kombineras med andra valfria filtreringsparametrar.
+Parametern **-resultat** kan också kombineras med andra valfria filtrerings parametrar.
 
-### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Hämta en viss diagnostikaktivitet efter aktivitets-ID
+### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Hämta en speciell diagnostisk aktivitet per aktivitets-ID
 
-Parametern **-ActivityId** returnerar en specifik diagnostisk aktivitet om den finns, vilket visas i följande cmdlet.
+Parametern **-ActivityId** returnerar en speciell diagnostisk aktivitet om den finns, som du ser i följande exempel-cmdlet.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
 ```
 
-### <a name="view-error-messages-for-a-failed-activity-by-activity-id"></a>Visa felmeddelanden för en misslyckad aktivitet efter aktivitets-ID
+### <a name="view-error-messages-for-a-failed-activity-by-activity-id"></a>Visa fel meddelanden för en misslyckad aktivitet per aktivitets-ID
 
-Om du vill visa felmeddelandena för en misslyckad aktivitet måste du köra cmdleten med parametern **-Detaljerad.** Du kan visa listan över fel genom att köra cmdleten **Select-Object.**
+Om du vill visa fel meddelandena för en misslyckad aktivitet måste du köra cmdleten med den **-detaljerade** parametern. Du kan visa listan med fel genom att köra cmdleten **Select-Object** .
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
 ```
 
-### <a name="retrieve-detailed-diagnostic-activities"></a>Hämta detaljerade diagnostikaktiviteter
+### <a name="retrieve-detailed-diagnostic-activities"></a>Hämta detaljerade diagnostiska aktiviteter
 
-Parametern **-Detailed** innehåller ytterligare information för varje returnerad diagnostikaktivitet. Formatet för varje aktivitet varierar beroende på dess aktivitetstyp. **Parametern -Detailed** kan läggas till i alla **Get-RdsDiagnosticActivities-frågor,** som visas i följande exempel.
+Den **-detaljerade** parametern ger ytterligare information om varje diagnostisk aktivitet som returneras. Formatet för varje aktivitet varierar beroende på typen av aktivitet. Den **-detaljerade** parametern kan läggas till i en **Get-RdsDiagnosticActivities** -fråga, som visas i följande exempel.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> -Detailed
@@ -122,54 +122,54 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 
 ## <a name="common-error-scenarios"></a>Vanliga felscenarier
 
-Felscenarier kategoriseras internt till tjänsten och externa till Windows Virtual Desktop.
+Fel scenarier kategoriseras internt till tjänsten och externa till Windows Virtual Desktop.
 
-* Internt problem: anger scenarier som inte kan mildras av klientadministratören och måste lösas som ett supportproblem. När du ger feedback via [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)ska du inkludera aktivitets-ID:t och ungefärlig tidsram för när problemet uppstod.
-* Externt problem: relaterar till scenarier som kan mildras av systemadministratören. Dessa är externa till Windows Virtual Desktop.
+* Internt problem: anger scenarier som inte kan begränsas av klient administratören och som måste lösas som ett support ärende. När du ger feedback via [Tech-communityn för Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), inkluderar du aktivitets-ID och ungefärlig tids ram för när problemet uppstod.
+* Externt problem: relatera till scenarier som kan begränsas av system administratören. Dessa är externa för virtuella Windows-datorer.
 
-I följande tabell visas vanliga fel som administratörerna kan stöta på.
+I följande tabell visas vanliga fel som dina administratörer kan köra i.
 
 >[!NOTE]
->Den här listan innehåller de vanligaste felen och uppdateras på en vanlig kadens. Se till att du har den senaste informationen, se till att kolla tillbaka den här artikeln minst en gång i månaden.
+>Den här listan innehåller de vanligaste felen och uppdateras i en vanlig takt. Se till att du har den senaste informationen genom att gå tillbaka till den här artikeln minst en gång i månaden.
 
-### <a name="external-management-error-codes"></a>Felkoder för extern hantering
-
-|Numerisk kod|Felkod|Föreslagen lösning|
-|---|---|---|
-|3|Obehörigt tillträde|Användaren som försökte köra den administrativa PowerShell-cmdlet har antingen inte behörighet att göra det eller felskrivna sitt användarnamn.|
-|1000|TenantNotFound (Hyresgäst)|Klientnamnet som du angav matchar inte några befintliga klienter. Granska klientnamnet för stavfel och försök igen.|
-|1006|TenantCannotBeRemovedHasSessionHostPools|Du kan inte ta bort en klient så länge den innehåller objekt. Ta bort sessionsvärdpoolerna först och försök sedan igen.|
-|2000|HostPoolNotFound|Värdpoolnamnet du angav matchar inte några befintliga värdpooler. Granska värdpoolens namn för stavfel och försök igen.|
-|2005|HostPoolCannotBeRemovedHasApplicationGroups HostPoolCannotBeRemovedHasApplicationGroups HostPool|Du kan inte ta bort en värdpool så länge den innehåller objekt. Ta först bort alla appgrupper i värdpoolen.|
-|2004|HostPoolCannotBeRemovedHasSessionHosts|Ta bort alla sessioner värdar först innan du tar bort sessionen värdpoolen.|
-|5001|SessionHostNotFound|Den sessionsvärd du frågade kan vara offline. Kontrollera värdpoolens status.|
-|5008|SessionHostUserSessionsExist |Du måste logga ut alla användare på sessionsvärden innan du kör den avsedda hanteringsaktiviteten.|
-|6000|AppGroupNotFound|Appgruppnamnet du angav matchar inte några befintliga appgrupper. Granska appgruppsnamnet för stavfel och försök igen.|
-|6022|RemoteAppNotFound|RemoteApp-namnet du angav matchar inte några RemoteApps. Granska RemoteApp-namnet för stavfel och försök igen.|
-|6010|PublishedItemsExist|Namnet på den resurs som du försöker publicera är detsamma som en resurs som redan finns. Ändra resursnamnet och försök igen.|
-|7002|Namn InteValidWhiteSpace|Använd inte tomt utrymme i namnet.|
-|8000|Ogiltigaförfattareiseringsrollkop|Rollnamnet du angav matchar inte några befintliga rollnamn. Granska rollnamnet för stavfel och försök igen. |
-|8001|AnvändareNotFound |Användarnamnet som du angav matchar inte några befintliga användarnamn. Granska namnet på stavfel och försök igen.|
-|8005|AnvändareNintendeInAAD |Användarnamnet som du angav matchar inte några befintliga användarnamn. Granska namnet på stavfel och försök igen.|
-|8008|TenantConsentRequired|Följ instruktionerna [här](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) för att ge ditt samtycke till din klient.|
-
-### <a name="external-connection-error-codes"></a>Felkoder för extern anslutning
+### <a name="external-management-error-codes"></a>Fel koder för externa hantering
 
 |Numerisk kod|Felkod|Föreslagen lösning|
 |---|---|---|
-|-2147467259|AnslutningFailedAdTrustedRelationskapFailure|Sessionsvärden är inte korrekt ansluten till Active Directory.|
-|-2146233088|AnslutningFailedUserHasValidSessionButRdshIsUnhealthy|Anslutningarna misslyckades eftersom sessionsvärden inte är tillgänglig. Kontrollera sessionsvärdens hälsa.|
-|-2146233088|AnslutningFailedClientDisconnect|Om det här felet visas ofta kontrollerar du att användarens dator är ansluten till nätverket.|
-|-2146233088|AnslutningFailedNoHealthyRdshVailable|Sessionen som värdanvändaren försökte ansluta till är inte felfri. Felsök den virtuella datorn.|
-|-2146233088|AnslutningMissadeAnvändareNär inte auktoriserat|Användaren har inte behörighet att komma åt den publicerade appen eller skrivbordet. Felet kan visas när administratören har tagit bort publicerade resurser. Be användaren att uppdatera flödet i programmet Fjärrskrivbord.|
-|2|FilBlgrunda|Programmet som användaren försökte komma åt är antingen felaktigt installerat eller inställt på en felaktig sökväg.|
-|3|Ogiltiga skruvar|Användarnamnet eller lösenordet som användaren angav matchar inte befintliga användarnamn eller lösenord. Granska autentiseringsuppgifterna för stavfel och försök igen.|
-|8|AnslutningBroken|Anslutningen mellan klient och gateway eller server har tagits bort. Ingen åtgärd behövs om det inte händer oväntat.|
-|14|UnexpectedNetworkDisconnect|Anslutningen till nätverket avbröts. Be användaren att ansluta igen.|
-|24|Omvänd anslutningFailerad|Värddatorn har ingen direkt siktlinje till fjärrskrivbordsgatewayen. Kontrollera att gateway-IP-adressen kan lösas.|
+|3|UnauthorizedAccess|Användaren som försökte köra den administrativa PowerShell-cmdleten har antingen inte behörighet att göra det eller felaktigt angett sitt användar namn.|
+|1000|TenantNotFound|Klient namnet du angav matchar inte några befintliga klienter. Granska klient namnet för skrivfel och försök igen.|
+|1006|TenantCannotBeRemovedHasSessionHostPools|Du kan inte ta bort en klient så länge den innehåller objekt. Ta bort värdarna för serversessionen först och försök sedan igen.|
+|2000|HostPoolNotFound|Det värdnamn du angav matchar inte några befintliga värdar. Granska namnet på värddatorn för skrivfel och försök igen.|
+|2005|HostPoolCannotBeRemovedHasApplicationGroups|Du kan inte ta bort en adresspool så länge den innehåller objekt. Ta först bort alla app-grupper i poolen.|
+|2004|HostPoolCannotBeRemovedHasSessionHosts|Ta bort alla sessioner innan du tar bort värd för sessionen.|
+|5001|SessionHostNotFound|Den session värd som du har frågat om kan vara offline. Kontrol lera poolinställningarna status.|
+|5008|SessionHostUserSessionsExist |Du måste logga ut alla användare på sessionsvärdservern innan du kan köra din avsedda hanterings aktivitet.|
+|6000|AppGroupNotFound|Det angivna grupp namnet för appen matchar inte några befintliga app-grupper. Granska appens grupp namn och försök igen.|
+|6022|RemoteAppNotFound|Det RemoteApp-namn som du angav matchar inte några RemoteApp-objekt. Granska RemoteApp-namnet för skrivfel och försök igen.|
+|6010|PublishedItemsExist|Namnet på den resurs som du försöker publicera är detsamma som en resurs som redan finns. Ändra resurs namnet och försök igen.|
+|7002|NameNotValidWhiteSpace|Använd inte blank steg i namnet.|
+|8000|InvalidAuthorizationRoleScope|Roll namnet du angav matchar inte några befintliga rollnamn. Granska roll namnet för skrivfel och försök igen. |
+|8001|UserNotFound |Det användar namn som du angav matchar inte några befintliga användar namn. Granska namnet på skrivfel och försök igen.|
+|8005|UserNotFoundInAAD |Det användar namn som du angav matchar inte några befintliga användar namn. Granska namnet på skrivfel och försök igen.|
+|8008|TenantConsentRequired|Följ anvisningarna [här](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) för att ge din klient tillåtelse.|
+
+### <a name="external-connection-error-codes"></a>Fel koder för extern anslutning
+
+|Numerisk kod|Felkod|Föreslagen lösning|
+|---|---|---|
+|– 2147467259|ConnectionFailedAdTrustedRelationshipFailure|Sessions värden är inte korrekt ansluten till Active Directory.|
+|– 2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Anslutningarna misslyckades eftersom sessions värden inte är tillgänglig. Kontrol lera hälso tillståndet för sessionens värd.|
+|– 2146233088|ConnectionFailedClientDisconnect|Om det här felet ofta visas kontrollerar du att användarens dator är ansluten till nätverket.|
+|– 2146233088|ConnectionFailedNoHealthyRdshAvailable|Sessionen som värd användaren försökte ansluta till är inte felfri. Felsök den virtuella datorn.|
+|– 2146233088|ConnectionFailedUserNotAuthorized|Användaren har inte behörighet att komma åt den publicerade appen eller Skriv bordet. Felet kan visas efter att administratören har tagit bort publicerade resurser. Be användaren att uppdatera feeden i programmet för fjärr skrivbord.|
+|2|FileNotFound|Programmet som användaren försökte komma åt är antingen felaktigt installerat eller har angetts till en felaktig sökväg.|
+|3|InvalidCredentials|Användar namnet eller lösen ordet som användaren angav stämmer inte överens med befintliga användar namn eller lösen ord. Granska autentiseringsuppgifterna för skrivfel och försök igen.|
+|8|ConnectionBroken|Anslutningen mellan klienten och gatewayen eller servern släpptes. Ingen åtgärd krävs om den inte sker utan förvarning.|
+|14|UnexpectedNetworkDisconnect|Anslutningen till nätverket har släppts. Be användaren att ansluta igen.|
+|24|ReverseConnectFailed|Den virtuella datorns värd har ingen direkt rad information till RD Gateway. Se till att IP-adressen för gatewayen kan matchas.|
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om roller i Windows Virtual Desktop finns i [Windows Virtual Desktop-miljö](environment-setup.md).
 
-Information om hur du ser en lista över tillgängliga PowerShell-cmdletar för Windows Virtual Desktop finns i [PowerShell-referensen](/powershell/windows-virtual-desktop/overview).
+Om du vill se en lista över tillgängliga PowerShell-cmdletar för virtuella Windows-datorer, se [PowerShell-referensen](/powershell/windows-virtual-desktop/overview).

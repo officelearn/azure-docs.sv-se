@@ -1,7 +1,7 @@
 ---
 title: Vad är API för webbsökning i Bing?
 titleSuffix: Azure Cognitive Services
-description: Api:et för webbsökning på Bing är en RESTful-tjänst som ger omedelbara svar på webbsökningsfrågor. Konfigurera resultat så att de innehåller webbsidor, bilder, videor, nyheter med mera. Resultaten tillhandahålls som JSON och baserat på sökrelevans och prenumerationer för webbsökning i Bing.
+description: API för webbsökning i Bing är en RESTful-tjänst som ger snabb svar på Webbs öknings frågor. Konfigurera resultat för att inkludera webb sidor, bilder, videor, nyheter med mera. Resultaten tillhandahålls som JSON och baserat på sökrelevans och prenumerationer för webbsökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 5ea98a4ef759937c5962dc86f0384051b8fa0bb3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80477463"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Vad är API för webbsökning i Bing?
 
-API:et för webbsökning i Bing är en RESTful-tjänst som ger svar direkt på användarförfrågningar. Det är enkelt att konfigurera sökresultaten så att de omfattar webbsidor, bilder, video, nyheter, översättningar med mera. Bing Web Search ger resultaten som JSON baserat på sökrelevans och dina Bing Web Search-prenumerationer.
+API:et för webbsökning i Bing är en RESTful-tjänst som ger svar direkt på användarförfrågningar. Det är enkelt att konfigurera sökresultaten så att de omfattar webbsidor, bilder, video, nyheter, översättningar med mera. Webbsökning i Bing ger resultatet som JSON baserat på Sök relevans och dina Webbsökning i Bing prenumerationer.
 
 Det här API:et är optimalt för program som behöver åtkomst till allt innehåll som är relevant för en användares sökfråga. Om du skapar ett program som endast kräver en viss typ av resultat kan du överväga att använda [API för bildsökning i Bing](../Bing-Image-Search/overview.md), [API för videosökning i Bing](../Bing-Video-Search/search-the-web.md) eller [API för nyhetssökning i Bing](../Bing-News-Search/search-the-web.md). I listan med [API:er för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services) ser du alla API: er för Bing-sökresultat.
 
@@ -28,7 +28,7 @@ Vill du se hur det fungerar? Prova vår demo med [API för webbsökning i Bing](
 
 ## <a name="features"></a>Funktioner  
 
-Bing Web Search ger dig inte bara tillgång till snabbsvar. Det ger också ytterligare funktioner som gör att du kan anpassa sökresultat för dina användare.
+Webbsökning i Bing ger dig bara till gång till snabb svar. Den innehåller också ytterligare funktioner som gör att du kan anpassa Sök Resultat för dina användare.
 
 | Funktion | Beskrivning |
 |---------|-------------|
@@ -40,15 +40,15 @@ Bing Web Search ger dig inte bara tillgång till snabbsvar. Det ger också ytter
 
 ## <a name="workflow"></a>Arbetsflöde
 
-API:et för webbsökning i Bing är enkelt att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON-svaren. Tjänsten är tillgänglig med [REST API](quickstarts/python.md) eller [Bing Web Search-klientbiblioteken](./quickstarts/client-libraries.md).
+API:et för webbsökning i Bing är enkelt att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON-svaren. Tjänsten kan nås via [REST API](quickstarts/python.md) eller [webbsökning i Bing klient bibliotek](./quickstarts/client-libraries.md).
 
-1. [Skapa en Azure-resurs](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för API:erna för Bing-sökning. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
+1. [Skapa en Azure-resurs](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. Skicka en [begäran till API:et för webbsökning i Bing](quickstarts/python.md).
 3. Tolka JSON-svar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd vår [Python-snabbstart](./quickstarts/client-libraries.md?pivots=programming-language-python) och gör ditt första anrop till API:et för webbsökning i Bing.  
-* [Skapa en ensidig webbapp](tutorial-bing-web-search-single-page-app.md).
+* [Bygg en webbapp med en enda sida](tutorial-bing-web-search-single-page-app.md).
 * Granska dokumentationen om [v7-referensen för API:et för webbsökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).  
 * Läs mer om [kraven för användning och visning](UseAndDisplayRequirements.md) för webbsökning i Bing.  

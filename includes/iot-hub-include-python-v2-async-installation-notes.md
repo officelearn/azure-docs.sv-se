@@ -9,15 +9,15 @@ ms.date: 03/30/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: dcc34123731a3c60b4e76c9180c2e5c2a7c56b92
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529302"
 ---
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa ett [kostnadsfritt konto på](https://azure.microsoft.com/pricing/free-trial/) bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
-* [Python version 3.7 eller senare](https://www.python.org/downloads/) rekommenderas. Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Andra versioner av Python stöds finns i [Azure IoT-enhetsfunktioner](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features) i SDK-dokumentationen.
+* [Python version 3,7 eller senare](https://www.python.org/downloads/) rekommenderas. Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Andra versioner av python som stöds finns i [Azure IoT Device-funktioner](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features) i SDK-dokumentationen.
 
     > [!IMPORTANT]
-    > Eftersom enhetskoden i den här artikeln använder asynkron API kan du inte använda Python 2.7.
+    > Eftersom enhets koden i den här artikeln använder det asynkrona API: et kan du inte använda python 2,7.

@@ -9,39 +9,39 @@ ms.date: 03/13/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 6cd883289513091ff1a57a130b12e25e012c1160
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334954"
 ---
-I följande tabell beskrivs standardgränser för Azure general purpose v1, v2, Blob storage, block blob storage och Data Lake Storage Gen2-aktiverade lagringskonton. *Ingressgränsen* refererar till alla data som skickas till ett lagringskonto. *Utgående* gräns refererar till alla data som tas emot från ett lagringskonto.
+I följande tabell beskrivs standard gränserna för Azure General-Purpose v1, v2, Blob Storage, Block Blob Storage och Data Lake Storage Gen2 aktiverade lagrings konton. Den *inkommande* gränsen refererar till alla data som skickas till ett lagrings konto. *Utgående* gräns avser alla data som tas emot från ett lagrings konto.
 
 | Resurs | Gräns |
 | --- | --- |
-| Antal lagringskonton per region per prenumeration, inklusive standard-, premium- och Datasjölagringsgen2-aktiverade lagringskonton. <sup>3.</sup> | 250 |
-| Maximal lagringskontokapacitet | 5 PiB <sup>1</sup>|
-| Maximalt antal blob-behållare, blobbar, filresurser, tabeller, köer, entiteter eller meddelanden per lagringskonto | Obegränsad |
-| Maximal begärandegrad<sup>1</sup> per lagringskonto | 20 000 förfrågningar per sekund |
-| Maximalt ingående<sup>1</sup> per lagringskonto (regioner i USA, Europa) | 25 Gbit/s |
-| Maximal inträngning<sup>1</sup> per lagringskonto (andra regioner än USA och Europa) | 5 Gbit/s om RA-GRS/GRS är aktiverat, 10 Gbit/s för LRS/ZRS<sup>2</sup> |
-| Maximal utgående för konton för v2- och bloblagring (alla regioner) | 50 Gbit/s |
-| Maximal utgående för virtuella lagringskonton för allmänt ändamål (regioner i USA) | 20 Gbit/s om RA-GRS/GRS är aktiverat, 30 Gbit/s för LRS/ZRS<sup>2</sup> |
-| Maximal utgående för allmänna v1-lagringskonton (regioner utanför USA) | 10 Gbit/s om RA-GRS/GRS är aktiverat, 15 Gbit/s för LRS/ZRS<sup>2</sup> |
-| Maximalt antal virtuella nätverksregler per lagringskonto | 200 |
-| Maximalt antal IP-adressregler per lagringskonto | 200 |
+| Antal lagrings konton per region per prenumeration, inklusive standard-, Premium-och Data Lake Storage Gen2-aktiverade lagrings konton. <sup>3</sup> | 250 |
+| Maximal kapacitet för lagrings konto | 5 PiB <sup>1</sup>|
+| Maximalt antal BLOB-behållare, blobbar, fil resurser, tabeller, köer, entiteter eller meddelanden per lagrings konto | Obegränsad |
+| Högsta begär ande frekvens<sup>1</sup> per lagrings konto | 20 000 begär Anden per sekund |
+| Maximalt antal inkommande<sup>1</sup> per lagrings konto (USA, Europa regioner) | 25 Gbit/s |
+| Maximalt antal inkommande<sup>1</sup> per lagrings konto (andra regioner än USA och Europa) | 5 Gbit/s om RA-GRS/GRS är aktiverat, 10 Gbit/s för LRS/ZRS<sup>2</sup> |
+| Maximalt utgånget för General-Purpose v2-och Blob Storage-konton (alla regioner) | 50 Gbit/s |
+| Högsta utgående trafik för generella v1-lagrings konton (amerikanska regioner) | 20 Gbit/s om RA-GRS/GRS är aktiverat, 30 Gbit/s för LRS/ZRS<sup>2</sup> |
+| Maximalt utgående för allmänna v1-lagrings konton (icke-amerikanska regioner) | 10 Gbit/s om RA-GRS/GRS är aktiverat, 15 Gbit/s för LRS/ZRS<sup>2</sup> |
+| Maximalt antal virtuella nätverks regler per lagrings konto | 200 |
+| Maximalt antal IP-adress regler per lagrings konto | 200 |
 
-<sup>1</sup> Azure Storage-standardkonton stöder högre kapacitetsgränser och högre gränser för inträngning på begäran. Om du vill begära en ökning av kontogränserna kontaktar du [Azure Support](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Azure Storage Standard konton stöder högre kapacitets gränser och högre gränser för ingångar efter begäran. Kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/)om du vill begära en ökning av konto gränserna.
 
-<sup>2</sup> Om ditt lagringskonto har läsåtkomst aktiverat med geo-redundant lagring (RA-GRS) eller geo-zon-redundant lagring (RA-GZRS), är utgående mål för den sekundära platsen identiska med de primära platsens. [Azure Storage-replikeringsalternativ](https://docs.microsoft.com/azure/storage/common/storage-redundancy) inkluderar:
+<sup>2</sup> om ditt lagrings konto har Läs behörighet aktiverat med Geo-redundant lagring (RA-GRS) eller geo-Zone-redundant lagring (ra-GZRS), är utgångs målen för den sekundära platsen identiska med de på den primära platsen. [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) alternativen för replikering inkluderar:
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
-<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) är en uppsättning funktioner som är avsedda för stordataanalys, byggd på Azure Blob-lagring. Azure Storage- och blob-lagringsbegränsningar gäller för DataSjölagring gen2.
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) är en uppsättning funktioner som är avsedda för stor data analys och bygger på Azure Blob Storage. Begränsningar för Azure Storage och blob-lagring gäller för Data Lake Storage Gen2.
 
 > [!NOTE]
-> Microsoft rekommenderar att du använder ett allmänt v2-lagringskonto för de flesta scenarier. Du kan enkelt uppgradera ett allmänt v1- eller Azure Blob-lagringskonto till ett allmänt v2-konto utan driftstopp och utan att behöva kopiera data. Mer information finns i [Uppgradera till ett allmänt v2-lagringskonto](../articles/storage/common/storage-account-upgrade.md).
+> Microsoft rekommenderar att du använder ett allmänt-syfte v2-lagrings konto för de flesta scenarier. Du kan enkelt uppgradera ett allmänt v1-eller Azure Blob Storage-konto till ett allmänt-syfte v2-konto utan avbrott och utan att behöva kopiera data. Mer information finns i [Uppgradera till ett allmänt-syfte v2-lagrings konto](../articles/storage/common/storage-account-upgrade.md).
 
-Om behoven i ditt program överskrider skalbarhetsmålen för ett enda lagringskonto kan du skapa programmet så att det använder flera lagringskonton. Du kan sedan partitionera dina dataobjekt över dessa lagringskonton. Information om volympriser finns i [Azure Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
+Om ditt programs behov överskrider skalbarhets målen för ett enda lagrings konto kan du bygga ditt program för att använda flera lagrings konton. Du kan sedan partitionera dina data objekt över dessa lagrings konton. Mer information om volym priser finns i [Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/).
 
-Alla lagringskonton körs på en platt nätverkstopologi oavsett när de skapades. Mer information om Azure Storage-arkitekturen för platta nätverk och om skalbarhet finns i [Microsoft Azure Storage: En molnbaserad lagringstjänst med stark konsekvens](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 
+Alla lagrings konton som körs på en låg nätverks sto pol Ogin oavsett när de skapades. Mer information om Azure Storage platt nätverks arkitektur och om skalbarhet finns i [Microsoft Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 

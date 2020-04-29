@@ -9,10 +9,10 @@ ms.date: 03/27/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e96d205ef1a8f94baa3a0cfe6c5127b6cf570e5a
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420961"
 ---
 I den här artikeln beskrivs hur du överför en virtuell hård disk från din lokala dator till en Azure-hanterad disk eller kopierar en hanterad disk till en annan region med hjälp av AzCopy. Den här processen, direkt överföring, gör det möjligt att ladda upp en virtuell hård disk på upp till 32 TiB i storlek direkt till en hanterad disk. För närvarande stöds direkt uppladdning för standard hård diskar, standard SSD och Premium SSD-hanterade diskar. Den stöds inte för Ultra disks än.

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Sök efter bilder med REST API för Bing-bildsökning och Node.js'
+title: 'Snabb start: Sök efter bilder med hjälp av Bildsökning i Bing REST API och Node. js'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabbstarten om du vill skicka begäranden om bildsökning till REST-APIN för Bing Image Search med JavaScript och få ett JSON-svar.
+description: Använd den här snabb starten för att skicka avbildnings Sök begär anden till Bildsökning i Bing REST API med hjälp av Java Script och ta emot ett JSON-svar.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -13,17 +13,17 @@ ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 15757d606a846a2951bc5c15d8d5ef0dbfd7a2a1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478595"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Snabbstart: Sök efter bilder med REST API för Bing-bildsökning och Node.js
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Snabb start: Sök efter bilder med hjälp av Bildsökning i Bing REST API och Node. js
 
 Använd den här snabbstarten för att börja skicka sökbegäranden till API för bildsökning i Bing. Det här JavaScript-programmet skickar en sökfråga till API:et och visar URL:en till den första bilden i resultatet. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden för det här exemplet är tillgänglig [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) med ytterligare felhantering och anteckningar.
+Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) med ytterligare fel hantering och anteckningar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -44,7 +44,7 @@ Se även Priser för Cognitive Services –API för Bing-sökning.
     let https = require('https');
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. `host`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. `host`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```javascript
     let subscriptionKey = 'enter key here';

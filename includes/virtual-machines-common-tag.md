@@ -5,50 +5,50 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: f6bd574c83d309ce6d6f54fdb1c7d23cb713420d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73182289"
 ---
-## <a name="tagging-a-virtual-machine-through-templates"></a>Tagga en virtuell dator via mallar
-Låt oss först titta på taggning genom mallar. [Den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) placerar taggar på följande resurser: Beräkning (virtuell dator), Lagring (lagringskonto) och Nätverk (offentlig IP-adress, virtuellt nätverk och nätverksgränssnitt). Den här mallen är för en Virtuell Windows-dator men kan anpassas för virtuella Linux-datorer.
+## <a name="tagging-a-virtual-machine-through-templates"></a>Tagga en virtuell dator med hjälp av mallar
+Först ska vi titta på taggning genom mallar. [Den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) placerar taggar på följande resurser: Compute (virtuell dator), lagring (lagrings konto) och nätverk (offentlig IP-adress, Virtual Network och nätverks gränssnitt). Den här mallen gäller för en virtuell Windows-dator men kan anpassas för virtuella Linux-datorer.
 
-Klicka på knappen **Distribuera till Azure** från [malllänken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Detta navigerar till [Azure-portalen](https://portal.azure.com/) där du kan distribuera den här mallen.
+Klicka på knappen **distribuera till Azure** från [länken mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). På så sätt navigerar du till [Azure Portal](https://portal.azure.com/) där du kan distribuera den här mallen.
 
-![Enkel distribution med taggar](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
+![Enkel distribution med Taggar](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-Den här mallen innehåller följande taggar: *Avdelning*, *Program*och *Skapad av*. Du kan lägga till/redigera dessa taggar direkt i mallen om du vill ha olika taggnamn.
+Den här mallen innehåller följande Taggar: *avdelning*, *program*och *skapade av*. Du kan lägga till/redigera taggarna direkt i mallen om du vill ha olika taggnamn.
 
-![Azure-taggar i en mall](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
+![Azure-Taggar i en mall](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
-Som du kan se definieras taggarna som nyckel-/värdepar, avgränsade med ett kolon (:). Taggarna måste definieras i det här formatet:
+Som du kan se definieras taggarna som nyckel/värde-par, avgränsade med kolon (:). Taggarna måste definieras i följande format:
 
         "tags": {
             "Key1" : "Value1",
             "Key2" : "Value2"
         }
 
-Spara mallfilen när du har redigerat den med valfria taggar.
+Spara mallfilen när du är klar med att redigera den med de taggar du väljer.
 
-I avsnittet **Redigera parametrar** kan du sedan fylla i värdena för taggarna.
+Sedan kan du fylla i värdena för taggarna i avsnittet **Redigera parametrar** .
 
-![Redigera taggar i Azure-portalen](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
+![Redigera taggar i Azure Portal](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
 
-Klicka på **Skapa** om du vill distribuera den här mallen med taggvärdena.
+Klicka på **skapa** för att distribuera den här mallen med dina märkes värden.
 
 ## <a name="tagging-through-the-portal"></a>Tagga via portalen
-När du har skapat dina resurser med taggar kan du visa, lägga till och ta bort taggar i portalen.
+När du har skapat dina resurser med taggar kan du Visa, lägga till och ta bort taggar i portalen.
 
-Välj taggikonen om du vill visa taggarna:
+Välj ikonen taggar för att visa dina Taggar:
 
-![Taggikon i Azure-portalen](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
+![Ikonen Taggar i Azure Portal](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
 
-Lägg till en ny tagg via portalen genom att definiera ditt eget nyckel-/värde-par och spara den.
+Lägg till en ny tagg via portalen genom att definiera ditt eget nyckel/värde-par och spara det.
 
-![Lägg till ny tagg i Azure-portalen](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
+![Lägg till en ny tagg i Azure Portal](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
 
-Den nya taggen ska nu visas i listan med taggar för din resurs.
+Den nya taggen bör nu visas i listan över taggar för din resurs.
 
-![Ny tagg sparad i Azure-portalen](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+![En ny tagg sparades i Azure Portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 

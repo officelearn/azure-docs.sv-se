@@ -1,29 +1,29 @@
 ---
-title: Azure Service Bus-bindningar för Azure-funktioner
-description: Lär dig att skicka Azure Service Bus-meddelanden från Azure Functions.
+title: Azure Service Bus bindningar för Azure Functions
+description: Lär dig att skicka Azure Service Bus meddelanden från Azure Functions.
 author: craigshoemaker
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80582260"
 ---
-# <a name="azure-service-bus-output-binding-for-azure-functions"></a>Utdatabindning för Azure Service Bus för Azure-funktioner
+# <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
 
-Använd Azure Service Bus-utdatabindning för att skicka kö- eller ämnesmeddelanden.
+Använd Azure Service Bus utgående bindning för att skicka kö-eller ämnes meddelanden.
 
-Information om inställnings- och konfigurationsinformation finns i [översikten](functions-bindings-service-bus-output.md).
+Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-service-bus-output.md).
 
 ## <a name="example"></a>Exempel
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som skickar ett kömeddelande för Service Bus:
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som skickar ett Service Bus Queue-meddelande:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -35,11 +35,11 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en Service Bus-utdatabindning i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en timerutlösare för att skicka ett kömeddelande var 15:e sekund.
+I följande exempel visas en Service Bus utgående bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en timer-utlösare för att skicka ett köat meddelande var 15: e sekund.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -63,7 +63,7 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-Här är C#-skriptkod som skapar ett enda meddelande:
+Här är C#-skript kod som skapar ett enda meddelande:
 
 ```cs
 public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
@@ -74,7 +74,7 @@ public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 }
 ```
 
-Här är C#-skriptkod som skapar flera meddelanden:
+Här är C#-skript kod som skapar flera meddelanden:
 
 ```cs
 public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<string> outputSbQueue)
@@ -88,9 +88,9 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en Service Bus-utdatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en timerutlösare för att skicka ett kömeddelande var 15:e sekund.
+I följande exempel visas en Service Bus utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en timer-utlösare för att skicka ett köat meddelande var 15: e sekund.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -114,7 +114,7 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-Här är JavaScript-skriptkod som skapar ett enda meddelande:
+Här är skript koden för Java Script som skapar ett enda meddelande:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -125,7 +125,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Här är JavaScript-skriptkod som skapar flera meddelanden:
+Här är skript koden för Java Script som skapar flera meddelanden:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -140,9 +140,9 @@ module.exports = function (context, myTimer) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Följande exempel visar hur du skriver ut till en Service Bus-kö i Python.
+Följande exempel visar hur du skriver ut till en Service Bus kö i python.
 
-En Service Bus-bindningsdefinition definieras i *function.json* där *typen* är inställd på `serviceBus`.
+En Service Bus bindnings definition definieras i *Function. JSON* där *Type* har angetts till `serviceBus`.
 
 ```json
 {
@@ -174,7 +174,7 @@ En Service Bus-bindningsdefinition definieras i *function.json* där *typen* är
 }
 ```
 
-I `set` init *\_.py kan du skriva ut ett meddelande till kön genom att skicka ett värde till metoden. _ \__*
+`set` I * _ \_init_\_. py*kan du skriva ut ett meddelande till kön genom att skicka ett värde till-metoden.
 
 ```python
 import azure.functions as func
@@ -190,7 +190,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-I följande exempel visas en Java-funktion som `myqueue` skickar ett meddelande till en servicebusskö när den utlöses av en HTTP-begäran.
+I följande exempel visas en Java-funktion som skickar ett meddelande till en Service Bus `myqueue` -kö när den utlöses av en http-begäran.
 
 ```java
 @FunctionName("httpToServiceBusQueue")
@@ -204,9 +204,9 @@ public String pushToQueue(
  }
 ```
 
- I [Java-funktionernas körningsbibliotek](/java/api/overview/azure/functions/runtime)använder du anteckningen `@QueueOutput` om funktionsparametrar vars värde skulle skrivas till en servicebusskö.  Parametertypen ska `OutputBinding<T>`vara , där T är en inbyggd Java-typ av en POJO.
+ I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@QueueOutput` anteckningen för funktions parametrar vars värde skrivs till en Service Bus kö.  Parameter typen bör vara `OutputBinding<T>`, där T är en ursprunglig Java-typ för en POJO.
 
-Java-funktioner kan också skriva till ett servicebussämne. I följande exempel `@ServiceBusTopicOutput` används anteckningen för att beskriva konfigurationen för utdatabindningen. 
+Java-funktioner kan också skriva till ett Service Bus ämne. I följande exempel används `@ServiceBusTopicOutput` anteckningen för att beskriva konfigurationen för utgående bindning. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -227,11 +227,11 @@ Java-funktioner kan också skriva till ett servicebussämne. I följande exempel
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
+Använd [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs)i [C#-klass bibliotek](functions-dotnet-class-library.md).
 
-Attributets konstruktor tar namnet på kön eller ämnet och prenumerationen. Du kan också ange anslutningens åtkomsträttigheter. Hur du väljer åtkomsträttigheter-inställningen förklaras i [avsnittet Utdata - konfiguration.](#configuration) Här är ett exempel som visar attributet som tillämpas på funktionens returvärde:
+Attributets konstruktor tar namnet på kön eller ämnet och prenumerationen. Du kan också ange anslutningens behörigheter. Hur du väljer inställningen åtkomst rättigheter beskrivs i avsnittet [utdata-konfiguration](#configuration) . Här är ett exempel som visar attributet som används för funktionens retur värde:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -242,7 +242,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-Du kan `Connection` ange egenskapen för att ange namnet på en appinställning som innehåller den servicebussanslutningssträng som ska användas, vilket visas i följande exempel:
+Du kan ange `Connection` egenskapen för att ange namnet på en app-inställning som innehåller Service Bus anslutnings strängen som ska användas, som du ser i följande exempel:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -253,111 +253,111 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-Ett fullständigt exempel finns i [Utdata - exempel](#example).
+Ett fullständigt exempel finns i [utdata-exempel](#example).
 
-Du kan `ServiceBusAccount` använda attributet för att ange det Service Bus-konto som ska användas på klass-, metod- eller parameternivå.  Mer information finns i [Trigger - attribut](functions-bindings-service-bus-trigger.md#attributes-and-annotations).
+Du kan använda `ServiceBusAccount` attributet för att ange Service Bus konto som ska användas på klass-, metod-eller parameter nivå.  Mer information finns i avsnittet om [Utlösar-attribut](functions-bindings-service-bus-trigger.md#attributes-and-annotations).
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Attribut stöds inte av C# Script.
+Attribut stöds inte av C#-skript.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Attribut stöds inte av JavaScript.
+Attribut stöds inte av Java Script.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Attribut stöds inte av Python.
+Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`ServiceBusQueueOutput` Anteckningarna `ServiceBusTopicOutput` och är tillgängliga för att skriva ett meddelande som en funktionsutdata. Parametern som dekoreras med dessa anteckningar `OutputBinding<T>` `T` måste deklareras som en var är den typ som motsvarar meddelandets typ.
+`ServiceBusQueueOutput` Anteckningarna `ServiceBusTopicOutput` och är tillgängliga för att skriva ett meddelande som ett funktions resultat. Parametern dekorerade dessa anteckningar måste deklareras som en `OutputBinding<T>` WHERE `T` är den typ som motsvarar meddelandets typ.
 
 ---
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell beskrivs de bindningskonfigurationsegenskaper som `ServiceBus` du anger i *filen function.json* och attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `ServiceBus` attributet.
 
-|egenskapen function.json | Egenskapen Attribute |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ** | Saknas | Måste ställas in på "serviceBus". Den här egenskapen ställs in automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | Måste ställas in på "ut". Den här egenskapen ställs in automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar kö- eller ämnesmeddelandet i funktionskoden. Ställ in på "$return" för att referera till funktionens returvärde. |
-|**queueName (queueName)**|**QueueName (QueueName)**|Namnet på kön.  Ange endast om du skickar kömeddelanden, inte för ett ämne.
-|**topicName (ämnesnamn)**|**TopicName (Ämnesnamn)**|Namnet på ämnet. Ange endast om du skickar ämnesmeddelanden, inte för en kö.|
-|**Anslutning**|**Anslutning**|Namnet på en appinställning som innehåller anslutningssträngen servicebuss som ska användas för den här bindningen. Om appinställningsnamnet börjar med "AzureWebJobs" kan du bara ange resten av namnet. Om du till `connection` exempel anger "MyServiceBus" söker körtiden Funktioner efter en appinställning med namnet "AzureWebJobsMyServiceBus". Om du `connection` lämnar tom använder funktionskörningen standardkopplingssträngen för Service Bus i appinställningen med namnet "AzureWebJobsServiceBus".<br><br>Om du vill hämta en anslutningssträng följer du stegen som visas på [Hämta hanteringsautentiseringsuppgifter .](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string) Anslutningssträngen måste vara för ett servicebussnamnområde, inte begränsat till en viss kö eller ett visst ämne.|
-|**accessRights**|**Åtkomst**|Åtkomsträttigheter för anslutningssträngen. Tillgängliga värden `manage` `listen`är och . Standard är `manage`, vilket anger `connection` att behörigheten Hantera har behörigheten **Hantera.** Om du använder en anslutningssträng **Manage** som inte `accessRights` har behörigheten Hantera anger du att "lyssna". Annars kan körningen Funktioner misslyckas med att försöka utföra åtgärder som kräver hanteringsrättigheter. I Azure Functions version 2.x och senare är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hantera åtgärder.|
+|**bastyp** | saknas | Måste vara inställd på "Service Bus". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**riktning** | saknas | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**Namn** | saknas | Namnet på variabeln som representerar kön eller ämnes meddelandet i funktions koden. Ange till "$return" för att referera till funktionens retur värde. |
+|**queueName**|**QueueName**|Köns namn.  Ange endast om köa meddelanden ska skickas, inte för ett ämne.
+|**topicName**|**TopicName**|Namn på ämnet. Ange endast om meddelande ämnen skickas, inte för en kö.|
+|**anslutningen**|**Anslutning**|Namnet på en app-inställning som innehåller den Service Bus anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet. Om du till exempel anger `connection` "MyServiceBus" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyServiceBus". Om du lämnar `connection` tomt använder Functions-körningen standard Service Bus anslutnings strängen i appens inställning med namnet "AzureWebJobsServiceBus".<br><br>Om du vill hämta en anslutnings sträng följer du stegen som visas i [Hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Anslutnings strängen måste vara för ett Service Bus-namnområde, inte begränsat till en viss kö eller ett ämne.|
+|**accessRights**|**Åtkomst**|Åtkomst behörighet för anslutnings strängen. Tillgängliga värden är `manage` och `listen`. Standardvärdet `manage`är, vilket anger att `connection` har behörigheten **Hantera** . Om du använder en anslutnings sträng som inte har behörigheten **Hantera** , anger `accessRights` du "lyssna". I annat fall kan funktions körningen Miss kan försöka utföra åtgärder som kräver behörighet att hantera. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hanterings åtgärder.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Användning
 
-I Azure Functions 1.x skapar körningen kön om den inte finns `accessRights` `manage`och du har angett . I Functions version 2.x och högre måste kön eller ämnet redan finnas. Om du anger en kö eller ett ämne som inte finns misslyckas funktionen. 
+I Azure Functions 1. x skapar körnings kön om den inte finns och du har angett `accessRights` till. `manage` I functions version 2. x och senare måste kön eller ämnet redan finnas. Om du anger en kö eller ett ämne som inte finns fungerar inte funktionen. 
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-Använd följande parametertyper för utdatabindningen:
+Använd följande parameter typer för utgående bindning:
 
-* `out T paramName` - `T`kan vara vilken JSON-serialiserbar typ som helst. Om parametervärdet är null när funktionen avslutas skapas meddelandet med ett null-objekt.
-* `out string`- Om parametervärdet är null när funktionen avslutas skapas inget meddelande i Functions.
-* `out byte[]`- Om parametervärdet är null när funktionen avslutas skapas inget meddelande i Functions.
-* `out BrokeredMessage`- Om parametervärdet är null när funktionen avslutas skapas inget meddelande (för Funktioner 1.x)
-* `out Message`- Om parametervärdet är null när funktionen avslutas skapas inget meddelande (för Funktioner 2.x och högre)
-* `ICollector<T>`eller `IAsyncCollector<T>` - För att skapa flera meddelanden. Ett meddelande skapas när `Add` du anropar metoden.
-
-När du arbetar med C#-funktioner:
-
-* Async-funktioner behöver ett `IAsyncCollector` returvärde `out` eller i stället för en parameter.
-
-* Om du vill komma åt [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) sessions-ID:et binder du till en typ och använder egenskapen. `sessionId`
-
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
-
-Använd följande parametertyper för utdatabindningen:
-
-* `out T paramName` - `T`kan vara vilken JSON-serialiserbar typ som helst. Om parametervärdet är null när funktionen avslutas skapas meddelandet med ett null-objekt.
-* `out string`- Om parametervärdet är null när funktionen avslutas skapas inget meddelande i Functions.
-* `out byte[]`- Om parametervärdet är null när funktionen avslutas skapas inget meddelande i Functions.
-* `out BrokeredMessage`- Om parametervärdet är null när funktionen avslutas skapas inget meddelande (för Funktioner 1.x)
-* `out Message`- Om parametervärdet är null när funktionen avslutas skapas inget meddelande (för Funktioner 2.x och högre)
-* `ICollector<T>`eller `IAsyncCollector<T>` - För att skapa flera meddelanden. Ett meddelande skapas när `Add` du anropar metoden.
+* `out T paramName` - `T`kan vara valfri JSON-serialiserbar typ. Om parametervärdet är null när funktionen avslutas, skapar funktionen ett meddelande med ett null-objekt.
+* `out string`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
+* `out byte[]`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
+* `out BrokeredMessage`-Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 1. x)
+* `out Message`– Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 2. x och högre)
+* `ICollector<T>`eller `IAsyncCollector<T>` – för att skapa flera meddelanden. Ett meddelande skapas när du anropar- `Add` metoden.
 
 När du arbetar med C#-funktioner:
 
-* Async-funktioner behöver ett `IAsyncCollector` returvärde `out` eller i stället för en parameter.
+* Async Functions behöver ett retur värde `IAsyncCollector` eller i stället `out` för en parameter.
 
-* Om du vill komma åt [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) sessions-ID:et binder du till en typ och använder egenskapen. `sessionId`
+* För att få åtkomst till sessions-ID [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) : t binder du `sessionId` till en typ och använder egenskapen.
+
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
+
+Använd följande parameter typer för utgående bindning:
+
+* `out T paramName` - `T`kan vara valfri JSON-serialiserbar typ. Om parametervärdet är null när funktionen avslutas, skapar funktionen ett meddelande med ett null-objekt.
+* `out string`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
+* `out byte[]`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
+* `out BrokeredMessage`-Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 1. x)
+* `out Message`– Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 2. x och högre)
+* `ICollector<T>`eller `IAsyncCollector<T>` – för att skapa flera meddelanden. Ett meddelande skapas när du anropar- `Add` metoden.
+
+När du arbetar med C#-funktioner:
+
+* Async Functions behöver ett retur värde `IAsyncCollector` eller i stället `out` för en parameter.
+
+* För att få åtkomst till sessions-ID [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) : t binder du `sessionId` till en typ och använder egenskapen.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Öppna kön eller ämnet `context.bindings.<name from function.json>`med hjälp av . Du kan tilldela en sträng, en bytematris eller ett JavaScript-objekt `context.binding.<name>`(deserialiserat till JSON) till .
+Få åtkomst till kön eller ämnet med `context.bindings.<name from function.json>`hjälp av. Du kan tilldela en sträng, en byte mat ris eller ett JavaScript-objekt (avserialiserat till JSON) `context.binding.<name>`till.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Använd [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) i stället för den inbyggda utdatabindningen.
+Använd [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) i stället för den inbyggda utgående bindningen.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Använd [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) i stället för den inbyggda utdatabindningen.
+Använd [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) i stället för den inbyggda utgående bindningen.
 
 ---
 
-## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
+## <a name="exceptions-and-return-codes"></a>Undantag och retur koder
 
 | Bindning | Referens |
 |---|---|
-| Service Bus | [Felkoder för servicebuss](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Service Bus | [Begränsningar för servicebuss](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Service Bus | [Service Bus felkoder](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
+| Service Bus | [Service Bus gränser](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>värd.json-inställningar
+## <a name="hostjson-settings"></a>Host. JSON-inställningar
 
-I det här avsnittet beskrivs de globala konfigurationsinställningar som är tillgängliga för den här bindningen i version 2.x och senare. Exempelvärden.json-filen nedan innehåller endast inställningarna för den här bindningen. Mer information om globala konfigurationsinställningar finns i [host.json-referens för Azure Functions-versionen](functions-host-json.md).
+I det här avsnittet beskrivs de globala konfigurations inställningarna som är tillgängliga för den här bindningen i version 2. x och högre. Exempel filen Host. JSON nedan innehåller bara inställningarna för den här bindningen. Mer information om globala konfigurations inställningar finns i [Host. JSON-referens för Azure Functions version](functions-host-json.md).
 
 > [!NOTE]
-> En referens för host.json i Functions 1.x finns i [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md).
+> En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md).
 
 ```json
 {
@@ -381,13 +381,13 @@ I det här avsnittet beskrivs de globala konfigurationsinställningar som är ti
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------|
-|prefetchCount (prefetchCount)|0|Hämtar eller anger antalet meddelanden som meddelandemottagaren samtidigt kan begära.|
-|maxAutoRenewDuration|00:05:00|Den maximala varaktighet inom vilken meddelandelåset förnyas automatiskt.|
-|Komplettera automatiskt|true|Om utlösaren omedelbart ska markera meddelandet som fullständigt (komplettera automatiskt) eller vänta tills funktionen avslutas.|
-|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringningen som meddelandepumpen ska initiera. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. Om du vill att körningen ska bearbeta endast ett `maxConcurrentCalls` enskilt kö- eller ämnesmeddelande åt gången anger du till 1. |
+|prefetchCount|0|Hämtar eller anger antalet meddelanden som meddelande mottagaren samtidigt kan begära.|
+|maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|
+|Automatisk|true|Om utlösaren omedelbart ska markera meddelandet som slutfört (komplettera automatiskt) eller vänta tills funktionen avslutas för att anropa slutförd.|
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Om du vill dirigera körningen så att den bara behandlar en enskild kö eller ett ämnes meddelande `maxConcurrentCalls` i taget, anger du 1. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kör en funktion när en servicebusskö eller ett ämnesmeddelande skapas (utlösare)](./functions-bindings-service-bus-trigger.md)
+- [Köra en funktion när en Service Bus kö eller ett ämnes meddelande skapas (utlösare)](./functions-bindings-service-bus-trigger.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute-mall: Skapa en ExpressRoute-krets'
+title: 'Azure ExpressRoute-mall: skapa en ExpressRoute-krets'
 description: Skapa, etablera, ta bort och avetablera en ExpressRoute-krets.
 services: expressroute
 author: charwen
@@ -8,42 +8,42 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: charwen
 ms.openlocfilehash: ac2fb2f884feb0fbe6fbb1731ebe7c8bdad5114b
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80616514"
 ---
-# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Skapa en ExpressRoute-krets med hjälp av Azure Resource Manager-mall
+# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Skapa en ExpressRoute-krets med hjälp av Azure Resource Manager mall
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)
-> * [Video - Azure-portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Azure Resource Manager mall](expressroute-howto-circuit-resource-manager-template.md)
+> * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-circuit-classic.md)
 >
 
-Lär dig hur du skapar en ExpressRoute-krets genom att distribuera en Azure Resource Manager-mall med hjälp av Azure PowerShell. Mer information om hur du utvecklar Resource Manager-mallar finns i [Dokumentationen](/azure/azure-resource-manager/) till Resource Manager och [mallreferensen](/azure/templates/microsoft.network/expressroutecircuits).
+Lär dig hur du skapar en ExpressRoute-krets genom att distribuera en Azure Resource Manager-mall med hjälp av Azure PowerShell. Mer information om hur du utvecklar Resource Manager-mallar finns i [Resource Manager-dokumentation](/azure/azure-resource-manager/) och [mallen referens](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Granska [förutsättningarna](expressroute-prerequisites.md) och [arbetsflödena](expressroute-workflows.md) innan du börjar konfigurera.
-* Kontrollera att du har behörighet att skapa nya nätverksresurser. Kontakta kontoadministratören om du inte har rätt behörighet.
-* Du kan [visa en video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) innan du börjar för att bättre förstå stegen.
+* Granska [nödvändiga komponenter](expressroute-prerequisites.md) och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
+* Se till att du har behörighet att skapa nya nätverks resurser. Kontakta konto administratören om du inte har rätt behörigheter.
+* Du kan [Visa en video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) innan du börjar för att bättre förstå stegen.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Skapa och etablera en ExpressRoute-krets
 
-[Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/) har en bra samling av Resource Manager-mall. Du kan använda en av de [befintliga mallarna](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) för att skapa en ExpressRoute-krets.
+[Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/) har en utmärkt samling Resource Manager-mall. Du kan använda en av de [befintliga mallarna](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) för att skapa en ExpressRoute-krets.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
 
 Om du vill se fler relaterade mallar väljer du [här](https://azure.microsoft.com/resources/templates/?term=expressroute).
 
-Så här skapar du en ExpressRoute Circuit genom att distribuera en mall:
+Så här skapar du en ExpressRoute-krets genom att distribuera en mall:
 
-1. Välj **Prova det** från följande kodblock och följ sedan instruktionerna för att logga in på Azure Cloud-skalet.
+1. Välj **prova** med följande kodblock och följ sedan anvisningarna för att logga in på Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -63,35 +63,35 @@ Så här skapar du en ExpressRoute Circuit genom att distribuera en mall:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU-nivån** avgör om en ExpressRoute-krets är [Lokal,](expressroute-faqs.md#expressroute-local)Standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *Lokal*, *Standard eller *Premium*.
-   * **SKU-familjen** bestämmer faktureringstypen. Du kan ange *Datadata för datapriser* för ett dataabonnemang med datapriser och *Unlimiteddata* för ett obegränsat dataabonnemang. Du kan ändra *faktureringstypen* från Datadata till *Unlimiteddata,* men du kan inte ändra typen från *Unlimiteddata* till *Datapriser*. En *lokal* krets är endast *Unlimiteddata.*
-   * **Peering-plats** är den fysiska plats där du peering med Microsoft.
+   * **SKU-nivån** avgör om en ExpressRoute-krets är [lokal](expressroute-faqs.md#expressroute-local), standard eller [Premium](expressroute-faqs.md#expressroute-premium). Du kan ange *lokal*, * standard eller *Premium*.
+   * **SKU-serien** bestämmer fakturerings typen. Du kan ange *Metereddata* för ett data abonnemang med datapriser och *Unlimiteddata* för ett obegränsat data abonnemang. Du kan ändra fakturerings typen från *Metereddata* till *Unlimiteddata*, men du kan inte ändra typen från *Unlimiteddata* till *Metereddata*. En *lokal* krets är endast *Unlimiteddata* .
+   * **Peering-platsen** är den fysiska plats där du peer-koppla med Microsoft.
 
      > [!IMPORTANT]
-     > Peering-platsen anger den [fysiska plats](expressroute-locations.md) där du peering med Microsoft. Detta är **inte** länkat till egenskapen Plats, som refererar till geografin där Azure Network Resource Provider finns. Även om de inte är relaterade är det en god idé att välja en nätverksresursprovider geografiskt nära peering-platsen för kretsen.
+     > Peering-platsen anger den [fysiska plats](expressroute-locations.md) där du peer-koppla med Microsoft. Detta är **inte** länkat till "location"-egenskap som refererar till den geografi där Azure Network Resource-providern finns. Även om de inte är relaterade är det en bra idé att välja en nätverks resurs-Provider geografiskt nära peering-platsen för kretsen.
 
-    Resursgruppsnamnet är namnet på servicebussens namnområde med **rg** till.
+    Resurs gruppens namn är namnet på Service Bus-namnområdet med **RG** tillagt.
 
 2. Välj **Kopiera** för att kopiera PowerShell-skriptet.
-3. Högerklicka på skalkonsolen och välj sedan **Klistra in**.
+3. Högerklicka på Shell-konsolen och välj sedan **Klistra in**.
 
-Det tar en stund att skapa en händelsehubb.
+Det tar en stund att skapa en Event Hub.
 
-Azure PowerShell används för att distribuera mallen i den här självstudien. Andra malldistributionsmetoder finns i:
+Azure PowerShell används för att distribuera mallen i den här självstudien. För andra metoder för mall distribution, se:
 
-* [Genom att använda Azure-portalen](../azure-resource-manager/templates/deploy-portal.md).
-* [Genom att använda Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
-* [Genom att använda REST API](../azure-resource-manager/templates/deploy-rest.md).
+* Med [hjälp av Azure Portal](../azure-resource-manager/templates/deploy-portal.md).
+* Med [hjälp av Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+* Med [hjälp av REST API](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Avetablera och ta bort en ExpressRoute-krets
 
-Du kan ta bort expressroutekretsen genom att välja **borttagningsikonen.** Notera följande information:
+Du kan ta bort ExpressRoute-kretsen genom att välja ikonen **ta bort** . Notera följande information:
 
-* Du måste ta bort länken till alla virtuella nätverk från ExpressRoute-kretsen. Om den här åtgärden misslyckas kontrollerar du om några virtuella nätverk är länkade till kretsen.
-* Om tillståndet för tillhandahållare av ExpressRoute-kretstjänstleverantören **etablerar** eller **etableras** måste du samarbeta med din tjänsteleverantör för att avetablera kretsen på deras sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänsteleverantören slutför avetablering av kretsen och meddelar oss.
-* Om tjänsteleverantören har avetablerat kretsen (etableringstillståndet för tjänsteleverantören är inställt på **Inte etablerat)** kan du ta bort kretsen. Därmed avbryts faktureringen för kretsen.
+* Du måste ta bort länken till alla virtuella nätverk från ExpressRoute-kretsen. Om den här åtgärden Miss lyckas kontrollerar du om några virtuella nätverk är länkade till kretsen.
+* Om etablerings statusen för ExpressRoute-kretsen **etableras** eller **etableras** måste du arbeta med tjänst leverantören för att avetablera kretsen på sin sida. Vi fortsätter att reservera resurser och fakturera dig tills tjänste leverantören har slutfört avetableringen av kretsen och meddelar oss oss.
+* Om tjänst leverantören har avetablerat kretsen (etablerings statusen för tjänst leverantören är inställd på **inte etablerad**) kan du ta bort kretsen. Därmed avbryts faktureringen för kretsen.
 
-Du kan ta bort expressroutekretsen genom att köra följande PowerShell-kommando:
+Du kan ta bort ExpressRoute-kretsen genom att köra följande PowerShell-kommando:
 
 ```azurepowershell-interactive
 $circuitName = Read-Host -Prompt "Enter the same circuit name that you used earlier"
@@ -102,7 +102,7 @@ Remove-AzExpressRouteCircuit -ResourceGroupName $resourceGroupName -Name $circui
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat kretsen fortsätter du med följande steg:
+När du har skapat din krets fortsätter du med följande steg:
 
 * [Skapa och ändra routning för din ExpressRoute-krets](expressroute-howto-routing-portal-resource-manager.md)
 * [Länka ditt virtuella nätverk till din ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)

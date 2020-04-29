@@ -1,6 +1,6 @@
 ---
-title: Diagnostikloggar för Azure Service Bus | Microsoft-dokument
-description: Den här artikeln innehåller en översikt över alla drift- och diagnostikloggar som är tillgängliga för Azure Service Bus.
+title: Azure Service Bus diagnostikloggar | Microsoft Docs
+description: Den här artikeln innehåller en översikt över alla operativa och diagnostiska loggar som är tillgängliga för Azure Service Bus.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -16,40 +16,40 @@ ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618733"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Aktivera diagnostikloggar för Service Bus
 
-När du börjar använda namnområdet för Azure Service Bus kanske du vill övervaka hur och när namnområdet skapas, tas bort eller används. Den här artikeln innehåller en översikt över alla operativa och diagnostikloggar som är tillgängliga.
+När du börjar använda Azure Service Bus namn rymden kanske du vill övervaka hur och när ditt namn område skapas, tas bort eller nås. Den här artikeln innehåller en översikt över alla operativa och diagnostiska loggar som är tillgängliga.
 
-Azure Service Bus stöder för närvarande aktivitets- och driftloggar, som samlar *in hanteringsåtgärder* som utförs på Azure Service Bus-namnområdet. Dessa loggar samlar in åtgärdstypen, inklusive skapande av köer, använda resurser och åtgärdens status.
+Azure Service Bus stöder för närvarande aktivitets-och drift loggar som samlar in *hanterings åtgärder* som utförs i Azure Service Bus-namnområdet. Mer specifikt fångar dessa loggar åtgärds typen, inklusive skapande av kö, använda resurser och status för åtgärden.
 
-## <a name="operational-logs-schema"></a>Schema för driftloggar
+## <a name="operational-logs-schema"></a>Schema för operativa loggar
 
-Alla loggar lagras i JSON-format (JavaScript Object Notation) på följande två platser:
+Alla loggar lagras i JavaScript Object Notation (JSON)-format på följande två platser:
 
-- **AzureActivity**: Visar loggar från åtgärder och åtgärder som utförs mot ditt namnområde i Azure-portalen eller via Azure Resource Manager-malldistributioner.
-- **AzureDiagnostics**: Visar loggar från åtgärder och åtgärder som utförs mot ditt namnområde med hjälp av API: et eller genom hanteringsklienter på språket SDK.
+- **AzureActivity**: visar loggar från åtgärder och åtgärder som utförs mot ditt namn område i Azure Portal eller genom Azure Resource Manager mall distributioner.
+- **AzureDiagnostics**: visar loggar från åtgärder och åtgärder som utförs mot ditt namn område med hjälp av API: et, eller via hanterings klienter på språk-SDK: n.
 
-JSON-strängar med driftloggen innehåller de element som anges i följande tabell:
+I drift loggens JSON-strängar ingår elementen som anges i följande tabell:
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | ------- | ------- |
-| ActivityId (på)ActivityId) | Internt ID, som används för att identifiera den angivna aktiviteten |
+| ActivityId | Internt ID som används för att identifiera den angivna aktiviteten |
 | EventName | Åtgärdsnamn |
 | ResourceId | Resurs-ID för Azure Resource Manager |
 | SubscriptionId | Prenumerations-ID:t |
-| EventTimeString | Drifttid |
-| EventProperties | Egenskaper för operation |
+| EventTimeString | Åtgärds tid |
+| EventProperties | Egenskaper för åtgärd |
 | Status | Åtgärdsstatus |
-| Anropare | Anropare av verksamheten (Azure-portalen eller hanteringsklienten) |
+| Anropare | Uppringnings åtgärd (Azure Portal-eller hanterings klient) |
 | Kategori | OperationalLogs |
 
-Här är ett exempel på en fungerande logg JSON sträng:
+Här är ett exempel på en fungerande logg-JSON-sträng:
 
 ```json
 {
@@ -65,59 +65,59 @@ Här är ett exempel på en fungerande logg JSON sträng:
 }
 ```
 
-## <a name="events-and-operations-captured-in-operational-logs"></a>Händelser och åtgärder som fångas upp i driftloggar
+## <a name="events-and-operations-captured-in-operational-logs"></a>Händelser och åtgärder som har registrerats i drift loggar
 
-Driftloggar samlar in alla hanteringsåtgärder som utförs på namnområdet Azure Service Bus. Dataåtgärder samlas inte in på grund av den stora mängden dataåtgärder som utförs på Azure Service Bus.
+Drift loggar fångar alla hanterings åtgärder som utförs i Azure Service Bus-namnrymden. Data åtgärder samlas inte in på grund av den stora mängden data åtgärder som utförs på Azure Service Bus.
 
 > [!NOTE]
-> För att hjälpa dig att bättre spåra dataåtgärder rekommenderar vi att du använder spårning på klientsidan.
+> För att hjälpa dig att bättre spåra data åtgärder rekommenderar vi att du använder spårning på klient sidan.
 
-Följande hanteringsåtgärder fångas in i driftloggar: 
+Följande hanterings åtgärder samlas in i drift loggar: 
 
 | Omfång | Åtgärd|
 |-------| -------- |
-| Namnområde | <ul> <li> Skapa namnområde</li> <li> Uppdatera namnområde </li> <li> Ta bort namnområde </li> <li> Uppdatera namnområde sharedaccess-princip </li> </ul> | 
-| Kö | <ul> <li> Skapa kö</li> <li> Uppdatera kö</li> <li> Ta bort kö </li> <li> Ta bort kö för ta bort automatiskt </li> </ul> | 
-| Hjälpavsnitt | <ul> <li> Skapa ämne </li> <li> Uppdatera ämne </li> <li> Ta bort ämne </li> <li> Ta bort ämne automatiskt </li> </ul> |
-| Prenumeration | <ul> <li> Skapa en prenumeration </li> <li> Uppdatera prenumeration </li> <li> Ta bort prenumeration </li> <li> Ta bort prenumeration automatiskt </li> </ul> |
+| Namnområde | <ul> <li> Skapa namnrymd</li> <li> Uppdatera namnrymd </li> <li> Ta bort namnrymd </li> <li> Uppdatera namn område SharedAccess-princip </li> </ul> | 
+| Kö | <ul> <li> Skapa kö</li> <li> Uppdatera kö</li> <li> Ta bort kö </li> <li> Ta bort kön tas bort </li> </ul> | 
+| Ämne | <ul> <li> Skapa ämne </li> <li> Uppdatera ämne </li> <li> Ta bort ämne </li> <li> Ta bort ta bort ämne </li> </ul> |
+| Prenumeration | <ul> <li> Skapa en prenumeration </li> <li> Uppdatera prenumeration </li> <li> Ta bort prenumeration </li> <li> Ta bort borttagnings prenumeration </li> </ul> |
 
 > [!NOTE]
-> För närvarande spåras inte *Läs-åtgärder* i driftloggarna.
+> För närvarande spåras inte *Läs* åtgärder i drifts loggarna.
 
-## <a name="enable-operational-logs"></a>Aktivera driftloggar
+## <a name="enable-operational-logs"></a>Aktivera drift loggar
 
-Driftloggar är inaktiverade som standard. Så här aktiverar du diagnostikloggar:
+Drift loggar är inaktiverade som standard. Så här aktiverar du diagnostikloggar:
 
-1. Gå till namnområdet Azure Service Bus i [Azure-portalen](https://portal.azure.com)och välj sedan **Diagnostikinställningar**under **Övervakning**.
+1. I [Azure Portal](https://portal.azure.com)går du till ditt Azure Service Bus-namnområde och väljer sedan **diagnostiska inställningar**under **övervakning**.
 
-   ![Länken "Diagnostikinställningar"](./media/service-bus-diagnostic-logs/image1.png)
+   ![Länken "diagnostikinställningar"](./media/service-bus-diagnostic-logs/image1.png)
 
-1. I fönstret **Inställningar för diagnostik** väljer du Lägg till **diagnostikinställning**.  
+1. I fönstret **diagnostikinställningar** väljer du **Lägg till diagnostisk inställning**.  
 
-   ![Länken "Lägg till diagnostikinställning"](./media/service-bus-diagnostic-logs/image2.png)
+   ![Länken "Lägg till diagnostisk inställning"](./media/service-bus-diagnostic-logs/image2.png)
 
-1. Konfigurera diagnostikinställningarna genom att göra följande:
+1. Konfigurera diagnostikinställningar genom att göra följande:
 
-   a. Ange ett namn för diagnostikinställningarna i rutan **Namn.**  
+   a. I rutan **namn** anger du ett namn för diagnostikinställningar.  
 
-   b. Välj en av följande tre mål för diagnostikloggarna:  
-   - Om du väljer **Arkiv till ett lagringskonto**måste du konfigurera lagringskontot där diagnostikloggarna ska lagras.  
-   - Om du väljer **Stream till en händelsehubb**måste du konfigurera händelsehubben som du vill strömma diagnostikloggarna till.
-   - Om du väljer **Skicka till Logganalys**måste du ange vilken instans av Log Analytics diagnostiken ska skickas till.  
+   b. Välj någon av följande tre destinationer för dina diagnostikloggar:  
+   - Om du väljer **Arkiv till ett lagrings konto**måste du konfigurera lagrings kontot där diagnostikloggar ska lagras.  
+   - Om du väljer **Stream till en Event Hub**måste du konfigurera den händelsehubben som du vill strömma diagnostikloggar till.
+   - Om du väljer **Skicka till Log Analytics**måste du ange vilken instans av Log Analytics diagnostiken ska skickas till.  
 
-   c. Markera kryssrutan **OperationalLogs.**
+   c. Markera kryss rutan **OperationalLogs** .
 
-    ![Fönstret "Diagnostikinställningar"](./media/service-bus-diagnostic-logs/image3.png)
+    ![Fönstret diagnostikinställningar](./media/service-bus-diagnostic-logs/image3.png)
 
 1. Välj **Spara**.
 
-De nya inställningarna börjar gälla om cirka 10 minuter. Loggarna visas i det konfigurerade arkiveringsmålet i fönstret **Diagnostikloggar.**
+De nya inställningarna börjar gälla om 10 minuter. Loggarna visas i det konfigurerade lagrings målet i fönstret **diagnostikloggar** .
 
-Mer information om hur du konfigurerar diagnostikinställningar finns i [översikten över Azure-diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md).
+Mer information om hur du konfigurerar diagnostikinställningar finns i [översikten över Azure Diagnostics-loggar](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Service Bus finns i:
 
-* [Introduktion till servicebuss](service-bus-messaging-overview.md)
+* [Introduktion till Service Bus](service-bus-messaging-overview.md)
 * [Kom igång med Service Bus](service-bus-dotnet-get-started-with-queues.md)

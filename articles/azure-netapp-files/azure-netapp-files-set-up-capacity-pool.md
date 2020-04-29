@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: b-juche
 ms.openlocfilehash: b21db3e842898e8ce11b560714888b946373300e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80616438"
 ---
 # <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
@@ -45,11 +45,11 @@ Du måste redan ha skapat ett NetApp-konto.
      Ange ett namn för kapacitetspoolen.  
      Namnet på kapacitetspoolen måste vara unikt för varje NetApp-konto.
 
-   * **Servicenivå**   
+   * **Service nivå**   
      Det här fältet visar målprestanda för kapacitetspoolen.  
-     Ange servicenivå för kapacitetspoolen: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium)eller [**Standard**](azure-netapp-files-service-levels.md#Standard).
+     Ange service nivå för kapacitets gruppen: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium)eller [**standard**](azure-netapp-files-service-levels.md#Standard).
 
-   * **Storlek**     
+   * **Ändra**     
      Ange storleken på den kapacitetspool som du köper.        
      Den minsta kapacitetspoolstorleken är 4 TiB. Du kan skapa poolstorlekar som är multiplar av 4 TiB.   
       

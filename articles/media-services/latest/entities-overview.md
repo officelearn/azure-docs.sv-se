@@ -1,7 +1,7 @@
 ---
-title: Filtrering, beställning och personsökning av Medietjänster
+title: Filtrering, sortering och sid indelning av Media Services entiteter
 titleSuffix: Azure Media Services
-description: Lär dig mer om filtrering, beställning och växling av Azure Media Services v3-entiteter.
+description: Lär dig mer om filtrering, sortering och växling av Azure Media Services v3-entiteter.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,55 +14,55 @@ ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80584538"
 ---
-# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, beställning och personsökning av Medietjänster
+# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
 
-I det här avsnittet beskrivs OData-frågealternativen och sidnumreringssupporten som är tillgänglig när du listar Azure Media Services v3-entiteter.
+I det här avsnittet beskrivs OData-frågealternativen och sid brytnings stöd som är tillgängligt när du visar Azure Media Services v3-entiteter.
 
 ## <a name="considerations"></a>Överväganden
 
-* Egenskaper för entiteter `Datetime` av typen är alltid i UTC-format.
-* Tomt utrymme i frågesträngen ska URL-kodas innan du skickar en begäran.
+* Egenskaper för entiteter av `Datetime` typen är alltid i UTC-format.
+* Blank steg i frågesträngen ska vara URL-kodat innan du skickar en begäran.
 
 ## <a name="comparison-operators"></a>Jämförelseoperatorer
 
 Du kan använda följande operatorer för att jämföra ett fält med ett konstant värde:
 
-Jämställdhetsaktörer:
+Likhets operatorer:
 
-- `eq`: Testa om ett fält är *lika med* ett konstant värde.
-- `ne`: Testa om ett fält inte är *lika med* ett konstant värde.
+- `eq`: Testa om ett fält är *lika* med ett konstant värde.
+- `ne`: Testa om ett fält *inte är lika* med ett konstant värde.
 
-Range operatörer:
+Intervall operatorer:
 
 - `gt`: Testa om ett fält är *större än* ett konstant värde.
 - `lt`: Testa om ett fält är *mindre än* ett konstant värde.
-- `ge`: Testa om ett fält är *större än eller lika med* ett konstant värde.
-- `le`: Testa om ett fält är *mindre än eller lika med* ett konstant värde.
+- `ge`: Testa om ett fält är *större än eller lika* med ett konstant värde.
+- `le`: Testa om ett fält är *mindre än eller lika* med ett konstant värde.
 
 ## <a name="filter"></a>Filter
 
-Används `$filter` för att ange en OData-filterparameter för att bara hitta de objekt du är intresserad av.
+Använd `$filter` för att ange en OData filter-parameter för att bara hitta de objekt som du är intresse rad av.
 
-Följande REST-exempel filtrerar värdet på `alternateId` en tillgång:
+Följande REST-exempel filter på `alternateId` värdet för en till gång:
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
 ```
 
-Följande C#-exempel filtrerar på tillgångens skapade datum:
+Följande C#-exempel filter på till gångens skapad datum:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-## <a name="order-by"></a>Beställ efter
+## <a name="order-by"></a>Sortera efter
 
 Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Ett exempel:  
 
@@ -70,24 +70,24 @@ Används `$orderby` för att sortera de returnerade objekten efter den angivna p
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Om du vill sortera resultaten i stigande eller `asc` `desc` fallande ordning lägger du till antingen eller till fältnamnet, avgränsat med ett blanksteg. Till exempel: `$orderby properties/created desc`.
+Om du vill sortera resultaten i stigande eller fallande ordning, lägger du till `asc` antingen `desc` eller till fält namnet, avgränsat med ett blank steg. Till exempel: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Hoppa över token
 
-Om ett frågesvar innehåller många artiklar `$skiptoken` returnerar tjänsten ett (`@odata.nextLink`) värde som du använder för att få nästa resultatsida. Använd den för att bläddra igenom hela resultatuppsättningen.
+Om ett fråge svar innehåller många objekt returnerar tjänsten ett `$skiptoken` (`@odata.nextLink`)-värde som du använder för att hämta nästa sida med resultat. Använd den för att bläddra igenom hela resultat uppsättningen.
 
-I Media Services v3 kan du inte konfigurera sidstorleken. Sidstorleken varierar beroende på typ av entitet. Läs de enskilda avsnitten som följer för mer information.
+I Media Services v3 kan du inte konfigurera sid storleken. Sid storleken varierar beroende på typ av entitet. Läs de enskilda avsnitten som följer efter information.
 
-Om entiteter skapas eller tas bort medan du söker igenom samlingen återspeglas ändringarna i de returnerade resultaten (om dessa ändringar finns i den del av samlingen som inte har hämtats).
+Om entiteter skapas eller tas bort när du växlar genom samlingen visas ändringarna i de returnerade resultaten (om dessa ändringar finns i den del av samlingen som inte har hämtats).
 
 > [!TIP]
-> Använd `nextLink` alltid för att räkna upp samlingen och beror inte på en viss sidstorlek.
+> Använd `nextLink` alltid för att räkna upp samlingen och är inte beroende av en viss sid storlek.
 >
-> Värdet `nextLink` kommer bara att finnas om det finns mer än en sida med entiteter.
+> `nextLink` Värdet är bara tillgängligt om det finns mer än en sida med entiteter.
 
-Tänk på följande `$skiptoken` exempel på var används. Se till att du *ersätter amstestaccount* med ditt kontonamn och ange *api-versionsvärdet* till den senaste versionen.
+Tänk på följande exempel på WHERE `$skiptoken` används. Se till att ersätta *amstestaccount* med ditt konto namn och ange värdet för *API-version* till den senaste versionen.
 
-Om du begär en lista över tillgångar som denna:
+Om du begär en lista över till gångar som detta:
 
 ```
 GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
@@ -95,7 +95,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-Du får tillbaka ett svar som liknar det här:
+Du får tillbaka ett svar som liknar detta:
 
 ```
 HTTP/1.1 200 OK
@@ -117,13 +117,13 @@ HTTP/1.1 200 OK
 }
 ```
 
-Du skulle sedan begära nästa sida genom att skicka en få begäran om:
+Sedan kan du begära nästa sida genom att skicka en get-begäran för:
 
 ```
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
 ```
 
-Följande C#-exempel visar hur du räknar upp genom alla streamingpositionerare i kontot.
+I följande C#-exempel visas hur du räknar upp genom alla strömmande positionerare i kontot.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -137,9 +137,9 @@ while (currentPage.NextPageLink != null)
 
 ## <a name="using-logical-operators-to-combine-query-options"></a>Använda logiska operatorer för att kombinera frågealternativ
 
-Media Services v3 stöder **ELLER** och **AND** logiska operatörer. 
+Media Services v3 stöder **eller** och **och** logiska operatorer. 
 
-Följande REST-exempel kontrollerar jobbets tillstånd:
+Följande REST-exempel kontrollerar jobbets status:
 
 ```
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/qbtest/providers/Microsoft.Media/mediaServices/qbtest/transforms/VideoAnalyzerTransform/jobs?$filter=properties/state%20eq%20Microsoft.Media.JobState'Scheduled'%20or%20properties/state%20eq%20Microsoft.Media.JobState'Processing'&api-version=2018-07-01
@@ -152,40 +152,40 @@ var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobSta
 client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransformName, odataQuery);
 ```
 
-## <a name="filtering-and-ordering-options-of-entities"></a>Filtrerings- och beställningsalternativ för entiteter
+## <a name="filtering-and-ordering-options-of-entities"></a>Filtrerings-och sorterings alternativ för entiteter
 
-I följande tabell visas hur du kan använda filtrerings- och beställningsalternativen på olika entiteter:
+Följande tabell visar hur du kan använda filtrerings-och sorterings alternativen för olika entiteter:
 
 |Entitetsnamn|Egenskapsnamn|Filter|Beställa|
 |---|---|---|---|
-|[Tillgångar](https://docs.microsoft.com/rest/api/media/assets/)|namn|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
-||egenskaper.alternateId |`eq`||
-||egenskaper.assetId |`eq`||
-||egenskaper.skapas| `eq`, `gt`, `lt`| `asc` och `desc`|
-|[Viktiga principer för innehåll](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|namn|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper.skapas    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper.beskrivning    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
-||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper.policyId|`eq`, `ne`||
-|[Jobb](https://docs.microsoft.com/rest/api/media/jobs)| namn  | `eq`            | `asc` och `desc`|
-||egenskaper.tillstånd        | `eq`, `ne`        |                         |
-||egenskaper.skapas      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
-||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` och `desc`| 
-|[Streaming locators](https://docs.microsoft.com/rest/api/media/streaminglocators)|namn|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper.skapas    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` och `desc`|
-||egenskaper.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-|[Strategier för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingpolicies)|namn|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-||egenskaper.skapas    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
-|[Transformering](https://docs.microsoft.com/rest/api/media/transforms)| namn | `eq`            | `asc` och `desc`|
-|| egenskaper.skapas      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
-|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
+|[Tillgångar](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
+||egenskaper. alternateId |`eq`||
+||egenskaper. assetId |`eq`||
+||egenskaper. skapad| `eq`, `gt`, `lt`| `asc` och `desc`|
+|[Principer för innehålls nyckel](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||egenskaper. Beskrivning    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||egenskaper. lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||egenskaper. policyId|`eq`, `ne`||
+|[Jobb](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` och `desc`|
+||egenskaper. State        | `eq`, `ne`        |                         |
+||egenskaper. skapad      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
+||egenskaper. lastModified | `gt`, `ge`, `lt`, `le` | `asc` och `desc`| 
+|[Strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` och `desc`|
+||egenskaper. slut tid    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+|[Strömmande principer](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+||egenskaper. skapad    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` och `desc`|
+|[Transformering](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` och `desc`|
+|| egenskaper. skapad      | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
+|| egenskaper. lastModified | `gt`, `ge`, `lt`, `le`| `asc` och `desc`|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lista tillgångar](https://docs.microsoft.com/rest/api/media/assets/list)
-* [Ange principer för innehållsinnehåll](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+* [Lista till gångar](https://docs.microsoft.com/rest/api/media/assets/list)
+* [Lista med innehålls nyckel principer](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 * [Lista jobb](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [Lista principer för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [Lista uppspelare](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Lista över strömmande principer](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+* [Lista över strömmande positionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Strömma en fil](stream-files-dotnet-quickstart.md)
 * [Kvoter och begränsningar](limits-quotas-constraints.md)

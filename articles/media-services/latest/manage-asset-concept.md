@@ -1,7 +1,7 @@
 ---
-title: Hantera resurser i Azure Media Services
+title: Hantera till gångar i Azure Media Services
 titleSuffix: Azure Media Services
-description: En tillgång där du matar in media (till exempel via uppladdning eller live-mat, utdatamedia (från en jobbutdata) och publicerar media från (för direktuppspelning). Det här avsnittet ger en översikt över hur du skapar en ny tillgång och laddar upp filer.
+description: En till gång där du anger media (t. ex. via överföring eller Live-inmatning), utdata-medium (från ett jobb för utdata) och publicerar media från (för strömning). Det här avsnittet ger en översikt över hur du skapar en ny till gång och laddar upp filer.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,38 +14,38 @@ ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80582206"
 ---
 # <a name="manage-assets"></a>Hantera tillgångar
 
-I Azure Media Services är en [tillgång](https://docs.microsoft.com/rest/api/media/assets) där du 
+I Azure Media Services är en [till gång](https://docs.microsoft.com/rest/api/media/assets) där du 
 
-* ladda upp mediefiler till en tillgång,
-* intag och arkivera liveströmmar till en tillgång,
-* resultaten av en kodning av analysjobb till en tillgång,
-* publicera media för direktuppspelning, 
-* hämta filer från en tillgång.
+* Ladda upp mediefiler till en till gång,
+* Mata in och arkivera Live-strömmar till en till gång,
+* resultat av en kodning för analys jobb till en till gång
+* publicera media för strömning, 
+* Ladda ned filer från en till gång.
 
-Det här avsnittet innehåller en översikt över hur du laddar upp filer till en tillgång och utför några andra vanliga åtgärder. Det ger också länkar till kodexempel och relaterade ämnen.
+Det här avsnittet innehåller en översikt över hur du överför filer till en till gång och utför andra vanliga åtgärder. Den innehåller också länkar till kod exempel och närliggande ämnen.
 
 ## <a name="prerequisite"></a>Krav 
 
-Innan du börjar utveckla, granska:
+Innan du börjar utveckla bör du gå igenom följande:
 
 * [Begrepp](concepts-overview.md)
-* [Utveckla med Api:er för mediatjänster v3](media-services-apis-overview.md) (innehåller information om åtkomst till API:er, namngivningskonventioner och så vidare) 
+* [Utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om åtkomst till API: er, namn konventioner och så vidare) 
 
-## <a name="upload-media-files-into-an-asset"></a>Ladda upp mediefiler till en tillgång
+## <a name="upload-media-files-into-an-asset"></a>Ladda upp mediefiler till en till gång
 
-När de digitala filerna har överförts till lagring och associeras med en tillgång kan de användas i Media Services-kodningen, direktuppspelningen och analysen av innehållsarbetsflöden. Ett av de vanliga Media Services-arbetsflödena är att ladda upp, koda och strömma en fil. I det här avsnittet beskrivs de allmänna stegen.
+När de digitala filerna har överförts till lagring och associerats med en till gång kan de användas i Media Services kodning, strömning och analys av innehålls arbets flöden. En av vanliga Media Services arbets flöden är att ladda upp, koda och strömma en fil. Det här avsnittet beskriver de allmänna stegen.
 
-1. Använd Media Services v3 API för att skapa en ny ”indataresurs”. Den här åtgärden skapar en container i det lagringskonto som associeras med ditt Media Services-konto. API:et returnerar behållarnamnet (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Använd Media Services v3 API för att skapa en ny ”indataresurs”. Den här åtgärden skapar en container i det lagringskonto som associeras med ditt Media Services-konto. API: et returnerar behållarens namn (till exempel `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
 
-    Om du redan har en blob-behållare som du vill associera med en tillgång kan du ange behållarnamnet när du skapar tillgången. Media Services stöder för närvarande endast blobar i containerroten och inte med sökvägar i filnamnet. Därmed fungerar en container med namnet ”input.mp4”. En behållare med filnamnet "videos/inputs/input.mp4" fungerar dock inte.
+    Om du redan har en BLOB-behållare som du vill koppla till en till gång kan du ange behållar namnet när du skapar till gången. Media Services stöder för närvarande endast blobar i containerroten och inte med sökvägar i filnamnet. Därmed fungerar en container med namnet ”input.mp4”. Men en behållare med fil namnet "videor/Inputs/input. mp4" fungerar inte.
 
     Du kan använda Azure CLI för att ladda upp direkt till valfritt lagringskonto och container som du har rättigheter till i din prenumeration.
 
@@ -58,17 +58,17 @@ När de digitala filerna har överförts till lagring och associeras med en till
 
     Du kan använda Media Services API för att [lista URL:er för tillgångscontainern](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
 
-    **AssetContainerSas.listContainerSas** tar en [ListContainerSasInput-parameter](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) som du anger `expiryTime`. Tiden ska vara inställd på < 24 timmar.
+    **AssetContainerSas. listContainerSas** använder en [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) -parameter som du anger `expiryTime`. Tiden måste anges till < 24 timmar.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returnerar flera SAS-url:er eftersom det finns två lagringskontonycklar för varje lagringskonto. Ett lagringskonto har två nycklar eftersom det hjälper till med redundans och sömlös rotation av lagringskontonycklar. Den första SAS-URL:en representerar den första lagringskontonyckeln och den andra SAS-URL:en representerar den andra nyckeln.
-3. Använd Azure Storage API:er eller SDK:er (till exempel [STORAGE REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK)](../../storage/blobs/storage-quickstart-blobs-dotnet.md)för att överföra filer till tillgångsbehållaren.
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returnerar flera SAS-URL: er eftersom det finns två lagrings konto nycklar för varje lagrings konto. Ett lagrings konto har två nycklar eftersom det hjälper till med redundans och sömlös rotation av lagrings konto nycklar. Den första SAS-URL: en representerar den första lagrings konto nyckeln och den andra SAS-URL: en representerar den andra nyckeln.
+3. Använd Azure Storage-API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) för att ladda upp filer till till gångs behållaren.
 4. Använd Media Services v3-API:er för att skapa en transformering och ett jobb för att bearbeta din ”indatatillgång”. Mer information finns i [Transformeringar och jobb](transform-concept.md).
-5. Strömma innehållet från "utdata"-tillgången.
+5. Strömma innehållet från "output"-till gången.
 
 ### <a name="create-a-new-asset"></a>Skapa en ny tillgång
 
 > [!NOTE]
-> En tillgångs egenskaper för datetime-typen är alltid i UTC-format.
+> En till gångs egenskaper för datetime-typen är alltid i UTC-format.
 
 #### <a name="rest"></a>REST
 
@@ -76,9 +76,9 @@ När de digitala filerna har överförts till lagring och associeras med en till
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-Ett REST-exempel finns i exemplet [Skapa en tillgång med REST.](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples)
+Ett REST-exempel finns i exemplet [skapa en till gång med rest](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) .
 
-Exemplet visar hur du skapar den **begärande brödtext** där du kan ange beskrivning, behållarnamn, lagringskonto och annan användbar information.
+Exemplet visar hur du skapar **begär ande texten** där du kan ange beskrivning, container namn, lagrings konto och annan användbar information.
 
 #### <a name="curl"></a>cURL
 
@@ -102,49 +102,49 @@ curl -X PUT \
 
 ### <a name="see-also"></a>Se även
 
-* [Skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md)
-* [Skapa en jobbinmatning från en HTTPS-URL](job-input-from-http-how-to.md)
+* [Skapa ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md)
+* [Skapa ett jobb inmatat från en HTTPS-URL](job-input-from-http-how-to.md)
 
-## <a name="ingest-and-archive-live-streams-into-an-asset"></a>Inta och arkivera liveströmmar till en tillgång
+## <a name="ingest-and-archive-live-streams-into-an-asset"></a>Mata in och arkivera Live-strömmar till en till gång
 
-I Media Services är ett [Live Output-objekt](https://docs.microsoft.com/rest/api/media/liveoutputs) som en digital videobandspelare som fångar och spelar in din livestream till en tillgång i ditt Media Services-konto. Det inspelade innehållet sparas i behållaren som definieras av [resursen Tillgång.](https://docs.microsoft.com/rest/api/media/assets)
+I Media Services är ett [Live-utmatnings](https://docs.microsoft.com/rest/api/media/liveoutputs) objekt som en digital videobandspelare som fångar upp och registrerar din Live-dataström till en till gång i ditt Media Services-konto. Det inspelade innehållet sparas i den behållare som definieras av [resurs resursen.](https://docs.microsoft.com/rest/api/media/assets)
 
 Mer information finns i:
 
 * [Använda en molnbaserad DVR-spelare](live-event-cloud-dvr.md)
-* [Streaming live handledning](stream-live-tutorial-with-api.md)
+* [Direkt uppspelnings kurs](stream-live-tutorial-with-api.md)
 
-## <a name="output-the-results-of-a-job-to-an-asset"></a>Utdata från ett jobb till en tillgång
+## <a name="output-the-results-of-a-job-to-an-asset"></a>Spara resultatet av ett jobb till en till gång
 
-I Media Services måste du när du bearbetar dina videor (till exempel kodning eller analys) skapa en [utdatatillgång](assets-concept.md) för att lagra resultatet av [ditt jobb](transforms-jobs-concept.md).
+I Media Services, när du bearbetar dina videor (till exempel kodning eller analys), måste du skapa en utgående [till gång](assets-concept.md) för att lagra resultatet av [jobbet](transforms-jobs-concept.md).
 
 Mer information finns i:
 
 * [Koda en video](encoding-concept.md)
-* [Skapa en jobbindata från en lokal fil](job-input-from-local-file-how-to.md)
+* [Skapa ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md)
 
-## <a name="publish-an-asset-for-streaming"></a>Publicera en tillgång för direktuppspelning
+## <a name="publish-an-asset-for-streaming"></a>Publicera en till gång för strömning
 
-Om du vill publicera en tillgång för direktuppspelning måste du skapa en [streamingpositionerare](streaming-locators-concept.md). Den direktuppspelningspositioneraren måste känna till det tillgångsnamn som du vill publicera. 
+Om du vill publicera en till gång för strömning måste du skapa en [strömmande lokaliserare](streaming-locators-concept.md). Den strömmande lokaliseraren måste känna till till gångs namnet som du vill publicera. 
 
 Mer information finns i:
 
-[Självstudiekurs: Ladda upp, koda och strömma videor med Media Services v3](stream-files-tutorial-with-api.md)
+[Självstudie: Ladda upp, koda och strömma videor med Media Services v3](stream-files-tutorial-with-api.md)
 
-## <a name="download-results-of-a-job-from-an-output-asset"></a>Hämta resultat för ett jobb från en utdatatillgång
+## <a name="download-results-of-a-job-from-an-output-asset"></a>Hämta resultatet av ett jobb från en utmatnings till gång
 
-Du kan sedan hämta dessa resultat av jobbet till en lokal mapp med hjälp av API:er för medietjänst och lagring. 
+Du kan sedan hämta resultatet av ditt jobb till en lokal mapp med hjälp av media service och Storage-API: er. 
 
-Se exemplet [med nedladdningsfiler.](download-results-howto.md)
+Se exempel på [nedladdnings fil](download-results-howto.md) .
 
-## <a name="filtering-ordering-paging"></a>Filtrering, beställning, växling
+## <a name="filtering-ordering-paging"></a>Filtrering, sortering, växling
 
-Se [Filtrering, beställning, växling av Media Services-entiteter](entities-overview.md).
+Se [filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se de fullständiga kodexemplen som visar hur du laddar upp, kodar, analyserar, streamar live och på begäran: 
+Se fullständiga kod exempel som visar hur du överför, kodar, analyserar, strömmar Live och på begäran: 
 
 * [Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
-* [.NET](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
-* [VILA](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).
+* [.Net](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
+* [Rest](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).

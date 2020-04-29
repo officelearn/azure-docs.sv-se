@@ -1,6 +1,6 @@
 ---
-title: 'Interoperabilitet i Azure : Dataplananalys'
-description: Den här artikeln innehåller dataplananalys av testinställningarna som du kan använda för att analysera interoperabilitet mellan ExpressRoute, en VPN från plats till plats och virtuell nätverks peering i Azure.
+title: 'Interoperabilitet i Azure: analys av data planet'
+description: Den här artikeln innehåller data planet analys av test konfigurationen som du kan använda för att analysera interoperabilitet mellan ExpressRoute, en plats-till-plats-VPN och virtuell nätverks-peering i Azure.
 documentationcenter: na
 services: networking
 author: rambk
@@ -11,23 +11,23 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80518253"
 ---
-# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilitet i Azure : Dataplananalys
+# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilitet i Azure: analys av data planet
 
-I den här artikeln beskrivs dataplananalysen av [testinställningen][Setup]. Du kan också granska [testinställningskonfigurationen][Configuration] och [kontrollplansanalysen][Control-Analysis] av testkonfigurationen.
+I den här artikeln beskrivs analys av [test inställningarna][Setup]för data planet. Du kan också granska [konfigurationen av test konfigurationen][Configuration] och [kontroll Plans analysen][Control-Analysis] av test konfigurationen.
 
-Dataplananalys undersöker sökvägen som tas av paket som passerar från ett lokalt nätverk (LAN eller virtuellt nätverk) till ett annat inom en topologi. Datasökvägen mellan två lokala nätverk är inte nödvändigtvis symmetrisk. Därför analyserar vi i den här artikeln en vidarebefordringsväg från ett lokalt nätverk till ett annat nätverk som är separat från den omvända sökvägen.
+Data Plans analys undersöker sökvägen som tas av paket som passerar från ett lokalt nätverk (LAN eller virtuellt nätverk) till ett annat inom en topologi. Data Sök vägen mellan två lokala nätverk är inte nödvändigt vis symmetrisk. I den här artikeln analyserar vi därför en vidarebefordrande sökväg från ett lokalt nätverk till ett annat nätverk som är skilt från den omvända sökvägen.
 
-## <a name="data-path-from-the-hub-vnet"></a>Datasökväg från navet VNet
+## <a name="data-path-from-the-hub-vnet"></a>Data Sök väg från hubbens VNet
 
-### <a name="path-to-the-spoke-vnet"></a>Sökväg till det ekra virtuella nätverket
+### <a name="path-to-the-spoke-vnet"></a>Sökväg till eker VNet
 
-VNet-peering (Virtual Network) emulerar nätverksbrygga mellan de två virtuella nätverk som är peer-relaterade. Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator i det eker-virtuella nätverket visas här:
+Peering för virtuella nätverk (VNet) emulerar funktionen för nätverks bryggor mellan de två virtuella nätverk som är peer-kopplat. Traceroute-utdata från ett hubb-VNet till en virtuell dator i det virtuella eker-nätverket visas här:
 
     C:\Users\rb>tracert 10.11.30.4
 
@@ -37,14 +37,14 @@ VNet-peering (Virtual Network) emulerar nätverksbrygga mellan de två virtuella
 
     Trace complete.
 
-Följande bild visar den grafiska anslutningsvyn för navet VNet och eker-VNet ur Azure Network Watchers perspektiv:
+Följande bild visar vyn grafisk anslutning för hubbens VNet och eker VNet från perspektivet Azure Network Watcher:
 
 
 ![1][1]
 
-### <a name="path-to-the-branch-vnet"></a>Sökväg till grenens virtuella nätverk
+### <a name="path-to-the-branch-vnet"></a>Sökväg till grenens VNet
 
-Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator i grenens virtuella nätverk visas här:
+Traceroute-utdata från ett hubb-VNet till en virtuell dator i grenen VNet visas här:
 
     C:\Users\rb>tracert 10.11.30.68
 
@@ -56,19 +56,19 @@ Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator i gren
 
     Trace complete.
 
-I den här traceroute är det första hoppet VPN-gatewayen i Azure VPN Gateway för hub vnet. Det andra hoppet är VPN-gatewayen för grenenS VNet. IP-adressen för VPN-gatewayen för grenens virtuella nätverk annonseras inte i hub vnet. Det tredje hoppet är den virtuella datorn på grenens virtuella nätverk.
+I den här traceroute är det första hoppet VPN-gatewayen i Azure VPN Gateway av hubbens VNet. Det andra hoppet är VPN-gatewayen för grenens VNet. IP-adressen för VPN-gatewayen för grenens VNet annonseras inte i hubbens VNet. Det tredje hoppet är den virtuella datorn i grenens VNet.
 
-Följande bild visar den grafiska anslutningsvyn för navet VNet och grenen VIRTUELLA nätverk ur Network Watcher:
+Följande bild visar vyn grafisk anslutning för hubbens VNet och grenens VNet från Network Watcher perspektiv:
 
 ![2][2]
 
-För samma anslutning visar följande bild rutnätsvyn i Network Watcher:
+För samma anslutning visar följande figur rutnätsvy i Network Watcher:
 
 ![3][3]
 
 ### <a name="path-to-on-premises-location-1"></a>Sökväg till lokal plats 1
 
-Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator på lokal plats 1 visas här:
+Traceroute-utdata från ett hubb-VNet till en virtuell dator på den lokala platsen 1 visas här:
 
     C:\Users\rb>tracert 10.2.30.10
 
@@ -81,12 +81,12 @@ Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator på lo
 
     Trace complete.
 
-I den här traceroute är det första hoppet slutpunkten för Azure ExpressRoute gateway-tunnel till en Microsoft Enterprise Edge Router (MSEE). Det andra och tredje hoppen är routern för kundkant (CE) och de lokala plats 1-IP-adresserna. Dessa IP-adresser annonseras inte i hubb-nätverket. Det fjärde hoppet är den virtuella datorn på den lokala plats 1.
+I den här traceroute är det första hoppet Azure ExpressRoute Gateway-tunnelns slut punkt till en Microsoft Enterprise Edge-router (MSEE: N). De andra och tredje hoppen är kundens (CE) router och lokal plats 1 LAN-IP. Dessa IP-adresser annonseras inte i hubbens VNet. Det fjärde hoppet är den virtuella datorn på den lokala platsen 1.
 
 
 ### <a name="path-to-on-premises-location-2"></a>Sökväg till lokal plats 2
 
-Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator på lokal plats 2 visas här:
+Traceroute-utdata från ett hubb-VNet till en virtuell dator på den lokala platsen 2 visas här:
 
     C:\Users\rb>tracert 10.1.31.10
 
@@ -99,11 +99,11 @@ Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator på lo
 
     Trace complete.
 
-I den här traceroute är det första hoppet ExpressRoute gateway tunnel slutpunkten till en MSEE. Det andra och tredje hoppen är CE-routern och de lokala plats 2 LAN-IP-adresser. Dessa IP-adresser annonseras inte i hubb-nätverket. Det fjärde hoppet är den virtuella datorn på den lokala plats 2.
+I den här traceroute är det första hoppet ExpressRoute Gateway-tunnelns slut punkt till en MSEE: N. Den andra och tredje hoppen är CE-routern och den lokala platsen 2 LAN IP-adresser. Dessa IP-adresser annonseras inte i hubbens VNet. Det fjärde hoppet är den virtuella datorn på den lokala platsen 2.
 
-### <a name="path-to-the-remote-vnet"></a>Sökväg till fjärr-VNet
+### <a name="path-to-the-remote-vnet"></a>Sökväg till fjärrnätverket
 
-Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator i fjärr-virtuella nätverk visas här:
+Traceroute-utdata från ett hubb-VNet till en virtuell dator i det virtuella fjärrnätverket visas här:
 
     C:\Users\rb>tracert 10.17.30.4
 
@@ -115,15 +115,15 @@ Traceroute-utdata från ett nav-virtuellt nätverk till en virtuell dator i fjä
 
     Trace complete.
 
-I den här traceroute är det första hoppet ExpressRoute gateway tunnel slutpunkten till en MSEE. Det andra hoppet är fjärr-VNets gateway-IP. Det andra HOP IP-intervallet annonseras inte i hubb-nätverket. Det tredje hoppet är den virtuella datorn på fjärr-VNet.
+I den här traceroute är det första hoppet ExpressRoute Gateway-tunnelns slut punkt till en MSEE: N. Det andra hoppet är Gateway-IP för fjärrnätverket. Det andra hoppets IP-intervall annonseras inte i hubbens VNet. Det tredje hoppet är den virtuella datorn på fjärrnätverket.
 
-## <a name="data-path-from-the-spoke-vnet"></a>Datasökväg från det eker-virtuella nätverket
+## <a name="data-path-from-the-spoke-vnet"></a>Data Sök väg från eker VNet
 
-Eker-VNet delar nätverksvyn för navet VNet. Genom VNet-peering använder ekrarna VNet fjärrgatewayanslutningen för navet VNet som om det är direkt anslutet till det ekriga virtuella nätverket.
+Det eker-VNet som delar nätverks visningen av hubbens VNet. Med hjälp av VNet-peering använder det virtuella eker-nätverket fjärran sluten Gateway-anslutningen till hubben för hubben som om den är direktansluten till eker VNet.
 
-### <a name="path-to-the-hub-vnet"></a>Sökväg till navet VNet
+### <a name="path-to-the-hub-vnet"></a>Sökväg till hubbens VNet
 
-Traceroute-utdata från ekrarnavnet till en virtuell dator i navet VNet visas här:
+Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator i hubbens VNet visas här:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -133,9 +133,9 @@ Traceroute-utdata från ekrarnavnet till en virtuell dator i navet VNet visas h�
 
     Trace complete.
 
-### <a name="path-to-the-branch-vnet"></a>Sökväg till grenens virtuella nätverk
+### <a name="path-to-the-branch-vnet"></a>Sökväg till grenens VNet
 
-Traceroute-utdata från ekrarnavnet till en virtuell dator i grenens virtuella nätverk visas här:
+Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator i grenen VNet visas här:
 
     C:\Users\rb>tracert 10.11.30.68
 
@@ -147,11 +147,11 @@ Traceroute-utdata från ekrarnavnet till en virtuell dator i grenens virtuella n
 
     Trace complete.
 
-I den här traceroute är det första hoppet VPN-gatewayen för navet VNet. Det andra hoppet är VPN-gatewayen för grenenS VNet. IP-adressen för VPN-gatewayen för grenens virtuella nätverk annonseras inte inom hub/spoke-nätverket. Det tredje hoppet är den virtuella datorn på grenens virtuella nätverk.
+I den här traceroute är det första hoppet VPN-gatewayen för hubbens VNet. Det andra hoppet är VPN-gatewayen för grenens VNet. IP-adressen för VPN-gatewayen för grenens VNet annonseras inte inom hubben/ekraret VNet. Det tredje hoppet är den virtuella datorn i grenens VNet.
 
 ### <a name="path-to-on-premises-location-1"></a>Sökväg till lokal plats 1
 
-Traceroute-utdata från ekrarvnätet till en virtuell dator i lokal plats 1 visas här:
+Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator på den lokala platsen 1 visas här:
 
     C:\Users\rb>tracert 10.2.30.10
 
@@ -164,11 +164,11 @@ Traceroute-utdata från ekrarvnätet till en virtuell dator i lokal plats 1 visa
 
     Trace complete.
 
-I den här traceroute är det första hoppet navet VNets ExpressRoute gateway tunnel slutpunkt till en MSEE. Det andra och tredje hoppen är CE-routern och de lokala plats 1 LAN-IP-adresser. Dessa IP-adresser annonseras inte i hubb/eker-nätverket. Det fjärde hoppet är den virtuella datorn på den lokala plats 1.
+I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tunnel slut punkt till en MSEE: N. Den andra och tredje hoppen är CE-routern och den lokala platsen 1 LAN-IP. Dessa IP-adresser annonseras inte i hubben/ekraret VNet. Det fjärde hoppet är den virtuella datorn på den lokala platsen 1.
 
 ### <a name="path-to-on-premises-location-2"></a>Sökväg till lokal plats 2
 
-Traceroute-utdata från ekrarvnätet till en virtuell dator på lokal plats plats 2 visas här:
+Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator på den lokala platsen 2 visas här:
 
 
     C:\Users\rb>tracert 10.1.31.10
@@ -182,11 +182,11 @@ Traceroute-utdata från ekrarvnätet till en virtuell dator på lokal plats plat
 
     Trace complete.
 
-I den här traceroute är det första hoppet navet VNets ExpressRoute gateway tunnel slutpunkt till en MSEE. Det andra och tredje hoppen är CE-routern och de lokala plats 2 LAN-IP-adresser. Dessa IP-adresser annonseras inte i hubben/eker-virtuella nätverk. Det fjärde hoppet är den virtuella datorn på den lokala plats 2.
+I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tunnel slut punkt till en MSEE: N. Den andra och tredje hoppen är CE-routern och den lokala platsen 2 LAN IP-adresser. Dessa IP-adresser annonseras inte i hubben/eker-virtuella nätverk. Det fjärde hoppet är den virtuella datorn på den lokala platsen 2.
 
-### <a name="path-to-the-remote-vnet"></a>Sökväg till fjärr-VNet
+### <a name="path-to-the-remote-vnet"></a>Sökväg till fjärrnätverket
 
-Traceroute-utdata från ekrarnavnet till en virtuell dator i fjärr-virtuella nätverk visas här:
+Traceroute-utdata från det virtuella eker-nätverket till en virtuell dator i det virtuella fjärrnätverket visas här:
 
     C:\Users\rb>tracert 10.17.30.4
 
@@ -198,13 +198,13 @@ Traceroute-utdata från ekrarnavnet till en virtuell dator i fjärr-virtuella n�
 
     Trace complete.
 
-I den här traceroute är det första hoppet navet VNets ExpressRoute gateway tunnel slutpunkt till en MSEE. Det andra hoppet är fjärr-VNets gateway-IP. Det andra HOP IP-intervallet annonseras inte i hubb/eker-VNet. Det tredje hoppet är den virtuella datorn på fjärr-VNet.
+I den här traceroute är det första hoppet Hub VNet: s ExpressRoute Gateway-tunnel slut punkt till en MSEE: N. Det andra hoppet är Gateway-IP för fjärrnätverket. Det andra hoppets IP-intervall annonseras inte i hubben/ekraret VNet. Det tredje hoppet är den virtuella datorn på fjärrnätverket.
 
-## <a name="data-path-from-the-branch-vnet"></a>Datasökväg från grenens virtuella nätverk
+## <a name="data-path-from-the-branch-vnet"></a>Data Sök väg från gren VNet
 
-### <a name="path-to-the-hub-vnet"></a>Sökväg till navet VNet
+### <a name="path-to-the-hub-vnet"></a>Sökväg till hubbens VNet
 
-Traceroute-utdata från grenenS virtuella nätverk till en virtuell dator i navet VNet visas här:
+Traceroute-utdata från gren-VNet till en virtuell dator i hubbens VNet visas här:
 
     C:\Windows\system32>tracert 10.10.30.4
 
@@ -216,11 +216,11 @@ Traceroute-utdata från grenenS virtuella nätverk till en virtuell dator i nave
 
     Trace complete.
 
-I den här traceroute är det första hoppet VPN-gatewayen för grenen VNet. Det andra hoppet är VPN-gatewayen för hubnet VNet. IP-adressen för VPN-gatewayen för hubnet VNet annonseras inte i fjärr-virtuella nätverk. Det tredje hoppet är den virtuella datorn på hubb-nätverket.
+I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. Det andra hoppet är VPN-gatewayen för hubbens VNet. IP-adressen för VPN-gatewayen för hubbens VNet annonseras inte i fjärrnätverket. Det tredje hoppet är den virtuella datorn i hubbens VNet.
 
-### <a name="path-to-the-spoke-vnet"></a>Sökväg till det ekra virtuella nätverket
+### <a name="path-to-the-spoke-vnet"></a>Sökväg till eker VNet
 
-Traceroute-utdata från grenenS virtuella nätverk till en virtuell dator i det eker-virtuella nätverket visas här:
+Traceroute-utdata från gren-VNet till en virtuell dator i eker VNet visas här:
 
     C:\Users\rb>tracert 10.11.30.4
 
@@ -232,11 +232,11 @@ Traceroute-utdata från grenenS virtuella nätverk till en virtuell dator i det 
 
     Trace complete.
 
-I den här traceroute är det första hoppet VPN-gatewayen för grenen VNet. Det andra hoppet är VPN-gatewayen för hubnet VNet. IP-adressen för VPN-gatewayen för hubnet VNet annonseras inte i fjärr-virtuella nätverk. Det tredje hoppet är den virtuella datorn på det eker-virtuella nätverket.
+I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. Det andra hoppet är VPN-gatewayen för hubbens VNet. IP-adressen för VPN-gatewayen för hubbens VNet annonseras inte i fjärrnätverket. Det tredje hoppet är den virtuella datorn i eker VNet.
 
 ### <a name="path-to-on-premises-location-1"></a>Sökväg till lokal plats 1
 
-Traceroute-utdata från grenenS virtuella nätverk till en virtuell dator på lokal plats 1 visas här:
+Traceroute-utdata från gren-VNet till en virtuell dator på den lokala platsen 1 visas här:
 
     C:\Users\rb>tracert 10.2.30.10
 
@@ -250,11 +250,11 @@ Traceroute-utdata från grenenS virtuella nätverk till en virtuell dator på lo
 
     Trace complete.
 
-I den här traceroute är det första hoppet VPN-gatewayen för grenen VNet. Det andra hoppet är VPN-gatewayen för hubnet VNet. IP-adressen för VPN-gatewayen för hubnet VNet annonseras inte i fjärr-virtuella nätverk. Det tredje hoppet är VPN-tunnelns avslutningspunkt på den primära CE-routern. Det fjärde hoppet är en intern IP-adress för lokal plats 1. Den här LAN-IP-adressen annonseras inte utanför CE-routern. Det femte hoppet är måldatorn på den lokala plats 1.
+I den här traceroute är det första hoppet VPN-gatewayen för grenens VNet. Det andra hoppet är VPN-gatewayen för hubbens VNet. IP-adressen för VPN-gatewayen för hubbens VNet annonseras inte i fjärrnätverket. Det tredje hoppet är VPN-tunnelns avslutnings plats på den primära CE-routern. Det fjärde hoppet är en intern IP-adress för den lokala platsen 1. Den här nätverks-IP-adressen annonseras inte utanför CE-routern. Det femte hoppet är den virtuella mål datorn på den lokala platsen 1.
 
 ### <a name="path-to-on-premises-location-2-and-the-remote-vnet"></a>Sökväg till lokal plats 2 och fjärr-VNet
 
-Som vi diskuterade i kontrollplansanalysen har grenens virtuella nätverk ingen synlighet vare sig på lokal plats 2 eller till fjärr-VNet per nätverkskonfigurationen. Följande ping resultat bekräftar: 
+Som vi diskuterat i kontroll Plans analysen har grenen VNet ingen synlighet för antingen lokal plats 2 eller fjärr-VNet enligt nätverks konfigurationen. Följande ping-resultat bekräftar: 
 
     C:\Users\rb>ping 10.1.31.10
 
@@ -278,11 +278,11 @@ Som vi diskuterade i kontrollplansanalysen har grenens virtuella nätverk ingen 
     Ping statistics for 10.17.30.4:
         Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-## <a name="data-path-from-on-premises-location-1"></a>Datasökväg från lokal plats 1
+## <a name="data-path-from-on-premises-location-1"></a>Data Sök väg från lokal plats 1
 
-### <a name="path-to-the-hub-vnet"></a>Sökväg till navet VNet
+### <a name="path-to-the-hub-vnet"></a>Sökväg till hubbens VNet
 
-Traceroute-utdata från lokal plats 1 till en virtuell dator i navet VNet visas här:
+Traceroute-utdata från den lokala platsen 1 till en virtuell dator i hubbens VNet visas här:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -296,15 +296,15 @@ Traceroute-utdata från lokal plats 1 till en virtuell dator i navet VNet visas 
 
     Trace complete.
 
-I detta spårförbud är de två första hoppen en del av det lokala nätverket. Det tredje hoppet är det primära MSEE-gränssnittet som är vänd mot CE-routern. Det fjärde hoppet är ExpressRoute-gatewayen för hubnet VNet. IP-intervallet för ExpressRoute-gatewayen för hub VNet annonseras inte till det lokala nätverket. Det femte hoppet är måldass.
+I den här traceroute är de första två hoppen en del av det lokala nätverket. Det tredje hoppet är det primära MSEE: N-gränssnittet som passar för CE-routern. Det fjärde hoppet är ExpressRoute-gatewayen för hubbens VNet. IP-intervallet för ExpressRoute-gatewayen för hubbens VNet annonseras inte till det lokala nätverket. Det femte hoppet är den virtuella mål datorn.
 
-Network Watcher tillhandahåller endast en Azure-centrerad vy. För ett lokalt perspektiv använder vi Azure Network Performance Monitor. Network Performance Monitor tillhandahåller agenter som du kan installera på servrar i nätverk utanför Azure för datasökvägsanalys.
+Network Watcher tillhandahåller endast en Azure-inriktad vy. För ett lokalt perspektiv använder vi Azure Övervakare av nätverksprestanda. Övervakare av nätverksprestanda tillhandahåller agenter som du kan installera på servrar i nätverk utanför Azure för data Sök vägs analys.
 
-Följande bild visar topologivyn för den lokala VM-anslutningen för plats 1 till den virtuella datorn på navet VNet via ExpressRoute:
+Följande bild visar topologin för den lokala plats 1 VM-anslutningen till den virtuella datorn i hubbens VNet via ExpressRoute:
 
 ![4][4]
 
-Som diskuterats tidigare använder testkonfigurationen en plats-till-plats-VPN som säkerhetskopieringsanslutning för ExpressRoute mellan den lokala plats 1 och hubbenS VNet. Om du vill testa sökvägen till säkerhetskopieringsdata ska vi inducera ett ExpressRoute-länkfel mellan den lokala plats 1-primära CE-routern och motsvarande MSEE. Om du vill inducera ett ExpressRoute-länkfel stänger du av CE-gränssnittet som är vänd mot MSEE:
+Som tidigare nämnts använder test installationen en plats-till-plats-VPN som säkerhets kopierings anslutning för ExpressRoute mellan den lokala platsen 1 och hubbens VNet. För att testa säkerhets kopian av säkerhets kopierings data, ska vi orsaka ett ExpressRoute länkfel mellan den lokala primära och den lokala platsen 1 primära CE-router och motsvarande MSEE: N. Om du vill inducera ett ExpressRoute-länkfel stänger du av det CE-gränssnitt som är MSEE: N:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -316,15 +316,15 @@ Som diskuterats tidigare använder testkonfigurationen en plats-till-plats-VPN s
 
     Trace complete.
 
-Följande bild visar topologivyn för den lokala VM-anslutningen för plats 1 till den virtuella datorn på navet VNet via VPN-anslutning från plats till plats när ExpressRoute-anslutningen är nere:
+Följande bild visar topologin för den lokala plats 1 VM-anslutningen till den virtuella datorn i hubbens VNet via VPN-anslutning från plats till plats när ExpressRoute-anslutningen är avstängd:
 
 ![5][5]
 
-### <a name="path-to-the-spoke-vnet"></a>Sökväg till det ekra virtuella nätverket
+### <a name="path-to-the-spoke-vnet"></a>Sökväg till eker VNet
 
-Traceroute-utdata från lokal plats 1 till en virtuell dator i det ekerbaserade virtuella nätverket visas här:
+Traceroute-utdata från den lokala platsen 1 till en virtuell dator i det virtuella eker-nätverket visas här:
 
-Låt oss få tillbaka Den primära ExpressRoute-anslutningen för att göra datasökvägsanalysen mot det eker-virtuella nätverket:
+Nu ska vi gå tillbaka till den primära ExpressRoute-anslutningen för att utföra data Sök vägs analysen mot eker VNet:
 
     C:\Users\rb>tracert 10.11.30.4
 
@@ -338,11 +338,11 @@ Låt oss få tillbaka Den primära ExpressRoute-anslutningen för att göra data
 
     Trace complete.
 
-Ta fram den primära ExpressRoute 1-anslutningen för resten av datasökvägsanalysen.
+Ta upp den primära ExpressRoute 1-anslutningen för resten av data Sök vägs analysen.
 
-### <a name="path-to-the-branch-vnet"></a>Sökväg till grenens virtuella nätverk
+### <a name="path-to-the-branch-vnet"></a>Sökväg till grenens VNet
 
-Traceroute-utdata från lokal plats 1 till en virtuell dator i grenens virtuella nätverk visas här:
+Traceroute-utdata från lokal plats 1 till en virtuell dator i grenen VNet visas här:
 
     C:\Users\rb>tracert 10.11.30.68
 
@@ -356,7 +356,7 @@ Traceroute-utdata från lokal plats 1 till en virtuell dator i grenens virtuella
 
 ### <a name="path-to-on-premises-location-2"></a>Sökväg till lokal plats 2
 
-Som vi diskuterar i [kontrollplansanalysen][Control-Analysis]har den lokala plats 1 ingen synlighet för lokal plats 2 per nätverkskonfigurationen. Följande ping resultat bekräftar: 
+När vi diskuterar i [kontroll Plans analysen][Control-Analysis]har den lokala platsen 1 ingen synlighet för lokal plats 2 per nätverks konfigurationen. Följande ping-resultat bekräftar: 
 
     C:\Users\rb>ping 10.1.31.10
     
@@ -369,9 +369,9 @@ Som vi diskuterar i [kontrollplansanalysen][Control-Analysis]har den lokala plat
     Ping statistics for 10.1.31.10:
         Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
 
-### <a name="path-to-the-remote-vnet"></a>Sökväg till fjärr-VNet
+### <a name="path-to-the-remote-vnet"></a>Sökväg till fjärrnätverket
 
-Traceroute-utdata från lokal plats 1 till en virtuell dator i fjärr-virtuella nätverk visas här:
+Traceroute-utdata från lokal plats 1 till en virtuell dator i det virtuella fjärrnätverket visas här:
 
     C:\Users\rb>tracert 10.17.30.4
 
@@ -385,11 +385,11 @@ Traceroute-utdata från lokal plats 1 till en virtuell dator i fjärr-virtuella 
 
     Trace complete.
 
-## <a name="data-path-from-on-premises-location-2"></a>Datasökväg från lokal plats 2
+## <a name="data-path-from-on-premises-location-2"></a>Data Sök väg från lokal plats 2
 
-### <a name="path-to-the-hub-vnet"></a>Sökväg till navet VNet
+### <a name="path-to-the-hub-vnet"></a>Sökväg till hubbens VNet
 
-Traceroute-utdata från lokal plats 2 till en virtuell dator i navet VNet visas här:
+Traceroute-utdata från den lokala platsen 2 till en virtuell dator i hubbens VNet visas här:
 
     C:\Windows\system32>tracert 10.10.30.4
 
@@ -403,9 +403,9 @@ Traceroute-utdata från lokal plats 2 till en virtuell dator i navet VNet visas 
 
     Trace complete.
 
-### <a name="path-to-the-spoke-vnet"></a>Sökväg till det ekra virtuella nätverket
+### <a name="path-to-the-spoke-vnet"></a>Sökväg till eker VNet
 
-Traceroute-utdata från lokal plats 2 till en virtuell dator i det ekerbaserade virtuella nätverket visas här:
+Traceroute-utdata från den lokala platsen 2 till en virtuell dator i det virtuella eker-nätverket visas här:
 
     C:\Windows\system32>tracert 10.11.30.4
 
@@ -418,15 +418,15 @@ Traceroute-utdata från lokal plats 2 till en virtuell dator i det ekerbaserade 
 
     Trace complete.
 
-### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Sökväg till filialens virtuella nätverk, lokal plats 1 och det fjärr-virtuella nätverket
+### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Sökväg till gren-VNet, lokal plats 1 och fjärrnätverket
 
-Som vi diskuterar i [kontrollplansanalysen][Control-Analysis]har den lokala plats 1 ingen synlighet för grenenS virtuella nätverk, till lokal plats 1 eller till fjärr-virtuella nätverk per nätverkskonfiguration. 
+När vi diskuterar i [kontroll Plans analysen][Control-Analysis]har den lokala platsen 1 ingen insyn i grenens VNet, till lokal plats 1 eller till fjärrnätverket enligt nätverks konfigurationen. 
 
-## <a name="data-path-from-the-remote-vnet"></a>Datasökväg från fjärr-VNet
+## <a name="data-path-from-the-remote-vnet"></a>Data Sök väg från fjärrnätverket
 
-### <a name="path-to-the-hub-vnet"></a>Sökväg till navet VNet
+### <a name="path-to-the-hub-vnet"></a>Sökväg till hubbens VNet
 
-Traceroute-utdata från fjärr-virtuella nätverk till en virtuell dator i navet VNet visas här:
+Traceroute-utdata från fjärrnätverket till en virtuell dator i hubbens VNet visas här:
 
     C:\Users\rb>tracert 10.10.30.4
 
@@ -438,9 +438,9 @@ Traceroute-utdata från fjärr-virtuella nätverk till en virtuell dator i navet
 
     Trace complete.
 
-### <a name="path-to-the-spoke-vnet"></a>Sökväg till det ekra virtuella nätverket
+### <a name="path-to-the-spoke-vnet"></a>Sökväg till eker VNet
 
-Traceroute-utdata från fjärr-virtuella nätverk till en virtuell dator i det ekriga virtuella nätverket visas här:
+Traceroute-utdata från fjärrnätverket till en virtuell dator i det virtuella eker-nätverket visas här:
 
     C:\Users\rb>tracert 10.11.30.4
 
@@ -452,13 +452,13 @@ Traceroute-utdata från fjärr-virtuella nätverk till en virtuell dator i det e
 
     Trace complete.
 
-### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Sökväg till filialens virtuella nätverk och lokal plats 2
+### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Sökväg till gren-VNet och lokal plats 2
 
-Som vi diskuterar i [kontrollplansanalysen][Control-Analysis]har fjärr-VNet ingen synlighet för grenenS virtuella nätverk eller till lokal plats 2 per nätverkskonfigurationen. 
+När vi diskuterar i [kontroll Plans analysen][Control-Analysis]har fjärrnätverket ingen insyn i grenens VNet eller till lokal plats 2 per nätverks konfigurationen. 
 
 ### <a name="path-to-on-premises-location-1"></a>Sökväg till lokal plats 1
 
-Traceroute-utdata från fjärr-virtuella nätverk till en virtuell dator på lokal plats 1 visas här:
+Traceroute-utdata från fjärrnätverket till en virtuell dator på den lokala platsen 1 visas här:
 
     C:\Users\rb>tracert 10.2.30.10
 
@@ -474,47 +474,47 @@ Traceroute-utdata från fjärr-virtuella nätverk till en virtuell dator på lok
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>ExpressRoute och plats-till-plats VPN-anslutning i tandem
 
-###  <a name="site-to-site-vpn-over-expressroute"></a>Plats-till-plats VPN via ExpressRoute
+###  <a name="site-to-site-vpn-over-expressroute"></a>Plats-till-plats-VPN via ExpressRoute
 
-Du kan konfigurera en plats-till-plats-VPN genom att använda ExpressRoute Microsoft-peering för att privat utbyta data mellan ditt lokala nätverk och dina Virtuella Azure-nätverk. Med den här konfigurationen kan du utbyta data med sekretess, äkthet och integritet. Datautbytet är också anti-repris. Mer information om hur du konfigurerar en IPsec-VPN från plats till plats i tunnelläge med Hjälp av ExpressRoute Microsoft-peering finns i [Plats-till-plats VPN via ExpressRoute Microsoft-peering][S2S-Over-ExR]. 
+Du kan konfigurera en plats-till-plats-VPN genom att använda ExpressRoute Microsoft-peering för att utbyta data mellan ditt lokala nätverk och ditt Azure-virtuella nätverk. Med den här konfigurationen kan du utbyta data med konfidentialitet, äkthet och integritet. Data utbytet är också en anti-omuppspelning. Mer information om hur du konfigurerar en plats-till-plats IPsec-VPN i tunnel läge med ExpressRoute Microsoft-peering finns i [plats-till-plats-VPN över ExpressRoute Microsoft-peering][S2S-Over-ExR]. 
 
-Den primära begränsningen av att konfigurera ett PLATS-till-plats-VPN som använder Microsoft-peering är dataflöde. Dataflöde över IPsec-tunneln begränsas av VPN-gatewaykapaciteten. DATAFLÖDET FÖR VPN-gateway är lägre än ExpressRoute-dataflödet. I det här fallet, med hjälp av IPsec tunneln för mycket säker trafik och använda privat peering för all annan trafik hjälper till att optimera ExpressRoute bandbredd utnyttjande.
+Den primära begränsningen för att konfigurera en plats-till-plats-VPN som använder Microsoft-peering är data flöde. Data flödet över IPsec-tunneln begränsas av VPN-gatewayens kapacitet. Data flödet för VPN-gatewayen är lägre än ExpressRoute-dataflödet. I det här scenariot kan du använda IPsec-tunneln för hög säker trafik och använda privat peering för all annan trafik för att optimera ExpressRoute bandbredds användning.
 
-### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>Plats-till-plats VPN som en säker redundanssökväg för ExpressRoute
+### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>Plats-till-plats-VPN som en säker redundans för ExpressRoute
 
-ExpressRoute fungerar som ett redundant kretspar för att säkerställa hög tillgänglighet. Du kan konfigurera geo-redundant ExpressRoute-anslutning i olika Azure-regioner. Dessutom, som visas i vår testkonfiguration, inom en Azure-region, kan du använda en plats-till-plats-VPN för att skapa en redundanssökväg för din ExpressRoute-anslutning. När samma prefix annonseras via både ExpressRoute och ett VPN från plats till plats prioriterar Azure ExpressRoute. För att undvika asymmetrisk routning mellan ExpressRoute och plats-till-plats-VPN bör lokal nätverkskonfiguration också återgäldas med hjälp av ExpressRoute-anslutning innan den använder VPN-anslutning från plats till plats.
+ExpressRoute fungerar som ett redundant krets par för att säkerställa hög tillgänglighet. Du kan konfigurera Geo-redundant ExpressRoute-anslutning i olika Azure-regioner. Som du ser i vår test konfiguration, i en Azure-region, kan du också använda en plats-till-plats-VPN för att skapa en sökväg för redundans för ExpressRoute-anslutningen. När samma prefix annonseras över både ExpressRoute och en plats-till-plats-VPN prioriterar Azure ExpressRoute. För att undvika asymmetrisk routning mellan ExpressRoute och plats-till-plats-VPN, bör den lokala nätverks konfigurationen också vara kolv med ExpressRoute-anslutning innan den använder VPN-anslutning från plats till plats.
 
-Mer information om hur du konfigurerar samtidiga anslutningar för ExpressRoute och en plats-till-plats-VPN finns i [ExpressRoute och samtidig samexistens][ExR-S2S-CoEx]mellan plats och plats till plats .
+Mer information om hur du konfigurerar sambefintliga anslutningar för ExpressRoute och en plats-till-plats-VPN finns i [ExpressRoute och plats-till-plats-samexistens][ExR-S2S-CoEx].
 
-## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Utöka backend-anslutning till eker-virtuella nätverk och filialplatser
+## <a name="extend-back-end-connectivity-to-spoke-vnets-and-branch-locations"></a>Utöka backend-anslutningen till ekrar virtuella nätverk och filial platser
 
-### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Eker-VNet-anslutning med hjälp av VNet-peering
+### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Eker VNet-anslutning med hjälp av VNet-peering
 
-Hub och eker VNet arkitektur används i stor utsträckning. Navet är ett virtuella nätverk i Azure som fungerar som en central anslutningspunkt mellan dina eker-virtuella nätverk och till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer med hubben och som du kan använda för att isolera arbetsbelastningar. Trafiken flödar mellan det lokala datacentret och navet via en ExpressRoute- eller VPN-anslutning. Mer information om arkitekturen finns i [Implementera en hub-spoke-nätverkstopologi i Azure][Hub-n-Spoke].
+NAV-och eker VNet-arkitekturen används ofta. Hubben är ett VNet i Azure som fungerar som en central punkt för anslutningen mellan ekrarnas virtuella nätverk och det lokala nätverket. Ekrarna är virtuella nätverk som peer-kopplas med hubben och som du kan använda för att isolera arbets belastningar. Trafik flöden mellan det lokala data centret och hubben via en ExpressRoute-eller VPN-anslutning. Mer information om arkitekturen finns i [implementera en nätverkstopologi för NAV-ekrar i Azure][Hub-n-Spoke].
 
-I VNet-peering inom en region kan eker-virtuella nätverk använda hubVNet-gateways (både VPN- och ExpressRoute-gateways) för att kommunicera med fjärrnätverk.
+I VNet-peering inom en region kan eker-virtuella nätverk använda hubb-gatewayer (både VPN-och ExpressRoute-gatewayer) för att kommunicera med fjärrnätverk.
 
-### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Gren VNet-anslutning med hjälp av plats-till-plats-VPN
+### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Gren-VNet-anslutning med plats-till-plats-VPN
 
-Du kanske vill att virtuella filialer, som finns i olika regioner, och lokala nätverk ska kommunicera med varandra via ett nav-virtuella nätverk. Den inbyggda Azure-lösningen för den här konfigurationen är VPN-anslutning från plats till plats med hjälp av en VPN. Ett alternativ är att använda en virtuell nätverksinstallation (NVA) för routning i navet.
+Du kanske vill använda Branch virtuella nätverk, som finns i olika regioner och lokala nätverk för att kommunicera med varandra via ett nav-VNet. Den interna Azure-lösningen för den här konfigurationen är plats-till-plats-VPN-anslutning med hjälp av en VPN. Ett alternativ är att använda en virtuell nätverks installation (NVA) för routning i hubben.
 
-Mer information finns i Vad är [Deploy a highly available NVA][Deploy-NVA] [VPN Gateway?][VPN]
+Mer information finns i [Vad är VPN gateway?][VPN] och [distribuera en hög tillgänglig NVA][Deploy-NVA].
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Vanliga frågor och svar om ExpressRoute][ExR-FAQ] för att:
--   Läs om hur många ExpressRoute-kretsar du kan ansluta till en ExpressRoute-gateway.
--   Läs om hur många ExpressRoute-gateways du kan ansluta till en ExpressRoute-krets.
--   Läs mer om andra skalbegränsningar för ExpressRoute.
+Se [vanliga frågor och svar om ExpressRoute][ExR-FAQ] för att:
+-   Lär dig hur många ExpressRoute-kretsar du kan ansluta till en ExpressRoute-Gateway.
+-   Lär dig hur många ExpressRoute-gatewayer du kan ansluta till en ExpressRoute-krets.
+-   Lär dig mer om andra skalnings gränser för ExpressRoute.
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Nätverksbevakningsvy över anslutning från ett nav-VNet till ett eker-VNet"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Nätverksbevakningsvy över anslutning från ett nav-VNet till ett filial-VNet"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Nätverksbevakningsnätsvy för anslutning från ett nav-VNet till ett filial-VNet"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Nätverksprestandaövervakaren av anslutning från den virtuella datorn plats 1 till navet VNet via ExpressRoute 1"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Nätverksprestandaövervakaren av anslutning från den virtuella datorn plats 1 till navet VNet via en VPN-plats från plats till plats"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Network Watcher visning av anslutningar från ett hubb-VNet till ett eker VNet"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Network Watcher visning av anslutningar från ett hubb-VNet till ett förgrenings-VNet"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Network Watcher rutnätsvy över anslutningar från ett hubb-VNet till ett förgrenings-VNet"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Övervakare av nätverksprestanda visning av anslutningen från plats 1 VM till hubbens VNet via ExpressRoute 1"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Övervakare av nätverksprestanda visning av anslutningen från plats 1 VM till hubbens VNet via en VPN-anslutning från plats till plats"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

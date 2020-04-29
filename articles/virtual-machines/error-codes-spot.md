@@ -1,6 +1,6 @@
 ---
-title: Felkoder för virtuella Azure-plats-datorer och skalningsuppsättningar
-description: Lär dig mer om felkoder som du kan se när du använder Spot-virtuella datorer och skalningsuppsättningsinstanser.
+title: Felkoder för Azure-virtuella datorer och skalnings uppsättnings instanser
+description: Lär dig mer om felkoder som kan uppstå när du använder virtuella datorer och skalnings uppsättnings instanser.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,35 +8,35 @@ ms.topic: article
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.openlocfilehash: 5a34dc2b9468c6c5af4af0e0addfd8b9ebb7e792
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80547822"
 ---
-# <a name="error-messages-for-spot-vms-and-scale-sets"></a>Felmeddelanden för spot-datorer och skalningsuppsättningar
+# <a name="error-messages-for-spot-vms-and-scale-sets"></a>Fel meddelanden för virtuella datorer och skalnings uppsättningar
 
-Här är några möjliga felkoder som du kan få när du använder Spot-virtuella datorer och skalningsuppsättningar.
+Här följer några möjliga fel koder som du kan få när du använder virtuella datorer och skalnings uppsättningar.
 
 
 | Nyckel | Meddelande | Beskrivning |
 |-----|---------|-------------|
-| SkuNotAvailable | Den begärda nivån\<\>för resurs ' resurs\<'\>är för\<närvarande\>inte tillgänglig på plats ' plats ' för prenumeration ' subscriptionID '. Försök med en annan nivå eller distribuera till en annan plats. | Det finns inte tillräckligt med Azure Spot-kapacitet på den här platsen för att skapa din virtuella dator eller skalningsuppsättningsinstans. |
-| VräkningPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  Vräkningsprincipen kan endast anges på virtuella Azure Spot-datorer. | Den här virtuella datorn är inte en plats-VM, så du kan inte ange vräkningsprincipen. |
-| AzureSpotVMIntörsintillgänglighetsuppsättning  |  Virtuell azure spot-dator stöds inte i tillgänglighetsuppsättningen. | Du måste välja att antingen använda en spot-vm eller använda en virtuell dator i en tillgänglighetsuppsättning, du kan inte välja båda. |
-| AzureSpotFeatureNEnabledFörBeställelse  |  Prenumerationen är inte aktiverad med Azure Spot-funktionen. | Använd en prenumeration som stöder spot-virtuella datorer. |
-| VMPriorityCannotBeApplied VMPriority  |  Det angivna prioritetsvärdet '{0}' kan inte{1}tillämpas på den virtuella datorn ' eftersom ingen prioritet angavs när den virtuella datorn skapades. | Ange prioritet när den virtuella datorn skapas. |
-| SpotPriceGreaterThanProvidedMaxPrice  |  Det går inte{0}att utföra åtgärden '{1} ' eftersom det angivna maxpriset ' USD är lägre än det aktuella spotpriset USD{2} ' för Azure Spot VM-storlek '{3}'. | Välj ett högre maxpris. Mer information finns i prisinformation för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) eller [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).|
-| MaxPriceValueInvalid  |  Ogiltigt maxprisvärde. De enda värden som stöds för maxpris är -1 eller en decimal som är större än noll. Maxprisvärde på -1 anger att den virtuella Azure Spot-datorn inte kommer att vräkas av prisskäl. | Ange ett giltigt maxpris. Mer information finns i priser för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) eller [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). |
-| MaxPriceChangeNotAllowedForAllocatedVMs | Maxprisändring tillåts inte när{0}den virtuella datorn ' för närvarande allokeras. Vänligen deallocate och försök igen. | Stop\Deallocate den virtuella datorn så att du kan ändra maxpriset. |
-| MaxPriceChangeNotAllowed | Max prisändring är inte tillåten. | Du kan inte ändra maxpriset för den här virtuella datorn. |
-| AzureSpotIsNotSupportedForThisAPIVersion  |  Azure Spot stöds inte för den här API-versionen. | API-versionen måste vara 2019-03-01. |
-| AzureSpotIsNotSupportedForThisVMSize  |  Azure Spot stöds inte för {0}den här vm-storleken . | Välj en annan vm-storlek. Mer information finns i [Spot virtuella datorer](./linux/spot-vms.md). |
-| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Maxpris stöds endast för virtuella Azure Spot-datorer. | Mer information finns i [Spot virtuella datorer](./linux/spot-vms.md). |
-| MoveResourcesWithAzureSpotVMNotSupported  |  Begäran om flytta resurser innehåller en virtuell Azure Spot-dator. Detta stöds för närvarande inte. Kontrollera felinformationen för virtuella dator-ID: n. | Du kan inte flytta start-och retur-datorer. |
-| MoveResourcesWithAzureSpotVmssNotSupported Flytta  |  Begäran om flytta resurser innehåller en azure spot-skalningsuppsättning för virtuella datorer. Detta stöds för närvarande inte. Kontrollera felinformationen för skaluppsättnings-ID:n för virtuella datorer. | Du kan inte flytta spotskalauppsättningsförekomster. |
-| EfemäraOSDisksNotSupportedForSpotVM | Efemära OS-diskar stöds inte för start-och returdiskar. | Använd en vanlig OS-disk för den virtuella platsen. |
-| AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Virtuell azure spot-dator stöds inte i skaluppsättningen för virtuella datorer med VM-orkestreringsläge. | Ställ in orchestration-läget på skala för virtuella datorer för att använda Spot-instanser. |
+| SkuNotAvailable | Den begärda nivån för resursen\<Resource\>är för närvarande inte tillgänglig på\<platsen plats\>för prenumerationen\<subscriptionID.\> Försök med en annan nivå eller distribuera till en annan plats. | Det finns inte tillräckligt med Azure-dekorfärg på den här platsen för att skapa en VM-eller skalnings uppsättnings instans. |
+| EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  Borttagnings principen kan bara ställas in på Azure-Virtual Machines. | Den här virtuella datorn är inte en VM-VM, så du kan inte ange principen för borttagning. |
+| AzureSpotVMNotSupportedInAvailabilitySet  |  En virtuell Azure-dator stöds inte i tillgänglighets uppsättningen. | Du måste välja att antingen använda en virtuell dator eller använda en virtuell dator i en tillgänglighets uppsättning. |
+| AzureSpotFeatureNotEnabledForSubscription  |  Prenumerationen är inte aktive rad med funktionen Azure-dekor. | Använd en prenumeration som har stöd för virtuella datorer för virtuella datorer. |
+| VMPriorityCannotBeApplied  |  Det angivna prioritet svärdet{0}kan inte tillämpas på den virtuella datorn{1}eftersom ingen prioritet angavs när den virtuella datorn skapades. | Ange prioritet när den virtuella datorn skapas. |
+| SpotPriceGreaterThanProvidedMaxPrice  |  Det går inte att utföra{0}åtgärden eftersom det angivna Max priset{1} USD är lägre än det aktuella dekor priset{2} USD för Azure VM-storleken{3}för virtuella datorer. | Välj ett högre pris. Mer information finns i pris information för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) eller [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).|
+| MaxPriceValueInvalid  |  Ogiltigt max pris värde. De enda värden som stöds för högsta pris är-1 eller en decimal som är större än noll. Max pris värde på-1 anger att den virtuella Azure-datorn inte tas bort av pris skäl. | Ange ett giltigt max pris. Mer information finns i avsnittet om priser för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) eller [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). |
+| MaxPriceChangeNotAllowedForAllocatedVMs | Maximal pris ändring är inte tillåten när den virtuella datorn{0}har allokerats för tillfället. Frigör och försök igen. | Stop\Deallocate den virtuella datorn så att du kan ändra det högsta priset. |
+| MaxPriceChangeNotAllowed | Max pris ändring är inte tillåten. | Du kan inte ändra det högsta priset för den här virtuella datorn. |
+| AzureSpotIsNotSupportedForThisAPIVersion  |  Azure-platsen stöds inte för den här API-versionen. | API-versionen måste vara 2019-03-01. |
+| AzureSpotIsNotSupportedForThisVMSize  |  Azure dekor stöds inte för den här virtuella dator {0}storleken. | Välj en annan VM-storlek. Mer information finns på [plats Virtual Machines](./linux/spot-vms.md). |
+| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Högsta pris stöds bara för Azure-Virtual Machines. | Mer information finns på [plats Virtual Machines](./linux/spot-vms.md). |
+| MoveResourcesWithAzureSpotVMNotSupported  |  Begäran om att flytta resurser innehåller en virtuell Azure-dator. Detta stöds inte för närvarande. Kontrol lera fel informationen för virtuella dator-ID: n. | Det går inte att flytta virtuella plats datorer. |
+| MoveResourcesWithAzureSpotVmssNotSupported  |  Begäran om att flytta resurser innehåller en skalnings uppsättning för en virtuell Azure-dator. Detta stöds inte för närvarande. Kontrol lera fel informationen för skalnings uppsättnings-ID: n för virtuella datorer. | Det går inte att flytta instanser för punkt skalnings uppsättning. |
+| EphemeralOSDisksNotSupportedForSpotVMs | Tillfälliga OS-diskar stöds inte för virtuella datorer på platsen. | Använd en vanlig OS-disk för den virtuella datorn. |
+| AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Virtuell dator i Azure-platsen stöds inte i skalnings uppsättningen för virtuella datorer med den virtuella datorns Orchestration-läge. | Ange Orchestration-läget till skalnings uppsättningen för den virtuella datorn för att kunna använda punkt instanser. |
 
 
-**Nästa steg** Mer information finns i [plats virtuella datorer](./linux/spot-vms.md).
+**Nästa steg** Mer information finns på [plats Virtual Machines](./linux/spot-vms.md).

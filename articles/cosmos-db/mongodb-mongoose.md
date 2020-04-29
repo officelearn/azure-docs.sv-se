@@ -1,6 +1,6 @@
 ---
-title: Ansluta ett Node.js Mongoose-program till Azure Cosmos DB
-description: Lär dig hur du använder Mongoose Framework för att lagra och hantera data i Azure Cosmos DB.
+title: Anslut ett Node. js Mongoose-program till Azure Cosmos DB
+description: Lär dig hur du använder Mongoose-ramverket för att lagra och hantera data i Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
@@ -10,17 +10,17 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18
 ms.openlocfilehash: ff4455571aa5cfa5c9214bdf18af1853b0cef352
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585418"
 ---
-# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta ett Node.js Mongoose-program till Azure Cosmos DB
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Anslut ett Node. js Mongoose-program till Azure Cosmos DB
 
-Den här självstudien visar hur du använder [Mongoose Framework](https://mongoosejs.com/) när du lagrar data i Cosmos DB. Vi använder Azure Cosmos DB:s API för MongoDB för den här genomgången. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
+Den här självstudien visar hur du använder [Mongoose-ramverket](https://mongoosejs.com/) när du lagrar data i Cosmos dB. Vi använder Azure Cosmos DBs API för MongoDB för den här genom gången. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
 
-Cosmos DB är Microsofts globalt distribuerade databastjänst för flera modeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
+Cosmos DB är Microsofts globalt distribuerade databas tjänst för flera modeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -28,23 +28,23 @@ Cosmos DB är Microsofts globalt distribuerade databastjänst för flera modelle
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-[Node.js](https://nodejs.org/) version v0.10.29 eller högre.
+[Node. js](https://nodejs.org/) version v 0.10.29 eller högre.
 
 ## <a name="create-a-cosmos-account"></a>Skapa ett Cosmos-konto
 
-Nu ska vi skapa ett Cosmos-konto. Om du redan har ett konto som du vill använda kan du gå vidare till Konfigurera Node.js-programmet. Om du använder Azure Cosmos DB Emulator följer du stegen på [Azure Cosmos DB Emulator](local-emulator.md) för att konfigurera emulatorn och hoppa vidare till Konfigurera node.js-programmet.
+Nu ska vi skapa ett Cosmos-konto. Om du redan har ett konto som du vill använda kan du gå vidare till Konfigurera Node.js-programmet. Om du använder Azure Cosmos DB emulatorn följer du stegen i [Azure Cosmos DB emulatorn](local-emulator.md) för att konfigurera emulatorn och gå vidare till konfigurera Node. js-programmet.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ### <a name="create-a-database"></a>Skapa en databas 
-I det här programmet kommer vi att täcka två sätt att skapa samlingar i Azure Cosmos DB: 
-- **Lagra varje objektmodell i en separat samling**: Vi rekommenderar att du skapar en databas med [dedikerat dataflöde](set-throughput.md#set-throughput-on-a-database). Med hjälp av denna kapacitet modell kommer att ge dig bättre kostnadseffektivitet.
+I det här programmet kommer vi att gå igenom två sätt att skapa samlingar i Azure Cosmos DB: 
+- **Lagring av varje objekt modell i en separat samling**: Vi rekommenderar att du [skapar en databas med dedikerat data flöde](set-throughput.md#set-throughput-on-a-database). Med den här kapacitets modellen får du bättre kostnads effektivitet.
 
-    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js tutorial - Skärmbild av Azure-portalen, som visar hur du skapar en databas i Data Explorer för ett Azure Cosmos DB-konto, för användning med modulen Mongoose Node":::
+    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node. js-självstudie – skärm bild av Azure Portal, som visar hur du skapar en databas i Datautforskaren för ett Azure Cosmos DB-konto, för användning med Mongoose Node-modulen":::
 
-- **Lagra alla objektmodeller i en enda Cosmos DB-samling:** Om du föredrar att lagra alla modeller i en enda samling kan du bara skapa en ny databas utan att välja alternativet Etablera dataflöde. Med hjälp av den här kapacitetsmodellen skapas varje samling med egen dataflödeskapacitet för varje objektmodell.
+- **Lagra alla objekt modeller i en enda Cosmos DB samling**: om du vill lagra alla modeller i en enda samling kan du bara skapa en ny databas utan att välja alternativet Tillhandahåll data flöde. Genom att använda den här kapacitets modellen skapas varje samling med sin egen data flödes kapacitet för varje objekt modell.
 
-När du har skapat databasen använder du `COSMOSDB_DBNAME` namnet i miljövariabeln nedan.
+När du har skapat databasen använder du namnet i `COSMOSDB_DBNAME` miljö variabeln nedan.
 
 ## <a name="set-up-your-nodejs-application"></a>Konfigurera Node.js-programmet
 
@@ -62,7 +62,7 @@ När du har skapat databasen använder du `COSMOSDB_DBNAME` namnet i miljövaria
    * Mongoose: ```npm install mongoose@5 --save```
 
      > [!Note]
-     > Exempelanslutningen för Mongoose nedan baseras på Mongoose 5+, som har ändrats sedan tidigare versioner.
+     > Mongoose exempel anslutningen nedan baseras på Mongoose 5 +, som har ändrats sedan tidigare versioner.
     
    * Dotenv (om du vill läsa in dina hemligheter från en .env-fil): ```npm install dotenv --save```
 
@@ -76,7 +76,7 @@ När du har skapat databasen använder du `COSMOSDB_DBNAME` namnet i miljövaria
    var env = require('dotenv').config();   //Use the .env file to load the variables
     ```
 
-5. Lägg till Cosmos DB-anslutningssträngen och Cosmos DB-namnet till filen ```.env```. Ersätt platshållarna {cosmos-account-name} och {dbname} med ditt eget Cosmos-kontonamn och databasnamn, utan klammerparenteserna.
+5. Lägg till Cosmos DB-anslutningssträngen och Cosmos DB-namnet till filen ```.env```. Ersätt plats hållarna {Cosmos-Account-name} och {dbname} med ditt eget Cosmos-kontonamn och databas namn, utan klammerparenteser.
 
     ```JavaScript
    # You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
@@ -88,7 +88,7 @@ När du har skapat databasen använder du `COSMOSDB_DBNAME` namnet i miljövaria
    COSMOSDB_PORT=10255
     ```
 
-6. Anslut till Cosmos DB med hjälp av mongoose-ramverket genom att lägga till följande kod i slutet av index.js.
+6. Anslut till Cosmos DB med Mongoose-ramverket genom att lägga till följande kod i slutet av index. js.
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
@@ -104,15 +104,15 @@ När du har skapat databasen använder du `COSMOSDB_DBNAME` namnet i miljövaria
 
     När du är ansluten till Azure Cosmos DB kan du börja konfigurera objektmodeller i Mongoose.
 
-## <a name="best-practices-for-using-mongoose-with-cosmos-db"></a>Metodtips för att använda Mongoose med Cosmos DB
+## <a name="best-practices-for-using-mongoose-with-cosmos-db"></a>Metod tips för att använda Mongoose med Cosmos DB
 
-För varje modell du skapar skapar Mongoose en ny samling. Detta åtgärdas bäst med [alternativet Dataflöde på databasnivå](set-throughput.md#set-throughput-on-a-database), som tidigare diskuterades. Om du vill använda en enda samling måste du använda Mongoose [Discriminators](https://mongoosejs.com/docs/discriminators.html). Diskriminatorer är en mekanism för schemaarv. De gör att du kan ha flera modeller med överlappande scheman ovanpå samma underliggande MongoDB-samling.
+Mongoose skapar en ny samling för varje modell som du skapar. Detta är det bästa sättet att använda [data flödes alternativet på databas nivå](set-throughput.md#set-throughput-on-a-database)som tidigare diskuterats. Om du vill använda en enda samling måste du använda Mongoose [diskriminatorer](https://mongoosejs.com/docs/discriminators.html). Diskriminatorer är en mekanism för schemaarv. De gör att du kan ha flera modeller med överlappande scheman ovanpå samma underliggande MongoDB-samling.
 
-Du kan lagra olika datamodeller i samma samling och sedan använda en filtersats vid frågetiden för att endast hämta de data som krävs. Låt oss gå igenom var och en av modellerna.
+Du kan lagra olika datamodeller i samma samling och sedan använda en filtersats vid frågetiden för att endast hämta de data som krävs. Låt oss gå igenom alla modeller.
 
 ### <a name="one-collection-per-object-model"></a>En samling per objektmodell
 
-I det här avsnittet beskrivs hur du uppnår detta med Azure Cosmos DB:s API för MongoDB. Denna metod är vår rekommenderade metod eftersom det gör att du kan kontrollera kostnader och kapacitet. Därför beror mängden begärandeenheter i databasen inte på antalet objektmodeller. Detta är standarddriftmodellen för Mongoose, så du kanske är bekant med detta.
+I det här avsnittet beskrivs hur du uppnår detta med Azure Cosmos DBs API för MongoDB. Den här metoden är vår rekommenderade metod eftersom du kan kontrol lera kostnaderna och kapaciteten. Det innebär att mängden enheter för programbegäran i databasen inte är beroende av antalet objekt modeller. Det här är standard operativ modellen för Mongoose, så du kanske är bekant med detta.
 
 1. Öppna ```index.js``` igen.
 
@@ -163,7 +163,7 @@ I det här avsnittet beskrivs hur du uppnår detta med Azure Cosmos DB:s API fö
     });
     ```
 
-1. Slutligen, låt oss spara objektet till Cosmos DB. Det skapar en samling på ett och samma ställe.
+1. Slutligen ska vi spara objektet till Cosmos DB. Det skapar en samling på ett och samma ställe.
 
     ```JavaScript
     family.save((err, saveFamily) => {
@@ -192,11 +192,11 @@ I det här avsnittet beskrivs hur du uppnår detta med Azure Cosmos DB:s API fö
       });
       ```
 
-1. Nu, gå in i Azure-portalen, märker du två samlingar som skapats i Cosmos DB.
+1. Nu ska du gå till den Azure Portal. du märker två samlingar som skapats i Cosmos DB.
 
-    ![Node.js tutorial - Skärmbild av Azure-portalen, som visar ett Azure Cosmos DB-konto, med flera samlingsnamn markerade - Nod-databas][multiple-coll]
+    ![Node. js-självstudie – skärm bild av Azure Portal, som visar ett Azure Cosmos DB konto, med flera samlings namn markerade – nod databas][multiple-coll]
 
-1. Låt oss slutligen läsa data från Cosmos DB. Eftersom vi använder standarddriftmodellen i Mongoose är läsningarna desamma som alla andra läsningar med Mongoose.
+1. Slutligen ska vi läsa data från Cosmos DB. Eftersom vi använder standarddriftmodellen i Mongoose är läsningarna desamma som alla andra läsningar med Mongoose.
 
     ```JavaScript
     Family.find({ 'children.gender' : "male"}, function(err, foundFamily){
@@ -206,7 +206,7 @@ I det här avsnittet beskrivs hur du uppnår detta med Azure Cosmos DB:s API fö
 
 ### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>Använda Mongoose-diskriminatorer för att lagra data i en enda samling
 
-I den här metoden använder vi [Mongoose Discriminators](https://mongoosejs.com/docs/discriminators.html) för att optimera kostnaderna för varje samling. Diskriminatorer gör att du kan definiera en särskiljande ”nyckel”, som gör att du kan lagra, särskilja och filtrera på olika objektmodeller.
+I den här metoden använder vi [Mongoose-diskriminatorer](https://mongoosejs.com/docs/discriminators.html) för att hjälpa till att optimera kostnaderna för varje samling. Diskriminatorer gör att du kan definiera en särskiljande ”nyckel”, som gör att du kan lagra, särskilja och filtrera på olika objektmodeller.
 
 Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till ”Familj” och ”VacationDestinations” som tillägg till basmodellen.
 
@@ -299,7 +299,7 @@ Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till �
 
 1. Om du nu går tillbaka till Azure-portalen lägger du märke till att du enda samling som heter ```alldata``` med både ”Familj”- och ”VacationDestinations”-data.
 
-    ![Node.js tutorial - Skärmbild av Azure-portalen, som visar ett Azure Cosmos DB-konto, med samlingsnamnet markerat - Nod-databas][alldata]
+    ![Node. js-självstudie – skärm bild av Azure Portal, som visar ett Azure Cosmos DB konto, med samlings namnet markerat – nod databas][alldata]
 
 1. Lägg också märke till att varje objekt har ytterligare ett attribut som heter ```__type```, som hjälper till att skilja mellan de två olika objektmodellerna.
 
@@ -311,7 +311,7 @@ Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till �
     });
     ```
 
-Som du ser är det enkelt att arbeta med diskriminatorer i Mongoose. Så om du har en app som använder Mongoose-ramverket är den här självstudien ett sätt för dig att komma igång med Azure Cosmos API för MongoDB utan att kräva för många ändringar.
+Som du ser är det enkelt att arbeta med diskriminatorer i Mongoose. Så om du har en app som använder Mongoose-ramverket, är den här självstudien ett sätt för dig att komma igång med ditt program med Azure Cosmos API för MongoDB utan att det krävs för många ändringar.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

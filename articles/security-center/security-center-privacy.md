@@ -1,6 +1,6 @@
 ---
-title: Hantera användardata i Azure Security Center | Microsoft-dokument
-description: Lär dig hur du hanterar användardata i Azure Security Center. Hantering av användardata omfattar möjligheten att komma åt, ta bort eller exportera data.
+title: Hantera användar data i Azure Security Center | Microsoft Docs
+description: Lär dig hur du hanterar användar data i Azure Security Center. Att hantera användar data innebär att du kan komma åt, ta bort eller exportera data.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,87 +14,87 @@ ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
 ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585979"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Hantera användardata i Azure Security Center
-Den här artikeln innehåller information om hur du kan hantera användardata i Azure Security Center. Hantering av användardata omfattar möjligheten att komma åt, ta bort eller exportera data.
+Den här artikeln innehåller information om hur du kan hantera användar data i Azure Security Center. Att hantera användar data innebär att du kan komma åt, ta bort eller exportera data.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-En Security Center-användare som tilldelats rollen som läsare, ägare, deltagare eller kontoadministratör kan komma åt kunddata i verktyget. Mer information om rollen Kontoadministratör finns [i Inbyggda roller för Azure-rollbaserad åtkomstkontroll](../role-based-access-control/built-in-roles.md) om du vill veta mer om rollerna Läsare, Ägare och Deltagare. Se [Azure-prenumerationsadministratörer](../cost-management-billing/manage/add-change-subscription-administrator.md).
+En Security Center användare som har tilldelats rollen läsare, ägare, deltagare eller konto administratör kan komma åt kund information i verktyget. Läs mer om rollen konto administratör i [inbyggda roller för rollbaserad åtkomst kontroll i Azure](../role-based-access-control/built-in-roles.md) om du vill veta mer om rollerna läsare, ägare och deltagare. Se [Administratörer för Azure-prenumeration](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Söker efter och identifierar personuppgifter
-En Security Center-användare kan visa sina personuppgifter via Azure-portalen. Security Center lagrar endast säkerhetskontaktinformation som e-postadresser och telefonnummer. Mer information finns [i Ange information om säkerhetskontakter i Azure Security Center](security-center-provide-security-contact-details.md).
+En Security Center användare kan visa sina personliga data via Azure Portal. Security Center lagrar endast säkerhets kontakt information, till exempel e-postadresser och telefonnummer. Mer information finns i [Ange säkerhets kontakt uppgifter i Azure Security Center](security-center-provide-security-contact-details.md).
 
-I Azure-portalen kan en användare visa tillåtna IP-konfigurationer med Hjälp av Security Centers åtkomstfunktion för just-in-time-vm. Mer information finns [i Hantera åtkomst till virtuella datorer med just-in-time](security-center-just-in-time.md).
+I Azure Portal kan en användare Visa tillåtna IP-konfigurationer med hjälp av Security Centers just-in-Time-funktionen för VM-åtkomst. Mer information finns i [Hantera åtkomst till virtuella datorer med just-in-Time](security-center-just-in-time.md).
 
-I Azure-portalen kan en användare visa säkerhetsaviseringar som tillhandahålls av Security Center, inklusive IP-adresser och angripare. Mer information finns i [Hantera och svara på säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
+I Azure Portal kan en användare se säkerhets aviseringar som tillhandahålls av Security Center inklusive information om IP-adresser och angripare. Mer information finns i [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-## <a name="classifying-personal-data"></a>Klassificera personuppgifter
-Du behöver inte klassificera personuppgifter som finns i Security Centers säkerhetskontaktfunktion. De data som sparas är en e-postadress (eller flera e-postadresser) och ett telefonnummer. [Kontaktdata](security-center-provide-security-contact-details.md) valideras av Security Center.
+## <a name="classifying-personal-data"></a>Klassificera person uppgifter
+Du behöver inte klassificera person uppgifter som finns i Security Centerens säkerhets kontakt funktion. De data som sparas är en e-postadress (eller flera e-postadresser) och ett telefonnummer. [Kontakt data](security-center-provide-security-contact-details.md) verifieras av Security Center.
 
-Du behöver inte klassificera IP-adresser och portnummer som sparats av Security Centers [just-in-time-funktion.](security-center-just-in-time.md)
+Du behöver inte klassificera IP-adresserna och port numren som sparats med Security Center [just-in-Time-](security-center-just-in-time.md) funktionen.
 
-Endast en användare som tilldelats rollen som administratör kan klassificera personuppgifter genom [att visa aviseringar](security-center-managing-and-responding-alerts.md) i Security Center.
+Endast en användare som har tilldelats rollen administratör kan klassificera personliga data genom att [Visa aviseringar](security-center-managing-and-responding-alerts.md) i Security Center.
 
-## <a name="securing-and-controlling-access-to-personal-data"></a>Säkerställande och kontroll av tillgång till personuppgifter
-En Security Center-användare som tilldelats rollen som läsare, ägare, deltagare eller kontoadministratör kan komma åt [säkerhetskontaktdata](security-center-provide-security-contact-details.md).
+## <a name="securing-and-controlling-access-to-personal-data"></a>Skydda och kontrol lera åtkomst till personliga data
+En Security Center användare som har tilldelats rollen som läsare, ägare, deltagare eller konto administratör kan komma åt [säkerhets kontakt data](security-center-provide-security-contact-details.md).
 
-En Security Center-användare som tilldelats rollen som läsare, ägare, deltagare eller kontoadministratör kan komma åt sina [just-in-time-principer.](security-center-just-in-time.md)
+En Security Center användare som tilldelats rollen läsare, ägare, deltagare eller konto administratör kan komma åt sina [just-in-Time-](security-center-just-in-time.md) principer.
 
-En Security Center-användare som tilldelats rollen som läsare, ägare, deltagare eller kontoadministratör kan visa sina [aviseringar](security-center-managing-and-responding-alerts.md).
+En Security Center användare som tilldelats rollen läsare, ägare, deltagare eller konto administratör kan se sina [aviseringar](security-center-managing-and-responding-alerts.md).
 
 ## <a name="updating-personal-data"></a>Uppdatera personliga data
-En Security Center-användare som tilldelats rollen som ägare, deltagare eller kontoadministratör kan uppdatera [säkerhetskontaktdata](security-center-provide-security-contact-details.md) via Azure-portalen.
+En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan uppdatera [säkerhets kontakt data](security-center-provide-security-contact-details.md) via Azure Portal.
 
-En Security Center-användare som tilldelats rollen som ägare, deltagare eller kontoadministratör kan uppdatera sina [just-in-time-principer](security-center-just-in-time.md).
+En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan uppdatera sina [just-in-Time-principer](security-center-just-in-time.md).
 
-En kontoadministratör kan inte redigera varningsincidenter. En [aviseringsincident](security-center-managing-and-responding-alerts.md) betraktas som säkerhetsdata och är skrivskyddad.
+En konto administratör kan inte redigera varnings incidenter. En [varnings incident](security-center-managing-and-responding-alerts.md) betraktas som säkerhets data och är skrivskyddad.
 
 ## <a name="deleting-personal-data"></a>Ta bort personliga data
-En Security Center-användare som tilldelats rollen som ägare, deltagare eller kontoadministratör kan ta bort [säkerhetskontaktdata](security-center-provide-security-contact-details.md) via Azure-portalen.
+En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan ta bort [säkerhets kontakt data](security-center-provide-security-contact-details.md) via Azure Portal.
 
-En Security Center-användare som tilldelats rollen som ägare, deltagare eller kontoadministratör kan ta bort [just-in-time-principerna](security-center-just-in-time.md) via Azure-portalen.
+En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan ta bort [just-in-Time-principerna](security-center-just-in-time.md) via Azure Portal.
 
-En Security Center-användare kan inte ta bort varningsincidenter. Av säkerhetsskäl betraktas en [varningsincident](security-center-managing-and-responding-alerts.md) som skrivskyddade data.
+En Security Center användare kan inte ta bort varnings incidenter. Av säkerhets skäl betraktas en [varnings incident](security-center-managing-and-responding-alerts.md) som skrivskyddade data.
 
 ## <a name="exporting-personal-data"></a>Exportera personliga data
-En Security Center-användare som tilldelats rollen som läsare, ägare, deltagare eller kontoadministratör kan exportera [säkerhetskontaktdata](security-center-provide-security-contact-details.md) genom att:
+En Security Center användare som tilldelats rollen läsare, ägare, deltagare eller konto administratör kan exportera [säkerhets kontakt data](security-center-provide-security-contact-details.md) genom att:
 
-- Kopiera från Azure-portalen
-- Kör Azure REST API-anrop, FÅ HTTP:
+- Kopierar från Azure Portal
+- Kör Azure REST API-anropet, Hämta HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
   ```
 
-En Security Center-användare som tilldelats rollen som kontoadministratör kan exportera [just-in-time-principerna](security-center-just-in-time.md) som innehåller IP-adresserna genom att:
+En Security Center användare som tilldelats rollen som konto administratör kan exportera [just-in-Time-principerna](security-center-just-in-time.md) som innehåller IP-adresserna genom att:
 
-- Kopiera från Azure-portalen
-- Kör Azure REST API-anrop, FÅ HTTP:
+- Kopierar från Azure Portal
+- Kör Azure REST API-anropet, Hämta HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
   ```
 
-En kontoadministratör kan exportera varningsinformationen genom att:
+En konto administratör kan exportera aviserings informationen genom att:
 
-- Kopiera från Azure-portalen
-- Kör Azure REST API-anrop, FÅ HTTP:
+- Kopierar från Azure Portal
+- Kör Azure REST API-anropet, Hämta HTTP:
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-Mer information finns i [Hämta säkerhetsvarningar (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx).
+Mer information finns i [Hämta säkerhets aviseringar (Hämta samling)](https://msdn.microsoft.com/library/mt704050.aspx).
 
-## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Begränsa användningen av personuppgifter för profilering eller marknadsföring utan samtycke
-En Security Center-användare kan välja bort genom att ta bort sina [säkerhetskontaktdata](security-center-provide-security-contact-details.md).
+## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Begränsa användningen av person uppgifter för profilering eller marknadsföring utan medgivande
+En Security Center användare kan välja att avanmäla sig genom att ta bort sina [säkerhets kontakt data](security-center-provide-security-contact-details.md).
 
-[Just-in-time-data](security-center-just-in-time.md) anses vara icke-identifierbara data och lagras under en period av 30 dagar.
+[Just-in-Time-data](security-center-just-in-time.md) betraktas som icke-identifierbara data och bevaras under en period på 30 dagar.
 
-[Varningsdata](security-center-managing-and-responding-alerts.md) betraktas som säkerhetsdata och lagras under en period av två år.
+[Aviserings data](security-center-managing-and-responding-alerts.md) anses vara säkerhets data och bevaras under en period av två år.
 
-## <a name="auditing-and-reporting"></a>Revision och rapportering
-Granskningsloggar för säkerhetskontakt, just-in-time och varningsuppdateringar underhålls i [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
+## <a name="auditing-and-reporting"></a>Granskning och rapportering
+Gransknings loggar för säkerhets kontakt, just-in-Time och aviserings uppdateringar underhålls i [Azure aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md).

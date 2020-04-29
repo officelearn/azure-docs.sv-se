@@ -1,6 +1,6 @@
 ---
-title: Övervakning och hantering av Azure Bastion-session | Microsoft-dokument
-description: I den här artikeln får du lära dig hur du väljer en pågående session och tvångskoppling eller ta bort den.
+title: Övervakning och hantering av Azure skydds-sessioner | Microsoft Docs
+description: I den här artikeln får du lära dig hur du väljer en pågående session och tvingar fram anslutningen eller tar bort den.
 services: bastion
 author: charwen
 ms.service: bastion
@@ -8,49 +8,49 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 6bf80be4868295145fa79ae29d5322181b6131d1
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80619181"
 ---
-# <a name="session-monitoring-and-management-for-azure-bastion"></a>Sessionsövervakning och hantering för Azure Bastion
+# <a name="session-monitoring-and-management-for-azure-bastion"></a>Övervakning och hantering av sessioner för Azure-skydds
 
-När Bastion-tjänsten har etablerats och distribuerats i det virtuella nätverket kan du använda den för att sömlöst ansluta till valfri virtuell dator i det här virtuella nätverket. När användare ansluter till arbetsbelastningar kan Azure Bastion användas för att övervaka fjärrsessioner och vidta snabbhanteringsåtgärder. Med Azure Bastion-sessionsövervakning kan du visa vilka användare som är anslutna till vilka virtuella datorer. Den visar IP som användaren anslutit från, hur länge de har anslutits och när de är anslutna. Med sessionshanteringsupplevelsen kan du välja en pågående session och tvinga bort eller ta bort en session för att koppla bort användaren från den pågående sessionen.
+När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att sömlöst ansluta till en virtuell dator i det här virtuella nätverket. När användare ansluter till arbets belastningar kan Azure skydds användas för att övervaka fjärrsessioner och vidta åtgärder för snabb hantering. Med övervakningen av Azure skydds-sessionen kan du se vilka användare som är anslutna till vilka virtuella datorer. Den visar IP-adressen som användaren anslöt från, hur länge de har varit anslutna och när de är anslutna. Med hjälp av sessionen kan du välja en pågående session och framtvinga-från koppling eller ta bort en session för att koppla bort användaren från den pågående sessionen.
 
 ## <a name="monitor-remote-sessions"></a><a name="monitor"></a>Övervaka fjärrsessioner
 
-1. I [Azure-portalen](https://portal.azure.com)navigerar du till din Azure Bastion-resurs och väljer **Sessioner** på sidan Azure Bastion.
+1. I [Azure Portal](https://portal.azure.com)navigerar du till din Azure skydds-resurs och väljer **sessioner** från sidan Azure skydds.
 
-   ![Sessioner](./media/session-monitoring/sessions.png)
-2. På sidan **Sessioner** kan du se de pågående fjärrsessionerna till höger.
+   ![terminalserversessioner](./media/session-monitoring/sessions.png)
+2. På sidan **sessioner** kan du se pågående fjärrsessioner på höger sida.
 
-   ![visa session](./media/session-monitoring/view-session.png)
-3. Välj **Uppdatera** om du vill visa den uppdaterade listan över fjärrsessioner. När du väljer Uppdatera hämtar Azure Bastion den senaste övervakningsinformationen och uppdaterar den i portalen.
+   ![Visa session](./media/session-monitoring/view-session.png)
+3. Välj **Uppdatera** om du vill visa den uppdaterade listan med fjärrsessioner. När du väljer uppdatera kommer Azure skydds att hämta den senaste övervaknings informationen och uppdatera den i portalen.
 
    ![refresh](./media/session-monitoring/refresh.png)
 
 >[!IMPORTANT]
-> Aktivera port 4443 för inkommande trafik från Gateway Manager för sessionsövervakning för att fungera.
+> Aktivera port 4443 för inkommande trafik från Gateway Manager för övervakning av sessionen för att fungera.
 >
 
 ## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Ta bort eller tvinga bort en pågående fjärrsession
 
-Du kan välja en uppsättning sessions och tvinga bort dem. Följande steg visar hur du tar bort fjärrsessioner:
+Du kan välja en eller flera sessioner och tvinga dem att koppla från dem. Följande steg visar hur du tar bort fjärrsessioner:
 
-1. Navigera till din Azure Bastion-resurs och välj **Sessioner** på sidan Azure Bastion.
+1. Gå till Azure skydds-resursen och välj **sessioner** från sidan Azure skydds.
 
    ![navigate](./media/session-monitoring/navigate.png)
-2. När du har valt Sessioner visas en lista över fjärrsessioner.
+2. När du har valt sessioner visas en lista över fjärrsessioner.
 
    ![lista sessioner](./media/session-monitoring/list.png)
-3. Markera en viss fjärrsession, markera sedan de tre ellipserna till höger på sessionsraden och välj sedan **Ta bort**.
+3. Välj en speciell fjärrsession, välj sedan tre ellipser på höger sida av raden session och välj sedan **ta bort**.
 
    ![delete](./media/session-monitoring/delete.png)
-4. När du väljer Ta bort kopplas fjärrsessionen från och användaren visas meddelandet "Du har kopplats från" i fjärrsessionen.
+4. När du väljer Ta bort kommer fjärrsessionen att kopplas från och användaren visas i meddelandet "du har kopplats från" i fjärrsessionen.
 
    ![koppla från](./media/session-monitoring/disconnect.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [Vanliga frågor om Bastion](bastion-faq.md).
+Läs [vanliga frågor och svar om skydds](bastion-faq.md).

@@ -1,5 +1,5 @@
 ---
-title: M-serien – virtuella Azure-datorer
+title: M-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i M-serien.
 services: virtual-machines
 author: ayshakeen
@@ -8,34 +8,34 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
 ms.openlocfilehash: 3e0552570d5bdb7f812852cd058710b833b7fdd4
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521328"
 ---
 # <a name="m-series"></a>M-serien
 
-M-serien erbjuder ett högt vCPU-antal (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-antal och stora mängder minne. M-seriens storlekar stöds både&reg; på Intel&reg; Xeon CPU E7-8890 v3 @ 2,50 GHz och på Intel&reg; Xeon&reg; Platinum 8280M 2,7 GHz (Cascade Lake).
+M-serien erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne. Storlekarna på M-serien stöds både på Intel&reg; Xeon&reg; CPU E7-8890 v3 @ 2,50 GHz och på Intel&reg; Xeon&reg; platina 8280M 2.7 GHz (överlappande sjö).
 
-M-serien VM har&reg; Intel Hyper-Threading Technology.
+Virtuella datorer i M-serien har&reg; Intel Hyper-Threading-teknik.
 
 ACU: 160–180
 
-Premium-lagring: Stöds
+Premium Storage: stöds
 
-Cachelagring av premiumlagring: Stöds
+Premium Storage caching: stöds
 
-Live Migration: Stöds inte
+Direktmigrering: stöds inte
 
-Minneskonering av uppdateringar: Stöds inte
+Minnes bebetjänings uppdateringar: stöds inte
 
-Skrivaccelerator: [Stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Skrivningsaccelerator: [stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temp-lagringsdataflöde: IOPS/MBps (cachestorlek i GiB) | Max oankopplat diskdataflöde: IOPS/MBps | Max nätverkskort/förväntad nätverksbandbredd (Mbps) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
-| Standard_M8ms <sup>2</sup>       | 8   | 218.75 | 256   | 8  | 10000/100 (793)     | 5000/125   | 4/2000  |
-| Standard_M16ms <sup>2</sup>      | 16  | 437.5  | 512   | 16 | 20000/200 (1587)    | 10000/250  | 8/4000  |
+| Standard_M8ms <sup>2</sup>       | 8   | 218,75 | 256   | 8  | 10000/100 (793)     | 5000/125   | 4/2000  |
+| Standard_M16ms <sup>2</sup>      | 16  | 437,5  | 512   | 16 | 20000/200 (1587)    | 10000/250  | 8/4000  |
 | Standard_M32ts                   | 32  | 192    | 1024  | 32 | 40000/400 (3174)    | 20000/500  | 8/8000  |
 | Standard_M32ls                   | 32  | 256    | 1024  | 32 | 40000/400 (3174)    | 20000/500  | 8/8000  |
 | Standard_M32ms <sup>2</sup>      | 32  | 875    | 1024  | 32 | 40000/400 (3174)    | 20000/500  | 8/8000  |
@@ -43,17 +43,17 @@ Skrivaccelerator: [Stöds](https://docs.microsoft.com/azure/virtual-machines/win
 | Standard_M64ls                   | 64  | 512    | 2048  | 64 | 80000/800 (6348)    | 40000/1000 | 8/16000 |
 | Standard_M64ms <sup>3</sup>      | 64  | 1792   | 2048  | 64 | 80000/800 (6348)    | 40000/1000 | 8/16000 |
 | Standard_M128s <sup>1</sup>      | 128 | 2048   | 4096  | 64 | 160000/1600 (12696) | 80000/2000 | 8/30000 |
-| Standard_M128ms <sup>1,2,3</sup> | 128 | 3892   | 4096  | 64 | 160000/1600 (12696) | 80000/2000 | 8/30000 |
+| Standard_M128ms <sup>1, 2, 3</sup> | 128 | 3892   | 4096  | 64 | 160000/1600 (12696) | 80000/2000 | 8/30000 |
 | Standard_M64                     | 64  | 1024   | 7168  | 64 | 80000/800 (1228)    | 40000/1000 | 8/16000 |
 | Standard_M64m                    | 64  | 1792   | 7168  | 64 | 80000/800 (1228)    | 40000/1000 | 8/16000 |
 | Standard_M128 <sup>1</sup>       | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
 | Standard_M128m <sup>1</sup>      | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8/32000 |
 
-<sup>1</sup> Mer än 64 vCPU kräver en av dessa gäst-OPERATIVSYSTEM som stöds: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 och Red Hat Enterprise Linux, CentOS 7.3 eller Oracle Linux 7.3 med LIS 4.2.1.
+<sup>1</sup> över 64 vCPU kräver en av följande gäst operativ system: Windows Server 2016, Ubuntu 16,04 LTS, SLES 12 SP2 och Red Hat Enterprise Linux, CentOS 7,3 eller Oracle Linux 7,3 med Lis 4.2.1.
 
-<sup>2</sup> Begränsade kärnstorlekar tillgängliga.
+<sup>2</sup> begränsade kärn storlekar är tillgängliga.
 
-<sup>3</sup> Instansen är isolerad till maskinvara som är avsedd för en enskild kund.
+<sup>3</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -68,4 +68,4 @@ Skrivaccelerator: [Stöds](https://docs.microsoft.com/azure/virtual-machines/win
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

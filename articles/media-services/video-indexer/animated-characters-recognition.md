@@ -1,7 +1,7 @@
 ---
-title: Animerad teckenidentifiering med videoindexerare
+title: Animerat typsnitts identifiering med Video Indexer
 titleSuffix: Azure Media Services
-description: Det här avsnittet visar hur du använder animerad teckenidentifiering med Video Indexer.
+description: Det här avsnittet visar hur du använder animerad identifiering av bokstäver med Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,171 +11,171 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76989917"
 ---
-# <a name="animated-character-detection-preview"></a>Animerad teckenidentifiering (förhandsgranskning)
+# <a name="animated-character-detection-preview"></a>Animerat Character-identifiering (förhands granskning)
 
-Azure Media Services Video Indexer stöder identifiering, gruppering och igenkänning av tecken i animerat innehåll via integrering med [anpassade visioner](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)för Cognitive Services . Den här funktionen är tillgänglig både via portalen och via API:et.
+Azure Media Services Video Indexer stöder identifiering, gruppering och igenkänning av tecken i animerat innehåll via integrering med [Cognitive Services anpassad vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Den här funktionen är tillgänglig både via portalen och via API: et.
 
-När du har laddat upp en animerad video med en viss animeringsmodell extraherar Video Indexer nyckelrutor, identifierar animerade figurer i dessa bildrutor, grupper med liknande karaktär och väljer det bästa exemplet. Sedan skickas de grupperade tecknen till Anpassad vision som identifierar tecken baserat på de modeller som den tränades på. 
+När du har laddat upp en animerad video med en speciell modell för animering Video Indexer extraherar nyckel rutor, identifierar animerade tecken i dessa ramar, grupper liknande tecken och väljer det bästa exemplet. Sedan skickar den grupperade tecken till Custom Vision som identifierar tecken baserade på de modeller som den tränade på. 
 
-Innan du börjar träna modellen identifieras tecknen namnlöst. När du lägger till namn och tränar modellen känner Video Indexer igen tecknen och namnger dem därefter.
+Innan du börjar träna din modell identifieras tecknen namelessly. När du lägger till namn och tränar modellen identifierar Video Indexer tecknen och namnger dem därefter.
 
 ## <a name="flow-diagram"></a>Flödesdiagram
 
-Följande diagram visar flödet av den animerade teckenidentifieringsprocessen.
+Följande diagram visar flödet av den animerade processen för att identifiera animering.
 
 ![Flödesdiagram](./media/animated-characters-recognition/flow.png)
 
 ## <a name="accounts"></a>Konton
 
-Beroende på vilken typ av videoindexerkonto är olika funktionsuppsättningar tillgängliga. Information om hur du ansluter ditt konto till Azure finns i [Skapa ett videoindexerkonto som är anslutet till Azure](connect-to-azure.md).
+Olika funktions uppsättningar är tillgängliga beroende på vilken typ av Video Indexer konto som används. Information om hur du ansluter ditt konto till Azure finns i [skapa ett video Indexer-konto som är anslutet till Azure](connect-to-azure.md).
 
-* Utvärderingskonto: Video Indexer använder ett internt Custom Vision-konto för att skapa modell och ansluta den till ditt Video Indexer-konto. 
-* Betalt konto: du ansluter ditt Custom Vision-konto till ditt Video Indexer-konto (om du inte redan har ett måste du skapa ett konto först).
+* Utvärderings konto: Video Indexer använder ett internt Custom Vision konto för att skapa en modell och ansluta den till ditt Video Indexer-konto. 
+* Betalt konto: du ansluter ditt Custom Vision-konto till ditt Video Indexer-konto (om du inte redan har ett konto måste du först skapa ett konto).
 
-### <a name="trial-vs-paid"></a>Rättegång kontra betald
+### <a name="trial-vs-paid"></a>Utvärdering kontra betald
 
-|Funktioner|Utvärdering|Betalas|
+|Funktioner|Utvärdering|Förutbetalt|
 |---|---|---|
-|Konto för anpassad syn|Hanteras bakom kulisserna av Video Indexer. |Ditt Custom Vision-konto är anslutet till Video Indexer.|
-|Antal animeringsmodeller|En|Upp till 100 modeller per konto (Custom Vision-begränsning).|
-|Träna modellen|Video Indexer tränar modellen för nya tecken ytterligare exempel på befintliga tecken.|Kontoägaren tränar modellen när de är redo att göra ändringar.|
-|Avancerade alternativ i anpassad syn|Ingen åtkomst till custom vision-portalen.|Du kan själv justera modellerna i portalen Custom Vision.|
+|Custom Vision konto|Hanteras i bakgrunden med Video Indexer. |Ditt Custom Vision-konto är anslutet till Video Indexer.|
+|Antal modeller för animering|En|Upp till 100 modeller per konto (Custom Vision begränsning).|
+|Träna modellen|Video Indexer tågen modellen för nya tecken ytterligare exempel på befintliga tecken.|Konto ägaren tågen modellen när de är redo att göra ändringar.|
+|Avancerade alternativ i Custom Vision|Ingen åtkomst till Custom Vision-portalen.|Du kan justera modellerna själv i Custom Vision-portalen.|
 
-## <a name="use-the-animated-character-detection-with-portal"></a>Använda den animerade teckenidentifieringen med portalen 
+## <a name="use-the-animated-character-detection-with-portal"></a>Använda animerat teckensnitts identifiering med portalen 
 
-I det här avsnittet beskrivs de steg du behöver vidta för att börja använda den animerade teckenidentifieringsmodellen. 
+I det här avsnittet beskrivs de steg som du måste vidta för att börja använda den animerade tecknens identifierings modellen. 
 
-Eftersom integreringen av anpassade syner kan du börja skapa och använda modellen med animerade tecken i utvärderingskontona ("Anslut ditt anpassade visionskonto").
+Eftersom Custom Vision-integrering hanteras av Video Indexer i utvärderings kontot, kan du börja skapa och använda den animerade tecken modellen och hoppa över följande avsnitt ("Anslut ditt Custom Vision konto").
 
-### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Anslut ditt Custom Vision-konto (endast betalda konton)
+### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Anslut ditt Custom Vision konto (endast betalda konton)
 
-Om du äger ett betalkonto för videoindexerare måste du först ansluta ett anpassat visionskonto. Om du inte redan har ett anpassat synkonto kan du skapa ett. Mer information finns i [Anpassad vision](../../cognitive-services/custom-vision-service/home.md).
+Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom Vision-konto. Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](../../cognitive-services/custom-vision-service/home.md).
 
 > [!NOTE]
-> Båda kontona måste finnas i samma region. Integrationen av anpassade visioner stöds för närvarande inte i Japan-regionen.
+> Båda kontona måste finnas i samma region. Custom Vision-integration stöds för närvarande inte i regionen Japan.
 
-#### <a name="connect-a-custom-vision-account-with-api"></a>Ansluta ett anpassat vision-konto med API 
+#### <a name="connect-a-custom-vision-account-with-api"></a>Ansluta ett Custom Vision-konto med API 
 
-Följ dessa steg för att ansluta ditt Custom Vision-konto till Video Indexer eller för att ändra kontot För anpassad syn som för närvarande är anslutet till Video Indexer:
+Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer eller ändra det Custom Vision-konto som är kopplat till Video Indexer:
 
-1. Bläddra till [www.customvision.ai](https://www.customvision.ai) och logga in.
+1. Bläddra till [www.customvision.AI](https://www.customvision.ai) och logga in.
 1. Kopiera följande nycklar: 
 
-    * Utbildningsnyckel (för utbildningsresursen)
-    * Prognosnyckel (för förutsägelseresursen)
+    * Tränings nyckel (för utbildnings resursen)
+    * Förutsägelse nyckel (för förutsägelse resurs)
     * Slutpunkt 
     * Resurs-ID för förutsägelse
     
     > [!NOTE]
-    > För att ge alla nycklar måste du ha två separata resurser i Anpassad vision, en för utbildning och en för förutsägelse.
-1. Bläddra och logga in på [Video Indexer](https://vi.microsoft.com/).
-1. Klicka på frågetecknet längst upp till höger på sidan och välj **API-referens**.
-1. Se till att du prenumererar på API Management genom att klicka på **fliken Produkter.** Om du har ett API anslutet kan du fortsätta till nästa steg, annars prenumerera. 
-1. Klicka på **fullständig API-referens** på utvecklarportalen och bläddra till **åtgärder**.  
-1. Välj **Anslut anpassat synkonto (PREVIEW)** och klicka på **Prova det**.
-1. Fyll i de obligatoriska fälten samt åtkomsttoken och klicka på **Skicka**. 
+    > För att tillhandahålla alla nycklar måste du ha två separata resurser i Custom Vision, en för utbildning och en för förutsägelse.
+1. Bläddra och logga in på [video Indexer](https://vi.microsoft.com/).
+1. Klicka på frågetecknet i det övre högra hörnet på sidan och välj **API-referens**.
+1. Se till att du prenumererar på API Management genom att klicka på fliken **produkter** . Om du har ett API anslutet kan du fortsätta till nästa steg, annars prenumerera. 
+1. Klicka på den **fullständiga API-referensen** på Developer-portalen och gå till **åtgärder**.  
+1. Välj **anslut Custom vision konto (FÖRhands granskning)** och klicka på **prova**.
+1. Fyll i obligatoriska fält och åtkomsttoken och klicka på **Skicka**. 
 
-    Mer information om hur du hämtar åtkomsttoken för videoindexer går till [utvecklarportalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)och läser [relevant dokumentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
-1. När samtalet returnerar 200 OK-svar är ditt konto anslutet.
-1. Så här verifierar du anslutningen genom att bläddra till portalen [Video Indexer](https://vi.microsoft.com/)):
-1. Klicka på **anpassningsknappen Innehållsmodell** i det övre högra hörnet.
-1. Gå till fliken **Animerade tecken.**
-1. När du klickar på Hantera modeller i Custom Vision"**, kommer du att överföras till Custom Vision-konto som du just anslutit.
+    Om du vill ha mer information om hur du hämtar Video Indexer-åtkomsttoken går du till [Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)och läser [relevant dokumentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+1. Ditt konto är anslutet när anropet returnerade svaret 200 OK.
+1. Så här verifierar du din anslutning genom att bläddra till [video Indexer](https://vi.microsoft.com/)-portalen:
+1. Klicka på **anpassnings knappen för innehålls modell** i det övre högra hörnet.
+1. Gå till fliken **animerade tecken** .
+1. När du klickar på Hantera modeller i Custom Vision "* *" överförs du till det Custom Vision-konto som du precis anslöt.
 
 > [!NOTE]
-> För närvarande stöds endast modeller som har skapats via Video Indexer. Modeller som skapas via Anpassad syn kommer inte att vara tillgängliga. Dessutom är det bästa praxis att redigera modeller som har skapats via Video Indexer endast via Video Indexer-plattformen, eftersom ändringar som görs via Custom Vision kan orsaka oavsiktliga resultat.
+> För närvarande stöds endast modeller som skapats via Video Indexer. Modeller som skapas via Custom Vision är inte tillgängliga. Vi rekommenderar dessutom att du redigerar modeller som har skapats via Video Indexer bara via Video Indexers plattformen, eftersom ändringar som görs via Custom Vision kan orsaka oönskade resultat.
 
-### <a name="create-an-animated-characters-model"></a>Skapa en modell för animerade figurer
+### <a name="create-an-animated-characters-model"></a>Skapa en animerad tecken modell
 
 1. Gå till [Video Indexer](https://vi.microsoft.com/)-webbplatsen och logga in.
-1. Klicka på anpassningsknappen för innehållsmodell längst upp till höger på sidan.
+1. Klicka på anpassnings knappen för innehålls modell i det övre högra hörnet på sidan.
 
-    ![Anpassning av innehållsmodell](./media/animated-characters-recognition/content-model-customization.png)
-1. Gå till fliken **Animerade tecken** i avsnittet modellanpassning.
+    ![Anpassning av innehålls modell](./media/animated-characters-recognition/content-model-customization.png)
+1. Gå till fliken **animerade tecken** i avsnittet modell anpassning.
 1. Klicka på **Lägg till modell**.
-1. Namn du modell och klicka på enter för att spara namnet.
+1. Namn du modell och klicka på RETUR för att spara namnet.
 
 > [!NOTE]
-> Det bästa är att ha en anpassad vision modell för varje animerad serie. 
+> Den bästa metoden är att ha en anpassad vision modell för varje animerad serie. 
 
 ### <a name="index-a-video-with-an-animated-model"></a>Indexera en video med en animerad modell
 
-1. Klicka på **knappen Ladda upp** från den övre menyn.
+1. Klicka på knappen **överför** på den översta menyn.
 1. Välj en video att ladda upp (från en fil eller en URL).
 1. Klicka på **Avancerade alternativ**.
-1. Under **Personer / Animerade tecken** väljer Animation **modeller**.
-1. Om du har en modell väljs den automatiskt, och om du har flera modeller kan du välja den relevanta av rullgardinsmenyn.
-1. Klicka på ladda upp.
-1. När videon har indexerats visas de identifierade tecknen i avsnittet **Animerade tecken** i fönstret **Insikter.**
+1. Välj **animerings modeller**under **personer/animerade tecken** .
+1. Om du har en modell väljs den automatiskt, och om du har flera modeller kan du välja den som är relevant för den aktuella List menyn.
+1. Klicka på överför.
+1. När videon har indexerats visas identifierade tecken i avsnittet **animerade tecken** i fönstret **insikter** .
 
 > [!NOTE] 
-> Innan du taggar och tränar modellen kommer alla animerade figurer att heta "Okänd #X". När du tränar modellen kommer de också att erkännas.
+> Innan du taggar och tränar modellen med varandra får alla animerade tecken namnet "okänd #X". När du har tränat modellen kommer de också att identifieras.
 
 ### <a name="customize-the-animated-characters-models"></a>Anpassa modeller för animerade tecken
 
-1. Tag och träna modellen.
+1. Tagga och träna modellen.
 
-    1. Tagga det identifierade tecknet genom att redigera dess namn. När ett tecken har tränats in i modellen, kommer det att kännas igen det nästa video indexeras med den modellen. 
-    1. Om du vill tagga ett animerat tecken i videon går du till fliken **Insikter** och klickar på knappen **Redigera** längst upp till höger i fönstret.
-    1. I fönstret **Insikter** klickar du på något av de identifierade animerade tecknen och ändrar deras namn från "Okänd #X" (eller namnet som tidigare tilldelats tecknet).
-    1. När du har skrivit in det nya namnet klickar du på checkikonen bredvid det nya namnet. Detta sparar det nya namnet i modellen i Video Indexer.
-    1. När du har redigerat alla namn du vill ha måste du träna modellen.
+    1. Tagga det identifierade specialtecknet genom att redigera dess namn. När ett kort har tränats in i modellen identifieras det nästa video som indexeras med den modellen. 
+    1. Om du vill tagga ett animerat kort i videon går du till fliken **insikter** och klickar på knappen **Redigera** i det övre högra hörnet i fönstret.
+    1. I fönstret **insikter** klickar du på något av de synliga animerade tecknen och ändrar deras namn från "okänd #X" (eller det namn som tidigare har tilldelats tecknet).
+    1. När du har skrivit det nya namnet klickar du på kryss ikonen bredvid det nya namnet. Detta sparar det nya namnet i modellen i Video Indexer.
+    1. När du har redigerat alla namn som du vill ha måste du träna modellen.
 
-        Öppna anpassningssidan och klicka på fliken **Animerade tecken** och klicka sedan på **tågknappen** för att träna din modell.
+        Öppna anpassnings sidan och klicka på fliken **animerade tecken** och klicka sedan på knappen **träna** för att träna din modell.
          
-        Om du har ett betalkonto kan du klicka på länken **Hantera modeller i Kundseende** (som visas nedan). Du kommer sedan att vidarebefordras till modellens sida i **Custom Vision**.
+        Om du har ett betalt konto kan du klicka på länken **Hantera modeller i Customer vision** (se nedan). Du kommer sedan att vidarebefordras till modellens sida i **Custom vision**.
  
-        ![Anpassning av innehållsmodell](./media/animated-characters-recognition/content-model-customization-tab.png)
+        ![Anpassning av innehålls modell](./media/animated-characters-recognition/content-model-customization-tab.png)
 
-     1. När du har tränat kommer alla videor som indexeras eller indexeras om med den modellen att känna igen de tränade tecknen. 
-    Betalda konton som har tillgång till sitt Custom Vision-konto kan se modellerna och taggade bilder där. Läs mer om [hur du förbättrar klassificeraren i Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+     1. När de har tränats in kommer alla videor som ska indexeras eller indexeras med den modellen att identifiera de intränaa tecknen. 
+    Betalda konton som har åtkomst till sitt Custom Vision konto kan se modeller och taggade bilder där. Lär dig mer om [att förbättra din klassificerare i Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
 
-1. Ta bort ett animerat tecken.
+1. Ta bort ett animerat teckensnitt.
 
-    1. Om du vill ta bort en animerad bild i dina videoinsikter går du till fliken **Insikter** och klickar på knappen **Redigera** längst upp till höger i fönstret.
-    1. Välj det animerade tecknet och klicka sedan på knappen **Ta bort** under deras namn.
+    1. Om du vill ta bort ett animerat teckensnitt i dina video insikter går du till fliken **insikter** och klickar på knappen **Redigera** i det övre högra hörnet i fönstret.
+    1. Välj det animerade specialtecknet och klicka sedan på knappen **ta bort** under namn.
 
     > [!NOTE]
-    > Detta tar bort insikten från den här videon men påverkar inte modellen.
+    > Detta tar bort insikter från den här videon men påverkar inte modellen.
 
 1. Ta bort en modell.
 
-    1. Klicka på **anpassningsknappen Innehållsmodell** på den övre menyn och gå till fliken **Animerade tecken.**
-    1. Klicka på ellipsikonen till höger om den modell du vill ta bort och sedan på delete-knappen.
+    1. Klicka på knappen **anpassning av innehålls modell** på den översta menyn och gå till fliken **animerade tecken** .
+    1. Klicka på ikonen med tre punkter till höger om den modell som du vill ta bort och klicka sedan på knappen Ta bort.
     
-    * Betalkonto: modellen kommer att kopplas från Video Indexer och du kommer inte att kunna återansluta den.
-    * Testkonto: modellen kommer att tas bort från tullen vision också. 
+    * Betalt konto: modellen kommer att kopplas från Video Indexer och du kommer inte att kunna ansluta den igen.
+    * Utvärderings konto: modellen tas även bort från insikten. 
     
         > [!NOTE]
-        > I ett utvärderingskonto har du bara en modell som du kan använda. När du har tagit bort den kan du inte träna andra modeller.
+        > I ett utvärderings konto har du bara en modell som du kan använda. När du har tagit bort det kan du inte träna andra modeller.
 
-## <a name="use-the-animated-character-detection-with-api"></a>Använda den animerade teckenidentifieringen med API 
+## <a name="use-the-animated-character-detection-with-api"></a>Använda animerad Character avkänning med API 
 
-1. Anslut ett anpassat vision-konto.
+1. Anslut ett Custom Vision-konto.
 
-    Om du äger ett betalkonto för videoindexerare måste du först ansluta ett anpassat visionskonto. <br/>
-    Om du inte redan har ett anpassat synkonto kan du skapa ett. Mer information finns i [Anpassad vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+    Om du äger ett Video Indexer betalt konto måste du först ansluta ett Custom Vision-konto. <br/>
+    Om du inte redan har ett Custom Vision konto kan du skapa ett. Mer information finns i [Custom vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
 
-    [Anslut ditt Custom Vision-konto med API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
-1. Skapa en modell för animerade figurer.
+    [Anslut ditt Custom vision-konto med hjälp av API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
+1. Skapa en animerad tecken modell.
 
-    Använd API:et [för skapa animeringsmodell.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag)
+    Använd API för att [skapa animerings modell](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Animation-Model?&groupBy=tag) .
 1. Indexera eller indexera om en video.
 
-    Använd [api:et för omindexering.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) 
-1. Anpassa modeller för animerade figurer.
+    Använd [Omindexering](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) av API. 
+1. Anpassa modeller för animerade tecken.
 
-    Använd [API:et för tåganimeringsmodellen.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag)
+    Använd modell-API: t för [träna animering](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Train-Animation-Model?&groupBy=tag) .
 
 ### <a name="view-the-output"></a>Visa utdata
 
-Se de animerade figurerna i den genererade JSON-filen.
+Se de animerade tecknen i den genererade JSON-filen.
 
 ```json
 "animatedCharacters": [
@@ -208,9 +208,9 @@ Se de animerade figurerna i den genererade JSON-filen.
 
 ## <a name="limitations"></a>Begränsningar
 
-* För närvarande stöds inte funktionen "animeringsidentifiering" i östasien.
-* Tecken som verkar vara små eller långt i videon kanske inte identifieras korrekt om videons kvalitet är dålig.
-* Rekommendationen är att använda en modell per uppsättning animerade tecken (till exempel per en animerad serie).
+* För närvarande stöds inte funktionen "animation Identification" i regionen östra Asien.
+* Tecken som verkar vara små eller långt i videon kanske inte identifieras korrekt om videons kvalitet är låg.
+* Rekommendationen är att använda en modell per uppsättning animerade tecken (till exempel per animerad serie).
 
 ## <a name="next-steps"></a>Nästa steg
 

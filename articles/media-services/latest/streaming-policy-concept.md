@@ -1,6 +1,6 @@
 ---
-title: Principer för direktuppspelning i Azure Media Services | Microsoft-dokument
-description: Den här artikeln ger en förklaring av vad streamingprinciper är och hur de används av Azure Media Services.
+title: Strömmande principer i Azure Media Services | Microsoft Docs
+description: Den här artikeln innehåller en förklaring av vilka strömmande principer som är och hur de används av Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,29 +12,29 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80582765"
 ---
 # <a name="streaming-policies"></a>Principer för direktuppspelning
 
-I Azure Media Services v3 kan du med [streamingprinciper](https://docs.microsoft.com/rest/api/media/streamingpolicies) definiera direktuppspelningsprotokoll och krypteringsalternativ för dina [streamingpositionerare](streaming-locators-concept.md). Media Services v3 innehåller vissa fördefinierade streamingprinciper så att du kan använda dem direkt för utvärderingsversion eller produktion. 
+I Azure Media Services v3 kan du använda [strömmande principer](https://docs.microsoft.com/rest/api/media/streamingpolicies) för att definiera strömmande protokoll och krypterings alternativ för dina [strömmande positionerare](streaming-locators-concept.md). Media Services v3 innehåller några fördefinierade strömmande principer så att du kan använda dem direkt för utvärdering eller produktion. 
 
-De för närvarande tillgängliga fördefinierade streamingprinciperna:<br/>
-* "Predefined_DownloadOnly"
-* "Predefined_ClearStreamingOnly"
-* "Predefined_DownloadAndClearStreaming"
-* "Predefined_ClearKey"
-* "Predefined_MultiDrmCencStreaming" 
-* "Predefined_MultiDrmStreaming"
+För närvarande tillgängliga fördefinierade strömmande principer:<br/>
+* Predefined_DownloadOnly
+* Predefined_ClearStreamingOnly
+* Predefined_DownloadAndClearStreaming
+* Predefined_ClearKey
+* Predefined_MultiDrmCencStreaming 
+* Predefined_MultiDrmStreaming
 
-Följande "Beslutsträd" hjälper dig att välja en fördefinierad streamingpolicy för ditt scenario.
+I följande "besluts träd" kan du välja en fördefinierad strömmande princip för ditt scenario.
 
 > [!IMPORTANT]
-> * Egenskaper för **direktuppspelningsprinciper** som är av typen Datetime är alltid i UTC-format.
-> * Du bör utforma en begränsad uppsättning principer för ditt Media Service-konto och återanvända dem för dina streamingpositionerare när samma alternativ behövs. Mer information finns i [Kvoter och begränsningar](limits-quotas-constraints.md).
+> * Egenskaper för **strömmande principer** som är av typen datetime är alltid i UTC-format.
+> * Du bör utforma en begränsad uppsättning principer för ditt Media Service-konto och återanvända dem för dina strömmande positionerare när samma alternativ behövs. Mer information finns i [kvoter och begränsningar](limits-quotas-constraints.md).
 
 ## <a name="decision-tree"></a>Beslutsträd
 
@@ -42,13 +42,13 @@ Klicka på bilden för att visa den i full storlek.
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-Om du krypterar ditt innehåll måste du skapa en princip för [innehållsnyckel](content-key-policy-concept.md), **innehållsnyckelpolicyn** behövs inte för att rensa direktuppspelning eller nedladdning. 
+Om du krypterar innehållet måste du skapa en princip för [innehålls nycklar](content-key-policy-concept.md), **innehålls nyckel principen** behövs inte för att rensa strömma eller ladda ned. 
 
-Om du har särskilda krav (till exempel om du vill ange olika protokoll, måste använda en anpassad nyckelleveranstjänst eller behöver använda ett tydligt ljudspår) kan du [skapa](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) en anpassad direktuppspelningsprincip. 
+Om du har särskilda krav (till exempel om du vill ange olika protokoll, behöver använda en anpassad nyckel leverans tjänst eller om du behöver använda ett tydligt ljud spår) kan du [skapa](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) en anpassad direkt uppspelnings princip. 
 
-## <a name="get-a-streaming-policy-definition"></a>Hämta en definition av streamingprincip  
+## <a name="get-a-streaming-policy-definition"></a>Hämta en definition för strömnings princip  
 
-Om du vill se definitionen av en streamingprincip använder du [Hämta](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) och anger principnamnet. Ett exempel:
+Om du vill se definitionen av en strömmande princip använder du [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) och anger namnet på principen. Ett exempel:
 
 ### <a name="rest"></a>REST
 
@@ -79,12 +79,12 @@ Svar:
 }
 ```
 
-## <a name="filtering-ordering-paging"></a>Filtrering, beställning, växling
+## <a name="filtering-ordering-paging"></a>Filtrering, sortering, växling
 
-Se [Filtrering, beställning, växling av Media Services-entiteter](entities-overview.md).
+Se [filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Strömma en fil](stream-files-dotnet-quickstart.md)
-* [Använd dynamisk AES-128-kryptering och nyckelleveranstjänsten](protect-with-aes128.md)
+* [Använd AES-128 dynamisk kryptering och Key Delivery Service](protect-with-aes128.md)
 * [Använda dynamisk DRM-kryptering och tjänsten för licensleverans](protect-with-drm.md)

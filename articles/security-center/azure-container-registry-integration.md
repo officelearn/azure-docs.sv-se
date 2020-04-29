@@ -13,40 +13,40 @@ ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
 ms.openlocfilehash: 1c1b48d3715d838827f88f99fc0849d25677fdcc
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585732"
 ---
-# <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry-integrering med Security Center
+# <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry integration med Security Center
 
-Azure Container Registry (ACR) är en hanterad, privat Docker-registertjänst som lagrar och hanterar dina behållaravbildningar för Azure-distributioner i ett centralt register. Den är baserad på Hamnregistret 2.0 med öppen källkod.
+Azure Container Registry (ACR) är en hanterad privat Docker-registerpost som lagrar och hanterar behållar avbildningar för Azure-distributioner i ett centralt register. Den är baserad på Docker-registret 2,0 med öppen källkod.
 
-Om du använder Azure Security Centers standardnivå kan du lägga till paketet Container Register.If you're on Azure Security Center's standard tier, you can add the Container Registerstries bundle. Den här valfria funktionen ger djupare insyn i bildernas sårbarheter i arm-baserade register. Aktivera eller inaktivera paketet på prenumerationsnivå för att täcka alla register i en prenumeration. Den här funktionen debiteras per bild, som visas på [prissidan](security-center-pricing.md). Om du aktiverar paketet Container Register säkerställer du att Security Center är redo att skanna avbildningar som skjuts till registret. 
+Om du är på Azure Security Center standard nivån kan du lägga till behållar register paketet. Den här valfria funktionen ger djupare insyn i säkerhets riskerna för avbildningarna i dina ARM-baserade register. Aktivera eller inaktivera paketet på prenumerations nivå för att ta med alla register i en prenumeration. Den här funktionen debiteras per avbildning, som visas på [sidan med priser](security-center-pricing.md). Genom att aktivera paket för behållar register ser du till att Security Center är redo att skanna bilder som skickas till registret. 
 
-När en avbildning trycks till registret söker Säkerhetscenter automatiskt igenom avbildningen. Om du vill utlösa genomsökningen av en bild skickar du den till databasen.
+När en bild skickas till ditt register, Security Center skannar automatiskt avbildningen. Om du vill utlösa en genomsökning av en avbildning kan du skicka den till din lagrings plats.
 
-När genomsökningen är klar (vanligtvis efter cirka 10 minuter) finns resultaten i Säkerhetscenterrekommendationer som denna:
+När genomsökningen är klar (vanligt vis efter cirka 10 minuter), är avgöranden tillgängliga i Security Center rekommendationer som detta:
 
-[![Exempel på Rekommendation för Azure Security Center om säkerhetsproblem som upptäckts i en ACR-avbildning (Azure Container Registry)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Exempel på Azure Security Center rekommendation om sårbarheter som identifierats i en Azure Container Registry (ACR) värd avbildning](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
-## <a name="benefits-of-integration"></a>Fördelar med integration
+## <a name="benefits-of-integration"></a>Fördelar med integrering
 
-Security Center identifierar ARM-baserade ACR-register i din prenumeration och tillhandahåller sömlöst:
+Security Center identifierar ARM-baserade ACR-register i din prenumeration och ger sömlös:
 
-* **Azure-native sårbarhetssökning** för alla pushade Linux-avbildningar. Security Center söker igenom bilden med hjälp av en skanner från den branschledande sårbarhetsskanningsleverantören Qualys. Den här inbyggda lösningen är sömlöst integrerad som standard.
+* **Azure – ursprunglig sårbarhets sökning** för alla publicerade Linux-avbildningar. Security Center skannar avbildningen med hjälp av en skanner från den branschledande sårbara sårbarheten hos leverantören, Qualys. Den här interna lösningen integreras sömlöst som standard.
 
-* **Säkerhetsrekommendationer** för Linux-avbildningar med kända sårbarheter. Security Center innehåller information om varje rapporterat säkerhetsproblem och en allvarlighetsgrad. Dessutom ger det vägledning för hur du åtgärdar de specifika säkerhetsproblem som finns på varje avbildning som skjuts till registret.
+* **Säkerhets rekommendationer** för Linux-avbildningar med kända sårbarheter. Security Center innehåller information om varje rapporterat sårbarhets-och allvarlighets GRADS klassificering. Dessutom ger den vägledning för hur du kan åtgärda de enskilda säkerhets risker som finns på varje avbildning som skickas till registret.
 
-![Översikt över Azure Security Center och Azure Container Registry (ACR) på hög nivå](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Azure Security Center och Azure Container Registry (ACR) Översikt på hög nivå](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om säkerhetsfunktionerna i Security Center finns i:
+Mer information om Security Center behållar säkerhetsfunktioner finns i:
 
-* [Azure Security Center och containersäkerhet](container-security.md)
+* [Azure Security Center-och behållar säkerhet](container-security.md)
 
 * [Integration med Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
-* [Skydd för virtuella](security-center-virtual-machine-protection.md) datorer - Beskriver Säkerhetscentrets rekommendationer
+* [Skydd av virtuella datorer](security-center-virtual-machine-protection.md) – beskriver Security Center rekommendationer

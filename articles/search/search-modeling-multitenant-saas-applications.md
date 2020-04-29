@@ -1,7 +1,7 @@
 ---
-title: Multitenancy och innehållsisolering
+title: Flera innehavare och innehålls isolering
 titleSuffix: Azure Cognitive Search
-description: Lär dig mer om vanliga designmönster för SaaS-program med flera egenskaper när du använder Azure Cognitive Search.
+description: Lär dig om vanliga design mönster för SaaS-program med flera innehavare när du använder Azure Kognitiv sökning.
 manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
@@ -9,123 +9,123 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549016"
 ---
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Designmönster för SaaS-program med flera trogna och Azure Cognitive Search
-Ett program med flera innehavare är ett program som tillhandahåller samma tjänster och funktioner till valfritt antal klienter som inte kan se eller dela data för någon annan klient. I det här dokumentet beskrivs strategier för klientisolering för program med flera innehavare som skapats med Azure Cognitive Search.
+# <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Design mönster för SaaS-program med flera innehavare och Azure Kognitiv sökning
+Ett program för flera innehavare är ett program som tillhandahåller samma tjänster och funktioner för alla klienter som inte kan se eller dela data för någon annan klient organisation. I det här dokumentet beskrivs strategier för klient isolering för program med flera klienter som skapats med Azure Kognitiv sökning.
 
-## <a name="azure-cognitive-search-concepts"></a>Azure Cognitive Search-begrepp
-Som en sök-som-en-tjänst-lösning gör Azure Cognitive Search det möjligt för utvecklare att lägga till omfattande sökupplevelser i program utan att hantera någon infrastruktur eller bli expert på informationshämtning. Data överförs till tjänsten och lagras sedan i molnet. Med hjälp av enkla begäranden till Azure Cognitive Search API kan data sedan ändras och sökas igenom. En översikt över tjänsten finns i den [här artikeln](https://aka.ms/whatisazsearch). Innan du diskuterar designmönster är det viktigt att förstå vissa begrepp i Azure Cognitive Search.
+## <a name="azure-cognitive-search-concepts"></a>Azure Kognitiv sökning-koncept
+Som en Sök-som-tjänst-lösning gör Azure Kognitiv sökning att utvecklare kan lägga till omfattande Sök upplevelser i program utan att behöva hantera en infrastruktur eller bli expert på informations hämtning. Data överförs till tjänsten och lagras sedan i molnet. Med hjälp av enkla begär anden till Azure Kognitiv sökning API: et kan data sedan ändras och genomsökas. Du hittar en översikt över tjänsten i [den här artikeln](https://aka.ms/whatisazsearch). Innan du diskuterar design mönster är det viktigt att förstå vissa begrepp i Azure Kognitiv sökning.
 
-### <a name="search-services-indexes-fields-and-documents"></a>Söktjänster, index, fält och dokument
-När du använder Azure Cognitive Search prenumererar man på en *söktjänst*. När data överförs till Azure Cognitive Search lagras de i ett *index* i söktjänsten. Det kan finnas ett antal index inom en enda tjänst. Om du vill använda de välbekanta begreppen databaser kan söktjänsten liknas vid en databas medan indexen i en tjänst kan liknas vid tabeller i en databas.
+### <a name="search-services-indexes-fields-and-documents"></a>Sök tjänster, index, fält och dokument
+När du använder Azure Kognitiv sökning en prenumeration på en *Sök tjänst*. När data överförs till Azure Kognitiv sökning lagras de i ett *index* i Sök tjänsten. Det kan finnas ett antal index i en enskild tjänst. Om du vill använda de välkända koncepten för databaser kan Sök tjänsten likened till en databas medan indexen i en tjänst kan vara likened till tabeller i en databas.
 
-Varje index i en söktjänst har ett eget schema, som definieras av ett antal anpassningsbara *fält*. Data läggs till i ett Azure Cognitive Search-index i form av enskilda *dokument*. Varje dokument måste överföras till ett visst index och måste passa indexets schema. När du söker efter data med Azure Cognitive Search utfärdas sökfrågor i fulltext mot ett visst index.  Om du vill jämföra dessa begrepp med begreppen i en databas kan fält liknas vid kolumner i en tabell och dokument kan liknas vid rader.
+Varje index i en Sök tjänst har sitt eget schema, vilket definieras av ett antal anpassningsbara *fält*. Data läggs till i ett Azure Kognitiv sökning-index i form av enskilda *dokument*. Varje dokument måste överföras till ett visst index och måste passa det indexets schema. När du söker efter data med hjälp av Azure Kognitiv sökning utfärdas full text Sök frågorna mot ett visst index.  Om du vill jämföra dessa begrepp med databaserna i en databas kan du likened kolumner i en tabell och dokument kan likened till rader.
 
 ### <a name="scalability"></a>Skalbarhet
-Alla Azure Cognitive Search-tjänster på [standardprisnivån](https://azure.microsoft.com/pricing/details/search/) kan skalas i två dimensioner: lagring och tillgänglighet.
+Alla Azure Kognitiv sökning-tjänster på standard [pris nivån](https://azure.microsoft.com/pricing/details/search/) kan skalas i två dimensioner: lagring och tillgänglighet.
 
-* *Partitioner* kan läggas till för att öka lagringen av en söktjänst.
-* *Repliker* kan läggas till i en tjänst för att öka dataflödet för begäranden som en söktjänst kan hantera.
+* Du kan lägga till *partitioner* för att öka lagringen för en Sök tjänst.
+* *Repliker* kan läggas till i en tjänst för att öka data flödet för begär Anden som en Sök tjänst kan hantera.
 
-Genom att lägga till och ta bort partitioner och repliker gör det möjligt för söktjänstens kapacitet att växa med den mängd data och trafik som programmet kräver. För att en söktjänst ska uppnå ett [läs-SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)krävs det två repliker. För att en tjänst ska uppnå ett [läs-skriv SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)krävs tre repliker.
+Genom att lägga till och ta bort partitioner och repliker på kan du öka kapaciteten för Sök tjänsten med den mängd data och trafik som programmet kräver. För att en Sök tjänst ska kunna uppnå ett [service avtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/)för läsning kräver det två repliker. För att en tjänst ska kunna uppnå ett service [avtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/)med Läs-och skriv åtgärder krävs tre repliker.
 
-### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Tjänst- och indexgränser i Azure Cognitive Search
-Det finns några olika [prisnivåer](https://azure.microsoft.com/pricing/details/search/) i Azure Cognitive Search, var och en av nivåerna har olika [gränser och kvoter](search-limits-quotas-capacity.md). Vissa av dessa gränser är på servicenivå, vissa är på indexnivå och vissa är på partitionsnivå.
+### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Tjänst-och index gränser i Azure Kognitiv sökning
+Det finns några olika [pris nivåer](https://azure.microsoft.com/pricing/details/search/) i Azure kognitiv sökning, var och en av nivåerna har olika [gränser och kvoter](search-limits-quotas-capacity.md). Några av dessa begränsningar finns på tjänst nivå, vissa finns på index-nivå och några finns på partition-nivå.
 
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Maximala repliker per tjänst |3 |12 |12 |12 |12 |
-| Maximala partitioner per tjänst |1 |12 |12 |12 |3 |
-| Maximala sökenheter (repliker*partitioner) per tjänst |3 |36 |36 |36 |36 (max 3 partitioner) |
-| Maximal lagring per tjänst |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
-| Maximal lagring per partition |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Maximala index per tjänst |5 |50 |200 |200 |3000 (max 1000 index/partition) |
+| Maximalt antal repliker per tjänst |3 |12 |12 |12 |12 |
+| Maximalt antal partitioner per tjänst |1 |12 |12 |12 |3 |
+| Maximalt antal Sök enheter (repliker * partitioner) per tjänst |3 |36 |36 |36 |36 (max 3 partitioner) |
+| Maximalt lagrings utrymme per tjänst |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
+| Maximalt lagrings utrymme per partition |2 GB |25 GB |100 GB |200 GB |200 GB |
+| Maximalt antal index per tjänst |5 |50 |200 |200 |3000 (max 1000-index/partition) |
 
-#### <a name="s3-high-density"></a>S3 hög densitet"
-I Azure Cognitive Search s S3-prisnivå finns det ett alternativ för HD-läget (High Density) som utformats speciellt för scenarier med flera innehavare. I många fall är det nödvändigt att stödja ett stort antal mindre hyresgäster under en enda tjänst för att uppnå fördelarna med enkelhet och kostnadseffektivitet.
+#### <a name="s3-high-density"></a>S3 hög densitet
+I Azure Kognitiv söknings S3-pris nivå finns ett alternativ för läget hög densitet (HD) som är specifikt för flera klient scenarier. I många fall är det nödvändigt att stödja ett stort antal mindre klienter under en enda tjänst för att uppnå fördelarna med enkelhet och kostnads effektivitet.
 
-S3 HD gör det möjligt för många små index som ska packas under ledning av en enda söktjänst genom att handla möjligheten att skala ut index med hjälp av partitioner för möjligheten att vara värd för fler index i en enda tjänst.
+S3 HD gör att många små index kan packas upp under hanteringen av en enskild Sök tjänst genom att handel kan skala ut index med partitioner för att kunna hantera fler index i en enskild tjänst.
 
-En S3-tjänst är utformad för att vara värd för ett fast antal index (högst 200) och låta varje index skalas i storlek horisontellt när nya partitioner läggs till i tjänsten. Om du lägger till partitioner i S3 HD-tjänster ökar det maximala antalet index som tjänsten kan vara värd för. Den idealiska maximala storleken för ett enskilt S3HD-index är cirka 50 - 80 GB, även om det inte finns någon hård storleksgräns för varje index som införts av systemet.
+En S3-tjänst är utformad för att vara värd för ett fast antal index (högst 200) och tillåta att varje index skalas i storlek vågrätt när nya partitioner läggs till i tjänsten. Om du lägger till partitioner i S3 HD-tjänster ökar det maximala antalet index som tjänsten kan vara värd för. Den perfekta maximala storleken för ett enskilt S3HD-index är cirka 50-80 GB, även om det inte finns någon storleks gräns för varje index som systemet infört.
 
-## <a name="considerations-for-multitenant-applications"></a>Överväganden för multitenant applikationer
-Multitenant program måste effektivt fördela resurser mellan hyresgästerna samtidigt som en viss nivå av integritet mellan de olika hyresgästerna. Det finns några saker att tänka på när du utformar arkitekturen för ett sådant program:
+## <a name="considerations-for-multitenant-applications"></a>Att tänka på för program med flera klienter
+Program för flera innehavare måste effektivt distribuera resurser mellan klienterna samtidigt som du behåller en viss sekretess nivå mellan olika klienter. Det finns några saker att tänka på när du utformar arkitekturen för ett sådant program:
 
-* *Isolering av klienter:* Programutvecklare måste vidta lämpliga åtgärder för att säkerställa att inga klienter har obehörig eller oönskad åtkomst till data från andra klienter. Utöver datasekretessen kräver strategier för klientisolering effektiv hantering av delade resurser och skydd från bullriga grannar.
-* *Kostnad för molnresurs:* Som med alla andra program måste programvarulösningar förbli kostnadsbegripliga som en komponent i ett program med flera beståndsdelar.
-* *Enkel drift:* När du utvecklar en arkitektur med flera trogna är påverkan på programmets verksamhet och komplexitet en viktig faktor. Azure Cognitive Search har ett [serviceavtal på 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Globalt fotavtryck:* Multitenant program kan behöva effektivt betjäna hyresgäster som är fördelade över hela världen.
-* *Skalbarhet:* Programutvecklare måste överväga hur de stämmer av mellan att upprätthålla en tillräckligt låg nivå av programkomplexitet och utforma programmet för att skala med antalet klienter och storleken på klienternas data och arbetsbelastning.
+* *Klient isolering:* Programutvecklare måste vidta lämpliga åtgärder för att säkerställa att inga klienter har obehörig eller oönskad åtkomst till data för andra klienter. Utöver data sekretessens perspektiv kräver klient isolerings strategier effektiv hantering av delade resurser och skydd mot störningar i grannar.
+* *Resurs kostnad för moln:* Precis som med alla andra program måste program varu lösningar vara kostnads konkurrens kraftiga som en komponent i ett program för flera innehavare.
+* *Enkel drift:* När du utvecklar en arkitektur för flera innehavare är påverkan av programmets drift och komplexitet viktigt att tänka på. Azure Kognitiv sökning har ett [service avtal på 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Global storlek:* Program för flera klient organisationer kan behöva betjäna klienter som distribueras över hela världen.
+* *Skalbarhet:* Programutvecklare måste fundera över hur de stämmer överens med en tillräckligt låg nivå av program komplexitet och att utforma programmet för skalning med antalet klienter och storleken på klient organisationens data och arbets belastning.
 
-Azure Cognitive Search erbjuder några gränser som kan användas för att isolera klienters data och arbetsbelastning.
+Azure Kognitiv sökning erbjuder några gränser som kan användas för att isolera innehavares data och arbets belastning.
 
-## <a name="modeling-multitenancy-with-azure-cognitive-search"></a>Modellering multitenancy med Azure Cognitive Search
-När det gäller ett scenario med flera innehavare förbrukar programutvecklaren en eller flera söktjänster och delar upp sina klienter mellan tjänster, index eller båda. Azure Cognitive Search har några vanliga mönster när du modellerar ett scenario med flera egenskaper:
+## <a name="modeling-multitenancy-with-azure-cognitive-search"></a>Modellering av flera organisationer med Azure Kognitiv sökning
+I ett scenario med flera innehavare förbrukar programutvecklaren en eller flera Sök tjänster och delar upp sina klienter bland tjänster, index eller både och. Azure Kognitiv sökning har några vanliga mönster vid modellering av ett scenario med flera innehavare:
 
-1. *Index per klient:* Varje klient har ett eget index i en söktjänst som delas med andra klienter.
-2. *Service per klient:* Varje klient har sin egen dedikerade Azure Cognitive Search-tjänst som erbjuder högsta nivå av data- och arbetsbelastningsseparation.
-3. *Blandning av båda:* Större, mer aktiva klienter tilldelas dedikerade tjänster medan mindre klienter tilldelas enskilda index inom delade tjänster.
+1. *Index per klient:* Varje klient har sitt eget index i en Sök tjänst som delas med andra klienter.
+2. *Tjänst per klient:* Varje klient har sin egen dedikerade Azure Kognitiv sökning-tjänst som erbjuder den högsta nivån av data och separation av arbets belastning.
+3. *Blandning av båda:* Större, mer-aktiva klienter tilldelas dedikerade tjänster, medan mindre klienter tilldelas enskilda index inom delade tjänster.
 
-## <a name="1-index-per-tenant"></a>1. Index per hyresgäst
-![En skildring av index-per-klient-modellen](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+## <a name="1-index-per-tenant"></a>1. index per klient
+![En portrayal av modellen index-per-klient](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
 
-I en index-per-klientmodell upptar flera klienter en enda Azure Cognitive Search-tjänst där varje klient har sitt eget index.
+I en modell för index per klient använder flera klienter en enda Azure Kognitiv sökning-tjänst där varje klient har sitt eget index.
 
-Klienter uppnår dataisolering eftersom alla sökbegäranden och dokumentåtgärder utfärdas på indexnivå i Azure Cognitive Search. I programskiktet finns det behov av medvetenhet om att rikta de olika hyresgästernas trafik till rätt index samtidigt som man hanterar resurser på servicenivå över alla klienter.
+Klienter uppnår data isolering eftersom alla Sök förfrågningar och dokument åtgärder utfärdas på en index nivå i Azure Kognitiv sökning. I program lagret behöver du veta mer om hur du dirigerar de olika klienternas trafik till rätt index samtidigt som du även hanterar resurser på tjänst nivå över alla klienter.
 
-Ett viktigt attribut för index-per-klient-modellen är möjligheten för programutvecklaren att överteckna kapaciteten för en söktjänst bland programmets klienter. Om klienterna har en ojämn fördelning av arbetsbelastningen kan den optimala kombinationen av klienter fördelas över en söktjänsts index för att rymma ett antal mycket aktiva, resursintensiva klienter samtidigt som de betjänar en lång svans av mindre aktiva klienter. Avvägningen är modellens oförmåga att hantera situationer där varje klient samtidigt är mycket aktiv.
+Ett nyckelattribut för modellen index-per-klient är möjligheten för programutvecklaren att överlåta kapaciteten hos en Sök tjänst bland programmets klienter. Om klienterna har en ojämn fördelning av arbets belastningen, kan den optimala kombinationen av klienter distribueras över en Sök tjänsts index för att hantera ett antal mycket aktiva, resurs krävande klienter samtidigt som en lång ände av mindre aktiva klienter betjänas samtidigt. Kompromissen är oförmåga för modellen att hantera situationer där varje klient är samtidigt hög aktiv.
 
-Index-per-klient-modellen utgör grunden för en modell för rörlig kostnad, där en hel Azure Cognitive Search-tjänst köps i förskott och sedan fylls med klienter. Detta gör det möjligt att ange outnyttjad kapacitet för utvärderingsversioner och kostnadsfria konton.
+Modellen index-per-klient utgör grunden för en variabel kostnads modell, där en hel Azure Kognitiv sökning-tjänst har köpts upp och sedan fyllts med klient organisationer. Detta gör det möjligt för oanvänd kapacitet att utses för försök och kostnads fria konton.
 
-För program med ett globalt fotavtryck kanske index-per-klientmodellen inte är den mest effektiva. Om ett programs klienter distribueras över hela världen kan en separat tjänst vara nödvändig för varje region som kan duplicera kostnaderna för var och en av dem.
+För program med global storlek kanske modellen index per klient inte är den mest effektiva. Om ett programs klienter distribueras över hela världen kan en separat tjänst vara nödvändig för varje region som kan duplicera kostnader för var och en av dem.
 
-Azure Cognitive Search gör det möjligt att skala både de enskilda indexen och det totala antalet index som ska växa. Om en lämplig prisnivå väljs kan partitioner och repliker läggas till i hela söktjänsten när ett enskilt index inom tjänsten blir för stort när det gäller lagring eller trafik.
+Med Azure Kognitiv sökning kan du skala både enskilda index och det totala antalet index som ska växa. Om en lämplig pris nivå väljs, kan partitioner och repliker läggas till i hela Sök tjänsten när ett enskilt index i tjänsten växer för stort när det gäller lagring eller trafik.
 
-Om det totala antalet index blir för stort för en enskild tjänst måste en annan tjänst etableras för att rymma de nya klienterna. Om index måste flyttas mellan söktjänster när nya tjänster läggs till måste data från indexet kopieras manuellt från ett index till ett annat eftersom Azure Cognitive Search inte tillåter att ett index flyttas.
+Om det totala antalet index blir för stort för en enskild tjänst, måste en annan tjänst tillhandahållas för att hantera de nya klient organisationerna. Om index måste flyttas mellan Sök tjänsterna när nya tjänster läggs till, måste data från indexet kopieras manuellt från ett index till det andra eftersom Azure Kognitiv sökning inte tillåter att ett index flyttas.
 
-## <a name="2-service-per-tenant"></a>2. Service per hyresgäst
-![En skildring av modellen service per hyresgäst](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+## <a name="2-service-per-tenant"></a>2. tjänst per klient
+![En portrayal av modellen för tjänst per klient](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
 
-I en service-per-klientarkitektur har varje klient en egen söktjänst.
+I en arkitektur för tjänst per klient organisation har varje klient organisation sin egen Sök tjänst.
 
-I den här modellen uppnår programmet den maximala isoleringsnivån för sina klienter. Varje tjänst har dedikerat lagrings- och dataflöde för hantering av sökbegäran samt separata API-nycklar.
+I den här modellen uppnår programmet den maximala isolerings nivån för dess klienter. Varje tjänst har dedikerad lagring och data flöde för hantering av Sök begär Anden samt separata API-nycklar.
 
-För program där varje klient har ett stort fotavtryck eller arbetsbelastningen har liten variation från klient till klient, är modellen service per klient ett effektivt val eftersom resurser inte delas mellan olika klienters arbetsbelastningar.
+För program där varje klient har ett stort utrymme eller om arbets belastningen har liten variation från klient organisation till klient organisation, är tjänst per klient modell ett effektivt val som resurser inte delas mellan olika klienters arbets belastningar.
 
-En tjänst per klientmodell erbjuder också fördelen med en förutsägbar modell med fast kostnad. Det finns ingen up-front investering i en hel söktjänst tills det finns en klient att fylla den, men kostnaden per klient är högre än en index-per-klientmodell.
+En tjänst per klient modell erbjuder också fördelen med en förutsägbar, fast kostnads modell. Det finns ingen direkt investering i en hel Sök tjänst tills det finns en klient som kan fylla den, men kostnaden per klient är högre än en modell med index per klient.
 
-Service-per-klient-modellen är ett effektivt val för program med ett globalt fotavtryck. Med geografiskt fördelade klienter är det enkelt att ha varje klients tjänst i rätt region.
+Modellen för tjänst per klient är ett effektivt alternativ för program med global storlek. Med geografiskt distribuerade klienter är det enkelt att ha varje klients tjänst i lämplig region.
 
-Utmaningarna i skalning detta mönster uppstår när enskilda hyresgäster växa ur sin tjänst. Azure Cognitive Search stöder för närvarande inte uppgradering av prisnivån för en söktjänst, så alla data måste kopieras manuellt till en ny tjänst.
+Utmaningarna med att skala det här mönstret uppstår när enskilda klienter utökar sin tjänst. Azure Kognitiv sökning stöder för närvarande inte uppgradering av pris nivån för en Sök tjänst, så alla data måste kopieras manuellt till en ny tjänst.
 
 ## <a name="3-mixing-both-models"></a>3. Blanda båda modellerna
-Ett annat mönster för modellering multitenancy är att blanda både index-per-klient och service-per-klient strategier.
+Ett annat mönster för modellering av flera innehavare är att blanda både index-per-klient-och tjänst per klient-strategier.
 
-Genom att blanda de två mönstren kan ett programs största hyresgäster uppta dedikerade tjänster medan den långa svansen av mindre aktiva, mindre klienter kan uppta index i en delad tjänst. Den här modellen säkerställer att de största hyresgästerna har genomgående hög prestanda från tjänsten samtidigt som den hjälper till att skydda de mindre hyresgästerna från bullriga grannar.
+Genom att blanda de två mönstren kan ett programs största innehavare ha dedikerade tjänster medan den långa änden av mindre aktiva och mindre klienter kan uppta index i en delad tjänst. Den här modellen säkerställer att de största klient organisationerna har konsekvent höga prestanda från tjänsten samtidigt som den hjälper till att skydda de mindre klienterna från alla störningar i olika störningar.
 
-Implementering av den här strategin bygger dock framsynthet i att förutsäga vilka klienter som kommer att kräva en dedikerad tjänst jämfört med ett index i en delad tjänst. Programmets komplexitet ökar med behovet av att hantera båda dessa multitenancy modeller.
+Att implementera den här strategin är dock beroende av utseende för att förutsäga vilka klienter som kräver en dedikerad tjänst jämfört med ett index i en delad tjänst. Program komplexiteten ökar med behovet av att hantera båda de här flera innehavande modellerna.
 
-## <a name="achieving-even-finer-granularity"></a>Uppnå ännu finare granularitet
-Ovanstående designmönster för att modellera multitenant scenarier i Azure Cognitive Search förutsätter ett enhetligt omfång där varje klient är en hel instans av ett program. Program kan dock ibland hantera många mindre scope.
+## <a name="achieving-even-finer-granularity"></a>Uppnå ännu bättre precision
+Design mönstren ovan för att modellera scenarier för flera innehavare i Azure Kognitiv sökning förutsätter ett enhetligt omfång där varje klient är en hel instans av ett program. Program kan dock ibland hantera många mindre omfång.
 
-Om modeller för service per klient och index per klient inte är tillräckligt små scope, är det möjligt att modellera ett index för att uppnå en ännu finare grad av granularitet.
+Om modeller för tjänst per klient och index per klient inte är tillräckligt små omfattningar, är det möjligt att modellera ett index för att uppnå en ännu bättre grad av granularitet.
 
-Om du vill att ett enda index ska fungera på olika sätt för olika klientslutpunkter kan ett fält läggas till i ett index som anger ett visst värde för varje möjlig klient. Varje gång en klient anropar Azure Cognitive Search för att fråga eller ändra ett index anger koden från klientprogrammet det lämpliga värdet för det fältet med hjälp av Azure Cognitive Searchs [filterfunktion](https://msdn.microsoft.com/library/azure/dn798921.aspx) vid frågetillfället.
+Om ett enskilt index beter sig annorlunda för olika klient slut punkter kan ett fält läggas till i ett index som anger ett visst värde för varje möjlig klient. Varje gången en klient anropar Azure Kognitiv sökning för att fråga eller ändra ett index, anger koden från klient programmet lämpligt värde för fältet med hjälp av Azure Kognitiv söknings [filter](https://msdn.microsoft.com/library/azure/dn798921.aspx) funktion vid tidpunkten för frågan.
 
-Den här metoden kan användas för att uppnå funktioner för separata användarkonton, separata behörighetsnivåer och till och med helt separata program.
+Den här metoden kan användas för att uppnå funktioner i separata användar konton, olika behörighets nivåer och till och med helt separata program.
 
 > [!NOTE]
-> Om du använder den metod som beskrivs ovan för att konfigurera ett enda index för att betjäna flera klienter påverkas relevansen av sökresultaten. Sökrelevanspoäng beräknas på ett omfång på indexnivå, inte ett omfång på klientnivå, så alla klienters data ingår i relevanspoängens underliggande statistik, till exempel termfrekvens.
+> Genom att använda den metod som beskrivs ovan för att konfigurera ett enda index för att betjäna flera klienter, påverkar Sök resultatnas relevans. Sök Resultat beräknas på ett omfång på index nivå, inte på en omfattning på klient nivå, så alla innehavares data införlivas i resultat underliggande statistik, till exempel term frekvens.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Azure Cognitive Search är ett övertygande val för många program. När du utvärderar de olika designmönstren för program med flera användare bör du tänka på de [olika prisnivåerna](https://azure.microsoft.com/pricing/details/search/) och respektive [tjänstgränser](search-limits-quotas-capacity.md) för att bäst skräddarsy Azure Cognitive Search så att de passar programarbetsbelastningar och arkitekturer av alla storlekar.
+Azure Kognitiv sökning är ett övertygande val för många program. När du utvärderar de olika design mönstren för program med flera klienter bör du överväga de [olika pris nivåerna](https://azure.microsoft.com/pricing/details/search/) och respektive [tjänst begränsningar](search-limits-quotas-capacity.md) för att skräddarsy Azure-kognitiv sökning så att den passar program arbets belastningar och arkitekturer i alla storlekar.
 
-Alla frågor om Azure Cognitive Search och scenarier azuresearch_contact@microsoft.commed flera innehavare kan dirigeras till .
+Alla frågor om Azure Kognitiv sökning och scenarier med flera innehavare kan dirigeras azuresearch_contact@microsoft.comtill.
 

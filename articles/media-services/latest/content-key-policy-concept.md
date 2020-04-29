@@ -1,6 +1,6 @@
 ---
-title: Principer för innehållsnyckel i Media Services – Azure | Microsoft-dokument
-description: Den här artikeln ger en förklaring av vad innehållsnyckelprinciper är och hur de används av Azure Media Services.
+title: Nyckel principer för innehåll i Media Services-Azure | Microsoft Docs
+description: Den här artikeln innehåller en förklaring av vilka principer för innehålls nycklar som är och hur de används av Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,53 +13,53 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585994"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
-Med Media Services kan du leverera ditt live- och on-demand-innehåll krypterat dynamiskt med Advanced Encryption Standard (AES-128) eller något av de tre stora DRM-systemen (Digital Rights Management): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser (PlayReady, Widevine och FairPlay) till auktoriserade klienter. 
+Med Media Services kan du leverera direktsänd och innehåll på begäran som krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre större Digital Rights Management-systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser (PlayReady, Widevine och FairPlay) till auktoriserade klienter. 
 
-Om du vill ange krypteringsalternativ på flödet måste du skapa en [streamingprincip](streaming-policy-concept.md) och associera den med din [streamingpositionerare](streaming-locators-concept.md). Du skapar [innehållsnyckelprincipen](https://docs.microsoft.com/rest/api/media/contentkeypolicies) för att konfigurera hur innehållsnyckeln (som ger säker åtkomst till dina [tillgångar)](assets-concept.md)levereras till slutklienter. Du måste ange kraven (begränsningarna) för innehållsnyckelprincipen som måste uppfyllas för att nycklar med den angivna konfigurationen ska levereras till klienter. Innehållsnyckelprincipen behövs inte för tydlig direktuppspelning eller nedladdning. 
+Om du vill ange krypterings alternativ för data strömmen måste du skapa en [strömmande princip](streaming-policy-concept.md) och koppla den till din [strömmande positionerare](streaming-locators-concept.md). Du skapar en [innehålls nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) för att konfigurera hur innehålls nyckeln (som ger säker åtkomst till [till gångar](assets-concept.md)) levereras till slut klienter. Du måste ange kraven (begränsningar) för den innehålls nyckel princip som måste uppfyllas för att nycklar med den angivna konfigurationen ska skickas till klienter. Innehålls nyckel principen behövs inte för att rensa strömma eller ladda ned. 
 
-Vanligtvis associerar du din innehållsnyckelprincip med din [streamingpositionerare](streaming-locators-concept.md). Du kan också ange innehållsnyckelprincipen i en [direktuppspelningsprincip](streaming-policy-concept.md) (när du skapar en anpassad direktuppspelningsprincip för avancerade scenarier). 
+Vanligt vis associerar du din innehålls nyckel princip med din [streaming Locator](streaming-locators-concept.md). Du kan också ange innehålls nyckel principen i en [strömmande princip](streaming-policy-concept.md) (när du skapar en anpassad strömnings princip för avancerade scenarier). 
 
-## <a name="best-practices-and-considerations"></a>Bästa praxis och överväganden
+## <a name="best-practices-and-considerations"></a>Metod tips och överväganden
 
 > [!IMPORTANT]
-> Läs igenom följande rekommendationer.
+> Kontrol lera följande rekommendationer.
 
-* Du bör utforma en begränsad uppsättning principer för ditt Media Service-konto och återanvända dem för dina streamingpositionerare när samma alternativ behövs. Mer information finns i [Kvoter och begränsningar](limits-quotas-constraints.md).
-* Viktiga principer för innehåll kan uppdateras. Det kan ta upp till 15 minuter innan nyckelleveranscachen uppdaterar och hämtar den uppdaterade principen. 
+* Du bör utforma en begränsad uppsättning principer för ditt Media Service-konto och återanvända dem för dina strömmande positionerare när samma alternativ behövs. Mer information finns i [kvoter och begränsningar](limits-quotas-constraints.md).
+* Innehålls nyckel principer kan uppdateras. Det kan ta upp till 15 minuter för nyckel leverans-cachen att uppdatera och hämta den uppdaterade principen. 
 
-   Genom att uppdatera principen skriver du över din befintliga CDN-cache, vilket kan orsaka uppspelningsproblem för kunder som använder cachelagrat innehåll.  
-* Vi rekommenderar att du inte skapar en ny innehållsnyckelprincip för varje tillgång. De största fördelarna med att dela samma innehållsnyckelpolicy mellan tillgångar som behöver samma policyalternativ är:
+   Genom att uppdatera principen skriver du över din befintliga CDN-cache som kan orsaka uppspelnings problem för kunder som använder cachelagrat innehåll.  
+* Vi rekommenderar att du inte skapar en ny innehålls nyckel princip för varje till gång. De största fördelarna med att dela samma innehålls nyckel princip mellan till gångar som behöver samma princip alternativ är:
    
-   * Det är lättare att hantera ett litet antal politikområden.
-   * Om du behöver göra uppdateringar av innehållsnyckelprincipen träder ändringarna i kraft på alla nya licensbegäranden nästan direkt.
-* Om du behöver skapa en ny princip måste du skapa en ny streaming locator för tillgången.
-* Vi rekommenderar att du låter Innehållsnyckeln skapa innehållsnyckeln automatiskt. 
+   * Det är enklare att hantera ett litet antal principer.
+   * Om du behöver göra uppdateringar av innehålls nyckel principen, kommer ändringarna att börja gälla på alla nya licens förfrågningar nästan direkt.
+* Om du behöver skapa en ny princip måste du skapa en ny plats för direkt uppspelning för till gången.
+* Vi rekommenderar att Media Services automatiskt genererar innehålls nyckeln. 
 
-   Vanligtvis använder du en långlivad nyckel och kontrollerar om det finns en princip för innehållsnyckel med [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). För att få nyckeln måste du anropa en separat åtgärdsmetod för att hämta hemligheter eller autentiseringsuppgifter, se exemplet som följer.
+   Normalt använder du en lång livs längds nyckel och kontrollerar om det finns en innehålls nyckel princip med [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). För att hämta nyckeln måste du anropa en separat åtgärds metod för att få hemligheter eller autentiseringsuppgifter, se exemplet nedan.
 
 ## <a name="example"></a>Exempel
 
-Om du vill komma `GetPolicyPropertiesWithSecretsAsync`till nyckeln använder du , som visas i [hämta en signeringsnyckel från det befintliga principexemplet.](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets)
+För att komma till nyckeln använder `GetPolicyPropertiesWithSecretsAsync`du, som du ser i [Hämta en signerings nyckel från den befintliga princip](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exemplet.
 
-## <a name="filtering-ordering-paging"></a>Filtrering, beställning, växling
+## <a name="filtering-ordering-paging"></a>Filtrering, sortering, växling
 
-Se [Filtrering, beställning, växling av Media Services-entiteter](entities-overview.md).
+Se [filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md).
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Egenskaper för de innehållsnyckelprinciper som är av typen `Datetime` är alltid i UTC-format.
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+* Egenskaperna för de innehålls nyckel principer som är av `Datetime` typen är alltid i UTC-format.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd dynamisk AES-128-kryptering och nyckelleveranstjänsten](protect-with-aes128.md)
+* [Använd AES-128 dynamisk kryptering och Key Delivery Service](protect-with-aes128.md)
 * [Använda dynamisk DRM-kryptering och tjänsten för licensleverans](protect-with-drm.md)
-* [KodaHTTPOchPublishAESEnkrypterad](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)
+* [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

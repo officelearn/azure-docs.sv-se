@@ -1,6 +1,6 @@
 ---
-title: Hantera användardata som hittades i en Azure Security Center-undersökning
-description: " Lär dig hur du hanterar användardata som finns i Azure Security Centers undersökningsfunktion. "
+title: Hantera användar data som finns i en Azure Security Center undersökning
+description: " Lär dig hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. "
 services: operations-management-suite
 documentationcenter: na
 author: memildin
@@ -14,38 +14,38 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
 ms.openlocfilehash: aa262b0be3902f6e143a53f8f1302156fc5aede6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80582989"
 ---
-# <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användardata som hittades i en Azure Security Center-undersökning
-Den här artikeln innehåller information om hur du hanterar användardata som finns i Azure Security Centers undersökningsfunktion. Undersökningsdata lagras i [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md) och exponeras i Security Center. Hantering av användardata omfattar möjligheten att ta bort eller exportera data.
+# <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användar data som finns i en Azure Security Center undersökning
+Den här artikeln innehåller information om hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. Gransknings data lagras i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) och exponeras i Security Center. Att hantera användar data innebär att du kan ta bort eller exportera data.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Söker efter och identifierar personuppgifter
-I Azure-portalen kan du använda Security Centers undersökningsfunktion för att söka efter personuppgifter. Undersökningsfunktionen är tillgänglig under **Säkerhetsvarningar**.
+I Azure Portal kan du använda Security Centers gransknings funktion för att söka efter personliga data. Undersöknings funktionen finns i **säkerhets aviseringar**.
 
-Undersökningsfunktionen visar alla entiteter, användarinformation och data under fliken **Entiteter.**
+I undersöknings funktionen visas alla entiteter, användar information och data på fliken **entiteter** .
 
 ## <a name="securing-and-controlling-access-to-personal-information"></a>Skydda och kontrollera åtkomst till personuppgifter
-En Security Center-användare som tilldelats rollen som läsare, ägare, deltagare eller kontoadministratör kan komma åt kunddata i verktyget.
+En Security Center användare som har tilldelats rollen läsare, ägare, deltagare eller konto administratör kan komma åt kund information i verktyget.
 
-Se [Inbyggda roller för Azure-rollbaserad åtkomstkontroll](../role-based-access-control/built-in-roles.md) om du vill veta mer om rollerna Läsare, Ägare och Deltagare. Läs [azure-prenumerationsadministratörer](../cost-management-billing/manage/add-change-subscription-administrator.md) om du vill veta mer om rollen Kontoadministratör.
+Se [inbyggda roller för rollbaserad åtkomst kontroll i Azure](../role-based-access-control/built-in-roles.md) om du vill veta mer om rollerna läsare, ägare och deltagare. Se [Azure-prenumerations administratörer](../cost-management-billing/manage/add-change-subscription-administrator.md) för att lära dig mer om rollen konto administratör.
 
 ## <a name="deleting-personal-data"></a>Ta bort personliga data
-En Security Center-användare som tilldelats rollen som ägare, deltagare eller kontoadministratör kan ta bort undersökningsinformationen.
+En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan ta bort information om undersökningen.
 
-Om du vill ta bort `DELETE` en undersökning kan du skicka en begäran till REST-API:et för Azure Resource Manager:
+Om du vill ta bort en undersökning kan du `DELETE` skicka en begäran till Azure Resource Manager REST API:
 
 ```HTTP
 DELETE
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents/{incidentName}
 ```
 
-Indata `incidentName` kan hittas genom att `GET` lista alla incidenter med hjälp av en begäran:
+Du `incidentName` kan hitta indatamängden genom att visa alla incidenter `GET` med en begäran:
 
 ```HTTP
 GET
@@ -53,8 +53,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 ```
 
 ## <a name="exporting-personal-data"></a>Exportera personliga data
-En Security Center-användare som tilldelats rollen som ägare, deltagare eller kontoadministratör kan exportera undersökningsinformationen. Om du vill exportera undersökningsinformation går du till fliken **Entiteter** för att kopiera och klistra in relevant information.
+En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan exportera information om undersökningen. Om du vill exportera information om undersökningen går du till fliken **entiteter** för att kopiera och klistra in relevant information.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du hanterar användardata finns [i Hantera användardata i Azure Security Center](security-center-privacy.md).
-Mer information om hur du tar bort privata data i Azure Monitor-loggar finns i [Så här exporterar och tar du bort privata data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Mer information om hur du hanterar användar data finns [i hantera användar data i Azure Security Center](security-center-privacy.md).
+Mer information om hur du tar bort privata data i Azure Monitor loggar finns i [Exportera och ta bort privata data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

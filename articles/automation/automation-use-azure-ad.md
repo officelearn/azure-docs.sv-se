@@ -1,105 +1,105 @@
 ---
-title: Använda Azure AD i Azure Automation för att autentisera till Azure
-description: Lär dig hur du använder Azure AD i Azure Automation som leverantör för autentisering till Azure.
+title: Använda Azure AD i Azure Automation för autentisering till Azure
+description: Lär dig hur du använder Azure AD inom Azure Automation som Provider för autentisering till Azure.
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 90338a1ffa79e6c2347832cb2e74633db02ec72d
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548340"
 ---
-# <a name="use-azure-ad-in-azure-automation-to-authenticate-to-azure"></a>Använda Azure AD i Azure Automation för att autentisera till Azure
+# <a name="use-azure-ad-in-azure-automation-to-authenticate-to-azure"></a>Använda Azure AD i Azure Automation för autentisering till Azure
 
-[Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) -tjänsten aktiverar ett antal administrativa uppgifter, till exempel användarhantering, domänhantering och konfiguration med enkel inloggning. I den här artikeln beskrivs hur du använder Azure AD i Azure Automation som leverantör för autentisering till Azure. 
+Tjänsten [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) möjliggör ett antal administrativa uppgifter, till exempel användar hantering, domän hantering och konfiguration av enkel inloggning. Den här artikeln beskriver hur du använder Azure AD inom Azure Automation som Provider för autentisering till Azure. 
 
 >[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="installing-azure-ad-modules"></a>Installera Azure AD-moduler
 
-Du kan aktivera Azure AD via följande PowerShell-moduler:
+Du kan aktivera Azure AD genom följande PowerShell-moduler:
 
-* Azure Active Directory PowerShell för graph (AzureRM- och Az-moduler). Azure Automation levereras med AzureRM-modulen och dess senaste uppgradering, Az-modulen. Funktionen inkluderar icke-interaktiv autentisering till Azure med Azure AD-användare (OrgId) autentiseringsuppgifter-baserad autentisering. Se [Azure AD 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
+* Azure Active Directory PowerShell för Graph (AzureRM-och AZ-moduler). Azure Automation levereras med AzureRM-modulen och den senaste uppgraderingen, AZ-modulen. Funktionerna omfattar icke-interaktiv autentisering till Azure med autentisering baserad på OrgId-autentisering (Azure AD User). Se [Azure AD-2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
 
 * Microsoft Azure Active Directory för Windows PowerShell (MSOnline-modul). Den här modulen möjliggör interaktioner med Microsoft Online, inklusive Office 365.
 
 >[!NOTE]
->PowerShell Core stöder inte MSOnline-modulen. Om du vill använda modulen cmdlets måste du köra dem från Windows PowerShell. Du uppmanas att använda de nyare Azure Active Directory PowerShell for Graph-modulerna i stället för MSOnline-modulen. 
+>PowerShell-kärnan stöder inte modulen MSOnline. Om du vill använda cmdlets för moduler måste du köra dem från Windows PowerShell. Du uppmanas att använda den nyare Azure Active Directory PowerShell för graf-moduler i stället för MSOnline-modulen. 
 
 ### <a name="preinstallation"></a>Preinstallation
 
 Innan du installerar Azure AD-modulerna på datorn:
 
-* Avinstallera alla tidigare versioner av AzureRM/Az-modulen och MSOnline-modulen. 
+* Avinstallera alla tidigare versioner av AzureRM/AZ-modulen och MSOnline-modulen. 
 
-* Avinstallera inloggningsassistenten för Microsoft Online Services för att säkerställa att de nya PowerShell-modulerna fungerar korrekt.  
+* Avinstallera Microsoft Online Services-inloggnings assistenten för att säkerställa att de nya PowerShell-modulerna fungerar korrekt.  
 
-### <a name="install-the-azurerm-and-az-modules"></a>Installera AzureRM- och Az-modulerna
+### <a name="install-the-azurerm-and-az-modules"></a>Installera AzureRM-och AZ-modulerna
 
 >[!NOTE]
->Om du vill arbeta med dessa moduler måste du använda PowerShell version 5.1 eller senare med en 64-bitarsversion av Windows. 
+>Om du vill arbeta med dessa moduler måste du använda PowerShell version 5,1 eller senare med en 64-bitars version av Windows. 
 
-1. Installera WMF (Windows Management Framework) 5.1. Se [Installera och konfigurera WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure?view=powershell-7).
+1. Installera Windows Management Framework (WMF) 5,1. Se [Installera och konfigurera WMF 5,1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure?view=powershell-7).
 
-2. Installera AzureRM och/eller Az med instruktioner i [Installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0).
+2. Installera AzureRM och/eller AZ med hjälp av instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0).
 
 ### <a name="install-the-msonline-module"></a>Installera MSOnline-modulen
 
 >[!NOTE]
->Om du vill installera MSOnline-modulen måste du vara medlem i en Office 365-administratörsroll. Se [Om administratörsroller](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+>Om du vill installera MSOnline-modulen måste du vara medlem i en Office 365-administratörs roll. Se [om administratörs roller](https://docs.microsoft.com/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
 
-1. Kontrollera att Funktionen Microsoft .NET Framework 3.5.x är aktiverad på datorn. Det är troligt att datorn har en nyare version installerad, men bakåtkompatibilitet med äldre versioner av .NET Framework kan aktiveras eller inaktiveras. 
+1. Se till att funktionen Microsoft .NET Framework 3.5. x är aktive rad på datorn. Det är troligt att datorn har en senare version installerad, men bakåtkompatibilitet med äldre versioner av .NET Framework kan aktive ras eller inaktive ras. 
 
-2. Installera 64-bitarsversionen av [Inloggningsassistenten för Microsoft Online Services](https://www.microsoft.com/download/details.aspx?id=41950).
+2. Installera 64-bitars versionen av [Microsoft Online Services-inloggnings assistenten](https://www.microsoft.com/download/details.aspx?id=41950).
 
-3. Kör Windows PowerShell som administratör för att skapa en upphöjd Windows PowerShell-kommandotolk.
+3. Kör Windows PowerShell som administratör för att skapa en upphöjd kommando tolk för Windows PowerShell.
 
-4. Distribuera Azure Active Directory från [MSOnline 1.0](http://www.powershellgallery.com/packages/MSOnline/1.0).
+4. Distribuera Azure Active Directory från [MSOnline 1,0](http://www.powershellgallery.com/packages/MSOnline/1.0).
 
 5. Om du uppmanas att installera NuGet-providern skriver du Y och trycker på RETUR.
 
-6. Om du uppmanas att installera modulen från [PSGallery](https://www.powershellgallery.com/)skriver du Y och trycker på RETUR.
+6. Om du uppmanas att installera modulen från [PSGallery](https://www.powershellgallery.com/), Skriv Y och tryck på RETUR.
 
 ### <a name="install-support-for-pscredential"></a>Installera stöd för PSCredential
 
-Azure Automation använder [pscredential-klassen](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) för att representera en referenstillgång. Skripten hämtar `PSCredential` objekt `Get-AutomationPSCredential` med hjälp av cmdleten. Mer information finns [i Autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md).
+Azure Automation använder klassen [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) för att representera en referens till gång. Skripten hämtar `PSCredential` objekt med hjälp `Get-AutomationPSCredential` av cmdleten. Mer information finns i avsnittet [om inloggnings till gångar i Azure Automation](shared-resources/credentials.md).
 
-## <a name="assigning-a-subscription-administrator"></a>Tilldela en prenumerationsadministratör
+## <a name="assigning-a-subscription-administrator"></a>Tilldela en prenumerations administratör
 
-Du måste tilldela en administratör för Azure-prenumerationen. Den här personen har rollen som Ägare för prenumerationsomfattningen. Se [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md). 
+Du måste tilldela en administratör för Azure-prenumerationen. Den här personen har rollen ägare för prenumerations omfånget. Se [rollbaserad åtkomst kontroll i Azure Automation](automation-role-based-access-control.md). 
 
-## <a name="changing-the-azure-ad-users-password"></a>Ändra Azure AD-användarens lösenord
+## <a name="changing-the-azure-ad-users-password"></a>Ändra Azure AD-användarens lösen ord
 
-Så här ändrar du Azure AD-användarens lösenord:
+Ändra Azure AD-användarens lösen ord:
 
 1. Logga ut från Azure.
 
-2. Låt administratören logga in på Azure som Azure AD-användare just skapat, med hjälp av det fullständiga användarnamnet (inklusive domänen) och ett tillfälligt lösenord. 
+2. Be administratören logga in på Azure som den Azure AD-användare som precis har skapat, med hjälp av det fullständiga användar namnet (inklusive domänen) och ett tillfälligt lösen ord. 
 
-3. Be administratören ändra lösenordet när du uppmanas att göra det.
+3. Be administratören att ändra lösen ordet när du uppmanas till det.
 
-## <a name="configuring-azure-automation-to-use-the-azure-ad-user-to-manage-the-azure-subscription"></a>Konfigurera Azure Automation så att Azure AD-användaren kan hantera Azure-prenumerationen
+## <a name="configuring-azure-automation-to-use-the-azure-ad-user-to-manage-the-azure-subscription"></a>Konfigurera Azure Automation att använda Azure AD-användaren för att hantera Azure-prenumerationen
 
-För att Azure Automation ska kunna kommunicera med Azure AD måste du hämta autentiseringsuppgifterna som är associerade med Azure-anslutningen till Azure AD. Exempel på dessa autentiseringsuppgifter är klient-ID, prenumerations-ID och liknande. Mer information om anslutningen mellan Azure och Azure AD finns i [Ansluta din organisation till Azure Active Directory](https://docs.microsoft.com/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops).
+För att Azure Automation ska kunna kommunicera med Azure AD måste du hämta de autentiseringsuppgifter som är associerade med Azure-anslutningen till Azure AD. Exempel på dessa autentiseringsuppgifter är klient-ID, prenumerations-ID och liknande. Mer information om anslutningen mellan Azure och Azure AD finns i [Anslut din organisation till Azure Active Directory](https://docs.microsoft.com/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops).
 
-## <a name="creating-a-credential-asset"></a>Skapa en referenstillgång
+## <a name="creating-a-credential-asset"></a>Skapa en inloggnings till gång
 
-Med Azure-autentiseringsuppgifterna för Azure AD tillgängliga är det dags att skapa en Azure Automation-referenstillgång för att på ett säkert sätt lagra Azure AD-autentiseringsuppgifterna så att DSC-skript (Runbooks and Desire State Configuration) kan komma åt dem. Du kan göra detta med antingen Azure-portalen eller PowerShell-cmdlets.
+Med Azures autentiseringsuppgifter för Azure AD är det dags att skapa en Azure Automation Credential-till gång för att lagra autentiseringsuppgifter för Azure AD på ett säkert sätt så att Runbooks och aktuella tillstånds konfigurations skript (DSC) kan komma åt dem. Du kan göra detta med hjälp av antingen Azure Portal-eller PowerShell-cmdletar.
 
-### <a name="create-the-credential-asset-in-azure-portal"></a>Skapa autentiseringstillgången i Azure Portal
+### <a name="create-the-credential-asset-in-azure-portal"></a>Skapa inloggnings till gången i Azure Portal
 
-Du kan använda Azure-portalen för att skapa autentiseringstillgången. Gör den här åtgärden från ditt Automation-konto med **autentiseringsuppgifter** under **Delade resurser**. Se [Autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md).
+Du kan använda Azure Portal för att skapa inloggnings till gången. Utför den här åtgärden från ditt Automation-konto med hjälp av **autentiseringsuppgifter** under **delade resurser**. Se [inloggnings till gångar i Azure Automation](shared-resources/credentials.md).
 
-### <a name="create-the-credential-asset-with-windows-powershell"></a>Skapa autentiseringstillgången med Windows PowerShell
+### <a name="create-the-credential-asset-with-windows-powershell"></a>Skapa inloggnings till gången med Windows PowerShell
 
-Om du vill förbereda en ny autentiseringstillgång i `PSCredential` Windows PowerShell skapar skriptet först ett objekt med det tilldelade användarnamnet och lösenordet. Skriptet använder sedan det här objektet för att skapa tillgången via ett anrop till cmdleten [New-AzureAutomationCredential.](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) Alternativt kan skriptet anropa Cmdlet hämta [autentiseringsuppgifter](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) för att uppmana användaren att skriva in ett namn och lösenord. Se [Autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md). 
+För att förbereda en ny inloggnings till gång i Windows PowerShell skapar skriptet först `PSCredential` ett objekt med det tilldelade användar namnet och lösen ordet. Skriptet använder sedan det här objektet för att skapa till gången via ett anrop till cmdleten [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) . Alternativt kan skriptet anropa cmdleten [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) för att uppmana användaren att ange ett namn och lösen ord. Se [inloggnings till gångar i Azure Automation](shared-resources/credentials.md). 
 
-## <a name="managing-azure-resources-from-an-azure-automation-runbook"></a>Hantera Azure-resurser från en Azure Automation-runbook
+## <a name="managing-azure-resources-from-an-azure-automation-runbook"></a>Hantera Azure-resurser från en Azure Automation Runbook
 
-Du kan hantera Azure-resurser från Azure Automation-runbooks med hjälp av autentiseringstillgången. Nedan finns ett exempel på PowerShell-runbook som samlar in den autentiseringsuppgifter som ska användas för att stoppa och starta virtuella datorer i en Azure-prenumeration. Den här runbooken använder `Get-AutomationPSCredential` först för att hämta autentiseringsuppgifterna som ska användas för att autentisera till Azure. Den anropar sedan [cmdlet connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) för att ansluta till Azure med hjälp av autentiseringsuppgifterna. Skriptet använder [cmdleten Select-AzureSubscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) för att välja prenumerationen att arbeta med. 
+Du kan hantera Azure-resurser från Azure Automation-runbooks med hjälp av inloggnings till gången. Nedan visas ett exempel på en PowerShell-Runbook som samlar in den inloggnings till gång som ska användas för att stoppa och starta virtuella datorer i en Azure-prenumeration. Den här runbooken använder `Get-AutomationPSCredential` först för att hämta de autentiseringsuppgifter som ska användas för att autentisera till Azure. Sedan anropas cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) för att ansluta till Azure med hjälp av autentiseringsuppgiften. Skriptet använder cmdleten [Select-AzureSubscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) för att välja vilken prenumeration som ska användas. 
 
 ```azurepowershell
 Workflow Stop-Start-AzureVM 
@@ -162,7 +162,7 @@ Workflow Stop-Start-AzureVM
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Du hittar information om resurser för automatiseringsautentiseringsuppgifter i [Autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md).
+* Du hittar information om till gångar för automatisering av autentiseringsuppgifter i [inloggnings till gångar i Azure Automation](shared-resources/credentials.md).
 * Se [Hantera moduler i Azure Automation](shared-resources/modules.md) för att ta reda på hur du arbetar med Automation-moduler.
-* Mer information om de metoder som kan användas för att starta en runbook i Azure Automation finns [i Starta en runbook i Azure Automation](automation-starting-a-runbook.md).
-* Mer information om PowerShell, inklusive språkreferens- och utbildningsmoduler, finns i [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* Mer information om de metoder som kan användas för att starta en Runbook i Azure Automation finns i [starta en Runbook i Azure Automation](automation-starting-a-runbook.md).
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).

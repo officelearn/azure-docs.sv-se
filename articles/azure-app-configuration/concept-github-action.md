@@ -1,41 +1,41 @@
 ---
-title: Synkronisera din GitHub-databas med appkonfiguration
-description: Använd GitHub-åtgärder för att automatiskt uppdatera appkonfigurationsinstansen när du uppdaterar GitHub-databasen.
+title: Synkronisera din GitHub-lagringsplats med app-konfigurationen
+description: Använd GitHub-åtgärder för att automatiskt uppdatera din konfigurations instans när du uppdaterar din GitHub-lagringsplats.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585485"
 ---
-# <a name="sync-your-github-repository-to-app-configuration"></a>Synkronisera din GitHub-databas med appkonfiguration
+# <a name="sync-your-github-repository-to-app-configuration"></a>Synkronisera din GitHub-lagringsplats med app-konfigurationen
 
-Team som vill fortsätta använda sina befintliga källkontrollmetoder kan använda GitHub-åtgärder för att automatiskt synkronisera sin GitHub-databas med sitt App Configuration Store. På så sätt kan du göra ändringar i dina konfigurationsfiler som vanligt, samtidigt som du får fördelar för appkonfigurationen som: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;• Centraliserad konfiguration utanför koden <br>
+Team som vill fortsätta använda sina befintliga käll kontroll metoder kan använda GitHub-åtgärder för att automatiskt synkronisera sina GitHub-lagringsplatser med sitt konfigurations lager för appar. På så sätt kan du göra ändringar i config-filerna precis som vanligt, samtidigt som du får program konfigurations förmåner som: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;• Centraliserad konfiguration utanför din kod <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Uppdatera konfigurationen utan att distribuera om hela appen <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Integrering med tjänster som Azure App Service och funktioner. 
 
-Ett [arbetsflöde](https://help.github.com/articles/about-github-actions#workflow) för GitHub-åtgärder definierar en automatiserad process i en GitHub-databas. *Azure App Configuration Sync* Action utlöser uppdateringar till en appkonfigurationsinstans när ändringar görs i källdatabasen. Den använder en YAML -fil (.yml) som finns i `/.github/workflows/` sökvägen till databasen för att definiera stegen och parametrarna. Du kan utlösa konfigurationsuppdateringar när du trycker, granskar eller förgrenar appkonfigurationsfiler på samma sätt som med appkod.
+Ett [arbets flöde](https://help.github.com/articles/about-github-actions#workflow) för GitHub-åtgärder definierar en automatiserad process i en GitHub-lagringsplats. Åtgärden *Azure App Sync-konfiguration* utlöser uppdateringar till en konfigurations instans för appar när ändringar görs i käll lagrings platsen. Den använder en YAML-fil (. yml) som finns `/.github/workflows/` i sökvägen till lagrings platsen för att definiera stegen och parametrarna. Du kan utlösa konfigurations uppdateringar när du skickar, granska eller förgrena appars konfigurationsfiler precis som du gör med app-kod.
 
-[GitHub-dokumentationen](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) ger en djupgående vy över GitHub-arbetsflöden och åtgärder. 
+GitHub- [dokumentationen](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) innehåller djupgående visning av GitHub-arbetsflöden och åtgärder. 
 
-## <a name="enable-github-actions-in-your-repository"></a>Aktivera GitHub-åtgärder i databasen
-Om du vill börja använda den här GitHub-åtgärden går du till databasen och väljer fliken **Åtgärder.** Klicka på **Nytt arbetsflöde**och konfigurera sedan ett **arbetsflöde själv**. Slutligen, sök på marknaden efter "Azure App Configuration Sync."
+## <a name="enable-github-actions-in-your-repository"></a>Aktivera GitHub-åtgärder i din lagrings plats
+Om du vill börja använda den här GitHub-åtgärden går du till din lagrings plats och väljer fliken **åtgärder** . Klicka på **nytt arbets flöde**och **skapa sedan ett arbets flöde själv**. Slutligen söker du efter "Azure App konfigurations synkronisering" på Marketplace.
 > [!div class="mx-imgBorder"]
-> ![Välj fliken Åtgärd](media/find-github-action.png)
+> ![Välj fliken åtgärd](media/find-github-action.png)
 
 > [!div class="mx-imgBorder"]
-> ![Välj åtgärd för synkronisering av appkonfiguration](media/app-configuration-sync-action.png)
+> ![Välj synkronisering av app-konfiguration](media/app-configuration-sync-action.png)
 
 ## <a name="sync-configuration-files-after-a-push"></a>Synkronisera konfigurationsfiler efter en push
-Den här åtgärden synkroniserar Azure App Configuration-filer när en ändring skjuts till `appsettings.json`. När en utvecklare skickar `appsettings.json`en ändring till uppdaterar åtgärden App Configuration Sync appkonfiguration instansen med de nya värdena.
+Den här åtgärden synkroniserar Azure App konfigurationsfiler när en ändring skickas till `appsettings.json`. När en utvecklare skickar en ändring till `appsettings.json`, uppdaterar synkroniseringen av app Configuration-instansen med de nya värdena.
 
-Det första avsnittet i det här arbetsflödet anger `appsettings.json` att åtgärden utlöser *på* en *push* som innehåller till *huvudgrenen.* I det andra avsnittet visas de jobb som körs när åtgärden har utlösts. Åtgärden checkar ut relevanta filer och uppdaterar appkonfigurationsinstansen med hjälp av anslutningssträngen som lagras som en hemlighet i databasen.  Mer information om hur du använder hemligheter i GitHub finns i [GitHubs artikel](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) om hur du skapar och använder krypterade hemligheter.
+Det första avsnittet av det här arbets flödet anger att åtgärden utlöses *på* en `appsettings.json` *push* som innehåller *huvud* grenen. I det andra avsnittet visas jobben som körs när åtgärden har Aktiver ATS. Åtgärden kontrollerar de relevanta filerna och uppdaterar konfigurations instansen för appen med hjälp av anslutnings strängen som lagras som en hemlighet i lagrings platsen.  Mer information om hur du använder hemligheter i GitHub finns i [GitHub-artikeln](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) om hur du skapar och använder krypterade hemligheter.
 
 ```json
 on: 
@@ -61,10 +61,10 @@ jobs:
           separator: ':' 
 ```
 
-## <a name="use-a-dynamic-label-on-sync"></a>Använda en dynamisk etikett vid synkronisering
-Den föregående åtgärden uppdaterar appkonfigurationsinstansen när den `appsettings.json` uppdateras. Den här åtgärden infogar en dynamisk etikett på varje synkronisering, vilket säkerställer att varje synkronisering kan identifieras unikt och att kodändringar kan mappas till konfigurationsändringar.
+## <a name="use-a-dynamic-label-on-sync"></a>Använd en dynamisk etikett vid synkronisering
+Föregående åtgärd uppdaterar konfigurations instansen när `appsettings.json` den uppdateras. Den här åtgärden infogar en dynamisk etikett vid varje synkronisering, vilket säkerställer att varje synkronisering kan identifieras unikt och tillåter att kod ändringar mappas till konfigurations ändringar.
 
-Det första avsnittet i det här arbetsflödet anger `appsettings.json` att åtgärden utlöser *på* en *push* som innehåller till *huvudgrenen.* Det andra avsnittet kör ett jobb som skapar en unik etikett för konfigurationsuppdateringen baserat på commit-hashen. Jobbet uppdaterar sedan appkonfigurationsinstansen med de nya värdena och den unika etiketten för den här uppdateringen.
+Det första avsnittet av det här arbets flödet anger att åtgärden utlöses *på* en `appsettings.json` *push* som innehåller *huvud* grenen. Det andra avsnittet kör ett jobb som skapar en unik etikett för konfigurations uppdateringen baserat på commit hash. Jobbet uppdaterar sedan appens konfigurations instans med de nya värdena och den unika etiketten för uppdateringen.
 
 ```json
 on: 
@@ -96,9 +96,9 @@ jobs:
 ```
 
 ## <a name="use-strict-sync"></a>Använd strikt synkronisering
-När strikt läge är aktiverat säkerställer synkroniseringen att appkonfigurationsinstansen matchar konfigurationsfilen för det angivna prefixet och etiketten exakt. Nyckelvärdespar med samma prefix och etikett som inte finns i konfigurationsfilen tas bort. 
+När strikt läge har Aktiver ATS säkerställer synkroniseringen att konfigurations instansen för appen matchar konfigurations filen för angivet prefix och etiketten exakt. Nyckel/värde-par med samma prefix och etikett som inte finns i konfigurations filen tas bort. 
  
-Om strikt läge inte är aktiverat anger synkroniseringen bara nyckelvärden från konfigurationsfilen. Inga nyckel-värde-par tas bort. 
+Om strikt läge inte är aktiverat kommer synkroniseringen bara att ange nyckel värden från konfigurations filen. Inga nyckel/värde-par kommer att tas bort. 
 
 ```json
 on: 
@@ -127,12 +127,12 @@ jobs:
           strict: true 
 ```
 
-## <a name="use-max-depth-to-limit-github-action"></a>Använd maxdjup för att begränsa GitHub-åtgärden
-Standardbeteendet för kapslade JSON-attribut är att förenkla hela objektet.  JSON nedan definierar detta nyckelvärdespar:
+## <a name="use-max-depth-to-limit-github-action"></a>Använd maximalt djup för att begränsa GitHub-åtgärden
+Standard beteendet för kapslade JSON-attribut är att förenkla hela objektet.  JSON nedan definierar detta nyckel/värde-par:
 
 | Nyckel | Värde |
 | --- | --- |
-| Objekt:Inre:InnerKey | InnerValue (innervärde) |
+| Objekt: inre: InnerKey | InnerValue |
 
 ```json
 { "Object": 
@@ -144,7 +144,7 @@ Standardbeteendet för kapslade JSON-attribut är att förenkla hela objektet.  
 }
 ```
 
-Om det kapslade objektet är avsett att vara det värde som skickas till konfigurationsinstansen kan du använda *djupvärdet* för att stoppa förenklingen på lämpligt djup. 
+Om det kapslade objektet är avsett att vara det värde som skickas till konfigurations instansen kan du använda *djup* -värdet för att stoppa förenklingen vid lämpligt djup. 
 
 ```json
 on: 
@@ -171,31 +171,31 @@ jobs:
           depth: 2 
 ```
 
-Med tanke på ett djup av 2 returnerar exemplet ovan nu följande nyckelvärdespar:
+Med ett djup på 2 returnerar exemplet ovan följande nyckel/värde-par:
 
 | Nyckel | Värde |
 | --- | --- |
-| Objekt:Inre | {"InnerKey":"InnerValue"} |
+| Objekt: inre | {"InnerKey":"InnerValue"} |
 
-## <a name="understand-action-inputs"></a>Förstå åtgärdsindata
-Indataparametrar anger data som används av åtgärden under körning.  Följande tabell innehåller indataparametrar som accepteras av App Configuration Sync och de förväntade värdena för varje.  Mer information om åtgärdsindata för GitHub-åtgärder finns i GitHubs [dokumentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs).
+## <a name="understand-action-inputs"></a>Förstå åtgärds inmatningar
+Indataparametrar anger data som används av åtgärden under körning.  Följande tabell innehåller indataparametrar som har godkänts av app Configuration Sync och de förväntade värdena för var och en.  Mer information om åtgärds inmatningar för GitHub-åtgärder finns i GitHub- [dokumentationen](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs).
 
 > [!Note]
-> Indata-ID:n är skiftlägesokänsliga.
+> Indatamängds-ID: n är Skift läges okänsliga.
 
 
-| Indatanamn | Krävs? | Värde |
+| Inmatat namn | Obligatoriskt? | Värde |
 |----|----|----|
-| konfigurationFil | Ja | Relativ sökväg till konfigurationsfilen i databasen.  Glob mönster stöds och kan innehålla flera filer. |
-| format | Ja | Konfigurationsfilens filformat.  Giltiga format är: JSON, YAML, egenskaper. |
-| Connectionstring | Ja | Anslutningssträng för appkonfigurationsinstansen. Anslutningssträngen ska lagras som en hemlighet i GitHub-databasen och endast det hemliga namnet ska användas i arbetsflödet. |
-| Avgränsare | Ja | Separator som används när konfigurationsfilen förenklas till nyckelvärdespar.  Giltiga värden är: . , ; : - _ __ / |
-| Prefix | Inga | Prefix som ska läggas till i början av nycklarna. |
-| etikett | Inga | Etikett som används vid inställning av nyckelvärdespar. Om det inte anges används en null-etikett. |
-| Strikt | Inga | Ett booleskt värde som avgör om strikt läge är aktiverat. Standardvärdet är false. |
-| Djup | Inga | Maximalt djup för att förenkla konfigurationsfilen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget maxdjup. |
-| tags | Inga | Anger tagguppsättningen på nyckelvärdespar.  Det förväntade formatet är en strängform av ett JSON-objekt med följande form: { [propertyName: string]: string; } Varje egenskapsnamnvärde blir en tagg. |
+| configurationFile | Ja | Relativ sökväg till konfigurations filen i lagrings platsen.  BLOB mönster stöds och kan innehålla flera filer. |
+| format | Ja | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
+| Begär | Ja | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
+| brytning | Ja | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
+| protokollprefixet | Nej | Prefix som ska läggas till i början av nycklar. |
+| etikett | Nej | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
+| begränsade | Nej | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
+| djuplodande | Nej | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
+| tags | Nej | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln fick du veta mer om App Configuration Sync GitHub Action och hur den kan användas för att automatisera uppdateringar av appkonfigurationsinstansen. Om du vill veta hur Azure App Configuration reagerar på ändringar i nyckelvärdespar fortsätter du till nästa [artikel](./concept-app-configuration-event.md).
+I den här artikeln har du lärt dig om GitHub-åtgärden för app Configuration-synkronisering och hur den kan användas för att automatisera uppdateringar av din konfigurations instans för appar. Fortsätt till nästa [artikel](./concept-app-configuration-event.md)om du vill lära dig hur Azure App-konfigurationen reagerar på ändringar i nyckel/värde-par.

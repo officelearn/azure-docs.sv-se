@@ -1,28 +1,28 @@
 ---
-title: Begränsningar - Azure Database för MySQL
-description: I den här artikeln beskrivs begränsningar i Azure Database for MySQL, till exempel antal anslutnings- och lagringsmotoralternativ.
+title: Begränsningar – Azure Database for MySQL
+description: I den här artikeln beskrivs begränsningar i Azure Database for MySQL, till exempel antalet anslutnings-och lagrings motor alternativ.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
 ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548470"
 ---
-# <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database för MySQL
-I följande avsnitt beskrivs kapacitet, stöd för lagringsmotor, behörighetsstöd, stöd för datamanipuleringsuttalande och funktionsgränser i databastjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) som gäller för MySQL-databasmotorn.
+# <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database for MySQL
+I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för stöd för data manipulation och funktionella gränser i databas tjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) som gäller för databas motorn MySQL.
 
 ## <a name="server-parameters"></a>Serverparametrar
 
-Minimi- och maximivärdena för flera populära serverparametrar bestäms av prisnivån och virtuella kärnor. Se nedanstående tabeller för gränser.
+De lägsta och högsta värdena för flera populära Server parametrar bestäms av pris nivån och virtuella kärnor. Se de följande tabellerna som gränser.
 
 ### <a name="max_connections"></a>max_connections
 
-|**Prisnivå**|**vCore(er)**|**Standardvärde**|**Min värde**|**Max värde**|
+|**Pris nivå**|**vCore (s)**|**Standardvärde**|**Minsta värde**|**Max värde**|
 |---|---|---|---|---|
 |Basic|1|50|10|50|
 |Basic|2|100|10|100|
@@ -38,27 +38,27 @@ Minimi- och maximivärdena för flera populära serverparametrar bestäms av pri
 |Minnesoptimerad|16|5000|10|10000|
 |Minnesoptimerad|32|10000|10|20000|
 
-När anslutningar överskrider gränsen kan följande felmeddelande visas:
-> FEL 1040 (08004): För många anslutningar
+När anslutningar överskrider gränsen kan följande fel meddelande visas:
+> FEL 1040 (08004): för många anslutningar
 
 > [!IMPORTANT]
-> För bästa möjliga upplevelse rekommenderar vi att du använder en anslutningspooler som ProxySQL för att effektivt hantera anslutningar.
+> För bästa möjliga upplevelse rekommenderar vi att du använder en anslutningspool som ProxySQL för att effektivt hantera anslutningar.
 
-Det tar tid och när de väl har upprättats att skapa nya klientanslutningar till MySQL upptar dessa anslutningar databasresurser, även när de är inaktiva. De flesta program begär många kortlivade anslutningar, vilket förvärrar denna situation. Resultatet är färre resurser tillgängliga för din faktiska arbetsbelastning som leder till minskade prestanda. En anslutningspooler som minskar inaktiva anslutningar och återanvänder befintliga anslutningar hjälper till att undvika detta. Om du vill veta mer om att inrätta ProxySQL, besök vårt [blogginlägg](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+Att skapa nya klient anslutningar till MySQL tar tid och när de har upprättats, använder dessa anslutningar databas resurser, även när de är inaktiva. De flesta program begär många anslutningar för kort period, vilket utvärderar den här situationen. Resultatet är färre resurser som är tillgängliga för den faktiska arbets belastningen, vilket leder till försämrade prestanda. En anslutningspool som minskar inaktiva anslutningar och återanvänder befintliga anslutningar hjälper till att undvika detta. Mer information om hur du konfigurerar ProxySQL finns i vårt [blogg inlägg](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-Frågecachen är inaktiverad som standard. Konfigurera parametern `query_cache_type` om du vill aktivera frågecachen. 
+Frågesyntaxen är inaktive rad som standard. Konfigurera- `query_cache_type` parametern om du vill aktivera Query cache. 
 
-Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) om du vill veta mer om den här parametern.
+Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) .
 
 > [!NOTE]
-> Frågecachen är föråldrad från och med MySQL 5.7.20 och har tagits bort i MySQL 8.0
+> Frågesyntaxen är föråldrad från MySQL-5.7.20 och har tagits bort i MySQL 8,0
 
-|**Prisnivå**|**vCore(er)**|**Standardvärde**|**Min värde**|**Max värde**|
+|**Pris nivå**|**vCore (s)**|**Standardvärde**|**Minsta värde**|**Max värde**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
 |Generell användning|2|0|0|16777216|
 |Generell användning|4|0|0|33554432|
 |Generell användning|8|0|0|67108864|
@@ -73,12 +73,12 @@ Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-syst
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 
-Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) om du vill veta mer om den här parametern.
+Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) .
 
-|**Prisnivå**|**vCore(er)**|**Standardvärde**|**Min värde**|**Max värde**|
+|**Pris nivå**|**vCore (s)**|**Standardvärde**|**Minsta värde**|**Max värde**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
 |Generell användning|2|524288|32768|4194304|
 |Generell användning|4|524288|32768|8388608|
 |Generell användning|8|524288|32768|16777216|
@@ -93,12 +93,12 @@ Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-syst
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
-Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) om du vill veta mer om den här parametern.
+Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) .
 
-|**Prisnivå**|**vCore(er)**|**Standardvärde**|**Min värde**|**Max värde**|
+|**Pris nivå**|**vCore (s)**|**Standardvärde**|**Minsta värde**|**Max värde**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
 |Generell användning|2|262144|128|268435455|
 |Generell användning|4|262144|128|536870912|
 |Generell användning|8|262144|128|1073741824|
@@ -113,12 +113,12 @@ Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-syst
 
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
-Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) om du vill veta mer om den här parametern.
+Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) .
 
-|**Prisnivå**|**vCore(er)**|**Standardvärde**|**Min värde**|**Max värde**|
+|**Pris nivå**|**vCore (s)**|**Standardvärde**|**Minsta värde**|**Max värde**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
 |Generell användning|2|16777216|16384|268435455|
 |Generell användning|4|16777216|16384|536870912|
 |Generell användning|8|16777216|16384|1073741824|
@@ -133,12 +133,12 @@ Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-syst
 
 ### <a name="tmp_table_size"></a>tmp_table_size
 
-Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) om du vill veta mer om den här parametern.
+Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) .
 
-|**Prisnivå**|**vCore(er)**|**Standardvärde**|**Min värde**|**Max värde**|
+|**Pris nivå**|**vCore (s)**|**Standardvärde**|**Minsta värde**|**Max värde**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
-|Basic|2|Kan inte konfigureras på basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|1|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
+|Basic|2|Kan inte konfigureras på Basic-nivå|Ej tillämpligt|Ej tillämpligt|
 |Generell användning|2|16777216|1024|67108864|
 |Generell användning|4|16777216|1024|134217728|
 |Generell användning|8|16777216|1024|268435456|
@@ -153,57 +153,57 @@ Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-syst
 
 ### <a name="time_zone"></a>time_zone
 
-Tidszonstabellerna kan fyllas i `mysql.az_load_timezone` genom att anropa den lagrade proceduren från ett verktyg som mysql-kommandoraden eller MySQL Workbench. Se [Azure-portalen](howto-server-parameters.md#working-with-the-time-zone-parameter) eller [Azure CLI-artiklarna](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) för hur du anropar den lagrade proceduren och anger tidszoner på global nivå eller sessionsnivå.
+Du kan fylla i tids zons tabellerna genom att anropa den `mysql.az_load_timezone` lagrade proceduren från ett verktyg som MySQL kommando rad eller MySQL Workbench. Mer information om hur du anropar den lagrade proceduren finns i [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) -eller [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) -artiklarna och ställer in globala eller sessionsbaserade tids zoner.
 
-## <a name="storage-engine-support"></a>Stöd för lagringsmotor
-
-### <a name="supported"></a>Stöds
-- [Innodb](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [Minne](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
-
-### <a name="unsupported"></a>Stöd saknas
-- [Myisam](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
-- [Blackhole](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [Arkiv](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
-- [Federerade](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
-
-## <a name="privilege-support"></a>Stöd för privilegier
-
-### <a name="unsupported"></a>Stöd saknas
-- DBA-roll: Många serverparametrar och inställningar kan oavsiktligt försämra serverns prestanda eller förneka ACID-egenskaperna för DBMS. För att upprätthålla tjänstens integritet och serviceavtalet på produktnivå exponerar den här tjänsten inte DBA-rollen. Standardanvändarkontot, som skapas när en ny databasinstans skapas, gör att användaren kan utföra de flesta DDL- och DML-satser i den hanterade databasinstansen. 
-- SUPER privilegium: På samma sätt [SUPER privilegium](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
-- DEFINER: Kräver superbehörighet för att skapa och är begränsad. Om du importerar data med `CREATE DEFINER` hjälp av en säkerhetskopia `--skip-definer` tar du bort kommandona manuellt eller med kommandot när du utför en mysqldump.
-
-## <a name="data-manipulation-statement-support"></a>Stöd för datamanipuleringsuttalande
+## <a name="storage-engine-support"></a>Stöd för lagrings motor
 
 ### <a name="supported"></a>Stöds
-- `LOAD DATA INFILE`stöds, men `[LOCAL]` parametern måste anges och dirigeras till en UNC-sökväg (Azure-lagring monterad via SMB).
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [MINNESOPTIMERADE](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+
+### <a name="unsupported"></a>Stöd saknas
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [ARKIVATTRIBUTET](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [EXTERNT](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## <a name="privilege-support"></a>Behörighets stöd
+
+### <a name="unsupported"></a>Stöd saknas
+- DBA-roll: många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera syre egenskaper i DBMS. För att upprätthålla tjänste integriteten och service avtalet på en produkt nivå exponerar inte den här tjänsten DBA-rollen. Standard användar kontot, som skapas när en ny databas instans skapas, gör att användaren kan utföra de flesta DDL-och DML-instruktioner i den hanterade databas instansen. 
+- SUPER Privilege: liknande [superbehörighet](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
+- Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du `CREATE DEFINER` importerar data med hjälp av en säkerhets kopia tar du bort kommandona `--skip-definer` manuellt eller genom att använda kommandot när du utför en mysqldump.
+
+## <a name="data-manipulation-statement-support"></a>Stöd för data manipulations sats
+
+### <a name="supported"></a>Stöds
+- `LOAD DATA INFILE`stöds, men `[LOCAL]` parametern måste anges och dirigeras till en UNC-sökväg (Azure Storage monteras via SMB).
 
 ### <a name="unsupported"></a>Stöd saknas
 - `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Funktionella begränsningar
 
-### <a name="scale-operations"></a>Skala åtgärder
-- Dynamisk skalning till och från grundläggande prisnivåer stöds för närvarande inte.
-- Det går inte att minska storleken på serverns lagring.
+### <a name="scale-operations"></a>Skalnings åtgärder
+- Dynamisk skalning till och från de grundläggande pris nivåerna stöds inte för närvarande.
+- Det finns inte stöd för att minska lagrings storleken för servern.
 
-### <a name="server-version-upgrades"></a>Uppgraderingar av serverversion
-- Automatiserad migrering mellan större databasmotorversioner stöds för närvarande inte. Om du vill uppgradera till nästa huvudversion tar du en [soptipp och återställer](./concepts-migrate-dump-restore.md) den till en server som skapades med den nya motorversionen.
+### <a name="server-version-upgrades"></a>Uppgraderingar av Server version
+- Automatisk migrering mellan huvud versioner av databas motorn stöds inte för närvarande. Om du vill uppgradera till nästa högre version kan du göra en [dumpning och återställa](./concepts-migrate-dump-restore.md) den till en server som har skapats med den nya motor versionen.
 
 ### <a name="point-in-time-restore"></a>Återställning till tidpunkt
-- När du använder PITR-funktionen skapas den nya servern med samma konfigurationer som den server den baseras på.
-- Det går inte att återställa en borttagen server.
+- När du använder funktionen PITR skapas den nya servern med samma konfigurationer som den server den baseras på.
+- Det finns inte stöd för att återställa en borttagen Server.
 
 ### <a name="vnet-service-endpoints"></a>VNet-tjänstslutpunkter
-- Stöd för slutpunkter för VNet-tjänst är endast för servrar med allmänt syfte och minnesoptimerade.
+- Stöd för VNet-tjänstens slut punkter är bara för Generell användning och minnesoptimerade servrar.
 
-### <a name="storage-size"></a>Lagringsstorlek
-- Se prisnivåer för [lagringsstorleksgränserna](concepts-pricing-tiers.md) per prisnivå.
+### <a name="storage-size"></a>Lagrings storlek
+- Se [pris nivåer](concepts-pricing-tiers.md) för lagrings storleks gränser per pris nivå.
 
 ## <a name="current-known-issues"></a>Aktuella kända problem
-- MySQL-serverinstansen visar fel serverversion när anslutningen har upprättats. Använd kommandot `select version();` om du vill hämta rätt serverinstansmotorversion.
+- MySQL Server-instansen visar fel Server version när anslutningen har upprättats. Använd `select version();` kommandot för att få rätt version av Server instans motorn.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Vad är tillgängligt på varje tjänstnivå](concepts-pricing-tiers.md)
-- [MySQL-databasversioner som stöds](concepts-supported-versions.md)
+- [Vad som är tillgängligt i varje tjänst nivå](concepts-pricing-tiers.md)
+- [MySQL-databas versioner som stöds](concepts-supported-versions.md)

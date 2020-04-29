@@ -1,6 +1,6 @@
 ---
-title: Så här loggar du en supportbiljett för säkerhetshändelse – Azure | Microsoft-dokument
-description: Som säljare på Azure Marketplace, efter att ha identifierat en potentiell säkerhetshändelse, måste jag veta hur man loggar en lämplig biljett.
+title: Så här loggar du ett support ärende för en säkerhets händelse – Azure | Microsoft Docs
+description: Som säljare på Azure Marketplace, som har identifierat en potentiell säkerhets händelse, behöver jag känna till hur man loggar en lämplig biljett.
 documentationcenter: na
 author: DavidBosland
 manager: lakoch
@@ -15,36 +15,36 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548593"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Så här loggar du ett supportärende för en säkerhetshändelse
 
-1. Navigera till [Publisher Support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) och logga in med dina Microsoft-autentiseringsuppgifter.
-2. Välj "Säkerhetshändelse" som problemtyp och välj mellan kategorierna "Säkerhetsincident" och "Sårbarhet".
+1. Navigera till [Publisher-support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) och logga in med dina Microsoft-autentiseringsuppgifter.
+2. Välj "säkerhets händelse" som problem typ och välj mellan kategorierna "säkerhets incidenter" och "sårbarhet".
 
-    ![Händelsetyp och definition](./media/event-support-ticket/chart.png)
+    ![Händelse typ och definition](./media/event-support-ticket/chart.png)
 
-3. När du har valt problemtyp och kategori klickar du på knappen **" Starta begäran".** Ge följande information för att hjälpa oss att bättre förstå problemet.
+3. När du har valt problem typ och kategori klickar du på knappen**Starta förfrågan**. Ange följande information för att hjälpa oss att bättre förstå problemet.
 
-    i. Vad är problemet och/eller sårbarheten?
+    i. Vad är problemet och/eller sårbarhet?
 
-    ii. För sårbarheter, ange CVE (mitre.org) eller den ifyllda CVSS3https://www.first.org/cvss/calculator/3.0)v3-kalkylatorn ( .
+    ii. För sårbarheter, ange CVE (mitre.org) eller den ifyllda CVSS3 v3-Kalkylatorn (https://www.first.org/cvss/calculator/3.0).
 
-    iii. Finns det en lösning eller lindring? Om ja, ange reparationsstegen.
+    iii. Finns det någon lösning eller åtgärd? Om ja, ange åtgärds stegen.
 
-    Iv. Har du ett meddelande som du vill skicka till kunder? Vi kommer att arbeta med dig för att skapa ett lämpligt meddelande om tillämpligt.
+    a. Har du ett meddelande som du vill skicka till kunderna? Vi kommer att samar beta med dig för att skapa ett lämpligt meddelande om det är tillämpligt.
 
-4. Bekräftelse av inlämning – När du har skickat in ditt ärende bekräftar vi kvittot inom en arbetsdag och tilldelar ditt ärende en prioritet och allvarlighetsgrad.
+4. Bekräftelse av bekräftelse – när du har skickat ditt ärende bekräftar vi inbetalningar inom en arbets dag och tilldelar ditt ärende en prioritet och allvarlighets grad.
 
-    - Om du behöver kommunicera med oss om ditt problem, använd bekräftelsenumret i all korrespondens.
-    - Du kan visa förloppet i ditt ärende när som helst.
+    - Om du behöver kommunicera med oss om ditt problem använder du bekräftelse numret i all korrespondens.
+    - Du kan när som helst se förloppet på ditt problem.
 
-5. Vad händer sen? Beroende på problemet och allvarlighetsgraden kan följande åtgärder vidtas:
+5. Vad händer härnäst? Följande steg kan vidtas beroende på problemet och allvarlighets graden:
 
-    - Vi kommer att meddela dig resultatet av vår bedömning. Beroende på resultatet kan vi ta bort eller begära att du ändrar ditt erbjudande. I detta fall kommer vi att arbeta med dig för att säkerställa att störningar i påverkade kunder minimeras.
-    - Vi kommer att arbeta med dig för att minska effekterna av incidenten/sårbarheten för våra gemensamma kunder.
+    - Vi kommer att informera dig om resultatet av vår utvärdering. Beroende på resultatet kan vi ta bort eller begära att du ändrar erbjudandet. I det här fallet kommer vi att samar beta med dig för att säkerställa att avbrott i kunder som påverkas minimeras.
+    - Vi kommer att samar beta med dig för att minimera effekten av incidenten/sårbarheten för våra ömsesidiga kunder.
 

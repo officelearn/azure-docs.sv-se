@@ -1,6 +1,6 @@
 ---
 title: Felsökningsguide för Azure Security Center | Microsoft Docs
-description: Den här guiden är för IT-proffs, säkerhetsanalytiker och molnadministratörer som behöver felsöka Azure Security Center-relaterade problem.
+description: Den här guiden är för IT-proffs, säkerhetsanalytiker och moln administratörer som behöver felsöka Azure Security Center relaterade problem.
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 47502e693b897a57517d267924cc6c2752c10440
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585331"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
 
-Security Center använder Log Analytics-agenten för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Center-funktionen efter övergången till Log Analytics-agenten.
+Security Center använder Log Analytics-agenten för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Center funktioner efter över gången till Log Analytics agenten.
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
 
 I den här guiden förklaras hur du felsöker Security Center-relaterade problem.
 
-Varningstyper:
+Aviserings typer:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Nätverksanalys
@@ -40,7 +40,7 @@ Beroende på aviseringstypen kan kunderna hämta den information som krävs för
 
 Kunder kan dela feedback om aviseringens beskrivning och relevans. Gå till själva aviseringen och välj knappen **Hade du nytta av detta?**. Välj orsak och ange en kommentar för att förklara din feedback. Vi övervakar ständigt den här feedbackkanalen för att förbättra våra aviseringar.
 
-## <a name="audit-log"></a>Granskningslogg
+## <a name="audit-log"></a>Gransknings logg
 
 Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](../azure-monitor/platform/platform-logs-overview.md)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
 
@@ -54,25 +54,25 @@ Granskningsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) som utfö
 
 ## <a name="log-analytics-agent"></a>Log Analytics-agent
 
-Security Center använder Log Analytics-agenten – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhetsdata från dina virtuella Azure-datorer. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
+Security Center använder Log Analytics agent – det här är samma agent som används av Azure Monitor tjänsten – för att samla in säkerhets data från dina virtuella Azure-datorer. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
 
 * HealthService.exe
 
-Om du öppnar konsolen för hantering av tjänster (services.msc) visas även tjänsten Log Analytics-agent som körs enligt nedan:
+Om du öppnar tjänst hanterings konsolen (Services. msc) visas även Log Analytics Agent tjänsten som körs enligt nedan:
 
 ![Tjänster](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-Om du vill se vilken version av agenten du har öppnar du **Aktivitetshanteraren**på fliken **Processer** leta reda på **Log Analytics-agenttjänsten**, högerklickar på den och klickar på **Egenskaper**. Filversionen visas på fliken **Information** enligt nedan:
+Om du vill se vilken version av agenten du har öppnar du **aktivitets hanteraren**, på fliken **processer** , letar upp **tjänsten Log Analytics agent**och högerklickar på den och klickar på **Egenskaper**. Filversionen visas på fliken **Information** enligt nedan:
 
 ![Fil](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
-## <a name="log-analytics-agent-installation-scenarios"></a>Installationsscenarier för logganalysagent
+## <a name="log-analytics-agent-installation-scenarios"></a>Installations scenarier för Log Analytics agent
 
-Det finns två installationsscenarier som kan ge olika resultat när du installerar Log Analytics-agenten på datorn. Scenarier som stöds är:
+Det finns två installations scenarier som kan ge olika resultat när du installerar Log Analytics-agenten på datorn. Scenarier som stöds är:
 
-* **Agent som installeras automatiskt av Security Center**: i det här scenariot kommer du att kunna visa aviseringarna på båda platser, Security Center och Loggsökning. Du får e-postmeddelanden till den e-postadress som har konfigurerats i säkerhetsprincipen för den prenumeration som resursen tillhör.
+* **Agent som installeras automatiskt av Security Center**: i det här scenariot kommer du att kunna visa aviseringarna på båda platser, Security Center och Loggsökning. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för den prenumeration som resursen tillhör.
 
-* **Agent som installeras manuellt på en virtuell dator i Azure:** i det här scenariot, om du använder agenter som hämtats och installerats manuellt före februari 2017, kan du visa aviseringarna i Security Center-portalen endast om du filtrerar på prenumerationen som arbetsytan tillhör. Om du filtrerar på den prenumeration som resursen tillhör visas inga aviseringar. Du får e-postmeddelanden till den e-postadress som har konfigurerats i säkerhetsprincipen för den prenumeration som arbetsytan tillhör.
+* **Agent installeras manuellt på en virtuell dator som finns i Azure**: i det här scenariot kan du, om du använder agenter som har hämtats och installerats manuellt före februari 2017, bara Visa aviseringarna i Security Center portal om du filtrerar på prenumerationen som arbets ytan tillhör. Om du filtrerar på prenumerationen som resursen tillhör visas inga aviseringar. Du får e-postaviseringar till den e-postadress som har kon figurer ATS i säkerhets principen för prenumerationen som arbets ytan tillhör.
 
 > [!NOTE]
 > Kontrollera att du laddar ned den senaste versionen av agenten för att undvika det andra scenariot.
@@ -84,15 +84,15 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 | Övervakningstillstånd | Beskrivning | Lösningsanvisningar |
 |---|---|---|
 | Väntande agentinstallation | Installationen av Log Analytics-agenten körs fortfarande.  Installationen kan ta upp till några timmar. | Vänta tills den automatiska installationen är slutförd. |
-| Energisparläge inaktiverat | Den virtuella datorn har stoppats.  Log Analytics-agenten kan bara installeras på en virtuell dator som körs. | Starta om den virtuella datorn. |
-| Azure VM-agent saknas eller är ogiltig | Log Analytics-agenten har inte installerats ännu.  En giltig agent för virtuella Azure-datorer krävs för att Security Center ska installera tillägget. | Installera, installera om eller uppgradera agenten för virtuella Azure-datorer på den virtuella datorn. |
-| VM-status inte är redo för installation  | Log Analytics-agenten är inte installerad ännu eftersom den virtuella datorn inte är klar för installation. Den virtuella datorn är inte redo för installation på grund av ett problem med VM-agenten eller VM-etableringen. | Kontrollera den virtuella datorns status. Återgå till **Virtual Machines** i portalen och välj den virtuella datorn för att få statusinformation. |
+| Energisparläge inaktiverat | Den virtuella datorn har stoppats.  Log Analytics agenten kan bara installeras på en virtuell dator som kör. | Starta om den virtuella datorn. |
+| Azure VM-agent saknas eller är ogiltig | Log Analytics agent har inte installerats ännu.  En giltig agent för virtuella Azure-datorer krävs för att Security Center ska installera tillägget. | Installera, installera om eller uppgradera agenten för virtuella Azure-datorer på den virtuella datorn. |
+| VM-status inte är redo för installation  | Log Analytics agent har inte installerats ännu eftersom den virtuella datorn inte är redo för installation. Den virtuella datorn är inte redo för installation på grund av ett problem med VM-agenten eller VM-etableringen. | Kontrollera den virtuella datorns status. Återgå till **Virtual Machines** i portalen och välj den virtuella datorn för att få statusinformation. |
 |Installationen misslyckades – allmänt fel | Log Analytics-agenten installerades men misslyckades på grund av ett fel. | [Installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) eller avinstallera tillägget så försöker Security Center att installera det igen. |
-| Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Log Analytics-agenten misslyckades. Security Center identifierade en lokal agent (Log Analytics eller System Center Operations Manager) som redan är installerad på den virtuella datorn. För att undvika konfiguration med flera mål, där den virtuella datorn rapporterar till två separata arbetsytor, har installationen av Log Analytics-agenten stoppats. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
-| Agenten kan inte ansluta till arbetsytan | Log Analytics-agenten installerad men misslyckades på grund av nätverksanslutningen.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se felsöka nätverkskrav för övervakningsagenten. |
-| Agenten ansluten till arbetsyta som saknas eller är okänd | Security Center identifierade att Log Analytics-agenten som är installerad på den virtuella datorn är ansluten till en arbetsyta som den inte har åtkomst till. | Det kan hända i två fall. Arbetsytan togs bort eller finns inte längre. Installera om agenten med rätt arbetsyta eller avinstallera agenten och tillåt att Security Center slutför sin automatiska etableringsinstallation. Det andra fallet är när arbetsytan är en del av en prenumeration som Security Center inte har behörighet till. Security Center kräver att prenumerationer tillåter att Microsoft Security Resource Provider får åtkomst till dem. Aktivera genom att registrera prenumerationen på Microsoft Security Resource Provider. Du kan göra det via API, PowerShell, portalen eller helt enkelt genom att filtrera prenumerationen i Security Centers **översiktsinstrumentpanel**. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
-| Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så rapporterar agenten data men saknar ett Azure-resurs-ID så det är omöjligt att matcha data med Den virtuella Azure-datorn. Mer om du vill felsöka Linux finns i [Felsökningsguide för Log Analytics Agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
-| Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera datainsamling i säkerhetsprincipen eller installera Log Analytics-agenten manuellt. |
+| Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Log Analytics-agenten misslyckades. Security Center identifierat en lokal agent (Log Analytics eller System Center Operations Manager) som redan har installerats på den virtuella datorn. För att undvika konfiguration av flera värdar, där den virtuella datorn rapporterar till två separata arbets ytor, stoppades installationen av Log Analytics-agenten. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
+| Agenten kan inte ansluta till arbetsytan | Log Analytics-agenten installerades men misslyckades på grund av en nätverks anslutning.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se felsöka nätverkskrav för övervakningsagenten. |
+| Agenten ansluten till arbetsyta som saknas eller är okänd | Security Center identifierat att den Log Analyticss agenten som är installerad på den virtuella datorn är ansluten till en arbets yta som den inte har åtkomst till. | Det kan hända i två fall. Arbetsytan togs bort eller finns inte längre. Installera om agenten med rätt arbetsyta eller avinstallera agenten och tillåt att Security Center slutför sin automatiska etableringsinstallation. Det andra fallet är när arbetsytan är en del av en prenumeration som Security Center inte har behörighet till. Security Center kräver att prenumerationer tillåter att Microsoft Security Resource Provider får åtkomst till dem. Aktivera genom att registrera prenumerationen på Microsoft Security Resource Provider. Du kan göra det via API, PowerShell, portalen eller helt enkelt genom att filtrera prenumerationen i Security Centers **översiktsinstrumentpanel**. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
+| Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så är agenten rapportering av data men saknar ett Azure-resurs-ID så det är omöjligt att matcha data till den virtuella Azure-datorn. För att felsöka Linux, se [fel söknings guide för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
+| Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera data insamling i säkerhets principen eller installera Log Analytics agenten manuellt. |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Felsöka nätverkskrav för övervakningsagenten <a name="mon-network-req"></a>
 
@@ -132,7 +132,7 @@ Om du har problem med att läsa in instrumentpanelen för Security Center ska du
 
 ## <a name="contacting-microsoft-support"></a>Kontakta Microsoft Support
 
-Vissa problem kan identifieras med hjälp av riktlinjerna i den här artikeln, andra hittar du också dokumenterade i Security Centers offentliga [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). Men om du behöver ytterligare felsökning kan du öppna en ny supportbegäran med **Azure-portalen** som visas nedan:
+Vissa problem kan identifieras med hjälp av riktlinjerna i den här artikeln, andra hittar du också dokumenterade i Security Centers offentliga [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). Men om du behöver ytterligare fel sökning kan du öppna en ny supportbegäran med hjälp av **Azure Portal** enligt nedan:
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -140,15 +140,15 @@ Vissa problem kan identifieras med hjälp av riktlinjerna i den här artikeln, a
 
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Azure Security Center. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
-* [Planerings- och driftsguide för Azure Security Center](security-center-planning-and-operations-guide.md) – Lär dig hur du planerar och förstår designövervägandena om att anta Azure Security Center.
-* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar hälsotillståndet för dina Azure-resurser
-* [Hantera och svara på säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och svarar på säkerhetsaviseringar
+* [Azure Security Center planerings-och drift guide](security-center-planning-and-operations-guide.md) – lär dig att planera och förstå design överväganden för att anta Azure Security Center.
+* [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig att övervaka hälso tillståndet för dina Azure-resurser
+* [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hur du hanterar och åtgärdar säkerhets aviseringar
 * [Förstå säkerhetsaviseringar i Azure Security Center](security-center-alerts-type.md)
 * [Självstudie: Reagera på säkerhetsincidenter](tutorial-security-incident.md)
 * [Aviseringsverifiering i Azure Security Center](security-center-alert-validation.md)
 * [E-postmeddelanden i Azure Security Center](security-center-provide-security-contact-details.md)
 * [Hantera säkerhetsincidenter i Azure Security Center](security-center-incident.md)
 * [Identifieringsfunktioner i Azure Security Center](security-center-detection-capabilities.md)
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar hälsostatusen för dina partnerlösningar.
+* [Övervaka partner lösningar med Azure Security Center](security-center-partner-solutions.md) – lär dig hur du övervakar dina partner lösningars hälso status.
 * [Vanliga frågor och svar om Azure Security Center](faq-general.md) – Här finns vanliga frågor om tjänsten.
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) – Hitta blogginlägg om Azure-säkerhet och efterlevnad
+* [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure

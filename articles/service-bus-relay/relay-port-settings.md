@@ -1,6 +1,6 @@
 ---
-title: Inställningar för Azure Relay-port | Microsoft-dokument
-description: Den här artikeln innehåller en tabell som beskriver den konfiguration som krävs för portvärden för Azure Relay.
+title: Azure Relay port inställningar | Microsoft Docs
+description: Den här artikeln innehåller en tabell som beskriver den konfiguration som krävs för port värden för Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,42 +15,42 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 532e3c297c42ea16b1f462a01699fc2fd71c6cce
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529116"
 ---
-# <a name="azure-relay-port-settings"></a>Inställningar för Azure Relay-port
+# <a name="azure-relay-port-settings"></a>Azure Relay port inställningar
 
-I följande tabell beskrivs den konfiguration som krävs för portvärden för Azure Relay.
+I följande tabell beskrivs den konfiguration som krävs för port värden för Azure Relay.
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
 
-Hybridanslutningar använder WebSockets på port 443 med TLS som underliggande transportmekanism, som endast använder **HTTPS.** 
+Hybridanslutningar använder WebSockets på port 443 med TLS som underliggande transport funktion, som endast använder **https** . 
 
 ## <a name="wcf-relays"></a>WCF-reläer
   
-|Bindning|Transportsäkerhet|Port|  
+|Bindning|Transport säkerhet|Port|  
 |-------------|------------------------|----------|  
-|[Grundläggande klass förhttprelaybinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (klient)|Ja|HTTPS| 
-|" |Inga|HTTP|  
-|[Grundläggande klass förhttprelaybinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (tjänst)|Antingen|9351/HTTP|  
+|[BasicHttpRelayBinding-klass](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (klient)|Ja|HTTPS| 
+|" |Nej|HTTP|  
+|[BasicHttpRelayBinding-klass](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (tjänst)|Antingen|9351/HTTP|  
 |[NetEventRelayBinding-klass](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (klient)|Ja|9351/HTTPS|  
-|" |Inga|9350/HTTP|  
+|" |Nej|9350/HTTP|  
 |[NetEventRelayBinding-klass](/dotnet/api/microsoft.servicebus.neteventrelaybinding) (tjänst)|Antingen|9351/HTTP|  
 |[NetTcpRelayBinding-klass](/dotnet/api/microsoft.servicebus.nettcprelaybinding) (klient/tjänst)|Antingen|5671/9352/HTTP (9352/9353 om du använder hybrid)|  
 |[NetOnewayRelayBinding-klass](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (klient)|Ja|9351/HTTPS|  
-|" |Inga|9350/HTTP|  
+|" |Nej|9350/HTTP|  
 |[NetOnewayRelayBinding-klass](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) (tjänst)|Antingen|9351/HTTP|  
-|[WebbhttpRelayBinding-klass](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (klient)|Ja|HTTPS|  
-|" |Inga|HTTP|  
-|[WebbhttpRelayBinding-klass](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (tjänst)|Antingen|9351/HTTP|  
+|[WebHttpRelayBinding-klass](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (klient)|Ja|HTTPS|  
+|" |Nej|HTTP|  
+|[WebHttpRelayBinding-klass](/dotnet/api/microsoft.servicebus.webhttprelaybinding) (tjänst)|Antingen|9351/HTTP|  
 |[WS2007HttpRelayBinding-klass](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (klient)|Ja|HTTPS|  
-|" |Inga|HTTP|  
+|" |Nej|HTTP|  
 |[WS2007HttpRelayBinding-klass](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (tjänst)|Antingen|9351/HTTP|
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Relay finns i följande länkar:
+Om du vill veta mer om Azure Relay går du till följande länkar:
 * [Vad är Azure Relay?](relay-what-is-it.md)
 * [Vanliga frågor och svar om Relay](relay-faq.md)

@@ -1,28 +1,28 @@
 ---
-title: Azure Application Insights Agent – komma igång | Microsoft-dokument
-description: En snabbstartsguide för Application Insights Agent. Övervaka webbplatsens prestanda utan att distribuera om webbplatsen. Fungerar med ASP.NET webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: Azure Application Insights-agent – komma igång | Microsoft Docs
+description: En snabb starts guide för Application Insights agenten. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 4cfa136585611e81a4060c5544d5dc464b32f12c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537448"
 ---
-# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Komma igång med Azure Monitor Application Insights Agent för lokala servrar
+# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Kom igång med Azure Monitor Application Insights agent för lokala servrar
 
-Den här artikeln innehåller snabbstartskommandon som förväntas fungera för de flesta miljöer.
-Instruktionerna är beroende av PowerShell-galleriet för att distribuera uppdateringar.
-Dessa kommandon stöder PowerShell-parametern. `-Proxy`
+Den här artikeln innehåller snabb start kommandon som förväntas fungera i de flesta miljöer.
+Anvisningarna är beroende av PowerShell-galleriet för att distribuera uppdateringar.
+Dessa kommandon stöder PowerShell `-Proxy` -parametern.
 
-En förklaring av dessa kommandon, anpassningsinstruktioner och information om felsökning finns i [detaljerade instruktioner](status-monitor-v2-detailed-instructions.md).
+En förklaring av dessa kommandon, anpassnings instruktioner och information om fel sökning finns i [detaljerade instruktioner](status-monitor-v2-detailed-instructions.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="download-and-install-via-powershell-gallery"></a>Ladda ned och installera via PowerShell Gallery
+## <a name="download-and-install-via-powershell-gallery"></a>Hämta och installera via PowerShell-galleriet
 
 ### <a name="install-prerequisites"></a>Installationskrav
 Kör PowerShell som administratör.
@@ -34,7 +34,7 @@ Install-Module -Name PowerShellGet -Force
 ``` 
 Stäng PowerShell.
 
-### <a name="install-application-insights-agent"></a>Installera programstatistikagent
+### <a name="install-application-insights-agent"></a>Installera Application Insights agent
 Kör PowerShell som administratör.
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -48,11 +48,11 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
     
         
-## <a name="download-and-install-manually-offline-option"></a>Hämta och installera manuellt (offlinealternativ)
-### <a name="download-the-module"></a>Ladda ner modulen
-Hämta den senaste versionen av modulen manuellt från [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+## <a name="download-and-install-manually-offline-option"></a>Ladda ned och installera manuellt (offline-alternativ)
+### <a name="download-the-module"></a>Hämta modulen
+Hämta den senaste versionen av modulen manuellt från [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-### <a name="unzip-and-install-application-insights-agent"></a>Packa upp och installera Application Insights Agent
+### <a name="unzip-and-install-application-insights-agent"></a>Packa upp och installera Application Insights agent
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -71,18 +71,18 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  Visa telemetrin:
 
-- [Utforska mätvärden](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning.
-- [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
+- [Utforska mått](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning.
+- [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
 - [Använd Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
-- [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).
+- [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
 
  Lägg till mer telemetri:
 
 - [Skapa webbtester](monitor-web-app-availability.md) så att du är säker på att webbplatsen är aktiv.
-- [Lägg till webbklienttelemetri](../../azure-monitor/app/javascript.md) för att se undantag från webbsidans kod och aktivera spårningsanrop.
-- [Lägg till SDK för programinsikter i koden](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings- och loggsamtal.
+- [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
+- [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
 
-Gör mer med Application Insights Agent:
+Gör mer med Application Insights agent:
 
-- Granska de [detaljerade instruktionerna](status-monitor-v2-detailed-instructions.md) för en förklaring av de kommandon som finns här.
-- Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights Agent.
+- Läs igenom de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md) för en förklaring av de kommandon som finns här.
+- Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.

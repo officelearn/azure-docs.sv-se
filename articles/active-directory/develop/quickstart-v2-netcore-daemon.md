@@ -1,7 +1,7 @@
 ---
-title: Hämta token & anropa Microsoft Graph med konsolappidentiteten | Azure
+title: Hämta token & anropa Microsoft Graph med konsol program identitet | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du hämtar en token och anropar ett skyddat Microsoft Graph-API med den från en .NET Core-app
+description: Lär dig hur du hämtar en token och anropar en skyddad Microsoft Graph-API med den från en .NET Core-app
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,30 +13,30 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
 ms.openlocfilehash: 0a41165a77ff5f98a6a0bb408da62cb6c4cb35f8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81536088"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabbstart: Skaffa en token och anropa Microsoft Graph API med konsolappens identitet
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph-API med hjälp av appens identitet
 
-I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](https://docs.microsoft.com/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet. (Se [Hur exemplet fungerar](#how-the-sample-works) för en illustration.)
+I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](https://docs.microsoft.com/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
 ## <a name="prerequisites"></a>Krav
 
-Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
 
 > [!div renderon="docs" class="sxs-lookup"]
 >
-> Du har två alternativ för att starta din snabbstart ansökan: Express (Alternativ 1 nedan), och Manuell (Alternativ 2)
+> Det finns två alternativ för att starta ditt snabb starts program: Express (alternativ 1 nedan) och manuell (alternativ 2)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
-> 1. Gå till den nya [Azure-portalen - fönstret Appregistreringar.](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs)
+> 1. Gå till fönstret ny [Azure Portal-Appregistreringar](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) .
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
@@ -46,11 +46,11 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
-> 1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+> 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 1. Navigera till sidan Microsoft identity platform för utvecklare [Appregistreringar.](https://go.microsoft.com/fwlink/?linkid=2083908)
-> 1. Välj **Ny registrering**.
-> 1. När sidan **Registrera en ansökan** visas anger du registreringsinformationen för din ansökan.
+> 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> 1. Välj **ny registrering**.
+> 1. När sidan **Registrera ett program** visas anger du programmets registrerings information.
 > 1. I avsnittet **Namn** anger du ett beskrivande namn som visas för användare av appen, till exempel `Daemon-console`, och välj sedan **Registrera** för att skapa appen.
 > 1. När den har registrerats väljer du menyn **Certifikat och hemligheter**.
 > 1. Under **Klienthemligheter** väljer du **+ Ny klienthemlighet**. Ge den ett namn och välj **Lägg till**. Kopiera hemligheten på en säker plats. Du behöver den för att använda i din kod.
@@ -77,7 +77,7 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 > [!div class="sxs-lookup" renderon="portal"]
 > Kör projektet med Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Ladda ner kodexemplet](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+> [Ladda ned kod exemplet](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -87,8 +87,8 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
 >
 > 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
-> 1. Öppna lösningen i Visual Studio - **1-Call-MSGraph\daemon-console.sln** (tillval).
-> 1. Redigera **appsettings.json** och ersätt värdena i fälten `ClientId`och `Tenant` `ClientSecret` med följande:
+> 1. Öppna lösningen i Visual Studio- **1-Call-MSGraph\daemon-Console.SLN** (valfritt).
+> 1. Redigera **appSettings. JSON** och ersätt värdena för fälten `ClientId` `Tenant` och `ClientSecret` med följande:
 >
 >    ```json
 >    "Tenant": "Enter_the_Tenant_Id_Here",
@@ -105,12 +105,12 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-admin-consent"></a>Steg 3: Administratörssamtycke
+> #### <a name="step-3-admin-consent"></a>Steg 3: administratörs medgivande
 
 > [!div renderon="docs"]
 > #### <a name="step-4-admin-consent"></a>Steg 4: Administratörsmedgivande
 
-Om du försöker köra programmet på denna punkt, får du *HTTP 403 - Förbjudet* fel: `Insufficient privileges to complete the operation`. Detta beror på att alla *behörigheter endast för appar* kräver administratörsgodkännande, vilket innebär att en global administratör för din katalog måste ge ditt samtycke till ditt program. Välj ett av alternativen nedan beroende på din roll:
+Om du försöker köra programmet nu får du ett *HTTP 403-otillåtet* fel: `Insufficient privileges to complete the operation`. Detta beror på att en *app-only-behörighet* kräver administratörs medgivande, vilket innebär att en global administratör för din katalog måste ge ditt program medgivande. Välj ett av alternativen nedan beroende på din roll:
 
 ##### <a name="global-tenant-administrator"></a>Global innehavaradministratör
 
@@ -124,7 +124,7 @@ Om du försöker köra programmet på denna punkt, får du *HTTP 403 - Förbjude
 
 ##### <a name="standard-user"></a>Standardanvändare
 
-Om du är en standardanvändare av din klientorganisation måste du be en global administratör att ge administratörens medgivande för ditt program. Gör detta genom att ge följande URL till administratören:
+Om du är en standard användare av din klient organisation måste du be en global administratör att bevilja administrativt medgivande för ditt program. Gör detta genom att ge följande URL till administratören:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -139,12 +139,12 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > Du kan se felmeddelandet *”AADSTS50011: Ingen svarsadress registrerad för programmet”* när du har beviljat åtkomst till appen med föregående URL. Det här händer eftersom den här appen och URL:en inte har en omdirigerings-URI – ignorera felet.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-4-run-the-application"></a>Steg 4: Kör programmet
+> #### <a name="step-4-run-the-application"></a>Steg 4: kör programmet
 
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Steg 5: Köra appen
 
-Om du använder Visual Studio trycker du på **F5** för att köra programmet, annars kör du programmet via kommandotolken eller konsolen:
+Om du använder Visual Studio trycker du på **F5** för att köra programmet, annars kör du programmet via kommando tolken eller konsolen:
 
 ```console
 cd {ProjectFolder}\daemon-console\1-Call-Graph
@@ -162,11 +162,11 @@ Du bör se en lista över användare i Azure AD-katalogen som resultat.
 ## <a name="more-information"></a>Mer information
 
 ### <a name="how-the-sample-works"></a>Så här fungerar exemplet
-![Visar hur exempelappen som genereras av den här snabbstarten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för att komma åt ett API som skyddas av Microsofts identitetsplattform. Som beskrivits begär den här snabbstarten token med hjälp av programmets egen identitet i stället för delegerade behörigheter. Autentiseringsflödet som används i det här fallet kallas för *[oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)*. Mer information om hur du använder MSAL.NET med klientautentiseringsflödet finns i [den här artikeln](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Som beskrivs i den här snabb starten begär denna token genom att använda programmets egna identitet i stället för delegerade behörigheter. Autentiseringsflödet som används i det här fallet kallas för *[oauth-flöde för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)*. Mer information om hur du använder MSAL.NET med flöde för klientautentiseringsuppgifter finns i [den här artikeln](https://aka.ms/msal-net-client-credentials).
 
  Du kan installera MSAL.NET genom att köra följande kommando i **Package Manager-konsolen** i Visual Studio:
 
@@ -217,7 +217,7 @@ result = await app.AcquireTokenForClient(scopes)
 
 > |Där:| |
 > |---------|---------|
-> | `scopes` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API:er `{Application ID URI}` definieras under Exponera ett **API-avsnitt** i Azure Portals programregistrering (förhandsversion). |
+> | `scopes` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API `{Application ID URI}` : er definieras under **exponera ett API** -avsnitt i Azure-portalens program registrering (för hands version). |
 
 Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
@@ -225,20 +225,20 @@ Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](h
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om daemon-program finns på scenariomålsidan
+Mer information om daemon-program finns på sidan om scenario landning
 
 > [!div class="nextstepaction"]
-> [Daemon program som anropar webb-API: er](scenario-daemon-overview.md)
+> [Daemon-program som anropar webb-API: er](scenario-daemon-overview.md)
 
-För handledning av demonprogrammet finns i:
+Själv studie kurs om program för daemon finns i:
 
 > [!div class="nextstepaction"]
-> [Daemon .NET Core konsol handledning](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
+> [Självstudie för daemon .NET Core-konsol](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Lär dig mer om behörigheter och medgivande:
 
 > [!div class="nextstepaction"]
-> [Behörigheter och samtycke](v2-permissions-and-consent.md)
+> [Behörigheter och tillstånd](v2-permissions-and-consent.md)
 
 Mer information om autentiseringsflödet för det här scenariot finns i Oauth 2.0-flödet för klientautentiseringsuppgifter:
 

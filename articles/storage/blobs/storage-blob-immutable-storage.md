@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ms.openlocfilehash: bb66e90f1d835a6341b47bb698cf05bc442e0ac0
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129252"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
@@ -48,7 +48,7 @@ Oföränderlig lagring stöder följande funktioner:
 
 - **Stöd för gransknings loggning**: varje behållare innehåller en princip Gransknings logg. Det visar upp till sju tidsbaserade kvarhållning-kommandon för låsta tidsbaserade bevarande principer och innehåller användar-ID, kommando typ, tidsstämplar och kvarhållningsintervall. För kvarhållning av juridiska skäl innehåller loggen användar-ID, typ av kommando, tidsstämplar och etiketter för kvarhållningen av juridiska skäl. Den här loggen behålls för principens livs längd i enlighet med rikt linjerna för s 17a-4 (f). [Azure aktivitets loggen](../../azure-monitor/platform/platform-logs-overview.md) visar en mer omfattande logg över alla kontroll Plans aktiviteter. När du aktiverar [Azures resurs loggar](../../azure-monitor/platform/platform-logs-overview.md) behålls och visas data Plans åtgärder. Det är användarens ansvar att lagra de här loggarna beständigt såsom krävs enligt regelverk eller andra ändamål.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 I den oföränderliga lagringen för Azure-blobar finns stöd för två olika typer av WORM- eller oföränderliga policyer: tidsbaserad kvarhållning och kvarhållning av juridiska skäl. När en tidsbaserad bevarande princip eller ett juridiskt undantag tillämpas på en behållare flyttas alla befintliga blobar till ett oföränderligt WORM-tillstånd på mindre än 30 sekunder. Alla nya blobbar som överförs till den princip skyddade behållaren kommer också att flyttas till ett oföränderligt tillstånd. När alla blobbar har ett oföränderligt tillstånd bekräftas den oföränderliga principen och eventuella Skriv-eller borttagnings åtgärder i den oföränderliga behållaren är inte tillåtna.
 
@@ -108,7 +108,7 @@ I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverat
 |---------|---------|---------|---------|
 |Effektivt kvarhållningsintervall för blobben har ännu inte gått ut och/eller bevarande av juridiska skäl har angetts     |Oåterkallelig: både ta bort- och skrivskyddad         | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ta bort behållare, ta bort BLOB, ange BLOB-metadata, sätt sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis Copy-BLOB, Lägg till block<sup>2</sup>         |Borttagning av container nekad; Borttagning av lagrings konto nekades         |
 |Det gällande kvarhållningsintervallet i blobben har upphört att gälla och inget juridiskt undantag har angetts    |Skrivskyddad endast (ta bort tillåts)         |Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ange BLOB-metadata, placerings sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia-BLOB, tillägg block<sup>2</sup>         |Borttagning av behållare nekas om det finns minst 1 BLOB i den skyddade behållaren. Borttagning av lagrings konto nekas endast för *låsta* tidsbaserade principer         |
-|Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke)     |Föränderlig         |Ingen         |Ingen         |
+|Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke)     |Föränderlig         |Inga         |Inga         |
 
 <sup>1</sup> Blob-tjänsten tillåter dessa åtgärder att skapa en ny BLOB en gång. Alla efterföljande överskrivnings åtgärder på en befintlig BLOB-sökväg i en oföränderlig container är inte tillåtna.
 

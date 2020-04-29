@@ -1,6 +1,6 @@
 ---
-title: Microsoft identitetsplattform UWP komma igång | Azure
-description: Hur UWP -program (Universal Windows Platform Applications) kan anropa ett API som kräver åtkomsttoken av slutpunkten för Microsoft-identitetsplattformen.
+title: Kom igång med Microsoft Identity Platform UWP | Azure
+description: Hur Universell Windows-plattform-program (UWP) kan anropa ett API som kräver åtkomsttoken av Microsoft Identity Platform-slutpunkten.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,73 +12,73 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 0dc70aa67a1414c08ec70e2e034f4ab12b194c0a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535952"
 ---
-# <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph API från ett XAML-program (Universal Windows Platform)
+# <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph-API från ett Universell Windows-plattform program (XAML)
 
 > [!div renderon="docs"]
 
-Den här guiden förklarar hur ett inbyggt UWP-program (Universal Windows Platform) kan begära en åtkomsttoken. Programmet anropar sedan Microsoft Graph API. Guiden gäller även andra API:er som kräver åtkomsttoken från slutpunkten för Microsoft-identitetsplattformen.
+Den här guiden förklarar hur ett internt Universell Windows-plattform-program (UWP) kan begära en åtkomsttoken. Programmet anropar sedan Microsoft Graph API. Guiden gäller även andra API: er som kräver åtkomsttoken från Microsoft Identity Platform-slutpunkten.
 
-I slutet av den här guiden anropar ditt program ett skyddat API med hjälp av personliga konton. Exempel är outlook.com, live.com och andra. Ditt program anropar också arbets- och skolkonton från alla företag eller organisationer som har Azure Active Directory (Azure AD).
-
->[!NOTE]
-> Den här guiden kräver Visual Studio med universell windowsplattformsutveckling installerad. Se [Få instruktioner](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) om hur du hämtar och konfigurerar Visual Studio för att utveckla universella Windows-plattformsappar.
+I slutet av den här guiden anropar programmet ett skyddat API med hjälp av personliga konton. Exempel är outlook.com, live.com och andra. Ditt program anropar också arbets-och skol konton från alla företag eller organisationer som har Azure Active Directory (Azure AD).
 
 >[!NOTE]
-> Om du inte har gjort det tidigare i Microsofts identitetsplattform rekommenderar vi att du börjar med [snabbstarten ring Microsoft Graph API från en UWP-program (Universal Windows Platform).](quickstart-v2-uwp.md)
+> Den här guiden kräver att Visual Studio med Universell Windows-plattform-utveckling installerat. Se [Hämta inställningar](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) för instruktioner för att hämta och konfigurera Visual Studio för att utveckla universell Windows-plattform appar.
+
+>[!NOTE]
+> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med [anropet Microsoft Graph-API från en universell Windows-plattform (UWP) snabb start](quickstart-v2-uwp.md).
 
 ## <a name="how-this-guide-works"></a>Så här fungerar den här guiden
 
-![Visar hur exempelappen som genereras av den här självstudien fungerar](./media/tutorial-v2-windows-uwp/uwp-intro.svg)
+![Visar hur exempel appen som genereras av den här själv studie kursen fungerar](./media/tutorial-v2-windows-uwp/uwp-intro.svg)
 
-Den här guiden skapar ett exempel på UWP-program som frågar Microsoft Graph API. I det här fallet läggs en token till i HTTP-begäranden med hjälp av auktoriseringshuvudet. Microsoft Authentication Library (MSAL) hanterar tokenförvärv och förnyelser.
+Den här guiden skapar ett exempel på ett UWP-program som frågar Microsoft Graph API. I det här scenariot läggs en token till i HTTP-begäranden med hjälp av Authorization-huvudet. Microsoft Authentication Library (MSAL) hanterar hämtning av token och förnyelser.
 
 ## <a name="nuget-packages"></a>NuGet-paket
 
-Den här guiden använder följande NuGet-paket:
+I den här guiden används följande NuGet-paket:
 
 |Bibliotek|Beskrivning|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsofts autentiseringsbibliotek|
+|[Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsofts autentiseringsbibliotek|
 
 ## <a name="set-up-your-project"></a>Konfigurera projektet
 
-Det här avsnittet innehåller steg-för-steg-instruktioner för att integrera ett Windows Desktop .NET-program (XAML) med Inloggning med Microsoft. Sedan kan programmet fråga webb-API:er som kräver en token, till exempel Microsoft Graph API.
+Det här avsnittet innehåller steg-för-steg-instruktioner för att integrera ett Windows Desktop .NET-program (XAML) med inloggning med Microsoft. Sedan kan programmet fråga webb-API: er som kräver en token, till exempel Microsoft Graph API.
 
-Den här guiden skapar ett program som visar en knapp som frågar Graph API och en knapp för att logga ut. Den visar också textrutor som innehåller resultatet av samtalen.
+Den här guiden skapar ett program som visar en knapp som frågar Graph API och en knapp för att logga ut. Den visar också text rutor som innehåller resultatet av anropen.
 
 > [!NOTE]
-> Vill du hämta det här exemplets Visual Studio-projekt i stället för att skapa det? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) och gå till [programregistreringssteget](#register-your-application "registreringssteg för ansökan") för att konfigurera kodexemplet innan det körs.
+> Vill du hämta det här exemplets Visual Studio-projekt i stället för att skapa det? [Hämta ett projekt](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) och gå vidare till [programmets registrerings](#register-your-application "program registrerings steg") steg för att konfigurera kod exemplet innan det körs.
 
 ### <a name="create-your-application"></a>Skapa ditt program
 
-1. Öppna Visual Studio och välj **Skapa ett nytt projekt**.
-1. I **Skapa ett nytt projekt**väljer du Tom app **(Universella Fönster)** för C# och väljer **Nästa**.
-1. I **Konfigurera ditt nya projekt**namnger du appen och väljer **Skapa**.
-1. Om du uppmanas till det väljer du valfri version för **Mål-** och **minimiversioner** i **New Universal Windows Platform Project**och väljer **OK**.
+1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
+1. I **skapa ett nytt projekt**väljer du **Tom app (Universal Windows)** för C# och väljer **sedan nästa**.
+1. I **Konfigurera ditt nya projekt**namnger du appen och väljer **skapa**.
+1. Om du uppmanas att göra det väljer du en version för **mål** och **lägsta** versioner i **nytt universell Windows-plattform projekt**och väljer **OK**.
 
-   ![Lägsta- och Målversioner](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
+   ![Minimi-och mål versioner](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
-### <a name="add-microsoft-authentication-library-to-your-project"></a>Lägga till Microsoft Authentication Library i projektet
+### <a name="add-microsoft-authentication-library-to-your-project"></a>Lägg till Microsoft Authentication Library i projektet
 
-1. I Visual Studio väljer du **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-1. Kopiera och klistra in följande kommando i fönstret **Package Manager Console:**
+1. I Visual Studio väljer du **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
+1. Kopiera och klistra in följande kommando i fönstret **Package Manager-konsol** :
 
     ```powershell
     Install-Package Microsoft.Identity.Client
     ```
 
    > [!NOTE]
-   > Med det här kommandot installeras [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL förvärvar, cachelagrar och uppdaterar användartoken som använder API:er som skyddas av Microsofts identitetsplattform.
+   > Det här kommandot installerar [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL skaffar, cachelagrar och uppdaterar användar-tokens som har åtkomst till API: er som skyddas av Microsoft Identity Platform.
 
-### <a name="create-your-applications-ui"></a>Skapa programmets användargränssnitt
+### <a name="create-your-applications-ui"></a>Skapa ditt programs användar gränssnitt
 
-Visual Studio skapar *MainPage.xaml* som en del av projektmallen. Öppna den här filen och ersätt **Grid** sedan programmets grid-nod med följande kod:
+Visual Studio skapar *mainpage. XAML* som en del av projekt mal len. Öppna den här filen och ersätt sedan programmets **Grid** -nod med följande kod:
 
 ```xml
 <Grid>
@@ -95,11 +95,11 @@ Visual Studio skapar *MainPage.xaml* som en del av projektmallen. Öppna den hä
 </Grid>
 ```
 
-### <a name="use-msal-to-get-a-token-for-microsoft-graph-api"></a>Använda MSAL för att hämta en token för Microsoft Graph API
+### <a name="use-msal-to-get-a-token-for-microsoft-graph-api"></a>Använd MSAL för att hämta en token för Microsoft Graph-API
 
-I det här avsnittet visas hur du använder MSAL för att hämta en token för Microsoft Graph API. Gör ändringar i *MainPage.xaml.cs* filen.
+Det här avsnittet visar hur du använder MSAL för att hämta en token för Microsoft Graph-API. Gör ändringar i *mainpage.XAML.cs* -filen.
 
-1. I *MainPage.xaml.cs*lägger du till följande referenser:
+1. I *mainpage.XAML.cs*lägger du till följande referenser:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -107,7 +107,7 @@ I det här avsnittet visas hur du använder MSAL för att hämta en token för M
     using System.Threading.Tasks;
     ```
 
-1. Ersätt `MainPage` din klass med följande kod:
+1. Ersätt `MainPage` klassen med följande kod:
 
     ```csharp
     public sealed partial class MainPage : Page
@@ -204,25 +204,25 @@ I det här avsnittet visas hur du använder MSAL för att hämta en token för M
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt<a name="more-information"></a>
 
-Metoden `AcquireTokenInteractive` resulterar i ett fönster som uppmanar användarna att logga in. Program kräver vanligtvis att användare loggar in interaktivt första gången för att komma åt en skyddad resurs. De kan också behöva logga in när en tyst åtgärd för att hämta en token misslyckas. Ett exempel är när en användares lösenord har upphört att gälla.
+`AcquireTokenInteractive` Metoden resulterar i ett fönster som gör att användarna kan logga in. Program kräver vanligt vis att användare loggar in interaktivt första gången för att få åtkomst till en skyddad resurs. De kan också behöva logga in när en tyst åtgärd för att hämta en token Miss lyckas. Ett exempel är när en användares lösen ord har upphört att gälla.
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-Metoden `AcquireTokenSilent` hanterar tokenförvärv och förnyelser utan någon användarinteraktion. När `AcquireTokenInteractive` körs för första gången och uppmanar användaren `AcquireTokenSilent` om autentiseringsuppgifter använder du metoden för att begära token för senare anrop. Den metoden hämtar token tyst. MSAL hanterar tokencache och förnyelse.
+`AcquireTokenSilent` Metoden hanterar hämtning av token och förnyelser utan några åtgärder från användaren. När `AcquireTokenInteractive` körningarna första gången har körts och uppmanas användaren att ange autentiseringsuppgifter använder du `AcquireTokenSilent` metoden för att begära token för senare anrop. Den här metoden hämtar token tyst. MSAL hanterar token cache och förnyelse.
 
-Så småningom `AcquireTokenSilent` misslyckas metoden. Orsaker till fel är en användare som har loggat ut eller ändrat sitt lösenord på en annan enhet. När MSAL upptäcker att problemet kräver en interaktiv `MsalUiRequiredException` åtgärd genereras ett undantag. Ditt program kan hantera det här undantaget på två sätt:
+Slutligen kan `AcquireTokenSilent` metoden Miss lyckas. Orsaken till problemet är en användare som loggat ut eller ändrat sitt lösen ord på en annan enhet. När MSAL upptäcker att problemet kräver en interaktiv åtgärd, utlöses ett `MsalUiRequiredException` undantag. Ditt program kan hantera detta undantag på två sätt:
 
-* Din ansökan `AcquireTokenInteractive` ringer omedelbart. Det här anropet leder till att användaren uppmanas att logga in. Använd normalt den här metoden för onlineprogram där det inte finns något tillgängligt offlineinnehåll för användaren. Exemplet som genereras av den här guidade inställningen följer mönstret. Du ser det i aktion första gången du kör provet.
+* Dina program anropas `AcquireTokenInteractive` omedelbart. Det här anropet resulterar i att användaren uppmanas att logga in. Använd normalt den här metoden för online-program där det inte finns något tillgängligt offline-innehåll för användaren. Exemplet som genereras av den här guidade installationen följer mönstret. Du ser det i åtgärd första gången du kör exemplet.
 
-   Eftersom ingen användare har `accounts.FirstOrDefault()` använt programmet, innehåller ett null-värde och genererar ett `MsalUiRequiredException` undantag.
+   Eftersom ingen användare har använt programmet, `accounts.FirstOrDefault()` innehåller ett null-värde och genererar ett `MsalUiRequiredException` undantag.
 
-   Koden i exemplet hanterar sedan undantaget `AcquireTokenInteractive`genom att anropa . Det här anropet leder till att användaren uppmanas att logga in.
+   Koden i exemplet hanterar sedan undantaget genom att anropa `AcquireTokenInteractive`. Det här anropet resulterar i att användaren uppmanas att logga in.
 
-* Programmet visar en visuell indikation för användarna att de måste logga in. Sedan kan de välja rätt tid att logga in. Programmet kan försöka `AcquireTokenSilent` igen senare. Använd den här metoden när användare kan använda andra programfunktioner utan avbrott. Ett exempel är när offlineinnehåll är tillgängligt i programmet. I det här fallet kan användarna bestämma när de vill logga in. Programmet kan försöka `AcquireTokenSilent` igen när nätverket inte var tillgängligt för tillfället.
+* Ditt program visar en visuell information till användare som de behöver för att logga in. Sedan kan de välja rätt tid för att logga in. Programmet kan försöka igen `AcquireTokenSilent` senare. Använd den här metoden när användare kan använda andra program funktioner utan avbrott. Ett exempel är när offlineinnehåll är tillgängligt i programmet. I det här fallet kan användarna bestämma när de vill logga in. Programmet kan försöka igen `AcquireTokenSilent` när nätverket är tillfälligt otillgängligt.
 
-### <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Anropa Microsoft Graph API med hjälp av den token du just fått
+### <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Anropa Microsoft Graph-API med hjälp av den token som du nyss hämtade
 
-Lägg till följande nya metod för att *MainPage.xaml.cs:*
+Lägg till följande nya metod i *mainpage.XAML.cs*:
 
    ```csharp
    /// <summary>
@@ -252,15 +252,15 @@ Lägg till följande nya metod för att *MainPage.xaml.cs:*
     }
    ```
 
- Den här `GET` metoden gör en begäran `Authorization` från Graph API med hjälp av ett huvud.
+ Den här metoden gör `GET` en begäran från Graph API med hjälp `Authorization` av ett sidhuvud.
 
 #### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Mer information om hur du gör ett REST-anrop mot ett skyddat API
 
-I det här `GetHttpContentWithToken` exempelprogrammet gör `GET` metoden en HTTP-begäran mot en skyddad resurs som kräver en token. Sedan returnerar metoden innehållet till anroparen. Den här metoden lägger till den förvärvade token i **HTTP-auktoriseringshuvudet.** För det här exemplet är resursen slutpunkten För Microsoft Graph API **me,** som visar användarens profilinformation.
+I det här exempel programmet gör `GetHttpContentWithToken` metoden en http- `GET` begäran mot en skyddad resurs som kräver en token. Sedan returnerar metoden innehållet till anroparen. Den här metoden lägger till den hämtade token i **http-Authorization-** huvudet. I det här exemplet är resursen Microsoft Graph-API **mig** -slutpunkt, som visar användarens profil information.
 
-### <a name="add-a-method-to-sign-out-the-user"></a>Lägga till en metod för att logga ut användaren
+### <a name="add-a-method-to-sign-out-the-user"></a>Lägg till en metod för att logga ut användaren
 
-Om du vill logga ut användaren lägger du till följande metod för att *MainPage.xaml.cs:*
+Om du vill logga ut användaren lägger du till följande metod i *mainpage.XAML.cs*:
 
    ```csharp
    /// <summary>
@@ -289,17 +289,17 @@ Om du vill logga ut användaren lägger du till följande metod för att *MainPa
    ```
 
 > [!NOTE]
-> MSAL.NET använder asynkrona metoder för att hämta token eller manipulera konton. Du måste stödja gränssnittsåtgärder i gränssnittstråden. Detta är anledningen `Dispatcher.RunAsync` till samtalet och `ConfigureAwait(false)`försiktighetsåtgärder att ringa .
+> MSAL.NET använder asynkrona metoder för att förvärva token eller manipulera konton. Du måste ha stöd för UI-åtgärder i UI-tråden. Detta är orsaken till `Dispatcher.RunAsync` anropet och de försiktighets åtgärder som krävs för `ConfigureAwait(false)`att anropa.
 
-#### <a name="more-information-about-signing-out"></a>Mer information om hur du loggar ut<a name="more-information-on-sign-out"></a>
+#### <a name="more-information-about-signing-out"></a>Mer information om att logga ut<a name="more-information-on-sign-out"></a>
 
-Metoden `SignOutButton_Click` tar bort användaren från MSAL-användarcachen. Den här metoden talar effektivt msal att glömma den aktuella användaren. En framtida begäran om att hämta en token lyckas endast om den är interaktiv.
+`SignOutButton_Click` Metoden tar bort användaren från MSAL-användarcache. Den här metoden instruerar MSAL att glömma den aktuella användaren. En framtida begäran om att hämta en token Miss lyckas endast om den är interaktiv.
 
 Programmet i det här exemplet stöder en enskild användare. MSAL stöder scenarier där användaren kan logga in på mer än ett konto. Ett exempel är ett e-postprogram där en användare har flera konton.
 
-### <a name="display-basic-token-information"></a>Visa grundläggande tokeninformation
+### <a name="display-basic-token-information"></a>Visa grundläggande information om token
 
-Lägg till följande metod för att *MainPage.xaml.cs* för att visa grundläggande information om token:
+Lägg till följande metod i *mainpage.XAML.cs* för att visa grundläggande information om token:
 
    ```csharp
    /// <summary>
@@ -316,13 +316,13 @@ Lägg till följande metod för att *MainPage.xaml.cs* för att visa grundlägga
    }
    ```
 
-#### <a name="more-information"></a>Läs mer<a name="more-information-1"></a>
+#### <a name="more-information"></a>Mer information<a name="more-information-1"></a>
 
-ID-token som förvärvats med **OpenID Connect** innehåller också en liten delmängd av information som är relevant för användaren. `DisplayBasicTokenInfo`visar grundläggande information som finns i token. Den här informationen innehåller användarens visningsnamn och ID. Det innehåller också förfallodatum för token och strängen som representerar själva åtkomsttoken. Om du väljer knappen **Anropa Microsoft Graph API** flera gånger ser du att samma token återanvändades för senare begäranden. Du kan också se utgångsdatumet förlängas när MSAL beslutar att det är dags att förnya token.
+ID-token som förvärv ATS med hjälp av **OpenID Connect** innehåller också en liten delmängd av information som är relevant för användaren. `DisplayBasicTokenInfo`visar grundläggande information som finns i token. Den här informationen omfattar användarens visnings namn och ID. Den innehåller också utgångs datumet för token och strängen som representerar själva åtkomsttoken. Om du väljer API-knappen **anropa Microsoft Graph** flera gånger ser du att samma token återanvändes för senare förfrågningar. Du kan också se utgångs datum för utökad när MSAL bestämmer att det är dags att förnya token.
 
 ### <a name="display-message"></a>Visa meddelande
 
-Lägg till följande nya metod för att *MainPage.xaml.cs:*
+Lägg till följande nya metod i *mainpage.XAML.cs*:
 
    ```csharp
    /// <summary>
@@ -340,98 +340,98 @@ Lägg till följande nya metod för att *MainPage.xaml.cs:*
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-Nu måste du registrera din ansökan:
+Nu måste du registrera ditt program:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj Azure Active**Directory-appregistreringar** **Azure Active Directory** > .
-1. Välj **Ny registrering**. Ange ett meningsfullt programnamn som ska visas för användare av appen, till exempel *UWP-App-calling-MSGraph*.
-1. Under **Kontotyper som stöds**väljer du Konton i en **organisationskatalog och personliga Microsoft-konton (t.ex.** **Register**
-1. Leta reda på värdet **program -id för program (klient)** och kopiera det på översiktssidan. Gå tillbaka till Visual Studio, öppna *MainPage.xaml.cs*och `ClientId` ersätt värdet för med det här värdet.
+1. Välj **Azure Active Directory** > **Appregistreringar**.
+1. Välj **ny registrering**. Ange ett meningsfullt program namn som ska visas för användarna av appen, till exempel *UWP-app-Calling-MSGraph*.
+1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox)** och väljer sedan **Registrera** för att fortsätta.
+1. På sidan Översikt hittar du **ID-värdet för programmet (klienten)** och kopierar det. Gå tillbaka till Visual Studio, öppna *mainpage.XAML.cs*och Ersätt värdet för `ClientId` med det här värdet.
 
 Konfigurera autentisering för ditt program:
 
-1. Tillbaka i [Azure-portalen](https://portal.azure.com)under **Hantera**väljer du **Autentisering**.
-1. Kontrollera i avsnittet **Omdirigera URI:er** | **föreslagna omdirigerings-URI:er för offentliga klienter (mobil, stationär dator)** **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+1. Gå tillbaka till [Azure Portal](https://portal.azure.com)under **Hantera**och välj **autentisering**.
+1. I avsnittet **omdirigerings-URI: er** | **föreslagna omdirigerings-URI: er för offentliga klienter (Mobile, Desktop)** kontrollerar **https://login.microsoftonline.com/common/oauth2/nativeclient**du.
 1. Välj **Spara**.
 
 Konfigurera API-behörigheter för ditt program:
 
-1. Under **Hantera**väljer du **API-behörigheter**.
-1. Välj **Lägg till en behörighet** och kontrollera sedan att du har valt **Microsoft-API:er**.
+1. Under **Hantera**, Välj **API-behörigheter**.
+1. Välj **Lägg till en behörighet** och kontrol lera att du har valt **Microsoft API: er**.
 1. Välj **Microsoft Graph**.
-1. Välj **Delegerade behörigheter**, sök efter *User.Read* och kontrollera att **User.Read** är markerat.
+1. Välj **delegerade behörigheter**, Sök efter *användare. Läs* och kontrol lera att **User. Read** är markerat.
 1. Om du har gjort några ändringar väljer du **Lägg till behörigheter** för att spara dem.
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>Aktivera integrerad autentisering på federerade domäner (valfritt)
 
-Om du vill aktivera Windows-integrerad autentisering när den används med en federerad Azure AD-domän måste programmanifestet aktivera ytterligare funktioner. Gå tillbaka till ditt program i Visual Studio.
+För att aktivera Windows-integrerad autentisering när den används med en federerad Azure AD-domän måste applikations manifestet aktivera ytterligare funktioner. Gå tillbaka till programmet i Visual Studio.
 
-1. Öppna *Package.appxmanifest*.
-1. Välj **Funktioner** och aktivera följande inställningar:
+1. Öppna *Package. appxmanifest*.
+1. Välj **funktioner** och aktivera följande inställningar:
 
-   * **Företagsautentisering**
-   * **Privata nätverk (klient & server)**
+   * **Enterprise-autentisering**
+   * **Privata nätverk (klient & Server)**
    * **Delade användarcertifikat**
 
 > [!IMPORTANT]
-> [Integrerad Windows-autentisering](https://aka.ms/msal-net-iwa) är inte konfigurerad som standard för det här exemplet. Program som `Enterprise Authentication` `Shared User Certificates` begär eller anfunktioner kräver en högre verifieringsnivå av Windows Store. Dessutom vill inte alla utvecklare utföra den högre nivån av verifiering. Aktivera den här inställningen endast om du behöver Windows-integrerad autentisering med en federerad Azure AD-domän.
+> [Integrerad Windows-autentisering](https://aka.ms/msal-net-iwa) är inte konfigurerat som standard för det här exemplet. Program som begär `Enterprise Authentication` eller `Shared User Certificates` -funktioner kräver en högre verifierings nivå av Windows Store. Alla utvecklare vill inte heller utföra den högre verifierings nivån. Aktivera endast den här inställningen om du behöver Windows-integrerad autentisering med en federerad Azure AD-domän.
 
 ## <a name="test-your-code"></a>Testa koden
 
-Om du vill testa programmet väljer du F5 för att köra projektet i Visual Studio. Huvudfönstret visas:
+Om du vill testa programmet väljer du F5 för att köra projektet i Visual Studio. Ditt huvud fönster visas:
 
-![Programmets användargränssnitt](./media/tutorial-v2-windows-uwp/testapp-ui-vs2019.png)
+![Programmets användar gränssnitt](./media/tutorial-v2-windows-uwp/testapp-ui-vs2019.png)
 
-När du är redo att testa väljer du **Anropa Microsoft Graph API**. Använd sedan ett Azure AD-organisationskonto eller ett Microsoft-konto, till exempel live.com eller outlook.com, för att logga in. Första gången en användare kör detta visar programmet ett fönster där användaren uppmanas att logga in.
+När du är redo att testa väljer du **anropa Microsoft Graph API**. Använd sedan ett organisations konto i Azure AD eller en Microsoft-konto, till exempel live.com eller outlook.com, för att logga in. Första gången en användare kör detta, visar programmet ett fönster där användaren uppmanas att logga in.
 
-### <a name="consent"></a>Samtycke
+### <a name="consent"></a>Givit
 
-Första gången du loggar in på din ansökan visas en medgivandeskärm som liknar följande. Välj **Ja** om du uttryckligen vill medgivande för åtkomst:
+Första gången du loggar in på ditt program visas en godkännande skärm som liknar följande. Välj **Ja** om du uttryckligen vill ge åtkomst:
 
-![Skärmen Åtkomst med samtycke](./media/tutorial-v2-windows-uwp/consentscreen-vs2019.png)
+![Åtkomst till medgivande skärmen](./media/tutorial-v2-windows-uwp/consentscreen-vs2019.png)
 
 ### <a name="expected-results"></a>Förväntat resultat
 
-Du ser användarprofilinformation som returneras av Microsoft Graph API-anropet på skärmen **API-samtalsresultat:**
+Du ser information om användar profiler som returneras av Microsoft Graph API-anropet på skärmen med **API-anrops resultat** :
 
-![Skärmen Api-samtalsresultat](./media/tutorial-v2-windows-uwp/uwp-results-screen-vs2019.png)
+![Resultat skärm för API-anrop](./media/tutorial-v2-windows-uwp/uwp-results-screen-vs2019.png)
 
-Du ser även grundläggande information `AcquireTokenInteractive` om `AcquireTokenSilent` den token som förvärvats via eller i rutan **Token Info:**
+Du ser också grundläggande information om den token som `AcquireTokenInteractive` hämtats via eller `AcquireTokenSilent` i rutan **token-information** :
 
 |Egenskap  |Format  |Beskrivning |
 |---------|---------|---------|
-|`Username` |`user@domain.com` |Användarnamnet som identifierar användaren.|
-|`Token Expires` |`DateTime` |Den tidpunkt då token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov.|
+|`Username` |`user@domain.com` |Det användar namn som identifierar användaren.|
+|`Token Expires` |`DateTime` |Tiden då token upphör att gälla. MSAL utökar förfallo datumet genom att förnya token vid behov.|
 
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om scope och delegerade behörigheter
+### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om omfattningar och delegerade behörigheter
 
-Microsoft Graph API `user.read` kräver att omfattningen läser en användares profil. Det här scopet läggs till som standard i alla program som är registrerade i programregistreringsportalen. Andra API:er för Microsoft Graph och anpassade API:er för backend-servern kan kräva ytterligare scope. Microsoft Graph API kräver `Calendars.Read` till exempel att omfattningen ska kunna lista användarens kalendrar.
+Microsoft Graph API kräver att `user.read` omfattningen läser en användar profil. Det här omfånget läggs till som standard i alla program som är registrerade i program registrerings portalen. Andra API: er för Microsoft Graph och anpassade API: er för backend-servern kan kräva ytterligare omfång. Microsoft Graph-API kräver till exempel att `Calendars.Read` omfånget visar användarens kalendrar.
 
-Om du vill komma åt användarens kalendrar `Calendars.Read` i samband med ett program lägger du till den delegerade behörigheten i programregistreringsinformationen. Lägg sedan `Calendars.Read` till `acquireTokenSilent` scopet i samtalet.
+Om du vill komma åt användarens kalendrar i ett programs kontext lägger du `Calendars.Read` till den delegerade behörigheten till program registrerings informationen. Lägg sedan till `Calendars.Read` omfånget `acquireTokenSilent` i anropet.
 
 > [!NOTE]
-> Användare kan uppmanas att ange ytterligare medgivanden när du ökar antalet scope.
+> Användare kan tillfrågas om ytterligare medgivanden när du ökar antalet omfång.
 
 ## <a name="known-issues"></a>Kända problem
 
 ### <a name="issue-1"></a>Problem 1
 
-Du får ett av följande felmeddelanden när du loggar in på ditt program på en federerad Azure AD-domän:
+Du får ett av följande fel meddelanden när du loggar in på ditt program på en federerad Azure AD-domän:
 
-* Inget giltigt klientcertifikat hittades i begäran.
-* Inga giltiga certifikat hittades i användarens certifikatarkiv.
-* Försök att välja en annan autentiseringsmetod igen.
+* Inget giltigt klient certifikat hittades i begäran.
+* Inga giltiga certifikat hittades i användarens certifikat arkiv.
+* Försök igen och välj en annan autentiseringsmetod.
 
-Orsak: Funktioner för företag och certifikat är inte aktiverade.
+Orsak: företags-och certifikat funktioner är inte aktiverade.
 
 Lösning: Följ stegen i [Aktivera integrerad autentisering på federerade domäner (valfritt)](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problem 2
 
-Du aktiverar [integrerad autentisering på federerade domäner](#enable-integrated-authentication-on-federated-domains-optional) och försöker använda Windows Hello på en Windows 10-dator för att logga in i en miljö med multifaktorautentisering konfigurerad. Listan över certifikat presenteras. Men om du väljer att använda pinkoden visas aldrig PIN-koden.
+Du aktiverar [integrerad autentisering på federerade domäner](#enable-integrated-authentication-on-federated-domains-optional) och försöker använda Windows Hello på en Windows 10-dator för att logga in i en miljö med Multi-Factor Authentication konfigurerad. Listan över certifikat visas. Men om du väljer att använda din PIN-kod visas inte PIN-fönstret.
 
-Orsak: Det här problemet är en känd begränsning av webbautentiseringsmäklaren i UWP-program som körs på Windows 10-skrivbordet. Det fungerar bra på Windows 10 Mobile.
+Orsak: det här problemet är en känd begränsning i Web Authentication Broker i UWP-program som körs på Windows 10 Desktop. Det fungerar bra på Windows 10 Mobile.
 
-Lösning: Välj **Logga in med andra alternativ**. Välj sedan **Logga in med ett användarnamn och lösenord**. Välj **Ange ditt lösenord**. Gå sedan igenom telefonens autentiseringsprocess.
+Lösning: Välj **Logga in med andra alternativ**. Välj sedan **Logga in med ett användar namn och lösen ord**. Välj **Ange ditt lösen ord**. Gå sedan igenom processen för att autentisera telefonen.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

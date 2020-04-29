@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Migrera händelsedata till SQL Data Warehouse - Azure Event Hubs'
-description: 'Självstudiekurs: Den här självstudien visar hur du samlar in data från händelsehubben i ett SQL-informationslager med hjälp av en Azure-funktion som utlöses av ett händelserutnät.'
+title: 'Självstudie: Migrera händelse data till SQL Data Warehouse – Azure Event Hubs'
+description: 'Självstudie: den här själv studie kursen visar hur du samlar in data från din händelsehubben till ett SQL Data Warehouse med hjälp av en Azure-funktion som utlöses av ett event Grid.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
@@ -10,13 +10,13 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
 ms.openlocfilehash: 28fa9dddda94845511ead7d8fb7481aff6b6b044
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80130852"
 ---
-# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudiekurs: Migrera hämtade händelsehubbar data till ett SQL Data Warehouse med eventrutnät och Azure-funktioner
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till en SQL Data Warehouse med Event Grid och Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) är det enklaste sättet att automatiskt leverera strömmade data i Event Hubs till Azure Blob-lagring eller Azure Data Lake-lagring. Du kan sedan bearbeta och leverera data till andra lagringsmål, som SQL Data Warehouse eller Cosmos DB. I den här självstudien lär du dig att samla in data från din händelsehubb till ett SQL Data Warehouse med en Azure-funktion som utlöses av ett [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) (händelserutnät).
 
@@ -40,11 +40,11 @@ I den här självstudien gör du följande:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual studio 2019](https://www.visualstudio.com/vs/). Vid installationen kontrollerar du att du installerar följande arbetsbelastningar: .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET- och webbutveckling, Node.js-utveckling och Python-utveckling
-- Hämta [Git-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) Exempellösningen innehåller följande komponenter:
+- Hämta [git-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) som exempel lösningen innehåller följande komponenter:
     - *WindTurbineDataGenerator* – en enkel utgivare som skickar exempeldata från en vindturbin till en Capture-aktiverad händelsehubb
     - *FunctionDWDumper* – en Azure-funktion som tar emot ett Event Grid-meddelande när en Avro-fil hämtas till blob-lagring i Azure Storage. Den tar emot blobbens URI-sökväg, läser innehållet och skickar data till ett SQL Data Warehouse.
 
-    Det här exemplet använder det senaste Azure.Messaging.EventHubs-paketet. Du hittar det gamla exemplet som använder Paketet Microsoft.Azure.EventHubs [här](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
+    Det här exemplet använder det senaste Azure. Messaging. EventHubs-paketet. Du kan hitta det gamla exemplet som använder Microsoft. Azure. EventHubs-paketet [här](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
 
 ### <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
 Använd Azure PowerShell eller Azure CLI för att distribuera den infrastruktur som behövs för den här självstudien med hjälp av den här [Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Den här mallen skapar följande resurser:
@@ -108,7 +108,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Publicera kod till Functions-appen
 
-1. Öppna lösningen *EventHubsCaptureEventGridDemo.sln* i Visual Studio 2019.
+1. Öppna lösningen *EventHubsCaptureEventGridDemo. SLN* i Visual Studio 2019.
 
 1. Högerklicka på *FunctionEGDWDumper* i Solution Explorer och välj **Publicera**.
 
@@ -131,7 +131,7 @@ När du har publicerat funktionen är du klar att prenumerera på insamlingshän
 
 ## <a name="create-an-event-grid-subscription-from-the-functions-app"></a>Skapa en Event Grid-prenumeration från Functions-appen
  
-1. Gå till [Azure-portalen](https://portal.azure.com/). Välj din resursgrupp och funktionsapp.
+1. Gå till [Azure Portal](https://portal.azure.com/). Välj din resursgrupp och funktionsapp.
 
    ![Visa funktionsapp](./media/store-captured-data-data-warehouse/view-function-app.png)
 
@@ -150,7 +150,7 @@ När du har publicerat funktionen är du klar att prenumerera på insamlingshän
 ## <a name="generate-sample-data"></a>Generera exempeldata  
 Nu har du konfigurerat Event Hub, SQL-informationslagret, Azure-funktionsappen och Event Grid-prenumerationen. Du kan köra WindTurbineDataGenerator.exe för att generera dataströmmar till Event Hub när du har uppdaterat anslutningssträngen och namnet på din händelsehubb i källkoden. 
 
-1. Välj händelsehubbens namnområde på portalen. Välj **Anslutningssträngar**.
+1. Välj händelsehubbens namnområde på portalen. Välj **anslutnings strängar**.
 
    ![Välj Anslutningssträngar](./media/store-captured-data-data-warehouse/event-hub-connection.png)
 
@@ -158,7 +158,7 @@ Nu har du konfigurerat Event Hub, SQL-informationslagret, Azure-funktionsappen o
 
    ![Välj nyckel](./media/store-captured-data-data-warehouse/show-root-key.png)
 
-3. Kopiera **anslutningssträng - primärnyckel**
+3. Kopiera **anslutnings sträng – primär nyckel**
 
    ![Kopiera nyckel](./media/store-captured-data-data-warehouse/copy-key.png)
 

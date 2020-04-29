@@ -1,6 +1,6 @@
 ---
-title: Använda befintliga spelare för att spela upp ditt innehåll - Azure | Microsoft-dokument
-description: I den här artikeln visas befintliga spelare som du kan använda för att spela upp ditt innehåll.
+title: Använd befintliga spelare för att spela upp innehållet – Azure | Microsoft Docs
+description: Den här artikeln innehåller befintliga spelare som du kan använda för att spela upp ditt innehåll.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 2d3c22e17c37bc46c16a9cc80eb3cf4b9ec93ecf
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686928"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Spela upp ditt innehåll med befintliga spelare
-Azure Media Services stöder många populära direktuppspelningsformat, till exempel Smooth Streaming, HTTP Live Streaming och MPEG-Dash. Det här avsnittet pekar dig till befintliga spelare som du kan använda för att testa dina strömmar.
+Azure Media Services stöder många populära strömnings format, till exempel Smooth Streaming, HTTP Live Streaming och MPEG-streck. Det här avsnittet pekar på befintliga spelare som du kan använda för att testa dina data strömmar.
 
-### <a name="the-azure-portal-media-services-content-player"></a>Innehållsspelaren för Azure portal Media Services
-**Azure-portalen** tillhandahåller en innehållsspelare som du kan använda för att testa din video.
+### <a name="the-azure-portal-media-services-content-player"></a>Azure Portal Media Services innehålls spelare
+**Azure** portal tillhandahåller en innehålls spelare som du kan använda för att testa videon.
 
-Klicka på önskad video (se till att den [publicerades)](media-services-portal-publish.md)och klicka på **play-knappen** längst ned på portalen.
+Klicka på önskad video (se till att den har [publicerats](media-services-portal-publish.md)) och klicka på **uppspelnings** knappen längst ned i portalen.
 
 Vissa förutsättningar gäller:
 
@@ -37,30 +37,30 @@ Vissa förutsättningar gäller:
 
 ### <a name="azure-media-player"></a>Azure Media Player
 
-Använd [Azure Media Player](https://aka.ms/azuremediaplayer) för att spela upp ditt innehåll (rensat eller skyddat) i något av följande format:
+Använd [Azure Media Player](https://aka.ms/azuremediaplayer) för att spela upp innehållet (tydligt eller skyddat) i något av följande format:
 
 * Smooth Streaming
 * MPEG DASH
 * HLS
 * Progressiv MP4
 
-### <a name="flash-player"></a>Flash-spelare
+### <a name="flash-player"></a>Flash Player
 
 #### <a name="playready-with-token"></a>PlayReady med token
 
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
-### <a name="dash-players"></a>DASH Spelare
+### <a name="dash-players"></a>STRECK motspelare
 
 [https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
 [https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>Annat
-Så här testar du HLS-url:er kan du också använda:
+För att testa HLS-URL: er kan du också använda:
 
 * **Safari** på en iOS-enhet eller
-* **3ivx HLS Player** på Windows.
+* **3IVX HLS Player** i Windows.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

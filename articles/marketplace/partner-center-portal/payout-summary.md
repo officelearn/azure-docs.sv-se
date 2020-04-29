@@ -1,178 +1,178 @@
 ---
-title: Sammanfattning av utbetalning på marknadsplats | Azure Marketplace
-description: Utbetalningssammanfattningen visar information om de pengar du har tjänat med ditt erbjudande. Det låter dig också veta när du får betalningar och hur mycket du kommer att betalas.
+title: Sammanfattning för utbetalning av handels Marketplace | Azure Marketplace
+description: Sammanfattningen av utbetalningen visar information om de pengar som du har fått med erbjudandet. Du kan också se när du får betalningar och hur mycket du betalar.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
 ms.openlocfilehash: 5a930dfb38007349155581424d03ee7b3e7a6b46
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730206"
 ---
 # <a name="payout-reporting"></a>Utbetalningsrapporter
 
-Sammanfattningen [**av utbetalningen**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) visar information om de pengar du har tjänat med Microsoft. Det låter dig också veta när du får betalningar och hur mycket du kommer att betalas.
+[**Sammanfattningen av utbetalningen**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) visar information om de pengar som du har fått av Microsoft. Du kan också se när du får betalningar och hur mycket du betalar.
 
-Om du säljer erbjudanden på Azure Marketplace ser du även information om lyckade utbetalningar i **utbetalningssammanfattningen**. Mer information om Azure Marketplace-betalning finns i [Microsoft Azure Marketplace Participation Policies](https://go.microsoft.com/fwlink/p/?LinkId=722436) och Microsoft Azure Marketplace Publisher [Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
+Om du säljer erbjudanden i Azure Marketplace ser du också information om lyckade utbetalningar i **sammanfattningen av utbetalningen**. Mer information om Azure Marketplace-betalning finns i [principer för Microsoft Azure Marketplace medverkan](https://go.microsoft.com/fwlink/p/?LinkId=722436) och [Microsoft Azure Marketplace utgivar avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
 > [!NOTE]
-> För att vara berättigad till utbetalning måste dina intäkter nå [betalningströskeln på](payment-thresholds-methods-timeframes.md) $50. Mer information om betalningströskeln finns på den här sidan och läser [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
+> För att bli berättigad till utbetalning måste du ha uppnått [betalnings tröskeln](payment-thresholds-methods-timeframes.md) på $50. Mer information om betalnings tröskeln finns på den här sidan och granska [Microsoft Azure Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
-- [Roller och behörighet att komma åt utbetalningsrapporten](#roles-and-permission-to-access-the-payout-report)
-- [Utbetalningsrapport: skillnaden mellan Cloud Partner Portal och Partner Center](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
-- [Kundtyper](#customer-types)
-- [Samförhållande mellan utbetalning och användning](#corelation-between-payout-and-usage)
-- [Hämtning av transaktionshistorik](#transaction-history-download-export)
-- [Faktureringsfrågor och support](#billing-questions-and-support)
+- [Roller och behörighet för att få åtkomst till utbetalnings rapporten](#roles-and-permission-to-access-the-payout-report)
+- [Utbetalnings rapport: skillnaden mellan Cloud Partner Portal och partner Center](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
+- [Kund typer](#customer-types)
+- [Relation mellan utbetalning och användning](#corelation-between-payout-and-usage)
+- [Hämtning av transaktions historik](#transaction-history-download-export)
+- [Fakturerings frågor och support](#billing-questions-and-support)
 
-## <a name="roles-and-permission-to-access-the-payout-report"></a>Roller och behörighet att komma åt utbetalningsrapporten
+## <a name="roles-and-permission-to-access-the-payout-report"></a>Roller och behörighet för att få åtkomst till utbetalnings rapporten
 
-| Rapporter/sidor    | Kontoägare    | Ansvarig  | Developer | Företag bidragsgivare |  Finansbidragsgivare | Marknadsförare |
+| Rapporter/sidor    | Kontoägare    | Ansvarig  | Developer | Företags deltagare |  Ekonomi deltagare | Rika marknads föraren |
 |------------------|------------------|----------|-----------|----|----|-----|
-| Förvärvsrapport (inklusive data i nära realtid) | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst | Kan visa | Ingen åtkomst |
-| Feedbackrapport/svar | Kan visa och skicka feedback | Kan visa och skicka feedback | Kan visa och skicka feedback | Ingen åtkomst | Ingen åtkomst | Kan visa och skicka feedback |
-| Hälsorapport (inklusive data i nära realtid) | Kan visa | Kan visa | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst |
-| Användningsrapport | Kan visa | Kan visa | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst |
-| Utbetalningskonto | Kan uppdatera | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan uppdatera | Ingen åtkomst |
-| Skatteprofil | Kan uppdatera | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan uppdatera | Ingen åtkomst |
+| Anskaffnings rapport (inklusive nära real tids data) | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst | Kan visa | Ingen åtkomst |
+| Feedback-rapport/svar | Kan visa och skicka feedback | Kan visa och skicka feedback | Kan visa och skicka feedback | Ingen åtkomst | Ingen åtkomst | Kan visa och skicka feedback |
+| Hälso rapport (inklusive nära real tids data) | Kan visa | Kan visa | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst |
+| Användnings rapport | Kan visa | Kan visa | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst |
+| Konto utbetalning | Kan uppdatera | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan uppdatera | Ingen åtkomst |
+| Skatte profil | Kan uppdatera | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan uppdatera | Ingen åtkomst |
 | Utbetalningssammanfattning | Kan visa | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan visa | Ingen åtkomst |
 
-## <a name="payout-report-difference-between-cloud-partner-portal-and-partner-center"></a>Utbetalningsrapport: skillnaden mellan Cloud Partner Portal och Partner Center
+## <a name="payout-report-difference-between-cloud-partner-portal-and-partner-center"></a>Utbetalnings rapport: skillnaden mellan Cloud Partner Portal och partner Center
 
-| | Partnerportalen i molnet | Partnercenter |
+| | Partnerportalen i molnet | Partner Center |
 |---------|---------|---------|
-| Länkar | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory)Och[https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
-| Navigering | Utbetalningsrapportering som tillhandahålls i Insights utbetalning | Utbetalningsrapportering i Partner Center – utbetalningsikon |
-| Omfång | <ul> <li>Transaktion per radartikel är synlig, för pågående insamling, insamlad och betald </li> <li>Rapportering – visar alla radartiklar när inköpsordern har skapats, inklusive pågående samling och fakturering pågår, och insamlingsstatus och radartiklar som ännu inte är berättigade att betalas. </li> </ul> | <ul> <li>Visar radposterna när de har bedömts som berättigade intäkter.</li> <li>Kunderna betalar först till Microsoft och sedan kan ISV:er se utbetalningsrapporten starta.</li> <li>Utbetalningsrapporten visar inte pågående insamling och fakturering pågår.  </li> </ul>  |
-| Transaktionen är inte klar för utbetalning | Fakturering pågår | Nästa beräknade betalning: Utbetalningsstatusen är i obearbetat tillstånd.  |
-| Utbetalningsstatus |  | Obearbetade: <br> Intjäningen är berättigad till betalning. Den förblir i det här tillståndet under en kylningsperiod enligt definitionen i programguiden för incitamentsprogrammet. <br> <br> Kommande: <br> Betalningsordergenererad väntande interna granskningar innan betalningen bearbetas. <br> <br> Skickas: <br> Betalningen har skickats till din bank. |
+| Länkar | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory)särskilt[https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+| Navigering | Utbetalnings rapportering som tillhandahålls i insikts utbetalning | Utbetalnings rapportering som tillhandahålls i Partner Center – utbetalnings ikon |
+| Omfång | <ul> <li>Transaktion per rad objekt är synligt för insamling i arbete, samlas in och betalas </li> <li>Rapportering – visar alla rad artiklar när inköps ordern har skapats, inklusive pågående insamling och fakturering, samt insamlings status och rad artiklar som ännu inte är berättigade att betala. </li> </ul> | <ul> <li>Visar rad artiklarna när de bedöms som berättigade intäkter.</li> <li>Kunderna betalar till Microsoft först och sedan kan ISV: erna se utbetalnings rapporten som startar.</li> <li>Utbetalnings rapporten visar inte pågående insamling och fakturering pågår.  </li> </ul>  |
+| Transaktionen är inte klar för utbetalning | Fakturering pågår | Nästa beräknade betalning: status för utbetalning är i tillståndet Unprocessed.  |
+| Utbetalnings status |  | Obearbetade <br> Betalningen är berättigad till betalning. Den förblir i det här läget för en kylnings period som definieras i program guiden för stimulans programmet. <br> <br> Planer <br> Betalnings order-genererade interna granskningar innan betalningen bearbetas. <br> <br> Överföra <br> Betalningen har skickats till din bank. |
 
-## <a name="customer-types"></a>Kundtyper
+## <a name="customer-types"></a>Kund typer
 
-### <a name="enterprise-agreement"></a>Företagsavtal
+### <a name="enterprise-agreement"></a>Enterprise-avtal
 
-Kunder utan ett företagsavtal faktureras månadsvis för marknadsplatsprogramlicenser. Kunder med ett företagsavtal faktureras månadsvis via en faktura som presenteras kvartalsvis.
+Kunder utan en Enterprise-avtal på plats faktureras per månad för program varu licenser för Marketplace. Kunder med en Enterprise-avtal faktureras per månad via en faktura som presenteras kvartals vis.
 
-### <a name="credit-cards-and-monthly-invoice"></a>Kreditkort och månadsfaktura
+### <a name="credit-cards-and-monthly-invoice"></a>Kredit kort och månads faktura
 
-Kunder kan också betala med kreditkort och månadsfaktura. I det här fallet debiteras dina licensavgifter för programvara månadsvis.
+Kunder kan också betala med hjälp av ett kredit kort och en månads faktura. I det här fallet faktureras licens avgifter för program vara varje månad.
 
-### <a name="csp-and-direct-pay-users"></a>CSP- och Direct Pay-användare
+### <a name="csp-and-direct-pay-users"></a>CSP och direkta löne användare
 
-Om kunden till exempel köper med kreditkort.
+Till exempel om kunden köper med ett kredit kort.
 
-## <a name="corelation-between-payout-and-usage"></a>Samförhållande mellan utbetalning och användning
+## <a name="corelation-between-payout-and-usage"></a>Relation mellan utbetalning och användning
 
-|Beskrivning    |    Date  | Order/användning  | Utbetalning |
+|Beskrivning    |    Date  | Beställningar/användning  | Payout |
 |----------|----------|-----------|-------------|
-|Orderperiod   | 15 augusti 2019 - 30 augusti 2019 | **Order för korrelationsattribut** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Användning** <br> <ul> <li>CustomerId </li> <li>Kundens namn</li> <li>(UsageReference) InköpRecordId/LineItemId</li> <li> Uppskattad utökad laddning <br> Beräknad utbetalning (PC) </li> </ul> |  |
-|Terminsslut (månad)   | 30 augusti 2019 | | |
-|Faktureringsdatum | den 1 september 2019 | | |
-|Betalningsdatum för kund | den 1 september 2019 | | |
-|Escrow Period (endast kreditkort, 30 dagar) | 1 september 2019 - 30 september 2019 | | **Order för korrelationsattribut:** <br> <ul><li>AssetId (olika)</li> <li>Kund-ID</li> <li> Kundens namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId (olika)</li> <li>CustomerId</li> <li>Kundens namn</li> <li>OrderId</li> <li>LineItemId (På Andra plats)</li> <li>transaktionAmount</li> <li>TjänaAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalningsstatus:** Obearbetade |
-|Start av insamlingsperiod | den 1 september 2019 | | |
-|Insamlingsperiodslut (max, 30 dagar) | den 30 september 2019 | | |
-|Utbetalningsberäkningsdatum (månadsvis den 15:e) | den 1 oktober 2019 | | **Korrelationsattribut** <br> <ul><li>AssetId (olika)</li> <li>Kund-ID</li> <li>Kundens namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId (olika)</li> <li>CustomerId</li> <li>Kundens namn</li> <li>OrderId</li> <li>LineItemId (På Andra plats)</li> <li>transaktionAmount</li> <li>TjänaAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalningsstatus:** Kommande |
-|Utbetalningsdatum | den 15 oktober 2019 | | **Korrelationsattribut** <br> <ul><li>AssetId (olika)</li> <li>Kund-ID</li> <li> Kundens namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId (olika)</li> <li>CustomerId</li> <li>Kundens namn</li> <li>OrderId</li> <li>LineItemId (På Andra plats)</li> <li>transaktionAmount</li> <li>TjänaAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalningsstatus:** Betalning skickad |
+|Order period   | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Användning** <br> <ul> <li>CustomerId </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> |  |
+|Slut period (månad)   | 30 aug 2019 | | |
+|Fakturerings datum | 1 september 2019 | | |
+|Kund betalnings datum | 1 september 2019 | | |
+|Depositions period (endast kredit kort, 30 dagar) | 1 september 2019 – – 30 september 2019 | | **Ordning för korrelations attribut:** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Obearbetade |
+|Start för samlings period | 1 september 2019 | | |
+|Samlings period slut (maximalt 30 dagar) | 30 september 2019 | | |
+|Beräknings datum för utbetalning (månatlig på 15) | 1 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li>Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Planer |
+|Utbetalnings datum | 15 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Betalning skickas |
 
-### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise-avtal (kvartals-/månadskunder)
+### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise Agreement (kvartals Visa/månads kunder)
 
-| Beskrivning |    Date  | Användning | Utbetalning |
+| Beskrivning |    Date  | Användning | Payout |
 |----------|----------|---------|-----------|
-|Orderperiod | 15 augusti 2019 - 30 augusti 2019 | **Order för korrelationsattribut** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Användningsrapport** <br> <ul> <li>CustomerId </li> <li>Kundens namn</li> <li>(UsageReference) InköpRecordId/LineItemId</li> <li> Uppskattad utökad laddning <br> Beräknad utbetalning (PC) </li> </ul> | |
-|Löptidsslut (kvartal) | den 30 september 2019 | | |
-|Faktureringsdatum | den 15 oktober 2019 | | |
-|Escrow Period (endast kreditkort, 30 dagar) | Saknas | | |
-|Start av insamlingsperiod | den 15 oktober 2019 | | |
-|Endast kreditkort, 30 dagar | 1 november 2019 - 30 november 2019 | | |
-|Insamlingsperiodslut (max, 90 dagar) | den 15 januari 2020 | | |
-|Betalningsdatum för kund | den 30 december 2019 | | |
-|Beräkning av utbetalning | den 15 januari 2020 | | |
-|Utbetalningsdatum | Den 15 februari 2020 | | **För kvartalsbaserade kunder** <br> <br> **Orderrapport** <br> <ul><li>AssetId (olika)</li> <li>Kund-ID</li> <li> Kundens namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId (olika)</li> <li>CustomerId</li> <li>Kundens namn</li> <li>OrderId</li> <li>LineItemId (På Andra plats)</li> <li>transaktionAmount</li> <li>TjänaAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalningsstatus:** skickas |
+|Order period | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Användnings rapport** <br> <ul> <li>CustomerId </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> | |
+|Slut period (kvartal) | 30 september 2019 | | |
+|Fakturerings datum | 15 oktober 2019 | | |
+|Depositions period (endast kredit kort, 30 dagar) | saknas | | |
+|Start för samlings period | 15 oktober 2019 | | |
+|Endast kredit kort, 30 dagar | Nov 1, 2019 – 30 november 2019 | | |
+|Samlings period slut (maximalt 90 dagar) | 15 Jan 2020 | | |
+|Kund betalnings datum | 30 december 2019 | | |
+|Beräkning av utbetalning | 15 Jan 2020 | | |
+|Utbetalnings datum | Feb 15, 2020 | | **För kvartals beroende kunder** <br> <br> **Rapporten order** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** skickat |
 
-## <a name="transaction-history-download-export"></a>Nedladdning av transaktionshistorik
+## <a name="transaction-history-download-export"></a>Hämta export av transaktions historik
 
-Det här alternativet ger en hämtning av varje intjäningsradsartikel som visas på sidan Transaktionshistorik, intjäningstyp, datum, associerat transaktionsbelopp, kund, produkt och annan transaktionsinformation som gäller för incitamentsprogrammet.
+Det här alternativet innehåller en nedladdning av varje rad objekt som du ser på sidan transaktions historik, typ, datum, associerat transaktions belopp, kund, produkt och annan transaktionell information som gäller för stimulans programmet.
 
 | Kolumnnamn     | Beskrivning    |
 |-------------|-------------------------------|
-| tjänarId                      | Unik identifierare för varje intjäning                                                                                                       |
-| deltagareD                  | Den primära identiteten för den partner som tjänar inom ramen för programmet                                                                            |
-| deltagareIdType              | Mestadels program-ID för incitamentsprogram och säljare IF för Store-program och Azure Marketplace                                          |
-| deltagareNamn                | Den intjänande partnerns namn                                                                                                              |
-| partnerCountryCode             | Den intjänstpartnerns läge/land                                                                                                  |
-| programNamn                    | Namn på incitament/butiksprogram                                                                                                             |
-| transaktionId                  | Unik identifierare för transaktionen                                                                                                    |
-| transaktionValuta            | Valuta där den ursprungliga kundtransaktionen inträffade (det är inte partnerplatsvalutan)                                     |
-| transaktionDate                | Datum för transaktionen. Användbart för program där många transaktioner bidrar till en intjäning                                           |
-| transaktionsbyte        | Valutakurs som används för att visa motsvarande transaktion USD belopp                                                                 |
-| transaktionAmount              | Transaktionsbelopp i den ursprungliga transaktionsvalutan baserat på vilken intjäning genereras                                              |
-| transaktionAmountUSD           | Transaktionsbelopp i USD                                                                                                                |
-| Spaken                          | Anger affärsregel för intjänings-                                                                                                  |
-| tjänaNdeStra                    | Incitamentsränta som tillämpas på transaktionsbelopp för att generera en intjäning                                                                      |
-| quantity                       | Varierar beroende på program. Anger fakturerad kvantitet för transaktionsprogram                                                            |
-| kvantitetstyp                   | Anger typ av kvantitet, till exempel: Fakturerad kvantitet, MAU                                                                                     |
-| inkomstTyp                    | Anger om det är avgift, rabatt, coop, sälja etc.                                                                                          |
-| tjänaAmount                  | Intjäningsbelopp i den ursprungliga transaktionsvalutan                                                                                      |
-| tjänaAmountUSD               | Intjäningsbelopp i USD                                                                                                                    |
-| tjänaDate                    | Datum för intjäning                                                                                                                      |
-| beräkningDate                | Datum då intjäningen beräknades i systemet                                                                                            |
-| tjänaExchangeRate            | Valutakurs som används för att visa motsvarande USD-belopp                                                                                  |
-| exchangeRateDate               | Valutakursdatum som används för att beräkna IntjäningSgenomstj.S                                                                                   |
-| betalningAmountWOTax             | Intjäningsbelopp (utan skatt) i betala till valuta för "Skickade" betalningar endast                                                                 |
-| betalningValuta                | Betala till valuta som valts av partner i betalningsprofilen. Visas endast för skickade betalningar                                                   |
-| betalningVäxlar            | Valutakurs som används för att beräkna betalningAmountWOTax i betalningsvaluta med ExchangeRateDate                                            |
-| paymentId (på)            | Unik identifierare för betalningen. Detta nummer visas i ditt kontoutdrag                                            |
-| betalningStatus            | Betalningsstatus                                            |
-| betalningStatusBeskrivning            | Vänskaplig beskrivning av betalningsstatus                                            |
-| customerId                     | Kommer alltid att vara tom                                                                                                                     |
-| kundNamn                   | Kommer alltid att vara tom                                                                                                                     |
-| partNumber                     | Kommer alltid att vara tom                                                                                                                     |
-| Productname                    | Produktnamn kopplat till transaktionen                                                                                                       |
-| productId                      | Unik produktidentifierare                                                                                                                |
-| parentProductId                | Unik överordnad produktidentifierare. Om det inte finns någon överordnad produkt för transaktionen kan du ange ett produkt-ID = Produkt-ID. |
-| parentProductName              | Namnet på den överordnade produkten. Om det inte finns någon överordnad produkt för transaktionen kan du ange det överordnade produktnamnet = produktnamnet.   |
-| productType                    | Typ av produkt (t.ex. app, tillägg, spel, etc.)                                                                                        |
-| fakturaNummer                  | Fakturanummer (gäller endast för EA)                                                                                                  |
-| återförsäljare                     | Identifierare för återförsäljare                                                                                                                      |
-| återförsäljareNamn                   | Återförsäljarens namn                                                                                                                            |
-| transaktionstyp                | Typ av transaktion (t.ex. inköp, återbetalning, återföring, återbetalning osv.)                                                               |
-| lokalaProviderSeller            | Lokal leverantör/säljare av posten                                                                                                          |
-| skattRemitterad                    | Momsbelopp som överförs (moms-, användnings- eller moms-/momsskatter).                                                                                   |
-| skattRemitModel                  | Part som ansvarar för att försänka skatter (moms, användning eller moms/moms).                                                                    |
-| storeFee                       | Det belopp som Microsoft behåller som en avgift för att göra appen eller tillägget tillgängligt i Store.                                            |
-| transaktionBetalningMehod       | Kundens betalningsinstrument som används för transaktionen (t.ex. kort, mobiloperatörsfakturering, PayPal osv.)                                |
-| tpan (tpan)                           | Anger annonsnätverket från tredje part                                                                                                     |
-| kundLand                | Kundland                                                                                                                         |
-| customerCity (kundCity)                   | Kundstad                                                                                                                            |
-| customerState (kundState)                  | Kundens tillstånd                                                                                                                           |
-| kundZip                    | Kundpostnummer                                                                                                                 |
-| TenantID (Klient-ID)                       |                                                                                                                                          |
-| externreferensId            | Unik identifierare för programmet                                                                                                        |
-| externreReferensIdLabel       | Unik identifierare etikett                                                                                                                  |
-| transaktionCountryCode       | Landskod där transaktionen inträffade                                                                                                                  |
-| skattLand       | Säljs till kundland                                                                                                                  |
-| taxState (skattestat)       | Såld till kundtillstånd                                                                                                                  |
-| taxCity (skatteStad)       | Såld till Customer City                                                                                                                  |
-| skattZipCode       | Säljs till kund zip                                                                                                                  |
-| LicensprogramNamn       |                                                                                                                   |
-| Programkod       | Sträng för att mappa med programmets namn                                                                                                                   |
-| tjänaAmountInLastPaymentCurrency       | Intjäningsbelopp i den senaste betalningsvalutan (fältet kommer att vara tomt, om inga tidigare betalningar har betalats)                                                                                                                   |
-| senaste betalningValuta       | Senaste betalningsvalutan (fältet kommer att vara tomt, om ingen tidigare betalning har betalats)                                                                                                                   |
-| AssetId (olika)       | Den unika identifieraren för kundorder för din marknadsplatstjänst.  Den representerar de transagerade inköpsradartiklarna. Det kan finnas flera tillgångar.                                                                                                                   |
-| OrderId       | avser en kunds faktura                                                                                                                   |
-| LineItemId (På Andra plats)       | enskild rad i en kunds faktura                                                                                                                   |
-| Kundland       | Det landsnamn som kunden tillhandahåller.  Detta kan vara annorlunda än landet i en kunds Azure-prenumeration.                                                                                                                   |
-| Kundens e-postadress       | Den e-postadress som slutkunden har angett.  Detta kan skilja sig från e-postadressen i en kunds Azure-prenumeration.                                                                                                                   |
-| SkuId (på)       | SKU-ID enligt definitionen under publicering. Ett erbjudande kan ha många SKU: er, men en SKU kan bara associeras med ett enda erbjudande.                                                                                                                   |
+| earningId                      | Unikt ID för varje tilltjänande                                                                                                       |
+| participantId                  | Den primära identiteten för partnern enligt programmet                                                                            |
+| participantIdType              | De flesta program-ID: n för stimulans program och näringsidkare om för Store-program och Azure Marketplace                                          |
+| participantName                | Partnerns namn                                                                                                              |
+| partnerCountryCode             | Partnerns plats/land                                                                                                  |
+| programName                    | Namn på incitament/Store-program                                                                                                             |
+| transactionId                  | Unikt ID för transaktionen                                                                                                    |
+| transactionCurrency            | Valutan i vilken den ursprungliga kund transaktionen ägde rum (den är inte partner platsens valuta)                                     |
+| transactionDate                | Datum för transaktionen. Användbart för program där många transaktioner bidrar till en                                           |
+| transactionExchangeRate        | Växelkurs som används för att visa motsvarande transaktions USD-belopp                                                                 |
+| transactionAmount              | Transaktions belopp i den ursprungliga transaktions valutan baserat på vilken du genererar                                              |
+| transactionAmountUSD           | Transaktions belopp i USD                                                                                                                |
+| handtag                          | Indikerar affärs regel för att tjäna                                                                                                  |
+| earningRate                    | Incitaments grad som tillämpas på transaktions belopp för att generera en tjänande                                                                      |
+| quantity                       | Varierar beroende på program. Anger Fakturerat antal för transaktions program                                                            |
+| quantityType                   | Anger typ av kvantitet, till exempel: fakturerad kvantitet, MAU                                                                                     |
+| earningType                    | Anger om det är avgift, rabatt, Coop, försäljning osv.                                                                                          |
+| earningAmount                  | Tjänande belopp i den ursprungliga transaktions valutan                                                                                      |
+| earningAmountUSD               | Tjäna belopp i USD                                                                                                                    |
+| earningDate                    | Datum för den tjänande                                                                                                                      |
+| calculationDate                | Datum då intjänaren beräknades i systemet                                                                                            |
+| earningExchangeRate            | Växelkurs som används för att visa motsvarande USD-belopp                                                                                  |
+| exchangeRateDate               | Valutakurs datum som används för att beräkna EarningAmount USD                                                                                   |
+| paymentAmountWOTax             | Uppskattat belopp (utan skatt) i betala till valuta för "skickade" endast betalningar                                                                 |
+| paymentCurrency                | Betala till den valuta som valts av partner i betalnings profilen. Visas endast för skickade betalningar                                                   |
+| paymentExchangeRate            | Växelkurs som används för att beräkna paymentAmountWOTax i betalnings valuta med ExchangeRateDate                                            |
+| paymentId            | Unikt ID för betalningen. Det här antalet visas i ditt bank utdrag                                            |
+| paymentStatus            | Betalnings status                                            |
+| paymentStatusDescription            | Egen beskrivning av betalnings status                                            |
+| customerId                     | Är alltid tomt                                                                                                                     |
+| customerName                   | Är alltid tomt                                                                                                                     |
+| partNumber                     | Är alltid tomt                                                                                                                     |
+| Namn                    | Produkt namn som är kopplat till transaktionen                                                                                                       |
+| productId                      | Unikt produkt-ID                                                                                                                |
+| parentProductId                | Unikt ID för överordnad produkt. Obs: om det inte finns någon överordnad produkt för transaktionen, så överordnad produkt-ID = produkt-ID. |
+| parentProductName              | Namnet på den överordnade produkten. OBS! om det inte finns någon överordnad produkt för transaktionen, så överordnad produkt namn = produkt namn.   |
+| productType                    | Typ av produkt (till exempel app, tillägg, spel osv.)                                                                                        |
+| invoiceNumber                  | Faktura nummer (gäller endast EA)                                                                                                  |
+| resellerId                     | Åter försäljarens ID                                                                                                                      |
+| resellerName                   | Återförsäljarens namn                                                                                                                            |
+| transactionType                | Transaktions typ (till exempel köp, åter betalning, återföring, åter betalning osv.)                                                               |
+| localProviderSeller            | Lokal leverantör/säljare i post                                                                                                          |
+| taxRemitted                    | Moms som remitterats (försäljning, användning eller moms/GST-skatter).                                                                                   |
+| taxRemitModel                  | Part som ansvarar för att remittera moms (försäljning, användning eller moms/GST-skatter).                                                                    |
+| storeFee                       | Det belopp som Microsoft har bevarat som en avgift för att göra appen eller tillägget tillgängligt i butiken.                                            |
+| transactionPaymentMethod       | Kund betalnings instrument som används för transaktionen (till exempel kort, fakturering av mobil företag, PayPal osv.)                                |
+| tpan                           | Anger AD-nätverk från tredje part                                                                                                     |
+| customerCountry                | Kund land                                                                                                                         |
+| customerCity                   | Kund ort                                                                                                                            |
+| customerState                  | Kund tillstånd                                                                                                                           |
+| customerZip                    | Post nummer för kund                                                                                                                 |
+| TenantID                       |                                                                                                                                          |
+| externalReferenceId            | Unikt ID för programmet                                                                                                        |
+| externalReferenceIdLabel       | Etikett för unikt ID                                                                                                                  |
+| transactionCountryCode       | Landskod som transaktionen skedde i                                                                                                                  |
+| taxCountry       | Säljs till kund land                                                                                                                  |
+| taxState       | Såld till kund delstat                                                                                                                  |
+| taxCity       | Såld till kund ort                                                                                                                  |
+| taxZipCode       | Säljs till kund post                                                                                                                  |
+| LicensingProgramName       |                                                                                                                   |
+| Program kod       | Sträng som ska mappas med program namnet                                                                                                                   |
+| earningAmountInLastPaymentCurrency       | Värdet i den senaste betalnings valutan (fältet är tomt om inga tidigare betalningar har betalats)                                                                                                                   |
+| lastPaymentCurrency       | Senaste betalnings valuta (fältet är tomt om ingen tidigare betalning har betalats)                                                                                                                   |
+| AssetId       | Den unika identifieraren för kund order för din Marketplace-tjänst.  Den representerar överförda inköps rad artiklar. Det kan finnas flera till gångar.                                                                                                                   |
+| OrderId       | avser en kund faktura                                                                                                                   |
+| LineItemId       | enskild rad i en kunds faktura                                                                                                                   |
+| Kund land       | Landets namn som tillhandahålls av kunden.  Detta kan skilja sig från landet i en kunds Azure-prenumeration.                                                                                                                   |
+| Kund EmailAddress       | E-postadressen som tillhandahålls av slut kunden.  Detta kan skilja sig från e-postadressen i en kunds Azure-prenumeration.                                                                                                                   |
+| SkuId       | SKU-ID som definieras under publiceringen. Ett erbjudande kan ha många SKU: er, men en SKU kan bara associeras med ett enda erbjudande.                                                                                                                   |
 
 >[!Note]
->All rapportering och insikter för alternativet för transactpublicering är tillgängliga via avsnittet Insikter i avsnittet Cloud Partner Portal eller Analytics i Partner center.
+>All rapportering och insikter för alternativet Transact Publishing är tillgängliga via avsnittet Insights i avsnittet Cloud Partner Portal eller Analytics i Partner Center.
 
-## <a name="billing-questions-and-support"></a>Faktureringsfrågor och support
+## <a name="billing-questions-and-support"></a>Fakturerings frågor och support
 
-Om du vill ha hjälp med faktureringsfrågor kontaktar du [supporten för marknadsplatsutgivare.](https://partner.microsoft.com/support/v2/?stage=1)
+Om du vill ha hjälp med fakturerings frågor kan du kontakta [supporten för marknads plats utgivare](https://partner.microsoft.com/support/v2/?stage=1).

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 720496c56cdae69e3b7415ac4d4d05d5796fbff9
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146371"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort ett prefix för offentlig IP-adress
@@ -46,7 +46,7 @@ Prefix för offentliga IP-adresser har en avgift. Mer information finns i [priss
 3. Under **offentlig IP**-adressprefix väljer du **skapa**.
 4. Ange eller välj värden för följande inställningar under **skapa offentlig IP-adressprefix**och välj sedan **skapa**:
 
-   |Inställning|Krävs?|Information|
+   |Inställningen|Obligatoriskt?|Information|
    |---|---|---|
    |Prenumeration|Ja|Måste finnas i samma [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) som den resurs som du vill associera den offentliga IP-adressen med.|
    |Resursgrupp|Ja|Kan finnas i samma eller olika [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) som den resurs som du vill associera den offentliga IP-adressen med.|
@@ -69,11 +69,11 @@ När du har skapat ett prefix måste du skapa statiska IP-adresser från prefixe
 3. När det visas i Sök resultaten markerar du det och klickar på **+ Lägg till IP-adress** i översikts avsnittet.
 4. Ange eller välj värden för följande inställningar under **skapa offentlig IP-adress**. Eftersom ett prefix är för standard-SKU, IPv4 och statisk, behöver du bara ange följande information:
 
-   |Inställning|Krävs?|Information|
+   |Inställningen|Obligatoriskt?|Information|
    |---|---|---|
    |Name|Ja|Namnet på den offentliga IP-adressen måste vara unikt inom den resurs grupp du väljer.|
-   |Tids gräns för inaktivitet (minuter)|Inga|Hur många minuter som en TCP-eller HTTP-anslutning är öppen utan att lita på klienter för att skicka Keep-Alive-meddelanden. |
-   |DNS-namnetikett|Inga|Måste vara unikt inom Azure-regionen som du skapar namnet i (för alla prenumerationer och alla kunder). Azure registrerar automatiskt namn och IP-adress i DNS så att du kan ansluta till en resurs med namnet. Azure lägger till ett standard under nät som *location.cloudapp.Azure.com* (där platsen är den plats du väljer) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Mer information finns i [använda Azure DNS med en offentlig Azure-IP-adress](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |Tids gräns för inaktivitet (minuter)|Nej|Hur många minuter som en TCP-eller HTTP-anslutning är öppen utan att lita på klienter för att skicka Keep-Alive-meddelanden. |
+   |DNS-namnetikett|Nej|Måste vara unikt inom Azure-regionen som du skapar namnet i (för alla prenumerationer och alla kunder). Azure registrerar automatiskt namn och IP-adress i DNS så att du kan ansluta till en resurs med namnet. Azure lägger till ett standard under nät som *location.cloudapp.Azure.com* (där platsen är den plats du väljer) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Mer information finns i [använda Azure DNS med en offentlig Azure-IP-adress](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
 Alternativt kan du använda CLI-och PS-kommandona nedan med parametrarna--Public-IP-prefix (CLI) och-PublicIpPrefix (PS) för att skapa en offentlig IP-adressresurs. 
 
@@ -101,7 +101,7 @@ Alternativt kan du använda CLI-och PS-kommandona nedan med parametrarna--Public
 
 För att utföra åtgärder på offentliga IP-adressprefix måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Åtgärd                                                            | Name                                                           |
+| Action                                                            | Name                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft. Network/publicIPPrefixes/Read                           | Läs ett offentligt IP-adressprefix                                |
 | Microsoft. Network/publicIPPrefixes/Write                          | Skapa eller uppdatera ett offentligt IP-adressprefix                    |

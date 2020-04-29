@@ -1,7 +1,7 @@
 ---
-title: Skapa eller ändra en Exchange-peering med powershell
+title: Skapa eller ändra en Exchange-peering med hjälp av PowerShell
 titleSuffix: Azure
-description: Skapa eller ändra en Exchange-peering med powershell
+description: Skapa eller ändra en Exchange-peering med hjälp av PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 23c905f148da614c7785b61b76abed191206cd90
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678598"
 ---
-# <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Skapa eller ändra en Exchange-peering med powershell
+# <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Skapa eller ändra en Exchange-peering med hjälp av PowerShell
 
-I den här artikeln beskrivs hur du skapar en Microsoft Exchange-peering med hjälp av PowerShell-cmdlets och Resurshanterarens distributionsmodell. Den här artikeln visar också hur du kontrollerar status för resursen, uppdaterar den eller tar bort och avetableras.
+Den här artikeln beskriver hur du skapar en Microsoft Exchange-peering med hjälp av PowerShell-cmdletar och distributions modellen för Resource Manager. Den här artikeln visar också hur du kontrollerar status för resursen, uppdaterar den eller tar bort och avetablerar den.
 
-Om du vill kan du slutföra den här guiden med hjälp av [Azure-portalen](howto-exchange-portal.md).
+Om du vill kan du slutföra den här guiden med hjälp av Azure [Portal](howto-exchange-portal.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
-* Granska [förutsättningarna](prerequisites.md) och [genomgången Exchange-peering](walkthrough-exchange-all.md) innan du börjar konfigurera.
-* Om du redan har Exchange-peerings med Microsoft som inte konverteras till Azure-resurser läser [du Konvertera en äldre Exchange-peering till en Azure-resurs med hjälp av PowerShell](howto-legacy-exchange-powershell.md).
+* Granska [kraven](prerequisites.md) och [genom gången av Exchange-peering](walkthrough-exchange-all.md) innan du påbörjar konfigurationen.
+* Om du redan har Exchange-peering med Microsoft som inte har konverterats till Azure-resurser, se [konvertera en äldre Exchange-peering till en Azure-resurs med hjälp av PowerShell](howto-legacy-exchange-powershell.md).
 
 ### <a name="work-with-azure-powershell"></a>Arbeta med Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
@@ -51,7 +51,7 @@ Om du vill kan du slutföra den här guiden med hjälp av [Azure-portalen](howto
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa eller ändra en direkt peering med powershell](howto-direct-powershell.md)
+* [Skapa eller ändra en direkt peering med hjälp av PowerShell](howto-direct-powershell.md)
 * [Konvertera en äldre direkt peering till en Azure-resurs med hjälp av PowerShell](howto-legacy-direct-powershell.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
@@ -61,4 +61,4 @@ Du kan få detaljerade beskrivningar av alla parametrar genom att köra följand
 Get-Help Get-AzPeering -detailed
 ```
 
-Mer information finns i [Vanliga frågor och frågor om Internet-peering](faqs.md).
+Mer information finns i [vanliga frågor och svar om Internet-peering](faqs.md).

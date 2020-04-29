@@ -1,5 +1,5 @@
 ---
-title: Skapa arbetsytor med Azure CLI
+title: Skapa arbets ytor med Azure CLI
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder Azure CLI för att skapa en ny Azure Machine Learning-arbetsyta.
 services: machine-learning
@@ -10,45 +10,45 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617781"
 ---
-# <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbetsyta för Azure Machine Learning med Azure CLI
+# <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-arbetsyta med Hjälp av Azure CLI. Azure CLI innehåller kommandon för hantering av Azure-resurser. Maskininlärningstillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning-resurser.
+I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-arbetsyta med hjälp av Azure CLI. Azure CLI innehåller kommandon för att hantera Azure-resurser. Machine Learning-tillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning resurser.
 
 ## <a name="prerequisites"></a>Krav
 
-* En **Azure-prenumeration**. Om du inte har någon provar du den [kostnadsfria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+* En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-    Om du använder [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)nås CLI via webbläsaren och finns i molnet.
+    Om du använder [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)kan CLI nås via webbläsaren och finns i molnet.
 
-## <a name="connect-the-cli-to-your-azure-subscription"></a>Anslut CLI till din Azure-prenumeration
+## <a name="connect-the-cli-to-your-azure-subscription"></a>Ansluta CLI till din Azure-prenumeration
 
 > [!IMPORTANT]
-> Om du använder Azure Cloud Shell kan du hoppa över det här avsnittet. Molnskalet autentiserar automatiskt dig med det konto du loggar in på din Azure-prenumeration.
+> Om du använder Azure Cloud Shell kan du hoppa över det här avsnittet. Cloud Shell autentiserar automatiskt dig med det konto som du loggar in i din Azure-prenumeration.
 
-Det finns flera sätt som du kan autentisera till din Azure-prenumeration från CLI. Det mest grundläggande är att interaktivt autentisera med hjälp av en webbläsare. Om du vill autentisera interaktivt öppnar du en kommandorad eller terminal och använder följande kommando:
+Det finns flera sätt som du kan autentisera till din Azure-prenumeration från CLI. Den mest grundläggande är att interaktivt autentisera med hjälp av en webbläsare. För att autentisera interaktivt, öppna en kommando rad eller Terminal och Använd följande kommando:
 
 ```azurecli-interactive
 az login
 ```
 
-Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida läses in. Annars måste du öppna en webbläsare och följa instruktionerna på kommandoraden. Instruktionerna innebär att du [https://aka.ms/devicelogin](https://aka.ms/devicelogin) surfar på och anger en auktoriseringskod.
+Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida läses in. Annars måste du öppna en webbläsare och följa anvisningarna på kommando raden. Anvisningarna omfattar att bläddra till [https://aka.ms/devicelogin](https://aka.ms/devicelogin) och ange en auktoriseringskod.
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-Andra metoder för autentisering finns [i Logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+För andra metoder för autentisering, se [Logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-## <a name="install-the-machine-learning-extension"></a>Installera maskininlärningstillägget
+## <a name="install-the-machine-learning-extension"></a>Installera Machine Learning-tillägget
 
-Så här installerar du maskininlärningstillägget:
+Om du vill installera Machine Learning-tillägget använder du följande kommando:
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
@@ -56,25 +56,25 @@ az extension add -n azure-cli-ml
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Arbetsytan Azure Machine Learning är beroende av följande Azure-tjänster eller enheter:
+Azure Machine Learning-arbetsytan är beroende av följande Azure-tjänster eller-entiteter:
 
 > [!IMPORTANT]
-> Om du inte anger en befintlig Azure-tjänst skapas en automatiskt när arbetsytan skapas. Du måste alltid ange en resursgrupp.
+> Om du inte anger en befintlig Azure-tjänst skapas en automatiskt när arbets ytan skapas. Du måste alltid ange en resurs grupp.
 
 | Tjänst | Parameter för att ange en befintlig instans |
 | ---- | ---- |
-| **Azure-resursgrupp** | `-g <resource-group-name>`
-| **Azure-lagringskonto** | `--storage-account <service-id>` |
+| **Azure-resurs grupp** | `-g <resource-group-name>`
+| **Azure Storage konto** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Arbetsytan Azure Machine Learning måste skapas i en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en ny. Om du vill __skapa en ny resursgrupp__använder du följande kommando. Ersätt `<resource-group-name>` med namnet som ska användas för den här resursgruppen. Ersätt `<location>` med Azure-regionen som ska användas för den här resursgruppen:
+Arbets ytan Azure Machine Learning måste skapas i en resurs grupp. Du kan använda en befintlig resurs grupp eller skapa en ny. Använd följande kommando för att __skapa en ny resurs grupp__. Ersätt `<resource-group-name>` med det namn som ska användas för den här resurs gruppen. Ersätt `<location>` med den Azure-region som ska användas för den här resurs gruppen:
 
 > [!TIP]
-> Du bör välja en region där Azure Machine Learning är tillgängligt. Mer information finns i [Produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
+> Välj en region där Azure Machine Learning är tillgängligt. Mer information finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -96,23 +96,23 @@ Svaret från det här kommandot liknar följande JSON:
 }
 ```
 
-Mer information om hur du arbetar med resursgrupper finns i [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
+Mer information om hur du arbetar med resurs grupper finns i [AZ Group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
 
-### <a name="automatically-create-required-resources"></a>Skapa automatiskt nödvändiga resurser
+### <a name="automatically-create-required-resources"></a>Skapa nödvändiga resurser automatiskt
 
-Om du vill skapa en ny arbetsyta där __tjänsterna skapas automatiskt__använder du följande kommando:
+Om du vill skapa en ny arbets yta där __tjänsterna skapas automatiskt__, använder du följande kommando:
 
 > [!TIP]
-> Kommandona i det här avsnittet skapar en grundläggande arbetsyta för utgåvor. Om du vill skapa en `--sku enterprise` företagsarbetsyta använder du växeln `az ml workspace create` med kommandot. Mer information om Azure Machine Learning-versioner finns i [Vad är Azure Machine Learning](overview-what-is-azure-ml.md#sku).
+> Kommandona i det här avsnittet skapar en Basic Edition-arbetsyta. Om du vill skapa en företags arbets yta `--sku enterprise` använder du växeln `az ml workspace create` med kommandot. Mer information om Azure Machine Learning-versioner finns i [Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 > [!NOTE]
-> Arbetsytans namn är skiftlägesokänsligt.
+> Namnet på arbets ytan är Skift läges okänsligt.
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -135,59 +135,59 @@ Utdata för det här kommandot liknar följande JSON:
 }
 ```
 
-### <a name="use-existing-resources"></a>Använda befintliga resurser
+### <a name="use-existing-resources"></a>Använd befintliga resurser
 
-Om du vill skapa en arbetsyta som använder befintliga resurser måste du ange ID för resurserna. Använd följande kommandon för att hämta ID:et för tjänsterna:
+Om du vill skapa en arbets yta som använder befintliga resurser måste du ange ID: t för resurserna. Använd följande kommandon för att hämta ID: t för tjänsterna:
 
 > [!IMPORTANT]
-> Du behöver inte ange alla befintliga resurser. Du kan ange en eller flera. Du kan till exempel ange ett befintligt lagringskonto och arbetsytan skapar de andra resurserna.
+> Du behöver inte ange alla befintliga resurser. Du kan ange en eller flera. Du kan till exempel ange ett befintligt lagrings konto så skapas de andra resurserna av arbets ytan.
 
-+ **Azure-lagringskonto:**`az storage account show --name <storage-account-name> --query "id"`
++ **Azure Storage konto**:`az storage account show --name <storage-account-name> --query "id"`
 
-    Svaret från det här kommandot liknar följande text och är ID:et för ditt lagringskonto:
+    Svaret från det här kommandot liknar följande text och är ID: t för ditt lagrings konto:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
 
-+ **Insikter för Azure-program:**
++ **Azure Application insikter**:
 
-    1. Installera tillägget programinsikter:
+    1. Installera Application Insights-tillägget:
 
         ```azurecli-interactive
         az extension add -n application-insights
         ```
 
-    2. Få ID för din programinsiktstjänst:
+    2. Hämta ID för din Application Insight Service:
 
         ```azurecli-interactive
         az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"
         ```
 
-        Svaret från det här kommandot liknar följande text och är ID för tjänsten programinsikter:
+        Svaret från det här kommandot liknar följande text och är ID: t för Application Insights-tjänsten:
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault:**`az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**:`az keyvault show --name <key-vault-name> --query "ID"`
 
-    Svaret från det här kommandot liknar följande text och är ID för nyckelvalvet:
+    Svaret från det här kommandot liknar följande text och är ID: t för nyckel valvet:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure-behållarregister:**`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**:`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
-    Svaret från det här kommandot liknar följande text och är ID för behållarregistret:
+    Svaret från det här kommandot liknar följande text och är ID: t för behållar registret:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"`
 
     > [!IMPORTANT]
-    > Behållarregistret måste ha [administratörskontot](/azure/container-registry/container-registry-authentication#admin-account) aktiverat innan det kan användas med en Azure Machine Learning-arbetsyta.
+    > Kontot för behållar registret måste ha [Administratörs kontot](/azure/container-registry/container-registry-authentication#admin-account) aktiverat innan det kan användas med en Azure Machine Learning-arbetsyta.
 
-När du har ID:erna för de resurser som du vill använda `az workspace create -w <workspace-name> -g <resource-group-name>` med arbetsytan använder du baskommandot och lägger till parametern och ID:erna för de befintliga resurserna. Följande kommando skapar till exempel en arbetsyta som använder ett befintligt behållarregister:
+När du har ID: n för de resurser som du vill använda med arbets ytan använder du kommandot Base `az workspace create -w <workspace-name> -g <resource-group-name>` och lägger till parametrarna och ID: na för de befintliga resurserna. Följande kommando skapar till exempel en arbets yta som använder ett befintligt behållar register:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -210,15 +210,15 @@ Utdata för det här kommandot liknar följande JSON:
 }
 ```
 
-## <a name="list-workspaces"></a>Lista arbetsytor
+## <a name="list-workspaces"></a>Lista arbets ytor
 
-Om du vill visa en lista över alla arbetsytor för din Azure-prenumeration använder du följande kommando:
+Om du vill visa en lista över alla arbets ytor för din Azure-prenumeration använder du följande kommando:
 
 ```azurecli-interactive
 az ml workspace list
 ```
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 [
@@ -235,17 +235,17 @@ Utdata för det här kommandot liknar följande JSON:
 ]
 ```
 
-Mer information finns i dokumentationen till [az ml-arbetsytan.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list)
+Mer information finns i dokumentationen om [AZ ml-arbetsytans lista](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-list) .
 
-## <a name="get-workspace-information"></a>Hämta information om arbetsytan
+## <a name="get-workspace-information"></a>Hämta information om arbets ytan
 
-Om du vill ha information om en arbetsyta använder du följande kommando:
+Om du vill hämta information om en arbets yta använder du följande kommando:
 
 ```azurecli-interactive
 az ml workspace show -w <workspace-name> -g <resource-group-name>
 ```
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -268,17 +268,17 @@ Utdata för det här kommandot liknar följande JSON:
 }
 ```
 
-Mer information finns i dokumentationen för [az ml-arbetsytan.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show)
+Mer information finns i dokumentationen om [AZ ml-arbetsytan](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-show) .
 
-## <a name="update-a-workspace"></a>Uppdatera en arbetsyta
+## <a name="update-a-workspace"></a>Uppdatera en arbets yta
 
-Så här uppdaterar du en arbetsyta:
+Om du vill uppdatera en arbets yta använder du följande kommando:
 
 ```azurecli-interactive
 az ml workspace update -w <workspace-name> -g <resource-group-name>
 ```
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -301,68 +301,68 @@ Utdata för det här kommandot liknar följande JSON:
 }
 ```
 
-Mer information finns i dokumentationen för uppdatering av [az ml-arbetsytan.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update)
+Mer information finns i dokumentationen om [uppdatering av AZ ml-arbetsytan](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-update) .
 
-## <a name="share-a-workspace-with-another-user"></a>Dela en arbetsyta med en annan användare
+## <a name="share-a-workspace-with-another-user"></a>Dela en arbets yta med en annan användare
 
-Om du vill dela en arbetsyta med en annan användare i prenumerationen använder du följande kommando:
+Om du vill dela en arbets yta med en annan användare i din prenumeration använder du följande kommando:
 
 ```azurecli-interactive
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Mer information om rollbaserad åtkomstkontroll (RBAC) med Azure Machine Learning finns i [Hantera användare och roller](how-to-assign-roles.md).
+Mer information om rollbaserad åtkomst kontroll (RBAC) med Azure Machine Learning finns i [Hantera användare och roller](how-to-assign-roles.md).
 
-Mer information finns i dokumentationen för [az ml-arbetsytans resursdelning.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share)
+Mer information finns i [AZ ml-arbetsytan resurs](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) dokumentation.
 
 ## <a name="sync-keys-for-dependent-resources"></a>Synkronisera nycklar för beroende resurser
 
-Om du ändrar åtkomstnycklar för en av de resurser som används av arbetsytan använder du följande kommando för att synkronisera de nya nycklarna med arbetsytan:
+Om du ändrar åtkomst nycklar för en av resurserna som används av din arbets yta, använder du följande kommando för att synkronisera de nya nycklarna med arbets ytan:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 ```
 
-Mer information om hur du ändrar nycklar finns i [Återskapa lagringsåtkomstnycklar](how-to-change-storage-access-key.md).
+Mer information om hur du ändrar nycklar finns i [Återskapa lagrings åtkomst nycklar](how-to-change-storage-access-key.md).
 
-Mer information finns i dokumentationen för [az ml-synkroniseringsnycklar för arbetsytan.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys)
+Mer information finns i dokumentationen för [Sync-Keys för AZ ml-arbetsytan](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) .
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 
-Om du vill ta bort en arbetsyta när den inte längre behövs använder du följande kommando:
+Använd följande kommando om du vill ta bort en arbets yta efter att den inte längre behövs:
 
 ```azurecli-interactive
 az ml workspace delete -w <workspace-name> -g <resource-group-name>
 ```
 
 > [!IMPORTANT]
-> Om du tar bort en arbetsyta tas inte programinsikt, lagringskonto, nyckelvalv eller behållarregister som används av arbetsytan bort.
+> Om du tar bort en arbets yta tas inte program insikter, lagrings konto, nyckel valv eller behållar registret som används av arbets ytan bort.
 
-Du kan också ta bort resursgruppen, som tar bort arbetsytan och alla andra Azure-resurser i resursgruppen. Om du vill ta bort resursgruppen använder du följande kommando:
+Du kan också ta bort resurs gruppen, som tar bort arbets ytan och alla andra Azure-resurser i resurs gruppen. Om du vill ta bort resurs gruppen använder du följande kommando:
 
 ```azurecli-interactive
 az group delete -g <resource-group-name>
 ```
 
-Mer information finns i dokumentationen för [ta bort az ml-arbetsytan.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete)
+Mer information finns i [AZ ml-arbetsytan ta bort](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) dokumentation.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="resource-provider-errors"></a>Resursproviderfel
+### <a name="resource-provider-errors"></a>Resurs leverantörs fel
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="moving-the-workspace"></a>Flytta arbetsytan
+### <a name="moving-the-workspace"></a>Flytta arbets ytan
 
 > [!WARNING]
-> Det går inte att flytta din Azure Machine Learning-arbetsyta till en annan prenumeration, eller flytta den ägande prenumerationen till en ny klientorganisation. Om du gör det kan det orsaka fel.
+> Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
-### <a name="deleting-the-azure-container-registry"></a>Ta bort Azure-behållarregistret
+### <a name="deleting-the-azure-container-registry"></a>Tar bort Azure Container Registry
 
-Arbetsytan Azure Machine Learning använder Azure Container Registry (ACR) för vissa åtgärder. Det kommer automatiskt att skapa en ACR-instans när den först behöver en.
+I arbets ytan Azure Machine Learning används Azure Container Registry (ACR) för vissa åtgärder. En ACR-instans skapas automatiskt när den först behöver en.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CLI-tillägget för maskininlärning finns i [az ml-dokumentationen.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest)
+Mer information om Azure CLI-tillägget för Machine Learning finns i [AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest) -dokumentationen.

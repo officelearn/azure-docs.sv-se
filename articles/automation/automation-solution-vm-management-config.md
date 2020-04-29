@@ -1,26 +1,26 @@
 ---
-title: Azure Automation Konfigurera start/stoppa virtuella datorer under starttimmarslösning
-description: I den här artikeln beskrivs hur du konfigurerar start-/stopp-virtuella datorer under ledig tid för att stödja olika användningsfall eller scenarier.
+title: Azure Automation konfigurera starta/stoppa virtuella datorer under låg tid
+description: I den här artikeln beskrivs hur du konfigurerar Starta/stoppa virtuella datorer när de inte används-lösningen så att den stöder olika användnings fall eller scenarier.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604767"
 ---
-# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Konfigurera start-/stopp-virtuella datorer under starttimmarslösning
+# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Så här konfigurerar du en lösning för att starta/stoppa virtuella datorer under låg tid
 
-Med **start-/stopp-virtuella datorer under starttimmarslösning** kan du:
+Med lösningen **Starta/stoppa virtuella datorer under låg tid** kan du:
 
-- [Schemalägg virtuella datorer så att de startar och stoppar](#schedule).
-- Schemalägg virtuella datorer så att de startar och slutar i stigande ordning med hjälp av [Azure-taggar](#tags) (stöds inte för klassiska virtuella datorer).
+- [Schemalägg virtuella datorer för start och stopp](#schedule).
+- Schemalägg virtuella datorer att starta och stoppa i stigande ordning med [hjälp av Azure-Taggar](#tags) (stöds inte för klassiska virtuella datorer).
 - Stoppa virtuella datorer automatiskt baserat på [låg CPU-användning](#cpuutil).
 
-I den här artikeln beskrivs hur du konfigurerar lösningen för att stödja dessa scenarier. Du kan också lära dig hur du utför andra vanliga konfigurationsinställningar för lösningen, till exempel:
+Den här artikeln beskriver hur du konfigurerar lösningen så att den stöder dessa scenarier. Du kan också lära dig hur du utför andra vanliga konfigurations inställningar för lösningen, till exempel:
 
 * [Konfigurera e-postaviseringar](#configure-email-notifications)
 
@@ -28,69 +28,69 @@ I den här artikeln beskrivs hur du konfigurerar lösningen för att stödja des
 
 * [Undanta en virtuell dator](#exclude-a-vm)
 
-* [Ändra start- och avstängningsscheman](#modify-the-startup-and-shutdown-schedules)
+* [Ändra scheman för start och avstängning](#modify-the-startup-and-shutdown-schedules)
 
-## <a name="scenario-1-startstop-vms-on-a-schedule"></a><a name="schedule"></a>Scenario 1: Start-/stopp-virtuella datorer enligt ett schema
+## <a name="scenario-1-startstop-vms-on-a-schedule"></a><a name="schedule"></a>Scenario 1: Starta/stoppa virtuella datorer enligt ett schema
 
-Det här scenariot är standardkonfigurationen när du först distribuerar lösningen. Du kan till exempel konfigurera den så att den stoppa alla virtuella datorer i en prenumeration när du lämnar arbetet på kvällen och starta dem på morgonen när du är tillbaka på kontoret. När du konfigurerar scheman **Schemalagd-StartVM** och **Schemalagd-StopVM** under distributionen startar och stoppar de riktade virtuella datorer. Konfigurera den här lösningen för att bara stoppa virtuella datorer stöds, se [Ändra start- och avstängningsscheman](#modify-the-startup-and-shutdown-schedules) för att lära dig hur du konfigurerar ett anpassat schema.
+Det här scenariot är standard konfigurationen när du först distribuerar lösningen. Du kan till exempel konfigurera det för att stoppa alla virtuella datorer i en prenumeration när du lämnar jobbet på kvällen och starta dem på morgon när du är tillbaka på kontoret. När du konfigurerar scheman för **schemalagda-StartVM** och **schemalagda StopVM** under distributionen, startar och slutar riktade virtuella datorer. Det finns stöd för att konfigurera den här lösningen till att bara stoppa virtuella datorer, se [ändra scheman för start och avstängning](#modify-the-startup-and-shutdown-schedules) för att lära dig hur du konfigurerar ett anpassat schema.
 
 > [!NOTE]
-> Tidszonen är din aktuella tidszon när du konfigurerar parametern för schematid. Den lagras dock i UTC-format i Azure Automation. Du behöver inte göra någon tidszonskonvertering eftersom detta hanteras under distributionen.
+> Tids zonen är din aktuella tidszon när du konfigurerar parametern för schema tid. Den lagras dock i UTC-format i Azure Automation. Du behöver inte göra någon tids zons konvertering eftersom detta hanteras under distributionen.
 
-Du styr vilka virtuella datorer som omfattas genom att konfigurera följande variabler: **External_Start_ResourceGroupNames,** **External_Stop_ResourceGroupNames**och **External_ExcludeVMNames**.
+Du styr vilka virtuella datorer som omfattas genom att konfigurera följande variabler: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**och **External_ExcludeVMNames**.
 
-Du kan aktivera antingen inriktning åtgärden mot en prenumeration och resursgrupp, eller inriktning på en viss lista över virtuella datorer, men inte båda.
+Du kan aktivera antingen åtgärden för en prenumeration och en resurs grupp, eller rikta in en speciell lista över virtuella datorer, men inte båda.
 
-### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Rikta start- och stoppåtgärder mot en prenumerations- och resursgrupp
+### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Rikta in dig på Start-och stopp åtgärder mot en prenumeration och resurs grupp
 
-1. Konfigurera `External_Stop_ResourceGroupNames` variablerna och `External_ExcludeVMNames` för att ange mål-virtuella datorer.
+1. Konfigurera `External_Stop_ResourceGroupNames` variablerna `External_ExcludeVMNames` och för att ange de virtuella mål datorerna.
 
-2. Aktivera och uppdatera schemana **För schemalagd startVM** och **Schemalagd-StopVM.**
+2. Aktivera och uppdatera **schemalagda StartVM** -och **schemalagda StopVM-** scheman.
 
-3. Kör **ScheduledStartStop_Parent** runbook med parameterfältet **ACTION** inställt på **start** och parameterfältet **WHATIF** inställt på Sant för att förhandsgranska ändringarna.
+3. Kör **ScheduledStartStop_Parent** Runbook med **Åtgärds** parameter fältet inställt på **Start** och fältet **WHATIF** parameter är inställt på sant för att förhandsgranska ändringarna.
 
-### <a name="target-the-start-and-stop-action-by-vm-list"></a>Rikta in start- och stoppåtgärden efter VM-lista
+### <a name="target-the-start-and-stop-action-by-vm-list"></a>Ange start-och stopp åtgärd per VM-lista
 
-1. Kör **ScheduledStartStop_Parent** runbook med **ÅTGÄRD** **inställd**på start, lägg till en kommaavgränsad lista över virtuella datorer i parameterfältet **VMList** och ange sedan parameterfältet **WHATIF** till True. Förhandsgranska ändringarna.
+1. Kör **ScheduledStartStop_Parent** Runbook med **åtgärd** inställd på **Starta**, Lägg till en kommaavgränsad lista med virtuella datorer i parameter fältet **VMList** och ange sedan värdet true för parametern **WHATIF** . Förhandsgranska ändringarna.
 
 2. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer (VM1, VM2, VM3).
 
-3. Det här scenariot `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` respekterar inte variablerna och. I det här scenariot måste du skapa ett eget automationsschema. Mer information finns [i Schemalägga en runbook i Azure Automation](../automation/automation-schedules.md).
+3. Det här scenariot följer inte `External_Start_ResourceGroupNames` variablerna och `External_Stop_ResourceGroupnames` . I det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [Schemalägga en Runbook i Azure Automation](../automation/automation-schedules.md).
 
     > [!NOTE]
-    > Värdet för **Mål ResourceGroup-namn** lagras som `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames`värde för både och . För ytterligare granularitet kan du ändra var och en av dessa variabler för att rikta olika resursgrupper. För startåtgärd `External_Start_ResourceGroupNames`använder och `External_Stop_ResourceGroupNames` använder du för stoppåtgärd. Virtuella datorer läggs automatiskt till i start- och stoppscheman.
+    > Värdet för **mål ResourceGroup namn** lagras som värdet för både `External_Start_ResourceGroupNames` och. `External_Stop_ResourceGroupNames` För ytterligare granularitet kan du ändra var och en av dessa variabler för att rikta in sig på olika resurs grupper. Använd `External_Start_ResourceGroupNames`och Använd `External_Stop_ResourceGroupNames` för åtgärden stoppa för att starta. Virtuella datorer läggs automatiskt till i Start-och stopp scheman.
 
-## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>Scenario 2: Starta/stoppa VMS i följd med hjälp av taggar
+## <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a><a name="tags"></a>Scenario 2: Starta/stoppa virtuella datorer i följd med hjälp av Taggar
 
-I en miljö som innehåller två eller flera komponenter på flera virtuella datorer som stöder en distribuerad arbetsbelastning är det viktigt att stödja den sekvens i vilken komponenter startas och stoppas i ordning. Du kan utföra det här scenariot genom att utföra följande steg:
+I en miljö som innehåller två eller flera komponenter på flera virtuella datorer som har stöd för en distribuerad arbets belastning, är det viktigt med stöd för den sekvens i vilken komponenter startas och stoppas i ordning. Du kan utföra det här scenariot genom att utföra följande steg:
 
-### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Rikta start- och stoppåtgärder mot en prenumerations- och resursgrupp
+### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Rikta in dig på Start-och stopp åtgärder mot en prenumeration och resurs grupp
 
-1. Lägg `sequencestart` till `sequencestop` en och en tagg med ett positivt `External_Start_ResourceGroupNames` heltalsvärde i virtuella datorer som är inriktade på och `External_Stop_ResourceGroupNames` variabler. Start- och stoppåtgärder utförs i stigande ordning. Mer information om hur du taggar en virtuell dator finns [i Tagga en virtuell Windows-dator i Azure](../virtual-machines/windows/tag.md) och [tagga en virtuell Linux-dator i Azure](../virtual-machines/linux/tag.md).
+1. Lägg till `sequencestart` en och `sequencestop` en-tagg med ett positivt heltals värde för virtuella datorer `External_Start_ResourceGroupNames` som `External_Stop_ResourceGroupNames` är riktade till-och variabler. Start-och stopp åtgärderna utförs i stigande ordning. Information om hur du taggar en virtuell dator finns i [tagga en virtuell Windows-dator i Azure](../virtual-machines/windows/tag.md) och [tagga en virtuell Linux-dator i Azure](../virtual-machines/linux/tag.md).
 
-2. Ändra scheman **Sequenced-StartVM** och **Sequenced-StopVM** till det datum och den tid som uppfyller dina krav och aktivera schemat.
+2. Ändra schemana **Sequenced-StartVM** och **Sequenced-StopVM** till det datum och den tid som uppfyller dina krav och aktivera schemat.
 
-3. Kör **SequencedStartStop_Parent** runbook med **ACTION** inställd **på** start och **WHATIF** inställd på Sant för att förhandsgranska dina ändringar.
+3. Kör den **SequencedStartStop_Parent** Runbook med **åtgärd** inställd på **Starta** och **WHATIF** inställd på sant för att förhandsgranska ändringarna.
 
-4. Förhandsgranska åtgärden och gör nödvändiga ändringar innan du implementerar mot virtuella produktions-datorer. När du är klar kör du runbooken manuellt med parametern `Sequenced-StopVM` inställd på **Falskt**eller låt automatiseringsschemat `Sequenced-StartVM` och köras automatiskt enligt det föreskrivna schemat.
+4. Förhandsgranska åtgärden och gör nödvändiga ändringar innan du implementerar de virtuella datorerna i produktionen. När du är klar kan du köra runbooken manuellt med parametern inställt på **falskt**, eller låta `Sequenced-StartVM` Automation `Sequenced-StopVM` -schemat köras automatiskt efter ditt schema.
 
-### <a name="target-the-start-and-stop-action-by-vm-list"></a>Rikta in start- och stoppåtgärden efter VM-lista
+### <a name="target-the-start-and-stop-action-by-vm-list"></a>Ange start-och stopp åtgärd per VM-lista
 
-1. Lägg `sequencestart` till `sequencestop` en och en tagg med ett positivt heltalsvärde i virtuella datorer som du planerar att lägga till i parametern. `VMList`
+1. Lägg till `sequencestart` en och `sequencestop` en-tagg med ett positivt heltals värde för de virtuella datorer som `VMList` du planerar att lägga till i parametern.
 
-2. Kör **SequencedStartStop_Parent** runbook med **ÅTGÄRD** inställd **på**start, lägg till en kommaavgränsad lista över virtuella datorer i parameterfältet **VMList** och ange sedan **WHATIF** till True. Förhandsgranska ändringarna.
+2. Kör **SequencedStartStop_Parent** Runbook med **åtgärd** inställd på **Starta**, Lägg till en kommaavgränsad lista med virtuella datorer i parameter fältet **VMList** och ange sedan **WHATIF** till true. Förhandsgranska ändringarna.
 
 3. Konfigurera `External_ExcludeVMNames` variabeln med en kommaavgränsad lista över virtuella datorer (VM1, VM2, VM3).
 
-4. Det här scenariot `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupnames` respekterar inte variablerna och. I det här scenariot måste du skapa ett eget automationsschema. Mer information finns [i Schemalägga en runbook i Azure Automation](../automation/automation-schedules.md).
+4. Det här scenariot följer inte `External_Start_ResourceGroupNames` variablerna och `External_Stop_ResourceGroupnames` . I det här scenariot måste du skapa ett eget Automation-schema. Mer information finns i [Schemalägga en Runbook i Azure Automation](../automation/automation-schedules.md).
 
-5. Förhandsgranska åtgärden och gör nödvändiga ändringar innan du implementerar mot virtuella produktions-datorer. När du är klar kör du **kör kör avsiktligt övervaknings-och diagnostik-/övervakning-action-groupsrunbook** med parametern inställd på **Falskt**. Du kan också låta `Sequenced-StartVM` `Sequenced-StopVM` Automation schemalägga och köras automatiskt enligt ditt föreskrivna schema.
+5. Förhandsgranska åtgärden och gör nödvändiga ändringar innan du implementerar de virtuella datorerna i produktionen. När du är klar kan du köra **övervakning-och-diagnostik/Monitor-Action-groupsrunbook** med parametern inställt på **falskt**. Alternativt kan du låta Automation- `Sequenced-StartVM` schemat `Sequenced-StopVM` köras automatiskt efter ditt schema.
 
-## <a name="scenario-3-startstop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Scenario 3: Start/stopp automatiskt baserat på CPU-användning
+## <a name="scenario-3-startstop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Scenario 3: Starta/stoppa automatiskt baserat på processor användning
 
-Den här lösningen kan hjälpa till att hantera kostnaden för att köra virtuella Azure Resource Manager- och Classic-datorer i din prenumeration genom att utvärdera virtuella datorer som inte används under perioder som inte är hög, till exempel efter timmar, och automatiskt stänga av dem om processoranvändningen är mindre än en angiven procentsats.
+Den här lösningen kan hjälpa till att hantera kostnaden för att köra Azure Resource Manager och klassiska virtuella datorer i din prenumeration genom att utvärdera virtuella datorer som inte används under perioder med låg belastning, t. ex. efter timmar, och sedan stänga ned dem automatiskt om processor belastningen är lägre än en angiven procent andel.
 
-Som standard är lösningen förkonfigurerad för att utvärdera procent cpu-måttet för att se om det genomsnittliga utnyttjandet är 5 procent eller mindre. Det här scenariot styrs av följande variabler och kan ändras om standardvärdena inte uppfyller dina krav:
+Som standard är lösningen förkonfigurerad för att utvärdera procent andelen av processor mått för att se om den genomsnittliga användningen är 5 procent eller mindre. Det här scenariot styrs av följande variabler och kan ändras om standardvärdena inte uppfyller dina krav:
 
 * `External_AutoStop_MetricName`
 * `External_AutoStop_Threshold`
@@ -99,91 +99,91 @@ Som standard är lösningen förkonfigurerad för att utvärdera procent cpu-må
 * `External_AutoStop_Frequency`
 * `External_AutoStop_Severity`
 
-Du kan aktivera och rikta åtgärden mot en prenumerations- och resursgrupp eller inrikta dig på en specifik lista med virtuella datorer.
+Du kan aktivera och rikta åtgärden mot en prenumeration och resurs grupp, eller rikta en speciell lista över virtuella datorer.
 
-När du kör **AutoStop_CreateAlert_Parent** runbook verifierar den att den riktade prenumerationen, resursgrupperna och virtuella datorer finns. Om de virtuella datorerna finns anropar runbooken **AutoStop_CreateAlert_Child** runbook för varje verifierad virtuell dator av den överordnade runbooken. Den här underordnade runbooken utför följande:
+När du kör **AutoStop_CreateAlert_Parent** Runbook verifierar den att mål prenumerationen, resurs grupperna och de virtuella datorerna finns. Om de virtuella datorerna finns anropar runbooken **AutoStop_CreateAlert_Child** Runbook för varje verifierad virtuell dator med den överordnade runbooken. Denna underordnade Runbook utför följande:
 
-* Skapar en måttaviseringsregel för varje verifierad virtuell dator.
+* Skapar en mått varnings regel för varje verifierad virtuell dator.
 
-* Utlöser **AutoStop_VM_Child** runbook för en viss virtuell dator om processorn sjunker under det konfigurerade tröskelvärdet för det angivna tidsintervallet. Den här runbooken försöker sedan stoppa den virtuella datorn.
+* Utlöser **AutoStop_VM_Child** Runbook för en viss virtuell dator om processorn sjunker under det konfigurerade tröskelvärdet för angivet tidsintervall. Denna Runbook försöker sedan stoppa den virtuella datorn.
 
-### <a name="to-target-the-auto-stop-action-against-all-vms-in-a-subscription"></a>Så här riktar du den automatiska stoppåtgärden mot alla virtuella datorer i en prenumeration
+### <a name="to-target-the-auto-stop-action-against-all-vms-in-a-subscription"></a>För att rikta den automatiska stopp åtgärden mot alla virtuella datorer i en prenumeration
 
-1. Se till `External_Stop_ResourceGroupNames` att variabeln är tom eller inställd på * (jokertecken).
+1. Se till att `External_Stop_ResourceGroupNames` variabeln är tom eller anges till * (jokertecken).
 
-2. [Valfritt steg] Om du vill utesluta vissa virtuella datorer från automatisk avstängning kan du lägga till `External_ExcludeVMNames` en kommaavgränsad lista med VM-namn i variabeln.
+2. [Valfritt steg] Om du vill undanta vissa virtuella datorer från automatisk avstängning kan du lägga till en kommaavgränsad lista med namn på virtuella datorer i `External_ExcludeVMNames` variabeln.
 
-3. Aktivera `Schedule_AutoStop_CreateAlert_Parent` schemat för att köras för att skapa de nödvändiga stop VM-måttvarningsreglerna för alla virtuella datorer i din prenumeration. Om du kör den här typen av schema kan du skapa nya måttaviseringsregler när nya virtuella datorer läggs till i prenumerationen.
+3. Aktivera `Schedule_AutoStop_CreateAlert_Parent` schemat så att det körs för att skapa nödvändiga aviserings regler för stoppa virtuell dator för alla virtuella datorer i din prenumeration. Genom att köra den här typen av schema kan du skapa nya mått regler för aviseringar när nya virtuella datorer läggs till i prenumerationen.
 
-### <a name="to-target-the-auto-stop-action-against-all-vms-in-a-resource-group-or-multiple-resource-groups"></a>Så här inriktar du dig på den automatiska stoppåtgärden mot alla virtuella datorer i en resursgrupp eller flera resursgrupper
+### <a name="to-target-the-auto-stop-action-against-all-vms-in-a-resource-group-or-multiple-resource-groups"></a>För att rikta den automatiska stopp åtgärden mot alla virtuella datorer i en resurs grupp eller flera resurs grupper
 
-1. Lägg till en kommaavgränsad lista `External_Stop_ResourceGroupNames` med resursgruppnamn i variabeln.
+1. Lägg till en kommaavgränsad lista över resurs grupp namn till `External_Stop_ResourceGroupNames` variabeln.
 
-2. Om du vill utesluta några av de virtuella datorerna från den automatiska avstängningen `External_ExcludeVMNames` kan du lägga till en kommaavgränsad lista med VM-namn i variabeln.
+2. Om du vill utesluta några av de virtuella datorerna från den automatiska avstängningen kan du lägga till en kommaavgränsad lista med namn på virtuella `External_ExcludeVMNames` datorer i variabeln.
 
-3. Aktivera **Schedule_AutoStop_CreateAlert_Parent** schema för att köras för att skapa de nödvändiga stop VM-måttaviseringsreglerna för alla virtuella datorer i resursgrupperna. Om du kör den här åtgärden enligt ett schema kan du skapa nya måttaviseringsregler när nya virtuella datorer läggs till i resursgruppen/resursgrupperna.
+3. Aktivera **Schedule_AutoStop_CreateAlert_Parent** schema för att köra för att skapa de nödvändiga varnings reglerna för att stoppa virtuell dator för alla virtuella datorer i dina resurs grupper. Genom att köra den här åtgärden enligt ett schema kan du skapa nya mått regler som nya virtuella datorer läggs till i resurs grupperna.
 
-### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Så här riktar du autostop-åtgärden till en lista över virtuella datorer
+### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Så här riktar du in åtgärden för autostoppa till en lista över virtuella datorer
 
-1. Skapa ett nytt [schema](shared-resources/schedules.md#creating-a-schedule) och länka det till **AutoStop_CreateAlert_Parent** runbook, lägga till en `VMList` kommaavgränsad lista med VM-namn till parametern.
+1. Skapa ett nytt [schema](shared-resources/schedules.md#creating-a-schedule) och länka det till **AutoStop_CreateAlert_Parent** Runbook och Lägg till en kommaavgränsad lista över namn på virtuella datorer i `VMList` parametern.
 
-2. Om du vill utesluta vissa virtuella datorer från den automatiska avstängningen kan du också `External_ExcludeVMNames` lägga till en kommaavgränsad lista med VM-namn i variabeln.
+2. Om du vill undanta vissa virtuella datorer från den automatiska avstängningen kan du lägga till en kommaavgränsad lista över namn på virtuella datorer i `External_ExcludeVMNames` variabeln.
 
 ## <a name="configure-email-notifications"></a>Konfigurera e-postaviseringar
 
-Om du vill ändra e-postmeddelanden när lösningen har distribuerats ändrar du den åtgärdsgrupp som skapades under distributionen.  
+Ändra den åtgärds grupp som skapades under distributionen om du vill ändra e-postaviseringar när lösningen har distribuerats.  
 
 > [!NOTE]
-> Prenumerationer i Azure Government Cloud stöder inte e-postfunktionerna i den här lösningen.
+> Prenumerationer i Azure Government molnet har inte stöd för den här lösningens e-postfunktioner.
 
-1. Navigera till **Övervaka**i Azure-portalen **.** Markera den åtgärdsgrupp som kallas **StartStop_VM_Notication**.
+1. I Azure Portal går du till **övervaka**och sedan **Åtgärds grupper**. Välj den åtgärds grupp som heter **StartStop_VM_Notication**.
 
-    ![Lösningssida för hantering av automatiseringsuppdatering](media/automation-solution-vm-management/azure-monitor.png)
+    ![Sidan Automation Uppdateringshantering-lösning](media/automation-solution-vm-management/azure-monitor.png)
 
-2. Klicka på **Redigera information** under **Information**på sidan **StartStop_VM_Notification.** Då öppnas sidan **E-post/SMS/Push/Voice.** Uppdatera e-postadressen och klicka på **OK** för att spara ändringarna.
+2. På sidan **StartStop_VM_Notification** klickar du på **Redigera information** under **information**. Då öppnas sidan **e-post/SMS/push/Voice** . Uppdatera e-postadressen och spara ändringarna genom att klicka på **OK** .
 
-    ![Lösningssida för hantering av automatiseringsuppdatering](media/automation-solution-vm-management/change-email.png)
+    ![Sidan Automation Uppdateringshantering-lösning](media/automation-solution-vm-management/change-email.png)
 
-    Alternativt kan du lägga till ytterligare åtgärder i åtgärdsgruppen, lära dig mer om åtgärdsgrupper, se [åtgärdsgrupper](../azure-monitor/platform/action-groups.md)
+    Alternativt kan du lägga till ytterligare åtgärder i åtgärds gruppen och läsa mer om åtgärds grupper i [Åtgärds grupper](../azure-monitor/platform/action-groups.md)
 
-Följande är ett exempel på e-post som skickas när lösningen stänger av virtuella datorer.
+Följande är ett exempel på ett e-postmeddelande som skickas när lösningen stänger av virtuella datorer.
 
-![Lösningssida för hantering av automatiseringsuppdatering](media/automation-solution-vm-management/email.png)
+![Sidan Automation Uppdateringshantering-lösning](media/automation-solution-vm-management/email.png)
 
-## <a name="addexclude-vms"></a><a name="add-exclude-vms"></a>Lägga till/exkluderar virtuella datorer
+## <a name="addexclude-vms"></a><a name="add-exclude-vms"></a>Lägg till/exkludera virtuella datorer
 
-Lösningen ger möjlighet att lägga till virtuella datorer som ska riktas av lösningen eller specifikt utesluta maskiner från lösningen.
+Lösningen ger möjlighet att lägga till virtuella datorer som ska omfattas av lösningen eller undanta datorer från lösningen.
 
 ### <a name="add-a-vm"></a>Lägga till en virtuell dator
 
-Det finns två alternativ som du kan använda för att se till att en virtuell dator ingår i Start/Stop-lösningen när den körs.
+Det finns två alternativ som du kan använda för att se till att en virtuell dator ingår i starta/stoppa-lösningen när den körs.
 
-* Var och en av de överordnade `VMList` [runbooks](automation-solution-vm-management.md#runbooks) av lösningen har en parameter. Du kan skicka en kommaavgränsad lista över VM-namn till den här parametern när du schemalägger lämplig överordnad runbook för din situation och dessa virtuella datorer inkluderas när lösningen körs.
+* Varje överordnad [Runbooks](automation-solution-vm-management.md#runbooks) i lösningen har en `VMList` -parameter. Du kan skicka en kommaavgränsad lista över namn på virtuella datorer till den här parametern när du schemalägger lämplig överordnad Runbook för din situation och de virtuella datorerna kommer att inkluderas när lösningen körs.
 
-* Om du vill markera `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` flera virtuella datorer anger du och med de resursgruppsnamn som innehåller de virtuella datorer som du vill starta eller stoppa. Du kan också ange variablerna `*` till ett värde för att lösningen ska köras mot alla resursgrupper i prenumerationen.
+* Om du vill välja flera virtuella `External_Start_ResourceGroupNames` datorer `External_Stop_ResourceGroupNames` anger du och med namnen på de resurs grupper som innehåller de virtuella datorer som du vill starta eller stoppa. Du kan också ställa in variablerna till värdet för `*` att lösningen ska köras mot alla resurs grupper i prenumerationen.
 
 ### <a name="exclude-a-vm"></a>Undanta en virtuell dator
 
-Om du vill utesluta en virtuell dator `External_ExcludeVMNames` från lösningen kan du lägga till den i variabeln. Den här variabeln är en kommaavgränsad lista över specifika virtuella datorer som ska uteslutas från Start/Stop-lösningen. Den här listan är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i den här kommaavgränsade listan kan virtuella datorer som är inställda på att uteslutas startas eller stoppas av misstag.
+Om du vill utesluta en virtuell dator från lösningen kan du lägga till den `External_ExcludeVMNames` i variabeln. Den här variabeln är en kommaavgränsad lista med vissa virtuella datorer som ska undantas från start-/stopp lösningen. Den här listan är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i den här kommaseparerade listan kan virtuella datorer som är inställda på att undantas oavsiktligt startas eller stoppas.
 
-## <a name="modify-the-startup-and-shutdown-schedules"></a>Ändra start- och avstängningsscheman
+## <a name="modify-the-startup-and-shutdown-schedules"></a>Ändra scheman för start och avstängning
 
-Hantera start- och avstängningsscheman i den här lösningen följer samma steg som beskrivs i [Schemalägga en runbook i Azure Automation](automation-schedules.md). Det måste finnas ett separat schema för att starta och stoppa virtuella datorer.
+Hantering av start-och avstängnings scheman i den här lösningen följer samma steg som beskrivs i [schemaläggning av en Runbook i Azure Automation](automation-schedules.md). Det måste finnas ett separat schema för att starta och stoppa virtuella datorer.
 
-Det stöds att konfigurera lösningen för att bara stoppa virtuella datorer vid en viss tidpunkt. I det här fallet skapar du bara ett **stoppschema** och inget motsvarande **startschema.** Om du vill göra det måste du:
+Det finns stöd för att konfigurera lösningen till att bara stoppa virtuella datorer vid en viss tid. I det här scenariot skapar du bara ett **stopp** schema och inget motsvarande **Start** schema. Om du vill göra det måste du:
 
-1. Se till att du har lagt till resursgrupperna för de virtuella datorerna att stänga av i variabeln. `External_Stop_ResourceGroupNames`
+1. Se till att du har lagt till resurs grupperna för de virtuella datorerna som `External_Stop_ResourceGroupNames` ska stängas av i variabeln.
 
-2. Skapa ditt eget schema för den tid du vill stänga av de virtuella datorerna.
+2. Skapa ett eget schema för den tid som du vill stänga av de virtuella datorerna.
 
-3. Navigera till **ScheduledStartStop_Parent** runbook och klicka på **Schema**. På så sätt kan du välja det schema som du skapade i föregående steg.
+3. Navigera till **ScheduledStartStop_Parent** Runbook och klicka på **Schemalägg**. På så sätt kan du välja det schema som du skapade i föregående steg.
 
-4. Välj **Parametrar och kör inställningar** och ange **åtgärdsfältet** till **Stopp**.
+4. Välj **parametrar och kör inställningar** och Ställ in **Åtgärds** fältet på **stoppa**.
 
 5. Spara ändringarna genom att välja **OK**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du felsöker start-/stopp-virtuella datorer under ledig tid finns i [Felsöka start-/stopp-virtuella datorer](troubleshoot/start-stop-vm.md).
+* Information om hur du felsöker Starta/stoppa virtuella datorer när de inte används finns i [Felsöka starta/stoppa virtuella datorer](troubleshoot/start-stop-vm.md).
 
-* [Granska](automation-solution-vm-management-logs.md) automationsposterna som skrivits till Azure Monitor Logs och exempelloggsökfrågorna för att analysera statusen för Automation-körningsjobb från start-/stopp-virtuella datorer.
+* [Granska](automation-solution-vm-management-logs.md) automatiserings posterna som skrivits till Azure Monitor loggar och Sök frågor i loggen för att analysera statusen för Automation Runbook-jobb från starta/stoppa virtuella datorer.

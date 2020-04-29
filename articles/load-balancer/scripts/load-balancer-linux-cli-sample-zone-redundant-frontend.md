@@ -1,5 +1,5 @@
 ---
-title: Virtuella datorer för belastningsutjämning i tillgänglighetszoner – Azure CLI - Azure Load Balancer
+title: Belastningsutjämna virtuella datorer över tillgänglighets zoner – Azure CLI – Azure Load Balancer
 description: Det här CLI-skriptexemplet visar hur du belastningsutjämnar trafik till virtuella datorer i flera tillgänglighetszoner
 documentationcenter: load-balancer
 author: asudbring
@@ -11,10 +11,10 @@ ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
 ms.openlocfilehash: 3e0c86fdf97ec2882858a0a92e22e020001816cd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79218331"
 ---
 # <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exempel på Azure CLI-skript: Virtuella datorer med belastningsutjämnare i flera tillgänglighetszoner
@@ -161,7 +161,7 @@ az group delete --name myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | Skapar ett virtuellt Azure-nätverk och undernät. |

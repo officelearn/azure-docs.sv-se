@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2d3f866064790fb3936fb76c1deef15ee2a38773
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678600"
 ---
-För närvarande stöds inte avetablering med hjälp av Azure-portalen eller PowerShell. Kontakta [Microsoft peering](mailto:peeringexperience@microsoft.com)om du vill avetablera .
+För tillfället stöds inte avetablering med hjälp av Azure Portal eller PowerShell. Om du vill avetablera kontaktar du [Microsoft-peering](mailto:peeringexperience@microsoft.com).

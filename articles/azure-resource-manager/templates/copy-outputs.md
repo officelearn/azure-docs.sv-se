@@ -1,24 +1,24 @@
 ---
-title: Definiera flera förekomster av ett utdatavärde
-description: Använd kopieringsåtgärd i en Azure Resource Manager-mall för att iterera flera gånger när du returnerar ett värde från en distribution.
+title: Definiera flera instanser av ett utdata-värde
+description: Använd kopierings åtgärden i en Azure Resource Manager-mall för att iterera flera gånger när du returnerar ett värde från en distribution.
 ms.topic: conceptual
 ms.date: 04/17/2020
 ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617839"
 ---
-# <a name="output-iteration-in-arm-templates"></a>Utdataiteration i ARM-mallar
+# <a name="output-iteration-in-arm-templates"></a>Utdata iteration i ARM-mallar
 
-Den här artikeln visar hur du skapar mer än ett värde för en utdata i din AZURE Resource Manager -mall (ARM). Genom att **copy** lägga till kopieringselementet i avsnittet utdata i mallen kan du returnera ett antal objekt dynamiskt under distributionen.
+Den här artikeln visar hur du skapar fler än ett värde för utdata i din Azure Resource Manager-mall (ARM). Genom att lägga till elementet **Kopiera** i avsnittet utdata i mallen kan du dynamiskt returnera ett antal objekt under distributionen.
 
-Du kan också använda kopia med [resurser,](copy-resources.md) [egenskaper i en resurs](copy-properties.md)och [variabler](copy-variables.md).
+Du kan också använda kopiera med [resurser](copy-resources.md), [Egenskaper i en resurs](copy-properties.md)och [variabler](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Utdata iteration
+## <a name="outputs-iteration"></a>Upprepningar av utdata
 
-Kopieringselementet har följande allmänna format:
+Kopierings elementet har följande allmänna format:
 
 ```json
 "copy": {
@@ -27,11 +27,11 @@ Kopieringselementet har följande allmänna format:
 }
 ```
 
-Egenskapen **count** anger hur många iterationer du vill använda för utdatavärdet.
+Egenskapen **Count** anger antalet iterationer som du vill använda för utmatning svärdet.
 
-**Indataegenskapen** anger de egenskaper som du vill upprepa. Du kan skapa en matris med element som skapats från värdet i **indataegenskapen.** Det kan vara en enda egenskap (som en sträng) eller ett objekt med flera egenskaper.
+Egenskapen **indatamängd** anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i egenskapen **indatamängd** . Det kan vara en enskild egenskap (till exempel en sträng) eller ett objekt med flera egenskaper.
 
-I följande exempel skapas ett variabelt antal lagringskonton och en slutpunkt returneras för varje lagringskonto:
+I följande exempel skapas ett variabelt antal lagrings konton och en slut punkt returneras för varje lagrings konto:
 
 ```json
 {
@@ -75,7 +75,7 @@ I följande exempel skapas ett variabelt antal lagringskonton och en slutpunkt r
 }
 ```
 
-Den föregående mallen returnerar en matris med följande värden:
+Föregående mall returnerar en matris med följande värden:
 
 ```json
 [
@@ -84,7 +84,7 @@ Den föregående mallen returnerar en matris med följande värden:
 ]
 ```
 
-I nästa exempel returneras tre egenskaper från de nya lagringskontona.
+I nästa exempel returneras tre egenskaper från de nya lagrings kontona.
 
 ```json
 {
@@ -132,7 +132,7 @@ I nästa exempel returneras tre egenskaper från de nya lagringskontona.
 }
 ```
 
-I föregående exempel returneras en matris med följande värden:
+Föregående exempel returnerar en matris med följande värden:
 
 ```json
 [
@@ -151,11 +151,11 @@ I föregående exempel returneras en matris med följande värden:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du går igenom en självstudiekurs finns i [Självstudiekurs: skapa flera resursinstanser med ARM-mallar](template-tutorial-create-multiple-instances.md).
-* För annan användning av kopieringselementet, se:
-  * [Resursiteration i ARM-mallar](copy-resources.md)
-  * [Egenskapsiter iteration i ARM-mallar](copy-properties.md)
+* Information om hur du går igenom självstudierna finns i [Självstudier: skapa flera resurs instanser med ARM-mallar](template-tutorial-create-multiple-instances.md).
+* För andra användnings områden av elementet Copy, se:
+  * [Resurs upprepning i ARM-mallar](copy-resources.md)
+  * [Egenskaps upprepning i ARM-mallar](copy-properties.md)
   * [Variabel iteration i ARM-mallar](copy-variables.md)
-* Om du vill lära dig mer om avsnitten i en mall läser [du Skapa ARM-mallar](template-syntax.md).
-* Mer information om hur du distribuerar mallen finns i [Distribuera ett program med ARM-mall](deploy-powershell.md).
+* Om du vill lära dig mer om avsnitten i en mall, se [Redigera arm-mallar](template-syntax.md).
+* Information om hur du distribuerar din mall finns i [distribuera ett program med arm-mall](deploy-powershell.md).
 

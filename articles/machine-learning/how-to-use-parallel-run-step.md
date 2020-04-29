@@ -1,7 +1,7 @@
 ---
-title: Kör batchprognoser för stordata
+title: Köra batch-förutsägelser för Big data
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du får slutsatser asynkront på stora mängder data med hjälp av ParallelRunStep i Azure Machine Learning. ParallelRunStep ger parallella bearbetningsfunktioner ur lådan och optimerar för hög genomströmning, brand-och-glömma inferens för stordata användningsfall.
+description: Lär dig hur du kan få inferences asynkront på stora mängder data med hjälp av ParallelRunStep i Azure Machine Learning. ParallelRunStep tillhandahåller parallella bearbetnings funktioner i rutan och optimerar för hög genom strömning, brand-och-glömma-härledning för stora data användnings fall.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,47 +12,47 @@ author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
 ms.openlocfilehash: 3d283d1094336b928869aa281b4a640d7a62dd94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79477195"
 ---
-# <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batchinferens på stora mängder data med hjälp av Azure Machine Learning
+# <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Kör batch-härledning på stora mängder data med hjälp av Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Lär dig hur du bearbetar stora mängder data asynkront och parallellt med hjälp av Azure Machine Learning. Funktionen ParallelRunStep som beskrivs här är i offentlig förhandsversion. Det är ett högpresterande och högpresterande sätt att generera slutsatser och bearbetning av data. Det ger asynkrona funktioner ur lådan.
+Lär dig att bearbeta stora mängder data asynkront och parallellt med hjälp av Azure Machine Learning. ParallelRunStep-funktionen som beskrivs här finns i offentlig för hands version. Det är ett högpresterande och högt genomflöde sätt att generera inferences och bearbeta data. Den ger asynkrona funktioner från lådan.
 
-Med ParallelRunStep är det enkelt att skala offlineinferenser till stora kluster av datorer på terabyte produktionsdata, vilket resulterar i förbättrad produktivitet och optimerad kostnad.
+Med ParallelRunStep är det enkelt att skala offline-inferences till stora kluster datorer i terabyte produktions data, vilket resulterar i förbättrad produktivitet och optimerad kostnad.
 
 I den här artikeln får du lära dig följande uppgifter:
 
-> * Skapa en fjärrberäkningsresurs.
-> * Skriv ett anpassat inferensskript.
-> * Skapa en pipeline för [maskininlärning](concept-ml-pipelines.md) för att registrera en förtränad bildklassificeringsmodell baserat på [MNIST-datauppsättningen.](https://publicdataset.azurewebsites.net/dataDetail/mnist/) 
-> * Använd modellen för att köra batchuppfruktning på exempelavbildningar som är tillgängliga i ditt Azure Blob-lagringskonto. 
+> * Skapa en fjärran sluten beräknings resurs.
+> * Skriv ett anpassat härlednings skript.
+> * Skapa en [pipeline för maskin inlärning](concept-ml-pipelines.md) för att registrera en förtränad bild klassificerings modell baserad på [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) -datauppsättningen. 
+> * Använd modellen för att köra batch-härledning på exempel avbildningar som är tillgängliga i ditt Azure Blob Storage-konto. 
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-* För en guidad snabbstart slutför du [installationshandledningen](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning-arbetsyta eller virtuell anteckningsbok. 
+* För en guidad snabb start slutför du [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator. 
 
-* Om du vill hantera din egen miljö och dina egna beroenden läser du [hur du konfigurerar](how-to-configure-environment.md) din egen miljö. Kör `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` i din miljö för att hämta nödvändiga beroenden.
+* Information om hur du hanterar din egen miljö och beroenden finns i [instruktionen så här](how-to-configure-environment.md) konfigurerar du din egen miljö. Kör `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` i din miljö för att ladda ned nödvändiga beroenden.
 
-## <a name="set-up-machine-learning-resources"></a>Konfigurera maskininlärningsresurser
+## <a name="set-up-machine-learning-resources"></a>Konfigurera Machine Learning-resurser
 
-Följande åtgärder ställer in de resurser som du behöver för att köra en kommandopipeline:
+Följande åtgärder konfigurerar de resurser som du behöver för att köra en pipeline för batch-härledning:
 
-- Skapa ett datalager som pekar på en blob-behållare som har bilder att dra slutsatser om.
-- Ställ in datareferenser som indata och utdata för batchinferenspipelssteget.
-- Konfigurera ett beräkningskluster för att köra batchupptråhetssteget.
+- Skapa ett data lager som pekar på en BLOB-behållare som har avbildningar som ska överläggas.
+- Konfigurera data referenser som indata och utdata för pipeline-steget för batch-härledning.
+- Konfigurera ett beräknings kluster för att köra steget för batch-härledning.
 
-### <a name="create-a-datastore-with-sample-images"></a>Skapa ett datalager med exempelbilder
+### <a name="create-a-datastore-with-sample-images"></a>Skapa ett data lager med exempel bilder
 
-Hämta MNIST-utvärderingsuppsättningen från `sampledata` den offentliga `pipelinedata`blob-behållaren på ett konto med namnet . Skapa ett datalager `mnist_datastore`med namnet , som pekar på den här behållaren. I följande anrop `register_azure_blob_container`till `overwrite` skriver `True` du om flaggan så att alla datalager som har skapats tidigare med det namnet skrivs över. 
+Hämta utvärderings versionen av MNIST från den offentliga BLOB `sampledata` -behållaren på ett `pipelinedata`konto med namnet. Skapa ett data lager med namnet `mnist_datastore`som pekar på den här behållaren. I följande anrop till `register_azure_blob_container`anger `overwrite` flaggan för att `True` skriva över alla data lager som skapades tidigare med det namnet. 
 
-Du kan ändra det här steget så att det `datastore_name`pekar `container_name`på `account_name`blob-behållaren genom att ange egna värden för , och .
+Du kan ändra det här steget så att det pekar på din BLOB-behållare genom att `datastore_name`ange `container_name`dina egna `account_name`värden för, och.
 
 ```python
 from azureml.core import Datastore
@@ -68,9 +68,9 @@ mnist_blob = Datastore.register_azure_blob_container(ws,
                       overwrite=True)
 ```
 
-Ange sedan standarddatalagret för arbetsyta som utdatalager. Du använder den för slutminuter.
+Ange sedan standard data lagret för arbets ytan som utdata-datalager. Du använder den för att få en utmatnings effekt.
 
-När du skapar arbetsytan är [Azure-filer](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [Blob-lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) som standard kopplade till arbetsytan. Azure Files är standarddatalager för en arbetsyta, men du kan också använda Blob-lagring som ett datalager. Mer information finns i [Azure-lagringsalternativ](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+När du skapar din arbets yta är [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [blob-lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) kopplade till arbets ytan som standard. Azure Files är standard data lagret för en arbets yta, men du kan också använda Blob Storage som ett data lager. Mer information finns i [alternativ för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -78,23 +78,23 @@ def_data_store = ws.get_default_datastore()
 
 ### <a name="configure-data-inputs-and-outputs"></a>Konfigurera indata och utdata
 
-Nu måste du konfigurera dataindata och utdata, inklusive:
+Nu måste du konfigurera indata och utdata, inklusive:
 
-- Katalogen som innehåller indataavbildningarna.
-- Katalogen där den förutbildade modellen lagras.
-- Katalogen som innehåller etiketterna.
+- Den katalog som innehåller de inmatade bilderna.
+- Katalogen där den förtränade modellen lagras.
+- Den katalog som innehåller etiketterna.
 - Katalogen för utdata.
 
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)är en klass för att utforska, omvandla och hantera data i Azure Machine Learning. Den här klassen [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) har [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py)två typer: och . I det här exemplet `FileDataset` ska du använda som indata till batchinferens pipeline-steget. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)är en klass för att utforska, transformera och hantera data i Azure Machine Learning. Den här klassen har två typer [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) : [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py)och. I det här exemplet ska du använda `FileDataset` som indata för pipeline-steget för batch-härledning. 
 
 > [!NOTE] 
-> `FileDataset`support i batchinferens är begränsad till Azure Blob-lagring för tillfället. 
+> `FileDataset`Support i batch-härledning är begränsad till Azure Blob Storage för tillfället. 
 
-Du kan också referera till andra datauppsättningar i ditt anpassade inferensskript. Du kan till exempel använda den för att komma åt `Dataset.register` `Dataset.get_by_name`etiketter i skriptet för att märka bilder med hjälp av och .
+Du kan också referera till andra data uppsättningar i ditt anpassade härlednings skript. Du kan till exempel använda den för att få åtkomst till etiketter i skriptet för att märka bilder med `Dataset.register` hjälp `Dataset.get_by_name`av och.
 
-Mer information om Azure Machine Learning-datauppsättningar finns i [Skapa och komma åt datauppsättningar (förhandsversion)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
+Mer information om Azure Machine Learning data uppsättningar finns i [skapa och komma åt data uppsättningar (för hands version)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)objekt används för att överföra mellanliggande data mellan rörledningssteg. I det här exemplet använder du den för slutminuter.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)objekt används för att överföra mellanliggande data mellan pipeline-steg. I det här exemplet använder du den för utgångs-och utgångs störningar.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -111,9 +111,9 @@ output_dir = PipelineData(name="inferences",
                           output_path_on_compute="mnist/results")
 ```
 
-### <a name="set-up-a-compute-target"></a>Ställ in ett beräkningsmål
+### <a name="set-up-a-compute-target"></a>Konfigurera ett beräknings mål
 
-I Azure Machine Learning refererar *beräkning* (eller *beräkningsmål)* till datorer eller kluster som utför beräkningsstegen i din machine learning-pipeline. Kör följande kod för att skapa ett CPU-baserat [AmlCompute-mål.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py)
+I Azure Machine Learning refererar *beräkning* (eller *beräknings mål*) till de datorer eller kluster som utför beräknings stegen i din Machine Learning-pipeline. Kör följande kod för att skapa ett CPU-baserat [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) -mål.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -149,9 +149,9 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-## <a name="prepare-the-model"></a>Förbered modellen
+## <a name="prepare-the-model"></a>Förbereda modellen
 
-[Hämta den förtränade bildklassificeringsmodellen](https://pipelinedata.blob.core.windows.net/mnist-model/mnist-tf.tar.gz)och `models` extrahera den sedan till katalogen.
+[Ladda ned den förtränade avbildnings klassificerings modellen](https://pipelinedata.blob.core.windows.net/mnist-model/mnist-tf.tar.gz)och extrahera den sedan `models` till katalogen.
 
 ```python
 import os
@@ -168,7 +168,7 @@ tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
 ```
 
-Registrera sedan modellen med arbetsytan så att den är tillgänglig för fjärrberäkningsresursen.
+Registrera sedan modellen med arbets ytan så att den är tillgänglig för fjärrberäknings resursen.
 
 ```python
 from azureml.core.model import Model
@@ -181,16 +181,16 @@ model = Model.register(model_path="models/",
                        workspace=ws)
 ```
 
-## <a name="write-your-inference-script"></a>Skriv ditt inferensskript
+## <a name="write-your-inference-script"></a>Skriv ditt härlednings skript
 
 >[!Warning]
->Följande kod är bara ett exempel som [exempel anteckningsboken](https://aka.ms/batch-inference-notebooks) använder. Du måste skapa ett eget skript för ditt scenario.
+>Följande kod är bara ett exempel som används av [exempel antecknings boken](https://aka.ms/batch-inference-notebooks) . Du måste skapa ditt eget skript för ditt scenario.
 
 Skriptet *måste innehålla* två funktioner:
-- `init()`: Använd den här funktionen för kostsamma eller vanliga förberedelser för senare inferens. Använd den till exempel för att läsa in modellen i ett globalt objekt. Den här funktionen anropas bara en gång i början av processen.
--  `run(mini_batch)`: Funktionen körs för `mini_batch` varje instans.
-    -  `mini_batch`: Parallellt körningssteg anropar körningsmetoden och skickar antingen en lista eller Pandas DataFrame som ett argument till metoden. Varje post i min_batch kommer att vara - en filsökväg om indata är en FileDataset, en Pandas DataFrame om indata är en TabularDataset.
-    -  `response`: metoden run() ska returnera en Pandas DataFrame eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdataåtgärder anger varje returnerat utdataelement en lyckad körning av indataelementet i minibatchen för indata. Du bör se till att tillräckligt med data ingår i körningsresultatet för att mappa indata för att köra resultatet. Kör utdata kommer att skrivas i utdatafilen och inte garanterat vara i ordning, bör du använda några viktiga i utdata för att mappa den till indata.
+- `init()`: Använd den här funktionen för eventuell kostsam eller vanlig förberedelse för senare härledning. Använd till exempel den för att läsa in modellen i ett globalt objekt. Den här funktionen kommer endast att anropas en gång i början av processen.
+-  `run(mini_batch)`: Funktionen kommer att köras för varje `mini_batch` instans.
+    -  `mini_batch`: Parallellt körnings steg startar körnings metoden och skickar antingen en lista eller Pandas DataFrame som ett argument till metoden. Varje post i min_batch blir en fil Sök väg om indata är en FileDataset, en Pandas DataFrame om indata är en TabularDataset.
+    -  `response`: Run ()-metoden ska returnera en Pandas-DataFrame eller en matris. För append_row output_action läggs dessa returnerade element till i den gemensamma utdatafilen. För summary_only ignoreras innehållet i elementen. För alla utdata-åtgärder anger varje returnerat utdata en lyckad körning av indata-element i mini-batch för indata. Se till att tillräckligt med data ingår i kör resultat för att mappa indata till kör resultat. Kör utdata skrivs i utdatafilen och är inte garanterat i ordning, du bör använda vissa nycklar i utdata för att mappa den till indata.
 
 ```python
 # Snippets from a sample script.
@@ -237,9 +237,9 @@ def run(mini_batch):
     return resultList
 ```
 
-### <a name="how-to-access-other-files-in-source-directory-in-entry_script"></a>Så här kommer du åt andra filer i källkatalogen i entry_script
+### <a name="how-to-access-other-files-in-source-directory-in-entry_script"></a>Så här kommer du åt andra filer i käll katalogen i entry_script
 
-Om du har en annan fil eller mapp i samma katalog som ditt postskript kan du referera till den genom att hitta den aktuella arbetskatalogen.
+Om du har en annan fil eller mapp i samma katalog som ditt Entry-skript kan du referera till den genom att söka efter den aktuella arbets katalogen.
 
 ```python
 script_dir = os.path.realpath(os.path.join(__file__, '..',))
@@ -248,11 +248,11 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ## <a name="build-and-run-the-pipeline-containing-parallelrunstep"></a>Skapa och kör pipelinen som innehåller ParallelRunStep
 
-Nu har du allt du behöver för att bygga rörledningen.
+Nu har du allt du behöver för att bygga pipelinen.
 
-### <a name="prepare-the-run-environment"></a>Förbered körningsmiljön
+### <a name="prepare-the-run-environment"></a>Förbereda körnings miljön
 
-Ange först beroenden för skriptet. Du använder det här objektet senare när du skapar pipeline-steget.
+Börja med att ange beroenden för skriptet. Du använder det här objektet senare när du skapar pipeline-steget.
 
 ```python
 from azureml.core.environment import Environment
@@ -268,24 +268,24 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 batch_env.spark.precache_packages = False
 ```
 
-### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>Ange parametrarna för ditt pipeline-steg för inferens för batch
+### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>Ange parametrar för pipeline-steget för batch-härledning
 
-`ParallelRunConfig`är huvudkonfigurationen för den nyligen introducerade `ParallelRunStep` batchinferensinstansen i Azure Machine Learning-pipelinen. Du använder den för att radbrytas i skriptet och konfigurera nödvändiga parametrar, inklusive alla följande parametrar:
-- `entry_script`: Ett användarskript som en lokal filsökväg som ska köras parallellt på flera noder. Om `source_directory` det finns, använd en relativ sökväg. Annars kan du använda valfri bana som är tillgänglig på datorn.
-- `mini_batch_size`: Minibatchens storlek skickas till `run()` ett enda samtal. (valfritt; standardvärdet `10` är filer för `1MB` FileDataset och för Tabelldatauppsättning.)
-    - För `FileDataset`är det antalet filer med ett `1`minimivärde på . Du kan kombinera flera filer i en minibatch.
-    - För `TabularDataset`är det storleken på data. Exempelvärden `1024`är `1024KB` `10MB`, `1GB`, och . Det rekommenderade `1MB`värdet är . Minibatchen från `TabularDataset` kommer aldrig att korsa filgränser. Om du till exempel har CSV-filer med olika storlekar är den minsta filen 100 KB och den största är 10 MB. Om du `mini_batch_size = 1MB`anger behandlas filer med en storlek som är mindre än 1 MB som en minibatch. Filer med en storlek som är större än 1 MB kommer att delas upp i flera minibatch.
-- `error_threshold`: Antalet postfel för `TabularDataset` och filfel `FileDataset` för det bör ignoreras under bearbetningen. Om felantalet för hela indata går över det här värdet avbryts jobbet. Feltröskeln gäller för hela indata och inte `run()` för enskilda minibatchar som skickas till metoden. Intervallet är `[-1, int.max]`. Delen `-1` anger att ignorera alla fel under bearbetningen.
+`ParallelRunConfig`är den viktigaste konfigurationen för den nyligen introducerade batch `ParallelRunStep` -härlednings instansen i Azure Machine Learning pipelinen. Du använder den för att omsluta ditt skript och konfigurera nödvändiga parametrar, inklusive alla följande parametrar:
+- `entry_script`: Ett användar skript som en lokal fil Sök väg som ska köras parallellt på flera noder. Om `source_directory` det finns använder du en relativ sökväg. Annars använder du valfri sökväg som är tillgänglig på datorn.
+- `mini_batch_size`: Den mini-batch-storlek som skickas till ett enda `run()` anrop. (valfritt; standardvärdet är `10` filer för FileDataset och `1MB` för TabularDataset.)
+    - För `FileDataset`är det antalet filer med minimivärdet `1`. Du kan kombinera flera filer i en mini-batch.
+    - För `TabularDataset`är det data storleken. Exempel värden är `1024`, `1024KB` `10MB`, och `1GB`. Det rekommenderade värdet är `1MB`. Mini-batch från `TabularDataset` kommer aldrig att överskrida fil gränser. Om du till exempel har CSV-filer med olika storlekar är den minsta filen 100 KB och störst är 10 MB. Om du anger `mini_batch_size = 1MB`kommer filer med en storlek som är mindre än 1 MB att behandlas som en mini-batch. Filer med en storlek som är större än 1 MB delas upp i flera mini-batchar.
+- `error_threshold`: Antalet post- `TabularDataset` och fil haverier `FileDataset` som ska ignoreras under bearbetningen. Om antalet fel för hela inflödet överskrider det här värdet kommer jobbet att avbrytas. Fel tröskeln är för alla indatatyper och inte för enskilda mini-batchar som skickas `run()` till metoden. Intervallet är `[-1, int.max]`. Delen `-1` indikerar att ignorera alla avbrott under bearbetningen.
 - `output_action`: Ett av följande värden anger hur utdata ska ordnas:
-    - `summary_only`: Användarskriptet lagrar utdata. `ParallelRunStep`använder utdata endast för beräkningen av feltröskel.
-    - `append_row`: För alla indatafiler skapas bara en fil i utdatamappen för att lägga till alla utdata avgränsade efter rad. Filnamnet kommer `parallel_run_step.txt`att vara .
-- `source_directory`: Sökvägar till mappar som innehåller alla filer som ska köras på beräkningsmålet (valfritt).
-- `compute_target`: `AmlCompute` Endast stöds.
-- `node_count`: Antalet beräkningsnoder som ska användas för att köra användarskriptet.
+    - `summary_only`: Användar skriptet kommer att lagra utdata. `ParallelRunStep`kommer bara att använda utdata för fel tröskel beräkningen.
+    - `append_row`: För alla indatafiler skapas bara en fil i mappen utdata för att lägga till alla utdata avgränsade med rad. Fil namnet är `parallel_run_step.txt`.
+- `source_directory`: Sökvägar till mappar som innehåller alla filer som ska köras på beräknings målet (valfritt).
+- `compute_target`: Stöds `AmlCompute` endast.
+- `node_count`: Antalet beräknade datornoder som ska användas för att köra användar skriptet.
 - `process_count_per_node`: Antalet processer per nod.
-- `environment`: Python-miljödefinitionen. Du kan konfigurera den för att använda en befintlig Python-miljö eller för att konfigurera en tillfällig miljö för experimentet. Definitionen är också ansvarig för att ange nödvändiga programberoenden (valfritt).
-- `logging_level`: Logga verbosity. Värden i ökande verbositet är: `WARNING`, `INFO`och `DEBUG`. (valfritt, standardvärdet `INFO`är)
-- `run_invocation_timeout`: `run()` Tidsgränsen för metodanrop på några sekunder. (valfritt; standardvärdet är `60`)
+- `environment`: Python-miljöns definition. Du kan konfigurera den att använda en befintlig python-miljö eller konfigurera en tillfällig miljö för experimentet. Definitionen är också ansvarig för att ange nödvändiga program beroenden (valfritt).
+- `logging_level`: Logg utförlighet. Värden i ökande utförlighet är: `WARNING`, `INFO`och `DEBUG`. (valfritt; standardvärdet är `INFO`)
+- `run_invocation_timeout`: Tids `run()` gränsen för metod anrop i sekunder. (valfritt; standardvärdet `60`är)
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -303,14 +303,14 @@ parallel_run_config = ParallelRunConfig(
 
 ### <a name="create-the-pipeline-step"></a>Skapa pipeline-steget
 
-Skapa pipeline-steget med hjälp av skript, miljökonfiguration och parametrar. Ange beräkningsmålet som du redan har kopplat till arbetsytan som mål för körningen för skriptet. Används `ParallelRunStep` för att skapa batch inferenspipelspipelet, som tar alla följande parametrar:
-- `name`: Namnet på steget, med följande namngivningsbegränsningar: unika, 3-32 tecken och regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
-- `models`: Noll eller fler modellnamn som redan registrerats i Azure Machine Learning-modellregistret.
-- `parallel_run_config`: `ParallelRunConfig` Ett objekt, enligt definitionen tidigare.
-- `inputs`: En eller flera single-typed Azure Machine Learning-datauppsättningar.
-- `output`: `PipelineData` Ett objekt som motsvarar utdatakatalogen.
-- `arguments`: En lista med argument som skickas till användarskriptet (valfritt).
-- `allow_reuse`: Om steget ska återanvända tidigare resultat när det körs med samma inställningar/ingångar. Om den `False`här parametern är, genereras alltid en ny körning för det här steget under pipelinekörning. (valfritt, standardvärdet `True`är .)
+Skapa pipeline-steget med hjälp av skriptet, miljö konfigurationen och parametrarna. Ange det beräknings mål som du redan har kopplat till din arbets yta som mål för körning av skriptet. Använd `ParallelRunStep` för att skapa pipeline-steget för batch-härledning, som tar alla följande parametrar:
+- `name`: Namnet på steget med följande namngivnings begränsningar: unika, 3-32 tecken och regex ^\[a-z\]([-a-Z0-9] * [a-Z0-9])? $.
+- `models`: Noll eller flera modell namn har redan registrerats i Azure Machine Learning Model-registret.
+- `parallel_run_config`: Ett `ParallelRunConfig` objekt som definieras tidigare.
+- `inputs`: En eller flera Azure Machine Learning data uppsättningar med enkel typ.
+- `output`: Ett `PipelineData` objekt som motsvarar utdata-katalogen.
+- `arguments`: En lista över argument som skickas till användar skriptet (valfritt).
+- `allow_reuse`: Om steget ska återanvända tidigare resultat när det körs med samma inställningar/indata. Om den här parametern `False`är är en ny körning alltid att skapas för det här steget under pipeline-körningen. (valfritt; standardvärdet är `True`.)
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunStep
@@ -327,11 +327,11 @@ parallelrun_step = ParallelRunStep(
 ```
 
 >[!Note]
-> Ovanstående steg beror `azureml-contrib-pipeline-steps`på , enligt beskrivningen i [Förutsättningar](#prerequisites). 
+> Ovanstående steg är beroende av `azureml-contrib-pipeline-steps`, enligt beskrivningen i [krav](#prerequisites). 
 
 ### <a name="submit-the-pipeline"></a>Skicka pipelinen
 
-Kör pipelinen. Skapa först [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) ett objekt med hjälp av arbetsytans referens och det pipeline-steg som du skapade. Parametern `steps` är en matris med steg. I det här fallet finns det bara ett steg för batchbedömning. Om du vill skapa pipelines som har flera steg placerar du stegen i ordning i den här matrisen.
+Kör nu pipelinen. Börja med att skapa [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) ett objekt med hjälp av din arbets ytans referens och det pipeline-steg som du skapade. `steps` Parametern är en matris med steg. I det här fallet finns det bara ett steg för batch-poäng. Placera stegen i den här matrisen för att bygga pipeliner som har flera steg.
 
 Använd sedan `Experiment.submit()` funktionen för att skicka pipelinen för körning.
 
@@ -343,12 +343,12 @@ pipeline = Pipeline(workspace=ws, steps=[parallelrun_step])
 pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
 ```
 
-## <a name="monitor-the-parallel-run-job"></a>Övervaka det parallella körningsjobbet
+## <a name="monitor-the-parallel-run-job"></a>Övervaka det parallella körnings jobbet
 
-Ett batchupptråligen kan ta lång tid att slutföra. I det här exemplet övervakas förloppet med hjälp av en Jupyter-widget. Du kan också hantera jobbets förlopp med hjälp av:
+Det kan ta lång tid att slutföra en batch-härledning. Det här exemplet övervakar förloppet med hjälp av en Jupyter-widget. Du kan också hantera jobbets förlopp genom att använda:
 
 * Azure Machine Learning Studio. 
-* Konsolutdata [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) från objektet.
+* Konsolens utdata från [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) objektet.
 
 ```python
 from azureml.widgets import RunDetails
@@ -359,11 +359,11 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se den här processen fungerar från till provar du [den batchanledningsanteckningsbok](https://aka.ms/batch-inference-notebooks). 
+Om du vill se den här processens arbets slut till slut punkt, kan du testa den [bärbara datorn](https://aka.ms/batch-inference-notebooks). 
 
-Felsökning och felsökningsvägledning för ParallelRunStep finns i [guiden för hur du söker](how-to-debug-parallel-run-step.md).
+För fel sökning och fel söknings vägledning för ParallelRunStep, se [instruktionen instruktion](how-to-debug-parallel-run-step.md).
 
-Felsökning och felsökning av vägledning för pipelines finns i instruktioner för [hur du kan styra](how-to-debug-pipelines.md).
+För fel sökning och fel söknings vägledning för pipelines, se [instruktionen instruktion](how-to-debug-pipelines.md).
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

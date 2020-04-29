@@ -8,10 +8,10 @@ ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
 ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141953"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrera Azure Service Bus med en privat Azure-länk (förhands granskning)
@@ -175,14 +175,14 @@ Det finns fyra etablerings tillstånd:
 
 | Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Ingen | Väntande åtgärder | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avvisad | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänn, avvisa eller ta bort en privat slut punkts anslutning
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 1. I Sök fältet skriver du in **Service Bus**.
 1. Välj det **namn område** som du vill hantera.
 1. Välj fliken **nätverk** .
@@ -276,7 +276,7 @@ Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
 
 Mer information finns i [Azure Private Link service: begränsningar](../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [Azures privata länk](../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Service Bus](service-bus-messaging-overview.md)

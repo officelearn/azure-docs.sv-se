@@ -1,6 +1,6 @@
 ---
-title: Konfigurera tillgänglighetsgrupper för VIRTUELLA SQL Server på virtuella RHEL-datorer i Azure - Linux Virtual Machines | Microsoft-dokument
-description: Lär dig mer om hur du konfigurerar hög tillgänglighet i en RHEL-klustermiljö och konfigurerar STONITH
+title: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure-Virtuella Linux-datorer | Microsoft Docs
+description: Lär dig mer om att konfigurera hög tillgänglighet i en RHEL-kluster miljö och konfigurera STONITH
 ms.service: virtual-machines-linux
 ms.subservice: ''
 ms.topic: tutorial
@@ -9,32 +9,32 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 02/27/2020
 ms.openlocfilehash: 40c91f67231fb6a9d01191ee5215eae8d4dc045b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79096694"
 ---
-# <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudiekurs: Konfigurera tillgänglighetsgrupper för SQL Server på virtuella RHEL-datorer i Azure 
+# <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure 
 
 > [!NOTE]
-> Handledningen presenteras är i **offentlig förhandsvisning**. 
+> Den självstudien som presenteras är i **offentlig för hands version**. 
 >
-> Vi använder SQL Server 2017 med RHEL 7.6 i den här självstudien, men det är möjligt att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera HA. Kommandona för att konfigurera resurser för tillgänglighetsgrupper har ändrats i RHEL 8 och du bör titta på artikeln, [Skapa tillgänglighetsgruppresurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
+> Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera HA. De kommandon som används för att konfigurera tillgänglighets grupp resurser har ändrats i RHEL 8, och du vill titta på artikeln, [skapa tillgänglighets grupp resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> - Skapa en ny resursgrupp, tillgänglighetsuppsättning och virtuella Azure Linux-datorer (VM)
+> - Skapa en ny resurs grupp, tillgänglighets uppsättning och Azure Virtuella Linux-datorer (VM)
 > - Aktivera hög tillgänglighet (HA)
-> - Skapa ett Pacemaker-kluster
-> - Konfigurera ett fäktningsmedel genom att skapa en STONITH-enhet
-> - Installera SQL Server och mssql-verktyg på RHEL
-> - Konfigurera SQL Server alltid på tillgänglighetsgrupp
-> - Konfigurera AG-resurser (Availability Group) i Pacemaker-klustret
-> - Testa en redundans och stängselagenten
+> - Skapa ett pacemaker-kluster
+> - Konfigurera en inhägnad-agent genom att skapa en STONITH-enhet
+> - Installera SQL Server och MSSQL-tools på RHEL
+> - Konfigurera SQL Server Always on-tillgänglighetsgrupper
+> - Konfigurera resurs för tillgänglighets grupp (AG) i pacemaker-klustret
+> - Testa en redundansväxling och staket-agenten
 
-Den här självstudien använder AZURE command-line interface (CLI) för att distribuera resurser i Azure.
+I den här självstudien används Azure kommando rads gränssnitt (CLI) för att distribuera resurser i Azure.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
@@ -44,17 +44,17 @@ Om du föredrar att installera och använda CLI lokalt kräver den här självst
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Om du har mer än en prenumeration [anger du den prenumeration](/cli/azure/manage-azure-subscriptions-azure-cli) som du vill distribuera dessa resurser till.
+Om du har mer än en prenumeration [anger du den prenumeration](/cli/azure/manage-azure-subscriptions-azure-cli) som du vill distribuera resurserna till.
 
-Använd följande kommando för att `<resourceGroupName>` skapa en resursgrupp i en region. Ersätt `<resourceGroupName>` med ett namn som du väljer. Vi använder `East US 2` för den här guiden. Mer information finns i följande [Snabbstart](../quick-create-cli.md).
+Använd följande kommando för att skapa en resurs grupp `<resourceGroupName>` i en region. Ersätt `<resourceGroupName>` med ett namn som du väljer. Vi använder `East US 2` i den här självstudien. Mer information finns i följande [snabb start](../quick-create-cli.md).
 
 ```azurecli-interactive
 az group create --name <resourceGroupName> --location eastus2
 ```
 
-## <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
+## <a name="create-an-availability-set"></a>Skapa en tillgänglighets uppsättning
 
-Nästa steg är att skapa en tillgänglighetsuppsättning. Kör följande kommando i Azure Cloud `<resourceGroupName>` Shell och ersätt med ditt resursgruppsnamn. Välj ett `<availabilitySetName>`namn för .
+Nästa steg är att skapa en tillgänglighets uppsättning. Kör följande kommando i Azure Cloud Shell och Ersätt `<resourceGroupName>` med namnet på din resurs grupp. Välj ett namn för `<availabilitySetName>`.
 
 ```azurecli-interactive
 az vm availability-set create \
@@ -64,7 +64,7 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Du bör få följande resultat när kommandot är klart:
+Du bör få följande resultat när kommandot har slutförts:
 
 ```output
 {
@@ -87,14 +87,14 @@ Du bör få följande resultat när kommandot är klart:
 }
 ```
 
-## <a name="create-rhel-vms-inside-the-availability-set"></a>Skapa virtuella RHEL-datorer i tillgänglighetsuppsättningen
+## <a name="create-rhel-vms-inside-the-availability-set"></a>Skapa virtuella RHEL-datorer i tillgänglighets uppsättningen
 
 > [!WARNING]
-> Om du väljer en PAY-AS-As-You-Go (PAYG) RHEL-avbildning och konfigurerar HA (Hög tillgänglighet) kan du behöva registrera din prenumeration. Detta kan leda till att du betalar två gånger för prenumerationen, eftersom du debiteras för Microsoft Azure RHEL-prenumerationen för den virtuella datorn och en prenumeration på Red Hat. Mer information finns i https://access.redhat.com/solutions/2458541.
+> Om du väljer en PAYG-RHEL (betala per användning) och konfigurerar hög tillgänglighet (HA) kan du behöva registrera din prenumeration. Detta kan medföra att du betalar två gånger för prenumerationen, eftersom du debiteras för den Microsoft Azure RHEL-prenumerationen för den virtuella datorn och en prenumeration på Red Hat. Mer information finns i https://access.redhat.com/solutions/2458541.
 >
-> Använd en RHEL HA-avbildning när du skapar Den virtuella Azure-datorn för att undvika att bli "dubbel fakturerad". Bilder som erbjuds som RHEL-HA bilder är också PAYG bilder med HA repo pre-aktiverad.
+> Använd en RHEL HA-avbildning när du skapar den virtuella Azure-datorn för att undvika att "dubbelt faktureras". Avbildningar som erbjuds som RHEL-HA-avbildningar är också PAYG-avbildningar med HA lagrings platsen pre-aktiverad.
 
-1. Hämta en lista över virtuella datorer (VM) som erbjuder RHEL med HA:
+1. Hämta en lista över virtuella dator avbildningar som erbjuder RHEL med HA:
 
     ```azurecli-interactive
     az vm image list --all --offer "RHEL-HA"
@@ -128,17 +128,17 @@ Du bör få följande resultat när kommandot är klart:
     ]
     ```
 
-    För den här guiden väljer `RedHat:RHEL-HA:7.6:7.6.2019062019`vi bilden .
+    I den här självstudien ska vi välja `RedHat:RHEL-HA:7.6:7.6.2019062019`avbildningen.
 
     > [!IMPORTANT]
-    > Datornamn måste vara mindre än 15 tecken för att ställa in tillgänglighetsgrupp. Användarnamnet får inte innehålla versaler och lösenord måste innehålla fler än 12 tecken.
+    > Dator namn måste innehålla färre än 15 tecken för att du ska kunna konfigurera tillgänglighets gruppen. Användar namnet får inte innehålla versaler och lösen ord måste innehålla fler än 12 tecken.
 
-1. Vi vill skapa 3 virtuella datorer i tillgänglighetsuppsättningen. Ersätt följande i kommandot nedan:
+1. Vi vill skapa tre virtuella datorer i tillgänglighets uppsättningen. Ersätt följande i kommandot nedan:
 
     - `<resourceGroupName>`
     - `<VM-basename>`
     - `<availabilitySetName>`
-    - `<VM-Size>`- Ett exempel skulle vara "Standard_D16_v3"
+    - `<VM-Size>`– Ett exempel är "Standard_D16_v3"
     - `<username>`
     - `<adminPassword>`
 
@@ -157,9 +157,9 @@ Du bör få följande resultat när kommandot är klart:
     done
     ```
 
-Kommandot ovan skapar de virtuella datorerna och skapar ett standardvnät för dessa virtuella datorer. Mer information om de olika konfigurationerna finns i artikeln [om att skapa az vm.](https://docs.microsoft.com/cli/azure/vm)
+Kommandot ovan skapar de virtuella datorerna och skapar ett virtuellt nätverk för de virtuella datorerna. Mer information om de olika konfigurationerna finns i artikeln [AZ VM Create](https://docs.microsoft.com/cli/azure/vm) .
 
-Du bör få resultat som liknar följande när kommandot är klart för varje virtuell dator:
+Du bör få resultat som liknar följande när kommandot har slutförts för varje virtuell dator:
 
 ```output
 {
@@ -176,19 +176,19 @@ Du bör få resultat som liknar följande när kommandot är klart för varje vi
 ```
 
 > [!IMPORTANT]
-> Standardbilden som skapas med kommandot ovan skapar som standard en 32 GB OS-disk. Du kan eventuellt få på utrymme med den här standardinstallationen. Du kan använda följande parameter `az vm create` som lagts till i kommandot ovan för att `--os-disk-size-gb 128`skapa en OS-disk med 128 GB som exempel: .
+> Standard avbildningen som skapas med kommandot ovan skapar en 32 GB OS-disk som standard. Du kan eventuellt ta slut på utrymme med den här standard installationen. Du kan använda följande parameter som har lagts till i `az vm create` kommandot ovan för att skapa en OS-disk med 128 GB som `--os-disk-size-gb 128`exempel:.
 >
-> Du kan sedan [konfigurera LVM (Logical Volume Manager)](../../../virtual-machines/linux/configure-lvm.md) om du behöver utöka lämpliga mappvolymer för att passa installationen.
+> Du kan sedan [Konfigurera Logical Volume Manager (LVM)](../../../virtual-machines/linux/configure-lvm.md) om du behöver expandera lämpliga volym volymer för att hantera installationen.
 
 ### <a name="test-connection-to-the-created-vms"></a>Testa anslutningen till de skapade virtuella datorerna
 
-Anslut till VM1 eller andra virtuella datorer med följande kommando i Azure Cloud Shell. Om du inte kan hitta vm-IPs följer du den här [snabbstarten på Azure Cloud Shell](../../../cloud-shell/quickstart.md#ssh-into-your-linux-vm).
+Anslut till VM1 eller de andra virtuella datorerna med hjälp av följande kommando i Azure Cloud Shell. Om du inte kan hitta dina VM IP-adresser följer du den här [snabb starten på Azure Cloud Shell](../../../cloud-shell/quickstart.md#ssh-into-your-linux-vm).
 
 ```azurecli-interactive
 ssh <username>@publicipaddress
 ```
 
-Om anslutningen lyckas bör du se följande utgång som representerar Linux-terminalen:
+Om anslutningen lyckas bör du se följande utdata som representerar Linux-terminalen:
 
 ```output
 [<username>@<VM1> ~]$
@@ -199,27 +199,27 @@ Skriv `exit` för att lämna SSH-sessionen.
 ## <a name="enable-high-availability"></a>Aktivera hög tillgänglighet
 
 > [!IMPORTANT]
-> För att slutföra den här delen av självstudien måste du ha en prenumeration för RHEL och tillägget Hög tillgänglighet. Om du använder en bild som rekommenderas i föregående avsnitt behöver du inte registrera en annan prenumeration.
+> För att kunna slutföra den här delen av självstudien måste du ha en prenumeration på RHEL och det hög tillgängliga tillägget. Om du använder en avbildning som rekommenderas i föregående avsnitt behöver du inte registrera någon annan prenumeration.
  
-Anslut till varje VM-nod och följ guiden nedan för att aktivera HA. Mer information finns i [Aktivera prenumeration med hög tillgänglighet för RHEL](/sql/linux/sql-server-linux-availability-group-cluster-rhel#enable-the-high-availability-subscription-for-rhel).
+Anslut till varje VM-nod och följ anvisningarna nedan för att aktivera HA. Mer information finns i [Aktivera prenumeration med hög tillgänglighet för RHEL](/sql/linux/sql-server-linux-availability-group-cluster-rhel#enable-the-high-availability-subscription-for-rhel).
 
 > [!TIP]
-> Det blir enklare om du öppnar en SSH-session för var och en av de virtuella datorerna samtidigt som samma kommandon måste köras på varje virtuell dator i hela artikeln.
+> Det blir enklare om du öppnar en SSH-session till varje virtuell dator samtidigt som samma kommandon måste köras på varje virtuell dator i artikeln.
 >
-> Om du kopierar och `sudo` klistrar in flera kommandon och uppmanas att ange ett lösenord körs inte de ytterligare kommandona. Kör varje kommando separat.
+> Om du kopierar och klistrar in flera `sudo` kommandon och uppmanas att ange ett lösen ord, kommer de ytterligare kommandona inte att köras. Kör varje kommando separat.
 
 
-1. Kör följande kommandon på varje virtuell dator för att öppna Pacemaker-brandväggsportarna:
+1. Kör följande kommandon på varje virtuell dator för att öppna pacemaker-brand Väggs portarna:
 
     ```bash
     sudo firewall-cmd --permanent --add-service=high-availability
     sudo firewall-cmd --reload
     ```
 
-1. Uppdatera och installera Pacemaker-paket på alla noder med följande kommandon:
+1. Uppdatera och installera pacemaker-paket på alla noder med följande kommandon:
 
     > [!NOTE]
-    > **nmap** installeras som en del av det här kommandoblocket som ett verktyg för att hitta tillgängliga IP-adresser i nätverket. Du behöver inte installera **nmap**, men det kommer att vara användbart senare i den här guiden.
+    > **nmap** installeras som en del av det här kommando blocket som ett verktyg för att hitta tillgängliga IP-adresser i nätverket. Du behöver inte installera **nmap**, men det kommer att vara användbart senare i den här självstudien.
 
     ```bash
     sudo yum update -y
@@ -227,19 +227,19 @@ Anslut till varje VM-nod och följ guiden nedan för att aktivera HA. Mer inform
     sudo reboot
     ```
 
-1. Ange lösenordet för standardanvändaren som skapas när pacemakerpaket installeras. Använd samma lösenord på alla noder.
+1. Ange lösen ordet för standard användaren som skapas när du installerar pacemaker-paket. Använd samma lösen ord på alla noder.
 
     ```bash
     sudo passwd hacluster
     ```
 
-1. Använd följande kommando för att öppna hosts-filen och konfigurera värdnamnsmatchning. Mer information finns i [Konfigurera AG](/sql/linux/sql-server-linux-availability-group-configure-ha#prerequisites) när du konfigurerar hosts-filen.
+1. Använd följande kommando för att öppna hosts-filen och konfigurera värd namns matchning. Mer information finns i [Konfigurera AG](/sql/linux/sql-server-linux-availability-group-configure-ha#prerequisites) på Konfigurera värd filen.
 
     ```
     sudo vi /etc/hosts
     ```
 
-    I **vi** vi-redigeraren `i` anger du för att infoga text och på en tom rad lägger du till den **privata IP-adressen** för motsvarande virtuella dator. Lägg sedan till vm-namnet efter ett blanksteg bredvid IP-adressen. Varje rad ska ha en separat post.
+    I redigeraren för **vi** skriver `i` du in text och lägger till den **privata IP-adressen** för motsvarande virtuella dator på en tom rad. Lägg sedan till namnet på den virtuella datorn efter ett blank steg bredvid IP-adressen. Varje rad måste ha en separat post.
 
     ```output
     <IP1> <VM1>
@@ -248,17 +248,17 @@ Anslut till varje VM-nod och följ guiden nedan för att aktivera HA. Mer inform
     ```
 
     > [!IMPORTANT]
-    > Vi rekommenderar att du använder din **privata IP-adress** ovan. Om du använder den offentliga IP-adressen i den här konfigurationen misslyckas installationen och vi rekommenderar inte att du exponerar den virtuella datorn för externa nätverk.
+    > Vi rekommenderar att du använder din **privata IP** -adress ovan. Om du använder den offentliga IP-adressen i den här konfigurationen kommer installationen att Miss varnas och vi rekommenderar inte att du exponerar den virtuella datorn för externa nätverk.
 
-    Om du vill avsluta vi-redigeraren trycker du `:wq` först på **Esc-tangenten** och anger sedan kommandot för att skriva filen och avsluta. **vi**
+    Om du vill avsluta **vi** -redigeraren trycker du först på **ESC** -tangenten och anger `:wq` sedan kommandot för att skriva filen och avsluta.
 
-## <a name="create-the-pacemaker-cluster"></a>Skapa pacemakerklustret
+## <a name="create-the-pacemaker-cluster"></a>Skapa pacemaker-klustret
 
-I det här avsnittet aktiverar och startar vi pcsd-tjänsten och konfigurerar sedan klustret. För SQL Server på Linux skapas inte klusterresurserna automatiskt. Vi måste aktivera och skapa pacemakerresurserna manuellt. Mer information finns i artikeln om [hur du konfigurerar en redundansklusterinstans för RHEL](/sql/linux/sql-server-linux-shared-disk-cluster-red-hat-7-configure#install-and-configure-pacemaker-on-each-cluster-node)
+I det här avsnittet ska vi aktivera och starta pcsd-tjänsten och sedan konfigurera klustret. För SQL Server på Linux skapas inte kluster resurserna automatiskt. Vi måste aktivera och skapa pacemaker-resurserna manuellt. Mer information finns i artikeln om [att konfigurera en instans av redundanskluster för RHEL](/sql/linux/sql-server-linux-shared-disk-cluster-red-hat-7-configure#install-and-configure-pacemaker-on-each-cluster-node)
 
-### <a name="enable-and-start-pcsd-service-and-pacemaker"></a>Aktivera och starta pcsd-tjänst och Pacemaker
+### <a name="enable-and-start-pcsd-service-and-pacemaker"></a>Aktivera och starta pcsd-tjänsten och pacemaker
 
-1. Kör kommandona på alla noder. Dessa kommandon gör det möjligt för noderna att ansluta till klustret efter omstart.
+1. Kör kommandona på alla noder. De här kommandona gör att noderna kan ansluta till klustret igen efter omstart.
 
     ```bash
     sudo systemctl enable pcsd
@@ -266,7 +266,7 @@ I det här avsnittet aktiverar och startar vi pcsd-tjänsten och konfigurerar se
     sudo systemctl enable pacemaker
     ``` 
 
-1. Ta bort en befintlig klusterkonfiguration från alla noder. Kör följande kommando:
+1. Ta bort eventuell befintlig kluster konfiguration från alla noder. Kör följande kommando:
 
     ```bash
     sudo pcs cluster destroy 
@@ -275,7 +275,7 @@ I det här avsnittet aktiverar och startar vi pcsd-tjänsten och konfigurerar se
 
 1. På den primära noden kör du följande kommandon för att konfigurera klustret.
 
-    - När du `pcs cluster auth` kör kommandot för att autentisera klusternoderna uppmanas du att ange ett lösenord. Ange lösenordet för **hacluster-användaren** som skapats tidigare.
+    - När du kör `pcs cluster auth` kommandot för att autentisera klusternoderna uppmanas du att ange ett lösen ord. Ange lösen ordet för **hacluster** -användaren som skapades tidigare.
 
     ```bash
     sudo pcs cluster auth <VM1> <VM2> <VM3> -u hacluster
@@ -284,13 +284,13 @@ I det här avsnittet aktiverar och startar vi pcsd-tjänsten och konfigurerar se
     sudo pcs cluster enable --all
     ```
 
-1. Kör följande kommando för att kontrollera att alla noder är online.
+1. Kör följande kommando för att kontrol lera att alla noder är online.
 
     ```bash
     sudo pcs status
     ```
 
-    Om alla noder är online visas en utdata som liknar följande:
+    Om alla noder är online visas utdata som liknar följande:
 
     ```output
     Cluster name: az-hacluster
@@ -317,25 +317,25 @@ I det här avsnittet aktiverar och startar vi pcsd-tjänsten och konfigurerar se
           pcsd: active/enabled
     ```
 
-1. Ange förväntade röster i live-klustret till 3. Det här kommandot påverkar bara det aktiva klustret och ändrar inte konfigurationsfilerna.
+1. Ange förväntade röster i Live-klustret till 3. Det här kommandot påverkar endast det aktiva klustret och ändrar inte konfigurationsfilerna.
 
-    På alla noder anger du de förväntade rösterna med följande kommando:
+    Ange de förväntade rösterna med följande kommando på alla noder:
 
     ```bash
     sudo pcs quorum expected-votes 3
     ```
 
-## <a name="configure-the-fencing-agent"></a>Konfigurera fäktningsagenten
+## <a name="configure-the-fencing-agent"></a>Konfigurera staket-agenten
 
-En STONITH-enhet tillhandahåller ett stängselmedel. Nedanstående instruktioner ändras för den här självstudien. Mer information finns i [skapa en STONITH-enhet](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device).
+En STONITH-enhet tillhandahåller en inhägnad-agent. Anvisningarna nedan har ändrats för den här självstudien. Mer information finns i [skapa en STONITH-enhet](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#create-stonith-device).
  
-[Kontrollera versionen av Azure Fence Agent för att se till att den uppdateras](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation). Ange följande kommando:
+[Kontrol lera versionen av Azure-stängsel-agenten för att säkerställa att den uppdateras](../../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md#cluster-installation). Ange följande kommando:
 
 ```bash
 sudo yum info fence-agents-azure-arm
 ```
 
-Du bör se en liknande utdata till exemplet nedan.
+Du bör se samma utdata som i exemplet nedan.
 
 ```output
 Loaded plugins: langpacks, product-id, search-disabled-repos, subscription-manager
@@ -356,23 +356,23 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
 ### <a name="register-a-new-application-in-azure-active-directory"></a>Registrera ett nytt program i Azure Active Directory
  
  1. Gå till https://portal.azure.com
- 2. Öppna [Azure Active Directory-bladet](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Gå till Egenskaper och skriv ned katalog-ID. Detta är`tenant ID`
+ 2. Öppna [bladet Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Gå till egenskaper och skriv ner katalog-ID: t. Detta är`tenant ID`
  3. Klicka på [ **Appregistreringar**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
- 4. Klicka på **Ny registrering**
- 5. Ange **Name** ett `<resourceGroupName>-app`namn som väljer du **Konton i den här organisationskatalogen**
- 6. Välj **Programtypswebbplats**, ange en inloggnings-URL (till exempel http://localhost) och klicka på Lägg till. Inloggnings-URL:en används inte och kan vara en giltig URL. När du är klar klickar du **på Registrera dig**
- 7. Välj **Certifikat och hemligheter** för din nya appregistrering och klicka sedan på Ny **klienthemlighet**
- 8. Ange en beskrivning av en ny nyckel (klienthemlighet), välj **Aldrig upphör att gälla** och klicka på Lägg **till**
- 9. Skriv ner värdet på hemligheten. Den används som lösenord för servicehuvudmannen
-10. Välj **Översikt**. Skriv ner program-ID: t. Det används som användarnamn (inloggnings-ID i stegen nedan) av Service Principal
+ 4. Klicka på **ny registrering**
+ 5. Ange ett **namn** som `<resourceGroupName>-app`, Välj **endast konton i den här organisations katalogen**
+ 6. Välj program typ **webb**, ange en inloggnings-URL (till exempel http://localhost) och klicka på Lägg till. Inloggnings-URL: en används inte och kan vara en giltig URL. När du är färdig klickar du på **Registrera**
+ 7. Välj **certifikat och hemligheter** för din nya app-registrering och klicka sedan på **ny klient hemlighet**
+ 8. Ange en beskrivning för en ny nyckel (klient hemlighet), Välj **aldrig upphör att gälla** och klicka på **Lägg till**
+ 9. Skriv ned värdet för hemligheten. Den används som lösen ord för tjänstens huvud namn
+10. Välj **Översikt**. Anteckna program-ID: t. Den används som användar namn (inloggnings-ID i stegen nedan) för tjänstens huvud namn
  
-### <a name="create-a-custom-role-for-the-fence-agent"></a>Skapa en anpassad roll för stängslet agent
+### <a name="create-a-custom-role-for-the-fence-agent"></a>Skapa en anpassad roll för stängsel-agenten
 
-Följ självstudien för att [skapa en anpassad roll för Azure-resurser med Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Följ själv studie kursen för att [skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
-Filen json ska se ut ungefär så här:
+Din JSON-fil bör se ut ungefär så här:
 
-- Ersätt `<username>` med ett valfritt namn. Detta för att undvika dubbelarbete när du skapar den här rolldefinitionen.
+- Ersätt `<username>` med ett valfritt namn. Detta är för att undvika duplicering när du skapar den här roll definitionen.
 - Ersätt `<subscriptionId>` med ditt Azure-prenumerations-ID.
 
 ```json
@@ -394,10 +394,10 @@ Filen json ska se ut ungefär så här:
 }
 ```
 
-Om du vill lägga till rollen kör du följande kommando:
+Kör följande kommando för att lägga till rollen:
 
 - Ersätt `<filename>` med namnet på filen.
-- Om du kör kommandot från en annan sökväg än mappen som filen sparas i, inkludera mappsökvägen för filen i kommandot.
+- Om du kör kommandot från en annan sökväg än den mapp som filen sparas i, inkluderar du mappsökvägen för filen i kommandot.
 
 ```bash
 az role definition create --role-definition "<filename>.json"
@@ -431,27 +431,27 @@ Du bör se följande utdata:
 }
 ```
 
-### <a name="assign-the-custom-role-to-the-service-principal"></a>Tilldela den anpassade rollen till tjänsthuvudhuvudmannen
+### <a name="assign-the-custom-role-to-the-service-principal"></a>Tilldela tjänstens huvud namn den anpassade rollen
 
-Tilldela den `Linux Fence Agent Role-<username>` anpassade roll som skapades i det sista steget till huvudmannen för Tjänsten. Använd inte ägarrollen längre!
+Tilldela den anpassade rollen `Linux Fence Agent Role-<username>` som skapades i det sista steget till tjänstens huvud namn. Använd inte ägar rollen längre!
  
 1. Gå till https://portal.azure.com
-2. Öppna [bladet Alla resurser](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)
+2. Öppna [bladet alla resurser](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAll)
 3. Välj den virtuella datorn för den första klusternoden
-4. Klicka på **Åtkomstkontroll (IAM)**
-5. Klicka på **Lägg till en rolltilldelning**
-6. Välj rollen `Linux Fence Agent Role-<username>` i **rolllistan**
-7. I listan **Välj** anger du namnet på det program som du skapade ovan,`<resourceGroupName>-app`
+4. Klicka på **åtkomst kontroll (IAM)**
+5. Klicka på **Lägg till en roll tilldelning**
+6. Välj rollen `Linux Fence Agent Role-<username>` från **roll** listan
+7. I listan **Välj** anger du namnet på det program som du skapade ovan.`<resourceGroupName>-app`
 8. Klicka på **Spara**
-9. Upprepa stegen ovan för alla klusternoder.
+9. Upprepa stegen ovan för noden alla klusternoder.
 
-### <a name="create-the-stonith-devices"></a>Skapa STONITH-enheterna
+### <a name="create-the-stonith-devices"></a>Skapa STONITH-enheter
 
 Kör följande kommandon på nod 1:
 
-- Ersätt `<ApplicationID>` värdet med ID från din programregistrering.
-- Ersätt `<servicePrincipalPassword>` värdet från klienthemligheten.
-- Ersätt `<resourceGroupName>` med resursgruppen från din prenumeration som används för den här självstudien.
+- Ersätt `<ApplicationID>` med ID-värdet från program registreringen.
+- Ersätt `<servicePrincipalPassword>` med värdet från klient hemligheten.
+- Ersätt `<resourceGroupName>` med resurs gruppen från din prenumeration som används för den här självstudien.
 - Ersätt `<tenantID>` och `<subscriptionId>` från din Azure-prenumeration.
 
 ```bash
@@ -459,19 +459,19 @@ sudo pcs property set stonith-timeout=900
 sudo pcs stonith create rsc_st_azure fence_azure_arm login="<ApplicationID>" passwd="<servicePrincipalPassword>" resourceGroup="<resourceGroupName>" tenantId="<tenantID>" subscriptionId="<subscriptionId>" power_timeout=240 pcmk_reboot_timeout=900
 ```
 
-Eftersom vi redan har lagt till en regel`--add-service=high-availability`i vår brandvägg för att tillåta HA-tjänsten ( ) finns det ingen anledning att öppna följande brandväggsportar på alla noder: 2224, 3121, 21064, 5405. Men om du upplever någon typ av anslutningsproblem med HA använder du följande kommando för att öppna dessa portar som är associerade med HA.
+Eftersom vi redan har lagt till en regel i brand väggen för att tillåta HA`--add-service=high-availability`-tjänsten () behöver du inte öppna följande brand Väggs portar på alla noder: 2224, 3121, 21064, 5405. Men om du har problem med en typ av anslutnings problem med HA, använder du följande kommando för att öppna portarna som är associerade med HA.
 
 > [!TIP]
-> Du kan också lägga till alla portar i den här självstudien samtidigt för att spara lite tid. De hamnar som behöver öppnas förklaras i de relativa avsnitten nedan. Om du vill lägga till alla portar nu lägger du till ytterligare portar: 1433 och 5022.
+> Du kan också lägga till alla portar i den här självstudien på en gång för att spara tid. De portar som måste öppnas förklaras i de relativa avsnitten nedan. Om du vill lägga till alla portar nu lägger du till de ytterligare portarna: 1433 och 5022.
 
 ```bash
 sudo firewall-cmd --zone=public --add-port=2224/tcp --add-port=3121/tcp --add-port=21064/tcp --add-port=5405/tcp --permanent
 sudo firewall-cmd --reload
 ```
 
-## <a name="install-sql-server-and-mssql-tools"></a>Installera SQL Server och mssql-verktyg
+## <a name="install-sql-server-and-mssql-tools"></a>Installera SQL Server och MSSQL-tools
  
-Använd avsnittet nedan för att installera SQL Server och mssql-verktyg på de virtuella datorerna. Utför var och en av dessa åtgärder på alla noder. Mer information finns i installera en virtuell dator för [SQL Server i Red Hat](/sql/linux/quickstart-install-connect-red-hat).
+Använd avsnittet nedan för att installera SQL Server och MSSQL-verktyg på de virtuella datorerna. Utför var och en av dessa åtgärder på alla noder. Mer information finns i [installera SQL Server en Red Hat-dator](/sql/linux/quickstart-install-connect-red-hat).
 
 ### <a name="installing-sql-server-on-the-vms"></a>Installera SQL Server på de virtuella datorerna
 
@@ -484,18 +484,18 @@ sudo /opt/mssql/bin/mssql-conf setup
 sudo yum install mssql-server-ha
 ```
 
-### <a name="open-firewall-port-1433-for-remote-connections"></a>Öppna brandväggsport 1433 för fjärranslutningar
+### <a name="open-firewall-port-1433-for-remote-connections"></a>Öppna brand Väggs port 1433 för fjärr anslutningar
 
-Du måste öppna port 1433 på den virtuella datorn för att kunna fjärransluta. Använd följande kommandon för att öppna port 1433 i brandväggen för varje virtuell dator:
+Du måste öppna port 1433 på den virtuella datorn för att kunna fjärrans luta. Använd följande kommandon för att öppna port 1433 i brand väggen för varje virtuell dator:
 
 ```bash
 sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
 sudo firewall-cmd --reload
 ```
 
-### <a name="installing-sql-server-command-line-tools"></a>Installera kommandoradsverktyg för SQL Server
+### <a name="installing-sql-server-command-line-tools"></a>Installera SQL Server kommando rads verktyg
 
-Följande kommandon används för att installera kommandoradsverktyg för SQL Server. Mer information finns [i installera kommandoradsverktygen för SQL Server](/sql/linux/quickstart-install-connect-red-hat#tools).
+Följande kommandon används för att installera SQL Server kommando rads verktyg. Mer information finns i [installera SQL Server kommando rads verktyg](/sql/linux/quickstart-install-connect-red-hat#tools).
 
 ```bash
 sudo curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/7/prod.repo
@@ -503,15 +503,15 @@ sudo yum install -y mssql-tools unixODBC-devel
 ```
  
 > [!NOTE] 
-> För enkelhetens skull, lägg till /opt/mssql-tools/bin/ till din PATH-miljövariabel. På så sätt kan du köra verktygen utan att ange den fullständiga sökvägen. Kör följande kommandon för att ändra PATH för både inloggningssessioner och interaktiva/icke-inloggningssessioner:</br></br>
+> För enkelhetens skull lägger du till/opt/MSSQL-tools/bin/i miljövariabeln PATH. På så sätt kan du köra verktygen utan att ange den fullständiga sökvägen. Kör följande kommandon för att ändra PATH för både inloggningssessioner och interaktiva/icke-inloggningssessioner:</br></br>
 `echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile`</br>
 `echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc`</br>
 `source ~/.bashrc`
 
 
-### <a name="check-the-status-of-the-sql-server"></a>Kontrollera status för SQL Server
+### <a name="check-the-status-of-the-sql-server"></a>Kontrol lera status för SQL Server
 
-När du är klar med konfigurationen kan du kontrollera status för SQL Server och kontrollera att den körs:
+När du är färdig med konfigurationen kan du kontrol lera status för SQL Server och kontrol lera att den körs:
 
 ```bash
 systemctl status mssql-server --no-pager
@@ -530,13 +530,13 @@ Du bör se följande utdata:
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## <a name="configure-sql-server-always-on-availability-group"></a>Konfigurera SQL Server alltid på tillgänglighetsgrupp
+## <a name="configure-sql-server-always-on-availability-group"></a>Konfigurera SQL Server Always on-tillgänglighetsgrupper
 
-Använd följande steg för att konfigurera SQL Server Always On Availability Group för dina virtuella datorer. Mer information finns i [konfigurera SQL Server Always On Availability Group för hög tillgänglighet på Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
+Använd följande steg för att konfigurera SQL Server Always on-tillgänglighetsgrupper för dina virtuella datorer. Mer information finns i [konfigurera SQL Server Always on-tillgänglighetsgrupper för hög tillgänglighet på Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
 
-### <a name="enable-alwayson-availability-groups-and-restart-mssql-server"></a>Aktivera AlwaysOn-tillgänglighetsgrupper och starta om mssql-server
+### <a name="enable-alwayson-availability-groups-and-restart-mssql-server"></a>Aktivera AlwaysOn-tillgänglighetsgrupper och starta om MSSQL-Server
 
-Aktivera AlwaysOn-tillgänglighetsgrupper på varje nod som är värd för en SQL Server-instans. Starta sedan om mssql-servern. Kör följande skript:
+Aktivera AlwaysOn-tillgänglighetsgrupper på varje nod som är värd för en SQL Server instans. Starta sedan om MSSQL-Server. Kör följande skript:
 
 ```
 sudo /opt/mssql/bin/mssql-conf set hadr.hadrenabled 1
@@ -545,14 +545,14 @@ sudo systemctl restart mssql-server
 
 ### <a name="create-a-certificate"></a>Skapa ett certifikat
 
-Vi stöder för närvarande inte AD-autentisering till AG-slutpunkten. Därför måste vi använda ett certifikat för AG-slutpunktskryptering.
+Vi stöder för närvarande inte AD-autentisering till AG-slutpunkten. Därför måste vi använda ett certifikat för AG-slutpunktens kryptering.
 
-1. Anslut till **alla noder** med SQL Server Management Studio (SSMS) eller SQL CMD. Kör följande kommandon för att aktivera AlwaysOn_health session och skapa en huvudnyckel:
+1. Anslut till **alla noder** med SQL Server Management Studio (SSMS) eller SQL cmd. Kör följande kommandon för att aktivera AlwaysOn_health-session och skapa en huvud nyckel:
 
     > [!IMPORTANT]
-    > Om du fjärransluter till SQL Server-instansen måste du ha port 1433 öppen i brandväggen. Du måste också tillåta inkommande anslutningar till port 1433 i NSG för varje virtuell dator. Mer information finns i [Skapa en säkerhetsregel](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) för att skapa en inkommande säkerhetsregel.
+    > Om du ansluter till en fjärran sluten SQL Server-instans måste port 1433 vara öppen i brand väggen. Du måste också tillåta inkommande anslutningar till port 1433 i din NSG för varje virtuell dator. Mer information finns i [skapa en säkerhets regel](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) för att skapa en inkommande säkerhets regel.
 
-    - Ersätt `<Master_Key_Password>` med ditt eget lösenord.
+    - Ersätt `<Master_Key_Password>` med ditt eget lösen ord.
 
 
     ```sql
@@ -562,9 +562,9 @@ Vi stöder för närvarande inte AD-autentisering till AG-slutpunkten. Därför 
     ```
 
  
-1. Anslut till den primära repliken med SSMS eller SQL CMD. Nedanstående kommandon skapar ett `/var/opt/mssql/data/dbm_certificate.cer` certifikat på och `var/opt/mssql/data/dbm_certificate.pvk` en privat nyckel på din primära SQL Server-replik:
+1. Anslut till den primära repliken med SSMS eller SQL CMD. De kommandon som visas nedan skapar ett certifikat `/var/opt/mssql/data/dbm_certificate.cer` till och en privat nyckel `var/opt/mssql/data/dbm_certificate.pvk` på den primära SQL Server repliken:
 
-    - Ersätt `<Private_Key_Password>` med ditt eget lösenord.
+    - Ersätt `<Private_Key_Password>` med ditt eget lösen ord.
 
 ```sql
 CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
@@ -579,19 +579,19 @@ BACKUP CERTIFICATE dbm_certificate
 GO
 ```
 
-Avsluta SQL CMD-sessionen `exit` genom att köra kommandot och återgå till SSH-sessionen.
+Avsluta SQL CMD-sessionen genom att `exit` köra kommandot och återgå tillbaka till SSH-sessionen.
  
 ### <a name="copy-the-certificate-to-the-secondary-replicas-and-create-the-certificates-on-the-server"></a>Kopiera certifikatet till de sekundära replikerna och skapa certifikaten på servern
 
-1. Kopiera de två filer som har skapats till samma plats på alla servrar som ska vara värd för tillgänglighetsrepliker.
+1. Kopiera de två filerna som har skapats till samma plats på alla servrar som ska vara värdar för tillgänglighets repliker.
  
-    På den primära servern `scp` kör du följande kommando för att kopiera certifikatet till målservrarna:
+    På den primära servern kör du följande `scp` kommando för att kopiera certifikatet till mål servrarna:
 
-    - Ersätt `<username>` `<VM2>` och med användarnamnet och mål-VM-namnet som du använder.
+    - Ersätt `<username>` och `<VM2>` med det användar namn och den virtuella mål datorns namn som du använder.
     - Kör det här kommandot för alla sekundära repliker.
 
     > [!NOTE]
-    > Du behöver inte köra `sudo -i`, vilket ger dig rotmiljön. Du kan bara `sudo` köra kommandot framför varje kommando som vi tidigare gjorde i den här guiden.
+    > Du behöver inte köra `sudo -i`, vilket ger dig rot miljön. Du kan bara köra `sudo` kommandot framför varje kommando som vi tidigare gjorde i den här självstudien.
 
     ```bash
     # The below command allows you to run commands in the root environment
@@ -602,12 +602,12 @@ Avsluta SQL CMD-sessionen `exit` genom att köra kommandot och återgå till SSH
     scp /var/opt/mssql/data/dbm_certificate.* <username>@<VM2>:/home/<username>
     ```
 
-1. Kör följande kommando på målservern:
+1. Kör följande kommando på mål servern:
 
-    - Ersätt `<username>` med ditt användarnamn.
-    - Kommandot `mv` flyttar filerna eller katalogen från en plats till en annan.
-    - Kommandot `chown` används för att ändra ägare och grupp av filer, kataloger eller länkar.
-    - Kör dessa kommandon för alla sekundära repliker.
+    - Ersätt `<username>` med ditt användar namn.
+    - `mv` Kommandot flyttar filerna eller katalogen från en plats till en annan.
+    - `chown` Kommandot används för att ändra ägare och grupp av filer, kataloger eller länkar.
+    - Kör de här kommandona för alla sekundära repliker.
 
     ```bash
     sudo -i
@@ -616,7 +616,7 @@ Avsluta SQL CMD-sessionen `exit` genom att köra kommandot och återgå till SSH
     chown mssql:mssql dbm_certificate.*
     ```
 
-1. Följande Transact-SQL-skript skapar ett certifikat från säkerhetskopian som du skapade på den primära SQL Server-repliken. Uppdatera skriptet med starka lösenord. Dekrypteringslösenordet är samma lösenord som du använde för att skapa pvk-filen i föregående steg. Om du vill skapa certifikatet kör du följande skript med SQL CMD eller SSMS på alla sekundära servrar:
+1. Följande Transact-SQL-skript skapar ett certifikat från säkerhets kopian som du skapade på den primära SQL Server repliken. Uppdatera skriptet med starka lösen ord. Krypterings lösen ordet är samma lösen ord som du använde för att skapa. PVK-filen i föregående steg. Skapa certifikatet genom att köra följande skript med hjälp av SQL CMD eller SSMS på alla sekundära servrar:
 
     ```sql
     CREATE CERTIFICATE dbm_certificate
@@ -628,7 +628,7 @@ Avsluta SQL CMD-sessionen `exit` genom att köra kommandot och återgå till SSH
     GO
     ```
 
-### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>Skapa databasspeglingslutpunkter på alla repliker
+### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>Skapa slut punkter för databas spegling på alla repliker
 
 Kör följande skript på alla SQL-instanser med SQL CMD eller SSMS:
 
@@ -646,12 +646,12 @@ ALTER ENDPOINT [Hadr_endpoint] STATE = STARTED;
 GO
 ```
 
-### <a name="create-the-availability-group"></a>Skapa tillgänglighetsgruppen
+### <a name="create-the-availability-group"></a>Skapa tillgänglighets gruppen
 
-Anslut till SQL Server-instansen som är värd för den primära repliken med SQL CMD eller SSMS. Kör följande kommando för att skapa tillgänglighetsgruppen:
+Anslut till SQL Server-instansen som är värd för den primära repliken med SQL CMD eller SSMS. Skapa tillgänglighets gruppen genom att köra följande kommando:
 
-- Ersätt `ag1` med önskat tillgänglighetsgruppnamn.
-- Ersätt `<VM1>`, `<VM2>`och `<VM3>` värdena med namnen på SQL Server-instanserna som är värdar för replikerna.
+- Ersätt `ag1` med det önskade tillgänglighets grupp namnet.
+- Ersätt värdena `<VM1>`, `<VM2>`och `<VM3>` med namnen på de SQL Server instanser som är värdar för replikerna.
 
 ```sql
 CREATE AVAILABILITY GROUP [ag1]
@@ -684,11 +684,11 @@ ALTER AVAILABILITY GROUP [ag1] GRANT CREATE ANY DATABASE;
 GO
 ```
 
-### <a name="create-a-sql-server-login-for-pacemaker"></a>Skapa en SQL Server-inloggning för Pacemaker
+### <a name="create-a-sql-server-login-for-pacemaker"></a>Skapa en SQL Server inloggning för pacemaker
 
-Skapa en SQL-inloggning för Pacemaker på alla SQL-servrar. Följande Transact-SQL skapar en inloggning.
+Skapa en SQL-inloggning för pacemaker på alla SQL-servrar. Följande Transact-SQL skapar en inloggning.
 
-- Ersätt `<password>` med ditt eget komplexa lösenord.
+- Ersätt `<password>` med ditt eget komplexa lösen ord.
 
 ```sql
 USE [master]
@@ -701,7 +701,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
 GO
 ```
 
-Spara de autentiseringsuppgifter som används för SQL Server-inloggningen på alla SQL-servrar. 
+På alla SQL-servrar sparar du de autentiseringsuppgifter som används för SQL Server inloggningen. 
 
 1. Skapa filen:
 
@@ -709,32 +709,32 @@ Spara de autentiseringsuppgifter som används för SQL Server-inloggningen på a
     sudo vi /var/opt/mssql/secrets/passwd
     ```
 
-1. Lägg till följande två rader i filen:
+1. Lägg till följande 2 rader till filen:
 
     ```bash
     pacemakerLogin
     <password>
     ```
 
-    Om du vill avsluta vi-redigeraren trycker du `:wq` först på **Esc-tangenten** och anger sedan kommandot för att skriva filen och avsluta. **vi**
+    Om du vill avsluta **vi** -redigeraren trycker du först på **ESC** -tangenten och anger `:wq` sedan kommandot för att skriva filen och avsluta.
 
-1. Gör filen endast läsbar med root:
+1. Gör så att filen bara läsbar av roten:
 
     ```bash
     sudo chown root:root /var/opt/mssql/secrets/passwd
     sudo chmod 400 /var/opt/mssql/secrets/passwd
     ```
 
-### <a name="join-secondary-replicas-to-the-availability-group"></a>Ansluta sekundära repliker till tillgänglighetsgruppen
+### <a name="join-secondary-replicas-to-the-availability-group"></a>Koppla sekundära repliker till tillgänglighets gruppen
 
-1. För att kunna ansluta de sekundära replikerna till AG måste du öppna port 5022 i brandväggen för alla servrar. Kör följande kommando i SSH-sessionen:
+1. För att kunna ansluta de sekundära replikerna till AG måste du öppna port 5022 i brand väggen för alla servrar. Kör följande kommando i SSH-sessionen:
 
     ```bash
     sudo firewall-cmd --zone=public --add-port=5022/tcp --permanent
     sudo firewall-cmd --reload
     ```
 
-1. På dina sekundära repliker kör du följande kommandon för att ansluta dem till AG:
+1. Kör följande kommandon på dina sekundära repliker för att ansluta dem till AG:
 
     ```sql
     ALTER AVAILABILITY GROUP [ag1] JOIN WITH (CLUSTER_TYPE = EXTERNAL);
@@ -744,7 +744,7 @@ Spara de autentiseringsuppgifter som används för SQL Server-inloggningen på a
     GO
     ```
 
-1. Kör följande Transact-SQL-skript på den primära repliken och varje sekundär replik:
+1. Kör följande Transact-SQL-skript på den primära repliken och varje sekundär repliker:
 
     ```sql
     GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin;
@@ -754,15 +754,15 @@ Spara de autentiseringsuppgifter som används för SQL Server-inloggningen på a
     GO
     ```
 
-1. När de sekundära replikerna har anslutits kan du se dem i SSMS Object Explorer genom att expandera noden **Alltid vid hög tillgänglighet:**
+1. När de sekundära replikerna har anslutits kan du se dem i SSMS Object Explorer genom att expandera noden **Always on** -noden med hög tillgänglighet:
 
-    ![tillgänglighet-grupp-joined.png](media/sql-server-linux-rhel-ha-stonith-tutorial/availability-group-joined.png)
+    ![Availability-Group-JOINED. png](media/sql-server-linux-rhel-ha-stonith-tutorial/availability-group-joined.png)
 
-### <a name="add-a-database-to-the-availability-group"></a>Lägga till en databas i tillgänglighetsgruppen
+### <a name="add-a-database-to-the-availability-group"></a>Lägg till en databas i tillgänglighets gruppen
 
-Vi kommer att följa [artikeln konfigurera tillgänglighetsgrupp om hur du lägger till en databas](/sql/linux/sql-server-linux-availability-group-configure-ha#add-a-database-to-the-availability-group).
+Vi följer den [Konfigurera tillgänglighets grupp artikeln för att lägga till en databas](/sql/linux/sql-server-linux-availability-group-configure-ha#add-a-database-to-the-availability-group).
 
-Följande Transact-SQL-kommandon används i det här steget. Kör dessa kommandon på den primära repliken:
+Följande Transact-SQL-kommandon används i det här steget. Kör de här kommandona på den primära repliken:
 
 ```sql
 CREATE DATABASE [db1]; -- creates a database named db1
@@ -779,9 +779,9 @@ ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [db1]; -- adds the database db1 to t
 GO
 ```
 
-### <a name="verify-that-the-database-is-created-on-the-secondary-servers"></a>Kontrollera att databasen har skapats på de sekundära servrarna
+### <a name="verify-that-the-database-is-created-on-the-secondary-servers"></a>Kontrol lera att databasen har skapats på de sekundära servrarna
 
-På varje sekundär SQL Server-replik kör du följande fråga för att se om db1-databasen skapades och är i synkroniserat tillstånd:
+Kör följande fråga på varje sekundär SQL Server replik för att se om DB1-databasen har skapats och är i ett SYNKRONISERAt tillstånd:
 
 ```
 SELECT * FROM sys.databases WHERE name = 'db1';
@@ -789,21 +789,21 @@ GO
 SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.dm_hadr_database_replica_states;
 ```
 
-Om `synchronization_state_desc` listan SYNKRONISERAS `db1`för betyder det att replikerna är synkroniserade. Sekundärerna visas `db1` i den primära repliken.
+Om `synchronization_state_desc` listan är synkroniserad `db1`innebär det att replikerna är synkroniserade. Sekundärerna visas `db1` i den primära repliken.
 
-## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Skapa resurser för tillgänglighetsgrupp i pacemakerklustret
+## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Skapa tillgänglighets grupps resurser i pacemaker-klustret
 
-Vi kommer att följa guiden för att [skapa resurser för tillgänglighetsgruppen i Pacemaker-klustret](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
+Vi kommer att följa guiden för att [skapa tillgänglighets grupps resurserna i pacemaker-klustret](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
 
-### <a name="create-the-ag-cluster-resource"></a>Skapa AG-klusterresursen
+### <a name="create-the-ag-cluster-resource"></a>Skapa kluster resursen AG
 
-1. Använd följande kommando för `ag_cluster` att skapa resursen i tillgänglighetsgruppen `ag1`.
+1. Använd följande kommando för att skapa resursen `ag_cluster` i tillgänglighets gruppen. `ag1`
 
     ```bash
     sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
     ```
 
-1. Kontrollera din resurs och se till att de är online innan du fortsätter med följande kommando:
+1. Kontrol lera din resurs och se till att de är online innan du fortsätter med följande kommando:
 
     ```bash
     sudo pcs resource
@@ -820,7 +820,7 @@ Vi kommer att följa guiden för att [skapa resurser för tillgänglighetsgruppe
 
 ### <a name="create-a-virtual-ip-resource"></a>Skapa en virtuell IP-resurs
 
-1. Använd en tillgänglig statisk IP-adress från nätverket för att skapa en virtuell IP-resurs. Du kan hitta en `nmap`med kommandoverktyget .
+1. Använd en tillgänglig statisk IP-adress från nätverket för att skapa en virtuell IP-resurs. Du kan hitta en med hjälp av kommando `nmap`verktyget.
 
     ```bash
     nmap -sP <IPRange>
@@ -828,7 +828,7 @@ Vi kommer att följa guiden för att [skapa resurser för tillgänglighetsgruppe
     # The above will scan for all IP addresses that are already occupied in the 10.0.0.x space.
     ```
 
-1. Ange egenskapen **stonith-aktiverad** till false
+1. Ange egenskapen **stonith-Enabled** till false
 
     ```bash
     sudo pcs property set stonith-enabled=false
@@ -844,19 +844,19 @@ Vi kommer att följa guiden för att [skapa resurser för tillgänglighetsgruppe
 
 ### <a name="add-constraints"></a>Lägg till begränsningar
 
-1. För att säkerställa att IP-adressen och AG-resursen körs på samma nod måste ett samlokaliseringsvillkor konfigureras. Kör följande kommando:
+1. För att se till att IP-adressen och AG-resursen körs på samma nod måste en begränsning för samplacering konfigureras. Kör följande kommando:
 
     ```bash
     sudo pcs constraint colocation add virtualip ag_cluster-master INFINITY with-rsc-role=Master
     ```
 
-1. Skapa ett ordervillkor för att säkerställa att AG-resursen är igång före IP-adressen. Även om samlokaliseringsbegränsningen innebär ett beställningsvillkor, verkställer detta det.
+1. Skapa en ordnings begränsning för att se till att AG-resursen är igång före IP-adressen. Även om den samplacerings begränsningen indikerar en ordnings begränsning används den.
 
     ```bash
     sudo pcs constraint order promote ag_cluster-master then start virtualip
     ```
 
-1. Om du vill kontrollera begränsningarna kör du följande kommando:
+1. Verifiera begränsningarna genom att köra följande kommando:
 
     ```bash
     sudo pcs constraint list --full
@@ -875,7 +875,7 @@ Vi kommer att följa guiden för att [skapa resurser för tillgänglighetsgruppe
 
 ### <a name="re-enable-stonith"></a>Återaktivera stonith
 
-Vi är redo för testning. Aktivera stonith i klustret genom att köra följande kommando på nod 1:
+Vi är redo för testning. Återaktivera stonith i klustret genom att köra följande kommando på nod 1:
 
 ```bash
 sudo pcs property set stonith-enabled=true
@@ -883,7 +883,7 @@ sudo pcs property set stonith-enabled=true
 
 ### <a name="check-cluster-status"></a>Kontrollera klusterstatus
 
-Du kan kontrollera status för klusterresurserna med följande kommando:
+Du kan kontrol lera status för dina kluster resurser med följande kommando:
 
 ```output
 [<username>@VM1 ~]$ sudo pcs status
@@ -914,15 +914,15 @@ Daemon Status:
 
 ## <a name="test-failover"></a>Redundanstest
 
-För att säkerställa att konfigurationen har lyckats hittills kommer vi att testa en redundans. Mer information finns i [Alltid på tillgänglighet grupp redundans på Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
+För att säkerställa att konfigurationen har lyckats kommer vi att testa en redundansväxling. Mer information finns i [Always on redundans för tillgänglighets grupp på Linux](/sql/linux/sql-server-linux-availability-group-failover-ha).
 
-1. Kör följande kommando för att manuellt redundans den primära repliken till `<VM2>`. Ersätt `<VM2>` med värdet på servernamnet.
+1. Kör följande kommando för att manuellt redundansväxla den primära repliken `<VM2>`till. Ersätt `<VM2>` med värdet för Server namnet.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
     ```
 
-1. Om du kontrollerar dina begränsningar igen ser du att ett annat villkor har lagts till på grund av den manuella redundansen:
+1. Om du kontrollerar begränsningarna igen ser du att en annan begränsning har lagts till på grund av manuell redundans:
 
     ```output
     [<username>@VM1 ~]$ sudo pcs constraint list --full
@@ -936,13 +936,13 @@ För att säkerställa att konfigurationen har lyckats hittills kommer vi att te
     Ticket Constraints:
     ```
 
-1. Ta bort villkoret `cli-prefer-ag_cluster-master` med ID med följande kommando:
+1. Ta bort begränsningen med `cli-prefer-ag_cluster-master` ID med hjälp av följande kommando:
 
     ```bash
     sudo pcs constraint remove cli-prefer-ag_cluster-master
     ```
 
-1. Kontrollera klusterresurserna med `sudo pcs resource`kommandot och du bör se `<VM2>`att den primära instansen är nu .
+1. Kontrol lera kluster resurserna med kommandot `sudo pcs resource`och se till att den primära instansen är nu. `<VM2>`
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource
@@ -958,16 +958,16 @@ För att säkerställa att konfigurationen har lyckats hittills kommer vi att te
     virtualip      (ocf::heartbeat:IPaddr2):       Started <VM2>
     ```
 
-## <a name="test-fencing"></a>Testa stängsel
+## <a name="test-fencing"></a>Test staket
 
-Du kan testa STONITH genom att köra följande kommando. Prova att köra `<VM1>` kommandot `<VM3>`nedan från för .
+Du kan testa STONITH genom att köra följande kommando. Prova att köra kommandot nedan från `<VM1>` för `<VM3>`.
 
 ```bash
 sudo pcs stonith fence <VM3> --debug
 ```
 
 > [!NOTE]
-> Som standard inaktiverar stängselåtgärden noden och aktiveras sedan. Om du bara vill koppla från noden `--off` använder du alternativet i kommandot.
+> Avgränsnings åtgärden tar som standard noden av och sedan på. Om du bara vill ta noden offline använder du alternativet `--off` i kommandot.
 
 Du bör få följande utdata:
 
@@ -980,11 +980,11 @@ Return Value: 0
  
 Node: <VM3> fenced
 ```
-Mer information om hur du testar en stängselenhet finns i följande [Red Hat-artikel.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/s1-stonithtest-haar)
+Mer information om hur du testar en stängsel-enhet finns i följande [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/s1-stonithtest-haar) -artikel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att kunna använda en tillgänglighetsgrupplyssnare för dina SQL-servrar måste du skapa och konfigurera en belastningsutjämnare.
+Du måste skapa och konfigurera en belastningsutjämnare för att kunna använda en lyssnare för tillgänglighets grupper för dina SQL-servrar.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Konfigurera tillgänglighetsgruppavlyssnare för SQL Server på virtuella RHEL-datorer i Azure](sql-server-linux-rhel-ha-listener-tutorial.md)
+> [Självstudie: Konfigurera tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure](sql-server-linux-rhel-ha-listener-tutorial.md)

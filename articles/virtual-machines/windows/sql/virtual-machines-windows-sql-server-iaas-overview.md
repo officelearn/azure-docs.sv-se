@@ -15,10 +15,10 @@ ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 4186a4ed369eb289360b74c0758e5ce3f7eca929
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81482163"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
@@ -39,7 +39,7 @@ Virtuella Azure-datorer med SQL Server kan använda [automatisk korrigering](vir
 
 Virtuella Azure-datorer med SQL Server kan dra nytta av [automatisk säkerhetskopiering](virtual-machines-windows-sql-automated-backup-v2.md), som regelbundet skapar säkerhetskopior av databasen till Blob Storage. Du kan också använda den här tekniken manuellt. Mer information finns i [Använda Azure Storage för säkerhetskopiering och återställning av SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md).
 
-Azure erbjuder också en säkerhetskopieringslösning i företagsklass för SQL Server som körs i virtuella Azure-datorer. En fullständigt hanterad säkerhetskopieringslösning, den stöder alltid på tillgänglighetsgrupper, långsiktig kvarhållning, point-in-time-återställning och central hantering och övervakning. Mer information finns i [Azure Backup för SQL Server i Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+Azure erbjuder också en säkerhets kopierings lösning i företags klass för SQL Server som körs i virtuella Azure-datorer. En fullständigt hanterad säkerhets kopierings lösning som stöder Always on-tillgänglighetsgrupper, långsiktig kvarhållning, tidpunkts återställning och central hantering och övervakning. Mer information finns i [Azure Backup för SQL Server i Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
   
 
 ## <a name="high-availability"></a>Hög tillgänglighet
@@ -57,12 +57,12 @@ För att komma igång väljer du en avbildning av en virtuell dator med SQL Serv
 > [!TIP]
 > Mer information om att förstå prissättningen för SOL-avbildningar kan du läsa [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer). 
 
-### <a name="pay-as-you-go"></a><a id="payasyougo"></a>Betala allt eftersom
+### <a name="pay-as-you-go"></a><a id="payasyougo"></a>Betala per användning
 Följande tabell innehåller en matris med SQL Server-avbildningar som använder användningsbaserad betalning.
 
 | Version | Operativsystem | Utgåva |
 | --- | --- | --- |
-| **SQL Server 2019** | Windows Server 2019 | [Företag](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019enterprise), [Standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019standard), [Webb](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019web), [Utvecklare](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019sqldev) | 
+| **SQL Server 2019** | Windows Server 2019 | [Enterprise](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019enterprise), [standard](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019standard), [Web](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019web), [Developer](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019sqldev) | 
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
@@ -82,12 +82,12 @@ Om du vill använda din egen licens kan du antingen konvertera en befintlig virt
 | Version | Operativsystem | Utgåva |
 | --- | --- | --- |
 | **SQL Server 2019** | Windows Server 2019 | [Enterprise BYOL](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019-byolenterprise), [Standard  BYOL](https://ms.portal.azure.com/#create/microsoftsqlserver.sql2019-ws2019-byolstandard)| 
-| **SQL Server 2017** |Windows Server 2016 |[Företag BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
-| **SQL Server 2016 SP2** |Windows Server 2016 |[Företag BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
-| **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Företag BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
+| **SQL Server 2017** |Windows Server 2016 |[Enterprise-BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
+| **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise-BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
+| **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise-BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-Det är möjligt att distribuera en äldre avbildning av SQL Server som inte är tillgänglig i Azure-portalen med PowerShell. Om du vill visa alla tillgängliga avbildningar med hjälp av Powershell använder du följande kommando:
+Det går att distribuera en äldre avbildning av SQL Server som inte är tillgänglig i Azure Portal med PowerShell. Om du vill visa alla tillgängliga avbildningar med hjälp av Powershell använder du följande kommando:
 
   ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
@@ -102,24 +102,24 @@ När du har skapat din virtuella SQL Server-dator ansluter du till den från ett
 ### <a name="migrate-your-data"></a>Migrera dina data
 Om du har en befintlig databas vill du antagligen flytta den till den nyetablerade virtuella SQL-datorn. En lista över migreringsalternativ och anvisningar finns i [Migrera en databas till SQL Server på en virtuell dator i Azure](virtual-machines-windows-migrate-sql.md).
 
-## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Skapa och hantera Azure SQL-resurser med Azure-portalen
+## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Skapa och hantera Azure SQL-resurser med Azure Portal
 
-Azure-portalen innehåller en enda sida där du kan hantera [alla dina Azure SQL-resurser,](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) inklusive dina virtuella SQL-datorer.
+Azure Portal tillhandahåller en enda sida där du kan hantera [alla dina Azure SQL-resurser](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) , inklusive dina virtuella SQL-datorer.
 
-Om du vill komma åt sidan **Azure SQL-resurser** väljer du Azure SQL på **Azure-portalmenyn** eller söker efter och väljer **Azure SQL** på valfri sida.
+För att komma åt sidan **Azure SQL-resurser** väljer du **azure SQL** på Azure Portal-menyn eller söker efter och väljer **Azure SQL** från vilken sida som helst.
 
 ![Sök efter Azure SQL](./media/quickstart-sql-vm-create-portal/search-for-azure-sql.png)
 
 > [!NOTE]
-> **Azure SQL** är ett snabbt och enkelt sätt att komma åt alla dina SQL-databaser, elastiska pooler, databasservrar, SQL-hanterade instanser och virtuella SQL-datorer. Azure SQL är inte en tjänst eller resurs. 
+> **Azure SQL** är ett snabbt och enkelt sätt att få åtkomst till alla dina SQL-databaser, elastiska pooler, databas servrar, SQL-hanterade instanser och virtuella SQL-datorer. Azure SQL är inte en tjänst eller resurs. 
 
-Om du vill hantera befintliga resurser markerar du önskat objekt i listan. Om du vill skapa nya Azure SQL-resurser väljer du **+ Lägg till**. 
+Om du vill hantera befintliga resurser väljer du önskat objekt i listan. Om du vill skapa nya Azure SQL-resurser väljer du **+ Lägg till**. 
 
 ![Skapa Azure SQL-resurs](./media/quickstart-sql-vm-create-portal/create-azure-sql-resource.png)
 
-När du har valt **+ Lägg till**kan du visa ytterligare information om de olika alternativen genom att välja Visa **information** på en panel.
+När du har valt **+ Lägg till**, Visa ytterligare information om de olika alternativen genom att välja **Visa information** på valfri panel.
 
-![information om databaserpanel](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
+![panel information om databaser](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
 
 Mer information finns i:
 
@@ -142,7 +142,7 @@ CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det s
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Nätverk
-* [Översikt över virtuellt nätverk](../../../virtual-network/virtual-networks-overview.md)
+* [Översikt över Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [IP-adresser i Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Skapa ett fullständigt domännamn i Azure-portalen](../portal-create-fqdn.md)
 
@@ -160,7 +160,7 @@ Få svar på vanliga frågor om virtuella SQL-datorer:
 
 * [Vanliga frågor och svar om SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md)
 
-Visa referensarkitekturer för att köra N-nivåprogram på SQL Server i IaaS
+Visa referens arkitekturer för att köra program på N-nivå på SQL Server i IaaS
 
-* [Windows N-nivåprogram på Azure med SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Kör ett N-nivåprogram i flera Azure-regioner för hög tillgänglighet](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Windows N-Tier-program på Azure med SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Köra ett program på N-nivå i flera Azure-regioner för hög tillgänglighet](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 610bac5c08d7f3aa3c93e273bc6573a08ca1239f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680772"
 ---
-I följande exempel visas hur du skapar en 10-Gbps Direct-peering i Seattle.
+I följande exempel visas hur du skapar en 10 Gbit/s direkt peering i Seattle.
 
-Använd PowerShell cmdlet **New-AzPeeringDirectConnectionObject** för att skapa DirectConnection-objekt som ska användas i den nya peering-begäran.
+Använd PowerShell-cmdleten **New-AzPeeringDirectConnectionObject** för att skapa DirectConnection-objekt som ska användas i den nya peering-begäran.
 
-I det här exemplet visas hur du skapar ett DirectConnection-objekt.
+Det här exemplet visar hur du skapar ett DirectConnection-objekt.
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> Värdet för <index> **$peeringLocation[]** <index> i föregående exempel bör motsvara valfri peering-plats.
+> Värdet för <index> **$peeringLocation []** <index> i föregående exempel bör motsvara vilken peering-plats som helst.
 
-Skapa en annan anslutning om du behöver redundans på en viss peering-plats.
+Skapa en annan anslutning om du behöver redundans på en angiven peering-plats.
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Använd PowerShell cmdlet **New-AzPeering** för att skapa en ny Direct-peering. Det här kommandot kräver ett ASN-resurs-ID som kan hämtas enligt bilden här.
+Använd PowerShell-cmdleten **New-AzPeering** för att skapa en ny direkt peering. Det här kommandot kräver ett ASN-resurs-ID som kan hämtas som det visas här.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-I det här exemplet visas svaret när begäran bearbetades.
+I det här exemplet visas svaret när begäran har bearbetats.
 
 ```powershell
 
@@ -78,4 +78,4 @@ I det här exemplet visas svaret när begäran bearbetades.
     Tags                 : {}
 
 ```
-Observera att i stället **för {subscriptionId}** i den här utdata visas det faktiska prenumerations-ID:et.
+Observera att det faktiska prenumerations-ID: t visas i stället för **{subscriptionId}** i utdata.

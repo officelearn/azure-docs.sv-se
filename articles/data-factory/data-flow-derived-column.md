@@ -1,6 +1,6 @@
 ---
-title: Härledd kolumnomvandling vid mappning av dataflöde
-description: Lär dig hur du omvandlar data i stor skala i Azure Data Factory med omvandlingen av dataflödet för mappningsdataflöde.
+title: Härledd kolumn omvandling i data flöde för mappning
+description: Lär dig hur du omvandlar data i skala i Azure Data Factory med den härledda kolumn omvandlingen för data flöde.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,37 +8,37 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
 ms.openlocfilehash: 38ec2d4619f47bf9fc4d1815cb6e9990cef72dcf
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606494"
 ---
-# <a name="derived-column-transformation-in-mapping-data-flow"></a>Härledd kolumnomvandling vid mappning av dataflöde
+# <a name="derived-column-transformation-in-mapping-data-flow"></a>Härledd kolumn omvandling i data flöde för mappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Använd den härledda kolumnomvandlingen för att generera nya kolumner i dataflödet eller för att ändra befintliga fält.
+Använd omvandlingen för härledd kolumn för att skapa nya kolumner i ditt data flöde eller ändra befintliga fält.
 
-## <a name="derived-column-settings"></a>Härledda kolumninställningar
+## <a name="derived-column-settings"></a>Härledda kolumn inställningar
 
-Om du vill åsidosätta en befintlig kolumn markerar du den via kolumnrullgardermenyn. Annars använder du kolumnmarkeringsfältet som en textruta och skriver in den nya kolumnens namn. Om du vill skapa den härledda kolumnens uttryck klickar du på rutan "Ange uttryck" för att öppna [dataflödesuttrycksverktyget](concepts-data-flow-expression-builder.md).
+Om du vill åsidosätta en befintlig kolumn väljer du den via List rutan kolumn. Annars använder du fältet kolumn markering som en text ruta och skriver in namnet på den nya kolumnen. Skapa uttrycket för den härledda kolumnen genom att klicka på rutan "Ange uttryck" för att öppna [uttrycks verktyget för data flödet](concepts-data-flow-expression-builder.md).
 
-![Härledda kolumninställningar](media/data-flow/dc1.png "Härledda kolumninställningar")
+![Härledda kolumn inställningar](media/data-flow/dc1.png "Härledda kolumn inställningar")
 
-Om du vill lägga till ytterligare härledda kolumner hovrar du över en befintlig härledd kolumn och klickar på plusikonen. Välj antingen **Lägg till kolumn** eller Lägg till **kolumnmönster**. Kolumnmönster kan vara till pass om kolumnnamnen är variabla från dina källor. Mer information finns i [Kolumnmönster](concepts-data-flow-column-pattern.md).
+Om du vill lägga till ytterligare härledda kolumner, Hovra över en befintlig härledd kolumn och klicka på plus ikonen. Välj antingen **Lägg till kolumn** eller **Lägg till kolumn mönster**. Kolumn mönster kan komma att vara praktiska om kolumn namnen är variabla från dina källor. Mer information finns i [kolumn mönster](concepts-data-flow-column-pattern.md).
 
-![Ny härledd kolumnmarkering](media/data-flow/columnpattern.png "Ny härledd kolumnmarkering")
+![Ny härledd kolumn markering](media/data-flow/columnpattern.png "Ny härledd kolumn markering")
 
-## <a name="build-schemas-in-output-schema-pane"></a>Skapa scheman i fönstret Utdataschema
+## <a name="build-schemas-in-output-schema-pane"></a>Bygg scheman i fönstret utdata schema
 
-Kolumnerna som du ändrar och lägger till i schemat visas i fönstret Utdataschema. Du kan interaktivt skapa enkla och komplexa datastrukturer här. Om du vill lägga till ytterligare fält väljer du **Lägg till kolumn**. Om du vill skapa hierarkier väljer du **Lägg till underkolunn**.
+De kolumner som du ändrar och lägger till i schemat visas i fönstret utdata schema. Du kan bygga enkla och komplexa data strukturer interaktivt här. Om du vill lägga till fler fält väljer du **Lägg till kolumn**. Välj **Lägg till under kolumn**för att skapa hierarkier.
 
-![Lägg till underkolumn](media/data-flow/addsubcolumn.png "Lägg till underkolumn")
+![Lägg till under kolumn](media/data-flow/addsubcolumn.png "Lägg till under kolumn")
 
-Mer information om hur du hanterar komplexa typer i dataflödet finns [i JSON-hantering vid mappning av dataflöde](format-json.md#mapping-data-flow-properties).
+Mer information om hur du hanterar komplexa typer i data flöde finns i [JSON-hantering i mappa data flöde](format-json.md#mapping-data-flow-properties).
 
-![Lägga till komplex kolumn](media/data-flow/complexcolumn.png "Lägg till kolumner")
+![Lägg till komplex kolumn](media/data-flow/complexcolumn.png "Lägg till kolumner")
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 
@@ -59,13 +59,13 @@ Mer information om hur du hanterar komplexa typer i dataflödet finns [i JSON-ha
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en härledd kolumn med namnet `CleanData` som tar en inkommande ström `MoviesYear` och skapar två härledda kolumner. Den första härledda `Rating` kolumnen ersätter kolumnen med Rating värde som en heltalstyp. Den andra härledda kolumnen är ett mönster som matchar varje kolumn vars namn börjar med "filmer". För varje matchad kolumn skapas `movie` en kolumn som är lika med värdet för den matchade kolumnen som föregås av "movie_". 
+Exemplet nedan är en härledd kolumn med `CleanData` namnet som tar en inkommande `MoviesYear` data ström och skapar två härledda kolumner. Den första härledda kolumnen ersätter `Rating` kolumnen med gradering-värdet som en heltals typ. Den andra härledda kolumnen är ett mönster som matchar varje kolumn vars namn börjar med "filmer". För varje matchad kolumn skapar den en kolumn `movie` som är lika med värdet för den matchade kolumnen som föregås av movie_. 
 
-I Data Factory UX ser den här omvandlingen ut som bilden nedan:
+I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
-![Härleda exempel](media/data-flow/derive-script1.png "Härleda exempel")
+![Härled exempel](media/data-flow/derive-script1.png "Härled exempel")
 
-Dataflödesskriptet för den här omvandlingen finns i kodavsnittet nedan:
+Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
 
 ```
 MoviesYear derive(
@@ -79,4 +79,4 @@ MoviesYear derive(
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [uttrycksspråket Mappa dataflöde](data-flow-expression-functions.md).
+- Lär dig mer om [språket för mappning av data Flow-uttryck](data-flow-expression-functions.md).

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: 0a394c14842fe0c4eb4baa18cbb13acb8ca3170a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142461"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Fliken SKU: er för IoT Edge modul
@@ -52,7 +52,7 @@ I följande tabell beskrivs syfte, innehåll och formatering för fält under SK
 
 |  **Field**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Titel\***        | Rubrik för denna SKU. Maximal längd på 50 tecken. <br/> Den visas i Azure Portal och används som standard namn för modul (utan blank steg och specialtecken) när den distribueras. Se bilderna nedan om du vill se exakt var det här fältet visas.|
+| **Avdelning\***        | Rubrik för denna SKU. Maximal längd på 50 tecken. <br/> Den visas i Azure Portal och används som standard namn för modul (utan blank steg och specialtecken) när den distribueras. Se bilderna nedan om du vill se exakt var det här fältet visas.|
 | **Sammanfattning\***      | Kort sammanfattning av denna SKU. Maximal längd på 100 tecken. Sammanfatta **inte** erbjudandet, bara SKU: n.  Den här sammanfattningen visas på Azure Marketplace. Se bilderna nedan om du vill se exakt var det här fältet visas.|
 | **Beskrivning\***  | Kort beskrivning av denna SKU. Maximal längd på 3000 tecken. Beskriv inte erbjudandet men bara den här SKU: n. Den kommer att visas på Azure Marketplace och i Azure Portal. I Azure Portal läggs den till i Marketplace-beskrivningen som beskriver erbjudandet som definierats på Marketplace-fliken.  Det kan vara samma som SKU-sammanfattningen. Se bilderna nedan om du vill se exakt var det här fältet visas.|
 | **Dölj denna SKU\*** | Behåll standardinställningen, som är **Nej**. |
@@ -113,7 +113,7 @@ I följande tabell beskrivs syftet, innehållet och formateringen av fälten fö
 | **Registernamn\***  | Ditt ACR-register namn. Kopiera bara register namnet, inte inloggnings Server namnet (till exempel utan `azurecr.io`.) |
 | **Namn på databas\***  | Databas namnet för din ACR som innehåller din IoT Edge-modul. **Obs:** När namnet har angetts kan det inte ändras senare. Använd ett unikt namn för att se till att inget annat erbjudande i ditt konto har samma namn. |
 | **Användar\*** | Det användar namn som är associerat med din ACR (admin användar namn). |
-| **Ords\*** | Lösen ordet som är kopplat till din ACR. |
+| **lösenordsinställning\*** | Lösen ordet som är kopplat till din ACR. |
 |    |  ***Bildversion***   |
 | **Bildtagg eller sammanfattad\*** | Det måste minst innehålla en `latest` tagg och en versions tagg (till exempel från och med `xx.xx.xx-` där xx är ett tal). De bör vara [manifest-Taggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla Taggar som en manifest tag refererar till måste också läggas till så att vi kan ladda upp dem. Du kan lägga till flera versioner av en IoT Edge-modul med hjälp av taggar. Alla manifest Taggar (utom `latest`) måste börja med antingen `X.Y-` eller `X.Y.Z-` där X, Y, Z är heltal. Lär dig mer om [taggar och versioner i "förbereda din IoT Edge-modul tekniska till gångar"](./cpp-create-technical-assets.md). <br/> Om `latest` till exempel en tagg pekar på som pekar på `1.0.1-linux-x64`,, `1.0.1-linux-arm32`, och `1.0.1-windows-arm32`, måste du lägga till dessa 6-Taggar här. |
 |  |  |

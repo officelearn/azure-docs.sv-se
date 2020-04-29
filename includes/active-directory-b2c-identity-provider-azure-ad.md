@@ -6,23 +6,23 @@ ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
 ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678049"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registrera en Azure AD-app
 
-Om du vill aktivera inloggning för användare från en viss Azure AD-organisation måste du registrera ett program inom den organisatoriska Azure AD-klienten.
+Om du vill aktivera inloggning för användare från en specifik Azure AD-organisation måste du registrera ett program inom organisationens Azure AD-klient.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Kontrollera att du använder katalogen som innehåller din organisation Azure AD-klientorganisation (till exempel contoso.com). Välj **katalog + prenumerationsfilter** i den övre menyn och välj sedan den katalog som innehåller din Azure AD-klientorganisation.
-1. Välj **Alla tjänster** i det övre vänstra hörnet på Azure-portalen och sök sedan efter och välj **Appregistreringar**.
-1. Välj **Ny registrering**.
+1. Kontrol lera att du använder den katalog som innehåller din organisations Azure AD-klient (till exempel contoso.com). Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din Azure AD-klient.
+1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
+1. Välj **ny registrering**.
 1. Ange ett **namn** för ditt program. Till exempel `Azure AD B2C App`.
-1. Acceptera standardvalet av **konton i den här organisationskatalogen endast** för det här programmet.
-1. För **Omdirigera URI**godkänner du värdet **för webben**och anger följande `your-B2C-tenant-name` URL i alla gemener, där ersätts med namnet på din Azure AD B2C-klient.
+1. Godkänn standard valet av **konton endast i den här organisations katalogen** för det här programmet.
+1. För **omdirigerings-URI: n**, godkänn värdet för **webb**och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient.
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -30,19 +30,19 @@ Om du vill aktivera inloggning för användare från en viss Azure AD-organisati
 
     Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
-1. Välj **Registrera**. Registrera **program-ID:t (klient)** för användning i ett senare steg.
-1. Välj **Certifikat & hemligheter**och välj sedan Ny **klienthemlighet**.
-1. Ange en **beskrivning** för hemligheten, välj en förfallodatum och välj sedan **Lägg till**. Registrera **värdet** för hemligheten för användning i ett senare steg.
+1. Välj **Registrera**. Registrera **program-ID: t (Client)** för användning i ett senare steg.
+1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
+1. Ange en **Beskrivning** av hemligheten, Välj förfallo datum och välj sedan **Lägg till**. Registrera **värdet** för hemligheten som ska användas i ett senare steg.
 
 ### <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
-Om du vill `family_name` hämta `given_name` och anspråk från Azure AD kan du konfigurera valfria anspråk för ditt program i Azure-portalens användargränssnitt eller programmanifest. Mer information finns i [Så här anger du valfria anspråk till din Azure AD-app](/active-directory/develop/active-directory-optional-claims.md).
+Om du vill hämta `family_name` och `given_name` anspråk från Azure AD kan du konfigurera valfria anspråk för programmet i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](/active-directory/develop/active-directory-optional-claims.md).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
-1. Välj **Appregistreringar**i avsnittet **Hantera** .
+1. I avsnittet **Hantera** väljer du **Appregistreringar**.
 1. Välj det program som du vill konfigurera valfria anspråk för i listan.
-1. Välj **Tokenkonfiguration**i avsnittet **Hantera** .
+1. I avsnittet **Hantera** väljer du **token-konfiguration**.
 1. Välj **Lägg till valfritt anspråk**.
-1. För **tokentypen**väljer du **ID**.
-1. Välj valfria anspråk `family_name` att `given_name`lägga till och .
+1. I **tokentyp**väljer du **ID**.
+1. Välj de valfria anspråk som ska läggas `family_name` till `given_name`och.
 1. Klicka på **Lägg till**.

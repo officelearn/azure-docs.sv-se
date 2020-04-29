@@ -1,37 +1,37 @@
 ---
-title: Felsökning av Azure Application Insights-agent och kända problem | Microsoft-dokument
-description: De kända problemen med Application Insights Agent och felsökningsexempel. Övervaka webbplatsens prestanda utan att distribuera om webbplatsen. Fungerar med ASP.NET webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: Fel sökning och kända problem med Azure Application Insights-agenten | Microsoft Docs
+description: Kända problem med Application Insights agent och fel söknings exempel. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 9bb22b12a7b3e972ff144bd121db4288801e2488
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732943"
 ---
-# <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Felsöka Application Insights Agent (tidigare namnet Status Monitor v2)
+# <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Felsöka Application Insights agent (tidigare namngiven Statusövervakare v2)
 
-När du aktiverar övervakning kan det uppstå problem som förhindrar datainsamling.
-I den här artikeln visas alla kända problem och exempel på felsökning.
-Om du stöter på ett problem som inte finns med här kan du kontakta oss på [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
+När du aktiverar övervakning kan det uppstå problem som förhindrar insamling av data.
+Den här artikeln innehåller alla kända problem och fel söknings exempel.
+Om du kommer till ett problem som inte finns med i listan här kan du kontakta oss på [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 ## <a name="known-issues"></a>Kända problem
 
-### <a name="conflicting-dlls-in-an-apps-bin-directory"></a>Motstridiga DLL-filer i en apps lagerplatskatalog
+### <a name="conflicting-dlls-in-an-apps-bin-directory"></a>Bibliotek i konflikt i en Apps bin-katalog
 
-Om någon av dessa DLL finns i lagerplatskatalogen kan det hända att övervakningen misslyckas:
+Om någon av dessa DLL-filer finns i bin-katalogen kan övervakningen Miss Miss kan:
 
-- Microsoft.ApplicationInsights.dll
-- Microsoft.AspNet.TelemetryCorrelation.dll
-- System.Diagnostics.DiagnosticSource.dll
+- Microsoft. ApplicationInsights. dll
+- Microsoft. ASPNET. TelemetryCorrelation. dll
+- System. Diagnostics. DiagnosticSource. dll
 
-Vissa av dessa DLL-filer ingår i Standardappmallarna för Visual Studio, även om appen inte använder dem.
-Du kan använda felsökningsverktyg för att se symptomatiskt beteende:
+Vissa av dessa DLL-filer ingår i standardapparna för Visual Studio, även om din app inte använder dem.
+Du kan använda fel söknings verktyg för att Visa symptomatic beteende:
 
-- PerfView:
+- PerfView
     ```
     ThreadID="7,500" 
     ProcessorNumber="0" 
@@ -42,7 +42,7 @@ Du kan använda felsökningsverktyg för att se symptomatiskt beteende:
     FormattedMessage="Found 'System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' assembly, skipping attaching redfield binaries" 
     ```
 
-- IISReset och appbelastning (utan telemetri). Undersök med Sysinternals (Handle.exe och ListDLLs.exe):
+- IISReset och app load (utan telemetri). Undersök med Sysinternals (handle. exe och ListDLLs. exe):
     ```
     .\handle64.exe -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
     E54: File  (R-D)   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
@@ -53,15 +53,15 @@ Du kan använda felsökningsverktyg för att se symptomatiskt beteende:
     0x0000000004d20000  0xb2000   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.Extensions.Base_x64.dll
     ```
 
-### <a name="conflict-with-iis-shared-configuration"></a>Konflikt med IIS-delad konfiguration
+### <a name="conflict-with-iis-shared-configuration"></a>Konflikt med delad IIS-konfiguration
 
-Om du har ett kluster av webbservrar kanske du använder en [delad konfiguration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
-HttpModule kan inte injiceras i den här delade konfigurationen.
-Kör kommandot Aktivera på varje webbserver för att installera DLL i varje servers GAC.
+Om du har ett kluster av webb servrar kan du använda en [delad konfiguration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Det går inte att mata in HttpModule i denna delade konfiguration.
+Kör kommandot enable på varje webb server för att installera-DLL-filen i varje servers GAC.
 
-När du har kört kommandot Aktivera gör du så här:
-1. Gå till den delade konfigurationskatalogen och leta reda på filen applicationHost.config.
-2. Lägg till den här raden i modulen i konfigurationen:
+När du har kört kommandot Aktivera slutför du följande steg:
+1. Gå till den delade konfigurations katalogen och leta upp filen applicationHost. config.
+2. Lägg till den här raden i avsnittet moduler i konfigurationen:
     ```
     <modules>
         <!-- Registered global managed http module handler. The 'Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll' must be installed in the GAC before this config is applied. -->
@@ -69,15 +69,15 @@ När du har kört kommandot Aktivera gör du så här:
     </modules>
     ```
 
-### <a name="iis-nested-applications"></a>IIS kapslade program
+### <a name="iis-nested-applications"></a>IIS-kapslade program
 
-Vi instrumenterar inte kapslade program i IIS i version 1.0.
-Vi spårar det här problemet [här.](https://github.com/microsoft/ApplicationInsights-Home/issues/369)
+Vi instrumenterar inte kapslade program i IIS i version 1,0.
+Vi håller på att spåra det [här problemet.](https://github.com/microsoft/ApplicationInsights-Home/issues/369)
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>Avancerad SDK-konfiguration är inte tillgänglig.
 
-SDK-konfigurationen exponeras inte för slutanvändaren i version 1.0.
-Vi spårar det här problemet [här.](https://github.com/microsoft/ApplicationInsights-Home/issues/375)
+SDK-konfigurationen visas inte för slutanvändaren i version 1,0.
+Vi håller på att spåra det [här problemet.](https://github.com/microsoft/ApplicationInsights-Home/issues/375)
 
     
     
@@ -85,16 +85,16 @@ Vi spårar det här problemet [här.](https://github.com/microsoft/ApplicationIn
     
 ### <a name="troubleshooting-powershell"></a>Felsöka PowerShell
 
-#### <a name="determine-which-modules-are-available"></a>Ta reda på vilka moduler som är tillgängliga
-Du kan `Get-Module -ListAvailable` använda kommandot för att avgöra vilka moduler som är installerade.
+#### <a name="determine-which-modules-are-available"></a>Avgöra vilka moduler som är tillgängliga
+Du kan använda `Get-Module -ListAvailable` kommandot för att avgöra vilka moduler som är installerade.
 
 #### <a name="import-a-module-into-the-current-session"></a>Importera en modul till den aktuella sessionen
-Om en modul inte har lästs in i en PowerShell-session kan du läsa in den `Import-Module <path to psd1>` manuellt med kommandot.
+Om en modul inte har lästs in i en PowerShell-session kan du läsa in den manuellt `Import-Module <path to psd1>` med hjälp av kommandot.
 
 
-### <a name="troubleshooting-the-application-insights-agent-module"></a>Felsöka modulen Application Insights Agent
+### <a name="troubleshooting-the-application-insights-agent-module"></a>Felsöka modulen Application Insights agent
 
-#### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Lista de kommandon som är tillgängliga i modulen Application Insights Agent
+#### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Visa en lista med kommandon som är tillgängliga i modulen Application Insights agent
 Kör kommandot `Get-Command -Module Az.ApplicationMonitor` för att hämta tillgängliga kommandon:
 
 ```
@@ -110,50 +110,50 @@ Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az
 Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
-#### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Ta reda på den aktuella versionen av modulen Application Insights Agent
+#### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Ta reda på den aktuella versionen av modulen Application Insights agent
 Kör `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` kommandot för att visa följande information om modulen:
    - Version av PowerShell-modul
-   - Programinsikter SDK-version
-   - Filsökvägar för PowerShell-modulen
+   - Application Insights SDK-version
+   - Fil Sök vägar för PowerShell-modulen
     
-Granska [API-referensen](status-monitor-v2-api-reference.md) för en detaljerad beskrivning av hur du använder den här cmdleten.
+Se [API-referensen](status-monitor-v2-api-reference.md) för en detaljerad beskrivning av hur du använder den här cmdleten.
 
 
 ### <a name="troubleshooting-running-processes"></a>Felsöka processer som körs
 
-Du kan kontrollera processerna på den instrumenterade datorn för att avgöra om alla DLL-filer läses in.
-Om övervakningen fungerar ska minst 12 DLL-filer läsas in.
+Du kan kontrol lera processerna på den instrumenterade datorn för att avgöra om alla DLL-filer har lästs in.
+Om övervakningen fungerar bör minst 12 DLL-filer läsas in.
 
-Använd `Get-ApplicationInsightsMonitoringStatus -InspectProcess` kommandot för att kontrollera DLL:erna.
+Använd `Get-ApplicationInsightsMonitoringStatus -InspectProcess` kommandot för att kontrol lera DLL-filerna.
 
-Granska [API-referensen](status-monitor-v2-api-reference.md) för en detaljerad beskrivning av hur du använder den här cmdleten.
+Se [API-referensen](status-monitor-v2-api-reference.md) för en detaljerad beskrivning av hur du använder den här cmdleten.
 
 
-### <a name="collect-etw-logs-by-using-perfview"></a>Samla in ETW-loggar med hjälp av PerfView
+### <a name="collect-etw-logs-by-using-perfview"></a>Samla in ETW-loggar med PerfView
 
 #### <a name="setup"></a>Installation
 
-1. Ladda ned PerfView.exe och PerfView64.exe från [GitHub](https://github.com/Microsoft/perfview/releases).
-2. Starta PerfView64.exe.
-3. Expandera **avancerade alternativ**.
-4. Avmarkera de här kryssrutorna:
-    - **Zip**
+1. Hämta PerfView. exe och PerfView64. exe från [GitHub](https://github.com/Microsoft/perfview/releases).
+2. Starta PerfView64. exe.
+3. Expandera **Avancerade alternativ**.
+4. Avmarkera de här kryss rutorna:
+    - **Komprimera**
     - **Sammanfoga**
-    - **.NET-symbolsamling**
-5. Ange dessa **ytterligare leverantörer:**`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+    - **Samling med .NET-symboler**
+5. Ange följande **ytterligare providers**:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
-#### <a name="collecting-logs"></a>Samla in loggar
+#### <a name="collecting-logs"></a>Samlar in loggar
 
-1. I en kommandokonsol med administratörsbehörighet kör du `iisreset /stop` kommandot för att inaktivera IIS och alla webbappar.
-2. Välj **Starta samling**i PerfView .
-3. I en kommandokonsol med administratörsbehörighet kör du `iisreset /start` kommandot för att starta IIS.
+1. I en kommando konsol med administratörs behörighet kör du `iisreset /stop` kommandot för att stänga av IIS och alla webbappar.
+2. I PerfView väljer du **starta insamling**.
+3. I en kommando konsol med administratörs behörighet kör du `iisreset /start` kommandot för att starta IIS.
 4. Försök att bläddra till din app.
-5. När appen har lästs in går du tillbaka till PerfView och väljer **Stoppa samling**.
+5. När din app har lästs in återgår du till PerfView och väljer **stoppa insamling**.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [API-referensen](status-monitor-v2-overview.md#powershell-api-reference) för att lära dig mer om parametrar som du kan ha missat.
-- Om du stöter på ett problem som inte finns med här kan du kontakta oss på [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
+- Läs [API-referensen](status-monitor-v2-overview.md#powershell-api-reference) om du vill veta mer om parametrar som du kan ha missat.
+- Om du kommer till ett problem som inte finns med i listan här kan du kontakta oss på [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).

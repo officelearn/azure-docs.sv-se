@@ -3,12 +3,12 @@ title: Övervaka Java-program var som helst Azure Monitor Application Insights
 description: Kod för program prestanda övervakning för Java-program som körs i en miljö utan att du instrumenterar appen. Hitta rotor saken till problemen d med hjälp av Distributed tracing och program karta.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 5d930d349a2ab1efbd7a61904874bf6bdb411889
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509218"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81641893"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurations alternativ – Java fristående agent för Azure Monitor Application Insights
 
@@ -33,14 +33,14 @@ Du hittar mer information och ytterligare konfigurations alternativ nedan för m
 
 ## <a name="configuration-file-path"></a>Sökväg till konfigurations fil
 
-Application Insights Java 3,0 Preview förväntar sig som standard konfigurations filen som ska `ApplicationInsights.json`namnges och placeras i samma katalog som `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
+Application Insights Java 3,0 Preview förväntar sig som standard konfigurations filen som ska `ApplicationInsights.json`namnges och placeras i samma katalog som `applicationinsights-agent-3.0.0-PREVIEW.jar`.
 
 Du kan ange en egen sökväg för konfigurations filen med antingen
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE`miljö variabel eller
 * `applicationinsights.configurationFile`Java system egenskap
 
-Om du anger en relativ sökväg kommer den att matchas i förhållande till den katalog `applicationinsights-agent-3.0.0-PREVIEW.4.jar` där finns.
+Om du anger en relativ sökväg kommer den att matchas i förhållande till den katalog `applicationinsights-agent-3.0.0-PREVIEW.jar` där finns.
 
 ## <a name="connection-string"></a>Anslutningssträng
 
@@ -150,13 +150,11 @@ Om du har några JMX-mått som du är intresse rad av att fånga:
 }
 ```
 
-## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (inklusive mått från våren Boot-motstånd)
+## <a name="micrometer"></a>Micrometer
 
-Om ditt program använder [micrometer](https://micrometer.io), Application Insights 3,0 (från och med för hands version. 2) samlar nu in mått som skickas till det globala registret för micrometer.
+Om ditt program använder [Micrometer](https://micrometer.io)Application Insights 3,0 (från och med för hands version. 2) nu till micrometer globala register och samlar in micrometer mått.
 
-Om programmet använder [våren Boot-motstånd](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)Application Insights 3,0 (från och med för hands version. 4) samlar nu in mått som kon figurer ATS av våren Boot Boot-motstånd (som använder micrometer, men använder inte det globala micrometer-registret).
-
-Om du vill inaktivera dessa funktioner:
+Om du vill inaktivera den här funktionen:
 
 ```json
 {

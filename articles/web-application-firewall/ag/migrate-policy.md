@@ -1,6 +1,6 @@
 ---
 title: Migrera WAF-principer för Azure Application Gateway
-description: Lär dig hur du migrerar Azure Web Application Firewall principer med Azure PowerShell.
+description: Lär dig hur du migrerar principer för Azure Web Application-brandvägg med Azure PowerShell.
 services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
@@ -8,33 +8,33 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536632"
 ---
-# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrera brandväggsprinciper för webbprogram med Azure PowerShell
+# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrera brand Väggs principer för webb program med hjälp av Azure PowerShell
 
-Det här skriptet gör det enkelt att gå över från en WAF-konfiguration eller en anpassad WAF-princip endast för regler till en fullständig WAF-princip. Du kan se en varning i portalen som säger *migrera till WAF-principen*, eller så kanske du vill ha de nya offentliga förhandsversionen WAF-funktioner som Geomatch anpassade regler, per plats och per URI WAF-principen eller botreducerande regeluppsättning. Om du vill använda någon av dessa funktioner behöver du en fullständig WAF-princip som är kopplad till programgatewayen. 
+Det här skriptet gör det enkelt att överta från en WAF-konfiguration eller en anpassad WAF-princip till en fullständig WAF-princip. Du kan se en varning i portalen om att *migrera till WAF-principen*, eller så kanske du vill ha den nya offentliga för hands versions WAF funktioner som t. ex. OmMatcha anpassade regler, per plats och per-URI WAF-princip eller bot-ruleset. Om du vill använda någon av dessa funktioner behöver du en fullständig WAF-princip som är kopplad till din Application Gateway. 
 
-Mer information om hur du skapar en ny WAF-princip finns i [Skapa principer för brandvägg för webbprogram för Application Gateway](create-waf-policy-ag.md). Information om migrering finns i [Migrera till WAF-principen](create-waf-policy-ag.md#migrate-to-waf-policy).
+Mer information om hur du skapar en ny WAF-princip finns i [skapa brand Väggs principer för webb program för Application Gateway](create-waf-policy-ag.md). Information om migrering finns i [migrera till WAF-princip](create-waf-policy-ag.md#migrate-to-waf-policy).
 
-## <a name="to-migrate-to-waf-policy-using-the-migration-script"></a>Så här migrerar du till WAF-principen med migreringsskriptet
+## <a name="to-migrate-to-waf-policy-using-the-migration-script"></a>Migrera till WAF-principen med hjälp av skriptet för migrering
 
-Gör så här för att köra migreringsskriptet: 
+Använd följande steg för att köra migrations skriptet: 
 
-1. Öppna följande molnskalfönster eller öppna ett inifrån portalen.
-2. Kopiera skriptet till molnskalfönstret och kör det.
-3. Skriptet frågar efter prenumerations-ID, Resursgruppsnamn, namnet på programgatewayen som WAF-konfigurationen är associerad med och namnet på den nya WAF-principen som ska skapas. När du har angett dessa indata körs skriptet och skapar din nya WAF-princip
-4. Associera den nya WAF-principen med programgatewayen. Gå till WAF-principen i portalen och välj fliken **Associerade programgateways.** Välj **Associera en programgateway** och välj sedan programgatewayen att associera WAF-principen till.
+1. Öppna följande Cloud Shell-fönster eller öppna ett från portalen.
+2. Kopiera skriptet till Cloud Shell-fönstret och kör det.
+3. Skriptet frågar efter prenumerations-ID, resurs grupp namn, namnet på den Application Gateway som WAF-konfigurationen är associerad med och namnet på den nya WAF-princip som ska skapas. När du har angett dessa indata körs skriptet och skapar den nya WAF-principen
+4. Koppla den nya WAF-principen till din Application Gateway. Gå till WAF-principen i portalen och välj fliken **associerade programgatewayer** . Välj **associera en Application Gateway** och välj sedan Application Gateway som du vill associera WAF-principen till.
 
 > [!NOTE]
-> Skriptet slutför inte en migrering om följande villkor finns:
-> - En hel regel är inaktiverad. Om du vill slutföra en migrering kontrollerar du att en hel regelgrupp inte är inaktiverad.
-> - En uteslutningspost med samma operatör som *är lika med.* Om du vill slutföra en migrering kontrollerar du att det inte finns några *uteslutningsposter med operatorn Lika alla.*
+> Skriptet Slutför inte en migrering om följande villkor föreligger:
+> - En hel regel är inaktive rad. Om du vill slutföra en migrering kontrollerar du att en hel rulegroup inte är inaktive rad.
+> - En eller flera undantags poster med *samma* operator. Om du vill slutföra en migrering ser du till att undantags poster med *samma* operator saknas.
 >
-> Mer information finns i funktionen *ValidateInput* i skriptet.
+> Mer information finns i *ValidateInput* -funktionen i skriptet.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -219,4 +219,4 @@ Main
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [CRS-regelgrupper och regler för brandvägg för webbprogram.](application-gateway-crs-rulegroups-rules.md)
+Läs mer om [regel grupper och regler för program vara för brand vägg för webb program brand vägg](application-gateway-crs-rulegroups-rules.md).

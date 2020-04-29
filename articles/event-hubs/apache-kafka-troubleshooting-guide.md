@@ -1,5 +1,5 @@
 ---
-title: Felsöka problem med Azure Event Hubs för Apache Kafka
+title: Felsök problem med Azure Event Hubs för Apache Kafka
 description: Den här artikeln visar hur du felsöker problem med Azure Event Hubs för Apache Kafka
 services: event-hubs
 documentationcenter: ''
@@ -13,68 +13,68 @@ ms.workload: na
 ms.date: 04/01/2020
 ms.author: shvija
 ms.openlocfilehash: 12ddc5fa74b7a1b42bbd64fde9ec3410b1c1e425
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606735"
 ---
-# <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Felsökningsguide för Apache Kafka för eventhubbar
-Den här artikeln innehåller felsökningstips för problem som du kan stöta på när du använder Event Hubs för Apache Kafka. 
+# <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka fel söknings guide för Event Hubs
+Den här artikeln innehåller fel söknings tips för problem som du kan köra i när du använder Event Hubs för Apache Kafka. 
 
-## <a name="server-busy-exception"></a>Undantag för server upptagen
-Du kan få server busy undantag på grund av Kafka begränsning. Med AMQP-klienter returnerar Event Hubs omedelbart ett **serverupptaget** undantag vid servicebegränsning. Det motsvarar ett "försök igen senare"-meddelande. I Kafka försenas meddelanden innan de slutförs. Fördröjningslängden returneras i millisekunder `throttle_time_ms` som i produkten/hämtningssvaret. I de flesta fall loggas inte dessa försenade begäranden som ServerBusy-undantag på instrumentpaneler för händelsehubbar. I stället bör `throttle_time_ms` svarets värde användas som en indikator på att dataflödet har överskridit den etablerade kvoten.
+## <a name="server-busy-exception"></a>Undantag för Server upptagen
+Du kan få ett inaktivt undantag på servern på grund av Kafka-begränsning. Med AMQP-klienter returnerar Event Hubs omedelbart en **Server upptagen** undantag vid tjänst begränsning. Det motsvarar meddelandet "försök igen senare". I Kafka försenas meddelanden innan de slutförs. Fördröjnings längden returneras i millisekunder som `throttle_time_ms` i svaret på framställning/hämtning. I de flesta fall loggas inte dessa fördröjda förfrågningar som ServerBusy-undantag på Event Hubs instrument paneler. I stället bör svarets `throttle_time_ms` värde användas som en indikator att data flödet har överskridit den etablerade kvoten.
 
-Om trafiken är överdriven har tjänsten följande beteende:
+Om trafiken är för hög, har tjänsten följande beteende:
 
-- Om fördröjningen för begäran överskrider tidsgränsen för begäran returnerar eventhubbar **felkod för principöverträdelse.**
-- Om fördröjningen för hämtning av begäran överskrider tidsgränsen för begäran loggar Event Hubs begäran som begränsad och svarar med tom uppsättning poster och ingen felkod.
+- Om begärans fördröjning överskrids, kan Event Hubs returnera felkoden för **princip** fel.
+- Om fördröjningen för hämtnings begär Anden överskrider tids gränsen för begär Anden loggar Event Hubs begäran som begränsad och svarar med en tom uppsättning poster och ingen felkod.
 
-[Dedikerade kluster](event-hubs-dedicated-overview.md) har inte begränsningsmekanismer. Du kan använda alla klusterresurser.
+[Dedikerade kluster](event-hubs-dedicated-overview.md) har inga begränsnings metoder. Du är kostnads fri att använda alla dina kluster resurser.
 
 ## <a name="no-records-received"></a>Inga mottagna poster
-Du kan se konsumenterna inte får några poster och ständigt ombalansering. I det här fallet får konsumenterna inte några poster och ständigt balansera. Det finns inget undantag eller fel när det händer, men Kafka-loggarna visar att konsumenterna har fastnat försöker gå med i gruppen igen och tilldela partitioner. Det finns några möjliga orsaker:
+Det kan hända att konsumenter inte hämtar några poster och ombalanserar hela tiden. I det här scenariot får inte konsumenter några poster och ombalansera hela tiden. Det finns inget undantag eller fel när det händer, men Kafka-loggarna visar att konsumenterna fastnar i försök att återansluta till gruppen och tilldela partitioner. Det finns några möjliga orsaker:
 
-- Se till `request.timeout.ms` att du är minst det rekommenderade värdet på `session.timeout.ms` 60000 och att du är minst det rekommenderade värdet på 30000. Med dessa inställningar för låg kan orsaka konsumenternas timeout, som sedan orsakar ombalanseringar (som sedan orsakar mer timeout, vilket orsakar mer ombalansering, och så vidare) 
-- Om din konfiguration matchar dessa rekommenderade värden, och du fortfarande ser konstant ombalansering, är du välkommen att öppna ett problem (se till att inkludera hela din konfiguration i problemet så att vi kan hjälpa till att felsöka)!
+- Se till att minst `request.timeout.ms` ett av de rekommenderade värdena är 60000 och att det `session.timeout.ms` är minst det rekommenderade värdet 30000. Om du har dessa inställningar för låg kan det orsaka timeout för konsumenten, som sedan orsakar ombalanser (som sedan orsakar fler tids gränser, vilket orsakar mer ombalansering osv.) 
+- Om konfigurationen stämmer överens med de rekommenderade värdena och du fortfarande ser en konstant ombalansering, är det dags att öppna ett problem (se till att ta med hela konfigurationen i problemet så att vi kan hjälpa dig att felsöka)!
 
-## <a name="compressionmessage-format-version-issue"></a>Versionsproblem med komprimerings-/meddelandeformat
-Kafka stöder komprimering och eventhubbar för Kafka gör det för närvarande inte. Fel som nämner en version i meddelandeformat (till `The message format version on the broker does not support the request.`exempel) uppstår när en klient försöker skicka komprimerade Kafka-meddelanden till våra mäklare.
+## <a name="compressionmessage-format-version-issue"></a>Problem med komprimering/meddelande format version
+Kafka stöder komprimering och Event Hubs för Kafka för närvarande inte. Fel som nämner en meddelande format version (till exempel `The message format version on the broker does not support the request.`) orsakas när en klient försöker skicka komprimerade Kafka-meddelanden till våra mäklare.
 
-Om komprimerade data är nödvändigt är det en giltig lösning att komprimera dina data innan du skickar dem till mäklare och expanderade efter att ha tagit emot. Meddelandetexten är bara en byte-matris till tjänsten, så komprimering/dekompression på klientsidan orsakar inga problem.
+Om komprimerade data är nödvändiga komprimerar du dina data innan du skickar dem till utlösarna och dekomprimerar när du har fått en giltig lösning. Meddelande texten är bara en byte mat ris till tjänsten, så att komprimering/expandering på klient sidan inte orsakar några problem.
 
-## <a name="unknownserverexception"></a>OkändServerUtställning
-Du kan få en UnknownServerException från Kafka-klientbibliotek som liknar följande exempel: 
+## <a name="unknownserverexception"></a>UnknownServerException
+Du kan få en UnknownServerException från Kafka-klient bibliotek som liknar följande exempel: 
 
 ```
 org.apache.kafka.common.errors.UnknownServerException: The server experienced an unexpected error when processing the request
 ```
 
-Öppna en biljett med Microsoft-support.  Felsökningsnivå loggning och undantag tidsstämplar i UTC är till hjälp för felsökning av problemet. 
+Öppna ett ärende med Microsoft support.  Fel söknings-och undantags tids stämpling i UTC är till hjälp vid fel sökning av problemet. 
 
 ## <a name="other-issues"></a>Andra problem
-Kontrollera följande objekt om du ser problem när du använder Kafka på Event Hubs.
+Kontrol lera följande objekt om du ser problem när du använder Kafka på Event Hubs.
 
-- **Brandvägg blockerar trafik** - Kontrollera att port **9093** inte blockeras av brandväggen.
-- **TopicAuthorizationException** - De vanligaste orsakerna till det här undantaget är:
-    - Ett stavfel i anslutningssträngen i konfigurationsfilen, eller
-    - Försöker använda eventhubbar för Kafka på en namnområde på basic-nivå. Event Hubs för Kafka [stöds endast för namnområden på standard och dedikerad nivå](https://azure.microsoft.com/pricing/details/event-hubs/).
-- **Kafka version mismatch** - Event Hubs for Kafka Ecosystems stöder Kafka version 1.0 och senare. Vissa program som använder Kafka version 0.10 och senare kan ibland fungera på grund av Kafka-protokollets bakåtkompatibilitet, men vi rekommenderar starkt mot att använda gamla API-versioner. Kafka versioner 0.9 och tidigare stöder inte de nödvändiga SASL-protokollen och kan inte ansluta till Event Hubs.
-- **Konstiga kodningar på AMQP-huvuden när de konsumerar med Kafka** – när du skickar händelser till en händelsehubb över AMQP serialiseras alla AMQP-nyttolasthuvuden i AMQP-kodning. Kafka konsumenter inte deserialize rubrikerna från AMQP. Om du vill läsa rubrikvärden avkodar du AMQP-huvudena manuellt. Alternativt kan du undvika att använda AMQP-huvuden om du vet att du kommer att konsumera via Kafka-protokollet. Mer information finns i [det här problemet med GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
-- **SASL-autentisering** – Det kan vara svårare att få ramverket att samarbeta med SASL-autentiseringsprotokollet som krävs av Event Hubs än vad ögat ser. Se om du kan felsöka konfigurationen med hjälp av ramverkets resurser för SASL-autentisering. 
+- **Brand vägg som blockerar trafik** – kontrol lera att port **9093** inte blockeras av brand väggen.
+- **TopicAuthorizationException** – de vanligaste orsakerna till detta undantag är:
+    - Ett skrivfel i anslutnings strängen i konfigurations filen, eller
+    - Försöker använda Event Hubs för Kafka på ett Basic-skikts namn område. Event Hubs för Kafka [stöds endast för standard-och dedikerade-namnområden](https://azure.microsoft.com/pricing/details/event-hubs/).
+- **Kafka-versionen matchar inte** -Event Hubs för Kafka-eko system stöder Kafka-versionerna 1,0 och senare. Vissa program som använder Kafka version 0,10 och senare kan ibland fungera på grund av Kafka-protokollets bakåtkompatibla kompatibilitet, men vi rekommenderar starkt att du använder gamla API-versioner. Kafka version 0,9 och tidigare stöder inte de SASL-protokoll som krävs och kan inte ansluta till Event Hubs.
+- **Onormala kodningar i AMQP-huvuden vid användning med Kafka** – när du skickar händelser till en Event Hub via AMQP serialiseras alla AMQP nytto Last rubriker i AMQP encoding. Kafka-konsumenter deserialiserar inte huvudena från AMQP. Om du vill läsa rubrik värden avkodar du AMQP-huvudena manuellt. Alternativt kan du undvika att använda AMQP-huvuden om du vet att du kommer att använda Kafka-protokollet. Mer information finns i [det här GitHub-problemet](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
+- **Sasl-autentisering** – få ditt ramverk att samar beta med sasl-autentiseringsprotokollet som krävs av Event Hubs kan vara svårare än vad som uppfyller ögat. Se om du kan felsöka konfigurationen med hjälp av ramverkets resurser på SASL-autentisering. 
 
 ## <a name="limits"></a>Begränsningar
-Apache Kafka vs Event Hubs Kafka. För det mesta har eventhubbar för Kafka-ekosystem samma standardvärden, egenskaper, felkoder och allmänt beteende som Apache Kafka gör. De fall där dessa två uttryckligen skiljer sig åt (eller där Event Hubs inför en gräns som Kafka inte) visas nedan:
+Apache Kafka vs. Event Hubs Kafka. I de flesta fall har Event Hubs för Kafka eko system samma standardinställningar, egenskaper, felkoder och allmänt beteende som Apache Kafka gör. De instanser där de här två uttryckligen skiljer sig åt (eller där Event Hubs tillämpar en gräns för att Kafka inte) visas nedan:
 
-- Den maximala längden `group.id` på egenskapen är 256 tecken
-- Den maximala `offset.metadata.max.bytes` storleken på är 1024 byte
-- Förskjutningsantaganden begränsas med 4 anrop/sekund per partition med en maximal intern loggstorlek på 1 MB
+- `group.id` Egenskapens max längd är 256 tecken
+- Max storleken på `offset.metadata.max.bytes` är 1024 byte
+- Förskjutnings skrivningar är begränsade till 4 anrop per sekund per partition med en maximal intern logg storlek på 1 MB
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om eventhubbar och händelsehubbar för Kafka finns i följande artiklar:  
+Mer information om Event Hubs och Event Hubs för Kafka finns i följande artiklar:  
 
-- [Utvecklarguide för Apache Kafka för Event Hubs](apache-kafka-developer-guide.md)
-- [Guiden Apache Kafka-migrering för eventhubbar](apache-kafka-migration-guide.md)
-- [Vanliga frågor och svar - Event Hubs för Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Apache Kafka Developer Guide för Event Hubs](apache-kafka-developer-guide.md)
+- [Apache Kafka migrations guide för Event Hubs](apache-kafka-migration-guide.md)
+- [Vanliga frågor och svar – Event Hubs för Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Rekommenderade konfigurationer](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)

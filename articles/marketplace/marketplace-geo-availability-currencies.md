@@ -1,5 +1,5 @@
 ---
-title: Geografisk tillgänglighet och valutastöd för den kommersiella marknaden | Azure Marketplace
+title: Geografisk tillgänglighet och valuta support för den kommersiella Marketplace | Azure Marketplace
 description: Geografisk tillgänglighet på den kommersiella marknaden
 author: qianw211
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
 ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687590"
 ---
-# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valutastöd för kommersiell marknadsplats
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
-Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enligt kundens faktureringsadress, och transaktioner kan slutföras i 17 valutor. I tabellen nedan visas varje geografisk plats som stöds, dess [tvåsiffriga ISO 3166-alfakod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)och den tilldelade valutan.
+Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som definieras av kundens fakturerings adress, och transaktioner kan slutföras i 17 valutor. Tabellen nedan visar varje geografisk plats som stöds, dess [ISO 3166 2-siffriga alfa kod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)och den tilldelade valutan.
 
-|   Namn på land/region               |   ISO-2   |   Valuta   |
+|   Land/region namn               |   ISO-2   |   Valuta   |
 |-------------------------------------|-----------|--------------|
 | Afghanistan                         | AF        | USD          |
 | Albanien                             | AL        | USD          |
@@ -36,7 +36,7 @@ Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enli
 | Vitryssland                             | BY        | USD          |
 | Belgien                             | BE        | EUR          |
 | Belize                              | BZ        | USD          |
-| Bermuda                             | Bm        | USD          |
+| Bermuda                             | BM        | USD          |
 | Bolivia                             | BO        | USD          |
 | Bosnien och Hercegovina              | BA        | USD          |
 | Botswana                            | BW        | USD          |
@@ -48,12 +48,12 @@ Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enli
 | Cabo Verde                          | CV        | USD          |
 | Caymanöarna                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Kina\**                            | CN        | Ej tillämpligt          |
+| Porslin\**                            | CN        | Ej tillämpligt          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
 | Kroatien                             | HR        | EUR          |
-| Curaçao                             | Cw        | USD          |
+| Curaçao                             | FELAKTIG        | USD          |
 | Cypern                              | CY        | EUR          |
 | Tjeckien                      | CZ        | EUR          |
 | Danmark                             | DK        | DKK          |
@@ -63,7 +63,7 @@ Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enli
 | El Salvador                         | SV        | USD          |
 | Estland                             | EE        | EUR          |
 | Etiopien                            | ET        | USD          |
-| Färöarna                       | Fo        | DKK          |
+| Färöarna                       | DETALJERADE        | DKK          |
 | Fiji                                | FJ        | AUD          |
 | Finland                             | FI        | EUR          |
 | Frankrike                              | FR        | EUR          |
@@ -87,7 +87,7 @@ Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enli
 | Jordanien                              | JO        | USD          |
 | Kazakhstan                          | KZ        | USD          |
 | Kenya                               | KE        | USD          |
-| Korea (Söder)                       | KR        | KRW          |
+| Korea (södra)                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
 | Kirgizistan                          | KG        | USD          |
 | Lettland                              | LV        | EUR          |
@@ -100,7 +100,7 @@ Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enli
 | Nordmakedonien                     | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
-| Mauritius                           | Mu        | USD          |
+| Mauritius                           | MK        | USD          |
 | Mexiko                              | MX        | USD          |
 | Moldavien                             | MD        | USD          |
 | Monaco                              | MC        | EUR          |
@@ -141,7 +141,7 @@ Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enli
 | Sverige                              | SE        | SEK          |
 | Schweiz                         | CH        | CHF          |
 | Taiwan                              | TW        | TWD          |
-| Tadzjikistan                          | Tj        | USD          |
+| Tadzjikistan                          | TJ        | USD          |
 | Tanzania                            | TZ        | USD          |
 | Thailand                            | TH        | USD          |
 | Trinidad och Tobago                 | TT        | USD          |
@@ -149,7 +149,7 @@ Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enli
 | Turkiet                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
 | Vatikanstaten (Heliga stolen)             | VA        | EUR          |
-| Jungfruöarna i USA | VI        | USD          |
+| Jungfru öarna i USA | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ukraina                             | UA        | USD          |
 | Förenade Arabemiraten                | AE        | USD          |
@@ -159,11 +159,11 @@ Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enli
 | Uzbekistan                          | UZ        | USD          |
 | Venezuela                           | VE        | USD          |
 | Vietnam                             | VN        | USD          |
-| Jemen                               | Ni        | USD          |
+| Jemen                               | CHANSEN        | USD          |
 | Zambia                              | ZM        | USD          |
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\*För kunder i Brasilien använder Marketplace via CSP (Cloud Solution Providers) USD.
+\*För kunder i Brasilien använder Marketplace via Cloud solution providers (CSP) USD.
 
-\** Gratis och BYOL VM-bilder bara.
+\** Endast kostnads fria och BYOL VM-avbildningar.

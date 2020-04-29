@@ -1,6 +1,6 @@
 ---
-title: Standardavtal | Azure Marketplace
-description: Standardkontrakt för Azure Marketplace och AppSource
+title: Standard kontrakt | Azure Marketplace
+description: Standard kontrakt för Azure Marketplace och AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,46 +8,46 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
 ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681452"
 ---
-# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standardkontrakt för Microsofts kommersiella marknadsplats
+# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsofts kommersiella marknads plats
 
-För att förenkla upphandlingsprocessen för kunder och minska den juridiska komplexiteten för programvaruleverantörer erbjuder Microsoft ett standardavtal för Microsofts kommersiella marknadsplats för att underlätta transaktioner på marknaden. Hellre än crafting anpassade villkor, kommersiella marknadsplats förlag kan välja att erbjuda sin programvara enligt standardavtalet, som kunderna bara behöver veterinär och acceptera en gång. Standardavtalet hittar du här: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
+För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt för Microsofts handels marknads plats för att under lätta transaktioner i Marketplace. I stället för att utforma anpassade villkor, kan kommersiella Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. Du hittar standard kontraktet här: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
 
-Villkoren för ett erbjudande definieras när erbjudandet skapas i Partner center. Du kan välja att använda standardkontraktet för Microsofts kommersiella marknadsplats i stället för att tillhandahålla dina egna anpassade villkor.
-
->[!Note]
->När du har publicerat ett erbjudande med standardkontraktet för Microsofts kommersiella marknadsplats kan du inte använda dina egna anpassade villkor. Det är ett "eller" scenario. Du erbjuder antingen din lösning enligt standardavtalet *eller* dina egna villkor. Om du vill ändra villkoren i standardavtalet kan du göra det genom standardavtalsändringar.
-
-## <a name="standard-contract-amendments"></a>Standardändring av kontrakt
-
-Standardavtalsändringar gör det möjligt för utgivare att välja standardkontraktet för enkelhetens skull och med anpassade villkor för sin produkt eller verksamhet. Kunderna behöver bara granska ändringarna i avtalet om de redan har granskat och accepterat Microsofts standardavtal.
-
-Det finns två typer av ändringar tillgängliga för kommersiella marknadsplatsutgivare:
-
-* Universella ändringar: Dessa ändringar tillämpas allmänt på standardavtalet för alla kunder. Universella ändringar visas för varje kund av erbjudandet i inköpsflödet. Kunderna måste acceptera villkoren i standardavtalet och ändringen innan de kan använda ditt erbjudande.
-
-* Anpassade ändringar: Dessa ändringar är särskilda ändringar av standardkontraktet som endast är riktade till specifika kunder via Azure-klient-ID:er. Utgivare kan välja vilken klient de vill rikta in sig på. Endast kunder från klienten kommer att presenteras med de anpassade ändringsvillkoren i erbjudandets inköpsflöde.  Kunderna måste acceptera villkoren i standardavtalet och de ändringar som gäller innan de kan använda ditt erbjudande.
+Villkoret för ett erbjudande definieras när du skapar erbjudandet i Partner Center. Du kan välja att använda standard kontraktet för Microsofts kommersiella marknads plats i stället för att tillhandahålla egna allmänna villkor.
 
 >[!Note]
->Dessa två typer av ändringsförslag stapla ovanpå varandra. Kunder som är inriktade på anpassade ändringar kommer också att få den universella ändringen av standardavtalet vid köp.
+>När du har publicerat ett erbjudande med hjälp av standard avtalet för Microsofts kommersiella marknads plats kan du inte använda dina egna anpassade villkor. Det är ett "eller"-scenario. Du erbjuder antingen din lösning enligt standard avtalet *eller* dina egna villkor. Om du vill ändra villkoren i standard kontraktet kan du göra det via standard kontrakts ändringar.
 
-Du kan utnyttja standardkontraktet för Microsofts kommersiella marknadsplats för följande erbjudandetyper: Azure Applications (lösningsmallar och hanterade program), virtuella datorer, behållare, behållarprogram, IoT Edge-moduler och SaaS.
+## <a name="standard-contract-amendments"></a>Standard kontrakts ändringar
 
-## <a name="customer-experience"></a>Kundupplevelse
+Med standard kontrakts ändringar kan utgivare välja standard kontrakt för enkelhetens skull och med anpassade villkor för produkten eller verksamheten. Kunderna behöver bara granska ändringarna i kontraktet, om de redan har granskat och godkänt Microsofts standard kontrakt.
 
-Under identifieringsupplevelsen på Azure Marketplace eller AppSource kan kunderna se villkoren som är kopplade till erbjudandet som standardkontraktet för Microsofts kommersiella marknadsplats och eventuella universella ändringar.
+Det finns två typer av ändringar som är tillgängliga för kommersiella Marketplace-utgivare:
 
-![Azure portal kundidentifieringsupplevelse.](media/marketplace-publishers-guide/azure-discovery-process.png)
+* Universella ändringar: dessa ändringar tillämpas universellt på standard kontraktet för alla kunder. Universella ändringar visas för varje kund av erbjudandet i inköps flödet. Kunderna måste godkänna villkoren i standard kontraktet och ändringen innan de kan använda ditt erbjudande.
 
-Under inköpsprocessen i Azure-portalen kan kunderna se villkoren som är kopplade till erbjudandet som standardkontraktet för Microsofts kommersiella marknadsplats och eventuella universella och/eller klientspecifika ändringar.
+* Anpassade ändringar: dessa ändringar är särskilda ändringar i standard kontraktet som endast är riktade till specifika kunder via klient-ID: n för Azure. Utgivare kan välja den klient som de vill rikta in sig på. Endast kunder från klient organisationen visas med de anpassade ändrings villkoren i erbjudandets inköps flöde.  Kunderna måste godkänna villkoren i standard kontraktet och ändringarna innan de kan använda ditt erbjudande.
 
-![Azure portal kundinköp erfarenhet.](media/marketplace-publishers-guide/azure-purchase-process.png)
+>[!Note]
+>Dessa två typer av ändringar staplas ovanpå varandra. Kunder som är riktade mot anpassade ändringar får också den universella ändringen av standard kontraktet under köpet.
+
+Du kan utnyttja standard kontraktet för Microsofts kommersiella marknads plats för följande erbjudande typer: Azure-program (lösningsfiler och hanterade program), Virtual Machines, behållare, behållar program, IoT Edge moduler och SaaS.
+
+## <a name="customer-experience"></a>Kund upplevelse
+
+Under identifierings upplevelsen i Azure Marketplace eller AppSource kommer kunderna att kunna se de villkor som är associerade med erbjudandet som standard kontrakt för Microsofts kommersiella marknads plats och eventuella universella ändringar.
+
+![Azure Portal kund identifierings upplevelsen.](media/marketplace-publishers-guide/azure-discovery-process.png)
+
+Under inköps processen i Azure Portal kan kunderna se villkoren som är associerade med erbjudandet som standard kontrakt för Microsofts kommersiella marknads platser och alla universella och/eller klientbaserade ändringar.
+
+![Azure Portal kundens köp upplevelse.](media/marketplace-publishers-guide/azure-purchase-process.png)
 
 ## <a name="api"></a>API
 
-Kunder kan använda Get-AzureRmMarketplaceTerms för att hämta villkoren för ett erbjudande och acceptera det. Standardkontraktet och tillhörande ändringar returneras i cmdletens utdata.
+Kunder kan använda Get-AzureRmMarketplaceTerms för att hämta villkoren för ett erbjudande och godkänna det. Standard kontraktet och tillhör ande ändringar kommer att returneras i utdata från cmdleten.

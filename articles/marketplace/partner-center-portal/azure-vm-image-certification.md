@@ -1,6 +1,6 @@
 ---
 title: Certifiering av virtuella Azure-datorer – Azure Marketplace
-description: Lär dig hur du testar och skickar ett erbjudande om virtuella datorer på den kommersiella marknadsplatsen.
+description: Lär dig hur du testar och skickar ett erbjudande för virtuella datorer på den kommersiella marknads platsen.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
@@ -8,28 +8,28 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731130"
 ---
-# <a name="azure-virtual-machine-vm-image-certification"></a>Azure-avbildningscertifiering (Virtual Machine)
+# <a name="azure-virtual-machine-vm-image-certification"></a>Avbildnings certifiering för virtuella Azure-datorer (VM)
 
 > [!NOTE]
-> Vi flyttar hanteringen av dina Azure VM-erbjudanden från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats fortsätter du att följa instruktionerna i [Skapa certifikat för Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) i Cloud Partner Portal för att hantera dina erbjudanden.
+> Vi flyttar hanteringen av dina virtuella Azure-erbjudanden från Cloud Partner Portal till Partner Center. Fortsätt att följa anvisningarna i [Skapa certifikat för Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) i Cloud Partner Portal för att hantera dina erbjudanden innan du migrerar dina erbjudanden.
 
-I den här artikeln beskrivs hur du testar och skickar in en virtuell datoravbildning (VM) på den kommersiella marknadsplatsen för att säkerställa att den uppfyller de senaste publiceringskraven för Azure Marketplace.
+Den här artikeln beskriver hur du testar och skickar en virtuell dator avbildning (VM) på den kommersiella Marketplace för att säkerställa att den uppfyller de senaste publicerings kraven för Azure Marketplace.
 
-Gör så här innan du skickar in ditt VM-erbjudande:
+Slutför de här stegen innan du skickar ditt virtuella dator erbjudande:
 
 1. Skapa och distribuera certifikat.
-2. Distribuera en Virtuell Azure-dator med hjälp av din generaliserade avbildning.
-3. Kör valideringar.
+2. Distribuera en virtuell Azure-dator med hjälp av din generaliserade avbildning.
+3. Köra valideringar.
 
 ## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Skapa och distribuera certifikat för Azure Key Vault
 
-I det här avsnittet beskrivs hur du skapar och distribuerar de självsignerade certifikat som krävs för att konfigurera WinRM-anslutning (Windows Remote Management) till en virtuell Azure-värddator.
+I det här avsnittet beskrivs hur du skapar och distribuerar de självsignerade certifikat som krävs för att konfigurera Windows Remote Management (WinRM)-anslutning till en virtuell Azure-värd dator.
 
 ### <a name="create-certificates-for-azure-key-vault"></a>Skapa certifikat för Azure Key Vault
 
@@ -37,21 +37,21 @@ Den här processen består av tre steg:
 
 1. Skapa säkerhetscertifikatet.
 2. Skapa Azure Key Vault för att lagra certifikatet.
-3. Lagra certifikaten till nyckelvalvet.
+3. Lagra certifikaten i nyckel valvet.
 
-Du kan använda antingen en ny eller en befintlig Azure-resursgrupp för det här arbetet.
+Du kan använda antingen en ny eller en befintlig Azure-resurs grupp för detta arbete.
 
 #### <a name="create-the-security-certificate"></a>Skapa säkerhetscertifikatet
 
-Redigera och kör följande Azure PowerShell-skript för att skapa certifikatfilen (.pfx) i en lokal mapp. Ersätt värdena för de parametrar som visas i följande tabell.
+Redigera och kör följande Azure PowerShell skript för att skapa certifikat filen (. pfx) i en lokal mapp. Ersätt värdena för parametrarna som visas i följande tabell.
 
-| **Parametern** | **Beskrivning** |
+| **ProfileServiceApplicationProxy** | **Beskrivning** |
 | --- | --- |
-| $certroopath | Lokal mapp för att spara PFX-filen till. |
-| $location | En av Azure-standardge geographic locations. |
+| $certroopath | Lokal mapp där PFX-filen ska sparas. |
+| $location | En av de geografiska standard platserna för Azure. |
 | $vmName | Namnet på den planerade virtuella Azure-datorn. |
-| $certname | Intygets namn. måste matcha det fullständigt kvalificerade domännamnet för den planerade virtuella datorn. |
-| $certpassword | Lösenord för certifikaten måste matcha lösenordet som används för den planerade virtuella datorn. |
+| $certname | Certifikatets namn. måste matcha det fullständigt kvalificerade domän namnet för den planerade virtuella datorn. |
+| $certpassword | Lösen ordet för certifikaten måste matcha det lösen ord som används för den planerade virtuella datorn. |
 | | |
 
 ```PowerShell
@@ -82,14 +82,14 @@ Redigera och kör följande Azure PowerShell-skript för att skapa certifikatfil
 ```
 
 > [!TIP]
-> Håll samma Azure PowerShell-konsolsession öppen och körs under dessa steg för att behålla värdena för de olika parametrarna.
+> Se till att samma Azure PowerShell-konsolsession är öppen och körs under de här stegen för att behålla värdena för de olika parametrarna.
 
 > [!WARNING]
-> Om du sparar skriptet sparar du det bara på en säker plats eftersom det innehåller säkerhetsinformation (ett lösenord).
+> Om du sparar skriptet ska du bara spara det på en säker plats eftersom det innehåller säkerhets information (ett lösen ord).
 
-#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Skapa Azure-nyckelvalvet för att lagra certifikatet
+#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Skapa Azure Key Vault för att lagra certifikatet
 
-Kopiera innehållet i mallen nedan till en fil på den lokala datorn. I exempelskriptet nedan är `C:\certLocation\keyvault.json`den här resursen ).
+Kopiera innehållet i mallen nedan till en fil på den lokala datorn. I exempel skriptet nedan är `C:\certLocation\keyvault.json`den här resursen).
 
 ```json
 {
@@ -184,15 +184,15 @@ Kopiera innehållet i mallen nedan till en fil på den lokala datorn. I exempels
 
 ```
 
-Redigera och kör följande Azure PowerShell-skript för att skapa ett Azure Key Vault och den associerade resursgruppen. Ersätta värdena för de parametrar som visas i följande tabell
+Redigera och kör följande Azure PowerShell skript för att skapa en Azure Key Vault och den tillhör ande resurs gruppen. Ersätt värdena för parametrarna som visas i följande tabell
 
-| **Parametern** | **Beskrivning** |
+| **ProfileServiceApplicationProxy** | **Beskrivning** |
 | --- | --- |
-| $postfix | Slumpmässig numerisk sträng kopplad till distributionsidentifierare. |
-| $rgName | Azure resource group (RG) namn att skapa. |
-| $location | En av Azure-standardge geographic locations. |
-| $kvTemplateJson | Sökväg till filen (keyvault.json) som innehåller Resource Manager-mall för nyckelvalv. |
-| $kvname | Namnet på det nya nyckelvalvet.|
+| $postfix | Slumpmässig numerisk sträng som är kopplad till distributions identifierare. |
+| $rgName | Namn på Azure Resource Group (RG) som ska skapas. |
+| $location | En av de geografiska standard platserna för Azure. |
+| $kvTemplateJson | Sökväg till filen (Key Vault. JSON) som innehåller Resource Manager-mall för nyckel valv. |
+| $kvname | Namnet på det nya nyckel valvet.|
 |   |   |
 
 ```PowerShell
@@ -291,9 +291,9 @@ Redigera och kör följande Azure PowerShell-skript för att skapa ett Azure Key
 
 ```
 
-#### <a name="store-the-certificates-to-the-key-vault"></a>Lagra certifikaten till nyckelvalvet
+#### <a name="store-the-certificates-to-the-key-vault"></a>Lagra certifikaten i nyckel valvet
 
-Lagra certifikaten i PFX-filen till det nya nyckelvalvet med det här skriptet:
+Lagra certifikaten som finns i. pfx-filen till det nya nyckel valvet med det här skriptet:
 
 ```PowerShell
      $fileName =$certroopath+"\$certname"+".pfx"
@@ -317,13 +317,13 @@ Lagra certifikaten i PFX-filen till det nya nyckelvalvet med det här skriptet:
 
 ```
 
-## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Distribuera en virtuell Azure-dator med hjälp av den generaliserade avbildningen
+## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Distribuera en virtuell Azure-dator med hjälp av din generaliserade avbildning
 
-I det här avsnittet beskrivs hur du distribuerar en generaliserad VHD-avbildning för att skapa en ny Azure VM-resurs. För den här processen använder vi den medföljande Azure Resource Manager-mallen och Azure PowerShell-skriptet.
+I det här avsnittet beskrivs hur du distribuerar en generaliserad VHD-avbildning för att skapa en ny Azure VM-resurs. I den här processen använder vi den tillhandahållna Azure Resource Manager-mallen och Azure PowerShell skriptet.
 
-### <a name="prepare-an-azure-resource-manager-template"></a>Förbereda en Azure Resource Manager-mall
+### <a name="prepare-an-azure-resource-manager-template"></a>Förbereda en Azure Resource Manager mall
 
-Kopiera följande Azure Resource Manager-mall för VHD-distribution till en lokal fil med namnet VHDtoImage.json. Nästa skript kommer att begära platsen på den lokala datorn för att använda denna JSON.
+Kopiera följande Azure Resource Manager mall för VHD-distribution till en lokal fil med namnet VHDtoImage. JSON. Nästa skript kommer att begära platsen på den lokala datorn att använda denna JSON.
 
 ```JSON
 {
@@ -558,32 +558,32 @@ Kopiera följande Azure Resource Manager-mall för VHD-distribution till en loka
 
 ```
 
-Redigera den här filen om du vill ange värden för dessa parametrar:
+Redigera den här filen för att ange värden för dessa parametrar:
 
-| **Parametern** | **Beskrivning** |
+| **ProfileServiceApplicationProxy** | **Beskrivning** |
 | --- | --- |
-| ResourceGroupName | Befintligt Azure-resursgruppnamn. Använd vanligtvis samma RG som nyckelvalvet. |
-| TemplateFile | Fullständigt sökvägsnamn till filen VHDtoImage.json. |
-| användareStoraRedovisningsnamn | Namn på lagringskontot. |
-| sNameForPublicIP | DNS-namn för den offentliga IP-adressen. måste vara gemener. |
-| subscriptionId | Azure-prenumerationsidentifierare. |
-| Location | Standard Azure geografisk plats för resursgruppen. |
-| vmName | Namnet på den virtuella datorn. |
-| vaultName (valvNamn) | Namn på nyckelvalvet. |
-| valvResourceGroup | Resursgruppen för nyckelvalvet. |
-| certifikatUrl | Url(URL) för certifikatet, inklusive version som lagras i `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`nyckelvalvet, till exempel: . |
-| vhdUrl (på) | Webbadress till den virtuella hårddisken. |
-| vmSize | Storleken på instansen för den virtuella datorn. |
+| ResourceGroupName | Befintligt namn på Azure-resurs gruppen. Använd vanligt vis samma RG som nyckel valvet. |
+| TemplateFile | Fullständig sökväg till filen VHDtoImage. JSON. |
+| userStorageAccountName | Namn på lagringskontot. |
+| sNameForPublicIP | DNS-namn för den offentliga IP-adressen; måste vara gemener. |
+| subscriptionId | Prenumerations-ID för Azure. |
+| Plats | Standard Azure-geografisk plats för resurs gruppen. |
+| vmName | Namn på den virtuella datorn. |
+| vaultName | Nyckel valvets namn. |
+| vaultResourceGroup | Nyckel valvets resurs grupp. |
+| certificateUrl | Webb adress (URL) för certifikatet, inklusive version som lagras i nyckel valvet, till exempel: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`. |
+| vhdUrl | Webb adressen för den virtuella hård disken. |
+| vmSize | Storlek på den virtuella dator instansen. |
 | publicIPAddressName | Namn på den offentliga IP-adressen. |
-| virtualNetworkName | Namn på det virtuella nätverket. |
-| nicName (nicName) | Namn på nätverkskortet för det virtuella nätverket. |
-| adminUserName | Användarnamn för administratörskontot. |
-| adminPassword | Administratörslösenord. |
+| virtualNetworkName | Namnet på det virtuella nätverket. |
+| nicName | Nätverks gränssnitts kortets namn för det virtuella nätverket. |
+| adminUserName | Användar namn för administratörs kontot. |
+| adminPassword | Administratörs lösen ord. |
 |   |   |
 
 ### <a name="deploy-an-azure-vm"></a>Distribuera en virtuell Azure-dator
 
-Kopiera och redigera följande skript för `$storageaccount` `$vhdUrl` att ange värden för variablerna och variablerna. Kör den för att skapa en Azure VM-resurs från din befintliga generaliserade VIRTUELLA HÅRDDISK.
+Kopiera och redigera följande skript för att ange värden för `$storageaccount` variablerna `$vhdUrl` och. Kör den för att skapa en Azure VM-resurs från din befintliga generaliserade virtuella hård disk.
 
 ```PowerShell
 
@@ -607,49 +607,49 @@ New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName
 
 Det finns två sätt att köra valideringar på den distribuerade avbildningen:
 
-- Använda testverktyg för certifiering för Azure-certifierad
-- Använda självtest-API:et
+- Använd certifierings test verktyget för Azure Certified
+- Använd API för självtest
 
-### <a name="download-and-run-the-certification-test-tool"></a>Ladda ned och kör testverktyget för certifiering
+### <a name="download-and-run-the-certification-test-tool"></a>Hämta och kör verktyget för certifierings test
 
-Certifieringstestverktyget för Azure Certified körs på en lokal Windows-dator men testar en Azure-baserad Windows eller Linux VM. Det intygar att din virtuellavbildning kan användas med Microsoft Azure och att vägledningen och kraven kring att förbereda din virtuella hårddisk har uppfyllts. Utdata för verktyget är en kompatibilitetsrapport som du överför till Partner Center-portalen för att begära VM-certifiering.
+Certifierings test verktyget för Azure Certified körs på en lokal Windows-dator men testar en Azure-baserad virtuell Windows-eller Linux-dator. Det certifierar att din användar avbildning av virtuella datorer kan användas med Microsoft Azure och att rikt linjerna och kraven kring att förbereda din virtuella hård disk är uppfyllda. Utdata från verktyget är en kompatibilitetsrapport som du kommer att överföra till Partner Center-portalen för att begära VM-certifiering.
 
-1. Hämta och installera det senaste [certifieringstestverktyget för Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
-2. Öppna certifieringsverktyget och välj sedan **Starta nytt test**.
-3. På skärmen **Testinformation** anger du ett **testnamn** för testkörningen.
-4. Välj **plattform** för din virtuella dator, antingen Windows Server eller Linux. Ditt plattformsval påverkar de återstående alternativen.
-5. Om den virtuella datorn använder den här databastjänsten markerar du kryssrutan **Testa för Azure SQL Database.**
+1. Hämta och installera det senaste [certifierings test verktyget för Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
+2. Öppna certifierings verktyget och välj sedan **Starta nytt test**.
+3. På skärmen **testa information** anger du ett **testnamn** för test körningen.
+4. Välj **plattform** för din virtuella dator, antingen Windows Server eller Linux. Valet av plattform påverkar de återstående alternativen.
+5. Om den virtuella datorn använder den här databas tjänsten markerar du kryss rutan **test för Azure SQL Database** .
 
-### <a name="connect-the-certification-tool-to-a-vm-image"></a>Ansluta certifieringsverktyget till en vm-avbildning
+### <a name="connect-the-certification-tool-to-a-vm-image"></a>Ansluta certifierings verktyget till en VM-avbildning
 
-Verktyget ansluter till Windows-baserade virtuella datorer med [Azure PowerShell](https://docs.microsoft.com/powershell/) och ansluter till virtuella Linux-datorer via [SSH.Net](https://www.ssh.com/ssh/protocol/).
+Verktyget ansluter till Windows-baserade virtuella datorer med [Azure PowerShell](https://docs.microsoft.com/powershell/) och ansluter till virtuella Linux-datorer via [SSH.net](https://www.ssh.com/ssh/protocol/).
 
-### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Anslut certifieringsverktyget till en Linux VM-avbildning
+### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Ansluta certifierings verktyget till en virtuell Linux-avbildning
 
-1. Välj **SSH-autentiseringsläge:** Lösenordsautentisering eller nyckelfilautentisering.
-2. Om du använder lösenordsbaserad autentisering anger du värden för **VM DNS-namn,** **användarnamn**och **lösenord**. Du kan också ändra standardnumret för **SSH-port.**
+1. Välj **SSH-autentiseringsläge** : autentisering av lösen ord eller nyckel fil-autentisering.
+2. Om du använder lösenordsbaserad autentisering anger du värden för den **virtuella datorns DNS-namn**, **användar namn**och **lösen ord**. Du kan också ändra standard- **SSH-portnumret** .
 
-    ![Azure Certified Test Tool, lösenordsautentisering av Linux VM-avbildning](media/avm-cert2.png)
+    ![Azure Certified Test Tool, lösenordsautentisering för VM-avbildningen i Linux](media/avm-cert2.png)
 
-3. Om du använder nyckelfilbaserad autentisering anger du värden för **VM DNS-namn,** **användarnamn**och **privat nyckelplats.** Du kan också inkludera en **Lösenfras** eller ändra standardnumret för **SSH-port.**
+3. Om du använder nyckelbaserad autentisering anger du värden för den **virtuella datorns DNS-namn**, **användar namn**och plats för den **privata nyckeln** . Du kan också inkludera en **lösen fras** eller ändra standard- **SSH-portnumret** .
 
-### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Ansluta certifieringsverktyget till en Windows-baserad VM-avbildning**
+### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Ansluta certifierings verktyget till en Windows-baserad VM-avbildning**
 
-1. Ange det fullständigt kvalificerade **VM-DNS-namnet** (till exempel MyVMName.Cloudapp.net).
-2. Ange värden för **användarnamn** och **lösenord**.
+1. Ange det fullständigt kvalificerade **DNS-namnet för virtuell dator** (till exempel MyVMName.cloudapp.net).
+2. Ange värden för **användar namn** och **lösen ord**.
 
-    ![Azure Certified Test Tool, lösenordsautentisering av Windows-baserad VM-avbildning](media/avm-cert4.png)
+    ![Azure Certified Test Tool, lösenordsautentisering för Windows-baserad VM-avbildning](media/avm-cert4.png)
 
-### <a name="run-a-certification-test"></a>Kör ett certifieringstest
+### <a name="run-a-certification-test"></a>Kör ett certifierings test
 
-När du har angett parametervärdena för vm-avbildningen i certifieringsverktyget väljer du **Testa anslutning** för att skapa en giltig anslutning till den virtuella datorn. När en anslutning har verifierats väljer du **Nästa** för att starta testet. När testet är klart visas testresultaten i en tabell. Kolumnen Status visar (Godkänd/underkänd/varning) för varje test. Om något av testerna misslyckas är bilden _inte_ certifierad. I det här fallet granskar du kraven och felmeddelandena, gör de föreslagna ändringarna och kör testet igen.
+När du har fått parameter värden för din VM-avbildning i certifierings verktyget väljer du **Testa anslutning** för att skapa en giltig anslutning till din virtuella dator. När en anslutning har verifierats väljer du **Nästa** för att starta testet. När testet är klart visas test resultatet i en tabell. I kolumnen Status visas (pass/misslyckande/varning) för varje test. Om något av testerna inte fungerar är din avbildning _inte_ godkänd. I det här fallet granskar du kraven och felen, gör de föreslagna ändringarna och kör testet igen.
 
-När det automatiska testet är klart anger du ytterligare information om vm-avbildningen på de två flikarna på **skärmen Enkät,** **Allmän bedömning** och **Kernel-anpassning**och väljer sedan **Nästa**.
+När det automatiserade testet har slutförts, anger du ytterligare information om din VM-avbildning på de två flikarna i **enkät** skärmen, **allmän utvärdering** och automatisk distribution av **kernel**. Välj sedan **Nästa**.
 
-Den sista skärmen kan du ge mer information, till exempel SSH-åtkomstinformation för en Linux VM-avbildning, och en förklaring till eventuella misslyckade utvärderingar om du letar efter undantag.
+På den sista skärmen kan du ange mer information, till exempel SSH Access-information för en virtuell Linux-avbildning och en förklaring till eventuella misslyckade utvärderingar om du söker efter undantag.
 
-Slutligen väljer du **Generera rapport för** att hämta testresultaten och loggfilerna för de utförda testfallen tillsammans med dina svar på enkäten. Spara resultaten i samma behållare som dina virtuella hårddiskar.
+Välj slutligen **Skapa rapport** för att ladda ned test resultaten och loggfilerna för de test ärenden som körts, tillsammans med dina svar till enkäten. Spara resultatet i samma behållare som dina virtuella hård diskar.
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Generera en enhetlig resursidentifierare (URI) för varje virtuell hårddisk](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Generera en URI (Uniform Resource Identifier) för varje virtuell hård disk](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)

@@ -1,7 +1,7 @@
 ---
-title: Aktivera Azure Peering Service på en Direct-peering med hjälp av Azure-portalen
+title: Aktivera Azure peering-tjänsten på en direkt peering med hjälp av Azure Portal
 titleSuffix: Azure
-description: Aktivera Azure Peering Service på en Direct-peering med hjälp av Azure-portalen
+description: Aktivera Azure peering-tjänsten på en direkt peering med hjälp av Azure Portal
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
@@ -9,23 +9,23 @@ ms.topic: article
 ms.date: 3/18/2020
 ms.author: derekol
 ms.openlocfilehash: 625a17e5acff00f78c5a19725653eec629936f87
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687063"
 ---
-# <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Aktivera Azure Peering Service på en Direct-peering med hjälp av Azure-portalen
+# <a name="enable-azure-peering-service-on-a-direct-peering-by-using-the-azure-portal"></a>Aktivera Azure peering-tjänsten på en direkt peering med hjälp av Azure Portal
 
-I den här artikeln beskrivs hur du aktiverar Azure [Peering Service](overview-peering-service.md) på en direct-peering med hjälp av Azure-portalen.
+I den här artikeln beskrivs hur du aktiverar Azure [peering-tjänsten](overview-peering-service.md) på en direkt peering med hjälp av Azure Portal.
 
-Om du vill kan du slutföra den här guiden med [powershell](howto-peering-service-powershell.md).
+Om du vill kan du slutföra den här guiden med hjälp av [PowerShell](howto-peering-service-powershell.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
-* Granska [förutsättningarna](prerequisites.md) innan du börjar konfigurera.
-* Välj en direkt peering i din prenumeration som du vill aktivera Peering Service för. Om du inte har någon konverterar du en äldre direkt peering eller skapar en ny Direkt peering:
-    * Om du vill konvertera en äldre Direkt peering följer du instruktionerna i [Konvertera en äldre Direkt peering till en Azure-resurs med hjälp av portalen](howto-legacy-direct-portal.md).
-    * Om du vill skapa en ny direkt peering följer du instruktionerna i [Skapa eller ändrar en direkt peering med hjälp av portalen](howto-direct-portal.md).
+* Granska [kraven](prerequisites.md) innan du påbörjar konfigurationen.
+* Välj en direkt peering i din prenumeration som du vill aktivera peering-tjänsten för. Om du inte har någon kan du antingen konvertera en äldre direkt peering eller skapa en ny direkt peering:
+    * Om du vill konvertera en äldre direkt peering följer du anvisningarna i [konvertera en äldre direkt peering till en Azure-resurs med hjälp av portalen](howto-legacy-direct-portal.md).
+    * Om du vill skapa en ny direkt peering följer du anvisningarna i [skapa eller ändra en direkt peering med hjälp av portalen](howto-direct-portal.md).
 
 ## <a name="enable-peering-service-on-a-direct-peering"></a>Aktivera Peering Service på en Direct-peering
 
@@ -39,7 +39,7 @@ När du har öppnat en direkt peering i föregående steg aktiverar du den för 
 
 ## <a name="modify-a-direct-peering-connection"></a>Ändra en direkt peering-anslutning
 
-Om du vill ändra anslutningsinställningarna läser du avsnittet Ändra en direkt peering i [Skapa eller ändra en direkt peering med hjälp av portalen](howto-direct-portal.md).
+Om du vill ändra anslutnings inställningarna läser du avsnittet "ändra en direkt peering" i [skapa eller ändra en direkt peering med hjälp av portalen](howto-direct-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -48,4 +48,4 @@ Om du vill ändra anslutningsinställningarna läser du avsnittet Ändra en dire
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-Vanliga frågor och svar finns i vanliga frågor och [svar om peering-tjänsten](service-faqs.md).
+Vanliga frågor om [peering-tjänsten finns i vanliga frågor och svar om peering-tjänsten](service-faqs.md).

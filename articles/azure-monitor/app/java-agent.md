@@ -1,51 +1,51 @@
 ---
-title: Prestandaövervakning för Java-webbappar – Azure Application Insights
-description: Utökad prestanda- och användningsövervakning av din Java-webbplats med Application Insights.
+title: Prestanda övervakning av Java-webbappar – Azure Application insikter
+description: Utökad prestanda och användnings övervakning av din Java-webbplats med Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537550"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, fångade undantag och metodkörningstider i Javas webbappar
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, fångade undantag och metod körnings tider i Java-webbappar
 
 
-Om du har [instrumenterat din Java-webbapp med Application Insights][java]kan du använda Java-agenten för att få djupare insikter, utan några kodändringar:
+Om du har [instrumenterat Java-webbappen med Application Insights][java]kan du använda Java-agenten för att få djupare insikter utan några kod ändringar:
 
 * **Beroenden:** Data om samtal som ditt program gör till andra komponenter, inklusive:
-  * **Utgående HTTP-anrop** som görs via `java.net.HttpURLConnection` Apache HttpClient, OkHttp och fångas in.
-  * **Redis samtal** som görs via Jedis klient fångas.
-  * **JDBC-frågor** - För MySQL och PostgreSQL, om samtalet tar längre tid än 10 sekunder, rapporterar agenten frågeplanen.
+  * **Utgående HTTP-anrop** som görs via Apache httpclient, OkHttp `java.net.HttpURLConnection` och samlas in.
+  * **Redis-anrop** som görs via Jedis-klienten fångas.
+  * **JDBC-frågor** – för MySQL och PostgreSQL, om samtalet tar längre än 10 sekunder, rapporterar agenten frågeplan.
 
-* **Programloggning:** Samla in och korrelera dina programloggar med HTTP-begäranden och annan telemetri
+* **Program loggning:** Avbilda och korrelera dina program loggar med HTTP-förfrågningar och annan telemetri
   * **Log4j 1,2**
-  * **Log4j2 (På andra sätt)**
-  * **Logga tillbaka**
+  * **Log4j2**
+  * **Logback**
 
-* **Bättre namn på åtgärden:** (används för aggregering av begäranden i portalen)
-  * **Spring** - `@RequestMapping`baserat på .
-  * **JAX-RS** - `@Path`baserat på . 
+* **Bättre namngivning av åtgärder:** (används för agg regering av förfrågningar i portalen)
+  * **Våren** – baserat på `@RequestMapping`.
+  * **JAX – RS** -baserad på `@Path`. 
 
-Om du vill använda Java-agenten installerar du den på servern. Dina webbappar måste instrumenteras med [Application Insights Java SDK][java]. 
+Om du vill använda Java-agenten installerar du den på servern. Dina webb program måste vara instrumenterade med [Application Insights Java SDK][java]. 
 
-## <a name="install-the-application-insights-agent-for-java"></a>Installera application insights-agenten för Java
+## <a name="install-the-application-insights-agent-for-java"></a>Installera Application Insights agent för Java
 1. [Ladda ned agenten](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) på datorn som kör din Java-server. Se till att ladda ned samma version av Java-agenten som Application Insights Java SDK-kärn- och webbpaket.
-2. Redigera startskriptet för programservern och lägg till följande JVM-argument:
+2. Redigera start skriptet för program servern och Lägg till följande JVM-argument:
    
     `-javaagent:<full path to the agent JAR file>`
    
     Till exempel i Tomcat på en Linux-dator:
    
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
-3. Starta om programservern.
+3. Starta om program servern.
 
 ## <a name="configure-the-agent"></a>Konfigurera agenten
-Skapa en `AI-Agent.xml` fil med namnet och placera den i samma mapp som agent JAR-filen.
+Skapa en fil med `AI-Agent.xml` namnet och placera den i samma mapp som AGENTens jar-fil.
 
-Ange innehållet i xml-filen. Redigera följande exempel om du vill inkludera eller utelämna de funktioner du vill använda.
+Ange innehållet i XML-filen. Redigera följande exempel för att inkludera eller utelämna de funktioner som du vill använda.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -75,30 +75,30 @@ Ange innehållet i xml-filen. Redigera följande exempel om du vill inkludera el
 </ApplicationInsightsAgent>
 ```
 
-## <a name="additional-config-spring-boot"></a>Ytterligare config (Fjäder Boot)
+## <a name="additional-config-spring-boot"></a>Ytterligare konfiguration (våren boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-För Azure App Services gör du följande:
+För Azure App tjänster gör du följande:
 
 * Välj Inställningar > Programinställningar
 * Under Appinställningar lägger du till ett nytt nyckel/värde-par:
 
-Nyckel: `JAVA_OPTS` Värde:`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+Nyckel: `JAVA_OPTS` värde:`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-För den senaste versionen av Java-agenten, kolla utgåvorna [här](https://github.com/Microsoft/ApplicationInsights-Java/releases
+Du hittar den senaste versionen av Java-agenten [här](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-Agenten måste paketeras som en resurs i projektet så att den hamnar i D:/home/site/wwwroot/directory. Du kan bekräfta att din agent finns i rätt App Service-katalog genom att gå till **Development Tools** > **Advanced Tools** > **Debug Console** och undersöka innehållet i webbplatskatalogen.    
+Agenten måste paketeras som en resurs i ditt projekt så att den blir i D:/Home/site/wwwroot/Directory. Du kan bekräfta att agenten har rätt app service katalog genom att gå till **utvecklingsverktyg** > **Avancerade verktyg** > **Felsök konsol** och undersöka innehållet i plats katalogen.    
 
-* Spara inställningarna och starta om din app. (De här stegen gäller endast för App Services som körs på Windows.)
+* Spara inställningarna och starta om din app. (Dessa steg gäller endast för App Services som körs i Windows.)
 
 > [!NOTE]
-> AI-Agent.xml och agentburkfilen ska finnas i samma mapp. De placeras ofta tillsammans `/resources` i mappen för projektet.  
+> AI-Agent. xml och agentens jar-fil ska finnas i samma mapp. De placeras ofta tillsammans i `/resources` mappen i projektet.  
 
-#### <a name="enable-w3c-distributed-tracing"></a>Aktivera W3C-distribuerad spårning
+#### <a name="enable-w3c-distributed-tracing"></a>Aktivera distribuerad W3C-spårning
 
-Lägg till följande i AI-Agent.xml:
+Lägg till följande i AI-Agent. XML:
 
 ```xml
 <Instrumentation>
@@ -109,21 +109,21 @@ Lägg till följande i AI-Agent.xml:
 ```
 
 > [!NOTE]
-> Bakåtkompatibilitetsläget är aktiverat som standard och parametern enableW3CBackCompat är valfri och bör endast användas när du vill stänga av den. 
+> Läget för bakåtkompatibilitet är aktiverat som standard och enableW3CBackCompat-parametern är valfri och ska endast användas när du vill inaktivera den. 
 
-Helst skulle detta vara fallet när alla dina tjänster har uppdaterats till nyare version av SDKs stödja W3C-protokollet. Det rekommenderas starkt att flytta till nyare version av SDK med W3C-stöd så snart som möjligt.
+Vi rekommenderar att detta är fallet när alla dina tjänster har uppdaterats till en nyare version av SDK: er som stöder W3C-protokollet. Vi rekommenderar starkt att du flyttar till en nyare version av SDK: er med stöd för W3C så snart som möjligt.
 
-Kontrollera att **både [inkommande](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) och utgående (agent) konfigurationer** är exakt samma.
+Se till att **både [inkommande](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) och utgående (agent) konfigurationer** är exakt samma.
 
 ## <a name="view-the-data"></a>Visa data
-I application insights-resursen visas aggregerade fjärrberoende och metodkörningstider [under panelen Prestanda][metrics].
+I Application Insights-resursen visas sammanställda fjärrberoende och metod körnings tider [under prestanda panelen][metrics].
 
-Om du vill söka efter enskilda förekomster av beroende-, undantags- och metodrapporter öppnar du [Sök][diagnostic].
+Om du vill söka efter enskilda instanser av beroende, undantag och metod rapporter öppnar du [Sök][diagnostic].
 
-[Diagnostisera beroendeproblem - läs mer](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[Diagnostisera beroende problem – Läs mer](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>Har du några frågor? Har du problem?
-* Ser du inga data? [Ange brandväggsund undantag](../../azure-monitor/app/ip-addresses.md)
+* Ser du inga data? [Ange brand Väggs undantag](../../azure-monitor/app/ip-addresses.md)
 * [Felsöka Java](java-troubleshoot.md)
 
 <!--Link references-->

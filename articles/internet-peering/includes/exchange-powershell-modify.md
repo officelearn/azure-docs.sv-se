@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 12d169697a35af446392843eb57e6ec3a5508e45
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678688"
 ---
-Följande ändringsåtgärder stöds för Exchange-peering:
-* Lägg till Exchange-peering-anslutningar.
-* Ta bort Exchange-peering-anslutningar.
-* Lägg till en IPv4- eller IPv6-session på aktiva anslutningar.
-* Ta bort en IPv4- eller IPv6-session på aktiva anslutningar.
+Följande ändrings åtgärder stöds för Exchange-peering:
+* Lägg till Exchange peering-anslutningar.
+* Ta bort Exchange peering-anslutningar.
+* Lägg till en IPv4-eller IPv6-session på aktiva anslutningar.
+* Ta bort en IPv4-eller IPv6-session på aktiva anslutningar.
 
 
-### <a name="add-exchange-peering-connections"></a>Lägga till Exchange-peering-anslutningar
+### <a name="add-exchange-peering-connections"></a>Lägg till Exchange peering-anslutningar
 
-I det här exemplet beskrivs hur du lägger till anslutningar till en befintlig Exchange-peering.
+Det här exemplet beskriver hur du lägger till anslutningar till en befintlig Exchange-peering.
 
 ```powershell
 
@@ -43,9 +43,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="remove-exchange-peering-connections"></a>Ta bort Exchange-peering-anslutningar
+### <a name="remove-exchange-peering-connections"></a>Ta bort Exchange peering-anslutningar
 
-I det här exemplet beskrivs hur du tar bort anslutningar till en befintlig Exchange-peering.
+Det här exemplet beskriver hur du tar bort anslutningar till en befintlig Exchange-peering.
 
 ```powershell
 
@@ -53,7 +53,7 @@ $exchangePeering = Get-AzPeering -Name "SeattleExchangePeering" -ResourceGroupNa
 
 ```
 
-Visa alla anslutningar och markera den anslutning som du vill ta bort. 
+Visa alla anslutningar och välj den anslutning som du vill ta bort. 
 
 ```powershell
 
@@ -73,7 +73,7 @@ Tags              : {}
 
 ```
 
-I följande kommando anger du indexnumret för den anslutning som du vill ta bort i stället för 0.
+I följande kommando, i stället för 0, anger du index numret för den anslutning som du vill ta bort.
 
 ```powershell
 
@@ -85,9 +85,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Lägga till en IPv4- eller IPv6-session vid aktiva anslutningar
+### <a name="add-an-ipv4-or-ipv6-session-on-active-connections"></a>Lägg till en IPv4-eller IPv6-session på aktiva anslutningar
 
-I det här exemplet beskrivs hur du lägger till en IPv6-session i en befintlig Exchange-anslutning.
+Det här exemplet beskriver hur du lägger till en IPv6-session i en befintlig Exchange-anslutning.
 
 ```powershell
 
@@ -99,6 +99,6 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Ta bort en IPv4- eller IPv6-session på aktiva anslutningar
+### <a name="remove-an-ipv4-or-ipv6-session-on-active-connections"></a>Ta bort en IPv4-eller IPv6-session på aktiva anslutningar
 
-Det går inte att ta bort en IPv4- eller IPv6-session från en befintlig anslutning på PowerShell. Kontakta [Microsoft peering](mailto:peeringexperience@microsoft.com)om du vill ha mer information.
+Det finns för närvarande inte stöd för att ta bort en IPv4-eller IPv6-session från en befintlig anslutning på PowerShell. Kontakta [Microsoft-peering](mailto:peeringexperience@microsoft.com)om du vill ha mer information.

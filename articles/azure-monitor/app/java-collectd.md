@@ -1,40 +1,40 @@
 ---
-title: Övervaka Java-webbappprestanda på Linux - Azure | Microsoft-dokument
-description: Utökad programprestandaövervakning av din Java-webbplats med plugin-programmet CollectD för Application Insights.
+title: Övervaka prestanda för Java-webbappar på Linux – Azure | Microsoft Docs
+description: Utökad program prestanda övervakning av din Java-webbplats med det insamlade plugin-programmet för Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537533"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>insamlade: Linux-prestandamått i Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights"></a>insamlad: prestanda mått för Linux i Application Insights
 
 
-Om du vill utforska Linux-systemprestandamått i [Application Insights](../../azure-monitor/app/app-insights-overview.md)installerar du [insamlade](https://collectd.org/)tillsammans med plugin-programmet Application Insights. Denna lösning med öppen källkod samlar in olika system- och nätverksstatistik.
+Om du vill utforska prestanda mått för Linux-system i [Application Insights](../../azure-monitor/app/app-insights-overview.md)installerar du [samlad](https://collectd.org/), tillsammans med dess Application Insights-plugin-program. Den här lösningen för öppen källkod samlar in olika system-och nätverks statistik.
 
-Vanligtvis använder du samlad om du redan har [instrumenterat din Java-webbtjänst med Application Insights][java]. Det ger dig mer data som hjälper dig att förbättra appens prestanda eller diagnostisera problem. 
+Vanligt vis använder du insamlad om du redan har [instrumenterat Java-webbtjänsten med Application Insights][java]. Det ger dig mer information som hjälper dig att förbättra appens prestanda eller diagnostisera problem. 
 
-## <a name="get-your-instrumentation-key"></a>Hämta instrumenteringsnyckeln
-Öppna application [insights-resursen](../../azure-monitor/app/app-insights-overview.md) där du vill att data ska visas i [Microsoft Azure-portalen.](https://portal.azure.com) (Eller [skapa en ny resurs](../../azure-monitor/app/create-new-resource.md ).)
+## <a name="get-your-instrumentation-key"></a>Hämta din Instrumentation-nyckel
+I [Microsoft Azure-portalen](https://portal.azure.com)öppnar du [Application Insights](../../azure-monitor/app/app-insights-overview.md) resurs där du vill att data ska visas. (Eller [skapa en ny resurs](../../azure-monitor/app/create-new-resource.md ).)
 
-Ta en kopia av instrumenteringsnyckeln, som identifierar resursen.
+Ta en kopia av Instrumentation-nyckeln, som identifierar resursen.
 
-![Bläddra bland alla, öppna resursen och välj sedan instrumenteringsnyckeln i listrutan Essentials](./media/java-collectd/instrumentation-key-001.png)
+![Bläddra alla, öppna resursen och välj sedan i list rutan Essentials och kopiera Instrumentation-nyckeln](./media/java-collectd/instrumentation-key-001.png)
 
-## <a name="install-collectd-and-the-plug-in"></a>Installera samlad och plugin-programmet
-På dina Linux-servermaskiner:
+## <a name="install-collectd-and-the-plug-in"></a>Installera insamlad och plugin-programmet
+På dina Linux Server-datorer:
 
 1. Installera [samlad](https://collectd.org/) version 5.4.0 eller senare.
-2. Ladda ner [Application Insights insamlade författare plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Notera versionsnumret.
-3. Kopiera plugin JAR `/usr/share/collectd/java`till .
-4. Redigera: `/etc/collectd/collectd.conf`
-   * Kontrollera att [Java-insticksprogrammet](https://collectd.org/wiki/index.php/Plugin:Java) är aktiverat.
-   * Uppdatera JVMArg för java.class.path för att inkludera följande JAR. Uppdatera versionsnumret så att det matchar det du hämtade:
+2. Hämta [plugin-programmet för Application Insights-insamlade skrivaren](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Notera versions numret.
+3. Kopiera plugin-programmet till `/usr/share/collectd/java`.
+4. Redigera `/etc/collectd/collectd.conf`:
+   * Se till att [Java-plugin-programmet](https://collectd.org/wiki/index.php/Plugin:Java) är aktiverat.
+   * Uppdatera JVMArg för Java. class. Path så att du kan ta med följande JAR. Uppdatera versions numret så att det matchar det som du laddade ned:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
-   * Lägg till det här kodavsnittet med hjälp av instrumenteringsnyckeln från resursen:
+   * Lägg till det här kodfragmentet med hjälp av Instrumentation-nyckeln från din resurs:
 
 ```XML
 
@@ -44,7 +44,7 @@ På dina Linux-servermaskiner:
      </Plugin>
 ```
 
-Här är en del av en exempelkonfigurationsfil:
+Här är en del av en exempel konfigurations fil:
 
 ```XML
 
@@ -77,47 +77,47 @@ Här är en del av en exempelkonfigurationsfil:
     ...
 ```
 
-Konfigurera andra [insamlade plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), som kan samla in olika data från olika källor.
+Konfigurera andra [insamlade plugin](https://collectd.org/wiki/index.php/Table_of_Plugins)-program som kan samla in olika data från olika källor.
 
-Starta om samlas in enligt dess [manual](https://collectd.org/wiki/index.php/First_steps).
+Starta om samlad i enlighet med dess [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visa data i Application Insights
-Öppna mått och lägg [till diagram][metrics]i application insights-resursen och välj de mått som du vill se från kategorin Anpassad.
+Öppna [mått och Lägg till diagram][metrics]i Application Insights resurs och välj de mått som du vill visa från den anpassade kategorin.
 
-Som standard aggregeras måtten över alla värddatorer från vilka måtten samlades in. Om du vill visa måtten per värd aktiverar du Gruppering i bladet Diagraminformation och väljer sedan att gruppera efter CollectD-Host.
+Som standard aggregeras måtten på alla värddatorer som måtten samlats in från. Om du vill visa måtten per värd, på bladet diagram information, aktiverar du gruppering och väljer sedan att gruppera efter insamlad värd.
 
-## <a name="to-exclude-upload-of-specific-statistics"></a>Så här utesluter du överföring av specifik statistik
-Som standard skickar Application Insights plugin alla data som samlats in av alla aktiverade insamlade "läs" plugins. 
+## <a name="to-exclude-upload-of-specific-statistics"></a>Så här undantar du överföring av detaljerad statistik
+Som standard skickar Application Insights-plugin alla data som samlas in av alla aktiverade "Read"-plugin-program som har samlats in. 
 
-Så här utesluter du data från specifika insticksprogram eller datakällor:
+Så här undantar du data från vissa plugin-program eller data Källor:
 
-* Redigera konfigurationsfilen. 
-* I `<Plugin ApplicationInsightsWriter>`, lägga till direktivrader som denna:
+* Redigera konfigurations filen. 
+* I `<Plugin ApplicationInsightsWriter>`lägger du till direktiv rader så här:
 
-| Direktiv | Verkan |
+| Direktivet | Verkan |
 | --- | --- |
-| `Exclude disk` |Exkludera alla `disk` data som samlas in av insticksprogrammet |
-| `Exclude disk:read,write` |Uteslut de `read` källor `write` som `disk` namnges och från insticksprogrammet. |
+| `Exclude disk` |Undanta alla data som samlas in `disk` av plugin-programmet |
+| `Exclude disk:read,write` |Uteslut källorna med namnet `read` och `write` från `disk` plugin-programmet. |
 
-Särdirektiv med en ny linje.
+Avgränsa direktiv med en ny rad.
 
 ## <a name="problems"></a>Har du problem?
 *Jag ser inte data i portalen*
 
-* Öppna [Sök][diagnostic] för att se om de råa händelserna har anlänt. Ibland tar det längre tid att visas i statistikutforskaren.
-* Du kan behöva [ange brandväggsund undantag för utgående data](../../azure-monitor/app/ip-addresses.md)
-* Aktivera spårning i plugin-programmet Application Insights. Lägg till `<Plugin ApplicationInsightsWriter>`den här raden inom:
+* Öppna [sökning][diagnostic] för att se om RAW-händelserna har anlänt. Ibland tar de längre tid att visas i mått Utforskaren.
+* Du kan behöva [Ange brand Väggs undantag för utgående data](../../azure-monitor/app/ip-addresses.md)
+* Aktivera spårning i Application Insights-plugin-programmet. Lägg till den här `<Plugin ApplicationInsightsWriter>`raden i:
   * `SDKLogger true`
-* Öppna en terminal och börja samlas i utförligt läge för att se eventuella problem som den rapporterar:
+* Öppna en Terminal och börja samla in i utförligt läge för att se eventuella problem som rapporteras:
   * `sudo collectd -f`
 
 ## <a name="known-issue"></a>Kända problem
 
-Plugin:en av Application Insights Write är inkompatibel med vissa läsinsticksprogram. Vissa plugins skickar ibland "NaN" där Application Insights plugin förväntar sig ett flyttalsnummer.
+Application Insights Skriv-plugin-programmet är inte kompatibelt med vissa läsa plugin-program. Vissa plugin-program skickar ibland "NaN" där Application Insights-plugin förväntar sig ett flytt ALS nummer.
 
-Symptom: Den insamlade loggen visar fel som inkluderar "AI: ... SyntaxError: Oväntad token N".
+Symptom: den insamlade loggen visar fel som inkluderar "AI:..." SyntaxError: oväntad token N ".
 
-Lösning: Exkludera data som samlats in av problemet Skriv plugins. 
+Lösning: exkludera data som samlas in av problem med Skriv-plugin-program. 
 
 <!--Link references-->
 

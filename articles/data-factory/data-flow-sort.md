@@ -1,6 +1,6 @@
 ---
-title: Sortera omformning i mappning av dataflöde
-description: Azure Data Factory Mapping Data Sortera omvandling
+title: Sortera omvandling i data flöde för mappning
+description: Azure Data Factory mappa data sorterings omvandling
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,34 +9,34 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
 ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606327"
 ---
-# <a name="sort-transformation-in-mapping-data-flow"></a>Sortera omformning i mappning av dataflöde
+# <a name="sort-transformation-in-mapping-data-flow"></a>Sortera omvandling i data flöde för mappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Med sorteringsomformningen kan du sortera inkommande rader i den aktuella dataströmmen. Du kan välja enskilda kolumner och sortera dem i stigande eller fallande ordning.
+Med sorterings omvandlingen kan du sortera inkommande rader i den aktuella data strömmen. Du kan välja enskilda kolumner och sortera dem i stigande eller fallande ordning.
 
 > [!NOTE]
-> Mappning av dataflöden körs på spark-kluster som distribuerar data över flera noder och partitioner. Om du väljer att partitionera om dina data i en efterföljande omvandling kan du förlora din sortering på grund av omfördelning av data.
+> Mappning av data flöden utförs i Spark-kluster som distribuerar data över flera noder och partitioner. Om du väljer att partitionera om dina data i en efterföljande omvandling kan du förlora din sortering på grund av reshuffling av data.
 
 ## <a name="configuration"></a>Konfiguration
 
-![Sorteringsinställningar](media/data-flow/sort.png "Sortera")
+![Sorterings inställningar](media/data-flow/sort.png "Sortera")
 
-**Okänsligt fall:** Om du vill ignorera ärende vid sortering av sträng- eller textfält
+**SKIFT läges okänsligt:** Om du vill ignorera Skift läge vid sortering av sträng eller textfält
 
-**Sortera endast inom partitioner:** När dataflöden körs på spark delas varje dataström in i partitioner. Den här inställningen sorterar endast data i inkommande partitioner i stället för att sortera hela dataströmmen. 
+**Sortera endast inom partitioner:** Allteftersom data flöden körs i Spark är varje data ström indelad i partitioner. Den här inställningen sorterar endast data inom de inkommande partitionerna i stället för att sortera hela data strömmen. 
 
-**Sorteringsvillkor:** Välj vilka kolumner du sorterar efter och i vilken ordning sorteringen sker. Ordningen bestämmer sorteringsprioriteten. Välj om nulls ska visas i början eller slutet av dataströmmen eller inte.
+**Sorterings villkor:** Välj vilka kolumner som ska sorteras efter och i vilken ordning sorteringen ska ske. Ordningen bestämmer sorterings prioriteten. Välj om nullvärden ska visas i början eller slutet av data strömmen.
 
 ### <a name="computed-columns"></a>Beräknade kolumner
 
-Om du vill ändra eller extrahera ett kolumnvärde innan du använder sorteringen hovrar du över kolumnen och väljer "beräknad kolumn". Då öppnas uttrycksverktyget för att skapa ett uttryck för sorteringsåtgärden i stället för att använda ett kolumnvärde.
+Om du vill ändra eller extrahera ett kolumn värde innan du tillämpar sorteringen, hovrar du över kolumnen och väljer beräknad kolumn. Då öppnas uttrycks verktyget för att skapa ett uttryck för sorterings åtgärden i stället för att använda ett kolumn värde.
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 
@@ -53,9 +53,9 @@ Om du vill ändra eller extrahera ett kolumnvärde innan du använder sorteringe
 
 ### <a name="example"></a>Exempel
 
-![Sorteringsinställningar](media/data-flow/sort.png "Sortera")
+![Sorterings inställningar](media/data-flow/sort.png "Sortera")
 
-Dataflödesskriptet för ovanstående sorteringskonfiguration finns i kodavsnittet nedan.
+Data flödes skriptet för ovanstående sorterings konfiguration finns i kodfragmentet nedan.
 
 ```
 BasketballStats sort(desc(PTS, true),
@@ -64,4 +64,4 @@ BasketballStats sort(desc(PTS, true),
 
 ## <a name="next-steps"></a>Nästa steg
 
-Efter sortering kanske du vill använda [den sammanlagda omvandlingen](data-flow-aggregate.md)
+Efter sorteringen kanske du vill använda den [sammanställda omvandlingen](data-flow-aggregate.md)

@@ -1,20 +1,20 @@
 ---
-title: Snabbstart för Azure Media Player
-description: Lär dig de grundläggande stegen för att konfigurera Azure Media Player.
+title: Azure Media Player snabb start
+description: Lär dig de grundläggande stegen för att ställa in Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
 ms.date: 04/20/2020
 ms.openlocfilehash: ac81832765f674e58ad6b3213238e9c68e04d2dc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81726468"
 ---
-# <a name="azure-media-player-quickstart"></a>Snabbstart i Azure Media Player
-Azure Media Player är enkelt att konfigurera. Det tar bara några minuter att få grundläggande uppspelning av medieinnehåll från ditt Azure Media Services-konto. I det här avsnittet visas de grundläggande stegen utan mer detaljerad information. De avsnitt som följer ger dig detaljer om hur du konfigurerar och konfigurerar Azure Media Player.  Lägg bara till följande inkluderingar i dokumentets `<head>`:
+# <a name="azure-media-player-quickstart"></a>Snabbstart för Azure Media Player
+Azure Media Player är enkelt att konfigurera. Det tar bara några minuter att få en grundläggande uppspelning av medie innehåll från ditt Azure Media Services-konto. I det här avsnittet visas de grundläggande stegen utan mer detaljerad information. I avsnitten som följer får du information om hur du konfigurerar och konfigurerar Azure Media Player.  Lägg bara till följande inkluderingar i dokumentets `<head>`:
 
 ```html
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
@@ -22,11 +22,11 @@ Azure Media Player är enkelt att konfigurera. Det tar bara några minuter att f
 ```
 
 > [!IMPORTANT]
-> Du **NOT** bör INTE `latest` använda den version i produktion, eftersom detta kan ändras på begäran. Ersätt `latest` med en version av Azure Media Player; till exempel `latest` `1.0.0`ersätta med . Azure Media Player-versioner kan efterfrågas [härifrån](azure-media-player-changelog.md).
+> Du bör **inte** använda `latest` versionen i produktion eftersom det kan komma att ändras på begäran. Ersätt `latest` med en version av Azure Media Player; Ersätt `latest` till exempel med `1.0.0`. Azure Media Player versioner kan frågas [härifrån.](azure-media-player-changelog.md)
 
-## <a name="use-the-video-element"></a>Använda videoelementet
+## <a name="use-the-video-element"></a>Använd video elementet
 
-Använd sedan bara `<video>` elementet som vanligt, men `data-setup` med ytterligare ett attribut som innehåller eventuella alternativ. Dessa alternativ kan inkludera alla Azure Media Services-alternativ i ett giltigt JSON-objekt.
+Sedan använder du bara `<video>` elementet som vanligt, men med ett ytterligare `data-setup` attribut som innehåller alternativ. De här alternativen kan innehålla alla Azure Media Services alternativ i ett giltigt JSON-objekt.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin" autoplay controls width="640" height="400" poster="poster.jpg" data-setup='{"nativeControlsForTouch": false}'>
@@ -37,7 +37,7 @@ Använd sedan bara `<video>` elementet som vanligt, men `data-setup` med ytterli
     </video>
 ```
 
-Om du inte vill använda automatisk konfiguration kan du `data-setup` utelämna attributet och initiera ett videoelement manuellt.
+Om du inte vill använda automatisk installation kan du utelämna `data-setup` attributet och initiera ett video element manuellt.
 
 ```html
     var myPlayer = amp('vid1', { /* Options */
@@ -63,4 +63,4 @@ Om du inte vill använda automatisk konfiguration kan du `data-setup` utelämna 
 
 ## <a name="next-steps"></a>Nästa steg ##
 
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

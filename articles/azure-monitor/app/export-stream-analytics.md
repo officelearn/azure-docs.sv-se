@@ -1,125 +1,125 @@
 ---
-title: Exportera med Stream Analytics från Azure Application Insights | Microsoft-dokument
+title: Exportera med hjälp av Stream Analytics från Azure Application Insights | Microsoft Docs
 description: Stream Analytics kan kontinuerligt omvandla, filtrera och dirigera data som du exporterar från Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536887"
 ---
-# <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använda Stream Analytics för att bearbeta exporterade data från Application Insights
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för bearbetning av data [som exporteras från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från en mängd olika källor. Det kan omvandla och filtrera data och sedan dirigera dem till en mängd olika sänkor.
+# <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använd Stream Analytics för att bearbeta exporterade data från Application Insights
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för att bearbeta data som [exporter ATS från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från flera olika källor. Den kan transformera och filtrera data och sedan dirigera den till en rad olika mottagare.
 
-I det här exemplet skapar vi en adapter som tar data från Application Insights, byter namn på och bearbetar vissa fält och leder in dem i Power BI.
+I det här exemplet ska vi skapa en adapter som hämtar data från Application Insights, byter namn på och bearbetar några av fälten och kopplar den till Power BI.
 
 > [!WARNING]
-> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights-data i Power BI](../../azure-monitor/app/export-power-bi.md ). Den väg som illustreras här är bara ett exempel för att illustrera hur man bearbetar exporterade data.
+> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights data i Power BI](../../azure-monitor/app/export-power-bi.md ). Sökvägen som illustreras här är bara ett exempel på hur du kan bearbeta exporterade data.
 > 
 > 
 
-![Blockdiagram för export via SA till PBI](./media/export-stream-analytics/020.png)
+![Blockera diagram för export via SA till PBI](./media/export-stream-analytics/020.png)
 
 ## <a name="create-storage-in-azure"></a>Skapa lagring i Azure
 Kontinuerlig export matar alltid ut data till ett Azure Storage-konto, så du måste skapa lagringen först.
 
-1. Skapa ett "klassiskt" lagringskonto i din prenumeration i [Azure-portalen](https://portal.azure.com).
+1. Skapa ett "Klassiskt" lagrings konto i din prenumeration i [Azure Portal](https://portal.azure.com).
    
-   ![I Azure-portalen väljer du Ny, Data, Lagring](./media/export-stream-analytics/030.png)
+   ![I Azure Portal väljer du ny, data, lagring](./media/export-stream-analytics/030.png)
 2. Skapa en container
    
-    ![I det nya lagringsutrymmet väljer du Behållare, klickar på panelen Behållare och sedan lägger till](./media/export-stream-analytics/040.png)
-3. Kopiera åtkomstnyckeln för lagring
+    ![I det nya lagrings utrymmet väljer du behållare, klickar på behållare-panelen och lägger sedan till](./media/export-stream-analytics/040.png)
+3. Kopiera lagrings åtkomst nyckeln
    
-    Du behöver det snart för att ställa in indata till stream analytics-tjänsten.
+    Du behöver det snart att konfigurera indatan till Stream Analytics-tjänsten.
    
-    ![Öppna Inställningar, nycklar och ta en kopia av primär åtkomstnyckeln i lagringsutrymmet](./media/export-stream-analytics/045.png)
+    ![I lagrings utrymmet öppnar du inställningar, nycklar och tar en kopia av den primära åtkomst nyckeln](./media/export-stream-analytics/045.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Starta kontinuerlig export till Azure-lagring
-[Kontinuerlig export](export-telemetry.md) flyttar data från Application Insights till Azure-lagring.
+## <a name="start-continuous-export-to-azure-storage"></a>Starta kontinuerlig export till Azure Storage
+[Kontinuerlig export](export-telemetry.md) flyttar data från Application Insights till Azure Storage.
 
-1. I Azure-portalen bläddrar du till den Application Insights-resurs som du skapade för ditt program.
+1. I Azure Portal bläddrar du till den Application Insights resurs som du har skapat för ditt program.
    
     ![Välj Bläddra, Application Insights, ditt program](./media/export-stream-analytics/050.png)
-2. Skapa en kontinuerlig export.
+2. Skapa en löpande export.
    
-    ![Välj Inställningar, Kontinuerlig export, Lägg till](./media/export-stream-analytics/060.png)
+    ![Välj inställningar, löpande export, Lägg till](./media/export-stream-analytics/060.png)
 
-    Välj det lagringskonto som du skapade tidigare:
+    Välj det lagrings konto som du skapade tidigare:
 
-    ![Ange exportmål](./media/export-stream-analytics/070.png)
+    ![Ange export målet](./media/export-stream-analytics/070.png)
 
-    Ange de händelsetyper som du vill visa:
+    Ange de händelse typer som du vill se:
 
-    ![Välj händelsetyper](./media/export-stream-analytics/080.png)
+    ![Välj händelse typer](./media/export-stream-analytics/080.png)
 
-1. Låt vissa data ackumuleras. Luta dig tillbaka och låt andra använda ditt program ett tag. Telemetri kommer in och du ser statistiska diagram i [metriska explorer](../../azure-monitor/platform/metrics-charts.md) och enskilda händelser i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md). 
+1. Låt vissa data ackumuleras. Luta dig tillbaka och låt användarna använda programmet en stund. Telemetri kommer in och du ser statistik diagram i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md) och enskilda händelser i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md). 
    
-    Och även, data kommer att exportera till din lagring. 
-2. Kontrollera de exporterade data. I Visual Studio väljer du **Visa /Molnutforskaren**och öppnar Azure/Storage. (Om du inte har det här menyalternativet måste du installera Azure SDK: Öppna dialogrutan Nytt projekt och öppna Visual C# / Cloud / Get Microsoft Azure SDK för .NET.)
+    Informationen kommer också att exporteras till lagringen. 
+2. Granska exporterade data. I Visual Studio väljer du **Visa/Cloud Explorer**och öppna Azure/Storage. (Om du inte har det här meny alternativet måste du installera Azure SDK: öppna dialog rutan nytt projekt och öppna Visual C#/Cloud/Get Microsoft Azure SDK för .NET.)
    
     ![](./media/export-stream-analytics/04-data.png)
    
-    Anteckna den gemensamma delen av sökvägens namn, som härleds från programnamn och instrumenteringsnyckel. 
+    Anteckna den gemensamma delen av Sök vägs namnet, som härleds från program namnet och Instrumentation-nyckeln. 
 
-Händelserna skrivs till blob-filer i JSON-format. Varje fil kan innehålla en eller flera händelser. Så vi vill läsa händelsedata och filtrera bort de fält vi vill ha. Det finns alla möjliga saker vi kan göra med data, men vårt plan idag är att använda Stream Analytics för att leda data till Power BI.
+Händelserna skrivs till BLOB-filer i JSON-format. Varje fil kan innehålla en eller flera händelser. Vi skulle läsa händelse data och filtrera bort de fält som vi vill. Det finns alla typer av saker som vi kan göra med data, men vår plan idag är att använda Stream Analytics för att skicka data till Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Skapa en Azure Stream Analytics-instans
-På [Azure-portalen](https://portal.azure.com/)väljer du Azure Stream Analytics-tjänsten och skapar ett nytt Stream Analytics-jobb:
+Välj tjänsten Azure Stream Analytics från [Azure Portal](https://portal.azure.com/)och skapa ett nytt Stream Analytics jobb:
 
 ![](./media/export-stream-analytics/SA001.png)
 
 ![](./media/export-stream-analytics/SA002.png)
 
-När det nya jobbet skapas väljer du **Gå till resurs**.
+När det nya jobbet skapas väljer **du gå till resurs**.
 
 ![](./media/export-stream-analytics/SA003.png)
 
-### <a name="add-a-new-input"></a>Lägga till en ny inmatning
+### <a name="add-a-new-input"></a>Lägg till en ny inmatare
 
 ![](./media/export-stream-analytics/SA004.png)
 
-Ställ in den så att du tar indata från blobben Kontinuerlig export:
+Ange att den ska ta med inmatad från din kontinuerliga export-BLOB:
 
 ![](./media/export-stream-analytics/SA0005.png)
 
-Nu behöver du primär åtkomstnyckeln från ditt lagringskonto, som du noterade tidigare. Ange detta som lagringskontonyckel.
+Nu behöver du den primära åtkomst nyckeln från ditt lagrings konto, som du noterade tidigare. Ange detta som lagrings konto nyckel.
 
-### <a name="set-path-prefix-pattern"></a>Ange mönster för banprefix
+### <a name="set-path-prefix-pattern"></a>Ange mönster för Sök vägs prefix
 
-**Var noga med att ställa in datumformatet på YYYY-MM-DD (med streck).**
+**Se till att ange datum formatet ÅÅÅÅ-MM-DD (med streck).**
 
-Sökvägsprefixmönstret anger var Stream Analytics hittar indatafilerna i lagringen. Du måste ställa in den så att den motsvarar hur kontinuerlig export lagrar data. Ställ in det så här:
+Mönstret Path prefix anger var Stream Analytics hittar indatafilerna i lagringen. Du måste ange den som motsvarar hur fort löp ande export lagrar data. Ställ in den så här:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 I det här exemplet:
 
-* `webapplication27`är namnet på application insights-resursen **alla gemener**.
-* `1234...`är instrumenteringsnyckeln för application insights-resursen, **utelämnar streck**. 
-* `PageViews`är den typ av data som du vill analysera. Vilka typer som är tillgängliga beror på vilket filter du anger i Kontinuerlig export. Undersök de exporterade data för att se andra tillgängliga typer och se [exportdatamodellen](export-data-model.md).
+* `webapplication27`är namnet på Application Insights resursen med **gemener**.
+* `1234...`är Instrumentation-nyckeln för Application Insightss resurs, **utan bindestreck**. 
+* `PageViews`är den typ av data som du vill analysera. Vilka typer som är tillgängliga beror på vilket filter du angav i löpande export. Granska exporterade data för att se de andra tillgängliga typerna och se [export data modellen](export-data-model.md).
 * `/{date}/{time}`är ett mönster skrivet bokstavligen.
 
 > [!NOTE]
-> Kontrollera lagringen för att se till att du får rätt sökväg.
+> Kontrol lera lagringen för att se till att du får rätt sökväg.
 > 
 
-## <a name="add-new-output"></a>Lägg till ny utdata
-Välj nu ditt jobb > **Utdata** > **Lägg till**.
+## <a name="add-new-output"></a>Lägg till nya utdata
+Välj nu jobbet > **utdata** > **Lägg till**.
 
 ![](./media/export-stream-analytics/SA006.png)
 
 
-![Markera den nya kanalen, klicka på Utdata, Lägg till, Power BI](./media/export-stream-analytics/SA010.png)
+![Välj den nya kanalen, klicka på utdata, Lägg till Power BI](./media/export-stream-analytics/SA010.png)
 
-Ange ditt **arbets- eller skolkonto** för att auktorisera Stream Analytics för att komma åt din Power BI-resurs. Uppfinna sedan ett namn för utdata och för måldatauppsättningen och tabellen Power BI.
+Ange ditt **arbets-eller skol konto** för att ge Stream Analytics åtkomst till din Power BI-resurs. Skriv sedan ett namn för utdata och för mål Power BI data uppsättning och tabell.
 
 ## <a name="set-the-query"></a>Ange frågan
 Frågan styr översättningen från indata till utdata.
 
-Använd funktionen Testa för att kontrollera att du får rätt utdata. Ge den exempeldata som du tog från indatasidan. 
+Använd funktionen test för att kontrol lera att du får rätt utdata. Ge den exempel data som du tog från sidan indata. 
 
 ### <a name="query-to-display-counts-of-events"></a>Fråga för att visa antal händelser
 Klistra in den här frågan:
@@ -137,11 +137,11 @@ Klistra in den här frågan:
     GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 ```
 
-* export-input är det alias vi gav till strömmen indata
-* pbi-output är utdataalias vi definierade
-* Vi använder [YTTRE APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) eftersom händelsenamnet finns i en kapslad JSON-matris. Välj sedan händelsenamnet tillsammans med antalet instanser med det namnet under tidsperioden. Grupp [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) för-satsen grupperar elementen i tidsperioder på en minut.
+* export-indata är det alias som vi gav för Stream-indata
+* PBI – utdata är aliaset som vi har definierat
+* Vi använder [yttre Apply-get Elements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) eftersom händelse namnet finns i en KAPSLAd JSON-matris. Sedan väljer Välj för att plocka händelse namnet, tillsammans med antalet instanser med det namnet under tids perioden. [Group by](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) -satsen grupperar elementen i tids perioder på en minut.
 
-### <a name="query-to-display-metric-values"></a>Fråga om du vill visa måttvärden
+### <a name="query-to-display-metric-values"></a>Fråga för att visa mått värden
 ```SQL
 
     SELECT
@@ -156,9 +156,9 @@ Klistra in den här frågan:
 
 ``` 
 
-* Den här frågan borrar i måtttelemetrin för att få händelsetiden och måttvärdet. Måttvärdena finns i en matris, så vi använder mönstret YTTRE APPLY GetElements för att extrahera raderna. "myMetric" är namnet på måttet i det här fallet. 
+* Den här frågan går in i måttet telemetri för att hämta händelse tid och mått värde. Måttets värden finns i en matris, så vi använder det yttre applicera get Elements-mönstret för att extrahera raderna. "mina mått" är namnet på måttet i det här fallet. 
 
-### <a name="query-to-include-values-of-dimension-properties"></a>Fråga om att inkludera värden för dimensionsegenskaper
+### <a name="query-to-include-values-of-dimension-properties"></a>Fråga för att inkludera värden för dimensions egenskaper
 ```SQL
 
     WITH flat AS (
@@ -178,34 +178,34 @@ Klistra in den här frågan:
 
 ```
 
-* Den här frågan innehåller värden för dimensionsegenskaperna utan att en viss dimension är vid ett fast index i dimensionsmatrisen.
+* Den här frågan innehåller värden för dimensions egenskaper utan beroende på en viss dimension vid ett fast index i dimensions matrisen.
 
 ## <a name="run-the-job"></a>Kör jobbet
-Du kan välja ett datum tidigare för att starta jobbet från. 
+Du kan välja ett datum i det förflutna för att starta jobbet från. 
 
-![Markera jobbet och klicka på Fråga. Klistra in provet nedan.](./media/export-stream-analytics/SA008.png)
+![Välj jobbet och klicka på fråga. Klistra in exemplet nedan.](./media/export-stream-analytics/SA008.png)
 
-Vänta tills jobbet är igång.
+Vänta tills jobbet körs.
 
 ## <a name="see-results-in-power-bi"></a>Se resultat i Power BI
 > [!WARNING]
-> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights-data i Power BI](../../azure-monitor/app/export-power-bi.md ). Den väg som illustreras här är bara ett exempel för att illustrera hur man bearbetar exporterade data.
+> Det finns mycket bättre och enklare [rekommenderade sätt att visa Application Insights data i Power BI](../../azure-monitor/app/export-power-bi.md ). Sökvägen som illustreras här är bara ett exempel på hur du kan bearbeta exporterade data.
 > 
 > 
 
-Öppna Power BI med ditt arbets- eller skolkonto och välj den datauppsättning och tabell som du definierade som utdata för Stream Analytics-jobbet.
+Öppna Power BI med ditt arbets-eller skol konto och välj den data uppsättning och tabell som du definierade som utdata för Stream Analyticss jobbet.
 
-![I Power BI väljer du datauppsättning och fält.](./media/export-stream-analytics/200.png)
+![I Power BI väljer du data uppsättning och fält.](./media/export-stream-analytics/200.png)
 
-Nu kan du använda den här datauppsättningen i rapporter och instrumentpaneler i [Power BI](https://powerbi.microsoft.com).
+Nu kan du använda den här data uppsättningen i rapporter och instrument paneler i [Power BI](https://powerbi.microsoft.com).
 
-![I Power BI väljer du datauppsättning och fält.](./media/export-stream-analytics/210.png)
+![I Power BI väljer du data uppsättning och fält.](./media/export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Ser du inga data?
-* Kontrollera att du [ställer in datumformatet](#set-path-prefix-pattern) korrekt på YYY-MM-DD (med streck).
+* Kontrol lera att du [har angett datum formatet](#set-path-prefix-pattern) korrekt till åååå-mm-dd (med streck).
 
 ## <a name="video"></a>Video
-Noam Ben Zeev visar hur du bearbetar exporterade data med Hjälp av Stream Analytics.
+Noam ben Zeev visar hur du bearbetar exporterade data med hjälp av Stream Analytics.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
 > 
@@ -213,6 +213,6 @@ Noam Ben Zeev visar hur du bearbetar exporterade data med Hjälp av Stream Analy
 
 ## <a name="next-steps"></a>Nästa steg
 * [Löpande export](export-telemetry.md)
-* [Detaljerad datamodellreferens för egenskapstyper och värden.](export-data-model.md)
+* [Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 

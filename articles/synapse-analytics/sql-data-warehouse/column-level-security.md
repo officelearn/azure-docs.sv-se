@@ -1,6 +1,6 @@
 ---
-title: Vad är säkerhet på kolumnnivå för Azure Synapse?
-description: Med kolumnnivåsäkerhet kan kunder styra åtkomsten till databastabellkolumner baserat på användarens körningskontext eller gruppmedlemskap, förenkla designen och kodningen av säkerheten i ditt program och låta dig implementera begränsningar för kolumnåtkomst.
+title: Vad är säkerhet på kolumn nivå för Azure-Synapse?
+description: Säkerhet på kolumn nivå gör det möjligt för kunder att styra åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap, förenkla utformningen och kodningen av säkerhet i ditt program och gör att du kan implementera begränsningar för kolumn åtkomst.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -13,24 +13,24 @@ ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: b0a783ad5db86ca783ff1cebceec8d77ab528047
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687924"
 ---
-# <a name="column-level-security"></a>Säkerhet på kolumnnivå
+# <a name="column-level-security"></a>Säkerhet på kolumn nivå
 
-Med säkerhet på kolumnnivå kan kunder styra åtkomsten till tabellkolumner baserat på användarens körningskontext eller gruppmedlemskap.
+Säkerhet på kolumn nivå gör det möjligt för kunder att styra åtkomsten till tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap.
 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Eftersom den här videon lades upp [blev Radnivå säkerhet](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tillgänglig för Azure Synapse.
+Eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) blev tillgänglig för Azure Synapse.
 
-Säkerhet på kolumnnivå förenklar utformningen och kodningen av säkerheten i ditt program, så att du kan begränsa kolumnåtkomsten för att skydda känsliga data. Se till exempel till att specifika användare bara kan komma åt vissa kolumner i en tabell som är relevant för deras avdelning. Logiken för åtkomstbegränsning finns på databasnivån i stället för bort från data på en annan programnivå. Databasen tillämpar åtkomstbegränsningarna varje gång dataåtkomst görs från valfri nivå. Den här begränsningen gör din säkerhet mer tillförlitlig och robust genom att minska ytan på ditt övergripande säkerhetssystem. Dessutom eliminerar säkerhet på kolumnnivå också behovet av att införa vyer för att filtrera bort kolumner för att införa åtkomstbegränsningar för användarna.
+Säkerhet på kolumn nivå fören klar utformningen och kodningen av säkerhet i ditt program, så att du kan begränsa kolumn åtkomsten för att skydda känsliga data. Till exempel ser du till att specifika användare bara har åtkomst till vissa kolumner i en tabell som är relevanta för deras avdelning. Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databasen tillämpar åtkomst begränsningar varje gång data åtkomsten görs från vilken nivå som helst. Den här begränsningen gör din säkerhet mer tillförlitlig och robust genom att minska det totala säkerhets systemets Area. Dessutom eliminerar säkerhet på kolumn nivå behovet av att introducera vyer för att filtrera bort kolumner för att få åtkomst begränsningar för användarna.
 
-Du kan implementera säkerhet på kolumnnivå med [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-uttrycket. Med den här mekanismen stöds både SQL- och Azure Active Directory-autentisering (AAD).
+Du kan implementera säkerhet på kolumn nivå med instruktionen [bevilja](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL. Med den här mekanismen stöds både SQL-och Azure Active Directory-autentisering (AAD).
 
-![Cls](./media/column-level-security/cls.png)
+![CLS](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Syntax
 
@@ -52,9 +52,9 @@ GRANT <permission> [ ,...n ] ON
 
 ## <a name="example"></a>Exempel
 
-I följande exempel visas `TestUser` hur du `SSN` begränsar `Membership` från att komma åt kolumnen i tabellen:
+I följande exempel visas hur du begränsar `TestUser` åtkomsten till `SSN` kolumnen i `Membership` tabellen:
 
-Skapa `Membership` tabell med SSN-kolumn som används för att lagra personnummer:
+Skapa `Membership` tabell med SSN-kolumn som används för att lagra person nummer:
 
 ```sql
 CREATE TABLE Membership
@@ -66,13 +66,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-Tillåt `TestUser` att komma åt alla kolumner utom SSN-kolumnen, som har känsliga data:
+Tillåt `TestUser` åtkomst till alla kolumner utom kolumnen SSN, som har känsliga data:
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-Frågor som körs `TestUser` som misslyckas om de innehåller SSN-kolumnen:
+Frågor som körs `TestUser` som inte fungerar om de innehåller kolumnen SSN:
 
 ```sql
 SELECT * FROM Membership;
@@ -81,9 +81,9 @@ SELECT * FROM Membership;
 -- The SELECT permission was denied on the column 'SSN' of the object 'Membership', database 'CLS_TestDW', schema 'dbo'.
 ```
 
-## <a name="use-cases"></a>Användningsfall
+## <a name="use-cases"></a>Användnings fall
 
-Några exempel på hur säkerhet på kolumnnivå används idag:
+Några exempel på hur säkerhet på kolumn nivå används idag:
 
-- Ett företag för finansiella tjänster tillåter endast kontoansvariga att ha tillgång till kundnummer (SSN), telefonnummer och annan personligt identifierbar information (PII).
-- En vårdgivare tillåter endast läkare och sjuksköterskor att ha tillgång till känsliga journaler samtidigt som medlemmar av faktureringsavdelningen från att visa dessa uppgifter.
+- Ett finansiellt tjänste företag ger endast konto ansvariga åtkomst till kundens socialförsäkrings nummer (SSN), telefonnummer och annan personligt identifierbar information (PII).
+- En hälso vårds leverantör tillåter endast att läkare och anställda har till gång till känsliga medicinska poster samtidigt som medlemmarna i fakturerings avdelningen inte kan visa dessa data.

@@ -9,10 +9,10 @@ ms.date: 04/16/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 8833bb75f5f50372deda3e71c1df90bed9a20054
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81605647"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Aktivera Event Grid-resursprovider
@@ -21,9 +21,9 @@ Om du inte har använt Event Grid förut i din Azure-prenumeration kan du behöv
 
 På Azure Portal:
 
-1. Välj **Prenumerationer** på den vänstra menyn.
+1. Välj **prenumerationer** på den vänstra menyn.
 1. Välj den prenumeration som du använder för Event Grid.
-1. Välj **Resursleverantörer**under **Inställningar**på den vänstra menyn .
+1. Välj **resurs leverantörer**på den vänstra menyn under **Inställningar**.
 1. Hitta **Microsoft.EventGrid**.
 1. Om du inte är registrerad väljer du **Registrera**. 
 

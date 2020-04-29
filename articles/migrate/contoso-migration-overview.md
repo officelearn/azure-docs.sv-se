@@ -1,51 +1,51 @@
 ---
-title: Contoso migration serie | Microsoft-dokument
-description: Länkar till Contoso exempelmigreringsscenarier för migrering till Azure.
+title: Contoso-migrering | Microsoft Docs
+description: Länkar till exempel scenarier för Contoso-exempel för migrering till Azure.
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
 ms.openlocfilehash: c57a9f85e8b12bd4e1e66a4fcd5d08ab5f7b9118
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81676318"
 ---
 # <a name="contoso-migration-series"></a>Contoso-migreringsserie
 
 
-Vi har en serie artiklar som visar hur den fiktiva organisationen Contoso migrerar sin lokala infrastruktur till [Microsoft Azure-molnet.](https://azure.microsoft.com/overview/what-is-azure/) 
+Vi har en serie artiklar som visar hur den fiktiva organisationen contoso migrerar den lokala infrastrukturen till [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) molnet. 
 
-Serien innehåller scenarier som illustrerar hur du ställer in en infrastrukturmigrering och hur du kör olika typer av migreringar. Scenarier växer i komplexitet när de utvecklas. Artiklarna visar hur Contoso-företaget hanterar migreringen, men allmänna instruktioner och pekare finns i hela.
+Serien innehåller scenarier som illustrerar hur du konfigurerar en infrastruktur-migrering och hur du kör olika typer av migreringar. Scenarierna ökar komplexiteten när de fortskrider. Artiklarna visar hur contoso Company hanterar migreringen, men allmänna anvisningar och pekare finns i hela.
 
-## <a name="migration-articles"></a>Flyttningsartiklar
+## <a name="migration-articles"></a>Artiklar om migrering
 
 Artiklarna i serien sammanfattas i tabellen nedan.  
 
-- Varje migreringsscenario drivs av lite olika affärskrav som bestämmer migreringsstrategin.
-- För varje distributionsscenario tillhandahåller vi information om affärsdrivrutiner och mål, en föreslagen arkitektur, steg för att utföra migreringen och rekommendationer för rensning och nästa steg när migreringen är klar.
+- Varje migreringsjobb styrs av något olika affärs behov, som fastställer migrations strategin.
+- För varje distributions scenario tillhandahåller vi information om affärs drivande faktorer och mål, en föreslagen arkitektur, steg för att utföra migreringen och rekommendationer för rensning och nästa steg när migreringen är klar.
 
 
-**Artikel** | **Detaljer** 
+**Artiklar** | **Information** 
 --- | --- 
-[Artikel 1: Översikt](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | Översikt över artikelserien, Contosos migreringsstrategi och exempelapparna som används i serien. 
-[Artikel 2: Distribuera Azure-infrastruktur](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Contoso förbereder sin lokala infrastruktur och Azure-infrastruktur för migrering. Samma infrastruktur används för alla artiklar i serien. 
-[Artikel 3: Utvärdera lokala resurser för migrering till Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-migration-guide/assess?tabs=Tools)  | Contoso gör en utvärdering av sin lokala SmartHotel360-app som körs på VMware. Contoso utvärderar virtuella app-datorer med hjälp av Azure Migrate-tjänsten och app SQL Server-databasen med hjälp av DataMigreringsassistenten.
-[Artikel 4: Rehost en app på en Azure VM och SQL Database Managed Instance](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance) | Contoso kör en lift-and-shift-migrering till Azure för sin lokala SmartHotel360-app. Contoso migrerar appens klientdängd dator med [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview). Contoso migrerar appdatabasen till en hanterad Azure SQL-databashanterad instans med hjälp av [Migreringstjänsten för Azure Database](https://docs.microsoft.com/azure/dms/dms-overview).
-[Artikel 5: Rehost en app på Virtuella Azure-datorer](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm) | Contoso migrerar sina virtuella SmartHotel360-app-datorer till virtuella Azure-datorer med azure migrate-tjänsten. 
-[Artikel 6: Rehost en app på Virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag) | Contoso migrerar SmartHotel360-appen. Contoso använder Azure Migrate för att migrera app-virtuella datorer. Den använder databasemigreringstjänsten för att migrera appdatabasen till ett SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. 
-[Artikel 7: Rehost en Linux-app på Virtuella Azure-datorer](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm) | Contoso slutför en lift-and-shift-migrering av sin Linux-osTicket-app till virtuella Azure-datorer med Azure Migrate.
-[Artikel 8: Rehost en Linux-app på Virtuella Azure-datorer och Azure Database för MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql) | Contoso migrerar sin Linux-osTicket-app till virtuella Azure-datorer med Azure Migrate. Den migrerar appdatabasen till Azure Database for MySQ med hjälp av Azure Database Migration Service (innehåller ett alternativt alternativ med MySQL Workbench).
-[Artikel 9: Återfactor en app i en Azure-webbapp och Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso migrerar sin SmartHotel360-app till en Azure-webbapp och migrerar appdatabasen till en Azure SQL Server-instans med hjälp av Azure Database Migration Service.
-[Artikel 10: Refactor a Windows-app med Azure App Services och SQL Managed Instance](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql-managed-instance) | Contoso migrerar en lokal Windows-baserad app till en Azure-webbapp och migrerar appdatabasen till en Azure SQL-hanterad instans med hjälp av Azure Database Migration Service.
-[Artikel 11: Refactor a Linux-app i en Azure-webbapp och Azure Database for MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Contoso migrerar sin Linux-osTicket-app till en Azure-webbapp i flera Azure-regioner, med Hjälp av Azure Traffic Manager, integrerad med GitHub för kontinuerlig leverans. Contoso migrerar appdatabasen till en Azure-databas för MySQL-instans. 
-[Artikel 12: Refactor Team Foundation Server på Azure DevOps Services](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Contoso migrerar sin lokala Team Foundation Server-distribution till Azure DevOps Services i Azure.
-[Artikel 13: Återskapa en app i Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso återskapar sin SmartHotel-app med hjälp av en rad Azure-funktioner och tjänster, inklusive Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services och Azure Cosmos DB.
-[Artikel 14: Skala en migrering till Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Efter att ha provat migreringskombinationer förbereder Contoso att skala till en fullständig migrering till Azure.
+[Artikel 1: översikt](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | Översikt över artikel serien, Contosos migrations strategi och de exempel appar som används i serien. 
+[Artikel 2: Distribuera Azure-infrastruktur](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla artiklar i serien. 
+[Artikel 3: utvärdera lokala resurser för migrering till Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-migration-guide/assess?tabs=Tools)  | Contoso kör en utvärdering av den lokala SmartHotel360-appen som körs på VMware. Contoso utvärderar virtuella appar i appar med hjälp av Azure Migrate tjänsten och appen SQL Server databasen med hjälp av Data Migration Assistant.
+[Artikel 4: bli värd för en app på en virtuell Azure-dator och SQL Database Hanterad instans](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance) | Contoso kör en hiss-och-Shift-migrering till Azure för den lokala SmartHotel360-appen. Contoso migrerar app-frontend-VM med [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview). Contoso migrerar app-databasen till en Azure SQL Database Hanterad instans med hjälp av [Azure Database migration service](https://docs.microsoft.com/azure/dms/dms-overview).
+[Artikel 5: bli värd för en app på virtuella Azure-datorer](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm) | Contoso migrerar virtuella SmartHotel360-appar till virtuella Azure-datorer med hjälp av tjänsten Azure Migrate. 
+[Artikel 6: bli värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupper](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag) | Contoso migrerar SmartHotel360-appen. Contoso använder Azure Migrate för att migrera virtuella app-appar. Den använder Database Migration Service för att migrera app-databasen till ett SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgruppen. 
+[Artikel 7: Rehost a Linux-appen på virtuella Azure-datorer](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm) | Contoso slutför en hiss-och-Shift-migrering av sin Linux osTicket-app till virtuella Azure-datorer med hjälp av Azure Migrate.
+[Artikel 8: vara värd för en Linux-app på virtuella Azure-datorer och Azure Database for MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql) | Contoso migrerar Linux osTicket-appen till virtuella Azure-datorer med hjälp av Azure Migrate. Den migrerar app-databasen till Azure Database för MySQ med hjälp av Azure Database Migration Service (innehåller ett alternativt alternativ med MySQL Workbench).
+[Artikel 9: omstrukturera en app i en Azure-webbapp och Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso migrerar sin SmartHotel360-app till en Azure-webbapp och migrerar app-databasen till en Azure SQL Server-instans med hjälp av Azure Database Migration Service.
+[Artikel 10: omstrukturera en Windows-app med Azure App Services och SQL-hanterad instans](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql-managed-instance) | Contoso migrerar en lokal Windows-baserad app till en Azure-webbapp och migrerar app-databasen till en hanterad Azure SQL-instans med hjälp av Azure Database Migration Service.
+[Artikel 11: omstrukturerar en Linux-app i en Azure-webbapp och Azure Database for MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Contoso migrerar Linux osTicket-appen till en Azure-webbapp i flera Azure-regioner med hjälp av Azure Traffic Manager, integrerat med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. 
+[Artikel 12: refakultet Team Foundation Server på Azure DevOps Services](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Contoso migrerar sin lokala Team Foundation Server-distribution till Azure DevOps Services i Azure.
+[Artikel 13: återskapa en app i Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso återkonstruerar sin SmartHotel-app med hjälp av ett utbud av Azure-funktioner och-tjänster, inklusive Azure App Service, Azure Kubernetes service (AKS), Azure Functions, Azure Cognitive Services och Azure Cosmos DB.
+[Artikel 14: skala en migrering till Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | När du har försökt att migrera kombinationer förbereder contoso för att skala till en fullständig migrering till Azure.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs mer om](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) molnmigrering.
-- Lär dig mer om migreringsstrategier för andra scenarier (käll-/målpar) i [guiden För databasmigrering](https://datamigration.microsoft.com/).
+- [Lär dig mer om](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) migrering av molnet.
+- Lär dig mer om migrerings strategier för andra scenarier (käll-/mål par) i [guiden för databas migrering](https://datamigration.microsoft.com/).

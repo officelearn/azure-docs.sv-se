@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: 6ca2ebf9d02c43c3fe6bb3abec6bc0d5815fac74
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143016"
 ---
 # <a name="virtual-machine-skus-tab"></a>Fliken SKU: er för virtuell dator
@@ -45,7 +45,7 @@ I följande tabell beskrivs syftet, innehållet och formateringen för dessa fä
 |  *SKU-inställningar*   |    |
 | **SKU-ID\***       | Identifierare för denna SKU.  Namnet får innehålla högst 50 tecken, bestående av gemena alfanumeriska tecken eller bindestreck (-), men får inte sluta med ett bindestreck.  Den kan inte ändras efter att erbjudandet har publicerats.  |
 |  *SKU-information*   |  |
-| **Titel\***        | Eget namn på erbjudandet för visning i Marketplace. Maximal längd på 50 tecken. |
+| **Avdelning\***        | Eget namn på erbjudandet för visning i Marketplace. Maximal längd på 50 tecken. |
 | **Sammanfattning\***      | Kortfattad beskrivning av erbjudandet för visning i Marketplace. Maximal längd på 100 tecken. |
 | **Beskrivning\***  | Beskrivnings text som ger en mer detaljerad förklaring av erbjudandet.  <!-- TD: max len/guidance? 3k characters -->  |
 | **Dölj denna SKU\*** | Anger om SKU: n ska vara synlig i marknads platsen för kunder.  Du kanske vill dölja SKU: n om du bara vill att den endast är tillgänglig via Solution-mallar och inte för att köpa en och en.  Det kan också vara användbart för inledande testning eller för tillfälliga eller säsongs erbjudanden. |

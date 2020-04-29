@@ -1,7 +1,7 @@
 ---
-title: Konfiguration av klientprogram (MSAL) | Azure
+title: Konfiguration av klient program (MSAL) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om konfigurationsalternativ för offentliga klientprogram och konfidentiella klientprogram med hjälp av Microsoft Authentication Library (MSAL).
+description: Lär dig mer om konfigurations alternativ för offentliga klient program och konfidentiella klient program med hjälp av Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,135 +14,135 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81534473"
 ---
-# <a name="application-configuration-options"></a>Alternativ för programkonfiguration
+# <a name="application-configuration-options"></a>Program konfigurations alternativ
 
-I koden initierar du ett nytt offentligt eller konfidentiellt klientprogram (eller användaragent för MSAL.js) för att autentisera och hämta token. Du kan ange ett antal konfigurationsalternativ när du initierar klientappen i Microsoft Authentication Library (MSAL). Dessa alternativ kan delas in i två grupper:
+I din kod initierar du ett nytt offentligt eller konfidentiellt klient program (eller en användar agent för MSAL. js) för att autentisera och hämta token. Du kan ange ett antal konfigurations alternativ när du initierar klient programmet i Microsoft Authentication Library (MSAL). De här alternativen är i två grupper:
 
-- Registreringsalternativ, inklusive:
-    - [Behörighet](#authority) (består av identitetsproviderinstansen och [inloggningsmålgruppen](#application-audience) för appen, och eventuellt klient-ID). [instance](#cloud-instance)
+- Registrerings alternativ, inklusive:
+    - [Utfärdare](#authority) (som består av identitets leverantörs [instansen](#cloud-instance) och inloggnings [mål grupp](#application-audience) för appen och eventuellt klient-ID).
     - [Klient-ID](#client-id).
-    - [Omdirigera URI](#redirect-uri).
-    - [Klienthemlighet](#client-secret) (för konfidentiella klientprogram).
-- [Loggningsalternativ](#logging), inklusive loggnivå, kontroll av personuppgifter och namnet på komponenten med hjälp av biblioteket.
+    - [Omdirigerings-URI](#redirect-uri).
+    - [Klient hemlighet](#client-secret) (för konfidentiella klient program).
+- [Loggnings alternativ](#logging), inklusive loggnings nivå, kontroll av personliga data och namnet på komponenten med hjälp av-biblioteket.
 
 ## <a name="authority"></a>Myndighet
 
-Behörigheten är en URL som anger en katalog som MSAL kan begära token från. De gemensamma myndigheterna är:
+Auktoriteten är en URL som anger en katalog som MSAL kan begära token från. Vanliga myndigheter är:
 
-- https\://login.microsoftonline.com/\<klientorganisation\>/, där &lt;klienten&gt; är klient-ID för Azure Active Directory (Azure AD) eller en domän som är associerad med den här Azure AD-klienten. Används endast för att logga in användare av en viss organisation.
-- https\://login.microsoftonline.com/common/. Används för att logga in användare med arbets- och skolkonton eller personliga Microsoft-konton.
-- https\://login.microsoftonline.com/organizations/. Används för att logga in användare med arbets- och skolkonton.
-- https\://login.microsoftonline.com/consumers/. Används för att logga in användare med endast personliga Microsoft-konton (tidigare kallade Windows Live ID-konton).
+- https\://login.microsoftonline.com/\<-\>klient/, &lt;där&gt; klient organisations-ID: t för den Azure Active Directory (Azure AD)-klient organisation eller en domän som är associerad med den här Azure AD-klienten. Används bara för att logga in användare av en speciell organisation.
+- https\://login.microsoftonline.com/common/. Används för att logga in användare med arbets-och skol konton eller personliga Microsoft-konton.
+- https\://login.microsoftonline.com/organizations/. Används för att logga in användare med arbets-och skol konton.
+- https\://login.microsoftonline.com/consumers/. Används för att logga in användare med enbart personliga Microsoft-konton (tidigare kallade Windows Live ID-konton).
 
-Behörighetsinställningen måste vara förenligt med vad som deklareras i programregistreringsportalen.
+Inställningen för auktoritet måste vara konsekvent med vad som har deklarerats i program registrerings portalen.
 
-Auktoritets-URL:en består av instansen och målgruppen.
+Auktoritets-URL: en består av instansen och mål gruppen.
 
-Myndigheten kan vara:
-- En Azure AD-molnmyndighet.
-- En Azure AD B2C-behörighet. Se [B2C-detaljer](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- En AD FS-myndighet (Active Directory Federation Services). Se [AD FS-stöd](https://aka.ms/msal-net-adfs-support).
+Auktoriteten kan vara:
+- En Azure AD-moln utfärdare.
+- En Azure AD B2C utfärdare. Se [B2C-information](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
+- En Active Directory Federation Services (AD FS)-utfärdare (AD FS). Se [AD FS support](https://aka.ms/msal-net-adfs-support).
 
-Azure AD-molnmyndigheterna har två delar:
-- Instansen *instance* för identitetsprovider
-- *Inloggningspubliken* för appen
+Azure AD Cloud-utfärdare har två delar:
+- Identity Provider- *instansen*
+- Inloggnings *mål grupp* för appen
 
-Instansen och målgruppen kan sammanfogas och anges som auktoritets-URL. I versioner av MSAL.NET tidigare än MSAL 3. *x*var du tvungen att komponera myndigheten själv, baserat på molnet du ville rikta in dig på och inloggningsmålet.  Det här diagrammet visar hur auktoritets-URL:en består:
+Instansen och mål gruppen kan sammanfogas och anges som auktoritets-URL. I tidigare versioner av MSAL.NET än MSAL 3. *x*, var du tvungen att skapa myndigheten själv, baserat på det moln som du ville rikta in dig på och inloggnings mål gruppen.  Det här diagrammet visar hur auktoritets-URL: en består:
 
-![Hur auktoritetsadressen är sammansatt](media/msal-client-application-configuration/authority.png)
+![Så här är auktoritets webb adressen sammansatt](media/msal-client-application-configuration/authority.png)
 
-## <a name="cloud-instance"></a>Molninstans
+## <a name="cloud-instance"></a>Moln instans
 
-*Instansen* används för att ange om din app signerar användare från Det offentliga Azure-molnet eller från nationella moln. Med MSAL i koden kan du ange Azure-molninstansen med hjälp av en uppräkning `Instance` eller genom att skicka URL:en till den [nationella molninstansen](authentication-national-cloud.md#azure-ad-authentication-endpoints) som medlem (om du känner till den).
+*Instansen* används för att ange om din app signerar användare från det offentliga Azure-molnet eller från nationella moln. Med MSAL i din kod kan du ställa in Azure-molnet genom att använda en uppräkning eller genom att skicka URL: en till den [nationella moln instansen](authentication-national-cloud.md#azure-ad-authentication-endpoints) som `Instance` medlem (om du känner till den).
 
-MSAL.NET kommer att utlösa ett uttryckligt undantag om båda `Instance` och `AzureCloudInstance` anges.
+MSAL.NET kommer att utlösa ett explicit undantag om `Instance` både `AzureCloudInstance` och anges.
 
-Om du inte anger en instans kommer din app att inrikta sig `https://login.onmicrosoftonline.com`på Azures offentliga molninstans (instansen av URL).
+Om du inte anger en instans, kommer din app att rikta in sig på Azures offentliga moln instans ( `https://login.onmicrosoftonline.com`URL-instansen).
 
-## <a name="application-audience"></a>Programmålgrupp
+## <a name="application-audience"></a>Program mål
 
-Inloggningspubliken beror på appens affärsbehov:
-- Om du är en LOB-utvecklare (line of business) skapar du förmodligen ett program med en enda klientorganisation som bara används i organisationen. I så fall måste du ange organisationen, antingen av dess klient-ID (ID för din Azure AD-instans) eller av ett domännamn som är associerat med Azure AD-instansen.
-- Om du är en ISV kanske du vill logga in användare med deras arbets- och skolkonton i någon organisation eller i vissa organisationer (app för flera signatureer). Men du kanske också vill att användarna ska logga in med sina personliga Microsoft-konton.
+Inloggnings mål gruppen beror på affärs behoven för din app:
+- Om du är en LOB-utvecklare (Line of Business) kan du förmodligen skapa ett program med en enda klient som endast används i din organisation. I så fall måste du ange organisationen, antingen genom sitt klient-ID (ID: t för din Azure AD-instans) eller med ett domän namn som är kopplat till Azure AD-instansen.
+- Om du är en ISV kan du behöva logga in användare med sina arbets-och skol konton i valfri organisation eller i vissa organisationer (appar för flera innehavare). Men du kanske också vill att användarna ska logga in med sina personliga Microsoft-konton.
 
-### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Så här anger du målgruppen i koden/konfigurationen
+### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Så här anger du mål gruppen i din kod/konfiguration
 
-Med MSAL i koden anger du målgruppen med något av följande värden:
-- Azure AD-myndighetspublikuppräkning
-- Klient-ID, som kan vara:
-  - Ett GUID (ID för din Azure AD-instans) för program med en klientorganisation
-  - Ett domännamn som är associerat med din Azure AD-instans (även för program med en klientorganisation)
-- En av dessa platshållare som klient-ID i stället för Azure AD-myndighetspublikens uppräkning:
-    - `organizations`för en ansökan med flera trogna
-    - `consumers`för att logga in användare endast med sina personliga konton
-    - `common`för att logga in användare med sina arbets- och skolkonton eller sina personliga Microsoft-konton
+Med MSAL i din kod anger du mål gruppen genom att använda något av följande värden:
+- Azure AD-utfärdarens målgrupps uppräkning
+- Klient-ID: t, som kan vara:
+  - Ett GUID (ID: t för din Azure AD-instans) för program med en klient
+  - Ett domän namn som är associerat med din Azure AD-instans (även för program med en klient)
+- En av dessa plats hållare som klient-ID i stället för mål grupps uppräkningen i Azure AD-utfärdaren:
+    - `organizations`för ett program med flera innehavare
+    - `consumers`för att bara logga in användare med sina personliga konton
+    - `common`Logga in användare med sina arbets-och skol konton eller deras personliga Microsoft-konton
 
-MSAL will throw a meaningful exception if you specify both the Azure AD authority audience and the tenant ID.
+MSAL kommer att utlösa ett meningsfullt undantag om du anger både Azure AD-utfärdarens publik och klient-ID.
 
-Om du inte anger en målgrupp riktar din app in sig på Azure AD och personliga Microsoft-konton som målgrupp. (Det vill än, det `common` kommer att bete sig som om det angavs.)
+Om du inte anger en mål grupp kommer din app att rikta in sig på Azure AD och personliga Microsoft-konton som mål grupp. (Det vill säga att det fungerar som om `common` det har angetts.)
 
-### <a name="effective-audience"></a>Effektiv publik
+### <a name="effective-audience"></a>Effektiv mål grupp
 
-Den effektiva målgruppen för ditt program är den minsta (om det finns en skärningspunkt) för målgruppen som du anger i appen och målgruppen som anges i appregistreringen. I själva verket kan du med [appregistreringsupplevelsen](https://aka.ms/appregistrations) ange målgruppen (de kontotyper som stöds) för appen. Mer information finns i [Snabbstart: Registrera ett program med Microsofts identitetsplattform](quickstart-register-app.md).
+Den effektiva mål gruppen för ditt program är minimivärdet (om det finns en skärnings punkt) för den mål grupp som du har angett i appen och mål gruppen som anges i appens registrering. I själva verket kan [Appregistreringars](https://aka.ms/appregistrations) upplevelsen ange mål gruppen (de konto typer som stöds) för appen. Mer information finns i [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md).
 
-För närvarande är det enda sättet att få en app att logga in användare med endast personliga Microsoft-konton att konfigurera båda dessa inställningar:
-- Ställ in appregistreringspubliken på `Work and school accounts and personal accounts`.
-- Ange målgruppen i koden/konfigurationen till `AadAuthorityAudience.PersonalMicrosoftAccount` (eller `TenantID` ="konsumenter").
+För närvarande är det enda sättet att få en app att bara logga in användare med personliga Microsoft-konton att konfigurera båda dessa inställningar:
+- Ange mål grupp för `Work and school accounts and personal accounts`appens registrering.
+- Ange mål gruppen i koden/konfigurationen till `AadAuthorityAudience.PersonalMicrosoftAccount` (eller `TenantID` = "konsumenter").
 
 ## <a name="client-id"></a>Klientorganisations-ID
 
-Klient-ID:t är det unika program-ID som azure AD tilldelat din app när appen registrerades.
+Klient-ID är det unika program-ID (klient) som är tilldelat din app av Azure AD när appen registrerades.
 
 ## <a name="redirect-uri"></a>Omdirigerings-URI
 
-Omdirigerings-URI är den URI som identitetsprovidern skickar tillbaka säkerhetstoken till.
+Omdirigerings-URI: n är den URI som identitets leverantören skickar tillbaka säkerhetstoken till.
 
-### <a name="redirect-uri-for-public-client-apps"></a>Omdirigera URI för offentliga klientappar
+### <a name="redirect-uri-for-public-client-apps"></a>Omdirigerings-URI för offentliga klient program
 
-Om du är en offentlig klientapputvecklare som använder MSAL:
-- Du vill använda `.WithDefaultRedirectUri()` i stationära eller UWP-program (MSAL.NET 4,1 +). Den här metoden anger den offentliga klientprogrammets omdirigeringsuri-egenskap till standardredokomrederingen uri för offentliga klientprogram.
+Om du är en offentlig klient programs utvecklare som använder MSAL:
+- Du vill använda `.WithDefaultRedirectUri()` i Desktop-eller UWP-program (MSAL.NET 4.1 +). Den här metoden anger den offentliga klient programmets omdirigerings-URI-egenskap till standard Rekommenderad omdirigerings-URI för offentliga klient program.
 
   Plattform  | Omdirigerings-URI
   ---------  | --------------
-  Skrivbordsapp (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  UWP | värdet `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`på . Detta gör det möjligt för SSO med webbläsaren genom att ställa in värdet på resultatet av WebAuthenticationBroker.GetCurrentApplicationCallbackUri() som du måste registrera
-  .NET Core | `https://localhost`. Detta gör det möjligt för användaren att använda systembläddraren för interaktiv autentisering eftersom .NET Core inte har ett användargränssnitt för den inbäddade webbvyn för tillfället.
+  Desktop-app (.NET VB) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  UWP | värde för `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Detta möjliggör enkel inloggning med webbläsaren genom att ange värdet till resultatet av WebAuthenticationBroker. GetCurrentApplicationCallbackUri () som du behöver registrera
+  .NET Core | `https://localhost`. Detta gör att användaren kan använda systemets webbläsare för interaktiv autentisering eftersom .NET Core inte har något användar gränssnitt för den inbäddade webbvy för tillfället.
 
-- Du behöver inte lägga till en omdirigera URI om du bygger en Xamarin Android och iOS-program som inte `msal{ClientId}://auth` stöder mäklare (omdirigera URI ställs automatiskt in för Xamarin Android och iOS
+- Du behöver inte lägga till en omdirigerings-URI om du skapar ett Xamarin Android-och iOS-program som inte stöder Broker (omdirigerings `msal{ClientId}://auth` -URI: n ställs in automatiskt för Xamarin Android och iOS
 
-- Du måste konfigurera omdirigerings-URI:en i [appregistreringar:](https://aka.ms/appregistrations)
+- Du måste konfigurera omdirigerings-URI: n i [Appregistreringar](https://aka.ms/appregistrations):
 
-   ![Omdirigera URI i appregistreringar](media/msal-client-application-configuration/redirect-uri.png)
+   ![Omdirigerings-URI i Appregistreringar](media/msal-client-application-configuration/redirect-uri.png)
 
-Du kan åsidosätta omdirigerings-URI:n med hjälp av egenskapen `RedirectUri` (till exempel om du använder mäklare). Här är några exempel på omdirigera URI:er för det scenariot:
+Du kan åsidosätta omdirigerings-URI `RedirectUri` : n med hjälp av egenskapen (till exempel om du använder-hanterare). Här följer några exempel på omdirigerings-URI: er för det scenariot:
 
-- `RedirectUriOnAndroid`= "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
-- `RedirectUriOnIos`= $"msauth. {Bundle.ID}://auth";
+- `RedirectUriOnAndroid`= "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.client.Sample";
+- `RedirectUriOnIos`= $ "msauth. {Bundle. ID}://auth ";
 
-Mer information om iOS finns i [Migrera iOS-program som använder Microsoft Authenticator från ADAL.NET till MSAL.NET](msal-net-migration-ios-broker.md) och Utnyttja [mäklaren på iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
-Mer Information om Android finns [i Förmedlad autentisering i Android](brokered-auth.md).
+Mer information om iOS finns i [migrera iOS-program som använder Microsoft Authenticator från ADAL.net till MSAL.net](msal-net-migration-ios-broker.md) och [utnyttjar Service Broker på iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
+Mer information om Android finns i avsnittet om [Utjämnad autentisering i Android](brokered-auth.md).
 
-### <a name="redirect-uri-for-confidential-client-apps"></a>Omdirigera URI för konfidentiella klientappar
+### <a name="redirect-uri-for-confidential-client-apps"></a>Omdirigerings-URI för konfidentiella klient program
 
-För webbappar är omdirigerings-URI (eller svar URI) den URI som Azure AD använder för att skicka tillbaka token till programmet. Den här URI:n kan vara webbadressen till webbappen/webb-API:et om den konfidentiella appen är en av dessa. Omdirigerings-URI:n måste registreras i appregistreringen. Den här registreringen är särskilt viktig när du distribuerar en app som du först har testat lokalt. Du måste sedan lägga till svars-URL:en för den distribuerade appen i programregistreringsportalen.
+För webbappar är omdirigerings-URI: n (eller svars-URI) den URI som Azure AD använder för att skicka tillbaka token till programmet. Denna URI kan vara webb adressen för webbappen/webb-API: et om den konfidentiella appen är en av dessa. Omdirigerings-URI: n måste registreras i appens registrering. Den här registreringen är särskilt viktig när du distribuerar en app som du först har testat lokalt. Därefter måste du lägga till svars-URL: en för den distribuerade appen i program registrerings portalen.
 
-För daemon-appar behöver du inte ange en uri för omdirigering.
+För daemon-appar behöver du inte ange en omdirigerings-URI.
 
 ## <a name="client-secret"></a>Klienthemlighet
 
-Det här alternativet anger klienthemligheten för den konfidentiella klientappen. Den här hemligheten (applösenord) tillhandahålls av programregistreringsportalen eller tillhandahålls till Azure AD under appregistrering med PowerShell AzureAD, PowerShell AzureRM eller Azure CLI.
+Det här alternativet anger klient hemligheten för appen konfidentiell klient. Den här hemligheten (app Password) tillhandahålls av program registrerings portalen eller tillhandahålls till Azure AD vid registreringen av appen med PowerShell AzureAD, PowerShell AzureRM eller Azure CLI.
 
 ## <a name="logging"></a>Loggning
 
-De andra konfigurationsalternativen möjliggör loggning och felsökning. Mer information om hur du använder dem finns i artikeln [Loggning.](msal-logging.md)
+De andra konfigurations alternativen aktiverar loggning och fel sökning. I [loggnings](msal-logging.md) artikeln finns information om hur du använder dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [att instansiera klientprogram med hjälp av MSAL.NET](msal-net-initializing-client-applications.md).
-Lär dig mer om [att instansiera klientprogram med hjälp av MSAL.js](msal-js-initializing-client-applications.md).
+Lär dig mer om att [instansiera klient program med hjälp av MSAL.net](msal-net-initializing-client-applications.md).
+Lär dig mer om att [instansiera klient program med hjälp av MSAL. js](msal-js-initializing-client-applications.md).

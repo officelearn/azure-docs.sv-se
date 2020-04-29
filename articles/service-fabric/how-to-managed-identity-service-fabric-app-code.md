@@ -1,48 +1,48 @@
 ---
-title: Använda hanterad identitet med ett program
-description: Så här använder du hanterade identiteter i Azure Service Fabric-programkod för att komma åt Azure Services.
+title: Använd hanterad identitet med ett program
+description: Använda hanterade identiteter i Azure Service Fabric program kod för att få åtkomst till Azure-tjänster.
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461573"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Så här utnyttjar du ett Service Fabric-programs hanterade identitet för att komma åt Azure-tjänster
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Hur du utnyttjar ett Service Fabric programmets hanterade identitet för att få åtkomst till Azure-tjänster
 
-Tjänst fabric-program kan utnyttja hanterade identiteter för att komma åt andra Azure-resurser som stöder Azure Active Directory-baserad autentisering. Ett program kan hämta en [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) som representerar dess identitet, som kan vara systemtilldelad eller användartilldelad, och använda den som en "bärare"-token för att autentisera sig till en annan tjänst - även känd som en [skyddad resursserver](../active-directory/develop/developer-glossary.md#resource-server). Token representerar den identitet som tilldelats Programmet Service Fabric och utfärdas endast till Azure-resurser (inklusive SF-program) som delar den identiteten. Se dokumentationen för översikt [över hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för en detaljerad beskrivning av hanterade identiteter samt skillnaden mellan systemtilldelade och användartilldelade identiteter. Vi kommer att referera till ett managed-identity-aktiverat Service Fabric-program som [klientprogrammet](../active-directory/develop/developer-glossary.md#client-application) i hela den här artikeln.
-
-> [!IMPORTANT]
-> En hanterad identitet representerar kopplingen mellan en Azure-resurs och ett tjänsthuvudnamn i motsvarande Azure AD-klient som är associerad med prenumerationen som innehåller resursen. I samband med Service Fabric stöds därför hanterade identiteter endast för program som distribueras som Azure-resurser. 
+Service Fabric program kan dra nytta av hanterade identiteter för att få åtkomst till andra Azure-resurser som stöder Azure Active Directory-baserad autentisering. Ett program kan hämta en [åtkomsttoken som representerar](../active-directory/develop/developer-glossary.md#access-token) identiteten, som kan vara systemtilldelad eller tilldelad, och använda den som en "Bearer"-token för att autentisera sig mot en annan tjänst, även kallat en [skyddad resurs Server](../active-directory/develop/developer-glossary.md#resource-server). Token representerar den identitet som tilldelats Service Fabric programmet och kommer bara att utfärdas till Azure-resurser (inklusive SF-program) som delar identiteten. Mer detaljerad information om hanterade identiteter finns i [översikts dokumentationen för Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) , samt skillnaden mellan systemtilldelade och användarspecifika identiteter. Vi kommer att referera till ett hanterat identitets aktiverat Service Fabric program som [klient program](../active-directory/develop/developer-glossary.md#client-application) i den här artikeln.
 
 > [!IMPORTANT]
-> Innan du använder den hanterade identiteten för ett Service Fabric-program måste klientprogrammet beviljas åtkomst till den skyddade resursen. Se listan över [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) för att söka efter support och sedan till respektive tjänsts dokumentation för specifika steg för att bevilja en identitetsåtkomst till resurser av intresse. 
-
-## <a name="acquiring-an-access-token-using-rest-api"></a>Skaffa en åtkomsttoken med REST API
-I kluster som är aktiverade för hanterad identitet exponerar Service Fabric-körningen en localhost-slutpunkt som program kan använda för att hämta åtkomsttoken. Slutpunkten är tillgänglig på varje nod i klustret och är tillgänglig för alla entiteter på den noden. Behöriga anropare kan få åtkomsttoken genom att anropa den här slutpunkten och presentera en autentiseringskod. Koden genereras av Service Fabric-körningen för varje distinkt tjänstkodpaketaktivering och är bunden till livstiden för processen som är värd för det tjänstkodpaketet.
-
-I synnerhet dirigeras miljön för en tjänst med hanterad identitetsaktiverad Service Fabric med följande variabler:
-- "IDENTITY_ENDPOINT": den localhost-slutpunkten som motsvarar tjänstens hanterade identitet
-- "IDENTITY_HEADER": en unik autentiseringskod som representerar tjänsten på den aktuella noden
-- "IDENTITY_SERVER_THUMBPRINT" : Tumavtryck av tjänstinfrastrukturens hanterade identitetsserver
+> En hanterad identitet representerar associationen mellan en Azure-resurs och ett huvud namn för tjänsten i motsvarande Azure AD-klient som är associerad med den prenumeration som innehåller resursen. I samband med Service Fabric stöds hanterade identiteter endast för program som distribueras som Azure-resurser. 
 
 > [!IMPORTANT]
-> Programkoden bör betrakta värdet av miljövariabeln "IDENTITY_HEADER" som känsliga uppgifter - den bör inte loggas eller på annat sätt spridas. Autentiseringskoden har inget värde utanför den lokala noden, eller efter att processen som värd för tjänsten har avslutats, men den representerar identiteten på Tjänsten Service Fabric och bör därför behandlas med samma försiktighetsåtgärder som åtkomsttoken själv.
+> Innan du använder den hanterade identiteten för ett Service Fabric-program måste klient programmet beviljas åtkomst till den skyddade resursen. Se listan över [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) för att kontrol lera om det finns stöd och till respektive tjänsts dokumentation för specifika steg för att ge en identitets åtkomst till resurser av intresse. 
 
-För att få en token utför klienten följande steg:
-- bildar en URI genom att sammanfoga slutpunkten för hanterad identitet (IDENTITY_ENDPOINT värde) med API-versionen och den resurs (målgrupp) som krävs för token
-- skapar en GET http-begäran för den angivna URI-begäran
-- lägger till lämplig verifieringslogik för servercertifikat
-- lägger till autentiseringskoden (IDENTITY_HEADER värde) som ett huvud i begäran
-- skickar in begäran
+## <a name="acquiring-an-access-token-using-rest-api"></a>Skaffa en åtkomsttoken med hjälp av REST API
+I kluster som är aktiverade för hanterad identitet exponerar Service Fabric runtime en localhost-slutpunkt som program kan använda för att hämta åtkomsttoken. Slut punkten är tillgänglig på varje nod i klustret och är tillgänglig för alla entiteter på den noden. Auktoriserade anropare kan hämta åtkomsttoken genom att anropa den här slut punkten och presentera en autentiseringsnyckel. koden genereras av Service Fabric runtime för varje distinkt service code-aktivering och är kopplad till livs längden för processen som är värd för tjänst kods paketet.
 
-Ett lyckat svar innehåller en JSON-nyttolast som representerar den resulterande åtkomsttoken, samt metadata som beskriver den. Ett misslyckat svar kommer också att innehålla en förklaring av felet. Se nedan för ytterligare information om felhantering.
+Mer specifikt kommer miljön för en hanterad identitets aktive rad Service Fabric-tjänst att dirigeras med följande variabler:
+- IDENTITY_ENDPOINT: den localhost-slutpunkt som motsvarar tjänstens hanterade identitet
+- IDENTITY_HEADER: en unik autentiseringsnyckel som representerar tjänsten på den aktuella noden
+- IDENTITY_SERVER_THUMBPRINT: tumavtryck för den hanterade identitets servern för Service Fabric
 
-Åtkomsttoken cachelagras av Service Fabric på olika nivåer (nod, kluster, resursprovidertjänst), så ett lyckat svar innebär inte nödvändigtvis att token utfärdades direkt som svar på användarprogrammets begäran. Tokens cachelagras för mindre än deras livstid och därför garanteras ett program att ta emot en giltig token. Vi rekommenderar att programkoden cachelagrar sig själv alla åtkomsttoken som hämtas. cachelagringsnyckeln bör innehålla (en härledning av) publiken. 
+> [!IMPORTANT]
+> Program koden bör ta hänsyn till värdet för miljövariabeln "IDENTITY_HEADER" som känsliga data – den bör inte loggas eller spridas på annat sätt. Autentiseringsmetoden har inget värde utanför den lokala noden, eller efter att processen som är värd för tjänsten har avbrutits, men den representerar identiteten för den Service Fabric tjänsten och bör därför behandlas med samma försiktighets åtgärder som själva åtkomsttoken.
 
-Exempel på begäran:
+Klienten utför följande steg för att hämta en token:
+- formar en URI genom att sammanfoga den hanterade identitets slut punkten (IDENTITY_ENDPOINT värde) med API-versionen och resursen (mål gruppen) som krävs för token
+- skapar en GET http (s)-begäran för angiven URI
+- lägger till korrekt validerings logik för Server certifikat
+- lägger till authentication code (IDENTITY_HEADER värde) som en rubrik i begäran
+- skickar begäran
+
+Ett lyckat svar innehåller en JSON-nyttolast som representerar den resulterande åtkomsttoken, samt metadata som beskriver den. Ett misslyckat svar kommer även att innehålla en förklaring av problemet. Se nedan om du vill ha mer information om fel hantering.
+
+Åtkomsttoken cachelagras av Service Fabric på olika nivåer (nod, kluster, Resource Provider-tjänst), så ett lyckat svar innebär inte nödvändigt vis att token har utfärdats direkt som svar på användarens begäran. Token cachelagras under mindre än deras livs längd och så att ett program garanterat får en giltig token. Vi rekommenderar att program koden cachelagrar sig själv alla åtkomsttoken som den hämtar. caching-nyckeln ska innehålla (en härledning av) mål gruppen. 
+
+Exempel förfrågan:
 ```http
 GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
@@ -50,14 +50,14 @@ där:
 
 | Element | Beskrivning |
 | ------- | ----------- |
-| `GET` | HTTP-verbet, som anger att du vill hämta data från slutpunkten. I det här fallet en OAuth-åtkomsttoken. | 
-| `https://localhost:2377/metadata/identity/oauth2/token` | Slutpunkten för hanterad identitet för Service Fabric-program som tillhandahålls via miljövariabeln IDENTITY_ENDPOINT. |
-| `api-version` | En frågesträngparameter som anger API-versionen av tjänsten Hanterad identitetstoken. för närvarande är `2019-07-01-preview`det enda accepterade värdet och kan komma att ändras. |
-| `resource` | En frågesträngparameter som anger målresursens app-ID-IURI. Detta kommer att `aud` återspeglas som (publiken) anspråk på den utfärdade token. I det här exemplet begärs en token för att komma\/åt Azure Key Vault, vars app-ID URI är https: /vault.azure.net/. |
-| `Secret` | Ett HTTP-huvudfält för begäran, som krävs av tjänsten Service Fabric Managed Identity Token Service for Service Fabric-tjänster för att autentisera anroparen. Det här värdet tillhandahålls av SF-körningen via IDENTITY_HEADER miljövariabeln. |
+| `GET` | HTTP-verbet som anger att du vill hämta data från slut punkten. I det här fallet en OAuth-åtkomsttoken. | 
+| `https://localhost:2377/metadata/identity/oauth2/token` | Den hanterade identitets slut punkten för Service Fabric program som tillhandahålls via miljövariabeln IDENTITY_ENDPOINT. |
+| `api-version` | En frågesträngparametern, som anger API-versionen för den hanterade identitets-token-tjänsten. för närvarande är `2019-07-01-preview`det enda godkända värdet och kan komma att ändras. |
+| `resource` | En frågesträngparametern som anger URI för app-ID för mål resursen. Detta kommer att avspeglas som `aud` mål för den utfärdade token. I det här exemplet begärs en token för åtkomst till Azure Key Vault, vars app-\/ID-URI är https:/Vault.Azure.net/. |
+| `Secret` | Ett huvud fält för HTTP-begäran som krävs av den Service Fabric Managed Identity token-tjänsten för att Service Fabric Services ska kunna autentisera anroparen. Det här värdet tillhandahålls av SF-körningen via IDENTITY_HEADER-miljövariabeln. |
 
 
-Exempelsvar:
+Exempel svar:
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -72,14 +72,14 @@ där:
 
 | Element | Beskrivning |
 | ------- | ----------- |
-| `token_type` | Typ av token; I det här fallet är en "Bärare" åtkomsttoken, vilket innebär att presentatören ("bäraren") för denna token är det avsedda ämnet för token. |
-| `access_token` | Den begärda åtkomsttoken. När du anropar ett skyddat REST `Authorization` API bäddas token in i fältet för begäranhuvud som en "bärare"-token, vilket gör att API:et kan autentisera anroparen. | 
-| `expires_on` | Tidsstämpeln för åtkomsttokens förfallodatum. representeras som antalet sekunder från "1970-01-01T0:0:0Z UTC" och motsvarar `exp` tokens anspråk. I det här fallet upphör token att gälla 2019-08-08T06:10:11+00:00 (i RFC 3339)|
-| `resource` | Den resurs som åtkomsttoken utfärdades för, `resource` som anges via frågesträngparametern för begäran. motsvarar tokens "aud"-anspråk. |
+| `token_type` | Typ av token; i det här fallet är en "Bearer"-åtkomsttoken, vilket innebär att presentatören ("Bearer") för denna token är det avsedda ämnet för token. |
+| `access_token` | Den begärda åtkomsttoken. När du anropar en skyddad REST API, bäddas token `Authorization` in i fältet begär ande huvud som en "Bearer"-token, vilket gör att API: et kan autentisera anroparen. | 
+| `expires_on` | Tidsstämpeln för förfallo datum för åtkomsttoken. representeras som antalet sekunder från "1970-01-01T0:0: 0Z UTC" och motsvarar tokens `exp` anspråk. I det här fallet upphör token att gälla den 2019-08-08T06:10:11 + 00:00 (i RFC 3339)|
+| `resource` | Resursen som åtkomsttoken utfärdades för, anges via `resource` frågesträngparametern för begäran. motsvarar token ' AUD '-anspråk. |
 
 
-## <a name="acquiring-an-access-token-using-c"></a>Skaffa en åtkomsttoken med C #
-Ovanstående blir, i C#:
+## <a name="acquiring-an-access-token-using-c"></a>Skaffa en åtkomsttoken med hjälp av C #
+Ovanstående blir i C#:
 
 ```C#
 namespace Azure.ServiceFabric.ManagedIdentity.Samples
@@ -172,8 +172,8 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
     } // class AccessTokenAcquirer
 } // namespace Azure.ServiceFabric.ManagedIdentity.Samples
 ```
-## <a name="accessing-key-vault-from-a-service-fabric-application-using-managed-identity"></a>Komma åt Key Vault från ett Service Fabric-program med hanterad identitet
-Det här exemplet bygger på ovanstående för att demonstrera åtkomst till en hemlighet som lagras i ett Key Vault med hjälp av hanterad identitet.
+## <a name="accessing-key-vault-from-a-service-fabric-application-using-managed-identity"></a>Få åtkomst till Key Vault från ett Service Fabric program med hanterad identitet
+Det här exemplet bygger på ovanstående för att demonstrera åtkomst till en hemlighet som lagras i en Key Vault med hjälp av hanterad identitet.
 
 ```C#
         /// <summary>
@@ -321,47 +321,47 @@ Det här exemplet bygger på ovanstående för att demonstrera åtkomst till en 
 ```
 
 ## <a name="error-handling"></a>Felhantering
-Fältet statuskod i HTTP-svarshuvudet anger begärans lyckade status. status för 200 OK anger framgång och svaret innehåller åtkomsttoken enligt beskrivningen ovan. Följande är en kort uppräkning av möjliga fel svar.
+I fältet status kod i HTTP-svarshuvuden anges framgångs status för begäran. statusen "200 OK" anger att åtgärden har slutförts och svaret innehåller åtkomsttoken enligt beskrivningen ovan. Följande är en kort uppräkning av möjliga fel svar.
 
-| Statuskod | Felorsak | Hur man hanterar |
+| Statuskod | Fel Orsak | Så här hanterar du |
 | ----------- | ------------ | ------------- |
-| 404 Hittades inte. | Okänd autentiseringskod eller så har programmet inte tilldelats någon hanterad identitet. | Korrigera programinställningarna eller tokeninhämtningskoden. |
-| 429 För många förfrågningar. |  Begränsningsgränsen har nåtts, som införts av AAD eller SF. | Försök igen med exponentiell backoff. Se vägledning nedan. |
-| 4xx Fel i begäran. | En eller flera av parametrarna för begäran var felaktiga. | Försök inte igen.  Mer information finns i felinformationen.  4xx fel är design-tid fel.|
-| 5xx Fel från tjänsten. | Undersystemet Hanterad identitet eller Azure Active Directory returnerade ett tillfälligt fel. | Det är säkert att försöka igen efter en kort stund. Du kan träffa ett begränsningstillstånd (429) vid återförsök.|
+| 404 hittades inte. | Okänd verifieringsmetod, eller så har programmet inte tilldelats någon hanterad identitet. | Rätta till programinstallationen eller koden för token-hämtning. |
+| 429 för många begär Anden. |  Begränsnings gränsen har nåtts, vilket införs av AAD eller SF. | Försök igen med exponentiell backoff. Se rikt linjer nedan. |
+| 4xx-fel i begäran. | En eller flera av parametrarna för begäran var felaktiga. | Försök inte igen.  Granska fel informationen för mer information.  4xx-fel är design tids fel.|
+| 5xx-fel från tjänsten. | Under systemet för hanterad identitet eller Azure Active Directory returnerade ett tillfälligt fel. | Det är säkert att försöka igen efter en kort stund. Du kan träffa ett begränsnings villkor (429) när du försöker igen.|
 
-Om ett fel uppstår innehåller motsvarande HTTP-svarstext ett JSON-objekt med felinformation:
+Om ett fel inträffar innehåller motsvarande HTTP-svar ett JSON-objekt med fel information:
 
 | Element | Beskrivning |
 | ------- | ----------- |
 | kod | Felkod. |
-| correlationId | Ett korrelations-ID som kan användas för felsökning. |
-| meddelande | Utförlig beskrivning av fel. **Felbeskrivningar kan ändras när som helst. Lita inte på själva felmeddelandet.**|
+| correlationId | Ett korrelations-ID som kan användas för fel sökning. |
+| meddelande | Utförlig beskrivning av felet. **Fel beskrivningar kan ändras när som helst. Är inte beroende av själva fel meddelandet.**|
 
-Exempelfel:
+Exempel fel:
 ```json
 {"error":{"correlationId":"7f30f4d3-0f3a-41e0-a417-527f21b3848f","code":"SecretHeaderNotFound","message":"Secret is not found in the request headers."}}
 ```
 
-Följande är en lista över typiska Service Fabric-fel som är specifika för hanterade identiteter:
+Följande är en lista över vanliga Service Fabric fel som är speciella för hanterade identiteter:
 
 | Kod | Meddelande | Beskrivning | 
 | ----------- | ----- | ----------------- |
-| SecretHeaderNotFound | Hemligheten hittades inte i begäranderubrikerna. | Autentiseringskoden angavs inte med begäran. | 
-| Hanteradidentitet intefound | Det gick inte att hitta den hanterade identiteten för den angivna programvärden. | Programmet har ingen identitet eller så är autentiseringskoden okänd. |
-| ArgumentNullOrEmpty | Parametern "resurs" får inte vara null eller tom sträng. | Resursen (målgruppen) angavs inte i begäran. |
-| Ogiltigt ApiVersion | Api-versionen '' stöds inte. Versionen som stöds är "2019-07-01-preview". | API-versionen som inte stöds eller inte stöds har angetts i URI:n för begäran. |
-| InternalServerError | Ett fel inträffade. | Ett fel påträffades i undersystemet för hanterad identitet, eventuellt utanför Service Fabric-stacken. Mest troligt är orsaken ett felaktigt värde som anges för resursen (kontrollera efterföljande /'?) | 
+| SecretHeaderNotFound | Det gick inte att hitta hemligheten i begärandehuvuden. | Autentiserings koden har inte angetts med begäran. | 
+| ManagedIdentityNotFound | Hanterad identitet hittades inte för den angivna program värden. | Programmet saknar identitet eller så är autentiserings koden okänd. |
+| ArgumentNullOrEmpty | Parametern Resource får inte vara null eller en tom sträng. | Resursen (Audience) tillhandahölls inte i begäran. |
+| InvalidApiVersion | API-versionen stöds inte. Versionen som stöds är 2019-07-01-Preview. | Den API-version som saknas eller inte stöds anges i URI: n för begäran. |
+| InternalServerError | Ett fel inträffade. | Ett fel påträffades i under systemet för hanterad identitet, eventuellt utanför Service Fabric stacken. Den mest sannolika orsaken är ett felaktigt värde som har angetts för resursen (Sök efter efterföljande '/'?) | 
 
-## <a name="retry-guidance"></a>Vägledning för återförsök 
+## <a name="retry-guidance"></a>Vägledning för nytt försök 
 
-Vanligtvis är den enda felkoden för återförsök 429 (för många begäranden). interna serverfel/5xx-felkoder kan kunna återanvändas, även om orsaken kan vara permanent. 
+Den enda felkoden som kan återförsök är vanligt vis 429 (för många begär Anden). interna Server fel/5xx fel koder kan gå att försöka igen, även om orsaken kan vara permanent. 
 
-Begränsningsgränser gäller för antalet anrop som görs till det hanterade identitetsundersystemet - särskilt "uppströms"-beroenden (Azure-tjänsten för hanterad identitet eller den säkra tokentjänsten). Service Fabric cachelagrar token på olika nivåer i pipelinen, men med tanke på de berörda komponenternas distribuerade karaktär kan anroparen uppleva inkonsekventa begränsningssvar (dvs. få begränsning på en nod/instans av ett program, men inte på en annan nod när du begär en token för samma identitet.) När begränsningsvillkoret har angetts kan efterföljande begäranden från samma program misslyckas med HTTP-statuskoden 429 (för många begäranden) tills villkoret har rensats.  
+Begränsnings gränser gäller för det antal anrop som görs till under systemet för hanterad identitet – särskilt de överordnade beroenden (den hanterade identiteten Azure-tjänst eller Secure token service). Service Fabric cachelagrar tokens på olika nivåer i pipelinen, men med tanke på de berörda komponenternas distribuerade egenskaper, kan anroparen uppleva inkonsekventa begränsnings svar (d.v.s. begränsas av en nod/instans av ett program, men inte på en annan nod, medan en token för samma identitet begärs.) När begränsnings villkoret har angetts kan efterföljande förfrågningar från samma program Miss lyckas med HTTP-statuskod 429 (för många begär Anden) tills villkoret är avmarkerat.  
 
-Vi rekommenderar att begäranden som misslyckats på grund av begränsning görs på nytt med en exponentiell backoff enligt följande: 
+Vi rekommenderar att begär Anden som Miss lyckas på grund av begränsningen provas med en exponentiell backoff, enligt följande: 
 
-| Ring index | Åtgärder för att ta emot 429 | 
+| Anrops index | Åtgärd vid mottagande av 429 | 
 | --- | --- | 
 | 1 | Vänta 1 sekund och försök igen |
 | 2 | Vänta 2 sekunder och försök igen |
@@ -370,10 +370,10 @@ Vi rekommenderar att begäranden som misslyckats på grund av begränsning görs
 | 4 | Vänta 8 sekunder och försök igen |
 | 5 | Vänta 16 sekunder och försök igen |
 
-## <a name="resource-ids-for-azure-services"></a>Resurs-ID:er för Azure-tjänster
+## <a name="resource-ids-for-azure-services"></a>Resurs-ID för Azure-tjänster
 Se [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md) för en lista över resurser som stöder Azure AD och deras respektive resurs-ID.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera ett Azure Service Fabric-program med en systemtilldelad hanterad identitet](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Distribuera ett Azure Service Fabric-program med en användartilldelad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Bevilja en Azure Service Fabric-programåtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)
+* [Distribuera ett Azure Service Fabric-program med en användardefinierad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Bevilja ett Azure Service Fabric program åtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)

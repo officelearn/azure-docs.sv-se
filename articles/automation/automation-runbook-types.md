@@ -1,124 +1,124 @@
 ---
-title: Azure Automation-runbooktyper
-description: Beskriver de olika typer av runbooks som du kan använda i Azure Automation och överväganden för att avgöra vilken typ som ska användas.
+title: Azure Automation Runbook-typer
+description: Beskriver de olika typerna av Runbooks som du kan använda i Azure Automation och överväganden för att bestämma vilken typ som ska användas.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1ac6347bd8e723f356da4803da54a6ea45a4a71a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535527"
 ---
-# <a name="azure-automation-runbook-types"></a>Azure Automation-runbooktyper
+# <a name="azure-automation-runbook-types"></a>Azure Automation Runbook-typer
 
-Azure Automation-tjänsten för processautomatisering stöder flera typer av runbooks, enligt definitionen i följande tabell. Mer information om processautomatiseringsmiljön finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
+Tjänsten Azure Automation process Automation stöder flera typer av Runbooks som definieras i följande tabell. Mer information om process automatiserings miljön finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
 
 | Typ | Beskrivning |
 |:--- |:--- |
-| [Grafisk](#graphical-runbooks)|Grafisk runbook baserad på Windows PowerShell och skapas och redigeras helt i den grafiska redigeraren i Azure-portalen. |
-| [Grafiskt PowerShell-arbetsflöde](#graphical-runbooks)|Grafisk runbook baserad på Windows PowerShell Workflow och skapas och redigeras helt i den grafiska redigeraren i Azure-portalen. |
-| [PowerShell](#powershell-runbooks) |Lärokörbok baserad på Windows PowerShell-skript. |
-| [PowerShell-arbetsflöde](#powershell-workflow-runbooks)|Lärokörbok baserad på Skript för Windows PowerShell-arbetsflöde. |
-| [Python](#python-runbooks) |Läroprogram baserat på Python-skript. |
+| [Grafisk](#graphical-runbooks)|Grafisk Runbook baserad på Windows PowerShell och skapas och redige ras helt i den grafiska redigeraren i Azure Portal. |
+| [Grafiskt PowerShell-arbetsflöde](#graphical-runbooks)|Grafisk Runbook baserad på Windows PowerShell-arbetsflöde och skapas och redige ras helt i den grafiska redigeraren i Azure Portal. |
+| [PowerShell](#powershell-runbooks) |Text-Runbook baserad på Windows PowerShell-skript. |
+| [PowerShell-arbetsflöde](#powershell-workflow-runbooks)|Text-Runbook baserad på skript för Windows PowerShell-arbetsflöde. |
+| [Python](#python-runbooks) |Text-Runbook baserat på Python-skript. |
 
-Ta hänsyn till följande överväganden vid fastställandet av vilken typ som ska användas för en viss runbook.
+Ta hänsyn till följande överväganden när du bestämmer vilken typ som ska användas för en viss Runbook.
 
-* Du kan inte konvertera runbooks från grafisk till texttyp eller tvärtom.
-* Det finns begränsningar när du använder runbooks av olika typer som underordnade runbooks. Mer information finns i [Underordnade runbooks i Azure Automation](automation-child-runbooks.md).
+* Du kan inte konvertera Runbooks från grafiskt till text typ, eller tvärtom.
+* Det finns begränsningar när du använder Runbooks av olika typer som underordnade Runbooks. Mer information finns i [underordnade Runbooks i Azure Automation](automation-child-runbooks.md).
 
 >[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="graphical-runbooks"></a>Grafiska runbooks
 
-Du kan skapa och redigera grafiska och grafiska PowerShell-arbetsflödeskörningsböcker med hjälp av den grafiska redigeraren i Azure-portalen. Du kan dock inte skapa eller redigera den här typen av runbook med ett annat verktyg. Huvuddragen i grafiska runbooks:
+Du kan skapa och redigera grafiska och grafiska PowerShell Workflow-Runbooks med hjälp av den grafiska redigeraren i Azure Portal. Du kan dock inte skapa eller redigera den här typen av Runbook med ett annat verktyg. Huvud funktioner i grafiska runbooks:
 
 * Kan exporteras till filer i ditt Automation-konto och sedan importeras till ett annat Automation-konto. 
 * Generera PowerShell-kod. 
-* Kan konverteras till eller från grafiska PowerShell-arbetsflödeskörningar under importen. 
+* Kan konverteras till eller från grafiska PowerShell Workflow-Runbooks under import. 
 
 ### <a name="advantages"></a>Fördelar
 
-* Använd visuella infogningslänk-konfigurera redigeringsmodell.
+* Använd visuell infogning-länka-konfigurera redigerings modell.
 * Fokusera på hur data flödar genom processen.
-* Visuellt representera hanteringsprocesser.
-* Inkludera andra runbooks som underordnade runbooks för att skapa arbetsflöden på hög nivå.
+* Visar hanterings processer visuellt.
+* Ta med andra Runbooks som underordnade Runbooks för att skapa arbets flöden på hög nivå.
 * Uppmuntra modulär programmering.
 
 ### <a name="limitations"></a>Begränsningar
 
-* Det går inte att skapa eller redigera utanför Azure-portalen.
-* Kan kräva en kodaktivitet som innehåller PowerShell-kod för att köra komplex logik.
-* Det går inte att konvertera till något av [textformaten](automation-runbook-types.md)och du kan inte heller konvertera en lärobok till grafiskt format. 
-* Det går inte att visa eller direkt redigera PowerShell-kod som det grafiska arbetsflödet skapar. Du kan visa koden du skapar i alla kodaktiviteter.
-* Det går inte att köra runbooks på en Linux Hybrid Runbook Worker. Se [Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+* Det går inte att skapa eller redigera utanför Azure Portal.
+* Kan kräva en kod aktivitet som innehåller PowerShell-kod för att köra komplex logik.
+* Det går inte att konvertera till ett [text format](automation-runbook-types.md), eller så kan du inte konvertera en text-Runbook till grafiskt format. 
+* Det går inte att visa eller direkt redigera PowerShell-kod som skapas i det grafiska arbets flödet. Du kan visa koden som du skapar i alla kod aktiviteter.
+* Det går inte att köra Runbooks på en Linux-Hybrid Runbook Worker. Se [automatisera resurser i ditt data Center eller i molnet med hjälp av hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
-## <a name="powershell-runbooks"></a>PowerShell-runböcker
+## <a name="powershell-runbooks"></a>PowerShell-Runbooks
 
-PowerShell-runbooks baseras på Windows PowerShell. Du redigerar direkt koden för runbooken med textredigeraren i Azure-portalen.  Du kan också använda valfri offlinetextredigerare och [importera runbooken](manage-runbooks.md) till Azure Automation.
+PowerShell-Runbooks baseras på Windows PowerShell. Du redigerar koden för runbooken direkt med hjälp av text redigeraren i Azure Portal.  Du kan också använda valfri text redigerare och [Importera runbooken](manage-runbooks.md) till Azure Automation.
 
 ### <a name="advantages"></a>Fördelar
 
-* Implementera all komplex logik med PowerShell-kod utan ytterligare komplexitet i PowerShell Workflow.
-* Starta snabbare än PowerShell Workflow runbooks, eftersom de inte behöver kompileras innan de körs.
-* Kör i Azure och på Hybrid Runbook Workers för både Windows och Linux.
+* Implementera all komplex logik med PowerShell-kod utan ytterligare komplicerade arbets flöden i PowerShell.
+* Starta snabbare än PowerShell Workflow-Runbooks eftersom de inte behöver kompileras innan de körs.
+* Kör i Azure och i hybrid Runbook Worker för både Windows och Linux.
 
 ### <a name="limitations"></a>Begränsningar
 
-* Du måste känna till PowerShell-skript.
-* Runbooks kan inte använda [parallell bearbetning](automation-powershell-workflow.md#parallel-processing) för att utföra flera åtgärder parallellt.
-* Runbooks kan inte använda [kontrollpunkter](automation-powershell-workflow.md#checkpoints) för att återuppta runbook om det finns ett fel.
-* Du kan bara inkludera PowerShell Workflow runbooks och grafiska runbooks som underordnade runbooks med hjälp av [Cmdlet Start-AzAutomationRunbook,](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) som skapar ett nytt jobb.
+* Du måste vara bekant med PowerShell-skript.
+* Runbooks kan inte använda [parallell bearbetning](automation-powershell-workflow.md#parallel-processing) för att köra flera åtgärder parallellt.
+* Runbooks kan inte använda [kontroll punkter](automation-powershell-workflow.md#checkpoints) för att återuppta Runbook om det uppstår ett fel.
+* Du kan inkludera endast PowerShell Workflow-Runbooks och grafiska runbooks som underordnade Runbooks med hjälp av cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) , som skapar ett nytt jobb.
 
 ### <a name="known-issues"></a>Kända problem
 
-Följande är aktuella kända problem med PowerShell-runbooks:
+Följande är aktuella kända problem med PowerShell-Runbooks:
 
-* PowerShell-runbooks kan inte hämta en okrypterad [variabel tillgång](automation-variables.md) med ett null-värde.
-* PowerShell-runbooks kan inte hämta `*~*` en variabel tillgång med i namnet.
-* En [Get-Process-åtgärd](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) i en loop i en PowerShell-runbook kan krascha efter cirka 80 iterationer.
-* En PowerShell-runbook kan misslyckas om den försöker skriva en stor mängd data till utdataströmmen samtidigt. Du kan vanligtvis komma runt det här problemet genom att låta runbook-utdata bara den information som behövs för att arbeta med stora objekt. I stället för `Get-Process` att använda utan begränsningar kan du till exempel ha cmdlet-utdata bara de parametrar som krävs som i `Get-Process | Select ProcessName, CPU`.
+* PowerShell-Runbooks kan inte hämta en okrypterad [variabel till gång](automation-variables.md) med ett null-värde.
+* PowerShell-Runbooks kan inte hämta en variabel `*~*` till gång med i namnet.
+* En [Get-process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) -åtgärd i en slinga i en PowerShell-Runbook kan krascha efter cirka 80 iterationer.
+* En PowerShell-Runbook kan inte köras om den försöker skriva en stor mängd data till utdataströmmen samtidigt. Du kan vanligt vis undvika det här problemet genom att låta Runbook-jobbet bara mata ut den information som behövs för att arbeta med stora objekt. I stället för att använda `Get-Process` utan begränsningar kan du till exempel låta cmdleten bara mata in de nödvändiga parametrarna som i `Get-Process | Select ProcessName, CPU`.
 
-## <a name="powershell-workflow-runbooks"></a>PowerShell-arbetsflödeskörningsböcker
+## <a name="powershell-workflow-runbooks"></a>PowerShell Workflow-Runbooks
 
-PowerShell-arbetsflödeskörningsböcker är läroböcker som baseras på [Windows PowerShell Workflow](automation-powershell-workflow.md). Du redigerar direkt koden för runbooken med textredigeraren i Azure-portalen. Du kan också använda valfri offlinetextredigerare och [importera runbooken](manage-runbooks.md) till Azure Automation.
+PowerShell Workflow-Runbooks är text-Runbooks baserade på [Windows PowerShell-arbetsflöde](automation-powershell-workflow.md). Du redigerar koden för runbooken direkt med hjälp av text redigeraren i Azure Portal. Du kan också använda valfri text redigerare och [Importera runbooken](manage-runbooks.md) till Azure Automation.
 
 ### <a name="advantages"></a>Fördelar
 
-* Implementera all komplex logik med PowerShell-arbetsflödeskod.
-* Använd [kontrollpunkter](automation-powershell-workflow.md#checkpoints) för att återuppta åtgärden om det finns ett fel.
+* Implementera all komplex logik med PowerShell Workflow Code.
+* Använd [kontroll punkter](automation-powershell-workflow.md#checkpoints) för att återuppta åtgärden om det uppstår ett fel.
 * Använd [parallell bearbetning](automation-powershell-workflow.md#parallel-processing) för att utföra flera åtgärder parallellt.
-* Kan inkludera andra grafiska runbooks och PowerShell Workflow runbooks som underordnade runbooks för att skapa arbetsflöden på hög nivå.
+* Kan inkludera andra grafiska runbooks och PowerShell Workflow-Runbooks som underordnade Runbooks för att skapa arbets flöden på hög nivå.
 
 ### <a name="limitations"></a>Begränsningar
 
-* Du måste vara bekant med PowerShell Workflow.
-* Runbooks måste hantera den ytterligare komplexiteten i PowerShell Workflow, till exempel [deserialiserade objekt](automation-powershell-workflow.md#code-changes).
-* Runbooks tar längre tid att starta än PowerShell runbooks eftersom de måste kompileras innan de körs.
-* Du kan bara inkludera PowerShell-runbooks som `Start-AzAutomationRunbook` underordnade runbooks med hjälp av cmdlet.
-* Runbooks kan inte köras på en Linux Hybrid Runbook Worker.
+* Du måste vara bekant med PowerShell-arbetsflöde.
+* Runbooks måste hantera den ytterligare komplexiteten i PowerShell-arbetsflöde, till exempel [avserialiserade objekt](automation-powershell-workflow.md#code-changes).
+* Runbooks tar längre tid att starta än PowerShell-Runbooks eftersom de måste kompileras innan de körs.
+* Du kan bara ta med PowerShell-Runbooks som underordnade Runbooks med `Start-AzAutomationRunbook` hjälp av cmdleten.
+* Runbooks kan inte köras på en Linux-Hybrid Runbook Worker.
 
-## <a name="python-runbooks"></a>Python runbooks
+## <a name="python-runbooks"></a>Python-Runbooks
 
-Python runbooks kompilerar under Python 2. Du kan redigera koden för runbooken direkt med textredigeraren i Azure-portalen. Du kan också använda en offlinetextredigerare och [importera runbooken](manage-runbooks.md) till Azure Automation.
+Python-Runbooks kompileras under python 2. Du kan redigera koden för runbooken direkt med hjälp av text redigeraren i Azure Portal. Du kan också använda en text redigerare offline och [Importera runbooken](manage-runbooks.md) till Azure Automation.
 
 ### <a name="advantages"></a>Fördelar
 
-* Använd de robusta Python-biblioteken.
-* Kan köras i Azure eller Linux Hybrid Runbook Workers. Windows Hybrid Runbook Workers stöds med [python2.7](https://www.python.org/downloads/release/latest/python2) installerat.
+* Använd robusta python-bibliotek.
+* Kan köras i Azure eller Linux hybrid Runbook Worker. Windows hybrid Runbook Worker stöds med [python 2.7](https://www.python.org/downloads/release/latest/python2) installerat.
 
 ### <a name="limitations"></a>Begränsningar
 
-* Du måste känna till Python-skript.
-* Endast Python 2 stöds för närvarande. Alla Python 3-specifika funktioner misslyckas.
-* Om du vill använda bibliotek från tredje part måste du [importera paketen](python-packages.md) till Automation-kontot.
+* Du måste vara bekant med python-skript.
+* Endast python 2 stöds för närvarande. Eventuella python 3-/regionsspecifika funktioner fungerar inte.
+* Om du vill använda bibliotek från tredje part måste du [Importera paketen](python-packages.md) till Automation-kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om grafisk runbook-redigering finns [i Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
-* Information om skillnaderna mellan PowerShell- och PowerShell-arbetsflöden för runbooks finns i Utbildningsflöde av [Windows PowerShell](automation-powershell-workflow.md).
-* Mer information om hur du skapar eller importerar en runbook finns [i Hantera runbooks i Azure Automation](manage-runbooks.md).
-* Mer information om PowerShell, inklusive språkreferens- och utbildningsmoduler, finns i [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* Mer information om grafisk redigering av Runbook finns [i grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
+* Information om skillnaderna mellan PowerShell-och PowerShell-arbetsflöden för Runbooks finns i [Learning Windows PowerShell-arbetsflöde](automation-powershell-workflow.md).
+* Mer information om hur du skapar eller importerar en Runbook finns [i hantera Runbooks i Azure Automation](manage-runbooks.md).
+* Om du vill veta mer om PowerShell, inklusive språk referens-och inlärnings moduler, se [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).

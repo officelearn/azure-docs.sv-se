@@ -1,6 +1,6 @@
 ---
-title: 'Hanterad instans: Lagring av säkerhetskopiering för långsiktig säkerhetskopiering (PowerShell)'
-description: Lär dig hur du lagrar och återställer automatiska säkerhetskopior på separata Azure Blob-lagringsbehållare för en hanterad Azure SQL-databas-hanterad instans med PowerShell.
+title: 'Hanterad instans: för långsiktig kvarhållning av säkerhets kopior (PowerShell)'
+description: Lär dig hur du lagrar och återställer automatiserade säkerhets kopieringar på separata Azure Blob Storage-behållare för en Azure SQL Database Hanterad instans med hjälp av PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -13,43 +13,43 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/19/2020
 ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81677106"
 ---
-# <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Hantera Azure SQL Database-hanterad instans för långsiktig lagring av säkerhetskopiering (PowerShell)
+# <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Hantera Azure SQL Database Hanterad instans långsiktig kvarhållning av säkerhets kopior (PowerShell)
 
-I Azure SQL Database-hanterad instans kan du konfigurera en [långsiktig bevarandeprincip](sql-database-long-term-retention.md#managed-instance-support) för säkerhetskopiering (LTR) som en begränsad offentlig förhandsversionsfunktion. På så sätt kan du automatiskt behålla säkerhetskopieringar av databaser i separata Azure Blob-lagringsbehållare i upp till 10 år. Du kan sedan återställa en databas med hjälp av dessa säkerhetskopior med PowerShell.
+I Azure SQL Database Hanterad instans kan du konfigurera en [långsiktig bevarande princip för säkerhets kopior](sql-database-long-term-retention.md#managed-instance-support) (brv) som en begränsad offentlig för hands versions funktion. På så sätt kan du automatiskt behålla säkerhets kopior av databasen i separata Azure Blob Storage-behållare i upp till 10 år. Du kan sedan återställa en databas med dessa säkerhets kopior med PowerShell.
 
    > [!IMPORTANT]
-   > LTR för hanterade instanser är för närvarande i begränsad förhandsversion och tillgänglig för EA- och CSP-prenumerationer från fall till fall. Om du vill begära registrering skapar du en [Azure-supportbiljett](https://azure.microsoft.com/support/create-ticket/) under supportavsnittet **Säkerhetskopiering, återställning och lagring av affärskontinuitet/långsiktig säkerhetskopiering**. 
+   > BRV för hanterade instanser är för närvarande i begränsad för hands version och är tillgängligt för EA-och CSP-prenumerationer i fall. Om du vill begära registrering skapar du ett [support ärende för Azure](https://azure.microsoft.com/support/create-ticket/) under support avsnittet **säkerhets kopiering, återställning och affärs kontinuitet/långsiktig kvarhållning av säkerhets kopior**. 
 
 
-Följande avsnitt visar hur du använder PowerShell för att konfigurera långsiktig lagring av säkerhetskopiering, visa säkerhetskopior i Azure SQL-lagring och återställa från en säkerhetskopia i Azure SQL-lagring.
+Följande avsnitt visar hur du använder PowerShell för att konfigurera långsiktig kvarhållning av säkerhets kopior, Visa säkerhets kopior i Azure SQL-lagring och återställa från en säkerhets kopia i Azure SQL Storage.
 
 ## <a name="rbac-roles-to-manage-long-term-retention"></a>RBAC-roller för att hantera långsiktig kvarhållning
 
-För **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** och **Restore-AzSqlInstanceDatabase**måste du ha en av följande roller:
+För **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** och **restore-AzSqlInstanceDatabase**måste du ha en av följande roller:
 
-- Rollen Prenumerationsägare eller
-- Rollen Hanterad instansdeltagare eller
+- Prenumerations ägarens roll eller
+- Rollen hanterad instans deltagare eller
 - Anpassad roll med följande behörigheter:
   - `Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-För **Ta bort-AzSqlInstanceDatabaseLongTermRetentionBackup**måste du ha någon av följande roller:
+För **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**måste du ha en av följande roller:
 
-- Rollen Prenumerationsägare eller
+- Prenumerations ägarens roll eller
 - Anpassad roll med följande behörighet:
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
 > [!NOTE]
-> Rollen Hanterad instansdeltagare har inte behörighet att ta bort LTR-säkerhetskopior.
+> Rollen hanterad instans deltagare har inte behörighet att ta bort LTR-säkerhetskopieringar.
 
-RBAC-behörigheter kan beviljas i antingen *prenumerations-* eller *resursgruppsomfattning.* För att komma åt LTR-säkerhetskopior som tillhör en bortsläppt instans måste dock behörigheten beviljas i prenumerationsomfånget för den instansen. *subscription*
+RBAC-behörigheter kan beviljas i antingen *prenumerations* -eller *resurs grupps* omfång. Men för att komma åt LTR-säkerhetskopieringar som tillhör en utelämnad instans måste behörigheten beviljas i *prenumerations* omfånget för den instansen.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
@@ -78,7 +78,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 
 ## <a name="view-ltr-policies"></a>Visa LTR-principer
 
-Det här exemplet visar hur du listar LTR-principerna i en instans
+Det här exemplet visar hur du visar en lista över LTR-principer i en instans
 
 ```powershell
 # gets the current version of LTR policy for the database
@@ -88,16 +88,16 @@ $ltrPolicies = Get-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceN
 
 ## <a name="clear-an-ltr-policy"></a>Rensa en LTR-princip
 
-I det här exemplet visas hur du rensar en LTR-princip från en databas
+Det här exemplet visar hur du tar bort en LTR-princip från en databas
 
 ```powershell
 Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
    -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
 ```
 
-## <a name="view-ltr-backups"></a>Visa LTR-säkerhetskopior
+## <a name="view-ltr-backups"></a>Visa LTR-säkerhetskopieringar
 
-Det här exemplet visar hur du listar LTR-säkerhetskopior i en instans.
+Det här exemplet visar hur du visar en lista över säkerhets kopieringar i en instans.
 
 ```powershell
 # get the list of all LTR backups in a specific Azure region
@@ -117,9 +117,9 @@ $ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instan
 $ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location -InstanceName $instanceName -OnlyLatestPerDatabase
 ```
 
-## <a name="delete-ltr-backups"></a>Ta bort LTR-säkerhetskopior
+## <a name="delete-ltr-backups"></a>Ta bort LTR-säkerhetskopieringar
 
-Det här exemplet visar hur du tar bort en LTR-säkerhetskopia från listan över säkerhetskopior.
+Det här exemplet visar hur du tar bort en LTR-säkerhetskopiering från listan över säkerhets kopior.
 
 ```powershell
 # remove the earliest backup
@@ -128,11 +128,11 @@ Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resou
 ```
 
 > [!IMPORTANT]
-> Det går inte att ta bort LTR-säkerhetskopieringen. Om du vill ta bort en LTR-säkerhetskopia när instansen har tagits bort måste du ha behörigheten Prenumerationsomfattning. Du kan ställa in meddelanden om varje borttagning i Azure Monitor genom att filtrera för åtgärden Tar bort en långsiktig bevarandesäkerhetskopiering. Aktivitetsloggen innehåller information om vem och när begäran görs. Se [Skapa aktivitetsloggaviseringar](../azure-monitor/platform/alerts-activity-log.md) för detaljerade instruktioner.
+> Borttagning av LTR-säkerhetskopiering går inte att ångra. Om du vill ta bort en LTR-säkerhetskopiering när instansen har tagits bort måste du ha behörighet som prenumerations omfång. Du kan ställa in aviseringar om varje borttagning i Azure Monitor genom filtrering för åtgärd, tar bort en säkerhets kopia av långsiktig kvarhållning. Aktivitets loggen innehåller information om vem och när du har gjort begäran. Mer information finns i [skapa aktivitets logg aviseringar](../azure-monitor/platform/alerts-activity-log.md) .
 
-## <a name="restore-from-ltr-backups"></a>Återställa från LTR-säkerhetskopior
+## <a name="restore-from-ltr-backups"></a>Återställa från LTR-säkerhetskopieringar
 
-Det här exemplet visar hur du återställer från en LTR-säkerhetskopia. Det här gränssnittet ändrades inte, men resurs-ID-parametern kräver nu LTR-säkerhetskopieringsresurs-ID.
+Det här exemplet visar hur du återställer från en LTR-säkerhetskopiering. Obs! det här gränssnittet ändrades inte, men parametern resurs-ID kräver nu resurs-ID: t för säkerhets kopiering.
 
 ```powershell
 # restore a specific LTR backup as an P1 database on the instance $instanceName of the resource group $resourceGroup
@@ -141,10 +141,10 @@ Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBacku
 ```
 
 > [!IMPORTANT]
-> Om du vill återställa från en LTR-säkerhetskopia när instansen har tagits bort måste du ha behörigheter begränsade till instansens prenumeration och att prenumerationen måste vara aktiv. Du måste också utelämna parametern -ResourceGroupName som tillval.
+> Om du vill återställa från en LTR-säkerhetskopiering när instansen har tagits bort, måste du ha behörighet som är begränsad till prenumerationen på instansen och den prenumerationen måste vara aktiv. Du måste också utelämna den valfria-ResourceGroupName-parametern.
 
 > [!NOTE]
-> Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet. Se [tidsåterställning](sql-database-recovery-using-backups.md#point-in-time-restore).
+> Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet. Se tidpunkt [för återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="next-steps"></a>Nästa steg
 

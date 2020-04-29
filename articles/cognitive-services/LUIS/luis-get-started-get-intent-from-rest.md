@@ -1,17 +1,17 @@
 ---
-title: 'Snabbstart: Få avsikt med REST API: er - LUIS'
-description: I den här REST API-snabbstarten använder du en tillgänglig offentlig LUIS-app för att avgöra en användares avsikt från konversationstext.
+title: 'Snabb start: skapa avsikt med REST-API: er – LUIS'
+description: I den här REST API snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text.
 ms.topic: quickstart
 ms.date: 04/20/2020
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 03f1c1539233872d9b98fab317c9caf997d5df69
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733314"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Snabbstart: Få avsikt med REST API:er
+# <a name="quickstart-get-intent-with-rest-apis"></a>Snabb start: skapa avsikt med REST API: er
 
 I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att fastställa användarens avsikt i konversationstext. Skicka användarens avsikt som text till den offentliga appens HTTP-slutpunkt för förutsägelser. Vid slutpunkten tillämpar LUIS den offentliga appens modell för att analysera betydelsen av text med naturligt språk, och fastställa den övergripande avsikten och extrahera data som är relevanta för appens ämnesdomän.
 

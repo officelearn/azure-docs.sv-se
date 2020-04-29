@@ -1,7 +1,7 @@
 ---
-title: Hämta & cachetoken med MSAL | Azure
+title: Hämta &-cache-token med MSAL | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om hur du hämtar och cachelagring av token med hjälp av Microsoft Authentication Library (MSAL).
+description: Lär dig mer om att förvärva och cachelagra token med hjälp av Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,101 +14,101 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 647dff9e6401322371ef795a25ca5ced2b517e9c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81534592"
 ---
-# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Hämta och cacheminnen med hjälp av Microsofts autentiseringsbibliotek (MSAL)
+# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Hämta och cachelagra token med Microsoft Authentication Library (MSAL)
 
-[Åtkomsttoken](access-tokens.md) gör det möjligt för klienter att anropa webb-API:er som skyddas av Azure på ett säkert sätt. Det finns många sätt att hämta en token med Hjälp av Microsoft Authentication Library (MSAL). Vissa sätt kräver användarinteraktioner via en webbläsare. Vissa kräver inga användarinteraktioner. I allmänhet beror sättet att skaffa en token på om programmet är ett offentligt klientprogram (skrivbords- eller mobilapp) eller ett konfidentiellt klientprogram (webbapp, webb-API eller demonprogram som en Windows-tjänst).
+[Åtkomsttoken gör det](access-tokens.md) möjligt för klienter att på ett säkert sätt anropa webb-API: er som skyddas av Azure. Det finns många sätt att hämta en token med hjälp av Microsoft Authentication Library (MSAL). På vissa sätt krävs användar interaktioner via en webbläsare. Vissa kräver ingen interaktion från användaren. I allmänhet beror det på hur du kan hämta en token på om programmet är ett offentligt klient program (stationär eller mobilapp) eller ett konfidentiellt klient program (webbapp, webb-API eller daemon-program som en Windows-tjänst).
 
-MSAL cachelagrar en token efter att den har förvärvats.  Programkod bör försöka få en token tyst (från cacheminnet), först, innan du hämtar en token på annat sätt.
+MSAL cachelagrar en token efter att den har hämtats.  Program koden bör försöka hämta en token tyst (från cachen), först innan du hämtar en token på annat sätt.
 
-Du kan också rensa tokencachen, som uppnås genom att ta bort kontona från cacheminnet. Detta tar dock inte bort sessionscookien som finns i webbläsaren.
+Du kan också rensa token-cachen, som uppnås genom att ta bort kontona från cachen. Detta tar inte bort sessions-cookien som finns i webbläsaren, men.
 
-## <a name="scopes-when-acquiring-tokens"></a>Scope vid inlösen av token
+## <a name="scopes-when-acquiring-tokens"></a>Omfattningar vid hämtning av token
 
-[Scope](v2-permissions-and-consent.md) är de behörigheter som ett webb-API exponerar för klientprogram att begära åtkomst till. Klientprogram begär användarens samtycke till dessa scope när du gör autentiseringsbegäranden för att få token för att komma åt webb-API:erna. MSAL kan du få tokens för att komma åt Azure AD för utvecklare (v1.0) och Microsoft Identity Platform (v2.0) API:er. v2.0-protokollet använder scope i stället för resurser i begärandena. För mer information, läs [v1.0 och v2.0 jämförelse](active-directory-v2-compare.md). Baserat på webb-API:ets konfiguration av tokenversionen som accepteras returnerar v2.0-slutpunkten åtkomsttoken till MSAL.
+[Omfattningar](v2-permissions-and-consent.md) är de behörigheter som ett webb-API visar för klient program för att begära åtkomst till. Klient program begär användarens medgivande för dessa omfattningar när de gör autentiseringsbegäranden för att hämta token för att få åtkomst till webb-API: er. Med MSAL kan du hämta token för att få åtkomst till Azure AD för utvecklare (v 1.0) och API: er för Microsoft Identity Platform (v 2.0). v 2.0-protokollet använder omfång i stället för resurs i begär Anden. Mer information finns i [jämförelse mellan v 1.0 och v 2.0](active-directory-v2-compare.md). Baserat på webb-API: ns konfiguration av den token-version som den accepterar, returnerar v 2.0-slutpunkten åtkomsttoken till MSAL.
 
-Ett antal MSAL-inhämtning av tokenmetoder kräver en *scopeparameter.* Den här parametern är en enkel lista med strängar som deklarerar önskade behörigheter och resurser som begärs. Välkända scope är [Behörigheterna för Microsoft Graph](/graph/permissions-reference).
+Ett antal MSAL-metoder för att hämta token kräver en *omfattnings* parameter. Den här parametern är en enkel lista med strängar som deklarerar önskade behörigheter och resurser som begärs. Välkända omfattningar är [Microsoft Graph behörigheter](/graph/permissions-reference).
 
-Det är också möjligt i MSAL att komma åt v1.0-resurser. Mer information finns i [Scopes för ett v1.0-program](msal-v1-app-scopes.md).
+Det går också att komma åt v 1.0-resurser med MSAL. Mer information finns i avsnittet [om omfång för ett v 1.0-program](msal-v1-app-scopes.md).
 
-### <a name="request-specific-scopes-for-a-web-api"></a>Begär specifika scope för ett webb-API
+### <a name="request-specific-scopes-for-a-web-api"></a>Begär speciella omfattningar för ett webb-API
 
-När ditt program behöver begära token med specifika behörigheter för ett resurs-API måste du skicka scope som innehåller API:et för appen ID i det följande formatet: * &lt;app-ID&gt;/&lt;URI-scope&gt;*
+När ditt program behöver begära tokens med specifika behörigheter för ett resurs-API måste du skicka de omfattningar som innehåller app-ID-URI: n för API: et i formatet nedan: * &lt;app-ID URI&gt;/&lt;-omfång&gt;*
 
-Till exempel scope för Microsoft Graph API:`https://graph.microsoft.com/User.Read`
+Exempel: scope för Microsoft Graph API:`https://graph.microsoft.com/User.Read`
 
-Eller till exempel scope för ett anpassat webb-API:`api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
+Eller till exempel omfång för ett anpassat webb-API:`api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
 
-Endast för Microsoft Graph API mappas ett scopevärde `user.read` till `https://graph.microsoft.com/User.Read` formatet och kan användas omväxlande.
+För Microsoft Graph-API: t, mappas ett `user.read` omfångs värde till `https://graph.microsoft.com/User.Read` format och kan användas utbytbart.
 
 > [!NOTE]
-> Vissa webb-API:er somhttps://management.core.windows.net/) Azure Resource Manager API ( förvänta dig ett avslutande /' i målgruppsanspråket (aud) för åtkomsttoken. I det här fallet är det https://management.core.windows.net//user_impersonation viktigt att skicka scopet som (notera dubbelsnedstrecket), för att token ska vara giltig i API:et.
+> Vissa webb-API: er, tillhttps://management.core.windows.net/) exempel Azure Resource Manager API (förväntar sig ett efterföljande "/" i AUD-åtkomsttoken (Audience Claim). I det här fallet är det viktigt att skicka omfånget https://management.core.windows.net//user_impersonation som (Observera det dubbla snedstrecket) för att token ska vara giltig i API: et.
 
-### <a name="request-dynamic-scopes-for-incremental-consent"></a>Begär dynamiska scope för inkrementellt medgivande
+### <a name="request-dynamic-scopes-for-incremental-consent"></a>Begär dynamiska omfattningar för stegvist godkännande
 
-När du skapar program som använder v1.0 var du tvungen att registrera den fullständiga uppsättningen behörigheter (statiska scope) som krävs av programmet för att användaren ska godkänna vid inloggningstillfället. I v2.0 kan du begära ytterligare behörigheter efter behov med hjälp av scopeparametern. Dessa kallas dynamiska scope och tillåter användaren att ge inkrementellt medgivande till scope.
+När du skapar program med hjälp av v 1.0 var du tvungen att registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna vid inloggnings tillfället. I v 2.0 kan du begära ytterligare behörigheter efter behov med hjälp av omfattnings parametern. Dessa kallas dynamiska omfattningar och tillåter att användaren ger ett stegvist tillstånd för omfattningar.
 
-Du kan till exempel först logga in användaren och neka dem någon form av åtkomst. Senare kan du ge dem möjlighet att läsa kalendern för användaren genom att begära kalenderomfånget i inhämtningstokenmetoderna och få användarens medgivande.
+Du kan till exempel först logga in användaren och neka alla typer av åtkomst. Senare kan du ge dem möjlighet att läsa användarens kalender genom att begära kalender omfånget i metoderna för att hämta token och få användarens medgivande.
 
 Till exempel: `https://graph.microsoft.com/User.Read` och`https://graph.microsoft.com/Calendar.Read`
 
-## <a name="acquiring-tokens-silently-from-the-cache"></a>Hämta token tyst (från cacheminnet)
+## <a name="acquiring-tokens-silently-from-the-cache"></a>Hämtar token tyst (från cachen)
 
-MSAL underhåller en tokencache (eller två cacheminnen för konfidentiella klientprogram) och cachelagrar en token efter att den har förvärvats.  I många fall, försöker tyst få en token kommer att få en annan token med fler scope baserat på en token i cachen. Det kan också uppdatera en token när den närmar sig förfallodatum (eftersom tokencachen också innehåller en uppdateringstoken).
+MSAL upprätthåller ett token-cache (eller två cacheminnen för konfidentiella klient program) och cachelagrar en token efter att den har hämtats.  I många fall kommer ett försök att hämta en token att hämta en annan token med fler omfång baserat på en token i cacheminnet. Du kan också uppdatera en token när den snart upphör att gälla (eftersom token cache också innehåller en uppdateringstoken).
 
-### <a name="recommended-call-pattern-for-public-client-applications"></a>Rekommenderat samtalsmönster för offentliga klientprogram
+### <a name="recommended-call-pattern-for-public-client-applications"></a>Rekommenderat anrops mönster för offentliga klient program
 
-Programkod bör försöka få en token tyst (från cacheminnet), först.  Om metodanropet returnerar ett "UI required" fel eller undantag kan du prova att hämta en token på annat sätt.
+Program koden bör försöka hämta en token tyst (från cachen), först.  Om metod anropet returnerar ett "gränssnitt som krävs" fel eller undantag, försök att förvärva en token på annat sätt.
 
-Det finns dock två flöden innan du **inte bör** försöka att tyst hämta en token:
+Det finns dock två flöden innan du **inte bör** försöka hämta en token tyst:
 
-- [klientautentiseringsflödet](msal-authentication-flows.md#client-credentials), som inte använder användartokencache, men en programtokencache. Den här metoden tar hand om att verifiera den här programtokencachen innan du skickar en begäran till STS.
-- [auktoriseringskodflödet](msal-authentication-flows.md#authorization-code) i webbappar, eftersom det löser in en kod som programmet fick genom att logga in användaren och ge dem samtycke till fler scope. Eftersom en kod skickas som en parameter och inte ett konto, kan metoden inte leta i cacheminnet innan koden löses in, vilket i alla fall kräver ett anrop till tjänsten.
+- [flöde](msal-authentication-flows.md#client-credentials)för klientautentiseringsuppgifter, som inte använder användartoken, men en programtoken-cache. Den här metoden tar hand om verifieringen av det här programtoken-cacheminnet innan en begäran skickas till STS.
+- [flödes kod flöde](msal-authentication-flows.md#authorization-code) i Web Apps, eftersom det löser in en kod som programmet fick genom att logga in användaren, och har fått tillstånd för fler omfång. Eftersom en kod skickas som en parameter, och inte ett konto, kan metoden inte söka i cachen innan den löser in koden, vilket kräver att det ändå är ett anrop till tjänsten.
 
-### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Rekommenderat samtalsmönster i webbappar med hjälp av flödet Auktoriseringskod
+### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Rekommenderat anrops mönster i webbappar med hjälp av kod flödet för auktorisering
 
-För webbprogram som använder [openid connect-auktoriseringskodflödet](v2-protocols-oidc.md)är det rekommenderade mönstret i styrenheterna att:
+För webb program som använder [OpenID Anslut auktoriseringskod](v2-protocols-oidc.md), är det rekommenderade mönstret i styrenheterna att:
 
-- Instansiera ett konfidentiellt klientprogram med en tokencache med anpassad serialisering.
-- Hämta token med hjälp av auktoriseringskodflödet
+- Instansiera ett konfidentiellt klient program med token cache med anpassad serialisering.
+- Hämta token med hjälp av Authorization Code Flow
 
-## <a name="acquiring-tokens"></a>Skaffa token
+## <a name="acquiring-tokens"></a>Hämtar token
 
-I allmänhet beror metoden för att skaffa en token på om det är en offentlig klient eller ett konfidentiellt klientprogram.
+Metoden för att förvärva en token är vanligt vis beroende av om det är en offentlig klient eller ett konfidentiellt klient program.
 
-### <a name="public-client-applications"></a>Program för offentliga klienter
+### <a name="public-client-applications"></a>Offentliga klient program
 
-För offentliga klientprogram (dator- eller mobilapp) kan du:
-- Ofta förvärva tokens interaktivt, med användaren logga in via ett användargränssnitt eller popup-fönster.
-- Kan få en token tyst för den inloggade användaren med integrerad Windows-autentisering (IWA/Kerberos) om skrivbordsprogrammet körs på en [Windows-dator](msal-authentication-flows.md#integrated-windows-authentication) som är ansluten till en domän eller till Azure.
-- Kan [hämta en token med ett användarnamn och lösenord](msal-authentication-flows.md#usernamepassword) i .NET framework desktop-klientprogram, men detta rekommenderas inte. Använd inte användarnamn/lösenord i konfidentiella klientprogram.
-- Kan hämta en token via [enhetskodflödet](msal-authentication-flows.md#device-code) i program som körs på enheter som inte har en webbläsare. Användaren får en WEBBADRESS och en kod, som sedan går till en webbläsare på en annan enhet och anger koden och loggar in.  Azure AD skickar sedan en token tillbaka till den webbläsarlösa enheten.
+För offentliga klient program (skriv bord eller mobilapp):
+- Kan ofta hämta token interaktivt, där användaren loggar in via ett användar gränssnitt eller popup-fönster.
+- Kan [Hämta en token tyst för den inloggade användaren](msal-authentication-flows.md#integrated-windows-authentication) med hjälp av integrerad Windows-autentisering (IWA/Kerberos) om Skriv bords programmet körs på en Windows-dator som är ansluten till en domän eller till Azure.
+- Kan [Hämta en token med ett användar namn och lösen ord](msal-authentication-flows.md#usernamepassword) i .NET Framework Desktop Client-program, men det rekommenderas inte. Använd inte användar namn/lösen ord i konfidentiella klient program.
+- Kan hämta en token via [enhets kod flödet](msal-authentication-flows.md#device-code) i program som körs på enheter som saknar webbläsare. Användaren får en URL och en kod som sedan går till en webbläsare på en annan enhet och anger koden och loggar in.  Azure AD skickar sedan en token tillbaka till webbläsaren-mindre enhet.
 
-### <a name="confidential-client-applications"></a>Konfidentiella klientprogram
+### <a name="confidential-client-applications"></a>Konfidentiella klient program
 
-För konfidentiella klientprogram (webbapp, webb-API eller daemonprogram som en Windows-tjänst) kan du:
-- Hämta token **för själva programmet** och inte för en användare, med hjälp av [klientautentiseringsflödet](msal-authentication-flows.md#client-credentials). Detta kan användas för synkroniseringsverktyg eller verktyg som bearbetar användare i allmänhet och inte en specifik användare.
-- Använd [flödet för on-behalf](msal-authentication-flows.md#on-behalf-of) för ett webb-API för att anropa ett API för användarens räkning. Programmet identifieras med klientautentiseringsuppgifter för att hämta en token baserat på ett användarpåstående (SAML till exempel eller en JWT-token). Det här flödet används av program som behöver komma åt resurser för en viss användare i service-to-service-anrop.
-- Hämta token med hjälp av [auktoriseringskodflödet](msal-authentication-flows.md#authorization-code) i webbappar när användaren loggar in via URL:en för auktoriseringsbegäran. OpenID Connect-programmet använder vanligtvis den här mekanismen, som gör att användaren kan logga in med Öppna ID-anslutning och sedan komma åt webb-API:er för användarens räkning.
+För konfidentiella klient program (webb program, webb-API eller daemon-program som en Windows-tjänst):
+- Hämta token **för själva programmet** och inte för en användare med hjälp av [flödet för klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials). Detta kan användas för att synkronisera verktyg, eller verktyg som behandlar användare i allmänhet och inte en speciell användare.
+- Använd [flödet på uppdrags nivå](msal-authentication-flows.md#on-behalf-of) för ett webb-API för att anropa ett API för användarens räkning. Programmet identifieras med klientens autentiseringsuppgifter för att hämta en token baserat på en användar kontroll (SAML till exempel eller en JWT-token). Det här flödet används av program som behöver åtkomst till resurser för en viss användare i tjänst-till-tjänst-anrop.
+- Hämta token med hjälp av [auktoriseringskod-flödet](msal-authentication-flows.md#authorization-code) i webbappar när användaren loggar in via URL: en för begäran om auktorisering. OpenID Connect Application använder vanligt vis den här mekanismen, vilket gör att användaren kan logga in med öppen ID Connect och sedan få åtkomst till webb-API: er för användarens räkning.
 
-## <a name="authentication-results"></a>Autentiseringsresultat
+## <a name="authentication-results"></a>Verifierings resultat
 
-När klienten begär en åtkomsttoken returnerar Azure AD också ett autentiseringsresultat som innehåller vissa metadata om åtkomsttoken. Den här informationen omfattar utgångstiden för åtkomsttoken och de scope som den är giltig för. Dessa data gör att din app kan göra intelligent cachelagring av åtkomsttoken utan att behöva tolka själva åtkomsttoken.  Autentiseringsresultatet exponerar:
+När klienten begär en åtkomsttoken, returnerar Azure AD även ett verifierings resultat som innehåller vissa metadata om åtkomst-token. Den här informationen omfattar förfallo tiden för åtkomsttoken och de omfattningar som den är giltig för. Med den här informationen kan din app utföra intelligent cachelagring av åtkomsttoken utan att behöva parsa åtkomsttoken.  Resultatet av autentiseringen visar:
 
-- [Åtkomsttoken](access-tokens.md) för webb-API:et för åtkomst till resurser. Detta är en sträng, vanligtvis en base64 kodade JWT men klienten bör aldrig titta inuti åtkomsttoken. Formatet är inte garanterat att förbli stabilt och det kan krypteras för resursen. Personer som skriver kod beroende på åtkomsttokeninnehåll på klienten är en av de största felkällorna och klientlogikens avbrott.
-- [ID-token](id-tokens.md) för användaren (detta är en JWT).
-- Token förfaller, som talar om datum/tid när token upphör att gälla.
-- Klient-ID:t innehåller klienten där användaren hittades. För gästanvändare (Azure AD B2B-scenarier) är klient-ID gästklienten, inte den unika klienten. När token levereras i en användares namn innehåller autentiseringsresultatet också information om den här användaren. För konfidentiella klientflöden där token begärs utan användare (för programmet) är den här användarinformationen null.
-- De scope som token utfärdades för.
-- Det unika ID:t för användaren.
+- Åtkomsttoken [för webb](access-tokens.md) -API: et för att få åtkomst till resurser. Detta är en sträng, vanligt vis en Base64-kodad JWT men klienten bör aldrig titta inuti åtkomsttoken. Formatet är inte garanterat vara stabilt och kan krypteras för resursen. Användare som skriver kod beroende på åtkomsttoken på klienten är en av de största källorna till fel och klient logiks avbrott.
+- Användarens [ID-token](id-tokens.md) (detta är en JWT).
+- Förfallo tiden för token, som anger det datum/tid när token upphör att gälla.
+- Klient-ID: t innehåller innehavaren där användaren hittades. För gäst användare (Azure AD B2B-scenarier) är klient-ID: t gäst klienten, inte den unika klient organisationen. När token levereras i namnet på en användare innehåller verifierings resultatet även information om den här användaren. För konfidentiella klient flöden där tokens begärs utan användare (för programmet) är denna användar information null.
+- De omfattningar som token utfärdades för.
+- Unikt ID för användaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du använder MSAL för Java kan du läsa om serialisering av [anpassad tokencache i MSAL för Java](msal-java-token-cache-serialization.md).
+Om du använder MSAL för Java kan du läsa mer om [anpassad cachelagring av token i MSAL för Java](msal-java-token-cache-serialization.md).
 
-Läs mer om [hur du hanterar fel och undantag](msal-handling-exceptions.md).
+Lär dig mer om att [hantera fel och undantag](msal-handling-exceptions.md).

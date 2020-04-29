@@ -1,7 +1,7 @@
 ---
-title: Använd MSAL med Azure Active Directory B2CLearn | Azure
+title: Använda MSAL med Azure Active Directory B2CLearn | Azure
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library for JavaScript (MSAL.js) gör det möjligt för program att arbeta med Azure AD B2C och hämta token för att anropa skyddade webb-API:er. Dessa webb-API:er kan vara Microsoft Graph, andra Microsoft-API:er, webb-API:er från andra eller ditt eget webb-API.
+description: 'Microsoft Authentication Library för Java Script (MSAL. js) gör det möjligt för program att arbeta med Azure AD B2C och hämta token för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från andra eller ditt eget webb-API.'
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -14,43 +14,43 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 8e076dfd6670265d458eb35d8e1b3e4500009a12
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81534490"
 ---
-# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-active-directory-b2c"></a>Använda Microsoft Authentication Library for JavaScript för att arbeta med Azure Active Directory B2C
+# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-active-directory-b2c"></a>Använd Microsoft Authentication Library för Java Script för att arbeta med Azure Active Directory B2C
 
-[Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) gör det möjligt för JavaScript-utvecklare att autentisera användare med sociala och lokala identiteter med [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Genom att använda Azure AD B2C som en identitetshanteringstjänst kan du anpassa och styra hur kunder registrerar sig, loggar in och hanterar sina profiler när de använder dina program.
+[Microsoft Authentication Library för Java Script (MSAL. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) gör det möjligt för JavaScript-utvecklare att autentisera användare med sociala och lokala identiteter med hjälp av [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Genom att använda Azure AD B2C som en identitets hanterings tjänst kan du anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program.
 
-Med Azure AD B2C kan du också skapa varumärke och anpassa användargränssnittet för dina program under autentiseringsprocessen för att ge dina kunder en sömlös upplevelse.
+Med Azure AD B2C kan du också anpassa användar gränssnittet för dina program under autentiseringsprocessen för att ge kunderna en sömlös upplevelse.
 
-Den här artikeln visar hur du använder MSAL.js för att arbeta med Azure AD B2C och sammanfattar viktiga punkter som du bör vara medveten om. En fullständig diskussion och självstudiekurs finns i [Azure AD B2C-dokumentationen](https://docs.microsoft.com/azure/active-directory-b2c/overview).
+Den här artikeln visar hur du använder MSAL. js för att arbeta med Azure AD B2C och sammanfattar viktiga punkter som du bör vara medveten om. En fullständig diskussion och själv studie kurs finns i [Azure AD B2C-dokumentationen](https://docs.microsoft.com/azure/active-directory-b2c/overview).
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte redan har skapat din egen [Azure AD B2C-klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)kan du börja med att skapa en nu (du kan också använda en befintlig Azure AD B2C-klient om du redan har en).
+Om du inte redan har skapat din egen [Azure AD B2C klient](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)börjar du med att skapa en nu (du kan också använda en befintlig Azure AD B2C klient om du redan har en).
 
-Denna demonstration innehåller två delar:
+Den här demonstrationen innehåller två delar:
 
-- skydda ett webb-API.
-- så här registrerar du ett ensidigt *that* program för att autentisera och anropa webb-API:et.
+- så här skyddar du ett webb-API.
+- registrera ett program på en sida *för att autentisera och anropa webb* -API: et.
 
 ## <a name="nodejs-web-api"></a>Node.js-webb-API
 
 > [!NOTE]
-> Just nu är MSAL.js för Node fortfarande under utveckling (se [färdplanen).](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap) Under tiden föreslår vi att du använder [pass-azure-ad](https://github.com/AzureAD/passport-azure-ad), ett autentiseringsbibliotek för Node.js som utvecklats och stöds av Microsoft.
+> För närvarande är MSAL. js för Node fortfarande under utveckling (se [översikten](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)). Under tiden rekommenderar vi att du använder [Passport-Azure-AD](https://github.com/AzureAD/passport-azure-ad), ett autentiseringspaket för Node. js som har utvecklats och stöds av Microsoft.
 
-Följande steg visar hur ett **webb-API** kan använda Azure AD B2C för att skydda sig själv och exponera valda scope till ett klientprogram.
+Följande steg visar hur ett **webb-API** kan använda Azure AD B2C för att skydda sig själv och exponera valda omfång för ett klient program.
 
 ### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 
-För att skydda ditt webb-API med Azure AD B2C måste du först registrera det. Se [Registrera din ansökan](https://docs.microsoft.com/azure/active-directory-b2c/add-web-application?tabs=applications) för detaljerade steg.
+För att skydda ditt webb-API med Azure AD B2C måste du först registrera det. Se [Registrera ditt program](https://docs.microsoft.com/azure/active-directory-b2c/add-web-application?tabs=applications) för detaljerade anvisningar.
 
-### <a name="step-2-download-the-sample-application"></a>Steg 2: Ladda ner exempelprogrammet
+### <a name="step-2-download-the-sample-application"></a>Steg 2: Ladda ned exempel programmet
 
-Hämta exemplet som en zip-fil eller klona det från GitHub:
+Hämta exemplet som en zip-fil eller klona den från GitHub:
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
@@ -60,7 +60,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 1. Öppna filen `config.js` i exemplet.
 
-2. Konfigurera exemplet med de programautentiseringsuppgifter som du fick tidigare när du registrerade programmet. Ändra följande kodrader genom att ersätta värdena med namnen på klient-ID, värd, tenantId och principnamn.
+2. Konfigurera exemplet med de programautentiseringsuppgifter som du fick tidigare när du registrerade ditt program. Ändra följande rader med kod genom att ersätta värdena med namnen på din clientID, värd, tenantId och princip namn.
 
 ```JavaScript
 const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
@@ -69,21 +69,21 @@ const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can u
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
 ```
 
-Mer information finns i det här [exemplet node.js B2C web API](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+Mer information finns i detta [Node. js B2C-webb-API-exempel](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
 ---
 
-## <a name="javascript-spa"></a>JavaScript SPA
+## <a name="javascript-spa"></a>Java Script SPA
 
-Följande steg visar hur ett **ensidigt program** kan använda Azure AD B2C för att registrera dig, logga in och anropa ett skyddat webb-API.
+Följande steg visar hur ett program med en **enda sida** kan använda Azure AD B2C för att registrera dig, logga in och anropa ett skyddat webb-API.
 
 ### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 
-För att implementera autentisering måste du först registrera ditt program. Se [Registrera din ansökan](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) för detaljerade steg.
+För att implementera autentisering måste du först registrera ditt program. Se [Registrera ditt program](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) för detaljerade anvisningar.
 
-### <a name="step-2-download-the-sample-application"></a>Steg 2: Ladda ner exempelprogrammet
+### <a name="step-2-download-the-sample-application"></a>Steg 2: Ladda ned exempel programmet
 
-Hämta exemplet som en zip-fil eller klona det från GitHub:
+Hämta exemplet som en zip-fil eller klona den från GitHub:
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
@@ -91,14 +91,14 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="step-3-configure-authentication"></a>Steg 3: Konfigurera autentisering
 
-Det finns två intressanta platser med att konfigurera ditt program:
+Det finns två intressanta punkter när du konfigurerar ditt program:
 
-- Konfigurera API-slutpunkt och exponerade scope
-- Konfigurera autentiseringsparametrar och tokenomfattningar
+- Konfigurera API-slutpunkt och exponerade omfång
+- Konfigurera autentiseringsmetoder och token-scope
 
 1. Öppna filen `apiConfig.js` i exemplet.
 
-2. Konfigurera exemplet med de parametrar som du fick tidigare när du registrerade webb-API:et. Ändra följande kodrader genom att ersätta värdena med adressen till webb-API:et och exponerade scope.
+2. Konfigurera exemplet med de parametrar som du fick tidigare när du registrerade ditt webb-API. Ändra följande rader med kod genom att ersätta värdena med adressen för ditt webb-API och exponerade omfång.
 
    ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -110,7 +110,7 @@ Det finns två intressanta platser med att konfigurera ditt program:
 
 3. Öppna filen `authConfig.js` i exemplet.
 
-4. Konfigurera exemplet med de parametrar som du fick tidigare när du registrerade ditt ensidiga program. Ändra följande kodrader genom att ersätta värdena med din ClientId, auktoritetsmetadata och tokenbegärandenomfattningar.
+4. Konfigurera exemplet med de parametrar som du fick tidigare när du registrerade ditt program på en sida. Ändra följande rader med kod genom att ersätta värdena med dina ClientId, utfärda metadata och token för token-begäran.
 
    ```javascript
     // Config object to be passed to Msal on creation.
@@ -132,13 +132,13 @@ Det finns två intressanta platser med att konfigurera ditt program:
     };
    ```
 
-Mer information finns i det här exemplet med [JavaScript B2C-program på en sida](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
+Mer information finns i [Java Script B2C-exempelprogram med en sida](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om:
-- [Användarflöden](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows)
+- [Användar flöden](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows)
 - [Anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)
 - [UX-anpassning](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input)

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Använd Azure Event Grid för att automatisera storleksändring av uppladdade avbildningar'
-description: 'Självstudiekurs: Azure Event Grid kan utlösa blob-överföringar i Azure Storage. Du kan använda det här till att skicka bildfiler som laddats upp till Azure Storage till andra tjänster, som Azure Functions, för storleksändring och andra förbättringar.'
+title: 'Självstudie: använda Azure Event Grid för att automatisera storleks ändring av överförda bilder'
+description: 'Självstudie: Azure Event Grid kan utlösa vid BLOB-uppladdningar i Azure Storage. Du kan använda det här till att skicka bildfiler som laddats upp till Azure Storage till andra tjänster, som Azure Functions, för storleksändring och andra förbättringar.'
 services: event-grid, functions
 author: spelluru
 manager: jpconnoc
@@ -13,13 +13,13 @@ ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
 ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81482200"
 ---
-# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudiekurs: Automatisera storleksändring av uppladdade bilder med Event Grid
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: automatisera storleks ändring av överförda bilder med hjälp av Event Grid
 
 [Azure Event Grid](overview.md) är en händelsetjänst för molnet. Med Event Grid kan du skapa prenumerationer på händelser som genereras av Azure-tjänster eller resurser från tredje part.  
 
@@ -27,7 +27,7 @@ Den här självstudien är del två i en serie med Storage-självstudier. Den by
 
 Du kan använda Azure CLI och Azure-portalen till att lägga till funktionen för storleksändring i en befintlig app för uppladdning av bilder.
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
 
 ![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -105,13 +105,13 @@ I följande kommando anger du ditt unika namn på funktionsappen. Funktionsappen
       --functions-version 2
     ```
 
-Konfigurera nu funktionsappen för att ansluta till det Blob-lagringskonto som du skapade i [föregående självstudiekurs][previous-tutorial].
+Nu ska du konfigurera Function-appen så att den ansluter till Blob Storage-kontot som du skapade i [föregående självstudie][previous-tutorial].
 
 ## <a name="configure-the-function-app"></a>Konfigurera funktionsappen
 
 Funktionen behöver autentiseringsuppgifter för Blob Storage-kontot. Dessa läggs till i programinställningarna för funktionsappen med kommandot [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
 
 ```azurecli-interactive
 blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
@@ -149,7 +149,7 @@ Nu kan du distribuera ett funktionskodprojekt till den här funktionsappen.
 
 ## <a name="deploy-the-function-code"></a>Distribuera funktionskoden 
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
 
 Storleksändringsfunktionen för C#-exemplet finns tillgängligt på [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Distribuera kodprojektet till funktionsappen med kommandot [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
@@ -176,7 +176,7 @@ Data som skickas till funktionen från Event Grid-meddelandet inkluderar blobens
 
 I det här projektet används `EventGridTrigger` som typ av utlösare. Det är bättre att använda Event Grid-utlösaren än någon allmän HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](security-authentication.md).
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
 
 Mer information om den här funktionen finns i [filerna function.json och run.csx](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions).
 
@@ -194,17 +194,17 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
 
 1. I [Azure-portalen](https://portal.azure.com) väljer du **Alla tjänster** på den vänstra menyn och sedan **Funktionsappar**.
 
-    ![Navigera till Funktionsappar i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    ![Navigera till Function-appar i Azure Portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
 2. Expandera din funktionsapp, välj **Miniatyr** och välj sedan **Lägg till Event Grid-prenumeration**.
 
-    ![Navigera till Lägga till prenumeration i Event Grid i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    ![Navigera för att lägga till Event Grid prenumeration i Azure Portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
 3. Använd de inställningar för händelseprenumerationen som anges i tabellen.
     
     ![Skapa händelseprenumeration från funktionen i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Inställning      | Föreslaget värde  | Beskrivning                                        |
+    | Inställningen      | Föreslaget värde  | Beskrivning                                        |
     | ------------ | ---------------- | -------------------------------------------------- |
     | **Namn** | imageresizersub | Namn som identifierar din nya händelseprenumeration. |
     | **Typ av ämne** | Lagringskonton | Välj händelseprovidern för Storage-kontot. |
@@ -212,16 +212,16 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     | **Resursgrupp** | myResourceGroup | Välj **Använd befintlig** och välj den resursgrupp du har använt i den här självstudien. |
     | **Resurs** | Ditt Blob Storage-konto | Välj det Blob Storage-konto du skapade. |
     | **Händelsetyper** | Blob skapas | Avmarkera alla typer utom **Blob skapas**. Det är bara händelsetyper för `Microsoft.Storage.BlobCreated` som skickas till funktionen. |
-    | **Typ av slutpunkt** | genereras automatiskt | Fördefinierad som **Azure-funktion**. |
-    | **Slutpunkt** | genereras automatiskt | Namnet på funktionen. I det här fallet är det **Miniatyr**. |
+    | **Slut punkts typ** | genereras automatiskt | Fördefinierad som **Azure Function**. |
+    | **Endpoint** | genereras automatiskt | Namnet på funktionen. I det här fallet är det **miniatyr bilden**. |
 
-4. Växla till fliken **Filter** och gör följande:
+4. Växla till fliken **filter** och utför följande åtgärder:
     1. Välj alternativet **Aktivera ämnesfiltrering**.
     2. För **Ämne börjar med** anger du följande värde: **/blobServices/default/containers/images/blobs/**.
 
         ![Ange filter för händelseprenumeration](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Välj **Skapa** för att lägga till händelseprenumerationen. Detta skapar en händelseprenumeration som utlöser `Thumbnail` funktionen `images` när en blob läggs till i behållaren. Funktionen ändrar storlek på avbildningarna och lägger till dem till containern `thumbnails`.
+5. Välj **Skapa** för att lägga till händelseprenumerationen. Detta skapar en händelse prenumeration som utlöser `Thumbnail` funktionen när en BLOB läggs till i `images` behållaren. Funktionen ändrar storlek på avbildningarna och lägger till dem till containern `thumbnails`.
 
 Nu när tjänsterna på serversidan har konfigurerats ska du testa funktionen för storleksändring i exempelwebbappen.
 
@@ -229,17 +229,17 @@ Nu när tjänsterna på serversidan har konfigurerats ska du testa funktionen f�
 
 När du ska testa storleksändring i webbappen bläddrar du till URL-adressen för din publicerade app. Standardwebbadressen för webbappen är `https://<web_app>.azurewebsites.net`.
 
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
 
 Klicka på regionen **Upload photos** (Ladda upp foton) för att välja och ladda upp en fil. Du kan också dra ett foto till den här regionen.
 
-Observera att när den uppladdade bilden har försvunnit visas en kopia av den uppladdade bilden i carouselen **Genererade miniatyrer.** Den här bildens storlek ändrades av funktionen. Därefter lades den till i containern med *miniatyrer* och laddades ned av webbklienten.
+Observera att när den överförda bilden försvinner visas en kopia av den uppladdade bilden i karusellen för **genererade miniatyrer** . Den här bildens storlek ändrades av funktionen. Därefter lades den till i containern med *miniatyrer* och laddades ned av webbklienten.
 
 ![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-Klicka på **Välj fil** för att välja en fil och klicka sedan på **Ladda upp bild**. När uppladdningen är klar navigerar webbläsaren till en sida som visar att åtgärden lyckades. Klicka på länken för att återgå till startsidan. En kopia av den uppladdade bilden visas i området **Genererade miniatyrer.** (Om bilden inte visas först kan du prova att läsa in sidan igen.) Den här bilden ändrades av funktionen, lades till i *miniatyrbehållaren* och hämtades av webbklienten.
+Klicka på **Välj fil** för att välja en fil och klicka sedan på **Ladda upp bild**. När uppladdningen är klar navigerar webbläsaren till en sida som visar att åtgärden lyckades. Klicka på länken för att återgå till startsidan. En kopia av den överförda bilden visas i det **skapade miniatyr bilders** fältet. (Om bilden inte visas överst försöker du att läsa in sidan igen.) Den här bildens storlek ändrades av funktionen, läggs till i behållaren för *miniatyr bilder* och laddades ned av webb klienten.
 
 ![Publicerad webbapp i webbläsaren](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 

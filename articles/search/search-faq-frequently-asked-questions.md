@@ -1,7 +1,7 @@
 ---
 title: Vanliga frågor och svar (FAQ)
 titleSuffix: Azure Cognitive Search
-description: Få svar på vanliga frågor om Microsoft Azure Cognitive Search-tjänsten, en söktjänst för molnbaserade söktjänster på Microsoft Azure.
+description: Få svar på vanliga frågor om Microsoft Azure Kognitiv sökning service, en tjänst som är värd för värd tjänster på Microsoft Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,100 +9,100 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81618029"
 ---
-# <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search – vanliga frågor och svar ( Vanliga frågor och svar)
+# <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure-Kognitiv sökning
 
- Hitta svar på vanliga frågor om begrepp, kod och scenarier relaterade till Azure Cognitive Search.
+ Få svar på vanliga frågor om begrepp, kod och scenarier som rör Azure Kognitiv sökning.
 
 ## <a name="platform"></a>Plattform
 
-### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Hur skiljer sig Azure Cognitive Search från fulltextsökning i min DBMS?
+### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Hur skiljer sig Azure Kognitiv sökning från full texts ökning i mitt DBMS?
 
-Azure Cognitive Search stöder flera datakällor, [språklig analys för många språk,](https://docs.microsoft.com/rest/api/searchservice/language-support)anpassad analys för intressanta och ovanliga [datainmatningar, sökrankningskontroller](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)via [bedömningsprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)och funktioner för användarupplevelse som typeahead, träffmarkering och aspektbaserad navigering. Den innehåller också andra funktioner, till exempel synonymer och rich query-syntax, men de skiljer i allmänhet inte funktioner.
+Azure Kognitiv sökning stöder flera data källor, [språklig analys för många språk](https://docs.microsoft.com/rest/api/searchservice/language-support), [anpassad analys för intressanta och ovanliga data inmatningar](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), Sök ranknings kontroller via [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)och funktioner för användar upplevelse, till exempel typeahead, träff markering och fasett-navigering. Den innehåller också andra funktioner, till exempel synonymer och RTF-frågesyntax, men de är i allmänhet inte särskiljande funktioner.
 
-### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Kan jag pausa Azure Cognitive Search-tjänsten och stoppa faktureringen?
+### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Kan jag pausa Azure Kognitiv sökning service och avbryta faktureringen?
 
-Du kan inte pausa tjänsten. Beräknings- och lagringsresurser allokeras för din exklusiva användning när tjänsten skapas. Det går inte att frigöra och återkräva dessa resurser på begäran.
+Det går inte att pausa tjänsten. Beräknings-och lagrings resurser allokeras för exklusiv användning när tjänsten skapas. Det går inte att frigöra och frigöra dessa resurser på begäran.
 
-## <a name="indexing-operations"></a>Indexeringsoperationer
+## <a name="indexing-operations"></a>Indexerings åtgärder
 
-### <a name="move-backup-and-restore-indexes-or-index-snapshots"></a>Flytta, säkerhetskopiera och återställa index eller indexögonblicksbilder?
+### <a name="move-backup-and-restore-indexes-or-index-snapshots"></a>Flytta, säkerhetskopiera och Återställ index eller index ögonblicks bilder?
 
-Under utvecklingsfasen kanske du vill flytta indexet mellan söktjänster. Du kan till exempel använda en grundläggande eller kostnadsfri prisnivå för att utveckla indexet och sedan flytta det till standardnivån eller den högre nivån för produktionsanvändning. 
+Under utvecklings fasen kanske du vill flytta ditt index mellan Sök tjänster. Du kan till exempel använda en grundläggande eller kostnads fri pris nivå för att utveckla ditt index och sedan vill flytta det till standard nivån eller den högre nivån för produktions användning. 
 
-Du kanske vill säkerhetskopiera en indexögonblicksbild till filer som kan användas för att återställa den senare. 
+Eller så kanske du vill säkerhetskopiera en index ögonblicks bild till filer som kan användas för att återställa dem senare. 
 
-Du kan göra alla dessa saker med exempelkoden **för index-säkerhetskopieringsåterställning** i den här Azure [Cognitive Search .NET-exempelreponyeringen](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+Du kan göra allt detta med exempel koden **index-Backup-Restore** i den här [Azure kognitiv sökning .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
 
-Du kan också [få en indexdefinition](https://docs.microsoft.com/rest/api/searchservice/get-index) när som helst med hjälp av AZURE Cognitive Search REST API.
+Du kan också [Hämta en index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) när som helst med hjälp av Azure kognitiv sökning REST API.
 
-Det finns för närvarande ingen inbyggd indexutvinning, ögonblicksbild eller säkerhetskopiering-återställning funktion i Azure-portalen. Vi överväger dock att lägga till säkerhetskopierings- och återställningsfunktioner i en framtida version. Om du vill visa ditt stöd för den här funktionen röstar du på [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+Det finns för närvarande ingen inbyggd funktion för extrahering av index, ögonblicks bilder eller säkerhets kopierings återställning i Azure Portal. Vi överväger dock att lägga till säkerhets kopierings-och återställnings funktionen i en framtida version. Om du vill visa ditt stöd för den här funktionen, omvandla en röst på [användarens röst](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
-### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>Kan jag återställa mitt index eller min tjänst när den har tagits bort?
+### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>Kan jag återställa mitt index eller tjänst när den tas bort?
 
-Nej, om du tar bort ett Azure Cognitive Search-index eller -tjänst kan det inte återställas. När du tar bort en Azure Cognitive Search-tjänst tas alla index i tjänsten bort permanent. Om du tar bort en Azure-resursgrupp som innehåller en eller flera Azure Cognitive Search-tjänster tas alla tjänster bort permanent.  
+Nej, om du tar bort ett Azure Kognitiv sökning-index eller-tjänst kan den inte återställas. När du tar bort en Azure Kognitiv sökning-tjänst tas alla index i tjänsten bort permanent. Om du tar bort en Azure-resurs grupp som innehåller en eller flera Azure Kognitiv sökning-tjänster tas alla tjänster bort permanent.  
 
-Om du återskapar resurser som index, indexerare, datakällor och kunskaper måste du återskapa dem från koden. 
+Att återskapa resurser som index, indexerare, data källor och färdighetsuppsättningar kräver att du återskapar dem från kod. 
 
-Om du vill återskapa ett index måste du indexera om data från externa källor. Därför rekommenderar vi att du behåller en huvudkopia eller säkerhetskopia av originaldata i ett annat datalager, till exempel Azure SQL Database eller Cosmos DB.
+Om du vill skapa ett index igen måste du indexera om data från externa källor. Därför rekommenderar vi att du behåller en huvud kopia eller en säkerhets kopia av original data i ett annat data lager, till exempel Azure SQL Database eller Cosmos DB.
 
-Som ett alternativ kan du använda exempelkoden **för index-säkerhetskopieringsåterställning** i den här Azure [Cognitive Search .NET-exempelreponeringen](https://github.com/Azure-Samples/azure-search-dotnet-samples) för att säkerhetskopiera en indexdefinition och indexögonblicksbild till en serie JSON-filer. Senare kan du använda verktyget och filerna för att återställa indexet om det behövs.  
+Alternativt kan du använda exempel koden **index-Backup-Restore** i den här [Azure kognitiv sökning .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples) för att säkerhetskopiera en index definition och en index ögonblicks bild till en serie JSON-filer. Senare kan du använda verktyget och filerna för att återställa indexet, om det behövs.  
 
-### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Kan jag indexera från SQL-databasrepliker (gäller azure [SQL Database indexerare)](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)
+### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>Kan jag indexera från SQL Database-repliker (gäller [Azure SQL Database indexerare](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
-Det finns inga begränsningar för användning av primära eller sekundära repliker som en datakälla när du skapar ett index från grunden. För att uppdatera ett index med inkrementella uppdateringar (baserat på ändrade poster) krävs dock den primära repliken. Det här kravet kommer från SQL Database, som garanterar ändringsspårning endast på primära repliker. Om du försöker använda sekundära repliker för en arbetsbelastning för indexuppdatering finns det ingen garanti för att du får alla data.
+Det finns inga begränsningar för användningen av primära eller sekundära repliker som data källa när du skapar ett index från grunden. Att uppdatera ett index med stegvisa uppdateringar (baserat på ändrade poster) kräver dock den primära repliken. Detta krav kommer från SQL Database, som endast garanterar ändrings spårning på primära repliker. Om du försöker använda sekundära repliker för att uppdatera arbets belastningen för index uppdatering finns det ingen garanti för att du får alla data.
 
-## <a name="search-operations"></a>Sökåtgärder
+## <a name="search-operations"></a>Sök åtgärder
 
 ### <a name="can-i-search-across-multiple-indexes"></a>Kan jag söka i flera index?
 
-Nej, den här åtgärden stöds inte. Sökningen begränsas alltid till ett enda index.
+Nej, den här åtgärden stöds inte. Sökningen är alltid begränsad till ett enda index.
 
-### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Kan jag begränsa sökindexåtkomsten efter användaridentitet?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Kan jag begränsa Sök index åtkomsten genom att använda användar identiteten?
 
-Du kan implementera `search.in()` [säkerhetsfilter](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) med filter. Filtret komponerar bra med [identitetshanteringstjänster som Azure Active Directory(AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) för att trimma sökresultat baserat på definierat medlemskap i användargrupper.
+Du kan implementera [säkerhets filter](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) med `search.in()` filter. Filtret skriver bra med [identitets hanterings tjänster som Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) för att trimma Sök resultat baserat på definierade användar grupp medlemskap.
 
-### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>Varför finns det noll matcher på villkor som jag vet är giltiga?
+### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>Varför finns det ingen matchning på de villkor jag vet att vara giltiga?
 
-Det vanligaste fallet är att inte veta att varje frågetyp stöder olika sökbeteenden och nivåer av språkliga analyser. Fulltextsökning, som är den dominerande arbetsbelastningen, innehåller en språkanalysfas som bryter ned termer till rotformulär. Den här aspekten av frågetolning avgjuter ett bredare nät över möjliga matchningar, eftersom den tokeniserade termen matchar ett större antal varianter.
+Det vanligaste fallet är att du inte vet att varje frågetyp stöder olika Sök beteenden och nivåer av språkliga analyser. Full texts ökning, som är den dominerande arbets belastningen, innehåller en språk analys fas som delar upp villkoren för rot formulär. Den här aspekten av frågans parsing skickar ett bredare netto över möjliga matchningar, eftersom den token termen matchar ett större antal varianter.
 
-Jokertecken, fuzzy och regex frågor, dock inte analyseras som vanlig term eller fras frågor och kan leda till dålig återkallande om frågan inte matchar den analyserade formen av ordet i sökindex. Mer information om frågetolning och analys finns i [frågearkitektur](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+Jokertecken, fuzzy och regexfrågor analyseras dock inte som vanliga term-eller fras frågor och kan leda till dåligt återkallande om frågan inte överensstämmer med den analyserade formen av ordet i Sök indexet. Mer information om fråga om parsning och analys finns i [fråga om arkitektur](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
 
-### <a name="my-wildcard-searches-are-slow"></a>Mina jokerteckensökningar är långsamma.
+### <a name="my-wildcard-searches-are-slow"></a>Mina sökningar i jokertecken är långsamma.
 
-De flesta jokerteckensökningsfrågor, som prefix, fuzzy och regex, skrivs om internt med matchande termer i sökindexet. Den här extra bearbetningen av genomsökning av sökindexet läggs till svarstiden. Vidare kan breda sökfrågor, till exempel, som `a*` sannolikt kommer att skrivas om med många termer vara mycket långsamma. För performant wildcard-sökningar bör du överväga att definiera en [anpassad analysator](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
+De flesta Sök frågor för jokertecken, t. ex. prefix, fuzzy och regex, skrivs om internt med matchande termer i Sök indexet. Den här extra bearbetningen av genomsökningen av Sök indexet lägger till i svars tid. Dessutom kan breda Sök frågor, t `a*` . ex. som sannolikt kommer att skrivas över med många villkor, vara mycket långsamt. För att genomföra jokertecken kan du definiera en [anpassad analys](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
 
-### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>Varför är sökningen rankas en konstant eller lika poäng på 1,0 för varje träff?
+### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>Varför är sökningen ranka en konstant eller samma poäng på 1,0 för varje träff?
 
-Som standard poängsätts sökresultaten baserat på de [statistiska egenskaperna för matchande termer](search-lucene-query-architecture.md#stage-4-scoring)och beställs högt till lågt i resultatuppsättningen. Vissa frågetyper (jokertecken, prefix, regex) bidrar dock alltid med en konstant poäng till den totala dokumentpoängen. Det här beteendet är avsiktligt. Azure Cognitive Search medför en konstant poäng för att tillåta att matchningar som hittas genom frågeexpansion inkluderas i resultaten, utan att påverka rangordningen.
+Som standard beräknas Sök resultaten utifrån de [statistiska egenskaperna för matchande villkor](search-lucene-query-architecture.md#stage-4-scoring)och beställs högt till lågt i resultat uppsättningen. Vissa frågetyper (jokertecken, prefix, regex) bidrar dock alltid till en konstant poäng till den övergripande dokument poängen. Det här beteendet är avsiktligt. Azure Kognitiv sökning försätter en konstant Poäng för att tillåta matchningar som upptäckts via frågans expansion för att inkluderas i resultaten, utan att rangordningen påverkas.
 
-Anta till exempel att en inmatning av "tour*" i en jokerteckensökning ger matchningar på "turer", "tourettes" och "tourmaline". Med tanke på dessa resultats natur finns det inget sätt att rimligen dra slutsatsen vilka termer som är mer värdefulla än andra. Därför ignorerar vi termfrekvenser när du poängsättning resulterar i frågor om typer av jokertecken, prefix och regex. Sökresultat baserat på en partiell indata får en konstant poäng för att undvika fördomar mot potentiellt oväntade matchningar.
+Anta till exempel att du skriver in "guidad visning *" i en sökning med jokertecken som genererar matchningar på "visningar", "Tourettes" och "Tourmaline". Med hänsyn till arten av dessa resultat går det inte att på ett rimligt sätt härleda vilka termer som är mer värdefulla än andra. Av den anledningen ignorerar vi term frekvenser när Poäng resultat visas i frågor av typen jokertecken, prefix och regex. Sök resultat som baseras på en partiell indatamängd får en konstant Poäng för att undvika förskjutning mot potentiellt oväntade matchningar.
 
-## <a name="skillset-operations"></a>Kompetensverksamhet
+## <a name="skillset-operations"></a>Färdigheter-åtgärder
 
-### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Finns det några tips eller knep för att minska kognitiva tjänster avgifter på intag?
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Finns det några tips eller knep för att minska kostnaderna för kognitiva tjänster vid inmatning?
 
-Det är förståeligt att du inte vill utföra inbyggda färdigheter eller anpassade färdigheter mer än vad som är absolut nödvändigt, särskilt om du har att göra med miljontals dokument att bearbeta. Med detta i åtanke har vi lagt till "inkrementell berikning" kapacitet till kompetensutveckling utförande. I huvudsak kan du ange en cacheplats (en blob lagringsanslutningssträng) som ska användas för att lagra utdata från "mellanliggande" anrikningssteg.  Det gör att anrikning pipeline att vara smart och tillämpa endast enrichments som är nödvändiga när du ändrar din skillset. Detta kommer naturligtvis också att spara indexeringstid eftersom rörledningen kommer att bli effektivare.
+Det är lättare att du inte vill köra inbyggda kunskaper eller anpassade färdigheter mer än vad som är absolut nödvändigt, särskilt om du hanterar miljon tals dokument för bearbetning. Med det i åtanke har vi lagt till "stegvisa anrikning"-funktioner för färdigheter-körning. I själva verket kan du ange en plats för cache (en anslutnings sträng för blob-lagring) som ska användas för att lagra utdata från "mellanliggande" anriknings steg.  Det gör att du kan använda pipelinen till att vara smart och bara tillämpa de berikare som behövs när du ändrar din färdigheter. Detta sparar också indexerings tiden i takt med att pipelinen blir mer effektiv.
 
-Läs mer om [inkrementell anrikning](cognitive-search-incremental-indexing-conceptual.md)
+Läs mer om [stegvis anrikning](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Designmönster
 
-### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>Vilken är den bästa metoden för att genomföra lokaliserad sökning?
+### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>Vad är det bästa sättet att implementera lokaliserad sökning?
 
-De flesta kunder väljer dedikerade fält över en samling när det gäller att stödja olika språk (språk) i samma index. Språkspecifika fält gör det möjligt att tilldela en lämplig analysator. Till exempel tilldela Microsoft French Analyzer till ett fält som innehåller franska strängar. Det förenklar också filtrering. Om du vet att en fråga initieras på en fr-fr-sida kan du begränsa sökresultaten till det här fältet. Du kan också skapa en [poängprofil](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) för att ge fältet mer relativ vikt. Azure Cognitive Search har stöd för över [50 språkanalysatorer](https://docs.microsoft.com/azure/search/search-language-support) att välja mellan.
+De flesta kunder väljer dedikerade fält över en samling när den kommer att stödja olika språk (språk) i samma index. Språkspecifika fält gör det möjligt att tilldela en lämplig analys. Du kan till exempel tilldela Microsoft French Analyzer till ett fält som innehåller franska strängar. Det fören klar också filtreringen. Om du vet att en fråga har initierats på en fr-fr-sida kan du begränsa Sök resultaten till det här fältet. Eller skapa en [bedömnings profil](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) för att ge fältet mer relativ vikt. Azure Kognitiv sökning stöder över [50 språk analys](https://docs.microsoft.com/azure/search/search-language-support) verktyg för att välja bland.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Är din fråga om en saknad funktion? Begär funktionen på [Webbplatsen User Voice](https://feedback.azure.com/forums/263029-azure-search).
+Är din fråga om en funktion eller funktionalitet som saknas? Begär funktionen på [användarens röst webbplats](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="see-also"></a>Se även
 
- [StackOverflow: Azure kognitiv sökning](https://stackoverflow.com/questions/tagged/azure-search)   
+ [StackOverflow: Azure Kognitiv sökning](https://stackoverflow.com/questions/tagged/azure-search)   
  [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)  
  [Vad är Azure Cognitive Search?](search-what-is-azure-search.md)

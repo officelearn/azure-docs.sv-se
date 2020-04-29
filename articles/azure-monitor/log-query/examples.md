@@ -1,27 +1,27 @@
 ---
-title: Exempel på azure monitor-loggfråga | Microsoft-dokument
-description: Exempel på loggfrågor i Azure Monitor med hjälp av frågespråket Kusto.
+title: Exempel på Azure Monitor logg frågor | Microsoft Docs
+description: Exempel på logg frågor i Azure Monitor att använda frågespråket i Kusto.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480291"
 ---
-# <a name="azure-monitor-log-query-examples"></a>Exempel på Azure Monitor-loggfråga
-Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) som använder [Kusto-frågespråket](/azure/kusto/query/) för att hämta olika typer av loggdata från Azure Monitor. Olika metoder används för att konsolidera och analysera data, så du kan använda dessa exempel för att identifiera olika strategier som du kan använda för dina egna behov.  
+# <a name="azure-monitor-log-query-examples"></a>Exempel på Azure Monitor logg frågor
+Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) som använder [Kusto-frågespråket](/azure/kusto/query/) för att hämta olika typer av loggdata från Azure Monitor. Olika metoder används för att konsolidera och analysera data, så att du kan använda dessa exempel för att identifiera olika strategier som du kan använda för dina egna krav.  
 
-Se [kustospråkreferensen](https://docs.microsoft.com/azure/kusto/query/) för information om de olika nyckelord som används i dessa exempel. Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du inte har tidigare till Azure Monitor.
+Mer information om de olika nyckelord som används i de här exemplen finns i [språk referens för Kusto](https://docs.microsoft.com/azure/kusto/query/) . Gå igenom en [lektion om hur du skapar frågor](get-started-queries.md) om du är nybörjare på Azure Monitor.
 
 ## <a name="events"></a>Händelser
 
-### <a name="search-application-level-events-described-as-cryptographic"></a>Sök efter händelser på programnivå som beskrivs som "Kryptografiska"
-I det här exemplet söker du i tabellen **Händelser** efter poster där **EventLog** är _Application_ och **RenderedDescription** innehåller _kryptografisk_. Inkluderar poster från de senaste 24 timmarna.
+### <a name="search-application-level-events-described-as-cryptographic"></a>Sök efter program nivå händelser som beskrivs som "kryptografisk"
+I det här exemplet genomsöks tabellen **Events** efter poster där **EventLog** är _Application_ och **RenderedDescription** innehåller _kryptografiskt_. Inkluderar poster från de senaste 24 timmarna.
 
 ```Kusto
 Event
@@ -30,8 +30,8 @@ Event
 | where RenderedDescription contains "cryptographic"
 ```
 
-### <a name="search-events-related-to-unmarshaling"></a>Sökhändelser relaterade till unmarshaling
-Sök tabeller **Händelse** och **SecurityEvents** för poster som nämner _ta bort teckning_.
+### <a name="search-events-related-to-unmarshaling"></a>Sök händelser relaterade till konvertering
+Sök tabell **händelse** -och **SecurityEvents** efter poster som nämner _konvertering_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"
@@ -39,9 +39,9 @@ search in (Event, SecurityEvent) "unmarshaling"
 
 ## <a name="heartbeat"></a>Pulsslag
 
-### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Diagram över en veckovy över antalet datorer som skickar data
+### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Visa en veckas över-Week-vy över antalet datorer som skickar data
 
-I följande exempel kartläggs antalet olika datorer som skickade pulsslag varje vecka.
+I följande exempel visas antalet distinkta datorer som har skickat pulsslag, varje vecka.
 
 ```Kusto
 Heartbeat
@@ -51,7 +51,7 @@ Heartbeat
 
 ### <a name="find-stale-computers"></a>Hitta inaktuella datorer
 
-I följande exempel hittas datorer som var aktiva under den senaste dagen men inte skickat pulsslag under den senaste timmen.
+I följande exempel hittas datorer som var aktiva under den senaste dagen, men som inte skickade pulsslag under den senaste timmen.
 
 ```Kusto
 Heartbeat
@@ -61,18 +61,18 @@ Heartbeat
 | where LastHeartbeat < ago(1h)
 ```
 
-### <a name="get-the-latest-heartbeat-record-per-computer-ip"></a>Hämta den senaste pulsslagsposten per dator-IP
+### <a name="get-the-latest-heartbeat-record-per-computer-ip"></a>Hämta den senaste pulsslags posten per dator-IP
 
-I det här exemplet returneras den senaste pulsslagsposten för varje dator-IP.
+Det här exemplet returnerar den sista pulsslags posten för varje dator-IP.
 ```Kusto
 Heartbeat
 | summarize arg_max(TimeGenerated, *) by ComputerIP
 ```
 
-### <a name="match-protected-status-records-with-heartbeat-records"></a>Matcha skyddade statusposter med pulsslagsposter
+### <a name="match-protected-status-records-with-heartbeat-records"></a>Matcha skyddade status poster med pulsslags poster
 
-I det här exemplet hittas relaterade skyddsstatusposter och pulsslagsposter, matchade på både dator och tid.
-Observera att tidsfältet avrundas till närmaste minut. Vi använde beräkning av körningslagerplats för att göra det: `round_time=bin(TimeGenerated, 1m)`.
+Det här exemplet hittar relaterade skydds status poster och pulsslags poster, matchade på både dator och tid.
+Observera att Time-fältet rundas av till närmaste minut. Vi använde beräkning av kör tids lager för att `round_time=bin(TimeGenerated, 1m)`göra det:.
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -82,10 +82,10 @@ let heartbeat_data = Heartbeat
 protection_data | join (heartbeat_data) on Computer, round_time
 ```
 
-### <a name="server-availability-rate"></a>Servertillgänglighet
+### <a name="server-availability-rate"></a>Server tillgänglighets hastighet
 
-Beräkna servertillgänglighetshastigheten baserat på pulsslagsposter. Tillgänglighet definieras som "minst 1 hjärtslag per timme".
-Så om en server var tillgänglig 98 av 100 timmar är tillgänglighetspriset 98%.
+Beräkna Server tillgänglighets frekvens baserat på pulsslags poster. Tillgänglighet definieras som "minst 1 pulsslag per timme".
+Så om en server var tillgänglig 98 av 100 timmar är tillgänglighets hastigheten 98%.
 
 ```Kusto
 let start_time=startofday(datetime("2018-03-01"));
@@ -100,10 +100,10 @@ Heartbeat
 ```
 
 
-## <a name="multiple-data-types"></a>Flera datatyper
+## <a name="multiple-data-types"></a>Flera data typer
 
-### <a name="chart-the-record-count-per-table"></a>Kartlägga antalet post per tabell
-I följande exempel samlas alla poster i alla tabeller från de senaste fem timmarna och hur många poster som fanns i varje tabell. Resultaten visas i en tidsschema.
+### <a name="chart-the-record-count-per-table"></a>Diagrammets antal poster per tabell
+Följande exempel samlar in alla poster från alla tabeller från de senaste fem timmarna och räknar hur många poster som fanns i varje tabell. Resultaten visas i en timechart.
 
 ```Kusto
 union withsource=sourceTable *
@@ -113,7 +113,7 @@ union withsource=sourceTable *
 ```
 
 ### <a name="count-all-logs-collected-over-the-last-hour-by-type"></a>Räkna alla loggar som samlats in under den senaste timmen efter typ
-I följande exempel söker allt som rapporterats under den senaste timmen och posterna för varje tabell räknas efter **typ**. Resultaten visas i ett stapeldiagram.
+I följande exempel genomsöker allting som rapporter ATS under den senaste timmen och räknar posterna i varje tabell efter **typ**. Resultaten visas i ett stapeldiagram.
 
 ```Kusto
 search *
@@ -124,8 +124,8 @@ search *
 
 ## <a name="azurediagnostics"></a>AzureDiagnostics
 
-### <a name="count-azure-diagnostics-records-per-category"></a>Räkna Azure-diagnostikposter per kategori
-I det här exemplet räknas alla Azure-diagnostikposter för varje unik kategori.
+### <a name="count-azure-diagnostics-records-per-category"></a>Räkna Azure Diagnostic-poster per kategori
+Det här exemplet räknar alla Azure Diagnostic-poster för varje unik kategori.
 
 ```Kusto
 AzureDiagnostics 
@@ -133,8 +133,8 @@ AzureDiagnostics
 | summarize count() by Category
 ```
 
-### <a name="get-a-random-record-for-each-unique-category"></a>Få en slumpmässig post för varje unik kategori
-Det här exemplet får en enda slumpmässig Azure-diagnostikpost för varje unik kategori.
+### <a name="get-a-random-record-for-each-unique-category"></a>Hämta en slumpmässig post för varje unik kategori
+I det här exemplet får du en enda slumpmässig Azure-diagnostik för varje unik kategori.
 
 ```Kusto
 AzureDiagnostics
@@ -142,8 +142,8 @@ AzureDiagnostics
 | summarize any(*) by Category
 ```
 
-### <a name="get-the-latest-record-per-category"></a>Få den senaste posten per kategori
-Det här exemplet hämtar den senaste Azure-diagnostikposten i varje unik kategori.
+### <a name="get-the-latest-record-per-category"></a>Hämta den senaste posten per kategori
+Det här exemplet hämtar den senaste Azure Diagnostics-posten i varje unik kategori.
 
 ```Kusto
 AzureDiagnostics
@@ -153,8 +153,8 @@ AzureDiagnostics
 
 ## <a name="network-monitoring"></a>Nätverksövervakning
 
-### <a name="computers-with-unhealthy-latency"></a>Datorer med felfördröjning
-I det här exemplet skapas en lista över olika datorer med felfördröjning.
+### <a name="computers-with-unhealthy-latency"></a>Datorer med felaktig svars tid
+I det här exemplet skapas en lista med distinkta datorer med en svars tid som inte är felfria.
 
 ```Kusto
 NetworkMonitoring 
@@ -165,8 +165,8 @@ NetworkMonitoring
 
 ## <a name="performance"></a>Prestanda
 
-### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>Gå med i datorns perf-poster för att korrelera minne och CPU
-Det här exemplet korrelerar en viss dators **perf-poster** och skapar två tidsdiagram, den genomsnittliga processorn och maximalt minne.
+### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>Anslut datorns perf-poster för att korrelera minne och CPU
+Det här exemplet motsvarar en viss dators **prestanda** poster och skapar två tids diagram, genomsnittlig CPU och maximalt minne.
 
 ```Kusto
 let StartTime = now()-5d;
@@ -185,8 +185,8 @@ Perf
 | render timechart
 ```
 
-### <a name="perf-cpu-utilization-graph-per-computer"></a>Diagram för perf CPU-utnyttjande per dator
-I det här exemplet beräknas och diagrams CPU-användningen av datorer som börjar med _Contoso_.
+### <a name="perf-cpu-utilization-graph-per-computer"></a>Diagram över prestanda processor användning per dator
+Det här exemplet beräknar och diagramerar processor användningen för datorer som börjar med _contoso_.
 
 ```Kusto
 Perf
@@ -197,10 +197,10 @@ Perf
 | render timechart
 ```
 
-## <a name="protection-status"></a>Skyddsstatus
+## <a name="protection-status"></a>Skydds status
 
-### <a name="computers-with-non-reporting-protection-status-duration"></a>Datorer med statusvaraktighet för icke-rapporteringsskydd
-I det här exemplet visas datorer som hade skyddsstatus _som inte rapporterade_ och hur länge de befann sig i den här statusen.
+### <a name="computers-with-non-reporting-protection-status-duration"></a>Datorer med status varaktighet för icke-rapporterings skydd
+I det här exemplet visas datorer som har en skydds status som _inte rapporterar_ och den varaktighet som de hade i denna status.
 
 ```Kusto
 ProtectionStatus
@@ -211,9 +211,9 @@ ProtectionStatus
 | extend durationNotReporting = endNotReporting - startNotReporting
 ```
 
-### <a name="match-protected-status-records-with-heartbeat-records"></a>Matcha skyddade statusposter med pulsslagsposter
-I det här exemplet hittas relaterade skyddsstatusposter och pulsslagsposter som matchas både på datorn och tiden.
-Tidsfältet avrundas till närmaste minut med **lagerplats**.
+### <a name="match-protected-status-records-with-heartbeat-records"></a>Matcha skyddade status poster med pulsslags poster
+I det här exemplet hittas relaterade skydds status poster och pulsslags poster som matchar både dator och tid.
+Time-fältet avrundas till närmaste minut med hjälp av **bin**.
 
 ```Kusto
 let protection_data = ProtectionStatus
@@ -224,13 +224,13 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ```
 
 
-## <a name="security-records"></a>Säkerhetsposter
+## <a name="security-records"></a>Säkerhets poster
 
-### <a name="count-security-events-by-activity-id"></a>Räkna säkerhetshändelser efter aktivitets-ID
+### <a name="count-security-events-by-activity-id"></a>Räkna säkerhets händelser per aktivitets-ID
 
 
-Det här exemplet är beroende av den fasta\>-\<\>strukturen i kolumnen **Aktivitet:** \<ID-namn .
-Det tolkar **aktivitetsvärdet** i två nya kolumner och räknar förekomsten av varje **activityID**.
+Det här exemplet använder den fasta strukturen i **aktivitets** kolumnen: \<ID-\>-\<namn.\>
+Det tolkar **aktivitets** värdet i två nya kolumner och räknar förekomsten av varje **activityID**.
 
 ```Kusto
 SecurityEvent
@@ -240,8 +240,8 @@ SecurityEvent
 | summarize count() by activityID
 ```
 
-### <a name="count-security-events-related-to-permissions"></a>Räkna säkerhetshändelser relaterade till behörigheter
-I det här exemplet visas antalet **securityEvent-poster,** där kolumnen **Aktivitet** innehåller hela termen _Behörigheter_. Frågan gäller poster som skapats under de senaste 30 minuterna.
+### <a name="count-security-events-related-to-permissions"></a>Räkna säkerhets händelser relaterade till behörigheter
+I det här exemplet visas antalet **securityEvent** -poster, där **aktivitets** kolumnen innehåller hela term _behörigheterna_. Frågan gäller poster som skapats under de senaste 30 minuterna.
 
 ```Kusto
 SecurityEvent
@@ -249,8 +249,8 @@ SecurityEvent
 | summarize EventCount = countif(Activity has "Permissions")
 ```
 
-### <a name="find-accounts-that-failed-to-log-in-from-computers-with-a-security-detection"></a>Hitta konton som inte kunde logga in från datorer med en säkerhetsidentifiering
-Det här exemplet söker efter och räknar konton som inte kunde logga in från datorer där vi identifierar en säkerhetsidentifiering.
+### <a name="find-accounts-that-failed-to-log-in-from-computers-with-a-security-detection"></a>Hitta konton som inte kunde logga in från datorer med en säkerhets identifiering
+Det här exemplet hittar och räknar konton som inte kunde logga in från datorer där vi identifierar en säkerhets identifiering.
 
 ```Kusto
 let detections = toscalar(SecurityDetection
@@ -260,8 +260,8 @@ SecurityEvent
 | summarize count() by Account
 ```
 
-### <a name="is-my-security-data-available"></a>Är mina säkerhetsdata tillgängliga?
-Starta datautforskning börjar ofta med datatillgänglighetskontroll. I det här exemplet visas antalet **SecurityEvent-poster** under de senaste 30 minuterna.
+### <a name="is-my-security-data-available"></a>Är mina säkerhets data tillgängliga?
+Att starta data utforskningen börjar ofta med data tillgänglighets kontroll. I det här exemplet visas antalet **SecurityEvent** -poster under de senaste 30 minuterna.
 
 ```Kusto
 SecurityEvent 
@@ -269,8 +269,8 @@ SecurityEvent
 | count
 ```
 
-### <a name="parse-activity-name-and-id"></a>Tolka aktivitetsnamn och ID
-De två exemplen nedan är beroende av den\>-\<\>fasta strukturen i kolumnen **Aktivitet:** \<ID-namn . I det första exemplet används **parsaoperatorn** för att tilldela värden till två nya kolumner: **activityID** och **activityDesc**.
+### <a name="parse-activity-name-and-id"></a>Namn och ID för parse-aktivitet
+De två exemplen nedan förlitar sig på den **Activity** fasta strukturen för \<aktivitets\>-\<kolumnen\>: ID-namn. I det första exemplet används **parse** -operatorn för att tilldela värden till två nya kolumner: **activityID** och **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -279,7 +279,7 @@ SecurityEvent
 | parse Activity with activityID " - " activityDesc
 ```
 
-I det här exemplet används **den delade** operatorn för att skapa en matris med separata värden
+I det här exemplet används operatorn **Split** för att skapa en matris med separata värden
 ```Kusto
 SecurityEvent
 | take 100
@@ -288,8 +288,8 @@ SecurityEvent
 | project Activity , activityArr, activityId=activityArr[0]
 ```
 
-### <a name="explicit-credentials-processes"></a>Explicita autentiseringsuppgifter processer
-I följande exempel visas ett cirkeldiagram över processer som använde explicita autentiseringsuppgifter under den senaste veckan
+### <a name="explicit-credentials-processes"></a>Explicita autentiseringsuppgifter-processer
+I följande exempel visas ett cirkel diagram med processer som använde explicita autentiseringsuppgifter under den senaste veckan
 
 ```Kusto
 SecurityEvent
@@ -300,9 +300,9 @@ SecurityEvent
 | render piechart 
 ```
 
-### <a name="top-running-processes"></a>Toppgående processer
+### <a name="top-running-processes"></a>Vanligaste processer som körs
 
-I följande exempel visas en tidsrad för aktivitet för de fem vanligaste processerna under de senaste tre dagarna.
+I följande exempel visas en tids linje med aktiviteter för de fem vanligaste processerna under de tre senaste dagarna.
 
 ```Kusto
 // Find all processes that started in the last three days. ID 4688: A new process has been created.
@@ -323,9 +323,9 @@ RunProcesses
 ```
 
 
-### <a name="find-repeating-failed-login-attempts-by-the-same-account-from-different-ips"></a>Hitta upprepade misslyckade inloggningsförsök av samma konto från olika IPs
+### <a name="find-repeating-failed-login-attempts-by-the-same-account-from-different-ips"></a>Hitta upprepade misslyckade inloggnings försök av samma konto från olika IP-adresser
 
-I följande exempel hittas misslyckade inloggningsförsök av samma konto från mer än fem olika IPs under de senaste sex timmarna.
+I följande exempel hittas misslyckade inloggnings försök av samma konto från fler än fem olika IP-adresser under de senaste sex timmarna.
 
 ```Kusto
 SecurityEvent 
@@ -335,8 +335,8 @@ SecurityEvent
 | sort by IPCount desc
 ```
 
-### <a name="find-user-accounts-that-failed-to-log-in"></a>Hitta användarkonton som inte kunde logga in 
-I följande exempel identifieras användarkonton som inte loggade in mer än fem gånger under den senaste dagen och när de senast försökte logga in.
+### <a name="find-user-accounts-that-failed-to-log-in"></a>Sök efter användar konton som inte kunde logga in 
+I följande exempel identifieras användar konton som inte kunde logga in mer än fem gånger under den senaste dagen, och när de senast försökte logga in.
 
 ```Kusto
 let timeframe = 1d;
@@ -348,7 +348,7 @@ SecurityEvent
 | project-away Account1
 ```
 
-Använda **gå med**, och **låt** uttalanden vi kan kontrollera om samma misstänkta konton senare kunde logga in framgångsrikt.
+Med hjälp av **Join**och **let** -satser kan vi kontrol lera om samma misstänkta konton senare kunde logga in.
 
 ```Kusto
 let timeframe = 1d;
@@ -375,11 +375,11 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Användning
 
-Datatypen `Usage` kan användas för att spåra den intjesterade datavolymen efter lösning eller datatyp. Det finns andra tekniker för att studera intjesterade datavolymer efter [dator](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) eller [Azure-prenumeration, resursgrupp eller resurs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+`Usage` Data typen kan användas för att spåra den inmatade data volymen efter lösning eller datatyp. Det finns andra metoder för att undersöka inmatade data volymer av [dator](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) eller [Azure-prenumeration, resurs grupp eller resurs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Datavolym per lösning
 
-Frågan som används för att visa den fakturerbara datavolymen efter lösning under den senaste månaden (exklusive den sista deldagen) är:
+Frågan som används för att visa den fakturerbara data volymen per lösning under den senaste månaden (exklusive den sista del dagen) är:
 
 ```kusto
 Usage 
@@ -389,11 +389,11 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Observera att `where IsBillable = true` satsen filtrerar bort datatyper från vissa lösningar för vilka det inte finns någon inmatningsavgift för.  Även satsen `TimeGenerated` med är bara för att säkerställa att frågeupplevelsen i Azure-portalen kommer att se tillbaka utöver standard 24 timmar. När du använder datatypen Användning `StartTime` och `EndTime` representerar de tidssegment som resultaten presenteras för. 
+Observera att-satsen `where IsBillable = true` filtrerar bort data typer från vissa lösningar som det inte finns någon inmatnings avgift för.  Även-satsen `TimeGenerated` med är att se till att frågans upplevelse i Azure Portal kommer att se tillbaka utöver standard 24 timmarna. När du använder data typen användning `StartTime` och `EndTime` representerar de tidsgrupper som resultat visas för. 
 
-#### <a name="data-volume-by-type"></a>Datavolym efter typ
+#### <a name="data-volume-by-type"></a>Data volym efter typ
 
-Du kan öka detaljnivån ytterligare om du vill se datatrender för datatyp:
+Du kan öka detalj nivån för att se data trender för data typen:
 
 ```kusto
 Usage 
@@ -403,7 +403,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-Eller om du vill visa en tabell efter lösning och typ för den senaste månaden,
+Eller för att se en tabell efter lösning och typ för den senaste månaden
 
 ```kusto
 Usage 
@@ -415,12 +415,12 @@ Usage
 ```
 
 > [!NOTE]
-> Vissa fält i datatypen Användning, medan de fortfarande är i schemat, har inaktuellt och kommer att fyllas i deras värden inte längre. Dessa är **dator-** samt fält relaterade till intag (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla,** **BatchesCapped** och **AverageProcessingTimeMs**.
+> Några av fälten i användnings data typen, men fortfarande i schemat, är inaktuella och de kommer inte längre att fyllas i. Dessa är både **datorer** och fält som rör inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** och **AverageProcessingTimeMs**.
 
 ## <a name="updates"></a>Uppdateringar
 
-### <a name="computers-still-missing-updates"></a>Datorer saknas fortfarande uppdateringar
-I det här exemplet visas en lista över datorer som saknade en eller flera viktiga uppdateringar för några dagar sedan och som fortfarande saknar uppdateringar.
+### <a name="computers-still-missing-updates"></a>Datorer som fortfarande saknar uppdateringar
+Det här exemplet visar en lista över datorer som saknade en eller flera viktiga uppdateringar några dagar sedan och som fortfarande saknar uppdateringar.
 
 ```Kusto
 let ComputersMissingUpdates3DaysAgo = Update
@@ -437,5 +437,5 @@ Update
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [kustospråkreferensen](/azure/kusto/query) för information om språket.
-- Gå igenom en [lektion om att skriva loggfrågor i Azure Monitor](get-started-queries.md).
+- Mer information om språket finns i [språk referens för Kusto](/azure/kusto/query) .
+- Gå igenom en [lektion om hur du skriver logg frågor i Azure Monitor](get-started-queries.md).

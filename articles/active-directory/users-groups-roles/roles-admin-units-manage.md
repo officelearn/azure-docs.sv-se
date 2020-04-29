@@ -1,6 +1,6 @@
 ---
-title: Lägga till och ta bort administrativa enheter (förhandsversion) – Azure Active Directory | Microsoft-dokument
-description: Använd administrativa enheter för att begränsa omfattningen av rollbehörigheter i Azure Active Directory.
+title: Lägga till och ta bort administrativa enheter (förhands granskning) – Azure Active Directory | Microsoft Docs
+description: Använd administrativa enheter för att begränsa omfånget för roll behörigheter i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,54 +15,54 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7a4a0dfaeda18b3f68ddc3c7cc7333b8c994d174
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684920"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Hantera administrativa enheter i Azure Active Directory
 
-För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) kan du tilldela användare till en Azure AD-roll med ett scope som är begränsat till en eller flera administrativa enheter (AUs).
+För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) kan du tilldela användare till en Azure AD-roll med en omfattning som är begränsad till en eller flera administrativa enheter (Australien).
 
 ## <a name="get-started"></a>Kom igång
 
-1. Så här kör du frågor från följande instruktioner via [Graph Explorer:](https://aka.ms/ge)
+1. Om du vill köra frågor från följande instruktioner via [Graph Explorer](https://aka.ms/ge)gör du följande:
 
-    a. Gå till Azure AD i Azure-portalen. I programlistan väljer du **Graph Explorer**och väljer sedan **Bevilja administratörsgodkännande till Graph Explorer**.
+    a. I Azure Portal går du till Azure AD. I listan program väljer du **Graph Explorer**och väljer sedan **bevilja administrativt medgivande till Graph Explorer**.
 
-    ![Skärmbild som visar länk till "Bevilja administratörssamtycke"](./media/roles-admin-units-manage/select-graph-explorer.png)
+    ![Skärm bild som visar länk till "bevilja administrativt medgivande"](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. Välj **betaversionen** i Graph Explorer.
+    b. I Graph Explorer väljer du **beta** versionen.
 
-    ![Skärmbild som visar den valda betaversionen](./media/roles-admin-units-manage/select-beta-version.png)
+    ![Skärm bild som visar den valda Beta versionen](./media/roles-admin-units-manage/select-beta-version.png)
 
-1. Använd förhandsversionen av Azure AD PowerShell.
+1. Använd för hands versionen av Azure AD PowerShell.
 
-## <a name="add-an-administrative-unit"></a>Lägga till en administrativ enhet
+## <a name="add-an-administrative-unit"></a>Lägg till en administrativ enhet
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. Gå till Azure AD i Azure-portalen och välj sedan **Administrativa enheter**i den vänstra rutan .
+1. I Azure Portal går du till Azure AD och väljer sedan **administrativa enheter**i den vänstra rutan.
 
-    ![Skärmbild av länken Administrativa enheter (förhandsversion) i Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Skärm bild av länken administrativa enheter (förhands granskning) i Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. Välj **Lägg till** och ange sedan namnet på den administrativa enheten. Du kan också lägga till en beskrivning av den administrativa enheten.
 
-    ![Skärmbild av knappen Lägg till och textrutan för att ange namnet på den administrativa enheten](./media/roles-admin-units-manage/add-new-admin-unit.png)
+    ![Skärm bild av knappen Lägg till och text rutan för att ange namnet på den administrativa enheten](./media/roles-admin-units-manage/add-new-admin-unit.png)
 
 1. Välj **Lägg till** för att slutföra den administrativa enheten.
 
 ### <a name="use-powershell"></a>Använd PowerShell
 
-Installera Azure AD PowerShell (förhandsversion) innan du försöker köra följande kommandon:
+Installera Azure AD PowerShell (för hands version) innan du försöker köra följande kommandon:
 
     Connect-AzureAD
     New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 
-Du kan ändra de värden som omges av citattecken efter behov.
+Du kan ändra de värden som omges av citat tecken, om det behövs.
 
-### <a name="use-microsoft-graph"></a>Använda Microsoft Graph
+### <a name="use-microsoft-graph"></a>Använd Microsoft Graph
 
     Http Request
     POST /administrativeUnits
@@ -74,24 +74,24 @@ Du kan ändra de värden som omges av citattecken efter behov.
 
 ## <a name="remove-an-administrative-unit"></a>Ta bort en administrativ enhet
 
-I Azure AD kan du ta bort en administrativ enhet som du inte längre behöver som en enhet av scope för administrativa roller.
+I Azure AD kan du ta bort en administrativ enhet som du inte längre behöver som enhets omfång för administrativa roller.
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. Gå till Azure AD**Administrative-enheter**i **Azure Portal.** >  
-1. Välj den administrativa enhet som ska tas bort och välj sedan **Ta bort**. 
-1. Om du vill bekräfta att du vill ta bort den administrativa enheten väljer du **Ja**. Den administrativa enheten tas bort.
+1. I Azure Portal går du till**administrations enheter**för **Azure AD** > . 
+1. Välj den administrativa enhet som ska tas bort och välj sedan **ta bort**. 
+1. Bekräfta att du vill ta bort den administrativa enheten genom att välja **Ja**. Den administrativa enheten tas bort.
 
-![Skärmbild av knappen Ta bort administrationsenhet och bekräftelsefönster](./media/roles-admin-units-manage/select-admin-unit-to-delete.png)
+![Skärm bild av den administrativa enhets knappen Ta bort och bekräftelse fönstret](./media/roles-admin-units-manage/select-admin-unit-to-delete.png)
 
 ### <a name="use-powershell"></a>Använd PowerShell
 
     $delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
     Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
 
-Du kan ändra de värden som omges av citattecken, efter behov för den specifika miljön.
+Du kan ändra de värden som omges av citat tecken, vilket krävs för den aktuella miljön.
 
-### <a name="use-the-graph-api"></a>Använda graph-API:et
+### <a name="use-the-graph-api"></a>Använd Graph API
 
     HTTP request
     DELETE /administrativeUnits/{Admin id}

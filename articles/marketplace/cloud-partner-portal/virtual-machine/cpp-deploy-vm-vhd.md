@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
 ms.openlocfilehash: b02fda545ac135735186885d7db597885bf6cc21
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147971"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina virtuella hård diskar
@@ -67,7 +67,7 @@ När den virtuella datorn har distribuerats är du redo att [certifiera din VM-a
    | Adminlösenord              | Administratörs kontots lösen ord för ny virtuell dator                                  |
    | OS-typ                     | Operativ system för virtuell `Windows` \| dator:`Linux`                                    |
    | Prenumerations-ID:t             | Identifierare för den valda prenumerationen                                      |
-   | Location                    | Distributionens geografiska plats                                        |
+   | Plats                    | Distributionens geografiska plats                                        |
    | Storlek på virtuell dator                     | [Storlek på virtuell Azure-dator](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), till exempel`Standard_A2` |
    | Namn på offentlig IP-adress      | Namn på din offentliga IP-adress                                               |
    | Namn på virtuell dator                     | Namn på den nya virtuella datorn                                                           |

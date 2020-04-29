@@ -1,5 +1,5 @@
 ---
-title: Autentiseringsprinciper för Azure API Management | Microsoft-dokument
+title: Principer för Azure API Management-autentisering | Microsoft Docs
 description: Lär dig mer om de autentiseringsprinciper som är tillgängliga för användning i Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -14,27 +14,27 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 828f738ff8923dc8194e2449f5fb0be74ef45ad7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473565"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
-Det här avsnittet innehåller en referens för följande API Management-principer. Information om hur du lägger till och konfigurerar principer finns [i Principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a>Autentiseringsprinciper
 
--   [Autentisera med Basic](api-management-authentication-policies.md#Basic) - Autentisera med en serverdtjänst med grundläggande autentisering.
+-   [Autentisera med Basic](api-management-authentication-policies.md#Basic) -autentisera med en backend-tjänst med grundläggande autentisering.
 
--   [Autentisera med klientcertifikat](api-management-authentication-policies.md#ClientCertificate) - Autentisera med en serverd-tjänst med klientcertifikat.
+-   [Autentisera med klient certifikat](api-management-authentication-policies.md#ClientCertificate) – autentisera med en backend-tjänst med hjälp av klient certifikat.
 
--   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) - Autentisera med den [hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md) för API Management-tjänsten.
+-   [Autentisera med hanterad identitet](api-management-authentication-policies.md#ManagedIdentity) – autentisera med den [hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md) för den API Management tjänsten.
 
 ##  <a name="authenticate-with-basic"></a><a name="Basic"></a>Autentisera med Basic
- Använd `authentication-basic` principen för att autentisera med en serverdtjänst med grundläggande autentisering. Den här principen anger effektivt HTTP-auktoriseringshuvudet till det värde som motsvarar de autentiseringsuppgifter som anges i principen.
+ Använd `authentication-basic` principen för att autentisera med en backend-tjänst med grundläggande autentisering. Den här principen anger att HTTP-Authorization-huvudet ska vara det värde som motsvarar de autentiseringsuppgifter som anges i principen.
 
-### <a name="policy-statement"></a>Policyuttalande
+### <a name="policy-statement"></a>Princip kommentar
 
 ```xml
 <authentication-basic username="username" password="password" />
@@ -48,28 +48,28 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 ### <a name="elements"></a>Element
 
-|Namn|Beskrivning|Krävs|
+|Name|Beskrivning|Krävs|
 |----------|-----------------|--------------|
-|autentisering-basic|Rotelementet.|Ja|
+|autentisering – grundläggande|Rot element.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
-|Namn|Beskrivning|Krävs|Default|
+|Name|Beskrivning|Krävs|Standardvärde|
 |----------|-----------------|--------------|-------------|
-|användarnamn|Anger användarnamnet för grundläggande autentiseringsuppgifter.|Ja|Ej tillämpligt|
-|password|Anger lösenordet för grundläggande autentiseringsuppgifter.|Ja|Ej tillämpligt|
+|användarnamn|Anger användar namnet för den grundläggande autentiseringsuppgiften.|Ja|Ej tillämpligt|
+|password|Anger lösen ordet för grundläggande autentiseringsuppgifter.|Ja|Ej tillämpligt|
 
 ### <a name="usage"></a>Användning
- Den här principen kan användas i följande [principavsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Policyavsnitt:** inkommande
+-   **Princip avsnitt:** inkommande
 
--   **Principomfattningar:** alla scope
+-   **Princip omfattningar:** alla omfattningar
 
-##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a>Autentisera med klientcertifikat
- Använd `authentication-certificate` principen för att autentisera med en serverd-tjänst med klientcertifikatet. Certifikatet måste [installeras i API Management](https://go.microsoft.com/fwlink/?LinkID=511599) först och identifieras med tumavtrycket.
+##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a>Autentisera med klient certifikat
+ Använd `authentication-certificate` principen för att autentisera med en backend-tjänst med hjälp av klient certifikat. Certifikatet måste [installeras i API Management](https://go.microsoft.com/fwlink/?LinkID=511599) först och identifieras av sitt tumavtryck.
 
-### <a name="policy-statement"></a>Policyuttalande
+### <a name="policy-statement"></a>Princip kommentar
 
 ```xml
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
@@ -77,46 +77,46 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 ### <a name="examples"></a>Exempel
 
-I det här exemplet identifieras klientcertifikatet med tumavtrycket.
+I det här exemplet identifieras klient certifikatet med dess tumavtryck.
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-I det här exemplet identifieras klientcertifikatet med resursnamnet.
+I det här exemplet identifieras klient certifikatet med resurs namnet.
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
 
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Krävs|  
+|Name|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
-|autentiseringscertifikat|Rotelementet.|Ja|  
+|autentisering-certifikat|Rot element.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Default|  
+|Name|Beskrivning|Krävs|Standardvärde|  
 |----------|-----------------|--------------|-------------|  
-|Stämpel|Tumavtrycket för klientcertifikatet.|Antingen `thumbprint` `certificate-id` eller måste vara närvarande.|Ej tillämpligt|  
-|certifikat-ID|Namnet på certifikatresursen.|Antingen `thumbprint` `certificate-id` eller måste vara närvarande.|Ej tillämpligt|  
+|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|  
+|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller `certificate-id` måste finnas.|Ej tillämpligt|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande [principavsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Policyavsnitt:** inkommande  
+-   **Princip avsnitt:** inkommande  
   
--   **Principomfattningar:** alla scope  
+-   **Princip omfattningar:** alla omfattningar  
 
 ##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Autentisera med hanterad identitet  
- Använd `authentication-managed-identity` principen för att autentisera med en serverd-tjänst med hjälp av den hanterade identiteten för API Management-tjänsten. Den här principen använder i huvudsak den hanterade identiteten för att hämta en åtkomsttoken från Azure Active Directory för åtkomst till den angivna resursen. När token har hämtats anger principen värdet för `Authorization` token i `Bearer` huvudet med hjälp av schemat.
+ Använd `authentication-managed-identity` principen för att autentisera med en backend-tjänst med hjälp av den hanterade identiteten för den API Management tjänsten. Den här principen använder i princip den hanterade identiteten för att hämta en åtkomsttoken från Azure Active Directory för åtkomst till den angivna resursen. När token har hämtats ställer principen in värdet för token i `Authorization` rubriken med `Bearer` schemat.
   
-### <a name="policy-statement"></a>Policyuttalande  
+### <a name="policy-statement"></a>Princip kommentar  
   
 ```xml  
 <authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### <a name="example"></a>Exempel  
-#### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Använda hanterad identitet för att autentisera med en backend-tjänst
+#### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Använd hanterad identitet för att autentisera med en server dels tjänst
 ```xml  
 <authentication-managed-identity resource="https://graph.microsoft.com"/> 
 ```
@@ -136,7 +136,7 @@ I det här exemplet identifieras klientcertifikatet med resursnamnet.
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
   
-#### <a name="use-managed-identity-in-send-request-policy"></a>Använda hanterad identitet i principen för skicka begäran
+#### <a name="use-managed-identity-in-send-request-policy"></a>Använd hanterad identitet i skicka begär ande princip
 ```xml  
 <send-request mode="new" timeout="20" ignore-error="false">
     <set-url>https://example.com/</set-url>
@@ -147,29 +147,29 @@ I det här exemplet identifieras klientcertifikatet med resursnamnet.
 
 ### <a name="elements"></a>Element  
   
-|Namn|Beskrivning|Krävs|  
+|Name|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
-|autentiseringshanterad identitet |Rotelementet.|Ja|  
+|autentisering-hanterad-identitet |Rot element.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Namn|Beskrivning|Krävs|Default|  
+|Name|Beskrivning|Krävs|Standardvärde|  
 |----------|-----------------|--------------|-------------|  
-|resource|Sträng. App-ID:t för målwebb-API:et (säker resurs) i Azure Active Directory.|Ja|Ej tillämpligt|  
-|output-token-variabel-namn|Sträng. Namnet på kontextvariabeln som ska `string`ta emot tokenvärdet som objekttyp . |Inga|Ej tillämpligt|  
-|ignorera-fel|Boolean. Om den `true`är inställd på fortsätter princippipelinen att köras även om en åtkomsttoken inte hämtas.|Inga|false|  
+|resource|Sträng. App-ID för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Ej tillämpligt|  
+|output-token-variabel-namn|Sträng. Namnet på den Sammanhangs variabel som kommer att ta emot token- `string`värde som en objekt typ. |Nej|Ej tillämpligt|  
+|Ignorera-fel|Booleskt. Om detta är `true`inställt på, fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|Nej|falskt|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande [principavsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Policyavsnitt:** inkommande  
+-   **Princip avsnitt:** inkommande  
   
--   **Principomfattningar:** alla scope
+-   **Princip omfattningar:** alla omfattningar
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du arbetar med principer finns i:
 
-+ [Principer i API-hantering](api-management-howto-policies.md)
-+ [Omvandla API:er](transform-api.md)
-+ [Principreferens](api-management-policy-reference.md) för en fullständig lista över policyutdrag och deras inställningar
-+ [Policyexempel](policy-samples.md)
++ [Principer i API Management](api-management-howto-policies.md)
++ [Transformera API: er](transform-api.md)
++ [Princip referens](api-management-policy-reference.md) för en fullständig lista över princip satser och deras inställningar
++ [Princip exempel](policy-samples.md)

@@ -1,6 +1,6 @@
 ---
-title: Delegerad åtkomst i Windows Virtual Desktop - Azure
-description: Delegera administrativa funktioner för en Windows Virtual Desktop-distribution, inklusive exempel.
+title: Delegerad åtkomst i Windows Virtual Desktop – Azure
+description: Så här delegerar du administrativa funktioner på en distribution av virtuella Windows-datorer, inklusive exempel.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,17 +9,17 @@ ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683921"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Delegerad åtkomst i Windows Virtual Desktop
 
-Windows Virtual Desktop har en delegerad åtkomstmodell som gör att du kan definiera hur mycket åtkomst en viss användare får ha genom att tilldela dem en roll. En rolltilldelning har tre komponenter: säkerhetsobjekt, rolldefinition och omfattning. Den delegerade åtkomstmodellen för Virtuellt skrivbord i Windows baseras på Azure RBAC-modellen. Mer information om specifika rolltilldelningar och deras komponenter finns [i översikten över Azure-rollbaserad åtkomstkontroll](../role-based-access-control/built-in-roles.md).
+Windows Virtual Desktop har en delegerad åtkomst modell som gör att du kan definiera hur mycket åtkomst en viss användare får ha genom att tilldela dem en roll. En roll tilldelning har tre komponenter: säkerhets objekt, roll definition och omfattning. Den delegerade åtkomst modellen för Windows Virtual Desktop baseras på Azure RBAC-modellen. Mer information om de olika roll tilldelningarna och deras komponenter finns i [Översikt över Azure rollbaserad åtkomst kontroll](../role-based-access-control/built-in-roles.md).
 
-Delegerad åtkomst för Virtuellt skrivbord i Windows Stöder följande värden för varje element i rolltilldelningen:
+Windows Virtual Desktop-delegerad åtkomst stöder följande värden för varje element i roll tilldelningen:
 
 * Säkerhetsobjekt
     * Användare
@@ -27,44 +27,44 @@ Delegerad åtkomst för Virtuellt skrivbord i Windows Stöder följande värden 
 * Rolldefinition
     * Inbyggda roller
 * Omfång
-    * Klientgrupper
+    * Klient grupper
     * Klientorganisationer
-    * Värdpooler
+    * Värdar för pooler
     * Appgrupper
 
 ## <a name="built-in-roles"></a>Inbyggda roller
 
-Delegerad åtkomst i Windows Virtual Desktop har flera inbyggda rolldefinitioner som du kan tilldela användare och tjänsthuvudnamn.
+Delegerad åtkomst i Windows Virtual Desktop har flera inbyggda roll definitioner som du kan tilldela till användare och tjänstens huvud namn.
 
 * En RDS-ägare kan hantera allt, inklusive åtkomst till resurser.
 * En RDS-deltagare kan hantera allt, men kan inte komma åt resurser.
-* En RDS Reader kan visa allt, men kan inte göra några ändringar.
-* En RDS-operatör kan visa diagnostikaktiviteter.
+* En RDS-läsare kan visa allt, men kan inte göra några ändringar.
+* En RDS-operatör kan visa diagnostiska aktiviteter.
 
-## <a name="powershell-cmdlets-for-role-assignments"></a>PowerShell-cmdletar för rolltilldelningar
+## <a name="powershell-cmdlets-for-role-assignments"></a>PowerShell-cmdletar för roll tilldelningar
 
-Du kan köra följande cmdlets för att skapa, visa och ta bort rolltilldelningar:
+Du kan köra följande cmdletar för att skapa, Visa och ta bort roll tilldelningar:
 
-* **Get-RdsRoleAssignment** visar en lista över rolltilldelningar.
-* **New-RdsRoleTilldelning** skapar en ny rolltilldelning.
-* **Ta bort-RdsRoleTilldelning tar** bort rolltilldelningar.
+* **Get-RdsRoleAssignment** visar en lista över roll tilldelningar.
+* **New-RdsRoleAssignment** skapar en ny roll tilldelning.
+* **Remove-RdsRoleAssignment** tar bort roll tilldelningar.
 
 ### <a name="accepted-parameters"></a>Godkända parametrar
 
-Du kan ändra de grundläggande tre cmdlets med följande parametrar:
+Du kan ändra de tre grundläggande cmdletarna med följande parametrar:
 
-* **AadTenantId**: anger Azure Active Directory-klient-ID som tjänstens huvudnamn är medlem i.
-* **AppGroupName**: namnet på appgruppen För fjärrskrivbord.
-* **Diagnostik**: anger diagnostikomfånget. (Måste paras ihop med antingen **parametrarna Infrastruktur** eller **Klient.)**
-* **HostPoolName**: namnet på värdpoolen för fjärrskrivbord.
-* **Infrastruktur**: anger infrastrukturomfattningen.
-* **RoleDefinitionName**: namnet på rollbaserad åtkomstkontrollroll för fjärrskrivbordstjänster som tilldelats användaren, gruppen eller appen. (Till exempel ägare av fjärrskrivbordstjänster, läsare av fjärrskrivbordstjänster och så vidare.)
-* **ServerPrincipleName**: namnet på Azure Active Directory-programmet.
-* **SignInName**: användarens e-postadress eller användarens huvudnamn.
-* **TenantName**: namnet på klientinnehavaren för fjärrskrivbord.
+* **AadTenantId**: anger Azure Active Directory klient-ID som tjänstens huvud namn är medlem i.
+* **AppGroupName**: namnet på gruppen med fjärr skrivbords appar.
+* **Diagnostik**: anger diagnostisk omfattning. (Måste kombineras med antingen **infrastrukturen** eller **klient** parametrarna.)
+* **HostPoolName**: namnet på poolen för fjärr skrivbords värden.
+* **Infrastruktur**: anger infrastruktur omfånget.
+* **RoleDefinitionName**: namnet på Fjärrskrivbordstjänster den rollbaserade rollbaserade åtkomst kontroll rollen som tilldelats användaren, gruppen eller appen. (Till exempel Fjärrskrivbordstjänster ägare, Fjärrskrivbordstjänster läsaren och så vidare.)
+* **ServerPrincipleName**: namnet på det Azure Active Directory programmet.
+* **SignInName**: användarens e-postadress eller User Principal Name.
+* **TenantName**: namnet på fjärr skrivbords klienten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En mer komplett lista över PowerShell-cmdlets som varje roll kan använda finns i [PowerShell-referensen](/powershell/windows-virtual-desktop/overview).
+En fullständig lista över PowerShell-cmdletar som varje roll kan använda finns i [PowerShell-referensen](/powershell/windows-virtual-desktop/overview).
 
-Riktlinjer för hur du konfigurerar en Windows Virtual Desktop-miljö finns i [Windows Virtual Desktop-miljö](environment-setup.md).
+Rikt linjer för hur du konfigurerar en Windows Virtual Desktop-miljö finns i [Windows Virtual Desktop-miljö](environment-setup.md).

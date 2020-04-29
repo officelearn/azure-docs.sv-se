@@ -1,184 +1,184 @@
 ---
-title: Smart identifiering – prestandaavvikelser | Microsoft-dokument
-description: Application Insights utför smart analys av din apptelemetri och varnar dig för potentiella problem. Den här funktionen behöver ingen installation.
+title: Smart identifiering-prestanda avvikelser | Microsoft Docs
+description: Application Insights utför Smart analys av din app-telemetri och varnar dig om potentiella problem. Den här funktionen behöver ingen installation.
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687699"
 ---
-# <a name="smart-detection---performance-anomalies"></a>Smart identifiering - Prestandaavvikelser
+# <a name="smart-detection---performance-anomalies"></a>Smart identifiering-prestanda avvikelser
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) analyserar automatiskt webbprogrammets prestanda och kan varna dig om potentiella problem. Du kanske läser detta eftersom du har fått en av våra meddelanden om smart identifiering.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) analyserar automatiskt prestanda för ditt webb program och kan varna dig om potentiella problem. Du kanske läser detta eftersom du har fått ett av våra meddelanden om Smart identifiering.
 
-Den här funktionen kräver ingen särskild konfiguration, förutom att konfigurera appen för Application Insights (på [ASP.NET,](../../azure-monitor/app/asp-net.md) [Java](../../azure-monitor/app/java-get-started.md)eller [Node.js](../../azure-monitor/app/nodejs.md)och i [webbsidans kod](../../azure-monitor/app/javascript.md)). Den är aktiv när appen genererar tillräckligt med telemetri.
+Den här funktionen kräver ingen särskild konfiguration, förutom att konfigurera din app för Application Insights (på [ASP.net](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md)eller [Node. js](../../azure-monitor/app/nodejs.md)och i [webb sid kod](../../azure-monitor/app/javascript.md)). Den är aktiv när din app genererar tillräckligt telemetri.
 
-## <a name="when-would-i-get-a-smart-detection-notification"></a>När får jag en anmälan om smart identifiering?
+## <a name="when-would-i-get-a-smart-detection-notification"></a>När får jag ett meddelande om Smart identifiering?
 
 Application Insights har upptäckt att programmets prestanda har försämrats på något av följande sätt:
 
-* **Svarstidsförsämring** – Appen har börjat svara på begäranden långsammare än tidigare. Ändringen kan ha varit snabb, till exempel eftersom det fanns en regression i den senaste distributionen. Eller det kan ha varit gradvis, kanske orsakas av ett minne läcka. 
-* **Försämring av beroendevaraktighet** - Appen anropar ett REST API, en databas eller något annat beroende. Beroendet svarar långsammare än tidigare.
-* **Långsamt prestandamönster** – Appen verkar ha ett prestandaproblem som bara påverkar vissa begäranden. Till exempel läses sidor långsammare på en typ av webbläsare än andra. eller förfrågningar serveras långsammare från en viss server. För närvarande tittar våra algoritmer på sidans inläsningstider, svarstider för begäran och beroendesvarstider.  
+* **Minskning av svars tid** – appen har börjat svara på begär Anden långsammare än den som används. Ändringen kan ha varit snabb, till exempel eftersom det var en regression i din senaste distribution. Eller så kan det vara gradvis, vilket kan orsakas av en minnes läcka. 
+* **Beroende varaktighets försämring** – appen gör anrop till ett REST API, en databas eller något annat beroende. Beroendet svarar långsammare än det som används för.
+* **Mönster för långsamma prestanda** – appen verkar ha ett prestanda problem som endast påverkar vissa begär Anden. Sidor läses till exempel långsammare på en typ av webbläsare än andra. eller förfrågningar betjänas långsammare från en viss server. För närvarande tittar våra algoritmer på sid inläsnings tider, begär svars tider och beroende svars tider.  
 
-Smart identifiering kräver minst 8 dagars telemetri med en fungerande volym för att fastställa en baslinje för normal prestanda. Så, efter att ditt program har körts under den perioden, kommer alla betydande problem att resultera i ett meddelande.
+Smart identifiering kräver minst 8 dagars telemetri på en fungerande volym för att kunna upprätta en bas linje för normal prestanda. När ditt program har körts under den perioden resulterar eventuella betydande problem i ett meddelande.
 
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Har min app definitivt ett problem?
 
-Nej, ett meddelande betyder inte att din app definitivt har ett problem. Identifieringen är bara ett förslag på något som du kanske vill titta närmare på.
+Nej, en avisering innebär inte att din app definitivt har ett problem. Identifieringen är bara ett förslag på något som du kanske vill titta närmare på.
 
 ## <a name="how-do-i-fix-it"></a>Vad kan jag göra?
 
-Meddelandena innehåller diagnostikinformation. Här är ett exempel:
+Aviseringarna innehåller diagnostikinformation. Här är ett exempel:
 
 
-![Här är ett exempel på identifiering av serversvarstidsförsämring](media/proactive-performance-diagnostics/server_response_time_degradation.png)
+![Här är ett exempel på identifiering av Server svars tids försämring](media/proactive-performance-diagnostics/server_response_time_degradation.png)
 
-1. **Triage**. Meddelandet visar hur många användare eller hur många åtgärder som påverkas. Detta kan hjälpa dig att tilldela en prioritet till problemet.
-2. **Omfattning**. Påverkar problemet all trafik, eller bara några sidor? Är det begränsat till vissa webbläsare eller platser? Denna information kan erhållas från anmälan.
-3. **Diagnostisera**. Ofta tyder den diagnostiska informationen i anmälan på problemets natur. Om svarstiden till exempel saktar ned när begäranden är hög, tyder det på att servern eller beroenden överbelastas. 
+1. **Prioritering**. Meddelandet visar hur många användare eller hur många åtgärder som påverkas. Detta kan hjälpa dig att tilldela en prioritet för problemet.
+2. **Omfång**. Påverkar problemet all trafik eller bara vissa sidor? Är den begränsad till vissa webbläsare eller platser? Den här informationen kan hämtas från meddelandet.
+3. **Diagnostisera**. Den diagnostiska informationen i meddelandet kommer ofta att föreslå problemets typ. Om svars tiden till exempel saktar ned när begär ande frekvensen är hög, som föreslår att servern eller beroendena är överbelastade. 
 
-    Annars öppnar du bladet Prestanda i Application Insights. Där hittar du [Profiler data.](profiler.md) Om undantag genereras kan du också prova [felsökaren](../../azure-monitor/app/snapshot-debugger.md)för ögonblicksbilder .
+    Annars öppnar du bladet prestanda i Application Insights. Där hittar du information om [profiler](profiler.md) . Om undantag genereras kan du också försöka med [fel sökning av ögonblicks bild](../../azure-monitor/app/snapshot-debugger.md).
 
 
 
 ## <a name="configure-email-notifications"></a>Konfigurera e-postaviseringar
 
-Smarta identifieringsmeddelanden aktiveras som standard och skickas till dem som har åtkomst till [övervakningsläsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervakningsbidragstagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) till prenumerationen där application insights-resursen finns. Om du vill ändra detta klickar du antingen på **Konfigurera** i e-postmeddelandet eller öppnar inställningar för smart identifiering i Application Insights. 
+Meddelanden om Smart identifiering är aktiverade som standard och skickas till dem som har [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervaknings deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) åtkomst till den prenumeration där Application Insights resursen finns. Ändra detta genom att antingen klicka på **Konfigurera** i e-postmeddelandet eller öppna Inställningar för smart identifiering i Application Insights. 
   
   ![Inställningar för smart identifiering](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
-  * Du kan använda länken **för att avsluta prenumerationen** i e-postmeddelandet med smart identifiering för att sluta ta emot e-postmeddelandena.
+  * Du kan använda länken Avbryt **prenumeration** i e-postmeddelandet för smart identifiering om du inte vill ta emot e-postaviseringar.
 
-E-postmeddelanden om prestandaavvikelser för smarta identifieringar är begränsade till ett e-postmeddelande per dag per Application Insights-resurs. E-postmeddelandet skickas endast om det finns minst ett nytt problem som upptäcktes den dagen. Du kommer inte att få upprepningar av något meddelande. 
+E-postmeddelanden om Smart identifiering av prestanda avvikelser är begränsade till en e-postadress per dag per Application Insights resurs. E-postmeddelandet skickas endast om det finns minst ett nytt problem som har upptäckts den dagen. Du får inte upprepas upprepade meddelanden. 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-* *Så, Microsoft-personal titta på mina data?*
-  * Nej. Tjänsten är helt automatisk. Bara du får aviseringarna. Dina data är [privata](../../azure-monitor/app/data-retention-privacy.md).
-* *Analyserar du alla data som samlas in av Application Insights?*
-  * Inte för närvarande. För närvarande analyserar vi svarstid för begäran, beroendesvartid och sidans inläsningstid. Analys av ytterligare mått är på vår eftersläpning ser fram emot.
+* *Så kommer Microsoft-personal att titta på mina data?*
+  * Nej. Tjänsten är helt automatisk. Endast du får meddelanden. Dina data är [privata](../../azure-monitor/app/data-retention-privacy.md).
+* *Analyseras alla data som samlats in av Application Insights?*
+  * Inte för närvarande. För närvarande analyserar vi svars tid för begäran, beroende svars tid och sid inläsnings tid. En analys av ytterligare mått finns på vår efter släpning.
 
 * Vilka typer av program fungerar detta för?
-  * Dessa nedbrytningar identifieras i alla program som genererar lämplig telemetri. Om du har installerat Application Insights i webbappen spåras begäranden och beroenden automatiskt. Men i backend-tjänster eller andra appar, om du infogade samtal till [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) eller [TrackDependency](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency), då Smart Detection kommer att fungera på samma sätt.
+  * Dessa degraderingar identifieras i alla program som genererar lämplig telemetri. Om du har installerat Application Insights i din webbapp spåras förfrågningar och beroenden automatiskt. Men i backend-tjänster eller andra appar, om du har infogat anrop till [TrackRequest ()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) eller [TrackDependency](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency), kommer Smart identifiering att fungera på samma sätt.
 
-* *Kan jag skapa mina egna avvikelseidentifieringsregler eller anpassa befintliga regler?*
+* *Kan jag skapa egna regler för avvikelse identifiering eller anpassa befintliga regler?*
 
-  * Inte än, men du kan:
-    * [Ställ in aviseringar](../../azure-monitor/app/alerts.md) som talar om för dig när ett mått överskrider ett tröskelvärde.
-    * [Exportera telemetri](../../azure-monitor/app/export-telemetry.md) till en [databas](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till Power BI](../../azure-monitor/app/export-power-bi.md ), där du kan analysera den själv.
+  * Ännu inte, men du kan:
+    * [Konfigurera aviseringar](../../azure-monitor/app/alerts.md) som anger när ett mått korsar ett tröskelvärde.
+    * [Exportera telemetri](../../azure-monitor/app/export-telemetry.md) till en [databas](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till Power BI](../../azure-monitor/app/export-power-bi.md ), där du kan analysera dem själv.
 * *Hur ofta utförs analysen?*
 
-  * Vi kör analysen dagligen på telemetrin från föregående dag (hel dag i UTC tidszon).
-* *Så ersätter detta [måttvarningar?](../../azure-monitor/app/alerts.md)*
-  * Nej.  Vi förbinder oss inte att upptäcka alla beteenden som du kan anse vara onormala.
+  * Vi kör analysen dagligen på Telemetrin från föregående dag (hela dagen i UTC-tidszonen).
+* *Detta ersätter [mått aviseringar](../../azure-monitor/app/alerts.md)?*
+  * Nej.  Vi åtar mig inte att upptäcka varje beteende som du kan tänka på onormalt.
 
 
-* *Om jag inte gör något som svar på en avisering, får jag en påminnelse?*
-  * Nej, du får ett meddelande om varje problem bara en gång. Om problemet kvarstår uppdateras det i matningsbladet för smart identifiering.
-* *Jag förlorade e-postmeddelandet. Var hittar jag aviseringarna i portalen?*
-  * Klicka på panelen **Smart identifiering** i översikten Programstatistik för din app. Där kan du hitta alla aviseringar för upp till 90 dagar sedan.
+* *Får jag en påminnelse om jag inte gör något som svar på ett meddelande?*
+  * Nej, du får ett meddelande om varje ärende bara en gång. Om problemet kvarstår kommer det att uppdateras i bladet Smart Avkännings matning.
+* *Jag förlorade e-postmeddelandet. Var hittar jag meddelanden i portalen?*
+  * Klicka på panelen **Smart avkänning** i Application Insights översikt över appen. Där kan du hitta alla meddelanden upp till 90 dagar tillbaka.
 
 ## <a name="how-can-i-improve-performance"></a>Hur kan jag förbättra prestanda?
-Långsamma och misslyckade svar är en av de största frustrationerna för webbplatsanvändare, som ni vet från din egen erfarenhet. Så det är viktigt att ta itu med frågorna.
+Långsamma och misslyckade svar är en av de största synerna för webbplats användare, som du vet från din egen upplevelse. Det är därför viktigt att åtgärda problemen.
 
-### <a name="triage"></a>Triage
-För det första, spelar det någon roll? Om en sida är alltid långsam att ladda, men bara 1% av webbplatsens användare någonsin måste titta på det, kanske du har viktigare saker att tänka på. Å andra sidan, om bara 1% av användarna öppnar den, men det kastar undantag varje gång, som kan vara värt att undersöka.
+### <a name="triage"></a>Prioritering
+Först spelar det någon roll? Om en sida alltid är långsam för att läsas in, men bara 1% av platsens användare någonsin måste titta på den, kanske du har fler viktiga saker att tänka på. Å andra sidan, om bara 1% av användarna öppnar den, men den genererar undantag varje gång, kan det vara värt att undersöka.
 
-Använd konsekvensbeskrivningen (berörda användare eller % av trafiken) som en allmän guide, men tänk på att det inte är hela artikeln. Samla in andra bevis för att bekräfta.
+Använd instruktionen effekt (berörda användare eller% av trafik) som allmän vägledning, men tänk på att det inte är hela berättelsen. Samla in andra bevis för att bekräfta.
 
-Tänk på parametrarna för problemet. Om det är geografiberoende ställer du in [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) inklusive den regionen: det kan helt enkelt finnas nätverksproblem i det området.
+Ta hänsyn till problemets parametrar. Om det är geografi-beroende, ställer du in [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) inklusive regionen: det kan bara finnas nätverks problem i det området.
 
-### <a name="diagnose-slow-page-loads"></a>Diagnostisera långsamma sidläsningar
-Var är problemet? Är servern långsam att svara, är sidan mycket lång, eller har webbläsaren måste göra en hel del arbete för att visa den?
+### <a name="diagnose-slow-page-loads"></a>Diagnostisera långsamma sid inläsningar
+Var är problemet? Svarar servern långsamt, är sidan mycket lång eller så måste webbläsaren göra mycket arbete för att kunna visa den?
 
-Öppna metriska bladet Webbläsare. Den segmenterade visningen av inläsningstiden för webbläsarsidan visar vart tiden är på väg. 
+Öppna bladet mått för webbläsare. Segment visning av sid inläsnings tid för webbläsare visar var tiden kommer. 
 
-* Om **Skicka begärandetid** är hög svarar antingen servern långsamt eller så är begäran ett inlägg med mycket data. Titta på [prestandamåtten](../../azure-monitor/app/web-monitor-performance.md#metrics) för att undersöka svarstider.
-* Ställ in [beroendespårning](../../azure-monitor/app/asp-net-dependencies.md) för att se om långsamheten beror på externa tjänster eller databasen.
-* Om **mottagande svar** är dominerande, din sida och dess beroende delar - JavaScript, CSS, bilder och så vidare (men inte asynkront inlästa data) är långa. Ställ in ett [tillgänglighetstest](../../azure-monitor/app/monitor-web-app-availability.md)och se till att ange alternativet för att läsa in beroende delar. När du får några resultat öppnar du detaljerna i ett resultat och expanderar det för att se laddningstiderna för olika filer.
-* Hög **klientbearbetningstid** antyder att skript körs långsamt. Om orsaken inte är uppenbar kan du överväga att lägga till viss tidskod och skicka tiderna i trackMetric-anrop.
+* Om **sändnings tiden för begäran** är hög, svarar servern långsamt, eller så är begäran ett inlägg med stor mängd data. Titta på [prestanda måtten](../../azure-monitor/app/web-monitor-performance.md#metrics) för att undersöka svars tider.
+* Konfigurera [beroende spårning](../../azure-monitor/app/asp-net-dependencies.md) för att se om det är långsamt på grund av externa tjänster eller databasen.
+* Om **mottagnings svar** är dominerande är din sida och dess beroende delar – Java Script, CSS, bilder och så vidare (men inte asynkront laddade data) långa. Konfigurera ett [tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md)och se till att ange alternativet för att läsa in beroende delar. När du får några resultat öppnar du detaljerna för ett resultat och expanderar det för att se inläsnings tider för olika filer.
+* Hög **klient bearbetnings tid** föreslår att skript körs långsamt. Om orsaken inte är uppenbar kan du överväga att lägga till en tids kod och skicka tiderna i trackMetric-anrop.
 
 ### <a name="improve-slow-pages"></a>Förbättra långsamma sidor
-Det finns ett nät fullt av råd om hur du förbättrar dina serversvar och sidans laddningstider, så vi kommer inte att försöka upprepa allt här. Här är några tips som du förmodligen redan vet om, bara för att få dig att tänka:
+Det finns en fullt råd om hur du kan förbättra Server svar och sid inläsnings tider, så vi försöker inte upprepa det här. Här följer några tips som du förmodligen redan känner till, bara för att komma ihåg följande:
 
-* Långsam inläsning på grund av stora filer: Läs in skript och andra delar asynkront. Använd skriptkombinationserbjudanden. Dela upp huvudsidan i widgetar som läser in deras data separat. Skicka inte vanlig gammal HTML för långa tabeller: använd ett skript för att begära data som JSON eller annat kompakt format och fyll sedan tabellen på plats. Det finns stora ramar för att hjälpa till med allt detta. (De innebär också stora skript, naturligtvis.)
-* Långsamma serverberoenden: Tänk på komponenternas geografiska platser. Om du till exempel använder Azure kontrollerar du att webbservern och databasen finns i samma region. Hämtar frågor mer information än de behöver? Skulle cachelagring eller batchning hjälpa?
-* Kapacitetsproblem: Titta på servermåtten för svarstider och antal begäranden. Om svarstiderna når en oproportionerlig topp med toppar i antal begäranden är det troligt att servrarna är utsträckta.
+* Långsam inläsning på grund av stora filer: Läs in skript och andra delar asynkront. Använd skript buntar. Bryt huvud sidan i widgetar som läser in deras data separat. Skicka inte oformaterad gammal HTML för långa tabeller: Använd ett skript för att begära data som JSON eller annat komprimerat format. Fyll sedan i tabellen på plats. Det finns fantastiska ramverk som hjälper dig med allt detta. (De medför också stora skript, naturligtvis.)
+* Långsamma Server beroenden: Överväg dina komponenters geografiska platser. Om du till exempel använder Azure måste du kontrol lera att webb servern och databasen finns i samma region. Hämtar frågor mer information än vad de behöver? Skulle cachelagring eller batching hjälpa dig?
+* Kapacitets problem: titta på Server måtten för svars tider och antal begär Anden. Om svars tiden är proportionerligt proportionerlig med toppar i antalet begär Anden, är det troligt att servrarna sträcks ut.
 
 
-## <a name="server-response-time-degradation"></a>Försämring av serversvarstid
+## <a name="server-response-time-degradation"></a>Tids försämring för Server svars tid
 
-Meddelandet om försämring av svarstiden visar:
+Meddelandet svars tid för försämring av svar visar att du:
 
-* Svarstiden jämfört med normal svarstid för den här åtgärden.
-* Hur många användare påverkas.
-* Genomsnittlig svarstid och 90:e percentilens svarstid för den här åtgärden på dagen för identifieringen och 7 dagar före. 
-* Antal av den här åtgärdens begäranden på dagen för identifieringen och 7 dagar före.
-* Korrelation mellan nedbrytning i den här åtgärden och nedbrytningar i relaterade beroenden. 
-* Länkar som hjälper dig att diagnostisera problemet.
-  * Profilerspårningar som hjälper dig att visa var operationstiden spenderas (länken är tillgänglig om Profiler-spårningsexempel samlades in för den här åtgärden under identifieringsperioden). 
-  * Prestandarapporter i Metric Explorer, där du kan segmentera och tärna tidsintervall/filter för den här åtgärden.
-  * Sök efter det här anropet om du vill visa specifika samtalsegenskaper.
-  * Felrapporter - Om antalet > 1 innebär det att det fanns fel i den här åtgärden som kan ha bidragit till prestandaförsämring.
+* Svars tiden jämfört med normal svars tid för den här åtgärden.
+* Hur många användare som påverkas.
+* Genomsnittlig svars tid och 90: e percentils svars tid för den här åtgärden på dagen för identifieringen och 7 dagar innan. 
+* Antal av den här åtgärds förfrågan på dagen för identifieringen och 7 dagar innan.
+* Korrelation mellan försämring i den här åtgärden och försämringar i relaterade beroenden. 
+* Länkar för att hjälpa dig att diagnostisera problemet.
+  * Profiler-spår som hjälper dig att visa var åtgärds tiden ägnas (länken är tillgänglig om profilers trace-exempel har samlats in för den här åtgärden under identifierings perioden). 
+  * Prestanda rapporter i Metric Explorer där du kan segmentera och tärning tidsintervall/filter för den här åtgärden.
+  * Sök efter det här anropet för att visa vissa anrops egenskaper.
+  * Felrapporter – om Count > 1 innebär det att det uppstod ett problem i den här åtgärden som kan ha bidragit till prestanda försämringen.
 
-## <a name="dependency-duration-degradation"></a>Försämring av beroendevaraktighet
+## <a name="dependency-duration-degradation"></a>Försämring av beroende varaktighet
 
-Moderna applikationer använder sig mer och mer av en designmetod för mikrotjänster, vilket i många fall leder till stor tillförlitlighet på externa tjänster. Till exempel, om ditt program förlitar sig på vissa dataplattform eller ens om du bygger din egen bot tjänst kommer du förmodligen vidarebefordra på vissa kognitiva tjänsteleverantörer för att göra det möjligt för dina robotar att interagera på mer mänskliga sätt och vissa datalager tjänst för bot att dra svaren från.  
+Moderna program fler och fler antar en design metod för mikrotjänster, som i många fall leder till hög tillförlitlighet på externa tjänster. Om ditt program till exempel är beroende av en viss data plattform eller om du skapar en egen bot-tjänst kommer du förmodligen att kunna använda en viss kognitiv tjänst leverantör för att göra det möjligt för robotar att interagera på flera olika sätt och vissa data lagrings tjänster för bot för att hämta svaren från.  
 
-Exempel på meddelande om försämring av beroendeberoende:
+Exempel på meddelande om beroende försämring:
 
-![Här är ett exempel på identifiering av försämring av beroendevaraktighet](media/proactive-performance-diagnostics/dependency_duration_degradation.png)
+![Här är ett exempel på identifiering av beroende varaktighets försämring](media/proactive-performance-diagnostics/dependency_duration_degradation.png)
 
-Observera att det säger dig:
+Observera att det står:
 
-* Varaktigheten jämfört med normal svarstid för den här åtgärden
+* Varaktigheten jämfört med normal svars tid för den här åtgärden
 * Hur många användare påverkas
-* Genomsnittlig varaktighet och 90:e percentilen för detta beroende på dagen för identifieringen och 7 dagar före
-* Antal beroendeanrop på dagen för identifieringen och 7 dagar före
-* Länkar som hjälper dig att diagnostisera problemet
-  * Prestandarapporter i Metric Explorer för det här beroendet
-  * Sök efter det här beroendeanropet för att visa samtalsegenskaper
-  * Felrapporter - Om antalet > 1 innebär det att det inte gick att anropa beroendesamtal under identifieringsperioden som kan ha bidragit till varaktighetsförsämring. 
-  * Öppna Analytics med frågor som beräknar den här beroendevaraktigheten och antalet  
+* Genomsnittlig varaktighet och 90: e percentils varaktighet för det här beroende dagen för identifieringen och 7 dagar innan
+* Antalet beroende anrop på dagen för identifieringen och 7 dagar innan
+* Länkar för att hjälpa dig att diagnostisera problemet
+  * Prestanda rapporter i Metric Explorer för detta beroende
+  * Sök efter de här beroende anropen för att Visa anrops egenskaper
+  * Fel rapporter – om Count > 1 innebär det att det inte gick att utföra beroende anrop under den identifierings period som kan ha bidragit till varaktighets försämringen. 
+  * Öppna analys med frågor som beräknar den här beroende varaktigheten och antalet  
 
-## <a name="smart-detection-of-slow-performing-patterns"></a>Smart identifiering av långsamt presterande mönster 
+## <a name="smart-detection-of-slow-performing-patterns"></a>Smart identifiering av mönster med långsamma utföranden 
 
-Application Insights hittar prestandaproblem som bara kan påverka en del av användarna eller bara påverka användare i vissa fall. Till exempel är meddelanden om sidor inläsning långsammare på en typ av webbläsare än på andra typer av webbläsare, eller om begäranden visas långsammare från en viss server. Den kan också upptäcka problem i samband med kombinationer av egenskaper, till exempel långsamma sidbelastningar i ett geografiskt område för klienter som använder ett visst operativsystem.  
+Application Insights hittar prestanda problem som bara kan påverka vissa delar av dina användare eller endast påverka användare i vissa fall. Till exempel är meddelande om inläsning av sidor långsammare i en viss typ av webbläsare än i andra typer av webbläsare, eller om begär Anden betjänas långsammare från en viss server. Det kan också identifiera problem som är kopplade till kombinationer av egenskaper, till exempel långsamma sid inläsningar i ett geografiskt område för klienter som använder ett visst operativ system.  
 
-Avvikelser som dessa är mycket svåra att upptäcka bara genom att inspektera data, men är vanligare än du kanske tror. Ofta de bara yta när dina kunder klagar. Vid det laget är det för sent: de drabbade användarna redan byter till dina konkurrenter!
+Avvikelser som dessa är mycket svåra att identifiera genom att granska data, men är vanligare än vad du kan tänka på. Oftast är de bara en yta när kunderna klagar. Efter den tiden är det för sent: de berörda användarna byter redan till dina konkurrenter!
 
-För närvarande tittar våra algoritmer på sidans laddningstider, begärandesvarstider på servern och beroendesvarstider.  
+För närvarande tittar våra algoritmer på sid inläsnings tider, begär svars tider på servern och beroende svars tider.  
 
-Du behöver inte ange några tröskelvärden eller konfigurera regler. Maskininlärning och datautvinningsalgoritmer används för att identifiera onormala mönster.
+Du behöver inte ange några tröskelvärden eller konfigurera regler. Algoritmer för maskin inlärning och data utvinning används för att identifiera onormala mönster.
 
-![Från e-postaviseringen klickar du på länken för att öppna diagnostikrapporten i Azure](./media/proactive-performance-diagnostics/03.png)
+![Från e-postaviseringen klickar du på länken för att öppna den diagnostiska rapporten i Azure](./media/proactive-performance-diagnostics/03.png)
 
-* **När** visar den tid då problemet upptäcktes.
+* **När** visar den tidpunkt då problemet upptäcktes.
 * **Vad** beskriver:
 
-  * Problemet som upptäcktes;
-  * Egenskaperna för den uppsättning händelser som vi hittade visade problemet beteende.
-* Tabellen jämför den dåligt presterande uppsättningen med det genomsnittliga beteendet för alla andra händelser.
+  * Det problem som upptäcktes.
+  * Egenskaperna för den uppsättning händelser som vi hittade visade problem beteendet.
+* Tabellen jämför den dåligt utförda uppsättningen med det genomsnittliga beteendet för alla andra händelser.
 
-Klicka på länkarna för att öppna Metric Explorer och Sök i relevanta rapporter, filtrerade efter tid och egenskaper för den långsamma uppsättningen.
+Klicka på länkarna om du vill öppna Metric Explorer och söka efter relevanta rapporter, filtrerat efter tid och egenskaper för den långsamma körnings uppsättningen.
 
-Ändra tidsintervallet och filtren för att utforska telemetrin.
+Ändra tidsintervallet och filter för att utforska Telemetrin.
 
 ## <a name="next-steps"></a>Nästa steg
-De här diagnostikverktygen hjälper dig att granska telemetrin från din app:
+De här diagnostikverktygen hjälper dig att inspektera Telemetrin från din app:
 
 * [Profilerare](profiler.md) 
-* [Felsökare för ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md)
+* [Fel sökning av ögonblicks bild](../../azure-monitor/app/snapshot-debugger.md)
 * [Analytics](../../azure-monitor/log-query/get-started-portal.md)
-* [Analysera smart diagnostik](../../azure-monitor/app/analytics.md)
+* [Analytics-Smart diagnostik](../../azure-monitor/app/analytics.md)
 
-Smarta identifieringar är helt automatiska. Men du kanske vill sätta upp fler varningar?
+Smart identifiering är helt automatisk. Men kanske vill du konfigurera ytterligare aviseringar?
 
-* [Manuellt konfigurerade måttaviseringar](../../azure-monitor/app/alerts.md)
+* [Manuellt konfigurerade mått varningar](../../azure-monitor/app/alerts.md)
 * [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)

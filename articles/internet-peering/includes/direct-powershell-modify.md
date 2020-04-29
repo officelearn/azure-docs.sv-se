@@ -9,23 +9,23 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: b2609a069872ec55ac9068fadcbb3f312d68a630
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680806"
 ---
-I det här avsnittet beskrivs hur du utför följande ändringsåtgärder för direkt peering:
+I det här avsnittet beskrivs hur du utför följande ändrings åtgärder för direkt peering:
 
-* Lägg till direkt peering-anslutningar.
+* Lägg till direkta peering-anslutningar.
 * Ta bort direkta peering-anslutningar.
-* Uppgradera eller nedgradera bandbredden på aktiva anslutningar.
-* Lägg till IPv4- eller IPv6-sessioner på aktiva anslutningar.
-* Ta bort IPv4- eller IPv6-sessioner på aktiva anslutningar.
+* Uppgradera eller nedgradera bandbredd på aktiva anslutningar.
+* Lägg till IPv4-eller IPv6-sessioner på aktiva anslutningar.
+* Ta bort IPv4-eller IPv6-sessioner på aktiva anslutningar.
 
-### <a name="add-direct-peering-connections"></a>Lägga till direkt peering-anslutningar
+### <a name="add-direct-peering-connections"></a>Lägg till direkta peering-anslutningar
 
-I det här exemplet beskrivs hur du lägger till anslutningar till befintlig direkt peering.
+Det här exemplet beskriver hur du lägger till anslutningar till befintlig direkt peering.
 
 ```powershell
 
@@ -46,7 +46,7 @@ $directPeering | Update-AzPeering
 
 ### <a name="remove-direct-peering-connections"></a>Ta bort direkta peering-anslutningar
 
-Det går inte att ta bort en anslutning på PowerShell. Kontakta [Microsoft peering](mailto:peeringexperience@microsoft.com)om du vill ha mer information.
+Det finns för närvarande inte stöd för att ta bort en anslutning på PowerShell. Kontakta [Microsoft-peering](mailto:peeringexperience@microsoft.com)om du vill ha mer information.
 
 <!--
 ```powershell
@@ -56,9 +56,9 @@ $directPeering | Update-AzPeering
 ```
 -->
 
-### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Uppgradera eller nedgradera bandbredden på aktiva anslutningar
+### <a name="upgrade-or-downgrade-bandwidth-on-active-connections"></a>Uppgradera eller nedgradera bandbredd på aktiva anslutningar
 
-I det här exemplet beskrivs hur du lägger till 10 Gbit/s i en befintlig Direct-anslutning.
+Det här exemplet beskriver hur du lägger till 10 Gbit/s i en befintlig direkt anslutning.
 
 ```powershell
 
@@ -68,9 +68,9 @@ $directPeering | Update-AzPeering
 
 ```
 
-### <a name="add-ipv4-or-ipv6-sessions-on-active-connections"></a>Lägga till IPv4- eller IPv6-sessioner på aktiva anslutningar
+### <a name="add-ipv4-or-ipv6-sessions-on-active-connections"></a>Lägg till IPv4-eller IPv6-sessioner på aktiva anslutningar
 
-I det här exemplet beskrivs hur du lägger till en IPv6-session i en befintlig Direktanslutning med endast en IPv4-session. 
+Det här exemplet beskriver hur du lägger till en IPv6-session på en befintlig direkt anslutning med endast en IPv4-session. 
 
 ```powershell
 
@@ -80,6 +80,6 @@ $directPeering | Update-AzPeering
 
 ```
 
-### <a name="remove-ipv4-or-ipv6-sessions-on-active-connections"></a>Ta bort IPv4- eller IPv6-sessioner på aktiva anslutningar
+### <a name="remove-ipv4-or-ipv6-sessions-on-active-connections"></a>Ta bort IPv4-eller IPv6-sessioner på aktiva anslutningar
 
-Det går inte att ta bort en IPv4- eller IPv6-session från en befintlig anslutning på PowerShell. Kontakta [Microsoft peering](mailto:peeringexperience@microsoft.com)om du vill ha mer information.
+Det finns för närvarande inte stöd för att ta bort en IPv4-eller IPv6-session från en befintlig anslutning på PowerShell. Kontakta [Microsoft-peering](mailto:peeringexperience@microsoft.com)om du vill ha mer information.

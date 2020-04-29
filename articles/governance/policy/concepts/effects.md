@@ -4,10 +4,10 @@ description: Azure Policy definitioner har olika effekter som avgör hur efterle
 ms.date: 03/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422445"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
@@ -21,7 +21,7 @@ Dessa effekter stöds för närvarande i en princip definition:
 - [AuditIfNotExists](#auditifnotexists)
 - [Neka](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Disabled](#disabled)
+- [Inaktiverats](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (för hands version)
 - [EnforceRegoPolicy](#enforceregopolicy) (för hands version)
 - [Ändra](#modify)

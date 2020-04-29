@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478301"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka konfigurationsserverfel
@@ -95,7 +95,7 @@ Kör följande kommando på käll datorn:
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
 ```
 
-Inställning | Information
+Inställningen | Information
 --- | ---
 Användning | UnifiedAgentConfigurator. exe/CSEndPoint <konfigurations serverns\> IP-adress/PassphraseFilePath <lösen ords Sök väg\>
 Agent konfigurations loggar | Finns under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
@@ -110,7 +110,7 @@ Kör följande kommando på käll datorn:
   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
 
-Inställning | Information
+Inställningen | Information
 --- | ---
 Användning | cd-/usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh-i <konfigurations serverns\> IP-adress-P <lösen ords Sök väg\>
 -i | Obligatorisk parameter. Anger konfigurations serverns IP-adress. Använd en giltig IP-adress.

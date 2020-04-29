@@ -1,70 +1,70 @@
 ---
-title: Skicka Azure Service Health-meddelanden via webhooks
-description: Skicka anpassade meddelanden om tjänsthälsohändelser till ditt befintliga problemhanteringssystem.
+title: Skicka Azure Service Health-meddelanden via Webhooks
+description: Skicka personligt anpassade meddelanden om service Health-händelser till ditt befintliga problem hanterings system.
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: 2609a267bd151354f83482ab16c4b9345aa88cc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062847"
 ---
-# <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Använd en webhook för att konfigurera hälsomeddelanden för problemhanteringssystem
+# <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Använd en webhook för att konfigurera hälso aviseringar för problem hanterings system
 
-Den här artikeln visar hur du konfigurerar Azure Service Health-aviseringar för att skicka data via webhooks till ditt befintliga meddelandesystem.
+Den här artikeln visar hur du konfigurerar Azure Service Health aviseringar för att skicka data via webhookar till ditt befintliga meddelande system.
 
-Du kan konfigurera servicehälsoaviseringar så att du får ett sms eller e-post när en Azure-tjänstincident påverkar dig.
+Du kan konfigurera Service Health aviseringar så att du får meddelanden om SMS eller e-post när en Azure-tjänst incident påverkar dig.
 
-Men du kanske redan har ett befintligt externt meddelandesystem på plats som du föredrar att använda. Den här artikeln identifierar de viktigaste delarna av webhook nyttolasten. Och den beskriver hur du skapar anpassade aviseringar för att meddela dig när relevanta serviceproblem uppstår.
+Men du kanske redan har ett befintligt externt meddelande system på plats som du föredrar att använda. Den här artikeln beskriver de viktigaste delarna av webhook-nyttolasten. Det beskriver hur du skapar anpassade aviseringar som meddelar dig när relevanta tjänst problem inträffar.
 
-Om du vill använda en förkonfigurerad integrering läser du:
+Om du vill använda en förkonfigurerad integrering, se:
 * [Konfigurera aviseringar med ServiceNow](service-health-alert-webhook-servicenow.md)
 * [Konfigurera aviseringar med PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Konfigurera aviseringar med OpsGenie](service-health-alert-webhook-opsgenie.md)
 
-**Titta på en introduktionsvideo:**
+**Titta på en introduktions video:**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
-## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Konfigurera ett anpassat meddelande med hjälp av nyttolasten Service Health webhook
-Om du vill konfigurera din egen anpassade webhook-integrering måste du tolka den JSON-nyttolast som skickas via servicehälsomeddelandet.
+## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Konfigurera ett anpassat meddelande med hjälp av Service Health webhook-nyttolasten
+Om du vill konfigurera en egen anpassad webhook-integrering måste du parsa JSON-nyttolasten som skickas via Service Health-avisering.
 
-Se [ett exempel](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook nyttolast.
+Se [ett exempel](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` på webhook-nyttolast.
 
-Du kan bekräfta att det är en `context.eventSource == "ServiceHealth"`service hälsovarning genom att titta på . Följande egenskaper är de mest relevanta:
-- **data.context.activityLog.status**
-- **data.context.activityLog.nivå**
-- **data.context.activityLog.subscriptionId**
-- **data.context.activityLog.properties.title**
-- **data.context.activityLog.properties.impactStartTime**
-- **data.context.activityLog.properties.communication**
-- **data.context.activityLog.properties.impactedServices**
-- **data.context.activityLog.properties.trackingId**
+Du kan bekräfta att det är en tjänst hälso avisering genom att titta `context.eventSource == "ServiceHealth"`på. Följande egenskaper är mest relevanta:
+- **data. context. activityLog. status**
+- **data. context. activityLog. level**
+- **data. context. activityLog. subscriptionId**
+- **data. context. activityLog. Properties. title**
+- **data. context. activityLog. Properties. impactStartTime**
+- **data. context. activityLog. Properties. kommunikation**
+- **data. context. activityLog. Properties. impactedServices**
+- **data. context. activityLog. Properties. trackingId**
 
-## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Skapa en länk till instrumentpanelen servicehälsa för en incident
-Du kan skapa en direktlänk till instrumentpanelen för tjänstens hälsotillstånd på en stationär eller mobil enhet genom att generera en specialiserad URL. Använd *trackingId* och de tre första och sista tre siffrorna i din *subscriptionId* i det här formatet:
+## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Skapa en länk till Service Health instrument panel för en incident
+Du kan skapa en direkt länk till din Service Health-instrumentpanel på en stationär eller mobil enhet genom att skapa en specialiserad URL. Använd *trackingId* och de tre första och sista siffrorna i *subscriptionId* i det här formatet:
 
-https://app.azure.com/h/<i></i>*&lt;trackingId&gt;*/*&lt;första tre och sista tre siffrorna&gt; i subscriptionId*
+https<i></i>://app.Azure.com/h/*&lt;trackingId&gt;*/*de första tre och sista tre siffrorna i subscriptionId&gt; &lt;*
 
-Om din *prenumerationId* till exempel är bba14129-e895-429b-8809-278e836ecdb3 och din *trackingId* är 0DET-URB, är din servicehälsoadress:
+Om ditt *subscriptionId* till exempel är bba14129-e895-429b-8809-278e836ecdb3 och din *trackingId* är 0DET-URB, är din service Health URL:
 
-https<i></i>://app.azure.com/h/0DET-URB/bbadb3
+https<i></i>://app.Azure.com/h/0DET-URB/bbadb3
 
-## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Använd nivån för att identifiera problemets allvarlighetsgrad
-Från lägsta till högsta allvarlighetsgrad kan **egenskapen level** i nyttolasten vara *Information,* *Varning,* *Fel*eller *Kritisk*.
+## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Använd nivån för att identifiera problemets allvarlighets grad
+Från lägsta till högsta allvarlighets grad kan egenskapen **Level** i nytto lasten vara *information*, *Varning*, *fel*eller *kritisk*.
 
-## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Tolka de påverkade tjänsterna för att fastställa incidentomfattningen
-Service Health-aviseringar kan informera dig om problem i flera regioner och tjänster. För att få fullständig information måste du `impactedServices`tolka värdet för .
+## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analysera de berörda tjänsterna för att fastställa incident omfånget
+Service Health aviseringar kan meddela dig om problem i flera regioner och tjänster. Du måste parsa värdet för `impactedServices`för att få fullständig information.
 
-Innehållet som finns inuti är en förrymd [JSON-sträng](https://json.org/) som, när den inte tas upp, innehåller ett annat JSON-objekt som kan tolkas regelbundet. Ett exempel:
+Det innehåll som är inuti är en Escaped [JSON](https://json.org/) -sträng som, vid avbrotts kontroll, innehåller ett annat JSON-objekt som kan analyseras regelbundet. Ett exempel:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
 ```
 
-Blir:
+bli
 
 ```json
 [
@@ -90,15 +90,15 @@ Blir:
 ]
 ```
 
-I det här exemplet visas problem för:
-- "Varningar & Metrics" i Australien East och Australien Sydost.
-- "App Service" i Sydöstra Australien.
+Det här exemplet visar problem för:
+- "Varningar & Mät värden" i östra Australien och Australien, sydöstra.
+- "App Service" i Australien, sydöstra.
 
 ## <a name="test-your-webhook-integration-via-an-http-post-request"></a>Testa din webhook-integrering via en HTTP POST-begäran
 
 Följ de här stegen:
 
-1. Skapa servicehälsonyttolasten som du vill skicka. Se en exempeltjänsthälsa webhook nyttolast på [Webhooks för Azure-aktivitetsloggvarningar](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Skapa den tjänst hälso nytto last som du vill skicka. Se ett exempel på tjänst hälsan webhook nytto Last [för Webhooks för Azure aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Skapa en HTTP POST-begäran på följande sätt:
 
@@ -109,11 +109,11 @@ Följ de här stegen:
 
     BODY        <service health payload>
     ```
-   Du bör få ett "2XX - Lyckat" svar.
+   Du bör få svaret "2XX-lyckades".
 
-1. Gå till [PagerDuty](https://www.pagerduty.com/) för att bekräfta att integreringen har konfigurerats.
+1. Gå till [PagerDuty](https://www.pagerduty.com/) för att bekräfta att din integrering har kon figurer ATS korrekt.
 
 ## <a name="next-steps"></a>Nästa steg
-- Granska [webbkroksschemat för aktivitetsloggen.](../azure-monitor/platform/activity-log-alerts-webhook.md) 
-- Läs mer om [hälsomeddelanden](../azure-monitor/platform/service-notifications.md)för tjänster .
-- Läs mer om [åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
+- Granska [aktivitets logg aviseringens webhook-schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Läs mer om [meddelanden om tjänst hälsa](../azure-monitor/platform/service-notifications.md).
+- Läs mer om [Åtgärds grupper](../azure-monitor/platform/action-groups.md).

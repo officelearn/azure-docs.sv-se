@@ -1,7 +1,7 @@
 ---
-title: Distribuera ett IPv6-program med dubbla stackar i Azure virtuellt nätverk - Resource Manger-mall
+title: Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – Resource Manager-mall
 titlesuffix: Azure Virtual Network
-description: Den här artikeln visar hur du distribuerar ett IPv6-program med dubbla stackar med Standard load Balancer i virtuella Azure-nätverk med hjälp av AZURE Resource Manager VM-mallar.
+description: Den här artikeln visar hur du distribuerar ett program med dubbla stack-program med Standard Load Balancer i Azure Virtual Network med hjälp av Azure Resource Manager VM-mallar.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,23 +13,23 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 1f9531b5d1decfd462a82b9d389c5af519591c83
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420650"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Distribuera ett IPv6-program med dubbla stackar i virtuellt Azure-nätverk – mall
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template"></a>Distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network – mall
 
-Den här artikeln innehåller en lista över IPv6-konfigurationsuppgifter med den del av Azure Resource Manager VM-mallen som gäller för. Använd mallen som beskrivs i den här artikeln för att distribuera ett IPv4 + IPv6-program (Med dubbla stackar) med hjälp av standardbelastningsutjämning i Azure som innehåller ett virtuellt nätverk med dubbla staplar med IPv4- och IPv6-undernät, en standardbelastningsutjämning med dubbla frontend-konfigurationer (IPv4 + IPv6), virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverkssäkerhetsgrupp och offentliga IP-adresser. 
+Den här artikeln innehåller en lista över konfigurations uppgifter för IPv6 med den del av Azure Resource Manager mall för virtuella datorer som gäller för. Använd mallen som beskrivs i den här artikeln för att distribuera ett program med dubbla stackar (IPv4 + IPv6) med Standard Load Balancer i Azure som innehåller ett virtuellt nätverk med IPv4 och IPv6-undernät, en Standard Load Balancer med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverks säkerhets grupp och offentliga IP-adresser. 
 
-## <a name="required-configurations"></a>Nödvändiga konfigurationer
+## <a name="required-configurations"></a>Obligatoriska konfigurationer
 
-Sök efter mallavsnitten i mallen för att se var de ska inträffa.
+Sök efter mall-avsnitten i mallen för att se var de ska inträffa.
 
-### <a name="ipv6-addressspace-for-the-virtual-network"></a>IPv6-adressSpace för det virtuella nätverket
+### <a name="ipv6-addressspace-for-the-virtual-network"></a>IPv6-addressSpace för det virtuella nätverket
 
-Mallavsnitt för att lägga till:
+Mall-avsnittet som ska läggas till:
 
 ```JSON
         "addressSpace": {
@@ -38,9 +38,9 @@ Mallavsnitt för att lägga till:
             "[variables('vnetv6AddressRange')]"    
 ```
 
-### <a name="ipv6-subnet-within-the-ipv6-virtual-network-addressspace"></a>IPv6-undernät i IPv6-adressen för virtuellt nätverk
+### <a name="ipv6-subnet-within-the-ipv6-virtual-network-addressspace"></a>IPv6-undernät i det virtuella IPv6-nätverket addressSpace
 
-Mallavsnitt för att lägga till:
+Mall-avsnittet som ska läggas till:
 ```JSON
           {
             "name": "V6Subnet",
@@ -50,9 +50,9 @@ Mallavsnitt för att lägga till:
 
 ```
 
-### <a name="ipv6-configuration-for-the-nic"></a>IPv6-konfiguration för nätverkskortet
+### <a name="ipv6-configuration-for-the-nic"></a>IPv6-konfiguration för NÄTVERKSKORTet
 
-Mallavsnitt för att lägga till:
+Mall-avsnittet som ska läggas till:
 ```JSON
           {
             "name": "ipconfig-v6",
@@ -68,7 +68,7 @@ Mallavsnitt för att lägga till:
                 }
 ```
 
-### <a name="ipv6-network-security-group-nsg-rules"></a>NSG-regler (IPv6 network security group)
+### <a name="ipv6-network-security-group-nsg-rules"></a>Regler för IPv6-nätverks säkerhets grupp (NSG)
 
 ```JSON
           {
@@ -88,7 +88,7 @@ Mallavsnitt för att lägga till:
 
 ## <a name="conditional-configuration"></a>Villkorlig konfiguration
 
-Om du använder en virtuell nätverksinstallation lägger du till IPv6-vägar i vägtabellen. Annars är den här konfigurationen valfri.
+Om du använder en virtuell nätverks installation lägger du till IPv6-vägar i routningstabellen. Annars är den här konfigurationen valfri.
 
 ```JSON
     {
@@ -109,7 +109,7 @@ Om du använder en virtuell nätverksinstallation lägger du till IPv6-vägar i 
 
 ## <a name="optional-configuration"></a>Valfri konfiguration
 
-### <a name="ipv6-internet-access-for-the-virtual-network"></a>IPv6 Internet-åtkomst för det virtuella nätverket
+### <a name="ipv6-internet-access-for-the-virtual-network"></a>IPv6-Internet åtkomst för det virtuella nätverket
 
 ```JSON
 {
@@ -120,7 +120,7 @@ Om du använder en virtuell nätverksinstallation lägger du till IPv6-vägar i 
               }
 ```
 
-### <a name="ipv6-public-ip-addresses"></a>Offentliga IP-adresser för IPv6
+### <a name="ipv6-public-ip-addresses"></a>Offentliga IPv6-IP-adresser
 
 ```JSON
     {
@@ -137,7 +137,7 @@ Om du använder en virtuell nätverksinstallation lägger du till IPv6-vägar i 
       }
 ```
 
-### <a name="ipv6-front-end-for-load-balancer"></a>IPv6-frontend för belastningsutjämnare
+### <a name="ipv6-front-end-for-load-balancer"></a>IPv6-klient del för Load Balancer
 
 ```JSON
           {
@@ -148,7 +148,7 @@ Om du använder en virtuell nätverksinstallation lägger du till IPv6-vägar i 
               }
 ```
 
-### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>IPv6-slutadresspool för belastningsutjämnare
+### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>IPv6 backend-adresspool för Load Balancer
 
 ```JSON
               "backendAddressPool": {
@@ -161,7 +161,7 @@ Om du använder en virtuell nätverksinstallation lägger du till IPv6-vägar i 
             "name": "lbrule-v6"
 ```
 
-### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>IPv6-belastningsutjämnare regler för att associera inkommande och utgående portar
+### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>IPv6-belastnings Utjämnings regler för att koppla inkommande och utgående portar
 
 ```JSON
           {
@@ -178,9 +178,9 @@ Om du använder en virtuell nätverksinstallation lägger du till IPv6-vägar i 
                 }
 ```
 
-## <a name="sample-vm-template-json"></a>Exempel på VM-mall JSON
-Om du vill distribuera ett IPv6-program med dubbla stackar i azure virtuellt nätverk med Azure Resource Manager-mallen kan du visa exempelmallen [här](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/).
+## <a name="sample-vm-template-json"></a>Exempel-JSON för mall för virtuell dator
+Om du vill distribuera ett IPv6-program med dubbla stackar i Azure Virtual Network med Azure Resource Manager mall, se exempel mall [här](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar information om priser för [offentliga IP-adresser,](https://azure.microsoft.com/pricing/details/ip-addresses/) [nätverksbandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)eller [belastningsutjämnare](https://azure.microsoft.com/pricing/details/load-balancer/).
+Du kan hitta information om priser för [offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/), [nätverks bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)eller [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

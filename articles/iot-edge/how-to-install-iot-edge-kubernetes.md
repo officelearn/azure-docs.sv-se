@@ -1,6 +1,6 @@
 ---
-title: Så här installerar du IoT Edge på Kubernetes | Microsoft-dokument
-description: Lär dig hur du installerar IoT Edge på Kubernetes med hjälp av en lokal klustermiljö för utveckling
+title: Så här installerar du IoT Edge på Kubernetes | Microsoft Docs
+description: Lär dig hur du installerar IoT Edge på Kubernetes med en lokal miljö för utvecklings kluster
 author: kgremban
 manager: philmea
 ms.author: veyalla
@@ -9,35 +9,35 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4b2068c3944f9e7616b0666c7bafcafc68ee0cd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471293"
 ---
-# <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Så här installerar du IoT Edge på Kubernetes (förhandsversion)
+# <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Så här installerar du IoT Edge på Kubernetes (för hands version)
 
-IoT Edge kan integreras med Kubernetes med det som ett flexibelt, högtillgänge med infrastrukturlager. Här passar det här stödet i en IoT Edge-lösning på hög nivå:
+IoT Edge kan integreras med Kubernetes med hjälp av den som ett elastiskt infrastruktur lager med hög tillgänglighet. Här är det här stödet passar i en hög nivå IoT Edge lösning:
 
-![k8s intro](./media/how-to-install-iot-edge-kubernetes/kubernetes-model.png)
+![K8s – Intro](./media/how-to-install-iot-edge-kubernetes/kubernetes-model.png)
 
 >[!TIP]
->En bra mental modell för denna integration är att tänka på Kubernetes som en annan driftsmiljö IoT Edge applikationer kan köras på förutom Linux och Windows.
+>En lämplig psykiska modell för den här integrationen är att tänka på Kubernetes som en annan operativ miljö IoT Edge program kan köras tillsammans med Linux och Windows.
 
 ## <a name="architecture"></a>Arkitektur 
-På Kubernetes tillhandahåller IoT Edge *CRD (Custom Resource Definition)* för distributioner av kantarbetsbelastningar. IoT Edge Agent tar på sig rollen som en *CRD-styrenhet* som stämmer av önskat tillstånd som hanteras i molnet med det lokala klustertillståndet.
+På Kubernetes tillhandahåller IoT Edge *anpassad resurs definition* (CRD) för distributioner av Edge-arbetsbelastningar. IoT Edge agent förutsätter rollen för en *CRD-kontrollant* som stämmer överens med det lokala klustrets tillstånd.
 
-Modulens livslängd hanteras av Kubernetes scheduler, som upprätthåller modultillgänglighet och väljer sin placering. IoT Edge hanterar kantprogramplattformen som körs överst och stämmer kontinuerligt av önskat tillstånd som anges i IoT Hub med tillståndet på kantklustret. Programmodellen är fortfarande den välbekanta modellen baserad på IoT Edge-moduler och vägar. IoT Edge Agent-styrenheten utför *automatisk* översättning IoT Edge programmodell till Kubernetes inbyggda konstruktioner som poddar, distributioner, tjänster etc.
+Livs längden för modulen hanteras av Kubernetes Scheduler, som underhåller modulens tillgänglighet och väljer deras placering. IoT Edge hanterar Edge-programplattformen som körs överst och som kontinuerligt avstämr det önskade läget som anges i IoT Hub med tillstånd i gräns klustret. Program modellen är fortfarande den välkända modellen som baseras på IoT Edge moduler och vägar. Den IoT Edge agent styrenheten utför *Automatisk* översättning IoT Edge programmets program modell till Kubernetes inbyggda konstruktioner som poddar, distributioner, tjänster osv.
 
-Här är ett arkitekturdiagram på hög nivå:
+Här är ett diagram med hög nivå arkitektur:
 
-![kubernetes båge](./media/how-to-install-iot-edge-kubernetes/publicpreview-refresh-kubernetes.png)
+![Kubernetes båge](./media/how-to-install-iot-edge-kubernetes/publicpreview-refresh-kubernetes.png)
 
-Varje komponent i kantdistributionen är begränsad till ett Kubernetes-namnområde som är specifikt för enheten, vilket gör det möjligt att dela samma klusterresurser mellan flera kantenheter och deras distributioner.
+Varje komponent i Edge-distributionen är begränsad till ett Kubernetes-namnområde som är unikt för enheten, vilket gör det möjligt att dela samma kluster resurser mellan flera gräns enheter och deras distributioner.
 
 >[!NOTE]
->IoT Edge på Kubernetes är i [offentlig förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>IoT Edge på Kubernetes finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="tutorials-and-references"></a>Självstudier och referenser 
 
-Se [IoT Edge på Kubernetes förhandsgranska docs mini-site](https://aka.ms/edgek8sdoc) för mer information, inklusive djupgående självstudier och referenser.
+Mer information, inklusive djupgående kurser och referenser finns i [IoT Edge för för hands versionen av Kubernetes](https://aka.ms/edgek8sdoc) .

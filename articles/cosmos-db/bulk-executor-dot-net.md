@@ -1,6 +1,6 @@
 ---
-title: Använda massutnämningsverkställare .NET-bibliotek i Azure Cosmos DB för massimport- och uppdateringsåtgärder
-description: Massimport och uppdatering av Azure Cosmos DB-dokument med massutnämnaren .NET-biblioteket.
+title: Använd bulk utförar .NET Library i Azure Cosmos DB för Mass import och uppdaterings åtgärder
+description: Mass import och uppdatering av de Azure Cosmos DB dokumenten med hjälp av utförar .NET-biblioteket.
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,50 +10,50 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478844"
 ---
-# <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd massutnämningen .NET-bibliotek för att utföra massåtgärder i Azure Cosmos DB
+# <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd Mass utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB
 
 > [!NOTE]
-> Det här massutnrösatorbiblioteket som beskrivs i den här artikeln underhålls för program som använder .NET SDK 2.x-versionen. För nya program kan du använda **masssupporten** som är direkt tillgänglig med [.NET SDK version 3.x](tutorial-sql-api-dotnet-bulk-import.md) och det kräver inget externt bibliotek. 
+> Detta Mass utförar-bibliotek som beskrivs i den här artikeln finns kvar för program som använder .NET SDK 2. x-versionen. För nya program kan du använda **Mass stödet** som är direkt tillgängligt med [.NET SDK version 3. x](tutorial-sql-api-dotnet-bulk-import.md) och det krävs inga externa bibliotek. 
 
-> Om du för närvarande använder massutnrösatorbiblioteket och planerar att migrera till massstöd på nyare SDK använder du stegen i [migreringsguiden](how-to-migrate-from-bulk-executor-library.md) för att migrera programmet.
+> Om du för närvarande använder bulk utförar-biblioteket och planerar att migrera till Mass support på den nyare SDK: n, använder du stegen i [migreringsguiden](how-to-migrate-from-bulk-executor-library.md) för att migrera ditt program.
 
-Den här självstudien innehåller instruktioner om hur du använder massutdelningsutdeltagaren .NET-biblioteket för att importera och uppdatera dokument till en Azure Cosmos-behållare. Mer information om massutflödesbiblioteket och hur det hjälper dig att utnyttja massivt dataflöde och lagringsutrymme finns i översiktsartikeln [för massutflödesbiblioteket.](bulk-executor-overview.md) I den här självstudien visas ett exempel på .NET-program som massimporterar slumpmässigt genererade dokument till en Azure Cosmos-behållare. När du har importerat den visas hur du kan masskopiera uppdatering av importerade data genom att ange korrigeringsfiler som åtgärder som ska utföras på specifika dokumentfält.
+Den här självstudien innehåller instruktioner om hur du använder bulk utförar .NET-biblioteket för att importera och uppdatera dokument till en Azure Cosmos-behållare. Mer information om utförar-biblioteket och hur det hjälper dig att utnyttja massivt data flöde och lagrings utrymme finns i [översikts](bulk-executor-overview.md) artikeln för utförar-bibliotek. I den här självstudien får du se ett exempel på en .NET-app som Mass importer genererar slumpmässigt genererade dokument till en Azure Cosmos-behållare. När du har importerat visar det hur du kan massredigera importerade data genom att ange korrigeringar som åtgärder att utföra på vissa dokument fält.
 
-För närvarande stöds massutnrevarbiblioteket endast av Azure Cosmos DB SQL API- och Gremlin API-konton. I den här artikeln beskrivs hur du använder massutdrivaren .NET-biblioteket med SQL API-konton. Mer information om hur du använder massutnämnaren .NET-biblioteket med Gremlin API-konton finns [i utföra massåtgärder i Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
+För närvarande stöds bulk utförar-biblioteket endast av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar .NET-biblioteket med SQL API-konton. Mer information om hur du använder bulk utförar .NET-biblioteket med Gremlin API-konton finns i [utföra Mass åtgärder i Azure Cosmos DB GREMLIN API](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte redan har Installerat Visual Studio 2019 kan du hämta och använda [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar "Azure-utveckling" under Visual Studio-installationen.
+* Om du inte redan har Visual Studio 2019 installerat kan du ladda ned och använda [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Se till att aktivera "Azure-utveckling" under installationen av Visual Studio.
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 
-* Du kan [prova Azure Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, kostnadsfritt och åtaganden. Du kan också använda [Azure Cosmos DB-emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med `https://localhost:8081` slutpunkten. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).
+* Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med `https://localhost:8081` slut punkten. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).
 
-* Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i avsnittet [Skapa databaskonto](create-sql-api-dotnet.md#create-account) i snabbstartsartikeln .NET.
+* Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i avsnittet [skapa databas konto](create-sql-api-dotnet.md#create-account) i artikeln om .net-snabb start.
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi byta till att arbeta med kod genom att ladda ner ett exempel .NET-program från GitHub. Det här programmet utför massåtgärder på data som lagras i ditt Azure Cosmos-konto. Om du vill klona programmet öppnar du en kommandotolk, navigerar till katalogen där du vill kopiera det och kör följande kommando:
+Nu ska vi växla till att arbeta med kod genom att hämta ett exempel på ett .NET-program från GitHub. Det här programmet utför Mass åtgärder på de data som lagras i ditt Azure Cosmos-konto. Du kan klona programmet genom att öppna en kommando tolk och navigera till den katalog där du vill kopiera den och köra följande kommando:
 
 ```
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-Den klonade databasen innehåller två exempel "BulkImportSample" och "BulkUpdateSample". Du kan öppna något av exempelprogrammen, uppdatera anslutningssträngarna i Filen App.config med ditt Azure Cosmos DB-kontos anslutningssträngar, skapa lösningen och köra den.
+Den klonade lagrings platsen innehåller två exempel: "BulkImportSample" och "BulkUpdateSample". Du kan öppna något av exempel programmen, uppdatera anslutnings strängarna i app. config-filen med anslutnings strängarna i Azure Cosmos DB-kontot, skapa lösningen och köra den.
 
-Programmet "BulkImportSample" genererar slumpmässiga dokument och massimport importerar dem till ditt Azure Cosmos-konto. Programet "BulkUpdateSample" uppdaterar de importerade dokumenten genom att ange korrigeringar som åtgärder som ska utföras på specifika dokumentfält. I nästa avsnitt granskar du koden i var och en av dessa exempelappar.
+Programmet "BulkImportSample" genererar slumpmässiga dokument och Mass importer dem till ditt Azure Cosmos-konto. Program Mass uppdateringen "BulkUpdateSample" uppdaterar de importerade dokumenten genom att ange korrigeringar som åtgärder att utföra på specifika dokument fält. I nästa avsnitt kommer du att granska koden i vart och ett av dessa exempel appar.
 
-## <a name="bulk-import-data-to-an-azure-cosmos-account"></a>Massimportdata till ett Azure Cosmos-konto
+## <a name="bulk-import-data-to-an-azure-cosmos-account"></a>Mass import av data till ett Azure Cosmos-konto
 
-1. Navigera till mappen "BulkImportSample" och öppna filen "BulkImportSample.sln".  
+1. Gå till mappen "BulkImportSample" och öppna filen "BulkImportSample. SLN".  
 
-2. Azure Cosmos DB:s anslutningssträngar hämtas från filen App.config enligt följande kod:  
+2. Azure Cosmos DBens anslutnings strängar hämtas från filen app. config, vilket visas i följande kod:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -63,9 +63,9 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och massimport im
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   Massimportören skapar en ny databas och en behållare med databasnamn, behållarnamn och dataflödesvärden som anges i filen App.config.
+   Mass import programmet skapar en ny databas och en behållare med databas namnet, behållar namnet och de data flödes värden som anges i filen app. config.
 
-3. Därefter initieras DocumentClient-objektet med direkt TCP-anslutningsläge:  
+3. Nästa DocumentClient-objekt initieras med direkt TCP-anslutnings läge:  
 
    ```csharp
    ConnectionPolicy connectionPolicy = new ConnectionPolicy
@@ -77,7 +77,7 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och massimport im
    connectionPolicy)
    ```
 
-4. BulkExecutor-objektet initieras med ett högt återförsöksvärde för väntetid och begränsade begäranden. Och sedan är de inställda på 0 för att passera överbelastning kontroll till BulkExecutor för sin livstid.  
+4. BulkExecutor-objektet initieras med ett högt återförsöks värde för vänte tid och begränsade begär Anden. Och de ställs in på 0 för att skicka överbelastnings kontroll till BulkExecutor för dess livs längd.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -92,7 +92,7 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och massimport im
    client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
    ```
 
-5. Programmet anropar MassImportAsync API. .NET-biblioteket innehåller två överbelastningar av massimport-API: et - ett som accepterar en lista över serialiserade JSON-dokument och den andra som accepterar en lista över deserialiserade POCO-dokument. Mer information om definitionerna för var och en av dessa överbelastade metoder finns i [API-dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet).
+5. Programmet anropar BulkImportAsync-API: et. .NET-biblioteket innehåller två överlagringar av Mass import-API: en som accepterar en lista med serialiserade JSON-dokument och den andra som accepterar en lista med deserialiserade POCO-dokument. Mer information om definitionerna för var och en av dessa överlagrade metoder finns i [API-dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet).
 
    ```csharp
    BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
@@ -103,32 +103,32 @@ Programmet "BulkImportSample" genererar slumpmässiga dokument och massimport im
      maxInMemorySortingBatchSize: null,
      cancellationToken: token);
    ```
-   **MassImportAsync-metoden accepterar följande parametrar:**
+   **BulkImportAsync-metoden accepterar följande parametrar:**
    
-   |**Parametern**  |**Beskrivning** |
+   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
    |---------|---------|
-   |enableUpsert    |   En flagga som aktiverar upsert-åtgärder i dokumenten. Om det redan finns ett dokument med det angivna ID:t uppdateras det. Som standard är den inställd på false.      |
-   |inaktiveraAutomaticIdGeneration    |    En flagga för att inaktivera automatisk generering av ID. Som standard är den inställd på true.     |
-   |maxConcurrencyPerPartitionKeyRange    | Den maximala graden av samtidighet per partition nyckelintervall, inställning till null kommer att orsaka biblioteket att använda ett standardvärde på 20. |
-   |maxInMemorySorterandeBatchSize     |  Det maximala antalet dokument som hämtas från dokumentuppräknaren, som skickas till API-anropet i varje steg. För sorteringsfas i minnet som inträffar före massimport kommer det att leda till att biblioteket använder standardminivärde (documents.count, 10000000) om du ställer in den här parametern till null (documents.count, 10000000).       |
-   |annulleringToken    |    Annulleringstoken för att smidigt avsluta massimportåtgärden.     |
+   |enableUpsert    |   En flagga som aktiverar upsert-åtgärder på dokumenten. Om det redan finns ett dokument med angivet ID uppdateras det. Som standard är den inställd på falskt.      |
+   |disableAutomaticIdGeneration    |    En flagga som inaktiverar automatisk generering av ID. Som standard är den inställd på sant.     |
+   |maxConcurrencyPerPartitionKeyRange    | Den högsta graden av samtidighet per partitionsnyckel, med värdet null, gör att bibliotek använder ett standardvärde på 20. |
+   |maxInMemorySortingBatchSize     |  Det maximala antalet dokument som hämtas från uppräkna ren dokument, vilken skickas till API-anropet i varje steg. Om du anger den här parametern till null i minnes sorterings fasen som inträffar innan Mass importeringen, gör det möjligt för bibliotek att använda standardvärdet minimum (Documents. Count, 1000000).       |
+   |cancellationToken    |    Avbrotts-token för att avsluta Mass import åtgärden på ett smidigt sätt.     |
 
-   **Definition av svarsobjekt för massimport** Resultatet av api-anropet för massimport innehåller följande attribut:
+   **Objekt definition för Mass import av svar** Resultatet av API-anropet för Mass import innehåller följande attribut:
 
-   |**Parametern**  |**Beskrivning**  |
+   |**ProfileServiceApplicationProxy**  |**Beskrivning**  |
    |---------|---------|
-   |AntaldocumentsImporterade (långa)   |  Det totala antalet dokument som har importerats från det totala antalet dokument som lämnats till api-anropet för massimport.       |
-   |TotaltRequestUnitsConsumed (dubbel)   |   De totala begärandeenheter (RU) som förbrukas av API-anropet för massimport.      |
-   |TotalTimeTaken (tidsspann)    |   Den totala tid det tar för massimport-API-anropet för att slutföra körningen.      |
-   |BadInputDocuments (List-objekt\<>)   |     Listan över dokument i felformat som inte har importerats i api-anropet för massimport. Åtgärda de dokument som returneras och försök importera igen. Dokument med felaktiga format omfattar dokument vars ID-värde inte är en sträng (null eller någon annan datatyp anses ogiltig).    |
+   |NumberOfDocumentsImported (lång)   |  Det totala antalet dokument som har importer ATS från det totala antalet dokument som angavs för Mass import-API-anrop.       |
+   |TotalRequestUnitsConsumed (dubbel)   |   Totalt antal begär ande enheter (RU) som förbrukas av API-anropet för Mass import.      |
+   |TotalTimeTaken (TimeSpan)    |   Den totala tid det tar för Mass import-API-anrop att slutföra körningen.      |
+   |BadInputDocuments (list\<objekt>)   |     Listan med fel format dokument som inte har importer ATS i Mass import-API-anropet. Åtgärda de returnerade dokumenten och försök importera igen. Felaktigt formaterade dokument inkluderar dokument vars ID-värde inte är en sträng (null eller någon annan datatyp betraktas som ogiltig).    |
 
-## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Massuppdateringsdata i ditt Azure Cosmos-konto
+## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Mass uppdatering av data i ditt Azure Cosmos-konto
 
-Du kan uppdatera befintliga dokument med hjälp av MassUpdateAsync API. I det här exemplet `Name` anger du fältet till `Description` ett nytt värde och tar bort fältet från de befintliga dokumenten. Den fullständiga uppsättningen uppdateringsåtgärder som stöds finns i [API-dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exemplet ska du ange ett `Name` nytt värde för fältet och ta bort `Description` fältet från de befintliga dokumenten. En fullständig uppsättning uppdaterings åtgärder som stöds finns i API- [dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
-1. Navigera till mappen "BulkUpdateSample" och öppna filen "BulkUpdateSample.sln".  
+1. Gå till mappen "BulkUpdateSample" och öppna filen "BulkUpdateSample. SLN".  
 
-2. Definiera uppdateringsobjekten tillsammans med motsvarande fältuppdateringsåtgärder. I det här exemplet `SetUpdateOperation` ska `Name` du `UnsetUpdateOperation` använda för `Description` att uppdatera fältet och ta bort fältet från alla dokument. Du kan också utföra andra operationer som att öka ett dokumentfält med ett visst värde, skicka specifika värden till ett matrisfält eller ta bort ett visst värde från ett matrisfält. Mer information om olika metoder som tillhandahålls av api:et för massuppdatering finns i [API-dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Definiera uppdaterings objekt tillsammans med motsvarande fält uppdaterings åtgärder. I det här exemplet ska du använda `SetUpdateOperation` för att uppdatera `Name` fältet och `UnsetUpdateOperation` ta bort `Description` fältet från alla dokument. Du kan också utföra andra åtgärder, t. ex. öka ett dokument fält med ett angivet värde, push-specificera värden till ett mat ris fält eller ta bort ett enskilt värde från ett mat ris fält. Mer information om olika metoder som tillhandahålls av Mass uppdaterings-API: et finns i [API-dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -145,7 +145,7 @@ Du kan uppdatera befintliga dokument med hjälp av MassUpdateAsync API. I det h�
    }
    ```
 
-3. Programmet anropar MassUpdateAsync API. Mer information om definitionen av metoden MassUpdateAsync finns i [API-dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet).  
+3. Programmet anropar BulkUpdateAsync-API: et. Mer information om definitionen av BulkUpdateAsync-metoden finns i [API-dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet).  
 
    ```csharp
    BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(
@@ -154,41 +154,41 @@ Du kan uppdatera befintliga dokument med hjälp av MassUpdateAsync API. I det h�
      maxInMemorySortingBatchSize: null,
      cancellationToken: token);
    ```  
-   **MassUpdateAsync-metoden accepterar följande parametrar:**
+   **BulkUpdateAsync-metoden accepterar följande parametrar:**
 
-   |**Parametern**  |**Beskrivning** |
+   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
    |---------|---------|
-   |maxConcurrencyPerPartitionKeyRange    |   Den maximala graden av samtidighet per partitionsnyckelintervall, om du ställer in den här parametern på null, kommer biblioteket att använda standardvärdet(20).   |
-   |maxInMemorySorterandeBatchSize    |    Det maximala antalet uppdateringsobjekt som hämtats från uppräknaren för uppdateringsobjekt som skickades till API-anropet i varje steg. För den sorteringsfas i minnet som inträffar före massuppdatering kommer det att leda till att biblioteket använder standardvärdet för minimivärdet(updateItems.count, 1000000).     |
-   | annulleringToken|Annulleringstoken för att smidigt avsluta massuppdateringsåtgärden. |
+   |maxConcurrencyPerPartitionKeyRange    |   Den högsta graden av samtidighet per partitionsnyckel. om du anger den här parametern till null blir biblioteket att använder standardvärdet (20).   |
+   |maxInMemorySortingBatchSize    |    Det maximala antalet uppdaterings objekt som hämtats från uppräkna ren uppdaterings objekt som har skickats till API-anropet i varje steg. När du anger den här parametern till null för sorterings fasen i minnet som inträffar före Mass uppdatering, kommer biblioteket att använda det minimala standardvärdet (updateItems. Count, 1000000).     |
+   | cancellationToken|Avbrotts-token för att avsluta Mass uppdaterings åtgärden på ett smidigt sätt. |
 
-   **Definition av svarsobjekt för massuppdatering** Resultatet av api-anropet för massuppdatering innehåller följande attribut:
+   **Definition av svars objekt för Mass uppdatering** Resultatet av API-anropet för Mass uppdatering innehåller följande attribut:
 
-   |**Parametern**  |**Beskrivning** |
+   |**ProfileServiceApplicationProxy**  |**Beskrivning** |
    |---------|---------|
-   |AntaldokumentUppdaterad (lång)    |   Antalet dokument som har uppdaterats av det totala antalet dokument som lämnats till API-anropet för massuppdatering.      |
-   |TotaltRequestUnitsConsumed (dubbel)   |    De totala begärandeenheter (RU: er) som förbrukas av massuppdatering API-anropet.    |
-   |TotalTimeTaken (tidsspann)   | Den totala tid det tar för massuppdaterings-API-anropet för att slutföra körningen. |
+   |NumberOfDocumentsUpdated (lång)    |   Antalet dokument som har uppdaterats från det totala antalet dokument som angavs för Mass uppdaterings-API-anrop.      |
+   |TotalRequestUnitsConsumed (dubbel)   |    Totalt antal begär ande enheter (ru: er) som används av API-anropet för Mass uppdatering.    |
+   |TotalTimeTaken (TimeSpan)   | Den totala tid det tar för Mass uppdatering av API-anrop för att slutföra körningen. |
     
 ## <a name="performance-tips"></a>Prestandatips 
 
-Tänk på följande punkter för bättre prestanda när du använder massutförandeörsbiblioteket:
+Tänk på följande när du får bättre prestanda när du använder bulk utförar-biblioteket:
 
-* För bästa prestanda kan du köra ditt program från en virtuell Azure-dator som finns i samma region som ditt Azure Cosmos-kontos skrivregion.  
+* För bästa prestanda bör du köra ditt program från en virtuell Azure-dator som finns i samma region som ditt Azure Cosmos-kontos Skriv region.  
 
-* Vi rekommenderar att du instansierar ett enda `BulkExecutor` objekt för hela programmet på en enda virtuell dator som motsvarar en specifik Azure Cosmos-behållare.  
+* Vi rekommenderar att du instansierar ett enskilt `BulkExecutor` objekt för hela programmet inom en enskild virtuell dator som motsvarar en viss Azure Cosmos-behållare.  
 
-* Eftersom en enda massåtgärd API-körning förbrukar en stor del av klientdatorns CPU och nätverks-IO (Detta händer genom att skapa flera aktiviteter internt). Undvik att skapa flera samtidiga uppgifter i programprocessen som kör API-anrop för massåtgärder. Om ett API-anrop för en enda massåtgärd som körs på en enda virtuell dator inte kan använda hela behållarens dataflöde (om behållarens dataflöde > 1 miljon RU/s) är det att föredra att skapa separata virtuella datorer för att samtidigt köra api-anrop för massåtgärd.  
+* Eftersom en enda API-körning för Mass åtgärder förbrukar en stor del av klient datorns processor och nätverkets IO (detta sker genom att flera aktiviteter skapas internt). Undvik att skapa flera samtidiga aktiviteter i program processen som kör API-anrop för Mass åtgärder. Om ett API-anrop med en enda Mass åtgärd som körs på en enskild virtuell dator inte kan använda hela behållarens data flöde (om behållarens data flöde > 1 000 000 RU/s), är det bäst att skapa separata virtuella datorer för att samtidigt köra API-anrop för Mass åtgärder.  
 
-* Kontrollera `InitializeAsync()` att metoden anropas efter instansiering av ett BulkExecutor-objekt för att hämta målkosmosbehållarens partitionskarta.  
+* Se till `InitializeAsync()` att metoden anropas efter att ha instansierat ett BulkExecutor-objekt för att hämta partitions mappningen för mål Cosmos-behållaren.  
 
-* Se till att **gcServer** är aktiverat för bättre prestanda i programmets App.Config
+* Kontrol lera att **gcServer** har Aktiver ATS för bättre prestanda i programmets app. config
   ```xml  
   <runtime>
     <gcServer enabled="true" />
   </runtime>
   ```
-* Biblioteket avger spår som kan samlas in antingen i en loggfil eller på konsolen. Om du vill aktivera båda lägger du till följande kod i programmets App.Config-fil.
+* Biblioteket genererar spår som kan samlas in antingen i en loggfil eller i-konsolen. Om du vill aktivera båda lägger du till följande kod i programmets app. config-fil.
 
   ```xml
   <system.diagnostics>
@@ -203,4 +203,4 @@ Tänk på följande punkter för bättre prestanda när du använder massutföra
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Nuget-paketinformationen och viktig information finns i [massutredaren SDK-information](sql-api-sdk-bulk-executor-dot-net.md).
+* Information om NuGet-paket och viktig information finns i [UTFÖRAR SDK-information](sql-api-sdk-bulk-executor-dot-net.md).

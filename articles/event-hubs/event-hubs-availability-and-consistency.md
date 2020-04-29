@@ -1,6 +1,6 @@
 ---
-title: Tillgänglighet och konsekvens – Azure Event Hubs | Microsoft-dokument
-description: Så här anger du den maximala mängden tillgänglighet och konsekvens med Azure Event Hubs med hjälp av partitioner.
+title: Tillgänglighet och konsekvens – Azure Event Hubs | Microsoft Docs
+description: Hur du ger maximal tillgänglighet och konsekvens med Azure Event Hubs att använda partitioner.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,44 +14,44 @@ ms.workload: na
 ms.date: 03/27/2020
 ms.author: shvija
 ms.openlocfilehash: 0546adb6131479a8f5d2e7e31819483200586839
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80397324"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Tillgänglighet och konsekvens i Event Hubs
 
 ## <a name="overview"></a>Översikt
-Azure Event Hubs använder en [partitioneringsmodell](event-hubs-scalability.md#partitions) för att förbättra tillgänglighet och parallellisering inom en enda händelsehubb. Om till exempel en händelsenav har fyra partitioner och en av dessa partitioner flyttas från en server till en annan i en belastningsutjämningsåtgärd, kan du fortfarande skicka och ta emot från tre andra partitioner. Med fler partitioner kan du dessutom ha fler samtidiga läsare som bearbetar dina data, vilket förbättrar ditt samlade dataflöde. Att förstå konsekvenserna av partitionering och beställning i ett distribuerat system är en kritisk aspekt av lösningsdesign.
+Azure Event Hubs använder en [partitionerings modell](event-hubs-scalability.md#partitions) för att förbättra tillgänglighets-och parallellisering i en enskild händelsehubben. Om en händelsehubben till exempel har fyra partitioner, och en av dessa partitioner flyttas från en server till en annan i en belastnings Utjämnings åtgärd, kan du fortfarande skicka och ta emot från tre andra partitioner. Med fler partitioner kan du dessutom låta fler samtidiga läsare bearbeta dina data och förbättra det sammanställda data flödet. Att förstå konsekvenserna av partitionering och beställning i ett distribuerat system är en viktig aspekt av lösnings designen.
 
-För att förklara avvägningen mellan beställning och tillgänglighet, se [cap-satsen](https://en.wikipedia.org/wiki/CAP_theorem), även känd som Brewer's theorem. I det här satset beskrivs valet mellan konsekvens, tillgänglighet och partitionstolerans. Det anges att för de system som partitioneras av nätverk finns det alltid avvägning mellan konsekvens och tillgänglighet.
+För att hjälpa till att förklara kompromisser mellan beställningar och tillgänglighet, se [Cap-satsen](https://en.wikipedia.org/wiki/CAP_theorem), även kallat bryggeriens satsen. I den här satsen diskuteras valet mellan konsekvens, tillgänglighet och partitions tolerans. Det anger att för de system som är partitionerade efter nätverk alltid kompromisser mellan konsekvens och tillgänglighet.
 
-Brewers sats definierar konsekvens och tillgänglighet enligt följande:
-* Partitionstolerans: möjligheten för ett databehandlingssystem att fortsätta bearbeta data även om ett partitionsfel inträffar.
-* Tillgänglighet: En nod som inte misslyckas returnerar ett rimligt svar inom rimlig tid (utan fel eller timeout).
-* Konsekvens: en läsning garanteras att returnera den senaste skrivningen för en viss klient.
+I bryggeriens satsen definieras konsekvens och tillgänglighet enligt följande:
+* Partitions tolerans: data bearbetnings systemets möjlighet att fortsätta att bearbeta data även om ett partitionsschema inträffar.
+* Tillgänglighet: en icke-misslyckad nod returnerar ett rimligt svar inom en rimlig tids period (utan fel eller tids gränser).
+* Konsekvens: en läsning garanterar att returnera den senaste skrivningen för en specifik klient.
 
-## <a name="partition-tolerance"></a>Partitionstolerans
-Event Hubs bygger ovanpå en partitionerad datamodell. Du kan konfigurera antalet partitioner i händelsehubben under installationen, men du kan inte ändra det här värdet senare. Eftersom du måste använda partitioner med eventhubbar måste du fatta ett beslut om tillgänglighet och konsekvens för ditt program.
+## <a name="partition-tolerance"></a>Partitions tolerans
+Event Hubs skapas ovanpå en partitionerad data modell. Du kan konfigurera antalet partitioner i din Event Hub under installationen, men du kan inte ändra det här värdet senare. Eftersom du måste använda partitioner med Event Hubs måste du fatta ett beslut om tillgänglighet och konsekvens för ditt program.
 
 ## <a name="availability"></a>Tillgänglighet
-Det enklaste sättet att komma igång med Event Hubs är att använda standardbeteendet. 
+Det enklaste sättet att komma igång med Event Hubs är att använda standard beteendet. 
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 eller senare)](#tab/latest)
-Om du skapar ett nytt **[EventHubProducerClient-objekt](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** och använder **[metoden SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** distribueras dina händelser automatiskt mellan partitioner i händelsehubben. Detta gör det möjligt för den största upptiden.
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 eller senare)](#tab/latest)
+Om du skapar ett nytt **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** -objekt och använder **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** -metoden distribueras händelserna automatiskt mellan partitioner i händelsehubben. Det här beteendet gör det möjligt för den största delen av tiden.
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 eller tidigare)](#tab/old)
-Om du skapar ett nytt **[EventHubClient-objekt](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** och använder metoden **[Skicka](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** fördelas dina händelser automatiskt mellan partitioner i händelsehubben. Detta gör det möjligt för den största upptiden.
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 eller tidigare)](#tab/old)
+Om du skapar ett nytt **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** -objekt och använder **[send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** -metoden, distribueras händelserna automatiskt mellan partitioner i händelsehubben. Det här beteendet gör det möjligt för den största delen av tiden.
 
 ---
 
-För användningsfall som kräver maximal upptid är den här modellen att föredra.
+Den här modellen rekommenderas för användnings fall som kräver den maximala tiden.
 
 ## <a name="consistency"></a>Konsekvens
-I vissa fall kan ordning och reda på händelser vara viktigt. Du kanske till exempel vill att backend-systemet ska bearbeta ett uppdateringskommando innan ett borttagningskommando. I det här fallet kan du antingen ange partitionsnyckeln på en händelse eller använda ett `PartitionSender` objekt (om du använder det gamla Microsoft.Azure.Messaging-biblioteket) för att bara skicka händelser till en viss partition. Detta säkerställer att när dessa händelser läss från partitionen, de läss i ordning. Om du använder **Azure.Messaging.EventHubs-biblioteket** och mer information läser du [Migrera kod från PartitionSender till EventHubProducerClient för publicering av händelser till en partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+I vissa fall kan sortering av händelser vara viktigt. Till exempel kanske du vill att Server dels systemet ska bearbeta ett uppdaterings kommando före kommandot DELETE. I den här instansen kan du antingen ange partitionsnyckel för en händelse eller använda ett `PartitionSender` objekt (om du använder det gamla Microsoft. Azure. Messaging-biblioteket) för att endast skicka händelser till en viss partition. Detta säkerställer att när dessa händelser läses från partitionen, läses de in i ordning. Om du använder **Azure. Messaging. EventHubs** -biblioteket och mer information finns i [migrera kod från PartitionSender till EventHubProducerClient för publicering av händelser till en partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 eller senare)](#tab/latest)
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 eller senare)](#tab/latest)
 
 ```csharp
 var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
@@ -68,7 +68,7 @@ await using (var producerClient = new EventHubProducerClient(connectionString, e
 }
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 eller tidigare)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 eller tidigare)](#tab/old)
 
 ```csharp
 var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
@@ -94,11 +94,11 @@ finally
 
 ---
 
-Med den här konfigurationen bör du tänka på att om den partition som du skickar till inte är tillgänglig får du ett felmeddelande. Som en jämförelsepunkt, om du inte har en tillhörighet till en enda partition, skickar eventhubbar-tjänsten händelsen till nästa tillgängliga partition.
+I den här konfigurationen ska du tänka på att om den partition som du skickar till inte är tillgänglig får du ett fel meddelande. Som jämförelse punkt, om du inte har en tillhörighet till en enda partition, skickar Event Hubs tjänsten din händelse till nästa tillgängliga partition.
 
-En möjlig lösning för att säkerställa beställning, samtidigt som du maximerar tiden, skulle vara att samla händelser som en del av ditt händelsebearbetningsprogram. Det enklaste sättet att åstadkomma detta är att stämpla din händelse med en anpassad sekvensnummeregenskap. Följande kod visar ett exempel:
+En möjlig lösning för att säkerställa sortering, samtidigt som den maximerar tiden, är att aggregera händelser som en del av ditt händelse bearbetnings program. Det enklaste sättet att göra detta är att stämpla din händelse med en anpassad sekvens nummer egenskap. Följande kod visar ett exempel:
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 eller senare)](#tab/latest)
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 eller senare)](#tab/latest)
 
 ```csharp
 // create a producer client that you can use to send events to an event hub
@@ -124,7 +124,7 @@ await using (var producerClient = new EventHubProducerClient(connectionString, e
 }
 ```
 
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 eller tidigare)](#tab/old)
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 eller tidigare)](#tab/old)
 ```csharp
 // Create an Event Hubs client
 var client = new EventHubClient(connectionString, eventHubName);
@@ -146,10 +146,10 @@ await producer.SendAsync(data);
 ```
 ---
 
-Det här exemplet skickar händelsen till en av de tillgängliga partitionerna i händelsehubben och anger motsvarande sekvensnummer från ditt program. Den här lösningen kräver tillstånd som ska behållas av ditt bearbetningsprogram, men ger dina avsändare en slutpunkt som är mer sannolikt att vara tillgänglig.
+Det här exemplet skickar din händelse till en av de tillgängliga partitionerna i händelsehubben och anger motsvarande ordnings nummer från ditt program. Den här lösningen kräver tillstånd att behållas av ditt bearbetnings program, men ger dina avsändare en slut punkt som är mer sannolik tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Översikt över tjänsten Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Översikt över Event Hubs tjänsten](event-hubs-what-is-event-hubs.md)
 * [Skapa en händelsehubb](event-hubs-create.md)

@@ -1,7 +1,7 @@
 ---
-title: Distribuera IPv6-program med dubbla staplar – grundläggande belastningsutjämning – PowerShell
+title: Distribuera IPv6-program med dubbla stackar – grundläggande Load Balancer-PowerShell
 titlesuffix: Azure Virtual Network
-description: Den här artikeln visar hur distribuera ett IPv6 dual stack-program i Azure virtuellt nätverk med Azure Powershell.
+description: Den här artikeln visar hur du distribuerar ett program med dubbla stack-program i Azure Virtual Network med Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,27 +14,27 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 3cfe80962c11e37c79549a74d7e4b19cd08f4684
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420922"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell"></a>Distribuera ett IPv6-program med dubbla staplar med basic load balancer - PowerShell
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell"></a>Distribuera ett IPv6-program med dubbla stackar med Basic Load Balancer-PowerShell
 
-Den här artikeln visar hur du distribuerar ett IPv4 + IPv6-program med grundläggande belastningsutjämnare med Azure PowerShell som innehåller ett virtuellt nätverk och undernät med dubbla staplar, en grundläggande belastningsutjämnare med dubbla frontend-konfigurationer (IPv4 + IPv6), virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverkssäkerhetsgrupp och offentliga IP-adresser.
+Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) med Basic Load Balancer att använda Azure PowerShell som innehåller ett virtuellt nätverk och undernät med dubbla stackar, en grundläggande Load Balancer med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, nätverks säkerhets grupp och offentliga IP-adresser.
 
-Information om hur du distribuerar ett IPV4 + IPv6-program med standardbelastningsutjämning finns i [Distribuera ett IPv6-program med dubbla staplar med Standard belastningsutjämnare med Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
+Om du vill distribuera ett program med dubbla stackar (IPV4 + IPv6) med hjälp av Standard Load Balancer, se [distribuera ett IPv6-program med dubbla stackar med standard Load Balancer använda Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell-modul version 6.9.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell module version 6.9.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa det virtuella nätverket med dubbla staplar måste du skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myRGDualStack* på den östra platsen i *USA:*
+Innan du kan skapa ett virtuellt nätverk med dubbla staplar måste du skapa en resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resurs grupp med namnet *myRGDualStack* på platsen *USA, östra* :
 
 ```azurepowershell-interactive
    $rg = New-AzResourceGroup `
@@ -43,7 +43,7 @@ Innan du kan skapa det virtuella nätverket med dubbla staplar måste du skapa e
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>Skapa offentliga IP-adresser för IPv4 och IPv6
-För att komma åt dina virtuella datorer från Internet behöver du offentliga IP-adresser för IPv4 och IPv6 för belastningsutjämnaren. Skapa offentliga [IP-adresser med New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas IPv4- och IPv6-ip-adress med namnet *dsPublicIP_v4* och *dsPublicIP_v6* i resursgruppen *dsRG1:*
+För att få åtkomst till dina virtuella datorer från Internet behöver du IPv4-och IPv6 offentliga IP-adresser för belastningsutjämnaren. Skapa offentliga IP-adresser med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas IPv4-och IPv6 offentlig IP-adress med namnet *dsPublicIP_v4* och *dsPublicIP_v6* i resurs gruppen *dsRG1* :
 
 ```azurepowershell-interactive
 $PublicIP_v4 = New-AzPublicIpAddress `
@@ -60,7 +60,7 @@ $PublicIP_v6 = New-AzPublicIpAddress `
   -AllocationMethod Dynamic `
   -IpAddressVersion IPv6
 ```
-Skapa en IPV4-IP-adress för de virtuella datorerna med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)om du vill komma åt dina virtuella datorer med en RDP-anslutning.
+För att få åtkomst till dina virtuella datorer med en RDP-anslutning skapar du en offentlig IPV4-IP-adress för de virtuella datorerna med [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell-interactive
   $RdpPublicIP_1 = New-AzPublicIpAddress `
@@ -80,11 +80,11 @@ Skapa en IPV4-IP-adress för de virtuella datorerna med [New-AzPublicIpAddress](
 
 ## <a name="create-basic-load-balancer"></a>Skapa en lastbalanserare
 
-I det här avsnittet konfigurerar du ip-adressen med dubbla frontend (IPv4 och IPv6) och backend-adresspoolen för belastningsutjämnaren och skapar sedan en grundläggande belastningsutjämnare.
+I det här avsnittet konfigurerar du IP-adresser för dubbel klient del (IPv4 och IPv6) och backend-adresspoolen för belastningsutjämnaren och sedan skapar du en grundläggande Load Balancer.
 
 ### <a name="create-front-end-ip"></a>Skapa klientdels-IP
 
-Skapa en IP-adress på klientdelen med hjälp av [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). I följande exempel skapas IP-konfigurationer med IPv4- och IPv6-frontend med namnet *dsLbFrontEnd_v4* och *dsLbFrontEnd_v6:*
+Skapa en IP-adress på klientdelen med hjälp av [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). I följande exempel skapas IP-konfigurationer för IPv4-och IPv6-frontend med namnet *dsLbFrontEnd_v4* och *dsLbFrontEnd_v6*:
 
 ```azurepowershell-interactive
 $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
@@ -99,7 +99,7 @@ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
 
 ### <a name="configure-back-end-address-pool"></a>Konfigurera en serverdelsadresspool
 
-Skapa en backend-adresspool med [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). De virtuella datorerna ansluter till den här serverdelspoolen i de återstående stegen. I följande exempel skapas backend-adresspooler med namnet *dsLbBackEndPool_v4* och *dsLbBackEndPool_v6* att inkludera virtuella datorer med både IPV4- och IPv6-nätverkskortskonfigurationer:
+Skapa en backend-adresspool med [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). De virtuella datorerna ansluter till den här serverdelspoolen i de återstående stegen. I följande exempel skapas backend-adresspooler med namnet *dsLbBackEndPool_v4* och *dsLbBackEndPool_v6* för att inkludera virtuella datorer med både IPv4-och IPv6 NIC-konfigurationer:
 
 ```azurepowershell-interactive
 $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
@@ -109,15 +109,15 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 -Name "dsLbBackEndPool_v6"
 ```
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
-Använd [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) för att skapa en hälsoavsökning för att övervaka hälsan för de virtuella datorerna.
+Använd [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) för att skapa en hälso avsökning för att övervaka hälso tillståndet för de virtuella datorerna.
 ```azurepowershell
 $probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
 ```
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
-En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Om du vill vara säker på att endast felfria virtuella datorer får trafik kan du också definiera en hälsoavsökning. Grundläggande belastningsutjämnare använder en IPv4-avsökning för att bedöma hälsotillståndet för både IPv4- och IPv6-slutpunkter på de virtuella datorerna. Standardbelastningsutjämnaren innehåller stöd för uttryckligen IPv6-hälsoavsökningar.
+En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Om du vill se till att endast friska virtuella datorer tar emot trafik kan du välja att definiera en hälso avsökning. Den grundläggande belastningsutjämnaren använder en IPv4-avsökning för att utvärdera hälso tillståndet för både IPv4-och IPv6-slutpunkter på de virtuella datorerna. Standard Load Balancer har stöd för explicita IPv6-hälsoavsökare.
 
-Skapa en lastbalanseringsregel med hjälp av [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). I följande exempel skapas belastningsutjämnare regler med namnet dsLBrule_v4 och dsLBrule_v6 och balanserar trafik på *TCP-port* 80 till IP-konfigurationerna för IPv4 och IPv6:The following example creates load balancer rules named *dsLBrule_v4* and *dsLBrule_v6* and balances traffic on TCP port *80* to the IPv4 and IPv6 frontend IP configurations:
+Skapa en lastbalanseringsregel med hjälp av [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). I följande exempel skapas belastnings Utjämnings regler som heter *dsLBrule_v4* och *dsLBrule_v6* och balanserar trafik på *TCP* -port *80* till IP-konfigurationer för IPv4 och IPv6-klient:
 
 ```azurepowershell-interactive
 $lbrule_v4 = New-AzLoadBalancerRuleConfig `
@@ -141,7 +141,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
-Skapa Basic-lastbalanseraren med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en offentlig grundläggande belastningsutjämnare med namnet *myLoadBalancer* med ip-konfigurationerna IPv4 och IPv6, serverdelspooler och belastningsutjämningsregler som du skapade i föregående steg:
+Skapa Basic-lastbalanseraren med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en offentlig grundläggande Load Balancer med namnet *myLoadBalancer* med hjälp av IP-konfigurationer för IPv4-och IPv6-frontend, Server dels pooler och regler för belastnings utjämning som du skapade i föregående steg:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -156,7 +156,7 @@ $lb = New-AzLoadBalancer `
 ```
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
-Innan du distribuerar vissa virtuella datorer och kan testa balanseraren måste du skapa stöd för nätverksresurser – tillgänglighetsuppsättning, nätverkssäkerhetsgrupp, virtuellt nätverk och virtuella nätverkskort. 
+Innan du distribuerar vissa virtuella datorer och kan testa din saldo måste du skapa stöd för nätverks resurser – tillgänglighets uppsättning, nätverks säkerhets grupp, virtuellt nätverk och virtuella nätverkskort. 
 ### <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 Placera dina virtuella datorer i en tillgänglighetsuppsättning för att förbättra tillgängligheten för din app.
 
@@ -174,7 +174,7 @@ $avset = New-AzAvailabilitySet `
 
 ### <a name="create-network-security-group"></a>Skapa nätverkssäkerhetsgrupp
 
-Skapa en nätverkssäkerhetsgrupp för de regler som styr inkommande och utgående kommunikation i ditt virtuella nätverk.
+Skapa en nätverks säkerhets grupp för de regler som ska styra inkommande och utgående kommunikation i ditt VNET.
 
 #### <a name="create-a-network-security-group-rule-for-port-3389"></a>Skapa en regel för nätverkssäkerhetsgruppen för port 3389
 
@@ -195,7 +195,7 @@ $rule1 = New-AzNetworkSecurityRuleConfig `
 ```
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>Skapa en regel för nätverkssäkerhetsgruppen för port 80
 
-Skapa en regel för nätverkssäkerhetsgrupp för att tillåta internetanslutningar via port 80 med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+Skapa en regel för nätverks säkerhets grupp för att tillåta Internet anslutningar via port 80 med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
 $rule2 = New-AzNetworkSecurityRuleConfig `
@@ -242,7 +242,7 @@ $vnet = New-AzVirtualNetwork `
 
 ### <a name="create-nics"></a>Skapa nätverkskort
 
-Skapa virtuella nätverkskort med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas två virtuella nätverkskort både med IPv4- och IPv6-konfigurationer. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.)
+Skapa virtuella nätverkskort med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas två virtuella nätverkskort både med IPv4-och IPv6-konfigurationer. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.)
 
 ```azurepowershell-interactive
   $Ip4Config=New-AzNetworkInterfaceIpConfig `
@@ -306,8 +306,8 @@ $VMconfig2 = New-AzVMConfig -VMName $vmName -VMSize $vmsize -AvailabilitySetId $
 $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location  -VM $VMconfig2
 ```
 
-## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>Ta reda på IP-adresser för IPv4- och IPv6-slutpunkterna
-Hämta alla nätverksgränssnittsobjekt i resursgruppen för att sammanfatta `get-AzNetworkInterface`IP-adressen som används i den här distributionen med . Hämta också belastningsutjämnarens frontend-adresser för IPv4- `get-AzpublicIpAddress`och IPv6-slutpunkterna med .
+## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>Fastställa IP-adresser för IPv4-och IPv6-slutpunkter
+Hämta alla nätverks gränssnitts objekt i resurs gruppen för att sammanfatta de IP-adresser som används i den `get-AzNetworkInterface`här distributionen med. Hämta också Load Balancerens frontend-adresser för IPv4-och IPv6-slutpunkterna `get-AzpublicIpAddress`med.
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"
@@ -341,16 +341,16 @@ foreach ($NIC in $NICsInRG) {
  
   (get-AzpublicIpAddress -resourcegroupname $rgName | where { $_.name -notlike "RdpPublicIP*" }).IpAddress
 ```
-Följande bild visar ett exempel på utdata som visar de privata IPv4- och IPv6-adresserna för de två virtuella datorerna och ip-adresserna för frontend IPv4 och IPv6 för belastningsutjämnaren.
+Följande bild visar ett exempel på utdata som visar de privata IPv4-och IPv6-adresserna för de två virtuella datorerna och IP-adresserna för klient delens IPv4-och IPv6-adresser för Load Balancer.
 
-![IP-sammanfattning av distribution av program med dubbla stackar (IPv4/IPv6) i Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
+![IP-Sammanfattning av program distribution med dubbla stackar (IPv4/IPv6) i Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
 
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visa virtuellt IPv6-nätverk med dubbla stackar i Azure-portalen
-Du kan visa det virtuella nätverket IPv6 med dubbla stackar i Azure-portalen på följande sätt:
-1. Ange *dsVnet*i portalens sökfält .
-2. När **myVirtualNetwork** visas i sökresultatet väljer du det. Detta startar **översiktssidan för** det virtuella nätverket med dubbla staplar med namnet *dsVnet*. Det virtuella nätverket med dubbla staplar visar de två nätverkskort med både IPv4- och IPv6-konfigurationer i det dubbla stackundernätet med namnet *dsSubnet*.
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visa ett virtuellt IPv6-nätverk med dubbla stackar i Azure Portal
+Du kan visa det virtuella IPv6-nätverket med dubbla stackar i Azure Portal på följande sätt:
+1. Skriv *dsVnet*i portalens Sök fält.
+2. När **myVirtualNetwork** visas i sökresultatet väljer du det. Då startas **översikts** sidan för det virtuella nätverket med dubbla stackar med namnet *dsVnet*. Det virtuella nätverket med dubbla stackar visar de två nätverkskorten med både IPv4-och IPv6-konfigurationer som finns i det dubbla stack-undernätet med namnet *dsSubnet*.
 
-  ![IPv6 virtuellt nätverk med dubbla staplar i Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
+  ![IPv6-virtuellt nätverk med dubbla stackar i Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -363,4 +363,4 @@ Remove-AzResourceGroup -Name dsRG1
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en grundläggande belastningsutjämnare med en IP-konfiguration med dubbla frontend (IPv4 och IPv6). Du har också skapat två virtuella datorer som inkluderade nätverkskort med dubbla IP-konfigurationer (IPV4 + IPv6) som lades till i slutbelastningshanterarens serverdelspool. Mer information om IPv6-stöd i virtuella Azure-nätverk finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md)
+I den här artikeln har du skapat en grundläggande Load Balancer med en IP-konfiguration med dubbel klient del (IPv4 och IPv6). Du skapade också två virtuella datorer som omfattade nätverkskort med dubbla IP-konfigurationer (IPV4 + IPv6) som har lagts till i belastningsutjämnaren för belastningsutjämnaren. Mer information om IPv6-stöd i Azure Virtual Networks finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md)

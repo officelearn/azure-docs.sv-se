@@ -1,6 +1,6 @@
 ---
-title: Nätverkssäkerhet för Azure Event Hubs
-description: I den här artikeln beskrivs hur du konfigurerar åtkomst från privata slutpunkter
+title: Nätverks säkerhet för Azure Event Hubs
+description: Den här artikeln beskriver hur du konfigurerar åtkomst från privata slut punkter
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -8,86 +8,86 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 46e6a9ecc2ed09aed1076f12c1f61a966485bdad
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422768"
 ---
-# <a name="network-security-for-azure-event-hubs"></a>Nätverkssäkerhet för Azure Event Hubs 
+# <a name="network-security-for-azure-event-hubs"></a>Nätverks säkerhet för Azure Event Hubs 
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Hubs: 
 
 - Tjänsttaggar
-- REGLER för IP-brandväggen
-- Slutpunkter för nätverkstjänsten
-- Privata slutpunkter (förhandsgranskning)
+- Regler för IP-brandvägg
+- Nätverks tjänst slut punkter
+- Privata slut punkter (förhands granskning)
 
 
 ## <a name="service-tags"></a>Tjänsttaggar
-En tjänsttagg representerar en grupp IP-adressprefix från en viss Azure-tjänst. Microsoft hanterar adressprefixen som omfattas av servicetag och uppdaterar automatiskt servicetag när adresserna ändras, vilket minimerar komplexiteten i frekventa uppdateringar av nätverkssäkerhetsregler. Mer information om tjänsttaggar finns i [Översikt över tjänsttaggar](../virtual-network/service-tags-overview.md).
+En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras, vilket minimerar komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler. Mer information om service märken finns i [Översikt över tjänst Taggar](../virtual-network/service-tags-overview.md).
 
-Du kan använda tjänsttaggar för att definiera nätverksåtkomstkontroller i [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Använd tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange tjänsttagnamnet (till exempel **EventHub**) i lämpligt *käll-* eller *målfält* för en regel kan du tillåta eller neka trafik för motsvarande tjänst.
+Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel **EventHub**) i lämpligt *käll* -eller *mål* fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.
 
-| Tjänsttagg | Syfte | Kan du använda inkommande eller utgående? | Kan vara regional? | Kan du använda med Azure-brandväggen? |
+| Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **EventHub** | Azure-händelsehubbar. | Utgående | Ja | Ja |
+| **EventHub** | Azure-Event Hubs. | Utgående | Ja | Ja |
 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
-Som standard är Event Hubs namnområden tillgängliga från internet så länge begäran levereras med giltig autentisering och auktorisering. Med IP-brandväggen kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adressintervall i [CIDR-notation (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
-Den här funktionen är användbar i scenarier där Azure Event Hubs endast bör vara tillgängliga från vissa välkända platser. Med brandväggsregler kan du konfigurera regler för att acceptera trafik som kommer från specifika IPv4-adresser. Om du till exempel använder Event Hubs med [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services)kan du skapa en **brandväggsregel** för att tillåta trafik från endast dina lokala IP-adresser för infrastruktur. 
+Den här funktionen är användbar i scenarier där Azure Event Hubs bör endast vara tillgängligt från vissa välkända webbplatser. Med brand Väggs regler kan du konfigurera regler för att acceptera trafik som kommer från vissa IPv4-adresser. Om du till exempel använder Event Hubs med [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services), kan du skapa en **brand Väggs regel** som tillåter trafik från enbart lokala infrastruktur-IP-adresser. 
 
-IP-brandväggsreglerna tillämpas på namnområdesnivån Event Hubs. Därför gäller reglerna för alla anslutningar från klienter som använder protokoll som stöds. Alla anslutningsförsök från en IP-adress som inte matchar en tillåten IP-regel på namnområdet Event Hubs avvisas som obehörigt. Svaret nämner inte IP-regeln. IP-filterregler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden acceptera eller avvisa.
+IP-brandväggens regler tillämpas på Event Hubs namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Hubs namn området nekas som obehörig. Svaret innehåller ingen IP-regel. IP filter regler tillämpas i ordning och den första regeln som matchar IP-adressen avgör vilken åtgärd som godkänns eller nekas.
 
-Mer information finns i [Så här konfigurerar du IP-brandväggen för en händelsehubb](event-hubs-ip-filtering.md)
+Mer information finns i [så här konfigurerar du IP-brandvägg för en Event Hub](event-hubs-ip-filtering.md)
 
-## <a name="network-service-endpoints"></a>Slutpunkter för nätverkstjänsten
-Integreringen av [VNet-tjänstslutpunkter (Event](../virtual-network/virtual-network-service-endpoints-overview.md) Hubs with Virtual Network) Service Endpoints möjliggör säker åtkomst till meddelandefunktioner från arbetsbelastningar som virtuella datorer som är bundna till virtuella nätverk, med nätverkstrafiksökvägen som skyddas i båda ändar.
+## <a name="network-service-endpoints"></a>Nätverks tjänst slut punkter
+Integreringen av Event Hubs [Virtual Network med tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) för virtuella nätverk ger säker åtkomst till meddelande funktioner från arbets belastningar, till exempel virtuella datorer som är kopplade till virtuella nätverk, med sökvägen till nätverks trafiken som skyddas i båda ändar.
 
-När den har konfigurerats för att bindas till minst en slutpunkt för virtuella nätverksundernätstjänsten accepterar respektive namnområde för eventhubbar inte längre trafik från var som helst utan auktoriserade undernät i virtuella nätverk. Från det virtuella nätverksperspektivet konfigurerar bindning av ett namnområde för eventhubbar till en tjänstslutpunkt en isolerad nätverkstunnel från det virtuella nätverksundernätet till meddelandetjänsten. 
+När de har kon figurer ATS för att bindas till minst en tjänst slut punkt för virtuellt nätverk, accepterar respektive Event Hubs namn området inte längre trafik från var som helst men auktoriserade undernät i virtuella nätverk. I det virtuella nätverkets perspektiv binder du en Event Hubs namnrum till en tjänst slut punkt konfigurerar en isolerad nätverks tunnel från det virtuella nätverkets undernät till meddelande tjänsten. 
 
-Resultatet är en privat och isolerad relation mellan arbetsbelastningarna som är bundna till undernätet och respektive händelsehubbarnamnområde, trots att den observerbara nätverksadressen för slutpunkten för meddelandetjänsten är i ett offentligt IP-intervall. Det finns ett undantag från det här beteendet. Om du aktiverar en tjänstslutpunkt som `denyall` standard aktiveras regeln i [IP-brandväggen](event-hubs-ip-filtering.md) som är associerad med det virtuella nätverket. Du kan lägga till specifika IP-adresser i IP-brandväggen för att aktivera åtkomst till den offentliga slutpunkten för händelsehubben. 
+Resultatet är en privat och isolerad relation mellan arbets belastningarna som är kopplade till under nätet och respektive Event Hubs-namnrymd, trots att den observerade nätverks adressen för meddelande tjänstens slut punkt är i ett offentligt IP-adressintervall. Det finns ett undantag för det här beteendet. Genom att aktivera en tjänst slut punkt aktiverar som standard `denyall` regeln i [IP-brandväggen](event-hubs-ip-filtering.md) som är associerad med det virtuella nätverket. Du kan lägga till vissa IP-adresser i IP-brandväggen för att ge åtkomst till den offentliga slut punkten för Händelsehubben. 
 
 > [!IMPORTANT]
-> Virtuella nätverk stöds på **standardnivå** och **dedikerade** nivåer för Event Hubs. Det stöds inte i den **grundläggande** nivån.
+> Virtuella nätverk stöds på **standardnivå** och **dedikerade** nivåer för Event Hubs. Det stöds inte på **Basic** -nivån.
 
-### <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade säkerhetsscenarier som aktiveras av VNet-integrering 
+### <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade säkerhets scenarier som aktive ras av VNet-integrering 
 
-Lösningar som kräver tät och uppdelad säkerhet, och där virtuella nätverksundernät tillhandahåller segmentering mellan de uppdelade tjänsterna, behöver fortfarande kommunikationsvägar mellan tjänster som finns i dessa avdelningar.
+Lösningar som kräver tätt och compartmentalized säkerhet, och där undernät för virtuella nätverk tillhandahåller segmentering mellan compartmentalized-tjänsterna, behöver fortfarande kommunikations vägar mellan tjänster som finns i dessa fack.
 
-Varje omedelbar IP-väg mellan avdelningarna, inklusive de som transporterar HTTPS över TCP/IP, medför risk för utnyttjande av sårbarheter från nätskiktet uppåt. Meddelandetjänster tillhandahåller isolerade kommunikationsvägar, där meddelanden till och med skrivs till disk när de övergår mellan parterna. Arbetsbelastningar i två olika virtuella nätverk som båda är bundna till samma Event Hubs-instans kan kommunicera effektivt och tillförlitligt via meddelanden, medan respektive nätverksisoleringsgränsintegritet bevaras.
+Alla omedelbara IP-vägar mellan avdelningarna, inklusive de som driver HTTPS över TCP/IP, medför risk för utnyttjande av sårbarheter från nätverks skiktet. Meddelande tjänster tillhandahåller isolerade kommunikations vägar, där meddelanden skrivs till disk som över gången mellan parter. Arbets belastningar i två distinkta virtuella nätverk som båda är kopplade till samma Event Hubs instans kan kommunicera effektivt och tillförlitligt via meddelanden, medan respektive gräns för nätverks isolerings gräns bevaras.
  
-Det innebär att dina säkerhetskänsliga molnlösningar inte bara får tillgång till Azures branschledande tillförlitliga och skalbara asynkrona meddelandefunktioner, utan de kan nu använda meddelanden för att skapa kommunikationsvägar mellan säkra lösningsfack som i sig är säkrare än vad som kan uppnås med alla peer-to-peer-kommunikationsläge, inklusive HTTPS och andra TLS-säkrade socketprotokoll.
+Det innebär att dina säkerhets känsliga moln lösningar inte bara får till gång till Azure-branschledande pålitliga och skalbara funktioner för asynkrona meddelanden, men de kan nu använda meddelande hantering för att skapa kommunikations vägar mellan säkra lösnings avdelningar som är mycket säkrare än vad som kan uppnås med valfri peer-to-peer-kommunikations läge, inklusive HTTPS och andra TLS-säkrade socket-protokoll.
 
-### <a name="bind-event-hubs-to-virtual-networks"></a>Binda händelsehubbar till virtuella nätverk
+### <a name="bind-event-hubs-to-virtual-networks"></a>Binda Event Hub till virtuella nätverk
 
-**Virtuella nätverksregler** är brandväggssäkerhetsfunktionen som styr om namnområdet Azure Event Hubs accepterar anslutningar från ett visst virtuellt nätverksundernät.
+**Virtuella nätverks regler** är säkerhets funktionen för brand vägg som styr om ditt Azure Event Hubs-namnområde accepterar anslutningar från ett visst virtuellt nätverks under nät.
 
-Att binda ett namnområde för händelsehubbar till ett virtuellt nätverk är en tvåstegsprocess. Du måste först skapa en slutpunkt för en **virtuell nätverkstjänst** i ett virtuellt nätverks undernät och aktivera den för **Microsoft.EventHub** enligt beskrivningen i översiktsartikeln för [tjänstens slutpunkt.](../virtual-network/virtual-network-service-endpoints-overview.md) När du har lagt till tjänstslutpunkten binder du namnområdet Event Hubs till den med en **virtuell nätverksregel**.
+Att binda ett Event Hubs namn område till ett virtuellt nätverk är en två stegs process. Du måste först skapa en **tjänst slut punkt för virtuellt nätverk** i ett virtuellt nätverks undernät och aktivera det för **Microsoft. EventHub** enligt beskrivningen i artikeln [Översikt över tjänstens slut punkt](../virtual-network/virtual-network-service-endpoints-overview.md) . När du har lagt till tjänst slut punkten binder du Event Hubs namn området till den med en **regel för virtuellt nätverk**.
 
-Regeln om virtuellt nätverk är en associering av namnområdet Event Hubs med ett virtuellt nätverksundernät. Medan regeln finns beviljas alla arbetsbelastningar som är bundna till undernätet åtkomst till namnområdet Event Hubs. Event Hubs själv upprättar aldrig utgående anslutningar, behöver inte få åtkomst och beviljas därför aldrig åtkomst till ditt undernät genom att aktivera den här regeln.
+Den virtuella nätverks regeln är en associering av Event Hubs-namnrymden med ett virtuellt nätverks under nät. Även om regeln finns beviljas alla arbets belastningar som är kopplade till under nätet åtkomst till Event Hubs namn området. Event Hubs aldrig upprättar utgående anslutningar, behöver inte få åtkomst och har därför aldrig beviljat åtkomst till ditt undernät genom att aktivera den här regeln.
 
-Mer information finns i [Så här konfigurerar du slutpunkter för virtuella nätverkstjänster för en händelsehubb](event-hubs-service-endpoints.md)
+Mer information finns i [Konfigurera tjänst slut punkter för virtuella nätverk för en Event Hub](event-hubs-service-endpoints.md)
 
-## <a name="private-endpoints"></a>Privata slutpunkter
+## <a name="private-endpoints"></a>Privata slut punkter
 
-[Azure Private Link-tjänsten](../private-link/private-link-overview.md) gör att du kan komma åt Azure Services (till exempel Azure Event Hubs, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partnertjänster via en **privat slutpunkt** i ditt virtuella nätverk.
+[Azure Private Link service](../private-link/private-link-overview.md) ger dig åtkomst till Azure-tjänster (till exempel Azure Event Hubs, Azure Storage och Azure Cosmos dB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
 
-En privat slutpunkt är ett nätverksgränssnitt som ansluter dig privat och säkert till en tjänst som drivs av Azure Private Link. Den privata slutpunkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt för in tjänsten i ditt virtuella nätverk. All trafik till tjänsten kan dirigeras via den privata slutpunkten, så inga gateways, NAT-enheter, ExpressRoute- eller VPN-anslutningar eller offentliga IP-adresser behövs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta detaljnivån i åtkomstkontrollen.
+En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
 
 > [!NOTE]
-> Den här funktionen stöds endast med den **dedikerade** nivån. Mer information om den dedikerade nivån finns i [Översikt över dedikerade eventhubbar](event-hubs-dedicated-overview.md). 
+> Den här funktionen stöds bara med den **dedikerade** nivån. Mer information om den dedikerade nivån finns i [Översikt över Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
 >
-> Den här funktionen är för närvarande i **förhandsgranskning**. 
+> Den här funktionen är för närvarande en för **hands version**. 
 
 
-Mer information finns i [Så här konfigurerar du privata slutpunkter för en händelsehubb](private-link-service.md)
+Mer information finns i [så här konfigurerar du privata slut punkter för en Event Hub](private-link-service.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Konfigurera IP-brandvägg för en händelsehubb](event-hubs-ip-filtering.md)
-- [Konfigurera slutpunkter för virtuella nätverkstjänster för en händelsehubb](event-hubs-service-endpoints.md)
-- [Konfigurera privata slutpunkter för en händelsehubb](private-link-service.md)
+- [Så här konfigurerar du IP-brandvägg för en Event Hub](event-hubs-ip-filtering.md)
+- [Konfigurera tjänst slut punkter för virtuella nätverk för en Event Hub](event-hubs-service-endpoints.md)
+- [Konfigurera privata slut punkter för en Event Hub](private-link-service.md)

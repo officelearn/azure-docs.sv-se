@@ -1,90 +1,90 @@
 ---
 title: Bästa praxis för Azure Cache for Redis
-description: Lär dig hur du använder din Azure Cache för Redis effektivt genom att följa dessa metodtips.
+description: Lär dig hur du använder Azure-cachen för Redis effektivt genom att följa dessa metod tips.
 author: joncole
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478619"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bästa praxis för Azure Cache for Redis 
-Genom att följa dessa metodtips kan du maximera prestanda och kostnadseffektiv användning av din Azure-cache för Redis-instans.
+Genom att följa dessa rekommendationer kan du maximera prestanda och kostnads effektiv användning av Azure-cachen för Redis-instansen.
 
-## <a name="configuration-and-concepts"></a>Konfiguration och koncept
- * **Använd standard- eller Premium-nivå för produktionssystem.**  Basic-nivån är ett enda nodsystem utan datareplikering och inget serviceavtal. Använd också minst ett C1-cacheminne.  C0-cacheminnen är avsedda för enkla dev/test-scenarier eftersom de har en delad CPU-kärna, lite minne och är benägna att "bullriga granne" problem.
+## <a name="configuration-and-concepts"></a>Konfiguration och begrepp
+ * **Använd standard-eller Premium nivån för produktions system.**  Basic-nivån är ett enda Node-system utan datareplikering och inget service avtal. Använd också minst ett C1-cacheminne.  C0-cachen är avsedda för enkla utvecklings-och test scenarier eftersom de har en delad processor kärna, lite minne och är känsliga för problem med "störningar i grannen".
 
- * **Kom ihåg att Redis är ett datalager i minnet.**  [I den här artikeln](cache-troubleshoot-data-loss.md) beskrivs några scenarier där dataförlust kan uppstå.
+ * **Kom ihåg att Redis är ett minnes intern data lager.**  [Den här artikeln](cache-troubleshoot-data-loss.md) beskriver några scenarier där data förlust kan uppstå.
 
- * **Utveckla ditt system så att det kan hantera anslutning blips** [på grund av patchning och redundans](cache-failover.md).
+ * **Utveckla ditt system så att det kan hantera anslutnings signaler** [på grund av korrigeringar och redundans](cache-failover.md).
 
- * **Konfigurera din [maxmemory-reserverade inställning](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för att förbättra systemets svarstider** under minnestrycksförhållanden.  En tillräcklig reservationsinställning är särskilt viktig för skrivtunna arbetsbelastningar eller om du lagrar större värden (100 kB eller mer) i Redis. Du bör börja med 10% av storleken på din cache och öka denna procentsats om du har skrivtunga laster.
+ * **Konfigurera [maxmemory-reserverad-inställningen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för att förbättra systemets svars tider** under minnes trycks villkor.  En tillräcklig reservations inställning är särskilt viktig för Skriv tunga arbets belastningar eller om du lagrar större värden (100 KB eller mer) i Redis. Du bör börja med 10% av storleken på cachen och öka den här procent andelen om du har Skriv tung belastningar.
 
- * **Redis fungerar bäst med mindre värden,** så överväg att hacka upp större data i flera nycklar.  I [den här Redis-diskussionen](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)visas vissa överväganden som du bör överväga noga.  Läs [den här artikeln](cache-troubleshoot-client.md#large-request-or-response-size) för ett exempel problem som kan orsakas av stora värden.
+ * **Redis fungerar bäst med mindre värden**, så Överväg att chopping upp större data i flera nycklar.  I [den här Redis-diskussionen](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)visas några saker som du bör tänka på noggrant.  I [den här artikeln](cache-troubleshoot-client.md#large-request-or-response-size) finns ett exempel på problem som kan orsakas av stora värden.
 
- * **Leta reda på cacheinstansen och programmet i samma region.**  Om du ansluter till en cache i en annan region kan latensen öka och tillförlitligheten minska avsevärt.  Även om du kan ansluta från utanför Azure, rekommenderas det inte *särskilt när du använder Redis som en cache*.  Om du använder Redis som bara en nyckel/ värde butik, latens kanske inte är det primära problemet. 
+ * **Leta upp din cache-instans och ditt program i samma region.**  Om du ansluter till en cache i en annan region kan latensen öka och tillförlitligheten minska avsevärt.  Även om du kan ansluta från utanför Azure rekommenderas du inte *särskilt när du använder Redis som cache*.  Om du använder Redis som ett nyckel/värde-lager, är det inte säkert att fördröjningen är den primära. 
 
- * **Återanvända anslutningar.**  Att skapa nya anslutningar är dyrt och ökar svarstiden, så återanvända anslutningar så mycket som möjligt. Om du väljer att skapa nya anslutningar måste du stänga de gamla anslutningarna innan du släpper dem (även på hanterade minnesspråk som .NET eller Java).
+ * **Återanvänd anslutningar.**  Att skapa nya anslutningar är dyrt och ökar svars tiden, så Återanvänd anslutningar så mycket som möjligt. Om du väljer att skapa nya anslutningar ser du till att stänga de gamla anslutningarna innan du släpper dem (även i hanterade minnes språk som .NET eller Java).
 
- * **Konfigurera klientbiblioteket så att det använder en *anslutningstidsutskrift* på minst 15 sekunder,** vilket ger systemet tid att ansluta även under högre CPU-förhållanden.  Ett litet timeout-värde för anslutningen garanterar inte att anslutningen upprättas inom den tidsramen.  Om något går fel (hög klient CPU, hög server CPU, och så vidare), då en kort anslutning timeout värde kommer att orsaka anslutningen försöket att misslyckas. Detta beteende gör ofta en dålig situation värre.  I stället för att hjälpa, kortare timeout förvärra problemet genom att tvinga systemet att starta om processen för att försöka återansluta, vilket kan leda till en *ansluta -> misslyckas -> försök* loop. Vi rekommenderar i allmänhet att du lämnar din anslutning Timeout på 15 sekunder eller högre. Det är bättre att låta anslutningsförsöket lyckas efter 15 eller 20 sekunder än att det misslyckas snabbt bara för att försöka igen. En sådan retry loop kan orsaka ditt avbrott att pågå längre än om du låter systemet bara ta längre tid från början.  
+ * **Konfigurera klient biblioteket för att använda en *anslutnings-timeout* på minst 15 sekunder**, vilket ger system tiden att ansluta även under högre CPU-förhållanden.  Ett timeout-värde för små anslutningar garanterar inte att anslutningen upprättas inom den tids perioden.  Om något går fel (hög klient processor, hög server processor och så vidare), kommer ett kort tids gräns värde för anslutningen orsaka att anslutnings försöket Miss lyckas. Det här beteendet gör ofta en dålig situation sämre.  I stället för att hjälpa, förvärrar kortare timeout-problem genom att tvinga systemet att starta om processen att försöka återansluta, vilket kan leda till en *anslutnings > fel-> försök igen* . Vi rekommenderar vanligt vis att du lämnar tids gränsen för anslutningen till 15 sekunder eller högre. Det är bättre att låta ditt anslutnings försök utföras efter 15 eller 20 sekunder än att det inte går att utföra det snabbt. En sådan slinga för återförsök kan orsaka att ditt avbrott blir längre än om du låter systemet ta längre tid.  
      > [!NOTE]
-     > Den här vägledningen är specifik för *anslutningsförsöket* och inte relaterad till den tid du är villig att vänta på att en *åtgärd* som GET eller SET ska slutföras.
+     > Den här vägledningen är unik för *anslutnings försöket* och är inte relaterat till den tid som du är redo att vänta på en *åtgärd* som Get eller set att slutföra.
  
- * **Undvik dyra operationer** - Vissa Redis-åtgärder, som [keys-kommandot,](https://redis.io/commands/keys) är *mycket* dyra och bör undvikas.  Mer information finns i några överväganden kring [långvariga kommandon](cache-troubleshoot-server.md#long-running-commands)
+ * **Undvik dyra åtgärder** – vissa redis-åtgärder, till exempel kommandot [nycklar](https://redis.io/commands/keys) , är *mycket* dyra och bör undvikas.  Mer information finns i några överväganden om [tids krävande kommandon](cache-troubleshoot-server.md#long-running-commands)
 
- * **Använd TLS-kryptering** - Azure Cache för Redis kräver TLS-krypterad kommunikation som standard.  TLS-versionerna 1.0, 1.1 och 1.2 stöds för närvarande.  TLS 1.0 och 1.1 är dock på väg att utfasa branschomfattande, så använd TLS 1.2 om det alls är möjligt.  Om klientbiblioteket eller verktyget inte stöder TLS kan du aktivera okrypterade anslutningar [via Azure-portalen](cache-configure.md#access-ports) eller [hanterings-API:erna](https://docs.microsoft.com/rest/api/redis/redis/update).  I sådana fall där krypterade anslutningar inte är möjliga rekommenderas att cache- och klientprogrammet placeras i ett virtuellt nätverk.  Mer information om vilka portar som används i scenariot för virtuell nätverkscache finns i den här [tabellen](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ * **Använd TLS-kryptering** – Azure cache för REDIS kräver TLS-krypterad kommunikation som standard.  TLS-versionerna 1,0, 1,1 och 1,2 stöds för närvarande.  TLS 1,0 och 1,1 finns dock på en sökväg till föråldrad bransch, så Använd TLS 1,2 om det är möjligt.  Om klient biblioteket eller verktyget inte stöder TLS kan du göra [det genom att](cache-configure.md#access-ports) aktivera okrypterade anslutningar via [API: erna](https://docs.microsoft.com/rest/api/redis/redis/update)för Azure Portal eller hantering.  I sådana fall där det inte går att kryptera anslutningar kan du rekommendera att placera cacheminnet och klient programmet i ett virtuellt nätverk.  Mer information om vilka portar som används i det virtuella nätverkets cache-scenario finns i den här [tabellen](cache-how-to-premium-vnet.md#outbound-port-requirements).
  
-## <a name="memory-management"></a>Minneshantering
-Det finns flera saker som rör minnesanvändning i Redis-serverinstansen som du kanske vill ta hänsyn till.  Här är några:
+## <a name="memory-management"></a>Minnes hantering
+Det finns flera saker som rör minnes användningen i Redis-serverinstansen som du kanske vill överväga.  Här är några:
 
- * **Välj en [vräkningsprincip](https://redis.io/topics/lru-cache) som fungerar för ditt program.**  Standardprincipen för Azure Redis är *flyktig-lru*, vilket innebär att endast nycklar som har en TTL-värdeuppsättning kan v startas.  Om inga nycklar har ett TTL-värde kommer systemet inte att ta bort några nycklar.  Om du vill att systemet ska tillåta att alla nycklar ska vräkas om de är under minnestryck, kanske du vill överväga *allkeys-lru-policyn.*
+ * **Välj en [borttagnings princip](https://redis.io/topics/lru-cache) som fungerar för ditt program.**  Standard principen för Azure Redis är *volatile-LRU*, vilket innebär att endast nycklar som har ett TTL-värde har angetts för borttagning.  Om inga nycklar har ett TTL-värde kommer systemet inte att avlägsna några nycklar.  Om du vill att systemet ska tillåta att en nyckel tas bort om den är under minnes belastning, kan du överväga att använda *allkeys-LRU-* principen.
 
- * **Ange ett utgångsvärde på dina nycklar.**  En förfallodatum tar bort nycklar proaktivt i stället för att vänta tills minnestrycket finns.  När vräkning startar på grund av minnestrycket kan det orsaka ytterligare belastning på servern.  Mer information finns i dokumentationen för [kommandona EXPIRE](https://redis.io/commands/expire) [OCH EXPIREAT.](https://redis.io/commands/expireat)
+ * **Ange ett förfallo värde för dina nycklar.**  Ett förfallo datum kommer att ta bort nycklar proaktivt i stället för att vänta tills det finns minnes belastning.  När avlägsnandet sker på grund av minnes belastning kan det orsaka ytterligare belastning på servern.  Mer information finns i dokumentationen för kommandot [Expires](https://redis.io/commands/expire) och [EXPIREAT](https://redis.io/commands/expireat) .
  
-## <a name="client-library-specific-guidance"></a>Specifik vägledning för klientbibliotek
- * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
- * [Java - Vilken klient ska jag använda?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [Sallad (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+## <a name="client-library-specific-guidance"></a>Vägledning för klient biblioteks information
+ * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+ * [Java-vilken klient ska jag använda?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
+ * [Sallat (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
- * [Asp.Net leverantör av sessionstillstånd](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+ * [Provider för Asp.Net-sessionstillstånd](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## <a name="when-is-it-safe-to-retry"></a>När är det säkert att försöka igen?
-Tyvärr finns det inget enkelt svar.  Varje program måste bestämma vilka åtgärder som kan göras om och vilka som inte kan göras.  Varje åtgärd har olika krav och internyckelberoenden.  Här är några saker du kan tänka dig:
+Tyvärr finns det inget enkelt svar.  Varje program måste bestämma vilka åtgärder som kan göras om och vilket inte kan göras.  Varje åtgärd har olika krav och beroenden mellan nycklar.  Här följer några saker som du kan tänka på:
 
- * Du kan få fel på klientsidan även om Redis körde kommandot du bad det att köra.  Ett exempel:
-     - Timeout är ett klientkoncept.  Om åtgärden nådde servern kör servern kommandot även om klienten ger upp att vänta.  
-     - När ett fel uppstår på socketanslutningen går det inte att veta om åtgärden verkligen kördes på servern.  Anslutningsfelet kan till exempel inträffa efter att servern har bearbetat begäran men innan klienten tar emot svaret.
- *  Hur reagerar mitt program om jag råkar köra samma åtgärd två gånger?  Vad händer till exempel om jag ökar ett heltal två gånger i stället för en gång?  Är min ansökan skriver till samma nyckel från flera ställen?  Vad händer om logiken för återförsök skriver över ett värde som angetts av någon annan del av min app?
+ * Du kan få fel på klient sidan även om Redis har kört kommandot som du bad om att köra.  Ett exempel:
+     - Tids gränser är ett koncept på klient sidan.  Om åtgärden har nått servern kör servern kommandot även om klienten ger väntande svar.  
+     - När ett fel uppstår på socket-anslutningen är det inte möjligt att veta om åtgärden faktiskt kördes på servern.  Anslutnings felet kan till exempel inträffa efter att servern bearbetat begäran, men innan klienten får svaret.
+ *  Hur reagerar mitt program om jag råkar köra samma åtgärd två gånger?  Vad händer om jag exempelvis ökar ett heltal två gånger i stället för en gång?  Skrivs mitt program till samma nyckel från flera platser?  Vad händer om min omprövnings logik skriver över ett värde som har angetts av någon annan del av min app?
 
-Om du vill testa hur koden fungerar under felförhållanden kan du överväga att använda [funktionen Starta om](cache-administration.md#reboot). Omstart kan du se hur anslutningen blips påverkar ditt program.
+Om du vill testa hur koden fungerar under fel tillstånd, kan du överväga att använda [funktionen för omstart](cache-administration.md#reboot). Genom att starta om kan du se hur anslutnings signaler påverkar ditt program.
 
 ## <a name="performance-testing"></a>Prestandatestning
- * **Börja med `redis-benchmark.exe` ** att använda för att få en känsla för eventuellt dataflöde / latens innan du skriver din egen perf tester.  Redis-benchmark dokumentation [finns här](https://redis.io/topics/benchmarks).  Observera att redis-benchmark inte stöder TLS, så du måste [aktivera icke-TLS-porten via portalen](cache-configure.md#access-ports) innan du kör testet.  [En windows-kompatibel version av redis-benchmark.exe finns här](https://github.com/MSOpenTech/redis/releases)
- * Klientens virtuella dator som används för testning bör vara **i samma region** som din Redis-cacheinstans.
- * **Vi rekommenderar att du använder Dv2 VM-serien** för din klient eftersom de har bättre hårdvara och ger bästa resultat.
- * Kontrollera att klientens virtuella dator du använder har **minst lika mycket beräkning och bandbredd* som cachen som testas. 
- * **Aktivera VRSS** på klientmaskinen om du använder Windows.  [Se här för mer information](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Exempel powershell-skript:
-     >PowerShell -ExecutionPolicy Obegränsad Enable-NetAdapterRSS -Name ( Get-NetAdapter). Namn 
+ * **Börja med att `redis-benchmark.exe` använda** för att få en känsla för möjliga data flöde/svars tider innan du skriver dina egna perf-tester.  Redis – benchmark-dokumentation [finns här](https://redis.io/topics/benchmarks).  Observera att Redis-benchmark inte stöder TLS, så du måste [Aktivera icke-TLS-porten via portalen](cache-configure.md#access-ports) innan du kör testet.  [Du hittar en Windows-kompatibel version av Redis-benchmark. exe här](https://github.com/MSOpenTech/redis/releases)
+ * Den virtuella klient datorn som används för testning ska finnas **i samma region** som din Redis-cache-instans.
+ * **Vi rekommenderar att du använder Dv2 VM-serien** för din klient eftersom de har bättre maskin vara och ger bästa möjliga resultat.
+ * Kontrol lera att den virtuella klient datorn som du använder har * minst*lika mycket data bearbetning och bandbredd* som det cacheminne som testas. 
+ * **Aktivera VRSS** på klient datorn om du använder Windows.  [Mer information finns här](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Exempel på PowerShell-skript:
+     >PowerShell – ExecutionPolicy obegränsad Enable-NetAdapterRSS-Name (Get-netadapter). Namn 
      
- * **Överväg att använda Premium-nivå Redis-instanser**.  Dessa cachestorlekar har bättre nätverksfördröjning och dataflöde eftersom de körs på bättre maskinvara för både CPU och Nätverk.
+ * **Överväg att använda Redis-instanser på Premium-nivå**.  Dessa cachestorlek har bättre nätverks svars tid och data flöde eftersom de körs på bättre maskin vara för både processor och nätverk.
  
      > [!NOTE]
-     > Våra observerade resultat [publiceras här](cache-faq.md#azure-cache-for-redis-performance) för din referens.   Tänk också på att SSL/TLS lägger till vissa omkostnader, så att du kan få olika svarstider och/eller dataflöde om du använder transportkryptering.
+     > Våra observerade prestanda resultat [publiceras här](cache-faq.md#azure-cache-for-redis-performance) för din referens.   Tänk också på att SSL/TLS lägger till viss overhead, så att du kan få olika fördröjningar och/eller data flöden om du använder transport kryptering.
  
-### <a name="redis-benchmark-examples"></a>Exempel på Redis-Benchmark
-**Förtestinställning:** Förbered cacheinstansen med data som krävs för svarstids- och dataflödestestkommandona nedan.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
+### <a name="redis-benchmark-examples"></a>Redis – benchmark-exempel
+**Före test konfiguration**: Förbered cache-instansen med data som krävs för svar på svars tid och data flöde som visas nedan.
+> Redis-benchmark. exe-h yourcache.redis.cache.windows.net – a yourAccesskey-t SET-n 10-d 1024 
 
-**Så här testar du svarstid:** Testa GET-begäranden med en 1k-nyttolast.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
+**Så här testar du svars tiden**: testa get-begäranden med en last på 1 KB.
+> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-d 1024-P 50-c 4
 
-**Så här testar du dataflödet:** Pipelined GET-begäranden med 1k nyttolast.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -n 1000000 -d 1024 -P 50 -c 50
+**Testa data flödet:** Pipeline GET-begäranden med nytto lasten 1 KB.
+> Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a yourAccesskey-t GET-n 1000000-d 1024-P 50-c 50

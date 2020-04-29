@@ -1,21 +1,21 @@
 ---
-title: Mängdfunktioner i Azure Cosmos DB
-description: Lär dig mer om SQL-mängdfunktionssyntax, typer av mängdfunktioner som stöds av Azure Cosmos DB.
+title: Mängd funktioner i Azure Cosmos DB
+description: Lär dig mer om SQL agg regering Function-syntax, typer av mängd funktioner som stöds av Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
 ms.openlocfilehash: 24acd1e9c13320244ff4c27abd13abeda6f70b2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79464469"
 ---
-# <a name="aggregate-functions-in-azure-cosmos-db"></a>Mängdfunktioner i Azure Cosmos DB
+# <a name="aggregate-functions-in-azure-cosmos-db"></a>Mängd funktioner i Azure Cosmos DB
 
-Mängdfunktioner utför en beräkning på en `SELECT` uppsättning värden i satsen och returnerar ett enda värde. Följande fråga returnerar till exempel antalet `Families` objekt i behållaren:
+Mängd funktioner utför en beräkning av en uppsättning värden i `SELECT` satsen och returnerar ett enda värde. Följande fråga returnerar till exempel antalet objekt i `Families` behållaren:
 
 ## <a name="examples"></a>Exempel
 
@@ -32,7 +32,7 @@ Resultatet är:
     }]
 ```
 
-Du kan också returnera endast skalvärdet för aggregerade med hjälp av nyckelordet VALUE. Till exempel returnerar följande fråga antalet värden som ett enskilt tal:
+Du kan också returnera det skalära värdet för agg regeringen genom att använda nyckelordet VALUE. Till exempel returnerar följande fråga antalet värden som ett enskilt tal:
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -45,7 +45,7 @@ Resultatet är:
     [ 2 ]
 ```
 
-Du kan också kombinera aggregeringar med filter. Följande fråga returnerar till exempel antalet objekt med `WA`adresstillståndet för .
+Du kan också kombinera agg regeringar med filter. Följande fråga returnerar till exempel antalet objekt med adress statusen för `WA`.
 
 ```sql
     SELECT VALUE COUNT(1)
@@ -59,9 +59,9 @@ Resultatet är:
     [ 1 ]
 ```
 
-## <a name="types-of-aggregate-functions"></a>Typer av aggregerade funktioner
+## <a name="types-of-aggregate-functions"></a>Typer av mängd funktioner
 
-SQL API stöder följande mängdfunktioner. `SUM`och `AVG` arbetar med numeriska `COUNT` `MIN`värden `MAX` och , och arbetar med tal, strängar, booleaner och null.
+SQL-API: et stöder följande mängd funktioner. `SUM`och `AVG` använder numeriska värden, och `COUNT`, `MIN`, och `MAX` arbetar med siffror, strängar, booleska värden och null-värden.
 
 | Funktion | Beskrivning |
 |-------|-------------|
@@ -71,14 +71,14 @@ SQL API stöder följande mängdfunktioner. `SUM`och `AVG` arbetar med numeriska
 | MAX   | Returnerar maxvärdet i uttrycket. |
 | AVG   | Returnerar medelvärdet av värdena i uttrycket. |
 
-Du kan också aggregera över resultatet av en matrisiteration.
+Du kan också aggregera över resultatet av en mat ris iteration.
 
 > [!NOTE]
-> I Azure-portalens datautforskaren kan aggregeringsfrågor aggregera partiella resultat över endast en frågesida. SDK ger ett enda ackumulerat värde på alla sidor. Om du vill utföra aggregeringsfrågor med hjälp av kod behöver du .NET SDK 1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller högre.
+> I Azure Portals Datautforskaren kan agg regerings frågor aggregera delar av resultaten över bara en fråge sida. SDK skapar ett enda ackumulerat värde för alla sidor. Om du vill utföra agg regerings frågor med hjälp av kod behöver du .NET SDK-1.12.0, .NET Core SDK 1.1.0 eller Java SDK 1.9.5 eller senare.
 
 ## <a name="remarks"></a>Anmärkningar
 
-Dessa aggregerade systemfunktioner kommer att dra nytta av ett [intervallindex](index-policy.md#includeexclude-strategy). Om du förväntar `COUNT`dig `SUM` `MIN`att `MAX`göra `AVG` en , , , eller på en egenskap, bör du [inkludera den relevanta sökvägen i indexeringsprincipen](index-policy.md#includeexclude-strategy).
+Dessa sammanställda system funktioner kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy). Om du förväntar dig `COUNT`att `SUM`göra `MIN`ett `MAX`,, `AVG` , eller en egenskap, bör du [ta med relevant sökväg i indexerings principen](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 

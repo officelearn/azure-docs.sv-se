@@ -1,6 +1,6 @@
 ---
-title: Checklista för prestanda och skalbarhet för Blob-lagring – Azure Storage
-description: En checklista med beprövade metoder för användning med Blob-lagring för att utveckla högpresterande program.
+title: Check lista för prestanda och skalbarhet för Blob Storage – Azure Storage
+description: En check lista över beprövade metoder för användning med Blob Storage i utveckla program med höga prestanda.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,282 +9,282 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80473945"
 ---
-# <a name="performance-and-scalability-checklist-for-blob-storage"></a>Checklista för prestanda och skalbarhet för Blob-lagring
+# <a name="performance-and-scalability-checklist-for-blob-storage"></a>Check lista för prestanda och skalbarhet för Blob Storage
 
-Microsoft har utvecklat ett antal beprövade metoder för att utveckla högpresterande program med Blob-lagring. Den här checklistan identifierar viktiga metoder som utvecklare kan följa för att optimera prestanda. Tänk på dessa metoder när du utformar ditt program och under hela processen.
+Microsoft har utvecklat ett antal beprövade metoder för att utveckla program med höga prestanda med Blob Storage. Den här check listan identifierar viktiga metoder som utvecklare kan följa för att optimera prestanda. Tänk på dessa metoder när du utformar ditt program och hela processen.
 
-Azure Storage har skalbarhets- och prestandamål för kapacitet, transaktionshastighet och bandbredd. Mer information om Azure Storage-skalbarhetsmål finns i [Skalbarhets- och prestandamål för standardlagringskonton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) och [skalbarhets- och prestandamål för Blob-lagring](scalability-targets.md).
+Azure Storage har skalbarhets-och prestanda mål för kapacitet, transaktions hastighet och bandbredd. Mer information om Azure Storage skalbarhets mål finns i [skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) och [skalbarhets-och prestanda mål för Blob Storage](scalability-targets.md).
 
 ## <a name="checklist"></a>Checklista
 
-Den här artikeln organiserar beprövade metoder för prestanda i en checklista som du kan följa när du utvecklar ditt Blob-lagringsprogram.
+Den här artikeln ordnar beprövade metoder för prestanda i en check lista som du kan följa när du utvecklar ditt Blob Storage-program.
 
-| Klart | Kategori | Design övervägande |
+| Klart | Kategori | Design överväganden |
 | --- | --- | --- |
-| &nbsp; |Skalbarhetsmål |[Kan du utforma ditt program så att det inte använder mer än det maximala antalet lagringskonton?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Skalbarhetsmål |[Undviker du att närma dig kapacitets- och transaktionsgränser?](#capacity-and-transaction-targets) |
-| &nbsp; |Skalbarhetsmål |[Har ett stort antal klienter åtkomst till en enda blob samtidigt?](#multiple-clients-accessing-a-single-blob-concurrently) |
-| &nbsp; |Skalbarhetsmål |[Håller ditt program dig inom skalbarhetsmålen för en enda blob?](#bandwidth-and-operations-per-blob) |
-| &nbsp; |Partitionering |[Är din namngivningskonvention utformad för att möjliggöra bättre belastningsutjämning?](#partitioning) |
-| &nbsp; |Nätverk |[Har klientenheter tillräckligt hög bandbredd och låg latens för att uppnå den prestanda som behövs?](#throughput) |
-| &nbsp; |Nätverk |[Har klientenheter en nätverkslänk av hög kvalitet?](#link-quality) |
-| &nbsp; |Nätverk |[Är klientprogrammet i samma region som lagringskontot?](#location) |
-| &nbsp; |Direkt klientåtkomst |[Använder du SIGNATURER för delad åtkomst (SAS) och COS (Cross-Origin Resource Sharing) för att möjliggöra direkt åtkomst till Azure Storage?](#sas-and-cors) |
-| &nbsp; |Caching |[Är ditt program cachelagring data som ofta nås och sällan ändras?](#reading-data) |
-| &nbsp; |Caching |[Är ditt program batching uppdateringar genom att cachelagring dem på klienten och sedan ladda upp dem i större uppsättningar?](#uploading-data-in-batches) |
-| &nbsp; |.NET-konfiguration |[Använder du .NET Core 2.1 eller senare för optimal prestanda?](#use-net-core) |
-| &nbsp; |.NET-konfiguration |[Har du konfigurerat klienten att använda ett tillräckligt antal samtidiga anslutningar?](#increase-default-connection-limit) |
-| &nbsp; |.NET-konfiguration |[Har du konfigurerat .NET för att använda ett tillräckligt antal trådar för .NET-program?](#increase-minimum-number-of-threads) |
-| &nbsp; |Parallellitet |[Har du sett till att parallellism är begränsad på rätt sätt så att du inte överbelastar klientens kapacitet eller närmar dig skalbarhetsmålen?](#unbounded-parallelism) |
-| &nbsp; |Verktyg |[Använder du de senaste versionerna av klientbibliotek och verktyg som tillhandahålls av Microsoft?](#client-libraries-and-tools) |
-| &nbsp; |Antal försök |[Använder du en återförsöksprincip med en exponentiell backoff för begränsningsfel och tidsutgångar?](#timeout-and-server-busy-errors) |
-| &nbsp; |Antal försök |[Undviker ditt program återförsök för fel som inte kan försökas om?](#non-retryable-errors) |
+| &nbsp; |Skalbarhets mål |[Kan du utforma ditt program så att det inte använder fler än det högsta antalet lagrings konton?](#maximum-number-of-storage-accounts) |
+| &nbsp; |Skalbarhets mål |[Undviker du att du närmar dig kapacitets-och transaktions gränserna?](#capacity-and-transaction-targets) |
+| &nbsp; |Skalbarhets mål |[Är ett stort antal klienter som har åtkomst till en enskild BLOB samtidigt?](#multiple-clients-accessing-a-single-blob-concurrently) |
+| &nbsp; |Skalbarhets mål |[Ligger ditt program i skalbarhets målen för en enda BLOB?](#bandwidth-and-operations-per-blob) |
+| &nbsp; |Partitionering |[Är namngivnings konventionen utformad för att möjliggöra bättre belastnings utjämning?](#partitioning) |
+| &nbsp; |Nätverk |[Har klient sidan enheter tillräckligt med hög bandbredd och låg latens för att uppnå den prestanda som krävs?](#throughput) |
+| &nbsp; |Nätverk |[Har klient sidan enheter en nätverks länk med hög kvalitet?](#link-quality) |
+| &nbsp; |Nätverk |[Är klient programmet i samma region som lagrings kontot?](#location) |
+| &nbsp; |Direkt klient åtkomst |[Använder du signaturer för delad åtkomst (SAS) och resurs delning mellan ursprung (CORS) för att ge direkt åtkomst till Azure Storage?](#sas-and-cors) |
+| &nbsp; |Caching |[Är ditt program caching-data som används ofta och ändras sällan?](#reading-data) |
+| &nbsp; |Caching |[Är ditt program batch-uppdateringar att cachelagra dem på klienten och sedan ladda upp dem i större mängder?](#uploading-data-in-batches) |
+| &nbsp; |.NET-konfiguration |[Använder du .NET Core 2,1 eller senare för bästa prestanda?](#use-net-core) |
+| &nbsp; |.NET-konfiguration |[Har du konfigurerat att klienten ska använda ett tillräckligt antal samtidiga anslutningar?](#increase-default-connection-limit) |
+| &nbsp; |.NET-konfiguration |[Har du konfigurerat .NET att använda ett tillräckligt antal trådar för .NET-program?](#increase-minimum-number-of-threads) |
+| &nbsp; |Parallellitet |[Har du säkerställt att parallellitet är lämpligt så att du inte överbelastar din klients funktioner eller använder skalbarhets målen?](#unbounded-parallelism) |
+| &nbsp; |Verktyg |[Använder du de senaste versionerna av Microsoft-tillhandahållna klient bibliotek och verktyg?](#client-libraries-and-tools) |
+| &nbsp; |Antal försök |[Använder du en princip för återförsök med en exponentiell backoff för begränsning av fel och tids gränser?](#timeout-and-server-busy-errors) |
+| &nbsp; |Antal försök |[Kan programmet undvika nya försök för fel som inte kan återförsökas?](#non-retryable-errors) |
 | &nbsp; |Kopiera blobbar |[Kopierar du blobbar på det mest effektiva sättet?](#blob-copy-apis) |
-| &nbsp; |Kopiera blobbar |[Använder du den senaste versionen av AzCopy för masskopiering?](#use-azcopy) |
+| &nbsp; |Kopiera blobbar |[Använder du den senaste versionen av AzCopy för Mass kopierings åtgärder?](#use-azcopy) |
 | &nbsp; |Kopiera blobbar |[Använder du Azure Data Box-familjen för att importera stora mängder data?](#use-azure-data-box) |
-| &nbsp; |Distribution av innehåll |[Använder du ett CDN för innehållsdistribution?](#content-distribution) |
-| &nbsp; |Använda metadata |[Lagrar du ofta använda metadata om blobbar i deras metadata?](#use-metadata) |
-| &nbsp; |Ladda upp snabbt |[När du försöker ladda upp en blob snabbt, laddar du upp block parallellt?](#upload-one-large-blob-quickly) |
-| &nbsp; |Ladda upp snabbt |[När du försöker ladda upp många blobbar snabbt, laddar du upp blobbar parallellt?](#upload-many-blobs-quickly) |
-| &nbsp; |Blobtyp |[Använder du sidblobar eller blockblobar när det är lämpligt?](#choose-the-correct-type-of-blob) |
+| &nbsp; |Innehålls distribution |[Använder du ett CDN för innehålls distribution?](#content-distribution) |
+| &nbsp; |Använd metadata |[Lagrar du ofta använda metadata om blobbar i deras metadata?](#use-metadata) |
+| &nbsp; |Ladda upp snabbt |[Kommer du att ladda upp block parallellt när du försöker ladda upp en BLOB snabbt?](#upload-one-large-blob-quickly) |
+| &nbsp; |Ladda upp snabbt |[Kommer du att ladda upp blobar parallellt när du snabbt försöker ladda upp många blobbar?](#upload-many-blobs-quickly) |
+| &nbsp; |Blobtyp |[Använder du Page blobbar eller block-blobar när det är lämpligt?](#choose-the-correct-type-of-blob) |
 
-## <a name="scalability-targets"></a>Skalbarhetsmål
+## <a name="scalability-targets"></a>Skalbarhets mål
 
-Om ditt program närmar sig eller överskrider något av skalbarhetsmålen kan det stöta på ökade transaktionsdämpningar eller begränsning. När Azure Storage begränsar ditt program börjar tjänsten returnera 503 (Server upptagen) eller 500 (Operation timeout) felkoder. Att undvika dessa fel genom att hålla sig inom gränserna för skalbarhetsmålen är en viktig del för att förbättra programmets prestanda.
+Om ditt program närmar sig eller överskrider något av skalbarhets målen kan det uppstå ökad transaktions fördröjning eller begränsning. När Azure Storage begränsar ditt program börjar tjänsten returnera 503 (servern är upptagen) eller 500 (åtgärds tids gräns) fel koder. Att undvika dessa fel genom att ligga kvar i gränserna för skalbarhets målen är en viktig del i att förbättra programmets prestanda.
 
-Mer information om skalbarhetsmål för kötjänsten finns i [Azure Storage skalbarhet och prestandamål](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalbarhets-och prestanda mål](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
-### <a name="maximum-number-of-storage-accounts"></a>Maximalt antal lagringskonton
+### <a name="maximum-number-of-storage-accounts"></a>Maximalt antal lagrings konton
 
-Om du närmar dig det maximala antalet lagringskonton som tillåts för en viss kombination av prenumerationer/regioner utvärderar du scenariot och avgör om något av följande villkor gäller:
+Om du närmar dig det maximala antalet lagrings konton som tillåts för en viss kombination av prenumerationer och regioner ska du utvärdera ditt scenario och avgöra om något av följande villkor gäller:
 
-- Använder du lagringskonton för att lagra ohanterat diskar och lägga till dessa diskar på dina virtuella datorer? I det här fallet rekommenderar Microsoft att du använder hanterade diskar. Hanterade diskar skalas för dig automatiskt och utan att behöva skapa och hantera enskilda lagringskonton. Mer information finns i [Introduktion till Azure-hanterade diskar](../../virtual-machines/windows/managed-disks-overview.md)
-- Använder du ett lagringskonto per kund i syfte att isolera data? I det här scenariot rekommenderar Microsoft att du använder en blob-behållare för varje kund i stället för ett helt lagringskonto. Azure Storage kan du nu tilldela rollbaserade åtkomstkontroll (RBAC) roller per behållare. Mer information finns i [Bevilja åtkomst till Azure-blob och ködata med RBAC i Azure-portalen](../common/storage-auth-aad-rbac-portal.md).
-- Använder du flera lagringskonton för att öka inträngnings-, utgående, I/O-åtgärder per sekund (IOPS) eller kapacitet? I det här fallet rekommenderar Microsoft att du drar nytta av ökade gränser för lagringskonton för att minska antalet lagringskonton som krävs för din arbetsbelastning om möjligt. Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) för att begära ökade gränser för ditt lagringskonto. Mer information finns i [Presentera lagringskonton i större skala.](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)
+- Använder du lagrings konton för att lagra ohanterade diskar och lägga till diskarna till dina virtuella datorer? I det här scenariot rekommenderar Microsoft att hanterade diskar används. Managed disks skalas automatiskt och utan behov av att skapa och hantera enskilda lagrings konton. Mer information finns i [Introduktion till Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md)
+- Använder du ett lagrings konto per kund, i syfte att isolera data? I det här scenariot rekommenderar Microsoft att du använder en BLOB-behållare för varje kund, i stället för ett helt lagrings konto. Med Azure Storage kan du nu tilldela rollen rollbaserad åtkomst kontroll (RBAC) per behållare. Mer information finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](../common/storage-auth-aad-rbac-portal.md).
+- Använder du flera lagrings konton för att Shard för att öka ingress, utgående, I/O-åtgärder per sekund (IOPS) eller kapacitet? I det här scenariot rekommenderar Microsoft att du utnyttjar ökade gränser för lagrings konton för att minska antalet lagrings konton som krävs för din arbets belastning om det är möjligt. Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) för att begära ökade gränser för ditt lagrings konto. Mer information finns i avsnittet om att [presentera större och högre skalnings lagrings konton](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
-### <a name="capacity-and-transaction-targets"></a>Kapacitets- och transaktionsmål
+### <a name="capacity-and-transaction-targets"></a>Kapacitets-och transaktions mål
 
-Om ditt program närmar sig skalbarhetsmålen för ett enda lagringskonto kan du överväga att använda någon av följande metoder:  
+Om ditt program närmar sig skalbarhets målen för ett enda lagrings konto bör du överväga att använda någon av följande metoder:  
 
-- Om ditt program når transaktionsmålet kan du överväga att använda block blob storage-konton, som är optimerade för höga transaktionshastigheter och låg och konsekvent svarstid. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
-- Ompröva arbetsbelastningen som gör att ditt program närmar sig eller överskrider skalbarhetsmålet. Kan du utforma det annorlunda för att använda mindre bandbredd eller kapacitet, eller färre transaktioner?
-- Om ditt program måste överskrida ett av skalbarhetsmålen skapar du flera lagringskonton och partitionerar dina programdata över dessa flera lagringskonton. Om du använder det här mönstret måste du utforma programmet så att du kan lägga till fler lagringskonton i framtiden för belastningsutjämning. Lagringskonton själva har ingen annan kostnad än din användning när det gäller lagrade data, transaktioner eller data som överförs.
-- Om ditt program närmar sig bandbreddsmålen bör du överväga att komprimera data på klientsidan för att minska den bandbredd som krävs för att skicka data till Azure Storage.
-    Komprimera data kan spara bandbredd och förbättra nätverkets prestanda, men det kan också ha negativa effekter på prestanda. Utvärdera prestandapåverkan av de ytterligare bearbetningskraven för datakomprimering och dekompression på klientsidan. Tänk på att lagring av komprimerade data kan göra det svårare att felsöka eftersom det kan vara svårare att visa data med standardverktyg.
-- Om ditt program närmar sig skalbarhetsmålen kontrollerar du att du använder en exponentiell backoff för återförsök. Det är bäst att försöka undvika att nå skalbarhetsmålen genom att implementera rekommendationerna som beskrivs i den här artikeln. Men om du använder en exponentiell backoff för återförsök kommer programmet att förhindra att programmet försöker igen snabbt, vilket kan göra begränsningen värre. Mer information finns i avsnittet [Timeout och Server Busy errors](#timeout-and-server-busy-errors).
+- Om ditt program träffar transaktions målet bör du överväga att använda Block Blob Storage-konton, som är optimerade för höga transaktions hastigheter och låg och konsekvent svars tid. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
+- Ta hänsyn till arbets belastningen som gör att ditt program närmar sig eller överskrider skalbarhets målet. Kan du utforma det på ett annat sätt att använda mindre bandbredd eller kapacitet eller färre transaktioner?
+- Om ditt program måste överskrida ett av skalbarhets målen skapar du flera lagrings konton och partitionerar dina program data på flera lagrings konton. Om du använder det här mönstret ser du till att utforma ditt program så att du kan lägga till fler lagrings konton i framtiden för belastnings utjämning. Själva lagrings konton har ingen annan kostnad än din användning i termer av lagrade data, transaktioner som har gjorts eller överförda data.
+- Om ditt program närmar sig bandbredds målen bör du överväga att komprimera data på klient sidan för att minska den bandbredd som krävs för att skicka data till Azure Storage.
+    När du komprimerar data kan du spara bandbredd och förbättra nätverks prestanda, men det kan också ha negativa effekter på prestanda. Utvärdera prestanda påverkan för de ytterligare bearbetnings kraven för data komprimering och dekomprimering på klient sidan. Tänk på att lagring av komprimerade data kan göra fel sökningen svårare eftersom det kan vara mer utmanande att visa data med hjälp av standard verktyg.
+- Om ditt program närmar sig skalbarhets målen kontrollerar du att du använder en exponentiell backoff för återförsök. Det är bäst att försöka undvika att nå skalbarhets målen genom att implementera rekommendationerna som beskrivs i den här artikeln. Om du använder en exponentiell backoff för återförsök kan du dock förhindra att ditt program försöker igen, vilket kan göra att begränsningen blir sämre. Mer information finns i avsnittet [timeout-fel och servern är upptagen](#timeout-and-server-busy-errors).
 
-### <a name="multiple-clients-accessing-a-single-blob-concurrently"></a>Flera klienter som har åtkomst till en enda blob samtidigt
+### <a name="multiple-clients-accessing-a-single-blob-concurrently"></a>Flera klienter som har åtkomst till en enskild BLOB samtidigt
 
-Om du har ett stort antal klienter som har åtkomst till en enda blob samtidigt måste du överväga både skalbarhetsmål per blob och per lagringskonto. Det exakta antalet klienter som kan komma åt en enda blob varierar beroende på faktorer som antalet klienter som begär blob samtidigt, storleken på blobben och nätverksvillkoren.
+Om du har ett stort antal klienter som använder en enda BLOB samtidigt måste du överväga båda skalbarhets målen per blob och per lagrings konto. Det exakta antalet klienter som kan komma åt en enda BLOB varierar beroende på faktorer som antalet klienter som begär BLOB samtidigt, storleken på blobben och nätverks förhållanden.
 
-Om blobben kan distribueras via ett CDN, till exempel bilder eller videor som visas från en webbplats, kan du använda ett CDN. Mer information finns i avsnittet [Innehållsdistribution](#content-distribution).
+Om blobben kan distribueras via ett CDN, till exempel bilder eller videor som hanteras från en webbplats, kan du använda ett CDN. Mer information finns i avsnittet [innehålls distribution](#content-distribution).
 
-I andra scenarier, till exempel vetenskapliga simuleringar där data är konfidentiella, har du två alternativ. Den första är att sprida din arbetsbelastnings åtkomst så att blobben nås under en tidsperiod jämfört med åtkomst samtidigt. Alternativt kan du tillfälligt kopiera blobben till flera lagringskonton för att öka den totala IOPS per blob och över lagringskonton. Resultaten varierar beroende på programmets beteende, så se till att testa samtidighetsmönster under designen.
+I andra scenarier, till exempel vetenskapliga simuleringar där data är konfidentiella, har du två alternativ. Det första är att sprida arbets Belastningens åtkomst så att bloben kan nås under en viss tids period, jämfört med att nås samtidigt. Alternativt kan du tillfälligt kopiera blobben till flera lagrings konton för att öka det totala antalet IOPS per blob och över lagrings konton. Resultaten varierar beroende på programmets beteende, så se till att testa samtidiga samtidighets mönster under designen.
 
-### <a name="bandwidth-and-operations-per-blob"></a>Bandbredd och åtgärder per blob
+### <a name="bandwidth-and-operations-per-blob"></a>Bandbredd och åtgärder per BLOB
 
-En enda blob stöder upp till 500 begäranden per sekund. Om du har flera klienter som behöver läsa samma blob och du kan överskrida den här gränsen bör du överväga att använda ett blockbloloblagringskonto. Ett blockbloloblagringskonto ger en högre begärandehastighet eller I/O-åtgärder per sekund (IOPS).
+En enda BLOB stöder upp till 500 begär Anden per sekund. Om du har flera klienter som behöver läsa samma blob och du kan överskrida den här gränsen kan du överväga att använda ett Block Blob Storage-konto. Ett Block-Blob Storage-konto ger högre frekvens för begär Anden, eller I/O-åtgärder per sekund (IOPS).
 
-Du kan också använda ett CDN-nätverk (Content Delivery Network), till exempel Azure CDN för att distribuera åtgärder på blobben. Mer information om Azure CDN finns i [Azure CDN översikt](../../cdn/cdn-overview.md).  
+Du kan också använda ett Content Delivery Network (CDN) som Azure CDN för att distribuera åtgärder på blobben. Mer information om Azure CDN finns i [Azure CDN översikt](../../cdn/cdn-overview.md).  
 
 ## <a name="partitioning"></a>Partitionering
 
-Att förstå hur Azure Storage partitionerar dina blob-data är användbart för att förbättra prestanda. Azure Storage kan hantera data i en enda partition snabbare än data som sträcker sig över flera partitioner. Genom att namnge dina blobbar på rätt sätt kan du förbättra effektiviteten i läsbegäranden.
+Att förstå hur Azure Storage partitioner dina BLOB-data är användbara för att förbättra prestandan. Azure Storage kan hantera data på en enda partition snabbare än data som sträcker sig över flera partitioner. Genom att namnge Blobbarna på rätt sätt kan du förbättra effektiviteten hos Läs begär Anden.
 
-Blob-lagring använder ett intervallbaserat partitioneringsschema för skalning och belastningsutjämning. Varje blob har en partitionsnyckel som består av det fullständiga blobnamnet (account+container+blob). Partitionsnyckeln används för att partitionera blob-data i områden. Intervallen är sedan belastningsbalanserade över Blob-lagring.
+Blob Storage använder ett intervall beroende partitionerings schema för skalning och belastnings utjämning. Varje Blob har en partitionsnyckel som består av det fullständiga BLOB-namnet (konto + container + BLOB). Partitionsnyckel används för att partitionera BLOB-data i intervall. Intervallen är sedan belastningsutjämnade i Blob Storage.
 
-Intervallbaserad partitionering innebär att namngivningskonventioner som använder lexikal beställning (till exempel *mypayroll,* *myperformance*, *myemployees*, etc.) eller tidsstämplar *(log20160101*, *log20160102*, *log20160102*, etc.) är mer benägna att resultera i att partitionerna samlokalgörs på samma partitionsserver. , tills ökad belastning kräver att de delas upp i mindre områden. Samlokalisering av blobbar på samma partitionsserver förbättrar prestanda, så en viktig del av prestandaförbättringarna innebär att namnge blobbar på ett sätt som organiserar dem mest effektivt.
+Intervallbaserade partitionering innebär att namngivnings konventioner som använder lexikal sortering (till exempel *dislöneering*, *prestanda*, mina *anställda*osv.) eller tidsstämplar (*log20160101*, *log20160102*, *log20160102*osv.) är mer sannolika i att partitionerna är samplacerade på samma partitions Server. , tills den ökade belastningen kräver att de delas upp i mindre intervall. Att samplacera blobbar på samma partition Server ger bättre prestanda, så en viktig del av prestanda förbättringen innebär namngivning av blobbar på ett sätt som organiserar dem effektivt.
 
-Till exempel kan alla blobbar i en behållare betjänas av en enda server tills belastningen på dessa blobbar kräver ytterligare ombalansering av partitionsintervallen. På samma sätt kan en grupp lättinlästa konton med sina namn ordnade i lexikal ordning betjänas av en enda server tills belastningen på ett eller alla dessa konton kräver att de delas upp mellan flera partitionsservrar.
+Till exempel kan alla blobbar i en behållare hanteras av en enda server tills belastningen på dessa blobbar kräver ytterligare ombalansering av partitionens intervall. På samma sätt kan en grupp med lätt inlästa konton med namn ordnade i lexikal ordning hanteras av en enda server tills belastningen på ett eller alla dessa konton kräver att de delas upp på flera partitioner.
 
-Varje belastningsutjämning kan påverka svarstiden för lagringsanrop under åtgärden. Tjänstens förmåga att hantera en plötslig explosion av trafik till en partition begränsas av skalbarheten för en enda partitionsserver tills belastningsutjämningsåtgärden startar och balanserar partitionsnyckelintervallet.
+Varje belastnings Utjämnings åtgärd kan påverka svars tiden för lagrings anrop under åtgärden. Tjänstens möjlighet att hantera en plötslig trafik trafik till en partition begränsas av skalbarheten för en enda partitions Server tills belastnings Utjämnings åtgärden körs i och balanserar om partitionens nyckel intervall.
 
-Du kan följa några metodtips för att minska frekvensen för sådana åtgärder.  
+Du kan följa vissa metod tips för att minska frekvensen för sådana åtgärder.  
 
-- Använd om möjligt blob- eller blockstorlekar som är större än 4 MiB för standardlagringskonton och större än 256 KiB för premiumlagringskonton. Större blob- eller blockstorlekar aktiverar automatiskt blockblobar med högt dataflöde. Blockblobar med hög dataflöde ger högpresterande intag som inte påverkas av partitionsnamn.
-- Undersök namngivningskonventionen som du använder för konton, behållare, blobbar, tabeller och köer. Överväg att prefixera konto-, behållar- eller blobnamn med en tresiffrig hash med hjälp av en hash-funktion som bäst passar dina behov.
-- Om du ordnar dina data med hjälp av tidsstämplar eller numeriska identifierare kontrollerar du att du inte använder ett trafikmönster som endast läggs till (eller endast för prepend). Dessa mönster är inte lämpliga för ett intervallbaserat partitioneringssystem. Dessa mönster kan leda till att all trafik går till en enda partition och begränsar systemet från effektivt belastningsutjämning.
+- Använd om möjligt BLOB-eller block storlekar som är större än 4 MiB för standard lagrings konton och större än 256 KiB för Premium Storage-konton. Större blob-eller block storlekar aktiverar automatiskt block blobbar med hög genomflöde. Block blobbar med höga data flöden ger högpresterande inmatningar som inte påverkas av namngivning av partitioner.
+- Undersök namngivnings konventionen som du använder för konton, behållare, blobbar, tabeller och köer. Överväg att förkorrigera konton, behållare eller BLOB-namn med en tresiffrig hash med en hash-funktion som passar dina behov bäst.
+- Om du ordnar dina data med hjälp av tidsstämplar eller numeriska identifierare ser du till att du inte använder ett trafik mönster med enbart tillägg (eller lägga). Dessa mönster är inte lämpliga för ett intervallbaserade partitionerings system. Dessa mönster kan leda till all trafik som går till en enda partition och begränsa systemet från effektiv belastnings utjämning.
 
-    Om du till exempel har dagliga åtgärder som använder en blob med en tidsstämpel, till exempel *yyyymmdd,* dirigeras all trafik för den dagliga åtgärden till en enda blob, som betjänas av en enda partitionsserver. Överväg om per-blob gränser och per partition gränser uppfyller dina behov, och överväga att dela upp den här åtgärden i flera blobbar om det behövs. Om du lagrar tidsseriedata i tabellerna kan all trafik dirigeras till den sista delen av nyckelnamnområdet. Om du använder numeriska ID:er prefixar ID:et med ett tresiffrigt hash. Om du använder tidsstämplar prefix tidsstämpeln med sekunder värde, till exempel *ssyyyymmdd*. Om ditt program rutinmässigt utför listnings- och frågeåtgärder väljer du en hash-funktion som begränsar antalet frågor. I vissa fall kan ett slumpmässigt prefix vara tillräckligt.
+    Om du till exempel har dagliga åtgärder som använder en blob med en tidsstämpel som *ÅÅÅÅMMDD*, dirigeras all trafik för den dagliga åtgärden till en enda BLOB, som hanteras av en enda partitions Server. Överväg om gränserna per blob och per partition uppfyller dina behov och Överväg att dela upp den här åtgärden i flera blobbar om det behövs. På samma sätt kan all trafik dirigeras till den sista delen av nyckel namn rummet om du lagrar tids serie data i dina tabeller. Om du använder numeriska ID: n ska du använda prefixet ID med en tresiffrig hash. Om du använder tidsstämplar, ska du använda ett prefix för tidsstämpeln med värdet sekunder, till exempel *ssyyyymmdd*. Om ditt program rutinmässigt utför lista och fråga åtgärder, väljer du en hash-funktion som begränsar antalet frågor. I vissa fall kan ett slumpmässigt prefix vara tillräckligt.
   
-- Mer information om partitioneringsschemat som används i Azure Storage finns i [Azure Storage: En molnbaserad molnlagringstjänst med stark konsekvens](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+- Mer information om partitionerings schema som används i Azure Storage finns i [Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ## <a name="networking"></a>Nätverk
 
-Programmets fysiska nätverksbegränsningar kan ha en betydande inverkan på prestanda. I följande avsnitt beskrivs några av de begränsningar som användare kan stöta på.  
+Det fysiska nätverkets begränsningar i programmet kan ha en betydande inverkan på prestanda. I följande avsnitt beskrivs vissa begränsningar som användarna kan stöta på.  
 
-### <a name="client-network-capability"></a>Klientnätverkskapacitet
+### <a name="client-network-capability"></a>Klient nätverks funktion
 
-Bandbredd och nätverkslänkens kvalitet spelar viktiga roller i programmets prestanda, enligt beskrivningen i följande avsnitt.
+Bandbredd och kvaliteten på nätverks länken spelar viktiga roller i program prestanda, enligt beskrivningen i följande avsnitt.
 
 #### <a name="throughput"></a>Dataflöde
 
-För bandbredd är problemet ofta klientens funktioner. Större Azure-instanser har nätverkskort med större kapacitet, så du bör överväga att använda en större instans eller fler virtuella datorer om du behöver högre nätverksgränser från en enda dator. Om du använder Azure Storage från ett lokalt program gäller samma regel: förstå klientenhetens nätverksfunktioner och nätverksanslutningen till Azure Storage-platsen och antingen förbättra dem efter behov eller utforma ditt program så att det fungerar inom deras funktioner.
+För bandbredd är problemet ofta klientens funktioner. Större Azure-instanser har nätverkskort med större kapacitet, så du bör överväga att använda en större instans eller flera virtuella datorer om du behöver högre nätverks gränser från en enda dator. Om du ansluter till Azure Storage från ett lokalt program gäller samma regel: förstå nätverks funktionerna i klient enheten och nätverks anslutningen till den Azure Storage platsen och förbättra dem efter behov eller utforma ditt program så att det fungerar inom sina funktioner.
 
-#### <a name="link-quality"></a>Länkkvalitet
+#### <a name="link-quality"></a>Länk kvalitet
 
-Precis som med all nätverksanvändning bör du tänka på att nätverksförhållanden som leder till fel och paketförlust kommer att göra effektivt dataflöde långsammare.  Använda WireShark eller NetMon kan hjälpa till att diagnostisera detta problem.  
+I takt med att nätverks användningen används bör du tänka på att nätverks förhållandena som resulterar i fel och paket förlust kommer att ta en långsam effektiv data flöde.  Att använda WireShark eller NetMon kan hjälpa dig att diagnostisera det här problemet.  
 
-### <a name="location"></a>Location
+### <a name="location"></a>Plats
 
-I alla distribuerade miljöer ger placera klienten nära servern bästa prestanda. För åtkomst till Azure Storage med den lägsta svarstiden är den bästa platsen för din klient inom samma Azure-region. Om du till exempel har en Azure-webbapp som använder Azure Storage letar du reda på dem både inom en enda region, till exempel USA Väst eller Asien sydost. Samlokalisering av resurser minskar svarstiden och kostnaden, eftersom bandbreddsanvändningen inom en enda region är gratis.  
+I alla distribuerade miljöer ger klienten nära-servern den bästa prestandan. För att få åtkomst till Azure Storage med den lägsta svars tiden är den bästa platsen för din klient i samma Azure-region. Om du till exempel har en Azure-webbapp som använder Azure Storage kan du söka efter dem i en enda region, till exempel västra USA eller Asien, sydöstra. Samplacering av resurser minskar svars tiden och kostnaden, eftersom bandbredds användningen i en enda region är kostnads fri.  
 
-Om klientprogram kommer åt Azure Storage men inte finns i Azure, till exempel mobilappar eller lokala företagstjänster, kan det minska svarstiden för att hitta lagringskontot i en region nära dessa klienter. Om dina kunder är brett fördelade (till exempel vissa i Nordamerika och några i Europa) kan du överväga att använda ett lagringskonto per region. Den här metoden är enklare att implementera om de data som programmet lagrar är specifika för enskilda användare och inte kräver att data replikeras mellan lagringskonton.
+Om klient program kommer åt Azure Storage men inte finns i Azure, till exempel appar för mobila enheter eller lokala företags tjänster, kan det minska svars tiden genom att leta upp lagrings kontot i en region nära dessa klienter. Om dina klienter är brett distribuerade (till exempel vissa i Nordamerika och några i Europa) kan du överväga att använda ett lagrings konto per region. Den här metoden är enklare att implementera om data som program arkivet är specifika för enskilda användare och inte behöver replikera data mellan lagrings konton.
 
-För bred distribution av blob-innehåll använder du ett nätverk för att leverera innehåll, till exempel Azure CDN. Mer information om Azure CDN finns i [Azure CDN](../../cdn/cdn-overview.md).  
+För bred distribution av BLOB-innehåll använder du ett nätverk för innehålls leverans som Azure CDN. Mer information om Azure CDN finns i [Azure CDN](../../cdn/cdn-overview.md).  
 
 ## <a name="sas-and-cors"></a>SAS och CORS
 
-Anta att du behöver auktorisera kod som JavaScript som körs i en användares webbläsare eller i en mobiltelefonapp för att komma åt data i Azure Storage. En metod är att skapa ett tjänstprogram som fungerar som en proxy. Användarens enhet autentiserar med tjänsten, vilket i sin tur ger åtkomst till Azure Storage-resurser. På så sätt kan du undvika att exponera dina lagringskontonycklar på osäkra enheter. Den här metoden placerar dock en betydande omkostnader för tjänstprogrammet, eftersom alla data som överförs mellan användarens enhet och Azure Storage måste passera genom tjänstprogrammet.
+Anta att du behöver auktorisera kod som till exempel java script som körs i användarens webbläsare eller i en mobil telefon-app för att komma åt data i Azure Storage. En metod är att bygga ett tjänst program som fungerar som en proxy. Användarens enhet autentiseras med tjänsten, som i sin tur ger åtkomst till Azure Storage resurser. På så sätt kan du undvika att exponera lagrings konto nycklar på oskyddade enheter. Den här metoden innebär dock en betydande belastning på tjänst programmet, eftersom alla data som överförs mellan användarens enhet och Azure Storage måste passera igenom tjänst programmet.
 
-Du kan undvika att använda ett tjänstprogram som en proxy för Azure Storage med hjälp av SIGNATUREr för delad åtkomst (SAS). Med SAS kan du aktivera användarens enhet för att göra förfrågningar direkt till Azure Storage med hjälp av en begränsad åtkomsttoken. Om en användare till exempel vill ladda upp ett foto till ditt program kan ditt tjänstprogram generera en SAS och skicka det till användarens enhet. SAS-token kan bevilja behörighet att skriva till en Azure Storage-resurs för ett angivet tidsintervall, varefter SAS-token upphör att gälla. Mer information om SAS finns i [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS (Shared Access Signatures).](../common/storage-sas-overview.md)  
+Du kan undvika att använda ett tjänst program som proxy för Azure Storage med hjälp av signaturer för delad åtkomst (SAS). Med SAS kan du göra det möjligt för användarens enhet att göra förfrågningar direkt till Azure Storage genom att använda en begränsad åtkomsttoken. Om en användare till exempel vill överföra ett foto till ditt program, kan tjänst programmet generera en SAS och skicka den till användarens enhet. SAS-token kan ge behörighet att skriva till en Azure Storage resurs under en angiven tids period, efter vilken SAS-token upphör att gälla. Mer information om SAS finns i [bevilja begränsad åtkomst till Azure Storage resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md).  
 
-Vanligtvis tillåter en webbläsare inte JavaScript på en sida som finns värd för en webbplats på en domän för att utföra vissa åtgärder, till exempel skrivåtgärder, till en annan domän. Den här principen kallas principen för samma ursprung och förhindrar att ett skadligt skript på en sida får åtkomst till data på en annan webbsida. Principen med samma ursprung kan dock vara en begränsning när du skapar en lösning i molnet. Kors-ursprungsresursdelning (CORS) är en webbläsarfunktion som gör att måldomänen kan kommunicera med webbläsaren om att den litar på begäranden som har sitt ursprung i källdomänen.
+Normalt tillåter en webbläsare inte Java Script på en sida som finns på en webbplats på en domän för att utföra vissa åtgärder, till exempel Skriv åtgärder, till en annan domän. Den här principen kallas samma-ursprungs princip och förhindrar att ett skadligt skript på en sida får åtkomst till data på en annan webb sida. Samma ursprungs princip kan dock vara en begränsning när du skapar en lösning i molnet. Resurs delning mellan ursprung (CORS) är en webb läsar funktion som gör det möjligt för mål domänen att kommunicera med den webbläsare som den litar på begär Anden från käll domänen.
 
-Anta till exempel att ett webbprogram som körs i Azure gör en begäran om en resurs till ett Azure Storage-konto. Webbprogrammet är källdomänen och lagringskontot är måldomänen. Du kan konfigurera CORS för någon av Azure Storage-tjänsterna för att kommunicera med webbläsaren som begäranden från källdomänen är betrodda av Azure Storage. Mer information om CORS finns i [CORS-stöd (Cross-Origin Resource Sharing) för Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
+Anta till exempel att ett webb program som körs i Azure gör en begäran om en resurs till ett Azure Storage-konto. Webb programmet är käll domänen och lagrings kontot är mål domänen. Du kan konfigurera CORS för någon av de Azure Storage-tjänsterna för att kommunicera med den webbläsare som begär från käll domänen är betrodd av Azure Storage. Mer information om CORS finns i [stöd för resurs delning mellan ursprung (CORS) för Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
   
-Både SAS och CORS kan hjälpa dig att undvika onödig belastning på ditt webbprogram.  
+Både SAS och CORS kan hjälpa dig att undvika onödig belastning på ditt webb program.  
 
 ## <a name="caching"></a>Caching
 
-Caching spelar en viktig roll i prestanda. I följande avsnitt beskrivs metodtips för cachelagring.
+Cachelagring spelar en viktig roll i prestandan. I följande avsnitt beskrivs hur du cachelagrar bästa praxis.
 
-### <a name="reading-data"></a>Läsa data
+### <a name="reading-data"></a>Läser data
 
-I allmänhet är läsdata en gång att föredra framför att läsa dem två gånger. Tänk på exemplet med ett webbprogram som har hämtat en 50 MiB-blob från Azure Storage för att fungera som innehåll för en användare. Helst cachelagrar programmet bloben lokalt till disk och hämtar sedan den cachelagrade versionen för efterföljande användarbegäranden.
+I allmänhet är det bättre att läsa data en gång för att läsa den två gånger. Överväg exemplet på ett webb program som har hämtat en 50 MiB-BLOB från Azure Storage som ska fungera som innehåll till en användare. Vi rekommenderar att programmet cachelagrar blobben lokalt på disk och hämtar sedan den cachelagrade versionen för efterföljande användar förfrågningar.
 
-Ett sätt att undvika att hämta en blob om den inte har ändrats sedan den cachelagrades är att kvalificera GET-åtgärden med ett villkorligt huvud för ändringstid. Om den senaste ändrade tiden är efter den tidpunkt då blobben cachelagrades, hämtas bloben och cachelagras om. Annars hämtas den cachelagrade bloben för optimal prestanda.
+Ett sätt att undvika att hämta en BLOB om den inte har ändrats sedan den cachelagrades är att kvalificera åtgärden Hämta med ett villkors huvud för ändrings tiden. Om den senaste ändrings tiden är efter den tidpunkt då blobben cachelagrades, hämtas bloben och cachelagras på nytt. Annars hämtas cachelagrad BLOB för optimala prestanda.
 
-Du kan också välja att utforma ditt program för att anta att blobben förblir oförändrad under en kort period efter att ha hämtat den. I det här fallet behöver programmet inte kontrollera om blobben har ändrats under det intervallet.
+Du kan också välja att utforma ditt program för att anta att blobben förblir oförändrad under en kort period efter att det har hämtats. I det här fallet behöver inte programmet kontrol lera om blobben har ändrats under intervallet.
 
-Konfigurationsdata, uppslagsdata och andra data som ofta används av programmet är bra kandidater för cachelagring.  
+Konfigurations data, uppslags data och andra data som ofta används av programmet är lämpliga kandidater för cachelagring.  
 
-Mer information om hur du använder villkorsstyrda huvuden finns i [Ange villkorsstyrda huvuden för Blob-tjänståtgärder](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
+Mer information om hur du använder villkorliga huvuden finns i [Ange villkors rubriker för BLOB service åtgärder](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
 
-### <a name="uploading-data-in-batches"></a>Ladda upp data i batchar
+### <a name="uploading-data-in-batches"></a>Laddar upp data i batchar
 
-I vissa fall kan du aggregera data lokalt och sedan regelbundet ladda upp dem i en batch i stället för att ladda upp varje bit data omedelbart. Anta till exempel att ett webbprogram behåller en loggfil med aktiviteter. Programmet kan antingen ladda upp information om varje aktivitet när det händer med en tabell (som kräver många lagringsåtgärder), eller så kan det spara aktivitetsinformation till en lokal loggfil och sedan regelbundet överföra alla aktivitetsinformation som en avgränsad fil till en blob. Om varje loggpost är 1 KB i storlek kan du ladda upp tusentals poster i en enda transaktion. En enda transaktion stöder uppladdning av en klump på upp till 64 MiB i storlek. Programutvecklaren måste utforma för möjligheten av klientenhet eller uppladdningsfel. Om aktivitetsdata behöver hämtas för ett tidsintervall i stället för för en enskild aktivitet, rekommenderas bloblagring via tabelllagring.
+I vissa fall kan du samla in data lokalt och överföra dem regelbundet i en batch i stället för att ladda upp varje data direkt. Anta till exempel att ett webb program innehåller en loggfil med aktiviteter. Programmet kan antingen ladda upp information om varje aktivitet när det sker i en tabell (vilket kräver många lagrings åtgärder), eller så kan du spara aktivitets information till en lokal loggfil och sedan regelbundet ladda upp all aktivitets information som en avgränsad fil till en blob. Om varje loggpost är 1 KB kan du ladda upp tusentals poster i en enda transaktion. En enskild transaktion stöder överföring av en BLOB på upp till 64 MiB i storlek. Programutvecklaren måste utforma för möjligheten för klient enheter eller överförings problem. Om aktivitets data måste hämtas under ett tidsintervall i stället för en enskild aktivitet, rekommenderas att du använder Blob Storage över Table Storage.
 
 ## <a name="net-configuration"></a>.NET-konfiguration
 
-Om du använder .NET Framework visas flera snabba konfigurationsinställningar som du kan använda för att göra betydande prestandaförbättringar.  Om du använder andra språk kontrollerar du om liknande begrepp gäller på det språk du valt.  
+Om du använder .NET Framework visar det här avsnittet flera snabb konfigurations inställningar som du kan använda för att göra betydande prestanda förbättringar.  Om du använder andra språk kan du kontrol lera om liknande koncept gäller för det valda språket.  
 
 ### <a name="use-net-core"></a>Använd .NET Core
 
-Utveckla dina Azure Storage-program med .NET Core 2.1 eller senare för att dra nytta av prestandaförbättringar. Användning av .NET Core 3.x rekommenderas när det är möjligt.
+Utveckla dina Azure Storage-program med .NET Core 2,1 eller senare för att dra nytta av prestanda förbättringar. Att använda .NET Core 3. x rekommenderas när det är möjligt.
 
-Mer information om prestandaförbättringar i .NET Core finns i följande blogginlägg:
+Mer information om prestanda förbättringar i .NET Core finns i följande blogg inlägg:
 
-- [Prestandaförbättringar i .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
-- [Prestandaförbättringar i .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
+- [Prestanda förbättringar i .NET Core 3,0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
+- [Prestanda förbättringar i .NET Core 2,1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
 
-### <a name="increase-default-connection-limit"></a>Öka standardanslutningsgränsen
+### <a name="increase-default-connection-limit"></a>Öka standard anslutnings gränsen
 
-I .NET ökar följande kod standardanslutningsgränsen (som vanligtvis är två i en klientmiljö eller tio i en servermiljö) till 100. Vanligtvis bör du ange värdet till ungefär antalet trådar som används av ditt program. Ställ in anslutningsgränsen innan du öppnar några anslutningar.
+I .NET ökar följande kod standard anslutnings gränsen (vanligt vis två i en klient miljö eller tio i en Server miljö) till 100. Normalt bör du ange värdet till ungefär så många trådar som används av ditt program. Ange anslutnings gränsen innan du öppnar några anslutningar.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Andra programmeringsspråk finns i dokumentationen för att avgöra hur anslutningsgränsen ska anges.  
+För andra programmeringsspråk, se dokumentationen för att avgöra hur du anger anslutnings gränsen.  
 
-Mer information finns i blogginläggen [Webbtjänster: Samtidiga anslutningar](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Mer information finns i blogg inlägget [webb tjänster: samtidiga anslutningar](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
 
-### <a name="increase-minimum-number-of-threads"></a>Öka minsta antal trådar
+### <a name="increase-minimum-number-of-threads"></a>Öka det minsta antalet trådar
 
-Om du använder synkrona samtal tillsammans med asynkrona uppgifter kanske du vill öka antalet trådar i trådpoolen:
+Om du använder synkrona anrop tillsammans med asynkrona uppgifter kanske du vill öka antalet trådar i trådpoolen:
 
 ```csharp
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Mer information finns i metoden [ThreadPool.SetMinThreads.](/dotnet/api/system.threading.threadpool.setminthreads)  
+Mer information finns i metoden [trådpool. SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads) .  
 
-## <a name="unbounded-parallelism"></a>Obegränsad parallellism
+## <a name="unbounded-parallelism"></a>Obegränsad parallellitet
 
-Även parallellism kan vara bra för prestanda, vara försiktig med att använda obegränsad parallellism, vilket innebär att det inte finns någon gräns tillämpas på antalet trådar eller parallella förfrågningar. Var noga med att begränsa parallella begäranden att ladda upp eller ladda ned data, komma åt flera partitioner i samma lagringskonto eller komma åt flera objekt i samma partition. Om parallellism är obundet kan ditt program överskrida klientenhetens funktioner eller lagringskontots skalbarhetsmål, vilket resulterar i längre fördröjningar och begränsning.  
+Parallellitet kan vara bra för prestanda, var noga med att använda obegränsad parallellitet, vilket innebär att det inte finns någon gräns för antalet trådar eller parallella begär Anden. Se till att begränsa parallella begär Anden för att ladda upp eller hämta data, för att få åtkomst till flera partitioner i samma lagrings konto, eller för att få åtkomst till flera objekt i samma partition. Om parallellitet är obundet kan ditt program överskrida klient enhetens funktioner eller lagrings kontots skalbarhets mål, vilket resulterar i längre latens och begränsning.  
 
-## <a name="client-libraries-and-tools"></a>Klientbibliotek och verktyg
+## <a name="client-libraries-and-tools"></a>Klient bibliotek och verktyg
 
-För bästa prestanda bör du alltid använda de senaste klientbiblioteken och verktygen från Microsoft. Azure Storage-klientbibliotek är tillgängliga för en mängd olika språk. Azure Storage stöder också PowerShell och Azure CLI. Microsoft utvecklar aktivt dessa klientbibliotek och verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste tjänstversionerna och ser till att de hanterar många av de beprövade prestandapraxis internt. Mer information finns i [referensdokumentationen för Azure Storage](/azure/storage/#reference).
+Använd alltid de senaste klient biblioteken och verktygen från Microsoft för bästa prestanda. Azure Storage klient bibliotek är tillgängliga för flera olika språk. Azure Storage stöder också PowerShell och Azure CLI. Microsoft utvecklar aktivt dessa klient bibliotek och verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste service versionerna och ser till att de hanterar många av de beprövade prestanda metoderna internt. Mer information finns i [referens dokumentationen för Azure Storage](/azure/storage/#reference).
 
-## <a name="handle-service-errors"></a>Hantera servicefel
+## <a name="handle-service-errors"></a>Hantera tjänst fel
 
-Azure Storage returnerar ett fel när tjänsten inte kan bearbeta en begäran. Att förstå de fel som kan returneras av Azure Storage i ett visst scenario är användbart för att optimera prestanda.
+Azure Storage returnerar ett fel när tjänsten inte kan bearbeta en begäran. Att förstå de fel som kan returneras av Azure Storage i ett specifikt scenario är användbart för att optimera prestanda.
 
-### <a name="timeout-and-server-busy-errors"></a>Timeout och server upptagen fel
+### <a name="timeout-and-server-busy-errors"></a>Timeout-och Server upptagen-fel
 
-Azure Storage kan begränsa ditt program om det närmar sig skalbarhetsgränserna. I vissa fall kan Det hända att Azure Storage inte kan hantera en begäran på grund av vissa tillfälliga villkor. I båda fallen kan tjänsten returnera ett fel på 503 (Server Busy) eller 500 (Timeout). Dessa fel kan också uppstå om tjänsten balanserar om datapartitioner för att möjliggöra högre dataflöde. Klientprogrammet bör vanligtvis försöka igen åtgärden som orsakar ett av dessa fel. Men om Azure Storage begränsar ditt program eftersom det överskrider skalbarhetsmål, eller även om tjänsten inte kunde betjäna begäran av någon annan anledning, kan aggressiva återförsök göra problemet värre. Det rekommenderas att du använder en exponentiell princip för återförsök och klientbiblioteken är som standard för det här beteendet. Programmet kan till exempel försöka igen efter 2 sekunder, sedan 4 sekunder, sedan 10 sekunder, sedan 30 sekunder och ge sedan upp helt. På så sätt minskar ditt program avsevärt belastningen på tjänsten, snarare än att förvärra beteende som kan leda till begränsning.  
+Azure Storage kan begränsa ditt program om det närmar sig begränsningen för skalbarhet. I vissa fall kan Azure Storage inte hantera en begäran på grund av ett tillfälligt tillstånd. I båda fallen kan tjänsten returnera ett 503-fel (Server upptagen) eller 500 (timeout). Dessa fel kan också inträffa om tjänsten ombalanserar datapartitioner för att tillåta högre data flöde. Klient programmet bör normalt försöka utföra åtgärden igen som orsakar något av dessa fel. Men om Azure Storage begränsar ditt program eftersom det överskrider skalbarhets målen, eller även om tjänsten inte kunde hantera begäran av någon annan anledning, kan aggressiva återförsök göra problemet sämre. Det rekommenderas att du använder en exponentiell återförsöks princip och klient biblioteken använder detta beteende som standard. Ditt program kan till exempel försöka igen om 2 sekunder, sedan 4 sekunder, sedan 10 sekunder, sedan 30 sekunder, och sedan får upp helt. På så sätt minskar ditt program avsevärt sin belastning på tjänsten, i stället för exacerbating beteende som kan leda till begränsning.  
 
-Anslutningsfel kan göras om omedelbart, eftersom de inte är resultatet av begränsning och förväntas vara övergående.  
+Anslutnings fel kan göras omedelbart, eftersom de inte är resultatet av begränsningen och förväntas vara tillfälliga.  
 
-### <a name="non-retryable-errors"></a>Fel som inte kan försökas igen
+### <a name="non-retryable-errors"></a>Fel som inte går att försöka igen
 
-Klientbiblioteken hanterar återförsök med en medvetenhet om vilka fel som kan göras om och vilka som inte kan göras. Men om du anropar Azure Storage REST API direkt, finns det några fel som du inte bör försöka igen. Ett fel på 400 (felaktig begäran) anger till exempel att klientprogrammet skickade en begäran som inte kunde bearbetas eftersom den inte fanns i det förväntade formuläret. Om du skickar den här begäran igen får du samma svar varje gång, så det är ingen idé att försöka igen. Om du anropar AZURE Storage REST API direkt, vara medveten om potentiella fel och om de ska göras om.
+Klient biblioteken hanterar nya försök med en medvetenhet om vilka fel som kan göras och vilka som inte kan utföras. Men om du anropar Azure Storage REST API direkt finns det vissa fel som du inte bör försöka igen. Till exempel anger ett 400-fel (felaktig begäran) att klient programmet skickade en begäran som inte kunde bearbetas eftersom det inte hade det förväntade formuläret. Om du skickar om den här begäran resulterar det i samma svar varje gång, så det finns ingen punkt för att försöka igen. Om du anropar Azure Storage REST API direkt bör du vara medveten om eventuella fel och om de bör göras om.
 
-Mer information om Azure Storage-felkoder finns i [Status- och felkoder](/rest/api/storageservices/status-and-error-codes2).
+Mer information om Azure Storage felkoder finns i [status-och felkoder](/rest/api/storageservices/status-and-error-codes2).
 
 ## <a name="copying-and-moving-blobs"></a>Kopiera och flytta blobbar
 
-Azure Storage innehåller ett antal lösningar för kopiering och flyttning av blobbar i ett lagringskonto, mellan lagringskonton och mellan lokala system och molnet. I det här avsnittet beskrivs några av dessa alternativ när det gäller deras effekter på prestanda. Information om hur du effektivt överför data till eller från Blob-lagring finns i [Välj en Azure-lösning för dataöverföring](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure Storage innehåller ett antal lösningar för att kopiera och flytta blobbar inom ett lagrings konto, mellan lagrings konton och mellan lokala system och molnet. I det här avsnittet beskrivs några av de här alternativen i förhållande till deras påverkan på prestanda. Information om hur du effektivt överför data till eller från Blob Storage finns i [Välj en Azure-lösning för data överföring](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="blob-copy-apis"></a>API:er för blobkopkopiering
+### <a name="blob-copy-apis"></a>BLOB Copy-API: er
 
-Om du vill kopiera blobbar över lagringskonton använder du åtgärden [Placera blockera från URL.](/rest/api/storageservices/put-block-from-url) Den här åtgärden kopierar data synkront från valfri URL-källa till en blockblob. Om `Put Block from URL` du använder åtgärden kan du avsevärt minska den bandbredd som krävs när du migrerar data över lagringskonton. Eftersom kopieringen sker på tjänstsidan behöver du inte hämta och ladda upp data igen.
+Om du vill kopiera blobbar över lagrings konton använder du åtgärden för att [blockera från URL](/rest/api/storageservices/put-block-from-url) . Den här åtgärden kopierar data synkront från en URL-källa till en Block-Blob. Att använda `Put Block from URL` åtgärden kan avsevärt minska nödvändig bandbredd när du migrerar data mellan lagrings konton. Eftersom kopierings åtgärden sker på tjänst sidan behöver du inte hämta och ladda upp data igen.
 
-Om du vill kopiera data i samma lagringskonto använder du åtgärden [Kopiera blob.](/rest/api/storageservices/Copy-Blob) Kopiering av data i samma lagringskonto slutförs vanligtvis snabbt.  
+Använd åtgärden [Kopiera BLOB](/rest/api/storageservices/Copy-Blob) för att kopiera data inom samma lagrings konto. Att kopiera data inom samma lagrings konto slutförs vanligt vis snabbt.  
 
 ### <a name="use-azcopy"></a>Använda AzCopy
 
-Kommandoradsverktyget AzCopy är ett enkelt och effektivt alternativ för massöverföring av blobbar till, från och över lagringskonton. AzCopy är optimerad för det här scenariot och kan uppnå höga överföringshastigheter. AzCopy version 10 `Put Block From URL` använder åtgärden för att kopiera blob-data över lagringskonton. Mer information finns i [Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+Kommando rads verktyget AzCopy är ett enkelt och effektivt alternativ för Mass överföring av blobbar till, från och över lagrings konton. AzCopy är optimerat för det här scenariot och kan uppnå höga överföringshastigheter. AzCopy version 10 använder `Put Block From URL` åtgärden för att kopiera BLOB-data mellan lagrings konton. Mer information finns i [Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
 
-### <a name="use-azure-data-box"></a>Använda Azure-dataruta
+### <a name="use-azure-data-box"></a>Använd Azure Data Box
 
-För att importera stora mängder data till Blob-lagring bör du överväga att använda Azure Data Box-familjen för offlineöverföringar. Microsoft-medföljande Data Box-enheter är ett bra val för att flytta stora mängder data till Azure när du är begränsad av tid, nätverkstillgänglighet eller kostnader. Mer information finns i [Azure DataBox Documentation](/azure/databox/).
+För att importera stora mängder data till Blob Storage bör du överväga att använda Azure Data Box-serien för offline-överföringar. Microsoft-tillhandahållna Data Box-enhet enheter är ett bra alternativ för att flytta stora mängder data till Azure när du är begränsad till tid, nätverks tillgänglighet eller kostnader. Mer information finns i dokumentationen för [Azure Data](/azure/databox/)Center.
 
-## <a name="content-distribution"></a>Distribution av innehåll
+## <a name="content-distribution"></a>Innehålls distribution
 
-Ibland måste ett program visa samma innehåll för många användare (till exempel en produktdemovideo som används på en webbplatss startsida) som finns i antingen samma eller flera regioner. I det här fallet använder du ett CONTENT Delivery Network (CDN) till exempel Azure CDN för att distribuera blob-innehåll geografiskt. Till skillnad från ett Azure Storage-konto som finns i en enda region och som inte kan leverera innehåll med låg latens till andra regioner, använder Azure CDN servrar i flera datacenter runt om i världen. Dessutom kan ett CDN vanligtvis stödja mycket högre utgående gränser än ett enda lagringskonto.  
+Ibland måste ett program hantera samma innehåll för många användare (till exempel en produkt demonstrations video som används på Start sidan för en webbplats), som finns i samma eller flera regioner. I det här scenariot använder du en Content Delivery Network (CDN) som Azure CDN för att distribuera BLOB-innehåll geografiskt. Till skillnad från ett Azure Storage-konto som finns i en enda region och som inte kan leverera innehåll med låg latens till andra regioner, Azure CDN använder servrar i flera data center runtom i världen. Dessutom kan ett CDN vanligt vis stödja mycket högre utgående gränser än ett enda lagrings konto.  
 
 Mer information om Azure CDN finns i [Azure CDN](../../cdn/cdn-overview.md).
 
-## <a name="use-metadata"></a>Använda metadata
+## <a name="use-metadata"></a>Använd metadata
 
-Blob-tjänsten stöder HEAD-begäranden, som kan innehålla blob-egenskaper eller metadata. Om ditt program till exempel behöver Exif-data (utbytbart bildformat) från ett foto kan det hämta fotot och extrahera det. För att spara bandbredd och förbättra prestanda kan ditt program lagra Exif-data i blobens metadata när programmet laddar upp fotot. Du kan sedan hämta Exif-data i metadata med endast en HEAD-begäran. Om du hämtar endast metadata och inte det fullständiga innehållet i blobben sparas betydande bandbredd och bearbetningstiden som krävs för att extrahera Exif-data. Tänk på att 8 KiB av metadata kan lagras per blob.  
+Blob Service stöder HEAD-begäranden som kan innehålla BLOB-egenskaper eller metadata. Om ditt program till exempel behöver EXIF-data (det går att byta bild format) från ett foto, kan det Hämta fotot och extrahera det. För att spara bandbredd och förbättra prestanda kan ditt program lagra EXIF-data i blobens metadata när programmet överför fotot. Du kan sedan hämta EXIF-data i metadata med bara en HEAD-begäran. Hämtning av endast metadata och inte det fullständiga innehållet i blobben sparar stor bandbredd och minskar bearbetnings tiden som krävs för att extrahera EXIF-data. Kom ihåg att 8 KiB metadata kan lagras per blob.  
 
 ## <a name="upload-blobs-quickly"></a>Ladda upp blobbar snabbt
 
-Om du snabbt vill ladda upp blobbar bestämmer du först om du ska ladda upp en blob eller många. Använd anvisningarna nedan för att bestämma rätt metod att använda beroende på ditt scenario.  
+Om du snabbt vill ladda upp blobar måste du först avgöra om du ska ladda upp en BLOB eller många. Använd anvisningarna nedan för att avgöra vilken metod som ska användas beroende på ditt scenario.  
 
-### <a name="upload-one-large-blob-quickly"></a>Ladda upp en stor blob snabbt
+### <a name="upload-one-large-blob-quickly"></a>Ladda upp en stor BLOB snabbt
 
-Om du snabbt vill ladda upp en enda stor blob kan ett klientprogram ladda upp sina block eller sidor parallellt, med tanke på skalbarhetsmålen för enskilda blobbar och lagringskontot som helhet. Azure Storage-klientbiblioteken har stöd för att ladda upp parallellt. Du kan till exempel använda följande egenskaper för att ange antalet samtidiga begäranden som tillåts i .NET eller Java. Klientbibliotek för andra språk som stöds ger liknande alternativ.
+Om du snabbt vill överföra en enda stor BLOB kan ett klient program ladda upp sina block eller sidor parallellt, som mindful av skalbarhets målen för enskilda blobbar och lagrings kontot som helhet. Azure Storage klient bibliotek stöder överföring parallellt. Du kan till exempel använda följande egenskaper för att ange antalet samtidiga begär Anden som tillåts i .NET eller Java. Klient bibliotek för andra språk som stöds ger liknande alternativ.
 
-- För .NET anger du egenskapen [BlobRequestOptions.ParallelOperationThreadCount.](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)
-- För Java/Android anropar du metoden [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount)
+- För .NET anger du egenskapen [BlobRequestOptions. ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount) .
+- För Java/Android, anropa metoden [BlobRequestOptions. setConcurrentRequestCount (Final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount) .
 
 ### <a name="upload-many-blobs-quickly"></a>Ladda upp många blobbar snabbt
 
-Om du snabbt vill ladda upp många blobbar laddar du upp blobbar parallellt. Det går snabbare att ladda upp parallellt än att ladda upp enstaka blobbar åt gången med parallella blocköverföringar eftersom det sprider överföringen över flera partitioner i lagringstjänsten. AzCopy utför uppladdningar parallellt som standard och rekommenderas för det här scenariot. Mer information finns i [Komma igång med AzCopy](../common/storage-use-azcopy-v10.md).  
+Ladda upp flera blobbar snabbt genom att ladda upp blobar parallellt. Det går fortare att ladda upp parallellt än att ladda upp enskilda blobbar i taget med parallella block överföringar eftersom den sprider uppladdning över flera partitioner i lagrings tjänsten. AzCopy utför överföringar parallellt som standard och rekommenderas för det här scenariot. Mer information finns i [Kom igång med AZCopy](../common/storage-use-azcopy-v10.md).  
 
-## <a name="choose-the-correct-type-of-blob"></a>Välj rätt typ av blob
+## <a name="choose-the-correct-type-of-blob"></a>Välj rätt typ av BLOB
 
-Azure Storage stöder blockblobar, tilläggsblobar och sidblobar. För ett visst användningsscenario påverkar ditt val av blob-typ lösningens prestanda och skalbarhet.
+Azure Storage stöder block-blobbar, tillägg av blobbar och sid-blobar. För ett angivet användnings scenario kommer ditt val av Blob-typ att påverka lösningens prestanda och skalbarhet.
 
-Blockblobar är lämpliga när du vill överföra stora mängder data effektivt. Ett klientprogram som laddar upp foton eller video till Blob-lagring skulle till exempel inriktas på blockblobar.
+Block blobbar är lämpliga när du vill överföra stora mängder data effektivt. Till exempel är ett klient program som överför foton eller video till Blob Storage mål block-blobar.
 
-Lägg till blobbar liknar blockera blobbar genom att de består av block. När du ändrar en tilläggsblob läggs block endast till i slutet av bloben. Tilläggsblobbar är användbara för scenarier som loggning, när ett program behöver lägga till data i en befintlig blob.
+Lägg till blobar liknar block-blobar på så sätt att de består av block. När du ändrar en tilläggs-BLOB läggs blocken till i slutet av blobben. Tillägg av blobbar är användbara för scenarier som loggning, när ett program behöver lägga till data i en befintlig blob.
 
-Sidblobar är lämpliga om programmet behöver utföra slumpmässiga skrivningar på data. Azure-diskar för virtuella datorer lagras till exempel som sidblobar. Mer information finns i [Förstå blockblobar, tilläggsblobbar och sidblobar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
+Page blobbar är lämpliga om programmet behöver utföra slumpmässiga skrivningar på data. Till exempel lagras virtuella Azure-datorer som Page BLOB-enheter. Mer information finns i [förstå block-blobbar, bifoga blobbar och sid-blobar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skalbarhets- och prestandamål för Blob-lagring](scalability-targets.md)
-- [Skalbarhets- och prestandamål för standardlagringskonton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Status- och felkoder](/rest/api/storageservices/Status-and-Error-Codes2)
+- [Skalbarhets-och prestanda mål för Blob Storage](scalability-targets.md)
+- [Skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Status och felkoder](/rest/api/storageservices/Status-and-Error-Codes2)

@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Spatial Anchors Unity
-description: Lär dig mer om hur Azure Spatial Anchors kan användas i Unity Apps. Granska snabbstarter för Unity for HoloLens, Unity för Android och Unity för iOS.
+title: Översikt över Azure spatiala ankare
+description: Lär dig hur Azure spatial ankare kan användas i Uniting-appar. Läs snabb starter för enhets enhet för HoloLens, Unity for Android och Unity for iOS.
 author: rgarcia
 ms.author: rgarcia
 manager: vriveras
@@ -9,24 +9,24 @@ ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
 ms.openlocfilehash: df28fc6b5e3a1ddd9813919c8afbf21f65d731b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471094"
 ---
-# <a name="building-in-unity-with-azure-spatial-anchors"></a>Bygga i enighet med Azure Spatial Anchors
+# <a name="building-in-unity-with-azure-spatial-anchors"></a>Skapa i Unity med avstånd för Azure-ankare
 
-Utvecklare kan välja Unity för att skapa och distribuera program med mixad verklighet som använder Azure Spatial Anchors. Följande plattformar stöds:
+Utvecklare kan välja Unity för att skapa och distribuera program för Mixad verklighet som använder sig av Azures ankare för spatialdata. Följande plattformar stöds:
 
-**Enhet för HoloLens**
+**Unity för HoloLens**
 
-[Snabbstart: Skapa en Unity HoloLens-app som använder Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens)
+[Snabb start: skapa en enhets-HoloLens-app som använder Azure spatiala ankare](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens)
 
-**Enhet för Android**
+**Unity för Android**
 
-[Snabbstart: Skapa en Unity Android-app som använder Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android)
+[Snabb start: skapa en enhets-Android-app som använder Azure spatiala ankare](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android)
 
-**Enighet för iOS**
+**Unity för iOS**
 
-[Snabbstart: Skapa en Unity iOS-app som använder Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios)
+[Snabb start: skapa en enhets-iOS-app som använder Azure spatiala ankare](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios)

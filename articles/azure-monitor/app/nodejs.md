@@ -4,19 +4,19 @@ description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänste
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411581"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina serverdelar och komponenter efter distributionen, för att hjälpa dig att upptäcka och snabbt diagnostisera prestanda och andra problem. Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar dina backend-tjänster och-komponenter efter distributionen, så att du kan upptäcka och snabbt diagnostisera prestanda och andra problem. Du kan använda Application Insights för Node.js-tjänster som finns i ditt datacenter, i virtuella Azure-datorer och webbappar och även i andra offentliga moln.
 
 För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t i koden och konfigurerar en motsvarande Application Insights-resurs i Azure. SDK:t skickar data till den resursen för ytterligare analys och undersökning.
 
-Node.js-SDK:n kan automatiskt övervaka inkommande och utgående HTTP-begäran, undantag och vissa systemmått. Från och med version 0.20 kan SDK också övervaka några vanliga [tredjepartspaket](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), som MongoDB, MySQL och Redis. Alla händelser som relaterar till en inkommande HTTP-begäran korreleras för snabbare felsökning.
+Node.js-SDK:n kan automatiskt övervaka inkommande och utgående HTTP-begäran, undantag och vissa systemmått. Från och med version 0,20 kan SDK också övervaka vissa vanliga [paket från tredje part](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), t. ex. MongoDB, MySQL och Redis. Alla händelser som relaterar till en inkommande HTTP-begäran korreleras för snabbare felsökning.
 
 Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare aspekter av din app och ditt system. Vi beskriver TelemetryClient-API:n mer ingående senare i den här artikeln.
 
@@ -32,11 +32,11 @@ Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
 
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Konfigurera en application insights-resurs
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Konfigurera en Application Insights resurs
 
 
 1. Logga in på [Azure-portalen][portal].
-2. Välj **Skapa en resurs** > **Developer tools** > **Application Insights**. Resursen innehåller en slutpunkt för att ta emot telemetridata, lagring för dessa data, sparade rapporter och instrumentpaneler, regel- och aviseringskonfiguration med mera.
+2. Välj **skapa ett** > **verktyg** > för resurs utvecklare**Application Insights**. Resursen innehåller en slutpunkt för att ta emot telemetridata, lagring för dessa data, sparade rapporter och instrumentpaneler, regel- och aviseringskonfiguration med mera.
 
 3. På sidan där du skapar resursen väljer du **Node.js Application** i rutan **Programtyp**. Apptypen bestämmer vilken standardinstrumentpanel och rapporter som skapas. (Alla App Insights-resurser kan samla in data från alla språk och plattformar.)
 

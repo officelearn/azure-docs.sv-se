@@ -1,7 +1,7 @@
 ---
 title: Vad är distribuerad utbildning?
 titleSuffix: Azure Machine Learning
-description: Läs mer om distribuerad utbildning och hur Azure Machine Learning stöder den.
+description: Lär dig mer om distribuerad utbildning och hur Azure Machine Learning stöder det.
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -10,45 +10,45 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: a0d5bf795e4759a105b9a235770f37aa10bd6751
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80385550"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Distribuerad utbildning med Azure Machine Learning
 
-I den här artikeln får du lära dig mer om distribuerad utbildning och hur Azure Machine Learning stöder den för modeller med djupinlärning. 
+I den här artikeln lär du dig om distribuerad utbildning och hur Azure Machine Learning stöder den för djup inlärnings modeller. 
 
-I distribuerad utbildning delas arbetsbelastningen för att träna en modell upp och delas mellan flera miniprocessorer, så kallade arbetsnoder. Dessa arbetarnoder arbetar parallellt för att påskynda modellutbildningen. Distribuerad utbildning kan användas för traditionella ML-modeller, men är bättre lämpad för beräknings- och tidsintensiva uppgifter, som [djupinlärning](concept-deep-learning-vs-machine-learning.md) för träning av djupa neurala nätverk.
+I distribuerad utbildning är arbets belastningen för att träna en modell att delas upp och delas mellan flera olika mini-processorer, som kallas arbetsnoder. Dessa arbetsnoder fungerar parallellt för att påskynda modell träningen. Distribuerad utbildning kan användas för traditionella ML-modeller, men passar bättre för beräknings-och tids krävande uppgifter, t. ex. [djup inlärning](concept-deep-learning-vs-machine-learning.md) för inlärnings djup neurala nätverk.
 
-## <a name="deep-learning-and-distributed-training"></a>Djupinlärning och distribuerad utbildning 
+## <a name="deep-learning-and-distributed-training"></a>Djup inlärning och distribuerad utbildning 
 
-Det finns två huvudtyper av distribuerad utbildning: [dataparallellism](#data-parallelism) och [modellparallellism](#model-parallelism). För distribuerad utbildning på djupinlärningsmodeller stöder [Azure Machine Learning SDK i Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) integrationer med populära ramverk, PyTorch och TensorFlow. Båda ramarna använder dataparallellism för distribuerad utbildning och kan utnyttja [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) för att optimera beräkningshastigheter. 
+Det finns två huvudsakliga typer av distribuerade utbildningar: [data parallellitet](#data-parallelism) och [modell parallellitet](#model-parallelism). För distribuerad utbildning på djup inlärnings modeller stöder [Azure Machine Learning SDK i python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) integreringar med populära ramverk, PyTorch och TensorFlow. Båda ramverken använder data parallellitet för distribuerad utbildning och kan utnyttja [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) för att optimera beräknings hastigheter. 
 
 * [Distribuerad utbildning med PyTorch](how-to-train-pytorch.md#distributed-training)
 
 * [Distribuerad utbildning med TensorFlow](how-to-train-tensorflow.md#distributed-training)
 
-För ML-modeller som inte kräver distribuerad utbildning läser du [träna modeller med Azure Machine Learning](concept-train-machine-learning-model.md#python-sdk) för olika sätt att träna modeller med Python SDK.
+För ML-modeller som inte kräver distribuerad utbildning, se [träna modeller med Azure Machine Learning](concept-train-machine-learning-model.md#python-sdk) för olika sätt att träna modeller med python SDK.
 
-## <a name="data-parallelism"></a>Data parallellism
+## <a name="data-parallelism"></a>Data parallellitet
 
-Data parallellism är det lättast att genomföra av de två distribuerade utbildningsmetoder, och är tillräcklig för de flesta användningsfall.
+Data Parallel är det enklaste sättet att implementera de två metoderna för distribuerad utbildning och är tillräckligt för de flesta användnings fall.
 
-I den här metoden är data indelade i partitioner, där antalet partitioner är lika med det totala antalet tillgängliga noder, i beräkningsklustret. Modellen kopieras i var och en av dessa arbetsnoder och varje arbetare arbetar på sin egen delmängd av data. Tänk på att varje nod måste ha kapacitet att stödja den modell som tränas, det vill vara modellen måste helt passa på varje nod.
+I den här metoden är data indelade i partitioner, där antalet partitioner motsvarar det totala antalet tillgängliga noder, i beräknings klustret. Modellen kopieras i var och en av dessa arbetsnoder och varje anställd arbetar på sin egen del av data. Tänk på att varje nod måste ha kapacitet att stödja den modell som har tränats, vilket är att modellen helt måste anpassas på varje nod.
 
-Varje nod beräknar självständigt felen mellan dess förutsägelser för sina träningsprover och de märkta utgångarna. Varje nod uppdaterar i sin modell baserat på felen och måste meddela alla sina ändringar till de andra noderna för att uppdatera motsvarande modeller. Det innebär att arbetarnoderna måste synkronisera modellparametrarna, eller övertoningarna, i slutet av batchberäkningen för att säkerställa att de tränar en konsekvent modell. 
+Varje nod beräknar oberoende fel mellan sina förutsägelser för dess utbildnings exempel och etiketterade utdata. I sin tur uppdaterar varje nod sin modell baserat på felen och måste kommunicera alla ändringar i de andra noderna för att uppdatera deras motsvarande modeller. Det innebär att arbetsnoderna måste synkronisera modell parametrarna eller toningarna i slutet av batch-beräkningen för att se till att de tränar en konsekvent modell. 
 
-## <a name="model-parallelism"></a>Modell parallellism
+## <a name="model-parallelism"></a>Modell parallellitet
 
-I modellparallellism, även känd som nätverksparallellism, är modellen segmenterad i olika delar som kan köras samtidigt i olika noder, och var och en kommer att köras på samma data. Skalbarheten för den här metoden beror på graden av aktivitetssamallering av algoritmen, och det är mer komplext att implementera än dataparallellism. 
+I modell parallellitet, som även kallas nätverks parallellitet, segmenteras modellen i olika delar som kan köras samtidigt på olika noder, och var och en kommer att köras på samma data. Skalbarheten för den här metoden beror på parallellisering-algoritmens omfattning och är mer komplex att implementera än data parallellt. 
 
-I modellparallellism behöver arbetarnoder bara synkronisera de delade parametrarna, vanligtvis en gång för varje steg framåt eller bakåt. Dessutom är större modeller inte ett problem eftersom varje nod fungerar på ett underavsnitt av modellen på samma träningsdata.
+I modell parallellt behöver arbetsnoder bara synkronisera de delade parametrarna, vanligt vis en gång för varje steg framåt eller bakåt-spridning. Dessutom är större modeller inte ett problem eftersom varje nod fungerar på ett underavsnitt av modellen på samma tränings data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [konfigurerar träningsmiljöer](how-to-set-up-training-targets.md) med Python SDK.
-* Ett tekniskt exempel finns i [referensarkitekturscenariot](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning).
-* [Tåg ML modeller med TensorFlow](how-to-train-tensorflow.md).
-* [Tåg ML modeller med PyTorch](how-to-train-pytorch.md). 
+* Lär dig hur du [konfigurerar utbildnings miljöer](how-to-set-up-training-targets.md) med python SDK.
+* Ett tekniskt exempel finns i [referens arkitektur scenariot](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning).
+* [Träna ml-modeller med TensorFlow](how-to-train-tensorflow.md).
+* [Träna ml-modeller med PyTorch](how-to-train-pytorch.md). 

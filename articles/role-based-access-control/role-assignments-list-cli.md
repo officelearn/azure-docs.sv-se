@@ -1,6 +1,6 @@
 ---
-title: Lista rolltilldelningar med Azure RBAC och Azure CLI
-description: Lär dig hur du tar reda på vilka resurser användare, grupper, tjänsthuvudnamn eller hanterade identiteter har åtkomst till med hjälp av Azure-rollbaserad åtkomstkontroll (RBAC) och Azure CLI.
+title: Lista roll tilldelningar med Azure RBAC och Azure CLI
+description: Lär dig hur du avgör vilka resurser användare, grupper, tjänstens huvud namn eller hanterade identiteter har åtkomst till med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure CLI i Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,34 +15,34 @@ ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80385069"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lista rolltilldelningar med Azure RBAC och Azure CLI
+# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lista roll tilldelningar med Azure RBAC och Azure CLI
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]I den här artikeln beskrivs hur du listar rolltilldelningar med Azure CLI.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure CLI.
 
 > [!NOTE]
-> Om din organisation har lagt ut hanteringsfunktioner på entreprenad till en tjänsteleverantör som använder [Azure-delegerad resurshantering](../lighthouse/concepts/azure-delegated-resource-management.md)visas inte rolltilldelningar som auktoriserats av den tjänsteleverantören här.
+> Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
 
 ## <a name="prerequisites"></a>Krav
 
-- [Bash i Azure Cloud Shell](/azure/cloud-shell/overview) eller Azure [CLI](/cli/azure)
+- [Bash i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure CLI](/cli/azure)
 
 ## <a name="list-role-assignments-for-a-user"></a>Visa rolltilldelningar för en användare
 
-Om du vill visa rolltilldelningar för en viss användare använder du [listan över tilldelningar av az-roller:](/cli/azure/role/assignment#az-role-assignment-list)
+Om du vill visa roll tilldelningarna för en speciell användare använder du [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli-interactive
 az role assignment list --assignee <assignee>
 ```
 
-Som standard visas endast rolltilldelningar för den aktuella prenumerationen. Om du vill visa rolltilldelningar för `--all` den aktuella prenumerationen och nedan lägger du till parametern. Om du vill visa ärvda rolltilldelningar lägger du till parametern. `--include-inherited`
+Som standard visas endast roll tilldelningar för den aktuella prenumerationen. Lägg till- `--all` parametern för att Visa roll tilldelningar för den aktuella prenumerationen och nedan. Om du vill visa ärvda roll tilldelningar `--include-inherited` lägger du till parametern.
 
-I följande exempel visas de rolltilldelningar som tilldelas direkt till den *contoso.com\@* användaren:
+I följande exempel visas roll tilldelningarna som tilldelas direkt till *patlong\@contoso.com* -användaren:
 
 ```azurecli-interactive
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -63,13 +63,13 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ## <a name="list-role-assignments-for-a-resource-group"></a>Visa rolltilldelningar för en resursgrupp
 
-Om du vill visa de rolltilldelningar som finns i ett resursgruppomfång använder du [listan över az-rolltilldelning:](/cli/azure/role/assignment#az-role-assignment-list)
+Om du vill visa en lista över roll tilldelningar som finns i ett resurs grupps omfång använder du [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli-interactive
 az role assignment list --resource-group <resource_group>
 ```
 
-I följande exempel visas rolltilldelningarna för resursgruppen *för läkemedelsförsäljning:*
+I följande exempel visas roll tilldelningarna för resurs gruppen *Pharma-Sales* :
 
 ```azurecli-interactive
 az role assignment list --resource-group pharma-sales --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -92,7 +92,7 @@ az role assignment list --resource-group pharma-sales --output json | jq '.[] | 
 
 ## <a name="list-role-assignments-for-a-subscription"></a>Lista med rolltilldelningar för en prenumeration
 
-Om du vill visa alla rolltilldelningar i ett prenumerationsomfång använder du [listan över tilldelningar av az-roller](/cli/azure/role/assignment#az-role-assignment-list). För att få prenumerations-ID:t hittar du det på **prenumerationsbladet** i Azure-portalen eller så kan du använda [az-kontolistan](/cli/azure/account#az-account-list).
+Om du vill visa en lista över alla roll tilldelningar i ett prenumerations omfång använder du [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list). Om du vill hämta prenumerations-ID: t kan du hitta det på bladet **prenumerationer** i Azure Portal eller så kan du använda [konto listan AZ](/cli/azure/account#az-account-list).
 
 ```azurecli-interactive
 az role assignment list --subscription <subscription_name_or_id>
@@ -104,9 +104,9 @@ Exempel:
 az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-## <a name="list-role-assignments-for-a-management-group"></a>Lista rolltilldelningar för en hanteringsgrupp
+## <a name="list-role-assignments-for-a-management-group"></a>Lista roll tilldelningar för en hanterings grupp
 
-Om du vill visa alla rolltilldelningar i ett hanteringsgruppomfång använder du [listan över tilldelning av az-roller](/cli/azure/role/assignment#az-role-assignment-list). Om du vill hämta hanteringsgrupp-ID:t hittar du det på bladet **Hanteringsgrupper** i Azure-portalen eller så kan du använda [listan över az-kontohanteringsgrupper](/cli/azure/account/management-group#az-account-management-group-list).
+Om du vill visa alla roll tilldelningar i ett hanterings grupps omfång använder du [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list). Om du vill hämta ID för hanterings grupp kan du hitta det på bladet **hanterings grupper** i Azure Portal eller så kan du använda [AZ Account Management-Group List](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli-interactive
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -118,25 +118,25 @@ Exempel:
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-## <a name="list-role-assignments-for-a-managed-identity"></a>Lista rolltilldelningar för en hanterad identitet
+## <a name="list-role-assignments-for-a-managed-identity"></a>Lista roll tilldelningar för en hanterad identitet
 
-1. Hämta objekt-ID:t för den systemtilldelade eller användartilldelade hanterade identiteten.
+1. Hämta objekt-ID: t för den systemtilldelade eller användarspecifika hanterade identiteten.
 
-    Om du vill hämta objekt-ID:t för en användartilldelad hanterad identitet kan du använda [az ad sp-listan](/cli/azure/ad/sp#az-ad-sp-list) eller [az identity list](/cli/azure/identity#az-identity-list).
+    För att hämta objekt-ID för en användardefinierad hanterad identitet kan du använda [AZ AD SP List](/cli/azure/ad/sp#az-ad-sp-list) eller [AZ Identity List](/cli/azure/identity#az-identity-list).
 
     ```azurecli-interactive
     az ad sp list --display-name "<name>" --query [].objectId --output tsv
     ```
 
-    Om du vill hämta objekt-ID:t för en systemtilldelad hanterad identitet kan du använda [az ad sp-listan](/cli/azure/ad/sp#az-ad-sp-list).
+    Du kan använda [AZ AD SP-lista](/cli/azure/ad/sp#az-ad-sp-list)för att hämta objekt-ID: t för en systemtilldelad hanterad identitet.
 
     ```azurecli-interactive
     az ad sp list --display-name "<vmname>" --query [].objectId --output tsv
     ```
 
-1. Om du vill visa rolltilldelningarna använder du [listan över tilldelningar av az-roller](/cli/azure/role/assignment#az-role-assignment-list).
+1. Om du vill visa roll tilldelningarna använder du [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list).
 
-    Som standard visas endast rolltilldelningar för den aktuella prenumerationen. Om du vill visa rolltilldelningar för `--all` den aktuella prenumerationen och nedan lägger du till parametern. Om du vill visa ärvda rolltilldelningar lägger du till parametern. `--include-inherited`
+    Som standard visas endast roll tilldelningar för den aktuella prenumerationen. Lägg till- `--all` parametern för att Visa roll tilldelningar för den aktuella prenumerationen och nedan. Om du vill visa ärvda roll tilldelningar `--include-inherited` lägger du till parametern.
 
     ```azurecli-interactive
     az role assignment list --assignee <objectid>
@@ -144,4 +144,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till eller ta bort rolltilldelningar med Azure RBAC och Azure CLI](role-assignments-cli.md)
+- [Lägga till eller ta bort roll tilldelningar med Azure RBAC och Azure CLI](role-assignments-cli.md)

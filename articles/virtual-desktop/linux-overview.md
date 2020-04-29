@@ -1,6 +1,6 @@
 ---
-title: Linuxsupport för Windows Virtual Desktop – Azure
-description: En kort översikt Linux-stöd för Windows Virtual Desktop.
+title: Windows Virtual Desktop Linux Support – Azure
+description: En kort översikt av Linux-stöd för virtuella Windows-datorer.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,38 +9,38 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c5de43ed29856451ad67e02a426b07cc34a0d54
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422422"
 ---
 # <a name="linux-support"></a>Linux-support
 
-Partner kan använda Linux SDK för Windows Virtual Desktop för att skapa en fristående Windows Virtual Desktop-klient. Du kan också använda den för att aktivera Windows Virtual Desktop-stöd för klientprogrammet. Denna snabbguide kommer att förklara vad Linux SDK är och hur man börjar använda den.
+Partner kan använda Linux SDK för Windows Virtual Desktop för att bygga en fristående Windows-klient för virtuella skriv bord. Du kan också använda den för att aktivera stöd för virtuella Windows-datorer i klient programmet. Den här snabb guiden förklarar vad Linux SDK är och hur du börjar använda det.
 
-## <a name="connect-with-your-linux-device"></a>Anslut med din Linux-enhet
+## <a name="connect-with-your-linux-device"></a>Anslut till din Linux-enhet
 
-Följande partner har godkända Windows Virtual Desktop-klienter för Linux-enheter.
+Följande partners har godkänt Windows virtuella Skriv bords klienter för Linux-enheter.
 
-|Partner|Dokumentation från partner|Partnersupport|
+|Partner|Partner dokumentation|Support för partner|
 |:------|:--------------------|:--------------|
-|![IGEL-logotyp](./media/partners/igel.png)|[IGEL-klientdokumentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Support för IGEL](https://www.igel.com/support/)|
+|![IGEL-logotyp](./media/partners/igel.png)|[Dokumentation om IGEL-klient](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL-stöd](https://www.igel.com/support/)|
 
 ## <a name="what-is-the-linux-sdk"></a>Vad är Linux SDK?
 
-Du kan använda SDK-API:erna för att hämta resursflöden, ansluta till skrivbords- eller fjärrprogramsessioner och använda många av de omdirigeringar som våra förstapartsklienter stöder.
+Du kan använda SDK-API: er för att hämta resurs flöden, ansluta till Skriv bords-eller fjärranslutna programsessioner och använda många av de omdirigeringar som våra klienter från den första parten har stöd för.
 
 > [!NOTE]
-> SDK är för närvarande under utveckling. Vi uppdaterar det här dokumentet med instruktioner för att komma åt SDK när det är allmänt tillgängligt.
+> SDK är för närvarande under utveckling. Vi kommer att uppdatera det här dokumentet med instruktioner för att få åtkomst till SDK: n när det är allmänt tillgängligt.
 
-### <a name="supported-linux-distributions"></a>Linuxdistributioner som stöds
+### <a name="supported-linux-distributions"></a>Linux-distributioner som stöds
 
-SDK är kompatibel med de flesta operativsystem baserade på Ubuntu 18.04 eller senare. Om du har en annan Linux-distribution kan vi arbeta med dig för att ta reda på hur du bäst kan stödja dina behov.
+SDK är kompatibelt med de flesta operativ system baserade på Ubuntu 18,04 eller senare. Om du har en annan Linux-distribution kan vi samar beta med dig för att ta reda på hur du bäst stöder dina behov.
 
-### <a name="feature-support"></a>Stöd för funktioner
+### <a name="feature-support"></a>Funktions stöd
 
-SDK stöder flera anslutningar till skrivbords- och fjärrprogramsessioner. Följande omdirigeringar stöds:
+SDK stöder flera anslutningar till Skriv bords-och fjärranslutna programsessioner. Följande omdirigeringar stöds:
 
 | Omdirigering       | Stöds |
 | :---------------- | :-------: |
@@ -51,26 +51,26 @@ SDK stöder flera anslutningar till skrivbords- och fjärrprogramsessioner. Föl
 | Urklipp (text)  | &#10004;  |
 | Urklipp (bild) | &#10004;  |
 | Urklipp (fil)  | &#10004;  |
-| Smartcard         | &#10004;  |
+| Smartkortsinloggning         | &#10004;  |
 | Enhet/mapp      | &#10004;  |
 
-SDK stöder också flera bildskärmskonfigurationer, så länge de bildskärmar du väljer för sessionen är sammanhängande.
+SDK har även stöd för flera bildskärms konfigurationer, så länge de övervakare du väljer för din session är sammanhängande.
 
-Vi uppdaterar det här dokumentet när vi lägger till stöd för nya funktioner och omdirigeringar. Om du vill föreslå nya funktioner och andra förbättringar, besök vår [UserVoice sida](https://go.microsoft.com/fwlink/?linkid=2116523).
+Vi kommer att uppdatera det här dokumentet när vi lägger till stöd för nya funktioner och omdirigeringar. Om du vill föreslå nya funktioner och andra förbättringar kan du besöka vår [UserVoice-sida](https://go.microsoft.com/fwlink/?linkid=2116523).
 
-## <a name="get-started-with-the-linux-sdk"></a>Komma igång med Linux SDK
+## <a name="get-started-with-the-linux-sdk"></a>Kom igång med Linux SDK
 
 Innan du kan utveckla en Linux-klient för Windows Virtual Desktop måste du göra följande:
 
-1. Skapa och distribuera en Windows Virtual Desktop-miljö för testning eller produktionsanvändning.
-2. Testa de tillgängliga klienterna från första part för att bekanta dig med användarupplevelsen för Virtuellt skrivbord i Windows.
+1. Bygg och distribuera en Windows Virtual Desktop-miljö för testning eller användning av produktion.
+2. Testa de tillgängliga första parts-klienterna för att bekanta dig med användar upplevelsen av Windows virtuella skriv bord.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in vår dokumentation för följande kunder:
+Kolla in vår dokumentation för följande klienter:
 
 - [Windows Desktop-klient](connect-windows-7-and-10.md)
-- [Webbklient](connect-web.md)
+- [Webb klient](connect-web.md)
 - [Android-klient](connect-android.md)
 - [macOS-klient](connect-macos.md)
 - [iOS-klient](connect-ios.md)

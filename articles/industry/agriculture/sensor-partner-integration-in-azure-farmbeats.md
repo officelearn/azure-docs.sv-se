@@ -1,67 +1,67 @@
 ---
 title: Sensorpartnerintegration
-description: I den här artikeln beskrivs integrering av sensorpartner.
+description: I den här artikeln beskrivs integrering av sensor partner.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 3431576acbb01a0cc3a5f372460b28be05bf7ce7
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437471"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
-Den här artikeln innehåller information **Translator** om Azure FarmBeats Translator-komponenten, som möjliggör integrering av sensorpartner.
+Den här artikeln innehåller information om Azure FarmBeats **Translator** -komponenten som möjliggör integrering av sensor partner.
 
-Med den här komponenten kan partner integreras med FarmBeats med FarmBeats Datahub API:er och skicka kundenhetsdata och telemetri till FarmBeats Datahub. När data är tillgängliga i FarmBeats visualiseras den med FarmBeats Accelerator och kan användas för datafusion och för att bygga maskininlärningsmodeller/modeller för artificiell intelligens.
+Med den här komponenten kan partners integrera med FarmBeats med hjälp av FarmBeats Datahub-API: er och skicka kund enhets data och telemetri till FarmBeats Datahub. När data är tillgängliga i FarmBeats visualiseras de med FarmBeats-acceleratorn och kan användas för data fusion och för att skapa maskin inlärnings-och artificiell Intelligence-modeller.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-För att utveckla translator-komponenten behöver du följande autentiseringsuppgifter som gör det möjligt att komma åt FarmBeats API:er.
+För att utveckla Translator-komponenten behöver du följande autentiseringsuppgifter som ger åtkomst till FarmBeats-API: erna.
 
 - API-slutpunkt
-- Klient-ID:t
+- Klientorganisations-ID
 - Klientorganisations-ID
 - Klienthemlighet
-- Anslutningssträng för EventHub
+- EventHub-anslutningssträng
 
-Se det här avsnittet om du vill hämta ovanstående autentiseringsuppgifter: [Aktivera enhetsintegrering](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats)
+Se det här avsnittet för att hämta ovanstående autentiseringsuppgifter: [Aktivera enhets integrering](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats)
 
-## <a name="translator-development"></a>Utveckling av översättare
+## <a name="translator-development"></a>Translator-utveckling
 
 **REST API-baserad integrering**
 
-Sensordataintegrationsfunktionerna i FarmBeats exponeras via REST API. Funktionerna omfattar metadatadefinition, enhets- och sensoretablering samt enhets- och sensorhantering.
+Sensor data integrerings funktionerna i FarmBeats exponeras via REST API. Funktionerna omfattar metadata-definition, enhets-och sensor etablering samt hantering av enheter och sensorer.
 
-**Intag av telemetri**
+**Inmatning av telemetri**
 
-Telemetridata mappas till ett kanoniskt meddelande som publiceras på Azure Event Hubs för bearbetning. Azure Event Hubs är en tjänst som möjliggör inmatning av realtidsdata (telemetri) från anslutna enheter och program.
+Telemetri-data mappas till ett kanoniskt meddelande som publiceras på Azure Event Hubs för bearbetning. Azure Event Hubs är en tjänst som gör att du kan mata in real tids data (telemetri) från anslutna enheter och program.
 
 **API-utveckling**
 
-API:erna innehåller teknisk dokumentation för Swagger. Mer information om API:erna och deras motsvarande begäranden eller svar finns i [Swagger](https://aka.ms/FarmBeatsSwagger).
+API: erna innehåller Swagger teknisk dokumentation. Mer information om API: er och deras motsvarande förfrågningar och svar finns i [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 **Autentisering**
 
-FarmBeats använder Microsoft Azure Active Directory-autentisering.Azure App Service ger inbyggt stöd för autentisering och auktorisering.
+FarmBeats använder Microsoft Azure Active Directory autentisering.Azure App Service tillhandahåller stöd för inbyggd autentisering och auktorisering.
 
 Mer information finns i [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-FarmBeats Datahub använder bärareautentisering, som behöver följande autentiseringsuppgifter:
+FarmBeats Datahub använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
    - Klientorganisations-ID
    - Klienthemlighet
-   - Klient-ID:t
+   - Klientorganisations-ID
 
-Med hjälp av dessa autentiseringsuppgifter kan anroparen begära en åtkomsttoken. Token måste skickas i efterföljande API-begäranden, i rubrikavsnittet, enligt följande:
+Med dessa autentiseringsuppgifter kan anroparen begära en åtkomsttoken. Token måste skickas i efterföljande API-begäranden i avsnittet rubrik enligt följande:
 
 ```
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
-Följande exempel Python-kod ger åtkomsttoken, som kan användas för efterföljande API-anrop till FarmBeats.
+Följande exempel på python-kod ger åtkomst-token som kan användas för efterföljande API-anrop till FarmBeats.
 
 ```python
 import azure 
@@ -83,31 +83,31 @@ access_token = token_response.get('accessToken') 
 ```
 
 
-**HTTP-begäranden**
+**Rubriker för HTTP-begäran**
 
-Här är de vanligaste begäranderubrikerna som måste anges när du ringer ett API-anrop till FarmBeats Datahub.
+Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats Datahub.
 
 
-**Huvudet** | **Beskrivning och exempel**
+**Sidfot** | **Beskrivning och exempel**
 --- | ---
-Content-Type | Formatet för begäran (Innehållstyp: program/<format>). För FarmBeats Datahub API:er är formatet JSON. Innehållstyp: program/json
-Auktorisering | Anger den åtkomsttoken som krävs för att ringa ett API-anrop. Auktorisering: Bärare <Access-Token>
-Acceptera | Svarsformatet. För FarmBeats Datahub API:er är formatet JSON. Acceptera: ansökan/json
+Content-Type | Formatet för begäran (Content-Type: Application/<format>). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
+Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare <åtkomst-token>
+Acceptera | Svars formatet. För FarmBeats Datahub-API: er är formatet JSON. Acceptera: Application/JSON
 
 **API-begäranden**
 
-Om du vill göra en REST API-begäran kombinerar du HTTP-metoden (GET, POST eller PUT), URL:en till API-tjänsten, URI (Uniform Resource Identifier) till en resurs för att fråga, skicka data till, uppdatera eller ta bort och ett eller flera HTTP-begäranden. URL:en till API-tjänsten är den API-slutpunkt som du anger. Här är ett exempel: https://\<dittdatahub-website-namn>.azurewebsites.net
+Om du vill göra en REST API-begäran kombinerar du HTTP-metoden (GET, POST eller tag), URL: en till API-tjänsten, Uniform Resource Identifier (URI) till en resurs att fråga, skicka data till, uppdatera eller ta bort och en eller flera HTTP-begärandehuvuden. API-tjänstens URL är den API-slutpunkt som du anger. Här är ett exempel: https://\<yourdatahub-webbplats-Name>. azurewebsites.net
 
-Du kan också inkludera frågeparametrar för GET-anrop för att filtrera, begränsa storleken på och sortera data i svaren.
+Alternativt kan du inkludera frågeparametrar på GET-anrop för att filtrera, begränsa storleken på och sortera data i svaren.
 
-Följande exempelbegäran är att hämta listan över enheter.
+Följande exempel förfrågan är att hämta listan över enheter.
 
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>"
 ```
-De flesta GET-, POST- och PUT-samtal kräver en JSON-begäran.
+De flesta GET-, POST-och parkera-anrop kräver en text för JSON-begäran.
 
-Följande exempelbegäran är att skapa en enhet. (Det här exemplet har en indata-JSON med begärandetexten.)
+Följande exempel förfrågan är att skapa en enhet. (Det här exemplet har en ingångs-JSON med begär ande texten.)
 
 ```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
@@ -115,90 +115,90 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 
 ## <a name="data-format"></a>Dataformat
 
-JSON är ett vanligt språkoberoende dataformat som ger en enkel textrepresentation av godtyckliga datastrukturer. Mer information finns [i json.org](http://json.org).
+JSON är ett gemensamt språk oberoende data format som ger en enkel text representation av godtyckliga data strukturer. Mer information finns i [JSON.org](http://json.org).
 
-## <a name="metadata-specifications"></a>Metadataspecifikationer
+## <a name="metadata-specifications"></a>Specifikationer för metadata
 
-FarmBeats Datahub har följande API:er som gör det möjligt för enhetspartner att skapa och hantera enhets- eller sensormetadata.
+FarmBeats Datahub har följande API: er som gör det möjligt för enhets partner att skapa och hantera metadata för enheter eller sensorer.
 
-- /**DeviceModel**: DeviceModel motsvarar metadata för enheten, till exempel tillverkaren och typen av enhet, som antingen är gateway eller nod.
-- /**Enhet**: Enheten motsvarar en fysisk enhet som finns på servergruppen.
-- /**SensorModel**: SensorModel motsvarar metadata för sensorn, såsom tillverkaren, vilken typ av sensor, som är antingen analog eller digital, och sensorn mäter, såsom omgivningstemperatur och tryck.
-- /**Sensor**: Sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligtvis ansluten till en enhet med ett enhets-ID.
+- /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som antingen är gateway eller nod.
+- /**Enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
+- /**SensorModel**: SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital och sensor måttet, till exempel omgivnings temperatur och tryck.
+- /**Sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
 
-  **EnhetModell** |  |
+  **DeviceModel** |  |
   --- | ---
-  Typ (nod, gateway)  | Typ av enhet - Nod eller Gateway |
+  Typ (nod, Gateway)  | Typ av enhet-nod eller gateway |
   Tillverkare  | Tillverkarens namn |
-  Produktkod  | Enhetens produktkod eller modellnamn eller modellnummer. Till exempel EnviroMonitor #6800. |
-  Portar  | Portnamn och typ, som är digitalt eller analogt.  |
-  Namn  | Namn för att identifiera resurs. Till exempel modellnamn eller produktnamn. |
-  Beskrivning  | Ge en meningsfull beskrivning av modellen. |
+  ProductCode  | Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800. |
+  Portar  | Port namn och-typ, som är digital eller analog.  |
+  Name  | Namn för att identifiera resursen. Till exempel modell namn eller produkt namn. |
+  Beskrivning  | Ange en meningsfull beskrivning av modellen. |
   Egenskaper  | Ytterligare egenskaper från tillverkaren. |
   **Enhet** |  |
-  DeviceModelId  |ID för den associerade enhetsmodellen. |
-  HardwareId (HardwareId)   |Unikt ID för enheten, till exempel en MAC-adress.  |
-  RapporteringInval |Rapporteringsintervallet i sekunder. |
-  Location    |Enhets latitud (-90 till +90), longitud (-180 till 180) och höjd (i meter). |
-  ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. Om till exempel en nod är ansluten till en gateway har noden parentDeviceID som gateway. |
-  Namn  | Namn för att identifiera resursen. Enhetspartner måste skicka ett namn som överensstämmer med enhetsnamnet på enhetspartnersidan. Om enhetsnamnet är användardefinierat på enhetspartnersidan ska samma användardefinierade namn spridas till FarmBeats.  |
-  Beskrivning  | Ge en meningsfull beskrivning.  |
+  DeviceModelId  |ID för associerad enhets modell. |
+  HardwareId   |Unikt ID för enheten, till exempel en MAC-adress.  |
+  ReportingInterval |Rapport intervall i sekunder. |
+  Plats    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
+  ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. Om en nod till exempel är ansluten till en gateway har noden parentDeviceID som gateway. |
+  Name  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
+  Beskrivning  | Ange en meningsfull beskrivning.  |
   Egenskaper  |Ytterligare egenskaper från tillverkaren.  |
-  **SensorModel (SensorModel)** |  |
-  Typ (analog, digital)  |Nämn analog eller digital sensor.|
+  **SensorModel** |  |
+  Typ (analog, digital)  |Nämna analog eller digital sensor.|
   Tillverkare  | Tillverkarens namn. |
-  Produktkod  | Produktkod eller modellnamn eller nummer. Till exempel RS-CO2-N01.  |
-  SensorÅtgärder > namn  | Sensormåttets namn. Endast gemener stöds. För mätningar från olika djup anger du djupet. Till exempel soil_moisture_15cm. Det här namnet måste vara förenligt med telemetridata. |
-  SensorÅtgärder > DataType  | Telemetridatatyp. För närvarande stöds dubbel. |
-  SensorÅtgärder > typ  | Mättyp för sensortelemetridata. Följande är de systemdefinierade typerna: AmbientTemperature, CO2, Djup, ElektriskKonduktivitet, LeafWetness, Längd, LiquidLevel, Nitrat, O2, PH, Fosfat, PointInTime, Kalium, Tryck, RainGauge, RelativeHumidity, Salthalt, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volym, WindDirection, WindRun, WindSpeed, Evaranpotspiration, PAR. Mer information finns i API:et /ExtendedType.
-  SensorÅtgärder > enhet | Enhet av sensortelemetridata. Följande är de systemdefinierade enheterna: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Procent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond och InchesPerHour. Mer information finns i API:et /ExtendedType.
-  SensorÅtgärder > AggregationType  | Antingen ingen, genomsnittlig, högsta, lägsta eller StandardDeviation.
-  SensorÅtgärder > djup  | Sensorns djup i centimeter. Till exempel mätning av fukt 10 cm under marken.
-  SensorÅtgärder > Beskrivning  | Ge en meningsfull beskrivning av mätningen.
-  Namn  | Namn för att identifiera resurs. Till exempel modellnamnet eller produktnamnet.
-  Beskrivning  | Ge en meningsfull beskrivning av modellen.
+  ProductCode  | Produkt kod eller modell namn eller nummer. Till exempel RS-CO2-N01.  |
+  SensorMeasures > namn  | Sensor måttets namn. Endast gemener stöds. Ange djupet för mått från olika djup. Till exempel soil_moisture_15cm. Det här namnet måste vara konsekvent med telemetri-data. |
+  SensorMeasures > datatype  | Datatyp för telemetri. För närvarande stöds Double. |
+  SensorMeasures > typ  | Typ av mått för sensorer för telemetri. Följande är systemdefinierade typer: AmbientTemperature, CO2, djup, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrat, O2, PH, fosfat, PointInTime, kalium, press, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, volym, WindDirection, WindRun, WindSpeed, evapotranspiration, parivärde. Mer information finns i/ExtendedType-API: et.
+  SensorMeasures > enhet | Enhet för data för sensor telemetri. Följande är systemdefinierade enheter: nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, kvicksilver, PSI, MilliMeter, CentiMeter, meter, tum, fot, mil, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, examen, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, liter, VolumetricIonContent, sekunder, MilliLiter, UnixTimestamp och MicroMolPerMeterSquaredPerSecond. Mer information finns i/ExtendedType-API: et.
+  SensorMeasures > AggregationType  | Antingen ingen, genomsnitt, högsta, lägsta eller StandardDeviation.
+  SensorMeasures > djup  | Sensorns djup i centimeter. Till exempel mätningen av fukt 10 cm under marken.
+  Beskrivning av SensorMeasures->  | Ge en meningsfull beskrivning av måttet.
+  Name  | Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
+  Beskrivning  | Ange en meningsfull beskrivning av modellen.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
-  **Sensor**  |  |
-  HardwareId (HardwareId)  | Unikt ID för sensorn som ställs in av tillverkaren.
-  SensorModelId  | ID för den associerade sensormodellen.
-  Location  | Sensor latitud (-90 till +90), longitud (-180 till 180), och höjd (i meter).
-  Namn på > port  |Namn och typ på den port som sensorn är ansluten till på enheten. Detta måste vara samma namn som definieras i enhetsmodellen.
+  **Mäta**  |  |
+  HardwareId  | Unikt ID för sensorn som anges av tillverkaren.
+  SensorModelId  | ID för associerad sensor modell.
+  Plats  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
+  Port > namn  |Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som definieras i enhets modellen.
   DeviceId  | ID för den enhet som sensorn är ansluten till.
-  Namn  | Namn för att identifiera resursen. Till exempel sensornamnet eller produktnamnet och modellnumret eller produktkoden.
-  Beskrivning  | Ge en meningsfull beskrivning.
+  Name  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
+  Beskrivning  | Ange en meningsfull beskrivning.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
 
- Information om var och en av objekten och deras egenskaper finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+ Information om varje objekt och deras egenskaper finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
- > API:erna returnerar unika ID:er för varje instans som skapas. Det här ID:t måste behållas av översättaren för enhetshantering och metadatasynkronisering.
+ > API: erna returnerar unika ID: n för varje instans som skapats. Detta ID måste behållas av Translator för enhets hantering och metadata-synkronisering.
 
 
 **Synkronisering av metadata**
 
-Översättaren ska skicka uppdateringar om metadata. Uppdateringsscenarier ändras till exempel av enhetens eller sensorns namn och ändring av enhetens eller sensorns plats.
+Translator ska skicka uppdateringar för metadata. Uppdaterings scenarier är till exempel ändring av enhets-eller sensor namn och ändring av enhets-eller sensor plats.
 
-Översättaren bör ha möjlighet att lägga till nya enheter eller sensorer som installerades av användaren post länkning av FarmBeats. På samma sätt, om en enhet eller sensor har uppdaterats av användaren, bör samma uppdateras i FarmBeats för motsvarande enhet eller sensor. Typiska scenarier som kräver uppdatering av en enhet eller sensor är en ändring av en enhetsplats eller tillägg av sensorer i en nod.
+Översättaren bör kunna lägga till nya enheter eller sensorer som har installerats av användaren efter att du har länkat FarmBeats. Om en enhet eller sensor har uppdaterats av användaren, ska samma sak uppdateras i FarmBeats för motsvarande enhet eller sensor. Vanliga scenarier som kräver uppdatering av en enhet eller sensor är en förändring på en enhets plats eller tillägg av sensorer i en nod.
 
 
 > [!NOTE]
-> Borttagning stöds inte för enhets- eller sensormetadata.
+> Borttagning stöds inte för enhets-eller sensor-metadata.
 >
-> Om du vill uppdatera metadata är det obligatoriskt att anropa /Get/{id} på enheten eller sensorn, uppdatera de ändrade egenskaperna och sedan göra ett /Put/{id} så att alla egenskaper som anges av användaren inte går förlorade.
+> Om du vill uppdatera metadata, är det obligatoriskt att anropa/get/{ID} på enheten eller sensorn, uppdatera de ändrade egenskaperna och sedan göra en/put/{ID} så att alla egenskaper som anges av användaren inte går förlorade.
 
-### <a name="add-new-types-and-units"></a>Lägga till nya typer och enheter
+### <a name="add-new-types-and-units"></a>Lägg till nya typer och enheter
 
-FarmBeats stöder att lägga till nya sensormåtttyper och enheter. Mer information om /ExtendedType-API:et finns i [Swagger](https://aka.ms/FarmBeatsSwagger).
+FarmBeats har stöd för att lägga till nya typer av sensor mått och enheter. Mer information om/ExtendedType-API: et finns i [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## <a name="telemetry-specifications"></a>Specifikationer för telemetri
 
-Telemetridata mappas till ett kanoniskt meddelande som publiceras på Azure Event Hubs för bearbetning. Azure Event Hubs är en tjänst som möjliggör inmatning av realtidsdata (telemetri) från anslutna enheter och program.
+Telemetri-data mappas till ett kanoniskt meddelande som publiceras på Azure Event Hubs för bearbetning. Azure Event Hubs är en tjänst som gör att du kan mata in real tids data (telemetri) från anslutna enheter och program.
 
 ## <a name="send-telemetry-data-to-farmbeats"></a>Skicka telemetridata till FarmBeats
 
-Om du vill skicka telemetridata till FarmBeats skapar du en klient som skickar meddelanden till en händelsehubb i FarmBeats. Mer information om telemetridata finns i [Skicka telemetri till en händelsehubb](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Om du vill skicka telemetridata till FarmBeats skapar du en klient som skickar meddelanden till en Event Hub i FarmBeats. Mer information om telemetridata finns i [Skicka telemetri till en Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
-Här är ett exempel på Python-kod som skickar telemetri som klient till en angiven händelsehubb.
+Här är ett exempel på en python-kod som skickar telemetri som en klient till en angiven Event Hub.
 
 ```python
 import azure
@@ -217,7 +217,7 @@ write_client.stop()
 
 ```
 
-Det kanoniska meddelandeformatet är följande:
+Det kanoniska meddelande formatet är följande:
 
 ```json
 {
@@ -241,9 +241,9 @@ Det kanoniska meddelandeformatet är följande:
  ]
 }
 ```
-Alla nyckelnamn i telemetrin JSON ska vara gemener. Exempel är deviceid och sensordata.
+Alla nyckel namn i JSON för telemetri måste vara gemener. Exempel är DeviceID och sensordata.
 
-Här är till exempel ett telemetrimeddelande:
+Här är ett telemetri-meddelande:
 
 
 ```json
@@ -284,64 +284,64 @@ Här är till exempel ett telemetrimeddelande:
 ```
 
 > [!NOTE]
-> Följande avsnitt är relaterade till andra ändringar (t.ex. Användargränssnitt, felhantering etc.) sensorpartnern kan hänvisa till vid utveckling av Translator-komponenten.
+> Följande avsnitt är relaterade till andra ändringar (t. ex. Användar gränssnitt, fel hantering osv.) att sensor partnern kan referera till i utveckla Translator-komponenten.
 
 
 ## <a name="link-a-farmbeats-account"></a>Länka ett FarmBeats-konto
 
-När kunder har köpt och distribuerat enheter eller sensorer kan de komma åt enhetsdata och telemetri på enhetspartnernas programvara som en Tjänstportal (SaaS). Enhetspartner kan göra det möjligt för kunder att länka sitt konto till sin FarmBeats-instans på Azure genom att tillhandahålla ett sätt att ange följande autentiseringsuppgifter:
+När kunderna har köpt och distribuerat enheter eller sensorer kan de komma åt enhets data och telemetri på enhets partnerns SaaS-portal (Software as a Service). Enhets partner kan göra det möjligt för kunder att länka sitt konto till sin FarmBeats-instans i Azure genom att tillhandahålla ett sätt att ange följande autentiseringsuppgifter:
 
-   - Visningsnamn (ett valfritt fält där användare kan definiera ett namn för den här integrationen)
+   - Visnings namn (ett valfritt fält där användare kan definiera ett namn för den här integrationen)
    - API-slutpunkt
-   - Klient-ID:t
+   - Klientorganisations-ID
    - Klientorganisations-ID
    - Klienthemlighet
-   - Anslutningssträng för EventHub
+   - EventHub-anslutningssträng
    - Startdatum
 
    > [!NOTE]
-   > Startdatumet aktiverar den historiska datafeeden, det vill än data från det datum som anges av användaren.
+   > Start datumet aktiverar den historiska datafeeden, det vill säga data från det datum som anges av användaren.
 
-## <a name="unlink-farmbeats"></a>Ta bort länken FarmBeats
+## <a name="unlink-farmbeats"></a>Ta bort länk till FarmBeats
 
-Enhetspartner kan göra det möjligt för kunder att ta bort länken till en befintlig FarmBeats-integrering. Ta bort länken till FarmBeats bör inte ta bort några enhets- eller sensormetadata som har skapats i FarmBeats Datahub. Ta bort länken gör följande:
+Enhets partner kan göra det möjligt för kunder att ta bort länkar till en befintlig FarmBeats-integrering. Borttagning av alla enhets-eller sensor-metadata som skapades i FarmBeats-Datahub tas inte bort när FarmBeats tas bort. Att ta bort länkar gör följande:
 
-   - Stoppar telemetriflödet.
-   - Tar bort och raderar integrationsautentiseringsuppgifterna på enhetspartnern.
+   - Stoppar telemetri-flöde.
+   - Tar bort och raderar integrerings uppgifterna på enhets partnern.
 
 ## <a name="edit-farmbeats-integration"></a>Redigera FarmBeats-integrering
 
-Enhetspartner kan göra det möjligt för kunder att redigera integrationsinställningarna för FarmBeats om klienthemligheten eller anslutningssträngen ändras. I det här fallet är endast följande fält redigerbara:
+Med enhets partner kan kunderna redigera FarmBeats-integrerings inställningarna om klient hemligheten eller anslutnings strängen ändras. I det här fallet kan endast följande fält redige ras:
 
-   - Visningsnamn (om tillämpligt)
-   - Klienthemlighet (ska visas i formatet "2x8***********" eller funktionen Visa/dölj i stället för klartext)
-   - Anslutningssträng (ska visas i formatet "2x8***********" eller Visa/dölj-funktionen i stället för klartext)
+   - Visnings namn (om tillämpligt)
+   - Klient hemlighet (ska visas i formatet "2x8 * * * * * * * * *" eller funktionen Visa/Dölj i stället för klartext)
+   - Anslutnings sträng (ska visas i formaten "2x8 * * * * * * * * * *" eller Visa/Dölj i stället för klartext)
 
-## <a name="view-the-last-telemetry-sent"></a>Visa den senast skickade telemetrin
+## <a name="view-the-last-telemetry-sent"></a>Visa senaste telemetri som skickats
 
-Enhetspartner kan göra det möjligt för kunder att visa tidsstämpeln för den senaste telemetrin som skickades, som finns under **Skicka telemetri**. Detta är den tidpunkt då den senaste telemetrin skickades till FarmBeats.
+Enhets partner kan göra det möjligt för kunder att Visa tidsstämpeln för den senaste telemetri som har skickats, som finns under **telemetri som skickas**. Detta är den tid då den senaste Telemetrin skickades till FarmBeats.
 
-## <a name="troubleshooting-and-error-management"></a>Felsökning och felhantering
+## <a name="troubleshooting-and-error-management"></a>Fel sökning och fel hantering
 
-**Felsöka alternativ eller support**
+**Fel söknings alternativ eller support**
 
-Om kunden inte kan ta emot enhetsdata eller telemetri i den FarmBeats-instans som angetts, bör enhetspartnern ge stöd och en mekanism för felsökning.
+Om kunden inte kan ta emot enhets data eller telemetri i FarmBeats-instansen som angetts bör enhets partnern ge support och en mekanism för fel sökning.
 
-**Lagring av telemetridata**
+**Data kvarhållning för telemetri**
 
-Telemetridata bör också lagras under en fördefinierad tidsperiod så att de kan vara användbara vid felsökning eller återsendering av telemetrin om ett fel eller dataförlust inträffar.
+Telemetridata bör också behållas under en fördefinierad tids period, så att den kan vara användbar vid fel sökning eller omsändning av telemetri om ett fel eller data förlust inträffar.
 
-**Felhantering eller felmeddelande**
+**Fel hantering eller fel meddelande**
 
-Om ett fel påverkar enhetens eller sensormetadata eller dataintegrations- eller telemetridataflödet i enhetspartnersystemet bör kunden få ett meddelande. En mekanism för att lösa eventuella fel bör också utformas och genomföras.
+Om ett fel påverkar enhetens eller sensorns metadata eller data flödet för data integrering eller telemetri i enhets partner systemet, ska kunden få ett meddelande. En mekanism för att lösa eventuella fel bör också utformas och implementeras.
 
-**Checklista för anslutning**
+**Check lista för anslutning**
 
-Enhetstillverkare eller partner kan använda följande checklista för att säkerställa att autentiseringsuppgifterna som tillhandahålls av kunden är korrekta:
+Enhets tillverkare eller partner kan använda följande check lista för att säkerställa att de uppgifter som anges av kunden är korrekta:
 
-   - Kontrollera om en åtkomsttoken tas emot med de autentiseringsuppgifter som angavs.
-   - Kontrollera om ett API-anrop lyckas med åtkomsttoken som togs emot.
-   - Kontrollera om EventHub-klientanslutningen har upprättats.
+   - Kontrol lera om en åtkomsttoken tas emot med de autentiseringsuppgifter som angavs.
+   - Kontrol lera om ett API-anrop lyckas med den åtkomsttoken som togs emot.
+   - Kontrol lera om EventHub-klientprogrammet har upprättats.
 
 ## <a name="next-steps"></a>Nästa steg
 

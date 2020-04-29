@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Cosmos DB-resurser med Azure Storage Explorer
-description: Lär dig hur du ansluter till Azure Cosmos DB och hanterar dess resurser med hjälp av Azure Storage Explorer.
+title: Hantera Azure Cosmos DB resurser med Azure Storage Explorer
+description: Lär dig hur du ansluter till Azure Cosmos DB och hanterar dess resurser med Azure Storage Explorer.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,20 +8,20 @@ ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
 ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411677"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Arbeta med data med hjälp av Azure Storage Explorer
 
-Med hjälp av Azure Cosmos DB i Azure Storage Explorer kan du hantera Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. För närvarande stöder Azure Storage Explorer Cosmos-konton som konfigurerats för SQL-, MongoDB-, Graph- och Table-API:er.
+Med hjälp av Azure Cosmos DB i Azure Storage Explorer kan du hantera Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. För tillfället stöder Azure Storage Explorer Cosmos-konton som kon figurer ATS för SQL-, MongoDB-, Graph-och table-API: er.
 
 
 ## <a name="prerequisites"></a>Krav
 
-Ett Cosmos-konto med SQL API eller Azure Cosmos DB:s API för MongoDB. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: Skapa en SQL API-webbapp med .NET och Azure Portal](create-sql-api-dotnet.md).
+Ett Cosmos-konto med SQL API eller Azure Cosmos DB s API för MongoDB. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: Skapa en SQL API-webbapp med .NET och Azure Portal](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Installation
 
@@ -29,7 +29,7 @@ Installera den senaste versionen av Azure Storage Explorer här: [Azure Storage 
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
 
-1. När du har installerat **Azure Storage Explorer**klickar du på **plugin-ikonen** till vänster enligt följande bild:
+1. När du har installerat **Azure Storage Explorer**klickar du på **plugin-** ikonen till vänster som visas i följande bild:
        
    ![Plugin-ikon](./media/storage-explorer/plug-in-icon.png)
  
@@ -59,7 +59,7 @@ Ett alternativt sätt att ansluta till en Azure Cosmos DB är att använda en an
 
     ![Ansluta till Cosmos DB med hjälp av en anslutningssträng](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Stöder endast SQL- och Table-API för tillfället. Välj API, klistra in **Anslutningssträng**, fyll i **Kontoetikett**, klicka på **Nästa** för att kontrollera sammanfattningen och klicka sedan på **Anslut** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar den primära anslutningssträngen finns i [Hämta anslutningssträngen](manage-with-powershell.md#list-keys).
+2. Stöder endast SQL- och Table-API för tillfället. Välj API, klistra in **Anslutningssträng**, fyll i **Kontoetikett**, klicka på **Nästa** för att kontrollera sammanfattningen och klicka sedan på **Anslut** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar den primära anslutnings strängen finns i [Hämta anslutnings strängen](manage-with-powershell.md#list-keys).
 
     ![Anslutningssträng](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Använd följande steg för att ansluta till en Azure Cosmos DB med en Emulator,
 
     ![Anslut till Cosmos DB med emulator](./media/storage-explorer/emulator-entry.png)
 
-3. Stöder endast SQL-API för tillfället. Klistra in **Anslutningssträng**, fyll i **Kontoetikett**, klicka på **Nästa** för att kontrollera sammanfattningen och klicka sedan på **Anslut** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar den primära anslutningssträngen finns i [Hämta anslutningssträngen](manage-with-powershell.md#list-keys).
+3. Stöder endast SQL-API för tillfället. Klistra in **Anslutningssträng**, fyll i **Kontoetikett**, klicka på **Nästa** för att kontrollera sammanfattningen och klicka sedan på **Anslut** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar den primära anslutnings strängen finns i [Hämta anslutnings strängen](manage-with-powershell.md#list-keys).
 
     ![Dialogrutan Anslut till Cosmos DB med Emulator](./media/storage-explorer/emulator-dialog.png)
 
@@ -116,7 +116,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
     ![Ta bort databas2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>Skapa en samling
-1. Högerklicka på databasen, välj **Skapa samling**och ange sedan följande information som **insamlings-ID,** **lagringskapacitet**osv. Klicka på **OK** för att avsluta. 
+1. Högerklicka på din databas, Välj **skapa samling**och ange sedan följande information, t. ex. **samlings-ID**, **lagrings kapacitet**osv. Klicka på **OK** för att slutföra. 
 
     ![Skapa samling1](./media/storage-explorer/create-collection.png)
 
@@ -213,9 +213,9 @@ Försök att starta om programmet innan du går vidare och se om problemen kan �
 
 Det finns några skäl till att det här felet visas, de två vanligaste är:
 
-+ Du ligger bakom en *transparent proxy*, vilket innebär att någon (till exempel din IT-avdelning) fångar upp HTTPS-trafik, dekrypterar den och sedan krypterar den med ett självsignerat certifikat.
++ Du är bakom en *transparent proxy*, vilket innebär att någon (till exempel din IT-avdelning) fångar upp HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
 
-+ Du kör programvara, till exempel antivirusprogram, som injicerar ett självsignerat TLS/SSL-certifikat i de HTTPS-meddelanden du får.
++ Du kör program vara, t. ex. antivirus program, som matar in ett självsignerat TLS/SSL-certifikat i de HTTPS-meddelanden som du får.
 
 När Storage Explorer påträffar ett sådant ”självsignerade certifikat” kan den inte längre veta om HTTPS-meddelandet den får har manipulerats eller inte. Om du har en kopia av det självsignerade certifikatet kan du berätta för Storage Explorer att lita på det. Om du är osäker på vem som infogat certifikatet kan du försöka att hitta det själv genom att göra följande:
 
@@ -266,7 +266,7 @@ Om du inte kan ta bort ett konto, eller återautentiseringslänken inte gör nå
   - .extaccounts
 - Om du vill ta bort SAS-kopplade lagringsresurser, ta bort:
   - %AppData%/StorageExplorer-mapp för Windows
-  - /Användare/<your_name>/Bibliotek/Program SUpport/StorageExplorer för Mac
+  - /Users/<your_name>/Library/Application SUpport/StorageExplorer för Mac
   - ~/.config/StorageExplorer för Linux
   - **Du måste ange dina autentiseringsuppgifter igen** om du tar bort dessa filer
 
@@ -300,7 +300,7 @@ Prova följande rekommendationer:
 
 ## <a name="contact-us"></a>Kontakta oss
 
-Om ingen av lösningarna fungerar för dig, skicka e-post[cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)till Azure Cosmos DB Dev Tooling Team ( ) med information om problemet, för att åtgärda problemen.
+Om ingen av lösningarna fungerar för dig kan du skicka e-post till Azure Cosmos DB dev Teaming team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) med information om problemet för att åtgärda problemen.
 
 ## <a name="next-steps"></a>Nästa steg
 

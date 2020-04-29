@@ -1,6 +1,6 @@
 ---
-title: Inbyggd i Azure Security Center med PowerShell
-description: Det här dokumentet går igenom processen för introduktion av Azure Security Center med PowerShell-cmdletar.
+title: Publicera till Azure Security Center med PowerShell
+description: Det här dokumentet vägleder dig genom processen för att registrera Azure Security Center med hjälp av PowerShell-cmdletar.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,36 +14,36 @@ ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
 ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80435482"
 ---
-# <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera introduktion av Azure Security Center med PowerShell
+# <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera onboarding av Azure Security Center med hjälp av PowerShell
 
-Du kan skydda dina Azure-arbetsbelastningar programmässigt med hjälp av Azure Security Center PowerShell-modulen.
-Med PowerShell kan du automatisera uppgifter och undvika det mänskliga felet i manuella uppgifter. Detta är särskilt användbart i storskaliga distributioner som involverar dussintals prenumerationer med hundratals och tusentals resurser – som alla måste säkras från början.
+Du kan skydda dina Azure-arbetsbelastningar program mässigt med hjälp av Azure Security Center PowerShell-modulen.
+Med hjälp av PowerShell kan du automatisera uppgifter och undvika det mänskliga felet i manuella uppgifter. Detta är särskilt användbart i storskaliga distributioner som innefattar dussin tals prenumerationer med hundratals och tusentals resurser – alla måste skyddas från början.
 
-Med Introduktion till Azure Security Center med PowerShell kan du programmera inbyggt på- och medföljande hantering av dina Azure-resurser och lägga till nödvändiga säkerhetskontroller.
+När du registrerar Azure Security Center med hjälp av PowerShell kan du automatisera registreringen och hanteringen av dina Azure-resurser via programmering och lägga till nödvändiga säkerhets kontroller.
 
-Den här artikeln innehåller ett exempel på PowerShell-skript som kan ändras och användas i din miljö för att distribuera Security Center över dina prenumerationer. 
+Den här artikeln innehåller ett exempel på ett PowerShell-skript som kan ändras och användas i din miljö för att distribuera Security Center över dina prenumerationer. 
 
-I det här exemplet aktiverar vi Security Center på en prenumeration med ID: d07c0080-170c-4c24-861d-9c817742786c och tillämpar de rekommenderade inställningarna som ger en hög skyddsnivå genom att implementera standardnivån för Security Center, som ger avancerade funktioner för skydd mot hot och identifiering:
+I det här exemplet aktiverar vi Security Center för en prenumeration med ID: d07c0080-170c-4c24-861d-9c817742786c och tillämpar de rekommenderade inställningarna som ger en hög skydds nivå genom att implementera standard Security Center, som tillhandahåller avancerade hot skydd och identifierings funktioner:
 
-1. Ange [standardskyddsnivån för Säkerhetscenter](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Ange [Security Center standard skydds nivå](https://azure.microsoft.com/pricing/details/security-center/). 
  
-2. Ange arbetsytan Log Analytics som Log Analytics-agenten skickar de data som samlas in på de virtuella datorer som är associerade med prenumerationen – i det här exemplet en befintlig användardefinierad arbetsyta (myWorkspace).
+2. Ange Log Analytics arbets ytan som Log Analytics agent ska skicka de data som samlas in på de virtuella datorer som är associerade med prenumerationen – i det här exemplet en befintlig användardefinierad arbets yta (min arbets yta).
 
-3. Aktivera Security Centers automatiska agentetablering som [distribuerar Log Analytics-agenten](security-center-enable-data-collection.md#auto-provision-mma).
+3. Aktivera Security Centers automatiska agent etablering som [distribuerar Log Analytics-agenten](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Ange organisationens [CISO som säkerhetskontakt för Säkerhetscentervarningar och anmärkningsvärda händelser](security-center-provide-security-contact-details.md).
+5. Ange organisationens [IT som säkerhets kontakt för Security Center aviseringar och viktiga händelser](security-center-provide-security-contact-details.md).
 
-6. Tilldela Säkerhetscenters [standardsäkerhetsprinciper](tutorial-security-policy.md).
+6. Tilldela Security Centers [Standard säkerhets principer](tutorial-security-policy.md).
 
 ## <a name="prerequisites"></a>Krav
 
-De här stegen bör utföras innan du kör cmdlets för Säkerhetscenter:
+De här stegen bör utföras innan du kör Security Center-cmdlet: ar:
 
 1.  Kör PowerShell som administratör.
 2.  Kör följande kommandon i PowerShell:
@@ -51,24 +51,24 @@ De här stegen bör utföras innan du kör cmdlets för Säkerhetscenter:
         Set-ExecutionPolicy -ExecutionPolicy AllSigned
         Install-Module -Name Az.Security -Force
 
-## <a name="onboard-security-center-using-powershell"></a>Inbyggd security center med PowerShell
+## <a name="onboard-security-center-using-powershell"></a>Publicera Security Center med PowerShell
 
-1.  Registrera dina prenumerationer på Security Center Resource Provider:
+1.  Registrera dina prenumerationer på Security Center Resource provider:
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
-2.  Valfritt: Ange täckningsnivån (prisnivån) för prenumerationerna (Om den inte har definierats är prisnivån ledig):
+2.  Valfritt: Ange täcknings nivå (pris nivå) för prenumerationerna (om den inte är definierad är pris nivån inställd på kostnads fri):
 
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
 
-3.  Konfigurera en Log Analytics-arbetsyta som agenterna ska rapportera till. Du måste ha en Log Analytics-arbetsyta som du redan har skapat, som prenumerationens virtuella datorer rapporterar till. Du kan definiera flera prenumerationer som ska rapporteras till samma arbetsyta. Om den inte har definierats används standardarbetsytan.
+3.  Konfigurera en Log Analytics arbets yta som agenterna ska rapportera till. Du måste ha en Log Analytics arbets yta som du redan har skapat, som prenumerationens virtuella datorer ska rapportera till. Du kan definiera flera prenumerationer för att rapportera till samma arbets yta. Om inget värde anges används standard arbets ytan.
 
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.  Installation av logganalysagenten för automatisk etablering på dina virtuella Azure-datorer:
+4.  Automatisk etablering av installation av Log Analytics agent på dina virtuella Azure-datorer:
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
@@ -78,19 +78,19 @@ De här stegen bör utföras innan du kör cmdlets för Säkerhetscenter:
     > Vi rekommenderar att du aktiverar automatisk etablering för att se till att dina virtuella Azure-datorer skyddas automatiskt av Azure Security Center.
     >
 
-5.  Valfritt: Vi rekommenderar starkt att du definierar säkerhetskontaktinformation för de prenumerationer du har ombord, som ska användas som mottagare av aviseringar och meddelanden som genereras av Security Center:
+5.  Valfritt: Vi rekommenderar starkt att du definierar säkerhets kontakt uppgifterna för de prenumerationer du registrerar, som ska användas som mottagare av aviseringar och meddelanden som genereras av Security Center:
 
         Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertAdmin -NotifyOnAlert 
 
-6.  Tilldela standardinitiativet Security Center-princip:
+6.  Tilldela standard Security Center policy initiativ:
 
         Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
         $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
         New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
-Nu har du installerat Azure Security Center med PowerShell!
+Du har nu registrerat Azure Security Center med PowerShell!
 
-Du kan nu använda dessa PowerShell-cmdlets med automatiseringsskript för att programmässigt iterera över prenumerationer och resurser. Detta sparar tid och minskar risken för mänskliga fel. Du kan använda det här [exempelskriptet](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) som referens.
+Du kan nu använda dessa PowerShell-cmdlets med Automation-skript för att program mässigt iterera över prenumerationer och resurser. Detta sparar tid och minskar sannolikheten för mänskligt fel. Du kan använda det här [exempel skriptet](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) som referens.
 
 
 
@@ -98,11 +98,11 @@ Du kan nu använda dessa PowerShell-cmdlets med automatiseringsskript för att p
 
 
 ## <a name="see-also"></a>Se även
-Mer information om hur du kan använda PowerShell för att automatisera introduktionen till Security Center finns i följande artikel:
+Mer information om hur du kan använda PowerShell för att automatisera onboarding till Security Center finns i följande artikel:
 
-* [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
+* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security).
 
 Mer information om Security Center finns i följande artikel:
 
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
-* [Hantera och svara på säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Läs om hur du hanterar och svarar på säkerhetsaviseringar.
+* [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hur du hanterar och åtgärdar säkerhets aviseringar.

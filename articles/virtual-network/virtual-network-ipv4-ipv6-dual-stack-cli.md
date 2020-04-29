@@ -1,7 +1,7 @@
 ---
-title: Distribuera IPv6-program med dubbla staplar – grundläggande belastningsutjämning - CLI
+title: Distribuera IPv6-program med dubbla stackar – grundläggande Load Balancer-CLI
 titlesuffix: Azure Virtual Network
-description: Den här artikeln visar hur distribuera ett IPv6 dual stack-program i Azure virtuellt nätverk med Azure CLI.
+description: Den här artikeln visar hur du distribuerar ett IPv6-program med dubbla stackar i Azure Virtual Network med Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,28 +14,28 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80421025"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Distribuera ett IPv6-program med dubbla staplar med basic load balancer - CLI
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Distribuera ett IPv6-program med dubbla stackar med Basic Load Balancer-CLI
 
-Den här artikeln visar hur du distribuerar ett IPv4 + IPv6-program med grundläggande belastningsutjämnare med Azure CLI som innehåller ett virtuellt nätverk med dubbla staplar med ett undernät med dubbla staplar, en grundläggande belastningsutjämnare med dubbla (IPv4 + IPv6) frontendkonfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, regler för säkerhetsgrupp med dubbla nätverk och dubbla offentliga IP-adresser.
+Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) med grundläggande Load Balancer med hjälp av Azure CLI som innehåller ett virtuellt nätverk med dubbla stackar med ett dubbelt stack-undernät, en grundläggande Load Balancer med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, regler för dubbla nätverks säkerhets grupper och dubbla offentliga IP
 
-Information om hur du distribuerar ett IPV4 + IPv6-program med standardbelastningsutjämning finns i [Distribuera ett IPv6-program med dubbla staplar med Standard belastningsutjämnare med Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
+Om du vill distribuera ett program med dubbla stackar (IPV4 + IPv6) med hjälp av Standard Load Balancer, se [distribuera ett IPv6-program med dubbla stackar med standard Load Balancer med Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du bestämmer dig för att installera och använda Azure CLI lokalt i stället kräver den här snabbstarten att du använder Azure CLI version 2.0.49 eller senare. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
+Om du väljer att installera och använda Azure CLI lokalt i stället måste du använda Azure CLI version 2.0.49 eller senare för den här snabb starten. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa det virtuella nätverket med dubbla staplar måste du skapa en resursgrupp med [az-gruppge](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *DsResourceGroup01* på *platsen eastus:*
+Innan du kan skapa ett virtuellt nätverk med dubbla staplar måste du skapa en resurs grupp med [AZ Group Create](/cli/azure/group). I följande exempel skapas en resurs grupp med namnet *DsResourceGroup01* på platsen för *öster* :
 
 ```azurecli
 az group create \
@@ -44,7 +44,7 @@ az group create \
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>Skapa offentliga IP-adresser för IPv4 och IPv6 för belastningsutjämnare
-För att komma åt dina IPv4- och IPv6-slutpunkter på Internet behöver du offentliga IP-adresser för IPv4 och IPv6 för belastningsutjämnaren. Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip). I följande exempel skapas IPv4- och IPv6-ip-adress med namnet *dsPublicIP_v4* och *dsPublicIP_v6* i resursgruppen *DsResourceGroup01:*
+För att få åtkomst till dina IPv4-och IPv6-slutpunkter på Internet behöver du IPv4-och IPv6-offentliga IP-adresser för belastningsutjämnaren. Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip). I följande exempel skapas IPv4-och IPv6 offentlig IP-adress med namnet *dsPublicIP_v4* och *dsPublicIP_v6* i resurs gruppen *DsResourceGroup01* :
 
 ```azurecli
 # Create an IPV4 IP address
@@ -69,7 +69,7 @@ az network public-ip create \
 
 ## <a name="create-public-ip-addresses-for-vms"></a>Skapa offentliga IP-adresser för virtuella datorer
 
-För att fjärråtkomst till dina virtuella datorer på internet behöver du IPv4-offentliga IP-adresser för de virtuella datorerna. Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip).
+Om du vill fjärrans luta till dina virtuella datorer på Internet behöver du offentliga IPv4-IP-adresser för de virtuella datorerna. Skapa en offentlig IP-adress med [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli
 az network public-ip create \
@@ -91,11 +91,11 @@ az network public-ip create \
 
 ## <a name="create-basic-load-balancer"></a>Skapa en lastbalanserare
 
-I det här avsnittet konfigurerar du ip-adressen med dubbla frontend (IPv4 och IPv6) och backend-adresspoolen för belastningsutjämnaren och skapar sedan en grundläggande belastningsutjämnare.
+I det här avsnittet konfigurerar du IP-adresser för dubbel klient del (IPv4 och IPv6) och backend-adresspoolen för belastningsutjämnaren och sedan skapar du en grundläggande Load Balancer.
 
 ### <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
-Skapa den grundläggande belastningsutjämnaren med [az-nätverks lb skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) **namngivna dsLB** som innehåller en frontend pool med namnet **dsLbFrontEnd_v4**, en backend pool med namnet **dsLbBackEndPool_v4** som är associerad med IPv4 offentliga IP-adress **dsPublicIP_v4** som du skapade i föregående steg. 
+Skapa den grundläggande Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **dsLB** som innehåller en frontend-pool med namnet **dsLbFrontEnd_v4**, en backend-pool med namnet **DsLbBackEndPool_v4** som är associerad med den offentliga IPv4-IP-adressen **dsPublicIP_v4** som du skapade i föregående steg. 
 
 ```azurecli
 az network lb create \
@@ -110,7 +110,7 @@ az network lb create \
 
 ### <a name="create-ipv6-frontend"></a>Skapa IPv6-frontend
 
-Skapa en IPV6 frontend IP med [az nätverk lb frontend-ip skapa](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). I följande exempel skapas en ip-konfiguration med klientdel med namnet *dsLbFrontEnd_v6* och *dsPublicIP_v6-adressen* bifogas:
+Skapa en IP-adress för IPV6-klient med [AZ Network lb frontend-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). I följande exempel skapas en IP-konfiguration för klient delen med namnet *dsLbFrontEnd_v6* och den *dsPublicIP_v6* adressen bifogas:
 
 ```azurecli
 az network lb frontend-ip create \
@@ -123,7 +123,7 @@ az network lb frontend-ip create \
 
 ### <a name="configure-ipv6-back-end-address-pool"></a>Konfigurera IPv6-backend-adresspool
 
-Skapa en IPv6-backend-adresspooler med [az network lb-adresspool skapa](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). I följande exempel skapas backend-adresspool med namnet *dsLbBackEndPool_v6* för att inkludera virtuella datorer med IPv6-nätverkskortskonfigurationer:
+Skapa en IPv6-backend-adresspool med [AZ Network lb Address-pool Create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). I följande exempel skapas backend-adresspoolen med namnet *dsLbBackEndPool_v6* att inkludera virtuella datorer med IPv6 NIC-konfigurationer:
 
 ```azurecli
 az network lb address-pool create \
@@ -143,7 +143,7 @@ az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --pro
 
 En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. 
 
-Använd [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) för att skapa en regel för lastbalanseraren. I följande exempel skapas belastningsutjämnare regler med namnet dsLBrule_v4 och dsLBrule_v6 och balanserar trafik på *TCP-port* 80 till IP-konfigurationerna för IPv4 och IPv6:The following example creates load balancer rules named *dsLBrule_v4* and *dsLBrule_v6* and balances traffic on TCP port *80* to the IPv4 and IPv6 frontend IP configurations:
+Använd [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) för att skapa en regel för lastbalanseraren. I följande exempel skapas belastnings Utjämnings regler som heter *dsLBrule_v4* och *dsLBrule_v6* och balanserar trafik på *TCP* -port *80* till IP-konfigurationer för IPv4 och IPv6-klient:
 
 ```azurecli
 az network lb rule create \
@@ -172,11 +172,11 @@ az network lb rule create \
 ```
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
-Innan du distribuerar vissa virtuella datorer måste du skapa stöd för nätverksresurser – tillgänglighetsuppsättning, nätverkssäkerhetsgrupp, virtuellt nätverk och virtuella nätverkskort. 
+Innan du distribuerar vissa virtuella datorer måste du skapa stöd för nätverks resurser – tillgänglighets uppsättning, nätverks säkerhets grupp, virtuellt nätverk och virtuella nätverkskort. 
 ### <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
-Om du vill förbättra appens tillgänglighet placerar du dina virtuella datorer i en tillgänglighetsuppsättning.
+Du kan förbättra tillgängligheten för din app genom att placera dina virtuella datorer i en tillgänglighets uppsättning.
 
-Skapa en tillgänglighetsuppsättning med [az vm-tillgänglighetsuppsättning skapa](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). I följande exempel skapas en tillgänglighetsuppsättning med namnet *dsAVset:*
+Skapa en tillgänglighets uppsättning med [AZ VM Availability-set Create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). I följande exempel skapas en tillgänglighets uppsättning med namnet *dsAVset*:
 
 ```azurecli
 az vm availability-set create \
@@ -189,11 +189,11 @@ az vm availability-set create \
 
 ### <a name="create-network-security-group"></a>Skapa nätverkssäkerhetsgrupp
 
-Skapa en nätverkssäkerhetsgrupp för de regler som styr inkommande och utgående kommunikation i ditt virtuella nätverk.
+Skapa en nätverks säkerhets grupp för de regler som ska styra inkommande och utgående kommunikation i ditt VNET.
 
 #### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-Skapa en nätverkssäkerhetsgrupp med [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
+Skapa en nätverks säkerhets grupp med [AZ Network NSG Create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
 
 
 ```azurecli
@@ -204,9 +204,9 @@ az network nsg create \
 
 ```
 
-#### <a name="create-a-network-security-group-rule-for-inbound-and-outbound-connections"></a>Skapa en regel för nätverkssäkerhetsgrupp för inkommande och utgående anslutningar
+#### <a name="create-a-network-security-group-rule-for-inbound-and-outbound-connections"></a>Skapa en regel för nätverks säkerhets grupp för inkommande och utgående anslutningar
 
-Skapa en regel för nätverkssäkerhetsgrupp för att tillåta RDP-anslutningar via port 3389, internetanslutning via port 80 och för utgående anslutningar med [az-nätverks nsg-regel skapa](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create).
+Skapa en regel för nätverks säkerhets grupp för att tillåta RDP-anslutningar via port 3389, Internet anslutning via port 80 och för utgående anslutningar med [AZ Network NSG Rule Create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create).
 
 ```azurecli
 # Create inbound rule for port 3389
@@ -259,7 +259,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). I följande exempel skapas ett virtuellt nätverk med namnet *dsVNET* med undernät *dsSubNET_v4* och *dsSubNET_v6:*
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). I följande exempel skapas ett virtuellt nätverk med namnet *dsVNET* med undernät *dsSubNET_v4* och *dsSubNET_v6*:
 
 ```azurecli
 # Create the virtual network
@@ -281,7 +281,7 @@ az network vnet subnet create \
 
 ### <a name="create-nics"></a>Skapa nätverkskort
 
-Skapa virtuella nätverkskort för varje virtuell dator med [az-nätverksnic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). I följande exempel skapas ett virtuellt nätverkskort för varje virtuell dator. Varje nätverkskort har två IP-konfigurationer (1 IPv4 config, 1 IPv6 config). Du skapar IPV6-konfigurationen med [az-nätverk nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
+Skapa virtuella nätverkskort för varje virtuell dator med [AZ Network NIC Create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). I följande exempel skapas ett virtuellt nätverkskort för varje virtuell dator. Varje nätverkskort har två IP-konfigurationer (1 IPv4-konfiguration, 1 IPv6-konfiguration). Du skapar IPV6-konfigurationen med [AZ Network NIC IP-config Create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
 
 ```azurecli
 # Create NICs
@@ -332,9 +332,9 @@ az network nic ip-config create \
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Skapa de virtuella datorerna med [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. 
+Skapa de virtuella [datorerna med AZ VM Create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. 
 
-Skapa *dsVM0* för virtuella datorer enligt följande:
+Skapa *dsVM0* för virtuell dator på följande sätt:
 
 ```azurecli
  az vm create \
@@ -346,7 +346,7 @@ Skapa *dsVM0* för virtuella datorer enligt följande:
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
 
-Skapa *dsVM1* för virtuella datorer enligt följande:
+Skapa *dsVM1* för virtuell dator på följande sätt:
 
 ```azurecli
 az vm create \
@@ -358,18 +358,18 @@ az vm create \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest 
 ```
 
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visa virtuellt IPv6-nätverk med dubbla stackar i Azure-portalen
-Du kan visa det virtuella nätverket IPv6 med dubbla stackar i Azure-portalen på följande sätt:
-1. Ange *dsVnet*i portalens sökfält .
-2. När **myVirtualNetwork** visas i sökresultatet väljer du det. Detta startar **översiktssidan för** det virtuella nätverket med dubbla staplar med namnet *dsVnet*. Det virtuella nätverket med dubbla staplar visar de två nätverkskort med både IPv4- och IPv6-konfigurationer i det dubbla stackundernätet med namnet *dsSubnet*.
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visa ett virtuellt IPv6-nätverk med dubbla stackar i Azure Portal
+Du kan visa det virtuella IPv6-nätverket med dubbla stackar i Azure Portal på följande sätt:
+1. Skriv *dsVnet*i portalens Sök fält.
+2. När **myVirtualNetwork** visas i sökresultatet väljer du det. Då startas **översikts** sidan för det virtuella nätverket med dubbla stackar med namnet *dsVnet*. Det virtuella nätverket med dubbla stackar visar de två nätverkskorten med både IPv4-och IPv6-konfigurationer som finns i det dubbla stack-undernätet med namnet *dsSubnet*.
 
-  ![IPv6 virtuellt nätverk med dubbla staplar i Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
+  ![IPv6-virtuellt nätverk med dubbla stackar i Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När det inte längre behövs kan du använda kommandot [az-gruppborttagning](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/azure/group#az-group-delete) för att ta bort resurs gruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurecli
  az group delete --name DsResourceGroup01
@@ -377,4 +377,4 @@ När det inte längre behövs kan du använda kommandot [az-gruppborttagning](/c
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en grundläggande belastningsutjämnare med en IP-konfiguration med dubbla frontend (IPv4 och IPv6). Du har också skapat två virtuella datorer som inkluderade nätverkskort med dubbla IP-konfigurationer (IPV4 + IPv6) som lades till i slutbelastningshanterarens serverdelspool. Mer information om IPv6-stöd i virtuella Azure-nätverk finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md)
+I den här artikeln har du skapat en grundläggande Load Balancer med en IP-konfiguration med dubbel klient del (IPv4 och IPv6). Du skapade också två virtuella datorer som omfattade nätverkskort med dubbla IP-konfigurationer (IPV4 + IPv6) som har lagts till i belastningsutjämnaren för belastningsutjämnaren. Mer information om IPv6-stöd i Azure Virtual Networks finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md)

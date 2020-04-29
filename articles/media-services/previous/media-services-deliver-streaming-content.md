@@ -1,6 +1,6 @@
 ---
-title: Publicera Azure Media Services-innehåll med .NET | Microsoft-dokument
-description: Lär dig hur du skapar en positionerare som används för att skapa en url för direktuppspelning. Kodexempel skrivs i C# och använder Media Services SDK för .NET.
+title: Publicera Azure Media Services innehåll med hjälp av .NET | Microsoft Docs
+description: Lär dig hur du skapar en positionerare som används för att skapa en strömnings-URL. Kod exempel skrivs i C# och använder Media Services SDK för .NET.
 author: juliako
 manager: femila
 editor: ''
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476704"
 ---
-# <a name="publish-media-services-content-using-net"></a>Publicera Media Services-innehåll med .NET  
+# <a name="publish-media-services-content-using-net"></a>Publicera Media Services innehåll med .NET  
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -30,33 +30,33 @@ ms.locfileid: "80476704"
 > 
 
 ## <a name="overview"></a>Översikt
-Du kan strömma en adaptiv bithastighet MP4-uppsättning genom att skapa en OnDemand-streaming locator och skapa en strömmande URL. Kodningen [av ett tillgångsavsnitt](media-services-encode-asset.md) visar hur du kodar till en adaptiv bithastighet MP4-uppsättning. 
+Du kan strömma en MP4-uppsättning med anpassad bit hastighet genom att skapa en OnDemand streaming-positionerare och skapa en strömnings-URL. Avsnittet [encoding a Asset](media-services-encode-asset.md) visar hur du kodar i en MP4-uppsättning med anpassad bit hastighet. 
 
 > [!NOTE]
-> Om innehållet är krypterat konfigurerar du principen för tillgångsleverans (enligt beskrivningen i [det här](media-services-dotnet-configure-asset-delivery-policy.md) avsnittet) innan du skapar en positionerare. 
+> Om ditt innehåll är krypterat konfigurerar du till gångs leverans princip (enligt beskrivningen i [det här](media-services-dotnet-configure-asset-delivery-policy.md) avsnittet) innan du skapar en positionerare. 
 > 
 > 
 
-Du kan också använda en OnDemand-direktuppspelningspositionerare för att skapa webbadresser som pekar på MP4-filer som kan hämtas successivt.  
+Du kan också använda en OnDemand streaming-positionerare för att bygga URL: er som pekar på MP4-filer som kan laddas ned progressivt.  
 
-Det här avsnittet visar hur du skapar en OnDemand-streamingpositionerare för att publicera din tillgång och skapa en smooth-, MPEG DASH- och HLS-strömningsadresser. Det visar också heta att bygga progressiva nedladdning webbadresser. 
+Det här avsnittet visar hur du skapar en lokaliserare för OnDemand-direktuppspelning för att publicera till gången och bygga ett smidigt, MPEG-streck och HLS strömmande URL: er. Den visar också snabb hämtnings-URL: er. 
 
-## <a name="create-an-ondemand-streaming-locator"></a>Skapa en OnDemand-streamingpositionerare
-Om du vill skapa ondemand-söksökaren och hämta webbadresser måste du göra följande:
+## <a name="create-an-ondemand-streaming-locator"></a>Skapa en lokaliserare för OnDemand-direktuppspelning
+Om du vill skapa en OnDemand streaming-positionerare och hämta URL: er måste du göra följande:
 
-1. Om innehållet är krypterat definierar du en åtkomstprincip.
-2. Skapa en OnDemand-streamingpositionerare.
-3. Om du planerar att strömma hämtar du manifestfilen för direktuppspelning (.ism) i tillgången. 
+1. Om innehållet är krypterat definierar du en åtkomst princip.
+2. Skapa en lokaliserare för OnDemand-direktuppspelning.
+3. Om du planerar att strömma hämtar du den strömmande manifest filen (. ISM) i till gången. 
    
-   Om du planerar att hämta successivt får du namnen på MP4-filer i tillgången.  
-4. Skapa webbadresser till manifestfilen eller MP4-filerna. 
+   Om du planerar att ladda ned progressivt hämtar du namnen på MP4-filer i till gången.  
+4. Bygg webb adresser till manifest filen eller MP4-filerna. 
 
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter. Principer för positionerare som är avsedda att finnas kvar under lång tid (principer som inte överförs). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter. Till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (principer som inte överförs). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
 
-### <a name="use-media-services-net-sdk"></a>Använda Media Services .NET SDK
-Url:er för att skapa direktuppspelning 
+### <a name="use-media-services-net-sdk"></a>Använd Media Services .NET SDK
+Bygga direkt uppspelnings-URL: er 
 
 ```csharp
     private static void BuildStreamingURLs(IAsset asset)
@@ -97,7 +97,7 @@ Url:er för att skapa direktuppspelning
     }
 ```
 
-Utgångarna:
+Utdata:
 
     URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -108,11 +108,11 @@ Utgångarna:
 
 
 > [!NOTE]
-> Du kan också strömma ditt innehåll via en TLS-anslutning. För att göra den här metoden, se till att dina strömmande webbadresser börjar med HTTPS. För närvarande stöder AMS inte TLS med anpassade domäner.
+> Du kan också strömma ditt innehåll via en TLS-anslutning. För att utföra den här metoden kontrollerar du att dina strömmande URL: er börjar med HTTPS. För närvarande stöder AMS inte TLS med anpassade domäner.
 > 
 > 
 
-Skapa progressiva nedladdningsadresser 
+Bygg URL: er för progressiv nedladdning 
 
 ```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
@@ -143,7 +143,7 @@ Skapa progressiva nedladdningsadresser
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 ```
-Utgångarna:
+Utdata:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -152,8 +152,8 @@ Utgångarna:
 
     . . . 
 
-### <a name="use-media-services-net-sdk-extensions"></a>Använda Media Services .NET SDK-tillägg
-Följande kod anropar .NET SDK-tilläggsmetoder som skapar en positionerare och genererar url:er för jämn strömning, HLS och MPEG-DASH för adaptiv direktuppspelning.
+### <a name="use-media-services-net-sdk-extensions"></a>Använd Media Services .NET SDK-tillägg
+I följande kod anropas metoder för .NET SDK-tillägg som skapar en lokaliserare och genererar URL: erna Smooth Streaming, HLS och MPEG-streck för anpassningsbar strömning.
 ```csharp
     // Create a loctor.
     _context.Locators.Create(
@@ -179,6 +179,6 @@ Följande kod anropar .NET SDK-tilläggsmetoder som skapar en positionerare och 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Ladda ner tillgångar](media-services-deliver-asset-download.md)
-* [Konfigurera princip för tillgångsleverans](media-services-dotnet-configure-asset-delivery-policy.md)
+* [Hämta till gångar](media-services-deliver-asset-download.md)
+* [Konfigurera till gångs leverans princip](media-services-dotnet-configure-asset-delivery-policy.md)
 

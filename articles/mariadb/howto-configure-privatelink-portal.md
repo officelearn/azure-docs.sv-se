@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 3f421cad64caf91b898bb1ec13dc909b93b7f72d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79370346"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Skapa och hantera en privat länk för Azure Database for MariaDB med hjälp av portalen
@@ -41,7 +41,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Location | Välj **Europa, västra**.|
+    | Plats | Välj **Europa, västra**.|
     | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     |||
@@ -66,7 +66,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | lösenordsinställning | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -111,8 +111,8 @@ I det här avsnittet ska du skapa en Azure Database for MariaDB-server i Azure.
     | **Server information** |  |
     |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
-    | lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
-    | Location | Välj en Azure-region där du vill att MariaDB-servern ska finnas. |
+    | lösenordsinställning | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
+    | Plats | Välj en Azure-region där du vill att MariaDB-servern ska finnas. |
     |Version  | Välj den databas version av MariaDB-servern som krävs.|
     | Compute + Storage| Välj den pris nivå som krävs för servern baserat på arbets belastningen. |
     |||
@@ -139,7 +139,7 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Instans information** |  |
-    | Namn | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
+    | Name | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **Europa, västra**.|
     |||
 5. Välj **Nästa: resurs**.
@@ -225,7 +225,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Servertyp| Välj **MariaDB**.|
     | servernamn| Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
     | Användarnamn | Ange användar namn username@servername som anges när MariaDB-servern skapas. |
-    |lösenord |Ange ett lösen ord som angavs när MariaDB-servern skapades. |
+    |lösenordsinställning |Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     |SSL|Välj **obligatoriskt**.|
     ||
 

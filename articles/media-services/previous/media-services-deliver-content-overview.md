@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c8d32a6434db0fad18b9fe7c2d6e2117795eb651
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476734"
 ---
 # <a name="deliver-content-to-customers"></a>Leverera innehåll till kunder
@@ -134,7 +134,7 @@ Om du vill ladda ned innehåll progressivt använder du OnDemandOrigin typ. I f�
 
 Du måste dekryptera alla lagrings krypterade till gångar som du vill strömma från ursprungs tjänsten för progressiv nedladdning.
 
-## <a name="download"></a>Ladda ned
+## <a name="download"></a>Hämta
 Om du vill ladda ned innehållet till en klient enhet måste du skapa en SAS-positionerare. SAS-lokaliseraren ger dig åtkomst till den Azure Storage-behållare där filen finns. Om du vill bygga nedladdnings-URL: en måste du bädda in fil namnet mellan värden och SAS-signaturen.
 
 I följande exempel visas den URL som baseras på SAS-lokaliseraren:

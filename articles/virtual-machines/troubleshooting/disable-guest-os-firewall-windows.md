@@ -1,6 +1,6 @@
 ---
-title: Inaktivera gästoperativ brandväggen för os i Azure VM | Microsoft-dokument
-description: Lär dig en lösningsmetod för felsökningssituationer där en gästoperativsystembrandvägg filtrerar partiell eller fullständig trafik till en virtuell dator.
+title: Inaktivera gäst operativ systemets brand vägg i Azure VM | Microsoft Docs
+description: Lär dig en lösnings metod för fel söknings situationer där en brand vägg för gäst operativ system filtrerar delvis eller fullständig trafik till en virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,50 +15,50 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422366"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
 
-Den här artikeln innehåller en referens för situationer där du misstänker att brandväggen för gästoperativsystemet filtrerar partiell eller fullständig trafik till en virtuell dator (VM). Detta kan inträffa om ändringar avsiktligt gjordes i brandväggen som orsakade RDP-anslutningar misslyckas.
+Den här artikeln innehåller en referens för situationer där du misstänker att gäst operativ systemets brand vägg filtrerar delvis eller fullständig trafik till en virtuell dator (VM). Detta kan inträffa om ändringar avsiktligt gjordes i brand väggen som orsakade att RDP-anslutningar misslyckats.
 
 ## <a name="solution"></a>Lösning
 
-Processen som beskrivs i den här artikeln är avsedd att användas som en lösning så att du kan fokusera på att åtgärda ditt verkliga problem, vilket är hur du ställer in brandväggsreglerna korrekt. Det är en Microsoft Best Practice att ha Komponenten Windows-brandväggen aktiverad. Hur du konfigurerar brandväggsreglerna beror på vilken åtkomstnivå du har till den virtuella datorn som krävs.
+Processen som beskrivs i den här artikeln är avsedd att användas som en lösning så att du kan fokusera på att åtgärda det riktiga problemet, vilket innebär att brand Väggs reglerna konfigureras på rätt sätt. Det är Microsofts bästa praxis att låta komponenten Windows-brandväggen vara aktive rad. Hur du konfigurerar brand Väggs reglerna beror på vilken åtkomst nivå som krävs för den virtuella datorn.
 
 ### <a name="online-solutions"></a>Online-lösningar 
 
-Om den virtuella datorn är online och kan nås på en annan virtuell dator i samma virtuella nätverk kan du göra dessa åtgärder med hjälp av den andra virtuella datorn.
+Om den virtuella datorn är online och kan nås på en annan virtuell dator i samma virtuella nätverk kan du utföra dessa åtgärder med hjälp av den andra virtuella datorn.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Begränsning 1: Funktionen Anpassat skripttillägg eller körkommando
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Minskning 1: anpassat skript tillägg eller Kör kommando funktion
 
-Om du har en fungerande Azure-agent kan du använda [Anpassat skripttillägg](../extensions/custom-script-windows.md) eller funktionen [Kör kommandon](../windows/run-command.md) (endast resurshanterarens virtuella datorer) för att fjärrköra följande skript.
+Om du har en fungerande Azure-agent kan du använda [anpassat skript tillägg](../extensions/custom-script-windows.md) eller funktionen [Kör kommandon](../windows/run-command.md) (endast virtuella Resource Manager-datorer) för att fjärrköra följande skript.
 
 > [!Note]
-> * Om brandväggen är inställd lokalt kör du följande skript:
+> * Kör följande skript om brand väggen har angetts lokalt:
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\Standardprofile' -name "EnableFirewall" -Value 0 
 >   Restart-Service -Name mpssvc
 >   ```
-> * Om brandväggen är inställd via en Active Directory-princip kan du använda köra följande skript för tillfällig åtkomst. 
+> * Om brand väggen är inställd via en Active Directory princip kan du använda Kör följande skript för tillfällig åtkomst. 
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
 >   ```
->   Men så fort principen tillämpas igen kommer du att sparkas ut från fjärrsessionen. Den permanenta korrigeringen för det här problemet är att ändra principen som tillämpas på den här datorn.
+>   Men så snart principen tillämpas igen, kommer du att lanseras från fjärrsessionen. Den permanenta korrigeringen för det här problemet är att ändra principen som tillämpas på den här datorn.
 
-#### <a name="mitigation-2-remote-powershell"></a>Begränsning 2: Remote PowerShell
+#### <a name="mitigation-2-remote-powershell"></a>Minskning 2: fjärr-PowerShell
 
-1.  Anslut till en virtuell dator som finns i samma virtuella nätverk som den virtuella datorn som du inte kan nå med hjälp av RDP-anslutning.
+1.  Anslut till en virtuell dator som finns i samma virtuella nätverk som den virtuella datorn som du inte kan komma åt med hjälp av RDP-anslutning.
 
-2.  Öppna ett PowerShell-konsolfönster.
+2.  Öppna ett fönster i PowerShell-konsolen.
 
 3.  Kör följande kommandon:
 
@@ -70,13 +70,13 @@ Om du har en fungerande Azure-agent kan du använda [Anpassat skripttillägg](..
     ```
 
 > [!Note]
-> Om brandväggen är inställd via ett grupprincipobjekt kanske den här metoden inte fungerar eftersom det här kommandot bara ändrar de lokala registerposterna. Om det finns en princip åsidosätts ändringen. 
+> Om brand väggen ställs in via ett grupprincip-objekt kanske den här metoden inte fungerar eftersom det här kommandot endast ändrar de lokala register posterna. Om en princip är på plats kommer den att åsidosätta den här ändringen. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Begränsning 3: PSTools-kommandon
+#### <a name="mitigation-3-pstools-commands"></a>Minskning 3: PSTools-kommandon
 
-1.  Ladda ned [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)på felsöka virtuella datorer .
+1.  Hämta [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)på den virtuella datorn för fel sökning.
 
-2.  Öppna en CMD-förekomst och sedan komma åt den virtuella datorn via dess DIP.
+2.  Öppna en CMD-instans och få åtkomst till den virtuella datorn via dess DIP.
 
 3.  Kör följande kommandon:
 
@@ -86,13 +86,13 @@ Om du har en fungerande Azure-agent kan du använda [Anpassat skripttillägg](..
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Begränsning 4: Fjärrregister 
+#### <a name="mitigation-4-remote-registry"></a>Minskning 4: fjär register 
 
-Följ dessa steg för att använda [Fjärrregister](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
+Följ dessa steg om du vill använda [fjär registret](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Starta registerredigeraren på felsöka den virtuella datorn och gå sedan till **File** > **Connect Network Registry**.
+1.  Starta Registereditorn på den virtuella datorn för fel sökning och gå sedan till **fil** > **anslutning nätverks register**.
 
-2.  Öppna grenen *TARGET MACHINE*\SYSTEM och ange följande värden:
+2.  Öppna *mål datorn*\System-grenen och ange följande värden:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,41 +100,41 @@ Följ dessa steg för att använda [Fjärrregister](https://support.microsoft.co
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Starta om tjänsten. Eftersom du inte kan göra det med fjärrregistret måste du använda Remote Service Console.
+3.  Starta om tjänsten. Eftersom du inte kan göra det med hjälp av fjär registret måste du använda konsolen för fjärrtjänst.
 
-4.  Öppna en instans av **Services.msc**.
+4.  Öppna en instans av **Services. msc**.
 
-5.  Klicka på **Tjänster (lokalt)**.
+5.  Klicka på **tjänster (lokalt)**.
 
 6.  Välj **Anslut till en annan dator**.
 
-7.  Ange den **privata IP-adressen (DIP)** för problemet VM.
+7.  Ange den **privata IP-adressen (DIP)** för den virtuella datorns problem.
 
-8.  Starta om den lokala brandväggsprincipen.
+8.  Starta om den lokala brand Väggs principen.
 
 9.  Försök att ansluta till den virtuella datorn via RDP igen från den lokala datorn.
 
-### <a name="offline-solutions"></a>Offlinelösningar 
+### <a name="offline-solutions"></a>Offline-lösningar 
 
-Om du har en situation där du inte kan nå den virtuella datorn på någon metod misslyckas anpassat skripttillägg och du måste arbeta i OFFLINE-läge genom att arbeta direkt via systemdisken. Det gör du genom att följa dessa steg:
+Om du har en situation där du inte kan komma åt den virtuella datorn med någon annan metod kommer det inte att gå att använda det anpassade skript tillägget och du måste arbeta i OFFLINELÄGE genom att gå direkt genom system disken. Det gör du genom att följa dessa steg:
 
-1.  [Koppla systemdisken till en återställnings-VM](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Anslut system disken till en virtuell återställnings dator](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Starta en anslutning till återställningsdatorn till återställningsdatorn.
+2.  Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
 
-3.  Kontrollera att disken är flaggad som online i konsolen Diskhantering. Observera enhetsbeteckningen som har tilldelats den bifogade systemdisken.
+3.  Kontrol lera att disken är flaggad som online i disk hanterings konsolen. Anteckna enhets beteckningen som är kopplad till den anslutna system disken.
 
-4.  Innan du gör några ändringar skapar du en kopia av mappen \windows\system32\config om det skulle bli nödvändigt med en återställning av ändringarna.
+4.  Innan du gör några ändringar skapar du en kopia av mappen \Windows\System32\Config om du behöver återställa ändringarna.
 
-5.  Starta registerredigeraren (regedit.exe) på felsöka den virtuella datorn). 
+5.  Starta Registereditorn (regedit. exe) på den virtuella datorn för fel sökning. 
 
-6.  För den här felsökningsproceduren monterar vi bikuporna som BROKENSYSTEM och BROKENSOFTWARE.
+6.  I den här fel söknings proceduren monterar vi registreringsdatafiler som BROKENSYSTEM och BROKENSOFTWARE.
 
-7.  Markera HKEY_LOCAL_MACHINE och välj sedan Arkiv > Läs in Hive på menyn.
+7.  Markera HKEY_LOCAL_MACHINE nyckel och välj sedan Arkiv > läsa in Hive på menyn.
 
-8.  Leta reda på filen \windows\system32\config\SYSTEM på den bifogade systemdisken.
+8.  Leta upp \windows\system32\config\SYSTEM-filen på den anslutna system disken.
 
-9.  Öppna en upphöjd PowerShell-förekomst och kör sedan följande kommandon:
+9.  Öppna en upphöjd PowerShell-instans och kör sedan följande kommandon:
 
     ```cmd
     # Load the hives - If your attached disk is not F, replace the letter assignment here
@@ -160,6 +160,6 @@ Om du har en situation där du inte kan nå den virtuella datorn på någon meto
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [Koppla från systemdisken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md).
+10. [Koppla från system disken och skapa den virtuella datorn på nytt](troubleshoot-recovery-disks-portal-windows.md).
 
-11. Kontrollera om problemet är löst.
+11. Kontrol lera om problemet är löst.

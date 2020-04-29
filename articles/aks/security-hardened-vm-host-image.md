@@ -1,6 +1,6 @@
 ---
-title: Säkerhetshärdning i AKS virtuella datorvärdar
-description: Lär dig mer om säkerhetshärdningen i AKS VM-värdoperativsystemet
+title: Säkerhets härdning i AKS virtuella dator värdar
+description: Lär dig mer om säkerhets härdningen i AKS VM Host OS
 services: container-service
 author: mlearned
 ms.topic: article
@@ -8,85 +8,85 @@ ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420904"
 ---
-# <a name="security-hardening-for-aks-agent-node-host-os"></a>Säkerhetshärdning för AKS-agentnodvärd OS
+# <a name="security-hardening-for-aks-agent-node-host-os"></a>Säkerhets härdning för AKS-nodens värd operativ system
 
-Azure Kubernetes Service (AKS) är en säker tjänst som uppfyller SOC-, ISO-, PCI DSS- och HIPAA-standarder. Den här artikeln beskriver säkerhetshärdningen som tillämpas på AKS virtuella datorvärdar. Mer information om AKS-säkerhet finns i [Säkerhetsbegrepp för program och kluster i Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
+Azure Kubernetes service (AKS) är en säker tjänst som är kompatibel med SOC-, ISO-, PCI DSS-och HIPAA-standarder. Den här artikeln beskriver säkerhets härdningen som tillämpas på AKS virtuella dator värdar. Mer information om AKS-säkerhet finns i [säkerhets begrepp för program och kluster i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
 
 > [!Note]
-> Det här dokumentet är endast begränsat till Linux-agenter i AKS.
+> Det här dokumentet är begränsat till Linux-agenter i AKS.
 
-AKS-kluster distribueras på virtuella värddatorer, som kör ett säkerhetsoptimerat operativsystem som används för behållare som körs på AKS. Den här värdoperativsystemet baseras på en **Ubuntu 16.04.LTS-avbildning** med ytterligare säkerhetshärdning och optimeringar (se Detaljer för säkerhetshärdning).
+AKS-kluster distribueras på virtuella värd datorer, som kör ett säkerhetsoptimerat operativ system som används för behållare som körs på AKS. Det här värd operativ systemet baseras på en **Ubuntu 16.04. LTS** -avbildning med ytterligare säkerhets härdning och optimeringar som tillämpas (se säkerhets härdnings information).
 
-Målet med säkerhetshärdade värd OS är att minska ytan av angrepp och optimera för distribution av behållare på ett säkert sätt.
+Målet för den säkerhetsbegränsade värd operativ systemet är att minska Angreppets yta och optimera för distribution av behållare på ett säkert sätt.
 
 > [!Important]
-> Säkerhetshärdade OS är inte CIS benchmarked. Även om det finns överlappningar med CIS-riktmärken är målet inte att vara CIS-kompatibelt. Målet för värd OS härdning är att konvergera på en säkerhetsnivå som överensstämmer med Microsofts egna interna värd säkerhetsstandarder.
+> Det säkerhetshärdade operativ systemet är inte CIS-benchmark. Även om det finns överlappande av CIS-benchmarks, är målet inte att vara CIS-kompatibelt. Målet för att hantera OS-härdning är att konvergera på en säkerhets nivå som är konsekvent med Microsofts egna interna värd säkerhets standarder.
 
-## <a name="security-hardening-features"></a>Funktioner för säkerhetshärdning
+## <a name="security-hardening-features"></a>Säkerhets härdnings funktioner
 
-* AKS tillhandahåller ett säkerhetsoptimerat värd-OS som standard. Det finns inget alternativ för att välja ett alternativt operativsystem.
+* AKS tillhandahåller ett säkerhetsoptimerat värd-OS som standard. Det finns inget alternativ för att välja ett alternativt operativ system.
 
-* Azure tillämpar dagliga korrigeringar (inklusive säkerhetskorrigeringar) på AKS virtuella datorvärdar. Några av dessa patchar kommer att kräva en omstart, medan andra inte. Du ansvarar för att schemalägga OMSTART AV AKS VM-värdomstartar efter behov. Mer information om hur du automatiserar AKS-korrigering finns [i korrigering av AKS-noder](https://docs.microsoft.com/azure/aks/node-updates-kured).
+* Azure använder dagliga korrigeringar (inklusive säkerhets korrigeringar) för att AKS virtuella dator värdar. Vissa av de här korrigeringarna kräver en omstart, medan andra inte kommer. Du ansvarar för schemaläggning av AKS VM Host-omstarter efter behov. Vägledning om hur du automatiserar AKS korrigering finns i [korrigera AKS-noder](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
 ## <a name="what-is-configured"></a>Vad är konfigurerat
 
-| Cis  | Beskrivning av revisionen|
+| CIS  | Gransknings Beskrivning|
 |---|---|
-| 1.1.1.1 |Se till att montering av cramfs filsystem är inaktiverad|
-| 1.1.1.2 |Se till att montering av freevxfs filsystem är inaktiverad|
-| 1.1.1.3 |Se till att monteringen av jffs2-filsystem är inaktiverad|
-| 1.1.1.4 |Se till att monteringen av HFS-filsystem är inaktiverad|
-| 1.1.1.5 |Se till att monteringen av HFS Plus-filsystem är inaktiverad|
-|1.4.3 |Kontrollera autentisering som krävs för enanvändarläge |
-|1.7.1.2 |Se till att den lokala inloggningsvarningsbannern är korrekt konfigurerad |
-|1.7.1.3 |Se till att varningssignalen för fjärrinloggning är korrekt konfigurerad |
-|1.7.1.5 |Se till att behörigheterna för /etc/issue är konfigurerade |
-|1.7.1.6 |Se till att behörigheterna för /etc/issue.net är konfigurerade |
-|2.1.5 |Kontrollera att --streaming-connection-indle-timeout inte är inställd på 0 |
-|3.1.2 |Kontrollera att skicka paket omdirigering är inaktiverat |
-|3.2.1 |Se till att källrutterna paket inte accepteras |
+| 1.1.1.1 |Se till att montering av cramfs-filsystem är inaktiverat|
+| 1.1.1.2 |Se till att montering av freevxfs-filsystem är inaktiverat|
+| 1.1.1.3 |Se till att montering av jffs2-filsystem är inaktiverat|
+| 1.1.1.4 |Se till att montering av HFS-filsystem är inaktiverat|
+| 1.1.1.5 |Se till att montering av HFS Plus fil system är inaktiverat|
+|1.4.3 |Se till att autentisering krävs för enanvändarläge |
+|1.7.1.2 |Kontrol lera att den lokala inloggnings varnings banderollen är korrekt konfigurerad |
+|1.7.1.3 |Se till att den fjärranslutna inloggnings varningen är korrekt konfigurerad |
+|1.7.1.5 |Se till att behörigheter för/etc/Issue har kon figurer ATS |
+|1.7.1.6 |Se till att behörigheter för/etc/Issue.net har kon figurer ATS |
+|2.1.5 |Se till att--streaming-Connection-Idle-timeout inte är inställt på 0 |
+|3.1.2 |Se till att Packet Redirect skickas är inaktiverat |
+|3.2.1 |Se till att källor som dirigerats inte godkänns |
 |3.2.2 |Se till att ICMP-omdirigeringar inte accepteras |
-|3.2.3 |Se till att säkra ICMP-omdirigeringar inte accepteras |
+|3.2.3 |Se till att säkra ICMP-omdirigeringar inte godkänns |
 |3.2.4 |Se till att misstänkta paket loggas |
-|3.3.1 |Se till att IPv6-routerannonser inte accepteras |
-|3.5.1 |Se till att DCCP är inaktiverat |
-|3.5.2 |Se till att SCTP är inaktiverat |
+|3.3.1 |Se till att IPv6-router-annonsering inte accepteras |
+|3.5.1 |Se till att DCCP har inaktiverats |
+|3.5.2 |Se till att SCTP har inaktiverats |
 |3.5.3 |Se till att RDS är inaktiverat |
-|3.5.4 |Se till att TIPC är inaktiverat |
-|4.2.1.2 |Se till att loggningen är konfigurerad |
-|5.1.2 |Se till att behörigheterna för /etc/crontab är konfigurerade |
-|5.2.4 |Se till att SSH X11-vidarebefordran är inaktiverad |
-|5.2.5 |Se till att SSH MaxAuthTries är inställt på 4 eller mindre |
-|5.2.8 |Se till att SSH-rotinloggning är inaktiverad |
-|5.2.10 |Se till att SSH-tillståndAnvändarmiljö är inaktiverat |
-|5.2.11 |Se till att endast godkända MAX-algoritmer används |
-|5.2.12 |Kontrollera att timeoutintervall för SSH-inaktivitet är konfigurerat |
-|5.2.13 |Se till att SSH LoginGraceTime är inställt på en minut eller mindre |
-|5.2.15 |Se till att SSH-varningsbanderoller är konfigurerad |
-|5.3.1 |Se till att kraven för att skapa lösenord är konfigurerade |
-|5.4.1.1 |Se till att lösenordet upphör att gälla 90 dagar eller mindre |
-|5.4.1.4 |Se till att inaktivt lösenordslås är 30 dagar eller mindre |
-|5.4.4 |Kontrollera att standardanvändar umask är 027 eller mer restriktiv |
-|5.6 |Se till att åtkomsten till kommandot su är begränsad|
+|3.5.4 |Se till att TIPC har inaktiverats |
+|4.2.1.2 |Se till att loggning har kon figurer ATS |
+|5.1.2 |Se till att behörigheter för/etc/crontab har kon figurer ATS |
+|5.2.4 |Se till att vidarebefordring av SSH-begäran om x11 är inaktiverat |
+|5.2.5 |Se till att SSH-MaxAuthTries har angetts till 4 eller mindre |
+|5.2.8 |Se till att SSH-rotnoden är inaktive rad |
+|5.2.10 |Se till att SSH-PermitUserEnvironment är inaktiverat |
+|5.2.11 |Se till att endast godkända algoritmer används |
+|5.2.12 |Se till att tids gränsen för SSH-inaktivitet är konfigurerad |
+|5.2.13 |Se till att SSH-LoginGraceTime är inställt på en minut eller mindre |
+|5.2.15 |Se till att SSH-varningens banderoll har kon figurer ATS |
+|5.3.1 |Se till att krav för att skapa lösen ord konfigureras |
+|5.4.1.1 |Se till att lösen ordets giltighets tid är 90 dagar eller mindre |
+|5.4.1.4 |Se till att det inaktiva lösen ords låset är 30 dagar eller mindre |
+|5.4.4 |Se till att standard användaren umask är 027 eller mer restriktiv |
+|5,6 |Se till att åtkomsten till Su-kommandot är begränsad|
 
 ## <a name="additional-notes"></a>Ytterligare information
  
-* För att ytterligare minska angreppsytan har vissa onödiga drivrutiner för kärnmoduler inaktiverats i operativsystemet.
+* Vissa onödiga driv rutiner för kernel-moduler har inaktiverats i operativ systemet för att ytterligare minska risken för attack ytan.
 
-* Säkerhetshärdade OS är byggt och underhållet speciellt för AKS och stöds INTE utanför AKS-plattformen.
+* Det säkerhetshärdade operativ systemet är byggt och underhålls specifikt för AKS och stöds inte utanför AKS-plattformen.
 
 ## <a name="next-steps"></a>Nästa steg  
 
-Mer information om AKS-säkerhet finns i följande artiklar: 
+I följande artiklar finns mer information om AKS-säkerhet: 
 
 [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
 
-[AKS-säkerhetsöverväganden](https://docs.microsoft.com/azure/aks/concepts-security)
+[AKS säkerhets aspekter](https://docs.microsoft.com/azure/aks/concepts-security)
 
-[BÄSTA PRAXIS FÖR AKS](https://docs.microsoft.com/azure/aks/best-practices)
+[Metod tips för AKS](https://docs.microsoft.com/azure/aks/best-practices)

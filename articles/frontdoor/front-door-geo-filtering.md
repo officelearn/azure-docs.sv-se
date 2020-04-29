@@ -1,6 +1,6 @@
 ---
-title: Geofiltrering på en domän för Azure Front Door | Microsoft-dokument
-description: I den här artikeln får du lära dig mer om geofiltreringsprincipen för Azure Front Door
+title: Geo-filtrering på en domän för Azures front dörr | Microsoft Docs
+description: I den här artikeln får du lära dig om geo-filtrering för Azures front dörr
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -14,23 +14,23 @@ ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
 ms.openlocfilehash: 2cdde705d0e9f0905d4c33648b5415758d838b06
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411171"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Vad är geofiltrering på en domän för Azure Front Door?
 
-Som standard svarar Azure Front Door på användarförfrågningar oavsett var användaren gör begäran. I vissa fall kanske du vill begränsa åtkomsten till dina webbprogram efter land/region. Med WAF-tjänsten (Web Application Firewall) vid Ytterdörren kan du definiera en princip med hjälp av anpassade åtkomstregler för specifik sökväg på slutpunkten för att tillåta eller blockera åtkomst från angivna länder/regioner. 
+Azure-frontend svarar som standard på användar förfrågningar oavsett var användaren utför begäran. Men i vissa fall kanske du vill begränsa åtkomsten till dina webb program efter land/region. Med brand vägg för webbaserade program (WAF) i front dörren kan du definiera en princip med hjälp av anpassade åtkomst regler för en viss sökväg på slut punkten för att tillåta eller blockera åtkomst från angivna länder/regioner. 
 
-En WAF-princip innehåller vanligtvis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För en geofiltreringsregel är matchningsvariabeln REMOTE_ADDR, operatorn är GeoMatch och värdet är landskoden på två bokstäver av intresse. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
+En WAF-princip innehåller vanligt vis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För en geofiltreringsregel är matchningsvariabeln REMOTE_ADDR, operatorn är GeoMatch och värdet är landskoden på två bokstäver av intresse. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
 
-Du kan konfigurera en geofiltreringsprincip för din ytterdörr genom att antingen använda [Azure PowerShell](front-door-tutorial-geo-filtering.md) eller genom att använda vår [snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Du kan konfigurera en princip för geo-filtrering för din front dörr genom att antingen använda [Azure PowerShell](front-door-tutorial-geo-filtering.md) eller med hjälp av vår [snabb starts mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Landskodsreferens
+## <a name="country-code-reference"></a>Lands kods referens
 
-|Landskod | Landsnamn |
+|Landskod | Lands namn |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Förenade Arabemiraten|

@@ -1,7 +1,7 @@
 ---
-title: Lägga till IPv6 i ett IPv4-program i virtuella Azure-nätverk - Azure CLI
+title: Lägg till IPv6 i ett IPv4-program i Azure Virtual Network – Azure CLI
 titlesuffix: Azure Virtual Network
-description: Den här artikeln visar hur du distribuerar IPv6-adresser till ett befintligt program i Azure virtuellt nätverk med Azure CLI.
+description: Den här artikeln visar hur du distribuerar IPv6-adresser till ett befintligt program i Azure Virtual Network med Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80420791"
 ---
-# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Lägga till IPv6 i ett IPv4-program i virtuella Azure-nätverk - Azure CLI
+# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Lägg till IPv6 i ett IPv4-program i Azure Virtual Network – Azure CLI
 
-Den här artikeln visar hur du lägger till IPv6-adresser i ett program som använder IPv4-offentlig IP-adress i ett virtuellt Azure-nätverk för en standardbelastningsutjämning med Azure CLI. Uppgraderingen på plats innehåller ett virtuellt nätverk och undernät, en standardbelastningsutjämning med IPv4 + IPV6-frontendkonfigurationer, virtuella datorer med nätverkskort som har en IPv4 + IPv6-konfiguration, nätverkssäkerhetsgrupp och offentliga IP-adresser.
+Den här artikeln visar hur du lägger till IPv6-adresser i ett program som använder IPv4 offentlig IP-adress i ett virtuellt Azure-nätverk för en Standard Load Balancer med hjälp av Azure CLI. Uppgradering på plats innehåller ett virtuellt nätverk och undernät, en Standard Load Balancer med konfigurationer för IPv4 + IPV6-klient, virtuella datorer med nätverkskort som har en IPv4 + IPv6-konfiguration, nätverks säkerhets grupp och offentliga IP-adresser.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -31,11 +31,11 @@ Om du väljer att installera och använda CLI lokalt i stället, måste du köra
 
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln förutsätter att du har distribuerat en standardbelastningsutjämning enligt beskrivningen i [Snabbstart: Skapa en standardbelastningsutjämnare - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
+I den här artikeln förutsätter vi att du har distribuerat en Standard Load Balancer enligt beskrivningen i [snabb start: skapa en standard Load Balancer-Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
 ## <a name="create-ipv6-addresses"></a>Skapa IPv6-adresser
 
-Skapa offentlig IPv6-adress med [med az network public-ip create](/cli/azure/network/public-ip) för din Standard Load Balancer. I följande exempel skapas en offentlig IP-adress iPv6 med namnet *PublicIP_v6* i resursgruppen *myResourceGroupSLB:*
+Skapa en offentlig IPv6-adress med [AZ Network Public-IP Create](/cli/azure/network/public-ip) för din standard Load Balancer. I följande exempel skapas en offentlig IPv6-IP-adress med namnet *PublicIP_v6* i resurs gruppen *myResourceGroupSLB* :
 
 ```azurecli
   
@@ -48,9 +48,9 @@ az network public-ip create \
 --version IPv6
 ```
 
-## <a name="configure-ipv6-load-balancer-frontend"></a>Konfigurera frontend för IPv6-belastningsutjämnare
+## <a name="configure-ipv6-load-balancer-frontend"></a>Konfigurera IPv6-belastnings Utjämnings klient del
 
-COnfigure belastningsutjämnaren med den nya IPv6 [IP-adressen med az network lb frontend-ip skapa](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) enligt följande:
+Konfigurera belastningsutjämnaren med den nya IPv6 IP-adressen med [AZ Network lb frontend-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create) enligt följande:
 
 ```azurecli
 az network lb frontend-ip create \
@@ -60,9 +60,9 @@ az network lb frontend-ip create \
 --public-ip-address PublicIP_v6
 ```
 
-## <a name="configure-ipv6-load-balancer-backend-pool"></a>Konfigurera IPv6-serverdpool för belastningsutjämnare
+## <a name="configure-ipv6-load-balancer-backend-pool"></a>Konfigurera backend-poolen för IPv6-belastningsutjämnare
 
-Skapa serverda poolen för nätverkskort med IPv6-adresser med [az network lb-adresspool skapa](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) enligt följande:
+Skapa backend-poolen för nätverkskort med IPv6-adresser med [AZ Network lb Address-pool Create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create) enligt följande:
 
 ```azurecli
 az network lb address-pool create \
@@ -71,9 +71,9 @@ az network lb address-pool create \
 --resource-group MyResourceGroupSLB
 ```
 
-## <a name="configure-ipv6-load-balancer-rules"></a>Konfigurera IPv6-belastningsutjämningsregler
+## <a name="configure-ipv6-load-balancer-rules"></a>Konfigurera IPv6-belastnings Utjämnings regler
 
-Skapa IPv6 belastningsutjämna regler med [az nätverk lb regel skapa](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create).
+Skapa IPv6-belastnings Utjämnings regler med [AZ Network lb Rule Create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create).
 
 ```azurecli
 az network lb rule create \
@@ -87,9 +87,9 @@ az network lb rule create \
 --backend-pool-name dsLbBackEndPool_v6
 ```
 
-## <a name="add-ipv6-address-ranges"></a>Lägga till IPv6-adressintervall
+## <a name="add-ipv6-address-ranges"></a>Lägg till IPv6-adressintervall
 
-Lägg till IPv6-adressintervall i det virtuella nätverket och undernätet som är värd för belastningsutjämnaren enligt följande:
+Lägg till IPv6-adressintervall till det virtuella nätverket och under nätet som är värd för belastningsutjämnaren enligt följande:
 
 ```azurecli
 az network vnet update \
@@ -104,9 +104,9 @@ az network vnet subnet update \
 --address-prefixes  "10.0.0.0/24"  "ace:cab:deca:deed::/64"  
 ```
 
-## <a name="add-ipv6-configuration-to-nics"></a>Lägga till IPv6-konfiguration i nätverkskort
+## <a name="add-ipv6-configuration-to-nics"></a>Lägg till IPv6-konfiguration till nätverkskort
 
-Konfigurera nätverkskort för virtuella datorer med en IPv6-adress med [az-nätverks-nic ip-config skapa](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) enligt följande:
+Konfigurera nätverkskorten för virtuella datorer med en IPv6-adress med [AZ Network NIC IP-config Create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create) enligt följande:
 
 ```azurecli
 az network nic ip-config create \
@@ -141,12 +141,12 @@ az network nic ip-config create \
 
 ```
 
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visa virtuellt IPv6-nätverk med dubbla stackar i Azure-portalen
-Du kan visa det virtuella nätverket IPv6 med dubbla stackar i Azure-portalen på följande sätt:
-1. I portalens sökfält anger du *myVnet*.
-2. När **myVnet** visas i sökresultaten markerar du det. Detta startar **översiktssidan för** det virtuella nätverket med dubbla stacker som heter *myVNet*. Det virtuella nätverket med dubbla staplar visar de tre nätverkskort med både IPv4- och IPv6-konfigurationer i det dubbla stackundernätet med namnet *mySubnet*.
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visa ett virtuellt IPv6-nätverk med dubbla stackar i Azure Portal
+Du kan visa det virtuella IPv6-nätverket med dubbla stackar i Azure Portal på följande sätt:
+1. Skriv *myVnet*i portalens Sök fält.
+2. När **myVnet** visas i Sök resultaten väljer du det. Då startas **översikts** sidan för det virtuella nätverket med dubbla stackar med namnet *myVNet*. Det virtuella nätverket med dubbla stackar visar de tre nätverkskorten med både IPv4-och IPv6-konfigurationer som finns i det dubbla stack-undernätet med namnet *mitt undernät*.
 
-  ![IPv6 virtuellt nätverk med dubbla staplar i Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
+  ![IPv6-virtuellt nätverk med dubbla stackar i Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -159,4 +159,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du uppdaterat en befintlig standardbelastningsutjämning med en IP-konfiguration för IPv4-klientdel till en konfiguration med dubbla stackar (IPv4 och IPv6). Du har också lagt till IPv6-konfigurationer i nätverkskorten för de virtuella datorerna i serverdapoolen. Mer information om IPv6-stöd i virtuella Azure-nätverk finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md)
+I den här artikeln har du uppdaterat en befintlig Standard Load Balancer med en IP-konfiguration för IPv4-frontend till en konfiguration med dubbla stackar (IPv4 och IPv6). Du har också lagt till IPv6-konfigurationer till nätverkskorten för de virtuella datorerna i backend-poolen. Mer information om IPv6-stöd i Azure Virtual Networks finns i [Vad är IPv6 för Azure Virtual Network?](ipv6-overview.md)

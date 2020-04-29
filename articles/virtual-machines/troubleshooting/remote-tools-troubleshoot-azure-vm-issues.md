@@ -1,6 +1,6 @@
 ---
-title: Använd fjärrverktyg för att felsöka Problem med Azure VM | Microsoft-dokument
-description: Lär dig mer om PsExec- PowerShell-skript och andra fjärrverktyg som du kan använda för att felsöka problem med fjärr- och Azure VM utan att använda RDP.
+title: Använd fjärrverktyg för att felsöka problem med virtuella Azure-datorer | Microsoft Docs
+description: Lär dig mer om PsExec, PowerShell-skript och andra fjärrverktyg som du kan använda för att felsöka problem med virtuella Azure-datorer utan att använda RDP.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -15,23 +15,23 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: d29b2b7c2b9194f20afe4c74d117847f0e343b12
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80422608"
 ---
-# <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Använda fjärrverktyg för att felsöka Problem med Azure VM
+# <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Använd fjärrverktyg för att felsöka problem med Azure VM
 
-När du felsöker problem på en virtuell Azure-dator (VM) kan du ansluta till den virtuella datorn med hjälp av fjärrverktygen som beskrivs i den här artikeln i stället för att använda RDP (Remote Desktop Protocol).
+När du felsöker problem på en virtuell Azure-dator (VM) kan du ansluta till den virtuella datorn med hjälp av de fjärrverktyg som beskrivs i den här artikeln i stället för att använda Remote Desktop Protocol (RDP).
 
 ## <a name="serial-console"></a>Seriekonsol
 
-Använd en [seriell konsol för Virtuella Azure-datorer för](serial-console-windows.md) att köra kommandon på fjärrdass.Virtual Vm.
+Använd en [serie konsol för Azure Virtual Machines](serial-console-windows.md) för att köra kommandon på den virtuella Azure-datorn.
 
 ## <a name="remote-cmd"></a>Fjärr-CMD
 
-Ladda ner [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Anslut till den virtuella datorn genom att köra följande kommando:
+Ladda ned [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Anslut till den virtuella datorn genom att köra följande kommando:
 
 ```cmd
 psexec \\<computer>-u user -s cmd
@@ -39,27 +39,27 @@ psexec \\<computer>-u user -s cmd
 
 >[!NOTE]
 >* Kommandot måste köras på en dator som finns i samma virtuella nätverk.
->* DIP eller HostName kan \<användas för att ersätta dator>.
->* Parametern -s ser till att kommandot anropas med hjälp av Systemkonto (administratörsbehörighet).
->* PsExec använder TCP-portar 135 och 445. Därför måste de två portarna vara öppna på brandväggen.
+>* DIP eller värdnamn kan användas för att ersätta \<dator>.
+>* Parametern-s ser till att kommandot anropas med hjälp av system kontot (administratörs behörighet).
+>* PsExec använder TCP-portarna 135 och 445. Därför måste de två portarna vara öppna i brand väggen.
 
-## <a name="run-command"></a>Kör kommandot 
+## <a name="run-command"></a>Kör kommando
 
-Mer information om hur du använder kommandofunktionen kör för att köra skript på den virtuella datorn finns [i Kör PowerShell-skript i windows-datorn med kommandot kör](../windows/run-command.md).
+Mer information om hur du använder kommando funktionen kör för att köra skript på den virtuella datorn finns i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../windows/run-command.md).
 
 ## <a name="custom-script-extension"></a>Anpassat skripttillägg
 
-Du kan använda funktionen Anpassat skripttillägg för att köra ett anpassat skript på måldatorn. För att kunna använda den här funktionen måste följande villkor vara uppfyllda:
+Du kan använda funktionen för anpassat skript tillägg för att köra ett anpassat skript på den virtuella mål datorn. Om du vill använda den här funktionen måste följande villkor vara uppfyllda:
 
-* Den virtuella datorn har anslutning.
-* Azure Virtual Machine Agent är installerad och fungerar som förväntat på den virtuella datorn.
-* Tillägget har inte tidigare installerats på den virtuella datorn.
+* Den virtuella datorn är ansluten.
+* Azure Virtual Machine-agenten är installerad och fungerar som förväntat på den virtuella datorn.
+* Tillägget har inte installerats tidigare på den virtuella datorn.
  
-  Tillägget injicerar skriptet bara första gången det används. Om du använder den här funktionen senare känner tillägget igen att det redan har använts och inte överför det nya skriptet.
+  Tillägget infogar bara skriptet första gången det används. Om du använder den här funktionen senare känner tillägget igen att det redan har använts och inte överför det nya skriptet.
 
-Ladda upp skriptet till ett lagringskonto och generera en egen behållare. Kör sedan följande skript i Azure PowerShell på en dator som har anslutning till den virtuella datorn.
+Ladda upp ditt skript till ett lagrings konto och skapa en egen behållare. Kör sedan följande skript i Azure PowerShell på en dator som har anslutning till den virtuella datorn.
 
-### <a name="for-classic-deployment-model-vms"></a>För virtuella datorer för klassiska distributionsmodeller
+### <a name="for-classic-deployment-model-vms"></a>För klassiska virtuella datorer för distributions modell
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
@@ -90,7 +90,7 @@ $vm = Get-AzureVM -ServiceName $vmCloudService -Name $vmName
 Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName | Update-AzureVM
 ```
 
-### <a name="for-azure-resource-manager-vms"></a>För virtuella azure resource manager-datorer
+### <a name="for-azure-resource-manager-vms"></a>För Azure Resource Manager virtuella datorer
 
  
 
@@ -123,29 +123,29 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 ## <a name="remote-powershell"></a>Fjärr-PowerShell
 
 >[!NOTE]
->TCP Port 5986 (HTTPS) måste vara öppen så att du kan använda det här alternativet.
+>TCP-port 5986 (HTTPS) måste vara öppen så att du kan använda det här alternativet.
 >
->För virtuella Azure Resource Manager-datorer måste du öppna port 5986 i nätverkssäkerhetsgruppen (NSG). Mer information finns i Säkerhetsgrupper. 
+>För Azure Resource Manager virtuella datorer måste du öppna port 5986 på nätverks säkerhets gruppen (NSG). Mer information finns i säkerhets grupper. 
 >
->För virtuella datorer för fjärrskrivbordsfäder måste du ha en slutpunkt som har en privat port (5986) och en offentlig port. Sedan måste du också öppna den offentliga porten på NSG.
+>För RDFE-VM: ar måste du ha en slut punkt som har en privat port (5986) och en offentlig port. Sedan måste du också öppna den offentliga porten på NSG.
 
-### <a name="set-up-the-client-computer"></a>Konfigurera klientdatorn
+### <a name="set-up-the-client-computer"></a>Konfigurera klient datorn
 
-Om du vill använda PowerShell för att fjärransluta till den virtuella datorn måste du först konfigurera klientdatorn så att anslutningen tillåts. Det gör du genom att lägga till den virtuella datorn i listan betrodda betrodda värdar i PowerShell genom att köra följande kommando, beroende på vad som är lämpligt.
+Om du vill använda PowerShell för att fjärrans luta till den virtuella datorn måste du först konfigurera klient datorn så att anslutningen tillåts. Det gör du genom att lägga till den virtuella datorn i PowerShell-listan över betrodda värdar genom att köra följande kommando, efter vad som är tillämpligt.
 
-Så här lägger du till en virtuell dator i listan betrodda värdar:
+Så här lägger du till en virtuell dator i listan över betrodda värdar:
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName>
 ```
 
-Så här lägger du till flera virtuella datorer i listan betrodda värdar:
+Så här lägger du till flera virtuella datorer i listan över betrodda värdar:
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName1>,<ComputerName2>
 ```
 
-Så här lägger du till alla datorer i listan betrodda värdar:
+Så här lägger du till alla datorer i listan över betrodda värdar:
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value *
@@ -153,7 +153,7 @@ Set-Item wsman:\localhost\Client\TrustedHosts -value *
 
 ### <a name="enable-remoteps-on-the-vm"></a>Aktivera RemotePS på den virtuella datorn
 
-För virtuella datorer som skapats med den klassiska distributionsmodellen använder du det anpassade skripttillägget för att köra följande skript:
+För virtuella datorer som skapats med den klassiska distributions modellen använder du tillägget för anpassat skript för att köra följande skript:
 
 ```powershell
 Enable-PSRemoting -Force
@@ -163,31 +163,31 @@ $command = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostn
 cmd.exe /C $command
 ```
 
-För virtuella Azure Resource Manager-datorer använder du kör kommandon från portalen för att köra EnableRemotePS-skriptet:
+För Azure Resource Manager virtuella datorer använder du kör-kommandon från portalen för att köra EnableRemotePS-skriptet:
 
-![Kör kommandot ](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
+![Kör kommando](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
 
 ### <a name="connect-to-the-vm"></a>Anslut till VM:en
 
-Kör följande kommando baserat på klientdatorns plats:
+Kör följande kommando baserat på klient datorns plats:
 
 * Utanför det virtuella nätverket eller distributionen
 
-  * För en virtuell dator som skapats med den klassiska distributionsmodellen kör du följande kommando:
+  * Kör följande kommando för en virtuell dator som skapats med den klassiska distributions modellen:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * För en virtuell azure Resource Manager-dator lägger du först till ett DNS-namn i den offentliga IP-adressen. Detaljerade steg finns [i Skapa ett fullständigt kvalificerat domännamn i Azure-portalen för en Windows VM](../windows/portal-create-fqdn.md). Kör sedan följande kommando:
+  * För en Azure Resource Manager virtuell dator lägger du först till ett DNS-namn till den offentliga IP-adressen. Detaljerade anvisningar finns i [skapa ett fullständigt kvalificerat domän namn i Azure Portal för en virtuell Windows-dator](../windows/portal-create-fqdn.md). Kör sedan följande kommando:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName "<<DNSname.DataCenter.cloudapp.azure.com>>" -port "5986" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-* Kör följande kommando i det virtuella nätverket eller distributionen:
+* I det virtuella nätverket eller distributionen kör du följande kommando:
   
   ```powershell
   $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -197,7 +197,7 @@ Kör följande kommando baserat på klientdatorns plats:
 >[!NOTE] 
 >Om du ställer in flaggan SkipCaCheck kringgås kravet på att importera ett certifikat till den virtuella datorn när du startar sessionen.
 
-Du kan också använda cmdleten Invoke-Command för att fjärrstyra ett skript på den virtuella datorn.
+Du kan också använda cmdleten Invoke-Command för att köra ett skript på den virtuella datorn via en fjärr anslutning.
 
 ```powershell
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
@@ -206,54 +206,54 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 ## <a name="remote-registry"></a>Fjärregister
 
 >[!NOTE]
->TCP-port 135 eller 445 måste vara öppen för att kunna använda det här alternativet.
+>TCP-port 135 eller 445 måste vara öppen för att det här alternativet ska kunna användas.
 >
->För virtuella Azure Resource Manager-datorer måste du öppna port 5986 på NSG. Mer information finns i Säkerhetsgrupper. 
+>För Azure Resource Manager virtuella datorer måste du öppna port 5986 på NSG. Mer information finns i säkerhets grupper. 
 >
->För virtuella datorer för fjärrskrivbordsfäder måste du ha en slutpunkt som har en privat port 5986 och en offentlig port. Du måste också öppna den offentliga porten på NSG.
+>För RDFE-VM: ar måste du ha en slut punkt som har en privat port 5986 och en offentlig port. Du måste också öppna den offentliga porten på NSG.
 
-1. Från en annan virtuell dator i samma virtuella nätverk öppnar du registerredigeraren (regedit.exe).
+1. Öppna Registereditorn från en annan virtuell dator i samma virtuella nätverk (regedit. exe).
 
-2. Välj Register över**filanslutningsnätverk** **File** > .
+2. Välj **fil** > **Anslut nätverks register**.
 
-   ![Registerredigerare](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
+   ![Registereditorn](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
-3. Leta reda på måldatorn efter **värdnamn** eller **dynamisk IP** (att föredra) genom att ange den i rutan **Ange objektnamnet som ska markeras.**
+3. Leta upp den virtuella mål datorn efter **värdnamn** eller **dynamisk IP** (föredra) genom att ange den i rutan **Ange objekt namn att välja** .
 
-   ![Ange den objektnamn som ska markeras](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
+   ![Ange rutan objekt namn att markera](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
  
-4. Ange autentiseringsuppgifterna för måldatorn.
+4. Ange autentiseringsuppgifterna för den virtuella mål datorn.
 
-5. Gör nödvändiga registerändringar.
+5. Gör nödvändiga register ändringar.
 
-## <a name="remote-services-console"></a>Konsolen Fjärrtjänster
+## <a name="remote-services-console"></a>Konsolen för fjärrtjänster
 
 >[!NOTE]
->TCP-portar 135 eller 445 måste vara öppna för att kunna använda det här alternativet.
+>TCP-portarna 135 eller 445 måste vara öppna för att det här alternativet ska kunna användas.
 >
->För virtuella Azure Resource Manager-datorer måste du öppna port 5986 på NSG. Mer information finns i Säkerhetsgrupper. 
+>För Azure Resource Manager virtuella datorer måste du öppna port 5986 på NSG. Mer information finns i säkerhets grupper. 
 >
->För virtuella datorer för fjärrskrivbordsfäder måste du ha en slutpunkt som har en privat port 5986 och en offentlig port. Du måste också öppna den offentliga porten på NSG.
+>För RDFE-VM: ar måste du ha en slut punkt som har en privat port 5986 och en offentlig port. Du måste också öppna den offentliga porten på NSG.
 
-1. Öppna en instans av **Services.msc**från en annan virtuell dator i samma virtuella nätverk.
+1. Öppna en instans av **Services. msc**från en annan virtuell dator i samma virtuella nätverk.
 
-2. Högerklicka på **Tjänster (Lokal)**.
+2. Högerklicka på **tjänster (lokalt)**.
 
 3. Välj **Anslut till en annan dator**.
 
    ![Fjärrtjänst](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 
-4. Ange den dynamiska IP-adressen för måldatorn.
+4. Ange den dynamiska IP-adressen för den virtuella mål datorn.
 
-   ![Dynamisk IP-för input](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
+   ![Inmatad dynamisk IP](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
 
 5. Gör nödvändiga ändringar i tjänsterna.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om cmdleten Enter-PSSession finns i [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx).
-- Mer information om det anpassade skripttillägget för Windows med den klassiska distributionsmodellen finns i [Anpassat skripttillägg för Windows](../extensions/custom-script-classic.md).
-- PsExec är en del av [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip).
+- Mer information om tillägget för anpassat skript för Windows med hjälp av den klassiska distributions modellen finns i [anpassat skript tillägg för Windows](../extensions/custom-script-classic.md).
+- PsExec är en del av [PSTools-sviten](https://download.sysinternals.com/files/PSTools.zip).
 - Mer information om PSTools Suite finns i [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
 

@@ -1,279 +1,279 @@
 ---
-title: Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4.0 på virtuella Azure-datorer
-description: Kör Micro Focus BankDemo-programmet på virtuella Azure-datorer (VMs) för att lära dig att använda Micro Focus Enterprise Server och Enterprise Developer.
+title: Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4,0 på Azure Virtual Machines
+description: Kör Micro Focus BankDemo-programmet på Azure Virtual Machines (VM) för att lära dig använda Micro Focus Enterprise Server och Enterprise Developer.
 author: sread
 ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80411079"
 ---
-# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4.0 på Azure
+# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4,0 på Azure
 
-När du konfigurerar Micro Focus Enterprise Server 4.0 och Enterprise Developer 4.0 på Azure kan du testa distributioner av IBM z/OS-arbetsbelastningar. Den här artikeln visar hur du konfigurerar CICS BankDemo, ett exempelprogram som medföljer Enterprise Developer.
+När du ställer in Micro Focus Enterprise Server 4,0 och Enterprise Developer 4,0 på Azure, kan du testa distributioner av IBM z/OS-arbetsbelastningar. Den här artikeln visar hur du konfigurerar CICS BankDemo, ett exempel program som medföljer företags utvecklare.
 
-CICs står för Customer Information Control System, den transaktionsplattform som används av många av de online stordator applikationer. BankDemo-programmet är bra för att lära sig hur Enterprise Server och Enterprise Developer fungerar och hur du hanterar och distribuerar ett verkligt program komplett med grön skärm terminaler.
+CICs står för system för kontroll av kund information, den transaktions plattform som används av många av online-stordator programmen. BankDemo-programmet är perfekt för att lära dig hur Enterprise Server och Enterprise Developer fungerar och hur du hanterar och distribuerar ett faktiskt program som kompletterar med gröna skärms terminaler.
 
 > [!NOTE]
-> Kommer snart: Instruktioner för hur du konfigurerar [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) på virtuella Azure-datorer.
+> Kommer snart: anvisningar för att konfigurera [Micro Focus Enterprise Server 5,0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) på virtuella Azure-datorer.
 
 ## <a name="prerequisites"></a>Krav
 
-- En virtuell dator med [Företagsutvecklare](set-up-micro-focus-azure.md). Tänk på att Enterprise Developer har en fullständig instans av Enterprise Server på den för utveckling och teständamål. Den här instansen är den instans av Enterprise Server som används för demon.
+- En virtuell dator med [företags utvecklare](set-up-micro-focus-azure.md). Tänk på att företags utvecklaren har en fullständig instans av Enterprise Server i syfte att utveckla och testa. Den här instansen är den instans av företags servern som används för demonstrationen.
 
-- [SQL Server 2017 Express-utgåva](https://www.microsoft.com/sql-server/sql-server-editions-express). Hämta och installera det på den virtuella datorn för företagsutvecklare. Enterprise Server kräver en databas för hantering av CICS-regioner och BankDemo-programmet använder också en SQL Server-databas som heter BANKDEMO. Den här demon förutsätter att du använder SQL Server Express för båda databaserna. När du installerar väljer du den grundläggande installationen.
+- [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Ladda ned och installera det på den virtuella datorn för Enterprise Developer. Enterprise Server kräver en databas för hantering av CICS-regioner och BankDemo-programmet använder också en SQL Server databas som kallas BANKDEMO. Den här demon förutsätter att du använder SQL Server Express för båda databaserna. När du installerar väljer du den grundläggande installationen.
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS används för att hantera databaser och köra ett T-SQL-skript. Hämta och installera det på den virtuella datorn för företagsutvecklare.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS används för att hantera databaser och köra ett T-SQL-skript. Ladda ned och installera det på den virtuella datorn för Enterprise Developer.
 
-- [Visual Studio 2019](https://azure.microsoft.com/downloads/) med den senaste Service Pack- eller [Visual Studio Community,](https://visualstudio.microsoft.com/vs/community/)som du kan ladda ner gratis.
+- [Visual studio 2019](https://azure.microsoft.com/downloads/) med den senaste Service Pack-eller [Visual Studio-communityn](https://visualstudio.microsoft.com/vs/community/), som du kan ladda ned kostnads fritt.
 
-- Rumba Desktop eller annan 3270 emulator.
+- Rumba Desktop eller en annan 3270-emulator.
 
 ## <a name="configure-the-windows-environment"></a>Konfigurera Windows-miljön
 
-När du har installerat Enterprise Developer 4.0 på den virtuella datorn måste du konfigurera instansen av Enterprise Server som medföljer den. För att göra det måste du installera några ytterligare Windows-funktioner enligt följande.
+När du har installerat Enterprise Developer 4,0 på den virtuella datorn måste du konfigurera den instans av företags servern som medföljer den. Om du vill göra det måste du installera några ytterligare Windows-funktioner på följande sätt.
 
-1. Använd RDP för att logga in på den virtuella företagsserver 4.0 som du skapade.
+1. Använd RDP för att logga in på den virtuella datorn för Enterprise Server 4,0 som du skapade.
 
-2. Klicka på **sökikonen** bredvid **Start-knappen** och skriv **Windows-funktioner**. Guiden Lägg till roller och funktioner i Serverhanteraren öppnas.
+2. Klicka på **Sök** ikonen bredvid **Start** -knappen och skriv **Windows-funktioner**. Guiden Serverhanteraren Lägg till roller och funktioner öppnas.
 
-3. Välj **Webbserverroll (IIS)** och kontrollera sedan följande alternativ:
+3. Välj **webb Server rollen (IIS)** och kontrol lera sedan följande alternativ:
 
-    - Verktyg för webbhantering
-    - IIS 6 Management Kompatibilitet (välj alla tillgängliga funktioner)
+    - Webb hanterings verktyg
+    - IIS 6-hanterings kompatibilitet (Välj alla tillgängliga funktioner)
     - IIS-hanteringskonsol
     - Skript och verktyg för IIS-hantering
-    - IIS-hanteringstjänst
+    - Hanterings tjänst för IIS
 
-4. Välj **World Wide Web Services**och kontrollera följande alternativ:
+4. Välj **World Wide Web tjänster**och kontrol lera följande alternativ:
 
-     Funktioner för programutveckling:
+     Program utvecklings funktioner:
     - .NET-utökningsbarhet
     - ASP.NET
     - Vanliga HTTP-funktioner: Lägg till alla tillgängliga funktioner
-    - Hälsa och diagnostik: Lägg till alla tillgängliga funktioner
-    - Säkerhet:
+    - Hälso tillstånd och diagnostik: Lägg till alla tillgängliga funktioner
+    - Bullet
         - Grundläggande autentisering
         - Windows-autentisering
 
 5. Välj **Windows Process Activation Service** och alla dess underordnade.
 
-6. För **funktioner**kontrollerar du **Microsoft .NET framework 3.5.1**och kontrollerar följande alternativ:
+6. För **funktioner**kontrollerar du **Microsoft .NET Framework 3.5.1**och kontrollerar följande alternativ:
 
-    - HTTP-aktivering av Windows Communication Foundation
+    - Windows Communication Foundation HTTP-aktivering
     - Windows Communication Foundation icke-HTTP-aktivering
 
-7. För **funktioner**kontrollerar du **Microsoft .NET framework 4.6**och kontrollerar följande alternativ:
+7. För **funktioner**kontrollerar du **Microsoft .NET Framework 4,6**och kontrollerar följande alternativ:
 
    - Namngiven pipe-aktivering
    - TCP-aktivering
    - Delning av TCP-port
 
-     ![Guiden Lägg till roller och funktioner: Rolltjänster](media/01-demo-roles.png)
+     ![Guiden Lägg till roller och funktioner: roll tjänster](media/01-demo-roles.png)
 
-8. När du har markerat alla alternativ klickar du på **Nästa** för att installera.
+8. När du har valt alla alternativ klickar du på **Nästa** för att installera.
 
-9. När du har funktionerna i Windows går du till **Administrationsverktyg för \> Kontrollpanelen och Administrationsverktyg för säkerhet \> **och väljer **Tjänster**. Bläddra nedåt och se till att följande tjänster körs och ställ in **på Automatisk:**
+9. Efter Windows-funktionerna går du till **kontroll panelen \> system och administrations verktyg för säkerhet \> **och väljer **tjänster**. Rulla nedåt och kontrol lera att följande tjänster körs och är inställda på **Automatisk**:
 
     - **NetTcpPortSharing**
-    - **Net.Pipe lyssnare Adapter**
-    - **Net.tcp-lyssnare-adapter**
+    - **Net. pipe Listener adapter**
+    - **Net. TCP-Lyssnaradapter**
 
-10. Om du vill konfigurera IIS- och WAS-stöd letar du upp **kommandotolken för Micro Focus Enterprise Developer (64 bitar)** på menyn och körs som **administratör**.
+10. Om du vill konfigurera IIS och har stöd, går du till menyn hitta **Micro Focus Enterprise Developer kommando tolk (64-bitars)** och kör som **administratör**.
 
-11. Skriv **wassetup –i** och tryck på **Retur**.
+11. Skriv **wassetup – i** och tryck på **RETUR**.
 
 12. När skriptet har körts kan du stänga fönstret.
 
-## <a name="configure-the-local-system-account-for-sql-server"></a>Konfigurera det lokala systemkontot för SQL Server
+## <a name="configure-the-local-system-account-for-sql-server"></a>Konfigurera det lokala system kontot för SQL Server
 
-Vissa Enterprise Server-processer måste kunna logga in sql server och skapa databaser och andra objekt. Dessa processer använder det lokala systemkontot, så du måste ge självadministratören behörighet till det kontot.
+Vissa företags server processer måste kunna logga in SQL Server och skapa databaser och andra objekt. Dessa processer använder det lokala system kontot, så du måste ge sysadmin-behörighet till det kontot.
 
-1. Starta **SSMS** och klicka på **Anslut** för att ansluta till den lokala SQLEXPRESS Server med Windows-autentisering. Den ska vara tillgänglig i listan **Servernamn.**
+1. Starta **SSMS** och klicka på **Anslut** för att ansluta till den lokala SQLExpress-servern med Windows-autentisering. Den bör vara tillgänglig i listan **Server namn** .
 
-2. Till vänster expanderar du mappen **Säkerhet** och väljer **Inloggningar**.
+2. Expandera mappen **säkerhet** till vänster och välj **inloggningar**.
 
-3. Välj **NT\\AUTHORITY SYSTEM** och välj **Egenskaper**.
+3. Välj **NT auktoritets\\system** och välj **Egenskaper**.
 
-4. Välj **Serverroller** och kontrollera **sysadmin**.
+4. Välj **Server roller** och kontrol lera **sysadmin**.
 
-     ![Fönstret SSMS-objektutforskaren: Inloggningsegenskaper](media/02-demo-explorer.png)
+     ![SSMS Object Explorer fönster: inloggnings egenskaper](media/02-demo-explorer.png)
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>Skapa BankDemo-databasen och alla dess objekt
 
-1. Öppna **Utforskaren** och navigera till **C:\\Användare\\Offentliga\\dokument\\\\Micro\\Focus\\Enterprise Developer\\Samples\\Storframe\\CICS DotNet BankDemo\\SQL**.
+1. Öppna **Utforskaren** och gå till **\\C: användare\\Public\\Documents\\Micro Focus\\Enterprise Developer\\\\\\\\\\\\samples stordator CICS dotNet BankDemo SQL**.
 
-2. Kopiera innehållet i **filen BankDemoCreateAll.SQL** till urklipp.
+2. Kopiera innehållet i **BankDemoCreateAll. SQL** -filen till Urklipp.
 
-3. Öppna **SSMS**. Till höger klickar du på **Server** och väljer **Ny fråga**.
+3. Öppna **SSMS**. Till höger klickar du på **Server** och väljer **ny fråga**.
 
-4. Klistra in innehållet i Urklipp i rutan **Ny fråga.**
+4. Klistra in innehållet i Urklipp i rutan **ny fråga** .
 
-5. Kör SQL genom att klicka på **Kör** från fliken **Kommando** ovanför frågan.
+5. Kör SQL genom att klicka på **Kör** från **kommando** -fliken ovanför frågan.
 
-Frågan ska köras utan fel. När den är klar har du exempeldatabasen för BankDemo-programmet.
+Frågan ska köras utan fel. När den är klar har du exempel databasen för BankDemo-programmet.
 
-![SQLQuery1.sql-utgång](media/03-demo-query.png)
+![SQLQuery1. SQL-utdata](media/03-demo-query.png)
 
-## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Kontrollera att databastabellerna och databasobjekten har skapats
+## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Kontrol lera att databas tabellerna och-objekten har skapats
 
-1. Högerklicka på **BANKDEMO-databasen** och välj **Uppdatera**.
+1. Högerklicka på **BANKDEMO** -databasen och välj **Uppdatera**.
 
-2. Expandera **databasen** och välj **Tabeller**. Du skulle se något i stil med följande.
+2. Expandera **databasen** och välj **tabeller**. Du bör se något som liknar följande.
 
-     ![BANKDEMO-tabellen expanderad i Objektutforskaren](media/04-demo-explorer.png)
+     ![BANKDEMO-tabellen har utökats i Object Explorer](media/04-demo-explorer.png)
 
-## <a name="build-the-application-in-enterprise-developer"></a>Skapa programmet i Enterprise Developer
+## <a name="build-the-application-in-enterprise-developer"></a>Bygg programmet i företags utvecklare
 
 1. Öppna Visual Studio och logga in.
 
-2. Under **File** alternativet Arkiv-meny väljer du **Öppna projekt/lösning**, navigerar till **C:\\\\Användare Offentliga\\dokument\\Micro Focus\\Enterprise Developer\\Samples\\Storframe\\CICS\\DotNet\\BankDemo**och väljer **sln-filen.**
+2. Under meny alternativet **Arkiv** väljer du **öppna projekt/lösning**, navigera till **C:\\användare\\publika\\dokument\\Micro fokusering\\Enterprise Developer\\\\\\\\\\-exempel stordator CICS dotNet BankDemo**och väljer **SLN** -filen.
 
-3. Ta dig tid att undersöka objekten. COBOL-program visas i Solution Explorer med CBL-tillägget tillsammans med CopyBooks (CPY) och JCL.
+3. Ta lite tid för att undersöka objekten. COBOL-program visas i Solution Explorer med CBL-tillägget tillsammans med CopyBooks (CPY) och JCL.
 
-4. Högerklicka på **BankDemo2-projektet** och välj **Ange som startprojekt**.
-
-    > [!NOTE]
-    > BankDemo Project använder HCOSS (Host Compatibility Option för SQL Server), som inte används för den här demon.
-
-5. Högerklicka på **BankDemo2-projektet** i **Solution Explorer**och välj **Bygg**.
+4. Högerklicka på projektet **BankDemo2** och välj **Set as Startup Project (ange som start projekt**).
 
     > [!NOTE]
-    > Att bygga på lösningsnivå resulterar i fel, eftersom HCOSS inte har konfigurerats.
+    > BankDemo-projektet använder HCOSS (värdens kompatibilitetsalternativ för SQL Server), som inte används för den här demon.
 
-6. När projektet har skapats undersöker du **utdatafönstret.** Det bör se ut som på bilden nedan.
+5. I **Solution Explorer**högerklickar du på projektet **BankDemo2** och väljer **build**.
 
-     ![Utdatafönster som visar lyckad version](media/05-demo-output.png)
+    > [!NOTE]
+    > När du skapar en lösnings nivå resulterar det i fel eftersom HCOSS inte har kon figurer ATS.
 
-## <a name="deploy-the-bankdemo-application-into-the-region-database"></a>Distribuera BankDemo-programmet i regiondatabasen
+6. När projektet har skapats granskar du fönstret **utdata** . Det bör se ut som på bilden nedan.
 
-1. Öppna en kommandotolk för företagsutvecklare (64 bitar) som administratör.
+     ![Fönstret utdata visar lyckad version](media/05-demo-output.png)
 
-2. Navigera till **exemplen\\\\%PUBLIC%\\Documents\\Micro\\Focus\\\\Enterprise\\Developer tar exempel på Stordator CICS DotNet BankDemo**.
+## <a name="deploy-the-bankdemo-application-into-the-region-database"></a>Distribuera BankDemo-programmet till region databasen
 
-3. Kör **bankdemodbdeploay** i kommandotolken och inkludera parametern för databasen som ska distribueras till, till exempel:
+1. Öppna en Enterprise Developer-kommandotolk (64-bitars) som administratör.
+
+2. Gå till mappen **% Public%\\Documents\\Micro\\Focus Enterprise\\Developer samples\\stordatorer\\CICS\\dotNet\\BankDemo**.
+
+3. I kommando tolken kör du **bankdemodbdeploy** och inkluderar parametern för databasen att distribuera till, till exempel:
 
     ```
     bankdemodbdeploy (local)/sqlexpress
     ```
 
 > [!NOTE]
-> Se till att använda ett snedstreck (/) inte ett bakåtskurna(\\). Det här skriptet körs ett tag.
+> Se till att använda ett snedstreck (/) som inte är ett omvänt\\snedstreck (). Det här skriptet körs ett tag.
 
-![Administration: Kommandotolken för företagsutvecklare](media/06-demo-cmd.png)
+![Administration: kommando tolks fönstret för Enterprise-utvecklare](media/06-demo-cmd.png)
 
-## <a name="create-the-bankdemo-region-in-enterprise-administrator-for-net"></a>Skapa BankDemo-regionen i företagsadministratör för .NET
+## <a name="create-the-bankdemo-region-in-enterprise-administrator-for-net"></a>Skapa regionen BankDemo i Enterprise Administrator för .NET
 
-1. Öppna **företagsservern för .NET Administration.Open** the Enterprise Server for .NET Administration UI.
+1. Öppna **administrations gränssnittet för Enterprise Server för .net** .
 
-2. Om du vill starta SNAP-MODULEN FÖR MMC väljer du **Micro Focus Enterprise Developer \> Configuration \> Enterprise Server för .NET Admin**på **Start-menyn** i Windows. (För Windows Server väljer du **Micro Focus Enterprise \> Developer Enterprise Server för .NET Admin**).
+2. Starta MMC-snapin-modulen från **Start** -menyn i Windows och välj **Micro Focus Enterprise-utvecklare \> konfiguration \> Enterprise Server för .net-administratör**. (För Windows Server väljer du **Micro Focus Enterprise- \> utvecklare Enterprise Server för .net-administratör**).
 
-3. Expandera behållaren **Regioner** i den vänstra rutan och högerklicka sedan på **CICS**.
+3. Expandera behållaren **regioner** i den vänstra rutan och högerklicka sedan på **CICS**.
 
-4. Välj **Definiera region** om du vill skapa en ny CICS-region som kallas **BANKDEMO**, som finns i den (lokala) databasen.
+4. Välj **definiera region** för att skapa en ny CICS-region som heter **BANKDEMO**, som finns i den lokala databasen (lokal).
 
-5. Ange databasserverinstansen, klicka på **Nästa**och ange sedan regionnamnet **BANKDEMO**.
+5. Ange databas Server instansen, klicka på **Nästa**och ange sedan region namnet **BANKDEMO**.
 
-     ![Dialogrutan Definiera region](media/07-demo-cics.png)
+     ![Dialog rutan definiera region](media/07-demo-cics.png)
 
-6. Om du vill välja regiondefinitionsfilen för databasen över flera regioner letar du reda på **\_regionbankdemo\_db.config** i **C:\\\\Användare offentliga\\dokument\\Micro Focus\\Enterprise Developer\\Samples\\Storframe\\CICS\\DotNet\\BankDemo**.
+6. Om du vill välja region definitions filen för databasen över flera regioner hittar **du\_region\_bankdemo dB. config** i **C\\:\\användare\\publika\\dokument\\Micro Focus\\Enterprise\\Developer-exempel stordator\\CICS\\dotNet\\bankdemo**.
 
-     ![Definiera region - Regionnamn: BANKDEMO](media/08-demo-cics.png)
+     ![Definiera namn på region region: BANKDEMO](media/08-demo-cics.png)
 
 7. Klicka på **Slutför**.
 
-## <a name="create-xa-resource-definitions"></a>Skapa XA-resursdefinitioner
+## <a name="create-xa-resource-definitions"></a>Skapa resurs definitioner för XA
 
-1. Expandera **System**och sedan **XA-resursdefinitioner**i den vänstra rutan **i företagsservern för .NET** Administration-användargränssnittet . Den här inställningen definierar hur regionintertar med Enterprise Server och programdatabaserna.
+1. I den vänstra rutan i **Enterprise Server för .net administrations** gränssnitt expanderar du **system**och sedan **XA-resursposter**. Den här inställningen definierar hur regionen samverkar med företags servern och program databaserna.
 
-2. Högerklicka på **XA-resursdefinitioner** och välj **Lägg till serverinstans**.
+2. Högerklicka på **resurs definitioner för XA** och välj **Lägg till Server instans**.
 
-3. Välj **Databastjänstinstans**i listrutan . Det blir den lokala datorn SQLEXPRESS.
+3. I list rutan väljer du **databas tjänst instans**. Det är den lokala datorn SQLEXPRESS.
 
-4. Välj instansen från behållaren **XA Resource\\Definitions (machinename sqlexpress)** och klicka på **Lägg till**.
+4. Välj instansen under behållaren **resurs definitioner för XA (\\MachineName)** och klicka på **Lägg till**.
 
-5. Välj **Databas XA-resursdefinition** och skriv sedan **BANKDEMO** för **namn** och **region**.
+5. Välj **Database XA resurs definition** och skriv sedan **BANKDEMO** som **namn** och **region**.
 
-     ![Skärmen Ny databas XA-resursdefinition](media/09-demo-xa.png)
+     ![Skärm bild definition för den nya databasens XA-resurs](media/09-demo-xa.png)
 
-6. Klicka på ellipserna (**...**) för att visa guiden Anslutningssträng. För **Servernamn**, typ **\\(lokal) SQLEXPRESS**. För **inloggning**väljer du **Windows-autentisering**. För databasnamn skriver du **BANKDEMO**
+6. Klicka på ellipserna (**...**) för att öppna guiden anslutnings sträng. För **Server namn**skriver du **(lokal)\\SQLExpress**. För **inloggning**väljer du **Windows-autentisering**. För databas namn skriver du **BANKDEMO**
 
-     ![Redigera skärmen Anslutningssträng](media/10-demo-string.png)
+     ![Skärmen Redigera anslutnings sträng](media/10-demo-string.png)
 
 7. Testa anslutningen.
 
-## <a name="start-the-bankdemo-region"></a>Starta BANKDEMO-regionen
+## <a name="start-the-bankdemo-region"></a>Starta regionen BANKDEMO
 
 > [!NOTE]
-> Det första steget är viktigt: Du måste ange att regionen ska använda den XA-resursdefinition som du just skapade.
+> Det första steget är viktigt: du måste ange region för att använda den resurs definition för XA som du nyss skapade.
 
-1. Navigera till **REGIONEN BANDEMO CICS** under **regionbehållaren**och välj sedan **Startfil för redigera region** i **åtgärdsfönstret.** Bläddra ned till SQL-egenskaperna och ange **bankdemo** för **XA-resursnamnet**eller använd ellipsen för att markera det.
+1. Navigera till **BANDEMO CICS-regionen** under **behållaren regioner**och välj sedan **Redigera region start fil** från fönstret **åtgärder** . Rulla ned till SQL-egenskaperna och ange **bankdemo** som **resurs namn för XA**, eller Använd ellipsen för att välja den.
 
-2. Klicka på ikonen **Spara** för att spara ändringarna.
+2. Spara ändringarna genom att klicka på ikonen **Spara** .
 
-3. Högerklicka på **BANKDEMO-CICS-regionen** i **konsolfönstret** och välj **Start-/stoppregion**.
+3. Högerklicka på **BANKDEMO CICS region** i **konsol** fönstret och välj **Start-/stopp region**.
 
-4. Välj **Start**i rutan Start/Stopp-region längst ned i rutan **Start/Stopp-region** som visas i den mitta rutan . Efter några sekunder startar regionen.
+4. Längst ned i rutan **Starta/stoppa region** som visas i mitten av fönstret väljer du **Start**. Efter några sekunder börjar regionen.
 
-     ![Rutan SQL Start/Stopp](media/11-demo-sql.png)
+     ![Rutan SQL-start/stopp](media/11-demo-sql.png)
 
-     ![CICS Region BANKDEMO - Startskärm](media/12-demo-cics.png)
+     ![CICS region BANKDEMO – startad skärm](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Skapa en lyssnare
 
-Skapa en lyssnare för de TN3270-sessioner som använder BankDemo-programmet.
+Skapa en lyssnare för de TN3270-sessioner som har åtkomst till BankDemo-programmet.
 
-1. Expandera **Konfigurationsredigerare** i den vänstra rutan och välj **Lyssnare**.
+1. I den vänstra rutan expanderar du **konfigurations redigerare** och väljer **lyssnare**.
 
-2. Klicka på ikonen **Öppna fil** och markera filen **seelistener.exe.config.** Den här filen redigeras och läses in varje gång Enterprise Server startar.
+2. Klicka på ikonen **Öppna fil** och välj filen **seelistener. exe. config** . Den här filen kommer att redige ras och läses in varje gång Enterprise Server startas.
 
-3. Lägg märke till de två regioner som tidigare definierats (ESDEMO och JCLDEMO).
+3. Lägg märke till de två regioner som definierats tidigare (ESDEMO och JCLDEMO).
 
-4. Om du vill skapa en ny region för BANKDEMO högerklickar du på **Regioner**och väljer **Lägg till region**.
+4. Om du vill skapa en ny region för BANKDEMO högerklickar du på **regioner**och väljer **Lägg till region**.
 
-5. Välj **BANKDEMO-region**.
+5. Välj **BANKDEMO region**.
 
-6. Lägg till en TN3270-kanal genom att högerklicka på **BANKDEMO-regionen** och välja **Lägg till kanal**.
+6. Lägg till en TN3270-kanal genom att högerklicka på **BANKDEMO region** och välja **Lägg till kanal**.
 
-7. För **Namn**anger du **TN3270**. För **Port**anger du **9024**. ESDEMO-programmet använder port 9230 så du måste använda en annan port.
+7. Som **namn**anger du **TN3270**. För **port**anger du **9024**. ESDEMO-programmet använder port 9230 så du måste använda en annan port.
 
-8. Om du vill spara filen klickar du på **ikonen Spara** eller väljer **Spara** **fil** \> .
+8. Spara filen genom att klicka på ikonen **Spara** eller välja **Arkiv** \> **Spara**.
 
-9. Om du vill starta lyssnaren klickar du på ikonen **Starta lyssnare** eller väljer **Alternativ** \> **Starta lyssnare**.
+9. Starta lyssnaren genom att klicka på ikonen **Starta lyssnare** eller välja **alternativ** \> **Starta lyssnare**.
 
-     ![Fönster i lyssnare konfigurationsredigeraren](media/13-demo-listener.png)
+     ![Fönster för lyssnare i konfigurations redigeraren](media/13-demo-listener.png)
 
 
-## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Konfigurera Rumba för att komma åt BankDemo-programmet
+## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Konfigurera rumba för att få åtkomst till BankDemo-programmet
 
-Det sista du behöver göra är att konfigurera en 3270 session med Rumba, en 3270 emulator. Med det här steget kan du komma åt BankDemo-programmet via lyssnaren som du skapade.
+Det sista du behöver göra är att konfigurera en 3270-session med Rumba, en 3270-emulator. Det här steget ger dig åtkomst till BankDemo-programmet via den lyssnare som du har skapat.
 
-1. Starta Rumba Desktop på **Start-menyn** i Windows.
+1. Från **Start** -menyn i Windows startar du rumba Desktop.
 
-2. Välj **TN3270**under menyalternativet **Anslutningar** .
+2. Under meny alternativet **anslutningar** väljer du **TN3270**.
 
 3. Klicka på **Infoga** och skriv **127.0.0.1** för IP-adressen och **9024** för den användardefinierade porten.
 
-4. Klicka på **Anslut**längst ned i dialogrutan . En svart CICS-skärm visas.
+4. Klicka på **Anslut**längst ned i dialog rutan. En svart CICS-skärm visas.
 
-5. Skriv **bank** för att visa den första 3270-skärmen för BankDemo-programmet.
+5. Skriv **Bank** för att visa första 3270-skärmen för BankDemo-programmet.
 
-6. Skriv **B0001** och för lösenordet för användar-ID: er. Den första skärmen BANK20 öppnas.
+6. För användar-ID skriver du **B0001** och lösen ordet genom att skriva vad som helst. Den första skärmens BANK20 öppnas.
 
-![Stordator Display](media/14-demo.png)
-![Välkomstskärm Stordator Display - Rumba - Subsystem Demonstration skärm](media/15-demo.png)
+![](media/14-demo.png)
+Skärm bilds visning av stordator skärm – rumba – under![system demonstration](media/15-demo.png)
 
-Grattis! Du kör nu ett CICS-program i Azure med Micro Focus Enterprise Server.
+Grattis! Nu kör du ett CICS-program i Azure med Micro Focus Enterprise Server.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Köra Enterprise Server i Docker-behållare på Azure](run-enterprise-server-container.md)
-- [Stordatormigrering - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
+- [Kör Enterprise Server i Docker-behållare på Azure](run-enterprise-server-container.md)
+- [Stordator-migrering – Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
 - [Virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Felsökning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Avmystifiera stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Avmystifiera-stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

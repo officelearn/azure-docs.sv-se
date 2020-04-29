@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Hyper-V-haveriberedskap på en sekundär plats med Azure Site Recovery
+title: Konfigurera haveri beredskap för Hyper-V till en sekundär plats med Azure Site Recovery
 description: Lär dig att konfigurera haveriberedskap för virtuella Hyper-V-datorer mellan dina lokala platser med Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437508"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Konfigurera haveriberedskap för virtuella Hyper-V-datorer till en sekundär lokal plats
@@ -44,7 +44,7 @@ För att slutföra den här kursen gör du följande:
 
 - Ansluter virtuella datorer till lämpliga VM-målnätverk efter redundansväxling. 
 - Placerar virtuella replikdatorer optimalt på Hyper-V-målvärdservrar. 
-- Om du inte konfigurerar nätverksmappning ansluts inte virtuella repliker till ett VM-nätverk efter redundans.
+- Om du inte konfigurerar nätverks mappning ansluts virtuella replik datorer till ett virtuellt dator nätverk efter redundansväxlingen.
 
 Förbereda VMM:er på följande sätt:
 
@@ -64,7 +64,7 @@ Förbereda VMM:er på följande sätt:
 
 Välj vad och vart du vill replikera.
 
-1. Klicka på steg 1 **för webbplatsåterställning:** > förbered mål för**infrastrukturskydd.****Step 1: Prepare Infrastructure** > 
+1. Klicka på **Site Recovery** > **steg 1: förbereda infrastrukturen** > **skydds mål**.
 2. Välj **Till återställningsplats** och **Ja, med Hyper-V**.
 3. Välj **Ja** för att indikera att du använder VMM för att hantera Hyper-V-värdar.
 4. Välj **Ja** om du har en sekundär VMM-server. Om du distribuerar replikering mellan moln på en enda VMM-server klickar du på **Nej**. Klicka sedan på **OK**.
@@ -74,7 +74,7 @@ Välj vad och vart du vill replikera.
 
 Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och registrera servrarna i valvet.
 
-1. Klicka på **Förbered infrastrukturkälla** > **Source**.
+1. Klicka på **Förbered infrastruktur** > **källa**.
 2. I **Förbered källa** klickar du på **+ VMM** för att lägga till en VMM-server.
 3. I **Lägg till server** kontrollerar du att **System Center VMM-server** visas i **Servertyp**.
 4. Ladda ned installationsfilen för Azure Site Recovery-providern.
@@ -98,21 +98,21 @@ Installera Azure Site Recovery-providern på VMM-servrarna och identifiera och r
 6. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på **Nästa**.
 7. I **proxyanslutning** anger du hur den provider som körs på VMM-servern ska ansluta till Azure.
    - Du kan ange att providern ska ansluta direkt till Internet eller via en proxy. Ange proxyinställningar efter behov.
-   - Om du använder en proxy skapas ett RunAs-konto (DRAProxyAccount) i VMM automatiskt med de angivna proxyautentiseringsuppgifterna. Konfigurera proxyservern så att det här kontot kan autentiseras. Inställningarna för RunAs-konto kan ändras i VMM-konsolen > **Inställningar** > **Säkerhet** > **Kör som konton**.
+   - Om du använder en proxy skapas ett RunAs-konto (DRAProxyAccount) i VMM automatiskt med de angivna proxyautentiseringsuppgifterna. Konfigurera proxyservern så att det här kontot kan autentiseras. Du kan ändra inställningarna för runas-kontot i VMM-konsolen > **Inställningar** > **säkerhets** > **Kör som-konton**.
    - Starta om VMM-tjänsten för att uppdatera ändringarna.
 8. I **Registreringsnyckel** väljer du den nyckel som du laddade ned kopierade till VMM-servern.
 9. Krypteringsinställningen är inte relevant för det här scenariot. 
 10. I **Servernamn** anger du ett eget namn som identifierar VMM-servern i valvet. I ett kluster anger du namnet på VMM-klusterrollen.
 11. I **Synkronisera molnmetadata** väljer du om du vill synkronisera metadata för alla moln på VMM-servern. Den här åtgärden behöver bara göras en gång på varje server. Om du inte vill synkronisera alla moln lämnar du den här inställningen avmarkerad. Du kan synkronisera varje moln individuellt i molnegenskaperna i VMM-konsolen.
 12. Slutför processen genom att klicka på **Nästa**. Efter registreringen hämtar Site Recovery metadata från VMM-servern. Servern visas i **servrar** > **VMM-servrar** i valvet.
-13. När servern har visas i valvet väljer du VMM-servern i **källan För** > **att förbereda** och väljer det moln där Hyper-V-värden finns. Klicka sedan på **OK**.
+13. När servern visas i valvet väljer du VMM-servern i **källans** > **förberedelse källa** och väljer det moln som Hyper-V-värden finns i. Klicka sedan på **OK**.
 
 
 ## <a name="set-up-the-target-environment"></a>Konfigurera målmiljön
 
 Välj VMM-målservern och molnet:
 
-1. Klicka på **Förbered infrastrukturmål** > **Target**och välj mål-VMM-servern.
+1. Klicka på **Förbered infrastruktur** > **mål**och välj mål-VMM-servern.
 2. VMM-moln som är synkroniserade med Site Recovery visas. Välj målmolnet.
 
    ![Mål](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
@@ -122,14 +122,14 @@ Välj VMM-målservern och molnet:
 
 Innan du börjar bör du se till att alla värdar som använder principen har samma operativsystem. Om värdarna kör olika versioner av Windows Server behöver du flera replikeringsprinciper.
 
-1. Om du vill skapa en ny replikeringsprincip klickar du på > Förbered inställningar för > **infrastrukturreplikering** **Prepare infrastructure****+Skapa och associera**.
-2. Ange ett principnamn i **princip skapa och associera.** Käll- och måltypen ska vara **Hyper-V**.
+1. Skapa en ny replikeringsprincip genom att klicka på **Förbered infrastruktur** > **replikeringsinställningar** > **+ skapa och koppla**.
+2. I **skapa och associera princip**anger du ett princip namn. Käll- och måltypen ska vara **Hyper-V**.
 3. I **Hyper-V-värdversion** väljer du vilket operativsystem som körs på värden.
 4. I **Autentiseringstyp** och **Autentiseringsport** anger du hur trafik autentiseras mellan primär- och återställnings-Hyper-V-värdservrarna.
     - Välj **Certifikat** såvida du inte har en fungerande Kerberos-miljö. Azure Site Recovery kommer automatiskt att konfigurera certifikat för HTTPS-autentisering. Du behöver inte göra något manuellt.
     - Som standard öppnas port 8083 och 8084 (för certifikat) i Windows-brandväggen på Hyper-V-värdservrarna.
     - Om du väljer **Kerberos** används en Kerberos-biljett för ömsesidig autentisering av värdservrarna. Kerberos är endast relevant för Hyper-V-värdservrar som körs på Windows Server 2012 R2 eller senare.
-1. I **Kopieringsfrekvens**anger du hur ofta du vill replikera deltadata efter den första replikeringen (var 30:e sekund, 5 eller 15:e minut).
+1. I **kopierings frekvens**anger du hur ofta du vill replikera delta data efter den inledande replikeringen (var 30: e sekund, 5 eller 15 minuter).
 2. I **Kvarhållning av återställningspunkt** anger du hur länge (i antal timmar) kvarhållningsperioden för varje återställningspunkt ska vara. Replikerade datorer kan återställas till valfri punkt inom en period.
 3. I **Appkompatibel ögonblicksbildsfrekvens** anger du hur ofta (1–12 timmar) återställningspunkter som innehåller programkonsekventa ögonblicksbilder skapas. Hyper-V använder två typer av ögonblicksbilder:
     - **Standardögonblicksbild**: tillhandahåller en inkrementell ögonblicksbild av hela den virtuella datorn.
@@ -145,7 +145,7 @@ Innan du börjar bör du se till att alla värdar som använder principen har sa
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
-1. Klicka på **Replikera programkälla** > **Source**. 
+1. Klicka på **Replikera program** > **källa**. 
 2. I **Källa** väljer du VMM-servern och det moln där de Hyper-V-värdar som du vill replikera finns. Klicka sedan på **OK**.
 3. I **Mål** kontrollerar du den sekundära VMM-servern och molnet.
 4. I **Virtuella datorer** väljer du de virtuella datorer du vill skydda i listan.
@@ -155,4 +155,4 @@ Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **S
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Köra ett återställningstest](hyper-v-vmm-test-failover.md)
+[Köra ett programåterställningstest](hyper-v-vmm-test-failover.md)

@@ -1,6 +1,6 @@
 ---
 title: Blockera äldre autentisering – Azure Active Directory
-description: Lär dig hur du förbättrar din säkerhetsposition genom att blockera äldre autentisering med Azure AD Villkorlig åtkomst.
+description: Lär dig hur du kan förbättra din säkerhets position genom att blockera äldre autentisering med villkorlig åtkomst i Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,91 +12,91 @@ manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80476654"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Så här blockerar du äldre autentisering till Azure AD med villkorlig åtkomst   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Gör så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
-För att ge användarna enkel åtkomst till dina molnappar stöder Azure Active Directory (Azure AD) ett brett utbud av autentiseringsprotokoll, inklusive äldre autentisering. Äldre protokoll stöder dock inte MFA (Multi factor Authentication). MFA är i många miljöer ett gemensamt krav för att ta itu med identitetsstöld. 
+Azure Active Directory (Azure AD) stöder en mängd olika autentiseringsprotokoll, inklusive äldre autentisering, för att ge dina användare enkel åtkomst till dina molnappar. Äldre protokoll stöder dock inte Multi-Factor Authentication (MFA). MFA är i många miljöer ett gemensamt krav för att lösa identitets stölder. 
 
-Alex Weinert, director of Identity Security på Microsoft, i sitt blogginlägg den 12 mars 2020 [Nya verktyg för att blockera äldre autentisering i organisationen](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) betonar varför organisationer bör blockera äldre autentisering och vilka ytterligare verktyg Microsoft tillhandahåller för att utföra den här uppgiften:
+Alex Weinert, chef för identitets säkerhet på Microsoft, i den 12 mars 2020 blogg inlägget [nya verktyg för att blockera äldre autentisering i organisationen](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) , betonar varför organisationer ska blockera äldre autentisering och vilka ytterligare verktyg som Microsoft tillhandahåller för att utföra den här uppgiften:
 
-> För att MFA ska vara effektivt måste du också blockera äldre autentisering. Detta beror på att äldre autentiseringsprotokoll som POP, SMTP, IMAP och MAPI inte kan genomdriva MFA, vilket gör dem till önskade startpunkter för motståndare som attackerar din organisation...
+> För att MFA ska vara effektiv måste du också blockera äldre autentisering. Detta beror på att äldre autentiseringsprotokoll, till exempel POP, SMTP, IMAP och MAPI, inte kan genomdriva MFA, vilket gör dem till önskade start punkter för att angripare angripa din organisation...
 > 
->... Siffrorna för äldre autentisering från en analys av Azure Active Directory-trafik (Azure AD) är skarpa:
+>... Numren på tidigare autentisering från en analys av Azure Active Directory (Azure AD)-trafik är stark:
 > 
-> - Mer än 99 procent av lösenordssprayattackerna använder äldre autentiseringsprotokoll
-> - Mer än 97 procent av autentiseringsuppgifter fyllningsattacker använder äldre autentisering
-> - Azure AD-konton i organisationer som har inaktiverat äldre autentisering upplever 67 procent färre komprometteringar än de där äldre autentisering är aktiverad
+> - Över 99 procent av angrepp vid lösen ords spridning använder äldre autentiseringsprotokoll
+> - Över 97 procent av attacker som är av stor behörighet använder äldre autentisering
+> - Azure AD-konton i organisationer som har inaktiverat äldre autentiserings upplevelser 67 procent färre kompromisser än de där äldre autentisering är aktiverat
 >
 
-Om din miljö är redo att blockera äldre autentisering för att förbättra klientens skydd kan du uppnå det här målet med villkorlig åtkomst. I den här artikeln beskrivs hur du kan konfigurera principer för villkorlig åtkomst som blockerar äldre autentisering för din klient.
+Om din miljö är redo att blockera äldre autentisering för att förbättra din klients skydd kan du uppnå det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som blockerar äldre autentisering för din klient.
 
 ## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med: 
 
-- De [grundläggande begreppen](overview.md) azure AD villkorlig åtkomst 
-- De [bästa metoderna](best-practices.md) för att konfigurera principer för villkorlig åtkomst i Azure-portalen
+- [Grundläggande begrepp](overview.md) för villkorlig åtkomst i Azure AD 
+- [Metod tips](best-practices.md) för att konfigurera principer för villkorlig åtkomst i Azure Portal
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-Azure AD stöder flera av de mest använda autentiserings- och auktoriseringsprotokollen, inklusive äldre autentisering. Äldre autentisering refererar till protokoll som använder grundläggande autentisering. Vanligtvis kan dessa protokoll inte framtvinga någon typ av andra faktorautentisering. Exempel på appar som baseras på äldre autentisering är:
+Azure AD stöder flera av de vanligaste autentiseringsprotokollen för autentisering och auktorisering, inklusive äldre autentisering. Äldre autentisering syftar på protokoll som använder grundläggande autentisering. Dessa protokoll kan vanligt vis inte tillämpa någon typ av andra Factor Authentication. Exempel på appar som baseras på äldre autentisering är:
 
 - Äldre Microsoft Office-appar
 - Appar som använder e-postprotokoll som POP, IMAP och SMTP
 
-Autentisering med en faktor (till exempel användarnamn och lösenord) räcker inte i dessa dagar. Lösenord är dåliga eftersom de är lätta att gissa och vi (människor) är dåliga på att välja bra lösenord. Lösenord är också sårbara för en mängd olika attacker som nätfiske och lösenordsspray. En av de enklaste saker du kan göra för att skydda mot lösenordshot är att genomföra MFA. Med MFA, även om en angripare får i besittning av en användares lösenord, är lösenordet inte tillräckligt för att autentisera och komma åt data.
+Autentisering med en enda faktor (till exempel användar namn och lösen ord) är inte tillräckligt för dessa dagar. Lösen orden är dåliga eftersom de är lätta att gissa och vi (människa) är felaktiga vid val av bra lösen ord. Lösen ord är också sårbara för olika attacker, t. ex. nätfiske och lösen ords spridning. Ett av de enklaste saker du kan göra för att skydda mot lösen ords hot är att implementera MFA. Med MFA, även om en angripare får till gång till en användares lösen ord, så är lösen ordet inte tillräckligt för att autentisera och komma åt data.
 
-Hur kan du förhindra att appar som använder äldre autentisering kommer åt klientens resurser? Rekommendationen är att bara blockera dem med en princip för villkorlig åtkomst. Om det behövs tillåter du bara vissa användare och specifika nätverksplatser att använda appar som baseras på äldre autentisering.
+Hur kan du förhindra att appar använder äldre autentisering för att komma åt din klients resurser? Rekommendationen är att bara blockera dem med en princip för villkorlig åtkomst. Om det behövs kan endast vissa användare och specifika nätverks platser använda appar som baseras på äldre autentisering.
 
-Principer för villkorlig åtkomst tillämpas efter att den första faktorautentiseringen har slutförts. Villkorlig åtkomst är därför inte avsedd som ett första linjeförsvar för scenarier som DoS-attacker (Denial-of-Service), men kan använda signaler från dessa händelser (till exempel inloggningsrisknivån, platsen för begäran och så vidare) för att fastställa åtkomst.
+Principer för villkorlig åtkomst tillämpas när den första faktorn har slutförts. Därför är villkorlig åtkomst inte avsedd som ett första rad skydd för scenarier som denial-of-service (DoS)-attacker, men kan använda signaler från dessa händelser (till exempel inloggnings risk nivån, platsen för begäran och så vidare) för att fastställa åtkomst.
 
 ## <a name="implementation"></a>Implementering
 
 I det här avsnittet beskrivs hur du konfigurerar en princip för villkorlig åtkomst för att blockera äldre autentisering. 
 
-### <a name="legacy-authentication-protocols"></a>Äldre autentiseringsprotokoll
+### <a name="legacy-authentication-protocols"></a>Bakåtkompatibla autentiseringsprotokoll
 
-Följande alternativ betraktas som äldre autentiseringsprotokoll
+Följande alternativ anses vara bakåtkompatibla autentiseringsprotokoll
 
-- Autentiserade SMTP - Används av POP och IMAP-klientens för att skicka e-postmeddelanden.
-- Automatisk upptäckt - Används av Outlook- och EAS-klienter för att hitta och ansluta till postlådor i Exchange Online.
-- Exchange Online PowerShell - Används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Instruktioner finns i [Anslut till Exchange Online PowerShell med multifaktorautentisering](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
-- Exchange Web Services (EWS) – Ett programmeringsgränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.
-- IMAP4 - Används av IMAP-e-postklienter.
-- MAPI över HTTP (MAPI/HTTP) - Används av Outlook 2010 och senare.
-- OAB (Offline Address Book) – En kopia av adresslistsamlingar som hämtas och används av Outlook.
-- Outlook Anywhere (RPC över HTTP) – Används av Outlook 2016 och tidigare.
-- Outlook-tjänsten – används av appen E-post och kalender för Windows 10.
-- POP3 - Används av POP-e-postklienter.
-- Reporting Web Services - Används för att hämta rapportdata i Exchange Online.
-- Andra klienter - Andra protokoll som identifierats som använder äldre autentisering.
+- Autentiserad SMTP – används av POP-och IMAP-klienten för att skicka e-postmeddelanden.
+- Identifiera automatiskt – används av Outlook-och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.
+- Exchange Online PowerShell – används för att ansluta till Exchange Online med fjärr-PowerShell. Om du blockerar grundläggande autentisering för Exchange Online PowerShell måste du använda Exchange Online PowerShell-modulen för att ansluta. Mer information finns i [ansluta till Exchange Online PowerShell med Multi-Factor Authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Exchange Web Services (EWS) – ett programmerings gränssnitt som används av Outlook, Outlook för Mac och appar från tredje part.
+- IMAP4 – används av IMAP e-postklienter.
+- MAPI över HTTP (MAPI/HTTP) – används av Outlook 2010 och senare.
+- Offlineadressbok (OAB) – en kopia av adress list samlingar som hämtas och används av Outlook.
+- Outlook överallt (RPC över HTTP) – används av Outlook 2016 och tidigare.
+- Outlook service – används av appen e-post och kalender för Windows 10.
+- POP3 – används av POP-e-postklienter.
+- Repor ting Web Services – används för att hämta rapport data i Exchange Online.
+- Andra klienter – andra protokoll som identifieras som användning av äldre autentisering.
 
-Mer information om dessa autentiseringsprotokoll och -tjänster finns [i Aktivitetsrapporter för inloggning i Azure Active Directory-portalen](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
+Mer information om dessa autentiseringsprotokoll och tjänster finns i rapporter om [inloggnings aktiviteter i Azure Active Directory-portalen](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
 
-### <a name="identify-legacy-authentication-use"></a>Identifiera äldre autentiseringsanvändning
+### <a name="identify-legacy-authentication-use"></a>Identifiera användning av äldre autentisering
 
-Innan du kan blockera äldre autentisering i katalogen måste du först förstå om användarna har appar som använder äldre autentisering och hur det påverkar din övergripande katalog. Azure AD-inloggningsloggar kan användas för att förstå om du använder äldre autentisering.
+Innan du kan blockera äldre autentisering i din katalog måste du först förstå om dina användare har appar som använder äldre autentisering och hur de påverkar den övergripande katalogen. Inloggnings loggar för Azure AD kan användas för att förstå om du använder äldre autentisering.
 
-1. Navigera till **Azure Portal** > Azure Active**Directory-inloggningar****Azure Active Directory** > .
-1. Lägg till kolumnen Klientapp om den inte visas genom att klicka på **Columns** > **Client App**.
-1. **Lägg till filter** > **Klientapp** > välja alla äldre autentiseringsprotokoll och klicka på **Använd**.
+1. Navigera till **Azure Portal** > **Azure Active Directory** > **inloggningar**.
+1. Lägg till kolumnen klient program om den inte visas genom att klicka på **kolumner** > **klient program**.
+1. **Lägg till filter** > **klient program** > Markera alla bakåtkompatibla autentiseringsprotokoll och klicka på **Använd**.
 
-Filtrering visar bara inloggningsförsök som har gjorts av äldre autentiseringsprotokoll. Om du klickar på varje enskilt inloggningsförsök visas ytterligare information. Fältet **Klientapp** under fliken **Grundläggande information** anger vilket äldre autentiseringsprotokoll som användes.
+Vid filtrering visas bara inloggnings försök som gjorts av äldre autentiseringsprotokoll. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. Fältet **klient app** på fliken **grundläggande information** visar vilket äldre autentiseringsprotokoll som användes.
 
-Dessa loggar anger vilka användare som fortfarande är beroende av äldre autentisering och vilka program som använder äldre protokoll för att göra autentiseringsbegäranden. För användare som inte visas i dessa loggar och som inte har äldre autentisering implementerar du en princip för villkorlig åtkomst endast för dessa användare.
+I dessa loggar anges vilka användare som fortfarande är beroende av tidigare autentisering och vilka program som använder äldre protokoll för att göra autentiseringsbegäranden. För användare som inte visas i dessa loggar och som bekräftas att inte använda äldre autentisering, implementera endast en princip för villkorlig åtkomst för dessa användare.
 
 ### <a name="block-legacy-authentication"></a>Blockera äldre autentisering 
 
-I en princip för villkorlig åtkomst kan du ange ett villkor som är kopplat till klientapparna som används för att komma åt dina resurser. Med villkoret för klientappar kan du begränsa omfattningen till appar med äldre autentisering genom att välja **Exchange ActiveSync-klienter** och **Andra klienter** under **Mobilappar och skrivbordsklienter**.
+I en princip för villkorlig åtkomst kan du ange ett villkor som är kopplat till de klient program som används för att komma åt dina resurser. Med villkoret klient program kan du begränsa omfattningen till appar med hjälp av äldre autentisering genom att välja **Exchange ActiveSync-klienter** och **andra klienter** under **mobilappar och skriv bords klienter**.
 
 ![Övriga klienter](./media/block-legacy-authentication/01.png)
 
-Om du vill blockera åtkomst för dessa appar måste du välja **Blockera åtkomst**.
+Om du vill blockera åtkomst för de här apparna måste du välja **blockera åtkomst**.
 
 ![Blockera åtkomst](./media/block-legacy-authentication/02.png)
 
@@ -110,47 +110,47 @@ Om du vill blockera äldre autentisering för din organisation tror du förmodli
 
 ![Tilldelningar](./media/block-legacy-authentication/03.png)
 
-Azure har en säkerhetsfunktion som hindrar dig från att skapa en princip som denna eftersom den här konfigurationen bryter mot [de bästa metoderna](best-practices.md) för principer för villkorlig åtkomst.
+Azure har en säkerhetsfunktion som hindrar dig från att skapa en princip som detta eftersom den här konfigurationen strider mot [bästa praxis](best-practices.md) för principer för villkorlig åtkomst.
  
-![Principkonfiguration stöds inte](./media/block-legacy-authentication/04.png)
+![Princip konfigurationen stöds inte](./media/block-legacy-authentication/04.png)
 
-Säkerhetsfunktionen är nödvändig eftersom *blockera alla användare och alla molnappar* har potential att blockera hela organisationen från att logga in på din klientorganisation. Du måste utesluta minst en användare för att uppfylla minimikravet för bästa praxis. Du kan också utesluta en katalogroll.
+Säkerhets funktionen är nödvändig eftersom *Blockera alla användare och alla molnappar* har möjlighet att blockera hela organisationen från att logga in på din klient organisation. Du måste undanta minst en användare för att uppfylla kraven för minsta bästa praxis. Du kan också utesluta en katalog roll.
 
-![Principkonfiguration stöds inte](./media/block-legacy-authentication/05.png)
+![Princip konfigurationen stöds inte](./media/block-legacy-authentication/05.png)
 
-Du kan uppfylla den här säkerhetsfunktionen genom att utesluta en användare från din policy. Helst bör du definiera några [administrativa konton för nödåtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md) och utesluta dem från din princip.
+Du kan utföra den här säkerhetsfunktionen genom att utesluta en användare från principen. Vi rekommenderar att du definierar några [administrativa konton för nöd administration i Azure AD](../users-groups-roles/directory-emergency-access.md) och exkluderar dem från principen.
 
-Om du använder [endast rapportläge](concept-conditional-access-report-only.md) när du aktiverar principen för att blockera äldre autentisering kan din organisation övervaka hur policyn skulle få.
+Genom att använda [endast rapport läge](concept-conditional-access-report-only.md) när du aktiverar principen att blockera äldre autentisering ger din organisation en möjlighet att övervaka vad som händer i principen.
 
 ## <a name="policy-deployment"></a>Distribution av princip
 
-Innan du sätter din politik i produktion, ta hand om:
+Innan du försätter din princip i produktion bör du ta hand om följande:
  
-- **Tjänstkonton** – Identifiera användarkonton som används som tjänstkonton eller av enheter, till exempel konferensrumstelefoner. Kontrollera att dessa konton har starka lösenord och lägg till dem i en utesluten grupp.
-- **Inloggningsrapporter** – Granska inloggningsrapporten och leta efter **annan klienttrafik.** Identifiera toppanvändning och undersöka varför den används. Vanligtvis genereras trafiken av äldre Office-klienter som inte använder modern autentisering eller vissa e-postappar från tredje part. Planera att flytta användningen bort från dessa appar, eller om effekten är låg, meddela användarna att de inte längre kan använda dessa appar.
+- **Tjänst konton** – identifiera användar konton som används som tjänst konton eller enheter, t. ex. konferens rums telefoner. Kontrol lera att dessa konton har starka lösen ord och Lägg till dem i en exkluderad grupp.
+- **Inloggnings rapporter** – granska inloggnings rapporten och leta efter **annan klient** trafik. Identifiera högsta användning och undersök varför den används. Normalt genereras trafiken av äldre Office-klienter som inte använder modern autentisering eller vissa e-postappar från tredje part. Gör en plan för att flytta användning bort från dessa appar, eller om påverkan är låg, meddela användarna att de inte kan använda dessa appar längre.
  
-Mer information finns i [Hur ska du distribuera en ny princip?](best-practices.md#how-should-you-deploy-a-new-policy).
+Mer information finns i [så här distribuerar du en ny princip?](best-practices.md#how-should-you-deploy-a-new-policy).
 
-## <a name="what-you-should-know"></a>Det här bör du känna till
+## <a name="what-you-should-know"></a>Det här bör du veta
 
-Blockera åtkomst med **andra klienter** blockerar också Exchange Online PowerShell och Dynamics 365 med hjälp av grundläggande autentisering.
+Att blockera åtkomst med **andra klienter** blockerar också Exchange Online PowerShell och Dynamics 365 med Basic auth.
 
-Konfigurera en princip för **andra klienter** blockerar hela organisationen från vissa klienter som SPConnect. Det här blocket inträffar eftersom äldre klienter autentiserar på oväntade sätt. Problemet gäller inte för större Office-program som de äldre Office-klienterna.
+Att konfigurera en princip för **andra klienter** blockerar hela organisationen från vissa klienter som SPConnect. Det här blocket inträffar eftersom äldre klienter autentiseras på oväntade sätt. Problemet gäller inte för större Office-program som äldre Office-klienter.
 
-Det kan ta upp till 24 timmar innan policyn träder i kraft.
+Det kan ta upp till 24 timmar innan principen börjar gälla.
 
-Du kan välja alla tillgängliga bidragskontroller för villkoret **Övriga klienter.** Dock är slutanvändarens upplevelse alltid densamma - blockerad åtkomst.
+Du kan välja alla tillgängliga beviljade kontroller för villkoret **andra klienter** . slut användar upplevelsen är dock alltid samma blockerad åtkomst.
 
-Om du blockerar äldre autentisering med villkoret **Övriga klienter** kan du också ange enhetsplattformen och platsvillkoret. Om du till exempel bara vill blockera äldre autentisering för mobila enheter ställer du in **enhetsplattformsvillkoret** genom att välja:
+Om du blockerar äldre autentisering med hjälp av **andra klient** villkor kan du även ange enhetens plattform och plats villkor. Om du till exempel bara vill blockera äldre autentisering för mobila enheter anger du villkor för **enhets plattformar** genom att välja:
 
 - Android
 - iOS
 - Windows Phone
 
-![Principkonfiguration stöds inte](./media/block-legacy-authentication/06.png)
+![Princip konfigurationen stöds inte](./media/block-legacy-authentication/06.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Fastställa påverkan med hjälp av rapportläge med villkorsstyrd åtkomst](howto-conditional-access-report-only.md)
-- Om du inte är bekant med att konfigurera principer för villkorlig åtkomst ännu läser du [mfa för specifika appar med Azure Active Directory Villkorlig åtkomst](app-based-mfa.md) till exempel.
-- Mer information om modernt autentiseringsstöd finns i [Så här fungerar modern autentisering för Office 2013- och Office 2016-klientappar](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- [Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
+- Om du inte är bekant med att konfigurera principer för villkorlig åtkomst ännu kan du läsa [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md) för ett exempel.
+- Mer information om stöd för modern autentisering finns i [så här fungerar modern autentisering för office 2013 och office 2016-klient program](/office365/enterprise/modern-auth-for-office-2013-and-2016) 

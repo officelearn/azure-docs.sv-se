@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Extrahera inleveransdata med Python - Formulär recognizer'
+title: 'Snabb start: extrahera kvitto data med hjälp av python-formulär igenkänning'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten använder du REST-API:et för formulärmed Python för att extrahera data från bilder av USA:s försäljningsintäkter.
+description: I den här snabb starten använder du formulär tolken REST API med python för att extrahera data från bilder av amerikanska försäljnings kvitton.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,35 +10,35 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 2224ec64712ff9d1745231f39a1521ae941304ff
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77118764"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabbstart: Extrahera inleveransdata med REST-APIN för formulärmed Python
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
-I den här snabbstarten använder du AZURE Form Recognizer REST API med Python för att extrahera och identifiera relevant information i USA-försäljningsinleveranser.
+I den här snabb starten använder du Azures formulär igenkännings REST API med python för att extrahera och identifiera relevant information i amerikanska försäljnings kvitton.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabbstarten måste du ha:
+För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En URL för en bild av ett kvitto. Du kan använda en [exempelavbildning](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) för den här snabbstarten.
+- En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) för den här snabb starten.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en formulärkonformeringsresurs
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="analyze-a-receipt"></a>Analysera ett kvitto
 
-Om du vill börja analysera ett kvitto anropar du **[API:et för analysera kvitto](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
+Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitto](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** med hjälp av python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slutpunkten som du fick med din prenumeration på Formulär recognizer.
-1. Ersätt `<your receipt URL>` med URL-adressen för en kvittobild.
-1. Ersätt `<subscription key>` med prenumerationsnyckeln som du kopierade från föregående steg.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
+1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
+1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
     ```python
     ########### Python Form Recognizer Async Layout #############
@@ -78,19 +78,19 @@ Om du vill börja analysera ett kvitto anropar du **[API:et för analysera kvitt
         quit()
     ```
 
-1. Spara koden i en fil med ett py-tillägg. Till exempel *form-recognizer-receipts.py*.
+1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Receipts.py*.
 1. Öppna ett kommandotolksfönster.
 1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-receipts.py`.
 
-Du får ett `202 (Success)` svar som innehåller ett **funktionsställehuvud** som skriptet skriver ut på konsolen. Det här huvudet innehåller ett åtgärds-ID som du kan använda för att fråga status för den asynkrona åtgärden och hämta resultaten. I följande exempelvärde är `operations/` strängen efter operations-ID.
+Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` åtgärds-ID: t.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-receipt-results"></a>Få inleveransresultat
+## <a name="get-the-receipt-results"></a>Hämta kvitto resultat
 
-När du har **anropat API:et för analyskvitto** anropar du **[API:et hämta analysinleveransresultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** för att få status för åtgärden och extraherade data. Lägg till följande kod längst ned i Python-skriptet. Detta använder åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API:et med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund eller mer.
+När du har anropat API för att **analysera kvitto** anropar du API: et för att **[analysera kvitto resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. Detta använder åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
 
 ```python
 n_tries = 10
@@ -120,17 +120,17 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd kommandot `python` igen för att köra exemplet. Till exempel `python form-recognizer-receipts.py`.
+1. Använd `python` kommandot igen för att köra exemplet. Till exempel `python form-recognizer-receipts.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Skriptet skriver ut svar på konsolen tills åtgärden **Analysera inleverans** är klar. Sedan kommer det att skriva ut extraherade textdata i JSON-format. Fältet `"recognitionResults"` innehåller varje textrad som extraherades från inleveransen `"understandingResults"` och fältet innehåller nyckel-/värdeinformation för de mest relevanta delarna av inleveransen.
+Skriptet kommer att skriva ut svar till-konsolen tills **åtgärden för** att slutföra åtgärden har slutförts. Sedan skrivs den extraherade text informationen in i JSON-format. `"recognitionResults"` Fältet innehåller alla rader med text som har extraherats från inleveransen och `"understandingResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot.
 
-Se följande kvittobild och motsvarande JSON-utgång. Produktionen har förkortats för läsbarhet.
+Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kort ATS för läsbarhet.
 
-![Ett kvitto från Contoso-butiken](../media/contoso-allinone.jpg)
+![Ett kvitto från contoso Store](../media/contoso-allinone.jpg)
 
-Noden `"recognitionResults"` innehåller all tolkad text. Text är ordnad efter sida, sedan efter rad, sedan efter enskilda ord. Noden `"understandingResults"` innehåller de inleveransspecifika värden som modellen upptäckte. Det är här du hittar användbara nyckel / värde par som skatt, totalt, köpman adress och så vidare.
+`"recognitionResults"` Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"understandingResults"` Noden innehåller de indatavärden som modellen identifierade. Här hittar du användbara nyckel/värde-par som skatt, totalt, handels adress och så vidare.
 
 ```json
 { 
@@ -459,7 +459,7 @@ Noden `"recognitionResults"` innehåller all tolkad text. Text är ordnad efter 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du REST-API:et för formulärmed Python för att extrahera innehållet i ett inleverans. Se sedan referensdokumentationen för att utforska API:et för formulärre recognizeer mer ingående.
+I den här snabb starten använde du formulär tolken REST API med python för att extrahera innehållet i en försäljnings leverans. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [DOKUMENTATION FÖR REST API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

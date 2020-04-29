@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Extrahera inleveransdata med cURL - Formulär recognizer'
+title: 'Snabb start: extrahera indata med hjälp av text igenkänning i sväng format'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten använder du REST-API:et för formulärmed cURL för att extrahera data från bilder av försäljningsintäkter från USA.
+description: I den här snabb starten använder du formulär tolken REST API med sväng för att extrahera data från bilder av amerikanska försäljnings kvitton.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,52 +10,52 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: e053222d3b79668c2f6044417e31e104ce0f4222
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77118485"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabbstart: Extrahera inleveransdata med rest-APIn för formulärmed cURL
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Snabb start: extrahera indata från formulär tolken REST API med en sväng
 
-I den här snabbstarten använder du Azure Form Recognizer REST API med cURL för att extrahera och identifiera relevant information i USA-inleveranser.
+I den här snabb starten använder du Azure formulär igenkännings REST API med sväng för att extrahera och identifiera relevant information i amerikanska försäljnings kvitton.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabbstarten måste du ha:
-- [cURL](https://curl.haxx.se/windows/) installerat.
-- En URL för en bild av ett kvitto. Du kan använda en [exempelavbildning](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) för den här snabbstarten.
+För att slutföra den här snabb starten måste du ha:
+- [spiralen](https://curl.haxx.se/windows/) är installerad.
+- En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) för den här snabb starten.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en formulärkonformeringsresurs
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="analyze-a-receipt"></a>Analysera ett kvitto
 
-Om du vill börja analysera ett kvitto anropar du **[API:et analysera inleverans](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** med kommandot cURL nedan. Innan du kör kommandot gör du följande ändringar:
+Om du vill börja analysera ett kvitto anropar du API: et för att **[analysera kvitto](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** med hjälp av kommandot vänd nedan. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slutpunkten som du fick med din prenumeration på Formulär recognizer.
-1. Ersätt `<your receipt URL>` med URL-adressen för en kvittobild.
-1. Ersätt `<subscription key>` med prenumerationsnyckeln som du kopierade från föregående steg.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
+1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
+1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
 ```bash
 curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
 ```
 
-Du får ett `202 (Success)` svar som innehåller i/med huvud för **Operation-plats.** Värdet för det här huvudet innehåller ett åtgärds-ID som du kan använda för att fråga status för den asynkrona åtgärden och hämta resultaten. I följande exempel är `operations/` strängen efter operations-ID.
+Du får ett `202 (Success)` svar som innehåller rubriken för **åtgärden location** . Värdet för den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel är strängen efter `operations/` åtgärds-ID: t.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-receipt-results"></a>Få inleveransresultat
+## <a name="get-the-receipt-results"></a>Hämta kvitto resultat
 
-När du har **anropat API:et för analyskvitto** anropar du **[API:et hämta analysinleveransresultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** för att få status för åtgärden och extraherade data. Innan du kör kommandot gör du följande ändringar:
+När du har anropat API för att **analysera kvitto** anropar du API: et för att **[analysera kvitto resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** för att hämta status för åtgärden och de extraherade data. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slutpunkten som du fick med prenumerationsnyckeln För formulärmedkänningsnyckel. Du hittar den på fliken **Resursöversikt för** formulärdeform.
-1. Ersätt `<operationId>` med operations-ID:et från föregående steg.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<operationId>` med åtgärds-ID: t från föregående steg.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
 ```bash
@@ -64,13 +64,13 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/ana
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Du får ett `200 (Success)` svar med JSON-utdata. Det första `"status"`fältet, anger operationens status. Om operationen är slutförd innehåller `"recognitionResults"` fältet varje textrad som extraherats `"understandingResults"` från inleveransen och fältet innehåller nyckel-/värdeinformation för de mest relevanta delarna av inleveransen. Om åtgärden inte är slutförd `"status"` kommer `"running"` `"notStarted"`värdet för att vara eller , och du bör anropa API igen, antingen manuellt eller via ett skript. Vi rekommenderar ett intervall på en sekund eller mer mellan samtalen.
+Du får ett `200 (Success)` svar med JSON-utdata. Det första fältet, `"status"`anger status för åtgärden. Om åtgärden har slutförts innehåller `"recognitionResults"` fältet alla rader med text som har extraherats från inleveransen och `"understandingResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot. Om åtgärden inte är slutförd kommer värdet för `"status"` att vara `"running"` eller `"notStarted"`, och du bör anropa API: et igen, antingen manuellt eller genom ett skript. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
 
-Se följande kvittobild och motsvarande JSON-utgång. Produktionen har förkortats för läsbarhet.
+Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kort ATS för läsbarhet.
 
-![Ett kvitto från Contoso-butiken](../media/contoso-allinone.jpg)
+![Ett kvitto från contoso Store](../media/contoso-allinone.jpg)
 
-Noden `"recognitionResults"` innehåller all tolkad text. Text är ordnad efter sida, sedan efter rad, sedan efter enskilda ord. Noden `"understandingResults"` innehåller de inleveransspecifika värden som modellen upptäckte. Det är här du hittar användbara nyckel / värde par som skatt, totalt, köpman adress och så vidare.
+`"recognitionResults"` Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"understandingResults"` Noden innehåller de indatavärden som modellen identifierade. Här hittar du användbara nyckel/värde-par som skatt, totalt, handels adress och så vidare.
 
 ```json
 { 
@@ -399,7 +399,7 @@ Noden `"recognitionResults"` innehåller all tolkad text. Text är ordnad efter 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du REST-API:et för formulärmed cURL för att extrahera innehållet i ett inleverans. Se sedan referensdokumentationen för att utforska API:et för formulärre recognizeer mer ingående.
+I den här snabb starten använde du formulär tolken REST API med sväng för att extrahera innehållet i en försäljnings leverans. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [DOKUMENTATION FÖR REST API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

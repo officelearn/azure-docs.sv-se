@@ -1,34 +1,34 @@
 ---
-title: 'Handledning: Språk understanding Bot Node.js v4'
-description: Använd Node.js och skapa en chattrobot som är integrerad med språköverensning (LUIS) i den här självstudien. Den här chattroboten använder appen Personalfrågor för att snabbt implementera en robotlösning. Roboten skapas med Bot Framework version 4 och webbappsroboten i Azure.
+title: 'Självstudie: Language Understanding bot Node. js v4'
+description: Med Node. js skapar du en chatt-robot integrerad med språk förståelse (LUIS) i den här självstudien. Den här chattroboten använder appen Personalfrågor för att snabbt implementera en robotlösning. Roboten skapas med Bot Framework version 4 och webbappsroboten i Azure.
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 3ce12176957412a5599ced8b043f553969194efb
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76987856"
 ---
-# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Självstudiekurs: Använd en webbapprobot aktiverad med språk understanding in Node.js
+# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i Node. js
 
-Använd Node.js för att skapa en chattrobot som är integrerad med språksyssning (LUIS). Roboten är byggd med Azure [Web App bot](https://docs.microsoft.com/azure/bot-service/) resurs och Bot Framework [version](https://github.com/Microsoft/botbuilder-dotnet) V4.
+Använd Node. js för att bygga en chatt-robot integrerad med språk förståelse (LUIS). Roboten är byggd med Azure [Web App bot-](https://docs.microsoft.com/azure/bot-service/) resursen och [bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**I den här självstudiekursen får du lära du dig att:**
+**I den här guiden får du lära dig att:**
 
 > [!div class="checklist"]
 > * Skapa en webbappsrobot. Den här processen skapar en ny LUIS-app.
-> * Ladda ner bot-projektet som skapats av webbrobottjänsten
+> * Hämta bot-projektet som skapats av Web bot-tjänsten
 > * Starta roboten och emulatorn lokalt på datorn
 > * Visa uttrycksresultat i roboten
 
 ## <a name="prerequisites"></a>Krav
 
 * [Robotemulator](https://aka.ms/abs/build/emulatordownload)
-* [Visual Studio-kod](https://code.visualstudio.com/Download)
+* [Visual Studio-koden](https://code.visualstudio.com/Download)
 
 
-## <a name="create-a-web-app-bot-resource"></a>Skapa en botresurs för webbappar
+## <a name="create-a-web-app-bot-resource"></a>Skapa en bot-resurs för webb program
 
 1. På [Azure-portalen](https://portal.azure.com) väljer du **Skapa ny resurs**.
 
@@ -36,73 +36,73 @@ Använd Node.js för att skapa en chattrobot som är integrerad med språksyssni
 
 1. Ange nödvändig information i **Robottjänst**:
 
-    |Inställning|Syfte|Rekommenderad inställning|
+    |Inställningen|Syfte|Rekommenderad inställning|
     |--|--|--|
     |Robotnamn|Resursnamn|`luis-nodejs-bot-` + `<your-name>`, till exempel `luis-nodejs-bot-johnsmith`|
     |Prenumeration|Prenumeration där roboten ska skapas.|Din primära prenumeration.
     |Resursgrupp|Logisk grupp med Azure-resurser|Skapa en ny grupp för att lagra alla resurser som används med den här roboten och ge gruppen namnet `luis-nodejs-bot-resource-group`.|
-    |Location|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
+    |Plats|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
     |Prisnivå|Används för begränsningar och fakturering av tjänstbegäranden.|`F0` är den kostnadsfria nivån.
     |Appnamn|Namnet används som underdomänen när din robot distribueras till molnet (exempelvis humanresourcesbot.azurewebsites.net).|`luis-nodejs-bot-` + `<your-name>`, till exempel `luis-nodejs-bot-johnsmith`|
     |Robotmall|Bot Framework-inställningar – se nästa tabell|
     |LUIS-appens plats|Måste vara samma som LUIS-resursregionen|`westus`|
-    |App serviceplan/plats|Ändra inte från det angivna standardvärdet.|
-    |Application Insights|Ändra inte från det angivna standardvärdet.|
-    |Microsoft-app-ID och lösenord|Ändra inte från det angivna standardvärdet.|
+    |App Service-plan/plats|Ändra inte från angivet standardvärde.|
+    |Application Insights|Ändra inte från angivet standardvärde.|
+    |Microsoft app-ID och lösen ord|Ändra inte från angivet standardvärde.|
 
-1. I **Bot-mallen**väljer du följande och väljer sedan knappen **Välj** under följande inställningar:
+1. I **robot-mallen**väljer du följande och väljer sedan knappen **Välj** under följande inställningar:
 
-    |Inställning|Syfte|Val|
+    |Inställningen|Syfte|Val|
     |--|--|--|
     |SDK-version|Bot Framework-version|**SDK v4**|
     |SDK-språk|Programmeringsspråk för robot|**Node.js**|
     |Bot|Typ av bot|**Basic bot** (Grundläggande robot)|
 
-1. Välj **Skapa**. Nu skapas och distribueras robottjänsten till Azure. I en del av den här processen skapas en LUIS-app med namnet `luis-nodejs-bot-XXXX`. Det här namnet baseras på namnet på /Azure Bot Service-appen.
+1. Välj **Skapa**. Nu skapas och distribueras robottjänsten till Azure. I en del av den här processen skapas en LUIS-app med namnet `luis-nodejs-bot-XXXX`. Namnet baseras på/Azure bot service-appens namn.
 
     > [!div class="mx-imgBorder"]
-    > [![Skapa webbapprobot](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    > [![Skapa webb programs bot](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
-    Vänta tills bot-tjänsten skapas innan du fortsätter.
+    Vänta tills bot-tjänsten har skapats innan du fortsätter.
 
-## <a name="the-bot-has-a-language-understanding-model"></a>Boten har en språk understanding-modell
+## <a name="the-bot-has-a-language-understanding-model"></a>Roboten har en Language Understanding modell
 
-Bot-tjänsten skapar också en ny LUIS-app med avsikter och exempelyttranden. Roboten tillhandahåller avsiktsmappning till den nya LUIS-appen för följande avsikter:
+Processen för att skapa bot-tjänsten skapar också en ny LUIS-app med avsikter och exempel yttranden. Roboten tillhandahåller avsiktsmappning till den nya LUIS-appen för följande avsikter:
 
 |LUIS-avsikter för grundläggande robot|Exempeluttryck|
 |--|--|
-|Boka flyg|`Travel to Paris`|
+|Book Flight|`Travel to Paris`|
 |Avbryt|`bye`|
 |GetWeather|`what's the weather like?`|
-|Inget|Vad som helst utanför appens domän.|
+|Inga|Vad som helst utanför appens domän.|
 
-## <a name="test-the-bot-in-web-chat"></a>Testa boten i webbchatt
+## <a name="test-the-bot-in-web-chat"></a>Testa roboten i Web Chat
 
-1. Medan du fortfarande är i Azure-portalen för den nya roboten väljer du **Testa i webbchatt**.
-1. Skriv texten i **textrutan Skriv** `Book a flight from Seattle to Berlin tomorrow`meddelandet . Roboten svarar med en verifiering att du vill boka ett flyg.
+1. Medan du fortfarande beAzure Portal för den nya bot väljer du **test i Web Chat**.
+1. Skriv texten `Book a flight from Seattle to Berlin tomorrow`i text rutan **Skriv ditt meddelande** . Roboten svarar med verifiering som du vill boka en flygning på.
 
-    ![Skärmbild av Azure-portalen anger du texten "hello".](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
+    ![Skärm bild av Azure Portal anger du texten Hej.](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    Du kan använda testfunktionen för att snabbt testa din robot. För mer komplett testning, inklusive felsökning, ladda ner botkoden och använd Visual Studio.
+    Du kan använda test funktionerna för att snabbt testa din robot. Om du vill ha mer fullständig testning, inklusive fel sökning, laddar du ned bot koden och använder Visual Studio.
 
-## <a name="download-the-web-app-bot-source-code"></a>Ladda ner källkoden för webbapproken
+## <a name="download-the-web-app-bot-source-code"></a>Ladda ned käll koden för webb programs bot
 Ladda ned koden för webbappsroboten så att du kan utveckla den och använda den på den lokala datorn.
 
 1. Välj **Skapa** i avsnittet **Bot management** (Robothantering) på Azure-portalen.
 
 1. Välj **Download Bot source code** (Ladda ned robotens källkod).
 
-    [![Ladda ner webbapp bot källkod för grundläggande bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Ladda ned webb program bot-källkod för grundläggande robot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. När popup-dialogrutan frågar **Inkludera appinställningar i den nedladdade zip-filen?** väljer du **Ja**. Detta ger LUIS-inställningarna.
+1. När popup-dialogrutan frågar **innehåller appinställningar i den hämtade ZIP-filen?** väljer du **Ja**. Detta ger LUIS-inställningarna.
 
 1. Om källkoden är zippad innehåller meddelandet en länk för att ladda ned koden. Klicka på länken.
 
 1. Spara ZIP-filen till din lokala dator och extrahera filerna. Öppna projektet med Visual Studio.
 
-## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Granska kod för att skicka yttrande till LUIS och få svar
+## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>Granska koden för att skicka uttryck till LUIS och hämta svar
 
-1. Om du vill skicka användarens uttryck till slutpunkten LUIS-förutsägelse öppnar du **dialogrutorna -> flightBookingRecognizer.js-filen.** Det är här som användaruttrycket som angetts i roboten skickas till LUIS. Svaret från LUIS returneras från metoden **executeLuisQuery.**
+1. Om du vill skicka användar uttryck till LUIS förutsägelse slut punkten öppnar du **dialog rutorna-> flightBookingRecognizer. js-** fil. Det är här som användaruttrycket som angetts i roboten skickas till LUIS. Svaret från LUIS returneras från **executeLuisQuery** -metoden.
 
     ````javascript
     class FlightBookingRecognizer {
@@ -122,7 +122,7 @@ Ladda ned koden för webbappsroboten så att du kan utveckla den och använda de
     }
     ````
 
-1. **Dialogrutorna -> mainDialog** fångar uttrycket och skickar det till executeLuisQuery i metoden actStep.
+1. **Dialog rutorna – > mainDialog** fångar uttryck och skickar dem till ExecuteLuisQuery i actStep-metoden.
 
 
     ````javascript
@@ -195,22 +195,22 @@ Ladda ned koden för webbappsroboten så att du kan utveckla den och använda de
     ````
 <a name="ask-bot-a-question-for-the-book-flight-intent"></a>
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>Använd bot emulator för att testa bot
+## <a name="use-the-bot-emulator-to-test-the-bot"></a>Använd bot-emulatorn för att testa roboten
 
-Ställ bot en fråga för Book Flight avsikt.
+Ställ en fråga på roboten för att ställa en fråga om bok flyg avsikten.
 
-1. Börja Bot Emulator och välj **Öppna Bot**.
-1. I popup-dialogrutan **Öppna en robot** anger du din `http://localhost:3978/api/messages`bot-URL, till exempel . Rutten `/api/messages` är webbadressen för roboten.
-1. Ange **lösenordet för Microsoft App ID** och **Microsoft App**som finns i **.env-filen** i roten till den hämtade robotkoden.
+1. Starta bot-emulatorn och välj **Öppna bot**.
+1. Ange din robot-URL i dialog rutan **öppna en robot** -pop, till exempel `http://localhost:3978/api/messages`. `/api/messages` Vägen är webb adressen för bot.
+1. Ange **Microsoft app-ID** och **Microsoft app-lösenordet**, som finns i **. kuvert** -filen i roten av den robot kod som du laddade ned.
 
-1. I bot emulator, `Book a flight from Seattle to Berlin tomorrow` ange och få samma svar för den grundläggande bot som du fick i **test i webbchatt**.
+1. I bot-emulatorn anger `Book a flight from Seattle to Berlin tomorrow` du och får samma svar för den grundläggande roboten som du fick i **testet i Web Chat**.
 
-    [![Grundläggande bot svar i emulatorn](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
+    [![Grundläggande robot svar i emulatorn](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-1. Välj **Ja**. Roboten svarar med en sammanfattning av sina åtgärder.
-1. Välj den rad som innehåller `Luis Trace`. Detta visar JSON-svaret från LUIS för avsikten och entiteterna för uttryck.
+1. Välj **Ja**. Roboten svarar med en sammanfattning av dess åtgärder.
+1. Från loggen för bot-emulatorn väljer du den rad som `Luis Trace`innehåller. Detta visar JSON-svaret från LUIS för avsikten och entiteten i uttryck.
 
-    [![Grundläggande bot svar i emulatorn](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Grundläggande robot svar i emulatorn](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
@@ -220,4 +220,4 @@ Ställ bot en fråga för Book Flight avsikt.
 Se fler [exempel](https://github.com/microsoft/botframework-solutions) med konversationsrobotar.
 
 > [!div class="nextstepaction"]
-> [Skapa en språk understanding-app med en anpassad ämnesdomän](luis-quickstart-intents-only.md)
+> [Bygg en Language Understanding-app med en anpassad ämnes domän](luis-quickstart-intents-only.md)

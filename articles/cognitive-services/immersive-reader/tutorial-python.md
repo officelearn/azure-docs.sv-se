@@ -1,7 +1,7 @@
 ---
-title: 'Självstudiekurs: Starta den uppslukande läsaren med Python'
+title: 'Självstudie: starta den fördjupade läsaren med python'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien ska du skapa ett Python-program som startar Immersive Reader.
+description: I den här självstudien skapar du ett python-program som startar den fördjupade läsaren.
 services: cognitive-services
 author: dylankil
 manager: nitinme
@@ -11,38 +11,38 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
 ms.openlocfilehash: a252afae0a007ee0b791b56d19ffb0685848d30a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76844368"
 ---
-# <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Självstudiekurs: Starta Immersive Reader med exempelprojektet Python
+# <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Självstudie: starta den fördjupade läsaren med python-exempelprojektet
 
-I [översikten](./overview.md)lärde du dig om vad Immersive Reader är och hur den implementerar beprövade tekniker för att förbättra läsförståelsen för språkstuderande, nya läsare och elever med inlärningsskillnader. Den här självstudien beskriver hur du skapar ett Python-webbprogram som startar Immersive Reader. I den här självstudiekursen får du lära du dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett python-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en Python-webbapp med Pip, Flask, Jinja och virtualenv med hjälp av ett exempelprojekt
+> * Skapa en python-webbapp med pip, kolv, Jinja och virtuell miljö med ett exempel projekt
 > * Hämta en åtkomsttoken
-> * Starta Immersive Reader med exempelinnehåll
+> * Starta den fördjupade läsaren med exempel innehåll
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-* En Immersive Reader-resurs som konfigurerats för Azure Active Directory-autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att komma igång. Du behöver några av de värden som skapas här när du konfigurerar miljöegenskaperna. Spara utdata från sessionen i en textfil för framtida referens.
+* En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 * [Git](https://git-scm.com/)
-* [Uppslukande läsare SDK](https://github.com/microsoft/immersive-reader-sdk)
-* [Python](https://www.python.org/downloads/) och [pip](https://docs.python.org/3/installing/index.html). Från och med Python 3.4 ingår pip som standard med python-binära installationsprogram.
-* [Kolven](https://flask.palletsprojects.com/en/1.0.x/)
+* [SDK för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk)
+* [Python](https://www.python.org/downloads/) och [pip](https://docs.python.org/3/installing/index.html). Från och med python 3,4 ingår pip som standard med de binära installations programmen för python.
+* [Kol](https://flask.palletsprojects.com/en/1.0.x/)
 * [Jinja](http://jinja.pocoo.org/docs/2.10/)
-* [virtualenv](https://virtualenv.pypa.io/en/latest/) och [virtualenvwrapper-win för Windows](https://pypi.org/project/virtualenvwrapper-win/) eller [virtualenvwrapper för OSX](https://virtualenvwrapper.readthedocs.io/en/latest/)
-* [begär modul](https://pypi.org/project/requests/2.7.0/)
-* En IDE som [Visual Studio-kod](https://code.visualstudio.com/)
+* [virtuell miljö](https://virtualenv.pypa.io/en/latest/) och [virtualenvwrapper – Win för Windows](https://pypi.org/project/virtualenvwrapper-win/) eller [virtualenvwrapper för OSX](https://virtualenvwrapper.readthedocs.io/en/latest/)
+* [modulen begär Anden](https://pypi.org/project/requests/2.7.0/)
+* En IDE, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="configure-authentication-credentials"></a>Konfigurera autentiseringsuppgifter
+## <a name="configure-authentication-credentials"></a>Konfigurera autentiseringsuppgifter för autentisering
 
-Skapa en ny fil med namnet _.env_och klistra in följande kod i den och ange de värden som angavs när du skapade Immersive Reader-resursen.
+Skapa en ny fil med namnet _. kuvert_och klistra in följande kod i den, och ange de värden som anges när du skapade din fördjupade läsare-resurs.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -51,73 +51,73 @@ CLIENT_SECRET={YOUR_CLIENT_SECRET}
 SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Se till att inte arkivera den här filen i källkontroll, eftersom den innehåller hemligheter som inte bör offentliggöras.
+Se till att du inte utför den här filen i käll kontrollen eftersom den innehåller hemligheter som inte bör göras offentliga.
 
-Den **getimmersivereadertoken** API-slutpunkten bör skyddas bakom någon form av autentisering (till exempel [OAuth)](https://oauth.net/2/)för att förhindra obehöriga användare från att få token att använda mot din Immersive Reader-tjänst och fakturering; att arbetet är utanför ramen för den här självstudien.
+**Getimmersivereadertoken** API-slutpunkten bör skyddas bakom någon form av autentisering (till exempel [OAuth](https://oauth.net/2/)) för att hindra obehöriga användare från att hämta token som ska användas mot tjänsten för avancerad läsare och fakturering. Detta arbete ligger utanför den här självstudiens omfattning.
 
-## <a name="create-a-python-web-app-on-windows"></a>Skapa en Python-webbapp i Windows
+## <a name="create-a-python-web-app-on-windows"></a>Skapa en python-webbapp i Windows
 
-Skapa en Python-webbapp med i `flask` Windows.
+Skapa en python-webbapp med `flask` på Windows.
 
-Installera [Git](https://git-scm.com/).
+Installera [git](https://git-scm.com/).
 
-När Git har installerats öppnar du en kommandotolk och "klonar" Immersive Reader SDK Git-databasen till en mapp på datorn
+När git har installerats öppnar du en kommando tolk och ' klona ' Avancerad Reader SDK git-lagringsplats till en mapp på din dator
 
 ```cmd
 git clone https://github.com/microsoft/immersive-reader-sdk.git
 ```
 
-Installera [Python](https://www.python.org/downloads/).
+Installera [python](https://www.python.org/downloads/).
 
-Markera rutan Lägg till Python i SÖKVÄG.
+Markera rutan Lägg till python till sökväg.
 
-![Dialogrutan Installera Python Windows](./media/pythoninstallone.jpg)
+![Dialog rutan python Windows-installation steg 1](./media/pythoninstallone.jpg)
 
-Lägg till valfria funktioner genom att markera rutorna och klicka sedan på knappen "Nästa".
+Lägg till valfria funktioner genom att markera kryss rutorna och klicka sedan på Nästa.
 
-![Dialogrutan Installera Python Windows](./media/pythoninstalltwo.jpg)
+![Dialog rutan python Windows-installation steg 2](./media/pythoninstalltwo.jpg)
 
-Välj "Anpassad installation" och ställ in installationssökvägen `C:\Python37-32\` som rotmapp, t.ex.
+Välj anpassad installation och ange installations Sök vägen som rotmapp, t. ex. `C:\Python37-32\` Klicka på knappen Installera.
 
-![Dialogrutan Installera Python Windows](./media/pythoninstallthree.jpg)
+![Dialog rutan python Windows-installation steg 3](./media/pythoninstallthree.jpg)
 
-När Python-installationen är klar öppnar `cd` du en kommandotolk och till mappen Python Scripts.
+När python-installationen är klar öppnar du en kommando tolk `cd` och till mappen Python-skript.
 
 ```cmd
 cd C:\Python37-32\Scripts
 ```
 
-Installera kolv.
+Installations flaska.
 
 ```cmd
 pip install flask
 ```
 
-Installera Jinja2. En fullfjädrad mallmotor för Python.
+Installera Jinja2. En mall för en komplett motor för python.
 
 ```cmd
 pip install jinja2
 ```
 
-Installera virtualenv. Ett verktyg för att skapa isolerade Python-miljöer.
+Installera virtuell miljö. Ett verktyg för att skapa isolerade python-miljöer.
 
 ```cmd
 pip install virtualenv
 ```
 
-Installera virtualenvwrapper-win. Tanken bakom virtualenvwrapper är att underlätta användningen av virtualenv.
+Installera virtualenvwrapper – Win. Idén bakom virtualenvwrapper är att under lätta användningen av virtuell miljö.
 
 ```cmd
 pip install virtualenvwrapper-win
 ```
 
-Installera modulen begäranden. Begäranden är ett Apache2-licensierat HTTP-bibliotek, skrivet i Python.
+Installera modulen begär Anden. Begär Anden är ett apache2 licensierat HTTP-bibliotek, skrivet i python.
 
 ```cmd
 pip install requests
 ```
 
-Installera python-dotenv-modulen. Den här modulen läser nyckel-värde-paret från .env-filen och lägger till dem i miljövariabeln.
+Installera python-dotenv-modulen. Den här modulen läser nyckel/värde-paret från. miljö filen och lägger till dem i en miljö variabel.
 
 ```cmd
 pip install python-dotenv
@@ -129,13 +129,13 @@ Skapa en virtuell miljö
 mkvirtualenv advanced-python
 ```
 
-`cd`till exempelprojektets rotmapp.
+`cd`till rotmappen för exempel projekt.
 
 ```cmd
 cd C:\immersive-reader-sdk\js\samples\advanced-python
 ```
 
-Anslut exempelprojektet med miljön. Detta mappar den nyskapade virtuella miljön till exempelprojektets rotmapp.
+Anslut exempel projektet till-miljön. Detta mappar den nyligen skapade virtuella miljön till rotmappen för exempel projekt.
 
 ```cmd
 setprojectdir .
@@ -147,7 +147,7 @@ Aktivera den virtuella miljön.
 activate
 ```
 
-Projektet ska nu vara aktivt och du `(advanced-python) C:\immersive-reader-sdk\js\samples\advanced-python>` ser något liknande i kommandotolken.
+Projektet bör nu vara aktivt och du ser något som liknar `(advanced-python) C:\immersive-reader-sdk\js\samples\advanced-python>` i kommando tolken.
 
 Inaktivera miljön.
 
@@ -155,41 +155,41 @@ Inaktivera miljön.
 deactivate
 ```
 
-Prefixet `(advanced-python)` ska nu vara borta eftersom miljön nu är inaktiverad.
+`(advanced-python)` Prefixet bör nu vara borta eftersom miljön nu är inaktive rad.
 
-Om du vill återaktivera miljön körs `workon advanced-python` från exempelprojektrotmappen.
+Så här återaktiverar du `workon advanced-python` miljön från rotmappen för exempelprojektet.
 
 ```cmd
 workon advanced-python
 ```
 
-### <a name="launch-the-immersive-reader-with-sample-content"></a>Starta Immersive Reader med exempelinnehåll
+### <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-När miljön är aktiv kör du exempelprojektet genom att gå in `flask run` från exempelprojektets rotmapp.
+När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för exempel projekt.
 
 ```cmd
 flask run
 ```
 
-Öppna webbläsaren och _http://localhost:5000_navigera till .
+Öppna webbläsaren och gå till _http://localhost:5000_.
 
-## <a name="create-a-python-web-app-on-osx"></a>Skapa en Python-webbapp på OSX
+## <a name="create-a-python-web-app-on-osx"></a>Skapa en python-webbapp på OSX
 
-Skapa en Python-webbapp med på `flask` OSX.
+Skapa en python-webbapp med `flask` på OSX.
 
-Installera [Git](https://git-scm.com/).
+Installera [git](https://git-scm.com/).
 
-När Git har installerats öppna Terminal och "klona" Immersive Reader SDK Git-databasen till en mapp på datorn
+När git har installerats med öppen Terminal och klonad git-lagringsplatsen för avancerad Reader-SDK till en mapp på din dator
 
 ```bash
 git clone https://github.com/microsoft/immersive-reader-sdk.git
 ```
 
-Installera [Python](https://www.python.org/downloads/).
+Installera [python](https://www.python.org/downloads/).
 
-Python-rotmappen t.ex. `Python37-32`
+Mappen python rotmapp t. ex `Python37-32` . bör nu finnas i mappen program.
 
-När Python-installationen är klar `cd` öppnar du Terminal och till mappen Python Scripts.
+När python-installationen är klar öppnar du Terminal `cd` och mappen Python-skript.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -201,7 +201,7 @@ Installera pip.
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 ```
 
-Kör sedan följande för att installera pip för den inloggade användaren för att undvika behörighetsproblem.
+Kör sedan följande för att installera pip för den aktuella inloggade användaren för att undvika problem med behörighet.
 
 ```bash
 python get-pip.py --user
@@ -211,56 +211,56 @@ python get-pip.py --user
 sudo nano /etc/paths
 ```
 
-- Ange ditt lösenord när du uppmanas att göra det.
-- Lägg till sökvägen för pipinstallationen till sökvägens variabel.
-- Gå längst ned i filen och ange den sökväg som du vill lägga `PATH=$PATH:/usr/local/bin`till som det sista objektet i listan t.ex.
-- Tryck på control-x för att avsluta.
+- Ange ditt lösen ord när du uppmanas till det.
+- Lägg till sökvägen till din pip-installation till din PATH-variabel.
+- Gå till slutet av filen och ange den sökväg som du vill lägga till som sista objekt i listan, t. ex. `PATH=$PATH:/usr/local/bin`.
+- Tryck på CTRL-x för att avsluta.
 - Ange `Y` för att spara den ändrade bufferten.
-- Klart! Om du vill testa det skriver `echo $PATH`du i det nya terminalfönstret: .
+- Klart! Testa det genom att skriva följande i nytt terminalfönster: `echo $PATH`.
 
-Installera kolv.
+Installations flaska.
 
 ```bash
 pip install flask --user
 ```
 
-Installera Jinja2. En fullfjädrad mallmotor för Python.
+Installera Jinja2. En mall för en komplett motor för python.
 
 ```bash
 pip install Jinja2 --user
 ```
 
-Installera virtualenv. Ett verktyg för att skapa isolerade Python-miljöer.
+Installera virtuell miljö. Ett verktyg för att skapa isolerade python-miljöer.
 
 ```bash
 pip install virtualenv --user
 ```
 
-Installera virtualenvwrapper. Tanken bakom virtualenvwrapper är att underlätta användningen av virtualenv.
+Installera virtualenvwrapper. Idén bakom virtualenvwrapper är att under lätta användningen av virtuell miljö.
 
 ```bash
 pip install virtualenvwrapper --user
 ```
 
-Installera modulen begäranden. Begäranden är ett Apache2-licensierat HTTP-bibliotek, skrivet i Python.
+Installera modulen begär Anden. Begär Anden är ett apache2 licensierat HTTP-bibliotek, skrivet i python.
 
 ```bash
 pip install requests --user
 ```
 
-Installera python-dotenv-modulen. Den här modulen läser nyckel-värde-paret från .env-filen och lägger till dem i miljövariabeln.
+Installera python-dotenv-modulen. Den här modulen läser nyckel/värde-paret från. miljö filen och lägger till dem i en miljö variabel.
 
 ```bash
 pip install python-dotenv --user
 ```
 
-Välj en mapp där du vill behålla dina virtuella miljöer och köra det här kommandot
+Välj en mapp där du vill behålla dina virtuella miljöer och kör det här kommandot
 
 ```bash
 mkdir ~/.virtualenvs
 ```
 
-`cd`till exempelprogrammappen för Immersive Reader SDK Python.
+`cd`till mappen avancerad Reader-SDK python-exempel.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -272,7 +272,7 @@ Skapa en virtuell miljö
 mkvirtualenv -p /usr/local/bin/python3 advanced-python
 ```
 
-Anslut exempelprojektet med miljön. Detta mappar den nyskapade virtuella miljön till exempelprojektets rotmapp.
+Anslut exempel projektet till-miljön. Detta mappar den nyligen skapade virtuella miljön till rotmappen för exempel projekt.
 
 ```bash
 setprojectdir .
@@ -284,7 +284,7 @@ Aktivera den virtuella miljön.
 activate
 ```
 
-Projektet ska nu vara aktivt och du `(advanced-python) /immersive-reader-sdk/js/samples/advanced-python>` ser något liknande i kommandotolken.
+Projektet bör nu vara aktivt och du ser något som liknar `(advanced-python) /immersive-reader-sdk/js/samples/advanced-python>` i kommando tolken.
 
 Inaktivera miljön.
 
@@ -292,25 +292,25 @@ Inaktivera miljön.
 deactivate
 ```
 
-Prefixet `(advanced-python)` ska nu vara borta eftersom miljön nu är inaktiverad.
+`(advanced-python)` Prefixet bör nu vara borta eftersom miljön nu är inaktive rad.
 
-Om du vill återaktivera miljön körs `workon advanced-python` från exempelprojektrotmappen.
+Så här återaktiverar du `workon advanced-python` miljön från rotmappen för exempelprojektet.
 
 ```bash
 workon advanced-python
 ```
 
-## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta Immersive Reader med exempelinnehåll
+## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-När miljön är aktiv kör du exempelprojektet genom att gå in `flask run` från exempelprojektets rotmapp.
+När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för exempel projekt.
 
 ```bash
 flask run
 ```
 
-Öppna webbläsaren och _http://localhost:5000_navigera till .
+Öppna webbläsaren och gå till _http://localhost:5000_.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [den uppslukande läsaren SDK](https://github.com/microsoft/immersive-reader-sdk) och [Immersive Reader SDK-referensen](./reference.md)
-* Visa kodexempel på [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/)
+* Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)
+* Visa kod exempel på [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/)

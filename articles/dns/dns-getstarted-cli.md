@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en Azure DNS-zon och post - Azure CLI'
+title: 'Snabb start: skapa en Azure DNS zon och post – Azure CLI'
 titleSuffix: Azure DNS
 description: Snabbstart – Läs om hur du skapar en DNS-zon och en DNS-post i Azure DNS. Detta är en stegvis guide om hur du skapar och hanterar din första DNS-zon och DNS-post med Azure CLI.
 services: dns
@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: e6904c013cf2ed897bdc7c8b32f04fe500fc31d9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76937199"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Snabbstart: Skapa en Azure DNS-zon och post med Azure CLI
@@ -39,7 +39,7 @@ az group create --name MyResourceGroup --location "East US"
 
 En DNS-zon skapas med hjälp av kommandot `az network dns zone create`. Om du vill se hjälpen för det här kommandot skriver du `az network dns zone create -h`.
 
-I följande exempel skapas en DNS-zon som kallas *contoso.xyz* i resursgruppen *MyResourceGroup*. Använd exemplet när du vill skapa en DNS-zon, och ersätt värdena med dina egna.
+I följande exempel skapas en DNS-zon med namnet *contoso. xyz* i resurs gruppen *MyResourceGroup*. Använd exemplet när du vill skapa en DNS-zon, och ersätt värdena med dina egna.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz
@@ -49,7 +49,7 @@ az network dns zone create -g MyResourceGroup -n contoso.xyz
 
 Skapa en DNS-post genom att använda kommandot `az network dns record-set [record type] add-record`. Hjälp om A-poster finns i `azure network dns record-set A add-record -h`.
 
-I följande exempel skapas en post med det relativa namnet "www" i DNS-zonen "contoso.xyz" i resursgruppen "MyResourceGroup". Det fullständiga namnet på postuppsättningen är "www.contoso.xyz". Posttypen är "A", med IP-adressen "10.10.10.10" och en standard-TTL på 3600 sekunder (1 timme).
+I följande exempel skapas en post med det relativa namnet "www" i DNS-zonen "contoso. xyz" i resurs gruppen "MyResourceGroup". Det fullständigt kvalificerade namnet på post uppsättningen är "www. contoso. xyz". Post typen är "A", med IP-adressen "10.10.10.10" och en standard-TTL på 3600 sekunder (1 timme).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
@@ -69,13 +69,13 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
 
 **Så här testar du DNS-namnmatchning:**
 
-1. Kör följande cmdlet för att få listan över namnservrar för din zon:
+1. Kör följande cmdlet för att hämta listan över namnservrar för zonen:
 
    ```azurecli
    az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
    ```
 
-1. Kopiera ett av namnservernamnen från utdata från föregående steg.
+1. Kopiera ett av namn server namnen från utdata från föregående steg.
 
 1. Öppna en kommandotolk och kör följande kommando:
 
@@ -93,7 +93,7 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Värdnamnet **www\.contoso.xyz** matchas till **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
+Värd namnet **www\.contoso. xyz** matchas till **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
 

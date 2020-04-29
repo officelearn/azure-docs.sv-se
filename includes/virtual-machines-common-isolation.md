@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 3aeb0369ee4a04dbbe89a4d0684b2a6c97378d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77123238"
 ---
 Azure Compute erbjuder storlekar för virtuella datorer som är isolerade till en viss maskin varu typ och som är dedikerad till en enda kund.  Dessa storlekar på virtuella datorer lämpar sig bäst för arbets belastningar som kräver en hög grad av isolering från andra kunder för arbets belastningar som inbegriper element som efterlevnad och myndighets krav.  Kunder kan också välja att ytterligare dela upp resurserna i de isolerade virtuella datorerna med hjälp av [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -51,7 +51,7 @@ Om isolering krävs till dig före den 15 maj 2020 behöver du antingen:
 Mer information finns nedan:
 
 ## <a name="timeline"></a>Tidslinje
-| Date | Åtgärd | 
+| Date | Action | 
 | --- | --- |
 | Den 18 november 2019 | Tillgänglighet för D/DS15i_v2 (PAYG, 1 – år, RI) |
 | 14 maj, 2020  | Senaste dagen för att köpa D/DS15i_v2 1 års RI | 

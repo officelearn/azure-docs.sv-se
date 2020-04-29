@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Skapa en enkelsidig app för videosökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien beskrivs hur du använder API:et för videosökning på Bing i ett ensidigt webbprogram.
+description: I den här självstudien beskrivs hur du använder API för videosökning i Bing i ett webb program med en enda sida.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988268"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudie: Skapa en enkelsidig app med videosökning
@@ -138,10 +138,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Parametern `SafeSearch` i ett verkligt API-anrop kan till exempel vara `strict`, eller `moderate`, med `moderate` att vara standard.
+`SafeSearch` Till exempel kan parametern i ett faktiskt API-anrop `strict`vara, eller `moderate`, med `moderate` standardvärdet.
 
 ## <a name="performing-the-request"></a>Utföra förfrågan
-Beroende på frågan, alternativsträngen och API-nyckeln använder funktionen `BingWebSearch` ett `XMLHttpRequest`-objekt för att göra begäran till slutpunkten för Bing-sökningen. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+Beroende på frågan, alternativsträngen och API-nyckeln använder funktionen `BingWebSearch` ett `XMLHttpRequest`-objekt för att göra begäran till slutpunkten för Bing-sökningen. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -373,7 +373,7 @@ Renderarfunktionen:
 > * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
-Storlek på miniatyrbilderna används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. Bing returnerar en [miniatyrbild](../bing-web-search/resize-and-crop-thumbnails.md) av exakt den storleken.
+Storlek på miniatyrbilderna används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. Bing kommer att returnera en [miniatyr bild](../bing-web-search/resize-and-crop-thumbnails.md) av exakt den storleken.
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
 Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
@@ -389,7 +389,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan `Access-Control-Expose-Headers` proxy har ett huvud som tillåter svarsrubriker och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers` huvud som tillåter svarshuvuden och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 

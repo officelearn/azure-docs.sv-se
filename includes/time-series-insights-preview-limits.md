@@ -10,34 +10,34 @@ ms.author: dpalled
 manager: cshankar
 ms.custom: include file
 ms.openlocfilehash: 7bc6938523a6d66a2bc20b37c659568fc5ca494d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77123174"
 ---
-### <a name="general-availability-and-preview-comparison"></a>Allmän tillgänglighet och förhandsgranskningsjämförelse
+### <a name="general-availability-and-preview-comparison"></a>Allmän tillgänglighet och för hands versions jämförelse
 
-I följande tabell sammanfattas flera viktiga skillnader mellan Azure Time Series Insights allmänna tillgänglighet (GA) och förhandsversionsinstanser.
+I följande tabell sammanfattas flera viktiga skillnader mellan Azure Time Series Insights allmän tillgänglighet (GA) och för hands versions instanser.
 
 | | Allmän tillgänglighet (GA) | Förhandsversion |
 | --- | --- | ---|
-| Första klassens medborgare | Händelsecentrerad | Tid-serie-centrerad |
-| Semantiska resonemang | Låg nivå (referensdata) | Hög nivå (modeller) |
-| Datakontextualisering | Nivå som inte är enhet | Enhets- och icke-enhetsnivå |
-| Lagring av beräkningslogik | Inga | Lagras i typvariabler del av modellen |
-| Lagrings- och åtkomstkontroll | Inga | Aktiverad via modell |
-| Aggregeringar/Provtagning | Inga | Viktad händelse och tidsvägd |
-| Signalrekonstruktion | Inga | Interpolation |
-| Produktion av härledda tidsserier | Inga | Ja, sammanslagningar och kopplingar |
-| Språkflexibilitet | Icke-komposterbar | Komposterbar |
-| Uttrycksspråk | Predikatsträng | Tidsserieuttryck (predikatsträngar, värden, uttryck och funktioner) |
+| Medborgare i första klass | Händelse-centrerad | Tidsserien – centrerad |
+| Semantiska orsaker | Lågnivå (referens data) | Hög nivå (modeller) |
+| Data contextualization | Ej enhets nivå | Enhets-och icke-enhets nivå |
+| Beräkning av logik lagring | Nej | Lagrad i typen variabler del av modellen |
+| Lagring och åtkomst kontroll | Nej | Aktive rad via modell |
+| Agg regeringar/sampling | Nej | Event viktad och tids viktad |
+| Återuppbyggnad av signal | Nej | Interpol |
+| Produktion av härledd tids serie | Nej | Ja, sammanslagningar och kopplingar |
+| Språk flexibilitet | Ej sammanställnings bar | Sammansättnings bar |
+| Uttrycksspråk | Predikat-sträng | Tids serie uttryck (predikaa strängar, värden, uttryck och funktioner) |
 
-### <a name="property-limits"></a>Begränsningar för egenskaper
+### <a name="property-limits"></a>Egenskaps gränser
 
-Time Series Insights fastighetsgränser har ökat till 1000 från ett maximalt tak på 800 i GA. Medföljande händelseegenskaper har motsvarande JSON-, CSV- och diagramkolumner som du kan visa i [utforskaren för förhandsversionen av Time Series Insights.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart)
+Time Series Insights egenskaps gränser har ökat till 1 000 från en maximal ände på 800 i GA. Angivna händelse egenskaper har motsvarande JSON-, CSV-och diagram kolumner som du kan visa i [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
-| SKU | Maximala egenskaper |
+| SKU | Maximalt antal egenskaper |
 | --- | --- |
 | Förhandsgranska PAYG | 1 000 egenskaper (kolumner) |
 | GA S1 | 600 egenskaper (kolumner) |
@@ -45,13 +45,13 @@ Time Series Insights fastighetsgränser har ökat till 1000 från ett maximalt t
 
 ### <a name="event-sources"></a>Händelsekällor
 
-Högst två händelsekällor per instans stöds. 
+Högst två händelse källor stöds per instans. 
 
-* Läs om hur du [lägger till en händelsehubbkälla](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Konfigurera [en IoT-hubbkälla](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* Lär dig hur du [lägger till en Event Hub-källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+* Konfigurera [en IoT Hub-källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
-Som standard [stöder förhandsgranskningsmiljöer inträngningshastigheter](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#ingress-scale-and-preview-limitations) på upp till **1 MB/s per sekund (MB/s) per miljö**. Kunder kan skala sina förhandsversionsmiljöer upp till **16 MB/s** dataflöde om det behövs. Det finns också en gräns per partition på **0,5 MB/s**. 
+Som standard har [förhands gransknings miljöer stöd](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#ingress-scale-and-preview-limitations) för **ingångs hastigheter på upp till 1 megabyte per sekund (MB/s) per miljö**. Kunder kan skala sina för hands versioner upp till **16 MB/s** genom strömning vid behov. Det finns också en gräns per partition på **0,5 MB/s**. 
 
 ### <a name="api-limits"></a>API-gränser
 
-REST API-gränser för förhandsversionen av Time Series Insights anges i [rest API-referensdokumentationen](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#limits).
+REST API gränser för Time Series Insights för hands versionen anges i [REST API referens dokumentationen](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#limits).

@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell-exempel – skapa en fullständig skaluppsättning för virtuella datorer
-description: Det här skriptet skapar en skalningsuppsättning för virtuella datorer med Windows Server 2016, där enskilda resurser konfigureras och skapas.
+title: Azure PowerShell exempel – skapa en fullständig skalnings uppsättning för virtuella datorer
+description: Det här skriptet skapar en skalnings uppsättning för virtuella datorer som kör Windows Server 2016, där enskilda resurser konfigureras och skapas.
 author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -9,15 +9,15 @@ ms.date: 05/29/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 2459aee8c93df3b039922ee53c0fe86d302505cf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011522"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Skapa en fullständig VM-skalningsuppsättning med PowerShell
 
-Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016. Enskilda resurser konfigureras och skapas i stället för att använda de [inbyggda resursskapande alternativen som finns här i New-AzVmss](powershell-sample-create-simple-scale-set.md). När skriptet har körts får du åtkomst till de virtuella datorinstanserna via RDP.
+Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016. Enskilda resurser konfigureras och skapas i stället för att använda de [inbyggda alternativen för att skapa resurser som finns här i New-AzVmss](powershell-sample-create-simple-scale-set.md). När skriptet har körts får du åtkomst till de virtuella datorinstanserna via RDP.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -38,7 +38,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |

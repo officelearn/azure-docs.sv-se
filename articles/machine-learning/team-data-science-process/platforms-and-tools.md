@@ -1,6 +1,6 @@
 ---
-title: Plattformar och verktyg för datavetenskapsprojekt - Team Data Science Process
-description: Specificerar och diskuterar de data- och analysresurser som är tillgängliga för företag som standardiserar i teamdatavetenskapsprocessen.
+title: Plattformar och verktyg för data vetenskaps projekt – team data science process
+description: Specificerar och diskuterar de data-och analys resurser som är tillgängliga för företag som standardiserar processen för team data vetenskap.
 author: marktab
 manager: marktab
 editor: marktab
@@ -11,144 +11,144 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3f3f06bd5a9b6a78b45a63de0684b580e662075b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81256526"
 ---
-# <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för datavetenskapliga projekt
+# <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för data vetenskaps projekt
 
-Microsoft tillhandahåller ett komplett spektrum av analysresurser för både molnplattformar eller lokala plattformar. De kan distribueras för att göra genomförandet av dina datavetenskapsprojekt effektiva och skalbara. Vägledning för team som implementerar datavetenskapliga projekt på ett spårbart, versionskontrollerat och samarbetsinriktat sätt tillhandahålls av [Team Data Science Process](overview.md) (TDSP).  En översikt över de personalroller och deras associerade uppgifter som hanteras av ett data science-team som standardiserar den här processen finns i [Roller och uppgifter för teamdatavetenskap.](roles-tasks.md)
+Microsoft tillhandahåller ett fullständigt spektrum av analys resurser för både molnbaserade eller lokala plattformar. De kan distribueras för att göra körningen av dina data vetenskaps projekt effektiv och skalbar. Vägledning för team som implementerar data vetenskaps projekt i en spårnings bara, versions kontroll och samarbets väg tillhandahålls av TDSP ( [team data science process](overview.md) ).  En översikt över personal rollerna och deras associerade uppgifter som hanteras av ett data vetenskaps team som är standardiserade för den här processen finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md).
 
-De analysresurser som är tillgängliga för datavetenskapslag med hjälp av TDSP är:
+De analys resurser som är tillgängliga för data vetenskaps team som använder TDSP omfattar:
 
-- Virtuella datavetenskapsmaskiner (både Windows och Linux CentOS)
+- Data vetenskaps Virtual Machines (både Windows-och Linux-CentOS)
 - HDInsight Spark-kluster
 - Synapse Analytics
 - Azure Data Lake
 - HDInsight Hive-kluster
 - Azure File Storage
-- SQL Server 2019 R- och Python-tjänster
+- SQL Server 2019 R-och python-tjänster
 - Azure Databricks
 
-I det här dokumentet beskriver vi kortfattat resurserna och tillhandahåller länkar till självstudier och genomgångar som TDSP-teamen har publicerat. De kan hjälpa dig att lära dig hur du använder dem steg för steg och börja använda dem för att bygga dina intelligenta program. Mer information om dessa resurser finns på deras produktsidor. 
+I det här dokumentet beskriver vi kortfattat resurserna och tillhandahåller länkar till självstudierna och genom gångar som TDSP-teamen har publicerat. De kan hjälpa dig att lära dig hur du använder dem steg för steg och börja använda dem för att skapa intelligenta program. Mer information om dessa resurser finns på deras produkt sidor. 
 
-## <a name="data-science-virtual-machine-dsvm"></a>Virtuell dator för datavetenskap (DSVM)
+## <a name="data-science-virtual-machine-dsvm"></a>Data Science Virtual Machine (DSVM)
 
-Den virtuella datavetenskapsdatorn som erbjuds på både Windows och Linux av Microsoft innehåller populära verktyg för modellering och utveckling av datavetenskap. Den innehåller verktyg som:
+Den virtuella datorn för data vetenskap som erbjuds både Windows och Linux av Microsoft innehåller populära verktyg för data vetenskaps-och utvecklings aktiviteter. Den innehåller verktyg som:
 
 - Microsoft R Server Developer Edition 
 - Anaconda Python-distribution
-- Jupyter bärbara datorer för Python och R 
-- Visual Studio Community Edition med Python och R-verktyg på Windows / Eclipse på Linux
-- Power BI-skrivbordet för Windows
-- SQL Server 2016 Developer Edition på Windows / Postgres på Linux
+- Jupyter-anteckningsböcker för python och R 
+- Visual Studio Community Edition med python och R-verktyg för Windows/Sol förmörkelse på Linux
+- Power BI Desktop för Windows
+- SQL Server 2016 Developer Edition på Windows/postgres på Linux
 
-Den innehåller också **ML och AI-verktyg** som xgboost, mxnet och Vowpal Wabbit.
+Den innehåller också **ml-och AI-verktyg** som xgboost, Mxnet och Vowpal Wabbit.
 
-För närvarande är DSVM tillgängligt i **Windows-** och **Linux CentOS-operativsystem.** Välj storleken på din DSVM (antal CPU-kärnor och mängden minne) baserat på behoven hos de datavetenskapsprojekt som du planerar att köra på den. 
+För närvarande finns DSVM i operativ systemen **Windows** och **Linux CentOS** . Välj storlek på din DSVM (antal processor kärnor och mängden minne) baserat på behoven hos de data vetenskaps projekt som du planerar att köra på den. 
 
-Mer information om Windows-utgåvan av DSVM finns i [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) på Azure Marketplace. För Linux-utgåvan av DSVM, se [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
+Mer information om Windows-versionen av DSVM finns i [Microsoft data science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) på Azure Marketplace. Linux-versionen av DSVM finns i [linux data science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
-Mer information om hur du utför några av de vanliga datavetenskapsuppgifterna på DSVM effektivt finns i [10 saker du kan göra på Virtual Machine för datavetenskap](../data-science-virtual-machine/vm-do-ten-things.md)
+Information om hur du kör några vanliga data vetenskaps uppgifter på DSVM effektivt finns i [10 saker du kan göra på den virtuella datorn för data vetenskap](../data-science-virtual-machine/vm-do-ten-things.md)
 
 
-## <a name="azure-hdinsight-spark-clusters"></a>Azure HDInsight Spark-kluster
+## <a name="azure-hdinsight-spark-clusters"></a>Azure HDInsight Spark kluster
 
-Apache Spark är ett ramverk för parallellbearbetning med öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Spark-bearbetningsmotorn är byggd för hastighet, användarvänlighet och sofistikerad analys. Sparks beräkningskapacitet i minnet gör det till ett bra val för iterativa algoritmer inom maskininlärning och för grafberäkningar. Spark är också kompatibel med Azure Blob storage (WASB), så dina befintliga data som lagras i Azure kan enkelt bearbetas med Spark.
+Apache Spark är ett ramverk för parallellbearbetning med öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Motorn för Spark-bearbetning är byggd för hastighet, enkel användning och avancerad analys. Spark: s InMemory Compute-funktioner gör det ett bra val för iterativa algoritmer i maskin inlärning och för diagram beräkningar. Spark är också kompatibelt med Azure Blob Storage (WASB) så att dina befintliga data som lagras i Azure enkelt kan bearbetas med Spark.
 
-När du skapar ett Spark-kluster i HDInsight skapas Azure-beräkningsresurser med Spark installerat och konfigurerat. Det tar cirka 10 minuter att skapa ett Spark-kluster i HDInsight. Lagra data som ska bearbetas i Azure Blob-lagring. Information om hur du använder Azure Blob Storage med ett kluster finns i [Använda HDFS-kompatibel Azure Blob-lagring med Hadoop i HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
+När du skapar ett Spark-kluster i HDInsight skapas Azure-beräkningsresurser med Spark installerat och konfigurerat. Det tar cirka 10 minuter att skapa ett Spark-kluster i HDInsight. Lagra data som ska bearbetas i Azure Blob Storage. Information om hur du använder Azure Blob Storage med ett kluster finns i [använda HDFS-kompatibel Azure Blob Storage med Hadoop i HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-TDSP-teamet från Microsoft har publicerat två heltäckande genomgångar om hur du använder Azure HDInsight Spark Clusters för att skapa datavetenskapslösningar, en med Python och den andra Scala. Mer information om Azure HDInsight **Spark-kluster**finns i [Översikt: Apache Spark på HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Mer information om hur du skapar en data science-lösning med **Python** i ett Azure HDInsight Spark-kluster finns i [Översikt över datavetenskap med Spark på Azure HDInsight](spark-overview.md). Mer information om hur du skapar en data science-lösning med **Scala** i ett Azure HDInsight Spark-kluster finns i [Data science med Scala och Spark på Azure](scala-walkthrough.md). 
+TDSP-teamet från Microsoft har publicerat två fullständiga genom gångar om hur du använder Azure HDInsight Spark-kluster för att bygga data vetenskaps lösningar, en med python och den andra Scala. Mer information om Azure HDInsight **Spark-kluster**finns i [Översikt: Apache Spark på HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Information om hur du skapar en data vetenskaps lösning med **python** i ett Azure HDInsight Spark kluster finns i [Översikt över data vetenskap med Spark på Azure HDInsight](spark-overview.md). Information om hur du skapar en data vetenskaps lösning med **Scala** på ett Azure HDInsight Spark-kluster finns i [data vetenskap med Scala och Spark på Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
-Med Azure SQL Data Warehouse kan du skala beräkningsresurser enkelt och på några sekunder, utan överetablering eller överbetalande. Det erbjuder också det unika alternativet för att pausa användningen av beräkningsresurser, vilket ger dig friheten att bättre hantera dina molnkostnader. Möjligheten att distribuera skalbara beräkningsresurser gör det möjligt att föra in alla dina data i Azure SQL Data Warehouse. Lagringskostnaderna är minimala och du kan bara köra beräkning på de delar av datauppsättningar som du vill analysera. 
+Med Azure SQL Data Warehouse kan du skala beräknings resurser enkelt och i sekunder, utan att behöva betala eller betala. Det ger också det unika alternativet att pausa användningen av beräknings resurser, vilket ger dig friheten att hantera dina moln kostnader bättre. Möjligheten att distribuera skalbara beräknings resurser gör det möjligt att överföra alla dina data till Azure SQL Data Warehouse. Lagrings kostnaderna är minimala och du kan bara köra beräkningarna på de delar av data uppsättningar som du vill analysera. 
 
-Mer information om Azure SQL Data Warehouse finns på [WEBBPLATSEN FÖR SQL Data Warehouse.](https://azure.microsoft.com/services/sql-data-warehouse) Mer information om hur du skapar avancerade analyslösningar från på nytt med SQL Data Warehouse [finns i Åtgärden Team Data Science Process: använda SQL Data Warehouse](sqldw-walkthrough.md).
+Mer information om Azure SQL Data Warehouse finns på [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) webbplats. Information om hur du skapar avancerade analys lösningar från slut punkt till slut punkt med SQL Data Warehouse finns [i processen team data science i praktiken: använda SQL Data Warehouse](sqldw-walkthrough.md).
 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake
 
-Azure Data Lake är som en företagsomfattande databas över alla typer av data som samlas in på en enda plats, innan formella krav eller schema införs. Denna flexibilitet gör att alla typer av data kan lagras i en datasjö, oavsett storlek eller struktur eller hur snabbt den förtärs. Organisationer kan sedan använda Hadoop eller avancerad analys för att hitta mönster i dessa datasjöar. Datasjöar kan också fungera som en lagringsplats för förberedelse av billigare data innan data curerades och flyttar dem till ett informationslager.
+Azure Data Lake är en företagsomfattande lagrings plats för alla typer av data som samlas in på en och samma plats, före eventuella formella krav eller schema som införs. Den här flexibiliteten gör det möjligt för alla typer av data att behållas i data Lake, oavsett storlek eller struktur eller hur snabbt den matas in. Organisationer kan sedan använda Hadoop eller avancerad analys för att hitta mönster i dessa data sjöar. Data sjöar kan också fungera som en lagrings plats för förberedelse av data innan du kan granska data och flytta dem till ett informations lager.
 
-Mer information om Azure Data Lake finns i [Introduktion till Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Mer information om hur du skapar en skalbar heltäckande data science-lösning med Azure Data Lake finns [i Skalbar datavetenskap i Azure Data Lake: En genomgång från slutna till slutna dagar](data-lake-walkthrough.md)
+Mer information om Azure Data Lake finns i [Introduktion av Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Information om hur du skapar en skalbar data vetenskaps lösning från slut punkt till slut punkt med Azure Data Lake finns i [scalable data science i Azure Data Lake: en slut punkt till slut punkts genom gång](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Azure HDInsight Hive-kluster (Hadoop)
 
-Apache Hive är ett informationslagersystem för Hadoop, som möjliggör datasumrisering, frågor och analys av data med HiveQL, ett frågespråk som liknar SQL. Hive kan användas för att interaktivt utforska dina data eller för att skapa återanvändbara batchbearbetningsjobb.
+Apache Hive är ett informations lager system för Hadoop, som möjliggör data sammanfattning, frågor och analys av data med hjälp av HiveQL, ett frågespråk som liknar SQL. Hive kan användas för att utforska dina data interaktivt eller för att skapa återanvändbara batchbearbetnings jobb.
 
-Hive kan du projektstruktur på i stort sett ostrukturerade data. När du har definierat strukturen kan du använda Hive för att fråga dessa data i ett Hadoop-kluster utan att behöva använda, eller ens veta, Java eller MapReduce. HiveQL (Hive-frågespråket) gör att du kan skriva frågor med satser som liknar T-SQL.
+Med Hive kan du projicera strukturen på mycket ostrukturerade data. När du har definierat strukturen kan du använda Hive för att fråga efter data i ett Hadoop-kluster utan att behöva använda, eller till och med känna till Java eller MapReduce. HiveQL (Hive-frågespråket) gör att du kan skriva frågor med instruktioner som liknar T-SQL.
 
-För dataexperter kan Hive köra uddf-funktioner (Python User-Defined Functions) i Hive-frågor för att bearbeta poster. Den här möjligheten utökar möjligheten för Hive-frågor i dataanalys avsevärt. Specifikt gör det möjligt för dataforskare att utföra skalbar funktionsteknik på språk som de oftast är bekanta med: SQL-liknande HiveQL och Python. 
+För data forskare kan Hive köra python-användardefinierade funktioner (UDF: er) i Hive-frågor för att bearbeta poster. Den här funktionen utökar funktionaliteten för Hive-frågor i data analys avsevärt. Mer specifikt gör det möjligt för data experter att utföra skalbara funktioner i språk som de är mest bekanta med: SQL-liknande HiveQL och python. 
 
-Mer information om Azure HDInsight Hive-kluster finns i [Använda Hive och HiveQL med Hadoop i HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Mer information om hur du skapar en skalbar heltäckande datavetenskapslösning med Azure HDInsight Hive-kluster finns [i Åtgärden Team Data Science Process: använda HDInsight Hadoop-kluster](hive-walkthrough.md).
+Mer information om Azure HDInsight Hive-kluster finns i [använda Hive och HiveQL med Hadoop i HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Information om hur du skapar en skalbar lösning för data vetenskap från slut punkt till slut punkt med Azure HDInsight Hive-kluster finns [i processen team data science i praktiken: använda HDInsight Hadoop-kluster](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Azure File Storage 
 
-Azure File Storage är en tjänst som erbjuder filresurser i molnet med hjälp av standardfilmeddelandeblock (SMB) protokoll. Både SMB 2.1 och SMB 3.0 stöds. Med Azure File Storage kan du snabbt och utan kostsamma omskrivningar migrera äldre program som är beroende av filresurser till Azure. Program som körs på virtuella Azure-datorer eller molntjänster eller från lokala klienter kan montera en filresurs i molnet, precis som ett skrivbordsprogram monterar en typisk SMB-resurs. Ett obegränsat antal programkomponenter kan sedan montera och komma åt fillagringsresursen samtidigt.
+Azure File Storage är en tjänst som erbjuder fil resurser i molnet med hjälp av SMB-protokollet (Server Message Block). Både SMB 2.1 och SMB 3.0 stöds. Med Azure File Storage kan du snabbt och utan kostsamma omskrivningar migrera äldre program som är beroende av filresurser till Azure. Program som körs på virtuella Azure-datorer eller molntjänster eller från lokala klienter kan montera en filresurs i molnet, precis som ett skrivbordsprogram monterar en typisk SMB-resurs. Ett obegränsat antal programkomponenter kan sedan montera och komma åt fillagringsresursen samtidigt.
 
-Särskilt användbart för datascience-projekt är möjligheten att skapa ett Azure-filarkiv som plats för att dela projektdata med dina projektgruppsmedlemmar. Var och en av dem har sedan åtkomst till samma kopia av data i Azure-fillagringen. De kan också använda den här fillagringen för att dela funktionsuppsättningar som genereras under projektets genomförande. Om projektet är en klientåtagande kan dina klienter skapa en Azure-fillagring under sin egen Azure-prenumeration för att dela projektdata och funktioner med dig. På så sätt har klienten full kontroll över projektdatatillgångarna. Mer information om Azure File Storage finns i [Komma igång med Azure File Storage på Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) och Hur du använder Azure File Storage med [Linux](../../storage/files/storage-how-to-use-files-linux.md).
-
-
-## <a name="sql-server-2019-r-and-python-services"></a>SQL Server 2019 R- och Python-tjänster
-
-R Services (In-database) tillhandahåller en plattform för att utveckla och distribuera intelligenta program som kan upptäcka nya insikter. Du kan använda det rika och kraftfulla R-språket, inklusive de många paket som tillhandahålls av R-communityn, för att skapa modeller och generera förutsägelser från dina SQL Server-data. Eftersom R Services (I-databasen) integrerar R-språket med SQL Server hålls analyser nära data, vilket eliminerar kostnader och säkerhetsrisker i samband med rörliga data.
-
-R Services (In-database) stöder R-språket med öppen källkod med en omfattande uppsättning SQL Server-verktyg och -tekniker. De erbjuder överlägsen prestanda, säkerhet, tillförlitlighet och hanterbarhet. Du kan distribuera R-lösningar med hjälp av praktiska och välbekanta verktyg. Dina produktionsprogram kan anropa R-körningen och hämta förutsägelser och visuella objekt med Transact-SQL. Du kan också använda ScaleR-biblioteken för att förbättra omfattningen och prestandan för dina R-lösningar. Mer information finns i [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
-
-TDSP-teamet från Microsoft har publicerat två heltäckande genomgångar som visar hur du skapar datavetenskapslösningar i SQL Server 2016 R Services: en för R-programmerare och en för SQL-utvecklare. För **R-programmerare**finns i [Data Science End-to-End Genomgång](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). För **SQL-utvecklare**finns [i Avancerad analys i databasen för SQL-utvecklare (självstudiekurs).](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+Särskilt användbart för data vetenskaps projekt är möjligheten att skapa en Azure-fillagring som plats för att dela projekt data med dina projekt grupp medlemmar. Var och en av dem har sedan åtkomst till samma kopia av data i Azure File Storage. De kan också använda fil lagringen för att dela funktions uppsättningar som genereras under projekt körningen. Om projektet är ett klient engagemang kan dina klienter skapa en Azure File Storage under sin egen Azure-prenumeration för att dela projekt data och funktioner med dig. På så sätt har klienten fullständig kontroll över projekt data till gångarna. Mer information om Azure File Storage finns i [komma igång med Azure File Storage i Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) och [hur du använder Azure File Storage med Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Bilaga: Verktyg för att inrätta datavetenskapliga projekt
+## <a name="sql-server-2019-r-and-python-services"></a>SQL Server 2019 R-och python-tjänster
 
-### <a name="install-git-credential-manager-on-windows"></a>Installera Git-autentiseringshanteraren i Windows
+R Services (in-Database) tillhandahåller en plattform för utveckling och distribution av intelligenta program som kan få nya insikter. Du kan använda det omfattande och kraftfulla R-språket, inklusive de många paket som tillhandahålls av R-communityn, för att skapa modeller och generera förutsägelser från dina SQL Server data. Eftersom R-tjänster (i databasen) integrerar R-språket med SQL Server, kommer Analytics att stå nära data, vilket eliminerar de kostnader och säkerhets risker som är kopplade till att flytta data.
 
-Om du följer TDSP i **Windows**måste du installera **GCM (Git-autentiseringshanteraren)** för att kunna kommunicera med Git-databaserna. För att installera GCM måste du först installera **Chocolaty**. Om du vill installera Chocolaty och GCM kör du följande kommandon i Windows PowerShell som **administratör:**  
+R Services (in-Database) stöder R-språket med öppen källkod med en omfattande uppsättning SQL Server verktyg och tekniker. De erbjuder överlägsen prestanda, säkerhet, tillförlitlighet och hanterbarhet. Du kan distribuera R-lösningar med hjälp av praktiska och välbekanta verktyg. Dina produktions program kan anropa R-körningsmiljön och hämta förutsägelser och visuella objekt med hjälp av Transact-SQL. Du kan också använda skalnings biblioteken för att förbättra skalningen och prestandan för dina R-lösningar. Mer information finns i [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+
+TDSP-teamet från Microsoft har publicerat två slut för ande genom gångar som visar hur du skapar data vetenskaps lösningar i SQL Server 2016 R-tjänster: en för R-programmerare och en för SQL-utvecklare. För **R-programmerare**, se [genom gång av data vetenskap från slut punkt till slut punkt](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). För **SQL-utvecklare**, se [Avancerad analys i databasen för SQL-utvecklare (självstudie)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+
+
+## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Bilaga: verktyg för att konfigurera data vetenskaps projekt
+
+### <a name="install-git-credential-manager-on-windows"></a>Installera git Credential Manager i Windows
+
+Om du följer TDSP i **Windows**måste du installera **git CREDENTIAL Manager (GCM)** för att kommunicera med git-databaserna. Om du vill installera GCM måste du först installera **Chocolaty**. Om du vill installera Chocolaty och GCM kör du följande kommandon i Windows PowerShell som **administratör**:  
 
     iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
     choco install git-credential-manager-for-windows -y
     
 
-### <a name="install-git-on-linux-centos-machines"></a>Installera Git på Linux-maskiner (CentOS)
+### <a name="install-git-on-linux-centos-machines"></a>Installera git på Linux-datorer (CentOS)
 
-Kör följande bash-kommando för att installera Git på Linux-datorer (CentOS):
+Kör följande bash-kommando för att installera git på Linux-datorer (CentOS):
 
     sudo yum install git
 
 
-### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Generera offentliga SSH-nyckel på Linux-maskiner (CentOS)
+### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Generera CentOS-datorer (Public SSH Key på Linux)
 
-Om du använder Linux-datorer (CentOS) för att köra git-kommandona måste du lägga till den offentliga SSH-nyckeln för din dator i dina Azure DevOps-tjänster, så att den här datorn känns igen av Azure DevOps Services. Först måste du generera en offentlig SSH-nyckel och lägga till nyckeln till SSH-offentliga nycklar på säkerhetsinställningssidan för Azure DevOps Services. 
+Om du använder Linux-datorer (CentOS) för att köra git-kommandon måste du lägga till den offentliga SSH-nyckeln för datorn i Azure DevOps-tjänsterna, så att den här datorn kan identifieras av Azure DevOps-tjänsterna. Först måste du generera en offentlig SSH-nyckel och lägga till nyckeln i offentliga SSH-nycklar på sidan säkerhets inställning för Azure DevOps Services. 
 
-1. Om du vill generera SSH-tangenten kör du följande två kommandon: 
+1. Skapa SSH-nyckeln genom att köra följande två kommandon: 
 
    ```
    ssh-keygen
    cat .ssh/id_rsa.pub
    ```
    
-   ![Kommandon för att generera SSH-tangenten](./media/platforms-and-tools/resources-1-generate_ssh.png)
+   ![Kommandon för att generera SSH-nyckeln](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-1. Kopiera hela ssh-tangenten inklusive *ssh-rsa*. 
-1. Logga in på dina Azure DevOps-tjänster. 
-1. Klicka **<Ditt namn\> ** längst upp till höger på sidan och klicka på **säkerhet**. 
+1. Kopiera hela SSH-nyckeln inklusive *SSH-RSA*. 
+1. Logga in på Azure DevOps-tjänsterna. 
+1. Klicka på **<ditt\> namn** i det övre högra hörnet på sidan och klicka på **säkerhet**. 
     
-   ![Klicka på ditt namn och klicka sedan på säkerhet](./media/platforms-and-tools/resources-2-user-setting.png)
+   ![Klicka på ditt namn och sedan på säkerhet](./media/platforms-and-tools/resources-2-user-setting.png)
 
-1. Klicka på **SSH-allmänna nycklar**och klicka på **+Lägg till**. 
+1. Klicka på **offentliga SSH-nycklar**och klicka på **+ Lägg till**. 
 
-   ![Klicka på SSH-offentliga nycklar och klicka sedan på +Lägg till](./media/platforms-and-tools/resources-3-add-ssh.png)
+   ![Klicka på offentliga SSH-nycklar och klicka sedan på + Lägg till](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-1. Klistra in ssh-tangenten som kopieras till textrutan och spara.
+1. Klistra in SSH-nyckeln som kopierats i text rutan och spara.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fullständiga genomgångar från slutpunkt till slutpunkt som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och länkas med miniatyrbeskrivningar i avsnittet [Exempelgenomgångar.](walkthroughs.md) De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbetsflöde eller en pipeline för att skapa ett intelligent program. 
+Fullständiga genom gångar från slut punkt till slut punkt som visar alla steg i processen för **särskilda scenarier** tillhandahålls också. De visas och länkas med miniatyr beskrivningar i [exempel avsnittet genom gångar](walkthroughs.md) . De illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 
 
-Exempel som visar hur du kör steg i Team Data Science Process med hjälp av Azure Machine Learning Studio (klassiskt) finns i utbildningsväg [med Azure ML.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)
+Exempel som visar hur du utför stegen i team data science-processen genom att använda Azure Machine Learning Studio (klassisk) finns i [Azure ml](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) Learning-sökvägen.

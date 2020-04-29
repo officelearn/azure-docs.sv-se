@@ -1,6 +1,6 @@
 ---
-title: Azure VM-storlekar – Beräkning optimerad | Microsoft-dokument
-description: Visar en lista över de olika beräkningsoptimerade storlekarna som är tillgängliga för virtuella datorer i Azure. Visar information om antalet virtuella processorer, datadiskar och nätverkskort samt lagringsdataflöde och nätverksbandbredd för storlekar i den här serien.
+title: Storlekar för virtuella Azure-datorer – Compute-optimerad | Microsoft Docs
+description: Visar en lista över de olika optimerings storlekar som är tillgängliga för virtuella datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines
 documentationcenter: ''
 author: mimckitt
@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.openlocfilehash: e08d593f641c42f9ad605fda013206e70a34e52f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81269643"
 ---
-# <a name="compute-optimized-virtual-machine-sizes"></a>Beräkningsoptimerade storlekar för virtuella datorer
+# <a name="compute-optimized-virtual-machine-sizes"></a>Beräkna optimerade storlekar för virtuella datorer
 
-Beräkningsoptimerade VM-storlekar har ett högt förhållande mellan processor och minne. Dessa storlekar är bra för mellantrafik webbservrar, nätverksenheter, batchprocesser och programservrar. Den här artikeln innehåller information om antalet virtuella processorer, datadiskar och nätverkskort. Den innehåller också information om lagringsdataflöde och nätverksbandbredd för varje storlek i den här gruppningen.
+Compute-optimerade VM-storlekar har ett högt förhållande mellan processor och minne. De här storlekarna är lämpliga för medel stora webb servrar, nätverks enheter, batch-processer och program servrar. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort. Den innehåller också information om lagrings data flöde och nätverks bandbredd för varje storlek i grupperingen.
 
-[Fsv2-serien](fsv2-series.md) är baserad på Intel® Xeon® Platinum 8168-processorn. Den har en ihållande all core Turbo klockfrekvens på 3,4 GHz och en maximal single-core turbo frekvens på 3,7 GHz. Intel® AVX-512-instruktioner är nya på Intel Scalable-processorer. Dessa instruktioner ger upp till en 2X prestandaökning till arbetsbelastningar för vektorbearbetning på flyttalsoperationer med både enkel och dubbel precision. Med andra ord, de är riktigt snabba för alla beräkningsarbetsbelastning.
+[Fsv2-serien](fsv2-series.md) baseras på Intel® Xeon® Platinum 8168-processorn. Den har en hållbar alla kärnor för Turbo Turbo klock hastighet på 3,4 GHz och en maximal Turbo frekvens på 3,7 GHz. Intel® AVX-512-instruktioner är nya på Intel Scalable processors. Dessa instruktioner ger till gång till en dubbel prestanda ökning till vektor bearbetning av arbets belastningar i både enkla och dubbla precisions åtgärder. Med andra ord är de verkligen snabba för alla beräknings arbets belastningar.
 
-Med ett lägre listpris per timme är Fsv2-serien det bästa värdet i prisprestanda i Azure-portföljen baserat på Azure Compute Unit (ACU) per vCPU.
+I ett lägre pris per timme-lista är Fsv2-serien det bästa värdet för pris prestanda i Azure-portföljen baserat på Azure Compute Unit (ACU) per vCPU.
 
 ## <a name="other-sizes"></a>Andra storlekar
 
@@ -40,4 +40,4 @@ Med ett lägre listpris per timme är Fsv2-serien det bästa värdet i prisprest
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

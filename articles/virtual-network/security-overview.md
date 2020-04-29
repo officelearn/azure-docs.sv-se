@@ -1,7 +1,7 @@
 ---
-title: Översikt över Azure-nätverkssäkerhetsgrupper
+title: Översikt över Azure nätverks säkerhets grupper
 titlesuffix: Azure Virtual Network
-description: Läs mer om nätverkssäkerhetsgrupper. Nätverkssäkerhetsgrupper hjälper dig att filtrera nätverkstrafik mellan Azure-resurser.
+description: Lär dig mer om nätverks säkerhets grupper. Med nätverks säkerhets grupper kan du filtrera nätverks trafik mellan Azure-resurser.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,38 +14,38 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81269881"
 ---
 # <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 <a name="network-security-groups"></a>
 
-Du kan använda Azure-nätverkssäkerhetsgrupp för att filtrera nätverkstrafik till och från Azure-resurser i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp innehåller [säkerhetsregler](#security-rules) som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
-I den här artikeln beskrivs egenskaperna för en regel för nätverkssäkerhetsgrupper, [standardsäkerhetsreglerna](#default-security-rules) som tillämpas och de regelegenskaper som du kan ändra för att skapa en [utökad säkerhetsregel](#augmented-security-rules).
+Du kan använda Azures nätverks säkerhets grupp för att filtrera nätverks trafik till och från Azure-resurser i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp innehåller [säkerhetsregler](#security-rules) som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
+I den här artikeln beskrivs egenskaperna för en regel för nätverks säkerhets grupper, de [Standard säkerhets regler](#default-security-rules) som tillämpas och de regel egenskaper som du kan ändra för att skapa en [förstärkt säkerhets regel](#augmented-security-rules).
 
-## <a name="security-rules"></a><a name="security-rules"></a>Säkerhetsregler
+## <a name="security-rules"></a><a name="security-rules"></a>Säkerhets regler
 
 En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler du vill, inom Azure-prenumerationens [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Varje regel anger följande egenskaper:
 
 |Egenskap  |Förklaring  |
 |---------|---------|
-|Namn|Ett unikt namn inom nätverkssäkerhetsgruppen.|
+|Name|Ett unikt namn inom nätverkssäkerhetsgruppen.|
 |Prioritet | Ett tal mellan 100 och 4096. Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.|
 |Källa eller mål| Valfria, eller enskilda IP-adresser, CIDR-block (Classless Inter-Domain Routing) (t.ex. 10.0.0.0/24), [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Om du anger en adress för en Azure-resurs anger du den privata IP-adressen som tilldelats till resursen. Nätverkssäkerhetsgrupper bearbetas efter att Azure omvandlar en offentlig IP-adress till en privat IP-adress för inkommande trafik, och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående trafik. Läs mer om [IP-adresser](virtual-network-ip-addresses-overview-arm.md) i Azure. Du kan begränsa antalet säkerhetsregler du skapar genom att ange ett intervall, en tjänsttagg eller en programsäkerhetsgrupp. Möjligheten att ange flera enskilda IP-adresser och intervall (du kan inte ange flera tjänsttaggar eller programgrupper) i en regel kallas [förhöjda säkerhetsregler](#augmented-security-rules). Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera IP-adresser och IP-adressintervall i nätverkssäkerhetsgrupper som skapats via den klassiska distributionsmodellen. Läs mer om [distributionsmodeller i Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protokoll     | TCP, UDP, ICMP eller Any.|
+|Protokoll     | TCP, UDP, ICMP eller valfritt.|
 |Riktning| Om regeln gäller för inkommande eller utgående trafik.|
 |Portintervall     |Du kan ange en enskild port eller ett portintervall. Du kan till exempel ange 80 eller 10000–10005. Om du anger intervall behöver du inte skapa lika många säkerhetsregler. Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera portar eller portintervall i samma säkerhetsregel i nätverkssäkerhetsgrupper som skapats med den klassiska distributionsmodellen.   |
-|Åtgärd     | Tillåt eller neka        |
+|Action     | Tillåt eller neka        |
 
 Säkerhetsregler för nätverkssäkerhetsgrupper utvärderas baserat på prioritet med hjälp av 5-tuppelinformationen (källa, källport, mål, målport och protokoll) för att tillåta eller neka trafik. En flödespost skapas för befintliga anslutningar. Kommunikation tillåts eller nekas baserat på flödespostens anslutningsstatus. Flödesposten gör att en nätverkssäkerhetsgrupp kan vara tillståndskänslig. Om du till exempel anger en utgående säkerhetsregel till en adress via port 80, behöver du inte ange en inkommande säkerhetsregel för svar på utgående trafik. Du behöver bara ange en inkommande säkerhetsregel om kommunikationen initieras externt. Även det motsatta gäller. Om inkommande trafik tillåts via en port, behöver du inte ange en utgående säkerhetsregel för svar på trafik via porten.
 Befintliga anslutningar kanske inte avbryts när du tar bort en säkerhetsregel som aktiverade flödet. Trafikflöden avbryts när anslutningar har stoppats och ingen trafik passerar i endera riktning under minst ett par minuter.
 
 Det finns gränser för hur många säkerhetsregler du kan skapa i en nätverkssäkerhetsgrupp. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-### <a name="default-security-rules"></a><a name="default-security-rules"></a>Standardsäkerhetsregler
+### <a name="default-security-rules"></a><a name="default-security-rules"></a>Standard säkerhets regler
 
 Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du skapar:
 
@@ -89,23 +89,23 @@ Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du sk
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alla | Neka |
 
-I kolumnerna **Källa** och **Mål** är *VirtualNetwork*, *AzureLoadBalancer*, och *Internet* så kallade [tjänsttaggar](service-tags-overview.md), inte IP-adresser. I protokollkolumnen omfattar **alla** TCP, UDP och ICMP. När du skapar en regel kan du ange TCP, UDP, ICMP eller Any. *0.0.0.0/0* i kolumnerna **Källa** och **Mål** representerar alla adresser. Klienter som Azure portal, Azure CLI eller PowerShell kan använda * eller något för det här uttrycket.
+I kolumnerna **Källa** och **Mål** är *VirtualNetwork*, *AzureLoadBalancer*, och *Internet* så kallade [tjänsttaggar](service-tags-overview.md), inte IP-adresser. I kolumnen protokoll finns **alla** kompasser TCP, UDP och ICMP. När du skapar en regel kan du ange TCP, UDP, ICMP eller valfri. *0.0.0.0/0* i kolumnerna **Källa** och **Mål** representerar alla adresser. Klienter som Azure Portal, Azure CLI eller PowerShell kan använda * eller något av detta uttryck.
  
 Du kan inte ta bort standardreglerna, men du kan åsidosätta dem genom att skapa regler med högre prioritet.
 
-### <a name="augmented-security-rules"></a><a name="augmented-security-rules"></a>Utökade säkerhetsregler
+### <a name="augmented-security-rules"></a><a name="augmented-security-rules"></a>Förstärkta säkerhets regler
 
-Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Det finns gränser för antalet adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Det finns begränsningar för antalet adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 #### <a name="service-tags"></a>Tjänsttaggar
 
-En tjänsttagg representerar en grupp IP-adressprefix från en viss Azure-tjänst. Det bidrar till att minimera komplexiteten i frekventa uppdateringar av nätverkssäkerhetsregler.
+En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Det bidrar till att minimera komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler.
 
-Mer information finns i [Azure-tjänsttaggar](service-tags-overview.md). Ett exempel på hur du använder lagringstjänsttaggen för att begränsa nätverksåtkomsten finns i [Begränsa nätverksåtkomsten till PaaS-resurser](tutorial-restrict-network-access-to-resources.md).
+Mer information finns i avsnittet om [Azure Service-Taggar](service-tags-overview.md). Ett exempel på hur du använder taggen Storage Service för att begränsa nätverks åtkomsten finns i [begränsa nätverks åtkomsten till PaaS-resurser](tutorial-restrict-network-access-to-resources.md).
 
 #### <a name="application-security-groups"></a>Programsäkerhetsgrupper
 
-Med programsäkerhetsgrupper kan du konfigurera nätverkssäkerhet som ett naturligt tillägg till ett programs struktur, så att du kan gruppera virtuella datorer och definiera nätverkssäkerhetsprinciper baserat på dessa grupper. Du kan återanvända din säkerhetsprincip i stor skala utan manuellt underhåll av explicita IP-adresser. Mer information finns i [Programsäkerhetsgrupper](application-security-groups.md).
+Med programsäkerhetsgrupper kan du konfigurera nätverkssäkerhet som ett naturligt tillägg till ett programs struktur, så att du kan gruppera virtuella datorer och definiera nätverkssäkerhetsprinciper baserat på dessa grupper. Du kan återanvända din säkerhetsprincip i stor skala utan manuellt underhåll av explicita IP-adresser. Mer information finns i [program säkerhets grupper](application-security-groups.md).
 
 ## <a name="how-traffic-is-evaluated"></a>Så här utvärderas trafik
 
@@ -136,27 +136,27 @@ För utgående trafik bearbetar Azure först reglerna i en nätverkssäkerhetsgr
 - **VM4**: All nätverkstrafik tillåts från *VM4* eftersom ingen nätverkssäkerhetsgrupp är associerad med nätverksgränssnittet som är kopplat till den virtuella datorn eller till *Subnet3*.
 
 
-### <a name="intra-subnet-traffic"></a>Trafik inom undernät
+### <a name="intra-subnet-traffic"></a>Trafik inom under nätet
 
-Det är viktigt att notera att säkerhetsregler i en NSG som är associerad med ett undernät kan påverka anslutningen mellan den virtuella datorns i det. Om till exempel en regel läggs till i *NSG1* som nekar all inkommande och utgående trafik, kommer *VM1* och *VM2* inte längre att kunna kommunicera med varandra. En annan regel måste läggas till specifikt för att tillåta detta. 
+Det är viktigt att Observera att säkerhets regler i en NSG som är kopplade till ett undernät kan påverka anslutningen mellan den virtuella datorn i det. Om en regel till exempel läggs till i *NSG1* som nekar all inkommande och utgående trafik, kommer *VM1* och *VM2* inte längre att kunna kommunicera med varandra. En annan regel skulle behöva läggas till specifikt för att tillåta detta. 
 
 
 
 Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt genom att visa [gällande säkerhetsregler](virtual-network-network-interface.md#view-effective-security-rules) för ett nätverksgränssnitt. Du kan också använda funktionen [Kontrollera IP-flöde](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure Network Watcher för att ta reda på om kommunikation tillåts till eller från ett nätverksgränssnitt. Funktionen Kontrollera IP-flöde anger om kommunikation tillåts eller nekas och vilken nätverkssäkerhetsregel som tillåter eller nekar trafik.
 
 > [!NOTE]
-> Nätverkssäkerhetsgrupper är associerade till undernät eller virtuella datorer och molntjänster som distribueras i den klassiska distributionsmodellen och till undernät eller nätverksgränssnitt i Resurshanterarens distributionsmodell. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Nätverks säkerhets grupper är kopplade till undernät eller virtuella datorer och moln tjänster som distribueras i den klassiska distributions modellen och till undernät eller nätverks gränssnitt i distributions modellen för Resource Manager. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
 > Såvida du inte har en särskild anledning att inte göra det, rekommenderar vi att du associerar en nätverkssäkerhetsgrupp med ett undernät, eller med ett nätverksgränssnitt, men inte med båda. Eftersom regler i en nätverkssäkerhetsgrupp som är associerad med ett undernät kan stå i konflikt med regler i en nätverkssäkerhetsgrupp som är associerad med ett nätverksgränssnitt, kan det uppstå oväntade kommunikationsproblem som kräver felsökning.
 
 ## <a name="azure-platform-considerations"></a>Azure-plattformsöverväganden
 
-- **Virtuell IP för värdnoden**: Grundläggande infrastrukturtjänster som DHCP, DNS, IMDS och hälsoövervakning tillhandahålls via de virtualiserade värd-IP-adresserna 168.63.129.16 och 169.254.169.254. De här IP-adresserna tillhör Microsoft och är de enda virtualiserade IP-adresserna som används i alla regioner för det här ändamålet. Effektiva säkerhetsregler och effektiva rutter kommer inte att omfatta dessa plattformsregler. Om du vill åsidosätta den här grundläggande infrastrukturkommunikationen kan du skapa en säkerhetsregel för att neka trafik med hjälp av följande [tjänsttaggar](service-tags-overview.md) i dina regler för nätverkssäkerhetsgruppen: AzurePlatformDNS, AzurePlatformIMDS, AzurePlatformLKM. Lär dig hur du [diagnostiserar filtrering av nätverkstrafik](diagnose-network-traffic-filter-problem.md) och [diagnostiserar nätverksroutning](diagnose-network-routing-problem.md).
+- Den **virtuella IP-adressen för noden värd**: grundläggande infrastruktur tjänster som DHCP, DNS, IMDS och hälso övervakning tillhandahålls via de virtualiserade värd-IP-adresserna 168.63.129.16 och 169.254.169.254. De här IP-adresserna tillhör Microsoft och är de enda virtualiserade IP-adresserna som används i alla regioner för det här ändamålet. Gällande säkerhets regler och effektiva vägar omfattar inte dessa plattforms regler. Om du vill åsidosätta den här grundläggande infrastruktur kommunikationen kan du skapa en säkerhets regel för att neka trafik genom att använda följande [service Taggar](service-tags-overview.md) i reglerna för nätverks säkerhets grupper: AzurePlatformDNS, AzurePlatformIMDS, AzurePlatformLKM. Lär dig hur du [diagnostiserar filtrering av nätverks trafik](diagnose-network-traffic-filter-problem.md) och hur du [diagnostiserar nätverks routning](diagnose-network-routing-problem.md).
 - **Licensiering (nyckelhanteringstjänsten):** Windows-avbildningar som kör på de virtuella datorerna ska vara licensierade. Licensieringen kontrolleras genom att en begäran skickas till nyckelhanteringstjänstens värdservrar som hanterar sådana frågor. Begäran är en utgående begäran via port 1688. För distributioner som använder konfigurationer med [standardflödet 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), inaktiveras denna plattformsregel.
 - **Virtuella datorer i lastbalanserade pooler**: Källporten och adressintervallet som används kommer från den ursprungliga datorn, inte lastbalanseraren. Målporten och måladressutrymmet kommer från måldatorn, inte lastbalanseraren.
 - **Azure-tjänstinstanser**: Instanser av flera Azure-tjänster, till exempel HDInsight, tillämpningstjänstmiljöer och VM-skalningsuppsättningar distribueras i undernät för virtuella nätverk. En fullständig lista över tjänster som du kan distribuera till virtuella nätverk finns i [Virtuellt nätverk för Azure-tjänster](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Ta reda på portkraven för varje tjänst innan du tillämpar en nätverkssäkerhetsgrupp för det undernät som resursen är distribuerad i. Om du nekar åtkomst till portar som krävs för tjänsten kommer tjänsten inte att fungera korrekt.
-- **Skicka utgående e-post:** Microsoft rekommenderar att du använder autentiserade SMTP-relätjänster (vanligtvis anslutna via TCP-port 587, men ofta även andra) för att skicka e-post från Virtuella Azure-datorer. SMTP-relätjänsterna är specialiserade på avsändaromdöme för att minska möjligheten att externa e-postleverantörer avvisar meddelanden. SMTP-relätjänsterna omfattar, men är inte begränsade till, Exchange Online Protection och SendGrid. Användningen av SMTP-relätjänster är inte begränsad i Azure, oavsett vilken typ av prenumeration du har. 
+- **Skicka utgående e-post**: Microsoft rekommenderar att du använder AUTENTISERADE SMTP-relätjänster (vanligt vis anslutna via TCP-port 587, men även andra) för att skicka e-post från Azure Virtual Machines. SMTP-relätjänsterna är specialiserade på avsändaromdöme för att minska möjligheten att externa e-postleverantörer avvisar meddelanden. SMTP-relätjänsterna omfattar, men är inte begränsade till, Exchange Online Protection och SendGrid. Användningen av SMTP-relätjänster är inte begränsad i Azure, oavsett vilken typ av prenumeration du har. 
 
   Om du har skapat din Azure-prenumeration före 15 november 2017 kan du, förutom att använda SMTP-relätjänster, även skicka e-post direkt via TCP-port 25. Om du har skapat din prenumeration efter 15 november 2017 kan du inte skicka e-post direkt via port 25. Beteendet för utgående kommunikation via port 25 beror på vilken typ av prenumeration du har:
 
@@ -169,8 +169,8 @@ Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om vilka Azure-resurser som kan distribueras till ett virtuellt nätverk och ha nätverkssäkerhetsgrupper associerade till dem finns i [Integrering av virtuella nätverk för Azure-tjänster](virtual-network-for-azure-services.md)
+* Information om vilka Azure-resurser som kan distribueras till ett virtuellt nätverk och om nätverks säkerhets grupper är kopplade till dem finns i [integrering av virtuella nätverk för Azure-tjänster](virtual-network-for-azure-services.md)
 * Om du aldrig har skapat en nätverkssäkerhetsgrupp kan du gå en snabb [självstudie](tutorial-filter-network-traffic.md) för att få lite erfarenhet. 
 * Om du redan är bekant med nätverkssäkerhetsgrupper och vill lära dig hur du hanterar dem läser du [Hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md). 
 * Om du har kommunikationsproblem och behöver felsöka nätverkssäkerhetsgrupper läser du [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md) (Diagnostisera problem med filtreringen av nätverkstrafik för virtuella nätverk). 
-* Lär dig hur du aktiverar [flödesloggar för nätverkssäkerhetsgrupper](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att analysera nätverkstrafik till och från resurser som har en associerad nätverkssäkerhetsgrupp.
+* Lär dig hur du aktiverar [flödes loggar för nätverks säkerhets grupper](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att analysera nätverks trafik till och från resurser som har en associerad nätverks säkerhets grupp.

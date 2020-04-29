@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure CDN-slutpunkt | Microsoft-dokument
-description: Den här artikeln visar hur du skapar en ny CDN-slutpunkt (Azure Content Delivery Network), inklusive avancerade inställningar.
+title: Skapa en Azure CDN-slutpunkt | Microsoft Docs
+description: Den här artikeln visar hur du skapar en ny Azure Content Delivery Network-slutpunkt (CDN), inklusive avancerade inställningar.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,17 +15,17 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81254023"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Skapa en Azure CDN-slutpunkt
-I den här artikeln beskrivs alla inställningar för att skapa en [CDN-slutpunkt (Azure Content Delivery Network)](cdn-overview.md) i en befintlig CDN-profil. När du har skapat en profil och en slutpunkt kan du börja leverera innehåll till dina kunder. En snabbstart för att skapa en profil och slutpunkt finns i [Snabbstart: Skapa en Azure CDN-profil och slutpunkt](cdn-create-new-endpoint.md).
+I den här artikeln beskrivs alla inställningar för att skapa en [Azure Content Delivery Network-slutpunkt (CDN)](cdn-overview.md) i en befintlig CDN-profil. När du har skapat en profil och en slut punkt kan du börja leverera innehåll till dina kunder. En snabb start för att skapa en profil och slut punkt finns i [snabb start: skapa en Azure CDN profil och slut punkt](cdn-create-new-endpoint.md).
 
 ## <a name="prerequisites"></a>Krav
-Innan du kan skapa en CDN-slutpunkt måste du ha skapat minst en CDN-profil, som kan innehålla en eller flera CDN-slutpunkter. Du kan organisera dina CDN-slutpunkter efter internetdomän, webbapp eller något annat kriterium genom att använda flera profiler. Eftersom CDN-priser tillämpas på CDN-profilnivå måste du skapa flera CDN-profiler om du vill använda en blandning av Azure CDN-prisnivåer. En ny CDN-profil finns i [Skapa en ny CDN-profil](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
+Innan du kan skapa en CDN-slutpunkt måste du ha skapat minst en CDN-profil, som kan innehålla en eller flera CDN-slutpunkter. Du kan organisera dina CDN-slutpunkter efter internetdomän, webbapp eller något annat kriterium genom att använda flera profiler. Eftersom CDN-prissättningen används på CDN-profilens nivå måste du skapa flera CDN-profiler om du vill använda en blandning av Azure CDN pris nivåer. Information om hur du skapar en CDN-profil finns i [skapa en ny CDN-profil](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
@@ -36,25 +36,25 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    
     Fönstret för CDN-profilen visas.
 
-2. Välj **Slutpunkt**.
+2. Välj **slut punkt**.
    
-    ![CDN-välj slutpunkt](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
+    ![CDN-Välj slut punkt](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
    
     Sidan **Lägg till en slutpunkt** visas.
    
-    ![Lägg till slutpunktssida](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
+    ![Sidan Lägg till slut punkt](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt cachelagrade resurser i _ \<domänslutpunktsnamnet>_.azureedge.net.
+3. I **Namn** anger du ett unikt namn för den nya CDN-slutpunkten. Det här namnet används för att komma åt dina cachelagrade resurser på domänen _ \<endpointname>_. azureedge.net.
 
-4. För **Origin-typ**väljer du en av följande ursprungstyper: 
+4. För **typ av ursprung**väljer du någon av följande ursprungs typer: 
    - **Lagring** för Azure Storage
-   - **Molntjänst** för Azure Cloud Services
-   - **Webbappar** för Azure
-   - **Anpassat ursprung** för alla andra allmänt tillgängliga ursprungswebbserver (finns i Azure eller någon annanstans)
+   - **Moln tjänst** för Azure-Cloud Services
+   - **Web App** för Azure Web Apps
+   - **Anpassat ursprung** för alla andra offentligt tillgängliga ursprungs webb servrar (som finns i Azure eller på annan plats)
 
-5. För **Origin-värdnamn**väljer eller anger du din ursprungsserverdomän. Listrutan visar alla tillgängliga ursprungsservrar av den typ som du angav i steg 4. Om du har valt **Anpassat ursprung** som ursprungstyp anger du domänen för den anpassade ursprungsservern.
+5. För **Ursprungligt värdnamn**väljer eller anger du din ursprungs Server domän. List rutan visar alla tillgängliga ursprungs servrar av den typ som du angav i steg 4. Om du valde **anpassat ursprung** som typ av ursprung anger du domänen för din anpassade ursprungs Server.
     
-6. För **Origin-sökvägen**anger du sökvägen till de resurser som du vill cachelagra. Om du vill tillåta cachelagring av resurser i den domän som du angav i steg 5 lämnar du den här inställningen tom.
+6. För **ursprungs Sök väg**anger du sökvägen till de resurser som du vill cachelagra. Lämna inställningen tom om du vill tillåta cachelagring av alla resurser i den domän du angav i steg 5.
     
 7. I **Ursprungsvärdadress** anger du värdhuvudet som du vill att Azure CDN ska skicka med varje begäran, eller så lämnar du standardvärdet.
    
@@ -62,31 +62,31 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
    > Vissa typer av ursprung, till exempel Azure Storage och Web Apps, kräver att värdhuvudet matchar ursprungets domän. Lämna standardvärdet såvida du inte har ett ursprung som kräver ett värdhuvud som skiljer sig från dess domän.
    > 
     
-8. För **protokoll-** och **Origin-port anger**du de protokoll och portar som ska användas för att komma åt dina resurser på ursprungsservern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-angivna domänen_\<(slutpunktsnamn>_.azureedge.net) för att komma åt HTTPS-innehåll. 
+8. För **protokoll** och **ursprungs port**anger du de protokoll och portar som ska användas för att komma åt dina resurser på ursprungs servern. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-tillhandahållna domänen (_\<endpointname>_. azureedge.net) för att komma åt https-innehåll. 
    
    > [!NOTE]
-   > **Ursprungsportvärdet** bestämmer bara den port som slutpunkten använder för att hämta information från ursprungsservern. Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett värdet för **Ursprungsport**.  
+   > Värdet för **ursprungs porten** bestämmer bara porten som slut punkten använder för att hämta information från ursprungs servern. Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett värdet för **Ursprungsport**.  
    > 
    > Slutpunkter i **Azure CDN from Akamai**-profiler tillåter inte hela TCP-portintervallet för ursprungsportar. En lista över ursprungsportar som inte tillåts finns i [Azure CDN från Akamai-tillåtna ursprungsportar](/previous-versions/azure/mt757337(v=azure.100)).  
    > 
-   > HTTPS-stöd för Azure CDN-anpassade domäner stöds inte på **Azure CDN från Akamai-produkter.** Mer information finns i [Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
+   > HTTPS-stöd för Azure CDN anpassade domäner stöds inte på **Azure CDN från Akamai** -produkter. Mer information finns i [Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
     
-9. För **Optimerad för**väljer du en optimeringstyp som bäst matchar scenariot och typen av innehåll som du vill att slutpunkten ska leverera. Mer information finns i [Optimera Azure CDN för typ av innehållsleverans](cdn-optimization-overview.md).
+9. För **optimerad för**väljer du en optimerings typ som bäst matchar det scenario och den typ av innehåll som du vill att slut punkten ska leverera. Mer information finns i [optimera Azure CDN för typ av innehålls leverans](cdn-optimization-overview.md).
 
-    Följande inställningar för optimeringstyp stöds enligt profiltyp:
-    - **Azure CDN Standard från** Microsoft-profiler:
-       - [**Allmän webbleverans**](cdn-optimization-overview.md#general-web-delivery)
+    Följande optimerings typs inställningar stöds, enligt profil typ:
+    - **Azure CDN Standard från Microsoft** -profiler:
+       - [**Allmän webb leverans**](cdn-optimization-overview.md#general-web-delivery)
 
-    - **Azure CDN Standard från Verizon** och **Azure CDN Premium från** Verizon-profiler:
-       - [**Allmän webbleverans**](cdn-optimization-overview.md#general-web-delivery)
-       - [**Dynamisk webbplatsacceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
+    - **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -profiler:
+       - [**Allmän webb leverans**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Acceleration av dynamisk webbplats**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
-    - **Azure CDN Standard från Akamai-profiler:**
-       - [**Allmän webbleverans**](cdn-optimization-overview.md#general-web-delivery)
-       - [**Allmän medieströmning**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Video på begäran media streaming**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**Stor fil nedladdning**](cdn-optimization-overview.md#large-file-download)
-       - [**Dynamisk webbplatsacceleration**](cdn-optimization-overview.md#dynamic-site-acceleration)
+    - **Azure CDN Standard från Akamai** -profiler:
+       - [**Allmän webb leverans**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Allmän medie direkt uppspelning**](cdn-optimization-overview.md#general-media-streaming)
+       - [**Medie direkt uppspelning av video på begäran**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Hämtning av stora filer**](cdn-optimization-overview.md#large-file-download)
+       - [**Acceleration av dynamisk webbplats**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. Välj **Lägg till** för att skapa den nya slutpunkten.
    
@@ -99,10 +99,10 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
     - För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
     - För **Azure CDN Standard från Verizon**- och **Azure CDN Premium från Verizon**-profiler slutförs spridningen vanligtvis inom 90 minuter. 
    
-    Om du försöker använda CDN-domännamnet innan slutpunktskonfigurationen har spridits till POP-servrarna (point-of-presence) kan du få en HTTP 404-svarsstatus. Om det har gått flera timmar sedan du skapade slutpunkten och du fortfarande får 404 svarsstatus läser du [Felsöka Azure CDN-slutpunkter som returnerar en 404-statuskod](cdn-troubleshoot-endpoint.md).
+    Om du försöker använda CDN-domännamnet innan slut punkts konfigurationen har spridits till POP-servrarna (Point-of-Presence) kan du få en HTTP 404-svars status. Om det har varit flera timmar sedan du skapade slut punkten och du fortfarande får en 404-svars status, se [fel sökning Azure CDN slut punkter som returnerar en 404-status kod](cdn-troubleshoot-endpoint.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort en slutpunkt när den inte längre behövs markerar du den och väljer sedan **Ta bort**. 
+Om du vill ta bort en slut punkt när den inte längre behövs markerar du den och väljer sedan **ta bort**. 
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om anpassade domäner fortsätter du till självstudien för att lägga till en anpassad domän i CDN-slutpunkten.

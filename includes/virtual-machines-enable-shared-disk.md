@@ -9,30 +9,30 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008373"
 ---
 ## <a name="limitations"></a>Begränsningar
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
-## <a name="disk-sizes"></a>Diskstorlekar
+## <a name="disk-sizes"></a>Disk storlekar
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
 ## <a name="deploy-shared-disks"></a>Distribuera delade diskar
 
-### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Distribuera en premium-SSD som en delad disk
+### <a name="deploy-a-premium-ssd-as-a-shared-disk"></a>Distribuera en Premium SSD som en delad disk
 
-Om du vill distribuera en hanterad disk med `maxShares` funktionen delad disk aktiverad använder du den nya egenskapen och definierar ett värde som är större än 1. Detta gör disken delbar över flera virtuella datorer.
+Om du vill distribuera en hanterad disk med funktionen delad disk aktive rad använder `maxShares` du den nya egenskapen och anger ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
 
 > [!IMPORTANT]
-> Värdet `maxShares` på kan bara ställas in eller ändras när en disk har avmonterats från alla virtuella datorer. Se [Diskstorlekarna](#disk-sizes) för de `maxShares`tillåtna värdena för .
+> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares`.
 
-Innan du använder följande `[parameters('dataDiskName')]` `[resourceGroup().location]`mall `[parameters('dataDiskSizeGB')]`ersätter du , och `[parameters('maxShares')]` med dina egna värden.
+Innan du `[parameters('dataDiskName')]`använder följande mall ersätter du, `[resourceGroup().location]` `[parameters('dataDiskSizeGB')]`, och `[parameters('maxShares')]` med dina egna värden.
 
 ```json
 { 
@@ -73,14 +73,14 @@ Innan du använder följande `[parameters('dataDiskName')]` `[resourceGroup().lo
 }
 ```
 
-### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Distribuera en ultradisk som en delad disk
+### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Distribuera en Ultra disk som en delad disk
 
 #### <a name="cli"></a>CLI
 
-Om du vill distribuera en hanterad disk `maxShares` med funktionen delad disk aktiverad ändrar du parametern till ett värde som är större än 1. Detta gör disken delbar över flera virtuella datorer.
+Om du vill distribuera en hanterad disk med funktionen delad disk aktive `maxShares` rad, ändra parametern till ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
 
 > [!IMPORTANT]
-> Värdet `maxShares` på kan bara ställas in eller ändras när en disk har avmonterats från alla virtuella datorer. Se [Diskstorlekarna](#disk-sizes) för de `maxShares`tillåtna värdena för .
+> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares`.
 
 ```azurecli
 #Creating an Ultra shared Disk 
@@ -95,12 +95,12 @@ az disk show -g rg1 -n clidisk
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Om du vill distribuera en hanterad disk med `maxShares` funktionen delad disk aktiverad använder du egenskapen och definierar ett värde som är större än 1. Detta gör disken delbar över flera virtuella datorer.
+Om du vill distribuera en hanterad disk med funktionen delad disk aktive rad `maxShares` använder du egenskapen och definierar ett värde som är större än 1. Detta gör disk delningen över flera virtuella datorer.
 
 > [!IMPORTANT]
-> Värdet `maxShares` på kan bara ställas in eller ändras när en disk har avmonterats från alla virtuella datorer. Se [Diskstorlekarna](#disk-sizes) för de `maxShares`tillåtna värdena för .
+> Värdet för `maxShares` kan bara anges eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares`.
 
-Innan du använder följande `[parameters('dataDiskName')]` `[resourceGroup().location]`mall `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]`ersätter du , , `[parameters('diskIOPSReadWrite')]`, , `[parameters('diskMBpsReadWrite')]`, `[parameters('diskIOPSReadOnly')]`och `[parameters('diskMBpsReadOnly')]` med dina egna värden.
+Innan du använder `[parameters('dataDiskName')]`följande mall ersätter du, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]` `[parameters('maxShares')]` `[parameters('diskIOPSReadWrite')]` `[parameters('diskMBpsReadWrite')]` `[parameters('diskIOPSReadOnly')]`,,,, och `[parameters('diskMBpsReadOnly')]` med dina egna värden.
 
 ```json
 {
@@ -168,12 +168,12 @@ Innan du använder följande `[parameters('dataDiskName')]` `[resourceGroup().lo
 }
 ```
 
-### <a name="using-azure-shared-disks-with-your-vms"></a>Använda delade Azure-diskar med dina virtuella datorer
+### <a name="using-azure-shared-disks-with-your-vms"></a>Använda Azure delade diskar med dina virtuella datorer
 
-När du har distribuerat `maxShares>1`en delad disk med kan du montera disken på en eller flera av dina virtuella datorer.
+När du har distribuerat en delad disk med `maxShares>1`kan du montera disken till en eller flera av dina virtuella datorer.
 
 > [!IMPORTANT]
-> Alla virtuella datorer som delar en disk måste distribueras i samma [närhetsplaceringsgrupp](../articles/virtual-machines/windows/proximity-placement-groups.md).
+> Alla virtuella datorer som delar en disk måste distribueras i samma [närhets placerings grupp](../articles/virtual-machines/windows/proximity-placement-groups.md).
 
 ```azurepowershell-interactive
 
@@ -197,9 +197,9 @@ update-AzVm -VM $vm -ResourceGroupName $resourceGroup
 
 ## <a name="supported-scsi-pr-commands"></a>SCSI PR-kommandon som stöds
 
-När du har monterat den delade disken på dina virtuella datorer i klustret kan du upprätta kvorum och läsa/skriva till disken med SCSI PR. Följande PR-kommandon är tillgängliga när du använder delade Azure-diskar:
+När du har monterat den delade disken till dina virtuella datorer i klustret kan du upprätta kvorum och läsa/skriva till disken med SCSI PR. Följande PR-kommandon är tillgängliga när du använder Azure delade diskar:
 
-Om du vill interagera med disken börjar du med listan för beständiga reservationsåtgärder:
+Om du vill interagera med disken börjar du med listan persistent-reservation-åtgärd:
 
 ```
 PR_REGISTER_KEY 
@@ -217,7 +217,7 @@ PR_CLEAR_RESERVATION
 PR_RELEASE_RESERVATION 
 ```
 
-När du använder PR_RESERVE, PR_PREEMPT_RESERVATION eller PR_RELEASE_RESERVATION anger du någon av följande beständiga reservationstyp:
+När du använder PR_RESERVE, PR_PREEMPT_RESERVATION eller PR_RELEASE_RESERVATION anger du någon av följande beständiga reservations typer:
 
 ```
 PR_NONE 
@@ -235,9 +235,9 @@ PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS 
 ```
 
-Du måste också ange en beständig reservationsnyckel när du använder PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION eller PR_RELEASE-RESERVATION.
+Du måste också ange en permanent reservations nyckel när du använder PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION eller PR_RELEASE-RESERVATION.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du är intresserad av att prova delade diskar registrerar [du dig för vår förhandsgranskning.](https://aka.ms/AzureSharedDiskPreviewSignUp)
+Om du är intresse rad av att prova delade diskar kan du [Registrera dig för vår för hands version](https://aka.ms/AzureSharedDiskPreviewSignUp).

@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Skapa och hantera en azure-skalningsuppsättning för virtuella datorer
+title: Självstudie – Skapa och hantera en skalnings uppsättning för virtuella Azure-datorer
 description: Läs hur du använder Azure PowerShell för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 938b4e64dd5b67488ae5d061f2ceb29ae4bb7f6e
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011259"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure PowerShell
@@ -93,7 +93,7 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 ## <a name="list-connection-information"></a>Lista anslutningsinformation
 En offentlig IP-adress är tilldelad till lastbalanseraren som dirigerar trafik till de enskilda virtuella datorinstanserna. Som standard läggs NAT (Network Address Translation)-regler till Azure-lastbalanseraren som vidarebefordrar fjärranslutningstrafik till varje virtuell dator på en viss port. Om du vill ansluta till de virtuella datorinstanserna i en skalningsuppsättning, kan du skapa en fjärranslutning till en tilldelad offentlig IP-adress och portnummer.
 
-Om du vill visa en lista med NAT-portar för anslutning till VM-instanser i en skalningsuppsättning hämtar du först lastbalanseringsobjektet med [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Visa sedan de inkommande [NAT-reglerna med Get-AzLoadBalancerInboundNatRuleConfig:](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig)
+Om du vill visa en lista med NAT-portar för anslutning till VM-instanser i en skalningsuppsättning hämtar du först lastbalanseringsobjektet med [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Visa sedan de ingående NAT-reglerna med [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig):
 
 
 ```azurepowershell-interactive
@@ -132,7 +132,7 @@ IpAddress
 52.168.121.216
 ```
 
-Skapa en fjärranslutning till din första virtuella datorinstans. Ange din offentliga IP-adress och portnummer för nödvändiga virtuella datorinstanser som de visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalningsuppsättningen (som standard i exempelkommandona, *azureuser* och *\@P ssw0rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till den virtuella datorinstansen *1*:
+Skapa en fjärranslutning till din första virtuella datorinstans. Ange din offentliga IP-adress och portnummer för nödvändiga virtuella datorinstanser som de visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalnings uppsättningen (som standard i exempel kommandona, *azureuser* och *\@P Ssw0Rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till den virtuella datorinstansen *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

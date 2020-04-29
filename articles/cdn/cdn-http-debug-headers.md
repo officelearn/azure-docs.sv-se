@@ -1,6 +1,6 @@
 ---
-title: X-EC-Debug HTTP-huvuden för Azure CDN-regler motor | Microsoft-dokument
-description: X-EC-Debug-felsökningslagringsfachebegäranden innehåller ytterligare information om cacheprincipen som tillämpas på den begärda tillgången. Dessa rubriker är specifika för Verizon.
+title: X-EC-felsöka HTTP-huvuden för Azure CDN-regel motor | Microsoft Docs
+description: Huvudet X-EC-debug-begäran om cacheminne innehåller ytterligare information om den cachelagrade princip som tillämpas på den begärda till gången. De här rubrikerna är bara för Verizon.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,159 +15,159 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260504"
 ---
-# <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EC-Debug HTTP-huvuden för Azure CDN-regelmotor
-Felsökningscachebegäranshuvudet `X-EC-Debug`ger ytterligare information om cacheprincipen som tillämpas på den begärda tillgången. Dessa rubriker är specifika för **Azure CDN Premium från** Verizon-produkter.
+# <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EC-felsöka HTTP-huvuden för Azure CDN-regel motor
+Rubriken för felsöknings- `X-EC-Debug`cachens begär ande innehåller ytterligare information om den cachelagrade princip som tillämpas på den begärda till gången. Dessa huvuden är speciella för **Azure CDN Premium från Verizon** -produkter.
 
 ## <a name="usage"></a>Användning
-Svaret som skickas från POP-servrarna `X-EC-Debug` till en användare innehåller huvudet endast när följande villkor är uppfyllda:
+Svaret som skickas från POP-servrarna till en användare inkluderar endast `X-EC-Debug` huvudet när följande villkor uppfylls:
 
-- Funktionen [Felsökningscachen svarshuvuden](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) har aktiverats på regelmotorn för den angivna begäran.
-- Den angivna begäran definierar den uppsättning felsökningscachesvarshuvuden som ska inkluderas i svaret.
+- Funktionen för att [Felsöka cache-svarshuvuden](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) har Aktiver ATS i regel motorn för den angivna begäran.
+- Den angivna begäran definierar den uppsättning av svars rubriker för debug-cachen som ska ingå i svaret.
 
-## <a name="requesting-debug-cache-information"></a>Begära felsökningscacheinformation
-Använd följande direktiv i den angivna begäran för att definiera felsökningscachen som ska ingå i svaret:
+## <a name="requesting-debug-cache-information"></a>Begär information om felsöknings-cache
+Använd följande direktiv i den angivna begäran för att definiera den felsöknings-cache-information som ska ingå i svaret:
 
 Begärandehuvud | Beskrivning |
 ---------------|-------------|
-X-EC-Debug: x-ec-cache | [Statuskod för cache](#cache-status-code-information)
-X-EC-Debug: x-ec-cache-fjärrkontroll | [Statuskod för cache](#cache-status-code-information)
-X-EC-Debug: x-ec-check-cacheable | [Cachebara](#cacheable-response-header)
-X-EC-Debug: x-ec-cache-nyckel | [Cache-nyckel](#cache-key-response-header)
-X-EC-Debug: x-ec-cache-tillstånd | [Cachetillstånd](#cache-state-response-header)
+X-EG-debug: x-EC-cache | [Status kod för cache](#cache-status-code-information)
+X-EG-debug: x-EC-cache-Remote | [Status kod för cache](#cache-status-code-information)
+X-EG-debug: x-EG-check-cacheable | [Kan cachelagras](#cacheable-response-header)
+X-EG-debug: x-EG-cache-Key | [Cache-Key](#cache-key-response-header)
+X-EG-debug: x-EC-cache-State | [Cache-tillstånd](#cache-state-response-header)
 
 ### <a name="syntax"></a>Syntax
 
-Felsökningscachens svarshuvuden kan begäras genom att inkludera följande huvud och de angivna direktiven i begäran:
+Felsök cache-svarshuvuden kan begäras genom att inkludera följande rubrik och de angivna direktiven i begäran:
 
 `X-EC-Debug: Directive1,Directive2,DirectiveN`
 
-### <a name="sample-x-ec-debug-header"></a>Exempel på X-EC-Felsökningshuvud
+### <a name="sample-x-ec-debug-header"></a>Exempel på X-EC – fel söknings huvud
 
 `X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state`
 
-## <a name="cache-status-code-information"></a>Information om cachestatuskod
-X-EC-Debug-svarshuvudet kan identifiera en server och hur den hanterade svaret via följande direktiv:
+## <a name="cache-status-code-information"></a>Information om cache status kod
+Svars huvudet för X-EG-debug kan identifiera en server och hur den hanterar svaret genom följande direktiv:
 
 Huvud | Beskrivning
 -------|------------
-X-EC-Debug: x-ec-cache | Det här huvudet rapporteras när innehåll dirigeras via CDN. Den identifierar POP-servern som uppfyllde begäran.
-X-EC-Debug: x-ec-cache-fjärrkontroll | Det här huvudet rapporteras endast när det begärda innehållet cachelagrades på en ursprungssköldserver eller en ADN-gatewayserver.
+X-EG-debug: x-EC-cache | Den här rubriken rapporteras när innehållet dirigeras via CDN. Den identifierar den POP-server som uppfyllde begäran.
+X-EG-debug: x-EC-cache-Remote | Den här rubriken rapporteras endast när det begärda innehållet cachelagrades på en ursprungs skärms Server eller en och gateway-server.
 
-### <a name="response-header-format"></a>Format för svarsrubrik
+### <a name="response-header-format"></a>Format för svars huvud
 
-X-EC-Debug-huvudet rapporterar cachestatuskodsinformation i följande format:
+Status kod informationen för cache i X-EG-felsöknings huvudet i följande format:
 
 - `X-EC-Debug: x-ec-cache: <StatusCode from Platform (POP/ID)>`
 
 - `X-EC-Debug: x-ec-cache-remote: <StatusCode from Platform (POP/ID)>`
 
-Termerna som används i syntaxen för svarshuvudet ovan definieras på följande sätt:
-- Statuskod: Anger hur det begärda innehållet hanterades av CDN, som representeras via en cachestatuskod.
+De termer som används i ovanstående syntax för svars huvud definieras enligt följande:
+- StatusCode: anger hur det begärda innehållet hanterades av CDN, vilket representeras genom en cache-statuskod.
     
-    Den TCP_DENIED statuskoden kan rapporteras i stället för INGEN när en obehörig begäran nekas på grund av tokenbaserad autentisering. STATUSkoden NONE fortsätter dock att användas när cachestatusrapporter eller råloggdata visas.
+    TCP_DENIED status kod kan rapporteras i stället för ingen när en obehörig begäran nekas på grund av tokenbaserad autentisering. Men status koden ingen fortsätter att användas när du visar status rapporter eller rå data i cachen.
 
-- Plattform: Anger den plattform där innehållet begärdes. Följande koder gäller för det här fältet:
+- Plattform: anger den plattform där innehållet begärdes. Följande koder är giltiga för det här fältet:
 
     Kod  | Plattform
     ------| --------
-    Ecacc (europeiska) | HTTP Stor
-    Ecs   | HTTP Liten
-    Ecd   | Application Delivery Network (ADN)
+    ECAcc | HTTP-stor
+    ECS   | HTTP-liten
+    ECD   | Application Delivery Network (och)
 
-- POP: Anger [pop](cdn-pop-abbreviations.md) som hanterade begäran. 
+- POP: anger den [pop](cdn-pop-abbreviations.md) som hanterade begäran. 
 
-### <a name="sample-response-headers"></a>Exempel på svarsrubriker
+### <a name="sample-response-headers"></a>Exempel på svarshuvuden
 
-Följande exempelrubriker innehåller information om cachestatuskod för en begäran:
+Följande exempel rubriker tillhandahåller information om cache status kod för en begäran:
 
 - `X-EC-Debug: x-ec-cache: TCP_HIT from ECD (lga/0FE8)`
 
 - `X-EC-Debug: x-ec-cache-remote: TCP_HIT from ECD (dca/EF00)`
 
-## <a name="cacheable-response-header"></a>Svarshuvud för cachelagrar
-Svarshuvudet `X-EC-Debug: x-ec-check-cacheable` anger om det begärda innehållet kan ha cachelagrats.
+## <a name="cacheable-response-header"></a>Svars huvud för cacheminne
+`X-EC-Debug: x-ec-check-cacheable` Svars huvudet visar om det begärda innehållet kan ha cachelagrats.
 
-Det här svarshuvudet anger inte om cachelagring ägde rum. I stället anges om begäran var berättigad till cachelagring.
+Det här svars huvudet indikerar inte om cachelagringen ägde rum. I stället anger det om begäran har kvalificerats för cachelagring.
 
-### <a name="response-header-format"></a>Format för svarsrubrik
+### <a name="response-header-format"></a>Format för svars huvud
 
-Svarshuvudet `X-EC-Debug` som rapporterar om en begäran kunde ha cachelagrats är i följande format:
+`X-EC-Debug` Svars huvudets rapportering om en begäran kan ha cachelagrats är i följande format:
 
 `X-EC-Debug: x-ec-check-cacheable: <cacheable status>`
 
-Termen som används i syntaxen för svarshuvudet ovan definieras på följande sätt:
+Termen som används i ovanstående syntax för svars huvud definieras enligt följande:
 
 Värde  | Beskrivning
 -------| --------
-JA    | Anger att det begärda innehållet var kvalificerat för cachelagring.
-NO     | Anger att det begärda innehållet inte var berättigat för cachelagring. Denna status kan bero på något av följande: <br /> - Kundspecifik konfiguration: En konfiguration som är specifik för ditt konto kan hindra popservrarna från att cachelagring av en tillgång. Regelmotor kan till exempel förhindra att en tillgång cachelagras genom att aktivera funktionen Bypass-cache för kvalificerade begäranden.<br /> - Cache svarshuvuden: Den begärda tillgångens Cache-Control och upphör att gälla rubriker kan hindra POP-servrar från att cachelagra den.
-UNKNOWN | Anger att servrarna inte kunde bedöma om den begärda tillgången kunde cachelagras. Den här statusen inträffar vanligtvis när begäran nekas på grund av tokenbaserad autentisering.
+JA    | Anger att det begärda innehållet är kvalificerat för cachelagring.
+NO     | Anger att det begärda innehållet inte var berättigat för cachelagring. Den här statusen kan bero på någon av följande orsaker: <br /> – Kundspecifik konfiguration: en konfiguration som är specifik för ditt konto kan förhindra att pop-servrarna cachelagrar en till gång. Till exempel kan regel motorn förhindra att en till gång cachelagras genom att aktivera funktionen bypass cache för kvalificerings begär Anden.<br /> – Cache-svarshuvuden: den begärda till gångens Cache-Control och Expires-huvuden kan förhindra att POP-servrarna cachelagrar den.
+UNKNOWN | Anger att servrarna inte kunde utvärdera om den begärda till gången var cachebar. Den här statusen inträffar vanligt vis när begäran nekas på grund av tokenbaserad autentisering.
 
-### <a name="sample-response-header"></a>Exempel på svarshuvud
+### <a name="sample-response-header"></a>Exempel på svars rubrik
 
-Följande exempelsvarshuvud anger om det begärda innehållet kan ha cachelagrats:
+Följande exempel svars huvud visar om det begärda innehållet kan cachelagras:
 
 `X-EC-Debug: x-ec-check-cacheable: YES`
 
-## <a name="cache-key-response-header"></a>Svarshuvud för cachetangent
-Svarshuvudet `X-EC-Debug: x-ec-cache-key` anger den fysiska cachenyckel som är associerad med det begärda innehållet. En fysisk cachenyckel består av en sökväg som identifierar en tillgång för cachelagring. Med andra ord kommer servrarna att söka efter en cachelagd version av en tillgång enligt dess sökväg som definieras av dess cache-nyckel.
+## <a name="cache-key-response-header"></a>Cache-Key Response-huvud
+`X-EC-Debug: x-ec-cache-key` Svars huvudet visar den fysiska cache-nyckel som är kopplad till det begärda innehållet. En fysisk cache-nyckel består av en sökväg som identifierar en till gång för cachelagring. Med andra ord kontrollerar servrarna om det finns en cachelagrad version av en till gång enligt dess sökväg som definieras av dess cache-Key.
 
-Den här fysiska cachenyckeln börjar med ett dubbelt snedstreck (//) följt av det protokoll som används för att begära innehållet (HTTP eller HTTPS). Det här protokollet följs av den relativa sökvägen till den begärda tillgången, som börjar med åtkomstpunkten för innehåll (till exempel _/000001/_).
+Den här fysiska cachen-nyckeln börjar med ett dubbelt snedstreck (//) följt av protokollet som används för att begära innehållet (HTTP eller HTTPS). Det här protokollet följs av den relativa sökvägen till den begärda till gången, som börjar med innehålls åtkomst punkten (till exempel _/000001/_).
 
-Som standard är HTTP-plattformar konfigurerade för att använda *standardcache,* vilket innebär att frågesträngar ignoreras av cachelagringsmekanismen. Den här typen av konfiguration förhindrar att cachetangenten inkluderar frågesträngdata.
+Som standard är HTTP-plattformarna konfigurerade att använda *standardcache*, vilket innebär att frågesträngarna ignoreras av mekanismen för cachelagring. Den här typen av konfiguration förhindrar cache-nyckeln från att inkludera frågesträngs data.
 
-Om en frågesträng registreras i cachenyckeln konverteras den till dess hash-motsvarighet och infogas sedan mellan namnet på&lt;den begärda tillgången och filtillägget (till exempel resurshh-värdet&gt;.html).
+Om en frågesträng registreras i cache-nyckeln, konverteras den till dess hash-motsvarighet och infogas sedan mellan namnet på den begärda till gången och dess fil namns tillägg (till exempel&lt;till gångens hash-värde&gt;. html).
 
-### <a name="response-header-format"></a>Format för svarsrubrik
+### <a name="response-header-format"></a>Format för svars huvud
 
-Svarshuvudet `X-EC-Debug` rapporterar fysisk cachenyckelinformation i följande format:
+`X-EC-Debug` Svars huvudet rapporterar information om fysiska cache-nycklar i följande format:
 
 `X-EC-Debug: x-ec-cache-key: CacheKey`
 
-### <a name="sample-response-header"></a>Exempel på svarshuvud
+### <a name="sample-response-header"></a>Exempel på svars rubrik
 
-Följande exempelsvarshuvud anger den fysiska cachenyckeln för det begärda innehållet:
+Följande exempel svars huvud visar den fysiska cache-nyckeln för det begärda innehållet:
 
 `X-EC-Debug: x-ec-cache-key: //http/800001/origin/images/foo.jpg`
 
-## <a name="cache-state-response-header"></a>Svarshuvud för cachetillstånd
-Svarshuvudet `X-EC-Debug: x-ec-cache-state` anger cachetillståndet för det begärda innehållet när det begärdes.
+## <a name="cache-state-response-header"></a>Svars rubrik för cachelagring
+`X-EC-Debug: x-ec-cache-state` Svars huvudet visar cache-statusen för det begärda innehållet vid den tidpunkt då begäran gjordes.
 
-### <a name="response-header-format"></a>Format för svarsrubrik
+### <a name="response-header-format"></a>Format för svars huvud
 
-Svarshuvudet `X-EC-Debug` rapporterar cachetillståndsinformation i följande format:
+`X-EC-Debug` Svars huvud rapporterar cachelagring av statusinformation i följande format:
 
 `X-EC-Debug: x-ec-cache-state: max-age=MASeconds (MATimePeriod); cache-ts=UnixTime (ddd, dd MMM yyyy HH:mm:ss GMT); cache-age=CASeconds (CATimePeriod); remaining-ttl=RTSeconds (RTTimePeriod); expires-delta=ExpiresSeconds`
 
-Termerna som används i syntaxen för svarshuvudet ovan definieras på följande sätt:
+De termer som används i ovanstående syntax för svars huvud definieras enligt följande:
 
-- MASeconds: Anger maxåldern (i sekunder) enligt definitionen i det begärda innehållets cachekontrollrubriker.
+- MASeconds: anger den högsta-ålder (i sekunder) som definieras av det begärda innehållets Cache-Control-rubriker.
 
-- MATimePeriod: Konverterar värdet för maxålder (det villan, MASeconds) till ungefärlig motsvarighet till en större enhet (till exempel dagar). 
+- MATimePeriod: konverterar värdet för max-ålder (det vill säga MASeconds) till den ungefärliga motsvarigheten till en större enhet (till exempel dagar). 
 
-- UnixTime: Anger cachetidsstämpeln för det begärda innehållet i Unix-tid (kallas även POSIX-tid eller Unix-epok). Tidsstämpeln för cache anger startdatum/tid från vilket en tillgångs TTL ska beräknas. 
+- UnixTime: anger cache-tidsstämpeln för det begärda innehållet i UNIX-tid (även kallat POSIX-tid eller UNIX-epok). Tidsstämpeln för cachen anger start datum/tid då beräkningen av en till gångs-TTL beräknas. 
 
-    Om ursprungsservern inte använder en HTTP-cacheserver från tredje part eller om servern inte returnerar ålderssvarshuvudet, kommer tidsstämpeln för cache alltid att vara det datum/den tidpunkt då tillgången hämtades eller återställdes. Annars använder POP-servrarna fältet Ålder för att beräkna tillgångens TTL enligt följande: Hämtning/RevalidateDateTime - Ålder.
+    Om ursprungs servern inte använder en HTTP-Caching-Server från tredje part eller om servern inte returnerar huvudet för ålders svar är cache-tidsstämpeln alltid den datum/tid när till gången hämtades eller omverifierades. Annars använder POP-servrarna fältet ålder för att beräkna till gångens TTL enligt följande: hämtnings-/RevalidateDateTime-ålder.
 
-- ddd, dd MMM yyyy HH:mm:ss GMT: Anger cachetidsstämpeln för det begärda innehållet. För mer information, se UnixTime termen ovan.
+- DDD, DD MMM yyyy HH: mm: SS GMT: anger cache-tidsstämpeln för det begärda innehållet. Mer information finns i UnixTime-termen ovan.
 
-- CASekunder: Anger hur många sekunder som har förflutit sedan tidsstämpeln för cachen.
+- CASeconds: anger antalet sekunder som har förflutit sedan cache-tidsstämpeln.
 
-- RTSekunder: Anger hur många sekunder som det cachelagrade innehållet kommer att betraktas som färskt. Detta värde beräknas på följande sätt: RTSeconds = max-age - cache ålder.
+- RTSeconds: anger hur många sekunder som det cachelagrade innehållet ska anses vara färskt. Detta värde beräknas enligt följande: RTSeconds = Max-Age-cache-ålder.
 
-- RTTimePeriod: Konverterar det återstående TTL-värdet (det vill säga RTSeconds) till ungefärlig motsvarighet till en större enhet (till exempel dagar).
+- RTTimePeriod: konverterar det återstående TTL-värdet (det vill säga RTSeconds) till den ungefärliga motsvarigheten till en större enhet (till exempel dagar).
 
-- FörfallerSekunder: Anger antalet sekunder som återstår före det datum/den `Expires` tid som anges i svarshuvudet. Om `Expires` svarshuvudet inte ingick i svaret är värdet för den här termen *inget*.
+- ExpiresSeconds: anger antalet sekunder kvar före datumet/tiden som anges i `Expires` svars huvudet. Om `Expires` svars huvudet inte ingår i svaret är värdet för den här termen *inget*.
 
-### <a name="sample-response-header"></a>Exempel på svarshuvud
+### <a name="sample-response-header"></a>Exempel på svars rubrik
 
-Följande exempelsvarshuvud anger cachetillståndet för det begärda innehållet när det begärdes:
+Följande exempel svars huvud visar cache-tillstånd för det begärda innehållet vid den tidpunkt då det begärdes:
 
 ```X-EC-Debug: x-ec-cache-state: max-age=604800 (7d); cache-ts=1341802519 (Mon, 09 Jul 2012 02:55:19 GMT); cache-age=0 (0s); remaining-ttl=604800 (7d); expires-delta=none```
 

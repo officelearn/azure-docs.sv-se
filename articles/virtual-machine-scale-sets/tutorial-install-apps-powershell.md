@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Installera program i en skalningsuppsättning med Azure PowerShell
+title: Självstudie – installera program i en skalnings uppsättning med Azure PowerShell
 description: Läs hur du använder Azure PowerShell för att installera program på VM-skalningsuppsättningar med det anpassade skripttillägget
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 11/08/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 789b3ca6cf49bbecf7393c5c70b19cbb43dfd164
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011291"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudie: Installera program i VM-skalningsuppsättningar med Azure PowerShell

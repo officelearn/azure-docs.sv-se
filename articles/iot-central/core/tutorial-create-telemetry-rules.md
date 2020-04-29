@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - Skapa och hantera regler i ditt Azure IoT Central-program
-description: Den här självstudien visar hur Azure IoT Central-regler gör att du kan övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande, när regeln utlöser.
+title: Självstudie – Skapa och hantera regler i ditt Azure IoT Central-program
+description: I den här självstudien får du IoT Central lära dig hur du kan övervaka dina enheter i nära real tid och automatiskt anropa åtgärder, som att skicka ett e-postmeddelande när regeln utlöses.
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/06/2020
@@ -9,102 +9,102 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80999046"
 ---
-# <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Självstudiekurs: Skapa en regel och konfigurera meddelanden i ditt Azure IoT Central-program
+# <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Självstudie: skapa en regel och konfigurera meddelanden i ditt Azure IoT Central-program
 
 *Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
-Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter. Med Azure IoT Central-reglerna kan du övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande. I den här artikeln beskrivs hur du skapar regler för att övervaka den telemetri som dina enheter skickar.
+Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter. Med Azure IoT Central-regler kan du övervaka dina enheter i nära real tid och automatiskt anropa åtgärder, till exempel skicka ett e-postmeddelande. Den här artikeln förklarar hur du skapar regler för att övervaka de telemetri som dina enheter skickar.
 
-Enheter använder telemetri för att skicka numeriska data från enheten. En regel utlöses när den valda enhetstelemetrin korsar ett angivet tröskelvärde.
+Enheter använder telemetri för att skicka numeriska data från enheten. En regel utlöses när den valda enhetens telemetri korsar ett angivet tröskelvärde.
 
-I den här självstudien skapar du en regel för att skicka ett e-postmeddelande när temperaturen i en simulerad miljösensorenhet överstiger 70&deg; F.
+I den här självstudien skapar du en regel för att skicka ett e-postmeddelande när temperaturen i en simulerad miljö&deg; sensor enhet överskrider 70 F.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
 > * Skapa en regel
-> * Lägga till en e-poståtgärd
+> * Lägg till en e-poståtgärd
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar slutför du [create an Azure IoT Central application](./quick-deploy-iot-central.md) and Add a [simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
+Innan du börjar fyller du i [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [lägger till en simulerad enhet i IoT Central](./quick-create-simulated-device.md) snabb starter för att skapa **MXChip IoT DevKit** Device-mallen för att arbeta med.
 
 ## <a name="create-a-rule"></a>Skapa en regel
 
-Om du vill skapa en telemetriregel måste enhetsmallen innehålla minst ett telemetrivärde. Den här självstudien använder en simulerad **MXChip IoT DevKit-enhet** som skickar telemetri för temperatur och luftfuktighet. Du har lagt till den här enhetsmallen och skapat en simulerad enhet i [snabbstarten Lägg till en simulerad enhet i snabbstarten för IoT Central-programmet.](./quick-create-simulated-device.md) Regeln övervakar den temperatur som rapporteras av enheten och skickar ett e-postmeddelande när det går över 70 grader.
+För att skapa en telemetri-regel måste enhets mal len innehålla minst ett telemetri-värde. I den här självstudien används en simulerad **MXChip IoT DevKit** -enhet som skickar telemetri för temperatur och fuktighet. Du har lagt till den här enhets mal len och skapat en simulerad enhet i guiden [Lägg till en simulerad enhet i snabb starten för IoT Central programmet](./quick-create-simulated-device.md) . Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när det hamnar ovanför 70 grader.
 
-1. Välj **Regler**i den vänstra rutan .
+1. I det vänstra fönstret väljer du **regler**.
 
-1. Om du inte har skapat några regler ännu visas följande skärm:
+1. Om du inte har skapat några regler än visas följande skärm:
 
     ![Inga regler än](media/tutorial-create-telemetry-rules/rules-landing-page1.png)
 
-1. Markera **+** det här om du vill lägga till en ny regel.
+1. Välj **+** om du vill lägga till en ny regel.
 
-1. Ange namnet _Temperaturövervakare_ för att identifiera regeln och tryck på Retur.
+1. Ange namnet _temperatur övervakare_ för att identifiera regeln och tryck på RETUR.
 
-1. Välj **MXChip IoT** DevKit-enhetsmallen. Som standard gäller regeln automatiskt för alla enheter som är associerade med enhetsmallen. Om du vill filtrera efter en delmängd av enheterna väljer du **+ Filtrera** och använder enhetsegenskaper för att identifiera enheterna. Om du vill inaktivera regeln växlar du knappen **Aktiverad/inaktiverad** i regelhuvudet:
+1. Välj enhets mal len **MXChip IoT DevKit** . Regeln gäller som standard automatiskt för alla enheter som är associerade med enhets mal len. Om du vill filtrera efter en delmängd av enheterna väljer du **+ filtrera** och använder enhets egenskaper för att identifiera enheterna. Om du vill inaktivera regeln växlar du till den **aktiverade/inaktiverade** knappen i regel rubriken:
 
-    ![Filtrerar och aktiverar](media/tutorial-create-telemetry-rules/device-filters.png)
+    ![Filter och aktivera](media/tutorial-create-telemetry-rules/device-filters.png)
 
-### <a name="configure-the-rule-conditions"></a>Konfigurera regelvillkoren
+### <a name="configure-the-rule-conditions"></a>Konfigurera regel villkoren
 
-Villkor definierar de kriterier som regeln övervakar. I den här självstudien konfigurerar du regeln så&deg; att den avfyras när temperaturen överstiger 70 F.
+Villkor definierar de kriterier som regeln övervakar. I den här självstudien konfigurerar du regeln för att utlösa när temperaturen överskrider&deg; 70 F.
 
-1. Välj **Temperatur** i listrutan **Telemetri.**
+1. Välj **temperatur** i list rutan för **telemetri** .
 
-1. Välj sedan **Är större än** som **operator** och anger _70_ som **värde**.
+1. Sedan väljer du **är större än** som **Operator** och anger _70_ som **värde**.
 
     ![Villkor](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
 
-1. Du kan också ange en **tidsaggregering**. När du väljer en tidsaggregering måste du också välja en aggregeringstyp, till exempel medelvärde eller summa i listrutan aggregering.
+1. Du kan också ange en **tids agg regering**. När du väljer en tids agg regering måste du också välja en agg regerings typ, till exempel Average eller sum, från List rutan agg regering.
 
-    * Utan aggregering utlöser regeln för varje telemetridatapunkt som uppfyller villkoret. Om du till exempel konfigurerar regeln så att den utlöses när temperaturen är över 70 utlöses regeln nästan omedelbart när enhetstemperaturen överskrider det här värdet.
-    * Med aggregering utlöses regeln om det sammanlagda värdet för telemetridatapunkterna i tidsfönstret uppfyller villkoret. Om du till exempel konfigurerar regeln för att utlösa när temperaturen är över 70 och med en genomsnittlig tidsaggregering på 10 minuter, utlöser regeln när enheten rapporterar en medeltemperatur som är högre än 70, beräknad över ett 10-minutersintervall.
+    * Utan agg regering utlöser regeln för varje telemetri-datapunkt som uppfyller villkoret. Om du till exempel konfigurerar regeln så att den utlöses när temperaturen är över 70, utlöses regeln nästan omedelbart när enhetens temperatur överskrider detta värde.
+    * Med agg regering utlöser regeln om det sammanlagda värdet för telemetri-datapunkten i tids perioden uppfyller villkoret. Om du till exempel konfigurerar regeln så att den utlöses när temperaturen är över 70 och med en genomsnittlig tids mängd på 10 minuter utlöses regeln när enheten rapporterar en genomsnitts temperatur som är större än 70, beräknad under ett 10-minuters intervall.
 
-     ![Aggregerat tillstånd](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
+     ![Samlings villkor](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
-Du kan lägga till flera villkor i en regel genom att välja **+ Villkor**. När flera villkor anges måste alla villkor vara uppfyllda för att regeln ska utlösas. Varje villkor sammanfogas `AND` av en implicit sats. Om du använder tidsaggregering med flera villkor måste alla telemetrivärden aggregeras.
+Du kan lägga till flera villkor i en regel genom att välja **+ villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för att regeln ska kunna utlösas. Varje villkor är anslutet av en `AND` implicit sats. Om du använder tids agg regering med flera villkor måste alla värden för telemetri aggregeras.
 
 ### <a name="configure-actions"></a>Konfigurera åtgärder
 
-När du har definierat villkoret ställer du in de åtgärder som ska vidtas när regeln utlöses. Åtgärder anropas när alla villkor som anges i regeln utvärderas till true.
+När du har definierat villkoret ställer du in de åtgärder som ska vidtas när regeln utlöses. Åtgärder anropas när alla villkor som anges i regeln utvärderas till sant.
 
-1. Välj **+ E-post** i avsnittet **Åtgärder.**
+1. Välj **+ e-post** i avsnittet **åtgärder** .
 
-1. Ange _temperaturvarning_ som visningsnamn för åtgärden, din e-postadress i fältet **Till** och du bör _kontrollera enheten!_ som en anteckning som ska visas i brödtexten i e-postmeddelandet.
+1. Ange _temperatur varning_ som visnings namn för åtgärden, din e-postadress i fältet **till** och _kontrol lera enheten!_ som anteckning som ska visas i bröd texten i e-postmeddelandet.
 
     > [!NOTE]
-    > E-postmeddelanden skickas endast till de användare som har lagts till i programmet och har loggat in minst en gång. Läs mer om [användarhantering](howto-administer.md) i Azure IoT Central.
+    > E-postmeddelanden skickas endast till användare som har lagts till i programmet och har loggat in minst en gång. Lär dig mer om [användar hantering](howto-administer.md) i Azure IoT Central.
 
    ![Konfigurera åtgärd](media/tutorial-create-telemetry-rules/configure-action1.png)
 
-1. Om du vill spara åtgärden väljer du **Klar**. Du kan lägga till flera åtgärder i en regel.
+1. Välj **Slutför**för att spara åtgärden. Du kan lägga till flera åtgärder i en regel.
 
-1. Om du vill spara regeln väljer du **Spara**. Regeln går live inom några minuter och börjar övervaka telemetri som skickas till ditt program. När villkoret som anges i regeln uppfylls utlöser regeln den konfigurerade e-poståtgärden.
+1. Spara regeln genom att välja **Spara**. Regeln går inom några minuter och börjar övervaka telemetri som skickas till ditt program. När villkoret som anges i regeln uppfylls utlöser regeln den konfigurerade e-poståtgärden.
 
-Efter ett tag får du ett e-postmeddelande när regeln utlöses:
+Efter en stund får du ett e-postmeddelande när regeln utlöses:
 
 ![Exempel på e-post](media/tutorial-create-telemetry-rules/email.png)
 
 ## <a name="delete-a-rule"></a>Ta bort en regel
 
-Om du inte längre behöver en regel tar du bort den genom att öppna regeln och välja **Ta bort**.
+Om du inte längre behöver en regel tar du bort den genom att öppna regeln och välja **ta bort**.
 
 ## <a name="enable-or-disable-a-rule"></a>Aktivera eller inaktivera en regel
 
-Välj den regel som du vill aktivera eller inaktivera. Växla knappen **Aktiverad/inaktiverad** i regeln för att aktivera eller inaktivera regeln för alla enheter som är begränsade i regeln.
+Välj den regel som du vill aktivera eller inaktivera. Aktivera eller inaktivera regeln för alla enheter som omfattas av regeln genom att växla den **aktiverade/inaktiverade** knappen i regeln.
 
-## <a name="enable-or-disable-a-rule-for-specific-devices"></a>Aktivera eller inaktivera en regel för specifika enheter
+## <a name="enable-or-disable-a-rule-for-specific-devices"></a>Aktivera eller inaktivera en regel för vissa enheter
 
-Välj den regel som du vill anpassa. Använd ett eller flera filter i avsnittet **Målenheter** för att begränsa regelns omfattning till de enheter som du vill övervaka.
+Välj den regel som du vill anpassa. Använd ett eller flera filter i avsnittet **mål enheter** för att begränsa regelns omfång till de enheter som du vill övervaka.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -113,7 +113,7 @@ I den här självstudiekursen lärde du dig att:
 * Skapa en telemetribaserad regel
 * Lägga till en åtgärd
 
-Nu när du har definierat en tröskelbaserad regel är det föreslagna nästa steget att lära dig hur du:
+Nu när du har definierat en tröskel-baserad regel är det föreslagna nästa steg att lära dig att:
 
 > [!div class="nextstepaction"]
-> [Konfigurera kontinuerlig dataexport](./howto-export-data.md).
+> [Konfigurera kontinuerlig data export](./howto-export-data.md).

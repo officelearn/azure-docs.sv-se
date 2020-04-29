@@ -14,22 +14,22 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985940"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services (AMS) gör det möjligt att på ett säkert sätt överföra, lagra, koda och paketera video- eller ljudinnehåll för att strömma både på begäran och live till olika klienter (till exempel TV, datorer och mobila enheter).
 
 AMS körs på flera datacenter över hela världen. Dessa datacenter är grupperade i geografiska regioner så att du kan välja var du vill bygga dina program. Se [listan över regioner och deras platser](https://azure.microsoft.com/regions/). 
 
-Det här avsnittet visar vanliga scenarier för att leverera ditt innehåll [live](#live_scenarios) eller på begäran. Ämnet innehåller också information om tillgängligheten för mediefunktioner och tjänster i datacenter.
+Det här avsnittet visar vanliga scenarier för att leverera innehåll [Live](#live_scenarios) eller på begäran. Ämnet innehåller också information om tillgängligheten för mediefunktioner och tjänster i datacenter.
 
 ## <a name="overview"></a>Översikt
 
@@ -41,7 +41,7 @@ Om du vill börja använda Azure Media Services ska du ha följande:
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
 
-    När ditt AMS-konto skapas läggs en **standardslutpunkt** för direktuppspelning till ditt konto i tillståndet **Stoppad.** Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning ha tillståndet **Körs**.
+    När ditt AMS-konto skapas läggs en **standard** slut punkt för direkt uppspelning till på ditt konto i **stoppat** tillstånd. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning ha tillståndet **Körs**.
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Vanliga objekt när du utvecklar mot AMS OData-modellen
 
@@ -153,12 +153,12 @@ AMS-kunder kan skala slutpunkter för direktuppspelning, mediebearbetning och la
 
 * Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**.
 
-    Förutom att ange den reserverade enhetstypen kan du ange att ditt konto ska etableras med reserverade enheter ( RU: **er).** Antalet etablerade RU:er anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto.
+    Förutom att ange typ av reserverad enhet kan du ange att ditt konto ska etableras med **reserverade enheter** (ru: er). Antalet etablerade RU:er anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto.
 
     >[!NOTE]
     >RU:er fungerar för parallellisera all bearbetning av media, inklusive indexeringsjobb med hjälp av Azure Media Indexer. Men till skillnad från kodning bearbetas inte indexeringsjobb snabbare med snabbare reserverade enheter.
 
-    Mer information finns i [Skala mediebearbetning](media-services-portal-scale-media-processing.md).
+    Mer information finns i [skala medie bearbetning](media-services-portal-scale-media-processing.md).
 * Du kan även skala ditt Media Services-konto genom att lägga till lagringskonton. Varje lagringskonto är begränsat till 500 TB. Du kan välja att koppla flera lagringskonton för till ett enda Media Services-konto om du vill expandera din lagring utöver standardbegränsningarna. Mer information finns i [Hantera lagringskonton](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a> Tillgänglighet för Media Services-funktioner i datacenter
@@ -169,7 +169,7 @@ Det här avsnittet innehåller information om tillgängligheten för Media Servi
 
 #### <a name="availability"></a>Tillgänglighet
 
-Använd [Azure-produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) för att avgöra om Media Services är tillgängligt i ett visst datacenter.
+Använd [Azure-produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) för att avgöra om Media Services är tillgängligt i ett särskilt data Center.
 
 ### <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning 
 
@@ -177,7 +177,7 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 #### <a name="availability"></a>Tillgänglighet
 
-|Namn|Status|Datacenter
+|Name|Status|Datacenter
 |---|---|---|
 |Standard|Allmän tillgänglighet (GA)|Alla|
 |Premium|Allmän tillgänglighet (GA)|Alla|
@@ -186,7 +186,7 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 #### <a name="availability"></a>Tillgänglighet
 
-Finns i alla datacenter utom: Tyskland, Södra Brasilien, Västra Indien, Södra Indien och Indien Central. 
+Tillgängligt i alla data Center förutom: Tyskland, södra Brasilien, västra Indien, södra Indien och centrala Indien. 
 
 ### <a name="encoding-media-processors"></a>Mediebearbetare för kodning
 
@@ -204,7 +204,7 @@ AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media En
 Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som det går att direkt agera utifrån från sina videofiler. Mer information finns i [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md).
 
 > [!NOTE]
-> Vissa analysmedieprocessorer kommer att dras tillbaka. För pensioneringsdatumen finns i avsnittet [äldre komponenter.](legacy-components.md)
+> Vissa analys medie processorer kommer att dras tillbaka. Information om datum för indragning finns i avsnittet om [äldre komponenter](legacy-components.md) .
 
 #### <a name="availability"></a>Tillgänglighet
 
@@ -257,7 +257,7 @@ Mer information finns i avsnittet om [skalning](#scaling).
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 

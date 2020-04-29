@@ -1,6 +1,6 @@
 ---
-title: Ändra strömmar i Azure Cosmos DB:s API för MongoDB
-description: Lär dig hur du använder ändringsströmmar i Azure Cosmos DB:s API för MongoDB för att få ändringarna gjorda i dina data.
+title: Ändra strömmar i Azure Cosmos DBs API för MongoDB
+description: Lär dig hur du använder ändrings strömmar i Azure Cosmos DBs API för MongoDB för att hämta de ändringar som gjorts i dina data.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: tisande
 ms.openlocfilehash: 38e262abefe5444c1fe7586810f4b971cc7baf6c
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114150"
 ---
-# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Ändra strömmar i Azure Cosmos DB:s API för MongoDB
+# <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Ändra strömmar i Azure Cosmos DBs API för MongoDB
 
-[Ändra feedstöd](change-feed.md) i Azure Cosmos DB:s API för MongoDB är tillgängligt med hjälp av API:et för ändringsströmmar. Genom att använda API:et för ändringsströmmar kan dina program hämta ändringarna i samlingen eller till objekten i en enda fragment. Senare kan du vidta ytterligare åtgärder baserat på resultaten. Ändringar av objekten i samlingen fångas i den ordning de ändras och sorteringsordningen garanteras per fragmentnyckel.
+[Ändra feed](change-feed.md) -stöd i Azure Cosmos DBS API för MongoDB är tillgängligt med hjälp av API: et för ändrings strömmar. Med hjälp av API: et för ändrings strömmar kan dina program få ändringarna som gjorts i samlingen eller till objekten i en enda Shard. Senare kan du vidta ytterligare åtgärder baserat på resultaten. Ändringar av objekt i samlingen samlas i ordningen av deras ändrings tid och sorterings ordningen garanteras per Shard nyckel.
 
 > [!NOTE]
-> Om du vill använda ändringsströmmar skapar du kontot med version 3.6 av Azure Cosmos DB:s API för MongoDB eller en senare version. Om du kör exemplen på ändringsström mot `Unrecognized pipeline stage name: $changeStream` en tidigare version kan felet visas.
+> Om du vill använda ändrings strömmar skapar du kontot med version 3,6 av Azure Cosmos DB s API för MongoDB eller en senare version. Om du kör exemplen för ändrings data strömmar mot en tidigare version kan du `Unrecognized pipeline stage name: $changeStream` se felet.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-Följande begränsningar gäller vid användning av ändringsströmmar:
+Följande begränsningar gäller när du använder ändrings strömmar:
 
-* Egenskaperna `operationType` `updateDescription` och stöds ännu inte i utdatadokumentet.
-* `insert`Typerna `update`, `replace` och åtgärder stöds för närvarande. 
-* Borttagning eller andra händelser stöds ännu inte.
+* Egenskaperna `operationType` och `updateDescription` stöds inte ännu i utmatnings dokumentet.
+* `insert`Operations `update`typerna, `replace` och stöds för närvarande. 
+* Borttagnings åtgärden eller andra händelser stöds inte ännu.
 
-På grund av dessa begränsningar krävs $match steg, $project och fullständigadokumentalternativ som visas i föregående exempel.
+På grund av dessa begränsningar krävs $match steg, $project Stage och fullDocument alternativ som du ser i föregående exempel.
 
-Till skillnad från ändringsflödet i Azure Cosmos DB:s SQL API finns det inte ett separat [ändringsflödesprocessorbibliotek](change-feed-processor.md) för att använda ändringsströmmar eller ett behov av en lånebehållare. Det finns för närvarande inte stöd för [Azure Functions-utlösare](change-feed-functions.md) för att bearbeta ändringsströmmar.
+Till skillnad från byte-feeden i Azure Cosmos DB SQL-API: t finns det ingen separat [ändrings flödes processor bibliotek](change-feed-processor.md) för att använda ändrings strömmar eller ett behov av en container container. För närvarande stöds inte Azure Functions- [utlösare](change-feed-functions.md) för att bearbeta ändrings strömmar.
 
 ## <a name="error-handling"></a>Felhantering
 
-Följande felkoder och meddelanden stöds när du använder ändringsströmmar:
+Följande felkoder och meddelanden stöds när du använder ändrings strömmar:
 
-* **HTTP-felkod 16500** - När ändringsströmmen begränsas returneras en tom sida.
+* **Http-felkod 16500** -när ändrings data strömmen är begränsad returneras en tom sida.
 
-* **NamespaceNotFound (OperationType Invalidate)** - Om du kör ändringsström på samlingen som inte `NamespaceNotFound` finns eller om samlingen tas bort returneras ett fel. Eftersom `operationType` egenskapen inte kan returneras i utdatadokumentet returneras `operationType Invalidate` `NamespaceNotFound` felet i stället för felet.
+* **NamespaceNotFound (OperationType ogiltig)** – om du kör ändrings ström för samlingen som inte finns, eller om samlingen har släppts, returneras ett `NamespaceNotFound` fel. Eftersom `operationType` egenskapen inte kan returneras i utdatafilen returneras `operationType Invalidate` `NamespaceNotFound` felet i stället för felet.
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas hur du får ändringsströmmar för alla objekt i samlingen. I det här exemplet skapas en markör för att titta på objekt när de infogas, uppdateras eller ersätts. Scenen, `$match` `$project` scenen och `fullDocument` alternativet krävs för att få ändringsströmmarna. Det går inte att söka efter borttagningsåtgärder med ändringsströmmar. Som en lösning kan du lägga till en mjuk markör på de objekt som tas bort. Du kan till exempel lägga till ett attribut i objektet "borttaget". När du vill ta bort objektet kan du ange `true` "borttagen" till och ange en TTL på objektet. Eftersom uppdatering av `true` "borttagen" till är en uppdatering visas den här ändringen i ändringsströmmen.
+I följande exempel visas hur du hämtar ändrings strömmar för alla objekt i samlingen. I det här exemplet skapas en markör som tittar på objekt när de infogas, uppdateras eller ersätts. `$match` Stage, `$project` Stage och `fullDocument` option krävs för att hämta ändrings strömmar. Det finns för närvarande inte stöd för att titta efter borttagnings åtgärder med ändrings strömmar. Som en lösning kan du lägga till en mjuk markör för de objekt som tas bort. Du kan till exempel lägga till ett attribut i objektet som kallas "borttaget". När du vill ta bort objektet kan du ange "borttagen" `true` och ange ett TTL-värde för objektet. Eftersom uppdatering av borttaget till `true` är en uppdatering visas den här ändringen i ändrings data strömmen.
 
-### <a name="javascript"></a>Javascript:
+### <a name="javascript"></a>Java
 
 ```javascript
 var cursor = db.coll.watch(
@@ -62,7 +62,7 @@ while (!cursor.isExhausted()) {
 }
 ```
 
-### <a name="c"></a>C#:
+### <a name="c"></a>C#
 
 ```csharp
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()
@@ -83,9 +83,9 @@ while (enumerator.MoveNext()){
 enumerator.Dispose();
 ```
 
-## <a name="changes-within-a-single-shard"></a>Ändringar inom en enskild fragment
+## <a name="changes-within-a-single-shard"></a>Ändringar inom en enskild Shard
 
-I följande exempel visas hur du får ändringar i objekten i en enda fragment. Det här exemplet hämtar ändringar av objekt som har fragmentnyckel som är lika med "a" och shardnyckelvärdet lika med "1". Det är möjligt att ha olika klienter som läser ändringar från olika shards parallellt.
+I följande exempel visas hur du kan få ändringar i objekten i en enda Shard. I det här exemplet hämtas ändringar av objekt som har Shard-nyckeln lika med "a" och värdet för Shard-nyckeln som är lika med "1". Det är möjligt att olika klienter läser ändringar från olika Shards parallellt.
 
 ```javascript
 var cursor = db.coll.watch(
@@ -106,5 +106,5 @@ var cursor = db.coll.watch(
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd tid för att leva för att förfalla data automatiskt i Azure Cosmos DB:s API för MongoDB](mongodb-time-to-live.md)
-* [Indexering i Azure Cosmos DB:s API för MongoDB](mongodb-indexing.md)
+* [Använd Time to Live för att förfalla data automatiskt i Azure Cosmos DBs API för MongoDB](mongodb-time-to-live.md)
+* [Indexering i Azure Cosmos DBs API för MongoDB](mongodb-indexing.md)

@@ -1,6 +1,6 @@
 ---
-title: Vanliga orsaker till återvinning av molntjänstroller | Microsoft-dokument
-description: En molntjänstroll som plötsligt återvinner kan orsaka betydande driftstopp. Här är några vanliga problem som gör att roller återvinns, vilket kan hjälpa dig att minska driftstopp.
+title: Vanliga orsaker till åter användning av moln tjänst roller | Microsoft Docs
+description: En moln tjänst roll som plötsligt återanvänds kan orsaka betydande stillestånds tid. Här följer några vanliga problem som gör att roller återvinns, vilket kan hjälpa dig att minska stillestånds tiden.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -15,57 +15,57 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114100"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Vanliga problem som gör att roller återvinns
-I den här artikeln beskrivs några av de vanligaste orsakerna till distributionsproblem och felsökningstips som hjälper dig att lösa dessa problem. En indikation på att ett problem finns med ett program är när rollinstansen inte startar, eller om den växlar mellan initierings-, upptagen- och stopptillstånden.
+Den här artikeln beskriver några vanliga orsaker till distributions problem och innehåller fel söknings tips som hjälper dig att lösa problemen. En indikation på att ett problem har uppstått med ett program är när roll instansen inte startar, eller så växlar den mellan initierings-, upptaget-och stopp tillstånd.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-runtime-dependencies"></a>Saknar körningsberoenden
-Om en roll i ditt program är beroende av någon sammansättning som inte ingår i .NET Framework eller Det Azure-hanterade biblioteket, måste du uttryckligen inkludera den sammansättningen i programpaketet. Tänk på att andra Microsoft-ramverk inte är tillgängliga på Azure som standard. Om din roll är beroende av ett sådant ramverk måste du lägga till dessa sammansättningar i programpaketet.
+Om en roll i programmet är beroende av en sammansättning som inte är en del av .NET Framework eller det hanterade Azure-biblioteket, måste du uttryckligen ta med den sammansättningen i programpaketet. Tänk på att andra Microsoft-ramverk inte är tillgängliga på Azure som standard. Om rollen är beroende av ett sådant ramverk måste du lägga till dessa paket i programpaketet.
 
-Kontrollera följande innan du skapar och paketerar programmet:
+Innan du skapar och paketerar programmet kontrollerar du följande:
 
-* Om du använder Visual Studio kontrollerar du att egenskapen **Kopiera lokal** är inställd på **True** för varje refererad sammansättning i projektet som inte ingår i Azure SDK eller .NET Framework.
-* Kontrollera att filen web.config inte refererar till oanvända sammansättningar i kompileringselementet.
-* **Byggåtgärden** för varje Cshtml-fil är inställd på **Innehåll**. Detta säkerställer att filerna visas korrekt i paketet och gör att andra refererade filer kan visas i paketet.
+* Om du använder Visual Studio kontrollerar du att egenskapen **Kopiera lokal** har värdet **True** för varje refererad sammansättning i projektet som inte är en del av Azure SDK eller .NET Framework.
+* Kontrol lera att filen Web. config inte refererar till oanvända sammansättningar i elementet Compilation.
+* **Build-åtgärden** för varje. cshtml-fil har angetts till **Content**. Detta säkerställer att filerna visas korrekt i paketet och gör att andra refererade filer kan visas i paketet.
 
-## <a name="assembly-targets-wrong-platform"></a>Monteringsmål fel plattform
-Azure är en 64-bitars miljö. Därför fungerar inte .NET-sammansättningar som kompileras för ett 32-bitarsmål på Azure.
+## <a name="assembly-targets-wrong-platform"></a>Monterings mål fel plattform
+Azure är en 64-bitars miljö. Därför fungerar inte .NET-sammansättningar som kompileras för ett 32-bitars mål i Azure.
 
-## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Roll kastar ohanterade undantag vid initiering eller stopp
-Alla undantag som genereras av metoderna i klassen [RoleEntryPoint,] som innehåller metoderna [OnStart,] [OnStop]och [Run,] är ohanterade undantag. Om ett ohanterat undantag inträffar i någon av dessa metoder kommer rollen att återvinnas. Om rollen är återvinning upprepade gånger, kan det kasta ett ohanterat undantag varje gång den försöker starta.
+## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Rollen genererar ohanterade undantag vid initiering eller stopp
+Undantag som har utlösts av metoderna i [RoleEntryPoint] -klassen, som innehåller metoderna [OnStart], [OnStop]och [Run] , är ohanterade undantag. Om ett ohanterat undantag uppstår i någon av dessa metoder kommer rollen att återvinna. Om rollen åter användning görs upprepade gånger kan det leda till ett ohanterat undantag varje gång det försöker starta.
 
-## <a name="role-returns-from-run-method"></a>Rollreturer från körmetod
-Metoden [Kör] är avsedd att köras på obestämd tid. Om koden åsidosätter metoden [Kör] ska den vilas på obestämd tid. Om metoden [Kör] returneras återvinns rollen.
+## <a name="role-returns-from-run-method"></a>Rollen returnerar från körnings metoden
+[Körnings] metoden är avsedd att köras oändligt. Om din kod åsidosätter [körnings] metoden bör den vila i låg tid. Om [körnings] metoden returnerar återvinner rollen.
 
-## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Felaktig inställning för Diagnostikanslutningssträng
-Om programmet använder Azure Diagnostics måste tjänstkonfigurationsfilen ange konfigurationsinställningen. `DiagnosticsConnectionString` Den här inställningen bör ange en HTTPS-anslutning till ditt lagringskonto i Azure.
+## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Felaktig DiagnosticsConnectionString-inställning
+Om programmet använder Azure-diagnostik måste tjänst konfigurations filen ange `DiagnosticsConnectionString` konfigurations inställningen. Den här inställningen ska ange en HTTPS-anslutning till ditt lagrings konto i Azure.
 
-Kontrollera följande `DiagnosticsConnectionString` för att säkerställa att din inställning är korrekt innan du distribuerar programpaketet till Azure:  
+Kontrol lera följande för `DiagnosticsConnectionString` att se till att inställningen är korrekt innan du distribuerar ditt programpaket till Azure:  
 
-* Inställningen `DiagnosticsConnectionString` pekar på ett giltigt lagringskonto i Azure.  
-  Som standard pekar den här inställningen på det emulerade lagringskontot, så du måste uttryckligen ändra den här inställningen innan du distribuerar programpaketet. Om du inte ändrar den här inställningen genereras ett undantag när rollinstansen försöker starta diagnostikövervakaren. Detta kan leda till att rollinstansen återvinns på obestämd tid.
-* Anslutningssträngen anges i följande [format](../storage/common/storage-configure-connection-string.md). (Protokollet måste anges som HTTPS.) Ersätt *MyAccountName* med namnet på ditt lagringskonto och *MyAccountKey* med åtkomstnyckeln:    
+* `DiagnosticsConnectionString` Inställningen pekar på ett giltigt lagrings konto i Azure.  
+  Som standard pekar den här inställningen på det emulerade lagrings kontot, så du måste uttryckligen ändra den här inställningen innan du distribuerar ditt programpaket. Om du inte ändrar den här inställningen uppstår ett undantags fel när roll instansen försöker starta den diagnostiska övervakaren. Detta kan leda till att roll instansen omåtervinns oändligt.
+* Anslutnings strängen har angetts i följande [format](../storage/common/storage-configure-connection-string.md). (Protokollet måste anges som HTTPS.) Ersätt *MyAccountName* med namnet på ditt lagrings konto och *MyAccountKey* med din åtkomst nyckel:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Om du utvecklar ditt program med hjälp av Azure Tools för Microsoft Visual Studio kan du använda egenskapssidorna för att ange det här värdet.
+  Om du utvecklar ditt program med hjälp av Azure Tools för Microsoft Visual Studio kan du använda egenskaps sidorna för att ange det här värdet.
 
-## <a name="exported-certificate-does-not-include-private-key"></a>Exporterat certifikat innehåller inte privat nyckel
-Om du vill köra en webbroll under TLS måste du se till att det exporterade hanteringscertifikatet innehåller den privata nyckeln. Om du använder *Windows-certifikathanteraren* för att exportera certifikatet måste du välja **Ja** för alternativet **Exportera den privata nyckeln.** Certifikatet måste exporteras i PFX-format, vilket är det enda format som för närvarande stöds.
+## <a name="exported-certificate-does-not-include-private-key"></a>Det exporterade certifikatet innehåller inte privat nyckel
+Om du vill köra en webb roll under TLS måste du se till att det exporterade hanterings certifikatet innehåller den privata nyckeln. Om du använder *Windows certifikat hanteraren* för att exportera certifikatet måste du välja **Ja** för alternativet **Exportera den privata nyckeln** . Certifikatet måste exporteras i PFX-format, vilket är det enda format som stöds för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
-Visa fler [felsökningsartiklar](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) för molntjänster.
+Visa fler [fel söknings artiklar](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) för Cloud Services.
 
-Visa fler roll återvinning scenarier på [Kevin Williamson blogg serie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Visa fler scenarier för roll åter användning i [Kevin Williamsons blogg serie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
-[Påstart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
-[OnStop (på)]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Köra]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
+[OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
+[Fungerar]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

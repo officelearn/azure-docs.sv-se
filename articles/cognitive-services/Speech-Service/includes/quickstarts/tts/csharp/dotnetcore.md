@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Syntetisera tal, C# (.NET Core) - Taltjänst'
+title: 'Snabb start: syntetisera tal, C# (.NET Core) – tal service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du syntetiserar tal i C# under .NET Core i Windows med hjälp av Tal-SDK
+description: Lär dig mer om att syntetisera tal i C# under .NET core i Windows med hjälp av tal-SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: yinhew
 ms.openlocfilehash: 91e06805b687e66c147b0904175ae20d01387acf
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275139"
 ---
 > [!NOTE]
@@ -22,11 +22,11 @@ ms.locfileid: "81275139"
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnetcore&pivots=programming-language-csharp)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnetcore&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
@@ -42,17 +42,17 @@ Innan du börjar måste du:
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-1. Skapa programmet. Välj **Bygg** > **bygglösning**på menyraden . Koden ska kompileras utan fel.
+1. Skapa programmet. Välj **bygge** > **build-lösning**på Meny raden. Koden ska kompileras utan fel.
 
-    ![Skärmbild av Visual Studio-programmet med Skapa lösning markerat](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Lyckad konstruktion")
+    ![Skärmbild av Visual Studio-programmet med Skapa lösning markerat](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Lyckad version")
 
-1. Starta programmet. Välj **Felsökning Avsöka** > **Felsökning**på menyraden eller tryck på **F5**.
+1. Starta programmet. I meny raden väljer du **Felsök** > **Starta fel sökning**eller trycker på **F5**.
 
-    ![Skärmbild av Visual Studio-programmet med Starta felsökning markerat](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Starta appen för felsökning")
+    ![Skärmbild av Visual Studio-programmet med Starta felsökning markerat](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Starta appen i fel sökning")
 
-1. Ett konsolfönster visas där du uppmanas att skriva text. Skriv några ord eller en mening. Texten som du skrev överförs till taltjänsten och syntetiseras till tal, som spelas upp på högtalaren.
+1. Ett konsol fönster visas där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till tal tjänsten och syntetiskt till tal, som spelas upp på din talare.
 
-    ![Skärmbild av konsolutdata efter lyckad syntes](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Konsolutdata efter lyckad syntes")
+    ![Skärm bild av konsol utdata efter lyckad syntes](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Konsol utdata efter lyckad syntes")
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -61,4 +61,4 @@ Innan du börjar måste du:
 ## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Spela in anpassade röstexempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

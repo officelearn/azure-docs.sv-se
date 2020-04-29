@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Litmus | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Litmus | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Litmus.
 services: active-directory
 documentationCenter: na
@@ -16,68 +16,68 @@ ms.date: 04/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef0395f5898cbd566d31e39f80a165ae767cd31f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81265554"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Litmus
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Litmus
 
 I den här självstudien får du lära dig hur du integrerar Litmus med Azure Active Directory (Azure AD). När du integrerar Litmus med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till Litmus.
-* Gör att användarna automatiskt loggas in på Litmus med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till Litmus med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Litmus enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Litmus för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Litmus stöder **SP och IDP** initierade SSO
-* När du har konfigurerat Litmus kan du framtvinga sessionskontroll, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Litmus stöder **SP-och IDP** -INITIERAd SSO
+* När du har konfigurerat Litmus kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-litmus-from-the-gallery"></a>Lägga till Lackmus från galleriet
+## <a name="adding-litmus-from-the-gallery"></a>Lägga till Litmus från galleriet
 
 Om du vill konfigurera integreringen av Litmus i Azure AD måste du lägga till Litmus från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Litmus** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Litmus** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Litmus** i sökrutan.
+1. Välj **Litmus** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-litmus"></a>Konfigurera och testa en azure AD-inloggning för Litmus
+## <a name="configure-and-test-azure-ad-single-sign-on-for-litmus"></a>Konfigurera och testa enkel inloggning med Azure AD för Litmus
 
-Konfigurera och testa Azure AD SSO med Litmus med hjälp av en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Litmus.
+Konfigurera och testa Azure AD SSO med Litmus med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Litmus.
 
-Om du vill konfigurera och testa Azure AD SSO med Litmus slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Litmus, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Litmus SSO](#configure-litmus-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa Litmus-testanvändare](#create-litmus-test-user)** - om du vill ha en motsvarighet till B.Simon i Litmus som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera LITMUS SSO](#configure-litmus-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Litmus test User](#create-litmus-test-user)** -om du vill ha en motsvarighet till B. Simon i Litmus som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet **Hantera** på sidan **Hantera** i [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Litmus** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -89,93 +89,93 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
 1. Klicka på **Spara**.
 
-1. På sidan **Konfigurera enkel inloggning med SAML,** i avsnittet **SAML-signeringscertifikat,** hittar **du Certifikat (Raw)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (RAW)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera Lackmus** baserat på dina krav.
+1. I avsnittet **Konfigurera Litmus** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Litmus.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Litmus.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **Litmus**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Litmus**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ## <a name="configure-litmus-sso"></a>Konfigurera Litmus SSO
 
-1. I ett annat webbläsarfönster loggar du in på Litmus-programmet som administratör.
+1. Logga in på Litmus-programmet som administratör i ett annat webbläsarfönster.
 
-1. Klicka på **säkerheten** från den vänstra navigeringspanelen.
+1. Klicka på **säkerhet** på den vänstra navigerings panelen.
 
-    ![Konfiguration av lackmus](./media/litmus-tutorial/security-img.png)
+    ![Litmus-konfiguration](./media/litmus-tutorial/security-img.png)
 
-1. Gör följande i avsnittet **Konfigurera SAML-autentisering:**
+1. I avsnittet **Konfigurera SAML-autentisering** utför du följande steg:
 
-    ![Konfiguration av lackmus](./media/litmus-tutorial/configure1.png)
+    ![Litmus-konfiguration](./media/litmus-tutorial/configure1.png)
 
-    a. Slå på **växelknappen Aktivera SAML.**
+    a. Växla till **Aktivera SAML** -växling.
 
-    b. Välj **Allmänt** för providern.
+    b. Välj **generisk** för providern.
 
-    c. Ange namnet på **identitetsproviderns namn**. för ex. `Azure AD`
+    c. Ange namnet på **namnet på identitets leverantören**. för t. ex. `Azure AD`
 
 1. Utför följande steg:
 
-    ![Konfiguration av lackmus](./media/litmus-tutorial/configure3.png)
+    ![Litmus-konfiguration](./media/litmus-tutorial/configure3.png)
 
-    a. I textrutan **SAML 2.0 Endpoint(HTTP)** klistrar du in värdet **för inloggnings-URL,** som du har kopierat från Azure-portalen.
+    a. I text rutan **SAML 2,0-slutpunkt (http)** klistrar du in URL-värdet för **inloggning** som du har kopierat från Azure Portal.
 
-    b. Öppna nedladdad **certifikatfil** från Azure-portalen till Anteckningar och klistra in innehållet i **textrutan X.509-certifikat.**
+    b. Öppna Hämtad **certifikat** fil från Azure Portal till anteckningar och klistra in innehållet i text rutan **X. 509-certifikat** .
 
     c. Klicka på **Spara SAML-inställningar**.
 
-### <a name="create-litmus-test-user"></a>Skapa litmustestanvändare
+### <a name="create-litmus-test-user"></a>Skapa Litmus test användare
 
-1. I ett annat webbläsarfönster loggar du in på Litmus-programmet som administratör.
+1. Logga in på Litmus-programmet som administratör i ett annat webbläsarfönster.
 
-1. Klicka på **kontona** från den vänstra navigeringspanelen.
+1. Klicka på **kontona** i den vänstra navigerings panelen.
 
-    ![Konfiguration av lackmus](./media/litmus-tutorial/accounts-img.png)
+    ![Litmus-konfiguration](./media/litmus-tutorial/accounts-img.png)
 
-1. Klicka på **Fliken Lägg till ny användare.**
+1. Klicka på **Lägg till ny användare** fliken.
 
-    ![Konfiguration av lackmus](./media/litmus-tutorial/add-new-user.png)
+    ![Litmus-konfiguration](./media/litmus-tutorial/add-new-user.png)
 
-1. Gör följande i avsnittet **Lägg till användare:**
+1. I avsnittet **Lägg till användare** utför du följande steg:
 
-    ![Konfiguration av lackmus](./media/litmus-tutorial/user-profile.png)
+    ![Litmus-konfiguration](./media/litmus-tutorial/user-profile.png)
 
-    a. I **textrutan e-post** anger du e-postadressen till den användare som**B.Simon@contoso.com**
+    a. I text rutan **e-post** anger du e-postadressen för användaren som**B.Simon@contoso.com**
 
-    b. I textrutan **Förnamn** anger du förnamnet på användaren som **B**.
+    b. I text rutan för **förnamn** anger du det första namnet på användaren som **B**.
 
-    c. Ange efternamnet för användaren som **Simon**i textrutan **Efternamn** .
+    c. I text rutan **efter namn** anger du användarens efter namn som **Simon**.
 
     d. Klicka på **Skapa användare**.
 
@@ -183,7 +183,7 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Lackmus på åtkomstpanelen ska du automatiskt loggas in på den Lackmus som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Litmus på åtkomst panelen, bör du loggas in automatiskt på den Litmus som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -195,6 +195,6 @@ När du klickar på panelen Lackmus på åtkomstpanelen ska du automatiskt logga
 
 - [Prova Litmus med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Hur man skyddar Litmus med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Så här skyddar du Litmus med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

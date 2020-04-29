@@ -1,6 +1,6 @@
 ---
-title: Förinläsning av resurser på en Azure CDN-slutpunkt | Microsoft-dokument
-description: Lär dig hur du förinläsning av cachelagrat innehåll på en Azure CDN-slutpunkt.
+title: För inläsning av till gångar i en Azure CDN-slutpunkt | Microsoft Docs
+description: Lär dig hur du laddar upp cachelagrat innehåll i en Azure CDN slut punkt.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,59 +15,59 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: allensu
 ms.openlocfilehash: c45d0a9195a719d830753a9614cfa7efb6f1c23d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260283"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Läsa in tillgångar för en Azure CDN-slutpunkt i förväg
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Som standard cachelagras tillgångar endast när de begärs. Eftersom kantservrarna ännu inte har cachelagrat innehållet och behöver vidarebefordra begäran till ursprungsservern kan den första begäran från varje region ta längre tid än efterföljande begäranden. För att undvika den här svarstiden för första träffen, förinläsning av dina tillgångar. Förutom att ge en bättre kundupplevelse kan förinläsning av dina cachelagrade tillgångar minska nätverkstrafiken på ursprungsservern.
+Som standard cachelagras till gångar bara när de begärs. Eftersom gräns servrarna ännu inte har cachelagrat innehållet och behöver vidarebefordra begäran till ursprungs servern, kan den första begäran från varje region ta längre tid än efterföljande begär Anden. Undvik den här svars tiden genom att i förväg läsa in till gångar. Förutom att tillhandahålla en bättre kund upplevelse kan för hands inläsning av cachelagrade till gångar minska nätverks trafiken på ursprungs servern.
 
 > [!NOTE]
-> Förinläsning av resurser är användbart för stora händelser eller innehåll som blir tillgängligt samtidigt för många användare, till exempel en ny filmutgåva eller en programuppdatering.
+> För inläsning av till gångar är användbart för stora händelser eller innehåll som blir tillgängliga för många användare samtidigt, till exempel en ny film version eller en program uppdatering.
 > 
 > 
 
-Den här självstudien går igenom förinläsning av cachelagrat innehåll på alla Azure CDN-kantnoder.
+Den här självstudien vägleder dig genom förladdningen av cachelagrat innehåll på alla Azure CDN Edge-noder.
 
-## <a name="to-pre-load-assets"></a>Så här förinläsning av tillgångar
-1. I [Azure-portalen](https://portal.azure.com)bläddrar du till CDN-profilen som innehåller den slutpunkt som du vill förinläsa. Profilfönstret öppnas.
+## <a name="to-pre-load-assets"></a>Till gång till i förväg
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till CDN-profilen som innehåller den slut punkt som du vill läsa in i förväg. Profil fönstret öppnas.
     
-2. Klicka på slutpunkten i listan. Slutpunktsfönstret öppnas.
-3. Välj **Läs in**i cdn-slutpunktsfönstret .
+2. Klicka på slut punkten i listan. Slut punkts fönstret öppnas.
+3. I fönstret CDN-slutpunkt väljer du **load**.
    
     ![Fönstret CDN-slutpunkt](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
-    **Fönstret Läs in** öppnas.
+    **Inläsnings** fönstret öppnas.
    
-    ![Inläsningsfönstret för CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
-4. För **sökväg innehåll**anger du hela sökvägen för varje `/pictures/kitten.png`tillgång som du vill läsa in (till exempel ).
+    ![Inläsnings fönster för CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
+4. För **innehålls Sök väg**anger du den fullständiga sökvägen till varje till gång som du vill läsa in ( `/pictures/kitten.png`till exempel).
    
    > [!TIP]
-   > När du har börjat skriva text visas fler textrutor **för innehållssökväg** så att du kan skapa en lista med flera resurser. Om du vill ta bort tillgångar från listan markerar du knappen ellips (...) och väljer sedan **Ta bort**.
+   > När du har påbörjat ange text visas text rutorna för **innehålls Sök vägen** så att du kan skapa en lista över flera till gångar. Om du vill ta bort till gångar från listan väljer du knappen med tre punkter (...) och väljer sedan **ta bort**.
    > 
-   > Varje innehållssökväg måste vara en relativ URL som passar följande [reguljära uttryck:](/dotnet/standard/base-types/regular-expression-language-quick-reference)  
-   > - Läs in en enda filsökväg:`^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Läsa in en enskild fil med frågesträng:`^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > Varje innehålls Sök väg måste vara en relativ URL som passar följande [reguljära uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
+   > - Läs in en enda fil Sök väg:`^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Läs in en enda fil med frågesträng:`^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
-   > Eftersom varje tillgång måste ha en egen sökväg finns det ingen jokerteckenfunktion för förinläsning av tillgångar.
+   > Eftersom varje till gång måste ha en egen sökväg finns det ingen jokertecken för för inläsnings till gångar.
    > 
    > 
    
     ![Knappen Läs in](./media/cdn-preload-endpoint/cdn-load-paths.png)
-5. När du har angett innehållssökvägar väljer du **Läs in**.
+5. När du är klar med att ange innehålls Sök vägar väljer du **load**.
    
 
 > [!NOTE]
-> Det finns en gräns på 10 belastningsbegäranden per minut per CDN-profil och 50 samtidiga sökvägar kan bearbetas samtidigt. Varje bana har en väglängdsgräns på 1024 tecken.
+> Det finns en gräns på 10 belastnings begär Anden per minut per CDN-profil och 50 samtidiga sökvägar kan bearbetas samtidigt. Varje sökväg har en sökväg på högst 1024 tecken.
 > 
 > 
 
 ## <a name="see-also"></a>Se även
 * [Rensa en Azure CDN-slutpunkt](cdn-purge-endpoint.md)
-* [Azure CDN REST API-referens: Förinläsning av innehåll på en slutpunkt](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API-referens: Rensa innehåll från en slutpunkt](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Referens för Azure CDN REST API: för inläsning av innehåll på en slut punkt](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Referens för Azure CDN REST API: Rensa innehåll från en slut punkt](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

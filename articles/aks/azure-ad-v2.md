@@ -1,43 +1,43 @@
 ---
 title: Använda Azure AD i Azure Kubernetes-tjänsten
-description: Lär dig hur du använder Azure AD i Azure Kubernetes Service (AKS)
+description: Lär dig hur du använder Azure AD i Azure Kubernetes service (AKS)
 services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
 ms.openlocfilehash: b121830192a2b88185bbbbc9a92934e51b32a61c
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114653"
 ---
-# <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integrera Azure AD i Azure Kubernetes-tjänsten (förhandsversion)
+# <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integrera Azure AD i Azure Kubernetes service (för hands version)
 
 > [!Note]
-> Befintliga AKS v1-kluster med AD-integrering påverkas inte av den nya AKS v2-upplevelsen.
+> Befintliga AKS v1-kluster med AD-integration påverkas inte av den nya AKS v2-upplevelsen.
 
-Azure AD-integrering med AKS v2 är utformad för att förenkla Azure AD-integreringen med AKS v1-upplevelse, där användarna var tvungna att skapa en klientapp, en serverapp och krävde att Azure AD-klienten beviljar katalogläsningsbehörigheter. I den nya versionen hanterar AKS-resursleverantören klient- och serverapparna åt dig.
+Azure AD-integrering med AKS v2 är utformad för att förenkla Azure AD-integrering med AKS v1-upplevelse, där användare var tvungna att skapa en klient app, en server app och krävde att Azure AD-klienten ska bevilja Läs behörighet för katalogen. I den nya versionen hanterar AKS Resource Provider klient-och Server apparna åt dig.
 
 ## <a name="limitations"></a>Begränsningar
 
 * Du kan för närvarande inte uppgradera ett befintligt Azure AD-aktiverat AKS v1-kluster till v2-upplevelsen.
 
 > [!IMPORTANT]
-> AKS-förhandsgranskningsfunktioner är tillgängliga på opt-in-basis med självbetjäning. Förhandsvisningar tillhandahålls "i nu och "som tillgängligt" och är undantagna från servicenivåavtalen och den begränsade garantin. AKS-förhandsvisningar omfattas delvis av kundsupport på bästa sätt. Därför är dessa funktioner inte avsedda för produktionsanvändning. Mer information finns i följande supportartiklar:
+> AKS för hands versions funktioner är tillgängliga på en självbetjänings-och deltagande nivå. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och omfattas inte av service nivå avtal och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
 >
-> - [Aks-supportpolicyer](support-policies.md)
-> - [Vanliga frågor och svar om Azure-support](faq.md)
+> - [Support principer för AKS](support-policies.md)
+> - [Vanliga frågor och svar om support för Azure](faq.md)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du måste ha följande resurser installerade:
 
 - Azure CLI, version 2.2.0 eller senare
-- Aks-förhandsversionen 0.4.38-tillägget
-- Kubectl med en minimiversion av [1,18 beta](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#client-binaries)
+- Tillägget AKS-Preview 0.4.38
+- Kubectl med en lägsta version av [1,18 beta](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#client-binaries)
 
-Om du vill installera/uppdatera tillägget aks-preview eller senare använder du följande Azure CLI-kommandon:
+Använd följande Azure CLI-kommandon om du vill installera/uppdatera AKS-förhands gransknings tillägget eller senare:
 
 ```azurecli
 az extension add --name aks-preview
@@ -49,29 +49,29 @@ az extension update --name aks-preview
 az extension list
 ```
 
-Så här installerar du kubectl:
+Om du vill installera kubectl använder du följande:
 
 ```azurecli
 sudo az aks install-cli
 kubectl version --client
 ```
 
-Följ [dessa instruktioner](https://kubernetes.io/docs/tasks/tools/install-kubectl/) för andra operativsystem.
+Använd [de här anvisningarna](https://kubernetes.io/docs/tasks/tools/install-kubectl/) för andra operativ system.
 
 > [!CAUTION]
-> När du har registrerat en funktion på en prenumeration kan du för närvarande inte avregistrera den funktionen. När du aktiverar vissa förhandsversionsfunktioner kan standardvärden användas för alla AKS-kluster som skapas efteråt i prenumerationen. Aktivera inte förhandsgranskningsfunktioner på produktionsprenumerationer. Använd i stället en separat prenumeration för att testa förhandsgranskningsfunktioner och samla in feedback.
+> När du har registrerat en funktion på en prenumeration kan du för närvarande inte avregistrera den funktionen. När du aktiverar vissa för hands versions funktioner kan du använda standardvärden för alla AKS-kluster som skapas efteråt i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd i stället en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
 
 ```azurecli-interactive
 az feature register --name AAD-V2 --namespace Microsoft.ContainerService
 ```
 
-Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrollera registreringsstatusen med kommandot [az-funktionslista:](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list)
+Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
 ```
 
-När statusen visas som registrerad uppdaterar `Microsoft.ContainerService` du registreringen av resursprovidern med kommandot [az provider register:](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register)
+När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -79,9 +79,9 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Skapa ett AKS-kluster med Azure AD aktiverat
 
-Du kan nu skapa ett AKS-kluster med hjälp av följande CLI-kommandon.
+Nu kan du skapa ett AKS-kluster med hjälp av följande CLI-kommandon.
 
-Skapa först en Azure-resursgrupp:
+Börja med att skapa en Azure-resurs grupp:
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -93,20 +93,20 @@ Skapa sedan ett AKS-kluster:
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad
 ```
-Kommandot ovan skapar ett AKS-kluster med tre noder, men användaren, som skapade klustret, som standard, är inte medlem i en grupp som har åtkomst till det här klustret. Den här användaren måste skapa en Azure AD-grupp, lägga till sig som medlem i gruppen och sedan uppdatera klustret enligt nedan. Följ instruktionerna [här](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+Kommandot ovan skapar ett AKS-kluster med tre noder, men användaren, som som skapade klustret, är som standard inte medlem i en grupp som har åtkomst till det här klustret. Användaren måste skapa en Azure AD-grupp, lägga till sig själva som medlem i gruppen och sedan uppdatera klustret så som visas nedan. Följ anvisningarna [här](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
 
-När du har skapat en grupp och lagt till dig själv (och andra) som medlem kan du uppdatera klustret med Azure AD-gruppen med följande kommando
+När du har skapat en grupp och lagt till dig själv (och andra) som medlem kan du uppdatera klustret med Azure AD-gruppen med hjälp av följande kommando
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
-Alternativt, om du först skapar en grupp och lägger till medlemmar, kan du aktivera Azure AD-gruppen vid skapande tid med hjälp av följande kommando,
+Alternativt, om du först skapar en grupp och lägger till medlemmar, kan du aktivera Azure AD-gruppen vid skapande tid med hjälp av följande kommando.
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
-En lyckad skapande av ett Azure AD v2-kluster har följande avsnitt i svarstexten
+En lyckad skapande av ett Azure AD v2-kluster har följande avsnitt i svars texten
 ```
 "Azure ADProfile": {
     "adminGroupObjectIds": null,
@@ -120,13 +120,13 @@ En lyckad skapande av ett Azure AD v2-kluster har följande avsnitt i svarstexte
 
 Klustret skapas inom några minuter.
 
-## <a name="access-an-azure-ad-enabled-cluster"></a>Få tillgång till ett Azure AD-aktiverat kluster
-Så här hämtar du administratörsautentiseringsuppgifterna för att komma åt klustret:
+## <a name="access-an-azure-ad-enabled-cluster"></a>Åtkomst till ett Azure AD-aktiverat kluster
+Så här hämtar du administratörsautentiseringsuppgifter för att få åtkomst till klustret:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
 ```
-Använd nu kommandot kubectl get noder för att visa noder i klustret:
+Använd nu kommandot kubectl get Nodes för att Visa noder i klustret:
 
 ```azurecli-interactive
 kubectl get nodes
@@ -137,20 +137,20 @@ aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
 
-Så här hämtar du användarautentiseringsuppgifter för att komma åt klustret:
+Så här hämtar du autentiseringsuppgifter för att få åtkomst till klustret:
  
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
-Följ instruktionerna för att logga in.
+Följ anvisningarna för att logga in.
 
-Du får: **Du måste vara inloggad på servern (Obehörig)**
+Du får: **du måste vara inloggad på servern (ej behörig)**
 
-Användaren ovan får ett felmeddelande eftersom användaren inte är en del av en grupp som har åtkomst till klustret.
+Användaren ovan får ett fel meddelande eftersom användaren inte är en del av en grupp som har åtkomst till klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [Azure AD-rollbaserad åtkomstkontroll][azure-ad-rbac].
+Lär dig mer om [Azure AD-rollbaserade Access Control][azure-ad-rbac].
 
 <!-- LINKS - Internal -->
 [azure-ad-rbac]: azure-ad-rbac.md

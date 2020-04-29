@@ -1,82 +1,82 @@
 ---
-title: Konfigurera nätverk för Azure Dev Spaces i olika nätverkstopologier
+title: Konfigurera nätverk för Azure dev Spaces i olika nätverkstopologier
 services: azure-dev-spaces
 ms.date: 03/17/2020
 ms.topic: conceptual
-description: Beskriver nätverkskraven för att köra Azure Dev Spaces i Azure Kubernetes Services
-keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, CNI, kubenet, SDN, nätverk
+description: Beskriver nätverks kraven för att köra Azure dev Spaces i Azure Kubernetes Services
+keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, CNI, Kubernetes, SDN, Network
 ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81262051"
 ---
-# <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Konfigurera nätverk för Azure Dev Spaces i olika nätverkstopologier
+# <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Konfigurera nätverk för Azure dev Spaces i olika nätverkstopologier
 
-Azure Dev Spaces körs på AKS-kluster (Azure Dev Spaces) med standardkonfigurationen för nätverk. Om du vill ändra nätverkskonfigurationen för AKS-klustret, till exempel lägga klustret bakom en brandvägg, använda nätverkssäkerhetsgrupper eller använda nätverksprinciper, måste du ta ytterligare hänsyn till att köra Azure Dev Spaces.
+Azure dev Spaces körs på Azure Kubernetes service-kluster (AKS) med standard nätverks konfigurationen. Om du vill ändra nätverks konfigurationen för ditt AKS-kluster, till exempel att placera klustret bakom en brand vägg, använda nätverks säkerhets grupper eller använda nätverks principer, måste du lägga till ytterligare överväganden för att köra Azure dev Spaces.
 
 ![Konfiguration av virtuellt nätverk](media/configure-networking/virtual-network-clusters.svg)
 
-## <a name="virtual-network-or-subnet-configurations"></a>Konfigurationer för virtuellt nätverk eller undernät
+## <a name="virtual-network-or-subnet-configurations"></a>Konfiguration av virtuellt nätverk eller undernät
 
-AKS-klustret kan ha en annan virtuell nätverks- eller undernätskonfiguration för att begränsa inkommande eller utgående trafik för AKS-klustret. Klustret kan till exempel ligga bakom en brandvägg, till exempel Azure-brandväggen, eller så kan du använda nätverkssäkerhetsgrupper eller anpassade roller för att begränsa nätverkstrafiken. Du hittar en exempelnätverkskonfiguration i [exempeldatabasen Azure Dev Spaces på GitHub][sample-repo].
+Ditt AKS-kluster kan ha en annan virtuell nätverks-eller under näts konfiguration för att begränsa inkommande eller utgående trafik för ditt AKS-kluster. Klustret kan till exempel ligga bakom en brand vägg, t. ex. Azure-brandvägg, eller så kan du använda nätverks säkerhets grupper eller anpassade roller för att begränsa nätverks trafiken. Du hittar ett exempel på en nätverks konfiguration i [exempel databasen för Azure dev Spaces på GitHub][sample-repo].
 
-Azure Dev Spaces har vissa krav för *ingående och utgående* nätverkstrafik samt *endast inträngningstrafik.* Om du använder Azure Dev Spaces i ett AKS-kluster med ett virtuellt nätverk eller en undernätskonfiguration som begränsar trafiken för AKS-klustret måste du följa följande ingående och endast ingående och utgående trafikkrav för att Azure Dev Spaces ska fungera korrekt.
+Azure dev Spaces har vissa krav för ingångs- *och utgående* nätverks trafik samt *endast* ingångs trafik. Om du använder Azure dev Spaces i ett AKS-kluster med ett virtuellt nätverk eller en under näts konfiguration som begränsar trafiken för ditt AKS-kluster, måste du följa följande ingångs-och ingångs-och utgångs trafik krav för att Azure dev Spaces ska fungera korrekt.
 
-### <a name="ingress-and-egress-network-traffic-requirements"></a>Krav på in- och utgående nätverkstrafik
+### <a name="ingress-and-egress-network-traffic-requirements"></a>Krav på inkommande och utgående nätverks trafik
 
-Azure Dev Spaces behöver inkommande och utgående trafik för följande FQDN:
+Azure dev Spaces behöver inkommande och utgående trafik för följande FQDN: er:
 
 | FQDN                       | Port       | Användning      |
 |----------------------------|------------|----------|
-| cloudflare.docker.com      | HTTPS: 443 | Så här hämtar du dockeravbildningar för Azure Dev Spaces |
-| gcr.io                     | HTTPS: 443 | Så här hämtar du helmavbildningar för Azure Dev Spaces |
-| storage.googleapis.com     | HTTPS: 443 | Så här hämtar du helmavbildningar för Azure Dev Spaces |
-| azds-*.azds.io             | HTTPS: 443 | Så här kommunicerar du med Azure Dev Spaces-backend-tjänster för Azure Dev Spaces-styrenheten. Den exakta FQDN finns i *dataplaneFqdn* i`USERPROFILE\.azds\settings.json` |
+| cloudflare.docker.com      | HTTPS: 443 | Hämta Docker-avbildningar för Azure dev Spaces |
+| gcr.io                     | HTTPS: 443 | Hämta Helm-avbildningar för Azure dev Spaces |
+| storage.googleapis.com     | HTTPS: 443 | Hämta Helm-avbildningar för Azure dev Spaces |
+| azds-*. azds. io             | HTTPS: 443 | För att kommunicera med Azure dev Spaces-backend-tjänster för Azure dev Spaces-styrenheten. Du hittar exakt FQDN i *dataplaneFqdn* i`USERPROFILE\.azds\settings.json` |
 
-Uppdatera brandväggen eller säkerhetskonfigurationen så att nätverkstrafiken till och från alla ovanstående FQDN:er. Om du till exempel använder en brandvägg för att skydda nätverket bör ovanstående FQDN läggas till i brandväggens programregel så att trafik till och från dessa domäner tillåts.
+Uppdatera brand väggen eller säkerhets konfigurationen för att tillåta nätverks trafik till och från alla ovanstående FQDN: er. Om du till exempel använder en brand vägg för att skydda ditt nätverk, ska ovanstående FQDN-namn läggas till i brand väggens program regel för att tillåta trafik till och från dessa domäner.
 
-### <a name="ingress-only-network-traffic-requirements"></a>Endast krav på nätverkstrafik inträngning
+### <a name="ingress-only-network-traffic-requirements"></a>Ingress endast nätverks trafik krav
 
-Azure Dev Spaces tillhandahåller Kubernetes namnområdesdirigering samt offentlig åtkomst till tjänster med egen FQDN. För båda dessa funktioner att fungera uppdaterar du brandväggen eller nätverkskonfigurationen så att offentliga inträngningar till den externa IP-adressen för Azure Dev Spaces-ingress-styrenheten i klustret. Du kan också skapa en [intern belastningsutjämnare][aks-internal-lb] och lägga till en NAT-regel i brandväggen för att översätta brandväggens offentliga IP till IP-adressen för den interna belastningsutjämnaren. Du kan också använda [traefik][traefik-ingress] eller [NGINX][nginx-ingress] för att skapa en anpassad ingående styrenhet.
+Azure dev Spaces tillhandahåller routning av Kubernetes namn områdes nivå samt offentlig åtkomst till tjänster med hjälp av sitt eget fullständiga domän namn. För att båda funktionerna ska fungera uppdaterar du brand väggen eller nätverks konfigurationen för att tillåta att offentliga ingångar till den externa IP-adressen för Azure dev-platser intränger på klustret. Du kan också skapa en [intern belastningsutjämnare][aks-internal-lb] och lägga till en NAT-regel i brand väggen för att översätta den offentliga IP-adressen för brand väggen till IP-adressen för den interna belastningsutjämnaren. Du kan också använda [traefik][traefik-ingress] eller [nginx][nginx-ingress] för att skapa en anpassad ingångs kontroll.
 
-## <a name="aks-cluster-network-requirements"></a>AKS klusternätverkskrav
+## <a name="aks-cluster-network-requirements"></a>Nätverks krav för AKS-kluster
 
-MED AKS kan du använda [nätverksprinciper][aks-network-policies] för att styra inkommande och utgående trafik mellan poddar i ett kluster samt utgående trafik från en pod. Azure Dev Spaces har vissa krav för *ingående och utgående* nätverkstrafik samt *endast inträngningstrafik.* Om du använder Azure Dev Spaces i ett AKS-kluster med AKS-nätverksprinciper måste du följa följande endast ingående och ingående och utgående trafikkrav för att Azure Dev Spaces ska fungera korrekt.
+Med AKS kan du använda [nätverks principer][aks-network-policies] för att styra inkommande och utgående trafik mellan poddar i ett kluster samt utgående trafik från en pod. Azure dev Spaces har vissa krav för ingångs- *och utgående* nätverks trafik samt *endast* ingångs trafik. Om du använder Azure dev Spaces i ett AKS-kluster med AKS-nätverks principer, måste du följa följande ingångs-och ingångs-och utgångs trafik krav för att Azure dev Spaces ska fungera korrekt.
 
-### <a name="ingress-and-egress-network-traffic-requirements"></a>Krav på in- och utgående nätverkstrafik
+### <a name="ingress-and-egress-network-traffic-requirements"></a>Krav på inkommande och utgående nätverks trafik
 
-Med Azure Dev Spaces kan du kommunicera direkt med en pod i ett utvecklingsutrymme i klustret för felsökning. Lägg till en nätverksprincip som tillåter inkommande och utgående kommunikation till IP-adresserna för Azure Dev Spaces-infrastrukturen, som [varierar beroende på region][dev-spaces-ip-auth-range-regions].
+Med Azure dev Spaces kan du kommunicera direkt med en POD i ett dev-utrymme i klustret för fel sökning. För att den här funktionen ska fungera lägger du till en nätverks princip som tillåter inkommande och utgående kommunikation till IP-adresserna för Azure dev Spaces-infrastrukturen, som [varierar beroende på region][dev-spaces-ip-auth-range-regions].
 
-### <a name="ingress-only-network-traffic-requirements"></a>Endast krav på nätverkstrafik inträngning
+### <a name="ingress-only-network-traffic-requirements"></a>Ingress endast nätverks trafik krav
 
-Azure Dev Spaces tillhandahåller routning mellan poddar över namnområden. Namnområden med Azure Dev Spaces aktiverat kan till exempel ha en överordnad/underordnad relation, vilket gör att nätverkstrafik kan dirigeras mellan poddar över de överordnade och underordnade namnområdena. Azure Dev Spaces exponerar också tjänstslutpunkter med hjälp av sin egen FQDN. Om du vill konfigurera olika sätt att exponera tjänster och hur det påverkar routning av namnområdesnivå finns [i Använda olika slutpunktsalternativ][endpoint-options].
+Azure dev Spaces tillhandahåller routning mellan poddar över namn områden. Namn områden med aktiverade Azure dev-utrymmen kan till exempel ha en överordnad/underordnad-relation, vilket gör att nätverks trafiken kan dirigeras mellan poddar över de överordnade och underordnade namn områdena. Azure dev Spaces exponerar också tjänstens slut punkter med sitt eget fullständiga domän namn. Om du vill konfigurera olika sätt att exponera tjänster och hur det påverkar routning på namn områdes nivå, se [använda olika slut punkts alternativ][endpoint-options].
 
-## <a name="using-azure-cni"></a>Använda Azure CNI
+## <a name="using-azure-cni"></a>Använda Azure-CNI
 
-Som standard är AKS-kluster konfigurerade för att använda [kubenet][aks-kubenet] för nätverk, som fungerar med Azure Dev Spaces. Du kan också konfigurera AKS-klustret så att det använder [CNI (Azure Container Networking Interface).][aks-cni] Om du vill använda Azure Dev Spaces med Azure CNI i AKS-klustret tillåter du att ditt virtuella nätverk och undernätsadressutrymmen med upp till 10 privata IP-adresser för poddar som distribueras av Azure Dev Spaces. Mer information om hur du tillåter privata IP-adresser finns i [AKS Azure CNI-dokumentationen][aks-cni-ip-planning].
+Som standard är AKS-kluster konfigurerade för att använda [Kubernetes][aks-kubenet] för nätverk, vilket fungerar med Azure dev Spaces. Du kan också konfigurera ditt AKS-kluster för att använda [cni (Azure Container Networking Interface)][aks-cni]. Om du vill använda Azure dev Spaces med Azure CNI i ditt AKS-kluster kan du tillåta ditt virtuella nätverk och under nätets adress utrymme upp till 10 privata IP-adresser för poddar som distribueras av Azure dev Spaces. Mer information om hur du tillåter privata IP-adresser finns i [AKS Azure cni-dokumentationen][aks-cni-ip-planning].
 
-## <a name="using-api-server-authorized-ip-ranges"></a>Använda API-serverauktoriserade IP-intervall
+## <a name="using-api-server-authorized-ip-ranges"></a>Använda tillåtna IP-intervall för API-Server
 
-MED AKS-kluster kan du konfigurera ytterligare säkerhet som begränsar vilken IP-adress som kan interagera med dina kluster, till exempel med hjälp av anpassade virtuella nätverk eller [skydda åtkomsten till API-servern med hjälp av auktoriserade IP-intervall][aks-ip-auth-ranges]. Om du vill använda Azure Dev Spaces när du använder den här extra säkerheten när du [skapar][aks-ip-auth-range-create] [klustret][dev-spaces-ip-auth-range-regions]måste du tillåta ytterligare intervall baserat på din region . Du kan också [uppdatera][aks-ip-auth-range-update] ett befintligt kluster för att tillåta dessa ytterligare intervall. Du måste också tillåta IP-adressen för alla utvecklingsdatorer som ansluter till AKS-klustret för felsökning för att ansluta till din API-server.
+Med AKS-kluster kan du konfigurera ytterligare säkerhet som begränsar vilken IP-adress som kan interagera med dina kluster, till exempel att använda anpassade virtuella nätverk eller [Skydda åtkomsten till API-servern med hjälp av auktoriserade IP-adressintervall][aks-ip-auth-ranges]. Om du vill använda Azure dev Spaces när du använder den här extra säkerheten när du [skapar][aks-ip-auth-range-create] klustret, måste du [tillåta ytterligare intervall baserat på din region][dev-spaces-ip-auth-range-regions]. Du kan också [Uppdatera][aks-ip-auth-range-update] ett befintligt kluster för att tillåta dessa ytterligare intervall. Du måste också tillåta IP-adressen för alla utvecklings datorer som ansluter till ditt AKS-kluster för fel sökning för att kunna ansluta till din API-Server.
 
-## <a name="using-aks-private-clusters"></a>Använda AKS privata kluster
+## <a name="using-aks-private-clusters"></a>Använda privata AKS-kluster
 
-För närvarande stöds inte Azure Dev Spaces med [AKS-privata kluster][aks-private-clusters].
+För närvarande stöds inte Azure dev Spaces med [privata AKS-kluster][aks-private-clusters].
 
-## <a name="using-different-endpoint-options"></a>Använda olika slutpunktsalternativ
+## <a name="using-different-endpoint-options"></a>Använda olika slut punkts alternativ
 
-Azure Dev Spaces har möjlighet att exponera slutpunkter för dina tjänster som körs på AKS. När du aktiverar Azure Dev Spaces i klustret har du följande alternativ för att konfigurera slutpunktstypen för klustret:
+Azure dev Spaces har möjlighet att exponera slut punkter för dina tjänster som körs på AKS. När du aktiverar Azure dev Spaces i klustret har du följande alternativ för att konfigurera slut punkts typen för klustret:
 
-* En *offentlig* slutpunkt, som är standard, distribuerar en ingående styrenhet med en offentlig IP-adress. Den offentliga IP-adressen är registrerad på klustrets DNS, vilket ger allmänheten tillgång till dina tjänster med hjälp av en URL. Du kan visa `azds list-uris`den här webbadressen med .
-* En *privat* slutpunkt distribuerar en ingående styrenhet med en privat IP-adress. Med en privat IP-adress är belastningsutjämnaren för klustret endast tillgänglig inifrån klustrets virtuella nätverk. Belastningsutjämnarens privata IP-adress registreras på klustrets DNS så att tjänster i klustrets virtuella nätverk kan nås med hjälp av en URL. Du kan visa `azds list-uris`den här webbadressen med .
-* Om *du anger ingen* för slutpunktsalternativet kan ingen ingående styrenhet distribueras. Utan ingående styrenhet distribueras fungerar inte [routningsfunktionerna för Azure Dev Spaces.][dev-spaces-routing] Du kan också implementera din egen lösning för ingående styrenhet med [traefik][traefik-ingress] eller [NGINX][nginx-ingress], vilket gör att routningsfunktionerna kan fungera igen.
+* En *offentlig* slut punkt, som är standard, distribuerar en ingångs kontroll med en offentlig IP-adress. Den offentliga IP-adressen är registrerad på klustrets DNS och möjliggör offentlig åtkomst till dina tjänster med hjälp av en URL. Du kan visa den här URL `azds list-uris`: en med hjälp av.
+* En *privat* slut punkt distribuerar en ingress-styrenhet med en privat IP-adress. Med en privat IP-adress är belastningsutjämnaren för klustret bara tillgänglig i det virtuella nätverket i klustret. Belastnings utjämningens privata IP-adress är registrerad på klustrets DNS så att tjänsterna i klustrets virtuella nätverk kan nås via en URL. Du kan visa den här URL `azds list-uris`: en med hjälp av.
+* Om *ingen* inställning anges för slut punkts alternativet distribueras ingen ingångs kontroll. När ingen ingångs kontroll har distribuerats fungerar inte [cirkulations funktionerna i Azure dev][dev-spaces-routing] . Om du vill kan du implementera en egen lösning för ingångs kontroll med [traefik][traefik-ingress] eller [nginx][nginx-ingress], vilket gör att routningsfunktioner kan fungera igen.
 
-Om du vill konfigurera slutpunktsalternativet använder du *-e* eller *--endpoint* när du aktiverar Azure Dev Spaces i klustret. Ett exempel:
+Om du vill konfigurera slut punkts alternativet använder du *-e* eller *--Endpoint* när du aktiverar Azure dev Spaces i klustret. Ett exempel:
 
 > [!NOTE]
-> Slutpunktsalternativet kräver att du kör Azure CLI version 2.2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+> Slut punkts alternativet kräver att du kör Azure CLI version 2.2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
@@ -84,14 +84,14 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
 
 ## <a name="client-requirements"></a>Klientkrav
 
-Azure Dev Spaces använder verktyg på klientsidan, till exempel AZURE Dev Spaces CLI-tillägget, Visual Studio-kodtillägget och Visual Studio-tillägget, för att kommunicera med AKS-klustret för felsökning. Om du vill använda azure dev spaces-verktyg på klientsidan tillåter du trafik från utvecklingsdatorerna till *domänen azds-\*.azds.io.* Se *dataplaneFqdn* in `USERPROFILE\.azds\settings.json` för den exakta FQDN. Om du använder [API-serveraukuktoriserade IP-intervall][auth-range-section]måste du också tillåta IP-adressen för alla utvecklingsdatorer som ansluter till AKS-klustret för felsökning för att ansluta till din API-server.
+Azure dev Spaces använder verktyg på klient sidan, till exempel CLI-tillägget för Azure dev Spaces, Visual Studio Code extension och Visual Studio-tillägget för att kommunicera med ditt AKS-kluster för fel sökning. Om du vill använda verktyget för Azure dev-verktyget på klient sidan kan du tillåta trafik från utvecklings datorerna till *azds-. azds.io-\** domänen. Se *dataplaneFqdn* i `USERPROFILE\.azds\settings.json` för exakt FQDN. Om du använder [tillåtna IP-intervall för API-Server][auth-range-section]måste du också tillåta IP-adressen för alla utvecklings datorer som ansluter till ditt AKS-kluster för fel sökning för att kunna ansluta till din API-Server.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur Azure Dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbete genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
+Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
 
 > [!div class="nextstepaction"]
-> [Teamutveckling i Azure Dev Spaces][team-quickstart]
+> [Grupp utveckling i Azure dev Spaces][team-quickstart]
 
 [aks-cni]: ../aks/configure-azure-cni.md
 [aks-cni-ip-planning]: ../aks/configure-azure-cni.md#plan-ip-addressing-for-your-cluster

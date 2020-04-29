@@ -1,6 +1,6 @@
 ---
-title: API-referens för molnpartnerportal | Azure Marketplace
-description: Beskrivning av förutsättningar att använda och lista över MARKETPLACE API-åtgärder.
+title: Cloud Partner Portal API-referens | Azure Marketplace
+description: Beskrivning av, krav som ska användas och lista över Marketplace API-åtgärder.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: b9f698ea81830aaa8761c05012cf6843d07ad5a4
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81256424"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>API-referens för Cloud Partner Portal
 
 > [!NOTE]
-> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna av [CPP API:er](#changes-to-cpp-apis-after-the-migration-to-partner-center) som visas i det här dokumentet för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska [ändringarna i cpp-API: erna](#changes-to-cpp-apis-after-the-migration-to-partner-center) som anges i det här dokumentet för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
 
-Rest-API:erna för Cloud Partner Portal tillåter programmatisk hämtning och manipulering av arbetsbelastningar, erbjudanden och utgivarprofiler. API:erna använder rollbaserad åtkomstkontroll (RBAC) för att framtvinga korrekta behörigheter vid bearbetningstiden.
+Cloud Partner Portal REST-API: er tillåter programmerings hämtning och manipulering av arbets belastningar, erbjudanden och utgivar profiler. API: erna använder rollbaserad åtkomst kontroll (RBAC) för att genomdriva korrekta behörigheter vid bearbetnings tiden.
 
-Den här referensen innehåller teknisk information för REST-API:erna för Cloud Partner Portal. Nyttolastexemplen i det här dokumentet är endast till referens och kan komma att ändras när nya funktioner läggs till.
+Den här referensen ger teknisk information för Cloud Partner Portal REST-API: er. Nytto Last exemplen i det här dokumentet är endast för referens och kan komma att ändras när nya funktioner läggs till.
 
-## <a name="prerequisites-and-considerations"></a>Förutsättningar och överväganden
+## <a name="prerequisites-and-considerations"></a>Krav och överväganden
 
-Innan du använder API:erna bör du granska:
+Innan du använder API: erna bör du granska:
 
-- I artikeln [Förutsättningar](./cloud-partner-portal-api-prerequisites.md) får du lära dig hur du lägger till ett tjänsthuvudnamn i ditt konto och får en Azure Active Directory-åtkomsttoken (Azure AD) för autentisering.
-- De två [strategier för samtidighetskontroll](./cloud-partner-portal-api-concurrency-control.md) som finns tillgängliga för att anropa dessa API:er.
-- Ytterligare [API-överväganden](./cloud-partner-portal-api-considerations.md), till exempel versionshantering och felhantering.
+- I [krav](./cloud-partner-portal-api-prerequisites.md) artikeln får du lära dig hur du lägger till ett huvud namn för tjänsten i ditt konto och hur du får en Azure Active Directory (Azure AD)-åtkomsttoken för autentisering.
+- De två [samtidighets kontroll](./cloud-partner-portal-api-concurrency-control.md) strategierna som är tillgängliga för anrop av dessa API: er.
+- Ytterligare API- [överväganden](./cloud-partner-portal-api-considerations.md), till exempel versions hantering och fel hantering.
 
-## <a name="changes-to-cpp-apis-after-the-migration-to-partner-center"></a>Ändringar i CPP API:er efter migreringen till Partner Center
+## <a name="changes-to-cpp-apis-after-the-migration-to-partner-center"></a>Ändringar i CPP-API: er efter migrering till Partner Center
 
-| **Api** | **Ändra beskrivning** | **Påverkan** |
+| **API** | **Ändra beskrivning** | **Påverkan** |
 | ------- | ---------------------- | ---------- |
-| PUBLICERA, GoLive, Avbryt | För migrerade erbjudanden har svarshuvudet ett annat format men fortsätter att fungera på samma sätt och anger en relativ sökväg för att hämta åtgärdsstatusen. | När du skickar någon av motsvarande POST-begäranden för ett erbjudande har platshuvudet ett av två format beroende på erbjudandets migreringsstatus:<ul><li>Ej migrerade erbjudanden<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrerade erbjudanden<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
-| FÅ-åtgärd | För erbjudandetyper som tidigare stödde fältet meddelande-e-post i svaret kommer det här fältet att vara inaktuellt och inte längre returnerat för migrerade erbjudanden. | För migrerade erbjudanden skickar vi inte längre meddelanden till listan över e-postmeddelanden som anges i begärandena. Api-tjänsten justeras i stället med e-postprocessen för meddelanden i Partner Center för att skicka e-postmeddelanden. Meddelanden skickas specifikt till den e-postadress som anges i avsnittet Kontaktinformation för säljare i dina kontoinställningar i Partnercenter för att meddela dig om driftens förlopp.<br><br>Läs e-postadressen i avsnittet Kontaktinformation för säljare i dina [kontoinställningar](https://partner.microsoft.com/dashboard/account/management) i Partnercenter för att säkerställa att rätt e-post tillhandahålls för meddelanden.  |
+| Publicera, GoLive, Avbryt | För migrerade erbjudanden har svars huvudet ett annat format men fortsätter att fungera på samma sätt, vilket anger en relativ sökväg för att hämta åtgärds statusen. | När du skickar någon av motsvarande POST-förfrågningar för ett erbjudande får plats huvudet ett av två format beroende på status för migreringen:<ul><li>Ej migrerade erbjudanden<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrerade erbjudanden<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
+| Hämta åtgärd | För erbjudande typer som tidigare stödde fältet notification-email i svaret, är det här fältet inaktuellt och inte längre returnerat för migrerade erbjudanden. | För migrerade erbjudanden skickar vi inte längre meddelanden till listan över e-postmeddelanden som anges i förfrågningarna. I stället justeras API-tjänsten med e-postprocessen för meddelanden i Partner Center för att skicka e-postmeddelanden. Mer specifikt skickas meddelanden till den e-postadress som anges i avsnittet säljare kontakt information i dina konto inställningar i Partner Center för att meddela dig om åtgärds förlopp.<br><br>Kontrol lera e-postadressen som angetts i avsnittet om kontakt information för säljaren i [konto inställningarna](https://partner.microsoft.com/dashboard/account/management) i Partner Center för att säkerställa att rätt e-postadress tillhandahålls för meddelanden.  |
 
 ## <a name="common-tasks"></a>Vanliga åtgärder
 
-Den här referensinformationen api:er för att utföra följande vanliga uppgifter.
+Denna referens information innehåller API: er för att utföra följande vanliga uppgifter.
 
 ### <a name="offers"></a>Erbjudanden
 
 - [Hämta alla erbjudanden](./cloud-partner-portal-api-retrieve-offers.md)
-- [Hämta ett specifikt erbjudande](./cloud-partner-portal-api-retrieve-specific-offer.md)
+- [Hämta ett Special erbjudande](./cloud-partner-portal-api-retrieve-specific-offer.md)
 - [Hämta erbjudandestatus](./cloud-partner-portal-api-retrieve-offer-status.md)
 - [Skapa ett erbjudande](./cloud-partner-portal-api-creating-offer.md)
 - [Publicera ett erbjudande](./cloud-partner-portal-api-publish-offer.md)
@@ -61,7 +61,7 @@ Den här referensinformationen api:er för att utföra följande vanliga uppgift
 
 ### <a name="other-tasks"></a>Andra uppgifter
 
-- [Ange priser för erbjudanden för virtuella datorer](./cloud-partner-portal-api-setting-price.md)
+- [Ange prissättning för erbjudanden för virtuella datorer](./cloud-partner-portal-api-setting-price.md)
 
 ### <a name="troubleshooting"></a>Felsökning
 

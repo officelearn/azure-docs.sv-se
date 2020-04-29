@@ -1,6 +1,6 @@
 ---
-title: Inrätta ett labb för att lära ut datavetenskap med Python och Jupyter bärbara datorer | Microsoft-dokument
-description: Lär dig hur du konfigurerar ett labb för att lära ut datavetenskap med hjälp av Python och Jupyter-anteckningsböcker.
+title: Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker | Microsoft Docs
+description: Lär dig hur du konfigurerar ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker.
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -14,66 +14,66 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
 ms.openlocfilehash: 222f5647248d27c3bdfabd0feaeb66dd9f543652
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81257733"
 ---
-# <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Skapa ett labb för att lära ut datavetenskap med Python- och Jupyter-anteckningsböcker
+# <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker
 
-I den här artikeln beskrivs hur du konfigurerar en mallmaskin i Lab Services med de verktyg som behövs för att lära eleverna hur du använder [Jupyter-anteckningsböcker](http://jupyter-notebook.readthedocs.io).  Jupyter Notebooks är ett projekt med öppen källkod som gör att du enkelt kan kombinera RTF och körbar [Python-källkod](https://www.python.org/) på en enda duk som kallas en anteckningsbok.  Om du kör en anteckningsbok visas en linjär post med indata och utdata.  Dessa utdata kan innehålla text, tabeller med information, punktdiagram med mera.
+Den här artikeln beskriver hur du konfigurerar en mallfil i labb tjänster med de verktyg som behövs för att lära eleverna hur de använder [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io).  Jupyter Notebooks är ett projekt med öppen källkod som gör att du enkelt kan kombinera text och körbara [python](https://www.python.org/) -källkod på en enda arbets yta som kallas för en bärbar dator.  Att köra en bärbar dator resulterar i en linjär inspelning av indata och utdata.  Dessa utdata kan innehålla text, tabeller med information, punkt diagram med mera.
 
-## <a name="lab-configuration"></a>Labbkonfiguration
+## <a name="lab-configuration"></a>Labb konfiguration
 
-För att konfigurera det här labbet behöver du en Azure-prenumeration och labbkonto för att komma igång. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. När du har fått en Azure-prenumeration kan du skapa ett nytt labbkonto i Azure Lab Services. Mer information om hur du skapar ett nytt labbkonto finns i [självstudiekursen för att konfigurera ett labbkonto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labbkonto.
+För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).  Du kan också använda ett befintligt labb konto.
 
-### <a name="lab-account-settings"></a>Inställningar för labbkonto
+### <a name="lab-account-settings"></a>Labb konto inställningar
 
-Aktivera inställningarna som beskrivs i tabellen nedan för labbkontot. Mer information om hur du aktiverar marketplace-avbildningar finns i [ange Marketplace-avbildningar som är tillgängliga för labbskapare](specify-marketplace-images.md).
+Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](specify-marketplace-images.md).
 
-| Inställning av labbkonto | Instruktioner |
+| Inställning för labb konto | Instruktioner |
 | ------------------- | ------------ |
-| Marketplace-bild | Aktivera [data science-datorn – Windows 2019-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) för användning i ditt labbkonto. |
+| Marketplace-avbildning | Aktivera [data science Virtual Machine-Windows 2019-](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) avbildningen för användning i ditt labb konto. |
 
 >[!TIP]
->Den här artikeln fokuserar på att konfigurera en malldator som använder operativsystemet Windows Server.  Det är också möjligt att konfigurera en datavetenskapsklass med Python- och Jupyter-anteckningsböcker med [Ubuntu-avbildningar (Data Science Virtual Machine for Linux)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) från Azure Marketplace.
+>Den här artikeln fokuserar på att konfigurera en mall som använder operativ systemet Windows Server.  Det är också möjligt att konfigurera en data vetenskaps klass med python-och Jupyter-anteckningsböcker med [data science Virtual Machine för Linux-avbildningar (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) från Azure Marketplace.
 
-### <a name="lab-settings"></a>Labbinställningar
+### <a name="lab-settings"></a>Labb inställningar
 
-Använd inställningarna i tabellen nedan när du konfigurerar ett klassrumslabb.  Mer information om hur du skapar ett klassrumslabb finns i [konfigurera en självstudiekurs för klassrumslabb](tutorial-setup-classroom-lab.md).
+Använd inställningarna i tabellen nedan när du konfigurerar ett klass rums labb.  Mer information om hur du skapar ett klass rums labb finns i [Konfigurera en labb Guide för klass rummet](tutorial-setup-classroom-lab.md).
 
-| Labbinställningar | Värde/instruktioner |
+| Labb inställningar | Värde/anvisningar |
 | ------------ | ------------------ |
-|Storlek på virtuell dator| Liten GPU (Beräkning). Den här storleken passar bäst för beräkningsintensiva och nätverksintensiva program som artificiell intelligens och djupinlärning. |
-|Bild av virtuell dator| Virtuell dator för datavetenskap – Windows 2016|
+|Storlek på virtuell dator| Liten GPU (Compute). Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärning. |
+|Avbildning av virtuell dator| Data Science Virtual Machine-Windows 2016|
 
-## <a name="template-machine"></a>Mallmaskin
+## <a name="template-machine"></a>Mall dator
 
-Data [Science Virtual Machine - Windows 2019-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) innehåller de nödvändiga ramverk och verktyg för djupinlärning som krävs för den här typen av klass.  Bilden innehåller Jupyter notebooks och Visual Studio Code.  [Jupyter Bärbara datorer](http://jupyter-notebook.readthedocs.io) är ett webbprogram som gör det möjligt för dataforskare att ta rådata, köra beräkningar och se resultaten alla i samma miljö.  För vår mallmaskin kommer webbapplikationen att köras lokalt.  [Visual Studio Code](https://code.visualstudio.com/) är en IDE som ger en rik interaktiv upplevelse när du skriver och testar en anteckningsbok.  Mer information finns i [Arbeta med Jupyter-anteckningsböcker i Visual Studio-kod](https://code.visualstudio.com/docs/python/jupyter-support).
+[Data science Virtual Machine-Windows 2019-](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) avbildningen ger de nödvändiga ramverk för djup inlärning och de verktyg som krävs för den här typen av klass.  Avbildningen innehåller Jupyter-anteckningsböcker och Visual Studio Code.  [Jupyter-anteckningsböcker](http://jupyter-notebook.readthedocs.io) är ett webb program som gör det möjligt för data experter att ta rå data, köra beräkningar och se alla resultat i samma miljö.  Webb programmet kommer att köras lokalt för vår mall.  [Visual Studio Code](https://code.visualstudio.com/) är en IDE som ger en omfattande interaktiv upplevelse när du skriver och testar en bärbar dator.  Mer information finns i [arbeta med antecknings böcker i Jupyter i Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
-Den återstående uppgiften att ställa in klassen är att tillhandahålla lokala anteckningsböcker.  Instruktioner om hur du använder azure machine learning-exemplen finns i [hur du konfigurerar en miljö med Jupyter-anteckningsböcker](../../machine-learning/how-to-configure-environment.md#jupyter).  Du kan också ange egna anteckningsböcker på mallen.  Anteckningsböckerna kopieras till alla elevdatorer när mallen publiceras.
+Den återstående aktiviteten för att konfigurera klassen är att tillhandahålla lokala antecknings böcker.  Instruktioner för hur du använder Azure Machine Learning exempel finns i [så här konfigurerar du en miljö med Jupyter-anteckningsböcker](../../machine-learning/how-to-configure-environment.md#jupyter).  Du kan också ange egna antecknings böcker på den mall datorn.  Antecknings böckerna kommer att kopieras till alla elev maskiner när mallen publiceras.
 
-## <a name="cost-estimate"></a>Kostnadsuppskattning
+## <a name="cost-estimate"></a>Kostnads uppskattning
 
-Låt oss täcka en möjlig kostnadsuppskattning för den här klassen.  Vi använder en klass på 25 elever.  Det finns 20 timmars schemalagd lektionstid.  Dessutom får varje elev 10 timmars kvot för läxor eller uppgifter utanför schemalagd lektionstid.  Den virtuella maskinen storlek vi valde var liten GPU (beräkning), vilket är 139 lab enheter.
+Vi ska se en möjlig kostnads uppskattning för den här klassen.  Vi använder en klass av 25 studenter.  Det finns 20 timmar med den schemalagda klass tiden.  Dessutom får varje student en kvot på 10 timmar för läxor eller tilldelningar utanför schemalagda klass tider.  Storleken på den virtuella datorn som vi valde var liten GPU (Compute), vilket är 139 lab-enheter.
 
-Här är ett exempel på en möjlig kostnadsuppskattning för den här klassen:
+Här är ett exempel på en möjlig kostnads uppskattning för den här klassen:
 
-25 \* studenter (20 schemalagda timmar + \* 10 kvottimmar) 139 labbenheter \* 0,01 USD per timme = 1042,5 USD
+25 studenter \* (20 schemalagda timmar + 10 kvot timmar \* ) 139 Lab \* -enheter 0,01 USD per timme = 1042,5 USD
 
-Mer information om prissättning finns i [Azure Lab Services Prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
+Mer detaljerad information om priser finns [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Slutsats
 
-I den här artikeln gick vi igenom stegen för att skapa ett labb för en Jupyter Notebooks klass. Du kan använda en liknande inställning för andra maskininlärningsklasser.
+I den här artikeln gick vi igenom stegen för att skapa ett labb för en Jupyter Notebooks-klass. Du kan använda en liknande installation för andra maskin inlärnings klasser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa steg är vanliga för att konfigurera ett labb.
+Nästa steg är vanliga för att ställa in alla labb.
 
 - [Skapa och hantera en mall](how-to-create-manage-template.md)
 - [Lägg till användare](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Ange kvot](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Ange ett schema](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Länkar till e-postregistrering till studenter](how-to-configure-student-usage.md#send-invitations-to-users)
+- [E-postregistrering länkar till studenter](how-to-configure-student-usage.md#send-invitations-to-users)

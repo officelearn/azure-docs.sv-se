@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Skapa och hantera en azure-skalningsuppsättning för virtuella datorer
+title: Självstudie – Skapa och hantera en skalnings uppsättning för virtuella Azure-datorer
 description: Läs hur du använder Azure CLI för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 882ace506ee55f09d1b0eb5227892398a7dd9237
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81011301"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure CLI
@@ -25,7 +25,7 @@ Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning i
 > * Skala en skalningsuppsättning automatiskt
 > * Utför vanliga hanteringsåtgärder för skalningsuppsättningar
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,7 +33,7 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före en VM-skalningsuppsättning. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i *regionen eastus.* 
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före en VM-skalningsuppsättning. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resurs grupp med namnet *myResourceGroup* i regionen *östra* . 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

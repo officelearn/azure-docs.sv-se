@@ -9,10 +9,10 @@ ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
 ms.openlocfilehash: a4502a9ec7866d9b1ecb0f2aa2257e759fd417c8
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81114681"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
@@ -27,7 +27,7 @@ I den här självstudien kommer du att:
 > * utlösa en inskalningsåtgärd och se antalet förekomster minska
 > * Rensa dina resurser
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -126,7 +126,7 @@ Om utskalningsvillkoret i inställningen vi just skapade ska lösas ut måste we
 
 2. Läs in sidan fler än 10 gånger i snabb följd.
 
-3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan har läses in väljer du fliken **Automatisk skalning.**
+3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan har lästs in väljer du fliken **autoskalning** .
 
 4. Välj App Service-planen du använt i den här självstudien från listan.
 
@@ -145,7 +145,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 
 2. Läs in Azure Portal.
 
-3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan har läses in väljer du fliken **Automatisk skalning.**
+3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan har lästs in väljer du fliken **autoskalning** .
 
 4. Välj App Service-planen du använt i den här självstudien från listan.
 

@@ -9,14 +9,14 @@ ms.date: 03/28/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: ef257d056b20bacbca58baa5ac97fa77a492fefd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275475"
 ---
-| Standardstorlekar för SSD | E1 | E2 (på andra) sätt | E3 (på andra sätt) | E4 | E6 (på andra sätt) | E10 (på andra sätt) | E15 | E20 (på andra sätt) | E30 (på andra sätt) | E40 | E50 (på andra sätt) | E60 (på sin 1960 | E70 (på andra sätt) | E80 |
+| Standard SSD storlekar | E1 | E2 | E3 | E4 | E6 | E10 | E15 | E20 | E30 | E40 | E50 | E60 | E70 | E80 |
 |--------------------|----|----|----|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
-| Diskstorlek i GiB | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512 | 1,024 | 2 048 | 4,096 | 8 192 | 16 384 | 32 767 |
+| Disk storlek i GiB | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512 | 1 024 | 2 048 | 4 096 | 8 192 | 16 384 | 32 767 |
 | IOPS per disk | Upp till 120 | Upp till 120 | Upp till 120 | Upp till 120 | Upp till 240 | Upp till 500 | Upp till 500 | Upp till 500 | Upp till 500 | Upp till 500 | Upp till 500 | Upp till 2 000 | Upp till 4 000 | Upp till 6 000 |
-| Dataflöde per disk |  Upp till 25 MiB/sek | Upp till 25 MiB/sek | Upp till 25 MiB/sek | Upp till 25 MiB/sek |  Upp till 50 MiB/sek  |  Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek| Upp till 400 MiB/sek |  Upp till 600 MiB/sek | Upp till 750 MiB/sek |
+| Dataflöde per disk |  Upp till 25 MiB/s | Upp till 25 MiB/s | Upp till 25 MiB/s | Upp till 25 MiB/s |  Upp till 50 MiB/s  |  Upp till 60 MiB/s | Upp till 60 MiB/s | Upp till 60 MiB/s | Upp till 60 MiB/s | Upp till 60 MiB/s | Upp till 60 MiB/s| Upp till 400 MiB/s |  Upp till 600 MiB/s | Upp till 750 MiB/s |

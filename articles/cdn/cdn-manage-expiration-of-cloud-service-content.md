@@ -1,6 +1,6 @@
 ---
-title: Hantera förfallodatum för webbinnehåll i Azure CDN | Microsoft-dokument
-description: Lär dig hur du hanterar förfallodatum för Azure Web Apps/Cloud Services, ASP.NET eller IIS-innehåll i Azure CDN.
+title: Hantera förfallo datum för webb innehåll i Azure CDN | Microsoft Docs
+description: Lär dig hur du hanterar förfallo datum för Azure Web Apps/Cloud Services, ASP.NET eller IIS-innehåll i Azure CDN.
 services: cdn
 documentationcenter: .NET
 author: asudbring
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: 4598e6cee6ffbaaeb2a99727842fcd17fe0046c7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260572"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Hantera utgång av webbinnehåll i Azure CDN
@@ -27,74 +27,74 @@ ms.locfileid: "81260572"
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Filer från webbservrar med allmänt tillgängligt ursprung kan cachelagras i CDN (Azure Content Delivery Network) tills deras tid att vara (TTL) förflutet. TTL bestäms av `Cache-Control` huvudet i HTTP-svaret från ursprungsservern. I den hÃ¤r artikeln beskrivs hur du anger `Cache-Control` rubriker fÃ¤r webbappfunktionen fÃ¤r Microsoft Azure App Service, Azure Cloud Services, ASP.NET applications och Internet Information Services (IIS) sites, som alla är konfigurerade på samma sätt. Du kan `Cache-Control` ställa in huvudet antingen med hjälp av konfigurationsfiler eller programmässigt. 
+Filer från offentligt tillgängliga ursprungs webb servrar kan cachelagras i Azure Content Delivery Network (CDN) tills deras TTL-värde (Time to Live) förflutit. TTL-värdet bestäms av `Cache-Control` huvudet i http-svaret från ursprungs servern. I den här artikeln beskrivs hur `Cache-Control` du ställer in rubriker för Web Apps funktionen i Microsoft Azure App Service, Azure Cloud Services, ASP.NET-program och Internet Information Services (IIS)-platser som alla har kon figurer ATS på samma sätt. Du kan ange `Cache-Control` sidhuvudet antingen med hjälp av konfigurationsfiler eller program mässigt. 
 
-Du kan också styra cacheinställningarna från Azure-portalen genom att ange [CDN-cachelagringsregler](cdn-caching-rules.md). Om du skapar en eller flera cachelagringsregler och anger att cachelagringsbeteendet för **cachelagring åsidosätts** eller **kringgås**ignoreras cacheinställningarna för cachelagring av ursprung som beskrivs i den här artikeln. Information om allmänna cachelagringsbegrepp finns i [Så här fungerar cachelagring](cdn-how-caching-works.md).
+Du kan också styra cacheinställningar från Azure Portal genom att ange [regler för CDN-cachelagring](cdn-caching-rules.md). Om du skapar en eller flera regler för cachelagring och ställer in deras beteende för att **åsidosätta** eller **kringgå cache**, ignoreras de cacheinställningar som anges i den här artikeln. Information om allmänna cachelagring av koncept finns i [så här fungerar cachelagring](cdn-how-caching-works.md).
 
 > [!TIP]
-> Du kan välja att inte ange någon TTL på en fil. I det här fallet tillämpar Azure CDN automatiskt en standard-TTL på sju dagar, såvida du inte har ställt in cachelagringsregler i Azure-portalen. Den här standard-TTL gäller endast för allmänna webbleveransoptimeringar. För stora filoptimeringar är standardTL en dag, och för optimering av media är standardTL ett år.
+> Du kan välja att ange inget TTL-värde för en fil. I det här fallet tillämpar Azure CDN automatiskt en standard-TTL på sju dagar, om du inte har konfigurerat reglerna för cachelagring i Azure Portal. Detta standard-TTL gäller endast för allmänna webb leverans optimeringar. För stora fil optimeringar är standard-TTL en dag och för optimering av medie direkt uppspelning är standard-TTL ett år.
 > 
-> Mer information om hur Azure CDN arbetar för att öka [åtkomsten](cdn-overview.md)till filer och andra resurser finns i Översikt över Azure Content Delivery Network .
+> Mer information om hur Azure CDN arbetar för att påskynda åtkomst till filer och andra resurser finns i [Översikt över Azure-Content Delivery Network](cdn-overview.md).
 > 
 
-## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Ange cachekontrollrubriker med hjälp av CDN-cachelagringsregler
-Den metod som föredras för `Cache-Control` att ange en webbservers huvud är att använda cachelagringsregler i Azure-portalen. Mer information om CDN-cachelagringsregler finns i [Kontrollera Azure CDN-cachelagring med cachelagringsregler](cdn-caching-rules.md).
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Ange Cache-Control-huvuden med hjälp av regler för CDN-cachelagring
+Den bästa metoden för att ställa in en webb `Cache-Control` servers huvud är att använda regler för cachelagring i Azure Portal. Mer information om regler för CDN-cachelagring finns i [styra Azure CDN cachelagring med regler för cachelagring](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Cachelagringsregler är endast tillgängliga för **Azure CDN Standard från Verizon** och Azure **CDN Standard från Akamai-profiler.** För **Azure CDN Premium från Verizon-profiler** måste du använda [Azure CDN-regelmotorn](cdn-rules-engine.md) i **hantera-portalen** för liknande funktioner.
+> Reglerna för cachelagring är bara tillgängliga för **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** -profiler. För **Azure CDN Premium från Verizon** -profiler måste du använda [Azure CDN-regel motorn](cdn-rules-engine.md) i **hanterings** portalen för liknande funktioner.
 
-**Så här navigerar du till cdn-cachelagringsreglerna:**
+**Så här navigerar du till sidan regler för CDN-cachelagring**:
 
-1. I Azure-portalen väljer du en CDN-profil och väljer sedan slutpunkten för webbservern.
+1. I Azure Portal väljer du en CDN-profil och väljer sedan slut punkten för webb servern.
 
 1. I det vänstra fönstret under inställningar, väljer du **Cachelagringsregler**.
 
-   ![Knappen CDN-cachelagringsregler](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
+   ![Knappen CDN caching rules](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
    Sidan **Cachelagringsregler** visas.
 
-   ![Cdn-cachelagringssida](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
+   ![Sidan CDN-cachelagring](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**Så här anger du en webbservers cachekontrollhuvuden med hjälp av globala cachelagringsregler:**
+**Så här anger du en webb servers Cache-Control-rubriker med globala regler för cachelagring:**
 
-1. Under **Globala cachelagringsregler**anger du **frågesträngcachelagringsbeteende** till **Ignorera frågesträngar** och ange **cachelagringsbeteende** till **Åsidosättning**.
+1. Under **globala regler för cachelagring**, **ställer du in** **beteende för cachelagring av frågesträngar** för att **Ignorera frågesträngar** och ställa in **beteende för cachelagring**
       
-1. Ange 3600 i rutan **Sekunder** eller 1 i rutan **Timmar** för att gälla för **slutdatum**för cache. 
+1. Vid **förfallo tid för cache**anger du 3600 i rutan **sekunder** eller 1 i rutan **timmar** . 
 
-   ![Exempel på globala cachelagringsregler för CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
+   ![Exempel på globala regler för CDN-cachelagring](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
-   Den här globala cachelagringsregeln anger en cachevaraktighet på en timme och påverkar alla begäranden till slutpunkten. Den åsidosätter `Cache-Control` `Expires` alla eller HTTP-huvuden som skickas av ursprungsservern som anges av slutpunkten.   
-
-1. Välj **Spara**.
-
-**Så här anger du cachekontrollhuvudena för en webbserverfil med hjälp av anpassade cachelagringsregler:**
-
-1. Skapa två matchningsvillkor under **Anpassade cachelagringsregler:**
-
-     a. För det första matchningsvillkoret anger `/webfolder1/*` du Matcha **villkor** till **Sökväg** och anger för Matcha **värde**. Ange **cachelagringsbeteendet** för **åsidosättning** och ange 4 i rutan **Timmar.**
-
-     b. För det andra matchningsvillkoret anger `/webfolder1/file1.txt` du **Matchningsvillkor** till **Sökväg** och anger för Matcha **värde**. Ange **cachelagringsbeteendet** för **åsidosättning** och ange 2 i rutan **Timmar.**
-
-    ![Exempel på anpassade cachelagringsregler för CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
-
-    Den första anpassade cachelagringsregeln anger en cachevaraktighet på fyra timmar för alla filer i `/webfolder1` mappen på ursprungsservern som anges av slutpunkten. Den andra regeln åsidosätter den `file1.txt` första regeln för filen och anger en cachevaraktighet på två timmar för den.
+   Den här globala regeln för cachelagring anger en cache-varaktighet på en timme och påverkar alla begär anden till slut punkten. Den åsidosätter alla `Cache-Control` eller `Expires` HTTP-huvuden som skickas av ursprungs servern som anges av slut punkten.   
 
 1. Välj **Spara**.
 
+**Ange Cache-Control-rubriker för en webb server fil genom att använda anpassade regler för cachelagring:**
 
-## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ange cachekontrollhuvuden med hjälp av konfigurationsfiler
-För statiskt innehåll, till exempel bilder och formatmallar, kan du styra uppdateringsfrekvensen genom att ändra **konfigurationsfilerna applicationHost.config** eller **Web.config** för webbprogrammet. Om du `Cache-Control` vill ange sidhuvudet för innehållet använder du elementet `<system.webServer>/<staticContent>/<clientCache>` i någon av filerna.
+1. Skapa två matchnings villkor under **anpassade regler för cachelagring**:
 
-### <a name="using-applicationhostconfig-files"></a>Använda ApplicationHost.config-filer
-**Filen ApplicationHost.config** är rotfilen i IIS-konfigurationssystemet. Konfigurationsinställningarna i en **ApplicationHost.config-fil** påverkar alla program på webbplatsen, men åsidosätts av inställningarna för alla **Web.config-filer** som finns för ett webbprogram.
+     a. För det första matchnings villkoret anger du **matcha villkor** till **sökväg** och anger `/webfolder1/*` för **matchnings värde**. Ange **beteende för cachelagring** för att **åsidosätta** och ange 4 i rutan **timmar** .
 
-### <a name="using-webconfig-files"></a>Använda Web.config-filer
-Med en **Web.config-fil** kan du anpassa hela webbprogrammet eller en viss katalog i webbprogrammet. Vanligtvis har du minst en **Web.config-fil** i webbprogrammets rotmapp. För varje **Web.config-fil** i en viss mapp påverkar konfigurationsinställningarna allt i mappen och dess undermappar, såvida de inte åsidosätts på undermappsnivå av en annan **Web.config-fil.** 
+     b. För det andra matchnings villkoret anger du **matchnings villkor** till `/webfolder1/file1.txt` **sökväg** och anger för **matchnings värde**. Ange **beteende för cachelagring** för att **åsidosätta** och ange 2 i rutan **timmar** .
 
-Du kan till exempel `<clientCache>` ange ett element i en **Web.config-fil** i webbprogrammets rotmapp för att cachelagra allt statiskt innehåll i webbprogrammet i tre dagar. Du kan också lägga till en **Web.config-fil** i en `\frequent`undermapp med `<clientCache>` mer variabelt innehåll (till exempel) och ange att elementet ska cachelagra undermappens innehåll i sex timmar. Nettoresultatet är att innehållet på hela webbplatsen cachelagras i tre dagar, med undantag för innehåll i katalogen, `\frequent` som cachelagras i endast sex timmar.  
+    ![Exempel på anpassade caching-regler för CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
-I följande exempel på XML-konfigurationsfil visas hur elementet `<clientCache>` ska ange en maximal ålder på tre dagar:  
+    Den första anpassade regeln för cachelagring anger en cache-varaktighet på fyra timmar för alla `/webfolder1` filer i mappen på ursprungs servern som anges av slut punkten. Den andra regeln åsidosätter bara den första regeln för `file1.txt` filen och anger varaktigheten två timmar för cachen.
+
+1. Välj **Spara**.
+
+
+## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ange Cache-Control-huvuden med hjälp av konfigurationsfiler
+För statiskt innehåll, till exempel bilder och formatmallar, kan du kontrol lera uppdaterings frekvensen genom att ändra konfigurationsfilerna **ApplicationHost. config** eller **Web. config** för ditt webb program. Om du vill `Cache-Control` ange rubriken för ditt innehåll använder du `<system.webServer>/<staticContent>/<clientCache>` elementet i någon av filerna.
+
+### <a name="using-applicationhostconfig-files"></a>Använda ApplicationHost. config-filer
+Filen **ApplicationHost. config** är rot filen i IIS-konfigurations systemet. Konfigurations inställningarna i en **ApplicationHost. config** -fil påverkar alla program på platsen, men åsidosätts av inställningarna för alla **Web. config-** filer som finns för ett webb program.
+
+### <a name="using-webconfig-files"></a>Använda Web. config-filer
+Med en **Web. config** -fil kan du anpassa hur hela webb programmet eller en specifik katalog i ditt webb program fungerar. Normalt har du minst en **Web. config-** fil i rotmappen för ditt webb program. För varje **Web. config-** fil i en mapp påverkar konfigurations inställningarna allting i mappen och dess undermappar, om de inte åsidosätts på undermappnivå av en annan **Web. config-** fil. 
+
+Du kan till exempel ange ett `<clientCache>` element i en **Web. config-** fil i webbappens rotmapp för att cachelagra allt statiskt innehåll i webb programmet i tre dagar. Du kan också lägga till en **Web. config-** fil i en undermapp med mer varierande innehåll (till exempel `\frequent`) och ange dess `<clientCache>` element för att cachelagra undermappens innehåll i sex timmar. Netto resultatet är att innehållet på hela webbplatsen cachelagras i tre dagar, förutom för innehåll i `\frequent` katalogen, som cachelagras i minst sex timmar.  
+
+Följande XML-konfigurationsfil visar hur du ställer in `<clientCache>` elementet för att ange en maximal ålder på tre dagar:  
 
 ```xml
 <configuration>
@@ -106,19 +106,19 @@ I följande exempel på XML-konfigurationsfil visas hur elementet `<clientCache>
 </configuration>
 ```
 
-Om du vill använda attributet **cacheControlMaxAge** måste du ange `UseMaxAge`värdet för **attributet cacheControlMode** till . Den här inställningen gjorde att `Cache-Control: max-age=<nnn>`HTTP-huvudet och -direktivet lades till i svaret. Formatet för tidsspannet för attributet `<days>.<hours>:<min>:<sec>` **cacheControlMaxAge** är . Dess värde konverteras till sekunder och används `Cache-Control` `max-age` som direktivets värde. Mer information om `<clientCache>` elementet finns i [Client Cache \<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Om du vill använda attributet **cacheControlMaxAge** måste du ange värdet för attributet **cacheControlMode** till `UseMaxAge`. Den här inställningen orsakade att HTTP-huvudet och `Cache-Control: max-age=<nnn>`-direktivet har lagts till i svaret. Formatet på TimeSpan-värdet för **cacheControlMaxAge** -attributet är `<days>.<hours>:<min>:<sec>`. Värdet konverteras till sekunder och används som värde för `Cache-Control` `max-age` direktivet. Mer information om- `<clientCache>` elementet finns i [ClientCache>för \<client cache ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
-## <a name="setting-cache-control-headers-programmatically"></a>Ställa in cache-kontrollrubriker programmässigt
-För ASP.NET-program styr du CDN-cachelagringsbeteendet programmässigt genom att ange egenskapen **HttpResponse.Cache** för .NET API. Information om egenskapen **HttpResponse.Cache** finns i [egenskapen HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) och [klassen HttpCachePolicy](/dotnet/api/system.web.httpcachepolicy).  
+## <a name="setting-cache-control-headers-programmatically"></a>Ange Cache-Control-rubriker program mässigt
+För ASP.NET-program styr du funktionerna för CDN-cachelagring genom att ange egenskapen **HttpResponse. cache** i .NET-API: et. Information om egenskapen **HttpResponse. cache** finns i [HttpResponse. cache Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) och [HttpCachePolicy Class](/dotnet/api/system.web.httpcachepolicy).  
 
-Så här cachelagrar du programinnehåll i ASP.NET programmatiskt:
-   1. Kontrollera att innehållet är markerat `HttpCacheability` som `Public`cachelagbart genom att ange . 
-   1. Ange en cache validator genom `HttpCachePolicy` att anropa någon av följande metoder:
-      - Anrop `SetLastModified` för att ange ett `Last-Modified` tidsstämpelvärde för huvudet.
-      - Anrop `SetETag` för att `ETag` ange ett värde för huvudet.
-   1. Du kan också ange en `SetExpires` förfallotid för `Expires` cache genom att anropa för att ange ett värde för huvudet. Annars gäller standardcacheweuriserna som beskrivits tidigare i det här dokumentet.
+Följ dessa steg om du vill cachelagra program innehåll program mässigt i ASP.NET:
+   1. Kontrol lera att innehållet har marker ATS som cacheable genom `HttpCacheability` att `Public`ställa in på. 
+   1. Ange en cache-verifierare genom att anropa någon `HttpCachePolicy` av följande metoder:
+      - Anrop `SetLastModified` för att ange ett tids stämplings `Last-Modified` värde för huvudet.
+      - Anrop `SetETag` för att ange ett värde för `ETag` rubriken.
+   1. Du kan också ange en förfallo tid för cachen `SetExpires` genom att ringa till ange ett `Expires` värde för rubriken. Annars gäller standardheuristiken för cachelagring som beskrivits tidigare i det här dokumentet.
 
-Om du till exempel vill cachelagra innehåll i en timme lägger du till följande C#-kod:  
+Lägg till exempel till följande C#-kod om du vill cachelagra innehåll i en timme:  
 
 ```csharp
 // Set the caching parameters.
@@ -127,11 +127,11 @@ Response.Cache.SetCacheability(HttpCacheability.Public);
 Response.Cache.SetLastModified(DateTime.Now);
 ```
 
-## <a name="testing-the-cache-control-header"></a>Testa cachekontrollhuvudet
-Du kan enkelt verifiera TTL-inställningarna för webbinnehållet. Med webbläsarens [utvecklarverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)testar du att webbinnehållet innehåller svarshuvudet. `Cache-Control` Du kan också använda ett verktyg som **wget**, [Postman](https://www.getpostman.com/)eller [Fiddler](https://www.telerik.com/fiddler) för att undersöka svarsrubrikerna.
+## <a name="testing-the-cache-control-header"></a>Testa Cache-Control-huvudet
+Du kan enkelt verifiera TTL-inställningarna för ditt webb innehåll. Testa att ditt webb [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)innehåll innehåller `Cache-Control` svars huvudet med webbläsarens utvecklingsverktyg. Du kan också använda ett verktyg som **wget**, [Postman](https://www.getpostman.com/)eller [Fiddler](https://www.telerik.com/fiddler) för att undersöka svarshuvuden.
 
-## <a name="next-steps"></a>Efterföljande moment
-* [Läs mer om **elementet clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Läs dokumentationen för egenskapen **HttpResponse.Cache**](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
-* [Läs dokumentationen för **klassen HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  
-* [Lär dig mer om cachelagringskoncept](cdn-how-caching-works.md)
+## <a name="next-steps"></a>Nästa steg
+* [Läs mer om **clientCache** -elementet](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Läs dokumentationen för egenskapen **HttpResponse. cache**](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Läs dokumentationen för HttpCachePolicy- **klassen**](/dotnet/api/system.web.httpcachepolicy)  
+* [Lär dig mer om cachelagring av koncept](cdn-how-caching-works.md)

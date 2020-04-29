@@ -1,16 +1,16 @@
 ---
 title: Felsöka Azure Service Fabric-appar i Linux
-description: Lär dig hur du övervakar och diagnostiserar dina Service Fabric-tjänster på en lokal Linux-utvecklingsdator.
+description: Lär dig hur du övervakar och diagnostiserar dina Service Fabric-tjänster på en lokal Linux-utvecklings dator.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991338"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en lokal linux-maskinutvecklingsinstallation
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en lokal installation av Linux-datorer
 
 
 > [!div class="op_single_selector"]
@@ -19,16 +19,16 @@ ms.locfileid: "80991338"
 >
 >
 
-Övervakning, identifiering, diagnos och felsökning gör det möjligt för tjänster att fortsätta med minimala störningar i användarupplevelsen. Övervakning och diagnostik är avgörande i en faktisk distribuerad produktionsmiljö. Genom att anta en liknande modell under utveckling av tjänster säkerställs att diagnostikpipelinen fungerar när du flyttar till en produktionsmiljö. Service Fabric gör det enkelt för tjänstutvecklare att implementera diagnostik som sömlöst kan fungera både för lokala utvecklingsinställningar för en enda dator och verkliga produktionskluster.
+Övervakning, identifiering, diagnostisering och fel sökning av tjänster för att kunna fortsätta med minimalt avbrott i användar upplevelsen. Övervakning och diagnostik är avgörande i en verklig distribuerad produktions miljö. Att anta en liknande modell under utveckling av tjänster säkerställer att den diagnostiska pipelinen fungerar när du flyttar till en produktions miljö. Service Fabric gör det enkelt för tjänst utvecklare att implementera diagnostik som fungerar smidigt i både lokala utvecklings installationer med en enda dator och verkliga produktions kluster inställningar.
 
 
-## <a name="debugging-service-fabric-java-applications"></a>Felsöka Java-program för serviceinfrastruktur
+## <a name="debugging-service-fabric-java-applications"></a>Felsöka Service Fabric Java-program
 
-För Java-program finns [flera loggningsramverk](https://en.wikipedia.org/wiki/Java_logging_framework) tillgängliga. Eftersom `java.util.logging` är standardalternativet med JRE används det också för [kodexemplen i GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). Följande diskussion förklarar hur `java.util.logging` du konfigurerar ramverket.
+För Java-program är [flera loggnings ramverk](https://en.wikipedia.org/wiki/Java_logging_framework) tillgängliga. Eftersom `java.util.logging` är standard alternativet med JRE, används det också för [kod exemplen i GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). I följande diskussion förklaras hur du `java.util.logging` konfigurerar ramverket.
 
-Med java.util.logging kan du omdirigera dina programloggar till minne, utdataströmmar, konsolfiler eller sockets. För vart och ett av dessa alternativ finns det standardhanterare som redan finns i ramverket. Du kan `app.properties` skapa en fil för att konfigurera filhanteraren för att programmet ska omdirigera alla loggar till en lokal fil.
+Med Java. util. logging kan du omdirigera dina program loggar till minne, utgående data strömmar, konsolfiler eller Sockets. För var och en av dessa alternativ finns standard hanterare som redan finns i ramverket. Du kan skapa en `app.properties` fil om du vill konfigurera fil hanteraren för ditt program att omdirigera alla loggar till en lokal fil.
 
-Följande kodavsnitt innehåller en exempelkonfiguration:
+Följande kodfragment innehåller en exempel konfiguration:
 
 ```java
 handlers = java.util.logging.FileHandler
@@ -40,34 +40,34 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-Mappen som `app.properties` filen pekar på måste finnas. När `app.properties` filen har skapats måste du också ändra `entrypoint.sh` startpunktsskriptet `<applicationfolder>/<servicePkg>/Code/` `java.util.logging.config.file` i `app.properties` mappen för att ange egenskapen till filen. Posten ska se ut som följande utdrag:
+Mappen som `app.properties` filen pekar på måste finnas. `app.properties` När filen har skapats måste du också ändra ditt Start punkts skript `entrypoint.sh` i `<applicationfolder>/<servicePkg>/Code/` mappen för att ställa in egenskapen `java.util.logging.config.file` till `app.properties` fil. Posten bör se ut som i följande kodfragment:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
 
 
-Den här konfigurationen resulterar i att loggar `/tmp/servicefabric/logs/`samlas in på ett roterande sätt på . Loggfilen i det här fallet heter mysfapp%u.%g.log där:
-* **%u** är ett unikt tal för att lösa konflikter mellan samtidiga Java-processer.
-* **%g** är det genereringsnummer som ska skilja mellan roterande loggar.
+Den här konfigurationen resulterar i att loggar samlas in vid en roterande `/tmp/servicefabric/logs/`tidpunkt. Logg filen i det här fallet heter mysfapp% u .% g. log där:
+* **% u** är ett unikt nummer för att lösa konflikter mellan samtidiga Java-processer.
+* **% g** är det generations nummer som används för att skilja mellan rotations loggar.
 
-Som standard om ingen hanterare är uttryckligen konfigurerad registreras konsolhanteraren. Man kan visa loggarna i syslog under /var/log/syslog.
+Som standard om ingen hanterare uttryckligen har kon figurer ATS, registreras konsol hanteraren. En kan visa loggarna i syslog under/var/log/syslog.
 
-Mer information finns [i kodexemplen i GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
-
-
-## <a name="debugging-service-fabric-c-applications"></a>Felsökning av Program för service fabric C#
+Mer information finns i [kod exemplen i GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
-Flera ramverk är tillgängliga för att spåra CoreCLR-program på Linux. Mer information finns i [.NET-tillägg för loggning](https://github.com/dotnet/extensions/tree/master/src/Logging).  Eftersom EventSource är bekant för C#-utvecklare använder den här artikeln EventSource för spårning i CoreCLR-exempel på Linux.
+## <a name="debugging-service-fabric-c-applications"></a>Felsöka Service Fabric C#-program
 
-Det första steget är att inkludera System.Diagnostics.Tracing så att du kan skriva loggarna till minne, utdataströmmar eller konsolfiler.  För loggning med EventSource lägger du till följande projekt i project.json:
+
+Det finns flera ramverk för spårning av CoreCLR-program i Linux. Mer information finns i [.net-tillägg för loggning](https://github.com/dotnet/extensions/tree/master/src/Logging).  Eftersom EventSource är bekant för C#-utvecklare, använder den här artikeln EventSource för spårning i CoreCLR-exempel i Linux.
+
+Det första steget är att inkludera system. Diagnostics. tracing så att du kan skriva dina loggar till minne, utdataström eller konsolfiler.  För loggning med EventSource lägger du till följande projekt i Project. JSON:
 
 ```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 
-Du kan använda en anpassad EventListener för att lyssna efter tjänsthändelsen och sedan omdirigera dem på rätt sätt till att spåra filer. Följande kodavsnitt visar ett exempel på hur du loggar med EventSource och en anpassad EventListener:
+Du kan använda en anpassad EventListener för att lyssna efter tjänst händelsen och sedan på lämpligt sätt omdirigera dem till spårningsfiler. Följande kodfragment visar en exempel implementering av loggning med EventSource och en anpassad EventListener:
 
 
 ```csharp
@@ -120,16 +120,16 @@ internal class ServiceEventListener : EventListener
 ```
 
 
-Föregående utdrag utdata loggarna till en fil `/tmp/MyServiceLog.txt`i . Det här filnamnet måste uppdateras på rätt sätt. Om du vill omdirigera loggarna till konsolen använder du följande kodavsnitt i den anpassade klassen EventListener:
+Föregående fragment matar ut loggarna till en fil i `/tmp/MyServiceLog.txt`. Det här fil namnet måste uppdateras på rätt sätt. Om du vill omdirigera loggarna till-konsolen använder du följande kod avsnitt i din anpassade EventListener-klass:
 
 ```csharp
 public static TextWriter Out = Console.Out;
 ```
 
-Exemplen på [C# Samples](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) använder EventSource och en anpassad EventListener för att logga händelser till en fil.
+Exemplen i [C#-exempel](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) använder EventSource och en anpassad EventListener för att logga händelser till en fil.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Samma spårningskod som läggs till i ditt program fungerar också med diagnostiken av ditt program i ett Azure-kluster. Kolla in de här artiklarna som beskriver de olika alternativen för verktygen och beskriver hur du ställer in dem.
-* [Samla in loggar med Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
+Samma spårnings kod som läggs till i programmet fungerar även med diagnostiken för ditt program i ett Azure-kluster. Kolla in de här artiklarna som diskuterar de olika alternativen för verktygen och beskriver hur du konfigurerar dem.
+* [Samla in loggar med Azure-diagnostik](service-fabric-diagnostics-how-to-setup-lad.md)

@@ -1,81 +1,81 @@
 ---
 title: Felsöka Azure FarmBeats
-description: I den här artikeln beskrivs felsÃ¶kning av Azure FarmBeats.
+description: Den här artikeln beskriver hur du felsöker Azure-FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113498"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
-Den här artikeln innehåller lösningar på vanliga Azure FarmBeats-problem. För ytterligare hjälp, kontakta vårt [supportforum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller maila oss på farmbeatssupport@microsoft.com.
+Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats. Om du behöver ytterligare hjälp kan du kontakta vårt [support forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller farmbeatssupport@microsoft.comskicka e-post till oss.
 
 > [!NOTE]
-  > Om du har installerat FarmBeats under april och dina jobb misslyckas med ett tomt felmeddelande kanske installationen inte har tilldelats någon batchkvot för att prioritera stöd för kritiska arbetsmiljöorganisationer. Se [här](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) för mer information. Du måste begära virtuella datorer som ska allokeras till batch-kontot för att köra jobb.
+  > Om du har installerat FarmBeats under april och jobben Miss lyckas med ett tomt fel meddelande kanske inte installationen har tilldelats någon batch-kvot för att prioritera support för kritiska hälso-och säkerhets organisationer. Mer information finns [här](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) . Du måste begära att virtuella datorer ska tilldelas batch-kontot för att kunna köra jobben.
 
-## <a name="install-issues"></a>Installera problem
+## <a name="install-issues"></a>Installations problem
 
   > [!NOTE]
-  > Om du startar om installationen på grund av ett fel måste du ta bort **resursgruppen** eller ta bort alla resurser från resursgruppen innan du återutlöster installationen.
+  > Om du startar om installationen på grund av ett fel, se till att ta bort **resurs gruppen** eller ta bort alla resurser från resurs gruppen innan du återaktiverar installationen.
 
 ### <a name="invalid-sentinel-credentials"></a>Ogiltiga Sentinel-autentiseringsuppgifter
 
-Sentinel-autentiseringsuppgifterna som anges under installationen är felaktiga. Starta om installationen med rätt autentiseringsuppgifter.
+Indikatorns autentiseringsuppgifter som angavs under installationen är felaktiga. Starta om installationen med rätt autentiseringsuppgifter.
 
-### <a name="the-regional-account-quota-of-batch-accounts-for-the-specified-subscription-has-been-reached"></a>Den regionala kontokvoten för batchkonton för den angivna prenumerationen har uppnåtts
+### <a name="the-regional-account-quota-of-batch-accounts-for-the-specified-subscription-has-been-reached"></a>Den regionala konto kvoten för batch-konton för den angivna prenumerationen har uppnåtts
 
-Öka kvoten eller ta bort oanvända batchkonton och starta om installationen.
+Öka kvoten eller ta bort de oanvända batch-kontona och starta om installationen.
 
-### <a name="invalid-resource-group-location"></a>Ogiltig resursgruppsplats
+### <a name="invalid-resource-group-location"></a>Ogiltig resurs grupps plats
 
-Kontrollera att **resursgruppen** är på samma plats som den **region som** angavs under installationen.
+Se till att **resurs gruppen** finns på samma plats som den **region** som angavs under installationen.
 
-### <a name="other-install-issues"></a>Andra installationsproblem
+### <a name="other-install-issues"></a>Andra installations problem
 
 Kontakta oss med följande information:
 
 - Ditt prenumerations-ID
-- Namn på resursgrupp
-- Följ stegen nedan för att bifoga loggfilen för distributionsfel:
+- Resurs grupps namn
+- Följ stegen nedan för att bifoga logg filen för distributions problemet:
 
-    1. Navigera till **resursgruppen** i Azure-portalen.
+    1. Navigera till **resurs gruppen** i Azure Portal.
 
-    2. Välj **Distributioner** under **avsnittet Inställningar** till vänster.
+    2. Välj **distributioner** under avsnittet **Inställningar** till vänster.
 
-    3. För varje distribution som visar **Misslyckades**väljer du informationen och hämtar distributionsinformationen. Bifoga den här filen till e-postmeddelandet.
+    3. För varje distribution **som visas kan**du välja igenom informationen och hämta distributions informationen. Bifoga filen till e-postmeddelandet.
 
 ## <a name="sensor-telemetry"></a>Sensor telemetri
 
-### <a name="cant-view-telemetry-data"></a>Det går inte att visa telemetridata
+### <a name="cant-view-telemetry-data"></a>Det går inte att Visa telemetridata
 
-**Symptom:** Enheter eller sensorer distribueras och du har länkat FarmBeats med din enhetspartner, men du kan inte hämta eller visa telemetridata på FarmBeats.
+**Symptom**: enheter eller sensorer distribueras och du har länkat FarmBeats med din enhets partner, men du kan inte hämta eller Visa telemetridata på FarmBeats.
 
-**Korrigeringsåtgärder**
+**Korrigerande åtgärd**
 
-1. Gå till din FarmBeats Datahub-resursgrupp.
-2. Välj **eventhubben** (DatafeedEventHubNamespace) och kontrollera sedan antalet inkommande meddelanden.
+1. Gå till resurs gruppen FarmBeats Datahub.
+2. Välj **Event Hub** (DatafeedEventHubNamespace) och kontrol lera sedan antalet inkommande meddelanden.
 3. Gör något av följande:
 
-   - Om det inte finns *några inkommande meddelanden*kontaktar du enhetspartnern.  
-   - Om det finns *inkommande meddelanden*kontaktar du oss med dina Datahub- och Acceleratorloggar och har infångat telemetri.
+   - Kontakta din enhets partner om det inte finns *några inkommande meddelanden*.  
+   - Om det finns *inkommande meddelanden*kan du kontakta oss med dina Datahub-och Accelerator-loggar och fånga in telemetri.
 
-Om du vill förstå hur du hämtar loggar går du till avsnittet ["Samla in loggar manuellt".](#collect-logs-manually)  
+Information om hur du hämtar loggar finns i avsnittet ["samla in loggar manuellt"](#collect-logs-manually) .  
 
-### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Det går inte att visa telemetridata efter intag av historiska/strömmande data från sensorerna
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Det går inte att Visa telemetridata efter att du har matat in historiska/strömmande data från sensorer
 
-**Symptom:** Enheter eller sensorer distribueras och du har skapat enheter/sensorer på FarmBeats och inmatad telemetri till EventHub, men du kan inte hämta eller visa telemetridata på FarmBeats.
+**Symptom**: enheter eller sensorer distribueras och du har skapat enheter/sensorer på FarmBeats och inmatad telemetri till EventHub, men du kan inte hämta eller Visa telemetridata på FarmBeats.
 
-**Korrigeringsåtgärder**
+**Korrigerande åtgärd**
 
-1. Se till att du har gjort partnerregistreringen korrekt - du kan kontrollera detta genom att gå till din datahub swagger, navigera till / Partner API, Gör en Get och kontrollera om partnern är registrerad. Om inte, följ dessa [steg](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
+1. Se till att du har utfört partner registreringen korrekt – du kan kontrol lera detta genom att gå till Datahub-Swagger, navigera till/partner-API, göra en get-och kontrol lera om partnern är registrerad. Om inte, följer du dessa [steg](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
 
-2. Kontrollera att du har använt rätt telemetrimeddelandeformat:
+2. Kontrol lera att du har använt rätt format för telemetri-meddelande:
 
 ```json
 {
@@ -100,217 +100,217 @@ Om du vill förstå hur du hämtar loggar går du till avsnittet ["Samla in logg
 }
 ```
 
-### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Har inte azure event hubs-anslutningssträngen
+### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Du har inte Azure Event Hubs-anslutningssträng
 
-**Korrigeringsåtgärder**
+**Korrigerande åtgärd**
 
-1. Gå till partner-API:et i Datahub Swagger.
-2. Välj **Hämta** > **Prova det** > **Kör**.
+1. I Datahub Swagger går du till partner-API: et.
+2. Välj **Hämta** > **prova** > att**köra**.
 
 > [!NOTE]
-> Partner-ID:et för den sensorpartner du är intresserad av.
+> Partner-ID för den sensor partner som du är intresse rad av.
 
-3. Gå tillbaka till partner-API:et och välj **Get/\<ID>**.
-4. Ange partner-ID från steg 3 och välj sedan **Kör**.
+3. Gå tillbaka till partner-API: et och välj **get\</ID>**.
+4. Ange partner-ID: t från steg 3 och välj sedan **Kör**.
 
-   API-svaret bör ha anslutningssträngen För händelsehubbar.
+   API-svaret ska ha Event Hubs anslutnings strängen.
 
 ### <a name="device-appears-offline"></a>Enheten visas offline
 
-**Symptom:** Enheter är installerade och du har länkat FarmBeats med din enhetspartner. Enheterna är online och skickar telemetridata, men de visas offline.
+**Symptom**: enheterna är installerade och du har länkat FarmBeats med din enhets partner. Enheterna är online och skickar telemetridata, men de visas offline.
 
-**Korrigerande åtgärder** Rapporteringsintervallet är inte konfigurerat för den här enheten. Om du vill ställa in rapporteringsintervallet kontaktar du enhetstillverkaren. 
+**Korrigerande åtgärd** Rapporterings intervallet har inte kon figurer ATS för den här enheten. Kontakta enhets tillverkaren för att ange rapporterings intervallet. 
 
-### <a name="error-deleting-a-device"></a>Det gick inte att ta bort en enhet
+### <a name="error-deleting-a-device"></a>Fel vid borttagning av en enhet
 
-När du tar bort en enhet kan du stöta på något av följande vanliga felscenarier:  
+När du tar bort en enhet kan du stöta på något av följande vanliga fel scenarier:  
 
-**Meddelande**: "Enheten refereras i sensorer: Det finns en eller flera sensorer som är associerade med enheten. Ta bort sensorerna och ta sedan bort enheten."  
+**Meddelande**: "enheten refereras till sensorer: det finns en eller flera sensorer som är kopplade till enheten. Ta bort sensorer och ta sedan bort enheten. "  
 
-**Betydelse:** Enheten är associerad med flera sensorer som distribueras i servergruppen.
+**Betydelse**: enheten är associerad med flera sensorer som distribueras i Server gruppen.
 
-**Korrigeringsåtgärder**  
+**Korrigerande åtgärd**  
 
-1. Ta bort sensorerna som är associerade med enheten via Accelerator.  
-2. Om du vill associera sensorerna med en annan enhet ber du enhetspartnern att göra detsamma.  
-3. Ta bort enheten `DELETE API` med hjälp av ett anrop och ange kraftparametern som *true*.  
+1. Ta bort sensorer som är kopplade till enheten via Accelerator.  
+2. Om du vill koppla sensorer till en annan enhet ber du din enhets partner att göra det.  
+3. Ta bort enheten med hjälp av `DELETE API` ett anrop och ange parametern Force som *True*.  
 
-**Meddelande**: "Enheten refereras i enheter som ParentDeviceId: Det finns en eller flera enheter som är associerade med den här enheten som underordnade enheter. Ta bort dem och ta sedan bort den här enheten."  
+**Meddelande**: "enheten refereras till i enheter som ParentDeviceId: det finns en eller flera enheter som är associerade med den här enheten som underordnade enheter. Ta bort dem och ta sedan bort enheten. "  
 
-**Betydelse:** Enheten har andra enheter som är associerade med den.  
+**Innebär**: andra enheter är kopplade till enheten.  
 
-**Korrigeringsåtgärder**
+**Korrigerande åtgärd**
 
-1. Ta bort de enheter som är associerade med den här specifika enheten.  
-2. Ta bort den specifika enheten.  
+1. Ta bort de enheter som är associerade med den här enheten.  
+2. Ta bort den aktuella enheten.  
 
     > [!NOTE]
-    > Du kan inte ta bort en enhet om sensorer är associerade med den. Mer information om hur du tar bort associerade sensorer finns i avsnittet **Ta bort sensor** i Hämta [sensordata från sensorpartner](get-sensor-data-from-sensor-partner.md).
+    > Du kan inte ta bort en enhet om sensorer är kopplade till den. Mer information om hur du tar bort tillhör ande sensorer finns i avsnittet **ta bort sensor** i [Hämta sensor data från sensor partner](get-sensor-data-from-sensor-partner.md).
     > Partner har inte behörighet att ta bort en enhet eller sensor. Endast administratörer har behörighet att ta bort.
 
 ## <a name="issues-with-jobs"></a>Problem med jobb
 
-### <a name="farmbeats-internal-error"></a>Internt fel i FarmBeats
+### <a name="farmbeats-internal-error"></a>Internt FarmBeats-fel
 
-**Meddelande**: "FarmBeats internt fel, se felsökningsguide för mer information."
+**Meddelande**: "FarmBeats internt fel, se fel söknings guiden för mer information."
 
-**Korrigerande åtgärder** Det här problemet kan bero på ett tillfälligt fel i datapipelinen. Skapa jobbet igen. Om felet kvarstår kontaktar du oss med felmeddelandet/loggarna.
+**Korrigerande åtgärd** Det här problemet kan bero på ett tillfälligt fel i data pipelinen. Skapa jobbet igen. Om felet kvarstår kan du kontakta oss med fel meddelandet/loggarna.
 
-## <a name="accelerator-troubleshooting"></a>Felsökning av acceleratorer
+## <a name="accelerator-troubleshooting"></a>Accelerator-felsökning
 
 ### <a name="access-control"></a>Åtkomstkontroll
 
-**Problem**: Du får ett felmeddelande när du lägger till en rolltilldelning.
+**Problem**: du får ett fel meddelande när du lägger till en roll tilldelning.
 
-**Meddelande**: "Inga matchande användare hittades."
+**Meddelande**: "Det gick inte att hitta matchande användare".
 
-**Korrigerande åtgärder** Kontrollera det e-post-ID som du försöker lägga till en rolltilldelning för. E-post-ID:t måste vara en exakt matchning av ID:t, som är registrerad för den användaren i Active Directory. Om felet kvarstår kontaktar du oss med felmeddelandet/loggarna.
+**Korrigerande åtgärd** Kontrol lera e-postadressen som du försöker lägga till en roll tilldelning för. E-post-ID: t måste vara en exakt matchning av ID: t som har registrerats för den användaren i Active Directory. Om felet kvarstår kan du kontakta oss med fel meddelandet/loggarna.
 
-### <a name="unable-to-log-in-to-accelerator"></a>Det går inte att logga in på Accelerator
+### <a name="unable-to-log-in-to-accelerator"></a>Det gick inte att logga in på Accelerator
 
-**Meddelande**: "Fel: Du har inte behörighet att ringa tjänsten. Kontakta administratören för auktorisering."
+**Meddelande**: "fel: du har inte behörighet att anropa tjänsten. Kontakta administratören för auktorisering. "
 
-**Korrigerande åtgärder** Be administratören att ge dig åtkomst till FarmBeats-distributionen. Detta kan göras genom att göra ett POST av RollAssignment API:er eller via åtkomstkontrollen i **fönstret Inställningar** i Accelerator.  
+**Korrigerande åtgärd** Be administratören att ge dig åtkomst till FarmBeats-distributionen. Detta kan göras genom att göra ett inlägg i RoleAssignment-API: erna eller via Access Control i fönstret **Inställningar** i Accelerator.  
 
-Om du redan har beviljats åtkomst och ställts inför det här felet kan du försöka igen genom att uppdatera sidan. Om felet kvarstår kontaktar du oss med felmeddelandet/loggarna.
+Om du redan har beviljats åtkomst och använt det här felet kan du försöka igen genom att uppdatera sidan. Om felet kvarstår kan du kontakta oss med fel meddelandet/loggarna.
 
-![Projekt FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![Project-FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>Accelerator problem  
 
-**Problem:** Du har fått ett acceleratorfel av obestämd orsak.
+**Problem**: du har fått ett Accelerator-fel av den obestämda orsaken.
 
-**Meddelande**: "Fel: Ett okänt fel uppstod."
+**Meddelande**: "fel: ett okänt fel har inträffat."
 
-**Korrigerande åtgärder** Det här felet uppstår om du lämnar sidan inaktiv för länge. Uppdatera sidan. Om felet kvarstår kontaktar du oss med felmeddelandet/loggarna.
+**Korrigerande åtgärd** Det här felet uppstår om du lämnar sidan inaktiv i för lång tid. Uppdatera sidan. Om felet kvarstår kan du kontakta oss med fel meddelandet/loggarna.
 
-**Problem:** FarmBeats Accelerator visar inte den senaste versionen, även efter att du har uppgraderat FarmBeatsDeployment.
+**Problem**: FarmBeats Accelerator visar inte den senaste versionen, även efter att du har uppgraderat FarmBeatsDeployment.
 
-**Korrigerande åtgärder** Det här felet uppstår på grund av servicearbetare persistens i webbläsaren. Gör följande:
+**Korrigerande åtgärd** Det här felet inträffar på grund av en beständighet i en tjänste arbetar i webbläsaren. Gör följande:
 
-1. Stäng alla webbläsarflikar som har Accelerator öppen och stäng webbläsarfönstret.
-2. Starta en ny instans av webbläsaren och ladda om accelerator-URI:n. Den här åtgärden läser in den nya versionen av Accelerator.
+1. Stäng alla flikar för webbläsare som har en Accelerator öppen och Stäng webbläsarfönstret.
+2. Starta en ny instans av webbläsaren och Läs in Accelerator-URI igen. Den här åtgärden läser in den nya versionen av Accelerator.
 
-## <a name="sentinel-imagery-related-issues"></a>Sentinel: Bild-relaterade frågor
+## <a name="sentinel-imagery-related-issues"></a>Sentinel: bilder problem
 
-### <a name="wrong-username-or-password"></a>Fel användarnamn eller lösenord
+### <a name="wrong-username-or-password"></a>Felaktigt användar namn eller lösen ord
 
-**Meddelande om jobbfel**: "Fullständig autentisering krävs för att komma åt den här resursen."
+**Jobb fel meddelande**: "fullständig autentisering krävs för att få åtkomst till den här resursen".
 
-**Korrigerande åtgärder**: Gör något av följande:
+**Korrigerande åtgärd**: gör något av följande:
 
-- Uppdatera FarmBeats med rätt användarnamn/lösenord med hjälp av stegen nedan och försök igen.
+- Uppdatera FarmBeats med rätt användar namn/lösen ord med hjälp av nedanstående steg och försök utföra jobbet igen.
 
-  **Uppdatera Användarnamn på Sentinel**
-
-    1. Logga in på [Azure Portal](https://portal.azure.com).
-    2. Sök **Search** efter resursgruppen FarmBeats Datahub i sökrutan.
-    3. Välj Lagringskontolagring***** > **Behållare** > **batch-prep-filer** > **to_vm** > **config.ini**
-    4. Välj **redigera**
-    5. Uppdatera användarnamnet i avsnittet sentinel_account
-
-  **Uppdatera Sentinel-lösenord**
+  **Uppdatera Sentinel-användarnamn**
 
     1. Logga in på [Azure Portal](https://portal.azure.com).
-    2. Sök **Search** efter resursgruppen FarmBeats Datahub i sökrutan.
-    3. Välj keyvault-*****
-    4. Välj åtkomstprinciper under Inställningar
-    5. Välj **Lägg till åtkomstprincip**
-    6. Använd **hemlig hantering** för Konfigurera från mall och lägg till dig själv i Huvudman
-    7. Välj **Lägg till**och välj sedan **Spara** på sidan **Åtkomstprinciper**
-    8. Välj **Hemligheter** under **Inställningar**
-    9. Välj **Sentinel-lösenord**
+    2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
+    3. Välj lagrings konto lagring * * * * * > **behållare** > **batch-prep-Files** > **to_vm** > **config. ini**
+    4. Välj **Redigera**
+    5. Uppdatera användar namnet i avsnittet sentinel_account
+
+  **Uppdatera kontroll lösen ord**
+
+    1. Logga in på [Azure Portal](https://portal.azure.com).
+    2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
+    3. Välj nyckel valv-* * * * *
+    4. Välj åtkomst principer under Inställningar
+    5. Välj **Lägg till åtkomst princip**
+    6. Använd **hemlig hantering** för konfigurera från mall och Lägg till dig själv i huvud kontot
+    7. Välj **Lägg till**och välj sedan **Spara** på sidan **åtkomst principer**
+    8. Välj **hemligheter** under **Inställningar**
+    9. Välj **Sentinel – lösen ord**
     10. Skapa en ny version av värdet och aktivera den.
 
-- Kör det misslyckade jobbet igen eller kör ett satellitindexjobb för ett datumintervall på 5 till 7 dagar och kontrollera sedan om jobbet lyckas.
+- Kör det misslyckade jobbet igen eller kör ett satellit index jobb för ett datum intervall på 5 till 7 dagar och kontrol lera sedan för att se om jobbet lyckades.
 
-### <a name="sentinel-hub-wrongurlor-site-not-accessible"></a>Sentinel-hubben: Fel WEBBADRESS eller webbplats är inte tillgänglig
+### <a name="sentinel-hub-wrongurlor-site-not-accessible"></a>Sentinel Hub: felaktig URL eller plats är inte tillgänglig
 
-**Jobbfel meddelande:**"Oj, något gick fel. Sidan du försökte komma åt är (tillfälligt) inte tillgänglig."
+**Jobb fel meddelande**: "Hoppsan, något gick fel. Sidan som du försökte komma åt är (tillfälligt) inte tillgänglig. "
 
-**Korrigerande åtgärder:**
+**Korrigerande åtgärd**:
 
-1. Öppna [Sentinel](https://scihub.copernicus.eu/dhus/) i din webbläsare för att se om webbplatsen är tillgänglig.
-2. Om webbplatsen inte är tillgänglig kontrollerar du om någon brandvägg, företagsnätverk eller annan blockerande programvara hindrar åtkomst till webbplatsen och vidtar sedan nödvändiga åtgärder för att tillåta Sentinel-URL:en. 
-3. Kör det misslyckade jobbet igen eller kör ett satellitindexjobb för ett datumintervall på 5 till 7 dagar och kontrollera sedan om jobbet lyckas.  
+1. Öppna [Sentinel](https://scihub.copernicus.eu/dhus/) i webbläsaren för att se om webbplatsen är tillgänglig.
+2. Om webbplatsen inte är tillgänglig kontrollerar du om någon brand vägg, företags nätverk eller annan blockerande program vara förhindrar åtkomst till webbplatsen och vidtar sedan nödvändiga steg för att tillåta kontroll-URL: en. 
+3. Kör det misslyckade jobbet igen eller kör ett satellit index jobb för ett datum intervall på 5 till 7 dagar och kontrol lera sedan om jobbet lyckades.  
 
-### <a name="sentinel-server-down-for-maintenance"></a>Sentinel server: Ner för underhåll
+### <a name="sentinel-server-down-for-maintenance"></a>Kontroll Server: nere för underhåll
 
-**Jobbfel meddelande:**"Copernicus Open Access Hub kommer tillbaka snart! Ledsen för besväret, vi utför en del underhåll för tillfället. Vi kommer snart tillbaka!" 
+**Jobb fel meddelande**: "Copernicus öppna Access Hub kommer snart att vara tillbaka! Vi beklagar besväret, men vi utför vissa underhåll för tillfället. Vi kommer att bli online igen snart! " 
 
-**Korrigerande åtgärder:**
+**Korrigerande åtgärd**:
 
-Det här problemet kan uppstå om några underhållsaktiviteter utförs på Sentinel-servern.
+Det här problemet kan inträffa om några underhålls aktiviteter utförs på Sentinel-servern.
 
-1. Om något jobb eller pipeline misslyckas på grund av att underhåll utförs skickar du jobbet igen efter en viss tid. 
+1. Om ett jobb eller en pipeline Miss lyckas eftersom underhåll utförs, skicka om jobbet efter en stund. 
 
-   Mer information om planerade eller oplanerade Sentinel-underhållsaktiviteter finns på [copernicus open access hub-nyhetswebbplats.](https://scihub.copernicus.eu/news/)  
+   Information om planerade eller oplanerade aktiviteter finns i [Copernicus öppna Access Hub nyhets](https://scihub.copernicus.eu/news/) webbplats.  
 
-2. Kör det misslyckade jobbet igen eller kör ett satellitindexjobb för ett datumintervall på 5 till 7 dagar och kontrollera sedan om jobbet lyckas.
+2. Kör det misslyckade jobbet igen eller kör ett satellit index jobb för ett datum intervall på 5 till 7 dagar och kontrol lera sedan om jobbet lyckades.
 
-### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: Maximalt antal anslutningar som nåtts
+### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: högsta antalet anslutningar har uppnåtts
 
-**Meddelande om jobbfel**: "Maximalt antal två samtidiga\<flöden som uppnåtts av användarens användarnamn>"."
+**Jobb fel meddelande**: "maximalt antal samtidiga flöden som uppnås av användarens\<användar namn>". "
 
-**Betydelse:** Om ett jobb misslyckas eftersom det maximala antalet anslutningar har nåtts används samma Sentinel-konto i flera jobb.
+**Betydelse**: om ett jobb Miss lyckas eftersom det maximala antalet anslutningar har uppnåtts, används samma kontroll konto i flera jobb.
 
-**Korrigerande åtgärder**: Prova något av följande:
+**Korrigerande åtgärd**: prova något av följande:
 
-* Vänta tills de andra jobben är klara innan du kör det misslyckade jobbet igen.
-* Skapa ett nytt Sentinel-konto och uppdatera sedan Sentinels användarnamn och lösenord i FarmBeats.
+* Vänta tills de andra jobben har slutförts innan du kör det misslyckade jobbet igen.
+* Skapa ett nytt Sentinel-konto och uppdatera sedan Sentinel-användarnamnet och lösen ordet i FarmBeats.
 
-### <a name="sentinel-server-refused-connection"></a>Sentinel-server: Nekad anslutning
+### <a name="sentinel-server-refused-connection"></a>Sentinel-Server: nekad anslutning
 
-**Meddelande om fel i jobbet** http://172.30.175.69:8983/solr/dhus: "Server nekade anslutning vid: ."
+**Jobb fel meddelande**: "servern nekade anslutning på http://172.30.175.69:8983/solr/dhus:."
 
-**Korrigerande åtgärder**: Det här problemet kan uppstå om några underhållsaktiviteter utförs på Sentinel-servern.
+**Korrigerande åtgärd**: det här problemet kan inträffa om några underhålls aktiviteter utförs på Sentinel-servern.
 
-1. Om något jobb eller pipeline misslyckas på grund av att underhåll utförs skickar du jobbet igen efter en viss tid.
+1. Om ett jobb eller en pipeline Miss lyckas eftersom underhåll utförs, skicka om jobbet efter en stund.
 
-   Mer information om planerade eller oplanerade Sentinel-underhållsaktiviteter finns på [copernicus open access hub-nyhetswebbplats.](https://scihub.copernicus.eu/news/)  
+   Information om planerade eller oplanerade aktiviteter finns i [Copernicus öppna Access Hub nyhets](https://scihub.copernicus.eu/news/) webbplats.  
 
-2. Kör det misslyckade jobbet igen eller kör ett satellitindexjobb för ett datumintervall på 5 till 7 dagar och kontrollera sedan om jobbet lyckas.
+2. Kör det misslyckade jobbet igen eller kör ett satellit index jobb för ett datum intervall på 5 till 7 dagar och kontrol lera sedan om jobbet lyckades.
 
-### <a name="soil-moisture-map-has-white-areas"></a>Soil Moisture karta har vita områden
+### <a name="soil-moisture-map-has-white-areas"></a>Jord fuktighets kartan har vita områden
 
-**Problem:** **Jordfuktningskartan** skapades, men kartan har mestadels vita områden.
+**Problem**: **jord fukt kartan** genererades, men kartan har huvudsakligen vita områden.
 
-**Korrigerande åtgärder**: Det här problemet kan uppstå om de satellitindex som genereras för den tid för vilken kartan begärdes har NDVI-värden som är mindre än 0,3. För mer information, besök [Teknisk guide från Sentinel](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
+**Korrigerande åtgärd**: det här problemet kan inträffa om de satellit index som genereras för den tid då kartan begärdes har NDVI-värden som är mindre än 0,3. Mer information finns [i teknisk guide från kontroll](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
 
-1. Kör jobbet för ett annat datumintervall och kontrollera om NDVI-värdena i satellitindexen är mer än 0,3.
+1. Kör jobbet igen under ett annat datum intervall och kontrol lera om NDVI-värdena i satellit index är fler än 0,3.
 
 ## <a name="collect-logs-manually"></a>Samla in loggar manuellt
 
 [Installera och distribuera Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-in-datahub"></a>Samla in Azure Data Factory-jobbloggar eller App Service-loggar i Datahub
+### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-in-datahub"></a>Samla in Azure Data Factory jobb loggar eller App Service loggar i Datahub
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Sök **Search** efter resursgruppen FarmBeats Datahub i sökrutan.
-3. Sök efter lagringskontot för *datahublogs\* * på instrumentpanelen för **resursgrupp.** *Datahublogsmvxmq*.  
-4. I kolumnen **Namn** väljer du lagringskontot för att visa instrumentpanelen **För lagringskonto.**
-5. I fönstret **datahubblogs\* ** väljer du **Öppna i Utforskaren** för att visa Programmet Öppna Azure Storage **Explorer.**
-6. I den vänstra rutan väljer du **Blob Containers**och väljer sedan **jobbloggar** för Azure Data **Factory-loggar eller appinsights-loggar** för App Service-loggar.
+2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
+3. På instrument panelen för **resurs gruppen** söker du efter *datahublogs\* * lagrings konto. Till exempel *datahublogsmvxmq*.  
+4. I kolumnen **namn** väljer du lagrings konto för att visa instrument panelen för **lagrings kontot** .
+5. I fönstret **datahubblogs\* ** väljer du **Öppna i Utforskaren** för att visa **Open Azure Storage Explorer** -programmet.
+6. I det vänstra fönstret väljer du **BLOB-behållare**och väljer sedan **jobb loggar** för Azure Data Factory loggar eller **appinsights-loggar** för App Service loggar.
 7. Välj **Hämta** och hämta loggarna till en lokal mapp på datorn.
 
-    ![Projekt FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![Project-FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
-### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Samla in Azure Data Factory-jobbloggar eller App Service-loggar för accelerator
+### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Samla in Azure Data Factory jobb loggar eller App Service loggar för Accelerator
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Sök **Search** efter resursgruppen FarmBeats Accelerator i sökrutan.
-3. Sök efter lagringslagringskontot på instrumentpanelen för **resursgrupp.** *\* * Till exempel *lagringdop4k\**.
-4. Välj lagringskontot i kolumnen **Namn** om du vill visa instrumentpanelen **För lagringskonto.**
-5. I **lagringsfönstret\* ** väljer du **Öppna i Utforskaren** för att öppna Azure Storage Explorer-programmet.
-6. I den vänstra rutan väljer du **Blob Containers**och väljer sedan **jobbloggar** för Azure Data **Factory-loggar eller appinsights-loggar** för App Service-loggar.
+2. Sök efter resurs gruppen FarmBeats Accelerator i **sökrutan.**
+3. På instrument panelen för **resurs gruppen** söker du efter *lagrings\* * lagrings kontot. Till exempel *storagedop4k\**.
+4. Välj lagrings kontot i kolumnen **namn** om du vill visa instrument panelen för **lagrings kontot** .
+5. I fönstret **lagring\* ** väljer du **Öppna i Utforskaren** för att öppna Azure Storage Explorer programmet.
+6. I det vänstra fönstret väljer du **BLOB-behållare**och väljer sedan **jobb loggar** för Azure Data Factory loggar eller **appinsights-loggar** för App Service loggar.
 7. Välj **Hämta** och hämta loggarna till en lokal mapp på datorn.
 
 ## <a name="high-cpu-usage"></a>Hög processoranvändning
 
-**Fel:** Du får en e-postavisering som refererar till en **varning för hög CPU-användning**.
+**Fel**: du får en e-postavisering som refererar till en **hög CPU-användnings avisering**.
 
-**Korrigerande åtgärder:**
+**Korrigerande åtgärd**:
 
-1. Gå till din FarmBeats Datahub-resursgrupp.
-2. Välj **apptjänsten**.  
-3. Gå till [prissidan](https://azure.microsoft.com/pricing/details/app-service/windows/)för App Service och välj sedan en lämplig prisnivå.
+1. Gå till resurs gruppen FarmBeats Datahub.
+2. Välj **App Service**.  
+3. Gå till sidan för att skala upp [App Service priser](https://azure.microsoft.com/pricing/details/app-service/windows/)och välj sedan en lämplig pris nivå.

@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Skapa och använda diskar för skalningsuppsättningar med Azure PowerShell
+title: Självstudie – Skapa och Använd diskar för skalnings uppsättningar med Azure PowerShell
 description: Läs hur du använder Azure PowerShell för att skapa och använda hanterade diskar med VM-skalningsuppsättningar, inklusive hur du lägger till, förbereder, listar och kopplar från diskarna.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 6cdd1ee3c18d63e1a8c7734a9efc2573f6b04b33
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011199"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: skapa och använd diskar med VM-skalningsuppsättningar med Azure PowerShell
@@ -90,7 +90,7 @@ Du kan skapa och ansluta diskar när du skapar en skalningsuppsättning eller me
 ### <a name="attach-disks-at-scale-set-creation"></a>Anslut diskarna när skalningsuppsättningen skapas
 Skapa en VM-skalningsuppsättning med [New-AzVmss](/powershell/module/az.compute/new-azvmss). När du uppmanas, anger du ett användarnamn och lösenord för de virtuella datorinstanserna. För att distribuera trafik till flera virtuella datorinstanser så skapas även en lastbalanserare. Lastbalanseraren innehåller regler för att distribuera trafik på TCP-port 80 och för att tillåta trafik för fjärrskrivbordet på TCP-port 3389 och PowerShell-fjärrkommunikation på TCP-port 5985.
 
-Två diskar skapas med parametern `-DataDiskSizeGb`. Den första disken är *64* GB i storlek och den andra disken är *128* GB. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
+Två diskar skapas med parametern `-DataDiskSizeGb`. Den första disken är *64* GB stor och den andra disken är *128* GB. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
 
 ```azurepowershell-interactive
 New-AzVmss `

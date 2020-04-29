@@ -1,45 +1,45 @@
 ---
-title: 'Snabbstart: Använd cURL & REST för att hantera kunskapsbas - QnA Maker'
-description: Den här snabbstarten visar hur du skapar, publicerar och frågar kunskapsbasen med hjälp av REST-API:erna.
+title: 'Snabb start: Använd spiral & REST för att hantera kunskaps bas – QnA Maker'
+description: 'Den här snabb starten visar hur du skapar, publicerar och frågar din kunskaps bas med hjälp av REST-API: er.'
 ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
 ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81261711"
 ---
-# <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Snabbstart: Använd cURL och REST för att hantera kunskapsbas
+# <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Snabb start: Använd sväng och REST för att hantera kunskaps bas
 
-Den här snabbstarten hjälper dig att skapa, publicera och fråga din kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/knowledge-base.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
+Den här snabb starten vägleder dig genom att skapa, publicera och fråga din kunskaps bas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/knowledge-base.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-* Den aktuella versionen av [cURL](https://curl.haxx.se/). Flera kommandoradsväxlar används i snabbstarterna, som noteras i [cURL-dokumentationen](https://curl.haxx.se/docs/manpage.html).
-* Du måste ha en [QnA Maker-resurs](../How-To/set-up-qnamaker-service-azure.md)för att kunna använda nyckeln och resursnamnet. Du angav **resursnamnet** när du skapade resursen och sedan skapades nyckeln åt dig. Resursnamnet används som underdomän för slutpunkten. Om du vill hämta nyckel- och resursnamnet väljer du **Snabbstart** för din resurs i Azure-portalen. Resursnamnet är den första underdomänen i slutpunkts-URL:en:
+* Den aktuella versionen av [sväng](https://curl.haxx.se/). Flera kommando rads växlar används i snabb starterna, som anges i [dokumentationen om vändning](https://curl.haxx.se/docs/manpage.html).
+* Du måste ha en [QNA Maker-resurs](../How-To/set-up-qnamaker-service-azure.md)för att kunna använda nyckeln och resurs namnet. Du har angett resurs **namnet** när en resurs skapas och sedan skapades nyckeln åt dig. Resurs namnet används som under domän för din slut punkt. Om du vill hämta din nyckel och resurs namn väljer du **snabb start** för resursen i Azure Portal. Resurs namnet är den första under domänen i slut punkts-URL: en:
 
     `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
-> Följande BASH-exempel `\` använder linjefortsättningstecknet. Om du konsolen eller terminalen använder ett annat linjefortsättningstecken använder du det här tecknet.
+> I följande BASH-exempel används `\` linje fortsättnings symbolen. Använd det här alternativet om du använder en annan rad fortsättnings bokstav i en konsol eller Terminal.
 
 ## <a name="create-a-knowledge-base"></a>Skapa en kunskapsbas
 
-Om du vill skapa en kunskapsbas med REST-API:erna och cURL måste du ha följande information:
+Om du vill skapa en kunskaps bas med REST-API: er och svänger måste du ha följande information:
 
-|Information|cURL-konfiguration|Syfte|
+|Information|konfiguration av sväng|Syfte|
 |--|--|--|
-|Resursnamn för QnA Maker|URL|används för att konstruera URL|
-|QnA Maker-resursnyckel|`-h`param `Ocp-Apim-Subscription-Key` för rubrik|Autentisera till QnA Maker-tjänsten|
-|JSON som beskriver kunskapsbas|`-d`Param|[Exempel på](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) JSON|
-|Storleken på JSON i byte|`-h`param `Content-Size` för rubrik||
+|QnA Maker resurs namn|URL|används för att skapa URL|
+|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
+|JSON som beskriver kunskaps basen|`-d`EntryPointName|[Exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) på JSON|
+|Storlek på JSON i byte|`-h`parameter för `Content-Size` rubrik||
 
-Kommandot cURL körs från ett BASH-skal. Redigera det här kommandot med egna resursnamn, resursnyckel och JSON-värden och storleken på JSON.
+Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt egna resurs namn, resurs nyckel och JSON-värden och storleken på JSON.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/create \
@@ -50,7 +50,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
 ```
 
-CURL-svaret från QnA `operationId` Maker innehåller , som krävs för att [få status för åtgärden](#get-status-of-operation).
+Ett spiral svar från QnA Maker innehåller `operationId` , vilket krävs för att [Hämta status för åtgärden](#get-status-of-operation).
 
 ```json
 {
@@ -62,17 +62,17 @@ CURL-svaret från QnA `operationId` Maker innehåller , som krävs för att [få
 }
 ```
 
-## <a name="get-status-of-operation"></a>Hämta status för åtgärden
+## <a name="get-status-of-operation"></a>Hämta status för åtgärd
 
-När du skapar en kunskapsbas, eftersom åtgärden är asynkron, innehåller svaret information för att fastställa statusen.
+När du skapar en kunskaps bas, eftersom åtgärden är asynkron, innehåller svaret information för att fastställa statusen.
 
-|Information|cURL-konfiguration|Syfte|
+|Information|konfiguration av sväng|Syfte|
 |--|--|--|
-|Resursnamn för QnA Maker|URL|används för att konstruera URL|
-|Åtgärd ID|URL-väg|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|QnA Maker-resursnyckel|`-h`param `Ocp-Apim-Subscription-Key` för rubrik|Autentisera till QnA Maker-tjänsten|
+|QnA Maker resurs namn|URL|används för att skapa URL|
+|Åtgärds-ID|URL-väg|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
+|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
 
-Kommandot cURL körs från ett BASH-skal. Redigera det här kommandot med ditt eget resursnamn, resursnyckel och åtgärds-ID.
+Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och åtgärds-ID.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/operations/REPLACE-WITH-YOUR-OPERATION-ID \
@@ -80,7 +80,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
 
-CURL-svaret innehåller statusen. Om åtgärdstillståndet lyckas `resourceLocation` innehåller kunskapsbas-ID:t.
+Det typografiska svaret innehåller status. Om åtgärds statusen har slutförts `resourceLocation` innehåller kunskaps bas-ID: t.
 
 ```json
 {
@@ -95,19 +95,19 @@ CURL-svaret innehåller statusen. Om åtgärdstillståndet lyckas `resourceLocat
 
 ## <a name="publish-knowledge-base"></a>Publicera kunskapsbas
 
-Innan du frågar kunskapsbasen måste du:
+Innan du frågar i kunskaps basen måste du:
 * Publicera kunskapsbas
-* Hämta slutpunktsnyckeln för körning
+* Hämta slut punkts nyckeln för körning
 
-Den här uppgiften publicerar kunskapsbasen. Att hämta slutpunktsnyckeln för körning är en [separat uppgift](#get-published-knowledge-bases-runtime-endpoint-key).
+Den här uppgiften publicerar kunskaps basen. Hämtning av körnings slut punkts nyckeln är en [separat uppgift](#get-published-knowledge-bases-runtime-endpoint-key).
 
-|Information|cURL-konfiguration|Syfte|
+|Information|konfiguration av sväng|Syfte|
 |--|--|--|
-|Resursnamn för QnA Maker|URL|används för att konstruera URL|
-|QnA Maker-resursnyckel|`-h`param `Ocp-Apim-Subscription-Key` för rubrik|Autentisera till QnA Maker-tjänsten|
-|Kunskapsbas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
+|QnA Maker resurs namn|URL|används för att skapa URL|
+|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
+|Kunskaps bas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
-Kommandot cURL körs från ett BASH-skal. Redigera det här kommandot med ditt eget resursnamn, resursnyckel och kunskapsbas-ID.
+Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och kunskaps bas-ID.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
@@ -117,24 +117,24 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 --data-raw ''
 ```
 
-Svarsstatusen är 204 utan resultat. Använd `-v` kommandoradsparametern för att se utförliga utdata för kommandot cURL. Detta inkluderar HTTP-status.
+Svars statusen är 204 utan resultat. Använd `-v` kommando rads parametern för att Visa utförliga utdata för kommandot vändning. Detta kommer att innehålla HTTP-statusen.
 
-## <a name="get-published-knowledge-bases-runtime-endpoint-key"></a>Få publicerad kunskapsbasens slutpunktsnyckel för körning
+## <a name="get-published-knowledge-bases-runtime-endpoint-key"></a>Hämta slut punkts nyckel för publicerad Knowledge Base-körning
 
-Innan du frågar kunskapsbasen måste du:
+Innan du frågar i kunskaps basen måste du:
 * Publicera kunskapsbas
-* Hämta slutpunktsnyckeln för körning
+* Hämta slut punkts nyckeln för körning
 
-Den här aktiviteten hämtar slutpunktsnyckeln för körning. Att publicera kunskapsbasen är en [separat uppgift](#publish-knowledge-base).
+Den här aktiviteten hämtar runtime-slutpunktens slut punkts nyckel. Publicering av kunskaps basen är en [separat uppgift](#publish-knowledge-base).
 
-Slutpunktsnyckeln för körning är samma nyckel för alla kunskapsbaser som använder QnA Maker-resursen.
+Runtime-slutpunkts nyckeln är samma nyckel för alla kunskaps banker som använder QnA Maker-resursen.
 
-|Information|cURL-konfiguration|Syfte|
+|Information|konfiguration av sväng|Syfte|
 |--|--|--|
-|Resursnamn för QnA Maker|URL|används för att konstruera URL|
-|QnA Maker-resursnyckel|`-h`param `Ocp-Apim-Subscription-Key` för rubrik|Autentisera till QnA Maker-tjänsten|
+|QnA Maker resurs namn|URL|används för att skapa URL|
+|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
 
-Kommandot cURL körs från ett BASH-skal. Redigera det här kommandot med ditt eget resursnamn, resursnyckel.
+Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/endpointkeys \
@@ -143,7 +143,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 ```
 
 
-CURL-svaret innehåller slutpunktsnycklarna för körning. Använd bara en av nycklarna när du frågar för att få ett svar från kunskapsbasen.
+I svarsmeddelandet ingår körnings slut punkts nycklar. Använd bara en av nycklarna när du frågar om du vill få ett svar från kunskaps basen.
 
 ```json
 {
@@ -154,19 +154,19 @@ CURL-svaret innehåller slutpunktsnycklarna för körning. Använd bara en av ny
 }
 ```
 
-## <a name="query-for-answer-from-published-knowledge-base"></a>Fråga efter svar från publicerad kunskapsbas
+## <a name="query-for-answer-from-published-knowledge-base"></a>Fråga efter svar från publicerad kunskaps bas
 
-Att få ett svar från kunskapen görs från en separat körning än att hantera kunskapsbasen. Eftersom det är en separat körning måste du autentisera med en körningsnyckel.
+Att få ett svar från kunskapen görs från en annan körning än att hantera kunskaps basen. Eftersom det är en separat körnings miljö måste du autentisera med en körnings nyckel.
 
-|Information|cURL-konfiguration|Syfte|
+|Information|konfiguration av sväng|Syfte|
 |--|--|--|
-|Resursnamn för QnA Maker|URL|används för att konstruera URL|
-|QnA Maker runtime-nyckel|`-h`param `Authorization` för rubrik|Nyckeln är en del av en `Endpointkey `sträng som innehåller ordet . Autentisera till QnA Maker-tjänsten|
-|Kunskapsbas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON som beskriver fråga|`-d`Param|[Begär kroppsparametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) och [exempel på](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) JSON|
-|Storleken på JSON i byte|`-h`param `Content-Size` för rubrik||
+|QnA Maker resurs namn|URL|används för att skapa URL|
+|QnA Maker körnings nyckel|`-h`parameter för `Authorization` rubrik|Nyckeln är en del av en sträng som innehåller ordet `Endpointkey `. Autentisera till QnA Maker-tjänst|
+|Kunskaps bas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
+|JSON som beskriver fråga|`-d`EntryPointName|[Begär ande text parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) och [exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) på JSON|
+|Storlek på JSON i byte|`-h`parameter för `Content-Size` rubrik||
 
-Kommandot cURL körs från ett BASH-skal. Redigera det här kommandot med ditt eget resursnamn, resursnyckel och kunskapsbas-ID.
+Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och kunskaps bas-ID.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
@@ -177,19 +177,19 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledg
 -d '{"question": "How are QnA Maker and LUIS used together?","top": 6,"isTest": true,  "scoreThreshold": 20, "strictFilters": [], "userId": "sd53lsY="}'
 ```
 
-Ett lyckat svar innehåller det översta svaret tillsammans med annan information som ett klientprogram, till exempel en chattrobot, måste visa ett svar för användaren.
+Ett lyckat svar innehåller det främsta svaret tillsammans med annan information som ett klient program, till exempel en chatt-robot, måste visa ett svar för användaren.
 
-## <a name="delete-knowledge-base"></a>Ta bort kunskapsbas
+## <a name="delete-knowledge-base"></a>Ta bort kunskaps bas
 
-När du är klar med kunskapsbasen tar du bort den.
+När du är färdig med kunskaps basen tar du bort den.
 
-|Information|cURL-konfiguration|Syfte|
+|Information|konfiguration av sväng|Syfte|
 |--|--|--|
-|Resursnamn för QnA Maker|URL|används för att konstruera URL|
-|QnA Maker-resursnyckel|`-h`param `Ocp-Apim-Subscription-Key` för rubrik|Autentisera till QnA Maker-tjänsten|
-|Kunskapsbas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
+|QnA Maker resurs namn|URL|används för att skapa URL|
+|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
+|Kunskaps bas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
-Kommandot cURL körs från ett BASH-skal. Redigera det här kommandot med ditt eget resursnamn, resursnyckel och kunskapsbas-ID.
+Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och kunskaps bas-ID.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
@@ -198,13 +198,13 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
 
-Svarsstatusen är 204 utan resultat. Använd `-v` kommandoradsparametern för att se utförliga utdata för kommandot cURL. Detta inkluderar HTTP-status.
+Svars statusen är 204 utan resultat. Använd `-v` kommando rads parametern för att Visa utförliga utdata för kommandot vändning. Detta kommer att innehålla HTTP-statusen.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Författande](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) Referensdokumentation
-* [Körtid](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) Referensdokumentation
-* [Exempel på BASH-skript med cURL](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
+* [Redigering](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) Referens dokumentation
+* [Körning](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) Referens dokumentation
+* [Exempel på BASH-skript med hjälp av sväng](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## <a name="next-steps"></a>Nästa steg
 

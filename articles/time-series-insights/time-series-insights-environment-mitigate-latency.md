@@ -1,6 +1,6 @@
 ---
-title: Så här övervakar och minskar du begränsning – Azure Time Series Insights | Microsoft-dokument
-description: Lär dig hur du övervakar, diagnostiserar och minskar prestandaproblem som orsakar svarstid och begränsning i Azure Time Series Insights.
+title: Så här övervakar och minskar du begränsnings Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du övervakar, diagnostiserar och minimerar prestanda problem som orsakar latens och begränsning i Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -13,87 +13,87 @@ ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81263394"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minska begränsning för att minska svarstiden i Azure Time Series Insights
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights
 
-När mängden inkommande data överskrider konfigurationen av din miljö kan du uppleva svarstid eller begränsning i Azure Time Series Insights.
+När mängden inkommande data överstiger din miljös konfiguration kan du uppleva fördröjning eller begränsning i Azure Time Series Insights.
 
-Du kan undvika svarstid och begränsning genom att korrekt konfigurera din miljö för den mängd data som du vill analysera.
+Du kan undvika svars tider och begränsningar genom att konfigurera din miljö på rätt sätt för den mängd data som du vill analysera.
 
-Det är mest troligt att du drabbas av svarstid och begränsning när du:
+Du upplever förmodligen svars tid och begränsning när du:
 
-- Lägg till en händelsekälla som innehåller gamla data som kan överskrida din tilldelade ingressfrekvens (Time Series Insights måste komma ikapp).
-- Lägg till fler händelsekällor i en miljö, vilket resulterar i en topp från ytterligare händelser (som kan överskrida miljöns kapacitet).
-- Skicka stora mängder historiska händelser till en händelsekälla, vilket resulterar i en fördröjning (Time Series Insights måste komma ikapp).
-- Gå med i referensdata med telemetri, vilket resulterar i större händelsestorlek. Den maximala tillåtna paketstorleken är 32 KB. datapaket som är större än 32 kB trunkeras.
+- Lägg till en händelse källa som innehåller gamla data som kan överskrida den tilldelade ingångs takten (Time Series Insights måste fångas upp).
+- Lägg till fler händelse källor i en miljö, vilket resulterar i en ökning från ytterligare händelser (vilket kan överstiga din miljös kapacitet).
+- Skicka stora mängder historiska händelser till en händelse källa, vilket resulterar i en fördröjning (Time Series Insights måste fångas upp).
+- Koppla referens data med telemetri, vilket resulterar i större händelse storlek. Den största tillåtna paket storleken är 32 KB; data paket som är större än 32 KB trunkeras.
 
 ## <a name="video"></a>Video
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Läs mer om Time Series Insights datainträngningsbeteende och hur du planerar för det.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Lär dig mer om hur du Time Series Insights data ingångs beteende och hur du planerar för det.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
-## <a name="monitor-latency-and-throttling-with-alerts"></a>Övervaka svarstid och begränsning med aviseringar
+## <a name="monitor-latency-and-throttling-with-alerts"></a>Övervaka svars tid och begränsning med aviseringar
 
-Aviseringar kan hjälpa dig att diagnostisera och minska svarstidsproblem som uppstår i din miljö.
+Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som uppstår i din miljö.
 
-1. Välj din Time Series Insights-miljö i Azure-portalen. Välj sedan **Aviseringar**.
+1. I Azure Portal väljer du din Time Series Insights miljö. Välj sedan **aviseringar**.
 
-   [![Lägga till en avisering i time series insights-miljön](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
+   [![Lägg till en avisering i Time Series Insightss miljön](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
-1. Välj **+ Ny aviseringsregel**. Panelen **Skapa regel** visas sedan. Välj **Lägg till** under **VILLKOR**.
+1. Välj **+ Ny aviseringsregel**. Panelen **Skapa regel** visas sedan. Välj **Lägg till** under **villkor**.
 
-   [![Fönstret Lägg till varning](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
+   [![Lägg till aviserings fönster](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
-1. Konfigurera sedan de exakta villkoren för signallogiken.
+1. Konfigurera sedan de exakta villkoren för signal logiken.
 
    [![Konfigurera signallogiken](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
-   Därifrån kan du konfigurera aviseringar med hjälp av några av följande villkor:
+   Därifrån kan du konfigurera aviseringar med några av följande villkor:
 
    |Mått  |Beskrivning  |
    |---------|---------|
-   |**Inkommande mottagna byte**     | Antal råbyte som lästs från händelsekällor. Råräkning innehåller vanligtvis egenskapsnamnet och värdet.  |  
-   |**Inkommande mottagna ogiltiga meddelanden**     | Antal ogiltiga meddelanden som lästs från alla Azure Event Hubs eller Azure IoT Hub-händelsekällor.      |
-   |**Inkommande mottagna meddelanden**   | Antal meddelanden som lästs från alla händelsehubbar eller IoT Hubs-händelsekällor.        |
-   |**Ingående lagrade byte**     | Total storlek på händelser som lagrats och är tillgängliga för frågor. Storleken beräknas endast på egenskapsvärdet.        |
-   |**Inträngning lagrade händelser**    |   Antal tillplattade händelser som lagrats och är tillgängliga för frågor.      |
-   |**Inkommande mottagna meddelande tidsfördröjning**   |  Skillnad i sekunder mellan den tidpunkt då meddelandet är köat i händelsekällan och den tid då det bearbetas i Ingress.      |
-   |**Fördröjning för mottagna meddelanden**   |  Skillnaden mellan sekvensnumret för det senast köade meddelandet i händelsekällpartitionen och sekvensnumret för meddelandet som bearbetas i Ingress.      |
+   |**Inkommande mottagna byte**     | Antal obehandlade byte som lästs från händelse källor. RAW Count inkluderar vanligt vis egenskaps namn och-värde.  |  
+   |**Inkommande mottagna ogiltiga meddelanden**     | Antalet ogiltiga meddelanden som lästs från alla Azure Event Hubs-eller Azure IoT Hub-händelseloggen.      |
+   |**Ingress mottagna meddelanden**   | Antal meddelanden som lästs från alla händelse källor för Event Hubs eller IoT Hub.        |
+   |**Inkommande lagrade byte**     | Total storlek på händelser som lagras och är tillgängliga för fråga. Storleken beräknas bara för egenskap svärdet.        |
+   |**Ingress lagrade händelser**    |   Antal utplattade händelser som lagras och är tillgängliga för fråga.      |
+   |**Mottagnings tids fördröjning för inkommande meddelanden**   |  Skillnaden i sekunder mellan den tid som meddelandet står i kö i händelse källan och den tid det bearbetas i ingress.      |
+   |**Antal inkommande mottagna meddelanden**   |  Skillnaden mellan sekvensnumret för det senaste köade meddelandet i en partition för händelse källan och sekvensnummer för det meddelande som bearbetas i ingress.      |
 
-   Välj **Done** (Klar).
+   Välj **Klar**.
 
-1. När du har konfigurerat önskad signallogik granskar du den valda varningsregeln visuellt.
+1. När du har konfigurerat den önskade signal logiken granskar du den valda aviserings regeln visuellt.
 
-   [![Svarstidsvy och diagram](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
+   [![Svars visning och diagram](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
 
-## <a name="throttling-and-ingress-management"></a>Begränsning och ingående hantering
+## <a name="throttling-and-ingress-management"></a>Hantering av begränsning och drifts hantering
 
-* Om du begränsas registreras ett värde för fördröjningen för *inkommande mottagna meddelanden* som informerar dig om hur många sekunder efter din TIme Series Insights-miljö från den faktiska tiden meddelandet når händelsekällan (exklusive indexeringstid för appx. 30-60 sekunder).  
+* Om du är begränsad kommer ett värde för den *ingångs tids fördröjning som har tagits emot* att registreras som informerar dig om hur många sekunder som ligger bakom din Time Series Insights-miljö från den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden för appx. 30-60 sekunder).  
 
-  *Ingress Mottagna meddelanden Count Lag* bör också ha ett värde, så att du kan bestämma hur många meddelanden bakom dig är.  Det enklaste sättet att fastna är att öka din miljö kapacitet till en storlek som gör att du kan övervinna skillnaden.  
+  Ingångs *antalet mottagna meddelande antals fördröjning* bör också ha ett värde, så att du kan bestämma hur många meddelanden som ligger bakom dig.  Det enklaste sättet att komma igång är att öka din miljös kapacitet till en storlek som gör det möjligt för dig att undvika skillnaden.  
 
-  Om din S1-miljö till exempel visar fördröjning på 5 000 000 meddelanden kan du öka storleken på din miljö till sex enheter för ungefär en dag för att fastna.  Du kan öka ännu mer för att komma ikapp snabbare. Catch-up-perioden är en vanlig företeelse när du först etablerar en miljö, särskilt när du ansluter den till en händelsekälla som redan har händelser i den eller när du massförserar massor av historiska data.
+  Om din S1-miljö till exempel demonstrerar en fördröjning på 5 000 000-meddelanden kan du öka storleken på din miljö till sex enheter runt en dag för att få en uppfångad.  Du kan öka ännu mer för att komma igång snabbare. Den omfångs perioden är en vanlig händelse när du först skapar en miljö, särskilt när du ansluter den till en händelse källa som redan har händelser eller när du överför massor av historiska data.
 
-* En annan teknik är att ställa in en **ingående lagrad händelsevarning** >= ett tröskelvärde något under din totala miljökapacitet under en period av 2 timmar.  Den här aviseringen kan hjälpa dig att förstå om du ständigt har kapacitet, vilket indikerar en hög sannolikhet för svarstid. 
+* En annan metod är att ange en varning om **inträngande lagrade händelser** >= ett tröskelvärde strax under den totala miljö kapaciteten under en period på två timmar.  Den här aviseringen kan hjälpa dig att förstå om du ständigt har kapacitet, vilket tyder på en hög sannolikhet för fördröjning. 
 
-  Om du till exempel har etablerat tre S1-enheter (eller 2100 händelser per minuts inträngningskapacitet) kan du ställa in en **ingående lagrad händelseavisering** för >= 1900 händelser i 2 timmar. Om du ständigt överskrider den här tröskeln, och därför utlöser din avisering, är du sannolikt underetablerade.  
+  Om du till exempel har tre S1-enheter etablerade (eller 2100 händelser per minut ingångs kapacitet), kan du ange en varning om **inträngande lagrade händelser** för >= 1900 händelser i 2 timmar. Om du ständigt överträffar det här tröskelvärdet och därför utlöser aviseringen är du förmodligen under etablerad.  
 
-* Om du misstänker att du begränsas kan du jämföra dina **inkommande mottagna meddelanden** med händelsekällans utgående meddelanden.  Om inträngningen i händelsehubben är större än dina **ingående mottagna meddelanden**begränsas dina time series-insikter.
+* Om du misstänker att du är begränsad kan du jämföra dina ingångs **meddelanden** med händelse källans utgående meddelanden.  Om ingångs steg i Händelsehubben är större än dina ingångs bara **mottagna meddelanden**, begränsas Time Series Insights troligt vis.
 
 ## <a name="improving-performance"></a>Förbättra prestanda
 
-För att minska begränsningen eller uppleva svarstid, är det bästa sättet att korrigera det att öka din miljö kapacitet.
+Det bästa sättet att åtgärda problemet är att öka din miljö kapacitet för att minska begränsningen eller fördröjningen.
 
-Du kan undvika svarstid och begränsning genom att korrekt konfigurera din miljö för den mängd data som du vill analysera. Mer information om hur du lägger till kapacitet i din miljö finns i [Skala din miljö](time-series-insights-how-to-scale-your-environment.md).
+Du kan undvika svars tider och begränsningar genom att konfigurera din miljö på rätt sätt för den mängd data som du vill analysera. Om du vill ha mer information om hur du lägger till kapacitet i din miljö kan du läsa [skala din miljö](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om [Diagnostisera och lös problem i din Time Series Insights-miljö](time-series-insights-diagnose-and-solve-problems.md).
+- Läs om [att diagnostisera och lösa problem i din Time Series Insightss miljö](time-series-insights-diagnose-and-solve-problems.md).
 
-- Lär dig hur du [skalar time series insights-miljön](time-series-insights-how-to-scale-your-environment.md).
+- Lär dig [hur du skalar din Time Series Insightss miljö](time-series-insights-how-to-scale-your-environment.md).

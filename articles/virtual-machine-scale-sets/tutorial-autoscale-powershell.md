@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Skala en skalningsuppsättning automatiskt med Azure PowerShell
+title: Självstudie – Autoskala en skalnings uppsättning med Azure PowerShell
 description: Läs hur du automatiskt skalar en VM-skalningsuppsättning med Azure PowerShell allteftersom CPU-kraven varierar
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: b2451779119ab8fb6c1446631797ce32fd376146
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81009006"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure PowerShell
@@ -66,12 +66,12 @@ Följande parametrar används för den här regeln:
 
 | Parameter               | Förklaring                                                                                                         | Värde          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-| *-MetricName*           | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU |
+| *– MetricName*           | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU |
 | *-TimeGrain*            | Hur ofta måtten samlas in för analys.                                                                   | 1 minut       |
 | *-MetricStatistic*      | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel        |
 | *-TimeWindow*           | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter      |
-| *-Operatör*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
-| *-Tröskel*            | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %            |
+| *– Operatör*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
+| *– Tröskel*            | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %            |
 | *-ScaleActionDirection* | Anger om skalningsuppsättningen ska skala upp eller ner när regeln gäller.                                             | Öka       |
 | *-ScaleActionScaleType* | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal   |
 | *-ScaleActionValue*     | Procentandelen av virtuella datorinstanser som ska ändras när regeln utlöser.                                            | 3              |
@@ -129,7 +129,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-profile-to-a-scale-set"></a>Använda profil för automatisk skalning på en skalningsuppsättning
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>Använd autoskalning-profil i en skalnings uppsättning
 Det sista steget är att använda profilen för automatisk skalning på din skalningsuppsättning. Din skalningsuppsättning kan därefter automatiskt skala in eller ut baserat på programmets efterfrågan. Använda autoskalningsprofilen med [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) på följande sätt:
 
 ```azurepowershell-interactive
@@ -180,7 +180,7 @@ IpAddress
 52.168.121.216
 ```
 
-Skapa en fjärranslutning till din första virtuella datorinstans. Ange din egna offentliga IP-adress och ditt portnummer för nödvändig VM-instans såsom visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som används när du skapade skalningsuppsättningen (som standard i exempelkommandona är de *azureuser* och *\@P ssw0rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till VM-instans *0*:
+Skapa en fjärranslutning till din första virtuella datorinstans. Ange din egna offentliga IP-adress och ditt portnummer för nödvändig VM-instans såsom visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalnings uppsättningen (som standard i exempel kommandona, de är *azureuser* och *\@P Ssw0Rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till VM-instans *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -189,7 +189,7 @@ mstsc /v 52.168.121.216:50001
 Efter att du loggat in kan du öppna Internet Explorer från aktivitetsfältet.
 
 - Välj **OK** för att acceptera uppmaningen *Använd rekommenderade inställningar för säkerhet, sekretess och kompatibilitet*
-- Skriv *http://download.sysinternals.com/files/CPUSTRES.zip* i adressfältet.
+- Skriv *http://download.sysinternals.com/files/CPUSTRES.zip* i adress fältet.
 - Eftersom Förbättrad säkerhetskonfiguration i Internet Explorer är aktiverat, välj **Lägg till***http://download.sysinternals.com* domänen i listan över betrodda platser.
 - När du tillfrågas om filhämtning, välj **Öppna**och välj och **Kör** verktyget *CPUSTRES. EXE*.
 
@@ -209,7 +209,7 @@ För att tillåta att verktyget **CPU Stress** fortsätter att köras, lämna b�
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Övervaka de aktiva reglerna för automatisk skalning
-Du övervakar antalet virtuella datorinstanser i din skalningsuppsättning med **while**. Det tar 5 minuter för den automatiska skalningsskalan att påbörja skalningsprocessen som svar på CPU-belastningen som genereras av **CPUStress** på var och en av VM-instanserna:
+Du övervakar antalet virtuella datorinstanser i din skalningsuppsättning med **while**. Det tar 5 minuter för skalan för automatisk skalning att påbörja processen för skalbarhet som svar på den CPU-belastning som genereras av **CPUStress** på var och en av de virtuella dator instanserna:
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `

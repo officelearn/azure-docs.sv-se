@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Timetabling Solutions | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Timetabling Solutions.
+title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Timetabling-lösningar | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och Timetabling-lösningar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,132 +16,132 @@ ms.date: 04/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10c1db9aa0452ae70564d2025f34d05629d3bc72
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81265582"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timetabling-solutions"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Tidslösningar
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timetabling-solutions"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Timetabling-lösningar
 
-I den här självstudien får du lära dig hur du integrerar Tidsplaneringslösningar med Azure Active Directory (Azure AD). När du integrerar Tidsplaneringslösningar med Azure AD kan du:
+I den här självstudien får du lära dig att integrera Timetabling-lösningar med Azure Active Directory (Azure AD). När du integrerar Timetabling-lösningar med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Timetabling Solutions.
-* Gör att användarna automatiskt loggas in på Timetabling Solutions med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till Timetabling-lösningar.
+* Gör det möjligt för användarna att logga in automatiskt till Timetabling-lösningar med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Timetabling Solutions enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Timetabling-lösningar enkel inloggning (SSO) aktive rad prenumeration.
 
 > [!NOTE]
-> Identifieraren för det här programmet är ett fast strängvärde så att endast en instans kan konfigureras i en klient.
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Timetabling Solutions stöder **SP** initierade SSO
-* När du har konfigurerat Tidsplaneringslösningar kan du framtvinga sessionskontroll, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Timetabling-lösningar har stöd för **SP** -INITIERAd SSO
+* När du har konfigurerat Timetabling-lösningar kan du framtvinga kontroll av sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-timetabling-solutions-from-the-gallery"></a>Lägga till tidsplaneringslösningar från galleriet
+## <a name="adding-timetabling-solutions-from-the-gallery"></a>Lägga till Timetabling-lösningar från galleriet
 
-Om du vill konfigurera integreringen av Tidslösningar i Azure AD måste du lägga till tidsplaneringslösningar från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Timetabling-lösningar i Azure AD måste du lägga till Timetabling-lösningar från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Tidsplaneringslösningar** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Tidsplaneringslösningar** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **Timetabling-lösningar** i sökrutan.
+1. Välj **Timetabling-lösningar** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-timetabling-solutions"></a>Konfigurera och testa en azure AD-inloggning för Tidsuppställningslösningar
+## <a name="configure-and-test-azure-ad-single-sign-on-for-timetabling-solutions"></a>Konfigurera och testa enkel inloggning med Azure AD för Timetabling-lösningar
 
-Konfigurera och testa Azure AD SSO med Timetabling Solutions med hjälp av en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Timetabling Solutions.
+Konfigurera och testa Azure AD SSO med Timetabling-lösningar med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Timetabling-lösningar.
 
-Så här konfigurerar och testar du Azure AD SSO med Timetabling Solutions:
+Om du vill konfigurera och testa Azure AD SSO med Timetabling-lösningar slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Timetabling Solutions SSO](#configure-timetabling-solutions-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa timetabling solutions-testanvändare](#create-timetabling-solutions-test-user)** – om du vill ha en motsvarighet till B.Simon i Tidsplaneringslösningar som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera Timetabling-lösningar SSO](#configure-timetabling-solutions-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Timetabling-lösningar testa användare](#create-timetabling-solutions-test-user)** – för att få en motsvarighet till B. Simon i Timetabling-lösningar som är länkade till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure-portalen](https://portal.azure.com/)hittar du avsnittet **Hantera** på sidan **Timetabling** **Solutions-programintegration**och väljer enkel inloggning .
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Timetabling Solutions** Application Integration hittar du avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    Skriv en URL i textrutan **Sign-on-URL:**`https://auth.timetabling.education/login`
+    Skriv en URL i text rutan **inloggnings-URL** :`https://auth.timetabling.education/login`
 
 1. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
     ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
-1. Kopiera **tumavtrycksvärdet** i avsnittet **SAML-signeringscertifikat** och spara det på datorn.
+1. I avsnittet **SAML-signeringscertifikat** , kopierar du **värdet tumavtryck** och sparar det på din dator.
 
     ![Kopiera tumavtrycksvärdet](common/copy-thumbprint.png)
 
-1. Kopiera lämpliga webbadresser baserat på dina behov i avsnittet **Ställ in tidslösningar.**
+1. I avsnittet **Konfigurera Timetabling-lösningar** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Timetabling Solutions.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Timetabling-lösningar.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **Timetabling Solutions**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Timetabling-lösningar**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-timetabling-solutions-sso"></a>Konfigurera SSO för tidsplaneringslösningar
+## <a name="configure-timetabling-solutions-sso"></a>Konfigurera Timetabling-lösningar SSO
 
-Om du vill konfigurera en enda inloggning på **timetabling solutions-sidan** måste du skicka **tumavtrycksvärdet** och lämpliga kopierade url:er från Azure-portalen till [Timetabling Solutions supportteam](https://www.timetabling.com.au/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Timetabling lösnings** sidan måste du skicka **tumavtrycket** och lämpliga kopierade url: er från Azure Portal till [support teamet för Timetabling-lösningar](https://www.timetabling.com.au/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-timetabling-solutions-test-user"></a>Testa användaren Skapa tidsplaneringslösningar
+### <a name="create-timetabling-solutions-test-user"></a>Skapa Timetabling-lösningar test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Timetabling Solutions. Arbeta med [Timetabling Solutions supportteam](https://www.timetabling.com.au/contact-us/) för att lägga till användarna i Timetabling Solutions-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Timetabling-lösningar. Arbeta med [support teamet för Timetabling Solutions](https://www.timetabling.com.au/contact-us/) för att lägga till användare på Timetabling-lösnings plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Tidsuppställningslösningar på åtkomstpanelen bör du automatiskt loggas in på de tidsplaneringslösningar som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Timetabling lösningar på åtkomst panelen, bör du loggas in automatiskt på de Timetabling-lösningar som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -151,9 +151,9 @@ När du klickar på panelen Tidsuppställningslösningar på åtkomstpanelen bö
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova tidsplaneringslösningar med Azure AD](https://aad.portal.azure.com/)
+- [Prova Timetabling-lösningar med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Så här skyddar du tidslösningar med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Så här skyddar du Timetabling-lösningar med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

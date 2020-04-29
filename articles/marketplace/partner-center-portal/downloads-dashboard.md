@@ -1,6 +1,6 @@
 ---
-title: Hämtar instrumentpanelen i kommersiell marknadsplatsanalys på Partner Center
-description: Läs om hur du kommer åt nedladdningsbegäranden för dina marketplace-erbjudanden.
+title: Hämta instrument panel i kommersiell Marketplace-analys på Partner Center
+description: Lär dig hur du kommer åt nedladdnings förfrågningar för dina Marketplace-erbjudanden.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,33 +8,33 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.openlocfilehash: f81b8ae927df6c95bbc34be7ad9916c88aeba03b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81251681"
 ---
-# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Hämtar Dashboard i kommersiell marknadsplatsanalys
+# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Hämta instrument panel i kommersiell Marketplace-analys
 
-Den här artikeln innehåller information om instrumentpanelen Hämtningar i Partner Center. Den här instrumentpanelen visar en lista över dina hämtningsbegäranden under de senaste 30 dagarna.
+Den här artikeln innehåller information om instrument panelen för nedladdningar i Partner Center. Den här instrument panelen visar en lista över dina nedladdnings begär Anden under de senaste 30 dagarna.
 
-Öppna instrumentpanelen Analysera under Kommersiell marknadsplats för att komma åt instrumentpanelen **[För](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** hämtningar.
+Öppna instrument panelen för hämtningar genom att öppna **[analys](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrument panelen under kommersiell marknads plats.
 
 >[!NOTE]
-> Detaljerade definitioner av analysterminologi finns i [Vanliga frågor och terminologi för kommersiell marknadsplatsanalys](./faq-terminology.md).
+> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
 
 ## <a name="downloads-dashboard"></a>Ladda ned instrumentpanel
 
-**Instrumentpanelen Hämtningar** på menyn **Analysera** visar begäranden om alla nedladdningar som innehåller över 1 000 rader med kund- eller orderdata.
+Instrument panelen för **nedladdningar** i **analys** menyn visar begär Anden om hämtningar som innehåller över 1000 rader med kund-eller order data.
 
-Du kommer att få ett popup-meddelande och e-postmeddelande som innehåller en länk till **instrumentpanelen nedladdningar** när du begär en nedladdning med över 1000 rader med data. Dessa data nedladdningar kommer att vara tillgängliga för en 30-dagarsperiod och sedan tas bort.
+Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk till instrument panelen för **nedladdningar** när du begär en nedladdning med över 1000 rader med data. Dessa data hämtningar är tillgängliga under en 30-dagarsperiod och tas sedan bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över analysrapporter som är tillgängliga på den kommersiella marknaden för Partner Center finns i [Analytics för den kommersiella marknadsplatsen i Partner Center](./analytics.md).
-- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i kommersiell marknadsplatsanalys](./summary-dashboard.md).
-- Information om dina beställningar i ett grafiskt och nedladdningsbart format finns [i Order dashboard i kommersiell marknadsplatsanalys](./orders-dashboard.md).
-- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått, se [Användningsinstrumentpanel i kommersiell marknadsplatsanalys](./usage-dashboard.md).
-- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Kundinstrumentpanelen i kommersiell marknadsplatsanalys](./customer-dashboard.md).
-- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i kommersiell marketplace-analys](./ratings-reviews.md).
-- Vanliga frågor och svar om kommersiell marknadsplatsanalys och en omfattande ordlista med datatermer finns i [Vanliga frågor och terminologi för kommersiell marknadsplatsanalys](./faq-terminology.md).
+- En översikt över analys rapporter som är tillgängliga i partner Centers kommersiella marknads platser finns i [analys för den kommersiella Marketplace i Partner Center](./analytics.md).
+- För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.
+- Information om dina beställningar i ett grafiskt och nedladdnings Bart format finns i [order instrument panel i kommersiell Marketplace-analys](./orders-dashboard.md).
+- För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](./usage-dashboard.md).
+- Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](./customer-dashboard.md).
+- Om du vill se en sammanställd vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource, se [klassificering och granskning på instrument panelen i kommersiell Marketplace-analys](./ratings-reviews.md).
+- Vanliga frågor och svar om den kommersiella Marketplace-analysen och en omfattande ord lista med data termer finns i [vanliga frågor och termer för att få en kommersiell Marketplace-analys](./faq-terminology.md).

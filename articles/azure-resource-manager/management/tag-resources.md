@@ -1,41 +1,41 @@
 ---
-title: Tagga resurser, resursgrupper och prenumerationer för logisk organisation
-description: Visar hur du använder taggar för att ordna Azure-resurser för fakturering och hantering.
+title: Tagga resurser, resurs grupper och prenumerationer för logisk organisation
+description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255132"
 ---
-# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använda taggar för att organisera dina Azure-resurser och hanteringshierarki
+# <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använd taggar för att ordna dina Azure-resurser och-hanterings hierarki
 
-Du använder taggar på dina Azure-resurser, resursgrupper och prenumerationer för att logiskt ordna dem till en taxonomi. Varje tagg består av ett namn och ett värdepar. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
+Du kan använda taggar för dina Azure-resurser, resurs grupper och prenumerationer för att logiskt organisera dem i en taxonomi. Varje tagg består av ett namn och ett värde-par. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
-Rekommendationer om hur du implementerar en taggningsstrategi finns i [Resursnamngivning och taggningsbeslutguide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+Rekommendationer för hur du implementerar en taggnings strategi finns i avsnittet [Resource Naming and taggnings besluts guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Taggnamnen är skiftlägesokänsliga. Taggvärden är skiftlägeskänsliga.
+> Taggnamn är Skift läges känsliga. Tagg värden är Skift läges känsliga.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="required-access"></a>Nödvändig åtkomst
 
-Om du vill använda taggar på en resurs måste du ha skrivbehörighet till resurstypen **Microsoft.Resources/tags.** Med rollen [Taggdeltagare](../../role-based-access-control/built-in-roles.md#tag-contributor) kan du använda taggar på en entitet utan att ha åtkomst till själva entiteten. Rollen taggdeltagare kan för närvarande inte använda taggar på resurser eller resursgrupper via portalen. Den kan använda taggar på prenumerationer via portalen. Den stöder alla taggåtgärder via PowerShell och REST API.  
+Om du vill lägga till taggar till en resurs måste du ha Skriv behörighet till resurs typen **Microsoft. Resources/Tagss** . Med rollen [tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) kan du tillämpa taggar på en entitet utan att ha åtkomst till själva entiteten. För närvarande kan inte rollen tag Contributor använda taggar för resurser eller resurs grupper via portalen. Den kan använda taggar för prenumerationer via portalen. Den har stöd för alla åtgärder för Taggar via PowerShell och REST API.  
 
-Rollen [Deltagare](../../role-based-access-control/built-in-roles.md#contributor) ger också den åtkomst som krävs för att tillämpa taggar på alla entiteter. Om du bara vill använda taggar på endast en resurstyp använder du deltagarrollen för den resursen. Om du till exempel vill använda taggar på virtuella datorer använder du [deltagaren för virtuell dator](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+[Deltagar](../../role-based-access-control/built-in-roles.md#contributor) rollen beviljar även den behörighet som krävs för att tillämpa taggar på alla entiteter. Använd deltagar rollen för den resursen om du bara vill använda taggar för en resurs typ. Om du till exempel vill använda taggar för virtuella datorer använder du den [virtuella dator deltagaren](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
-### <a name="apply-tags"></a>Använda taggar
+### <a name="apply-tags"></a>Använd Taggar
 
-Azure PowerShell erbjuder två kommandon för att tillämpa taggar - [New-AzTag](/powershell/module/az.resources/new-aztag) och [Update-AzTag](/powershell/module/az.resources/update-aztag). Du måste ha modulen Az.Resources 1.12.0 eller senare. Du kan kontrollera `Get-Module Az.Resources`din version med . Du kan installera modulen eller [installera Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 eller senare.
+Azure PowerShell erbjuder två kommandon för att tillämpa Taggar- [New-AzTag](/powershell/module/az.resources/new-aztag) och [Update-AzTag](/powershell/module/az.resources/update-aztag). Du måste ha modulen AZ. Resources 1.12.0 eller senare. Du kan kontrol lera din version `Get-Module Az.Resources`med. Du kan installera modulen eller [installera Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 eller senare.
 
-**New-AzTag** ersätter alla taggar på resursen, resursgruppen eller prenumerationen. När du anropar kommandot skickar du in resurs-ID:n för den entitet som du vill tagga.
+**New-AzTag** ersätter alla Taggar i resursen, resurs gruppen eller prenumerationen. När du anropar kommandot skickar du resurs-ID för den entitet som du vill tagga.
 
-I följande exempel används en uppsättning taggar på ett lagringskonto:
+I följande exempel används en uppsättning taggar för ett lagrings konto:
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -43,7 +43,7 @@ $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-När kommandot är klart märker du att resursen har två taggar.
+När kommandot har slutförts ser du till att resursen har två taggar.
 
 ```output
 Properties :
@@ -53,7 +53,7 @@ Properties :
         Status  Normal
 ```
 
-Om du kör kommandot igen men den här gången med olika taggar, märker du att de tidigare taggarna tas bort.
+Observera att de tidigare taggarna tas bort om du kör kommandot igen men den här gången med olika taggar.
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Compliance"; "Environment"="Production"}
@@ -68,7 +68,7 @@ Properties :
         Team         Compliance
 ```
 
-Om du vill lägga till taggar i en resurs som redan har taggar använder du **Update-AzTag**. Ange parametern **-Operation** till **Merge**.
+Om du vill lägga till taggar till en resurs som redan har taggar, använder du **Update-AzTag**. Ange parametern **-operation** som ska **slås samman**.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -87,7 +87,7 @@ Properties :
         Environment  Production
 ```
 
-Varje taggnamn kan bara ha ett värde. Om du anger ett nytt värde för en tagg ersätts det gamla värdet även om du använder kopplingsåtgärden. I följande exempel ändras statustaggen från Normal till Grön.
+Varje taggnamn får bara ha ett värde. Om du anger ett nytt värde för en tagg ersätts det gamla värdet även om du använder sammanslagnings åtgärden. I följande exempel ändras status tag gen från normal till grön.
 
 ```azurepowershell-interactive
 $tags = @{"Status"="Green"}
@@ -104,14 +104,14 @@ Properties :
         Environment  Production
 ```
 
-När du ställer in parametern **-Operation** som **ska ersätta**ersätts de befintliga taggarna med den nya uppsättningen taggar.
+När du anger parametern **-operation** **som ska ersättas ersätts**de befintliga taggarna med den nya uppsättningen taggar.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Replace
 ```
 
-Endast de nya taggarna finns kvar på resursen.
+Endast de nya taggarna är kvar på resursen.
 
 ```output
 Properties :
@@ -122,9 +122,9 @@ Properties :
         Project     ECommerce
 ```
 
-Samma kommandon fungerar också med resursgrupper eller prenumerationer. Du skickar in identifieraren för den resursgrupp eller prenumeration som du vill tagga.
+Samma kommandon fungerar också med resurs grupper eller prenumerationer. Du skickar in identifieraren för den resurs grupp eller prenumeration som du vill tagga.
 
-Om du vill lägga till en ny uppsättning taggar i en resursgrupp använder du:
+Om du vill lägga till en ny uppsättning taggar i en resurs grupp använder du:
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -132,7 +132,7 @@ $resourceGroup = Get-AzResourceGroup -Name demoGroup
 New-AzTag -ResourceId $resourceGroup.ResourceId -tag $tags
 ```
 
-Om du vill uppdatera taggarna för en resursgrupp använder du:
+Om du vill uppdatera taggarna för en resurs grupp använder du:
 
 ```azurepowershell-interactive
 $tags = @{"CostCenter"="00123"; "Environment"="Production"}
@@ -156,7 +156,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Update-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags -Operation Merge
 ```
 
-Du kan ha mer än en resurs med samma namn i en resursgrupp. I så fall kan du ställa in varje resurs med följande kommandon:
+Du kan ha mer än en resurs med samma namn i en resurs grupp. I så fall kan du ange varje resurs med följande kommandon:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
@@ -165,16 +165,16 @@ $resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Te
 
 ### <a name="list-tags"></a>Visa en lista över taggar
 
-Om du vill hämta taggarna för en resurs, resursgrupp eller prenumeration använder du kommandot [Get-AzTag](/powershell/module/az.resources/get-aztag) och skickar in resurs-ID:t för entiteten.
+Om du vill hämta taggar för en resurs, resurs grupp eller prenumeration använder du kommandot [Get-AzTag](/powershell/module/az.resources/get-aztag) och skickar resurs-ID: t för entiteten.
 
-Om du vill visa taggarna för en resurs använder du:
+Om du vill se taggarna för en resurs använder du:
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 Get-AzTag -ResourceId $resource.id
 ```
 
-Om du vill visa taggarna för en resursgrupp använder du:
+Om du vill se taggarna för en resurs grupp använder du:
 
 ```azurepowershell-interactive
 $resourceGroup = Get-AzResourceGroup -Name demoGroup
@@ -190,19 +190,19 @@ Get-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### <a name="list-by-tag"></a>Lista efter tagg
 
-Om du vill hämta resurser som har ett visst taggnamn och värde använder du:
+Använd följande för att hämta resurser som har ett visst taggnamn och värde:
 
 ```azurepowershell-interactive
 (Get-AzResource -Tag @{ "CostCenter"="00123"}).Name
 ```
 
-Om du vill hämta resurser som har ett specifikt taggnamn med ett taggvärde använder du:
+Använd följande om du vill hämta resurser som har ett visst taggnamn med valfritt tagg-värde:
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName "Dept").Name
 ```
 
-Om du vill hämta resursgrupper som har ett visst taggnamn och värde använder du:
+Använd följande om du vill hämta resurs grupper som har ett visst taggnamn och värde:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroup -Tag @{ "CostCenter"="00123" }).ResourceGroupName
@@ -210,7 +210,7 @@ Om du vill hämta resursgrupper som har ett visst taggnamn och värde använder 
 
 ### <a name="remove-tags"></a>Ta bort taggar
 
-Om du vill ta bort specifika taggar använder du **Update-AzTag** och anger **-Operation** till **Delete**. Skicka in de taggar som du vill ta bort.
+Om du vill ta bort vissa Taggar använder du **Update-AzTag** och set **-operation** för att **ta bort**. Skicka in de taggar som du vill ta bort.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
@@ -226,7 +226,7 @@ Properties :
         CostCenter  00123
 ```
 
-Om du vill ta bort alla taggar använder du kommandot [Ta bort AzTag.](/powershell/module/az.resources/remove-aztag)
+Om du vill ta bort alla Taggar använder du kommandot [Remove-AzTag](/powershell/module/az.resources/remove-aztag) .
 
 ```azurepowershell-interactive
 $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
@@ -235,9 +235,9 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ## <a name="azure-cli"></a>Azure CLI
 
-### <a name="apply-tags"></a>Använda taggar
+### <a name="apply-tags"></a>Använd Taggar
 
-När du lägger till taggar i en resursgrupp eller resurs kan du antingen skriva över befintliga taggar eller lägga till nya taggar i befintliga taggar.
+När du lägger till taggar till en resurs grupp eller resurs kan du antingen skriva över befintliga taggar eller lägga till nya taggar i befintliga taggar.
 
 Om du vill skriva över taggarna på en resurs använder du:
 
@@ -245,29 +245,29 @@ Om du vill skriva över taggarna på en resurs använder du:
 az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Om du vill lägga till en tagg i befintliga taggar på en resurs använder du:
+Om du vill lägga till en tagg till de befintliga taggarna på en resurs använder du:
 
 ```azurecli-interactive
 az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Om du vill skriva över de befintliga taggarna i en resursgrupp använder du:
+Om du vill skriva över de befintliga taggarna i en resurs grupp använder du:
 
 ```azurecli-interactive
 az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
 ```
 
-Om du vill lägga till en tagg i de befintliga taggarna i en resursgrupp använder du:
+Om du vill lägga till en tagg till de befintliga taggarna i en resurs grupp använder du:
 
 ```azurecli-interactive
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Azure CLI stöder för närvarande inte att använda taggar på prenumerationer.
+För närvarande stöder inte Azure CLI tillämpning av taggar för prenumerationer.
 
 ### <a name="list-tags"></a>Visa en lista över taggar
 
-Om du vill visa de befintliga taggarna för en resurs använder du:
+Om du vill se de befintliga taggarna för en resurs använder du:
 
 ```azurecli-interactive
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
@@ -290,21 +290,21 @@ Skriptet returnerar följande format:
 
 ### <a name="list-by-tag"></a>Lista efter tagg
 
-Om du vill hämta alla resurser som `az resource list`har en viss tagg och ett visst värde använder du:
+Om du vill hämta alla resurser som har en viss tagg och värde använder `az resource list`du:
 
 ```azurecli-interactive
 az resource list --tag Dept=Finance
 ```
 
-Om du vill hämta resursgrupper `az group list`som har en viss tagg använder du:
+Om du vill hämta resurs grupper som har en angiven tagg `az group list`använder du:
 
 ```azurecli-interactive
 az group list --tag Dept=IT
 ```
 
-### <a name="handling-spaces"></a>Hantering av utrymmen
+### <a name="handling-spaces"></a>Hantera utrymmen
 
-Om taggnamnen eller värdena innehåller blanksteg måste du vidta ett par extra steg. I följande exempel används alla taggar från en resursgrupp på dess resurser när taggarna kan innehålla blanksteg.
+Om taggnamn eller värden innehåller blank steg måste du ta några extra steg. I följande exempel används alla Taggar från en resurs grupp till dess resurser när taggarna kan innehålla blank steg.
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -322,11 +322,11 @@ IFS=$origIFS
 
 ## <a name="templates"></a>Mallar
 
-Du kan tagga resurser, resursgrupper och prenumerationer under distributionen med en Resource Manager-mall.
+Du kan tagga resurser, resurs grupper och prenumerationer under distributionen med en Resource Manager-mall.
 
-### <a name="apply-values"></a>Tillämpa värden
+### <a name="apply-values"></a>Använd värden
 
-I följande exempel distribueras ett lagringskonto med tre taggar. Två av taggarna (`Dept` och `Environment`) är inställda på litterala värden. En tagg`LastDeployed`( ) är inställd på en parameter som standard till det aktuella datumet.
+I följande exempel distribueras ett lagrings konto med tre taggar. Två av taggarna (`Dept` och `Environment`) är inställda på litterala värden. En tagg (`LastDeployed`) har angetts till en parameter som används som standard för det aktuella datumet.
 
 ```json
 {
@@ -363,7 +363,7 @@ I följande exempel distribueras ett lagringskonto med tre taggar. Två av tagga
 }
 ```
 
-### <a name="apply-an-object"></a>Använda ett objekt
+### <a name="apply-an-object"></a>Använd ett objekt
 
 Du kan definiera en objektparameter som lagrar flera taggar, och använda det objektet för taggelementet. Den här metoden ger större flexibilitet än föregående exempel eftersom objektet kan ha olika egenskaper. Varje egenskap i objektet blir en separat tagg för resursen. I följande exempel finns en parameter med namnet `tagValues` som används för taggelementet.
 
@@ -403,7 +403,7 @@ Du kan definiera en objektparameter som lagrar flera taggar, och använda det ob
 
 ### <a name="apply-a-json-string"></a>Använda en JSON-sträng
 
-Du kan lagra flera värden i en enskild tagg genom att använda en JSON-sträng som representerar värdena. Hela JSON-strängen lagras som en tagg som inte får överstiga 256 tecken. I följande exempel finns en enskild tagg med namnet `CostCenter` som innehåller flera värden från en JSON-sträng:  
+Du kan lagra flera värden i en enskild tagg genom att använda en JSON-sträng som representerar värdena. Hela JSON-strängen lagras som en tagg som inte får innehålla fler än 256 tecken. I följande exempel finns en enskild tagg med namnet `CostCenter` som innehåller flera värden från en JSON-sträng:  
 
 ```json
 {
@@ -434,9 +434,9 @@ Du kan lagra flera värden i en enskild tagg genom att använda en JSON-sträng 
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Använda taggar från resursgrupp
+### <a name="apply-tags-from-resource-group"></a>Använd taggar från resurs gruppen
 
-Om du vill använda taggar från en resursgrupp på en resurs använder du [resursgruppsfunktionen.](../templates/template-functions-resource.md#resourcegroup) När du hämtar taggvärdet `tags[tag-name]` använder du `tags.tag-name` syntaxen i stället för syntaxen, eftersom vissa tecken inte tolkas korrekt i punktateringen.
+Använd funktionen [resourceGroup](../templates/template-functions-resource.md#resourcegroup) för att lägga till taggar från en resurs grupp till en resurs. När du hämtar taggvärde använder du `tags[tag-name]` syntaxen i stället för `tags.tag-name` syntaxen, eftersom vissa tecken inte tolkas korrekt i punkt notationen.
 
 ```json
 {
@@ -468,9 +468,9 @@ Om du vill använda taggar från en resursgrupp på en resurs använder du [resu
 }
 ```
 
-### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Använda taggar på resursgrupper eller prenumerationer
+### <a name="apply-tags-to-resource-groups-or-subscriptions"></a>Använd taggar för resurs grupper eller prenumerationer
 
-Du kan lägga till taggar i en resursgrupp eller prenumeration genom att distribuera resurstypen **Microsoft.Resources/tags.** Taggarna tillämpas på målresursgruppen eller prenumerationen för distributionen. Varje gång du distribuerar mallen ersätter du alla taggar som tidigare tillämpats.
+Du kan lägga till taggar till en resurs grupp eller prenumeration genom att distribuera resurs typen **Microsoft. Resources/Tags** . Taggarna tillämpas på mål resurs gruppen eller prenumerationen för distributionen. Varje gången du distribuerar mallen ersätter du de taggar som du har använt tidigare.
 
 ```json
 {
@@ -503,7 +503,7 @@ Du kan lägga till taggar i en resursgrupp eller prenumeration genom att distrib
 }
 ```
 
-Om du vill använda taggarna på en resursgrupp använder du antingen PowerShell eller Azure CLI. Distribuera till den resursgrupp som du vill tagga.
+Använd antingen PowerShell eller Azure CLI om du vill använda taggarna i en resurs grupp. Distribuera till den resurs grupp som du vill tagga.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -513,7 +513,7 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile http
 az deployment group create --resource-group exampleGroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-Om du vill använda taggarna på en prenumeration använder du antingen PowerShell eller Azure CLI. Distribuera till den prenumeration som du vill tagga.
+Använd antingen PowerShell eller Azure CLI om du vill använda taggarna för en prenumeration. Distribuera till den prenumeration som du vill tagga.
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
@@ -523,7 +523,7 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
-Följande mall lägger till taggarna från ett objekt i antingen en resursgrupp eller prenumeration.
+Följande mall lägger till taggar från ett objekt till antingen en resurs grupp eller en prenumeration.
 
 ```json
 "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
@@ -559,41 +559,41 @@ Följande mall lägger till taggarna från ett objekt i antingen en resursgrupp 
 
 ## <a name="rest-api"></a>REST-API
 
-Om du vill arbeta med taggar via Azure REST API använder du:
+Om du vill arbeta med Taggar via Azure-REST API använder du:
 
-* [Taggar - Skapa eller uppdatera vid scope](/rest/api/resources/tags/createorupdateatscope) (PUT-åtgärd)
-* [Taggar - Uppdatera vid scope](/rest/api/resources/tags/updateatscope) (PATCH-åtgärd)
-* [Taggar - Get At Scope](/rest/api/resources/tags/getatscope) (GET-åtgärd)
-* [Taggar - Ta bort vid scope](/rest/api/resources/tags/deleteatscope) (DELETE-åtgärd)
+* [Taggar – skapa eller uppdatera i omfång](/rest/api/resources/tags/createorupdateatscope) (placerings åtgärd)
+* [Taggar – uppdatera i omfattning](/rest/api/resources/tags/updateatscope) (korrigerings åtgärd)
+* [Taggar – Hämta i omfång](/rest/api/resources/tags/getatscope) (Get-åtgärd)
+* [Taggar – ta bort vid omfång](/rest/api/resources/tags/deleteatscope) (borttagnings åtgärd)
 
-## <a name="inherit-tags"></a>Ärva taggar
+## <a name="inherit-tags"></a>Ärv Taggar
 
-Taggar som tillämpas på resursgruppen eller prenumerationen ärvs inte av resurserna. Information om hur du använder taggar från en prenumeration eller resursgrupp på resurserna finns i [Azure Policies - taggar](tag-policies.md).
+Taggar som används för resurs gruppen eller prenumerationen ärvs inte av resurserna. Information om hur du använder taggar från en prenumeration eller resurs grupp för resurserna finns i [Azure policies-Taggar](tag-policies.md).
 
 ## <a name="tags-and-billing"></a>Taggar och fakturering
 
 Du kan till exempel använda taggar för att gruppera faktureringsinformation. Om du till exempel har flera virtuella datorer för olika organisationer kan du använda taggar för att gruppera användningen efter kostnadsställe. Du kan också använda taggar för att kategorisera kostnader efter körningsmiljö, till exempel användningen (som faktureras) för virtuella datorer som körs i produktionsmiljö.
 
-Du kan hämta information om taggar via [Azure Resource Usage and RateCard API:er](../../billing/billing-usage-rate-card-overview.md) eller CSV-filen (Usage kommaavgränsade värden). Du hämtar användningsfilen från [Azure Account Center](https://account.azure.com/Subscriptions) eller Azure-portalen. Mer information finns i [Hämta eller visa din Azure-faktura och dagliga användningsdata](../../billing/billing-download-azure-invoice-daily-usage-date.md). När du hämtar användningsfilen från Azure Account Center väljer du **Version 2**. För tjänster som stöder taggar med fakturering visas taggarna i kolumnen **Taggar.**
+Du kan hämta information om Taggar via [Azures resursanvändning och ratecard-API: er](../../billing/billing-usage-rate-card-overview.md) eller CSV-fil (fil med kommaavgränsade värden). Du hämtar användnings filen från [Azure-kontocenter](https://account.azure.com/Subscriptions) eller Azure Portal. Mer information finns i [Hämta eller Visa din fakturerings faktura för Azure och användnings data per dag](../../billing/billing-download-azure-invoice-daily-usage-date.md). När du laddar ned användnings filen från Azure-kontocenter väljer du **version 2**. För tjänster som stöder taggar med fakturering visas taggarna i kolumnen **taggar** .
 
-Information om REST API-åtgärder finns i [Azure Billing REST API Reference](/rest/api/billing/).
+REST API åtgärder finns i [referens för Azure-fakturerings REST API](/rest/api/billing/).
 
 ## <a name="limitations"></a>Begränsningar
 
 Följande begränsningar gäller för taggar:
 
-* Alla resurstyper stöder inte taggar. Information om du kan använda en tagg på en resurstyp finns i [Taggstöd för Azure-resurser](tag-support.md).
-* Hanteringsgrupper stöder för närvarande inte taggar.
-* Varje resurs, resursgrupp och prenumeration kan ha högst 50 taggnamn/värdepar. Om du behöver använda fler taggar än det högsta tillåtna antalet använder du en JSON-sträng för taggvärdet. JSON-strängen kan innehålla många värden som tillämpas på ett enda taggnamn. En resursgrupp eller prenumeration kan innehålla många resurser som var och en har 50 taggnamn/värdepar.
+* Inte alla resurs typer stöder taggar. Information om hur du kan använda en tagg för en resurs typ finns i [tagga stöd för Azure-resurser](tag-support.md).
+* Hanterings grupper stöder för närvarande inte taggar.
+* Varje resurs, resurs grupp och prenumeration kan innehålla högst 50 taggnamn/värdepar. Om du behöver använda fler taggar än det högsta tillåtna antalet använder du en JSON-sträng för värdet. JSON-strängen kan innehålla många värden som tillämpas på ett enda taggnamn. En resurs grupp eller prenumeration kan innehålla många resurser som var och en har 50 tagg namn/värde-par.
 * Taggnamnet är begränsat till 512 tecken och taggvärdet är begränsat till 256 tecken. För lagringskonton är taggnamnet begränsat till 128 tecken och taggvärdet till 256 tecken.
 * Generaliserade virtuella datorer stöder inte taggar.
-* Taggar kan inte tillämpas på klassiska resurser som Molntjänster.
-* Taggnamnen får inte innehålla `<` `>`följande `%` `&`tecken: , , , , `\`, , `?`, , , ,`/`
+* Det går inte att använda taggar för klassiska resurser som Cloud Services.
+* Tagg namn får inte innehålla följande tecken `<`: `>`, `%` `&` `\` `?`,,,,`/`
 
    > [!NOTE]
-   > Azure DNS-zoner och Traffic Manger-tjänster tillåter inte heller användning av blanksteg i taggen.
+   > För närvarande Azure DNS zoner och Traffic Manager-tjänster inte heller att använda blank steg i taggen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Alla resurstyper stöder inte taggar. Information om du kan använda en tagg på en resurstyp finns i [Taggstöd för Azure-resurser](tag-support.md).
-* Rekommendationer om hur du implementerar en taggningsstrategi finns i [Resursnamngivning och taggningsbeslutguide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+* Inte alla resurs typer stöder taggar. Information om hur du kan använda en tagg för en resurs typ finns i [tagga stöd för Azure-resurser](tag-support.md).
+* Rekommendationer för hur du implementerar en taggnings strategi finns i avsnittet [Resource Naming and taggnings besluts guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).

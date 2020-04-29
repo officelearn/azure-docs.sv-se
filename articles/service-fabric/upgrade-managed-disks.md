@@ -1,37 +1,37 @@
 ---
-title: Uppgradera klusternoder för att använda Azure-hanterade diskar
-description: Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure-hanterade diskar med liten eller ingen stilleståndstid för klustret.
+title: Uppgradera klusternoder för att använda Azure Managed disks
+description: Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure Managed disks med liten eller ingen stillestånds tid för klustret.
 ms.topic: how-to
 ms.date: 4/07/2020
 ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80991219"
 ---
-# <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uppgradera klusternoder för att använda Azure-hanterade diskar
+# <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uppgradera klusternoder för att använda Azure Managed disks
 
-[Azure-hanterade diskar](../virtual-machines/windows/managed-disks-overview.md) är det rekommenderade disklagringserbjudandet för användning med virtuella Azure-datorer för beständig lagring av data. Du kan förbättra återhämtningen för dina arbetsbelastningar för service fabric genom att uppgradera skaluppsättningarna för den virtuella datorn som ligger till grund för nodtyperna för att använda hanterade diskar. Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure-hanterade diskar med liten eller ingen stilleståndstid för klustret.
+[Azure Managed disks](../virtual-machines/windows/managed-disks-overview.md) är det rekommenderade disk lagrings erbjudandet för användning med Azure Virtual Machines för beständig data lagring. Du kan förbättra återhämtningen av dina Service Fabric arbets belastningar genom att uppgradera de virtuella datorernas skalnings uppsättningar som ligger bakom dina nodtyper för att använda hanterade diskar. Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure Managed disks med liten eller ingen stillestånds tid för klustret.
 
-Den allmänna strategin för att uppgradera en klusternod för service fabric för att använda hanterade diskar är att:
+Den allmänna strategin för att uppgradera en Service Fabric klusternod till att använda hanterade diskar är att:
 
-1. Distribuera en annars dubblettuppsättning för virtuell datorskala av den nodtypen, men med [det managedDisk-objektet](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) som lagts till i `osDisk` avsnittet i distributionsmallen för den virtuella datorns skaluppsättning. Den nya skaluppsättningen ska binda till samma belastningsutjämnare/IP som originalet, så att dina kunder inte drabbas av ett avbrott i tjänsten under migreringen.
+1. Distribuera en annan virtuell dators skalnings uppsättning för den nodtypen, men med [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) -objektet tillagt i `osDisk` avsnittet i distributions mal len för skalnings uppsättning för virtuell dator. Den nya skalnings uppsättningen ska bindas till samma belastningsutjämnare/IP-adress som den ursprungliga, så att dina kunder inte upplever avbrott i tjänsten under migreringen.
 
-2. När både de ursprungliga och uppgraderade skaluppsättningarna körs sida vid sida inaktiverar du de ursprungliga nodinstanserna en i taget så att systemtjänsterna (eller replikerna av tillståndskänsliga tjänster) migrerar till den nya skalningsuppsättningen.
+2. När båda de ursprungliga och uppgraderade skalnings uppsättningarna körs sida vid sida inaktiverar du de ursprungliga instans instanserna en i taget så att system tjänsterna (eller replikerna av tillstånds känsliga tjänster) migreras till den nya skalnings uppsättningen.
 
-3. Kontrollera att klustret och nya noder är felfria och ta sedan bort den ursprungliga skalningsuppsättningen och nodtillståndet för de borttagna noderna.
+3. Kontrol lera att klustret och de nya noderna är felfria och ta sedan bort den ursprungliga skalnings uppsättningen och nodens tillstånd för de borttagna noderna.
 
-Den här artikeln kommer att gå igenom stegen för att uppgradera den primära nodtypen för ett exempelkluster för att använda hanterade diskar, samtidigt som du undviker eventuella avbrott i klustret (se anmärkning nedan). Det ursprungliga tillståndet för exempeltestklustret består av en nodtyp av [Silver hållbarhet](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), backas upp av en enda skalningsuppsättning med fem noder.
+Den här artikeln beskriver steg för steg hur du uppgraderar den primära nodtypen i ett exempel kluster för att använda hanterade diskar, samtidigt som du undviker eventuella avbrott i klustret (se OBS!). Det första stadiet i exempel-test klustret består av en nodtyp av [silver tålighet](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster), med en enda skalnings uppsättning med fem noder.
 
 > [!CAUTION]
-> Ett avbrott med den här proceduren uppstår endast om du är beroende av klustret DNS (till exempel när du öppnar [Service Fabric Explorer).](service-fabric-visualizing-your-cluster.md) Arkitektonisk [bästa praxis för frontend-tjänster](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) är att ha någon form av [belastningsutjämnare](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) framför nodtyperna för att göra nodbyte möjligt utan avbrott.
+> Du får bara ett avbrott med den här proceduren om du har beroenden för kluster-DNS (till exempel vid åtkomst till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Bästa praxis för klient dels tjänster](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) är att ha någon typ av belastningsutjämnare framför dina nodtyper för att göra det möjligt att växla [mellan](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) noder utan avbrott.
 
-Här är [mallarna och cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) för Azure Resource Manager som vi använder för att slutföra uppgraderingsscenariot. Malländringarna förklaras i [Distribuera en uppgraderad skalningsuppsättning för den primära nodtypen](#deploy-an-upgraded-scale-set-for-the-primary-node-type) nedan.
+Här följer [mallar och cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) för Azure Resource Manager som vi använder för att slutföra uppgraderings scenariot. Mal lin liga ändringar kommer att förklaras i [distribuera en uppgraderad skalnings uppsättning för den primära nodtypen](#deploy-an-upgraded-scale-set-for-the-primary-node-type) nedan.
 
-## <a name="set-up-the-test-cluster"></a>Konfigurera testklustret
+## <a name="set-up-the-test-cluster"></a>Konfigurera test klustret
 
-Nu ställer vi in det första testklustret för service fabric. Hämta [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) först exempelmallarna för Azure Resource Manager som vi använder för att slutföra det här scenariot.
+Vi konfigurerar det första Service Fabric test klustret. Börja med att [Hämta](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) de exempel mallar för Azure Resource Manager som vi ska använda för att slutföra det här scenariot.
 
 Logga sedan in på ditt Azure-konto.
 
@@ -40,11 +40,11 @@ Logga sedan in på ditt Azure-konto.
 Login-AzAccount -SubscriptionId "<subscription ID>"
 ```
 
-Följande kommandon hjälper dig att skapa ett nytt självsignerat certifikat och distribuera testklustret. Om du redan har ett certifikat som du vill använda hoppar du till [Använda ett befintligt certifikat för att distribuera klustret](#use-an-existing-certificate-to-deploy-the-cluster).
+Följande kommandon vägleder dig genom att skapa ett nytt självsignerat certifikat och distribuera test klustret. Om du redan har ett certifikat som du vill använda, kan du hoppa över att [använda ett befintligt certifikat för att distribuera klustret](#use-an-existing-certificate-to-deploy-the-cluster).
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Generera ett självsignerat certifikat och distribuera klustret
 
-Tilldela först de variabler som du behöver för klusterdistribution av Service Fabric. Justera värdena `resourceGroupName` `certSubjectName`för `parameterFilePath`, `templateFilePath` , och för ditt specifika konto och din miljö:
+Först tilldelar du de variabler du behöver för Service Fabric kluster distribution. `resourceGroupName`Justera värdena för `certSubjectName`,, `parameterFilePath`och `templateFilePath` för ditt eget konto och din miljö:
 
 ```powershell
 # Assign deployment variables
@@ -57,11 +57,11 @@ $parameterFilePath = "C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 ```
 
 > [!NOTE]
-> Kontrollera att `certOutputFolder` platsen finns på den lokala datorn innan du kör kommandot för att distribuera ett nytt Service Fabric-kluster.
+> Kontrol lera att `certOutputFolder` platsen finns på den lokala datorn innan du kör kommandot för att distribuera ett nytt Service Fabric-kluster.
 
-Öppna sedan filen [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) och `clusterName` justera `dnsName` värdena för och för att motsvara de dynamiska värden som du anger i PowerShell och spara ändringarna.
+Öppna sedan filen [*initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) och justera värdena för `clusterName` och `dnsName` för att motsvara de dynamiska värden som du angav i PowerShell och spara ändringarna.
 
-Distribuera sedan testklustret för Service Fabric:
+Distribuera sedan Service Fabric test kluster:
 
 ```powershell
 # Deploy the initial test cluster
@@ -74,7 +74,7 @@ New-AzServiceFabricCluster `
     -ParameterFile $parameterFilePath
 ```
 
-När distributionen är klar letar du`$certPfx`reda på *PFX-filen* ( ) på den lokala datorn och importerar den till certifikatarkivet:
+När distributionen är klar letar du upp *. pfx* -filen (`$certPfx`) på den lokala datorn och importerar den till certifikat arkivet:
 
 ```powershell
 cd c:\certificates
@@ -86,11 +86,11 @@ Import-PfxCertificate `
      -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
 ```
 
-Åtgärden returnerar certifikatets tumavtryck, som du använder för att [ansluta till det nya klustret](#connect-to-the-new-cluster-and-check-health-status) och kontrollera dess hälsostatus. (Hoppa över följande avsnitt, som är en alternativ metod för klusterdistribution.)
+Åtgärden returnerar certifikatets tumavtryck, som du kommer att använda för att [ansluta till det nya klustret](#connect-to-the-new-cluster-and-check-health-status) och kontrol lera dess hälso status. (Hoppa över följande avsnitt, som är en alternativ metod för kluster distribution.)
 
-### <a name="use-an-existing-certificate-to-deploy-the-cluster"></a>Använda ett befintligt certifikat för att distribuera klustret
+### <a name="use-an-existing-certificate-to-deploy-the-cluster"></a>Använd ett befintligt certifikat för att distribuera klustret
 
-Du kan också använda ett befintligt Azure Key Vault-certifikat för att distribuera testklustret. För att göra detta måste du [hämta referenser till key vault](#obtain-your-key-vault-references) och certifikat tumavtryck.
+Du kan också använda ett befintligt Azure Key Vault-certifikat för att distribuera test klustret. För att göra detta måste du [Hämta referenser till Key Vault](#obtain-your-key-vault-references) och tumavtryck för certifikatet.
 
 ```powershell
 # Key Vault variables
@@ -99,12 +99,12 @@ $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourc
 $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-Öppna filen [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) och ändra `clusterName` `dnsName` värdena för och till något unikt.
+Öppna filen [*initial-1NodeType-UnmanagedDisks. Parameters. JSON*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) och ändra värdena för `clusterName` och `dnsName` till något unikt.
 
-Ange slutligen ett resursgruppnamn för klustret och ange `templateFilePath` och platser för `parameterFilePath` dina *Initial-1NodeType-UnmanagedDisks-filer:*
+Ange slutligen ett resurs grupp namn för klustret och ange platser `templateFilePath` och `parameterFilePath` platser för dina *initial-1NodeType-UnmanagedDisks-* filer:
 
 > [!NOTE]
-> Den angivna resursgruppen måste redan finnas och finnas i samma region som key vault.
+> Den angivna resurs gruppen måste redan finnas och finnas i samma region som din Key Vault.
 
 ```powershell
 # Deploy the new scale set (upgraded to use managed disks) into the primary node type.
@@ -113,7 +113,7 @@ $templateFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.json"
 $parameterFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json"
 ```
 
-Kör slutligen följande kommando för att distribuera det första testklustret:
+Kör slutligen följande kommando för att distribuera det första test klustret:
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -126,9 +126,9 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
-### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Ansluta till det nya klustret och kontrollera hälsotillståndet
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Anslut till det nya klustret och kontrol lera hälso status
 
-Anslut till klustret och se till att alla `clusterName` fem `thumb` noderna är felfria (ersätter och variabler för klustret):
+Anslut till klustret och se till att alla fem noderna är felfria (ersätter `clusterName` variablerna `thumb` och för klustret):
 
 ```powershell
 # Connect to the cluster
@@ -149,23 +149,23 @@ Connect-ServiceFabricCluster `
 Get-ServiceFabricClusterHealth
 ```
 
-Med det är vi redo att påbörja uppgraderingsproceduren.
+Vi är nu redo att påbörja uppgraderings proceduren.
 
-## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Distribuera en uppgraderad skalningsuppsättning för den primära nodtypen
+## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Distribuera en uppgraderad skalnings uppsättning för den primära nodtypen
 
-För att uppgradera, eller *lodrätt skala*, en nodtyp, måste vi distribuera en kopia av nodtypens skaluppsättning för virtuella datorer, `subnet`som `loadBalancerBackendAddressPools`annars är identisk med den ursprungliga skaluppsättningen (inklusive referens till samma `nodeTypeRef`, och ) förutom att den innehåller önskad uppgradering/ändringar och en egen separat undernäts- och inkommande NAT-adresspool. Eftersom vi uppgraderar en primär nodtyp markeras den nya`isPrimary: true`skaluppsättningen som primär ( ), precis som den ursprungliga skalningsuppsättningen. (För uppgraderingar av icke-primär nodtyp utelämnar du bara detta.)
+För att kunna uppgradera, eller *vertikalt skala*, måste vi distribuera en kopia av den här nodtypen för skalnings uppsättningen för virtuella datorer, vilket annars är identiskt med den ursprungliga skalnings uppsättningen (inklusive referens till samma `nodeTypeRef`, `subnet`och `loadBalancerBackendAddressPools`) förutom att den innehåller den önskade uppgraderingen/ändringarna och det egna separata under nätet och den inkommande NAT-adresspoolen. Eftersom vi uppgraderar en Primary Node-typ markeras den nya skalnings uppsättningen som primär (`isPrimary: true`), precis som den ursprungliga skalnings uppsättningen. (För uppgraderingar som inte är primära för en annan nod utesluter du bara detta.)
 
-För enkelhetens skull har de nödvändiga ändringarna redan gjorts för dig i [mallen](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) *Upgrade-1NodeType-2ScaleSets-ManagedDisks* och [parameterfiler.](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json)
+För enkelhetens skull har de nödvändiga ändringarna redan gjorts åt dig i filerna *Upgrade-1NodeType-2ScaleSets-ManagedDisks* [Template](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) och [Parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) .
 
-I följande avsnitt beskrivs malländringarna i detalj. Om du vill kan du hoppa över förklaringen och fortsätta till [nästa steg i uppgraderingsproceduren](#obtain-your-key-vault-references).
+I följande avsnitt förklaras mallens ändringar i detalj. Om du vill kan du hoppa över förklaringen och fortsätta till [Nästa steg i uppgraderings proceduren](#obtain-your-key-vault-references).
 
-### <a name="update-the-cluster-template-with-the-upgraded-scale-set"></a>Uppdatera klustermallen med den uppgraderade skalningsuppsättningen
+### <a name="update-the-cluster-template-with-the-upgraded-scale-set"></a>Uppdatera kluster mal len med den uppgraderade skalnings uppsättningen
 
-Här är avsnittsändringarna i den ursprungliga klusterdistributionsmallen för att lägga till en uppgraderad skalningsuppsättning för den primära nodtypen.
+Här är ändringar i den ursprungliga kluster distributions mal len för att lägga till en uppgraderad skalnings uppsättning för den primära nodtypen.
 
 #### <a name="parameters"></a>Parametrar
 
-Lägg till parametrar för förekomstnamn, antal och storlek på den nya skaluppsättningen. Observera `vmNodeType1Name` att det är unikt för den nya skalningsuppsättningen, medan värdena antal och storlek är identiska med den ursprungliga skaluppsättningen.
+Lägg till parametrar för instans namn, antal och storlek på den nya skalnings uppsättningen. Observera att `vmNodeType1Name` är unikt för den nya skalnings uppsättningen, medan värdena count och size är identiska med den ursprungliga skalnings uppsättningen.
 
 **Mallfil**
 
@@ -188,7 +188,7 @@ Lägg till parametrar för förekomstnamn, antal och storlek på den nya skalupp
 },
 ```
 
-**Parameterfil**
+**Parameter fil**
 
 ```json
 "vmNodeType1Name": {
@@ -204,7 +204,7 @@ Lägg till parametrar för förekomstnamn, antal och storlek på den nya skalupp
 
 ### <a name="variables"></a>Variabler
 
-Lägg till `variables` en post för den inkommande NAT-adresspoolen i den nya skalningsuppsättningen i avsnittet distributionsmall.
+I `variables` avsnittet distributionsmall lägger du till en post för den inkommande NAT-adresspoolen för den nya skalnings uppsättningen.
 
 **Mallfil**
 
@@ -214,15 +214,15 @@ Lägg till `variables` en post för den inkommande NAT-adresspoolen i den nya sk
 
 ### <a name="resources"></a>Resurser
 
-Lägg till den nya skalningsuppsättningen för den virtuella datorn i avsnittet *resurser* för distributionsmall och tänk på följande:
+I avsnittet *resurser* för distributions mal len lägger du till den nya skalnings uppsättningen för virtuella datorer. Tänk på följande:
 
-* Den nya skaluppsättningen refererar till samma nodtyp som originalet:
+* Den nya skalnings uppsättningen refererar till samma nodtyp som den ursprungliga:
 
     ```json
     "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* Den nya skaluppsättningen refererar till samma belastningsutjämnadsbackendadress och undernät (men använder en annan belastningsutjämnad NAT-pool):
+* Den nya skalnings uppsättningen refererar till Server delen och under nätet för belastnings Utjämnings servern (men använder en annan inkommande NAT-pool för belastnings utjämning):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -240,13 +240,13 @@ Lägg till den nya skalningsuppsättningen för den virtuella datorn i avsnittet
     }
    ```
 
-* Precis som den ursprungliga skaluppsättningen markeras den nya skaluppsättningen som den primära nodtypen. (När du uppgraderar icke-primära nodtyper utelämnar du den här ändringen.)
+* Precis som den ursprungliga skalnings uppsättningen markeras den nya skalnings uppsättningen som den primära nodtypen. (Om du uppgraderar icke-primära nodtyper utelämnar du den här ändringen.)
 
     ```json
     "isPrimary": true,
     ```
 
-* Till skillnad från den ursprungliga skalningsuppsättningen uppgraderas den nya skalningsuppsättningen för att använda hanterade diskar.
+* Till skillnad från den ursprungliga skalnings uppsättningen uppgraderas den nya skalnings uppsättningen för att använda hanterade diskar.
 
     ```json
     "managedDisk": {
@@ -254,25 +254,25 @@ Lägg till den nya skalningsuppsättningen för den virtuella datorn i avsnittet
     }
     ```
 
-När du har implementerat alla ändringar i mall- och parameterfilerna går du vidare till nästa avsnitt för att hämta dina Key Vault-referenser och distribuera uppdateringarna till klustret.
+När du har implementerat alla ändringar i mall-och frågeparametrar kan du fortsätta till nästa avsnitt för att hämta dina Key Vault referenser och distribuera uppdateringarna till klustret.
 
-### <a name="obtain-your-key-vault-references"></a>Skaffa dina Key Vault-referenser
+### <a name="obtain-your-key-vault-references"></a>Hämta dina Key Vault referenser
 
-To deploy the updated configuration, you'll first to obtain several references to your cluster certificate stored in your Key Vault. Det enklaste sättet att hitta dessa värden är via Azure-portalen. Du behöver:
+Om du vill distribuera den uppdaterade konfigurationen måste du först få flera referenser till ditt kluster certifikat som lagras i din Key Vault. Det enklaste sättet att hitta dessa värden är genom Azure Portal. Du behöver:
 
-* **URL:en för nyckelvalv för klustercertifikatet.** Välj **Certifikat** > *som din önskade hemlig* > **identifierare**för certifikat i Key Vault i Azure-portalen:
+* **Key Vault-URL för ditt kluster certifikat.** Från din Key Vault i Azure Portal väljer du **certifikat** > *ditt önskade certifikat* > **hemlighets identifierare**:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **Tumavtrycket för klustercertifikatet.** (Du har förmodligen redan detta om du [är ansluten till det första klustret](#connect-to-the-new-cluster-and-check-health-status) för att kontrollera dess hälsostatus.) Från samma certifikatblad (Certifikat*ditt önskade certifikat)* i Azure-portalen**kopierar** > du **X.509 SHA-1 Thumbprint (i hex):**
+* **Tumavtryck för ditt kluster certifikat.** (Du har förmodligen redan det här om du har [anslutit till det första klustret](#connect-to-the-new-cluster-and-check-health-status) för att kontrol lera hälso statusen.) Från bladet samma certifikat (**certifikat** > som*det önskade certifikatet*) i Azure Portal kopierar du **X. 509 SHA-1-tumavtryck (i hex)**:
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
-* **Resurs-ID för key vault.** Välj **Egenskaper** > **resurs-ID**från Key Vault i Azure-portalen:
+* **Resurs-ID för Key Vault.** Från Key Vault i Azure Portal väljer du **Egenskaper** > **resurs-ID**:
 
     ```powershell
     $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
@@ -280,7 +280,7 @@ To deploy the updated configuration, you'll first to obtain several references t
 
 ### <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
 
-Justera `parameterFilePath` och `templateFilePath` vid behov och kör sedan följande kommando:
+Justera `parameterFilePath` och `templateFilePath` kör sedan följande kommando:
 
 ```powershell
 # Deploy the new scale set (upgraded to use managed disks) into the primary node type.
@@ -297,15 +297,15 @@ New-AzResourceGroupDeployment `
     -Verbose
 ```
 
-När distributionen är klar kontrollerar du klustrets hälsotillstånd igen och ser till att alla tio noder (fem på originalet och fem i den nya skalningsuppsättningen) är felfria.
+När distributionen är klar kontrollerar du kluster hälsan igen och ser till att alla tio noder (fem på originalet och fem på den nya skalnings uppsättningen) är felfria.
 
 ```powershell
 Get-ServiceFabricClusterHealth
 ```
 
-## <a name="migrate-seed-nodes-to-the-new-scale-set"></a>Migrera seed-noder till den nya skalningsuppsättningen
+## <a name="migrate-seed-nodes-to-the-new-scale-set"></a>Migrera Seed-noder till den nya skalnings uppsättningen
 
-Vi är nu redo att börja inaktivera noderna i den ursprungliga skalningsuppsättningen. När dessa noder inaktiveras migreras systemtjänsterna och frönoderna till de virtuella datorerna i den nya skaluppsättningen eftersom den också är markerad som den primära nodtypen.
+Nu är det dags att börja inaktivera noderna i den ursprungliga skalnings uppsättningen. Eftersom dessa noder blir inaktiverade migreras system tjänsterna och dirigeringsrouters till de virtuella datorerna i den nya skalnings uppsättningen eftersom den också är markerad som den primära nodtypen.
 
 ```powershell
 # Disable the nodes in the original scale set.
@@ -317,16 +317,16 @@ foreach($name in $nodeNames){
 }
 ```
 
-Använd Service Fabric Explorer för att övervaka migreringen av seed-noder till den nya skaluppsättningen och förloppet för noder i den ursprungliga skalningsuppsättningen från *Inaktivera* *till inaktiverad* status.
+Använd Service Fabric Explorer för att övervaka migreringen av startnoder till den nya skalnings uppsättningen och förloppet för noder i den ursprungliga skalnings uppsättningen från att *inaktivera* till *inaktive rad* status.
 
-![Service Fabric Explorer som visar status för inaktiverade noder](./media/upgrade-managed-disks/service-fabric-explorer-node-status.png)
+![Service Fabric Explorer visar status för inaktiverade noder](./media/upgrade-managed-disks/service-fabric-explorer-node-status.png)
 
 > [!NOTE]
-> Det kan ta lite tid att slutföra inaktiveringen över alla noder i den ursprungliga skalningsuppsättningen. För att garantera datakonsekvens kan bara en seed-nod ändras åt gången. Varje ändring av seed-nod kräver en klusteruppdatering. För att ersätta en frönod krävs alltså två klusteruppgraderingar (en vardera för nodtillägg och borttagning). Om du uppgraderar de fem frönoderna i det här exempelscenariot resulterar det i tio klusteruppgraderingar.
+> Det kan ta lite tid att slutföra den inaktiverade åtgärden för alla noder i den ursprungliga skalnings uppsättningen. För att garantera data konsekvens kan endast en Seed-nod ändras i taget. För varje Seed-nods ändring krävs en kluster uppdatering. att ersätta en Seed-nod kräver därför två kluster uppgraderingar (en varje för nod tillägg och borttagning). Om du uppgraderar de fem startnoderna i det här exempel scenariot uppstår tio kluster uppgraderingar.
 
-## <a name="remove-the-original-scale-set"></a>Ta bort den ursprungliga skaluppsättningen
+## <a name="remove-the-original-scale-set"></a>Ta bort den ursprungliga skalnings uppsättningen
 
-När inaktiveringen är klar tar du bort skalningsuppsättningen.
+Ta bort skalnings uppsättningen när inaktive rings åtgärden har slutförts.
 
 ```powershell
 # Remove the original scale set
@@ -340,11 +340,11 @@ Remove-AzVmss `
 Write-Host "Removed scale set $scaleSetName"
 ```
 
-I Service Fabric Explorer visas de borttagna noderna (och därmed *klusterhälsotillståndet)* nu i *feltillstånd.*
+I Service Fabric Explorer kommer de borttagna noderna (och därmed *kluster hälso tillståndet*) nu att visas i *fel* tillstånd.
 
-![Service Fabric Explorer visar inaktiverade noder i feltillstånd](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
+![Service Fabric Explorer visar inaktiverade noder i fel tillstånd](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
 
-Ta bort de föråldrade noderna från service fabric-klustret för att återställa klusterhälsotillståndet till *OK*.
+Ta bort de föråldrade noderna från Service Fabric-klustret för att återställa hälso tillståndet för klustret till *OK*.
 
 ```powershell
 # Remove node states for the deleted scale set
@@ -354,22 +354,22 @@ foreach($name in $nodeNames){
 }
 ```
 
-![Service Fabric Explorer med nednoder i feltillstånd borttaget](./media/upgrade-managed-disks/service-fabric-explorer-healthy-cluster.png)
+![Service Fabric Explorer med noder i fel tillstånd borttaget](./media/upgrade-managed-disks/service-fabric-explorer-healthy-cluster.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här genomgången lärde du dig hur du uppgraderar skaluppsättningarna för den virtuella datorn i ett Service Fabric-kluster för att använda hanterade diskar samtidigt som du undviker avbrott i tjänsten under processen. För mer information om relaterade ämnen kolla in följande resurser.
+I den här genom gången har du lärt dig hur du uppgraderar den virtuella datorns skalnings uppsättningar för ett Service Fabric-kluster för att använda hanterade diskar och undvika avbrott i tjänsten under processen. Mer information om närliggande ämnen finns i följande resurser.
 
 Lär dig att:
 
 * [Skala upp en primär nodtyp för Service Fabric-klustret](service-fabric-scale-up-node-type.md)
 
-* [Konvertera en skalningsuppsättningsmall för att använda hanterade diskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
+* [Konvertera en mall för skalnings uppsättningar för att använda hanterade diskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 
-* [Ta bort en nodtyp för Service Fabric](service-fabric-how-to-remove-node-type.md)
+* [Ta bort en Service Fabric nodtyp](service-fabric-how-to-remove-node-type.md)
 
 Se även:
 
-* [Exempel: Uppgradera klusternoder för att använda Azure-hanterade diskar](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Exempel: uppgradera klusternoder för att använda Azure Managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
 
-* [Hänsyn till lodrät skalning](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)
+* [Överväganden vid vertikal skalning](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

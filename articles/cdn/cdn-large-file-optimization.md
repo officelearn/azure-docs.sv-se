@@ -1,6 +1,6 @@
 ---
-title: Optimering av stora filer med Azure CDN
-description: I den här artikeln beskrivs hur stora filhämtningar kan optimeras.
+title: Optimering av stor fil hämtning med Azure CDN
+description: I den här artikeln förklaras hur stora fil hämtningar kan optimeras.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,130 +15,130 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 28b3c4faf62bcd9f9495810927ece03e2dadc1fc
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260538"
 ---
-# <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering av stora filer med Azure CDN
+# <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering av stor fil hämtning med Azure CDN
 
-Filstorlekarna på innehåll som levereras via internet fortsätter att öka på grund av förbättrade funktioner, förbättrad grafik och rikt medieinnehåll. Denna tillväxt drivs av många faktorer: bredbandspenetration, större billiga lagringsenheter, en utbredd ökning av HD-video och internetanslutna enheter (IoT). En snabb och effektiv leveransmekanism för stora filer är avgörande för att säkerställa en smidig och trevlig konsumentupplevelse.
+Fil storlekar för innehåll som levereras via Internet fortsätter att växa på grund av förbättrade funktioner, förbättrad grafik och medie innehåll. Den här tillväxten drivs av många faktorer: bred bands inträngning, större billiga lagrings enheter, omfattande ökning av video med hög upplösning och Internet-anslutna enheter (IoT). En snabb och effektiv leverans metod för stora filer är viktigt för att säkerställa en smidig och roliga konsument upplevelse.
 
-Leverans av stora filer har flera utmaningar. För det första kan den genomsnittliga tiden för att hämta en stor fil vara betydande eftersom program kanske inte hämtar alla data sekventiellt. I vissa fall kan program hämta den sista delen av en fil före den första delen. När endast en liten mängd av en fil begärs eller en användare pausar en nedladdning kan hämtningen misslyckas. Hämtningen kan också fördröjas tills cdn (Content Delivery Network) hämtar hela filen från ursprungsservern. 
+Leverans av stora filer har flera utmaningar. För det första kan den genomsnittliga tiden för att hämta en stor fil vara betydande eftersom program kanske inte laddar ned alla data sekventiellt. I vissa fall kan program ladda ned den sista delen av en fil före den första delen. Om bara en liten del av en fil begärs eller om en användare pausar en nedladdning kan nedladdningen inte utföras. Hämtningen kan också förskjutas tills efter att CDN (Content Delivery Network) hämtar hela filen från ursprungs servern. 
 
-För det andra avgör svarstiden mellan en användares dator och filen hur snabbt de kan visa innehåll. Dessutom påverkar trafikstockningar och kapacitetsproblem också genomströmningen. Större avstånd mellan servrar och användare skapar ytterligare möjligheter för paketförlust att inträffa, vilket minskar kvaliteten. Den minskade kvaliteten som orsakas av begränsat dataflöde och ökad paketförlust kan öka väntetiden för en filhämtning. 
+För det andra bestämmer svars tiden mellan en användares dator och filen den hastighet med vilken de kan visa innehåll. Dessutom påverkar överbelastnings-och kapacitets problem även data flöden. Större avstånd mellan servrar och användare skapar ytterligare möjligheter för paket förlust som ska ske, vilket minskar kvaliteten. Minskningen av kvalitet som orsakas av begränsat data flöde och ökad paket förlust kan öka vänte tiden för hämtning av en fil. 
 
-För det tredje levereras många stora filer inte i sin helhet. Användare kan avbryta en nedladdning halvvägs eller titta bara de första minuterna av en lång MP4-video. Därför vill programvaru- och medieleveransföretag bara leverera den del av en fil som begärs. Effektiv distribution av de begärda delarna minskar utgående trafik från ursprungsservern. Effektiv distribution minskar också minnet och I/O-trycket på ursprungsservern. 
+Tredje, många stora filer levereras inte i sin helhet. Användare kan avbryta hämtningen halvvägs från och med bara de första minuterna i en lång MP4-video. Därför vill program-och medie leverans företag endast leverera den del av en fil som begärs. Effektiv distribution av de begärda delarna minskar den utgående trafiken från ursprungs servern. Effektiv distribution minskar också minnet och I/O-belastningen på ursprungs servern. 
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-microsoft"></a>Optimera för leverans av stora filer med Azure CDN från Microsoft
 
-**Azure CDN Standard från** Microsoft-slutpunkter levererar stora filer utan tak för filstorlek. Ytterligare funktioner är aktiverade som standard för att göra leveransen av stora filer snabbare.
+**Azure CDN Standard från Microsoft** -slutpunkter levererar stora filer utan fil storlek. Ytterligare funktioner är aktiverade som standard för att göra leveransen av stora filer snabbare.
 
-### <a name="object-chunking"></a>Objektsegmentering 
+### <a name="object-chunking"></a>Objekt segment 
 
-**Azure CDN Standard från Microsoft** använder en teknik som kallas objektsegmentering. När en stor fil begärs hämtar CDN mindre delar av filen från ursprunget. När CDN POP-servern har tagit emot en filbegäran för hela eller byteintervall begär CDN-kantservern filen från ursprunget i segment på 8 MB. 
+**Azure CDN Standard från Microsoft** använder en teknik som kallas objekt segment. När en stor fil begärs hämtar CDN mindre delar av filen från ursprunget. När CDN-POP-servern har tagit emot en filbegäran med full eller byte Range begär CDN-servern filen från ursprunget i segment om 8 MB. 
 
-När segmentet anländer till CDN-kanten cachelagras den och serveras omedelbart till användaren. CDN sedan prefetches nästa bit parallellt. Den här prefetchen ser till att innehållet stannar en bit före användaren, vilket minskar svarstiden. Den här processen fortsätter tills hela filen hämtas (om så önskas), alla byteintervall är tillgängliga (om så önskas) eller så avslutar klienten anslutningen. 
+När segmentet har nått CDN-gränsen cachelagras det och betjänas direkt för användaren. CDN hämtar sedan nästa segment parallellt. Med den här för hämtningen ser du till att innehållet förblir ett segment framför användaren, vilket minskar svars tiden. Den här processen fortsätter tills hela filen har hämtats (om det begärs), alla byte-intervall är tillgängliga (om de begärs) eller om klienten avslutar anslutningen. 
 
-Mer information om begäran om byteintervall finns i [RFC 7233](https://tools.ietf.org/html/rfc7233).
+Mer information om byte Range-begäran finns i [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-CDN cachelagrar alla segment när de tas emot. Hela filen behöver inte cachelagras på CDN-cachen. Efterföljande begäranden för fil- eller byteintervallen visas från CDN-cachen. Om inte alla segment cachelagras på CDN används prefetch för att begära segment från ursprunget. Den här optimeringen är beroende av ursprungsserverns förmåga att stödja begäranden om byteintervall. Om ursprungsservern inte stöder begäranden om byteintervall är den här optimeringen inte effektiv. 
+CDN cachelagrar alla segment när de tas emot. Hela filen behöver inte cachelagras i CDN-cachen. Efterföljande begär Anden för fil-eller byte-intervallen hanteras från CDN-cachen. Om inte alla segment cachelagras i CDN används för hämtning för att begära segment från ursprunget. Den här optimeringen är beroende av möjligheten för ursprungs servern att stödja byte intervall begär Anden. om ursprungs servern inte stöder byte intervall begär Anden är den här optimeringen inte effektiv. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Villkor för optimering av stora filer
-Stora filoptimeringsfunktioner för **Azure CDN Standard från Microsoft** aktiveras som standard när du använder den allmänna optimeringstypen för webbleverans. Det finns inga gränser för maximal filstorlek.
+Funktioner för stor fil optimering för **Azure CDN Standard från Microsoft** är aktiverade som standard när du använder den allmänna optimerings typen för webb leverans. Det finns inga begränsningar för maximal fil storlek.
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Optimera för leverans av stora filer med Azure CDN från Verizon
 
-**Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** slutpunkter leverera stora filer utan tak för filstorlek. Ytterligare funktioner är aktiverade som standard för att göra leveransen av stora filer snabbare.
+**Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -slutpunkter levererar stora filer utan fil storlek. Ytterligare funktioner är aktiverade som standard för att göra leveransen av stora filer snabbare.
 
-### <a name="complete-cache-fill"></a>Fullständig cachefyllning
+### <a name="complete-cache-fill"></a>Slutför cache-fyllning
 
-Standardfunktionen för fullständig cachefyllning gör att CDN kan hämta en fil till cacheminnet när en första begäran överges eller förloras. 
+Med standard funktionen Slutför cache Fill kan CDN hämta en fil till cachen när en inledande begäran överges eller förloras. 
 
-Fullständig cachefyllning är mest användbar för stora tillgångar. Vanligtvis hämtar användarna inte dem från början till. De använder progressiv nedladdning. Standardbeteendet tvingar kantservern att initiera en bakgrundshämtning av tillgången från ursprungsservern. Därefter finns tillgången i kantserverns lokala cacheminne. När hela objektet finns i cacheminnet uppfyller kantservern begäranden om byteintervall till CDN för det cachelagrade objektet.
+Fullständig cache-fyllning är mest användbart för stora till gångar. Användarna kan vanligt vis inte ladda ned dem från start till slut. De använder progressiv nedladdning. Standard beteendet tvingar Edge-servern att initiera en bakgrunds hämtning av till gången från ursprungs servern. Efteråt finns till gången i Edge-serverns lokala cacheminne. När det fullständiga objektet finns i cacheminnet, uppfyller Edge-servern byte-range-begäranden till CDN för det cachelagrade objektet.
 
-Standardbeteendet kan inaktiveras via regelmotorn i **Azure CDN Premium från Verizon**.
+Standard beteendet kan inaktive ras via regel motorn i **Azure CDN Premium från Verizon**.
 
-### <a name="peer-cache-fill-hot-filing"></a>Peer-cachefyllning för snabb arkivering
+### <a name="peer-cache-fill-hot-filing"></a>Snabb ifyllning av peer-cache
 
-Standardfunktionen för peer-cachefyllning använder en sofistikerad proprietär algoritm. Den använder ytterligare edge caching-servrar baserat på bandbredd och aggregerade begäranden mått för att uppfylla klientbegäranden för stora, mycket populära objekt. Den här funktionen förhindrar en situation där ett stort antal extra begäranden skickas till en användares ursprungsserver. 
+Standard funktionen för peer-cache-fyllning använder en sofistikerad patentskyddad algoritm. Den använder ytterligare Edge caching-servrar baserat på bandbredds-och mängd begär ande mått för att uppfylla klient begär Anden för stora, mycket populära objekt. Den här funktionen förhindrar en situation där ett stort antal extra förfrågningar skickas till en användares ursprungs Server. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Villkor för optimering av stora filer
 
-Stora filoptimeringsfunktioner för **Azure CDN Standard från Verizon** och Azure **CDN Premium från Verizon** aktiveras som standard när du använder den allmänna optimeringstypen för webbleverans. Det finns inga gränser för maximal filstorlek. 
+Funktioner för stor fil optimering för **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** är aktiverade som standard när du använder den allmänna optimerings typen för webb leverans. Det finns inga begränsningar för maximal fil storlek. 
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-standard-from-akamai"></a>Optimera för leverans av stora filer med Azure CDN Standard från Akamai
 
-**Azure CDN Standard från Akamai-profilslutpunkter** erbjuder en funktion som levererar stora filer effektivt till användare över hela världen i stor skala. Funktionen minskar fördröjningar eftersom det minskar belastningen på ursprungsservrarna.
+**Azure CDN Standard från Akamai** profil slut punkter erbjuder en funktion som levererar stora filer effektivt till användare i hela världen i stor skala. Funktionen minskar fördröjningen eftersom belastningen på ursprungs servrarna minskar.
 
-Funktionen för optimering av stora filer aktiverar nätverksoptimeringar och konfigurationer för att leverera stora filer snabbare och mer responsivt. Allmän webbleverans med **Azure CDN Standard från Akamai-slutpunkter** cachelagrar filer endast under 1,8 GB och kan tunnelfiler (inte cache) filer upp till 150 GB. Stor filoptimering cachelagrar filer upp till 150 GB.
+Den stora fil optimerings typen funktion aktiverar nätverks optimeringar och konfigurationer för att leverera stora filer snabbare och mer besvarade. Allmän webb leverans med **Azure CDN Standard från Akamai** -slutpunkter cachelagrar filer endast under 1,8 GB och kan tunnla (inte cache) filer upp till 150 GB. Med stor fil optimering cachelagras filer upp till 150 GB.
 
-Stor filoptimering är effektiv när vissa villkor är uppfyllda. Villkor inkluderar hur ursprungsservern fungerar och storleken och typerna av de filer som begärs. 
+Optimering av stora filer är effektiv när vissa villkor är uppfyllda. Villkoren omfattar hur ursprungs servern fungerar och vilka storlekar och typer av filer som begärs. 
 
 ### <a name="configure-an-akamai-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Konfigurera en Akamai CDN-slutpunkt för att optimera leveransen av stora filer
 
-Du kan konfigurera din **Azure CDN Standard från Akamai-slutpunkten** för att optimera leveransen för stora filer via Azure-portalen. Du kan också använda REST-API:erna eller någon av klient-SDK:erna för att göra detta. Följande steg visar processen via Azure-portalen för en **Azure CDN Standard från Akamai-profil:**
+Du kan konfigurera **Azure CDN Standard från Akamai** -slutpunkten för att optimera leveransen för stora filer via Azure Portal. Du kan också använda REST-API: erna eller klient-SDK: er för att göra detta. Följande steg visar processen via Azure Portal för en **Azure CDN Standard från Akamai** profil:
 
-1. Om du vill lägga till en ny slutpunkt väljer du **Slutpunkt**på en Akamai **CDN-profilsida** .
+1. Om du vill lägga till en ny slut punkt väljer du **slut punkt**på sidan Akamai **CDN Profile** .
 
-    ![Ny slutpunkt](./media/cdn-large-file-optimization/cdn-new-akamai-endpoint.png)    
+    ![Ny slut punkt](./media/cdn-large-file-optimization/cdn-new-akamai-endpoint.png)    
  
-2. Välj **Stor filhämtning**i listrutan **Optimerad för** .
+2. Välj **stor fil hämtning**i list rutan **optimerad för** .
 
-    ![Stor filoptimering vald](./media/cdn-large-file-optimization/cdn-large-file-select.png)
+    ![Optimering av stora filer har valts](./media/cdn-large-file-optimization/cdn-large-file-select.png)
 
 
-När du har skapat CDN-slutpunkten tillämpas de stora filoptimeringarna för alla filer som matchar vissa villkor. I följande avsnitt beskrivs den här processen.
+När du har skapat CDN-slutpunkten tillämpar den stora fil optimeringar för alla filer som matchar vissa villkor. I följande avsnitt beskrivs den här processen.
 
-### <a name="object-chunking"></a>Objektsegmentering 
+### <a name="object-chunking"></a>Objekt segment 
 
-Stor filoptimering med **Azure CDN Standard från Akamai** använder en teknik som kallas objektsegmentering. När en stor fil begärs hämtar CDN mindre delar av filen från ursprunget. När CDN POP-servern har tagit emot en filbegäran för hela eller byteintervall kontrollerar den om filtypen stöds för den här optimeringen. Den kontrollerar också om filtypen uppfyller kraven på filstorlek. Om filstorleken är större än 10 MB begär CDN-kantservern filen från ursprunget i segment på 2 MB. 
+Optimering av stora filer med **Azure CDN Standard från Akamai** använder en teknik som kallas objekt segment. När en stor fil begärs hämtar CDN mindre delar av filen från ursprunget. När CDN-POP-servern tar emot en fil förfrågan med fullständig eller byte-Range, kontrollerar den om filtypen stöds för den här optimeringen. Den kontrollerar också om fil typen uppfyller fil storleks kraven. Om fil storleken är större än 10 MB begär CDN Edge-servern filen från ursprunget i segment om 2 MB. 
 
-När segmentet anländer till CDN-kanten cachelagras den och serveras omedelbart till användaren. CDN sedan prefetches nästa bit parallellt. Den här prefetchen ser till att innehållet stannar en bit före användaren, vilket minskar svarstiden. Den här processen fortsätter tills hela filen hämtas (om så önskas), alla byteintervall är tillgängliga (om så önskas) eller så avslutar klienten anslutningen. 
+När segmentet har nått CDN-gränsen cachelagras det och betjänas direkt för användaren. CDN hämtar sedan nästa segment parallellt. Med den här för hämtningen ser du till att innehållet förblir ett segment framför användaren, vilket minskar svars tiden. Den här processen fortsätter tills hela filen har hämtats (om det begärs), alla byte-intervall är tillgängliga (om de begärs) eller om klienten avslutar anslutningen. 
 
-Mer information om begäran om byteintervall finns i [RFC 7233](https://tools.ietf.org/html/rfc7233).
+Mer information om byte Range-begäran finns i [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-CDN cachelagrar alla segment när de tas emot. Hela filen behöver inte cachelagras på CDN-cachen. Efterföljande begäranden för fil- eller byteintervallen visas från CDN-cachen. Om inte alla segment cachelagras på CDN används prefetch för att begära segment från ursprunget. Den här optimeringen är beroende av ursprungsserverns förmåga att stödja begäranden om byteintervall. Om ursprungsservern inte stöder begäranden om byteintervall är den här optimeringen inte effektiv.
+CDN cachelagrar alla segment när de tas emot. Hela filen behöver inte cachelagras i CDN-cachen. Efterföljande begär Anden för fil-eller byte-intervallen hanteras från CDN-cachen. Om inte alla segment cachelagras i CDN används för hämtning för att begära segment från ursprunget. Den här optimeringen är beroende av möjligheten för ursprungs servern att stödja byte intervall begär Anden. om ursprungs servern inte stöder byte intervall begär Anden är den här optimeringen inte effektiv.
 
 ### <a name="caching"></a>Caching
-Stor filoptimering använder olika standardcache-utgångstider från allmän webbleverans. Det skiljer mellan positiv cachelagring och negativ cachelagring baserat på HTTP-svarskoder. Om ursprungsservern anger en förfallotid via en cachekontroll eller förfaller huvudet i svaret, hedrar CDN det värdet. När ursprunget inte anger och filen matchar typ- och storleksvillkoren för den här optimeringstypen använder CDN standardvärdena för stor filoptimering. Annars använder CDN standardvärden för allmän webbleverans.
+Optimering av stora filer använder olika standardvärden för cachelagring – förfallo tider från allmän webb leverans. Det skiljer sig mellan positiv cachelagring och negativ cachelagring baserat på HTTP-svars koder. Om ursprungs servern anger en förfallo tid via en Cache-Control-eller Expires-rubrik i svaret, följer CDN det värdet. När ursprunget inte anges och filen matchar typ-och storleks villkoren för den här optimerings typen använder CDN standardvärden för optimering av stora filer. Annars använder CDN standardvärden för allmän webb leverans.
 
 
-|    | Allmänt webb | Optimering av stora filer 
+|    | Allmän webb | Optimering av stora filer 
 --- | --- | --- 
-Caching: Positivt <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |1 dag  
-Caching: Negativ <br> HTTP 204, 305, 404, <br> och 405 | Inget | 1 sekund 
+Cachelagring: positiv <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |1 dag  
+Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Inga | 1 sekund 
 
-### <a name="deal-with-origin-failure"></a>Hantera ursprungsfel
+### <a name="deal-with-origin-failure"></a>Hantera ursprungs problem
 
-Ursprungsavläsningstidslängden ökar från två sekunder för allmän webbleverans till två minuter för den stora filoptimeringstypen. Den här ökningen står för de större filstorlekarna för att undvika en för tidig timeout-anslutning.
+Längden på den ursprungliga läsnings tids gränsen ökar från två sekunder för allmän webb leverans till två minuter för den stora fil optimerings typen. Detta ökar de större fil storlekarna för att undvika en för tidig tids gräns anslutning.
 
-När en anslutning timeout försöker CDN igen ett antal gånger innan den skickar ett "504 - Gateway Timeout"-fel till klienten. 
+När en anslutnings tid är slut försöker CDN ett antal gånger innan det skickar ett fel meddelande om "504-Gateway-timeout" till klienten. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Villkor för optimering av stora filer
 
-I följande tabell visas de villkor som ska uppfyllas för optimering av stora filer:
+I följande tabell visas en uppsättning villkor som ska uppfyllas för stor fil optimering:
 
 Villkor | Värden 
 --- | --- 
-Filtyper som stöds | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tjära, <br> tgz, wdp, webm, webp, wma, wmv, zip  
-Minsta filstorlek | 10 MB 
+Filtyper som stöds | 3G2, 3GP, ASF, AVI, bz2, DMG, exe, F4V, FLV, <br> GZ, HDP, ISO, JXR, M4V, MKV, MOV, MP4, <br> MPEG, MPG, MTS, pkg, QT, RM, SWF, tar, <br> tgz, WDP, webm, WEBP, WMA, WMV, zip  
+Minsta fil storlek | 10 MB 
 Maximal filstorlek | 150 GB 
-Ursprungsserveregenskaper | Måste stödja begäranden om byteintervall 
+Ursprungs Server egenskaper | Måste ha stöd för byte range-begäranden 
 
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 
-Tänk på följande ytterligare aspekter för den här optimeringstypen:
+Överväg följande ytterligare aspekter för optimerings typen:
 
-- Segmenteringsprocessen genererar ytterligare begäranden till ursprungsservern. Den totala mängden data som levereras från ursprunget är dock mycket mindre. Chunking resulterar i bättre cachelagring egenskaper på CDN.
+- Segment processen genererar ytterligare begär anden till ursprungs servern. Den totala mängden data som levereras från ursprunget är dock mycket mindre. Chunking resulterar i bättre egenskaper för cachelagring i CDN.
 
-- Minne och I/O-tryck reduceras vid beskärningen eftersom mindre delar av filen levereras.
+- Minnet och I/O-belastningen minskas med ursprunget eftersom mindre delar av filen levereras.
 
-- För segment som cachelagras på CDN finns det inga ytterligare begäranden till ursprunget förrän innehållet upphör att gälla eller det är bortträkt från cachen.
+- För segment som cachelagras i CDN finns det inga ytterligare begär anden till ursprunget förrän innehållet går ut eller tas bort från cachen.
 
-- Användare kan göra intervallbegäranden till CDN, som behandlas som vilken vanlig fil som helst. Optimering gäller endast om det är en giltig filtyp och byteintervallet är mellan 10 MB och 150 GB. Om den genomsnittliga filstorleken som begärs är mindre än 10 MB använder du allmän webbleverans i stället.
+- Användare kan göra intervall begär anden till CDN, som behandlas som vilken normal fil som helst. Optimering gäller endast om det är en giltig filtyp och byte-intervallet är mellan 10 MB och 150 GB. Om den genomsnittliga fil storleken som krävs är mindre än 10 MB använder du allmän webb leverans i stället.
 

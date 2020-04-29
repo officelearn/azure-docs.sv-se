@@ -1,6 +1,6 @@
 ---
-title: Skala slutpunkter för direktuppspelning med Azure-portalen | Microsoft-dokument
-description: Den här självstudien går igenom stegen för att skala slutpunkter för direktuppspelning med Azure-portalen.
+title: Skala direkt uppspelnings slut punkter med Azure Portal | Microsoft Docs
+description: Den här självstudien vägleder dig genom stegen för att skala slut punkter för direkt uppspelning med Azure Portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 40820170bae275f090c5f898387698fc562e59ae
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985549"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Skala direktuppspelande slutpunkter med Azure-portalen
@@ -29,24 +29,24 @@ ms.locfileid: "80985549"
 > 
 > 
 
-**Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Kunder som har en **Premium**-slutpunkt för direktuppspelning får som standard en direktuppspelande enhet (SU). Du kan skala slutpunkten för direktuppspelning genom att lägga till direktuppspelande enheter. Varje direktuppspelande enhet ger ytterligare bandbreddskapacitet till programmet. Mer information om slutpunktstyper och CDN-konfiguration finns i översiktsavsnittet för slutpunkt för [direktuppspelning.](media-services-streaming-endpoints-overview.md)
+**Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Kunder som har en **Premium**-slutpunkt för direktuppspelning får som standard en direktuppspelande enhet (SU). Du kan skala slutpunkten för direktuppspelning genom att lägga till direktuppspelande enheter. Varje direktuppspelande enhet ger ytterligare bandbreddskapacitet till programmet. Mer information om strömnings slut punkts typer och CDN-konfiguration finns i avsnittet [Översikt över strömnings slut punkt](media-services-streaming-endpoints-overview.md) .
  
-Det här avsnittet visar hur du skalar en slutpunkt för direktuppspelning.
+I det här avsnittet visas hur du skalar en slut punkt för direkt uppspelning.
 
 Mer information om priser finns i [Prisuppgifter för Media Services](https://azure.microsoft.com/pricing/details/media-services/).
 
-## <a name="scale-streaming-endpoints"></a>Skala slutpunkter för direktuppspelning
+## <a name="scale-streaming-endpoints"></a>Skala slut punkter för direkt uppspelning
 
-Så här ändrar du antalet strömningsenheter:
+Om du vill ändra antalet enheter för strömning gör du följande:
 
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
-2. Välj **Slutpunkter för direktuppspelning**i fönstret **Inställningar** .
-3. Klicka på den slutpunkt för direktuppspelning som du vill skala. 
+2. I fönstret **Inställningar** väljer du **strömnings slut punkter**.
+3. Klicka på den slut punkt för direkt uppspelning som du vill skala. 
 
     > [!NOTE] 
-    > Du kan bara skala **Slutpunkter** för premiumstreaming.
+    > Du kan bara skala slut punkter för direkt uppspelning av **Premium** .
 
-4. Flytta skjutreglaget för att ange antalet strömningsenheter.
+4. Flytta skjutreglaget för att ange antalet enheter för strömning.
 
     ![Slutpunkt för direktuppspelning](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 

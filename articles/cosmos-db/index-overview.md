@@ -1,29 +1,29 @@
 ---
 title: Indexering i Azure Cosmos DB
-description: Förstå hur indexering fungerar i Azure Cosmos DB, olika typer av index som Intervall, Spatial, sammansatta index som stöds.
+description: Förstå hur indexering fungerar i Azure Cosmos DB, olika typer av index, till exempel intervall, spatialdata, sammansatta index som stöds.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: thweiss
 ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273247"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
-Azure Cosmos DB är en schemaasantisk databas som gör att du kan iterera på ditt program utan att behöva hantera schema- eller indexhantering. Som standard indexerar Azure Cosmos DB automatiskt varje egenskap för alla objekt i [din behållare](databases-containers-items.md#azure-cosmos-containers) utan att behöva definiera något schema eller konfigurera sekundära index.
+Azure Cosmos DB är en schema oberoende-databas som gör att du kan iterera i ditt program utan att behöva hantera schema-eller index hantering. Som standard indexerar Azure Cosmos DB automatiskt varje egenskap för alla objekt i din [behållare](databases-containers-items.md#azure-cosmos-containers) utan att behöva definiera något schema eller konfigurera sekundära index.
 
-Målet med den här artikeln är att förklara hur Azure Cosmos DB indexerar data samt hur det använder index för att förbättra frågeprestanda. Vi rekommenderar att du går igenom det här avsnittet innan du utforskar hur [du anpassar indexeringsprinciper](index-policy.md).
+Målet med den här artikeln är att förklara hur Azure Cosmos DB indexerar data samt hur det använder index för att förbättra frågeprestanda. Vi rekommenderar att du går igenom det här avsnittet innan du utforskar hur du anpassar [indexerings principer](index-policy.md).
 
 ## <a name="from-items-to-trees"></a>Från objekt till träd
 
-Varje gång ett objekt lagras i en behållare projiceras dess innehåll som ett JSON-dokument och konverteras sedan till en trädrepresentation. Vad det betyder är att varje egenskap för objektet får representeras som en nod i ett träd. En pseudorotnod skapas som överordnad för alla egenskaper på den första nivån för objektet. Lövnoderna innehåller de faktiska skalärvärden som bärs av ett objekt.
+Varje gång ett objekt lagras i en behållare projiceras innehållet som ett JSON-dokument och konverteras sedan till en träd representation. Det innebär att varje egenskap hos objektet visas som en nod i ett träd. En rotnod för pseudo skapas som överordnad till alla de första nivå egenskaperna för objektet. Löv noderna innehåller faktiska skalära värden som utförs av ett objekt.
 
-Tänk på det här objektet som ett exempel:
+Anta till exempel följande objekt:
 
 ```json
     {
@@ -39,17 +39,17 @@ Tänk på det här objektet som ett exempel:
     }
 ```
 
-Det skulle representeras av följande träd:
+Den representeras av följande träd:
 
-![Föregående objekt som representeras som ett träd](./media/index-overview/item-as-tree.png)
+![Det föregående objektet representeras som ett träd](./media/index-overview/item-as-tree.png)
 
-Observera hur matriser kodas i trädet: varje post i en matris får en mellanliggande nod märkt med indexet för den posten i matrisen (0, 1 osv.).
+Observera hur matriser kodas i trädet: varje post i en matris får en mellanliggande nod som är märkt med indexet för posten i matrisen (0, 1 osv.).
 
-## <a name="from-trees-to-property-paths"></a>Från träd till egendomsvägar
+## <a name="from-trees-to-property-paths"></a>Från träd till egenskaps Sök vägar
 
-Anledningen till att Azure Cosmos DB omvandlar objekt till träd är att det gör att egenskaper kan refereras av deras sökvägar i dessa träd. För att hämta sökvägen för en egenskap kan vi korsa trädet från rotnoden till den egenskapen och sammanfoga etiketterna för varje korsad nod.
+Anledningen till varför Azure Cosmos DB transformerar objekt i träd beror på att det tillåter att egenskaper refereras till av sina sökvägar i dessa träd. För att hämta sökvägen till en egenskap kan vi gå över trädet från rotnoden till den egenskapen och sammanfoga etiketterna för varje nod.
 
-Här är sökvägarna för varje egenskap från det exempelobjekt som beskrivs ovan:
+Här är Sök vägarna för varje egenskap från det exempel objekt som beskrivs ovan:
 
     /locations/0/country: "Germany"
     /locations/0/city: "Berlin"
@@ -60,17 +60,17 @@ Här är sökvägarna för varje egenskap från det exempelobjekt som beskrivs o
     /exports/0/city: "Moscow"
     /exports/1/city: "Athens"
 
-När ett objekt skrivs indexerar Azure Cosmos DB effektivt varje egenskaps sökväg och motsvarande värde.
+När ett objekt skrivs, indexerar Azure Cosmos DB effektivt varje egenskaps bana och dess motsvarande värde.
 
-## <a name="index-kinds"></a>Index sorter
+## <a name="index-kinds"></a>Index typer
 
 Azure Cosmos DB stöder för närvarande tre typer av index.
 
-### <a name="range-index"></a>Intervallindex
+### <a name="range-index"></a>Intervall index
 
-**Intervallindex** baseras på en ordnad trädliknande struktur. Områdesindexsdomen används för:
+**Intervall** indexet baseras på en ordnad träd struktur. Intervall index typen används för:
 
-- Jämställdhetsfrågor:
+- Likhets frågor:
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
@@ -80,49 +80,49 @@ Azure Cosmos DB stöder för närvarande tre typer av index.
    SELECT * FROM c WHERE c.property IN ("value1", "value2", "value3")
    ```
 
-   Likhetsmatchning för ett matriselement
+   Likhets matchning för ett mat ris element
    ```sql
     SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1")
     ```
 
-- Intervallfrågor:
+- Intervall frågor:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (fungerar `>`för `<` `>=`, `<=` `!=`, , , )
+  (fungerar för `>`, `<`, `>=`, `<=`, `!=`)
 
-- Kontroll av förekomsten av en fastighet:
+- Söker efter en egenskap:
 
    ```sql
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- Strängprefixmatchningar (INNES-nyckelordet utnyttjar inte intervallindexet):
+- Standardvärden för String (innehåller nyckelordet använder inte intervall indexet):
 
    ```sql
    SELECT * FROM c WHERE STARTSWITH(c.property, "value")
    ```
 
-- `ORDER BY`Frågor:
+- `ORDER BY`skickar
 
    ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN`Frågor:
+- `JOIN`skickar
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-Intervallindex kan användas på skalärvärden (sträng eller tal).
+Intervall index kan användas för skalära värden (sträng eller tal).
 
-### <a name="spatial-index"></a>Rumsligt index
+### <a name="spatial-index"></a>Rums index
 
-**Rumsliga** index möjliggör effektiva frågor om geospatiala objekt som - punkter, linjer, polygoner och multipolygon. Dessa frågor använder ST_DISTANCE, ST_WITHIN, ST_INTERSECTS nyckelord. Följande är några exempel som använder rumslig index typ:
+Med **rums** index kan du skapa effektiva frågor om geospatiala objekt som-punkter, linjer, polygoner och multipolygoner. Dessa frågor använder ST_DISTANCE ST_WITHIN ST_INTERSECTS nyckelord. Följande är några exempel som använder spatial index typ:
 
-- Geospatiala avståndsfrågor:
+- Geospatiala avstånds frågor:
 
    ```sql
    SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
@@ -134,17 +134,17 @@ Intervallindex kan användas på skalärvärden (sträng eller tal).
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
-- Geospatiala intersect frågor:
+- Geospatiala skärnings frågor:
 
    ```sql
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Rumsliga index kan användas på korrekt formaterade [GeoJSON-objekt.](geospatial.md) Punkter, LineStrings, Polygoner och MultiPolygons stöds för närvarande.
+Rums index kan användas på korrekt formaterade geospatiala [JSON](geospatial.md) -objekt. Punkter, lin Est rings, polygoner och multipolygoner stöds för närvarande.
 
 ### <a name="composite-indexes"></a>Sammansatta index
 
-**Sammansatta** index ökar effektiviteten när du utför operationer på flera fält. Den sammansatta index typen används för:
+**Sammansatta** index ökar effektiviteten när du utför åtgärder på flera fält. Den sammansatta index typen används för:
 
 - `ORDER BY`frågor om flera egenskaper:
 
@@ -152,39 +152,39 @@ Rumsliga index kan användas på korrekt formaterade [GeoJSON-objekt.](geospatia
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- Frågor med ett `ORDER BY`filter och . Dessa frågor kan använda ett sammansatt index om `ORDER BY` filteregenskapen läggs till i satsen.
+- Frågor med ett filter och `ORDER BY`. Dessa frågor kan använda ett sammansatt index om filter egenskapen har lagts till i- `ORDER BY` satsen.
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
 ```
 
-- Frågor med ett filter på två eller flera egenskaper där minst en egenskap är ett likhetsfilter
+- Frågor med ett filter på två eller flera egenskaper där minst en egenskap är ett likhets filter
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Så länge ett filter predikat använder en av index typen, kommer frågemotorn utvärdera det först innan du skannar resten. Om du till exempel har en SQL-fråga som`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Så länge ett filter predikat använder en av index typerna, kommer frågesyntaxen att utvärderas först innan resten görs. Om du till exempel har en SQL-fråga som`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
-* Ovanstående fråga filtreras först efter poster där förnamn = "Andrew" med hjälp av indexet. Det passerar sedan alla firstName = "Andrew" poster genom en efterföljande pipeline för att utvärdera CONTAINS-filtret predikat.
+* Ovanstående fråga filtreras först efter poster där firstName = "Anders" med hjälp av indexet. Sedan skickar du alla poster för firstName = "Anders" genom en efterföljande pipeline för att utvärdera innehåller filtervärdet.
 
-* Du kan snabba upp frågor och undvika fullständiga behållarsökningar när du använder funktioner som inte använder indexet (t.ex. innehåller) genom att lägga till ytterligare filter predikater som använder indexet. Ordningen på filtersatser är inte viktigt. Frågemotorn kommer att ta reda på vilka predikater som är mer selektiva och köra frågan därefter.
+* Du kan påskynda frågor och undvika fullständig genomsökning av behållare när du använder funktioner som inte använder indexet (t. ex. innehåller) genom att lägga till ytterligare filter-predikat som använder indexet. Ordningen på filter satserna är inte viktig. Frågemotor är ett sätt att ta reda på vilka predikat som är selektivt selektivt och köra frågan på motsvarande sätt.
 
 
 ## <a name="querying-with-indexes"></a>Fråga med index
 
-De sökvägar som extraheras vid indexering av data gör det enkelt att slå upp indexet när du bearbetar en fråga. Genom att `WHERE` matcha satsen för en fråga med listan över indexerade sökvägar är det möjligt att identifiera de objekt som matchar fråge predikatet mycket snabbt.
+De sökvägar som extraherades vid indexering av data gör det enkelt att söka efter indexet när en fråga bearbetas. Genom att matcha `WHERE` -satsen i en fråga med listan över indexerade sökvägar är det möjligt att identifiera de objekt som matchar frågespråket mycket snabbt.
 
-Tänk till exempel på `SELECT location FROM location IN company.locations WHERE location.country = 'France'`följande fråga: . Frågan predikat (filtrering på objekt, där någon plats har "Frankrike" som sitt land) skulle matcha sökvägen markerad i rött nedan:
+Överväg till exempel följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Frågans predikat (filtrering av objekt, där alla platser har "Frankrike" som sitt land), matchar sökvägen som marker ATS i rött nedan:
 
-![Matcha en viss bana i ett träd](./media/index-overview/matching-path.png)
+![Matcha en angiven sökväg inom ett träd](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> En `ORDER BY` sats som order av en enskild egenskap behöver *alltid* ett intervallindex och misslyckas om sökvägen som refereras till inte har någon. På samma `ORDER BY` sätt behöver en fråga som order efter flera egenskaper *alltid* behöver ett sammansatt index.
+> En `ORDER BY` sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt behöver `ORDER BY` en fråga som order by flera egenskaper *alltid* ett sammansatt index.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om indexering i följande artiklar:
 
-- [Indexeringsprincip](index-policy.md)
-- [Så här hanterar du indexeringsprincipen](how-to-manage-indexing-policy.md)
+- [Indexerings princip](index-policy.md)
+- [Hantera indexerings principen](how-to-manage-indexing-policy.md)

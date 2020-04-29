@@ -1,86 +1,86 @@
 ---
-title: Använda systemnodpooler i Azure Kubernetes Service (AKS)
-description: Lär dig hur du skapar och hanterar systemnodpooler i Azure Kubernetes Service (AKS)
+title: Använda pooler för system-noder i Azure Kubernetes service (AKS)
+description: Lär dig hur du skapar och hanterar system-nodkonfigurationer i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 04/06/2020
 ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81259076"
 ---
-# <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera systemnodpooler i Azure Kubernetes Service (AKS)
+# <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera system-nodkonfigurationer i Azure Kubernetes service (AKS)
 
-I Azure Kubernetes Service (AKS) grupperas noder med samma konfiguration i *nodpooler*. Nodpooler innehåller underliggande virtuella datorer som kör dina program. Systemnodpooler och användarnodpooler är två olika nodpoollägen för AKS-kluster. Systemnodpooler tjänar det primära syftet att vara värd för kritiska systemkapslar som CoreDNS och tunnelfront. Användarnodpooler tjänar det primära syftet med att vara värd för dina programpoddar. Programpoddar kan dock schemaläggas på systemnodpooler om du bara vill ha en pool i AKS-klustret. Varje AKS-kluster måste innehålla minst en systemnodpool med minst en nod. 
+I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. Node-pooler innehåller de underliggande virtuella datorer som kör dina program. System-nodkonfigurationer och användar-Node-pooler är två olika lägen för resurspooler för dina AKS-kluster. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel CoreDNS och tunnelfront. Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Varje AKS-kluster måste innehålla minst en adresspool för system med minst en nod. 
 
 > [!Important]
-> Om du kör en enda systemnodpool för AKS-klustret i en produktionsmiljö rekommenderar vi att du använder minst tre noder för nodpoolen.
+> Om du kör en pool med en enda pool för AKS-klustret i en produktions miljö rekommenderar vi att du använder minst tre noder för Node-poolen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Du behöver Azure CLI version 2.3.1 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+* Du behöver Azure CLI version 2.3.1 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="limitations"></a>Begränsningar
 
-Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder systemnodpooler.
+Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder system-nodkonfigurationer.
 
-* Se [Kvoter, storleksbegränsningar för virtuella datorer och regiontillgänglighet i Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* AKS-klustret måste byggas med skaluppsättningar för virtuella datorer som vm-typ.
-* Namnet på en nodpool får bara innehålla gemener alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodpooler måste längden vara mellan 1 och 12 tecken. För Windows-nodpooler måste längden vara mellan 1 och 6 tecken.
+* Se [kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)][quotas-skus-regions].
+* AKS-klustret måste ha skapats med skalnings uppsättningar för virtuella datorer som VM-typ.
+* Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-Node-pooler måste längden vara mellan 1 och 12 tecken. För Windows Node-pooler måste längden vara mellan 1 och 6 tecken.
 
-## <a name="system-and-user-node-pools"></a>System- och användarnodpooler
+## <a name="system-and-user-node-pools"></a>Pooler för system-och användar-noder
 
-Systemnodspoolnoder har var sin etikett **kubernetes.azure.com/mode: system**. Varje AKS-kluster innehåller minst en systemnodpool. Systemnodspooler har följande begränsningar:
+Noder i noden system har etiketten **Kubernetes.Azure.com/mode: system**. Varje AKS-kluster innehåller minst en adresspool för systemet. Systemnode-pooler har följande begränsningar:
 
-* Systempooler osType måste vara Linux.
-* Användarnodpooler osType kan vara Linux eller Windows.
-* Systempooler måste innehålla minst en nod och användarnodpooler kan innehålla noll eller fler noder.
-* Systemnodpooler kräver en VM-SKU med minst 2 virtuella processorer och 4 GB minne.
-* Systemnodspooler måste ha stöd för minst 30 poddar enligt beskrivningen av [minsta och högsta värdeformeln för poddar][maximum-pods].
-* Spotnodpooler kräver användarnodpooler.
+* OsType för system pooler måste vara Linux.
+* OsType för användar-noder kan vara Linux eller Windows.
+* Systempooler måste innehålla minst en nod och användar-noder kan innehålla noll eller flera noder.
+* Pooler för system-noder kräver en VM-SKU på minst 2 virtuella processorer och 4 GB minne.
+* Systemnodens pooler måste ha stöd för minst 30 poddar enligt beskrivningen i den [minsta och högsta värde formeln för poddar][maximum-pods].
+* Resurspooler för plats kräver användarens noder.
 
-Du kan utföra följande åtgärder med nodpooler:
+Du kan utföra följande åtgärder med Node-pooler:
 
-* Ändra en systemnodpool till en användarnodpool, förutsatt att du har en annan systemnodpool som ska äga rum i AKS-klustret.
-* Ändra en användarnodpool till en systemnodpool.
-* Ta bort användarnodpooler.
-* Du kan ta bort systemnodpooler, förutsatt att du har en annan systemnodpool som ska äga rum i AKS-klustret.
-* Ett AKS-kluster kan ha flera systemnodpooler och kräver minst en systemnodpool.
+* Ändra en adresspool till en adresspool, förutsatt att du har en annan adresspool som tar sitt ställe i AKS-klustret.
+* Ändra en pool för användar-Node så att den är en system Node-pool.
+* Ta bort pooler för användar-noder.
+* Du kan ta bort systemnoder, förutsatt att du har en annan adresspool som tar sitt ställe i AKS-klustret.
+* Ett AKS-kluster kan ha flera pooler för system och kräver minst en pool för system-Node.
 
-## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Skapa ett nytt AKS-kluster med en systemnodpool
+## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Skapa ett nytt AKS-kluster med en pool för system-Node
 
-När du skapar ett nytt AKS-kluster skapar du automatiskt en systemnodpool med en enda nod. Den första nodpoolen är standard ett typlägessystem. När du skapar nya nodpooler med az aks nodepool add, är dessa nodpooler användarnodpooler om du inte uttryckligen anger lägesparametern.
+När du skapar ett nytt AKS-kluster skapar du automatiskt en adresspool med en enda nod. Den inledande nodens standardpool är som standard ett läge av typen system. När du skapar nya Node-pooler med AZ AKS nodepool Add, är de noderna för användar-noden, såvida du inte uttryckligen anger läges parametern.
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i *regionen eastus.*
+I följande exempel skapas en resurs grupp med namnet *myResourceGroup* i regionen *östra* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Använd kommandot [az aks create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* med en systempool som innehåller en nod. För dina produktionsarbetsbelastningar, se till att du använder systemnodpooler med minst tre noder. Den här åtgärden kan ta flera minuter att slutföra.
+Använd kommandot [az aks create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* med en mediepool som innehåller en nod. Se till att du använder system-nodkonfigurationer med minst tre noder för dina produktions arbets belastningar. Den här åtgärden kan ta flera minuter att slutföra.
 
 ```azurecli-interactive
 az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
-## <a name="add-a-system-node-pool-to-an-existing-aks-cluster"></a>Lägga till en systemnodpool i ett befintligt AKS-kluster
+## <a name="add-a-system-node-pool-to-an-existing-aks-cluster"></a>Lägga till en pool för system-Node i ett befintligt AKS-kluster
 
-Du kan lägga till en eller flera systemnodpooler i befintliga AKS-kluster. Följande kommando lägger till en nodpool av lägestypsystem med ett standardantal på tre noder.
+Du kan lägga till en eller flera språknode-pooler i befintliga AKS-kluster. Följande kommando lägger till en Node-pool av läges typ system med ett standard antal tre noder.
 
 ```azurecli-interactive
 az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
 ```
-## <a name="show-details-for-your-node-pool"></a>Visa information för nodpoolen
+## <a name="show-details-for-your-node-pool"></a>Visa information om Node-poolen
 
-Du kan kontrollera information om nodpoolen med följande kommando.  
+Du kan kontrol lera informationen om Node-poolen med följande kommando.  
 
 ```azurecli-interactive
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-Ett läge av typen **System** definieras för systemnodpooler och ett läge av typen **Användare** definieras för användarnodpooler.
+Ett läge av typen **system** har definierats för system-nodkonfigurationer och ett läge av typen **användare** definieras för användar-noder i pooler.
 
 ```output
 {
@@ -112,28 +112,28 @@ Ett läge av typen **System** definieras för systemnodpooler och ett läge av t
 }
 ```
 
-## <a name="update-system-and-user-node-pools"></a>Uppdatera system- och användarnodpooler
+## <a name="update-system-and-user-node-pools"></a>Uppdatera system-och användar-nodens pooler
 
-Du kan ändra lägen för både system- och användarnodpooler. Du kan bara ändra en systemnodpool till en användarpool om det redan finns en annan systemnodpool i AKS-klustret.
+Du kan ändra lägen för både system-och användar-Node-pooler. Du kan bara ändra en adresspool för systemet till en adresspool om det redan finns en adresspool i AKS-klustret.
 
-Det här kommandot ändrar en systemnodpool till en användarnodpool.
+Det här kommandot ändrar en adresspool för systemet till en adresspool.
 
 ```azurecli-interactive
 az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode user
 ```
 
-Det här kommandot ändrar en användarnodpool till en systemnodpool.
+Det här kommandot ändrar en pool för användar-Node till en adresspool.
 
 ```azurecli-interactive
 az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
 ```
 
-## <a name="delete-a-system-node-pool"></a>Ta bort en systemnodpool
+## <a name="delete-a-system-node-pool"></a>Ta bort en pool för system-Node
 
 > [!Note]
-> Om du vill använda systemnodpooler i AKS-kluster före API-version 2020-03-02 lägger du till en ny systemnodpool och tar sedan bort den ursprungliga standardnodpoolen.
+> Om du vill använda AKS-kluster före API-version 2020-03-02 lägger du till en ny system-adresspool och tar sedan bort den ursprungliga standardnoden.
 
-Tidigare kunde du inte ta bort systemnodpoolen, som var den första standardnodpoolen i ett AKS-kluster. Du har nu flexibiliteten att ta bort en nodpool från klustren. Eftersom AKS-kluster kräver minst en systemnodpool måste du ha minst två systemnodpooler i AKS-klustret innan du kan ta bort en av dem.
+Tidigare kunde du inte ta bort noden system Node, som var den första standardnoden i ett AKS-kluster. Nu har du möjlighet att ta bort alla noder från klustren. Eftersom AKS-kluster kräver minst en adresspool måste du ha minst två resurspooler för system på ditt AKS-kluster innan du kan ta bort ett av dem.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
@@ -141,7 +141,7 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig hur du skapar och hanterar systemnodpooler i ett AKS-kluster. Mer information om hur du använder flera nodpooler finns i [använda flera nodpooler][use-multiple-node-pools].
+I den här artikeln har du lärt dig hur du skapar och hanterar system-nodkonfigurationer i ett AKS-kluster. Mer information om hur du använder flera Node-pooler finns i [använda flera noder][use-multiple-node-pools].
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

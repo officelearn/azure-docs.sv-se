@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Syntetisera tal, Java (Android) - Taltjänst'
+title: 'Snabb start: syntetisera tal, Java (Android) – tal service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du syntetiserar tal i Java på Android med hjälp av Tal SDK
+description: Lär dig mer om att syntetisera tal i Java på Android med hjälp av tal-SDK
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: yulili
 ms.openlocfilehash: d114e75a08f31a664772b84e19ec4d93b453af0b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274759"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 
 ## <a name="create-user-interface"></a>Skapa användargränssnitt
 
 Vi skapar ett grundläggande användargränssnitt för programmet. Redigera layouten för din huvudsakliga aktivitet, `activity_main.xml`. Inledningsvis innehåller layouten en namnlist med programmets namn och en TextView med texten ”Hello World!”.
 
-1. Klicka på elementet TextView. Ändra dess ID-attribut i det `outputMessage`övre högra hörnet till och dra det till den nedre skärmen. Ta bort texten.
+1. Klicka på elementet TextView. Ändra dess ID-attribut i det övre högra hörnet till `outputMessage`och dra det till den nedre skärmen. Ta bort dess text.
 
 1. I paletten i det övre vänstra hörnet i fönstret `activity_main.xml` drar du en knapp till det tomma utrymmet ovanför texten.
 
 1. I knappens attribut till höger, i värdet för attributet `onClick` anger du `onSpeechButtonClicked`. Vi skriver en metod med det här namnet att hantera knapphändelsen.  Ändra dess ID-attribut i det övre högra hörnet till `button`.
 
-1. Dra en oformaterad text till utrymmet ovanför knappen. ändra dess ID-attribut till `speakText`och `Hi there!`ändra textattributet till .
+1. Dra en oformaterad text till utrymmet ovanför knappen. ändra dess ID-attribut `speakText`till och ändra attributet text till `Hi there!`.
 
 1. Använd trollstavsikonen överst i designern för att härleda layoutbegränsningar.
 
@@ -54,7 +54,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/text-to-speech/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
-   * Metoden `onSpeechButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapptryckning utlöser talsyntes.
+   * Metoden `onSpeechButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapp tryckning utlöser tal syntes.
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
@@ -62,17 +62,17 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-1. Anslut din Android-enhet till utvecklingsdatorn. Kontrollera att du har aktiverat [utvecklingsläge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten. Alternativt kan du skapa en [Android-emulator](https://developer.android.com/studio/run/emulator).
+1. Anslut din Android-enhet till utvecklingsdatorn. Kontrollera att du har aktiverat [utvecklingsläge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten. Du kan också skapa en [Android-emulator](https://developer.android.com/studio/run/emulator).
 
-1. Om du vill skapa programmet trycker du på Ctrl+F9 eller väljer **Skapa** > **projekt** på menyraden.
+1. Skapa programmet genom att trycka på CTRL + F9 eller välja **skapa** > **skapa projekt** på Meny raden.
 
-1. Om du vill starta programmet trycker du på Skift+F10 eller väljer **Kör** > **kör "app".**
+1. Starta programmet genom att trycka på SKIFT + F10 eller välja **Kör** > **Kör "app"**.
 
-1. Välj din Android-enhet eller emulator i fönstret för distributionsmål som visas.
+1. I fönstret distributions mål som visas väljer du din Android-enhet eller emulator.
 
    ![Skärmbild av fönstret för att välja distributionsmål](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Skriv en text och tryck på knappen i programmet för att påbörja ett avsnitt med talsyntes. Du kommer att höra det syntetiserade ljudet `speech synthesis succeeded` från standardhögtalaren och se informationen på skärmen.
+Ange en text och tryck på knappen i programmet för att starta ett tal syntes avsnitt. Du får höra det syntetiserade ljudet från standard högtalaren och se `speech synthesis succeeded` informationen på skärmen.
 
 ![Skärmbild av Android-programmet](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-2-gui-on-device-tts.png)
 
@@ -83,4 +83,4 @@ Skriv en text och tryck på knappen i programmet för att påbörja ett avsnitt 
 ## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Spela in anpassade röstexempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

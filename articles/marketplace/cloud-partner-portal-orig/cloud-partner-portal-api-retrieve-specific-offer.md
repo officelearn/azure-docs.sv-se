@@ -1,6 +1,6 @@
 ---
-title: Hämta ett specifikt erbjudande-API | Azure Marketplace
-description: API hämtar det angivna erbjudandet inom utgivarens namnområde.
+title: Hämta ett API för en special erbjudande | Azure Marketplace
+description: 'API: n hämtar det angivna erbjudandet inom utgivarens namnrymd.'
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,24 +8,24 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: f2182ed2377a392f55af2c1f723be325bd518349
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255930"
 ---
-<a name="retrieve-a-specific-offer"></a>Hämta ett specifikt erbjudande
+<a name="retrieve-a-specific-offer"></a>Hämta ett Special erbjudande
 =========================
 
 > [!NOTE]
-> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna i [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
 
-Hämtar det angivna erbjudandet inom utgivarens namnområde.  
+Hämtar det angivna erbjudandet inom utgivarens namnrymd.  
 
-Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i utkast-, vy- eller produktionsplatser. Om en plats inte har angetts är `draft`standardvärdet . Om du försöker hämta ett erbjudande som inte har `404 Not Found` förhandsgranskats eller publicerats uppstår ett fel.
+Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i utkast-, visnings-eller produktions platser. Om ingen plats anges är `draft`standardvärdet. Om du försöker hämta ett erbjudande som inte har granskats eller publicerats leder det till ett `404 Not Found` fel.
 
 > [!WARNING]
-> De hemliga värdena för hemliga typfält hämtas inte av det här API:et.
+> De hemliga värdena för fälten för hemliga typer kommer inte att hämtas av detta API.
 
 ``` http
     GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
@@ -43,10 +43,10 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 
 | **Namn**    | **Beskrivning**                                                                          | **Datatyp** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Till exempel, Contoso                                                        | Sträng        |
-| offerId (erbjudandeId)     | Guid som unikt identifierar erbjudandet.                                                 | Sträng        |
-| version     | Version av erbjudandet som hämtas. Som standard hämtas den senaste erbjudandeversionen. | Integer       |
-| slotId (kortplats)      | Den plats från vilken erbjudandet ska hämtas, kan vara en av:      <br/>  - `Draft`(standard) hämtar erbjudandeversionen som för närvarande är i utkast.  <br/>  -  `Preview`hämtar erbjudandeversionen som för närvarande förhandsgranskas.     <br/>  -  `Production`hämtar erbjudandeversionen som för närvarande är i produktion.          |      Enum |
+| publisherId | publisherId. Till exempel contoso                                                        | Sträng        |
+| offerId     | GUID som unikt identifierar erbjudandet.                                                 | Sträng        |
+| version     | Version av erbjudandet som hämtas. Den senaste versionen av erbjudandet hämtas som standard. | Integer       |
+| slotId      | Den plats som erbjudandet ska hämtas från kan vara något av följande:      <br/>  - `Draft`(standard) hämtar erbjudande versionen för närvarande i utkastet.  <br/>  -  `Preview`hämtar den erbjudande version som för närvarande finns i för hands version.     <br/>  -  `Production`hämtar den erbjudande version som för närvarande finns i produktion.          |      räkning |
 | api-version | Senaste versionen av API                                                                    | Date          |
 |  |  |  |
 
@@ -61,7 +61,7 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 |  |  |
 
 
-<a name="body-example"></a>Exempel på brödtext
+<a name="body-example"></a>Body-exempel
 ------------
 
 ### <a name="response"></a>Svar
@@ -169,40 +169,40 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 ```
 
 
-### <a name="response-body-properties"></a>Egenskaper för svarstext
+### <a name="response-body-properties"></a>Egenskaper för svars text
 
 |  **Namn**       |   **Beskrivning**                                                                                                               |
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | Identifierar typen av erbjudande                                                                                                    |
 |  publisherId    | Utgivarens unika identifierare                                                                                              |
-|  status         | Erbjudandets status. Information om listan över möjliga värden finns i [Erbjudandestatus](#offer-status) nedan.                                  |
+|  status         | Status för erbjudandet. En lista över möjliga värden finns i [erbjudande status](#offer-status) nedan.                                  |
 |  Id             | GUID som unikt identifierar erbjudandet                                                                                         |
-|  version        | Aktuell version av erbjudandet. Versionsegenskapen kan inte ändras av klienten. Det ökas efter varje publicering.    |
-|  definition     | Faktisk definition av arbetsbelastningen                                                                                               |
-|  ändradTid    | UTC-datumtid när erbjudandet senast ändrades                                                                                   |
+|  version        | Aktuell version av erbjudandet. Det går inte att ändra versions egenskapen av klienten. Den ökar efter varje publicering.    |
+|  definition     | Faktisk definition av arbets belastningen                                                                                               |
+|  changedTime    | UTC datetime när erbjudandet senast ändrades                                                                                   |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Statuskoder för svar
+### <a name="response-status-codes"></a>Svars status koder
 
 | **Kod**  | **Beskrivning**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK`- Begäran har behandlats och alla erbjudanden under utgivaren returnerades till klienten.               |
-|  400      | `Bad/Malformed request`- Felsvarstexten kan innehålla mer information.                                                 |
-|  403      | `Forbidden`- Klienten har inte åtkomst till det angivna namnområdet.                                                        |
-|  404      | `Not found`- Den angivna entiteten finns inte. Klienten bör kontrollera publisherId, offerId och version (om det anges).      |
+|  200      | `OK`-Begäran har bearbetats och alla erbjudanden under utgivaren returnerades till klienten.               |
+|  400      | `Bad/Malformed request`– Fel svars texten kan innehålla mer information.                                                 |
+|  403      | `Forbidden`-Klienten har inte åtkomst till den angivna namn rymden.                                                        |
+|  404      | `Not found`-Den angivna entiteten finns inte. Klienten bör kontrol lera publisherId, offerId och version (om det anges).      |
 |  |  |
 
 
-### <a name="offer-status"></a>Status för erbjudande
+### <a name="offer-status"></a>Erbjudande status
 
 |  **Namn**                   |   **Beskrivning**                             |
 | --------------------------- |  -------------------------------------------- |
-|  Aldrigpublicerat             | Erbjudandet har aldrig publicerats.               |
-|  Inte startad                 | Erbjudandet är nytt men startas inte.              |
-|  Väntar påpublicerAreView  | Erbjudandet väntar på utgivarens godkännande.      |
-|  Körs                    | Inlämning av erbjudande bearbetas.          |
-|  Lyckades                  | Erbjudandet inlämning har slutfört behandlingen.    |
-|  Avbrutna                   | Inlämningen av erbjudandet avbröts.                |
-|  Misslyckades                     | Erbjudandet misslyckades.                      |
+|  NeverPublished             | Erbjudandet har aldrig publicerats.               |
+|  NotStarted                 | Erbjudandet är nytt men har inte startats.              |
+|  WaitingForPublisherReview  | Erbjudandet väntar på godkännande av utgivare.      |
+|  Körs                    | Överföring av erbjudande bearbetas.          |
+|  Lyckades                  | Bearbetningen av erbjudandet har slutförts.    |
+|  Avbrutna                   | Överföring av erbjudande avbröts.                |
+|  Misslyckades                     | Det gick inte att skicka erbjudandet.                      |
 |  |  |

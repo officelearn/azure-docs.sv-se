@@ -1,5 +1,5 @@
 ---
-title: Designvägledning för replikerade tabeller
+title: Design vägledning för replikerade tabeller
 description: Rekommendationer för att utforma replikerade tabeller i Synapse SQL
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -12,59 +12,59 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80990794"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Designvägledning för användning av replikerade tabeller i SQL Analytics
+# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Design Guide för att använda replikerade tabeller i SQL Analytics
 
-Den här artikeln innehåller rekommendationer för att utforma replikerade tabeller i SQL Analytics-schemat. Använd dessa rekommendationer för att förbättra frågeprestanda genom att minska dataflyttning och frågekomplexitet.
+Den här artikeln innehåller rekommendationer för att utforma replikerade tabeller i SQL Analytics-schemat. Använd dessa rekommendationer för att förbättra prestandan för frågor genom att minska data flytt och fråga efter komplexitet.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln förutsätter att du är bekant med datadistribution och datarörelsebegrepp i SQL Analytics.Mer information finns [architecture](massively-parallel-processing-mpp-architecture.md) i arkitekturartikeln.
+Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i SQL Analytics.Mer information finns i [arkitektur](massively-parallel-processing-mpp-architecture.md) artikeln.
 
-Som en del av tabelldesign, förstå så mycket som möjligt om dina data och hur data efterfrågas.Tänk dig till exempel följande frågor:
+Som en del av tabell designen förstår du så mycket som möjligt av dina data och hur data efter frågas.Överväg till exempel följande frågor:
 
-- Hur stort är bordet?
+- Hur stor är tabellen?
 - Hur ofta uppdateras tabellen?
-- Har jag fakta- och dimensionstabeller i en SQL Analytics-databas?
+- Har jag fakta-och dimensions tabeller i en SQL Analytics-databas?
 
 ## <a name="what-is-a-replicated-table"></a>Vad är en replikerad tabell?
 
-En replikerad tabell har en fullständig kopia av tabellen som är tillgänglig för varje beräkningsnod. När du replikerar en tabell behöver du inte överföra data till beräkningsnoder innan en koppling eller aggregering. Eftersom tabellen innehåller flera kopior fungerar replikerade tabeller bäst när tabellstorleken är mindre än 2 GB komprimerad.  2 GB är inte en hård gräns.  Om data är statiska och inte ändras kan du replikera större tabeller.
+En replikerad tabell innehåller en fullständig kopia av den tillgängliga tabellen på varje Compute-nod. När du replikerar en tabell behöver du inte överföra data till beräkningsnoder innan en koppling eller aggregering. Eftersom tabellen har flera kopior fungerar replikerade tabeller bäst när tabell storleken är mindre än 2 GB komprimerad.  2 GB är inte en hård gräns.  Om data är statiska och inte ändras kan du replikera större tabeller.
 
-Följande diagram visar en replikerad tabell som är tillgänglig för varje beräkningsnod. I SQL Analytics kopieras den replikerade tabellen helt till en distributionsdatabas på varje beräkningsnod.
+Följande diagram visar en replikerad tabell som är tillgänglig på varje Compute-nod. I SQL Analytics kopieras den replikerade tabellen fullständigt till en distributions databas på varje Compute-nod.
 
 ![Replikerad tabell](./media/design-guidance-for-replicated-tables/replicated-table.png "Replikerad tabell")  
 
-Replikerade tabeller fungerar bra för dimensionstabeller i ett stjärnschema. Dimensionstabeller är vanligtvis kopplade till faktatabeller som fördelas på ett annat sätt än dimensionstabellen.  Dimensioner är vanligtvis av en storlek som gör det möjligt att lagra och underhålla flera kopior. Dimensioner lagrar beskrivande data som ändras långsamt, till exempel kundens namn och adress, och produktinformation. Datas långsamt föränderliga karaktär leder till mindre underhåll av den replikerade tabellen.
+Replikerade tabeller fungerar bra för dimensions tabeller i ett stjärn schema. Dimensions tabeller är vanligt vis kopplade till fakta tabeller som distribueras annorlunda än dimensions tabellen.  Dimensioner är vanligt vis en storlek som gör det möjligt att lagra och underhålla flera kopior. Dimensioner lagrar beskrivande data som ändras långsamt, t. ex. kundnamn och adress samt produkt information. Dataens långsammaste föränderliga natur leder till mindre underhåll av den replikerade tabellen.
 
 Överväg att använda en replikerad tabell när:
 
-- Tabellstorleken på disken är mindre än 2 GB, oavsett antalet rader. Om du vill hitta storleken på en tabell kan du `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`använda kommandot [DBCC PDW_SHOWSPACEUSED:](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
-- Tabellen används i kopplingar som annars skulle kräva dataflyttning. När du sammanfogar tabeller som inte distribueras i samma kolumn, till exempel en hash-distribuerad tabell till en round-robin-tabell, krävs dataförflyttning för att slutföra frågan.  Om en av tabellerna är liten bör du överväga en replikerad tabell. Vi rekommenderar att du använder replikerade tabeller i stället för round-robin-tabeller i de flesta fall. Om du vill visa dataflyttningar i frågeplaner använder [du sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  BroadcastMoveOperation är den typiska dataflyttningsåtgärden som kan elimineras med hjälp av en replikerad tabell.  
+- Tabell storleken på disken är mindre än 2 GB, oavsett antalet rader. Du kan använda [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kommandot för att hitta storleken på en tabell: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
+- Tabellen används i kopplingar som annars kräver data förflyttning. När du kopplar ihop tabeller som inte är distribuerade i samma kolumn, till exempel en hash-distribuerad tabell till en Round Robin-tabell, krävs data flytt för att slutföra frågan.  Om en av tabellerna är liten bör du tänka på en replikerad tabell. Vi rekommenderar att du använder replikerade tabeller i stället för Round-Robin-tabeller i de flesta fall. Använd [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)om du vill visa åtgärder för data förflyttning i fråge planer.  BroadcastMoveOperation är den typiska data flytt åtgärden som kan elimineras med hjälp av en replikerad tabell.  
 
-Replikerade tabeller kanske inte ger bäst frågeprestanda när:
+Replikerade tabeller kanske inte ger bästa prestanda för frågor när:
 
-- Tabellen har frekventa infognings-, uppdaterings- och borttagningsåtgärder.DML-åtgärderna (Data manipulation language) kräver en ombyggnad av den replikerade tabellen.Ombyggnad ofta kan orsaka långsammare prestanda.
-- SQL Analytics-databasen skalas ofta. Skalning av en SQL Analytics-databas ändrar antalet beräkningsnoder, vilket medför att återskapa den replikerade tabellen.
-- Tabellen har ett stort antal kolumner, men dataåtgärder kommer vanligtvis bara åt ett litet antal kolumner. I det här fallet, i stället för att replikera hela tabellen, kan det vara mer effektivt att distribuera tabellen och sedan skapa ett index på de kolumner som används ofta. När en fråga kräver dataflyttning flyttar SQL Analytics bara data för de begärda kolumnerna.
+- Tabellen har ofta Infoga-, uppdaterings-och borttagnings åtgärder.DML-åtgärder (Data Manipulation Language) kräver en återskapning av den replikerade tabellen.Återskapande av ofta kan orsaka sämre prestanda.
+- SQL Analytics-databasen skalas ofta. Om du skalar en SQL Analytics-databas ändras antalet datornoder, vilket innebär att den replikerade tabellen återskapas.
+- Tabellen har ett stort antal kolumner, men data åtgärder använder vanligt vis bara ett litet antal kolumner. I det här scenariot, i stället för att replikera hela tabellen, kan det vara mer effektivt att distribuera tabellen och sedan skapa ett index på kolumnerna som används ofta. När en fråga kräver data förflyttning flyttar SQL Analytics endast data för de begärda kolumnerna.
 
-## <a name="use-replicated-tables-with-simple-query-predicates"></a>Använda replikerade tabeller med enkla frågepredikater
+## <a name="use-replicated-tables-with-simple-query-predicates"></a>Använda replikerade tabeller med enkla frågenoder
 
-Innan du väljer att distribuera eller replikera en tabell bör du tänka på vilka typer av frågor du planerar att köra mot tabellen. När det är möjligt,
+Innan du väljer att distribuera eller replikera en tabell bör du tänka på vilka typer av frågor du planerar att köra mot tabellen. När det är möjligt
 
-- Använd replikerade tabeller för frågor med enkla frågepredikater, till exempel likhet eller ojämlikhet.
-- Använd distribuerade tabeller för frågor med komplexa frågepredikater, till exempel GILLA eller INTE.
+- Använd replikerade tabeller för frågor med enkla frågenoder, till exempel likhet eller olikhet.
+- Använd distribuerade tabeller för frågor med komplexa frågenoder, till exempel gilla eller inte gilla.
 
-CPU-intensiva frågor fungerar bäst när arbetet distribueras över alla beräkningsnoder. Frågor som kör beräkningar på varje rad i en tabell presterar till exempel bättre på distribuerade tabeller än replikerade tabeller. Eftersom en replikerad tabell lagras i sin helhet på varje beräkningsnod körs en CPU-intensiv fråga mot en replikerad tabell mot hela tabellen på varje beräkningsnod. Den extra beräkningen kan göra frågeprestanda långsammare.
+CPU-intensiva frågor fungerar bäst när arbetet är fördelat på alla Compute-noder. Till exempel fungerar frågor som kör beräkningar på varje rad i en tabell bättre på distribuerade tabeller än replikerade tabeller. Eftersom en replikerad tabell lagras fullständigt på varje Compute-nod körs en processor intensiv fråga mot en replikerad tabell mot hela tabellen på varje Compute-nod. Den extra beräkningen kan sänka prestandan för frågor.
 
-Den här frågan har till exempel ett komplext predikat.  Den körs snabbare när data finns i en distribuerad tabell i stället för en replikerad tabell. I det här exemplet kan data distribueras av avrundning.
+Den här frågan har till exempel ett komplext predikat.  Den körs snabbare när data finns i en distribuerad tabell i stället för en replikerad tabell. I det här exemplet kan data fördelas med resursallokering.
 
 ```sql
 
@@ -74,11 +74,11 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 ```
 
-## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Konvertera befintliga round robin-tabeller till replikerade tabeller
+## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Konvertera befintliga Round Robin-tabeller till replikerade tabeller
 
-Om du redan har round-robin-tabeller rekommenderar vi att du konverterar dem till replikerade tabeller om de uppfyller de villkor som beskrivs i den här artikeln. Replikerade tabeller förbättrar prestanda jämfört med round-robin-tabeller eftersom de eliminerar behovet av dataförflyttning.  En round-robin-tabell kräver alltid dataförflyttning för kopplingar.
+Om du redan har en Round-Robin-tabell rekommenderar vi att du konverterar dem till replikerade tabeller om de uppfyller de kriterier som beskrivs i den här artikeln. Replikerade tabeller ger bättre prestanda över Round-Robin-tabeller eftersom de eliminerar behovet av data förflyttning.  En Round-Robin-tabell kräver alltid data förflyttning för kopplingar.
 
-I det här exemplet används [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att ändra dimsalesterritorytabellen till en replikerad tabell. Det här exemplet fungerar oavsett om DimSalesTerritory är hash-distribuerad eller round-robin.
+I det här exemplet används [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att ändra DimSalesTerritory-tabellen till en replikerad tabell. Det här exemplet fungerar oavsett om DimSalesTerritory är hash-Distributed eller Round-Robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
@@ -97,11 +97,11 @@ RENAME OBJECT [dbo].[DimSalesTerritory_REPLICATE] TO [DimSalesTerritory];
 DROP TABLE [dbo].[DimSalesTerritory_old];
 ```
 
-### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Frågeprestandaexempel för round-robin kontra replikerad
+### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Exempel på prestanda frågor för resursallokering med resursallokering och replikerad
 
-En replikerad tabell kräver ingen dataflyttning för kopplingar eftersom hela tabellen redan finns på varje beräkningsnod. Om dimensionstabellerna är deladee varandra kopierar en koppling dimensionstabellen i sin helhet till varje beräkningsnod. Om du vill flytta data innehåller frågeplanen en åtgärd som kallas BroadcastMoveOperation. Den här typen av dataförflyttningsåtgärd gör frågeprestanda långsammare och elimineras med hjälp av replikerade tabeller. Om du vill visa frågeplanssteg använder du [systemkatalogvyn sys.dm_pdw_request_steps.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+En replikerad tabell kräver ingen data förflyttning för kopplingar eftersom hela tabellen redan finns på varje Compute-nod. Om dimensions tabellerna har distribuerats med resursallokering, kopierar en koppling dimensions tabellen i fullständig till varje Compute-nod. För att flytta data innehåller frågeuttrycket en åtgärd som kallas BroadcastMoveOperation. Den här typen av data förflyttnings åtgärd saktar ned frågans prestanda och elimineras genom att använda replikerade tabeller. Om du vill visa plan stegen för planen använder du system katalog visningen [sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  
 
-I följande fråga mot AdventureWorks-schemat `FactInternetSales` är tabellen till exempel hash-distribuerad. `DimDate` Tabellerna `DimSalesTerritory` och är mindre dimensionstabeller. Den här frågan returnerar den totala försäljningen i Nordamerika för räkenskapsåret 2004:
+I följande fråga mot AdventureWorks-schemat är `FactInternetSales` tabellen till exempel hash-distribuerad. Tabellerna `DimDate` och `DimSalesTerritory` är mindre dimensions tabeller. Den här frågan returnerar den totala försäljningen i Nordamerika för räkenskapsår 2004:
 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
@@ -114,63 +114,63 @@ WHERE d.FiscalYear = 2004
   AND t.SalesTerritoryGroup = 'North America'
 ```
 
-Vi återskapade `DimDate` `DimSalesTerritory` och som round-robin bord. Som ett resultat visade frågan följande frågeplan, som har flera broadcast-flyttåtgärder:
+Vi återskapar `DimDate` och `DimSalesTerritory` som Round-Robin-tabeller. Därför visade frågan följande frågeplan, som har flera sändnings flyttnings åtgärder:
 
-![Frågeplan för round-robin](./media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg)
+![Frågeplan med resursallokering](./media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg)
 
-Vi återskapade `DimDate` `DimSalesTerritory` och som replikerade tabeller och körde frågan igen. Den resulterande frågeplanen är mycket kortare och har inga broadcast-rörelser.
+Vi återskapar `DimDate` och `DimSalesTerritory` replikerade tabeller och körde frågan igen. Den resulterande frågeplan är mycket kortare och har inga sändnings flyttningar.
 
 ![Replikerad frågeplan](./media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg)
 
-## <a name="performance-considerations-for-modifying-replicated-tables"></a>Prestandaöverväganden för ändring av replikerade tabeller
+## <a name="performance-considerations-for-modifying-replicated-tables"></a>Prestanda överväganden vid ändring av replikerade tabeller
 
-SQL Analytics implementerar en replikerad tabell genom att underhålla en huvudversion av tabellen. Huvudversionen kopieras till den första distributionsdatabasen på varje beräkningsnod. När det sker en ändring uppdaterar SQL Analytics först huvudversionen och återskapar sedan tabellerna på varje beräkningsnod. En ombyggnad av en replikerad tabell inkluderar att kopiera tabellen till varje beräkningsnod och sedan skapa indexen.  En replikerad tabell på en DW2000c har till exempel 5 kopior av data.  En huvudkopia och en fullständig kopia på varje beräkningsnod.  Alla data lagras i distributionsdatabaser. SQL Analytics använder den här modellen för att stödja snabbare dataändringssatser och flexibla skalningsåtgärder.
+SQL Analytics implementerar en replikerad tabell genom att underhålla en huvud version av tabellen. Den kopierar huvud versionen till den första distributions databasen på varje Compute-nod. När det sker en ändring uppdaterar SQL Analytics huvud versionen och sedan återbyggs tabellerna på varje datornod. En återskapning av en replikerad tabell omfattar att kopiera tabellen till varje Compute-nod och sedan skapa index.  Till exempel har en replikerad tabell på en DW2000c fem kopior av data.  En huvud kopia och en fullständig kopia på varje Compute-nod.  Alla data lagras i distributions databaser. SQL Analytics använder den här modellen för att stödja snabbare data ändrings instruktioner och flexibla skalnings åtgärder.
 
-Ombyggnader krävs efter:
+Återuppbyggnad krävs efter:
 
 - Data läses in eller ändras
 - Synapse SQL-instansen skalas till en annan nivå
-- Tabelldefinitionen uppdateras
+- Tabell definitionen har uppdaterats
 
-Ombyggnader krävs inte efter:
+Återuppbyggnadar krävs inte efter:
 
 - Pausa åtgärd
-- Återuppta åtgärden
+- Återuppta åtgärd
 
-Återskapandet sker inte omedelbart efter att data har ändrats. I stället utlöses ombyggnaden första gången en fråga väljs från tabellen.  Frågan som utlöste återskapan läser omedelbart från huvudversionen av tabellen medan data asynkront kopieras till varje beräkningsnod. Tills datakopian är klar fortsätter efterföljande frågor att använda huvudversionen av tabellen.  Om någon aktivitet inträffar mot den replikerade tabellen som tvingar en annan ombyggnad, är datakopian ogiltig och nästa select-sats utlöser data som ska kopieras igen.
+Återskapning sker inte omedelbart efter att data har ändrats. I stället utlöses omgenereringen första gången en fråga väljs från tabellen.  Frågan som utlöste återställnings läsningarna direkt från huvud versionen av tabellen medan data kopieras asynkront till varje Compute-nod. När data kopieringen är klar fortsätter de efterföljande frågorna att använda huvud versionen av tabellen.  Om en aktivitet sker mot den replikerade tabellen som tvingar fram en ny återskapning, är data kopian ogiltig och nästa SELECT-instruktion kommer att utlösa data som ska kopieras igen.
 
-### <a name="use-indexes-conservatively"></a>Använd index försiktigt
+### <a name="use-indexes-conservatively"></a>Använda index försiktigt
 
-Standardindexeringsmetoder gäller för replikerade tabeller. SQL Analytics återskapar varje replikerat tabellindex som en del av återskapandet. Använd endast index när resultatökningen uppväger kostnaden för att återskapa indexen.
+Standard indexerings metoder gäller för replikerade tabeller. SQL Analytics återskapar varje replikerat tabell index som en del av återuppbyggnaden. Använd bara index när prestanda ökningen förväger kostnaden för att återskapa indexen.
 
-### <a name="batch-data-load"></a>Batchdatainläsning
+### <a name="batch-data-load"></a>Inläsning av batch-data
 
-När du läser in data i replikerade tabeller, försök att minimera ombyggnader genom batchning laster tillsammans. Utför alla batchade laster innan du kör select-satser.
+När du läser in data i replikerade tabeller kan du försöka minimera återställningarna genom att gruppera. Utför alla batch-inläsningar innan SELECT-instruktioner körs.
 
-Det här inläsningsmönstret läser till exempel in data från fyra källor och anropar fyra ombyggnader.
+Exempelvis läser det här inläsnings mönstret data från fyra källor och anropar fyra återuppbyggnadar.
 
         Load from source 1.
-- Välj satsutlösare ombyggnad 1.
-        Ladda från källa 2.
-- Välj satsutlösare ombyggnad 2.
-- Ladda från källa 3.
-- Välj satsutlösare ombyggnad 3.
-- Ladda från källa 4.
-- Välj satsutlösare ombyggnad 4.
+- Välj instruktion utlösare återskapa 1.
+        Läs in från källa 2.
+- Select Statement triggers build 2.
+- Läs in från källa 3.
+- Select Statement triggers build 3.
+- Läs in från källa 4.
+- Select Statement triggers build 4.
 
-Det här inläsningsmönstret läser till exempel in data från fyra källor, men anropar bara en ombyggnad.
+Till exempel läser det här inläsnings mönstret data från fyra källor, men anropar bara en återskapning.
 
-- Ladda från källa 1.
-- Ladda från källa 2.
-- Ladda från källa 3.
-- Ladda från källa 4.
-- Välj utdragsutlösare.
+- Läs in från källa 1.
+- Läs in från källa 2.
+- Läs in från källa 3.
+- Läs in från källa 4.
+- Välj instruktion utlösare återskapa.
 
-### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Återskapa en replikerad tabell efter en batchbelastning
+### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Återskapa en replikerad tabell efter en batch-inläsning
 
-För att säkerställa konsekventa frågekörningstider bör du överväga att tvinga fram byggandet av de replikerade tabellerna efter en batchbelastning. Annars kommer den första frågan fortfarande att använda dataförflyttning för att slutföra frågan.
+För att säkerställa konsekvent körning av frågor, kan du överväga att tvinga fram skapandet av de replikerade tabellerna efter en batch-belastning. Annars kommer den första frågan fortfarande använda data förflyttning för att slutföra frågan.
 
-Den här frågan använder [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV för att lista de replikerade tabeller som har ändrats, men inte återskapats.
+Den här frågan använder [sys. pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV för att visa en lista över replikerade tabeller som har ändrats, men inte återskapas.
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
@@ -183,7 +183,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
 
-Om du vill utlösa en ombyggnad kör du följande sats på varje tabell i föregående utdata.
+Om du vill utlösa en återskapning kör du följande instruktion på varje tabell i föregående utdata.
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
@@ -191,9 +191,9 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill skapa en replikerad tabell använder du någon av dessa satser:
+Använd någon av följande instruktioner för att skapa en replikerad tabell:
 
-- [SKAPA TABELL (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [SKAPA TABELL SOM SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE som SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 En översikt över distribuerade tabeller finns i [distribuerade tabeller](sql-data-warehouse-tables-distribute.md).

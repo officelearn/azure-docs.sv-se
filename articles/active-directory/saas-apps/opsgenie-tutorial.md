@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med OpsGenie | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med OpsGenie | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och OpsGenie.
 services: active-directory
 documentationCenter: na
@@ -15,179 +15,179 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 8cf82827258b3888f4c30ad39a395d697a518a32
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81261114"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med OpsGenie
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med OpsGenie
 
 I den här självstudien får du lära dig hur du integrerar OpsGenie med Azure Active Directory (Azure AD). När du integrerar OpsGenie med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till OpsGenie.
-* Gör att användarna automatiskt loggas in på OpsGenie med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till OpsGenie med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* OpsGenie enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* OpsGenie för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* OpsGenie stöder **IDP** initierad SSO
-* När du har konfigurerat OpsGenie kan du framtvinga sessionskontroll, vilket skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* OpsGenie stöder **IDP** INITIERAd SSO
+* När du har konfigurerat OpsGenie kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-opsgenie-from-the-gallery"></a>Lägga till OpsGenie från galleriet
 
 Om du vill konfigurera integreringen av OpsGenie i Azure AD måste du lägga till OpsGenie från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **OpsGenie** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **OpsGenie** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **OpsGenie** i sökrutan.
+1. Välj **OpsGenie** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-opsgenie"></a>Konfigurera och testa en azure AD-inloggning för OpsGenie
+## <a name="configure-and-test-azure-ad-single-sign-on-for-opsgenie"></a>Konfigurera och testa enkel inloggning med Azure AD för OpsGenie
 
-Konfigurera och testa Azure AD SSO med OpsGenie med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i OpsGenie.
+Konfigurera och testa Azure AD SSO med OpsGenie med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i OpsGenie.
 
-Så här konfigurerar och testar du Azure AD SSO med OpsGenie:
+Om du vill konfigurera och testa Azure AD SSO med OpsGenie, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera OpsGenie SSO](#configure-opsgenie-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    * **[Skapa OpsGenie-testanvändare](#create-opsgenie-test-user)** – om du vill ha en motsvarighet till B.Simon i OpsGenie som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera OPSGENIE SSO](#configure-opsgenie-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Skapa OpsGenie test User](#create-opsgenie-test-user)** -om du vill ha en motsvarighet till B. Simon i OpsGenie som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet Hantera på sidan Hantera på sidan **OpsGenie** [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**. **Manage**
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **OpsGenie** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://app.opsginie.com/auth/saml/<UNIQUEID>`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://app.opsginie.com/auth/saml/<UNIQUEID>`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://app.opsginie.com/auth/saml?id=<UNIQUEID>`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://app.opsginie.com/auth/saml?id=<UNIQUEID>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med url:en för faktisk identifierare och svar, vilket förklaras senare i den här självstudien.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren och svars-URL, vilket beskrivs senare i den här självstudien.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-1. Kopiera lämpliga webbadresser baserat på dina behov i avsnittet **Konfigurera OpsGenie.**
+1. I avsnittet **Konfigurera OpsGenie** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till OpsGenie.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till OpsGenie.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **OpsGenie**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **OpsGenie**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ## <a name="configure-opsgenie-sso"></a>Konfigurera OpsGenie SSO
 
-1. Öppna en annan webbläsarinstans och logga sedan in på OpsGenie som administratör.
+1. Öppna en annan webb läsar instans och logga sedan in på OpsGenie som administratör.
 
-2. Klicka på **Inställningar**och sedan på fliken **Enkel inloggning.**
+2. Klicka på **Inställningar**och klicka sedan på fliken **enkel inloggning** .
    
     ![OpsGenie enkel inloggning](./media/opsgenie-tutorial/tutorial-opsgenie-06.png)
 
-3. Om du vill aktivera SSO väljer du **Aktiverad**.
+3. Om du vill aktivera SSO väljer du **aktive rad**.
    
-    ![Inställningar för OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
-4. Klicka på fliken **Azure Active Directory** i avsnittet **Provider.**
+4. I avsnittet **Provider** klickar du på fliken **Azure Active Directory** .
    
-    ![Inställningar för OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
-5. Gör följande på dialogsidan i Azure Active Directory:
+5. Utför följande steg på dialog sidan Azure Active Directory:
    
-    ![Inställningar för OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
-    a. Kopiera **app-ID URI-värdet** och klistra in det i textrutan **Identifierare (Entitets-ID)** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    a. Kopiera **app-ID-URI** -värdet och klistra in det i ID-rutan för **identifierare (enhets-ID)** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    a. Kopiera **värdet svara på URL** och klistra in det i textrutan **Svara på URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    a. Kopiera **svars-URL** -värdet och klistra in det i text rutan för **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    a. I **sms-textrutan SAML 2.0** klistrar du in **url-värde**för inloggning som du har kopierat från Azure-portalen.
+    a. I text rutan **slut punkt för SAML 2,0** klistrar du in **inloggnings-URL**-värdet som du har kopierat från Azure Portal.
     
-    b. I **metadataadressen:** textrutan klistrar du in **url-värdet för App Federation Metadata** som du har kopierat från Azure-portalen.
+    b. I text rutan **metadata-URL:** klistrar du in URL-värdet för **app Federation-Metadata** som du har kopierat från Azure Portal.
     
-    c. Om du vill aktivera SSO aktiverar du växlingsknappen **Aktivera enkel inloggning.**
+    c. Aktivera Aktivera **enkel inloggning** för att aktivera SSO.
 
     d. Klicka på **Använd SSO-inställningar**.
 
-### <a name="create-opsgenie-test-user"></a>Skapa OpsGenie-testanvändare
+### <a name="create-opsgenie-test-user"></a>Skapa OpsGenie test användare
 
-Syftet med det här avsnittet är att skapa en användare som heter B.Simon i OpsGenie. 
+Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i OpsGenie. 
 
 1. Logga in på din OpsGenie-klient som administratör i ett webbläsarfönster.
 
-2. Navigera till listan Användare genom att klicka på **Användare** på den vänstra panelen.
+2. Navigera till listan användare genom att klicka på **användare** i den vänstra panelen.
    
-    ![Inställningar för OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-10.png) 
+    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-10.png) 
 
 3. Klicka på **Lägg till användare**.
 
 4. I dialogrutan **Lägg till användare** utför du följande steg:
    
-    ![Inställningar för OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![OpsGenie-inställningar](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
-    a. Skriv e-postadressen till B.Simon i Azure Active Directory i **textrutan e-post.**
+    a. I text rutan **e-post** skriver du e-postadressen för B. Simon-adresserad i Azure Active Directory.
    
-    b. Skriv **B.Simon**i textrutan **Fullständigt namn** .
+    b. Skriv **B. Simon**i text rutan **fullständigt namn** .
    
     c. Klicka på **Spara**. 
 
 > [!NOTE]
-> B.Simon får ett e-postmeddelande med instruktioner för hur du konfigurerar sin profil.
+> B. Simon får ett e-postmeddelande med anvisningar för att konfigurera profilen.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på OpsGenie-panelen på åtkomstpanelen ska du automatiskt loggas in på opsGenie som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen OpsGenie på åtkomst panelen, bör du loggas in automatiskt på den OpsGenie som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -199,4 +199,4 @@ När du klickar på OpsGenie-panelen på åtkomstpanelen ska du automatiskt logg
 
 - [Prova OpsGenie med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Känna igen tal från en mikrofon, C# (Xamarin) - Taltjänst'
+title: 'Snabb start: identifiera tal från en mikrofon, C# (Xamarin) – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln skapar du ett C# Xamarin-program över flera plattformar för UWP(Universal Windows Platform), Android och iOS med hjälp av Cognitive Services Speech SDK. Du transkriberar tal till text i realtid från enhetens eller simulatorns mikrofon. Programmet är byggt med Speech SDK NuGet Package och Microsoft Visual Studio 2019.
+description: I den här artikeln skapar du ett plattforms oberoende C# Xamarin-program för Universell Windows-plattform (UWP), Android och iOS med hjälp av Cognitive Services Speech SDK. Du kan skriva tal i text i real tid från enhetens eller Simulatorns mikrofon. Programmet har skapats med tal SDK NuGet-paketet och Microsoft Visual Studio 2019.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
 ms.openlocfilehash: c9bcd301b19252cedd9ac9a1867ccf132a537587
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275576"
 ---
 ## <a name="prerequisites"></a>Krav
@@ -22,127 +22,127 @@ ms.locfileid: "81275576"
 Innan du börjar:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
-> * Se till att du har tillgång till en mikrofon för ljudinspelning
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
-Om du redan har gjort det här, bra. Låt oss fortsätta.
+Om du redan har gjort detta är det bra. Vi fortsätter.
 
-## <a name="add-sample-code-for-the-common-helloworld-project"></a>Lägg till exempelkod för det gemensamma helloworld-projektet
+## <a name="add-sample-code-for-the-common-helloworld-project"></a>Lägg till exempel kod för det vanliga HelloWorld-projektet
 
-Det gemensamma helloworld-projektet innehåller plattformsoberoende implementeringar för ditt plattformsoberoende program. Lägg nu till XAML-koden som definierar programmets användargränssnitt och lägg till C#-koden bakom implementeringen.
+Det vanliga projektet HelloWorld innehåller plattforms oberoende implementeringar för ditt plattforms oberoende program. Lägg nu till XAML-koden som definierar användar gränssnittet för programmet och Lägg till C#-koden bakom implementeringen.
 
-1. Öppna **i Solution Explorer**, under `MainPage.xaml`det gemensamma helloworld-projektet .
+1. I **Solution Explorer**går du till det vanliga HelloWorld-projektet `MainPage.xaml`och öppnar.
 
-1. I designerns XAML-vy infogar du följande XAML-kodavsnitt `<StackLayout>` `</StackLayout>`i **rutnätstaggen** mellan och:
+1. I designerns XAML-vy infogar du följande XAML-kodfragment i **Rutnäts** tag gen `<StackLayout>` mellan `</StackLayout>`och:
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/MainPage.xaml)]
 
-1. Öppna **Solution Explorer**den bakomgående källfilen `MainPage.xaml.cs`för kod bakom i Solution Explorer . Det är grupperat `MainPage.xaml`under .
+1. Öppna **Solution Explorer**käll filen `MainPage.xaml.cs`bakomliggande kod i Solution Explorer. Den är grupperad `MainPage.xaml`under.
 
-1. Ersätt all kod i den med följande utdrag:
+1. Ersätt all kod i den med följande kodfragment:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/MainPage.xaml.cs)]
 
-1. Leta reda på `OnRecognitionButtonClicked` strängen `YourSubscriptionKey`i källfilens hanterare och ersätt den med prenumerationsnyckeln.
+1. Leta upp strängen `YourSubscriptionKey`i käll `OnRecognitionButtonClicked` filens hanterare och ersätt den med din prenumerations nyckel.
 
 
-1. Leta `OnRecognitionButtonClicked` reda på strängen `YourServiceregion`i hanteraren och ersätt den med **regionidentifieraren** från [den region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. (Använd `westus` till exempel för den kostnadsfria provprenumerationen.)
+1. Leta upp `OnRecognitionButtonClicked` strängen `YourServiceregion`i hanteraren och ersätt den med **regions-ID: n** från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. (Använd `westus` till exempel för den kostnads fria prov prenumerationen.)
 
-1. Därefter måste du skapa en [Xamarin-tjänst](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), som används för att fråga mikrofonbehörigheter från olika plattformsprojekt, till exempel UWP, Android och iOS. Det gör du genom att lägga till en ny mapp med namnet *Tjänster* under helloworld-projektet och skapa en ny C#-källfil under den. Du kan högerklicka på mappen *Tjänster* och välja **Lägg till** > ny**artikelkodfil****New Item** > . Byt namn `IMicrophoneService.cs`på filen och placera all kod från följande utdrag i filen:
+1. Därefter måste du skapa en [Xamarin-tjänst](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)som används för att fråga mikrofon behörigheter från olika plattforms projekt, till exempel UWP, Android och iOS. Det gör du genom att lägga till en ny mapp med namnet *tjänster* i projektet HelloWorld och skapa en ny C#-källfil under den. Du kan högerklicka på mappen *tjänster* och välja **Lägg till** > **ny objekt** > **kod fil**. Byt namn på `IMicrophoneService.cs`filen och placera all kod från följande kodfragment i filen:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
 #### <a name="android"></a>[Android](#tab/x-android)
-## <a name="add-sample-code-for-the-helloworldandroid-project"></a>Lägga till exempelkod för `helloworld.Android` projektet
+## <a name="add-sample-code-for-the-helloworldandroid-project"></a>Lägg till exempel kod för `helloworld.Android` projektet
 
 Lägg nu till C#-koden som definierar den Android-specifika delen av programmet.
 
-1. I **Solution Explorer**, under helloworld. Android-projekt, `MainActivity.cs`öppna .
+1. I **Solution Explorer**under HelloWorld. Android-projekt, `MainActivity.cs`öppna.
 
-1. Ersätt all kod i den med följande utdrag:
+1. Ersätt all kod i den med följande kodfragment:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.Android/MainActivity.cs)]
 
-1. Lägg sedan till Android-specifik implementering för `MicrophoneService` genom att skapa den nya mappen *Tjänster* under helloworld. Android-projektet. Därefter skapar du en ny C#-källfil under den. Byt namn `MicrophoneService.cs`på filen . Kopiera och klistra in följande kodavsnitt i filen:
+1. Lägg sedan till Android-speciell implementering för `MicrophoneService` genom att skapa de nya *mapparna i mappen* HelloWorld. Android-projekt. Därefter skapar du en ny C#-källfil under den. Byt namn på `MicrophoneService.cs`filen. Kopiera och klistra in följande kod avsnitt i filen:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.Android/Services/MicrophoneService.cs)]
 
-1. Därefter öppnar `AndroidManifest.xml` du under mappen *Egenskaper.* Lägg till följande inställning för användningsbehörighet för mikrofonen mellan `<manifest>` och: `</manifest>`
+1. Efter det öppnar `AndroidManifest.xml` du under mappen *Egenskaper* . Lägg till följande användning – behörighets inställning för mikrofonen `<manifest>` mellan `</manifest>`och:
 
    ```xml
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
    ```
    
 #### <a name="ios"></a>[iOS](#tab/ios)
-## <a name="add-sample-code-for-the-helloworldios-project"></a>Lägga till exempelkod för `helloworld.iOS` projektet
+## <a name="add-sample-code-for-the-helloworldios-project"></a>Lägg till exempel kod för `helloworld.iOS` projektet
 
-Lägg nu till C#-koden som definierar den iOS-specifika delen av programmet. Skapa även Apple-enhetsspecifika konfigurationer till helloworld.iOS-projektet.
+Lägg nu till C#-koden som definierar den iOS-specifika delen av programmet. Skapa även Apple-enhetsspecifika konfigurationer i projektet HelloWorld. iOS.
 
-1. Öppna i **Solution Explorer**under helloworld.iOS-projektet `AppDelegate.cs`.
+1. I **Solution Explorer**, under projektet HelloWorld. iOS, öppnar `AppDelegate.cs`du.
 
-1. Ersätt all kod i den med följande utdrag:
+1. Ersätt all kod i den med följande kodfragment:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.iOS/AppDelegate.cs)]
 
-1. Lägg sedan till iOS-specifik implementering för `MicrophoneService` genom att skapa den nya mappen *Tjänster* under helloworld.iO projektet. Därefter skapar du en ny C#-källfil under den. Byt namn `MicrophoneService.cs`på filen . Kopiera och klistra in följande kodavsnitt i filen:
+1. Lägg sedan till iOS-speciell implementering för `MicrophoneService` genom att skapa de nya *mapparna* i HelloWorld.io-projektet. Därefter skapar du en ny C#-källfil under den. Byt namn på `MicrophoneService.cs`filen. Kopiera och klistra in följande kod avsnitt i filen:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.iOS/Services/MicrophoneService.cs)]
 
-1. Öppna `Info.plist` under helloworld.iOS-projektet i textredigeraren. Lägg till följande nyckelvärdepar under diktavsnittet:
+1. Öppna `Info.plist` under projektet HelloWorld. iOS i text redigeraren. Lägg till följande nyckel värde par under avsnittet Dictation:
 
    <key>NSMicrophoneUsageDescription</key>
-   <string>Den här exempelappen kräver åtkomst till mikrofon</string>
+   <string>den här exempel appen kräver åtkomst till mikrofonen</string>
 
    > [!NOTE]
-   > Om du skapar för en iPhone-enhet kontrollerar du att enhetens `Bundle Identifier` etableringsprofilapp-ID matchar. Annars misslyckas bygget. Med iPhoneSimulator kan du lämna det som det är.
+   > Om du skapar för en iPhone-enhet måste du kontrol `Bundle Identifier` lera att matchar enhetens etablerings profil app-ID. Annars Miss kommer versionen. Med iPhoneSimulator kan du lämna den som den är.
 
-1. Om du bygger på en Windows-dator upprättar du en anslutning till Mac-enheten för att bygga via **Tools** > **iOS** > **Pair to Mac**. Följ instruktionsguiden från Visual Studio för att aktivera anslutningen till Mac-enheten.
+1. Om du bygger på en Windows-dator upprättar du en anslutning till Mac-enheten för att bygga via **Tools** > **iOS** > -**paret till Mac**. Följ anvisningarna i Visual Studio för att aktivera anslutningen till Mac-enheten.
 
 #### <a name="uwp"></a>[UWP](#tab/helloworlduwp)
-## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Lägga till exempelkod för `helloworld.UWP` projektet
+## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Lägg till exempel kod för `helloworld.UWP` projektet
 
-## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Lägg till exempelkod för helloworld. UWP-projekt
+## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Lägg till exempel kod för HelloWorld. UWP-projekt
 
-Lägg nu till C#-koden som definierar den UWP-specifika delen av programmet.
+Nu ska du lägga till C#-koden som definierar UWP-specifik del av programmet.
 
-1. I **Solution Explorer**, under helloworld. UWP-projektet, `MainPage.xaml.cs`öppna .
+1. I **Solution Explorer**under HelloWorld. UWP-projekt, `MainPage.xaml.cs`öppna.
 
-1. Ersätt all kod i den med följande utdrag:
+1. Ersätt all kod i den med följande kodfragment:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.UWP/MainPage.xaml.cs)]
 
-1. Lägg sedan till en UWP-specifik implementering för `MicrophoneService` genom att skapa den nya mappen *Tjänster* under helloworld. UWP-projektet. Därefter skapar du en ny C#-källfil under den. Byt namn `MicrophoneService.cs`på filen . Kopiera och klistra in följande kodavsnitt i filen:
+1. Lägg sedan till en UWP implementering för `MicrophoneService` genom att skapa de nya Folder- *tjänsterna* under HelloWorld. UWP-projekt. Därefter skapar du en ny C#-källfil under den. Byt namn på `MicrophoneService.cs`filen. Kopiera och klistra in följande kod avsnitt i filen:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.UWP/Services/MicrophoneService.cs)]
 
-1. Dubbelklicka `Package.appxmanifest` sedan på filen under helloworld. UWP-projektet i Visual Studio. Under **Funktioner**kontrollerar du att **mikrofonen** är markerad och sparar filen.
+1. Dubbelklicka sedan på `Package.appxmanifest` filen under HelloWorld. UWP-projekt i Visual Studio. Under **funktioner**kontrollerar du att **mikrofon** är markerat och sparar filen.
 
-1. Nästa dubbelklicksfil `Package.appxmanifest` `helloworld.UWP` under projektet i Visual Studio och under **Capabilities** > **Microphone** kontrolleras och sparas filen.
-   > Obs: Om du ser varning: Certifikatfilen inte finns: helloworld. UWP_TemporaryKey.pfx, kontrollera tal [till textprov](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp) för mer information.
+1. Nästa `Package.appxmanifest` dubbel klicknings fil under `helloworld.UWP` projektet i Visual Studio och under **funktioner** > **mikrofonen** är markerat och sparar filen.
+   > Obs: om du ser varning: certifikat filen finns inte: HelloWorld. UWP_TemporaryKey. pfx, kontrol lera [tal till text](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp) -exemplet för mer information.
 
-1. På menyraden väljer du**Spara alla** **för** > att spara ändringarna.
+1. I meny raden väljer du **Arkiv** > **Spara alla** för att spara ändringarna.
 
-## <a name="build-and-run-the-uwp-application"></a>Skapa och kör UWP-programmet
+## <a name="build-and-run-the-uwp-application"></a>Skapa och köra UWP-programmet
 
-1. Sätt helloworld. UWP som ett startprojekt. Högerklicka på helloworld. UWP-projektet och välj **Bygg** för att skapa programmet.
+1. Ange HelloWorld. UWP som ett start projekt. Högerklicka på HelloWorld. UWP-projekt och välj **build** för att bygga programmet.
 
-1. Välj **Felsökning** > **Avsökning av startsökning** (eller välj **F5**) för att starta programmet. **Helloworld fönstret** visas.
+1. Starta programmet genom att välja **Felsök** > **Starta fel sökning** (eller Välj **F5**). Fönstret **HelloWorld** visas.
 
-   ![Exempel på UWP-program för taligenkänning i C# - snabbstart](../../../../media/sdk/qs-csharp-xamarin-helloworld-uwp-window.png)
+   ![Exempel på UWP tal igenkännings program i C# – snabb start](../../../../media/sdk/qs-csharp-xamarin-helloworld-uwp-window.png)
 
-1. Välj **Aktivera mikrofon**. När åtkomstbehörighetsbegäran visas väljer du **Ja**.
+1. Välj **aktivera mikrofon**. När begäran om åtkomst behörighet visas väljer du **Ja**.
 
-   ![Begäran om åtkomstbehörighet för mikrofon](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
+   ![Åtkomst behörighets förfrågan för mikrofon](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. Välj **Starta taligenkänning**och läs en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i fönstret.
+1. Välj **Starta tal igenkänning**och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i fönstret.
 
-   ![Användargränssnitt för taligenkänning](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
+   ![Användar gränssnitt för tal igenkänning](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *
 
-## <a name="build-and-run-the-android-and-ios-applications"></a>Skapa och kör Android- och iOS-programmen
+## <a name="build-and-run-the-android-and-ios-applications"></a>Skapa och kör Android-och iOS-program
 
-Bygga och köra Android och iOS-program i enheten eller simulatorn sker på ett liknande sätt som UWP. Kontrollera att alla SDK:er är korrekt installerade enligt avsnittet "Förutsättningar" i den här artikeln.
+Att skapa och köra Android-och iOS-program i enheten eller simulatorn sker på ett liknande sätt som UWP. Se till att alla SDK: er installeras korrekt enligt kraven i avsnittet "krav" i den här artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 

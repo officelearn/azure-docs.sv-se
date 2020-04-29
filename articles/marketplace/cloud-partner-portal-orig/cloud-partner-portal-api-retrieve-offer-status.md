@@ -1,5 +1,5 @@
 ---
-title: Hämta erbjudandestatus | Azure Marketplace
+title: Hämta erbjudande status | Azure Marketplace
 description: API hämtar aktuell status för erbjudandet.
 author: dsindona
 ms.service: marketplace
@@ -8,18 +8,18 @@ ms.topic: reference
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255928"
 ---
 # <a name="retrieve-offer-status"></a>Hämta erbjudandestatus
 
 > [!NOTE]
-> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna i [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
 
-Hämtar erbjudandets aktuella status.
+Hämtar aktuell status för erbjudandet.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
@@ -27,8 +27,8 @@ Hämtar erbjudandets aktuella status.
 
 |  **Namn**       |   **Beskrivning**                            |  **Datatyp** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Publisher-identifierare, till exempel`Contoso`  |     Sträng     |
-|  offerId (erbjudandeId)        | GUID som unikt identifierar erbjudandet      |     Sträng     |
+|  publisherId    | Utgivar identifierare, till exempel`Contoso`  |     Sträng     |
+|  offerId        | GUID som unikt identifierar erbjudandet      |     Sträng     |
 |  api-version    | Senaste versionen av API                        |     Date       |
 |  |  |
 
@@ -36,13 +36,13 @@ Hämtar erbjudandets aktuella status.
 ## <a name="header"></a>Huvud
 
 
-|  Namn           |  Värde               |
+|  Name           |  Värde               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Auktorisering  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
-## <a name="body-example"></a>Exempel på brödtext
+## <a name="body-example"></a>Body-exempel
 
 
 ### <a name="response"></a>Svar
@@ -119,57 +119,57 @@ Hämtar erbjudandets aktuella status.
 ```
 
 
-### <a name="response-body-properties"></a>Egenskaper för svarstext
+### <a name="response-body-properties"></a>Egenskaper för svars text
 
 |  **Namn**             |    **Beskrivning**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | Erbjudandets status. Information om listan över möjliga värden finns i [Erbjudandestatus](#offer-status) nedan. |
+|  status               | Status för erbjudandet. En lista över möjliga värden finns i [erbjudande status](#offer-status) nedan. |
 |  meddelanden             | Matris med meddelanden som är associerade med erbjudandet                                                    |
-|  steg                | Matris över de steg som erbjudandet går igenom under en erbjudandepublicering                      |
-|  uppskattadTimeFrame   | Uppskattning av den tid det skulle ta att slutföra detta steg, i vänligt format                       |
+|  steg                | Matris med de steg som erbjudandet går igenom under publiceringen av erbjudandet                      |
+|  estimatedTimeFrame   | Uppskattning av hur lång tid det tar att slutföra det här steget, i eget format                       |
 |  id                   | Identifierare för steget                                                                         |
-|  stepName (stegnamn)             | Stegets namn                                                                               |
+|  stepName             | Namn på steget                                                                               |
 |  description          | Beskrivning av steget                                                                        |
-|  status               | Stegets status. En lista över möjliga värden finns i [Stegstatus](#step-status) nedan.    |
-|  meddelanden             | Matris med meddelanden relaterade till steget                                                          |
-|  processPercentage    | Procentuellt slutförande av steget                                                              |
-|  previewLinks         | *Inte implementerad för tillfället*                                                                    |
-|  liveLinks            | *Inte implementerad för tillfället*                                                                    |
-|  anmälanMeddelanden   | Inaktuella för erbjudanden som migrerats till Partner Center. E-postmeddelanden för migrerade erbjudanden skickas till e-postmeddelandet som anges under säljarens kontaktinformation i kontoinställningarna.<br><br>För icke-migrerade erbjudanden, kommaavgränsad lista över e-postadresser som ska meddelas om förloppet för åtgärden        |
+|  status               | Status för steget. En lista över möjliga värden finns i [steg status](#step-status) nedan.    |
+|  meddelanden             | Matris med meddelanden som är relaterade till steget                                                          |
+|  processPercentage    | Procent slutfört för steget                                                              |
+|  previewLinks         | *Inte implementerad för närvarande*                                                                    |
+|  liveLinks            | *Inte implementerad för närvarande*                                                                    |
+|  notificationEmails   | Föråldrad för erbjudanden som migrerats till Partner Center. E-postmeddelanden för migrerade erbjudanden skickas till e-postmeddelandet som anges under säljar kontakt information i konto inställningar.<br><br>För icke-migrerade erbjudanden, kommaavgränsad lista över e-postadresser som ska meddelas om åtgärdens förlopp        |
 |  |  |
 
-### <a name="response-status-codes"></a>Statuskoder för svar
+### <a name="response-status-codes"></a>Svars status koder
 
 | **Kod** |   **Beskrivning**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
-|  200     |  `OK`- Begäran har bearbetats och erbjudandets aktuella status returnerades. |
-|  400     | `Bad/Malformed request`- Felsvarstexten kan innehålla mer information.                 |
-|  404     | `Not found`- Den angivna entiteten finns inte.                                                |
+|  200     |  `OK`-Begäran har bearbetats och den aktuella statusen för erbjudandet returnerades. |
+|  400     | `Bad/Malformed request`– Fel svars texten kan innehålla mer information.                 |
+|  404     | `Not found`-Den angivna entiteten finns inte.                                                |
 |  |  |
 
-### <a name="offer-status"></a>Status för erbjudande
+### <a name="offer-status"></a>Erbjudande status
 
 |  **Namn**                    |    **Beskrivning**                                       |
 |  --------------------------  |  ------------------------------------------------------  |
-|  Aldrigpublicerat              | Erbjudandet har aldrig publicerats.                          |
-|  Inte startad                  | Erbjudandet är nytt och inte startat.                            |
-|  Väntar påpublicerAreView   | Erbjudandet väntar på utgivarens godkännande.                 |
-|  Körs                     | Inlämning av erbjudande bearbetas.                     |
-|  Lyckades                   | Erbjudandet inlämning har slutfört behandlingen.               |
-|  Avbrutna                    | Inlämningen av erbjudandet avbröts.                           |
-|  Misslyckades                      | Erbjudandet misslyckades.                                 |
+|  NeverPublished              | Erbjudandet har aldrig publicerats.                          |
+|  NotStarted                  | Erbjudandet är nytt och har inte startats.                            |
+|  WaitingForPublisherReview   | Erbjudandet väntar på godkännande av utgivare.                 |
+|  Körs                     | Överföring av erbjudande bearbetas.                     |
+|  Lyckades                   | Bearbetningen av erbjudandet har slutförts.               |
+|  Avbrutna                    | Överföring av erbjudande avbröts.                           |
+|  Misslyckades                      | Det gick inte att skicka erbjudandet.                                 |
 |  |  |
 
-### <a name="step-status"></a>Stegstatus
+### <a name="step-status"></a>Steg status
 
 |  **Namn**                    |    **Beskrivning**                           |
 |  -------------------------   |  ------------------------------------------  |
-|  Inte startad                  | Steget har inte startat.                        |
-|  InProgress (InProgress)                  | Steget är igång.                             |
-|  Väntar påpublicerAreView   | Steget väntar på utgivarens godkännande.      |
-|  Väntar På Väntar På          | Steget väntar på processgodkännande.        |
+|  NotStarted                  | Steget har inte startats.                        |
+|  Pågår                  | Steget körs.                             |
+|  WaitingForPublisherReview   | Steget väntar på godkännande av utgivare.      |
+|  WaitingForApproval          | Steget väntar på process godkännande.        |
 |  Blockerad                     | Steget är blockerat.                             |
-|  Avvisad                    | Steget avvisas.                            |
-|  Slutför                    | Steget är klart.                            |
+|  Avvisad                    | Steget avvisades.                            |
+|  Slutför                    | Steget har slutförts.                            |
 |  Avbrutna                    | Steget avbröts.                           |
 |  |  |

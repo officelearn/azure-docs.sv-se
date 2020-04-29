@@ -9,32 +9,32 @@ ms.date: 04/09/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 1e53dda2c6cb293a9204f344d152daa1937aa38b
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008375"
 ---
-I förhandsgranskningen är det bara att aktivera delade diskar för en delmängd av disktyper. För närvarande kan endast ultradiskar och premium-SSD-enheter aktivera delade diskar. Varje hanterad disk som har aktiverat delade diskar omfattas av följande begränsningar, ordnade efter disktyp:
+I för hands versionen är aktivering av delade diskar bara tillgänglig för en delmängd disk typer. För närvarande kan endast Ultra disks och Premium-SSD aktivera delade diskar. Varje hanterad disk som har delade diskar aktiverade omfattas av följande begränsningar, ordnade efter disk typ:
 
 ### <a name="ultra-disks"></a>Ultradiskar
 
-Ultra diskar har sin egen separata lista över begränsningar, utan samband med delade diskar. För ultra disk begränsningar, se [Använda Azure ultra diskar](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
+Ultra disks har en separat lista över begränsningar, som inte är relaterade till delade diskar. För extremt disk begränsningar, se [använda Azure Ultra disks](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
 
-När du delar ultradiskar har de följande ytterligare begränsningar:
+När du delar Ultra disks har de följande ytterligare begränsningar:
 
-- För närvarande endast stöds i västra USA.
-- För närvarande begränsad till Azure Resource Manager eller SDK-stöd.
-- Endast grundläggande diskar kan användas med vissa versioner av Windows Server Failover Cluster, mer information se [Maskinvarukrav för redundanskluster och lagringsalternativ](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+- Stöds för närvarande endast i västra USA.
+- För närvarande begränsad till Azure Resource Manager-eller SDK-support.
+- Det går bara att använda standard diskar med vissa versioner av Windows Server-redundanskluster, mer information finns i [maskin varu krav och lagrings alternativ för redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 
 ### <a name="premium-ssds"></a>Premium SSD:er
 
-- För närvarande endast stöds i västra centrala USA regionen.
-- Alla virtuella datorer som delar en disk måste distribueras i samma [närhetsplaceringsgrupper](../articles/virtual-machines/windows/proximity-placement-groups.md).
-- Kan bara aktiveras på datadiskar, inte OS-diskar.
-- Endast grundläggande diskar kan användas med vissa versioner av Windows Server Failover Cluster, mer information se [Maskinvarukrav för redundanskluster och lagringsalternativ](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
-- ReadOnly värdcache är inte tillgänglig för premium `maxShares>1`SSD med .
-- Tillgänglighetsuppsättningar och skalningsuppsättningar `FaultDomainCount` för virtuella datorer kan endast användas med inställd 1.
-- Azure Backup och Azure Site Recovery support är ännu inte tillgänglig.
+- Stöds för närvarande endast i regionen västra centrala USA.
+- Alla virtuella datorer som delar en disk måste distribueras i samma [närhets placerings grupper](../articles/virtual-machines/windows/proximity-placement-groups.md).
+- Kan bara aktive ras på data diskar, inte på OS-diskar.
+- Det går bara att använda standard diskar med vissa versioner av Windows Server-redundanskluster, mer information finns i [maskin varu krav och lagrings alternativ för redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+- ReadOnly-cachelagring av värden är inte tillgängligt för `maxShares>1`Premium-SSD med.
+- Tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer kan bara `FaultDomainCount` användas med värdet 1.
+- Azure Backup och Azure Site Recovery support är ännu inte tillgängligt.
 
-Om du är intresserad av att prova delade diskar sedan [registrera dig för vår förhandsvisning](https://aka.ms/AzureSharedDiskPreviewSignUp).
+Om du är intresse rad av att prova delade diskar kan du [Registrera dig för vår för hands version](https://aka.ms/AzureSharedDiskPreviewSignUp).

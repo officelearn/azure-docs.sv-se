@@ -1,5 +1,5 @@
 ---
-title: Så här använder du namngivna värden i Azure API Management-principer
+title: Använda namngivna värden i Azure API Management-principer
 description: Lär dig hur du använder namngivna värden i Azure API Management-principer.
 services: api-management
 documentationcenter: ''
@@ -13,72 +13,72 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81260929"
 ---
-# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Så här använder du namngivna värden i Azure API Management-principer
+# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Använda namngivna värden i Azure API Management-principer
 
-API Management-principer är en kraftfull funktion i systemet som gör att Azure-portalen kan ändra api:ets beteende genom konfiguration. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Principsatser kan konstrueras med hjälp av bokstavliga textvärden, principuttryck och namngivna värden.
+API Management-principer är en kraftfull funktion i systemet som tillåter att Azure Portal ändrar beteendet för API: et genom konfigurationen. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Princip satser kan konstrueras med hjälp av textuella text värden, princip uttryck och namngivna värden.
 
-Varje API Management-tjänstinstans har en samling nyckel-/värdepar, som kallas namngivna värden, som är globala för tjänstinstansen. Det finns ingen påtvingad gräns för antalet artiklar i samlingen. Namngivna värden kan användas för att hantera konstanta strängvärden för alla API-konfigurationer och principer. Varje namngivet värde kan ha följande attribut:
+Varje API Management tjänst instans har en samling nyckel/värde-par, som kallas namngivna värden som är globala för tjänst instansen. Det finns ingen begränsning för antalet objekt i samlingen. Namngivna värden kan användas för att hantera konstanta sträng värden för alla API-konfigurationer och-principer. Varje namngivet värde kan ha följande attribut:
 
 | Attribut      | Typ            | Beskrivning                                                                                                                            |
 | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | sträng          | Används för att referera till det namngivna värdet i principer. En sträng med ett till 256 tecken. Endast bokstäver, siffror, punkt och streck är tillåtna. |
-| `Value`        | sträng          | Verkligt värde. Får inte vara tom eller bestå endast av blanktecken. Högst 4096 tecken långt.                                        |
-| `Secret`       | boolean         | Avgör om värdet är en hemlighet och ska krypteras eller inte.                                                               |
-| `Tags`         | strängmatris | Används för att filtrera den namngivna värdelistan. Upp till 32 taggar.                                                                                    |
+| `Display name` | sträng          | Används för att referera till det namngivna värdet i principer. En sträng med en till 256 tecken. Endast bokstäver, siffror, punkter och bindestreck tillåts. |
+| `Value`        | sträng          | Faktiskt värde. Får inte vara tom eller bestå enbart av blank steg. Högst 4096 tecken långt.                                        |
+| `Secret`       | boolean         | Anger om värdet är en hemlighet och ska krypteras eller inte.                                                               |
+| `Tags`         | strängmatris | Används för att filtrera listan med namngivna värden. Upp till 32 taggar.                                                                                    |
 
 ![Namngivna värden](./media/api-management-howto-properties/named-values.png)
 
-Namngivna värden kan innehålla bokstavliga strängar och [principuttryck](/azure/api-management/api-management-policy-expressions). Värdet `Expression` för är till exempel ett principuttryck som returnerar en sträng som innehåller aktuellt datum och aktuell tid. Det namngivna värdet `Credential` markeras som en hemlighet, så dess värde visas inte som standard.
+Namngivna värden kan innehålla litterala strängar och [princip uttryck](/azure/api-management/api-management-policy-expressions). Värdet för `Expression` är till exempel ett princip uttryck som returnerar en sträng som innehåller aktuellt datum och aktuell tid. Det namngivna värdet `Credential` är markerat som en hemlighet, så värdet visas inte som standard.
 
-| Namn       | Värde                      | Hemlighet | Taggar          |
+| Name       | Värde                      | Hemlighet | Taggar          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Värde      | 42                         | False  | vitala siffror |
-| Autentiseringsuppgift | ••••••••••••••••••••••     | True   | security      |
-| Uttryck | @(DateTime.Now.ToString()) | False  |               |
+| Värde      | 42                         | Falskt  | vitala siffror |
+| Autentiseringsuppgift | ••••••••••••••••••••••     | Sant   | security      |
+| Uttryck | @ (DateTime. Now. ToString ()) | Falskt  |               |
 
 > [!NOTE]
-> I stället för namngivna värden som lagras i en API Management-tjänst kan du använda värden som lagras i [Azure Key Vault-tjänsten](https://azure.microsoft.com/services/key-vault/) enligt det här [exemplet](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
+> I stället för namngivna värden som lagras i en API Management-tjänst kan du använda värden som lagras i tjänsten [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som det visas i det här [exemplet](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
 
-## <a name="to-add-and-edit-a-named-value"></a>Så här lägger du till och redigerar ett namngivet värde
+## <a name="to-add-and-edit-a-named-value"></a>Lägga till och redigera ett namngivet värde
 
-![Lägga till ett namngivet värde](./media/api-management-howto-properties/add-property.png)
+![Lägg till ett namngivet värde](./media/api-management-howto-properties/add-property.png)
 
 1. Välj **API: er** under **API-HANTERING**.
-2. Välj **Namngivna värden**.
-3. Tryck på **+Lägg till**.
+2. Välj **namngivna värden**.
+3. Tryck på **+ Lägg till**.
 
-    Namn och värde är obligatoriska värden. Om värdet är en hemlighet kontrollerar du kryssrutan _Det här är en hemlig._ Ange en eller flera valfria taggar som hjälper dig att ordna dina namngivna värden och klicka på Spara.
+    Namn och värde är obligatoriska värden. Om värdet är en hemlighet, markera kryss rutan _det här är en hemlig_ kryss ruta. Ange en eller flera valfria taggar som hjälper dig att ordna dina namngivna värden och klicka på Spara.
 
 4. Klicka på **Skapa**.
 
-När det namngivna värdet har skapats kan du redigera det genom att klicka på det. Om du ändrar det namngivna värdenamnet uppdateras alla principer som refererar till det namngivna värdet automatiskt för att använda det nya namnet.
+När det namngivna värdet har skapats kan du redigera det genom att klicka på det. Om du ändrar namnet på det namngivna värdet uppdateras alla principer som refererar till det namngivna värdet automatiskt till att använda det nya namnet.
 
-Information om hur du redigerar ett namngivet värde med REST API finns i [Redigera ett namngivet värde med REST API](/rest/api/apimanagement/2019-12-01/property?patch).
+Information om hur du redigerar ett namngivet värde med hjälp av REST API finns i [Redigera ett namngivet värde med hjälp av REST API](/rest/api/apimanagement/2019-12-01/property?patch).
 
-## <a name="to-delete-a-named-value"></a>Så här tar du bort ett namngivet värde
+## <a name="to-delete-a-named-value"></a>Ta bort ett namngivet värde
 
-Om du vill ta bort ett namngivet värde klickar du på **Ta bort** bredvid det namngivna värdet som ska tas bort.
+Ta bort ett namngivet värde genom att klicka på **ta bort** bredvid det namngivna värdet som ska tas bort.
 
 > [!IMPORTANT]
-> Om det namngivna värdet refereras av några principer kan du inte ta bort det förrän du tar bort det namngivna värdet från alla principer som använder det.
+> Om det namngivna värdet refereras till av alla principer kan du inte ta bort det tills du tar bort det namngivna värdet från alla principer som använder det.
 
-Information om hur du tar bort ett namngivet värde med REST API finns i [Ta bort ett namngivet värde med REST API](/rest/api/apimanagement/2019-12-01/property/delete).
+Information om hur du tar bort ett namngivet värde med hjälp av REST API finns i [ta bort ett namngivet värde med hjälp av REST API](/rest/api/apimanagement/2019-12-01/property/delete).
 
-## <a name="to-search-and-filter-named-values"></a>Så här söker du efter och filtrerar namngivna värden
+## <a name="to-search-and-filter-named-values"></a>Söka efter och filtrera namngivna värden
 
-På fliken **Namngivna värden** ingår sök- och filtreringsfunktioner som hjälper dig att hantera namngivna värden. Om du vill filtrera listan med namngivna värden efter namn anger du en sökterm i textrutan **Sökgene.** Om du vill visa alla namngivna värden avmarkerar du textrutan **Sökgene** och trycker på Retur.
+Fliken **namngivna värden** innehåller söknings-och filtrerings funktioner som hjälper dig att hantera dina namngivna värden. Om du vill filtrera listan med namngivna värden efter namn anger du en sökterm i text rutan **Sök egenskap** . Om du vill visa alla namngivna värden avmarkerar du text rutan **Sök egenskap** och trycker på RETUR.
 
-Om du vill filtrera listan efter tagg anger du en eller flera taggar i **textrutan Filter efter taggar.** Om du vill visa alla namngivna värden **avmarkerar du textrutan Filter efter taggar** och trycker på Retur.
+Om du vill filtrera listan efter tagg anger du en eller flera taggar i text rutan **Filtrera efter Taggar** . Om du vill visa alla namngivna värden avmarkerar du text rutan **Filtrera efter Taggar** och trycker på RETUR.
 
 ## <a name="to-use-a-named-value"></a>Så här använder du ett namngivet värde
 
-Om du vill använda ett namngivet värde i en princip `{{ContosoHeader}}`placerar du namnet i ett dubbelt par klammerpar som , som visas i följande exempel:
+Om du vill använda ett namngivet värde i en princip placerar du dess namn inuti ett dubbelt par klammerparenteser `{{ContosoHeader}}`, som du ser i följande exempel:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -86,11 +86,11 @@ Om du vill använda ett namngivet värde i en princip `{{ContosoHeader}}`placera
 </set-header>
 ```
 
-I det `ContosoHeader` här exemplet används det som `set-header` namn på `ContosoHeaderValue` ett huvud i en princip och används som värdet för det huvudet. När den här principen utvärderas under en begäran `{{ContosoHeader}}` eller `{{ContosoHeaderValue}}` svar på API Management gateway och ersätts med sina respektive värden.
+I det här exemplet `ContosoHeader` används som namn på en rubrik i en `set-header` princip och `ContosoHeaderValue` används som värde för den rubriken. När den här principen utvärderas under en begäran eller ett svar på API Management Gateway `{{ContosoHeader}}` och `{{ContosoHeaderValue}}` ersätts med deras respektive värden.
 
-Namngivna värden kan användas som fullständiga attribut- eller elementvärden som visas i föregående exempel, men de kan också infogas i eller kombineras med en del av ett litteralt textuttryck som visas i följande exempel:`<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Namngivna värden kan användas som fullständiga attribut eller element värden, som du ser i föregående exempel, men de kan också infogas i eller kombineras med en del av ett sträng text uttryck som visas i följande exempel:`<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
-Namngivna värden kan också innehålla principuttryck. I följande exempel `ExpressionProperty` används den.
+Namngivna värden kan också innehålla princip uttryck. I följande exempel `ExpressionProperty` används.
 
 ```xml
 <set-header name="CustomHeader" exists-action="override">
@@ -98,22 +98,22 @@ Namngivna värden kan också innehålla principuttryck. I följande exempel `Exp
 </set-header>
 ```
 
-När den här principen `{{ExpressionProperty}}` utvärderas ersätts `@(DateTime.Now.ToString())`den med dess värde: . Eftersom värdet är ett principuttryck utvärderas uttrycket och principen fortsätter med körningen.
+När den här principen utvärderas `{{ExpressionProperty}}` ersätts med dess värde:. `@(DateTime.Now.ToString())` Eftersom värdet är ett princip uttryck utvärderas uttrycket och principen fortsätter med körningen.
 
-Du kan testa detta i utvecklarportalen genom att anropa en åtgärd som har en princip med namngivna värden i omfånget. I följande exempel anropas en åtgärd med `set-header` de två föregående exempelprinciperna med namngivna värden. Observera att svaret innehåller två anpassade rubriker som har konfigurerats med principer med namngivna värden.
+Du kan testa detta i Developer-portalen genom att anropa en åtgärd som har en princip med namngivna värden i omfånget. I följande exempel anropas en åtgärd med de två tidigare exempel `set-header` principerna med namngivna värden. Observera att svaret innehåller två anpassade huvuden som har kon figurer ATS med hjälp av principer med namngivna värden.
 
 ![Utvecklarportalen][api-management-send-results]
 
-Om du tittar på [API Inspector-spårningen](api-management-howto-api-inspector.md) för ett anrop som innehåller de `set-header` två föregående exempelprinciperna med namngivna värden, kan du se de två principerna med namngivna värden infogade samt principuttrycksutvärderingen för det namngivna värdet som innehöll principuttrycket.
+Om du tittar på [API-kontrollens spårning](api-management-howto-api-inspector.md) för ett samtal som innehåller de två tidigare exempel principerna med namngivna värden, kan du se de `set-header` två principerna med de namngivna värdena infogade samt princip uttrycks utvärderingen för det namngivna värde som innehöll princip uttrycket.
 
-![API-inspektörsspårning][api-management-api-inspector-trace]
+![Spårning av API-kontroll][api-management-api-inspector-trace]
 
-Namngivna värden kan innehålla principuttryck, men de kan inte innehålla andra namngivna värden. Om text som innehåller en namngiven värdereferens `Text: {{MyProperty}}`används för ett värde, till exempel , matchas och ersätts inte den referensen.
+Namngivna värden kan innehålla princip uttryck, de får inte innehålla andra namngivna värden. Om text som innehåller en namngiven värde referens används för ett värde, till exempel `Text: {{MyProperty}}`, kommer den här referensen inte att matchas och ersättas.
 
 ## <a name="next-steps"></a>Nästa steg
 
--   Läs mer om hur du arbetar med principer
-    -   [Principer i API-hantering](api-management-howto-policies.md)
+-   Lär dig mer om att arbeta med principer
+    -   [Principer i API Management](api-management-howto-policies.md)
     -   [Principreferens](/azure/api-management/api-management-policies)
     -   [Principuttryck](/azure/api-management/api-management-policy-expressions)
 

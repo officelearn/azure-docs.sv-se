@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
 ms.openlocfilehash: 096e0ec8af3d3802d662a9f7d43dbfbc04a130ad
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275392"
 ---
 ## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **Fil** > **ny** > **klass**.
+1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **fil** > **ny** > **klass**.
 
 1. I fönstret **New Java Class** (Ny Java-klass) anger du **speechsdk.quickstart** i fältet **Paket** och anger **Main** i fältet **Namn**.
 
@@ -104,7 +104,7 @@ ms.locfileid: "81275392"
 
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Ersätt strängen `helloworld.wav` med ditt eget filnamn.
+1. Ersätt strängen `helloworld.wav` med ditt eget fil namn.
 
 1. Ersätt strängen `Hello world!` med din egen text.
 
@@ -112,8 +112,8 @@ ms.locfileid: "81275392"
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-Tryck på F11 eller välj **Kör** > **felsökning**.
-Texten konverteras till tal och sparas i de angivna ljuddata.
+Tryck på F11 eller Välj **Kör** > **fel sökning**.
+Texten konverteras till tal och sparas i de ljuddata som anges.
 
    ```text
    Speech synthesized to [helloworld.wav] for text [Hello world!]
@@ -126,4 +126,4 @@ Texten konverteras till tal och sparas i de angivna ljuddata.
 ## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Spela in anpassade röstexempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

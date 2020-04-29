@@ -1,5 +1,5 @@
 ---
-title: Användardefinierade funktioner (UDFs) i Azure Cosmos DB
+title: 'Användardefinierade funktioner (UDF: er) i Azure Cosmos DB'
 description: Lär dig mer om användardefinierade funktioner i Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
@@ -7,32 +7,32 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81011131"
 ---
-# <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Användardefinierade funktioner (UDFs) i Azure Cosmos DB
+# <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Användardefinierade funktioner (UDF: er) i Azure Cosmos DB
 
-SQL API ger stöd för användardefinierade funktioner (UDFs). Med skalbara UDF:er kan du skicka in noll eller många argument och returnera ett enda argumentresultat. API:et kontrollerar varje argument för att vara lagliga JSON-värden.  
+SQL API ger stöd för användardefinierade funktioner (UDF: er). Med skalär UDF: er kan du skicka med noll eller många argument och returnera ett enskilt argument resultat. API: et kontrollerar varje argument för att vara juridiska JSON-värden.  
 
-## <a name="udf-use-cases"></a>UDF användningsfall
+## <a name="udf-use-cases"></a>UDF användnings fall
 
-API:et utökar SQL-syntaxen för att stödja anpassad programlogik med udfs. Du kan registrera UDFs med SQL API och referera till dem i SQL-frågor. Till skillnad från lagrade procedurer och utlösare är UDFs skrivskyddade.
+API: et utökar SQL-syntaxen för att stödja anpassad program logik med UDF: er. Du kan registrera UDF: er med SQL-API: et och referera dem i SQL-frågor. Till skillnad från lagrade procedurer och utlösare är UDF: er skrivskyddade.
 
-Med UDF:er kan du utöka Azure Cosmos DB:s frågespråk. UDF:er är ett bra sätt att uttrycka komplex affärslogik i en frågas projektion.
+Med UDF: er kan du utöka Azure Cosmos DBens frågespråk. UDF: er är ett bra sätt att uttrycka komplexa affärs logik i en frågas projektion.
 
-Vi rekommenderar dock att du undviker UDF när:
+Vi rekommenderar dock att du undviker UDF: er när:
 
-- Det finns redan en motsvarande [systemfunktion](sql-query-system-functions.md) i Azure Cosmos DB. Systemfunktioner kommer alltid att använda färre RU: s än motsvarande UDF.
-- UDF är det enda `WHERE` filtret i satsen i frågan. UDF: s inte använder indexet så att utvärdera UDF kommer att kräva lastning dokument. Genom att kombinera ytterligare filter predikater som använder indexet, i `WHERE` kombination med en UDF, i satsen minskar antalet dokument som bearbetas av UDF.
+- En ekvivalent [system funktion](sql-query-system-functions.md) finns redan i Azure Cosmos dB. System funktioner använder alltid färre RU-objekt än motsvarande UDF.
+- UDF är det enda filtret i- `WHERE` satsen i din fråga. UDF-filen använder inte indexet så att utvärdering av UDF kräver inläsning av dokument. Om du kombinerar ytterligare filter-predikat som använder indexet, i kombination med UDF, `WHERE` minskas antalet dokument som bearbetas av UDF-filen i-satsen.
 
-Om du måste använda samma UDF flera gånger i en fråga bör du referera till UDF i en [underfråga,](sql-query-subquery.md#evaluate-once-and-reference-many-times)så att du kan använda ett JOIN-uttryck för att utvärdera UDF en gång men referera till den många gånger.
+Om du måste använda samma UDF flera gånger i en fråga bör du referera till UDF i en under [fråga](sql-query-subquery.md#evaluate-once-and-reference-many-times), så att du kan använda ett JOIN-uttryck för att utvärdera UDF-filen en gång, men referera till den flera gånger.
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel registreras en UDF under en artikelbehållare i Cosmos-databasen. Exemplet skapar en UDF vars namn är `REGEX_MATCH`. Den accepterar två JSON-strängvärden `input` och `pattern`, och kontrollerar om det första matchar `string.match()` det mönster som anges i det andra med JavaScript-funktionen.
+I följande exempel registreras en UDF under en objekt behållare i Cosmos-databasen. I exemplet skapas en UDF vars namn är `REGEX_MATCH`. Det accepterar två JSON- `input` sträng värden och `pattern`kontrollerar om det första matchar mönstret som anges i den andra med hjälp av JavaScript- `string.match()` funktionen.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -48,7 +48,7 @@ I följande exempel registreras en UDF under en artikelbehållare i Cosmos-datab
            regexMatchUdf).Result;  
 ```
 
-Använd nu den här UDF:en i en frågeprojektion. Du måste kvalificera UDF:er `udf.` med det skiftlägeskänsliga prefixet när du anropar dem inifrån frågor.
+Använd nu denna UDF i en fråga-projektion. Du måste kvalificera UDF: er med Skift läges känsligt `udf.` prefix när du anropar dem inifrån frågor.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -68,7 +68,7 @@ Resultatet är:
     ]
 ```
 
-Du kan använda UDF-enheten som är kvalificerad med prefixet `udf.` i ett filter, som i följande exempel:
+Du kan använda UDF-filen som är `udf.` kvalificerad med prefixet inuti ett filter, som i följande exempel:
 
 ```sql
     SELECT Families.id, Families.address.city
@@ -85,9 +85,9 @@ Resultatet är:
     }]
 ```
 
-I huvudsak är UDF:er giltiga skaluttryck som du kan använda i både projektioner och filter.
+I själva verket är UDF: er giltiga skalära uttryck som du kan använda i både projektioner och filter.
 
-Om du vill utöka kraften i UDF:er kan du titta på ett annat exempel med villkorsstyrd logik:
+Om du vill utöka kraften i UDF: er kan du titta på ett annat exempel med villkorlig logik:
 
 ```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
@@ -111,7 +111,7 @@ Om du vill utöka kraften i UDF:er kan du titta på ett annat exempel med villko
                 seaLevelUdf);
 ```
 
-I följande exempel övnings UDF:
+I följande exempel övningaras UDF:
 
 ```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
@@ -133,9 +133,9 @@ Resultatet är:
     ]
 ```
 
-Om egenskaperna som refereras till av UDF-parametrarna inte är tillgängliga i JSON-värdet betraktas parametern som odefinierad och UDF-anropet hoppas över. På samma sätt, om resultatet av UDF är odefinierat, ingår det inte i resultatet.
+Om egenskaperna som anges av UDF-parametrarna inte är tillgängliga i JSON-värdet betraktas parametern som odefinierad och UDF-anropet hoppas över. Om resultatet av UDF-filen är odefinierat inkluderas det inte i resultatet.
 
-Som de föregående exemplen visar integrerar UDFs kraften i JavaScript-språket med SQL API. UFS ger ett omfattande programmerbart gränssnitt för att göra komplexa procedurmässiga, villkorlig logik med hjälp av inbyggda JavaScript-körningsfunktioner. SQL API innehåller argumenten till UDF:erna för varje källobjekt i det aktuella VAR- eller SELECT-satsen i bearbetningen. Resultatet är sömlöst införlivat i den övergripande körningspipelinen. Sammanfattningsvis är UDF:er bra verktyg för att göra komplex affärslogik som en del av frågor.
+Som föregående exempel visar UDF: er integrerar du kraften hos JavaScript-språket med SQL-API: et. UDF: er tillhandahåller ett omfattande programmerbart gränssnitt för att göra komplexa procedurer, villkorlig logik med hjälp av inbyggda funktioner för JavaScript-körning. SQL-API: et tillhandahåller argumenten för UDF: er för varje käll objekt med det aktuella WHERE-eller SELECT-sats stadiet bearbetning. Resultatet är sömlöst införlivat i den övergripande körnings pipelinen. I sammanfattning är UDF: er fantastiska verktyg för att utföra komplex affärs logik som en del av frågorna.
 
 ## <a name="next-steps"></a>Nästa steg
 

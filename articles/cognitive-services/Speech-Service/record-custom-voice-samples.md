@@ -1,7 +1,7 @@
 ---
-title: Spela in anpassade röstexempel - Taltjänst
+title: Spela in anpassade röst exempel – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Gör en anpassad röst av produktionskvalitet genom att förbereda ett robust skript, anställa bra rösttalang och spela in professionellt.
+description: Gör en anpassad röst för produktion kvalitet genom att förbereda ett robust skript, anlita bra röst personal och registrera dig professionellt.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,213 +11,213 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
 ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81261592"
 ---
-# <a name="record-voice-samples-to-create-a-custom-voice"></a>Spela in röstexempel för att skapa en anpassad röst
+# <a name="record-voice-samples-to-create-a-custom-voice"></a>Spela in röst exempel för att skapa en anpassad röst
 
-Skapa en högkvalitativ produktion anpassad röst från grunden är inte en tillfällig företag. Den centrala komponenten i en anpassad röst är en stor samling av ljudprover av mänskligt tal. Det är viktigt att dessa ljudinspelningar vara av hög kvalitet. Välj en röst talang som har erfarenhet av att göra denna typ av inspelningar, och få dem inspelade av en kompetent inspelningsingenjör med hjälp av professionell utrustning.
+Att skapa en anpassad röst med hög kvalitet från grunden är inte ett vardagligt företag. Den centrala komponenten i en anpassad röst är en stor samling ljud exempel av mänskligt tal. Det är viktigt att dessa ljud inspelningar är av hög kvalitet. Välj en röst personal som har erfarenhet av de här typerna av inspelningar, och få dem registrerade av en behörig inspelnings tekniker med hjälp av professionell utrustning.
 
-Innan du kan göra dessa inspelningar behöver du dock ett skript: de ord som kommer att talas av din röst talang för att skapa ljudprover. För bästa resultat måste skriptet ha bra fonetisk täckning och tillräcklig variation för att träna den anpassade röstmodellen.
+Innan du kan göra dessa inspelningar måste du ha ett-skript: de ord som talas av din röst-personal för att skapa ljud exemplen. För bästa resultat måste ditt skript ha god fonetisk omfattning och tillräcklig mängd för att träna den anpassade röst modellen.
 
-Många små men viktiga detaljer går till att skapa en professionell röstinspelning. Den här guiden är en färdplan för en process som hjälper dig att få bra och konsekventa resultat.
+Många små men viktiga uppgifter är att skapa en professionell röst inspelning. Den här guiden är en översikt över en process som hjälper dig att få bättre, konsekventa resultat.
 
 > [!TIP]
-> Om du vill ha resultat av högsta kvalitet bör du anlita Microsoft för att utveckla din anpassade röst. Microsoft har lång erfarenhet av att producera högkvalitativa röster för sina egna produkter, inklusive Cortana och Office.
+> Överväg att engagera Microsoft för att hjälpa till att utveckla din anpassade röst för högsta kvalitet. Microsoft har omfattande erfarenhet av att skapa hög kvalitets röster för sina egna produkter, inklusive Cortana och Office.
 
-## <a name="voice-recording-roles"></a>Röstinspelningsroller
+## <a name="voice-recording-roles"></a>Röst inspelnings roller
 
-Det finns fyra grundläggande roller i ett anpassat röstinspelningsprojekt:
+Det finns fyra grundläggande roller i ett anpassat röst inspelnings projekt:
 
 Roll|Syfte
 -|-
-Röst talang        |Denna persons röst kommer att ligga till grund för den anpassade rösten.
-Inspelningsingenjör  |Övervakar de tekniska aspekterna av inspelningen och driver färdskrivaren.
-Direktör            |Förbereder manuset och coachar rösttalangens prestation.
-Redigerare              |Slutför ljudfilerna och förbereder dem för uppladdning till Custom Voice-portalen.
+Röst personal        |Den här personens röst kommer att utgöra grunden för den anpassade rösten.
+Inspelnings tekniker  |Överser de tekniska aspekterna av inspelningen och arbetar med inspelnings utrustningen.
+Director            |Förbereder skriptet och bussar av röst personal prestanda.
+Redigerare              |Slutför ljudfilerna och förbereder dem för uppladdning till den anpassade röst portalen.
 
-En person kan fylla mer än en roll. Denna guide förutsätter att du främst kommer att fylla regissören roll och anställa både en röst talang och en inspelning ingenjör. Om du vill göra inspelningarna själv innehåller den här artikeln viss information om inspelningsingenjörrollen. Redigeringsrollen behövs inte förrän efter sessionen, så kan utföras av regissören eller inspelningsteknikern.
+En enskild person kan fylla mer än en roll. Den här guiden förutsätter att du i första hand fyller i Director-rollen och anställer både en röst personal och en inspelnings tekniker. Om du vill göra inspelningarna själv, innehåller den här artikeln viss information om inspelnings ingenjörs rollen. Redigerings rollen behövs inte förrän efter sessionen, så kan utföras av directorn eller inspelnings teknikern.
 
-## <a name="choose-your-voice-talent"></a>Välj din röst talang
+## <a name="choose-your-voice-talent"></a>Välj din röst personal
 
-Skådespelare med erfarenhet av berättarröst eller röstkaraktärsarbete gör bra anpassade rösttalanger. Du kan också ofta hitta lämpliga talanger bland announcers och nyhetsläsare.
+Aktörer som har erfarenhet av VoiceOver eller röst Character-arbete gör rätt anpassade röst personal. Du kan också ofta hitta lämpliga personal mellan annonser och diskussions grupper.
 
-Välj rösttalang vars naturliga röst du gillar. Det är möjligt att skapa unika "karaktär" röster, men det är mycket svårare för de flesta talanger att utföra dem konsekvent, och ansträngningen kan orsaka röst stam.
-
-> [!TIP]
-> Undvik i allmänhet att använda igenkännbara röster för att skapa en anpassad röst – såvida inte ditt mål naturligtvis är att skapa en kändisröst. Mindre kända röster är oftast mindre störande för användarna.
-
-Den enskilt viktigaste faktorn för att välja röst talang är konsekvens. Dina inspelningar ska alla låta som om de gjordes samma dag i samma rum. Du kan närma dig detta ideal genom god inspelningspraxis och teknik.
-
-Din röst talang är den andra halvan av ekvationen. De måste kunna tala med jämn hastighet, volymnivå, tonhöjd och ton. Tydlig diktion är ett måste. Talangen måste också kunna strikt kontrollera sin tonhöjd variation, känslomässiga påverka, och tal manér.
-
-Inspelning av anpassade röstexempel kan vara mer tröttande än andra typer av röstarbete. De flesta röst talang kan spela in för två eller tre timmar om dagen. Begränsa sessioner till tre eller fyra i veckan, med en ledig dag däremellan om möjligt.
-
-Inspelningar gjorda för en röstmodell bör vara känslomässigt neutrala. Det vill säga, ett sorgligt yttrande bör inte läsas på ett sorgligt sätt. Stämningen kan läggas till det syntetiserade talet senare genom prosodikontroller. Arbeta med din röst talang för att utveckla en "persona" som definierar den övergripande ljud och känslomässiga tonen i den anpassade rösten. I processen ska du precisera hur "neutral" låter för den persona.
-
-En persona kan ha, till exempel, en naturligt optimistisk personlighet. Så "deras" röst kan bära en anteckning av optimism även när de talar neutralt. Emellertid, en sådan personlighet drag bör vara subtila och konsekvent. Lyssna på läsningar av befintliga röster för att få en uppfattning om vad du siktar på.
+Välj röst personal vars naturliga röst du vill ha. Det är möjligt att skapa unika "Character"-röster, men det är mycket svårare för de flesta personal att utföra dem konsekvent och ansträngningen kan orsaka röst stammar.
 
 > [!TIP]
-> Vanligtvis vill du äga de röstinspelningar du gör. Din röst talang bör vara mottagliga för en work-for-hire kontrakt för projektet.
+> Undvik i allmänhet att använda identifierbara röster för att skapa en anpassad röst, såvida inte ditt mål är att skapa en kändis röst. Mindre kända röster är vanligt vis mindre störande för användare.
+
+Den enda viktigaste faktorn för att välja röst personal är konsekvens. Dina inspelningar bör alla ljud som de har gjort på samma dag i samma rum. Du kan närma dig detta genom bra registrerings metoder och teknik.
+
+Din röst personal är den andra halvan av ekvationen. De måste kunna tala med konsekvent hastighet, volym nivå, färgdjup och ton. Rensa Diktering är ett måste. Personal måste också kunna begränsa variationer, känslomässig påverkan och tal mannerisms.
+
+Inspelning av anpassade röst exempel kan vara mer fatiguing än andra typer av röst arbete. De flesta röst personal kan spela in i två eller tre timmar per dag. Begränsa sessioner till tre eller fyra veckor, med en dag från mellan om möjligt.
+
+Inspelningar som görs för en röst modell ska vara barn neutrala. Det vill säga ett Sad-uttryck bör inte läsas på ett Sad sätt. Du kan lägga till stämning i det syntetiska talet senare genom prosody-kontroller. Arbeta med din röst personal för att utveckla en "persona" som definierar den övergripande ljud-och känslomässig-tonen för den anpassade rösten. I processen får du reda på vilka "neutral"-ljud som för personen.
+
+En persona kan till exempel ha en naturlig intakts personlighet. Så "deras"-röst kan innehålla en anteckning om optimerad, även om de pratar neutralt. En sådan personlig egenskap bör dock vara diskret och konsekvent. Lyssna på avläsningar från befintliga röster för att få en uppfattning om vad du vill ha.
+
+> [!TIP]
+> Vanligt vis vill du veta vilka röst inspelningar du gör. Din röst-personal bör vara lämpar till ett arbets-till-anställnings-kontrakt för projektet.
 
 ## <a name="create-a-script"></a>Skapa ett skript
 
-Utgångspunkten för en anpassad röstinspelningssession är skriptet, som innehåller de yttranden som ska uttalas av din rösttalang. (Termen "yttranden" omfattar både fullständiga meningar och kortare fraser.)
+Start punkten för en anpassad röst inspelnings session är skriptet, som innehåller yttranden som ska läsas av din röst personal. (Termen "yttranden" omfattar både fullständiga meningar och kortare fraser.)
 
-Yttrandena i ditt manus kan komma från var som helst: fiktion, facklitteratur, utskrifter av tal, nyhetsrapporter och allt annat som finns i tryckt form. Om du vill vara säker på att din röst klarar sig bra på specifika typer av ord (till exempel medicinsk terminologi eller programmeringsjargong), kanske du vill inkludera meningar från vetenskapliga artiklar eller tekniska dokument. En kort diskussion om potentiella juridiska frågor finns i avsnittet ["Legalities".](#legalities) Du kan också skriva din egen text.
+Yttranden i skriptet kan komma från var som helst: fiktion, icke-fiktion, avskrifter av tanke tal, nyhets rapporter och annat som är tillgängligt i utskriften. Om du vill vara säker på att rösten fungerar bra på vissa typer av ord (till exempel medicinsk terminologi eller programmerings jargong), kanske du vill lägga till meningar från teknisk dokumentation eller tekniska dokument. En kort beskrivning av potentiella juridiska problem finns i avsnittet ["juridiska bestämmelser"](#legalities) . Du kan också skriva egen text.
 
-Dina yttranden behöver inte komma från samma källa, eller samma typ av källa. De behöver inte ens ha med varandra att göra. Men om du använder ställa in fraser (till exempel "Du har loggat in") i ditt talprogram, se till att inkludera dem i skriptet. Detta kommer att ge din anpassade röst en bättre chans att uttala dessa fraser väl. Och om du skulle välja att använda en inspelning i stället för syntetiserade tal, har du redan det i samma röst.
+Din yttranden behöver inte komma från samma källa, eller samma typ av källa. De behöver inte ens ha något att göra med varandra. Men om du kommer att använda set-fraser (till exempel "du har loggat in") i ditt tal program, måste du ta med dem i skriptet. Detta ger din anpassade röst en bättre chans att pronouncing dessa fraser. Om du bestämmer dig för att använda en inspelning i stället för syntetiskt tal finns det redan i samma röst.
 
-Även konsekvens är nyckeln till att välja röst talang, är variation kännetecknet för ett bra manus. Ditt manus bör innehålla många olika ord och meningar med en mängd olika mening längder, strukturer och stämningar. Varje ljud i språket bör representeras flera gånger och i många sammanhang (kallas *fonetiska täckning).*
+När konsekvensen är viktig vid valet av röst personal, är sorten Hallmark för ett lyckat skript. Skriptet bör innehålla många olika ord och meningar med olika menings längder, strukturer och stämningar. Varje ljud på språket bör visas flera gånger och i flera kontexter (kallas *fonetisk täckning*).
 
-Dessutom bör texten innehålla alla de sätt som ett visst ljud kan representeras skriftligen, och placera varje ljud på olika platser i meningarna. Både deklarativa meningar och frågor bör inkluderas och läsas med lämplig intonation.
+Dessutom bör texten innehålla alla sätt som ett visst ljud kan representeras i skriftligen och placera varje ljud på olika platser i meningarna. Både deklarativ meningar och frågor bör tas med och läsas med lämpliga intonation.
 
-Det är svårt att skriva ett skript som ger *precis tillräckligt med* data för att custom speech-portalen ska kunna skapa en bra röst. I praktiken är det enklaste sättet att göra ett skript som uppnår robust fonetisk täckning att inkludera ett stort antal prover. De standardröster som Microsoft tillhandahåller byggdes av tiotusentals yttranden. Du bör vara beredd att spela in några till flera tusen yttranden som minst för att bygga en produktionskvalitet anpassad röst.
+Det är svårt att skriva ett skript som ger *precis tillräckligt med* data för att Custom Speech portalen ska kunna skapa en bra röst. I praktiken är det enklaste sättet att göra ett skript som uppnår robust fonetisk täckning att inkludera ett stort antal exempel. Standard rösterna som Microsoft tillhandahåller har byggts av tusentals yttranden. Du bör vara beredd att registrera några få till flera tusen yttranden som minst för att bygga en anpassad röst i produktion kvalitet.
 
-Kontrollera skriptet noggrant för fel. Om möjligt, har någon annan kontrollera det också. När du kör igenom manuset med din talang, kommer du förmodligen fånga några fler misstag.
+Kontrol lera skriptet noggrant efter fel. Om möjligt bör någon annan kontrol lera den. När du kör skriptet med din personal kommer du förmodligen att fånga några fler misstag.
 
-### <a name="script-format"></a>Skriptformat
+### <a name="script-format"></a>Skript format
 
-Du kan skriva skriptet i Microsoft Word. Skriptet är till för användning under inspelningssessionen, så att du kan ställa in det på alla sätt du tycker är lätt att arbeta med. Skapa textfilen som krävs av Custom Voice-portalen separat.
+Du kan skriva skriptet i Microsoft Word. Skriptet är att använda under inspelningen, så du kan ställa in det på ett sätt som är enkelt att arbeta med. Skapa text filen som krävs av den anpassade röst portalen separat.
 
-Ett grundläggande skriptformat innehåller tre kolumner:
+Ett Basic-skript format innehåller tre kolumner:
 
-* Numret på uttrycket, från 1. Numrering gör det enkelt för alla i studion att hänvisa till ett visst uttryck ("låt oss försöka nummer 356 igen"). Du kan använda styckenumreringsfunktionen i Word för att numrera raderna i tabellen automatiskt.
-* En tom kolumn där du skriver take number eller tidskod för varje uttryck för att hjälpa dig att hitta den i den färdiga inspelningen.
-* Själva uttryckstexten.
+* Numret för uttryck, från 1. Numrering gör det enkelt för alla i Studio att referera till en viss uttryck ("Vi försöker numrera 356 igen"). Du kan använda funktionen styckenumrering för ord för att numrera raderna i tabellen automatiskt.
+* En tom kolumn där du skriver ta-nummer eller-tid för varje uttryck som hjälper dig att hitta den i den färdiga inspelningen.
+* Texten för själva uttryck.
 
 ![Exempelskript](media/custom-voice/script.png)
 
 > [!NOTE]
-> De flesta studior rekord i korta segment som kallas *tar*. Varje tagning innehåller vanligtvis 10 till 24 yttranden. Bara notera ta nummer är tillräckligt för att hitta ett uttryck senare. Om du spelar in i en studio som föredrar att göra längre inspelningar, bör du notera tidskoden i stället. Studion kommer att ha en framträdande tidsvisning.
+> De flesta Studios-poster i korta segment är kända som *tar*. Vart och ett omfattar vanligt vis 10-till-24-yttranden. Det räcker med att Observera att ta-talet är tillräckligt för att hitta en uttryck senare. Om du spelar in i en studio som föredrar att göra längre inspelningar, vill du anteckna tids koden i stället. Studio kommer att ha en synlig tids visning.
 
-Lämna tillräckligt med utrymme efter varje rad för att skriva anteckningar. Se till att inget uttryck delas mellan sidor. Numrera sidorna och skriv ut skriptet på ena sidan av papperet.
+Lämna tillräckligt med utrymme efter att varje rad har skrivit anteckningar. Se till att ingen uttryck är uppdelad mellan sidor. Numrera sidorna och skriv ut skriptet på en sida av papperet.
 
-Skriv ut tre kopior av manuset: en för talang, en för ingenjören och en för regissören (du). Använd ett gem i stället för häftklamrar: en erfaren röstkonstnär separerar sidorna för att undvika att göra ljud när sidorna vrids.
+Skriv ut tre kopior av skriptet: ett för personal, ett för teknikern och en för Director (du). Använd ett gem i stället för häftklamrar: en erfaren röst artist separerar sidorna för att undvika brus när sidorna är aktiverade.
 
-### <a name="legalities"></a>Lagligheten
+### <a name="legalities"></a>Juridiska
 
-Enligt upphovsrättslagen kan en aktörs läsning av upphovsrättsskyddad text vara en föreställning som författaren till verket bör kompenseras för. Denna prestanda kommer inte att kännas igen i den slutliga produkten, den anpassade rösten. Trots detta är lagligheten i att använda ett upphovsrättsskyddat verk för detta ändamål inte väl etablerad. Microsoft kan inte ge juridisk rådgivning i det här problemet. kontakta ditt eget råd.
+Under upphovs rätts lagstiftning kan en aktörs läsning av upphovsrättsskyddad text vara en prestanda för vilken författaren av arbetet bör kompenseras. Den här prestandan går inte att känna igen i den slutliga produkten, den anpassade rösten. Även om den juridiska användningen av ett upphovsrättsskyddat verk för detta ändamål inte är väl etablerad. Microsoft kan inte ge juridisk rådgivning om det här problemet. Kontakta din egen rådgivning.
 
-Lyckligtvis är det möjligt att undvika dessa frågor helt och hållet. Det finns många textkällor som du kan använda utan tillstånd eller licens.
+Lyckligt vis är det möjligt att undvika dessa problem helt och hållet. Det finns många text källor som du kan använda utan behörighet eller licens.
 
-|Textkälla|Beskrivning|
+|Text källa|Beskrivning|
 |-|-|
-|[CMU Arktisk korpus](http://festvox.org/cmu_arctic/)|Omkring 1100 meningar som valts ut från upphovsrättsliga verk som är särskilt avsedda för talsyntesprojekt. En utmärkt utgångspunkt.|
-|Fungerar inte längre<br>upphovsrättsskyddade|Typiskt verk publicerade före 1923. För engelska erbjuder [Project Gutenberg](https://www.gutenberg.org/) tiotusentals sådana verk. Du kanske vill fokusera på nyare verk, eftersom språket kommer att vara närmare modern engelska.|
-|Regeringen&nbsp;fungerar|Verk som skapats av USA:s regering är inte upphovsrättsskyddade i USA, även om regeringen kan göra anspråk på upphovsrätt i andra länder/regioner.|
-|Offentligt område|Verk för vilka upphovsrätt uttryckligen har fråntagits eller som har ägnats åt det offentliga rummet. Det kanske inte är möjligt att helt avstå från upphovsrätt i vissa jurisdiktioner.|
-|Tillåtande licensierade verk|Verk som distribueras under en licens som Creative Commons eller GNU Free Documentation License (GFDL). Wikipedia använder GFDL. Vissa licenser kan dock införa begränsningar för prestanda för det licensierade innehållet som kan påverka skapandet av en anpassad röstmodell, så läs licensen noggrant.|
+|[CMU Arctic-sökkorpus](http://festvox.org/cmu_arctic/)|Om 1100 meningar som valts från frånvaro av upphovs rätts arbete som används i tal syntes projekt. En utmärkt start punkt.|
+|Fungerar inte längre<br>under Copyright|Vanligt vis publicerade Works före 1923. För engelska erbjuder [Project Gutenberg](https://www.gutenberg.org/) tusentals sådana arbeten. Du kanske vill fokusera på nyare arbeten, eftersom språket är närmare för modern engelska.|
+|Myndigheter&nbsp;fungerar|Verk som skapats av USA myndigheter är inte upphovsrättsskyddade i USA, även om myndigheter kan anspråka upphovs rätt i andra länder/regioner.|
+|Offentlig domän|Fungerar som upphovs rätt uttryckligen har frigjorts eller som har reserver ATS för den offentliga domänen. Det kan inte vara möjligt att avstå från upphovs rätt helt i vissa jurisdiktioner.|
+|Auktoriserade och licensierade arbeten|Works distribueras under en licens som Creative Commons eller GNU License License License (GFDL). Wikipedia använder GFDL. Vissa licenser kan dock medföra begränsningar för prestanda för det licensierade innehållet som kan påverka skapandet av en anpassad röst modell, så Läs licensen noggrant.|
 
-## <a name="recording-your-script"></a>Spela in skriptet
+## <a name="recording-your-script"></a>Spela in ditt skript
 
-Spela in ditt manus på en professionell inspelningsstudio som specialiserat sig på röstarbete. De kommer att ha en inspelningsmonter, rätt utrustning och rätt personer att använda den. Det lönar sig att inte snåla på inspelningen.
+Registrera ditt skript i en proffsig inspelning Studio som specialiserar sig på röst arbete. De har en registrerings hytt, rätt utrustning och rätt personer att använda den. Den betalar inte för skimp vid registrering.
 
-Diskutera ditt projekt med studions inspelningsingenjör och lyssna på deras råd. Inspelningen bör ha liten eller ingen dynamisk omfångskomprimering (högst 4:1). Det är viktigt att ljudet har konsekvent volym och en hög signal-brus-förhållande, samtidigt som det är fritt från oönskade ljud.
+Diskutera ditt projekt med Studios inspelnings tekniker och lyssna på deras råd. Inspelningen bör ha liten eller ingen dynamisk intervall komprimering (högst 4:1). Det är viktigt att ljudet har konsekvent volym och ett högt signal-till-brus-förhållande, samtidigt som oönskade ljud är fria.
 
 ### <a name="do-it-yourself"></a>Gör det själv
 
-Om du vill göra inspelningen själv, snarare än att gå in i en inspelningsstudio, här är en kort primer. Tack vare ökningen av hem inspelning och podcasting, det är lättare än någonsin att hitta bra inspelning råd och resurser på nätet.
+Om du vill göra inspelningen själv, i stället för att gå in i en inspelning Studio, är det här en kort introduktion. Tack vare den lett till både start-och poddsändning, är det enklare än någonsin att hitta välsamma inspelnings råd och resurser online.
 
-Din "inspelning monter" bör vara ett litet rum utan märkbar eko eller "rumston." Det bör vara så tyst och ljudisolerat som möjligt. Draperier på väggarna kan användas för att minska eko och neutralisera eller "deaden" ljudet av rummet.
+Din "inspelnings hytt" bör vara ett litet rum utan märkbart eko eller "rums ton". Den bör vara så tyst och soundproof som möjligt. Drapes på väggarna kan användas för att minska eko och neutralisera eller "död" av rummets ljud.
 
-Använd en högkvalitativ studiokondensatormikrofon ("mikrofon" för kort) avsedd för inspelning av röst. Sennheiser, AKG och ännu nyare Zoom mikrofoner kan ge goda resultat. Du kan köpa en mikrofon, eller hyra en från en lokal audiovisuell uthyrningsfirma. Leta efter en med ett USB-gränssnitt. Denna typ av mikrofon kombinerar bekvämt mikrofonelement, förförstärkare och analog-till-digital omvandlare till ett paket, vilket förenklar hookup.
+Använd en högkvalitativ Studio kylare ("Mic" för kort) som är avsedd för inspelning av rösten. Sennheiser, AKG och till och med nyare zoomnings MICS kan ge bättre resultat. Du kan köpa en mikrofon eller hyra en från ett lokalt ljud-och ett moln företag. Sök efter ett med ett USB-gränssnitt. Den här typen av MIC kombinerar bekvämt mikrofon element, preamp och analog-till-digital-omvandlare till ett paket, vilket fören klar Anslut.
 
-Du kan också använda en analog mikrofon. Många hyreshus erbjuder "vintage" mikrofoner kända för sin röst karaktär. Observera att professionell analog utrustning använder balanserade XLR-kontakter, snarare än 1/4-tums kontakten som används i konsumentutrustning. Om du går analog, behöver du också en förförstärkare och en dator ljudgränssnitt med dessa kontakter.
+Du kan också använda en analog mikrofon. Många hyres hus erbjuder "årgång"-mikrofoner välrenommerade för sina röst bokstäver. Observera att den analoga maskin varan använder balanserade XLR-anslutningar i stället för den 1/4-tums plugg som används i konsument utrustning. Om du väljer analog behöver du också ett preamp och ett dator ljud gränssnitt med dessa anslutningar.
 
-Installera mikrofonen på ett stativ eller bom, och installera ett popfilter framför mikrofonen för att eliminera buller från "plosive" konsonanter som "p" och "b". Vissa mikrofoner levereras med ett fjädringsfäste som isolerar dem från vibrationer i stativet, vilket är till hjälp.
+Installera mikrofonen på ett stativ eller sådär och installera ett pop-filter framför mikrofonen för att undvika brus från "plosive"-konsonanter som "p" och "b". Vissa mikrofoner levereras med en uppskjutnings montering som isolerar dem från vibrationer i stativ, vilket är användbart.
 
-Rösttalangen måste hålla sig på ett konsekvent avstånd från mikrofonen. Använd tejp på golvet för att markera var de ska stå. Om talangen föredrar att sitta, var särskilt noga med att övervaka mikrofonavstånd och undvika stolsljud.
+Röst-personal måste vara i ett konsekvent avstånd från mikrofonen. Använd band på golvet för att markera var de ska stå. Om personal föredrar att sitta kan du vara särskilt noga med att övervaka mikrofon avståndet och undvika att stolen rör sig.
 
-Använd ett stativ för att hålla skriptet. Undvik att mete stativet så att det kan reflektera ljudet mot mikrofonen.
+Använd ett stativ för att hålla skriptet. Undvik Angling i stället så att det kan reflektera ljudet mot mikrofonen.
 
-Den person som använder färdskrivaren - ingenjören-bör vara i ett separat rum från talang, med något sätt att prata med talang i inspelningen monter (en *talkback krets).*
+Den person som driver inspelnings utrustningen – teknikern – bör vara i ett separat rum från personal, med något sätt att prata med personal i registrerings hytten (en *TalkBack-krets).*
 
-Inspelningen bör innehålla så lite buller som möjligt, med ett mål om en 80-db signal-brus förhållande eller bättre.
+Inspelningen bör innehålla så lite brus som möjligt, med ett mål av en 80-dB signal-till-brus-kvot eller bättre.
 
-Lyssna noga på en inspelning av tystnad i din "monter", räkna ut var något ljud kommer ifrån, och eliminera orsaken. Vanliga bullerkällor är luftventiler, lysrörsballaster, trafik på närliggande vägar och utrustningsfläktar (även bärbara datorer kan ha fläktar). Mikrofoner och kablar kan fånga upp elektriskt brus från närliggande AC-ledningar, vanligtvis ett surr eller surr. En buzz kan också orsakas av en *jordslinga*, som orsakas av att ha utrustning ansluten till mer än en elektrisk krets.
+Lyssna nära en inspelning av tystnad i "Monte" och ta reda på var bruset kommer från och eliminera orsaken. Vanliga buller källor är luft Ventilationer, fluorescerande ljus laster, trafik på närliggande vägar och utrustnings fläktar (även bärbara datorer kan ha fläktar). Mikrofoner och kablar kan hämta Elbrus från närbelägen AC-kabel, vanligt vis en Hum eller en i regel. En i början kan också orsakas av en *grund slinga*, som orsakas av att utrustning är ansluten till mer än en elektrisk krets.
 
 > [!TIP]
-> I vissa fall kanske du kan använda en equalizer eller en brusreducering programvara plug-in för att ta bort buller från dina inspelningar, även om det är alltid bäst att stoppa den vid källan.
+> I vissa fall kan du använda en equalizer eller ett program för brus minskning av program vara för att hjälpa till att ta bort brus från dina inspelningar, även om det alltid är bäst att stoppa det vid källan.
 
-Ställ in nivåer så att de flesta av de tillgängliga dynamiska omfånget för digital inspelning används utan överkörning. Det innebär att ställa in ljudet högt, men inte så högt att det blir förvrängd. Ett exempel på vågformen av en bra inspelning visas i följande bild:
+Ange nivåer så att det mesta av det tillgängliga dynamiska intervallet av digital inspelning används utan överkörning. Det innebär att du ställer in ljudet högt, men inte så högt som det blir förvrängt. Ett exempel på en våg våg med en inspelning visas i följande bild:
 
-![En bra inspelning vågform](media/custom-voice/good-recording.png)
+![En välspelad våg form](media/custom-voice/good-recording.png)
 
-Här används de flesta av intervallet (höjd), men de högsta topparna av signalen når inte toppen eller botten av fönstret. Du kan också se att tystnaden i inspelningen approximerar en tunn horisontell linje, vilket indikerar ett lågt brus golv. Denna inspelning har godtagbart dynamiskt omfång och signal-brusförhållande.
+Här används merparten av intervallet (height), men den högsta toppar i signalen når inte upp eller ned i fönstret. Du kan också se att ljud dämparen i inspelningen närmar sig en tunn vågrät linje som anger ett lågt brus golv. Den här inspelningen har godtagbart dynamiskt intervall och signal-till-brus-förhållande.
 
-Spela in direkt i datorn via ett högkvalitativt ljudgränssnitt eller en USB-port, beroende på vilken mikrofon du använder. För analog, hålla ljudkedjan enkel: mikrofon, förförstärkare, ljudgränssnitt, dator. Du kan licensiera både [Avid Pro Tools](https://www.avid.com/en/pro-tools) och [Adobe Audition](https://www.adobe.com/products/audition.html) varje månad till en rimlig kostnad. Om din budget är extremt tight, prova den fria [Audacity](https://www.audacityteam.org/).
+Spela in direkt på datorn via ett ljud gränssnitt med hög kvalitet eller en USB-port, beroende på vilken MIC du använder. För analogt, Behåll ljud kedjan enkel: MIC, preamp, ljud gränssnitt, dator. Du kan licensiera både [Avid Pro Tools](https://www.avid.com/en/pro-tools) och [Adobe Audition](https://www.adobe.com/products/audition.html) per månad till en rimlig kostnad. Om budgeten är mycket tätt kan du prova med den kostnads fria [Audacity](https://www.audacityteam.org/).
 
-Spela in på 44,1 kHz 16 bitars monofonisk (CD-kvalitet) eller bättre. Nuvarande state-of-the-art är 48 kHz 24-bitars, om din utrustning stöder det. Du kommer att lägga ner ljudet till 16 kHz 16-bitars innan du skickar det till Custom Voice-portalen. Ändå lönar det sig att ha en högkvalitativ originalinspelning i evenemanget redigeringar behövs.
+Spela in med 44,1 kHz 16-bitars Monophonic (CD-kvalitet) eller bättre. Nuvarande stadium är 48 kHz 24-bitars, om din utrustning stöder det. Du kommer att stänga av ljudet till 16 kHz 16-bitars innan du skickar det till den anpassade röst portalen. Det betalar fortfarande att en ursprunglig inspelning av hög kvalitet i händelse redigeringarna krävs.
 
-Helst har olika människor tjäna i roller som regissör, ingenjör och talang. Försök inte göra allt själv. I en knipa kan en person vara både regissören och ingenjören.
+Vi rekommenderar att olika personer fungerar i rollerna chef, tekniker och personal. Försök inte helt själv. En person kan vara både Director och teknikern.
 
 ### <a name="before-the-session"></a>Före sessionen
 
-För att undvika att slösa studiotid, kör igenom skriptet med din rösttalang före inspelningssessionen. Medan rösttalangen bekantar sig med texten, kan de klargöra uttalet av alla okända ord.
+Undvik att slösa i studio-tid genom att köra skriptet med din röst personal innan du spelar in sessionen. När röst personal är bekant med texten kan de klargöra uttal av alla okända ord.
 
 > [!NOTE]
-> De flesta inspelningsstudior erbjuder elektronisk visning av skript i inspelningsbåset. I så fall skriver du dina genomkörningsanteckningar direkt i skriptets dokument. Du vill dock fortfarande att en papperskopia ska göra anteckningar under sessionen. De flesta ingenjörer kommer att vilja ha en papperskopia också. Och du vill fortfarande ha en tredje tryckt kopia som en säkerhetskopia för talang om datorn är nere.
+> De flesta inspelnings Studios ger elektronisk visning av skript i registrerings hytten. I det här fallet skriver du dina körnings anteckningar direkt i skriptets dokument. Du vill fortfarande att en pappers kopia ska göra anteckningar under sessionen, även om. De flesta tekniker vill även ha en hård kopia. Och du vill ha en tredje utskrift som en säkerhets kopia för personal, om datorn inte är igång.
 
-Din röst talang kan fråga vilket ord du vill betonas i ett yttrande (den "avgörande ordet"). Berätta för dem att du vill ha en naturlig läsning utan särskild betoning. Betoning kan läggas till när tal syntetiseras; Det bör inte vara en del av den ursprungliga inspelningen.
+Din röst-personal kan be dig om vilket ord du vill framhäva i en uttryck (det "fungerande ordet"). Berätta för dem att du vill ha en naturlig läsning utan särskild uppmärksamhet. Betoning kan läggas till när tal är syntetiskt. den får inte vara en del av den ursprungliga inspelningen.
 
-Rikta talangen att uttala ord tydligt. Varje ord i manuset bör uttalas som skrivet. Ljud bör inte utelämnas eller sluddras tillsammans, vilket är vanligt i casual tal, *om de inte har skrivits på det sättet i skriptet*.
+Instruera personal att uttala ord tydligt. Varje ord i skriptet bör uttalas som skrivet. Ljud får inte utelämnas eller slurreds tillsammans, som vanligt i vardagligt tal, *om de inte har skrivits på det sättet i skriptet*.
 
-|Skriftlig text|Oönskade casual uttal|
+|Skriven text|Oönskat vardagligt uttal|
 |-|-|
-|aldrig kommer att ge upp dig|aldrig kommer att ge upp dig|
-|det finns fyra lampor|det finns fyra lampor|
-|Hur är vädret idag|Hur är vädret idag|
-|säga hej till min lilla vän|säg hej till min lil vän|
+|lämna aldrig igång|lämna aldrig igång|
+|Det finns fyra lampor|Det finns fyra lampor|
+|Hur är väder idag|Hur är "väder" idag|
+|Säg hej till min lilla vän|Säg hej till min Lil-vän|
 
-Talangen bör *inte* lägga till distinkta pauser mellan ord. Meningen bör fortfarande flöda naturligt, även samtidigt som det låter lite formellt. Denna fina distinktion kan krävas för att få rätt.
+Personal bör *inte* lägga till distinkta pauser mellan ord. Meningen bör fortfarande flöda naturligt, även om den är lite formell. Den här fina skillnaden kan vara bra att komma åt.
 
-### <a name="the-recording-session"></a>Inspelningssessionen
+### <a name="the-recording-session"></a>Inspelnings sessionen
 
-Skapa en referensinspelning, eller *matchningsfil,* av ett typiskt uttryck i början av sessionen. Be talangen att upprepa denna rad varje sida eller så. Jämför den nya inspelningen med referensen varje gång. Denna praxis hjälper talangen att förbli konsekvent i volym, tempo, pitch och intonation. Under tiden kan teknikern använda matchningsfilen som referens för nivåer och övergripande konsekvens av ljud.
+Skapa en referens inspelning eller *matcha fil* för en typisk uttryck i början av sessionen. Be personal att upprepa den här raden varje sida eller så. Jämför den nya inspelningen med referensen varje gång. Den här metoden hjälper personal att vara konsekvent i volym, tempo, färgdjup och intonation. Under tiden kan teknikern använda matchnings filen som referens för nivåer och övergripande konsekvens på ljudet.
 
-Matchningsfilen är särskilt viktig när du återupptar inspelningen efter en paus eller en annan dag. Du vill spela det några gånger för talang och få dem att upprepa det varje gång tills de matchar bra.
+Matchnings filen är särskilt viktig när du återupptar inspelningen efter en rast eller en annan dag. Du vill spela upp det några gånger för personal och låta dem upprepas varje gång tills de matchar sig.
 
-Coacha din talang för att ta ett djupt andetag och paus en stund före varje yttrande. Spela in ett par sekunders tystnad mellan yttranden. Ord bör uttalas på samma sätt varje gång de visas, med tanke på sammanhanget. Till exempel uttalas "post" som ett verb annorlunda än "post" som ett substantiv.
+Personal att ta en djup inandning och pausa en stund innan varje uttryck. Registrera några sekunders tystnad mellan yttranden. Orden bör uttalas på samma sätt varje gång de visas, vilket överväger kontexten. Till exempel är "Record" som ett verb uttalat på ett annat sätt än "Record" som ett substantiv.
 
-Spela in drygt fem sekunders tystnad innan den första inspelningen för att fånga "rumstonen". Den här metoden hjälper Custom Voice-portalen att kompensera för eventuellt återstående brus i inspelningarna.
-
-> [!TIP]
-> Allt du verkligen behöver för att fånga är rösttalangen, så att du kan göra en monofonisk (single-channel) inspelning av bara sina linjer. Men om du spelar in i stereo kan du använda den andra kanalen för att spela in chatten i kontrollrummet för att fånga diskussion om vissa rader eller tar. Ta bort det här spåret från den version som har överförts till Custom Voice-portalen.
-
-Lyssna noga, med hörlurar, på rösttalangens prestanda. Du letar efter bra men naturlig diktion, korrekt uttal, och en brist på oönskade ljud. Tveka inte att be din talang att spela in ett yttrande som inte uppfyller dessa normer.
+Registrera en lämplig fem sekunders tystnad innan den första inspelningen fångar "rums tonen". Den här metoden hjälper den anpassade röst portalen att kompensera för eventuella återstående brus i inspelningarna.
 
 > [!TIP]
-> Om du använder ett stort antal yttranden kanske ett enda uttryck inte har någon märkbar effekt på den resulterande anpassade rösten. Det kan vara mer lämpligt att bara notera eventuella yttranden med problem, utesluta dem från din datauppsättning och se hur din anpassade röst blir. Du kan alltid gå tillbaka till studion och spela in missade prover senare.
+> Allt du behöver fånga är röst personal, så att du kan göra en Monophonic-inspelning (en enda kanal) av enbart sina rader. Men om du spelar in i stereo kan du använda den andra kanalen för att registrera Chatter i kontroll rummet för att samla in diskussion om vissa rader eller ta. Ta bort den här spårningen från den version som överförs till den anpassade röst portalen.
 
-Observera ta nummer eller tidskod på skriptet för varje uttryck. Be teknikern att markera varje uttryck i inspelningens metadata eller köblad också.
+Lyssna nära, med hörlurar, till röstens personal-prestanda. Du letar efter bra men naturlig diktering, rätt uttal och avsaknad av oönskade ljud. Ovilliga inte att be din personal att registrera en uttryck som inte uppfyller dessa standarder.
 
-Ta regelbundna pauser och ge en dryck för att hjälpa din röst talang hålla sin röst i god form.
+> [!TIP]
+> Om du använder ett stort antal yttranden kanske en enskild uttryck inte har en märkbar inverkan på den resulterande anpassade rösten. Det kan vara mer tillrådligt att bara anteckna eventuella yttranden med problem, undanta dem från din data uppsättning och se hur din anpassade röst blir slut. Du kan alltid gå tillbaka till Studio och registrera de missade exemplen senare.
+
+Anteckna ta-eller-tid-koden i skriptet för varje uttryck. Be teknikern att markera varje uttryck i inspelningens metadata eller i stack-och stack-bladet.
+
+Ta vanliga avbrott och ge en dryck för att hjälpa din röst personal att hålla rösten i en fungerande form.
 
 ### <a name="after-the-session"></a>Efter sessionen
 
-Moderna inspelningsstudior körs på datorer. I slutet av sessionen får du en eller flera ljudfiler, inte ett band. Dessa filer kommer förmodligen att WAV eller AIFF-format i CD-kvalitet (44,1 kHz 16-bitars) eller bättre. 48 kHz 24-bitars är vanligt och önskvärt. Högre provtagningshastigheter, såsom 96 kHz, behövs i allmänhet inte.
+Modern inspelning Studios körs på datorer. I slutet av sessionen får du en eller flera ljudfiler, inte ett band. Filerna är förmodligen WAV-eller AIFF-format i CD-kvalitet (44,1 kHz 16 bitar) eller bättre. 48 kHz 24-bitars är vanligt och önskvärt. Högre samplings frekvenser, till exempel 96 kHz, behövs vanligt vis inte.
 
-Custom Voice-portalen kräver att varje förutsatt uttryck finns i sin egen fil. Varje ljudfil som levereras av studion innehåller flera yttranden. Så den primära efterproduktion uppgift är att dela upp inspelningarna och förbereda dem för inlämning. Inspelningsteknikern kan ha placerat markörer i filen (eller tillhandahållit ett separat referensblad) för att ange var varje uttryck börjar.
+Den anpassade röst portalen kräver att varje tillhandahållen uttryck är i en egen fil. Varje ljudfil som levereras av Studio innehåller flera yttranden. Den primära aktiviteten efter produktion är att dela upp inspelningarna och förbereda dem för överföring. Inspelnings teknikern kan ha placerat markörer i filen (eller angett ett separat Cue-blad) för att ange var varje uttryck startar.
 
-Använd dina anteckningar för att hitta exakt tar du vill, och sedan använda ett ljudredigeringsverktyg, till exempel [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), eller den fria [Audacity](https://www.audacityteam.org/), för att kopiera varje uttryck i en ny fil.
+Använd dina anteckningar för att hitta exakt det du vill ha och Använd sedan ett verktyg för ljud redigering, till exempel [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html)eller den kostnads fria [Audacity](https://www.audacityteam.org/), för att kopiera varje uttryck till en ny fil.
 
-Lämna bara cirka 0,2 sekunders tystnad i början och slutet av varje klipp, med undantag för det första. Filen ska börja med hela fem sekunders tystnad. Använd inte en ljudredigerare för att "noll ut" tysta delar av filen. Inklusive "rumstonen" hjälper Custom Voice-algoritmerna att kompensera för eventuellt kvarvarande bakgrundsljud.
+Lämna bara cirka 0,2 sekunders tystnad i början och slutet av varje klipp, förutom det första. Filen bör börja med en fullständig fem sekunders tystnad. Använd inte ett ljud redigerings program för att "nollställa" delar av filen i bakgrunden. Om du inkluderar "rums tonen" kommer de anpassade röst algoritmerna att kompensera för eventuella kvarvarande bakgrunds brus.
 
-Lyssna noga på varje fil. I detta skede kan du redigera ut små oönskade ljud som du missade under inspelningen, som en liten läpp smack före en linje, men var noga med att inte ta bort några faktiska tal. Om du inte kan åtgärda en fil tar du bort den från datauppsättningen och noterar att du har gjort det.
+Lyssna på varje fil noggrant. I det här skedet kan du redigera ut små oönskade ljud som du missade under inspelningen, t. ex. ett lätt Lip-smack innan en rad, men var noga med att inte ta bort några faktiska tal. Om du inte kan reparera en fil tar du bort den från din data uppsättning och noterar att du har gjort det.
 
-Konvertera varje fil till 16 bitar och en samplingsfrekvens på 16 kHz innan du sparar och, om du spelade in studiochatten, ta bort den andra kanalen. Spara varje fil i WAV-format och namnge filerna med uttrycksnumret från skriptet.
+Konvertera varje fil till 16 bitar och en samplings frekvens på 16 kHz innan du sparar och, om du har spelat in Studio-Chatter, tar du bort den andra kanalen. Spara varje fil i WAV-format och namnge filerna med uttryck-numret från skriptet.
 
-Skapa slutligen *avskriften* som associerar varje WAV-fil med en textversion av motsvarande uttryck. [Att skapa anpassade röstteckensnitt](how-to-customize-voice-font.md) innehåller information om det format som krävs. Du kan kopiera texten direkt från skriptet. Skapa sedan en Zip-fil av WAV-filerna och textavskriften.
+Slutligen skapar du *avskriften* som associerar varje wav-fil med en text version av motsvarande uttryck. Att [skapa anpassade röst teckensnitt](how-to-customize-voice-font.md) innehåller information om det format som krävs. Du kan kopiera texten direkt från skriptet. Skapa sedan en zip-fil med WAV-filerna och text avskriften.
 
-Arkivera de ursprungliga inspelningarna på ett säkert ställe om du behöver dem senare. Bevara skriptet och anteckningarna också.
+Arkivera de ursprungliga inspelningarna på ett säkert ställe om du behöver dem senare. Behåll även ditt skript och dina kommentarer.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du är redo att ladda upp dina inspelningar och skapa din anpassade röst.
 
 > [!div class="nextstepaction"]
-> [Skapa anpassade röstteckensnitt](how-to-customize-voice-font.md)
+> [Skapa anpassade röst teckensnitt](how-to-customize-voice-font.md)

@@ -1,6 +1,6 @@
 ---
-title: Analysera Användningsmönster för Azure CDN | Microsoft-dokument
-description: I den här artikeln beskrivs de olika typerna av analysrapporter som är tillgängliga för Azure CDN-produkter.
+title: Analysera Azure CDN användnings mönster | Microsoft Docs
+description: I den här artikeln beskrivs de olika typerna av analys rapporter som är tillgängliga för Azure CDN produkter.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: allensu
 ms.openlocfilehash: c78dff9f5258023d90100c70bd244e8e0d016d6f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81253619"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analysera användningsmönster för Azure CDN
 
-När du har aktiverat CDN för ditt program kan du övervaka CDN-användning, kontrollera leveransens hälsa och felsöka potentiella problem. Azure CDN tillhandahåller dessa funktioner på följande sätt: 
+När du har aktiverat CDN för ditt program kan du övervaka CDN-användning, kontrol lera hälso tillståndet för leveransen och felsöka eventuella problem. Azure CDN tillhandahåller dessa funktioner på följande sätt: 
 
-## <a name="core-analytics-via-azure-diagnostic-logs"></a>Kärnanalys via Azure-diagnostikloggar
+## <a name="core-analytics-via-azure-diagnostic-logs"></a>Core Analytics via Azure Diagnostic-loggar
 
-Kärnanalys är tillgängligt för CDN-slutpunkter för alla prisnivåer. Azure-diagnostikloggar gör att kärnanalys kan exporteras till Azure-lagring, händelsehubbar eller Azure Monitor-loggar. Azure Monitor-loggar erbjuder en lösning med diagram som är användarkonfigurerbara och anpassningsbara. Mer information om Azure-diagnostikloggar finns i [Azure-diagnostikloggar](cdn-azure-diagnostic-logs.md).
+Core Analytics är tillgängligt för CDN-slutpunkter för alla pris nivåer. Azure Diagnostics-loggar låter kärn analyser exporteras till Azure Storage, Event Hub eller Azure Monitor loggar. Azure Monitor-loggar erbjuder en lösning med grafer som kan konfigureras av användaren och anpassas. Mer information om Azure Diagnostic-loggar finns i [Azure Diagnostic-loggar](cdn-azure-diagnostic-logs.md).
 
-## <a name="verizon-core-reports"></a>Verizon kärnrapporter
+## <a name="verizon-core-reports"></a>Verizon Core-rapporter
 
-Som Azure CDN-användare med en **Azure CDN Standard från Verizon** eller Azure **CDN Premium från Verizon-profilen** kan du visa Verizons kärnrapporter i Verizons tilläggsportal. Verizons kärnrapporter är tillgängliga via alternativet **Hantera** från Azure-portalen och erbjuder en mängd olika diagram och vyer. Mer information finns i [Kärnrapporter från Verizon](cdn-analyze-usage-patterns.md).
+Som Azure CDN användare med en **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** -profilen kan du Visa Verizon Core-rapporter i den kompletterande portalen för Verizon. Verizon Core-rapporter är tillgängligt via alternativet **Hantera** från Azure Portal och erbjuder en mängd olika grafer och vyer. Mer information finns i [Core-rapporter från Verizon](cdn-analyze-usage-patterns.md).
 
-## <a name="verizon-custom-reports"></a>Verizon anpassade rapporter
+## <a name="verizon-custom-reports"></a>Anpassade Verizon-rapporter
 
-Som Azure CDN-användare med en **Azure CDN Standard från Verizon** eller Azure **CDN Premium från Verizon-profilen** kan du visa anpassade rapporter från Verizon i Verizons tilläggsportal. Verizons anpassade rapporter är tillgängliga via alternativet **Hantera** från Azure-portalen. Sidan Anpassade rapporter i Verizon visar antalet träffar eller data som överförs för varje CName-kant som tillhör en Azure CDN-profil. Data kan grupperas efter HTTP-svarskod eller cachestatus under en viss tidsperiod. Mer information finns i [Anpassade rapporter från Verizon](cdn-verizon-custom-reports.md).
+Som Azure CDN användare med en **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** -profilen kan du Visa nya Verizon-rapporter i den kompletterande portalen för Verizon. Anpassade Verizon-rapporter är tillgängliga via alternativet **Hantera** från Azure Portal. På sidan för anpassade Verizon-rapporter visas antalet träffar eller data som överförts för varje Edge CName som tillhör en Azure CDN profil. Data kan grupperas efter HTTP-svarskod eller cache-status under en viss tids period. Mer information finns i [anpassade rapporter från Verizon](cdn-verizon-custom-reports.md).
 
-## <a name="azure-cdn-premium-from-verizon-reports"></a>Azure CDN Premium från Verizon rapporter
+## <a name="azure-cdn-premium-from-verizon-reports"></a>Azure CDN Premium från Verizon-rapporter
 
-Med **Azure CDN Premium från Verizon**kan du även komma åt följande rapporter:
+Med **Azure CDN Premium från Verizon**kan du också komma åt följande rapporter:
    * [Avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
    * [Realtidsstatistik](cdn-real-time-stats.md)
    * [Gränsnodsprestanda](cdn-edge-performance.md)

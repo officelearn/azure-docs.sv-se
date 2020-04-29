@@ -1,55 +1,55 @@
 ---
-title: 'Mönster: Logiska operatorer i en principdefinition'
-description: Det här Azure-principmönstret innehåller exempel på hur du använder de logiska operatörerna i en principdefinition.
+title: 'Mönster: logiska operatorer i en princip definition'
+description: Det här Azure Policys mönstret innehåller exempel på hur du använder logiska operatorer i en princip definition.
 ms.date: 04/15/2020
 ms.topic: sample
 ms.openlocfilehash: 691383b1f8ae34bbd51ce7f4f9310980e3c66537
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272516"
 ---
-# <a name="azure-policy-pattern-logical-operators"></a>Azure-principmönster: logiska operatorer
+# <a name="azure-policy-pattern-logical-operators"></a>Azure Policy mönster: logiska operatorer
 
-En principdefinition kan innehålla flera villkorssatser. Du kan behöva varje uttalande för att vara sant eller bara behöver några av dem för att vara sant. För att stödja dessa behov har språket [logiska operatorer](../concepts/definition-structure.md#logical-operators) för **inte**, **allOf**och **anyOf**. De är valfria och kan kapslas för att skapa komplexa scenarier.
+En princip definition kan innehålla flera villkorliga uttryck. Du kan behöva varje instruktion för att vara sann eller behöver bara vissa av dem vara sanna. För att stödja dessa behov har språket [logiska operatörer](../concepts/definition-structure.md#logical-operators) för **not**, **allOf**och **anyOf**. De är valfria och kan kapslas för att skapa komplexa scenarier.
 
-## <a name="sample-1-one-logical-operator"></a>Exempel 1: En logisk operator
+## <a name="sample-1-one-logical-operator"></a>Exempel 1: en logisk operator
 
-Den här principdefinitionen utvärderar CosmosDB-konton för att se om automatiska redundanser och flera skrivplatser har konfigurerats. När de inte är det utlöser [granskningen](../concepts/effects.md#audit) en loggpost när den icke-kompatibla resursen skapas eller uppdateras.
+Den här princip definitionen utvärderar CosmosDB-konton för att se om automatisk redundans och flera Skriv platser har kon figurer ATS. När de inte är det utlöses [granskningen](../concepts/effects.md#audit) och skapar en loggpost när den icke-kompatibla resursen skapas eller uppdateras.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
-### <a name="sample-1-explanation"></a>Exempel 1: Förklaring
+### <a name="sample-1-explanation"></a>Exempel 1: förklaring
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json" range="6-22" highlight="3":::
 
-Den **policyRule.if** blocket använder en enda **allOf** för att säkerställa att alla tre villkoren är sanna.
-Endast när alla dessa villkor utvärderas till true utlöser **granskningseffekten.**
+**PolicyRule. om** block använder en enda **allOf** för att säkerställa att alla tre villkoren är sanna.
+Endast när alla dessa villkor utvärderas till sant, utlöses **gransknings** resultatet.
 
-## <a name="sample-2-multiple-logical-operators"></a>Exempel 2: Flera logiska operatorer
+## <a name="sample-2-multiple-logical-operators"></a>Exempel 2: flera logiska operatorer
 
-Den här principdefinitionen utvärderar resurser för ett namngivningsmönster. Om en resurs inte matchar [nekas](../concepts/effects.md#deny)den .
+Den här princip definitionen utvärderar resurser för ett namngivnings mönster. Om en resurs inte matchar är den [nekad](../concepts/effects.md#deny).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json":::
 
-### <a name="sample-2-explanation"></a>Exempel 2: Förklaring
+### <a name="sample-2-explanation"></a>Exempel 2: förklaring
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
 
-Det här **policyRule.if-blocket** innehåller också en enda **allOf**, men varje villkor är insvept med den **inte** logiska operatorn. Villkoret inuti den **inte** logiska operatorn utvärderar först och utvärderar sedan **att inte** avgöra om hela satsen är sann eller falsk. Om båda **inte** logiska operatorer utvärderar till true utlöses principeffekten.
+Den här **policyRule. om** blocket även innehåller en enda **allOf**, men varje villkor omsluts med den **icke** -logiska operatorn. Villkoret i den **icke** -logiska operatorn utvärderas först och utvärderar **inte** för att avgöra om hela satsen är true eller false. Om båda **inte** är logiska operatorer som utvärderas som sant utlöses princip påverkan.
 
-## <a name="sample-3-combining-logical-operators"></a>Exempel 3: Kombinera logiska operatorer
+## <a name="sample-3-combining-logical-operators"></a>Exempel 3: kombinera logiska operatorer
 
-Den här principdefinitionen utvärderar Java Spring-konton för att se om någon av spårningen inte är aktiverad eller om spårningen inte är i ett framgångsrikt tillstånd.
+Den här princip definitionen utvärderar Java våren-konton för att se om spårningen inte är aktive rad eller om spårningen inte är i ett fungerande tillstånd.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 
-### <a name="sample-3-explanation"></a>Exempel 3: Förklaring
+### <a name="sample-3-explanation"></a>Exempel 3: förklaring
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json" range="6-28" highlight="3,8":::
 
-Det här **principRule.if-blocket** innehåller både **allaAv** **logiska** operatorer. Den **logiska operatorn anyOf** utvärderar sant så länge ett inkluderat villkor är sant. Eftersom _typen_ är kärnan i **allOf**måste den alltid utvärdera sant. Om _typen_ och ett av villkoren i **anyOf** är sanna utlöses principeffekten.
+Den här **policyRule. om** block innehåller både logiska operatorerna **allOf** och **anyOf** . Den logiska operatorn **anyOf** utvärderar True så länge ett villkor som ingår är sant. Eftersom _typen_ är i kärnan i **allOf**måste den alltid utvärdera sant. Om _typen_ och ett av villkoren i **anyOf** är sant utlöses princip påverkan.
 
 ## <a name="next-steps"></a>Nästa steg
 

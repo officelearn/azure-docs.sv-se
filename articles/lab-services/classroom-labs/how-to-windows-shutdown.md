@@ -1,6 +1,6 @@
 ---
-title: Guide för att kontrollera Windows-avstängningsbeteende i Azure Lab Services | Microsoft-dokument
-description: Åtgärder för att automatiskt stänga av en inaktiv virtuell dator i Windows och ta bort kommandot Windows shutdown.
+title: Guide för att styra beteendet för Windows-avstängning i Azure Lab Services | Microsoft Docs
+description: Steg för att automatiskt stänga av en virtuell Windows-dator som är inaktiv och ta bort Windows shutdown-kommandot.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,50 +11,50 @@ ms.topic: article
 ms.date: 3/30/2020
 ms.author: spelluru
 ms.openlocfilehash: 7b839df5940ab26e5c1a99a1bda1fbd2545f8cc4
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81113125"
 ---
-# <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guide till att kontrollera Windows avstängningsbeteende
+# <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guide för att styra avstängnings beteendet i Windows
 
-Azure Lab Services innehåller flera kostnadskontroller för att säkerställa att virtuella Datorer i Windows inte körs oväntat:
+Azure Lab Services tillhandahåller flera kostnads kontroller för att säkerställa att virtuella Windows-datorer (VM) inte körs utan förvarning:
  - [Ange ett schema](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
  - [Ange kvoter för användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
  - [Aktivera automatisk avstängning vid frånkoppling](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
-Även med dessa kostnadskontroller finns det situationer där en Virtuell Windows-dator oväntat kan fortsätta att köras. och som ett resultat av detta, dra av från studentens kvot:
+Även med dessa kostnads kontroller finns det situationer där en virtuell Windows-dator kan fortsätta att köras. Det innebär att dra av student kvoten:
 
 - **RDP-fönstret lämnas öppet**
   
-    När en deltagare ansluter till sin virtuella dator med RDP kan de av misstag lämna RDP-fönstret öppet.  Så länge RDP-fönstret förblir öppet börjar den **automatiska avstängningen vid frånkoppling** aldrig att börja gälla eftersom det bara utlöses efter att RDP-sessionen har kopplats från.
+    När en student ansluter till den virtuella datorn med RDP kan de oavsiktligt lämna RDP-fönstret öppet.  Så länge RDP-fönstret förblir öppet börjar inte inställningen **Automatisk avstängning vid från koppling** att gälla eftersom den endast utlöses efter att RDP-sessionen har kopplats från.
 
-- **Kommandot Windows shutdown används för att stänga av den virtuella datorn**
+- **Windows shutdown-kommandot används för att stänga av den virtuella datorn**
   
-    En elev kan använda Windows-avstängningskommandot eller andra avstängningsmekanismer som finns i Windows för att stänga av den virtuella datorn i stället för att använda [stoppknappen för Azure Lab Services.](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm)  När detta händer, ur Azure Lab Services, används den virtuella datorn fortfarande.
+    En student kan använda Windows avstängnings kommando eller andra avstängnings metoder som finns i Windows för att stänga av den virtuella datorn i stället för att använda [Azure Lab Services stopp-knappen](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  När detta inträffar kommer den virtuella datorn fortfarande att användas från Azure Lab Services perspektiv.
     
-Den här guiden innehåller steg för att automatiskt stänga av en inaktiv Windows-virtuell dator och ta bort kommandot Windows avstängning från **Start-menyn** för att förhindra att dessa situationer inträffar.  
+För att hjälpa dig att förhindra dessa situationer, innehåller den här guiden steg för att automatiskt stänga av en inaktiv virtuell Windows-dator och ta bort Windows shutdown-kommandot från **Start** menyn.  
 
 > [!NOTE]
-> En virtuell dator kan också oväntat dra av från kvoten när deltagaren startar sin virtuella dator, men ansluter aldrig till den med RDP.  Den här guiden tar för närvarande *inte* upp det här scenariot.  I stället bör eleverna påminnas om att omedelbart ansluta till sin virtuella dator med RDP när de har börjat den. eller bör de stoppa den virtuella datorn.
+> En virtuell dator kan också dras av från kvoten när studenten startar sin virtuella dator, men ansluter aldrig till den via RDP.  Den här guiden löser för närvarande *inte* det här scenariot.  I stället bör eleverna bli påmind om att omedelbart ansluta till den virtuella datorn med RDP när de har startat den. eller så bör de stoppa den virtuella datorn.
 
-## <a name="automatic-rdp-disconnect-and-shutdown-for-idle-vm"></a>Automatisk RDP-frånkoppling och avstängning för inaktiv virtuell dator
+## <a name="automatic-rdp-disconnect-and-shutdown-for-idle-vm"></a>Automatisk RDP-från koppling och avstängning för inaktiv virtuell dator
 
-Windows tillhandahåller **inställningar för lokala grupprinciper** som du kan använda för att ange en tidsgräns för att automatiskt koppla från en RDP-session när den blir inaktiv.  En session bedöms vara inaktiv när det *inte* finns någon mus-tangentbordsinmatning.  Alla tidskrävande aktiviteter som inte involverar mus-tangentbordsinmatning gör att den virtuella datorn är inaktiv.  Detta inkluderar att köra en lång fråga, strömmande video, kompilering, etc.  Beroende på klassens behov kan du välja att ange inaktiv tidsgräns så att den är tillräckligt lång för att hantera dessa typer av aktiviteter.  Du kan till exempel ange inaktiv tidsgräns till 1 eller fler timmar om det behövs.
+Windows tillhandahåller inställningar för **lokala Grupprincip** som du kan använda för att ange en tids gräns för att automatiskt koppla från en RDP-session när den blir inaktiv.  En session bestäms vara inaktiv när det *inte* finns några mouse\keyboard-ininformation.  Alla tids krävande aktiviteter som inte involverar mouse\keyboard-indatamängdar orsakar att den virtuella datorn är i inaktivt läge.  Detta inkluderar körning av en lång fråga, strömmande video, kompilering osv.  Beroende på klassens behov kan du välja att ange tids gränsen för inaktivitet så att den är tillräckligt lång för att hantera dessa typer av aktiviteter.  Du kan till exempel ange tids gränsen för inaktivitet till minst 1 timme om det behövs.
 
-Här är deltagarens upplevelse när du konfigurerar **gränsen för inaktiv session** i kombination med den [**automatiska avstängningen vid frånkopplingsinställning:**](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
- 1. Eleven ansluter till sin virtuella Windows-dator med RDP.
- 2. När deltagaren lämnar sitt RDP-fönster öppet och den virtuella datorn är inaktiv för den **inaktiva sessionsgräns** som du angav (t.ex. 5 minuter) visas följande dialogruta:
+Här är studentens upplevelse när du konfigurerar gränsen för **inaktiva sessioner** i kombination med inställningen [**Automatisk avstängning vid från koppling**](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect) :
+ 1. Studenten ansluter till sin virtuella Windows-dator med RDP.
+ 2. När studenten lämnar sitt RDP-fönster öppet och den virtuella datorn är inaktiv under **gränsen för inaktiva sessioner** som du har angett (till exempel 5 minuter) ser eleven följande dialog ruta:
 
-    ![Dialogrutan Förfallen tidsgräns för inaktiv tid](../media/how-to-windows-shutdown/idle-time-expired.png)
+    ![Dialog rutan gräns för tids gräns för inaktivitet](../media/how-to-windows-shutdown/idle-time-expired.png)
 
-1. Om deltagaren *inte* klickar på **OK**kopplas rdp-sessionen automatiskt från efter 2 minuter.
-2. När RDP-sessionen har kopplats från stängs den virtuella datorn automatiskt av Azure Lab Services när den angivna tidsramen för den **automatiska avstängningen vid frånkoppling** har nåtts.
+1. Om studenten *inte* klickar på **OK**, kommer RDP-sessionen att kopplas från automatiskt efter 2 minuter.
+2. När RDP-sessionen kopplas från när den angivna tids ramen för inställningen **Automatisk avstängning vid från koppling** har nåtts, stängs den virtuella datorn automatiskt av Azure Lab Services.
 
-### <a name="set-rdp-idle-session-time-limit-on-the-template-vm"></a>Ange tidsgräns för inaktiv session för fjärrskrivbordssession för mallen VM
+### <a name="set-rdp-idle-session-time-limit-on-the-template-vm"></a>Ange tids gräns för RDP-inaktiv session på den virtuella mallen
 
-Om du vill ange den inaktiva tidsgränsen för RDP-sessionen kan du ansluta till mallen VM och köra det under PowerShell-skriptet.
+Om du vill ange tids gräns för RDP-session kan du ansluta till mallen VM och köra PowerShell-skriptet nedan.
 
 ```powershell
 # The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
@@ -62,54 +62,54 @@ $maxIdleTime = 15 * 60 * 1000
 
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
 ```
-Du kan också välja att följa de här manuella stegen med hjälp av mallen VM:
+Eller så kan du välja att följa dessa manuella steg med mallen VM:
 
-1. Tryck på Windows-tangenten, skriv **gpedit**och välj sedan **Redigera grupprincip (Kontrollpanelen)**.
+1. Tryck på Windows-tangenten, Skriv **gpedit**och välj sedan **Redigera grup princip (kontroll panelen)**.
 
-1. Gå till **datorkonfiguration > administrativa mallar > Windows-komponenter > fjärrskrivbordstjänster > värd för fjärrskrivbordssession > sessionstidsgränser**.  
+1. Gå till **dator konfiguration > Administrativa mallar > Windows-komponenter > Fjärrskrivbordstjänster > värd för värd för fjärrskrivbordssession > tids gränser**för fjärrskrivbordssession.  
 
     ![Redigeraren för lokala grupprinciper](../media/how-to-windows-shutdown/group-policy-idle.png)
    
-1. Högerklicka på **Ange tidsgräns för aktiva men inaktiva sessioner för fjärrskrivbordstjänster**och klicka på **Redigera**.
+1. Högerklicka på **Ange tids gräns för aktiva men inaktiva Fjärrskrivbordstjänster sessioner**och klicka på **Redigera**.
 
 1. Ange följande inställningar och klicka sedan på **OK**:
    1. Välj **Aktiverad**.
-   1. Under **Alternativ**anger du **gränsen för inaktiv session**.
+   1. Under **alternativ**anger du **gränsen för inaktiva sessioner**.
 
     ![Gräns för inaktiv session](../media/how-to-windows-shutdown/edit-idle-time-limit.png)
 
-1. Slutligen, för att kombinera detta beteende med den **automatiska avstängningen vid frånkoppling** inställning, bör du följa stegen i how-to artikeln: [Aktivera automatisk avstängning av virtuella datorer på frånkoppling](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
+1. Om du vill kombinera detta beteende med inställningen **Automatisk avstängning vid från koppling** bör du följa stegen i instruktions artikeln: [Aktivera automatisk avstängning av virtuella datorer vid från koppling](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
 
 > [!WARNING]
-> När du har konfigurerat den här inställningen med hjälp av PowerShell för att ändra registerinställningen direkt eller manuellt med hjälp av redigeraren för grupprinciper måste du först starta om den virtuella datorn för att inställningarna ska börja gälla.  Om du konfigurerar inställningen med hjälp av registret uppdateras inte alltid redigeraren för grupprinciper för att återspegla ändringar i registerinställningen. Registerinställningen börjar dock fortfarande gälla som förväntat och rdp-sessionen kommer att kopplas från när den är inaktiv under den tid som du har angett.
+> När du har konfigurerat den här inställningen med hjälp av PowerShell för att ändra register inställningen direkt eller manuellt med hjälp av grupprincip redigeraren måste du först starta om den virtuella datorn för att inställningarna ska börja gälla.  Om du konfigurerar inställningen med hjälp av registret uppdateras även grupprincip redigeraren så att den återspeglar ändringar i register inställningen. register inställningen börjar dock gälla som förväntat, och RDP-sessionen kopplas från vid inaktivitet under den angivna tids perioden.
 
-## <a name="remove-windows-shutdown-command-from-start-menu"></a>Ta bort kommandot Windows-avstängning från Start-menyn
+## <a name="remove-windows-shutdown-command-from-start-menu"></a>Ta bort Windows avstängnings kommando från Start menyn
 
-Med windows **lokala grupprincipinställningar** kan du också ta bort avstängningskommandot från **Start-menyn.**
+Med inställningarna för lokala Windows- **Grupprincip** kan du också ta bort shutdown-kommandot från **Start** menyn.
 
-Om du vill ta bort avstängningskommandot kan du ansluta till mallen VM och köra under PowerShell-skriptet.
+Om du vill ta bort kommandot shutdown kan du ansluta till mallen VM och köra PowerShell-skriptet nedan.
 
 ```powershell
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "HidePowerOptions" -Value 1 -Force
 ```
 
-Du kan också välja att följa de här manuella stegen med hjälp av mallen VM:
+Eller så kan du välja att följa dessa manuella steg med mallen VM:
 
-1. Tryck på Windows-tangenten, skriv **gpedit**och välj sedan **Redigera grupprincip (Kontrollpanelen)**.
+1. Tryck på Windows-tangenten, Skriv **gpedit**och välj sedan **Redigera grup princip (kontroll panelen)**.
 
-1. Gå till **datorkonfiguration > administrativa mallar > Start-menyn och Aktivitetsfältet**.  
+1. Gå till **dator konfiguration > Administrativa mallar > Start-menyn och aktivitets fältet**.  
 
     ![Redigeraren för lokala grupprinciper](../media/how-to-windows-shutdown/group-policy-shutdown.png)
 
-1. Högerklicka på **Ta bort och förhindra åtkomst till kommandona Stäng av, Starta om, för viloläge och Viloläge**och klicka på **Redigera**.
+1. Högerklicka på **ta bort och förhindra åtkomst till kommandona Stäng av, starta om, ström spar läge och vilo läge**och klicka på **Redigera**.
 
-1. Markera inställningen **Aktiverad** och klicka sedan på **OK:**
+1. Välj den **aktiverade** inställningen och klicka sedan på **OK**:
  
-   ![Inställning för avstängning](../media/how-to-windows-shutdown/edit-shutdown.png)
+   ![Avslutnings inställning](../media/how-to-windows-shutdown/edit-shutdown.png)
 
-1. Observera att avstängningskommandot inte längre visas under **Start-menyn i** Windows. endast kommandot **Koppla från** visas.
+1. Observera att kommandot shutdown inte längre visas under **Start** menyn i Windows; endast kommandot **från koppling** visas.
 
-    ![Kommandot Avstängning](../media/how-to-windows-shutdown/start-menu.png)
+    ![Shutdown-kommando](../media/how-to-windows-shutdown/start-menu.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Se artikeln om hur du förbereder en VIRTUELL Windows-mall: [Guide för att konfigurera en Windows-malldator i Azure Lab Services](how-to-prepare-windows-template.md)
+Se artikeln om hur du förbereder en virtuell Windows-mall: [Guide för att konfigurera en Windows-mall i Azure Lab Services](how-to-prepare-windows-template.md)

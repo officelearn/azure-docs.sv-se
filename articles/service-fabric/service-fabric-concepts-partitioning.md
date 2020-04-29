@@ -1,131 +1,131 @@
 ---
-title: Tjänster för partitionering av tjänst fabric
-description: Beskriver hur du partitionerar tillståndskänsliga tjänst för Service Fabric. Partitioner möjliggör datalagring på de lokala datorerna så att data och beräkning kan skalas tillsammans.
+title: Partitionera Service Fabric tjänster
+description: Beskriver hur du partitionerar Service Fabric tillstånds känsliga tjänster. Partitioner möjliggör data lagring på de lokala datorerna så att data och data bearbetning kan skalas tillsammans.
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81115153"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionera tillförlitliga Service Fabric-tjänster
-Den här artikeln innehåller en introduktion till de grundläggande begreppen för partitionering av azure service fabric-tillförlitliga tjänster. Källkoden som används i artikeln finns också på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Den här artikeln innehåller en introduktion till de grundläggande begreppen för partitionering av Azure Service Fabric Reliable Services. Käll koden som används i artikeln är också tillgänglig på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="partitioning"></a>Partitionering
-Partitionering är inte unikt för Service Fabric. I själva verket är det ett centralt mönster för att bygga skalbara tjänster. I vidare bemärkelse kan vi tänka oss att partitionera som ett begrepp om att dela upp tillstånd (data) och beräkna i mindre tillgängliga enheter för att förbättra skalbarhet och prestanda. En välkänd form av partitionering är [datapartitionering][wikipartition], även känd som sharding.
+Partitionering är inte unikt för Service Fabric. I själva verket är det ett kärn mönster för att skapa skalbara tjänster. I en större mening kan vi tänka på partitionering som ett koncept för att dela upp tillstånd (data) och beräkna i mindre tillgängliga enheter för att förbättra skalbarhet och prestanda. En välkänd form av partitionering är [data partitionering][wikipartition], även kallat horisontell partitionering.
 
-### <a name="partition-service-fabric-stateless-services"></a>Tillståndslösa tjänster för Partition Service Fabric
-För tillståndslösa tjänster kan du tänka på att en partition är en logisk enhet som innehåller en eller flera instanser av en tjänst. Bild 1 visar en tillståndslös tjänst med fem instanser fördelade över ett kluster med en partition.
+### <a name="partition-service-fabric-stateless-services"></a>Partitionera Service Fabric tillstånds lösa tjänster
+För tillstånds lösa tjänster kan du tänka på att en partition är en logisk enhet som innehåller en eller flera instanser av en tjänst. Bild 1 visar en tillstånds lös tjänst med fem instanser som distribueras över ett kluster med en partition.
 
-![Tillståndslös tjänst](./media/service-fabric-concepts-partitioning/statelessinstances.png)
+![Tillstånds lös tjänst](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-Det finns egentligen två typer av statslösa servicelösningar. Den första är en tjänst som behåller sitt tillstånd externt, till exempel i en Azure SQL-databas (som en webbplats som lagrar sessionsinformation och data). Den andra är beräknings-bara tjänster (som en kalkylator eller miniatyrbild av bilder) som inte hanterar något beständigt tillstånd.
+Det finns i själva verket två typer av tillstånds lösa tjänst lösningar. Den första är en tjänst som behåller sitt tillstånd externt, till exempel i en Azure SQL-databas (t. ex. en webbplats som lagrar sessionsinformation och data). Den andra är endast för beräknings tjänster (t. ex. en kalkylator eller bild miniatyr) som inte hanterar något beständigt tillstånd.
 
-I båda fallen är partitionering av en tillståndslös tjänst ett mycket sällsynt scenario – skalbarhet och tillgänglighet uppnås normalt genom att lägga till fler instanser. Den enda gången du vill överväga flera partitioner för tillståndslösa tjänstinstanser är när du behöver uppfylla särskilda routningsbegäranden.
+I båda fallen är partitionering av en tillstånds lös tjänst ett mycket sällsynt scenario – skalbarhet och tillgänglighet uppnås normalt genom att lägga till fler instanser. Den enda gången du vill överväga att använda flera partitioner för tillstånds lösa tjänst instanser är när du behöver möta särskilda Dirigerings begär Anden.
 
-Som ett exempel bör du överväga ett fall där användare med ID:er i ett visst intervall endast ska betjänas av en viss tjänstinstans. Ett annat exempel på när du kan partitionera en tillståndslös tjänst är när du har en verkligt partitionerad servergrupp (t.ex. en fragmenterad SQL-databas) och du vill styra vilken tjänstinstans som ska skriva till databasen shard - eller utföra andra förberedelsearbete inom den tillståndslösa tjänsten som kräver samma partitioneringsinformation som används i serverda. Dessa typer av scenarier kan också lösas på olika sätt och behöver inte nödvändigtvis tjänstpartitionering.
+Som exempel bör du tänka på ett fall där användare med ID i ett visst intervall endast ska hanteras av en viss tjänst instans. Ett annat exempel på när du kan partitionera en tillstånds lös tjänst är om du har en helt partitionerad Server del (t. ex. en shardade SQL-databas) och du vill styra vilken tjänst instans som ska skrivas till databasen Shard – eller utföra andra förberedelser i den tillstånds lösa tjänsten som kräver samma partitionerings information som används i Server delen. Dessa typer av scenarier kan också lösas på olika sätt och kräver inte nödvändigt vis tjänst partitionering.
 
-Resten av den här genomgången fokuserar på tillståndskänsliga tjänster.
+Resten av den här genom gången fokuserar på tillstånds känsliga tjänster.
 
-### <a name="partition-service-fabric-stateful-services"></a>Tillståndskänsliga tjänster för Partition Service Fabric
-Service Fabric gör det enkelt att utveckla skalbara tillståndskänsliga tjänster genom att erbjuda ett förstklassigt sätt att partitionera tillstånd (data). Begreppsmässigt kan du tänka på en partition av en tillståndskänslig tjänst som en skalningsenhet som är mycket tillförlitlig genom [repliker](service-fabric-availability-services.md) som distribueras och balanseras över noderna i ett kluster.
+### <a name="partition-service-fabric-stateful-services"></a>Partitionera Service Fabric tillstånds känsliga tjänster
+Service Fabric är det enkelt att utveckla skalbara tillstånds känsliga tjänster genom att erbjuda ett första klass sätt att partitionera tillstånd (data). Konceptuellt kan du tänka på en partition av en tillstånds känslig tjänst som en skalnings enhet som är mycket tillförlitlig via [repliker](service-fabric-availability-services.md) som distribueras och bal anse ras över noderna i ett kluster.
 
-Partitionering i samband med Service Fabric tillståndskänsliga tjänster hänvisar till processen att fastställa att en viss tjänst partition är ansvarig för en del av hela tillståndet för tjänsten. (Som tidigare nämnts är en partition en uppsättning [repliker](service-fabric-availability-services.md)). En stor sak om Service Fabric är att det placerar partitioner på olika noder. På så sätt kan de växa till en nods resursgräns. När databehoven växer växer partitioner och Service Fabric balanserar partitioner över noder. Detta säkerställer fortsatt effektiv användning av maskinvaruresurser.
+Partitionering i samband med Service Fabric tillstånds känsliga tjänster syftar på att fastställa att en viss tjänstmall är ansvarig för en del av tjänstens fullständiga status. (Som tidigare nämnts är en partition en uppsättning [repliker](service-fabric-availability-services.md)). En bra sak om Service Fabric är att partitionerna placeras på olika noder. Detta gör det möjligt för dem att växa till en nods resurs gräns. När data behöver växa, växer partitionerna och Service Fabric ombalansera partitioner mellan noder. Detta säkerställer den fortsatta effektiva användningen av maskin varu resurser.
 
-Om du vill ge dig ett exempel säger du att du börjar med ett 5-nodskluster och en tjänst som är konfigurerad för att ha 10 partitioner och ett mål på tre repliker. I det här fallet skulle Service Fabric balansera och distribuera replikerna över klustret - och du skulle sluta med två primära [repliker](service-fabric-availability-services.md) per nod.
-Om du nu behöver skala ut klustret till 10 noder, skulle Service Fabric balansera de primära [replikerna](service-fabric-availability-services.md) över alla 10 noder. På samma sätt, om du skalas tillbaka till 5 noder, skulle Service Fabric balansera alla repliker över 5 noder.  
+Anta att du börjar med ett kluster med fem noder och en tjänst som har kon figurer ATS för att ha 10 partitioner och ett mål av tre repliker. I det här fallet balanserar och distribuerar Service Fabric replikerna i klustret – och du får två primära [repliker](service-fabric-availability-services.md) per nod.
+Om du nu behöver skala ut klustret till 10 noder, skulle Service Fabric debiteras de primära [replikerna](service-fabric-availability-services.md) på alla 10 noder. Om du skalade tillbaka till 5 noder, kan Service Fabric på samma sätt balansera om alla repliker över 5 noderna.  
 
 Bild 2 visar fördelningen av 10 partitioner före och efter skalning av klustret.
 
-![Tillståndskänslig tjänst](./media/service-fabric-concepts-partitioning/partitions.png)
+![Tillstånds känslig tjänst](./media/service-fabric-concepts-partitioning/partitions.png)
 
-Som ett resultat uppnås utskalningen eftersom begäranden från klienter distribueras över datorer, programmets övergripande prestanda förbättras och konkurrens om åtkomst till datasegment minskar.
+Därför uppnås utskalning eftersom begär Anden från klienter distribueras mellan datorer, den övergripande prestandan för programmet förbättras och konkurrens om åtkomsten till data segmenten minskas.
 
 ## <a name="plan-for-partitioning"></a>Planera för partitionering
-Innan du implementerar en tjänst bör du alltid överväga den partitioneringsstrategi som krävs för att skala ut. Det finns olika sätt, men alla fokuserar på vad programmet behöver uppnå. I samband med den här artikeln, låt oss överväga några av de viktigare aspekterna.
+Innan du implementerar en tjänst bör du alltid fundera över vilken partitionerings strategi som krävs för att skala ut. Det finns olika sätt, men alla fokuserar på vad programmet behöver för att uppnå. Vi är medveten om några av de viktiga aspekterna av den här artikeln.
 
-Ett bra tillvägagångssätt är att tänka på strukturen i den stat som måste delas, som det första steget.
+Ett bättre tillvägagångs sätt är att tänka på strukturen för det tillstånd som behöver partitioneras, som det första steget.
 
-Låt oss ta ett enkelt exempel. Om du skulle bygga en tjänst för en länsomfattande undersökning, kan du skapa en partition för varje stad i länet. Sedan kan du lagra rösterna för varje person i staden i partitionen som motsvarar den staden. Figur 3 illustrerar en uppsättning människor och den stad där de bor.
+Låt oss ta ett enkelt exempel. Om du vill skapa en tjänst för en delmängds avsökning kan du skapa en partition för varje stad i regionen. Sedan kan du lagra rösterna för varje person i staden i den partition som motsvarar den staden. Bild 3 visar en uppsättning personer och den ort där de finns.
 
 ![Enkel partition](./media/service-fabric-concepts-partitioning/cities.png)
 
-Eftersom befolkningen i städer varierar kraftigt, kan du sluta med vissa partitioner som innehåller en hel del data (t.ex. Seattle) och andra partitioner med mycket lite tillstånd (t.ex. Kirkland). Så vad är effekten av att ha partitioner med ojämna mängder av tillstånd?
+Eftersom populationen av städer varierar mycket, kan det hända att du får en del partitioner som innehåller mycket data (t. ex. Seattle) och andra partitioner med mycket litet tillstånd (t. ex. Kirkland). Så vad är effekten av att ha partitioner med ojämna mängder av tillstånd?
 
-Om du tänker på exemplet igen, kan du enkelt se att den partition som innehar rösterna för Seattle kommer att få mer trafik än Kirkland en. Som standard ser Service Fabric till att det finns ungefär samma antal primära och sekundära repliker på varje nod. Så du kan sluta med noder som håller repliker som tjänar mer trafik och andra som tjänar mindre trafik. Du skulle helst vilja undvika varma och kalla fläckar som denna i ett kluster.
+Om du tror att du ser exemplet igen kan du enkelt se att partitionen som innehåller rösterna för Seattle får mer trafik än Kirkland en. Service Fabric ser som standard till att det finns ungefär samma antal primära och sekundära repliker på varje nod. Det innebär att du kan få noder som innehåller repliker som hanterar mer trafik och andra som betjänar mindre trafik. Du vill helst undvika frekventa och kalla fläckar som i ett kluster.
 
-För att undvika detta bör du göra två saker, från en partitionering synvinkel:
+För att undvika detta bör du göra två saker, från en partitionering plats i vyn:
 
-* Försök att partitionera tillståndet så att det är jämnt fördelat över alla partitioner.
-* Rapportera belastning från var och en av replikerna för tjänsten. (Mer information om hur du läser den här artikeln om [mått och inläsning](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric ger möjlighet att rapportera belastning som förbrukas av tjänster, till exempel mängden minne eller antal poster. Baserat på de rapporterade måtten upptäcker Service Fabric att vissa partitioner betjänar högre belastningar än andra och balanserar om klustret genom att flytta repliker till mer lämpliga noder, så att den totala noden överbelastas.
+* Försök att partitionera statusen så att den är jämnt fördelad på alla partitioner.
+* Rapport belastning från var och en av-replikerna för tjänsten. (Mer information om hur finns i den här artikeln om [mått och belastning](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric ger möjlighet att rapportera belastning som används av tjänster, till exempel mängden minne eller antalet poster. Baserat på de mått som rapporter ATS identifierar Service Fabric att vissa partitioner betjänar högre belastningar än andra och balanserar klustret genom att flytta repliker till mer lämpliga noder, så att ingen nod överbelastas.
 
-Ibland kan du inte veta hur mycket data som kommer att finnas i en viss partition. Så en allmän rekommendation är att göra både - först, genom att anta en partitionering strategi som sprider data jämnt över partitioner och andra, genom att rapportera belastning.  Den första metoden förhindrar situationer som beskrivs i röstningsexemplet, medan den andra hjälper till att jämna ut tillfälliga skillnader i åtkomst eller belastning över tid.
+Ibland vet du inte hur mycket data som finns i en specifik partition. En allmän rekommendation är att göra både och först genom att anta en partitionerings strategi som sprider data jämnt över partitionerna och andra, genom att använda rapporterings belastning.  Den första metoden förhindrar situationer som beskrivs i röstnings exemplet, medan den andra hjälper till att utjämna temporära skillnader i åtkomst eller belastning över tid.
 
-En annan aspekt av partitionsplanering är att välja rätt antal partitioner till att börja med.
-Ur ett Service Fabric-perspektiv finns det inget som hindrar dig från att börja med ett större antal partitioner än förväntat för ditt scenario.
-Faktum är att anta att det maximala antalet partitioner är en giltig metod.
+En annan aspekt av att planera partitionen är att välja rätt antal partitioner att börja med.
+Från ett Service Fabric perspektiv finns det inget som hindrar dig från att starta med ett högre antal partitioner än förväntat för ditt scenario.
+I själva verket är det ett giltigt tillvägagångs sätt att anta att det maximala antalet partitioner är giltigt.
 
-I sällsynta fall kan du behöva fler partitioner än du ursprungligen har valt. Eftersom du inte kan ändra antalet partitioner i efterhand måste du använda vissa avancerade partitionsmetoder, till exempel skapa en ny tjänstinstans av samma tjänsttyp. Du måste också implementera viss logik på klientsidan som dirigerar begäranden till rätt tjänstinstans, baserat på kunskap på klientsidan som klientkoden måste underhålla.
+I sällsynta fall kan du behöva fler partitioner än du först har valt. Eftersom du inte kan ändra antalet partitioner efter faktumet måste du tillämpa några metoder för avancerad partition, till exempel skapa en ny tjänst instans av samma typ av tjänst. Du måste också implementera en del trafik på klient sidan som skickar begär anden till rätt tjänst instans, baserat på information på klient sidan som din klient kod måste underhålla.
 
-En annan faktor för partitionering planering är de tillgängliga datorresurser. Eftersom tillståndet måste nås och lagras måste du följa:
+Ett annat övervägande för partitionerings planering är tillgängliga dator resurser. När tillstånd måste nås och lagras, är du kopplad till följande:
 
-* Begränsningar för nätverksbandbredd
-* Begränsningar för systemminne
-* Begränsningar för disklagring
+* Begränsningar för nätverks bandbredd
+* System minnes gränser
+* Disk lagrings gränser
 
-Så vad händer om du stöter på resursbegränsningar i ett kluster som körs? Svaret är att du helt enkelt kan skala ut klustret för att tillgodose de nya kraven.
+Vad händer om du kör i resurs begränsningar i ett kluster som körs? Svaret är att du enkelt kan skala ut klustret så att det passar de nya kraven.
 
-[Guiden för kapacitetsplanering](service-fabric-capacity-planning.md) ger vägledning för hur du avgör hur många noder klustret behöver.
+[I kapacitets planerings guiden](service-fabric-capacity-planning.md) får du vägledning för hur du avgör hur många noder klustret behöver.
 
-## <a name="get-started-with-partitioning"></a>Komma igång med partitionering
-I det här avsnittet beskrivs hur du kommer igång med partitionering av tjänsten.
+## <a name="get-started-with-partitioning"></a>Kom igång med partitionering
+I det här avsnittet beskrivs hur du kommer igång med att partitionera din tjänst.
 
-Service Fabric erbjuder ett urval av tre partitionsscheman:
+Service Fabric erbjuder ett val av tre partition scheman:
 
-* Intervallpartitionering (kallas annars UniformInt64Partition).
-* Namngiven partitionering. Program som använder den här modellen har vanligtvis data som kan bucketed, inom en begränsad uppsättning. Några vanliga exempel på datafält som används som namngivna partitionsnycklar är regioner, postnummer, kundgrupper eller andra affärsgränser.
-* Singleton partitionering. Singleton-partitioner används vanligtvis när tjänsten inte kräver någon ytterligare routning. Tillståndslösa tjänster använder till exempel det här partitioneringsschemat som standard.
+* Intervall partitionering (kallas även UniformInt64Partition).
+* Namngiven partitionering. Program som använder den här modellen har vanligt vis data som kan vara i Bucket, inom en begränsad mängd. Några vanliga exempel på data fält som används som namngivna partitionsnyckel är regioner, post nummer, kund grupper eller andra affärs gränser.
+* Singleton-partitionering. Singleton-partitioner används vanligt vis när tjänsten inte kräver ytterligare routning. Till exempel kan tillstånds lösa tjänster använda detta partitionerings schema som standard.
 
-Namngivna och Singleton partitionering system är speciella former av varierade partitioner. Som standard använder Visual Studio-mallarna för Service Fabric varierade partitionering, eftersom det är den vanligaste och mest användbara. Resten av den här artikeln fokuserar på det varierade partitioneringsschemat.
+Namngivna och singleton-partitionerings scheman är särskilda former av intervallbaserade partitioner. Som standard är Visual Studio-mallarna för Service Fabric använda mellanliggande partitionering, eftersom det är den vanligaste och användbara. Resten av den här artikeln fokuserar på det intervallbaserade partitionerings schemat.
 
-### <a name="ranged-partitioning-scheme"></a>Intervallintervalleringsschema
-Detta används för att ange ett heltalsintervall (identifieras med en låg nyckel och hög nyckel) och ett antal partitioner (n). Det skapar n partitioner, var och en ansvarig för en icke-överlappande underregister av den totala partitionen nyckelintervallet. Ett intervallpartitioneringsschema med en låg nyckel på 0, en hög nyckel på 99 och antalet 4 skulle till exempel skapa fyra partitioner, som visas nedan.
+### <a name="ranged-partitioning-scheme"></a>Intervall för partitionerings scheman
+Detta används för att ange ett heltals intervall (identifieras av en låg nyckel och hög nyckel) och ett antal partitioner (n). Den skapar n partitioner, som var och en ansvarar för ett under intervall som inte överlappar under intervallet för den totala partitionsnyckel. Till exempel ett intervall för partitionering med en låg nyckel på 0, en hög nyckel på 99 och antalet 4 skulle skapa fyra partitioner, som du ser nedan.
 
-![Partitionering av område](./media/service-fabric-concepts-partitioning/range-partitioning.png)
+![Intervall partitionering](./media/service-fabric-concepts-partitioning/range-partitioning.png)
 
-En vanlig metod är att skapa en hash baserat på en unik nyckel i datauppsättningen. Några vanliga exempel på nycklar är ett fordonsidentifieringsnummer (VIN), ett medarbetar-ID eller en unik sträng. Genom att använda den här unika nyckeln skulle du sedan generera en hash-kod, modulus nyckelintervallet, att använda som din nyckel. Du kan ange de övre och nedre gränserna för det tillåtna nyckelintervallet.
+En vanlig metod är att skapa en hash baserat på en unik nyckel i data uppsättningen. Några vanliga exempel på nycklar är ett fordons identifierings nummer (VIN), ett medarbetar-ID eller en unik sträng. Genom att använda den här unika nyckeln genererar du en hash-kod, Modulus nyckel intervallet, som ska användas som nyckel. Du kan ange de övre och nedre gränserna för det tillåtna nyckel intervallet.
 
 ### <a name="select-a-hash-algorithm"></a>Välj en hash-algoritm
-En viktig del av hash-ning är att välja din hash-algoritm. En faktor är om målet är att gruppera liknande nycklar nära varandra (lokalkänslig hashing)--eller om aktiviteten bör fördelas brett över alla partitioner (distribution hashing), vilket är vanligare.
+En viktig del av hashing är att välja din hash-algoritm. Ett övervägande är om målet är att gruppera liknande nycklar nära varandra (lokal känslig hashing)--eller om en aktivitet ska distribueras brett över alla partitioner (distributions-hashing), vilket är vanligare.
 
-Egenskaperna hos en bra distribution hash algoritm är att det är lätt att beräkna, det har få kollisioner, och det distribuerar nycklarna jämnt. Ett bra exempel på en effektiv hash-algoritm är [FNV-1 hash-algoritmen.](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function)
+Egenskaperna för en bra distributions-hash-algoritm är att det är enkelt att beräkna, det har några kollisioner och distribuerar nycklar jämnt. Ett bra exempel på en effektiv hash-algoritm är [FNV-1-](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) hashalgoritmen.
 
-En bra resurs för allmänna hash kod algoritm val är [Wikipedia sida på hash-funktioner](https://en.wikipedia.org/wiki/Hash_function).
+En lämplig resurs för allmänna alternativ för hash-kod är [Wikipedia-sidan på hash-funktioner](https://en.wikipedia.org/wiki/Hash_function).
 
-## <a name="build-a-stateful-service-with-multiple-partitions"></a>Skapa en tillståndskänslig tjänst med flera partitioner
-Nu ska vi skapa din första tillförlitliga tillståndskänsliga tjänst med flera partitioner. I det här exemplet ska du skapa ett mycket enkelt program där du vill lagra alla efternamn som börjar med samma bokstav i samma partition.
+## <a name="build-a-stateful-service-with-multiple-partitions"></a>Bygg en tillstånds känslig tjänst med flera partitioner
+Nu ska vi skapa din första pålitliga tillstånds känsliga tjänst med flera partitioner. I det här exemplet ska du skapa ett mycket enkelt program där du vill lagra alla efter namn som börjar med samma bokstav i samma partition.
 
-Innan du skriver någon kod måste du tänka på partitioner och partitionsnycklar. Du behöver 26 partitioner (en för varje bokstav i alfabetet), men hur är det med de låga och höga tangenterna?
-Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som lågmäld och 25 som hög nyckel, eftersom varje bokstav är sin egen nyckel.
+Innan du skriver någon kod måste du tänka på partitionerna och partitionernas nycklar. Du behöver 26 partitioner (en för varje bokstav i alfabetet), men vad gäller för låga och höga nycklar?
+Eftersom vi verkligen vill ha en partition per bokstav kan vi använda 0 som låg nyckel och 25 som hög nyckel, eftersom varje bokstav är en egen nyckel.
 
 > [!NOTE]
-> Detta är ett förenklat scenario, eftersom fördelningen i själva verket skulle vara ojämn. Efternamn som börjar med bokstäverna "S" eller "M" är vanligare än de som börjar med "X" eller "Y".
+> Detta är ett förenklat scenario, som i verkligheten skulle distributionen bli ojämn. Efter namn som börjar med bokstäverna "S" eller "M" är vanligare än de som börjar med "X" eller "Y".
 > 
 > 
 
-1. Öppna **Visual Studio** > **File** > **New** > **Project**.
-2. Välj programmet Service Fabric i dialogrutan **Nytt projekt.**
-3. Kalla projektet "AlphabetPartitions".
-4. I dialogrutan **Skapa en tjänst** väljer du **Tillståndskänslig** tjänst och kallar den "Alphabet.Processing".
-5. Ange antalet partitioner. Öppna filen Applicationmanifest.xml i mappen ApplicationPackageRoot i AlphabetPartitions-projektet och uppdatera parametern Processing_PartitionCount till 26 enligt nedan.
+1. Öppna **Visual Studio** > **-filen** > **nytt** > **projekt**.
+2. I dialog rutan **nytt projekt** väljer du programmet Service Fabric.
+3. Anropa projektet "AlphabetPartitions".
+4. I dialog rutan **skapa en tjänst** väljer du **tillstånds känslig** tjänst och anropar den "alfabetet. bearbetar".
+5. Ange antalet partitioner. Öppna filen Applicationmanifest. xml som finns i mappen ApplicationPackageRoot i AlphabetPartitions-projektet och uppdatera parametern Processing_PartitionCount till 26 som visas nedan.
    
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
    
-    Du måste också uppdatera LowKey- och HighKey-egenskaperna för elementet StatefulService i ApplicationManifest.xml enligt nedan.
+    Du måste också uppdatera egenskaperna LowKey och HighKey för StatefulService-elementet i ApplicationManifest. xml som visas nedan.
    
     ```xml
     <Service Name="Processing">
@@ -134,25 +134,25 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
       </StatefulService>
     </Service>
     ```
-6. För att tjänsten ska vara tillgänglig öppnar du en slutpunkt på en port genom att lägga till slutpunktselementet i ServiceManifest.xml (som finns i PackageRoot-mappen) för tjänsten Alphabet.Processing enligt nedan:
+6. För att tjänsten ska kunna nås öppnar du en slut punkt på en port genom att lägga till slut punkts elementet för ServiceManifest. XML (finns i mappen PackageRoot) för alfabetet. bearbetar tjänst enligt nedan:
    
     ```xml
     <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
     ```
    
-    Nu är tjänsten konfigurerad för att lyssna på en intern slutpunkt med 26 partitioner.
-7. Därefter måste du åsidosätta metoden för `CreateServiceReplicaListeners()` klassen Processing.
+    Tjänsten är nu konfigurerad för att lyssna på en intern slut punkt med 26 partitioner.
+7. Sedan måste du åsidosätta `CreateServiceReplicaListeners()` metoden för bearbetnings klassen.
    
    > [!NOTE]
-   > För det här exemplet förutsätter vi att du använder en enkel HttpCommunicationListener. Mer information om tillförlitlig servicekommunikation finns i [Kommunikationsmodellen för tillförlitlig service](service-fabric-reliable-services-communication.md).
+   > För det här exemplet förutsätter vi att du använder en enkel HttpCommunicationListener. Mer information om tillförlitlig tjänst kommunikation finns i [den tillförlitliga tjänst kommunikations modellen](service-fabric-reliable-services-communication.md).
    > 
    > 
-8. Ett rekommenderat mönster för webbadressen som en replik lyssnar på är följande format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
-    Så du vill konfigurera din kommunikation lyssnare att lyssna på rätt slutpunkter och med detta mönster.
+8. Ett rekommenderat mönster för den URL som en replik lyssnar på är följande format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
+    Så du vill konfigurera din kommunikations lyssnare så att den lyssnar på rätt slut punkter och med det här mönstret.
    
-    Flera repliker av den här tjänsten kan vara värd på samma dator, så den här adressen måste vara unik för repliken. Det är därför partitions-ID + replik-ID finns i URL:en. HttpListener kan lyssna på flera adresser på samma port så länge URL-prefixet är unikt.
+    Flera repliker av den här tjänsten kanske finns på samma dator, så den här adressen måste vara unik för repliken. Detta är anledningen till att partitions-ID + replik-ID finns i URL: en. HttpListener kan lyssna på flera adresser på samma port så länge URL-prefixet är unikt.
    
-    Den extra GUID är där för ett avancerat fall där sekundära repliker också lyssna efter skrivskyddade begäranden. När så är fallet vill du se till att en ny unik adress används vid övergången från primär till sekundär för att tvinga klienter att lösa adressen igen. '+' används som adress här så att repliken lyssnar på alla tillgängliga värdar (IP, FQDN, localhost, etc.) Koden nedan visar ett exempel.
+    Extra GUID finns där för ett avancerat fall där sekundära repliker också lyssnar efter skrivskyddade begär Anden. I så fall vill du se till att en ny unik adress används vid över gång från primär till sekundär för att tvinga klienter att matcha adressen igen. "+" används som adress här så att repliken lyssnar på alla tillgängliga värdar (IP, FQDN, localhost osv.) I koden nedan visas ett exempel.
    
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -178,9 +178,9 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
     }
     ```
    
-    Det är också värt att notera att den publicerade webbadressen skiljer sig något från prefixet för lyssningsadress.
-    Lyssningsadressen ges till HttpListener. Den publicerade URL:en är webbadressen som publiceras till tjänst fabric-namngivningstjänsten, som används för identifiering av tjänsten. Klienter kommer att be om den här adressen via identifieringstjänsten. Adressen som klienterna får måste ha den faktiska IP- eller FQDN-adressen för noden för att kunna ansluta. Så du måste ersätta "+" med nodens IP eller FQDN som visas ovan.
-9. Det sista steget är att lägga till bearbetningslogiken i tjänsten enligt nedan.
+    Det är också värt att notera att den publicerade URL: en skiljer sig något från lyssnings-URL-prefixet.
+    Lyssnings-URL: en har fått till HttpListener. Den publicerade URL: en är den URL som publiceras till Service Fabric Naming Service, som används för tjänst identifiering. Klienterna kommer att fråga efter den här adressen genom den identifierings tjänsten. Den adress som klienterna behöver för att ha den faktiska IP-adressen eller FQDN för noden för att kunna ansluta. Du måste ersätta "+" med nodens IP eller FQDN enligt ovan.
+9. Det sista steget är att lägga till bearbetnings logiken till tjänsten som visas nedan.
    
     ```csharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -224,19 +224,19 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
     }
     ```
    
-    `ProcessInternalRequest`läser värdena för frågesträngparametern som `AddUserAsync` används för att anropa partitionen och anrop för att lägga till det efternamn i den tillförlitliga ordlistan `dictionary`.
-10. Nu ska vi lägga till en tillståndslös tjänst i projektet för att se hur du kan anropa en viss partition.
+    `ProcessInternalRequest`läser värdena för frågesträngparametern som används för att anropa partitionen och anropen `AddUserAsync` för att lägga till LastName i den tillförlitliga ord listan `dictionary`.
+10. Nu ska vi lägga till en tillstånds lös tjänst i projektet för att se hur du kan anropa en viss partition.
     
-    Den här tjänsten fungerar som ett enkelt webbgränssnitt som accepterar det efternamn som en frågesträngparameter, bestämmer partitionsnyckeln och skickar den till tjänsten Alphabet.Processing för bearbetning.
-11. I dialogrutan **Skapa en tjänst** väljer du **Tillståndslös** tjänst och kallar den "Alphabet.Web" som visas nedan.
+    Den här tjänsten fungerar som ett enkelt webb gränssnitt som accepterar LastName som en frågesträngparametern, fastställer partitionsnyckel och skickar den till den alfabetiska. bearbetnings tjänsten för bearbetning.
+11. I dialog rutan **skapa en tjänst** väljer du **tillstånds lös** tjänst och anropar den "alfabete. Web" som visas nedan.
     
-    ![Skärmbild av tillståndslös tjänst](./media/service-fabric-concepts-partitioning/createnewstateless.png).
-12. Uppdatera slutpunktsinformationen i tjänstenManifest.xml för tjänsten Alphabet.WebApi för att öppna en port som visas nedan.
+    ![Skärm bild för tillstånds lös tjänst](./media/service-fabric-concepts-partitioning/createnewstateless.png).
+12. Uppdatera slut punkts informationen i ServiceManifest. xml för tjänsten alfabet. WebApi för att öppna en port som visas nedan.
     
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
     ```
-13. Du måste returnera en samling ServiceInstanceListeners på klasswebbplatsen. Återigen kan du välja att implementera en enkel HttpCommunicationListener.
+13. Du måste returnera en samling ServiceInstanceListeners i-klass webben. Återigen kan du välja att implementera en enkel HttpCommunicationListener.
     
     ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -252,7 +252,7 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
-14. Nu måste du implementera bearbetningslogiken. HttpCommunicationListener anropar `ProcessInputRequest` när en begäran kommer in. Så låt oss gå vidare och lägga till koden nedan.
+14. Nu måste du implementera bearbetnings logiken. HttpCommunicationListener anropas `ProcessInputRequest` när en förfrågan kommer in. Nu ska vi gå vidare och lägga till koden nedan.
     
     ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -298,7 +298,7 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
     }
     ```
     
-    Låt oss gå igenom det steg för steg. Koden läser den första bokstaven `lastname` i frågesträngparametern i en röding. Sedan bestämmer den partitionsnyckeln för den här bokstaven genom `A` att subtrahera det hexadecimala värdet från från det hexadecimala värdet av efternamnens första bokstav.
+    Låt oss gå igenom det steg för steg. Koden läser den första bokstaven i frågesträngparametern `lastname` i ett tecken. Sedan fastställer den partitionsnyckel för den här bokstaven genom att subtrahera det hexadecimala värdet `A` från det hexadecimala värdet för de senaste namnen: s första bokstav.
     
     ```csharp
     string lastname = context.Request.QueryString["lastname"];
@@ -306,20 +306,20 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
     ```
     
-    Kom ihåg, för detta exempel använder vi 26 partitioner med en partitionsnyckel per partition.
-    Därefter får vi tjänstpartitionen `partition` för `ResolveAsync` den här `servicePartitionResolver` nyckeln med hjälp av metoden på objektet. `servicePartitionResolver`definieras som
+    Kom ihåg att vi använder 26 partitioner med en partitionsnyckel per partition i det här exemplet.
+    Därefter hämtar vi tjänstepartitionen `partition` för den här nyckeln genom att `ResolveAsync` använda-metoden på `servicePartitionResolver` objektet. `servicePartitionResolver`definieras som
     
     ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
-    Metoden `ResolveAsync` tar tjänsten URI, partitionsnyckeln och en annulleringstoken som parametrar. Tjänst-URI för bearbetningstjänsten är `fabric:/AlphabetPartitions/Processing`. Därefter får vi slutpunkten för partitionen.
+    `ResolveAsync` Metoden tar tjänst-URI: n, partitionsnyckel och en token token som parametrar. Tjänst-URI: n för bearbetnings `fabric:/AlphabetPartitions/Processing`tjänsten är. Sedan hämtar vi slut punkten för partitionen.
     
     ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
-    Slutligen bygger vi slutpunkts-URL:en plus frågesträngen och anropar bearbetningstjänsten.
+    Slutligen skapar vi slut punkts-URL plus QueryString och anropar bearbetnings tjänsten.
     
     ```csharp
     JObject addresses = JObject.Parse(ep.Address);
@@ -331,8 +331,8 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
     string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
     ```
     
-    När bearbetningen är klar skriver vi tillbaka utdata.
-15. Det sista steget är att testa tjänsten. Visual Studio använder programparametrar för lokal distribution och molndistribution. Om du vill testa tjänsten med 26 partitioner `Local.xml` lokalt måste du uppdatera filen i mappen ApplicationParameters i AlphabetPartitions-projektet enligt nedan:
+    När bearbetningen är färdig skriver vi tillbaka utdata.
+15. Det sista steget är att testa tjänsten. Visual Studio använder program parametrar för lokal distribution och moln distribution. Om du vill testa tjänsten med 26 partitioner lokalt måste du uppdatera `Local.xml` filen i mappen ApplicationParameters i AlphabetPartitions-projektet enligt nedan:
     
     ```xml
     <Parameters>
@@ -340,21 +340,21 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
       <Parameter Name="WebApi_InstanceCount" Value="1" />
     </Parameters>
     ```
-16. När du är klar med distributionen kan du kontrollera tjänsten och alla dess partitioner i Service Fabric Explorer.
+16. När du har slutfört distributionen kan du kontrol lera tjänsten och alla dess partitioner i Service Fabric Explorer.
     
-    ![Skärmbild av Service Fabric Explorer](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-17. I en webbläsare kan du testa partitioneringslogiken genom att ange `http://localhost:8081/?lastname=somename`. Du kommer att se att varje efternamn som börjar med samma bokstav lagras i samma partition.
+    ![Service Fabric Explorer skärm bild](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
+17. I en webbläsare kan du testa partitionerings logiken genom att ange `http://localhost:8081/?lastname=somename`. Du kommer att se att varje efter namn som börjar med samma bokstav lagras på samma partition.
     
-    ![Skärmdump av webbläsare](./media/service-fabric-concepts-partitioning/samplerunning.png)
+    ![Webbläsarens skärm bild](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-Hela källkoden för exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Hela käll koden för exemplet finns på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="next-steps"></a>Nästa steg
-Information om service fabric-koncept finns i följande:
+Information om Service Fabric-begrepp finns i följande avsnitt:
 
-* [Tillgång till Service Fabric-tjänster](service-fabric-availability-services.md)
-* [Skalbarhet för Service Fabric-tjänster](service-fabric-concepts-scalability.md)
-* [Kapacitetsplanering för Service Fabric-applikationer](service-fabric-capacity-planning.md)
+* [Tillgänglighet för Service Fabric tjänster](service-fabric-availability-services.md)
+* [Skalbarhet för Service Fabric tjänster](service-fabric-concepts-scalability.md)
+* [Kapacitets planering för Service Fabric program](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

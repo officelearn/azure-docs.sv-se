@@ -1,6 +1,6 @@
 ---
-title: Priser för virtuella datorerbjudanden | Azure Marketplace
-description: Förklarar de tre metoderna för att ange prissättning av virtuella datorerbjudanden.
+title: Priser för virtuella datorer erbjuder | Azure Marketplace
+description: Förklarar de tre metoderna för att ange prissättningen för erbjudanden för virtuella datorer.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: dsindona
 ms.openlocfilehash: 487e66b39bc63363497cb3497d32158efd0c6c8a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255897"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prissättning för erbjudanden på virtuella datorer
 ==================================
 
 > [!NOTE]
-> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna i [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
+> Cloud Partner Portal API: er är integrerade med partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. I integrationen presenteras små ändringar. Granska ändringarna som anges i [Cloud Partner Portal API-referensen](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att se till att koden fortsätter att fungera efter migreringen till Partner Center.
 
-Det finns tre sätt att ange priser för erbjudanden om virtuella datorer: anpassad kärnprissättning, priser per kärna och kalkylprissättning.
+Det finns tre sätt att ange prissättning för virtuella datorer: anpassade grund priser, priser per kärna och priser för kalkyl blad.
 
 
-<a name="customized-core-pricing"></a>Anpassad kärnprissättning
+<a name="customized-core-pricing"></a>Anpassat kärn pris
 -----------------------
 
-Prissättningen är specifik för varje region och kärnkombination. Varje region i försäljningslistan måste anges i avsnittet **virtualMachinePricing**/**regionPrices** i definitionen.  Använd rätt valutakoder för varje [region](#regions) i din begäran.  Följande exempel visar dessa krav:
+Priset är särskilt för varje region och kärn kombination. Varje region i försäljnings listan måste anges i **virtualMachinePricing**/**regionPrices** -avsnittet i definitionen.  Använd rätt valuta koder för varje [region](#regions) i din begäran.  Följande exempel visar dessa krav:
 
 ``` json
     "virtualMachinePricing": 
@@ -72,7 +72,7 @@ Prissättningen är specifik för varje region och kärnkombination. Varje regio
 <a name="per-core-pricing"></a>Priser per kärna
 ----------------
 
-I det här fallet anger utgivarena ett pris i USD för sin SKU och alla andra priser genereras automatiskt. Priset per kärna anges i den **enda** parametern i begäran.
+I detta fall anger utgivaren ett pris i USD för deras SKU och alla andra priser genereras automatiskt. Priset per kärna anges i den **enskilda** parametern i begäran.
 
 ``` json
      "virtualMachinePricing": 
@@ -87,10 +87,10 @@ I det här fallet anger utgivarena ett pris i USD för sin SKU och alla andra pr
 ```
 
 
-<a name="spreadsheet-pricing"></a>Prissättning för kalkylblad
+<a name="spreadsheet-pricing"></a>Priser för kalkyl blad
 -------------------
 
-Utgivaren kan också ladda upp sitt priskalkylblad till en tillfällig lagringsplats och sedan inkludera URI:n i begäran som andra filartefakter. Kalkylbladet laddas sedan upp, översätts för att utvärdera det angivna prisschemat och uppdaterar slutligen erbjudandet med prisinformationen. Efterföljande GET-begäranden för erbjudandet returnerar kalkylblads-URI och de utvärderade priserna för regionen.
+Utgivaren kan också ladda upp pris kalkyl bladet till en tillfällig lagrings plats. ta sedan med URI: n i begäran som andra fil artefakter. Kalkyl bladet laddas sedan upp, översätts för att utvärdera det angivna pris schemat och uppdaterar slutligen erbjudandet med pris informationen. Efterföljande GET-begäranden för erbjudandet returnerar kalkyl bladets URI och de utvärderade priserna för regionen.
 
 ``` json
      "virtualMachinePricing": 
@@ -103,88 +103,88 @@ Utgivaren kan också ladda upp sitt priskalkylblad till en tillfällig lagringsp
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Nya kärnstorlekar tillagda den 7/2/2019
+<a name="new-core-sizes-added-on-722019"></a>Nya kärn storlekar som lagts till på 7/2/2019
 ---------------------------
 
-VM-utgivare informerades den 2 juli 2019 om tillägg av nya priser för nya Azure-storlekar för virtuella datorer (baserat på antalet kärnor).  De nya priserna är för kärnstorlekarna 10, 44, 48, 60, 120, 208 och 416.  För befintliga VM erbjuder nya priser för dessa kärnor storlekar beräknades automatiskt baserat på aktuella priser.  Utgivare har fram till 1 augusti 2019 på sig att granska de extra priserna och göra önskade ändringar.  Efter detta datum, om inte redan återpublicerats av utgivaren, börjar de automatiskt beräknade priserna för dessa nya kärnstorlekar att gälla.
+VM-utgivaren meddelades den 2 juli 2019 om tillägg av nya priser för nya storlekar för virtuella Azure-datorer (baserat på antalet kärnor).  De nya priserna är för kärn storlekarna 10, 44, 48, 60, 120, 208 och 416.  För befintliga virtuella datorer har nya priser för dessa kärnor automatiskt beräknats baserat på aktuella priser.  Utgivare har fram till den 1 augusti 2019 att granska ytterligare priser och göra önskade ändringar.  Efter det här datumet börjar de automatiskt beräknade priserna för de nya kärn storlekarna att gälla, om de inte redan publiceras om av utgivaren.
 
 
 <a name="regions"></a>Regioner
 -------
 
-I följande tabell visas de olika regioner som du kan ange för anpassade kärnpriser och motsvarande valutakoder.
+I följande tabell visas olika regioner som du kan ange för anpassade kärn priser och deras motsvarande valuta koder.
 
-| **Regionen** | **Namn**             | **Valutakod** |
+| **Region** | **Namn**             | **Valutakod** |
 |------------|----------------------|-------------------|
-| DZ         | Algeriet              | Dzd               |
+| DZ         | Algeriet              | DZD               |
 | AR         | Argentina            | ARS               |
 | AU         | Australien            | AUD               |
 | AT         | Österrike              | EUR               |
-| BH         | Bahrain              | Bhd               |
+| BH         | Bahrain              | BHD               |
 | BY         | Vitryssland              | RUB               |
 | BE         | Belgien              | EUR               |
 | BR         | Brasilien               | USD               |
-| BG         | Bulgarien             | Bgn               |
+| BG         | Bulgarien             | BGN               |
 | CA         | Kanada               | CAD               |
-| CL         | Chile                | Clp               |
-| CO         | Colombia             | Cop               |
-| CR         | Costa Rica           | Crc               |
-| HR         | Kroatien              | Hrk               |
+| CL         | Chile                | CLP               |
+| CO         | Colombia             | KOPIOR               |
+| CR         | Costa Rica           | CRC               |
+| HR         | Kroatien              | HRK               |
 | CY         | Cypern               | EUR               |
-| CZ         | Tjeckien       | Czk               |
+| CZ         | Tjeckien       | CZK               |
 | DK         | Danmark              | DKK               |
 | DO         | Dominikanska republiken   | USD               |
 | EC         | Ecuador              | USD               |
-| EG         | Egypten                | Egp               |
+| EG         | Egypten                | EGP               |
 | SV         | El Salvador          | USD               |
 | EE         | Estland              | EUR               |
 | FI         | Finland              | EUR               |
 | FR         | Frankrike               | EUR               |
 | DE         | Tyskland              | EUR               |
 | GR         | Grekland               | EUR               |
-| GT         | Guatemala            | Gtq               |
+| GT         | Guatemala            | GTQ               |
 | HK         | Hongkong        | HKD               |
-| HU         | Ungern              | Huf               |
-| IS         | Island              | Isk               |
+| HU         | Ungern              | HUF               |
+| IS         | Island              | ISKALLOKERING               |
 | IN         | Indien                | INR               |
 | ID         | Indonesien            | IDR               |
 | IE         | Irland              | EUR               |
-| IL         | Israel               | Ils               |
+| IL         | Israel               | ILS               |
 | IT         | Italien                | EUR               |
 | JP         | Japan                | JPY               |
-| JO         | Jordanien               | JOD (JOD)               |
-| KZ         | Kazakhstan           | Kzt               |
-| KE         | Kenya                | Kes               |
+| JO         | Jordanien               | JOD               |
+| KZ         | Kazakhstan           | KZT               |
+| KE         | Kenya                | KES               |
 | KR         | Korea                | KRW               |
-| KW         | Kuwait               | Kwd               |
+| KW         | Kuwait               | KWD               |
 | LV         | Lettland               | EUR               |
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litauen            | EUR               |
 | LU         | Luxemburg           | EUR               |
-| MK         | Nordmakedonien      | Mkd               |
+| MK         | Nordmakedonien      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexiko               | MXN               |
 | ME         | Montenegro           | EUR               |
-| MA         | Marocko              | Mad               |
+| MA         | Marocko              | MAD               |
 | NL         | Nederländerna          | EUR               |
 | NZ         | Nya Zeeland          | NZD               |
-| NG         | Nigeria              | Ngn               |
+| NG         | Nigeria              | NGN               |
 | NO         | Norge               | NOK               |
-| OM         | Oman                 | Omr               |
-| PK         | Pakistan             | Pkr               |
+| OM         | Oman                 | OMR               |
+| PK         | Pakistan             | PKR               |
 | PA         | Panama               | USD               |
-| PY         | Paraguay             | Pyg               |
-| PE         | Peru                 | Penna               |
+| PY         | Paraguay             | PYG               |
+| PE         | Peru                 | PENNOR               |
 | PH         | Filippinerna          | PHP               |
-| PL         | Polen               | Pln               |
+| PL         | Polen               | PLN               |
 | PT         | Portugal             | EUR               |
 | PR         | Puerto Rico          | USD               |
-| QA         | Qatar                | Qar               |
-| RO         | Rumänien              | Ron               |
+| QA         | Qatar                | QAR               |
+| RO         | Rumänien              | RON               |
 | RU         | Ryssland               | RUB               |
 | SA         | Saudiarabien         | SAR               |
-| RS         | Serbien               | Rsd               |
+| RS         | Serbien               | RSD               |
 | SG         | Singapore            | SGD               |
 | SK         | Slovakien             | EUR               |
 | SI         | Slovenien             | EUR               |
@@ -194,14 +194,14 @@ I följande tabell visas de olika regioner som du kan ange för anpassade kärnp
 | SE         | Sverige               | SEK               |
 | CH         | Schweiz          | CHF               |
 | TW         | Taiwan               | TWD               |
-| TH         | Thailand             | Thb               |
-| TT         | Trinidad och Tobago  | Ttd               |
-| TN         | Tunisien              | Tnd               |
+| TH         | Thailand             | THB               |
+| TT         | Trinidad och Tobago  | TDD               |
+| TN         | Tunisien              | TND               |
 | TR         | Turkiet               | TRY               |
-| UA         | Ukraina              | Uah               |
+| UA         | Ukraina              | UAH               |
 | AE         | Förenade Arabemiraten | EUR               |
 | GB         | Storbritannien       | GBP               |
 | USA         | USA        | USD               |
-| UY         | Uruguay              | UYU (storbritannien)               |
+| UY         | Uruguay              | UYU               |
 | VE         | Venezuela            | USD               |
 |  |  |  |

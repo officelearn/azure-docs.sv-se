@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Känna igen tal från en mikrofon, C# (Unity)- Taltjänst'
+title: 'Snabb start: identifiera tal från en mikrofon, C# (Unit) – tal service'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -10,126 +10,126 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
 ms.openlocfilehash: 951ae2c48bcdd92f640a37ddbb6430ca62a3b816
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274821"
 ---
 > [!NOTE]
-> Speech SDK för unity stöder Windows Desktop (x86 och x64) eller Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) och iOS (x64 simulator, ARM32 och ARM64)
+> Talet SDK för Unit stöder Windows Desktop (x86 och x64) eller Universell Windows-plattform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) och iOS (x64 simulator, ARM32 och ARM64)
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
-> * Se till att du har tillgång till en mikrofon för ljudinspelning
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
-Om du redan har gjort det här, bra. Låt oss fortsätta.
+Om du redan har gjort detta är det bra. Vi fortsätter.
 
 ## <a name="create-a-unity-project"></a>Skapa ett Unity-projekt
 
-1. Öppna Unity. Om du använder Unity för första gången visas **unity hub-fönstret.** *<version number>* (Du kan också öppna Unity Hub direkt för att komma till det här fönstret.)
+1. Öppna Unity. Om du använder Unity för första gången visas fönstret **Unity Hub** *<version number>* . (Du kan också öppna Unity Hub direkt för att komma till det här fönstret.)
 
-   [![Fönstret Enhetshubben](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png#lightbox)
-1. Välj **Ny**. Fönstret **Skapa ett nytt projekt med Enhet** *<version number>* visas.
+   [![Fönstret Unity Hub](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png#lightbox)
+1. Välj **Ny**. Fönstret **skapa ett nytt projekt med enhetlig** *<version number>* enhet visas.
 
    [![Skapa ett nytt projekt i Unity Hub](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-create-a-new-project.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-create-a-new-project.png#lightbox)
-1. Ange **csharp-unity**i **Projektnamn**.
-1. Markera den om **3D** inte redan är markerad i **Mallar**.
-1. Markera eller skapa en mapp som projektet ska sparas i i **Plats.**
+1. I **projekt namn**anger du **csharp-Unity**.
+1. I **mallar**, om **3D** inte redan är markerat, markerar du det.
+1. I **plats**väljer eller skapar du en mapp för att spara projektet i.
 1. Välj **Skapa**.
 
-Efter lite tid visas fönstret Unity Editor.
+Efter en stund visas fönstret Unity Editor.
 
 
 
 ## <a name="add-ui"></a>Lägga till användargränssnitt
 
-Nu ska vi lägga till ett minimalt användargränssnitt till vår scen. Det här användargränssnittet består av en knapp för att utlösa taligenkänning och ett textfält för att visa resultatet. I [ **fönstret Hierarki** ](https://docs.unity3d.com/Manual/Hierarchy.html)visas en exempelscen som Unity har skapats med det nya projektet.
+Nu ska vi lägga till ett minimalt gränssnitt i vår scen. Det här gränssnittet består av en knapp som utlöser tal igenkänning och ett textfält som visar resultatet. I fönstret [ **hierarki** ](https://docs.unity3d.com/Manual/Hierarchy.html)visas ett exempel på en scen som har skapats med det nya projektet.
 
-1. Högst upp i **hierarkifönstret** väljer du **Knappen Skapa** > **användargränssnitt** > **.**
+1. Klicka på**knappen** **skapa** > **användar gränssnitt** > längst upp i **hierarkin** -fönstret.
 
-   Den här åtgärden skapar tre spelobjekt som du kan se i **hierarkifönstret:** ett **Knapp-objekt,** ett **Canvas-objekt** som innehåller knappen och ett **EventSystem-objekt.**
+   Den här åtgärden skapar tre spel objekt som du kan se i **hierarkifönstret** : ett **knapp** objekt, ett **arbets ytans** objekt som innehåller knappen och ett **Event Events** -objekt.
 
-   [![Unity Editor miljö](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-editor-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-editor-window.png#lightbox)
+   [![Unitbar Editor-miljö](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-editor-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-editor-window.png#lightbox)
 
-1. [Navigera i **scenvyn** ](https://docs.unity3d.com/Manual/SceneViewNavigation.html) så att du har en bra bild av arbetsytan och knappen i [ **scenvyn** ](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+1. [Navigera i vyn **scen** ](https://docs.unity3d.com/Manual/SceneViewNavigation.html) så att du har en lämplig vy över arbets ytan och knappen i vyn [ **scen** ](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 
-1. I [fönstret **Inspektör** ](https://docs.unity3d.com/Manual/UsingTheInspector.html) (som standard till höger) ställer du in egenskaperna **Pos X** och **Pos Y** till **0**, så att knappen är centrerad i mitten av arbetsytan.
+1. I fönstret [ **kontrollant** ](https://docs.unity3d.com/Manual/UsingTheInspector.html) (som standard till höger) anger du egenskaperna för **POS X** -och **POS Y** till **0**, så knappen centreras i mitten av arbets ytan.
 
-1. I fönstret **Hierarki** väljer du **Skapa** > **gränssnittstext** > **Text** för att skapa ett **textobjekt.**
+1. I fönstret **hierarki** väljer du **skapa** > **UI** > -**text** för att skapa ett **text** objekt.
 
-1. I fönstret **Inspektör** ställer du in egenskaperna **Pos X** och **Pos Y** till **0** och **120**och ställer in egenskaperna **Bredd** och **höjd** på **240** och **120**. Dessa värden säkerställer att textfältet och knappen inte överlappar varandra.
+1. I fönstret **kontrollant** ställer du in egenskaperna **för POS X** och **pos Y** på **0** och **120**och anger egenskaperna för **Bredd** och **höjd** till **240** och **120**. Dessa värden ser till att textfältet och knappen inte överlappar varandra.
 
-När du är klar bör **scenvyn** se ut ungefär som den här skärmbilden:
+När du är klar bör **scenen** se ut ungefär som den här skärm bilden:
 
-[![Scenvy i Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-02-ui-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-02-ui-inline.png#lightbox)
+[![Vyn scen i Unity-redigeraren](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-02-ui-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-02-ui-inline.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
-Så här lägger du till exempelskriptkoden för Unity-projektet:
+Följ dessa steg om du vill lägga till exempel skript koden för Unity-projektet:
 
-1. I [projektfönstret](https://docs.unity3d.com/Manual/ProjectView.html)väljer du **Skapa** > **C#-skript** för att lägga till ett nytt C#-skript.
+1. I [projekt fönstret](https://docs.unity3d.com/Manual/ProjectView.html)väljer du **skapa** > **c#-skript** för att lägga till ett nytt c#-skript.
 
-   [![Projektfönstret i Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-project-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-project-window.png#lightbox)
+   [![Projekt fönstret i Unity-redigeraren](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-project-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-project-window.png#lightbox)
 1. Ge skriptet namnet `HelloWorld`.
 
-1. Dubbelklicka `HelloWorld` för att redigera det nyskapade skriptet.
+1. Dubbelklicka `HelloWorld` om du vill redigera det nyligen skapade skriptet.
 
    > [!NOTE]
-   > Om du vill konfigurera kodredigeraren så att den ska användas av Unity för redigering väljer du **Redigera** > **inställningar**och går sedan till inställningarna för **externa verktyg.** Mer information finns i [enhetsanvändarhandboken](https://docs.unity3d.com/Manual/Preferences.html).
+   > Om du vill konfigurera kod redigeraren så att den används av Unit för redigering väljer du **Redigera** > **Inställningar**och går sedan till inställningarna för **externa verktyg** . Mer information finns i [användar handboken för Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Ersätt det befintliga skriptet med följande kod:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Hitta och ersätta `YourSubscriptionKey` strängen med prenumerationsnyckeln för Taltjänsten.
+1. Sök efter och ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel för röst tjänst.
 
-1. Hitta och ersätta `YourServiceRegion` strängen med **regionidentifieraren** från [den region som](https://aka.ms/speech/sdkregion) är associerad med din prenumeration. Om du till exempel använder den kostnadsfria utvärderingsversionen är regionen `westus`.
+1. Sök efter och ersätt strängen `YourServiceRegion` med **regions-ID: n** från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. Om du till exempel använder den kostnadsfria utvärderingsversionen är regionen `westus`.
 
 1. Spara ändringarna i skriptet.
 
-Gå nu tillbaka till Unity Editor och lägg till skriptet som en komponent i ett av dina spelobjekt:
+Gå tillbaka till Unity-redigeraren och Lägg till skriptet som en komponent till ett av dina spel objekt:
 
-1. Markera **canvasobjektet** i **fönstret Hierarki.**
+1. I fönstret **hierarki** väljer du objektet **arbets yta** .
 
-1. Välj knappen **Lägg till komponent** i fönstret **Inspektör.**
+1. I fönstret **kontrollant** väljer du knappen **Lägg till komponent** .
 
-   [![Fönstret Inspektör i Enhetsredigeraren](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-inspector-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-inspector-window.png#lightbox)
+   [![Fönstret kontrollant i Unity-redigeraren](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-inspector-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-inspector-window.png#lightbox)
 
-1. I listrutan söker du efter `HelloWorld` skriptet vi skapade ovan och lägger till det. Avsnittet **Hello World (Script)** visas i fönstret **Inspektör,** med två oinitierade egenskaper, **Utdatatext** och **knappen Starta om igen**. Dessa Unity-komponentegenskaper matchar `HelloWorld` klassens offentliga egenskaper.
+1. I list rutan söker du `HelloWorld` efter skriptet som vi skapade ovan och lägger till det. Ett **Hello World (skript)** visas i fönstret **kontrollant** , som visar två oinitierade egenskaper, **utdata-text** och **knappen starta åters**. Egenskaperna för den `HelloWorld` här Unity-komponenten matchar klassens offentliga egenskaper.
 
-1. Markera objektväljaren **Start Reco Button** (ikonen för den lilla cirkeln till höger om egenskapen) och välj **det Knappobjekt** som du skapade tidigare.
+1. Välj objekt väljaren för **knappen starta åters** (den lilla cirkel ikonen till höger om egenskapen) och välj det **knapp** objekt som du skapade tidigare.
 
-1. Markera objektväljaren för objektväljaren **för utdatatext** och välj det **textobjekt** som du skapade tidigare.
+1. Välj objekt väljar egenskapen **utgående text** och välj **textobjektet som du** skapade tidigare.
 
    > [!NOTE]
-   > Knappen har även ett kapslat textobjekt. Se till att du inte av misstag väljer den för textutdata (eller byter namn på ett av textobjekten med hjälp av fältet **Namn** i fönstret **Inspektör** för att undvika förvirring).
+   > Knappen har även ett kapslat textobjekt. Se till att du inte av misstag väljer att använda text utdata (eller byta namn på ett text objekt med fältet **namn** i fönstret **kontrollant** för att undvika förvirring).
 
 ## <a name="run-the-application-in-the-unity-editor"></a>Köra programmet i Unity Editor
 
-Nu är du redo att köra programmet i Unity Editor.
+Nu är du redo att köra programmet i Unity-redigeraren.
 
-1. I verktygsfältet Unity Editor (under menyraden) väljer du knappen **Spela upp** (en höger-pekstriangel).
+1. I verktygsfältet för Unity-redigeraren (under meny raden) väljer du knappen **spela upp** (en högerriktad triangel).
 
-1. Gå till [ **spelvyn** ](https://docs.unity3d.com/Manual/GameView.html)och vänta **tills textobjektet** visas **Klicka-knappen för att känna igen tal**. (Den visar **ny text** när programmet inte har startat eller inte är redo att svara.)
+1. Gå till [ **spel** läge](https://docs.unity3d.com/Manual/GameView.html)och vänta tills **textobjektet** visar **knappen Klicka för att känna igen tal**. (Den **nya texten** visas när programmet inte har startats eller inte är klart att svara.)
 
-1. Markera knappen och säg en engelsk fras eller mening till datorns mikrofon. Ditt tal överförs till taltjänsten och transkriberas till text, som visas i **spelvyn.**
+1. Välj knappen och tala om en engelsk fras eller mening till datorns mikrofon. Ditt tal överförs till tal tjänsten och överförs till text som visas i vyn **spel** .
 
-   [![Spelvy i Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
+   [![Spel visning i Unity-redigeraren](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 
-1. Sök efter felsökningsmeddelanden i [ **konsolfönstret.** ](https://docs.unity3d.com/Manual/Console.html) Om **konsolfönstret** inte visas går du till menyraden och väljer **Fönster** > **allmänt** > **konsol** för att visa det.
+1. Kontrol lera [ **konsol** fönstret](https://docs.unity3d.com/Manual/Console.html) för fel söknings meddelanden. Om **konsol** fönstret inte visas går du till meny raden och väljer **fönster** > **Allmänt** > **konsol** för att visa den.
 
-1. När du är klar med att känna igen tal väljer du knappen **Spela** upp i verktygsfältet Unity Editor för att stoppa programmet.
+1. När du är klar med att känna igen tal väljer du knappen **spela upp** i verktygsfältet Unity Editor för att stoppa programmet.
 
 ## <a name="additional-options-to-run-this-application"></a>Ytterligare alternativ för att köra det här programmet
 
 Det här programmet kan också distribueras till som en Android-app, en fristående Windows-app eller ett UWP-program.
-Mer information finns i vårt [exempel på databas](https://aka.ms/csspeech/samples). Mappen `quickstart/csharp-unity` beskriver konfigurationen för dessa ytterligare mål.
+Mer information finns i vår [exempel databas](https://aka.ms/csspeech/samples). `quickstart/csharp-unity` Mappen beskriver konfigurationen för dessa ytterligare mål.
 
 ## <a name="next-steps"></a>Nästa steg
 

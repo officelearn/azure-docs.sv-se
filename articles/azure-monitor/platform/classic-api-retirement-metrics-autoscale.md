@@ -1,91 +1,91 @@
 ---
-title: Dra tillbaka distributions-API:er för Azure Monitor-mått och automatisk skalning
-description: Mått och automatisk skalning av klassiska API:er, även kallade ASM -distributionsmodell (Azure Service Management) eller RDFE-distributionsmodell som dras tillbaka
+title: 'Dra tillbaka distributions-API: er för Azure Monitor mått och autoskalning'
+description: 'Mått och autoskalning av klassiska API: er, även kallade Azure Service Management (ASM) eller RDFE distributions modell som dras tillbaka'
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81114217"
 ---
-# <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor pensionering av klassiska API:er för distributionsmodell för mått och automatisk skalning
+# <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor pensionering av klassiska API: er för distributions modeller för mått och autoskalning
 
-Azure Monitor (tidigare Azure Insights när den först släpptes) erbjuder för närvarande möjligheten att skapa och hantera inställningar för automatisk skalning för och använda mått från klassiska virtuella datorer och klassiska Molntjänster. Den ursprungliga uppsättningen klassiska distributionsmodellbaserade API:er kommer att **dras tillbaka efter den 30 juni 2019** i alla offentliga och privata Azure-moln i alla regioner.   
+Azure Monitor (tidigare Azure Insights när den första versionen släpptes) erbjuder för närvarande möjlighet att skapa och hantera inställningar för autoskalning för och använda mått från klassiska virtuella datorer och klassiska Cloud Services. Den ursprungliga uppsättningen av klassiska distributions modellbaserade API: er kommer att **dras tillbaka efter den 30 juni 2019** i alla offentliga Azure-och privata moln i alla regioner.   
 
-Samma åtgärder har stötts genom en uppsättning Azure Resource Manager-baserade API:er i över ett år. Azure-portalen använder de nya REST-API:erna för både automatisk skalning och mått. En ny SDK, PowerShell och CLI baserat på dessa Resource Manager API:er är också tillgängliga. Våra partnertjänster för övervakning förbrukar de nya Resource Manager-baserade REST-API:erna i Azure Monitor.  
+Samma åtgärder har stödts via en uppsättning Azure Resource Manager baserade API: er under ett år. I Azure Portal används nya REST-API: er för både autoskalning och mått. En ny SDK, PowerShell och CLI baserat på dessa Resource Manager-API: er är också tillgängliga. Våra partner tjänster för övervakning använder de nya Resource Manager-baserade REST-API: erna i Azure Monitor.  
 
-## <a name="who-is-not-affected"></a>Vem påverkas inte
+## <a name="who-is-not-affected"></a>Som inte påverkas
 
-Om du hanterar automatisk skalning via Azure-portalen, de [nya Azure Monitor SDK-,](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)PowerShell-, CLI- eller Resource Manager-mallarna, krävs ingen åtgärd.  
+Om du hanterar autoskalning via Azure Portal, är den [nya Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)-, PowerShell-, CLI-eller Resource Manager-mallar ingen åtgärd nödvändig.  
 
-Om du förbrukar mått via Azure-portalen eller via olika [övervakningspartnertjänster](../../azure-monitor/platform/partners.md)krävs ingen åtgärd. Microsoft arbetar med övervakningspartner för att migrera till de nya API:erna.
+Om du använder mått via Azure Portal eller via olika [övervaknings partner tjänster](../../azure-monitor/platform/partners.md)krävs ingen åtgärd. Microsoft arbetar med övervaknings partners för att migrera till de nya API: erna.
 
-## <a name="who-is-affected"></a>Vem påverkas
+## <a name="who-is-affected"></a>Som påverkas
 
-Den här artikeln gäller dig om du använder följande komponenter:
+Den här artikeln gäller om du använder följande komponenter:
 
-- **Klassiska Azure Insights SDK** – Om du använder den [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)växlar du till att använda nya Azure Monitor SDK för [.NET](https://github.com/azure/azure-libraries-for-net#download) eller [Java](https://github.com/azure/azure-libraries-for-java#download). Ladda ned [Azure Monitor SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
+- **Klassisk Azure Insights SDK** – om du använder den [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)växlar du till att använda den nya Azure Monitor SDK för [.net](https://github.com/azure/azure-libraries-for-net#download) eller [Java](https://github.com/azure/azure-libraries-for-java#download). Hämta [Azure Monitor SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
 
-- **Klassisk automatisk skalning** – Om du anropar [api:erna](https://msdn.microsoft.com/library/azure/mt348562.aspx) för klassiska inställningar för automatisk skalning från dina specialbyggda verktyg eller använder det [klassiska Azure Insights SDK-](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)-bör du växla till att använda [RESOURCE Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
+- **Klassisk autoskalning** – om du anropar de [klassiska API: erna för autoskalning](https://msdn.microsoft.com/library/azure/mt348562.aspx) från dina anpassade verktyg eller med hjälp av den [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), bör du växla till att använda [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
 
-- **Klassiska mått** – Om du konsumerar mått med de [klassiska REST-API:erna](https://msdn.microsoft.com/library/azure/dn510374.aspx) eller [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) från specialbyggda verktyg bör du växla till att använda [RESOURCE Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings). 
+- **Klassiska mått** – om du använder mått med de [klassiska REST-API: erna](https://msdn.microsoft.com/library/azure/dn510374.aspx) eller [klassiska Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) från anpassade verktyg, bör du byta till [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings). 
 
-Om du är osäker på om koden eller de anpassade verktygen anropar de klassiska API:erna tittar du på följande:
+Om du är osäker på om din kod eller anpassade verktyg anropar de klassiska API: erna kan du titta på följande:
 
-- Granska URI:n som visas i koden eller verktyget. De klassiska API:erna https://management.core.windows.netanvänder URI. Du bör använda den nyare URI för resource manager-baserade API:er som börjar med `https://management.azure.com/`.
+- Granska den URI som refereras i din kod eller ditt verktyg. De klassiska API: erna använder https://management.core.windows.netURI: n. Du bör använda den nyare URI: n för Resource Manager-baserade API: `https://management.azure.com/`er som börjar med.
 
-- Jämför monteringsnamnet på din maskin. Den äldre klassiska https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/monteringen är på .
+- Jämför sammansättnings namnet på din dator. Den äldre klassiska sammansättningen finns på https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
 
-- Om du använder certifikatautentisering för att komma åt mått eller API:er för automatisk skalning använder du en klassisk slutpunkt och ett bibliotek. De nyare Resource Manager-API:erna kräver Azure Active Directory-autentisering via ett tjänsthuvudnamn eller användarobjekt.
+- Om du använder certifikatautentisering för att få åtkomst till mått eller autoskalning av API: er, använder du en klassisk slut punkt och ett bibliotek. De nyare Resource Manager-API: erna kräver Azure Active Directory autentisering via ett huvud namn för tjänsten eller användarens huvud namn.
 
-- Om du använder samtal som refereras i dokumentationen vid någon av följande länkar använder du de äldre klassiska API:erna.
+- Om du använder anrop som refereras till i dokumentationen på någon av följande länkar, använder du de äldre klassiska API: erna.
 
-  - [Windows.Azure.Management.Övervaka klassbibliotek](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
+  - [Klass bibliotek för Windows. Azure. Management. övervaknings klass](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
 
   - [Övervakning (klassisk) .NET](https://docs.microsoft.com/previous-versions/azure/reference/mt348562(v%3dazure.100))
 
   - [IMetricOperations-gränssnitt](https://docs.microsoft.com/previous-versions/azure/reference/dn802395(v%3dazure.100))
 
-## <a name="why-you-should-switch"></a>Varför du ska byta
+## <a name="why-you-should-switch"></a>Varför du bör byta
 
-Alla befintliga funktioner för automatisk skalning och mått fortsätter att fungera via de nya API:erna.  
+Alla befintliga funktioner för autoskalning och mått kommer att fortsätta att fungera via de nya API: erna.  
 
-Migrera över till nyare API:er levereras med Resource Manager-baserade funktioner, till exempel stöd för konsekvent rollbaserad åtkomstkontroll (RBAC) i alla dina övervakningstjänster. Du får också ytterligare funktioner för mått: 
+Migrering över till nyare API: er levereras med Resource Manager-baserade funktioner, till exempel stöd för konsekvent rollbaserad Access Control (RBAC) i alla övervaknings tjänster. Du får också ytterligare funktioner för mått: 
 
 - stöd för dimensioner
-- konsekvent 1-minuters metrisk granularitet för alla tjänster 
-- bättre fråga
-- högre datalagring (93 dagar med mått jämfört med 30 dagar) 
+- konsekvent 1-minuters Metric-kornig het i alla tjänster 
+- bättre frågor
+- högre datakvarhållning (93 dagar av mått eller 30 dagar) 
 
-Sammantaget, liksom alla andra tjänster i Azure, resource manager baserade Azure Monitor API: er levereras med bättre prestanda, skalbarhet och tillförlitlighet. 
+Precis som alla andra tjänster i Azure ger Resource Manager-baserade Azure Monitor API: er bättre prestanda, skalbarhet och tillförlitlighet. 
 
 ## <a name="what-happens-if-you-do-not-migrate"></a>Vad händer om du inte migrerar
 
-### <a name="before-retirement"></a>Före pensioneringen
+### <a name="before-retirement"></a>Innan du drar tillbaka
 
-Det kommer inte att finnas någon direkt inverkan på dina Azure-tjänster eller deras arbetsbelastningar.  
+Det sker ingen direkt påverkan på dina Azure-tjänster eller deras arbets belastningar.  
 
-### <a name="after-retirement"></a>Efter pensioneringen
+### <a name="after-retirement"></a>Efter pensionering
 
-Alla anrop till de klassiska API:er som tidigare angetts misslyckas och returnerar felmeddelanden liknande följande:
+Alla anrop till de klassiska API: erna som listas tidigare kommer att Miss Miss läge och returnera fel meddelanden liknande följande:
 
-För automatisk skalning: *Det här API:et har inaktuellt. Använd mallarna Azure Portal, Azure Monitor SDK, PowerShell, CLI eller Resource Manager för att hantera inställningar för automatisk skalning*.  
+För autoskalning: *detta API är föråldrat. Använd Azure Portal, Azure Monitor SDK, PowerShell, CLI eller Resource Manager-mallar för att hantera inställningar för autoskalning*.  
 
-För mått: *Det här API:et har inaktuellt. Använd Azure-portalen, Azure Monitor SDK, PowerShell, CLI för att fråga efter mått*.
+För mått: *detta API är inaktuellt. Använd Azure Portal, Azure Monitor SDK, PowerShell, CLI för att fråga efter mått*.
 
 ## <a name="email-notifications"></a>E-postmeddelanden
 
-Ett meddelande om pensionering skickades till e-postadresser för följande kontoroller: 
+Ett meddelande om indragningen skickades till e-postadresser för följande konto roller: 
 
-- Konto- och tjänstadministratörer
-- Coadministrators (mässor)  
+- Konto-och tjänst administratörer
+- Medadministratörer  
 
-Om du har några frågor, kontakta oss på MonitorClassicAPIhelp@microsoft.com.  
+Om du har några frågor kan du kontakta oss MonitorClassicAPIhelp@microsoft.compå.  
 
 ## <a name="references"></a>Referenser
 
-- [Nyare REST-API:er för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
-- [Nyare Azure-övervakarE SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+- [Nyare REST-API: er för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
+- [Nyare Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)

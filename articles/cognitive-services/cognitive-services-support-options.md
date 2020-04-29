@@ -1,7 +1,7 @@
 ---
 title: Alternativ för support och hjälp
 titleSuffix: Azure Cognitive Services
-description: Så här får du hjälp och support för frågor och problem när du skapar program som integreras med Azure Cognitive Services.
+description: Få hjälp och support för frågor och problem när du skapar program som integreras med Azure Cognitive Services.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
 ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81258444"
 ---
-# <a name="azure-cognitive-services-support-and-feedback-options"></a>Support- och feedbackalternativ för Azure Cognitive Services
+# <a name="azure-cognitive-services-support-and-feedback-options"></a>Alternativ för support och feedback för Azure Cognitive Services
 
-Har du precis börjat utforska funktionerna i Azure Cognitive Services? Kanske du implementerar en ny funktion i ditt program. Eller efter att ha använt tjänsten, har du förslag på hur man kan förbättra den? Här är alternativ för var du kan få support, hålla dig uppdaterad, ge feedback och rapportera buggar för Cognitive Services.
+Börjar du bara utforska funktionerna i Azure Cognitive Services? Du kanske implementerar en ny funktion i ditt program. Eller när du har använt tjänsten har du förslag på hur du kan förbättra den? Här följer alternativ för var du kan få support, hålla dig uppdaterad, ge feedback och rapportera buggar för Cognitive Services.
 
 ## <a name="get-support"></a>Få support
 
@@ -28,10 +28,10 @@ Har du precis börjat utforska funktionerna i Azure Cognitive Services? Kanske d
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
-Utforska utbudet av [Azure-supportalternativ och välj den plan](https://azure.microsoft.com/support/plans) som bäst passar, oavsett om du är en utvecklare som precis har påbörjat din molnresa eller en stor organisation som distribuerar affärskritiska, strategiska program. Azure-kunder kan skapa och hantera supportärenden i Azure-portalen.
+Utforska [support alternativen för Azure och välj den plan](https://azure.microsoft.com/support/plans) som passar bäst, oavsett om du är en utvecklare som bara startar din moln resa eller en stor organisation som distribuerar affärs kritiska, strategiska program. Azure-kunder kan skapa och hantera support förfrågningar i Azure Portal.
 
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Azure-portal för USA:s regering](https://portal.azure.us)
+* [Azure Portal för USA myndigheter](https://portal.azure.us)
 
 ### <a name="search"></a>Search
 
@@ -39,36 +39,36 @@ Utforska utbudet av [Azure-supportalternativ och välj den plan](https://azure.m
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
 </div>
 
-Snabbare resultat kan du söka på relevanta webbplatser som [Stack Overflow,](https://stackoverflow.com/) [Microsoft docs](https://docs.microsoft.com/azure/cognitive-services/)eller [GitHub-kodexempel](https://github.com/azure-samples). Använd `site:` frågeetsationen i din [favoritsökmotor,](https://bing.com)till exempel:
+Utför en sökning på relevanta webbplatser, till exempel [Stack Overflow](https://stackoverflow.com/), [Microsoft-dokument](https://docs.microsoft.com/azure/cognitive-services/)eller [GitHub kod exempel](https://github.com/azure-samples), för snabbare resultat. Använd `site:` fråge notation i din [favorit](https://bing.com)sökmotor, till exempel:
 
 ```
 {search keywords} site:stackoverflow.com
 ```
 
-Var `{search keywords}` är sammanhanget för din sökning. Överväg att använda dessa begränsade sökningar på rätt sätt:
+Var `{search keywords}` finns kontexten för din sökning. Överväg att använda de här omfångs sökningarna på rätt sätt:
 
- - Stack spill:`site:stackoverflow.com`
- - Microsoft Dokument:`site:docs.microsoft.com`
- - GitHub-exempel:`site:github.com/azure-samples`
+ - Stack Overflow:`site:stackoverflow.com`
+ - Microsoft Docs:`site:docs.microsoft.com`
+ - GitHub exempel:`site:github.com/azure-samples`
 
-### <a name="post-a-question-on-stack-overflow"></a>Skicka en fråga om Stack Overflow
+### <a name="post-a-question-on-stack-overflow"></a>Publicera en fråga på Stack Overflow
 
 <div class='icon is-large'>
     <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
-Om du inte hittar ett svar på problemet med sökrutan på Stack Overflow skickar du en ny fråga. Stack Overflow är den föredragna kanalen för utvecklingsrelaterade frågor. Det är där medlemmar i Stack Overflow-communityn och Microsoft-teammedlemmarna är direkt involverade i att hjälpa dig att lösa dina problem.
+Om du inte hittar något svar på problemet med sökrutan på Stack Overflow skickar du en ny fråga. Stack Overflow är den föredragna kanalen för utvecklings frågor. Det är där medlemmar i Stack Overflow communityn och Microsoft team-medlemmar är direkt inblandade i att hjälpa dig att lösa dina problem.
 
-Post en fråga [här](https://go.microsoft.com/fwlink/?linkid=2126464). Använd lämplig tagg för din fråga, så vi är säkra på att se frågan.
+Publicera en fråga [här](https://go.microsoft.com/fwlink/?linkid=2126464). Använd rätt tagg för din fråga, så vi är noga med att se frågan.
 
 > [!TIP]
-> Följande inlägg från Stack Overflow innehåller tips om hur du bildar frågor och lägger till källkod. Om du följer dessa riktlinjer kan du öka chanserna för communitymedlemmar att snabbt bedöma och svara på din fråga:
-> * [Hur ställer jag en bra fråga?](https://stackoverflow.com/help/how-to-ask)
-> * [Hur skapar man ett minimalt, reproducerbart exempel?](https://stackoverflow.com/help/minimal-reproducible-example)
+> Följande inlägg från Stack Overflow innehåller tips om hur du kan forma frågor och lägga till källkod. Följande rikt linjer kan hjälpa dig att öka risken för att community-medlemmar bedömer och svarar snabbt på dina frågor:
+> * [Hur gör jag för att ställa en lämplig fråga?](https://stackoverflow.com/help/how-to-ask)
+> * [Hur skapar jag ett minimalt, rereproducerbart exempel?](https://stackoverflow.com/help/minimal-reproducible-example)
 
 ## <a name="stay-informed"></a>Håll dig informerad
 
-Om du håller dig informerad om funktioner i en ny version eller nyheter på Azure-bloggen kan du hitta skillnaden mellan ett programmeringsfel, ett tjänstfel eller en funktion som ännu inte är tillgänglig i Cognitive Services.
+Att hålla dig informerad om funktioner i en ny version eller nyheter på Azure-bloggen kan hjälpa dig att hitta skillnaden mellan ett programmerings fel, ett fel i tjänsten eller en funktion som ännu inte är tillgänglig i Cognitive Services.
 
 ### <a name="release-notes"></a>Viktig information
 
@@ -76,13 +76,13 @@ Om du håller dig informerad om funktioner i en ny version eller nyheter på Azu
     <img alt='Release notes' src='https://docs.microsoft.com/media/common/i_learn-about.svg'>
 </div>
 
-Pressmeddelandena för Cognitive Services uppdateras när nya versioner görs tillgängliga. Anteckningarna innehåller information om nya funktioner, förbättringar och buggfixar.
+Cognitive Services viktig information uppdateras när nya versioner görs tillgängliga. Anteckningarna innehåller information om nya funktioner, förbättringar och fel korrigeringar.
 
  - [Custom Vision](custom-vision-service/release-notes.md)
  - [Ansikte](face/releasenotes.md)
  - [Language Understanding (LUIS)](LUIS/whats-new.md)
- - [Speech Services](speech-service/releasenotes.md)
- - [SDK för taltjänster](speech-service/devices-sdk-release-notes.md)
+ - [Tal tjänster](speech-service/releasenotes.md)
+ - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
  - [Textanalys](text-analytics/whats-new.md)
  - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
@@ -92,7 +92,7 @@ Pressmeddelandena för Cognitive Services uppdateras när nya versioner görs ti
     <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
 </div>
 
-Nyheter om Cognitive Services delas i [Azure-bloggen](https://azure.microsoft.com/blog/topics/cognitive-services/).
+Nyheter om Cognitive Services delas i Azure- [bloggen](https://azure.microsoft.com/blog/topics/cognitive-services/).
 
 ### <a name="reddit"></a>Reddit
 
@@ -100,7 +100,7 @@ Nyheter om Cognitive Services delas i [Azure-bloggen](https://azure.microsoft.co
     <img alt='Reddit' src='https://docs.microsoft.com/media/logos/logo_reddit.svg'>
 </div>
 
-Reddit är en community-driven diskussionswebbplats som erbjuder de senaste konversationerna om [Azure Cognitive Services-nyheter,](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) hjälp, information, tips och tricks. Registrerade medlemmar kan skicka in innehåll och andra kan rösta om det, vilket organiskt höjer det mest relevanta innehållet till toppen av sina flöden.
+Reddit är en community-driven diskussions webbplats som erbjuder de senaste konversationerna om [Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) nyheter, hjälp, information, tips och knep. Registrerade medlemmar kan skicka innehåll och andra kan rösta på den, vilket i sin mån höjer det mest relevanta innehållet överst i sina flöden.
 
 ## <a name="give-feedback"></a>Ge feedback
 
@@ -110,13 +110,13 @@ Reddit är en community-driven diskussionswebbplats som erbjuder de senaste konv
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-Om du vill begära nya funktioner lägger du upp dem på UserVoice. Dela med dig av dina idéer för att få Cognitive Services och dess API:er att fungera bättre för de program du utvecklar. 
+Om du vill begära nya funktioner kan du publicera dem på UserVoice. Dela med dig av dina idéer för att göra Cognitive Services och dess API: er fungerar bättre för de program som du utvecklar. 
 
 > [!NOTE]
-> Även om detta är ett offentligt forum, förvänta dig inte stöd från Microsoft här, men tycker om att diskutera nya funktioner som du vill se i kommande Cognitive Services-versioner.
+> Även om detta är ett offentligt forum, förväntar vi dig inte support från Microsoft här, men du får gärna diskutera nya funktioner som du skulle vilja se i kommande Cognitive Services-versioner.
 
 
-| Tjänst                       | Url till Användare av Cognitive ServicesVoice |
+| Tjänst                       | Cognitive Services UserVoice-URL |
 |-------------------------------|---------------|
 | Avvikelseidentifiering              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
 | Bing-tjänster                 | https://cognitive.uservoice.com/forums/555907-bing-search |
@@ -130,42 +130,42 @@ Om du vill begära nya funktioner lägger du upp dem på UserVoice. Dela med dig
 | Personanpassning                  | https://cognitive.uservoice.com/forums/921562-personalizer |
 | QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
 | Speech Services               | https://cognitive.uservoice.com/forums/912208-speech-service |
-| Anpassat tal                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
+| Custom Speech                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
 | Textanalys                | https://cognitive.uservoice.com/forums/555922-text-analytics |
 | Translator Text               | https://cognitive.uservoice.com/forums/558796-translator |
 | Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
-## <a name="report-bugs"></a>Rapportera fel
+## <a name="report-bugs"></a>Rapportera buggar
 
-### <a name="create-a-github-issue-or-pull-request"></a>Skapa ett GitHub-problem eller en pull-begäran
+### <a name="create-a-github-issue-or-pull-request"></a>Skapa ett GitHub-ärende eller en pull-begäran
 
 <div class='icon is-large'>
     <img alt='GitHub' src='https://docs.microsoft.com/media/logos/logo_octokitty.svg'>
 </div>
 
-Nedan finns tre typer av databaser där en utvecklare kan publicera ett problem eller skapa en pull-begäran. Om du vill skapa ett problem använder du fliken *Problem* i respektive GitHub-databas och väljer *Nytt ärende*. Om du vill föreslå en korrigering skickar du en pull-begäran genom att redigera en fil direkt. Pull-begäran kommer sedan att sitta under fliken *Pull-begäran* tills databasägarna kan se över den.
+Nedan finns tre typer av databaser där en utvecklare kan publicera ett ärende eller skapa en pull-begäran. Om du vill skapa ett problem använder du fliken *problem* i respektive GitHub-lagringsplats och väljer sedan *nytt ärende*. Om du vill föreslå en korrigering skickar du en pull-begäran genom att redigera en fil direkt. Pull-begäran visas sedan under fliken *pull-begäranden* tills databasens ägare kan se den.
 
-#### <a name="cognitive-services-samples"></a>Prover från Cognitive Services
+#### <a name="cognitive-services-samples"></a>Cognitive Services exempel
 
-Prover finns ofta i offentliga databaser som öppen källkod. Snabbstartsexempelna har en egen databas och refereras i Microsoft-dokumentationen. Om du hittar fel i koden skapar du ett problem eller en pull-begäran.
+Exempel finns ofta i offentliga databaser som öppen källkod. Snabb starts exemplen har sin egen lagrings plats och refereras till i Microsoft-dokumentationen. Om du hittar fel i koden skapar du ett ärende eller en pull-begäran.
 
-Här är en lista över snabbstarts- och exempelkoden cognitive services:
+Här är en lista över Cognitive Services snabb start och exempel kod:
 
-* [Azure-exempel - Kognitiva tjänster](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=)
-* [Snabbstartar för Cognitive Services](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
-* [Kognitiva tjänster: Dotnet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
-* [Kognitiva tjänster: Gå](https://github.com/Azure-Samples/azure-sdk-for-go-samples)
-* [Kognitiva tjänster: Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Kognitiva tjänster: Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
-* [Kognitiva tjänster: Python](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+* [Azure-exempel – Cognitive Services](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=)
+* [Cognitive Services snabb starter](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+* [Cognitive Services: dotNet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+* [Cognitive Services: go](https://github.com/Azure-Samples/azure-sdk-for-go-samples)
+* [Cognitive Services: Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+* [Cognitive Services: Node. js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+* [Cognitive Services: python](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-#### <a name="cognitive-services-sdk-source-code"></a>Cognitive Services SDK-källkod
+#### <a name="cognitive-services-sdk-source-code"></a>Käll kod för Cognitive Services SDK
 
-Källkoden för SDK:erna visar några av de underliggande orsakerna till SDK för varje tjänst. Om du har hittat ett fel eller vill föreslå en korrigering, fil ett problem eller skapa en pull-begäran.
+Käll koden för SDK: erna visar några underfästningar av SDK för varje tjänst. Om du har hittat ett fel eller vill föreslå en korrigering, kan du skicka filen ett problem eller skapa en pull-begäran.
 
-Här är en lista över Cognitive Services SDK källkod efter språk:
+Här är en lista med käll koden för Cognitive Services SDK efter språk:
 
-* [Azure SDK för Dotnet](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices)
+* [Azure SDK för dotNET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices)
 * [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)<br>
 * [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices)
 * [Azure SDK för Java Script](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices)
@@ -173,7 +173,7 @@ Här är en lista över Cognitive Services SDK källkod efter språk:
 
 #### <a name="azure-cognitive-services-documentation"></a>Dokumentation om Azure Cognitive Services
 
-Dokumentationen för Cognitive Services förklarar hur du använder tjänsten och ger exempel och resurser för utvecklaren. Om du har hittat ett fel eller vill föreslå en korrigering, fil ett problem eller skapa en pull-begäran.
+Dokumentationen för Cognitive Services förklarar hur du använder tjänsten och innehåller exempel och resurser för utvecklaren. Om du har hittat ett fel eller vill föreslå en korrigering, kan du skicka filen ett problem eller skapa en pull-begäran.
 
 [MicrosoftDocs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/cognitive-services)
 

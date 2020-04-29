@@ -1,7 +1,7 @@
 ---
-title: Moderera text med hjälp av API för textmoderering - Innehållsmoderator
+title: Måttlig text med hjälp av API-Content Moderator för text redigering
 titleSuffix: Azure Cognitive Services
-description: Provkörningstextmoderering med hjälp av API:et för textmoderering i onlinekonsolen.
+description: 'Kontroll av textkontrollant med hjälp av API: et för text redigering i online-konsolen.'
 services: cognitive-services
 author: PatrickFarley
 ms.author: pafarley
@@ -11,56 +11,56 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272601"
 ---
-# <a name="moderate-text-from-the-api-console"></a>Moderera text från API-konsolen
+# <a name="moderate-text-from-the-api-console"></a>Måttlig text från API-konsolen
 
-Använd [API:et för textmoderering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) i Azure Content Moderator för att söka igenom textinnehållet efter svordomar och jämföra det med anpassade och delade listor.
+Använd [API: et för text redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) i Azure Content moderator för att skanna ditt text innehåll för svordomar och jämföra det med anpassade och delade listor.
 
 ## <a name="get-your-api-key"></a>Hämta din API-nyckel
 
-Innan du kan provköra API:et i onlinekonsolen behöver du din prenumerationsnyckel. Detta finns på fliken **Inställningar** i rutan **Ocp-Apim-Subscription-Key.** Mer information finns i [Översikt](overview.md).
+Innan du kan testa API: et i online-konsolen behöver du din prenumerations nyckel. Detta finns på fliken **Inställningar** i rutan **OCP-APIM-Subscription-Key** . Mer information finns i [Översikt](overview.md).
 
-## <a name="navigate-to-the-api-reference"></a>Navigera till API-referensen
+## <a name="navigate-to-the-api-reference"></a>Gå till API-referensen
 
-Gå till [API-referensen för textmoderering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+Gå till [API-referensen för text redigering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
-  Sidan **Text - Skärm** öppnas.
+  Sidan med **text skärmen** öppnas.
 
 ## <a name="open-the-api-console"></a>Öppna API-konsolen
 
-För **Open API-testkonsol**väljer du den region som bäst beskriver din plats. 
+För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
 
-  ![Text - Val av skärmsida region](images/test-drive-region.png)
+  ![Val av sid region för text på skärmen](images/test-drive-region.png)
 
-  **API-konsolen Text - Skärm** öppnas.
+  API **-konsolen för text skärmen** öppnas.
 
 ## <a name="select-the-inputs"></a>Välj indata
 
 ### <a name="parameters"></a>Parametrar
 
-Markera de frågeparametrar som du vill använda på textskärmen. I det här exemplet använder du standardvärdet för **språk**. Du kan också lämna det tomt eftersom åtgärden automatiskt identifierar det troliga språket som en del av körningen.
+Välj de frågeparametrar som du vill använda på text skärmen. I det här exemplet använder du standardvärdet för **språk**. Du kan också lämna det tomt eftersom åtgärden automatiskt identifierar det sannolika språket som en del av körningen.
 
 > [!NOTE]
-> För **language** språkparametern `eng` tilldelar eller lämnar den tom för att se det maskinstödda **klassificeringssvaret** (förhandsgranskningsfunktionen). **Den här funktionen stöder endast engelska**.
+> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
 >
-> För identifiering av **svordomar termer,** använd [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln, eller lämna den tom.
+> För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
-För **autokorrigering**, **PII**och **klassificera (förhandsgranska)** väljer du **sant**. Lämna **listid-fältet** tomt.
+För **Autokorrigering**, **PII**och **klassificering (för hands version)** väljer du **Sant**. Lämna fältet **listid** tomt.
 
-  ![Text - Frågeparametrar för skärmkonsol](images/text-api-console-inputs.PNG)
+  ![Frågeparametrar för text skärms konsolen](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>Innehållstyp
 
-För **Content-Type**väljer du den typ av innehåll som du vill visa. I det här exemplet använder du standardtypen **text/oformaterat** innehåll. Ange din prenumerationsnyckel i rutan **Ocp-Apim-Subscription-Key.**
+För **innehålls typ**väljer du den typ av innehåll som du vill skärma. I det här exemplet använder du standard typen **text/oformaterad** innehålls typ. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
 
-### <a name="sample-text-to-scan"></a>Exempel på text att skanna
+### <a name="sample-text-to-scan"></a>Exempel text att skanna
 
-Ange text i rutan **Begäran.** I följande exempel visas ett avsiktligt stavfel i texten.
+Skriv lite text i rutan **begär** text. I följande exempel visas ett avsiktligt skrivfel i texten.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 
@@ -69,10 +69,10 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP:
 
 ## <a name="analyze-the-response"></a>Analysera svaret
 
-Följande svar visar de olika insikterna från API:et. Den innehåller potentiella svordomar, personuppgifter, klassificering (förhandsgranskning) och den automatiskt korrigerade versionen.
+Följande svar visar de olika insikterna från API: et. Den innehåller potentiell svordom, personliga data, klassificering (för hands version) och den automatiskt korrigerade versionen.
 
 > [!NOTE]
-> Den maskinassisterade "Klassificering"-funktionen är endast i förhandsversion och stöder endast engelska.
+> Den datorbaserade klassificerings funktionen är i för hands version och har endast stöd för engelska.
 
 ```json
 {
@@ -133,8 +133,8 @@ Följande svar visar de olika insikterna från API:et. Den innehåller potentiel
 }
 ```
 
-En detaljerad förklaring av alla avsnitt i JSON-svaret finns i begreppsguiden för [textmodering.](text-moderation-api.md)
+En detaljerad förklaring av alla avsnitt i JSON-svaret finns i vägledning för [text redigering](text-moderation-api.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd REST API i koden eller följ [snabbstarten .NET SDK](dotnet-sdk-quickstart.md) för att integrera med ditt program.
+Använd REST API i din kod eller följ snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) för att integrera med ditt program.

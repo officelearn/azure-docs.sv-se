@@ -1,6 +1,6 @@
 ---
-title: Leverans av Kinainnehåll med Azure CDN | Microsoft-dokument
-description: Lär dig mer om hur du använder CDN (Azure Content Delivery Network) för att leverera innehåll till Kina-användare.
+title: Kina, innehålls leverans med Azure CDN | Microsoft Docs
+description: Lär dig mer om att använda Azure Content Delivery Network (CDN) för att leverera innehåll till Kina-användare.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -16,54 +16,54 @@ ms.date: 05/16/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: fa144c7ebd68e6f5dd192fca83dc6f306d7b8d63
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81254112"
 ---
-# <a name="china-content-delivery-with-azure-cdn"></a>Leverans av Kina-innehåll med Azure CDN
+# <a name="china-content-delivery-with-azure-cdn"></a>Kina, innehålls leverans med Azure CDN
 
-Azure Content Delivery Network (CDN) global kan hantera innehåll till Kina-användare med point-of-presence (POP) platser nära Kina eller någon POP som ger bästa prestanda för förfrågningar från Kina. Men om Kina är en viktig marknad för dina kunder och de behöver snabb prestanda, överväga att använda Azure CDN Kina istället.
+Global Azure Content Delivery Network (CDN) Global kan hantera innehåll till Kina-användare med punkt-i-närvaro-platser (POP) nära Kina eller POP som ger bästa möjliga prestanda för förfrågningar från Kina. Om Kina däremot är en betydande marknad för dina kunder och de behöver snabba prestanda, bör du överväga att använda Azure CDN Kina i stället.
 
-Azure CDN China skiljer sig från Azure CDN globalt genom att det levererar innehåll från POP inuti Kina genom att samarbeta med ett antal lokala leverantörer. På grund av kinesisk efterlevnad och reglering måste du registrera en separat prenumeration för att använda Azure CDN China och dina webbplatser måste ha en ICP-licens. Portal- och API-upplevelsen för att aktivera och hantera innehållsleverans är identisk mellan Azure CDN global och Azure CDN China.
+Azure CDN Kina skiljer sig från Azure CDN globalt i att den levererar innehåll från pop i Kina genom att partner med ett antal lokala leverantörer. På grund av kinesisk efterlevnad och reglering måste du registrera en separat prenumeration för att kunna använda Azure CDN Kina och dina webbplatser måste ha en ICP-licens. Portalen och API-upplevelsen för att aktivera och hantera innehålls leverans är identiskt mellan Azure CDN global och Azure CDN Kina.
 
-## <a name="comparison-of-azure-cdn-global-and-azure-cdn-china"></a>Jämförelse av Azure CDN global och Azure CDN China
+## <a name="comparison-of-azure-cdn-global-and-azure-cdn-china"></a>Jämförelse av Azure CDN global och Azure CDN Kina
 
-Azure CDN global och Azure CDN China har följande funktioner:
+Azure CDN global och Azure CDN Kina har följande funktioner:
 
-- Azure CDN globalt:
+- Azure CDN global:
 
-     - Portal:https://portal.azure.com  
+     - Portalhttps://portal.azure.com  
 
-     - Utför innehållsleverans utanför Kina
+     - Utför innehålls leverans utanför Kina
 
-     - Fyra prisnivåer: Microsoft standard, Verizon standard, Verizon premium och Akamai standard
+     - Fyra pris nivåer: Microsoft standard, Verizon standard, Verizon Premium och Akamai standard
 
      - [Dokumentation](https://docs.microsoft.com/azure/cdn/)
 
 - Azure CDN Kina:
 
-     - Portal:https://portal.azure.cn
+     - Portalhttps://portal.azure.cn
 
-     - Utför innehållsleverans inom Kina
+     - Utför innehålls leverans inuti Kina
 
-     - Två prisnivåer: Standard och premium
+     - Två pris nivåer: standard och Premium
 
      - [Dokumentation](https://docs.azure.cn/en-us/cdn/)
  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure CDN China finns i:
+Mer information om Azure CDN Kina finns i:
 
-- [Funktioner i innehållsleveransnätverk](https://www.azure.cn/en-us/home/features/cdn/)
+- [Content Delivery Network funktioner](https://www.azure.cn/en-us/home/features/cdn/)
 
 - [Översikt över Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-overview)
 
-- [Använda Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
+- [Använd Azure-Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Azure-tjänsttillgänglighet i Kina](https://docs.microsoft.com/azure/china/concepts-service-availability)
+- [Tillgänglighet för Azure-tjänster i Kina](https://docs.microsoft.com/azure/china/concepts-service-availability)
 
 
 

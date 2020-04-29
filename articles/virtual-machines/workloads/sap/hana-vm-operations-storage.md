@@ -1,6 +1,6 @@
 ---
-title: SAP HANA Azure-konfigurationer för virtuell datorlagring | Microsoft-dokument
-description: Lagringsrekommendationer för virtuell dator som har SAP HANA distribueras i dem.
+title: SAP HANA lagrings konfiguration för virtuella Azure-datorer | Microsoft Docs
+description: Lagrings rekommendationer för virtuell dator som har SAP HANA distribuerats i dem.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -16,294 +16,294 @@ ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81255625"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
-Azure tillhandahåller olika typer av lagring som är lämpliga för virtuella Azure-datorer som kör SAP HANA. Den **SAP HANA-certifierade Azure-lagringstyper** som kan beaktas för SAP HANA-distributioner lista som: 
+Azure tillhandahåller olika typer av lagring som lämpar sig för virtuella Azure-datorer som kör SAP HANA. **SAP HANA certifierade Azure Storage-typer** som kan övervägas för SAP HANA distributions listor som: 
 
-- Azure Premium SSD  
+- Azure-Premium SSD  
 - [Ultradisk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-Mer information om dessa disktyper finns i artikeln [Välj en disktyp](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
+Information om de här disk typerna finns i artikeln [Välj en disk typ](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
 
-Azure erbjuder två distributionsmetoder för virtuella hårddiskar på Azure Standard och Premium Storage. Om det övergripande scenariot tillåter kan du dra nytta av [Azure-hanterade](https://azure.microsoft.com/services/managed-disks/) diskdistributioner. 
+Azure erbjuder två distributions metoder för virtuella hård diskar på Azure standard och Premium Storage. Om det övergripande scenariot tillåter kan du utnyttja [Azure Managed disk](https://azure.microsoft.com/services/managed-disks/) distributioner. 
 
-En lista över lagringstyper och deras SLA:er i IOPS och lagringsdataflöde finns i [Azure-dokumentationen för hanterade diskar](https://azure.microsoft.com/pricing/details/managed-disks/).
-
-> [!IMPORTANT]
-> Oberoende av den azure-lagringstyp som valts måste filsystemet som används på det lagringsutrymmet stödjas av SAP för det specifika operativsystemet och DBMS. [SAP-supportanteckning #405827](https://launchpad.support.sap.com/#/notes/405827) listar de filsystem som stöds för olika operativsystem och databaser, inklusive SAP HANA. Detta gäller för alla volymer SAP HANA kan komma åt för läsning och skrivning för vilken uppgift som helst. Specifikt med NFS på Azure för SAP HANA gäller ytterligare begränsningar för NFS-versioner som anges senare i den här artikeln 
-
-
-De lägsta SAP HANA-certifierade villkoren för de olika lagringstyperna är: 
-
-- Azure Premium SSD - /hana/log måste cachelagras med Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). /hana/datavolymen kan placeras på Premium SSD utan Azure Write Accelerator eller på Ultra disk
-- Azure Ultra-disken åtminstone för /hana/log-volymen. /hana/datavolymen kan placeras på antingen Premium SSD utan Azure Write Accelerator eller för att få snabbare omstartstider Ultra disk
-- **NFS v4.1-volymer** ovanpå Azure NetApp-filer för /hana/log **och** /hana/data. Volymen /hana/shared kan använda NFS v3- eller NFS v4.1-protokoll. NFS v4.1-protokollet är obligatoriskt för volymer /hana/data och/hana/log.
-
-Vissa lagringstyper kan kombineras. Det är till exempel möjligt att placera /hana/data på Premium Storage och /hana/log kan placeras på Ultra disklagring för att få den låga latens som krävs. Om du använder en NFS v4.1-volym baserat på ANF för /hana/data måste du dock använda en annan NFS v4.1-volym baserat på ANF för /hana/log. Det **går inte**att använda NFS ovanpå ANF för en av volymerna (till exempel /hana/data) och Azure Premium Storage eller Ultra-disk för den andra volymen (till exempel /hana/log).
-
-I den lokala världen behövde man sällan bry dig om I/O-delsystemen och dess kapacitet. Anledningen var att leverantören av apparaten behövde se till att de lägsta lagringskraven är uppfyllda för SAP HANA. När du själv bygger Azure-infrastrukturen bör du vara medveten om några av dessa SAP-utfärdade krav. Några av de minsta genomströmningsegenskaper som krävs från SAP, resulterar i behovet av att:
-
-- Aktivera läs/skriv på **/hana/log** för en 250 MB/sek med 1 MB I/O-storlekar
-- Aktivera läsaktivitet på minst 400 MB/sek för **/hana/data** för 16 MB- och 64 MB I/O-storlekar
-- Aktivera skrivaktivitet på minst 250 MB/sek för **/hana/data** med 16 MB- och 64 MB I/O-storlekar
-
-Med tanke på att låg lagringsfördröjning är avgörande för DBMS-system, även som DBMS, som SAP HANA, håller data i minnet. Den kritiska linjen i lagringen är vanligtvis runt transaktionsloggens skrivningar av DBMS-systemen. Men även åtgärder som att skriva savepoints eller läsa in data i minnet efter kraschåterställning kan vara kritiska. Därför är det **obligatoriskt** att utnyttja Azure Premium Diskar för **/hana/data** och **/hana/log-volymer.** För att uppnå minsta dataflöde för **/hana/log** och **/hana/data** som önskas av SAP måste du skapa en RAID 0 med MDADM eller LVM över flera Azure Premium Storage-diskar. Och använd RAID-volymerna som **/hana/data-** och **/hana/log-volymer.** 
-
-**Rekommendation: Som randstorlekar för RAID 0 är rekommendationen att använda:**
-
-- 256 KB för **/hana/data**
-- 32 KB för **/hana/log**
+En lista över lagrings typer och deras service avtal i IOPS och lagrings data flöde finns i [Azure-dokumentationen för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 > [!IMPORTANT]
-> Stripe-storleken för /hana/data ändrades från tidigare rekommendationer som krävde 64 KB eller 128 KB till 256 KB baserat på kundupplevelser med nyare Linux-versioner. Storleken på 256 KB ger något bättre prestanda
+> Oberoende av vilken typ av Azure-lagring som valts måste det fil system som används på lagrings platsen stödjas av SAP för det angivna operativ systemet och DBMS. [SAP support note #405827](https://launchpad.support.sap.com/#/notes/405827) listar de fil system som stöds för olika operativ system och databaser, inklusive SAP HANA. Detta gäller för alla volymer SAP HANA kan komma åt för att läsa och skriva för vilken aktivitet som än är. I synnerhet med NFS på Azure för SAP HANA, gäller ytterligare begränsningar för NFS-versioner som anges längre fram i den här artikeln 
+
+
+Lägsta SAP HANA certifierade villkor för olika lagrings typer är: 
+
+- Azure Premium SSD-/Hana/log krävs för att cachelagras med Azure [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). /Hana/data-volymen kan placeras på Premium SSD utan Azure Skrivningsaccelerator eller på Ultra disk
+- Azure Ultra disk minst för/Hana/log-volymen. /Hana/data-volymen kan placeras antingen på Premium SSD utan Azure Skrivningsaccelerator eller för att få snabbare omstart gånger Ultra disk
+- **NFS v 4.1** -volymer ovanpå Azure NetApp Files för/Hana/log **och** /Hana/data. Volymen av/Hana/Shared kan använda NFS v3-eller NFS v 4.1-protokollet. NFS v 4.1-protokollet är obligatoriskt för/Hana/data-och/Hana/log-volymer.
+
+Några av lagrings typerna kan kombineras. Det är till exempel möjligt att placera/Hana/data på Premium Storage och/Hana/log kan placeras på Ultra disk Storage för att få en nödvändig låg latens. Om du använder en NFS v 4.1-volym baserat på ANF för/Hana/data måste du dock använda en annan NFS v 4.1-volym baserat på ANF för/Hana/log. Att använda NFS ovanpå ANF för en av volymerna (t. ex./Hana/data) och Azure Premium Storage eller Ultra disk för den andra volymen (t. ex./Hana/log) **stöds inte**.
+
+I den lokala världen var du sällan medveten om I/O-undersystemen och dess funktioner. Orsaken var att den nödvändiga enhets leverantören för att se till att minimi kraven för lagring är uppfyllda för SAP HANA. När du skapar Azure-infrastrukturen själv bör du vara medveten om några av dessa SAP-utfärdade krav. Några av de minsta data flödes egenskaper som krävs från SAP, vilket leder till att du behöver:
+
+- Aktivera Läs-och skriv åtgärder på **/Hana/log** i 250 MB/SEK med 1 MB i/O-storlekar
+- Aktivera Läs aktivitet på minst 400 MB/SEK för **/Hana/data** för 16 mb och 64 MB i/O-storlekar
+- Aktivera Skriv aktivitet med minst 250 MB/SEK för **/Hana/data** med 16 mb och 64 MB i/O-storlekar
+
+Med tanke på att låg latens svars tider är avgörande för DBMS-system, även om DBMS, som SAP HANA, behåller data i minnet. Den kritiska sökvägen i lagrings utrymmet ligger vanligt vis runt transaktions logg skrivningar i DBMS-systemen. Men även åtgärder som att skriva lagrings punkter eller läsa in data i minnet efter krasch återställning kan vara avgörande. Därför är det **obligatoriskt** att utnyttja Azure Premium-diskar för **/Hana/data** -och **/Hana/log** -volymer. För att uppnå det lägsta genomflödet av **/Hana/log** och **/Hana/data** som du vill av SAP måste du skapa en RAID 0 med MDADM eller LVM över flera Azure Premium Storage-diskar. Och använder RAID-volymerna som **/Hana/data** -och **/Hana/log** -volymer. 
+
+**Rekommendation: som stripe-storlekar för RAID 0 rekommenderar vi att rekommendationen används:**
+
+- 256 KB för **/Hana/data**
+- 32 KB för **/Hana/log**
+
+> [!IMPORTANT]
+> Stripe-storleken för/Hana/data har ändrats från tidigare rekommendationer som anropar för 64 KB eller 128 KB till 256 KB baserat på kund upplevelser med nyare Linux-versioner. Storleken på 256 KB ger något bättre prestanda
 
 > [!NOTE]
-> Du behöver inte konfigurera någon redundansnivå med RAID-volymer eftersom Azure Premium och Standard-lagring har tre avbildningar av en virtuell hårddisk. Användningen av en RAID-volym är enbart för att konfigurera volymer som ger tillräckligt I/O-dataflöde.
+> Du behöver inte konfigurera någon redundans nivå med RAID-volymer sedan Azure Premium och standard lagring behåller tre avbildningar av en virtuell hård disk. Användningen av en RAID-volym är enbart att konfigurera volymer som tillhandahåller tillräckligt I/O-genomflöde.
 
-Ackumulera ett antal Azure VHD:er under en RAID, ackumuleras från en IOPS och lagringsdataflöde sida. Så om du sätter en RAID 0 över 3 x P30 Azure Premium Storage-diskar, bör det ge dig tre gånger IOPS och tre gånger lagringsdataflödet för en enda Azure Premium Storage P30-disk.
+Ackumulerar ett antal Azure-VHD: er under en RAID-accumulative från en IOPS-och lagrings plats för lagring. Så om du sätter en RAID 0 över 3 x P30 Azure Premium Storage-diskar, bör det ge dig tre gånger IOPS och tre gånger lagrings data flödet för en enskild Azure Premium Storage P30-disk.
 
-Också hålla den totala VM I / O-dataflöde i åtanke när dimensionering eller bestämmer för en virtuell dator. Totalt VM-lagringsdataflöde dokumenteras i artikeln [Minnesoptimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
+Behåll även det övergripande i/O-dataflödet för virtuella datorer i åtanke när du ändrar storlek på eller bestämmer för en virtuell dator. Det totala data flödet för VM-lagring dokumenteras i artikel [minnet optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
-## <a name="linux-io-scheduler-mode"></a>Linux I/O Scheduler-läge
-Linux har flera olika I/O-schemaläggningslägen. Gemensam rekommendation via Linux-leverantörer och SAP är att konfigurera om I/O-schemaläget för diskvolymer från **mq-deadline-** eller **kyber-läget** till **noop** -läget (icke-multiqueue) eller **ingen** för (multiqueue)-läge. Information refereras i [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+## <a name="linux-io-scheduler-mode"></a>Läge för I/O-Schemaläggaren I Linux
+Linux har flera olika I/O-schemaläggnings lägen. Vanliga rekommendationer via Linux-leverantörer och SAP är att konfigurera om I/O Scheduler-läget för disk volymer från **MQ-** eller **Kyber** -läget till **Noop** (inte multiqueue) eller **ingen** för läget (multiqueue). Information finns i [SAP obs #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
-## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Lösningar med Premium Storage och Azure Write Accelerator för virtuella Azure M-serien-datorer
-Azure Write Accelerator är en funktion som är tillgänglig för virtuella azure M-series-datorer exklusivt. Som namnet anger är syftet med funktionerna att förbättra I/O-svarstiden för skrivningar mot Azure Premium Storage. För SAP HANA ska skrivaccelerator endast användas mot **/hana/log-volymen.** Därför är **/hana/data** och **/hana/log** separata volymer med Azure Write Accelerator som endast stöder **/hana/log-volymen.** 
-
-> [!IMPORTANT]
-> När du använder Azure Premium Storage är användningen av Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) eller /hana/log-volymen obligatorisk. Write Accelerator är endast tillgängligt för premiumlagrings- och M-seriens och Mv2-seriens virtuella datorer.
-
-Cachelagringsrekommendationerna nedan antar I/O-egenskaperna för SAP HANA som listar som:
-
-- Det finns knappast någon läsarbetsbelastning mot HANA-datafilerna. Undantag är stora I/Os efter omstart av HANA-instansen eller när data läses in i HANA. Ett annat fall av större läsa I / Os mot datafiler kan VARA HANA databas säkerhetskopior. Som ett resultat läsa cachelagring mestadels inte vettigt eftersom i de flesta fall, alla datafil volymer måste läsas helt.
-- Skriva mot datafiler upplevs i skurar baserat av HANA savepoints och HANA krasch återhämtning. Att skriva sparpunkter är asynkront och håller inte upp några användartransaktioner. Skriva data under kraschåterställning är prestandakritiskt för att få systemet att svara snabbt igen. Återhämtning av krascher bör dock vara ganska exceptionella situationer
-- Det finns knappast några läser från HANA göra om filer. Undantag är stora I/O när transaktionsloggsäkerhetskopior utförs, kraschåterställning eller i omstartsfasen av en HANA-instans.  
-- Huvudsaklig belastning mot SAP HANA gör om loggfilen är skrivningar. Beroende på vilken typ av arbetsbelastning, kan du ha I / Os så liten som 4 KB eller i andra fall I / O-storlekar på 1 MB eller mer. Skrivfördröjning mot SAP HANA-gör om loggen är prestandakritisk.
-- Alla skrivningar måste finnas kvar på disken på ett tillförlitligt sätt
-
-**Rekommendation: Som ett resultat av dessa observerade I/O-mönster av SAP HANA bör cachelagringen för de olika volymerna med Azure Premium Storage anges som:**
-
-- **/hana/data** - ingen cachelagring
-- **/hana/log** - ingen cachelagring - undantag för M- och Mv2-serien där Skrivaccelerator ska aktiveras utan att läsa cachelagring. 
-- **/hana/shared** - läs cachelagring
-
-### <a name="production-recommended-storage-solution"></a>Produktionsrekomna lagringslösningar
+## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Lösningar med Premium Storage och Azure Skrivningsaccelerator för virtuella Azure-datorer i M-serien
+Azure Skrivningsaccelerator är en funktion som endast är tillgänglig för virtuella datorer i Azure M-serien. Som namn tillstånd är syftet med funktionen att förbättra I/O-svars tiden för skrivningar mot Azure-Premium Storage. För SAP HANA ska Skrivningsaccelerator endast användas mot **/Hana/log** -volymen. Därför är **/Hana/data** och **/Hana/log** separata volymer med Azure Skrivningsaccelerator som bara stöder **/Hana/log** -volymen. 
 
 > [!IMPORTANT]
-> SAP HANA-certifiering för virtuella Azure M-serien-datorer är uteslutande med Azure Write Accelerator för **/hana/log-volymen.** Därför förväntas produktionsscenario SAP HANA-distributioner på virtuella Azure M-serien-datorer konfigureras med Azure Write Accelerator för **/hana/log-volymen.**  
+> När du använder Azure Premium Storage är användningen av Azure- [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) eller/Hana/log-volymen obligatorisk. Skrivningsaccelerator är endast tillgängligt för Premium Storage och virtuella datorer i M-serien och Mv2-serien.
+
+Rekommendationerna för cachelagring nedan förutsätter i/O-egenskaperna för SAP HANA listan, t. ex.:
+
+- Det finns ingen eventuell Läs arbets belastning mot HANA-datafilerna. Undantag är stora I/o efter omstart av HANA-instansen eller när data har lästs in i HANA. Ett annat fall av större Läs-I/o mot datafiler kan vara HANA-databas säkerhets kopieringar. Som ett resultat för cachelagring av utdata är det oftast inte bra eftersom i de flesta fall måste alla data fil volymer läsas fullständigt.
+- Det går att skriva till datafilerna i burst utifrån HANA-lagrings punkter och HANA-krasch återställning. Skrivning av lagrings punkter är asynkront och innehåller inga användar transaktioner. Att skriva data under krasch återställning är prestanda kritiska för att få systemet att svara snabbt och enkelt. Krasch återställning bör dock vara i stället för exceptionella situationer
+- Det finns inga läsningar från HANA gör om-filerna. Undantag är stora I/o när du utför säkerhets kopieringar av transaktions loggar, krasch återställning eller i start fasen för en HANA-instans.  
+- Huvud belastningen mot den SAP HANA göra om-logg filen skrivs. Beroende på arbets Belastningens natur kan du ha I/o-typ så litet som 4 KB eller i andra fall i/O-storlekar på 1 MB eller mer. Skriv fördröjning mot SAP HANA gör om loggen prestanda kritisk.
+- Alla skrivningar måste vara kvar på disken på ett tillförlitligt sätt
+
+**Rekommendation: som ett resultat av dessa observerade I/O-mönster genom SAP HANA ska cachelagring för de olika volymerna som använder Azure Premium Storage ställas in som:**
+
+- **/Hana/data** – ingen cachelagring
+- **/Hana/log** – ingen cachelagring – undantag för M-och Mv2-serien där Skrivningsaccelerator ska aktive ras utan cachelagring av läsning. 
+- **/Hana/Shared** – cachelagring för läsning
+
+### <a name="production-recommended-storage-solution"></a>Rekommenderad lagrings lösning för produktion
+
+> [!IMPORTANT]
+> SAP HANA-certifiering för Azure M-seriens virtuella datorer är exklusivt med Azure Skrivningsaccelerator för **/Hana/log** -volymen. Därför förväntas produktions scenariot SAP HANA distributioner på virtuella datorer i Azure M-serien att konfigureras med Azure Skrivningsaccelerator för **/Hana/log** -volymen.  
 
 > [!NOTE]
-> För produktionsscenarier, kontrollera om en viss VM-typ stöds för SAP HANA av SAP i [SAP-dokumentationen för IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+> För produktions scenarier kontrollerar du om en viss VM-typ stöds för SAP HANA av SAP i [SAP-dokumentationen för IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
-Rekommendationerna överskrider ofta SAP minimikrav som anges tidigare i den här artikeln. De angivna rekommendationerna är en kompromiss mellan storleksrekommendationerna från SAP och det maximala lagringsdataflödet som de olika vm-typerna tillhandahåller.
+Rekommendationerna överskrider ofta de lägsta kraven för SAP som anges tidigare i den här artikeln. De listade rekommendationerna är en kompromiss mellan storleks rekommendationerna av SAP och det maximala lagrings utrymmet som de olika VM-typerna tillhandahåller.
 
-**Rekommendation: De rekommenderade konfigurationerna för produktionsscenarier ser ut:**
+**Rekommendation: de rekommenderade konfigurationerna för produktions scenarier ser ut så här:**
 
-| VM-SKU | RAM | Max. VM I/O<br /> Dataflöde | /hana/data | /hana/log | /hana/delad | /rotvolym | /usr/sap | hana/backup |
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /hana/data | /hana/log | /hana/shared | /root-volym | /usr/sap | Hana/säkerhets kopiering |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts (på andra) | 192 GiB (på andra) | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
-| M32ls (32000) | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
-| M64ls (64000000 | 512 GiB | 1000 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
-| M64s | 1000 GiB (gib) | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
-| M64ms (M64ms) | 1750 GiB (på andra sätt) | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
+| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
+| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
+| M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
+| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 2 x P40 |
-| M128ms | 3800 GiB (3800 GiB) | 2000 MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P40 |
-| M208s_v2 | 2850 GiB (gib) | 1000 MB/s | 4 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P40 |
-| M208ms_v2 | 5700 GiB (gib) | 1000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
-| M416s_v2 | 5700 GiB (gib) | 2000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
-| M416ms_v2 | 11400 GiB (på andra sätt) | 2000 MB/s | 8 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P50 |
+| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P40 |
+| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P40 |
+| M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
+| M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
+| M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P50 |
 
-Kontrollera om lagringsdataflödet för de olika föreslagna volymerna uppfyller den arbetsbelastning som du vill köra. Om arbetsbelastningen kräver högre volymer för **/hana/data** och **/hana/log**måste du öka antalet virtuella Azure Premium Storage-hårddiskar. Om du vill ändra en volym med fler virtuella hårddiskar än i listan ökar IOPS- och I/O-dataflödet inom gränserna för typen av virtuell azure-dator.
+Kontrol lera om lagrings data flödet för de olika föreslagna volymerna uppfyller den arbets belastning som du vill köra. Om arbets belastningen kräver högre volymer för **/Hana/data** och **/Hana/log**måste du öka antalet Azure Premium Storage virtuella hård diskar. Att ändra storlek på en volym med fler virtuella hård diskar än vad som anges i listan ökar IOPS-och I/O-genomflödet inom gränserna för den virtuella Azure-dator typen.
 
-Azure Write Accelerator fungerar bara tillsammans med [Azure-hanterade diskar](https://azure.microsoft.com/services/managed-disks/). Så åtminstone Azure Premium Storage-diskar som utgör **/hana/log-volymen** måste distribueras som hanterade diskar.
+Azure-Skrivningsaccelerator fungerar bara tillsammans med [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Minst de Azure Premium Storage-diskar som utgör **/Hana/log** -volymen måste distribueras som hanterade diskar.
 
-Det finns gränser för Azure Premium Storage-virtuella hårddiskar per virtuell dator som kan stödjas av Azure Write Accelerator. De nuvarande gränserna är:
+Det finns gränser för Azure Premium Storage virtuella hård diskar per virtuell dator som kan användas av Azure Skrivningsaccelerator. De aktuella gränserna är:
 
-- 16 virtuella hårddiskar för en M128xx och M416xx VM
-- 8 virtuella hårddiskar för en M64xx och M208xx VM
-- 4 virtuella hårddiskar för en M32xx VM
+- 16 virtuella hård diskar för en M128xx-och M416xx VM
+- 8 virtuella hård diskar för en M64xx-och M208xx-VM
+- 4 virtuella hård diskar för en virtuell M32xx-dator
 
-Mer detaljerade instruktioner om hur du aktiverar Azure Write Accelerator finns i artikeln [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+Mer detaljerad information om hur du aktiverar Azure Skrivningsaccelerator finns i artikeln [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
-Information och begränsningar för Azure Write Accelerator finns i samma dokumentation.
+Information och begränsningar för Azure Skrivningsaccelerator finns i samma dokumentation.
 
-**Rekommendation: Du måste använda Write Accelerator för diskar som bildar /hana/log-volymen**
+**Rekommendation: du måste använda Skrivningsaccelerator för diskar som utgör/Hana/log-volymen**
 
 
-### <a name="cost-conscious-azure-storage-configuration"></a>Kostnadsmedveten Azure Storage-konfiguration
-Följande tabell visar en konfiguration av VM-typer som kunder också använder för att vara värdar för SAP HANA på virtuella Azure-datorer. Det kan finnas vissa typer av virtuella datorer som kanske inte uppfyller alla lägsta lagringskriterier för SAP HANA eller som inte stöds officiellt med SAP HANA av SAP. Men hittills dessa virtuella datorer verkade fungera bra för icke-produktion scenarier. **/hana/data** och **/hana/log** kombineras till en volym. Därför kan användningen av Azure Write Accelerator bli en begränsning när det gäller IOPS.
-
-> [!NOTE]
-> För SAP-scenarier som stöds kontrollerar du om en viss VM-typ stöds för SAP HANA av SAP i [SAP-dokumentationen för IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+### <a name="cost-conscious-azure-storage-configuration"></a>Kostnads medveten Azure Storage konfiguration
+I följande tabell visas en konfiguration av de VM-typer som kunderna också använder för att vara värdar för SAP HANA på virtuella Azure-datorer. Det kan finnas vissa VM-typer som kanske inte uppfyller alla minimi krav för lagring för SAP HANA eller som inte stöds av SAP HANA av SAP. Men det är så långt de virtuella datorerna verkade vara bra för scenarier med icke-produktion. **/Hana/data** och **/Hana/log** kombineras till en volym. Användningen av Azure Skrivningsaccelerator kan bli en begränsning i samband med IOPS.
 
 > [!NOTE]
-> En ändring från tidigare rekommendationer för en kostnadsmedveten lösning är att gå från [Azure Standard HDD-diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) till bättre prestanda och mer tillförlitliga [Azure Standard SSD-diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd)
+> För SAP-scenarier som stöds kan du kontrol lera om en viss VM-typ stöds för SAP HANA av SAP i [SAP-dokumentationen för IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
-Rekommendationerna överskrider ofta SAP minimikrav som anges tidigare i den här artikeln. De angivna rekommendationerna är en kompromiss mellan storleksrekommendationerna från SAP och det maximala lagringsdataflödet som de olika vm-typerna tillhandahåller.
+> [!NOTE]
+> En förändring från tidigare rekommendationer för en kostnads medveten lösning är att gå från [Azure standard HDD diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) för att bättre prestera och mer pålitliga [Azure standard SSD-diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd)
 
-| VM-SKU | RAM | Max. VM I/O<br /> Dataflöde | /hana/data och /hana/log<br /> randig med LVM eller MDADM | /hana/delad | /rotvolym | /usr/sap | hana/backup |
+Rekommendationerna överskrider ofta de lägsta kraven för SAP som anges tidigare i den här artikeln. De listade rekommendationerna är en kompromiss mellan storleks rekommendationerna av SAP och det maximala lagrings utrymmet som de olika VM-typerna tillhandahåller.
+
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /Hana/data och/Hana/log<br /> randigt med LVM eller MDADM | /hana/shared | /root-volym | /usr/sap | Hana/säkerhets kopiering |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 112 GiB (på andra) | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
+| DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| E64v3 | 432 GiB (0) | 1 200 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
-| GS5 | 448 GiB (0) | 2 000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
-| M32ts (på andra) | 192 GiB (på andra) | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| M32ls (32000) | 256 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| M64ls (64000000 | 512 GiB | 1 000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
+| E64v3 | 432 GiB | 1 200 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
+| GS5 | 448 GiB | 2 000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
+| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
+| M64ls | 512 GiB | 1 000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
 | M64s | 1 000 GiB | 1 000 MB/s | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
-| M64ms (M64ms) | 1 750 GiB | 1 000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
+| M64ms | 1 750 GiB | 1 000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
 | M128s | 2 000 GiB | 2 000 MB/s |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
 | M128ms | 3 800 GiB | 2 000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
 | M208s_v2 | 2 850 GiB | 1 000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
 | M208ms_v2 | 5 700 GiB | 1 000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
 | M416s_v2 | 5 700 GiB | 2 000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
-| M416ms_v2 | 11400 GiB (på andra sätt) | 2 000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
+| M416ms_v2 | 11400 GiB | 2 000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
 
 
-Diskarna rekommenderas för de mindre VM-typerna med 3 x P20 överdimensionerade volymerna när det gäller utrymmesrekommendationerna enligt [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Men valet som visas i tabellen gjordes för att ge tillräckligt med diskdataflöde för SAP HANA. Om du behöver ändringar i **/hana/backup-volymen,** som var dimensionerad för att hålla säkerhetskopior som representerar dubbelt så mycket minnesvolym, får du gärna justera.   
-Kontrollera om lagringsdataflödet för de olika föreslagna volymerna uppfyller den arbetsbelastning som du vill köra. Om arbetsbelastningen kräver högre volymer för **/hana/data** och **/hana/log**måste du öka antalet virtuella Azure Premium Storage-hårddiskar. Om du vill ändra en volym med fler virtuella hårddiskar än i listan ökar IOPS- och I/O-dataflödet inom gränserna för typen av virtuell azure-dator. 
-
-> [!NOTE]
-> Konfigurationerna ovan skulle INTE dra nytta av [Azure virtuell dator enda vm SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) eftersom den använder en blandning av Azure Premium Storage och Azure Standard Storage. Valet valdes dock för att optimera kostnaderna. Du måste välja Premium Storage för alla diskar ovan som anges som Azure Standard Storage (Sxx) för att göra VM-konfigurationen kompatibel med Azure single VM SLA.
-
+Diskarna som rekommenderas för de mindre VM-typerna med 3 x P20 överdimensionerade volymerna för utrymmes rekommendationer enligt [fakta bladet för SAP TDI-lagring](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Valet som visas i tabellen gjordes dock för att ge tillräckligt med disk data flöde för SAP HANA. Om du behöver ändra **/Hana/backup** -volymen, som har storleks Visa för att bevara säkerhets kopior som representerar två gånger minnes volymen, är det kostnads fritt att justera.   
+Kontrol lera om lagrings data flödet för de olika föreslagna volymerna uppfyller den arbets belastning som du vill köra. Om arbets belastningen kräver högre volymer för **/Hana/data** och **/Hana/log**måste du öka antalet Azure Premium Storage virtuella hård diskar. Att ändra storlek på en volym med fler virtuella hård diskar än vad som anges i listan ökar IOPS-och I/O-genomflödet inom gränserna för den virtuella Azure-dator typen. 
 
 > [!NOTE]
-> De rekommendationer för diskkonfiguration som anges är inriktade på minimikrav SOM SAP uttrycker gentemot sina infrastrukturleverantörer. I verkliga kunddistributioner och arbetsbelastningsscenarier påträffades situationer där dessa rekommendationer fortfarande inte gav tillräckliga funktioner. Det kan vara situationer där en kund krävde en snabbare omladdning av data efter en HANA-omstart eller där säkerhetskopieringskonfigurationer krävde högre bandbredd till lagringen. Andra fall inkluderade **/hana/log** där 5000 IOPS inte var tillräckliga för den specifika arbetsbelastningen. Så ta dessa rekommendationer som utgångspunkt och anpassa baserat på kraven i arbetsbelastningen.
+> Konfigurationerna ovan skulle inte ha nytta av den [virtuella Azure-datorns service avtal](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) för virtuell dator eftersom den använder en blandning av Azure Premium Storage och Azure standard Storage. Men valet valdes för att optimera kostnaderna. Du måste välja Premium Storage för alla diskar som anges som Azure standard Storage (SXX) för att göra VM-konfigurationen kompatibel med Azure Single VM service avtal.
+
+
+> [!NOTE]
+> De angivna disk konfigurations rekommendationerna är till för att uppfylla minimi kraven för SAP Express gentemot sina infrastruktur leverantörer. I verkliga kund distributioner och arbets belastnings scenarier påträffades situationer där dessa rekommendationer fortfarande inte tillhandahöll tillräckliga funktioner. Det kan vara situationer där en kund behövde en snabbare inläsning av data efter en HANA-omstart eller där säkerhets kopierings konfigurationerna krävde högre bandbredd för lagringen. Andra fall som ingår **/Hana/log** där 5000 IOPS inte var tillräckligt för den speciella arbets belastningen. Så ta med rekommendationerna som en start punkt och anpassa utifrån kraven för arbets belastningen.
 >  
 
-## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Azure Ultra-disklagringskonfiguration för SAP HANA
-Microsoft håller på att distribuera en ny Azure-lagringstyp som kallas [Azure Ultra-disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). Den stora skillnaden mellan Azure-lagring som erbjuds hittills och Ultra disk är att diskfunktionerna inte är bundna till diskstorleken längre. Som kund kan du definiera dessa funktioner för Ultra disk:
+## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Konfiguration av Azure Ultra disk Storage för SAP HANA
+Microsoft håller på att lansera en ny Azure Storage-typ som kallas [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). Den stora skillnaden mellan Azure Storage och Ultra disk är att disk funktionerna inte är kopplade till disk storleken längre. Som kund kan du definiera dessa funktioner för Ultra disk:
 
-- Storlek på en disk från 4 GiB till 65.536 GiB
-- IOPS sträcker sig från 100 IOPS till 160K IOPS (maximalt beror på VM-typer också)
-- Lagringsdataflöde från 300 MB/sek till 2 000 MB/sek
+- Storlek på en disk som sträcker sig från 4 GiB till 65 536 GiB
+- IOPS sträcker sig från 100 IOPS till 160K IOPS (maximalt beror på VM-typer)
+- Lagrings data flöde från 300 MB/SEK till 2 000 MB/SEK
 
-Ultra disk ger dig möjlighet att definiera en enda disk som uppfyller din storlek, IOPS och disk dataflödesområde. I stället för att använda logiska volymhanterare som LVM eller MDADM ovanpå Azure Premium Storage för att konstruera volymer som uppfyller IOPS- och lagringsdataflödeskrav. Du kan köra en konfigurationsmix mellan Ultra disk och Premium Storage. Därför kan du begränsa användningen av Ultra-disk till prestandakritiska /hana/data- och /hana/log-volymer och täcka andra volymer med Azure Premium Storage
+Ultra disk ger dig möjlighet att definiera en enskild disk som uppfyller din storlek, IOPS och disk data flödes intervallet. I stället för att använda logiska volym hanterare som LVM eller MDADM ovanpå Azure Premium Storage för att skapa volymer som uppfyller kraven för IOPS och data flöde. Du kan köra en konfigurations kombination mellan Ultra disk och Premium Storage. Det innebär att du kan begränsa användningen av Ultra disk till de prestanda kritiska/Hana/data-och/Hana/log-volymerna och de andra volymerna med Azure Premium Storage
 
-Andra fördelar med Ultra disk kan vara bättre läs latens i jämförelse med Premium Storage. Den snabbare lässvarstiden kan ha fördelar när du vill minska HANA-starttiderna och den efterföljande belastningen av data i minnet. Fördelar med Ultra disklagring kan också kännas när HANA skriver savepoints. Eftersom Premium Storage-diskar för /hana/data vanligtvis inte är Write Accelerator cachelagrade, är skrivfördröjningen till /hana/data på Premium Storage jämfört med Ultra-disken högre. Det kan förväntas att savepoint skriva med Ultra disk fungerar bättre på Ultra disk.
+Andra fördelar med Ultra disk kan vara den bättre Läs fördröjningen i jämförelse med Premium Storage. Svars tiden för snabbare läsning kan ha fördelar när du vill minska HANA-starttiden och den efterföljande inläsningen av data i minnet. Fördelarna med Ultra disk Storage kan också vara filtpenna när HANA skriver lagrings punkter. Eftersom Premium Storage diskar för/Hana/data vanligt vis inte Skrivningsaccelerator cachelagrat, är Skriv fördröjningen till/Hana/data på Premium Storage jämfört med den Ultra disken högre. Det kan vara förväntat att skrivning av lagrings utrymme med Ultra disk presterar bättre på Ultra disk.
 
 > [!IMPORTANT]
-> Ultra-disken finns ännu inte i alla Azure-regioner och stöder ännu inte alla vm-typer som anges nedan. Mer information om var Ultra-disk är tillgänglig och vilka vm-familjer stöds finns i artikeln [Vilka disktyper är tillgängliga i Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).
+> Ultra disk finns ännu inte i alla Azure-regioner och har ännu inte stöd för alla VM-typer som anges nedan. Detaljerad information om hur Ultra disk är tillgängligt och vilka VM-familjer som stöds finns i artikeln [vilka disk typer som är tillgängliga i Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).
 
-### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Produktionsrekomna lagringslösningar med ren Ultra-diskkonfiguration
-I den här konfigurationen behåller du volymerna /hana/data och /hana/log separat. De föreslagna värdena härleds från de KPI:er som SAP har för att certifiera VM-typer för SAP HANA och lagringskonfigurationer enligt rekommendationen i [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Rekommenderad lagrings lösning för produktion med ren Ultra disk Configuration
+I den här konfigurationen behåller du/Hana/data-och/Hana/log-volymerna separat. De föreslagna värdena härleds ut från KPI: er som SAP måste certifiera VM-typer för SAP HANA-och lagrings konfigurationer enligt rekommendationerna i [fakta bladet för SAP TDI-lagring](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
-Rekommendationerna överskrider ofta SAP minimikrav som anges tidigare i den här artikeln. De angivna rekommendationerna är en kompromiss mellan storleksrekommendationerna från SAP och det maximala lagringsdataflödet som de olika vm-typerna tillhandahåller.
+Rekommendationerna överskrider ofta de lägsta kraven för SAP som anges tidigare i den här artikeln. De listade rekommendationerna är en kompromiss mellan storleks rekommendationerna av SAP och det maximala lagrings utrymmet som de olika VM-typerna tillhandahåller.
 
-| VM-SKU | RAM | Max. VM I/O<br /> Dataflöde | /hana/datavolym | /hana/data I/O-dataflöde | /hana/data IOPS | /hana/log volym | /hana/log I/O-dataflöde | /hana/log IOPS |
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /Hana/data volym | /Hana/data I/O-genomflöde | /Hana/data IOPS | /Hana/log volym | /Hana/log I/O-genomflöde | /Hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E64s_v3 | 432 GiB (0) | 1 200 MB/s | 600 GB | 700 MBps | 7 500 | 512 GB | 500 MBps  | 2 000 |
-| M32ts (på andra) | 192 GiB (på andra) | 500 MB/s | 250 GB | 400 MBps | 7 500 | 256 GB | 250 MBps  | 2 000 |
-| M32ls (32000) | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 7 500 | 256 GB | 250 MBps  | 2 000 |
-| M64ls (64000000 | 512 GiB | 1 000 MB/s | 600 GB | 600 MBps | 7 500 | 512 GB | 400 MBps  | 2 500 |
-| M64s | 1 000 GiB | 1 000 MB/s |  1 200 GB | 600 MBps | 7 500 | 512 GB | 400 MBps  | 2 500 |
-| M64ms (M64ms) | 1 750 GiB | 1 000 MB/s | 2 100 GB | 600 MBps | 7 500 | 512 GB | 400 MBps  | 2 500 |
-| M128s | 2 000 GiB | 2 000 MB/s |2 400 GB | 1 200 MBps |9,000 | 512 GB | 800 MBps  | 3 000 | 
-| M128ms | 3 800 GiB | 2 000 MB/s | 4 800 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3 000 | 
-| M208s_v2 | 2 850 GiB | 1 000 MB/s | 3 500 GB | 1 000 MBps | 9,000 | 512 GB | 400 MBps  | 2 500 | 
-| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 200 GB | 1 000 MBps | 9,000 | 512 GB | 400 MBps  | 2 500 | 
-| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 200 GB | 1 500 MBps | 9,000 | 512 GB | 800 MBps  | 3 000 | 
-| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 14 400 GB | 1 500 MBps | 9,000 | 512 GB | 800 MBps  | 3 000 |   
+| E64s_v3 | 432 GiB | 1 200 MB/s | 600 GB | 700 Mbit/s | 7 500 | 512 GB | 500 Mbit/s  | 2 000 |
+| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 Mbit/s | 7 500 | 256 GB | 250 Mbit/s  | 2 000 |
+| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 Mbit/s | 7 500 | 256 GB | 250 Mbit/s  | 2 000 |
+| M64ls | 512 GiB | 1 000 MB/s | 600 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2 500 |
+| M64s | 1 000 GiB | 1 000 MB/s |  1 200 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2 500 |
+| M64ms | 1 750 GiB | 1 000 MB/s | 2 100 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2 500 |
+| M128s | 2 000 GiB | 2 000 MB/s |2 400 GB | 1 200 Mbit/s |9,000 | 512 GB | 800 Mbit/s  | 3 000 | 
+| M128ms | 3 800 GiB | 2 000 MB/s | 4 800 GB | 1200 Mbit/s |9,000 | 512 GB | 800 Mbit/s  | 3 000 | 
+| M208s_v2 | 2 850 GiB | 1 000 MB/s | 3 500 GB | 1 000 Mbit/s | 9,000 | 512 GB | 400 Mbit/s  | 2 500 | 
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 200 GB | 1 000 Mbit/s | 9,000 | 512 GB | 400 Mbit/s  | 2 500 | 
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 200 GB | 1 500 Mbit/s | 9,000 | 512 GB | 800 Mbit/s  | 3 000 | 
+| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 14 400 GB | 1 500 Mbit/s | 9,000 | 512 GB | 800 Mbit/s  | 3 000 |   
 
-De angivna värdena är avsedda att vara en utgångspunkt och måste utvärderas mot de verkliga kraven. Fördelen med Azure Ultra-disken är att värdena för IOPS och dataflöde kan anpassas utan att behöva stänga av den virtuella datorn eller stoppa arbetsbelastningen som tillämpas på systemet.   
+Värdena i listan är avsedda att vara en start punkt och måste utvärderas mot de verkliga kraven. Fördelen med Azure Ultra disk är att värdena för IOPS och data flöde kan anpassas utan att du behöver stänga av den virtuella datorn eller stoppa arbets belastningen som tillämpas på systemet.   
 
 > [!NOTE]
-> Hittills är lagringsögonblicksbilder med Ultra-disklagring inte tillgängliga. Detta blockerar användningen av ögonblicksbilder av virtuella datorer med Azure Backup Services
+> Lagrings ögonblicks bilder med Ultra disk Storage är hittills inte tillgängliga. Detta blockerar användningen av ögonblicks bilder av virtuella datorer med Azure Backup Services
 
-### <a name="cost-conscious-storage-solution-with-pure-ultra-disk-configuration"></a>Kostnadsmedveten lagringslösning med ren Ultra-diskkonfiguration
-I den här konfigurationen kan du volymerna /hana/data och /hana/log på samma disk. De föreslagna värdena härleds från de KPI:er som SAP har för att certifiera VM-typer för SAP HANA och lagringskonfigurationer enligt rekommendationen i [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
+### <a name="cost-conscious-storage-solution-with-pure-ultra-disk-configuration"></a>Kostnads medveten lagrings lösning med ren Ultra disk Configuration
+I den här konfigurationen kan du/Hana/data-och/Hana/log-volymerna på samma disk. De föreslagna värdena härleds ut från KPI: er som SAP måste certifiera VM-typer för SAP HANA-och lagrings konfigurationer enligt rekommendationerna i [fakta bladet för SAP TDI-lagring](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
 
-Rekommendationerna överskrider ofta SAP minimikrav som anges tidigare i den här artikeln. De angivna rekommendationerna är en kompromiss mellan storleksrekommendationerna från SAP och det maximala lagringsdataflödet som de olika vm-typerna tillhandahåller.
+Rekommendationerna överskrider ofta de lägsta kraven för SAP som anges tidigare i den här artikeln. De listade rekommendationerna är en kompromiss mellan storleks rekommendationerna av SAP och det maximala lagrings utrymmet som de olika VM-typerna tillhandahåller.
 
-| VM-SKU | RAM | Max. VM I/O<br /> Dataflöde | Volym för /hana/data och /log | /hana/data och logga I/O-dataflöde | /hana/data och logga IOPS |
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | Volym för/Hana/data och/log | /Hana/data och logg I/O-dataflöde | /Hana/data och logga IOPS |
 | --- | --- | --- | --- | --- | --- |
-| E64s_v3 | 432 GiB (0) | 1 200 MB/s | 1 200 GB | 1 200 MBps | 9,500 | 
-| M32ts (på andra) | 192 GiB (på andra) | 500 MB/s | 512 GB | 400 MBps | 9,500 | 
-| M32ls (32000) | 256 GiB | 500 MB/s | 600 GB | 400 MBps | 9,500 | 
-| M64ls (64000000 | 512 GiB | 1 000 MB/s | 1 100 GB | 900 MBps | 10 000 | 
-| M64s | 1 000 GiB | 1 000 MB/s |  1 700 GB | 900 MBps | 10 000 | 
-| M64ms (M64ms) | 1 750 GiB | 1 000 MB/s | 2 600 GB | 900 MBps | 10 000 | 
-| M128s | 2 000 GiB | 2 000 MB/s |2 900 GB | 1 800 MBps |12 000 | 
-| M128ms | 3 800 GiB | 2 000 MB/s | 5 300 GB | 1 800 MBps |12 000 |  
-| M208s_v2 | 2 850 GiB | 1 000 MB/s | 4 000 GB | 900 MBps | 10 000 |  
-| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 700 GB | 900 MBps | 10 000 | 
-| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 700 GB | 1 800 MBps | 12 000 |  
-| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 15 000 GB | 1 800 MBps | 12 000 |    
+| E64s_v3 | 432 GiB | 1 200 MB/s | 1 200 GB | 1 200 Mbit/s | 9 500 | 
+| M32ts | 192 GiB | 500 MB/s | 512 GB | 400 Mbit/s | 9 500 | 
+| M32ls | 256 GiB | 500 MB/s | 600 GB | 400 Mbit/s | 9 500 | 
+| M64ls | 512 GiB | 1 000 MB/s | 1 100 GB | 900 Mbit/s | 10 000 | 
+| M64s | 1 000 GiB | 1 000 MB/s |  1 700 GB | 900 Mbit/s | 10 000 | 
+| M64ms | 1 750 GiB | 1 000 MB/s | 2 600 GB | 900 Mbit/s | 10 000 | 
+| M128s | 2 000 GiB | 2 000 MB/s |2 900 GB | 1 800 Mbit/s |12 000 | 
+| M128ms | 3 800 GiB | 2 000 MB/s | 5 300 GB | 1 800 Mbit/s |12 000 |  
+| M208s_v2 | 2 850 GiB | 1 000 MB/s | 4 000 GB | 900 Mbit/s | 10 000 |  
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 700 GB | 900 Mbit/s | 10 000 | 
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 700 GB | 1, 800MBps | 12 000 |  
+| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 15 000 GB | 1 800 Mbit/s | 12 000 |    
 
-De angivna värdena är avsedda att vara en utgångspunkt och måste utvärderas mot de verkliga kraven. Fördelen med Azure Ultra-disken är att värdena för IOPS och dataflöde kan anpassas utan att behöva stänga av den virtuella datorn eller stoppa arbetsbelastningen som tillämpas på systemet.  
+Värdena i listan är avsedda att vara en start punkt och måste utvärderas mot de verkliga kraven. Fördelen med Azure Ultra disk är att värdena för IOPS och data flöde kan anpassas utan att du behöver stänga av den virtuella datorn eller stoppa arbets belastningen som tillämpas på systemet.  
 
-## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>NFS v4.1-volymer på Azure NetApp-filer
-Azure NetApp Files tillhandahåller inbyggda NFS-resurser som kan användas för volymerna /hana/shared, /hana/data och /hana/log. Om du använder ANF-baserade NFS-resurser för volymerna /hana/data och /hana/log krävs användning av v4.1 NFS-protokollet. NFS-protokollet v3 stöds inte för användning av /hana/data- och /hana/log-volymer när resurserna baseras på ANF. 
+## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>NFS v 4.1-volymer på Azure NetApp Files
+Azure NetApp Files tillhandahåller interna NFS-resurser som kan användas för/Hana/Shared-,/Hana/data-och/Hana/log-volymer. Att använda ANF-baserade NFS-resurser för/Hana/data-och/Hana/log-volymerna kräver att v 4.1 NFS-protokollet används. NFS-protokollet v3 stöds inte för användning av/Hana/data-och/Hana/log-volymer när du baserar resurserna på ANF. 
 
 > [!IMPORTANT]
-> NFS v3-protokollet som implementeras på Azure NetApp-filer stöds **inte** för att användas för /hana/data och /hana/log. Användningen av NFS 4.1 är obligatorisk för volymer för /hana/data och /hana/log ur funktionell synvinkel. För den /hana/delade volymen kan NFS v3 eller NFS v4.1-protokollet användas ur funktionell synvinkel.
+> Det NFS v3-protokoll som implementeras på Azure NetApp Files stöds **inte** för användning för/Hana/data och/Hana/log. Användningen av NFS 4,1 är obligatorisk för/Hana/data-och/Hana/log-volymer från en funktionell punkt i vyn. För/Hana/Shared-volymen kan NFS v3 eller NFS v 4.1-protokollet användas från en funktionell punkt i vyn.
 
 ### <a name="important-considerations"></a>Att tänka på
-När du överväger Azure NetApp-filer för SAP Netweaver och SAP HANA bör du vara medveten om följande viktiga överväganden:
+Tänk på följande viktiga överväganden när du överväger Azure NetApp Files för SAP-NetWeaver och SAP HANA:
 
-- Den minsta kapaciteten poolen är 4 TiB.  
-- Den minsta volymstorleken är 100 GiB
-- Azure NetApp-filer och alla virtuella datorer, där Azure NetApp-filer volymer kommer att monteras, måste vara i samma Azure Virtual Network eller i [peered virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) i samma region.  
-- Det valda virtuella nätverket måste ha ett undernät som delegerats till Azure NetApp-filer.
-- Dataflödet för en Azure NetApp-volym är en funktion av volymkvoten och tjänstnivån, som dokumenteras på [tjänstnivå för Azure NetApp-filer](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). När du dimensionerar HANA Azure NetApp-volymerna kontrollerar du att det resulterande dataflödet uppfyller HANA-systemkraven.  
-- Azure NetApp Files erbjuder [exportprincip:](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)du kan styra tillåtna klienter, åtkomsttypen (Skriv&, Skrivskyddat osv.). 
-- Azure NetApp Files-funktionen är inte zonmedveten ännu. Azure NetApp Files-funktionen distribueras inte i alla tillgänglighetszoner i en Azure-region. Var medveten om de potentiella latenskonsekvenserna i vissa Azure-regioner.  
-- Det är viktigt att ha de virtuella datorerna distribuerade i närheten av Azure NetApp-lagring för låg svarstid. 
-- Användar-ID för <b>sid</b>adm och `sapsys` grupp-ID för på de virtuella datorerna måste matcha konfigurationen i Azure NetApp-filer. 
-
-> [!IMPORTANT]
-> För SAP HANA-arbetsbelastningar är låg latens kritisk. Arbeta med din Microsoft-representant för att se till att de virtuella datorerna och Azure NetApp Files-volymerna distribueras i närheten.  
+- Den minsta kapacitets poolen är 4 TiB.  
+- Den minsta volym storleken är 100 GiB
+- Azure NetApp Files och alla virtuella datorer, där Azure NetApp Files volymer ska monteras, måste finnas i samma Azure-Virtual Network eller i [peer-anslutna virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) i samma region.  
+- Det valda virtuella nätverket måste ha ett undernät, delegerat till Azure NetApp Files.
+- Data flödet för en Azure NetApp-volym är en funktion av volym kvoten och tjänst nivån, enligt beskrivningen i [service nivå för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). När du ändrar storlek på HANA Azure NetApp-volymer ser du till att det resulterande data flödet uppfyller HANA-system kraven.  
+- Azure NetApp Files erbjuder [export princip](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan kontrol lera tillåtna klienter, åtkomst typ (Läs&Skriv, skrivskyddad, osv.). 
+- Azure NetApp Files funktionen är inte en zon medveten än. För närvarande är Azure NetApp Files funktionen inte distribuerad i alla tillgänglighets zoner i en Azure-region. Var medveten om potentiella fördröjnings konsekvenser i vissa Azure-regioner.  
+- Det är viktigt att de virtuella datorerna distribueras i närheten av Azure NetApp-lagringen för låg latens. 
+- Användar-ID för <b>sid</b>-adm och grupp-ID `sapsys` för på de virtuella datorerna måste matcha konfigurationen i Azure NetApp Files. 
 
 > [!IMPORTANT]
-> Om det finns en obalans mellan <b>sid</b>användar-ID för sid `sapsys` adm och grupp-ID för mellan den virtuella datorn och Azure NetApp-konfigurationen, visas `nobody`behörigheterna för filer på Azure NetApp-volymer, monterade på virtuella datorer, som . Se till att ange rätt användar-ID för <b>sid</b> `sapsys`adm och grupp-ID för , när [du går ombord på ett nytt system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) till Azure NetApp-filer.
-
-### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Dimensionering för HANA-databas på Azure NetApp-filer
-
-Dataflödet för en Azure NetApp-volym är en funktion av volymstorlek och tjänstnivå, som dokumenteras på [tjänstnivå för Azure NetApp-filer](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
-
-När du utformar infrastrukturen för SAP i Azure bör du vara medveten om några minimikrav för lagringsdataflöde av SAP, vilket leder till minsta dataflödesegenskaper för:
-
-- Aktivera läs/skriv på /hana/log för en 250 MB/sek med 1 MB I/O-storlekar  
-- Aktivera läsaktivitet på minst 400 MB/sek för /hana/data för 16 MB- och 64 MB I/O-storlekar  
-- Aktivera skrivaktivitet på minst 250 MB/sek för /hana/data med 16 MB- och 64 MB I/O-storlekar  
-
-[Azure NetApp-dataflödesgränserna](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TiB volymkvot är:
-- Premium lagringsnivå - 64 MiB/s  
-- Ultra LagringSnivå – 128 MiB/s  
+> För SAP HANA arbets belastningar är låg latens kritiskt. Arbeta med din Microsoft-representant för att säkerställa att de virtuella datorerna och Azure NetApp Files volymerna distribueras i nära närhet.  
 
 > [!IMPORTANT]
-> Oberoende av den kapacitet som du distribuerar på en enda NFS-volym förväntas dataflödet att plana ut i intervallet 1,2-1,4 GB/sek bandbredd som utnyttjas av en konsument på en virtuell dator. Detta har att göra med den underliggande arkitekturen i ANF-erbjudandet och relaterade Linux-sessionsgränser runt NFS. Prestanda- och dataflödesnumren som dokumenteras i artikeln [Prestandariktmärkenstestresultat för Azure NetApp-filer](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) utfördes mot en delad NFS-volym med flera virtuella klient-datorer och som ett resultat med flera sessioner. Det scenariot skiljer sig från det scenario som vi mäter i SAP. Där vi mäter dataflöde från en enda virtuell dator mot en NFS-volym. värd på ANF.
+> Om det finns ett matchnings fel mellan användar-ID för <b>sid</b>-adm och `sapsys` grupp-ID för mellan den virtuella datorn och Azure NetApp-konfigurationen, visas behörigheterna för filer på Azure NetApp-volymer, monterade på virtuella `nobody`datorer, som. Se till att ange rätt användar-ID för <b>sid</b>-adm och grupp-ID `sapsys`för, när [ett nytt system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) ska Azure NetApp Files.
 
-För att uppfylla sap minimikrav för dataflöde för data `/hana/shared`och logg, och enligt riktlinjerna för , de rekommenderade storlekarna skulle se ut:
+### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Storlek för HANA-databas på Azure NetApp Files
 
-| Volym | Storlek<br /> Premium lagringsnivå | Storlek<br /> Ultra lagringsnivå | NFS-protokoll som stöds |
+Data flödet för en Azure NetApp-volym är en funktion i volym storlek och tjänst nivå, enligt beskrivningen i [service nivå för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+
+När du designar infrastrukturen för SAP i Azure bör du vara medveten om några lägsta krav på lagrings data flöde från SAP, som översätts till lägsta data flödes egenskaper för:
+
+- Aktivera Läs-och skriv åtgärder på/Hana/log i 250 MB/SEK med 1 MB I/O-storlekar  
+- Aktivera Läs aktivitet på minst 400 MB/SEK för/Hana/data för 16 MB och 64 MB I/O-storlekar  
+- Aktivera Skriv aktivitet med minst 250 MB/SEK för/Hana/data med 16 MB och 64 MB I/O-storlekar  
+
+[Azure NetApp Files data flödes gränser](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TIB volym kvot:
+- Premium Storage nivå – 64 MiB/s  
+- Ultra Storage-nivå – 128 MiB/s  
+
+> [!IMPORTANT]
+> Oberoende av kapaciteten som du distribuerar på en enskild NFS-volym förväntas data flödet till platå i intervallet 1.2 – 1,4 GB/SEK som används av en konsument i en virtuell dator. Detta måste göra med den underliggande arkitekturen i ANF-erbjudandet och relaterade Linux-sessionsgränser runt NFS. Prestanda-och data flödes numren som dokumenteras i artikeln prestandatest [resultat för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) utfördes mot en delad NFS-volym med flera virtuella klient datorer och på grund av flera sessioner. Det scenariot är annorlunda för det scenario vi mäter i SAP. Där vi mäter data flödet från en enskild virtuell dator mot en NFS-volym. finns på ANF.
+
+För att uppfylla de lägsta data flödes kraven för SAP för data och logg, och enligt `/hana/shared`rikt linjerna för, skulle de rekommenderade storlekarna se ut så här:
+
+| Volym | Storlek<br /> Premium Storage nivå | Storlek<br /> Ultra Storage-nivå | NFS-protokoll som stöds |
 | --- | --- | --- |
-| /hana/log/ | 4 TiB | 2 TiB | v4.1 |
-| /hana/data | 6.3 TiB | 3.2 TiB | v4.1 |
-| /hana/delad | Max(512 GB, 1xRAM) per 4 arbetsnoder | Max(512 GB, 1xRAM) per 4 arbetsnoder | v3 eller v4.1 |
+| /hana/log/ | 4 TiB | 2 TiB | v 4.1 |
+| /hana/data | 6,3 TiB | 3,2 TiB | v 4.1 |
+| /hana/shared | Max (512 GB, 1xRAM) per 4 arbetsnoder | Max (512 GB, 1xRAM) per 4 arbetsnoder | v3 eller v 4.1 |
 
 
 > [!NOTE]
-> Azure NetApp-filer storleksrekommendationer som anges här är inriktade på att uppfylla de minimikrav SAP uttrycker mot sina infrastrukturleverantörer. I verkliga kunddistributioner och arbetsbelastningsscenarier kanske det inte räcker. Använd dessa rekommendationer som utgångspunkt och anpassa, baserat på kraven för din specifika arbetsbelastning.  
+> De Azure NetApp Files storleks rekommendationer som anges här är riktade till att uppfylla minimi kraven för SAP-Express gentemot sina infrastruktur leverantörer. I verkliga kund distributioner och arbets belastnings scenarier, är det inte tillräckligt. Använd de här rekommendationerna som en start punkt och anpassa baserat på kraven för din särskilda arbets belastning.  
 
-Därför kan du överväga att distribuera liknande dataflöde för ANF-volymer som anges för Ultra disklagring redan. Tänk också på storlekarna för de storlekar som anges för volymerna för de olika virtuella SKU:erna som redan gjorts i Ultra-disktabellerna.
+Därför kan du överväga att distribuera liknande data flöde för de ANF-volymer som anges för Ultra disk Storage redan. Tänk också på storlekarna för de storlekar som anges för volymerna för de olika VM SKU: erna som utförda i de Ultra disk-tabellerna redan.
 
 > [!TIP]
-> Du kan ändra storlek på Azure NetApp Files-volymer dynamiskt, utan att `unmount` volymerna behöver göras, stoppa de virtuella datorerna eller stoppa SAP HANA. Det ger flexibilitet för att uppfylla dina program både förväntade och oförutsedda krav på dataflöde.
+> Du kan ändra storlek på Azure NetApp Files volymer dynamiskt, utan att `unmount` behöva volymerna, stoppa de virtuella datorerna eller stoppa SAP HANA. Det gör det möjligt att uppfylla ditt program både förväntat och oförutsedda data flödes krav.
 
-Dokumentation om hur du distribuerar en SAP HANA-utskalningskonfiguration med standby-nod med NFS v4.1-volymer som finns i ANF publiceras i [SAP HANA-utskalning med väntenod på Virtuella Azure-datorer med Azure NetApp-filer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
+Dokumentation om hur du distribuerar en SAP HANA skalbar konfiguration med en standby-nod med hjälp av NFS v 4.1-volymer som finns i ANF publiceras i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i:
 
-- [SAP HANA Guide för hög tillgänglighet för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+- [SAP HANA guide för hög tillgänglighet för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

@@ -1,6 +1,6 @@
 ---
-title: Primära, utländska och unika nycklar
-description: Stöd för tabellbegränsningar i Synapse SQL-pool i Azure Synapse Analytics
+title: Primära, externa och unika nycklar
+description: Tabell begränsningar stöder i SQL-poolen Synapse i Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,32 +12,32 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f97163d02836442430037e18439bcf0724046332
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80990777"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Primärnyckel, sekundärnyckel och unik nyckel i Synapse SQL-pool
+# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Primär nyckel, sekundär nyckel och unik nyckel i Synapse SQL-pool
 
-Lär dig mer om tabellbegränsningar i Synapse SQL-pool, inklusive primärnyckel, sekundärnyckel och unik nyckel.
+Lär dig mer om tabell begränsningar i Synapse SQL-pool, inklusive primär nyckel, sekundär nyckel och unik nyckel.
 
 ## <a name="table-constraints"></a>Tabellbegränsningar
 
-Synapse SQL-poolen stöder dessa tabellbegränsningar: 
-- PRIMÄRNYCKEL stöds endast när icke-GRUPPERADE och INTE TILLÄMPAS används båda.    
-- UNIK begränsning stöds endast med INTE enforced används.
+Synapse SQL-pool stöder följande tabell begränsningar: 
+- PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.    
+- En unik begränsning stöds endast med inte TVINGAd användning.
 
-Syntaxen markerar [alter table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) och CREATE [TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+För syntax, kontrol lera [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) och [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-SEKUNDÄRNYCKEL-begränsning stöds inte i Synapse SQL-pool.  
+Sekundär nyckel begränsning stöds inte i Synapse SQL-pool.  
 
 
 ## <a name="remarks"></a>Anmärkningar
 
-Med primärnyckel och/eller unik nyckel kan Synapse SQL-poolmotor generera en optimal körningsplan för en fråga.  Alla värden i en primärnyckelkolumn eller en unik begränsningskolumn ska vara unika.
+Med primär nyckel och/eller unik nyckel kan Synapse SQL-pool generera en optimal körnings plan för en fråga.  Alla värden i en primär nyckel kolumn eller en unik begränsnings kolumn måste vara unika.
 
-När du har skapat en tabell med primärnyckel eller unik begränsning i Synapse SQL-pool måste användarna se till att alla värden i dessa kolumner är unika.  Ett brott mot det kan leda till att frågan returnerar felaktiga resultat.  Det här exemplet visar hur en fråga kan returnera felaktiga resultat om primärnyckeln eller den unika begränsningskolumnen innehåller dubblettvärden.  
+När du har skapat en tabell med primär nyckel eller unik begränsning i Synapse SQL-pool måste användarna se till att alla värden i dessa kolumner är unika.  En överträdelse av som kan orsaka att frågan returnerar felaktigt resultat.  Det här exemplet visar hur en fråga kan returnera felaktigt resultat om kolumnen primär nyckel eller unik begränsning innehåller dubblettvärden.  
 
 ```sql
  -- Create table t1
@@ -164,12 +164,12 @@ a1          total
 
 ## <a name="examples"></a>Exempel
 
-Skapa en Synapse SQL-biljardtabell med primärnyckel: 
+Skapa en Synapse för SQL-pool med en primär nyckel: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Skapa en Synapse SQL-biljardtabell med ett unikt villkor:
+Skapa en Synapse för SQL-pool med en unik begränsning:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -177,4 +177,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat tabellerna för Synapse SQL-poolen är nästa steg att läsa in data i tabellen. En inläsningsstudiekurs finns [i Läsa in data till Synapse SQL-pool](load-data-wideworldimportersdw.md).
+När du har skapat tabellerna för din Synapse SQL-pool är nästa steg att läsa in data i tabellen. En inläsnings kurs finns i [inläsning av data till SYNAPSE SQL-pool](load-data-wideworldimportersdw.md).

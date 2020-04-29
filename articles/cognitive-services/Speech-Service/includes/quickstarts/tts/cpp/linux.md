@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Syntetisera tal, C++ (Linux) - Taltjänst'
+title: 'Snabb start: syntetisera tal, C++ (Linux) – tal service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du syntetiserar tal i C++ på Linux med hjälp av Tal-SDK
+description: Lär dig mer om att syntetisera tal i C++ på Linux med hjälp av tal-SDK
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: yinhew
 ms.openlocfilehash: 458dc6899b0d89fcda2ff989ae95523e12de13c5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81275579"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
@@ -52,7 +52,7 @@ Innan du börjar måste du:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
-* På ett **ARM64** -system (64-bitars) kör du följande kommando för att skapa programmet.
+* Kör följande kommando i ett **arm64** -system (64-bitars) för att skapa programmet.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
@@ -74,7 +74,7 @@ Innan du börjar måste du:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-   * Ange följande kommando i ett **ARM64-system** (64-bitars).
+   * I ett **arm64** -system (64-bitars) anger du följande kommando.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
@@ -86,7 +86,7 @@ Innan du börjar måste du:
    ./helloworld
    ```
 
-1. I konsolfönstret visas en uppmaning där du uppmanas att skriva text. Skriv några ord eller en mening. Texten som du skrev överförs till taltjänsten och syntetiseras till tal, som spelas upp på högtalaren.
+1. I konsol fönstret visas en uppslags ruta där du uppmanas att ange lite text. Skriv några ord eller en mening. Den text som du har angett skickas till tal tjänsten och syntetiskt till tal, som spelas upp på din talare.
 
    ```text
    Type some text that you want to speak...
@@ -102,4 +102,4 @@ Innan du börjar måste du:
 ## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Spela in anpassade röstexempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

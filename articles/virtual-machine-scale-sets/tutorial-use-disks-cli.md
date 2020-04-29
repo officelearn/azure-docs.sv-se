@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Skapa och använda diskar för skalningsuppsättningar med Azure CLI
+title: Självstudie – Skapa och Använd diskar för skalnings uppsättningar med Azure CLI
 description: Läs om hur du använder Azure CLI för att skapa och använda hanterade diskar med en VM-skalningsuppsättning, inklusive hur du lägger till, förbereder, listar och kopplar från diskarna.
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 3759fa426a712308e1956376d559c1ac84eadbd7
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81008853"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI
@@ -25,7 +25,7 @@ VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorin
 > * Diskprestanda
 > * Anslut och förbered datadiskar
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -51,7 +51,7 @@ När en skalningsuppsättning skapas eller skalas, ansluts två diskar automatis
 
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
-Du kan lägga till ytterligare datadiskar om du behöver installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 4 TB. Storleken på den virtuella datorinstansen avgör hur många datadiskar som kan anslutas. För varje virtuell virtuell dator vCPU kan två datadiskar kopplas upp till ett absolut maximum på 64 diskar per virtuell dator.
+Du kan lägga till ytterligare datadiskar om du behöver installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 4 TB. Storleken på den virtuella datorinstansen avgör hur många datadiskar som kan anslutas. För varje VM-vCPU kan två data diskar anslutas upp till en absolut högsta 64 diskar per virtuell dator.
 
 ## <a name="vm-disk-types"></a>VM-disktyper
 Azure tillhandahåller två disktyper.
@@ -76,13 +76,13 @@ I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås ge
 Du kan skapa och ansluta diskar när du skapar en skalningsuppsättning eller med en befintlig skalningsuppsättning.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anslut diskarna när skalningsuppsättningen skapas
-Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i *regionen eastus.*
+Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resurs grupp med namnet *myResourceGroup* i regionen *östra* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en VM-skalningsuppsättning med kommandot [az vmss create](/cli/azure/vmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet*och SSH-nycklar genereras om de inte finns. Två diskar skapas med parametern `--data-disk-sizes-gb`. Den första disken är *64* GB stor och den andra disken är *128* GB:
+Skapa en VM-skalningsuppsättning med kommandot [az vmss create](/cli/azure/vmss). I följande exempel skapas en skalnings uppsättning med namnet *myScaleSet*, som genererar SSH-nycklar om de inte redan finns. Två diskar skapas med parametern `--data-disk-sizes-gb`. Den första disken är *64* GB stor och den andra disken är *128* GB:
 
 ```azurecli-interactive
 az vmss create \

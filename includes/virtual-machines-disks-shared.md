@@ -9,128 +9,128 @@ ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: c3e5beaef7fcc9d407103834e2040957ff32984c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81008584"
 ---
-Azure shared disks (preview) är en ny funktion för Azure-hanterade diskar som gör det möjligt att koppla en hanterad disk till flera virtuella datorer samtidigt. Genom att koppla en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
+Azure Shared disks (för hands version) är en ny funktion för Azure Managed disks som möjliggör anslutning av en hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-Virtuella datorer i klustret kan läsa eller skriva till den bifogade disken baserat på den reservation som valts av det klustrade programmet med [SCSI Persistent Reservations](https://www.t10.org/members/w_spc3.htm) (SCSI PR). SCSI PR är en branschstandard som utnyttjas av program som körs på SAN (Storage Area Network) lokalt. Om du aktiverar SCSI PR på en hanterad disk kan du migrera dessa program till Azure som de är.
+Virtuella datorer i klustret kan läsa eller skriva till din anslutna disk baserat på den reservation som valts av det klustrade programmet med [SCSI-beständiga reservationer](https://www.t10.org/members/w_spc3.htm) (SCSI-PR). SCSI PR är en bransch standard som utnyttjas av program som körs på lokala SAN-nätverk (Storage Area Network). Genom att aktivera SCSI PR på en hanterad disk kan du migrera dessa program till Azure som de är.
 
-Delning av hanterade diskar erbjuder delad blocklagring som kan nås från flera virtuella datorer, dessa visas som logiska enhetsnummer (LUN). LUN presenteras sedan för en initierare (VM) från ett mål (disk). Dessa LUN ser ut som direktansluten lagring (DAS) eller en lokal enhet till den virtuella datorn.
+Delning av hanterade diskar erbjuder delad block lagring som kan nås från flera virtuella datorer, och dessa visas som logiska enhets nummer (LUN). LUN visas sedan för en initierare (VM) från ett mål (disk). Dessa LUN ser ut som direktansluten lagring (DAS) eller en lokal enhet till den virtuella datorn.
 
-Delade hanterade diskar erbjuder inte inbyggt ett fullständigt hanterat filsystem som kan nås med SMB/NFS. Du måste använda en klusterhanterare, till exempel WSFC (Windows Server Failover Cluster) eller Pacemaker, som hanterar kommunikation mellan klusternoder samt skrivlåsning.
+Delade hanterade diskar erbjuder inget fullständigt hanterat fil system som kan nås via SMB/NFS. Du måste använda en kluster hanterare, t. ex. Windows Server failover Cluster (WSFC) eller pacemaker, som hanterar kommunikation mellan kluster noder och skriv låsning.
 
 ## <a name="limitations"></a>Begränsningar
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
-## <a name="disk-sizes"></a>Diskstorlekar
+## <a name="disk-sizes"></a>Disk storlekar
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
-## <a name="sample-workloads"></a>Exempel på arbetsbelastningar
+## <a name="sample-workloads"></a>Exempel arbets belastningar
 
 ### <a name="windows"></a>Windows
 
-De flesta Windows-baserade kluster bygger på WSFC, som hanterar all kärninfrastruktur för klusternodkommunikation, vilket gör att dina program kan dra nytta av parallella åtkomstmönster. WSFC aktiverar både CSV- och icke-CSV-baserade alternativ beroende på vilken version av Windows Server du har. Mer information finns i [Skapa ett redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+De flesta Windows-baserade klustring bygger på WSFC, som hanterar all kärn infrastruktur för kommunikation i kluster noder, vilket gör att dina program kan dra nytta av parallella åtkomst mönster. WSFC aktiverar både CSV-och icke-CSV-baserade alternativ beroende på din version av Windows Server. Mer information finns i [skapa ett redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
-Några populära program som körs på WSFC är:
+Några populära program som körs på WSFC inkluderar:
 
-- SQL Server Redundansklusterinstanser (FCI)
-- Skala ut filserver (SoFS)
-- Filserver för allmänt bruk (IW-arbetsbelastning)
-- Användarprofildiskett för fjärrskrivbordsserver (UPD för fjärrskrivbord)
+- SQL Server instanser av WSFC-kluster (FCI)
+- Skalbar fil server (SoFS)
+- Fil server för allmänt bruk (IW-arbetsbelastning)
+- Användar profil disk för fjärr skrivbords server (RDS UPD)
 - SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
 
-Linux-kluster kan utnyttja klusterhanterare som [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker bygger på [Corosync](http://corosync.github.io/corosync/), aktivera klusterkommunikation för program som distribueras i miljöer med högtillgänge. Några vanliga klustrade filsystem inkluderar [ocfs2](https://oss.oracle.com/projects/ocfs2/) och [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Du kan ändra reservationer och registreringar med verktyg som [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) och [sg_persist](https://linux.die.net/man/8/sg_persist).
+Linux-kluster kan utnyttja kluster hanterare som [pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker bygger på [corosync](http://corosync.github.io/corosync/), vilket möjliggör kluster kommunikation för program som distribueras i miljöer med hög tillgänglighet. Några vanliga klustrade fil system är [ocfs2](https://oss.oracle.com/projects/ocfs2/) och [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Du kan ändra reservationer och registreringar med hjälp av verktyg som [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) och [sg_persist](https://linux.die.net/man/8/sg_persist).
 
-## <a name="persistent-reservation-flow"></a>Beständigt reservationsflöde
+## <a name="persistent-reservation-flow"></a>Persistent reservation Flow
 
-Följande diagram illustrerar ett exempel på 2-nod klustrade databasprogram som utnyttjar SCSI PR för att aktivera redundans från en nod till en annan.
+Följande diagram illustrerar ett exempel på klustrade databas program i två noder som utnyttjar SCSI PR för att aktivera redundans från en nod till en annan.
 
-![Två nodkluster. Ett program som körs på klustret hanterar åtkomst till disken](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![Kluster med två noder. Ett program som körs i klustret hanterar åtkomst till disken](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 Flödet är följande:
 
 1. Det klustrade programmet som körs på både Azure VM1 och VM2 registrerar sin avsikt att läsa eller skriva till disken.
-1. Programinstansen på VM1 tar sedan exklusiv reservation för att skriva till disken.
-1. Den här reservationen tillämpas på din Azure-disk och databasen kan nu endast skriva till disken. Alla skrivningar från programinstansen på VM2 kommer inte att lyckas.
-1. Om programinstansen på VM1 går ned kan instansen på VM2 nu initiera en databasundangång och överta disken.
-1. Den här reservationen tillämpas nu på Azure-disken och disken accepterar inte längre skrivningar från VM1. Det kommer bara att acceptera skrivningar från VM2.
-1. Det klustrade programmet kan slutföra databasen redundans och hantera begäranden från VM2.
+1. Program instansen på VM1 tar sedan exklusiv reservation att skriva till disken.
+1. Den här reservationen tillämpas på din Azure-disk och databasen kan nu endast skriva till disken. Det går inte att utföra alla skrivningar från program instansen på VM2.
+1. Om program instansen på VM1 kraschar kan instansen på VM2 nu initiera en databas växling vid fel och ta över disken.
+1. Den här reservationen tillämpas nu på Azure-disken och disken tar inte längre emot skrivningar från VM1. Det tar bara emot skrivningar från VM2.
+1. Det klustrade programmet kan slutföra redundansväxlingen av databasen och betjäna förfrågningar från VM2.
 
-Följande diagram illustrerar en annan gemensam klustrad arbetsbelastning som består av flera noder som läser data från disken för att köra parallella processer, till exempel utbildning av maskininlärningsmodeller.
+Följande diagram illustrerar en annan vanlig klustrad arbets belastning som består av flera noder som läser data från disken för att köra parallella processer, till exempel utbildning av Machine Learning-modeller.
 
-![Fyra nod VM-kluster, varje nod registrerar avsikt att skriva, programmet tar exklusiv reservation för att korrekt hantera skrivresultat](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![Fyra noder för virtuella datorer, varje nod registrerar sig för att skriva, programmet tar exklusiv reservation för att hantera Skriv resultaten korrekt](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 Flödet är följande:
 
 1. Det klustrade programmet som körs på alla virtuella datorer registrerar avsikten att läsa eller skriva till disken.
-1. Programinstansen på VM1 tar en exklusiv reservation för att skriva till disken medan du öppnar läsningar till disken från andra virtuella datorer.
-1. Den här reservationen tillämpas på din Azure-disk.
-1. Alla noder i klustret kan nu läsa från disken. Endast en nod skriver tillbaka resultat till disken, på uppdrag av alla noder i klustret.
+1. Program instansen på VM1 tar en exklusiv reservation att skriva till disken medan läsning av läsningar till disken från andra virtuella datorer öppnas.
+1. Den här reservationen tillämpas på Azure-disken.
+1. Alla noder i klustret kan nu läsa från disken. Endast en nod skriver tillbaka resultat till disken på uppdrag av alla noder i klustret.
 
-### <a name="ultra-disks-reservation-flow"></a>Bokningsflöde för Ultradiskar
+### <a name="ultra-disks-reservation-flow"></a>Ultra disks reservations flöde
 
-Ultra diskar erbjuder en extra gas, för totalt två gasreglage. På grund av detta kan ultra diskar bokningsflöde fungera enligt beskrivningen i det tidigare avsnittet, eller det kan begränsa och distribuera prestanda mer detaljerad.
+Ultra disks ger ytterligare en begränsning, för totalt två begränsningar. På grund av detta kan Ultra disks reservations flöde fungera på det sätt som beskrivs i det tidigare avsnittet, eller så kan det begränsa och distribuera prestanda mer detaljerat.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
 
-## <a name="ultra-disk-performance-throttles"></a>Ultra disk prestanda begränsningar
+## <a name="ultra-disk-performance-throttles"></a>Prestanda begränsningar för Ultra disk
 
-Ultra diskar har den unika förmågan att ställa in din prestanda genom att exponera modifierbara attribut och låter dig ändra dem. Som standard finns det bara två ändringsbara attribut, men delade ultradiskar har ytterligare två attribut.
+Ultra disks har en unik funktion som gör att du kan ställa in prestanda genom att exponera ändrings bara attribut och göra det möjligt att ändra dem. Som standard finns det bara två ändrings bara attribut, men delade Ultra disks har två ytterligare attribut.
 
 
 |Attribut  |Beskrivning  |
 |---------|---------|
-|DiskIOPSLässkriva     |Det totala antalet IOPS som tillåts för alla virtuella datorer som monterar resursdisken med skrivåtkomst.         |
-|DiskMBpsLässkriva     |Det totala dataflödet (MB/s) som tillåts för alla virtuella datorer som monterar den delade disken med skrivåtkomst.         |
-|DiskIOPSLäsklar*     |Det totala antalet IOPS som tillåts för alla virtuella datorer som monterar den delade disken som ReadOnly.         |
-|DiskMBpsLäsklar*     |Det totala dataflödet (MB/s) som tillåts för alla virtuella datorer som monterar den delade disken som ReadOnly.         |
+|DiskIOPSReadWrite     |Det totala antalet IOPS som tillåts över alla virtuella datorer som monterar delnings disken med skriv åtkomst.         |
+|DiskMBpsReadWrite     |Det totala data flödet (MB/s) som tillåts på alla virtuella datorer som monterar den delade disken med skriv åtkomst.         |
+|DiskIOPSReadOnly*     |Det totala antalet IOPS som tillåts över alla virtuella datorer som monterar den delade disken som skrivskyddad.         |
+|DiskMBpsReadOnly*     |Det totala data flödet (MB/s) som tillåts på alla virtuella datorer som monterar den delade disken som skrivskyddad.         |
 
-\*Gäller endast delade ultradiskar
+\*Gäller enbart delade Ultra disks
 
-Följande formler förklarar hur prestandaattributen kan ställas in, eftersom de är användaruppmärkare:
+Följande formler förklarar hur prestanda-attribut kan anges, eftersom de är ändrings bara av användaren:
 
-- DiskIOPSLässkriva/DiskIOPSLäsklar: 
-    - IOPS-gränser på 300 IOPS/GiB, upp till maximalt 160 K IOPS per disk
+- DiskIOPSReadWrite/DiskIOPSReadOnly: 
+    - IOPS-gränser på 300 IOPS/GiB, upp till högst 160K IOPS per disk
     - Minst 100 IOPS
-    - DiskIOPSLäs skrev + diskiopsläs är minst 2 IOPS/GiB
-- DiskMBpsLäs skrivning/diskMBpsLäsklar:
-    - Dataflödesgränsen för en enskild disk är 256 KiB/s för varje etablerad IOPS, upp till maximalt 2000 MBps per disk
-    - Det minsta garanterade dataflödet per disk är 4KiB/s för varje etablerad IOPS, med ett totalt baslinjeminimum på 1 MBps
+    - DiskIOPSReadWrite + DiskIOPSReadOnly är minst 2 IOPS/GiB
+- DiskMBpsRead-skrivning/DiskMBpsReadOnly:
+    - Data flödes gränsen på en enskild disk är 256 KiB/s för varje etablerad IOPS, upp till högst 2000 Mbit/s per disk
+    - Lägsta garanterade data flöde per disk är 4KiB/s för varje etablerad IOPS med en total bas linje i minst 1 Mbit/s
 
 ### <a name="examples"></a>Exempel
 
-I följande exempel visas några scenarier som visar hur begränsningen kan fungera med delade ultradiskar, särskilt.
+I följande exempel beskrivs några scenarier som visar hur begränsningen kan fungera med delade Ultra disks, särskilt.
 
-#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Två noder kluster med kluster delade volymer
+#### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Två noder kluster med klusterdelade volymer
 
-Följande är ett exempel på en 2-nod WSFC med klustrade delade volymer. Med den här konfigurationen har båda virtuella datorerna samtidig skrivåtkomst till disken, vilket resulterar i att ReadWrite-gasreglaget delas över de två virtuella datorerna och att ReadOnly-begränsningen inte används.
+Följande är ett exempel på en WSFC med två noder som använder klusterdelade volymer. Med den här konfigurationen har båda de virtuella datorerna samtidig skriv åtkomst till disken, vilket leder till att ReadWrite-begränsningen delas mellan de två virtuella datorerna och att den skrivskyddade begränsningen inte används.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV två nod ultra exempel":::
-
-:::image-end:::
-
-#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Två nodskluster utan klusterresursvolymer
-
-Följande är ett exempel på en 2-nod WSFC som inte använder klustrade delade volymer. Med den här konfigurationen har endast en virtuell dator skrivåtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används uteslutande för den primära virtuella datorn och att ReadOnly-begränsningen endast används av den sekundära.
-
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV två noder ingen csv ultra disk exempel":::
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV två-noder, Ultra-exempel":::
 
 :::image-end:::
 
-#### <a name="four-node-linux-cluster"></a>Fyra nod Linux-kluster
+#### <a name="two-node-cluster-without-cluster-share-volumes"></a>Två nods kluster utan kluster resurs volymer
 
-Följande är ett exempel på ett Linux-kluster med 4-nod med en enda författare och tre utskalningsläsare. Med den här konfigurationen har endast en virtuell dator skrivåtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används uteslutande för den primära virtuella datorn och att ReadOnly-begränsningen delas av de sekundära virtuella datorerna.
+Följande är ett exempel på en WSFC-kluster med två noder som inte använder klusterdelade volymer. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används exklusivt för den primära virtuella datorn och den skrivskyddade begränsning som används av den sekundära.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Exempel på fyra nod ultrabegränsningar":::
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Två noder för CSV: inga CSV Ultra disk-exempel":::
+
+:::image-end:::
+
+#### <a name="four-node-linux-cluster"></a>Linux-kluster med fyra noder
+
+Följande är ett exempel på en 4-nods Linux-kluster med en enda skrivare och tre skalbara läsare. Med den här konfigurationen är det bara en virtuell dator som har skriv åtkomst till disken. Detta resulterar i att ReadWrite-begränsningen används exklusivt för den primära virtuella datorn och den skrivskyddade begränsning som delas av de sekundära virtuella datorerna.
+
+:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Exempel på fyra noder med ultralåg begränsning":::
 
 :::image-end:::

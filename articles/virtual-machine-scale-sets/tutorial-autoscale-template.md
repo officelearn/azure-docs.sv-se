@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Skala en skalningsuppsättning automatiskt med Azure-mallar
+title: Självstudie – Autoskala en skalnings uppsättning med Azure-mallar
 description: Läs hur du använder Azure Resource Manager-mallar för att automatiskt skala en VM-skalningsuppsättning allteftersom CPU-kraven varierar
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: jushiman
 ms.custom: mvc
 ms.openlocfilehash: 02fe74a2dad7da655969c5c9523c696657425e49
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011318"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
@@ -24,7 +24,7 @@ När du skapar en skalningsuppsättning, definierar du antalet virtuella datorin
 > * Belastningstesta virtuella datorinstanser och utlös regler för automatisk skalning
 > * Skala tillbaka automatiskt när efterfrågan minskar
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -66,13 +66,13 @@ Följande parametrar används för den här regeln:
 | Parameter         | Förklaring                                                                                                         | Värde           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU  |
-| *tidGrain*       | Hur ofta måtten samlas in för analys.                                                                   | 1 minut        |
+| *timeGrain*       | Hur ofta måtten samlas in för analys.                                                                   | 1 minut        |
 | *timeAggregation* | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel         |
-| *tidWindow*      | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter       |
-| *Operatör*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
-| *Tröskel*       | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %             |
+| *timeWindow*      | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter       |
+| *Operator*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
+| *fastställd*       | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %             |
 | *riktning*       | Anger om skalningsuppsättningen ska skala in eller ut när regeln gäller.                                              | Öka        |
-| *Typ*            | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal    |
+| *bastyp*            | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal    |
 | *värde*           | Hur många virtuella datorinstanser ska skalas in eller ut när regeln gäller.                                             | 3               |
 | *cooldown*        | Hur lång tid ska gå innan regeln tillämpas igen så att de automatiska skalningsåtgärderna har tid att börja gälla. | 5 minuter       |
 
@@ -136,7 +136,7 @@ Följande exempel definierar en regel som skalar in antalet virtuella datorinsta
 ## <a name="create-an-autoscaling-scale-set"></a>Skapa en skalningsuppsättning som skalar automatiskt
 Vi använder en exempelmall för att skapa en skalningsuppsättning och tillämpa regler för automatisk skalning. Du kan [granska den fullständiga mallen](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json), eller [se resourceprovider-avsnittet *Microsoft.insights/autoscalesettings*](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) för mallen.
 
-Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
+Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

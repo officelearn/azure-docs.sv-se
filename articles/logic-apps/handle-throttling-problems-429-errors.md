@@ -1,173 +1,173 @@
 ---
-title: Hantera begränsningsproblem, eller "429 - För många begäranden" fel
-description: Så här kan du kringgå begränsningsproblem eller HTTP 429 För många begärandens fel i Azure Logic Apps
+title: Hantera begränsnings problem eller "429-för många begär Anden"-fel
+description: Hur du löser problem med begränsning eller HTTP 429 för många begär Anden, i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81272686"
 ---
-# <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Hantera begränsningsproblem (429 - "För många begäranden" fel) i Azure Logic Apps
+# <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Hantera begränsnings problem (429-"för många begär Anden"-fel) i Azure Logic Apps
 
-I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)returnerar logikappen felet ["HTTP 429 För många begäranden"](https://developer.mozilla.org/docs/Web/HTTP/Status/429) när det uppstår begränsning, vilket inträffar när antalet begäranden överskrider den hastighet med vilken målet kan hantera under en viss tidsperiod. Begränsning kan skapa problem som fördröjd databearbetning, minskad prestandahastighet och fel som att överskrida den angivna återförsöksprincipen.
+I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)returnerar din Logic [-app meddelandet "http 429 för många begär Anden"](https://developer.mozilla.org/docs/Web/HTTP/Status/429) vid begränsning, vilket inträffar när antalet förfrågningar överskrider den hastighet som målet kan hantera under en angiven tids period. Begränsning kan skapa problem som fördröjd data bearbetning, minskad prestanda hastighet och fel som överskrider den angivna återförsöks principen.
 
-![Begränsning i SQL Server-anslutning](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-error.png)
+![Begränsning i SQL Server koppling](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-error.png)
 
-Här är några vanliga typer av begränsning som logikappen kan uppleva:
+Här följer några vanliga typer av begränsningar som din Logic app kan uppleva:
 
-* [Logikapp](#logic-app-throttling)
-* [Kontakt](#connector-throttling)
-* [Destinationsservice eller destinationssystem](#destination-throttling)
+* [Logic app](#logic-app-throttling)
+* [Kurva](#connector-throttling)
+* [Mål tjänst eller system](#destination-throttling)
 
 <a name="logic-app-throttling"></a>
 
-## <a name="logic-app-throttling"></a>Begränsning av logikapp
+## <a name="logic-app-throttling"></a>Logic app-begränsning
 
-Azure Logic Apps-tjänsten har sina egna [begränsningar för dataflöde](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Så om logikappen överskrider dessa gränser begränsas logikappresursen, inte bara en viss instans eller kör.
+Den Azure Logic Apps tjänsten har sina egna [data flödes gränser](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Så om din Logi Kap par överskrider dessa gränser, får din Logic app-resurs begränsad, inte bara en angiven instans eller kör.
 
-Om du vill hitta begränsningshändelser på den här nivån kontrollerar du logikappens **mätfönster** i Azure-portalen.
+Du hittar begränsnings händelser på den här nivån genom att kontrol lera din Logic Apps **mått** ruta i Azure Portal.
 
-1. Öppna logikappen i Logic App Designer i [Azure-portalen.](https://portal.azure.com)
+1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-1. Välj **Mått**under **Övervakning**på logikapp-menyn .
+1. På menyn Logic app, under **övervakning**, väljer du **mått**.
 
-1. Under **Diagramrubrik**väljer du **Lägg till mått** så att du lägger till ett annat mått i det befintliga.
+1. Under **diagram rubrik**väljer du **Lägg till mått** så att du kan lägga till ett annat mått i det befintliga.
 
-1. Välj **Åtgärd begränsade händelser**i den första måttfältet i listan **METRIC** . Välj **Utlösar begränsar händelser**i den andra måttfältet i listan **METRIC** .
+1. I det första mått fältet i listan **mått** väljer du **Åtgärds begränsade händelser**. I det andra mått fältet väljer du **Utlös begränsad händelse**i listan **mått** .
 
-Om du vill hantera begränsning på den här nivån har du följande alternativ:
+För att kunna hantera begränsning på den här nivån har du följande alternativ:
 
-* Begränsa antalet logikappinstanser som kan köras samtidigt.
+* Begränsa antalet Logic App-instanser som kan köras samtidigt.
 
-  Om logikappens utlösande tillstånd uppfylls mer än en gång samtidigt körs som standard flera utlösarinstanser för logikappen samtidigt eller *parallellt*. Det här beteendet innebär att varje utlösarinstans utlöses innan föregående arbetsflödesinstans körs.
+  Om din Logic Apps utlösnings villkor är uppfyllt mer än en gång samtidigt kan flera utlösare för din Logic app köras samtidigt eller *parallellt*. Detta innebär att varje Utlös ande instans utlöses innan föregående arbets flödes instans slutförs.
 
-  Även om standardantalet utlösarinstanser som samtidigt kan köras är [obegränsat,](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits)kan du begränsa det här antalet genom [att aktivera utlösarens samtidighetsinställning](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)och vid behov välja en annan gräns än standardvärdet.
+  Även om standard antalet utlösare som kan köras samtidigt är [obegränsat](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits), kan du begränsa detta antal genom [att aktivera inställningen för den samtidiga](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency)körningen och vid behov välja en annan gräns än standardvärdet.
 
-* Aktivera läget med högt dataflöde.
+* Aktivera högt data flödes läge.
 
-  En logikapp har en [standardgräns för antalet åtgärder som kan köras över ett rullande intervall på 5 minuter](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Om du vill höja den här gränsen till det maximala antalet åtgärder aktiverar du [läget för högt dataflöde](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) i logikappen.
+  En Logic app har en [standard gräns för antalet åtgärder som kan köras under ett rullande intervall på 5 minuter](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Aktivera [hög data flödes läge](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) på din Logic app om du vill höja gränsen till maximalt antal åtgärder.
 
-* Inaktivera matrisdebattering ("dela på") i utlösare.
+* Inaktivera funktionen för att dela upp matrisen ("dela på") i utlösare.
 
-  Om en utlösare returnerar en matris för de återstående arbetsflödesåtgärderna som ska bearbetas, delar utlösarens [ **Split On-inställning** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) upp matrisobjekten och startar en arbetsflödesinstans för varje matrisobjekt, vilket effektivt utlöser flera samtidiga körningar upp till gränsen [ **Split On** ](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Om du vill styra begränsningen inaktiverar du **beteendet Dela på** och har en logikapp som bearbetar hela matrisen med ett enda anrop i stället för att hantera ett enskilt objekt per anrop.
+  Om en utlösare returnerar en matris för återstående arbets flödes åtgärder som ska bearbetas, delar utlösaren [ **dela vid** inställningen](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) upp mat ris objekten och startar en arbets flödes instans för varje mat ris objekt, vilket utlöser flera samtidiga körningar upp till gränsen för [ **delning** ](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Om du vill kontrol lera begränsningen inaktiverar du **delningen vid** beteendet och kör din Logic Apps hela matrisen med ett enda anrop, i stället för att hantera ett enskilt objekt per anrop.
 
-* Refactor åtgärder i mindre logik apps.
+* Återtvingande åtgärder i mindre Logic Apps.
 
-  Som tidigare nämnts är en logikapp begränsad till ett [standardantal åtgärder som kan köras under en 5-minutersperiod](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Även om du kan öka den här gränsen genom att aktivera [högt dataflödesläge](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)kan du också överväga om du vill dela upp logikappens åtgärder i mindre logikappar så att antalet åtgärder som körs i varje logikapp förblir under gränsen. På så sätt minskar du belastningen på en enda logikappresurs och distribuerar belastningen över flera logikappar. Den här lösningen fungerar bättre för åtgärder som hanterar stora datauppsättningar eller snurrar upp så många samtidiga åtgärder som körs samtidigt, loopiterationer eller åtgärder inuti varje loopiteration som de överskrider gränsen för körning av åtgärder.
+  Som tidigare nämnts är en logisk app begränsad till ett [standard antal åtgärder som kan köras under en 5 minuters period](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Även om du kan öka den här gränsen genom att aktivera [läget för hög genom strömning](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), kan du också fundera över om du vill dela upp din Logi Kap par åtgärder i mindre Logic-appar så att antalet åtgärder som körs i varje Logi Kap par förblir under gränsen. På så sätt minskar du belastningen på en enda Logic app-resurs och distribuerar belastningen över flera Logic Apps. Den här lösningen fungerar bättre för åtgärder som hanterar stora data uppsättningar eller som ökar så många aktiviteter som körs samtidigt, loop-iterationer eller åtgärder i varje slinga, vilket innebär att de överskrider åtgärds körnings gränsen.
 
-  Den här logikappen gör till exempel allt arbete för att hämta tabeller från en SQL Server-databas och hämtar raderna från varje tabell. **För varje** slinga iterar den samtidigt genom varje tabell så att åtgärden Hämta **rader returnerar** raderna för varje tabell. Baserat på mängden data i dessa tabeller kan dessa åtgärder överskrida gränsen för åtgärdskörningar.
+  Den här Logic-appen gör till exempel allt arbete för att hämta tabeller från en SQL Server-databas och hämtar raderna från varje tabell. **För varje** slinga upprepas samtidigt genom varje tabell så att åtgärden **Hämta rader** returnerar raderna för varje tabell. Beroende på mängden data i dessa tabeller kan de här åtgärderna överskrida gränsen för åtgärds körningar.
 
-  ![Logikapp "före" refactoring](./media/handle-throttling-problems-429-errors/refactor-logic-app-before-version.png)
+  ![Logic app "före" omfactoring](./media/handle-throttling-problems-429-errors/refactor-logic-app-before-version.png)
 
-  Efter refactoring är logikappen nu en överordnad och underordnad logikapp. Den överordnade hämtar tabellerna från SQL Server och anropar sedan en underordnad logikapp för varje tabell för att hämta raderna:
+  Efter omstrukturering är Logic app nu en överordnad och underordnad Logic-app. Överordnad hämtar tabellerna från SQL Server och anropar sedan en underordnad Logic-app för varje tabell för att hämta raderna:
 
-  ![Skapa logikapp för en åtgärd](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png)
+  ![Skapa Logic app för en åtgärd](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png)
 
-  Här är den underordnade logikappen som anropas av den överordnade logikappen för att hämta raderna för varje tabell:
+  Här är den underordnade Logic-appen som anropas av den överordnade Logic-appen för att hämta raderna för varje tabell:
 
-  ![Skapa en annan logikapp för en andra åtgärd](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png)
+  ![Skapa en annan Logic app för en andra åtgärd](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png)
 
 <a name="connector-throttling"></a>
 
-## <a name="connector-throttling"></a>Strypning av koppling
+## <a name="connector-throttling"></a>Anslutnings begränsning
 
-Varje koppling har sina egna begränsningsgränser, som du hittar på kopplingens tekniska referenssida. Azure Service [Bus-anslutningsappen](https://docs.microsoft.com/connectors/servicebus/) har till exempel en begränsningsgräns som tillåter upp till 6 000 anrop per minut, medan SQL Server-anslutningen har [begränsningsgränser som varierar beroende på åtgärdstypen](https://docs.microsoft.com/connectors/sql/).
+Varje koppling har sina egna begränsningar för begränsning, som du hittar på kopplingens tekniska referens sida. Till exempel har [Azure Service Bus Connector](https://docs.microsoft.com/connectors/servicebus/) en begränsnings gräns som tillåter upp till 6 000 anrop per minut, medan SQL Server anslutningen har [begränsningar som varierar beroende på åtgärds typ](https://docs.microsoft.com/connectors/sql/).
 
-Vissa utlösare och åtgärder, till exempel HTTP, har en ["återförsöksprincip"](../logic-apps/logic-apps-exception-handling.md#retry-policies) som du kan anpassa baserat på [principbegränsningarna](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) för återförsök för att implementera undantagshantering. Den här principen anger om och hur ofta en utlösare eller åtgärd försöker en begäran när den ursprungliga begäran misslyckas eller time out och resulterar i ett 408, 429 eller 5xx-svar. Så när begränsningen startar och returnerar ett 429-fel följer Logic Apps principen för återförsök där stöds.
+Vissa utlösare och åtgärder, till exempel HTTP, har en ["återförsöks princip"](../logic-apps/logic-apps-exception-handling.md#retry-policies) som du kan anpassa baserat på [begränsningen för återförsök](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) för att implementera undantags hantering. Den här principen anger om och hur ofta en utlösare eller åtgärd försöker utföra en begäran när den ursprungliga begäran Miss lyckas eller timeout och resulterar i ett svar på 408, 429 eller 5xx. Så när begränsningen startar och returnerar ett 429-fel, Logic Apps följande princip för återförsök som stöds.
 
-Om du vill veta om en utlösare eller åtgärd stöder principer för återförsök kontrollerar du inställningarna för utlösaren eller åtgärden. Om du vill visa en utlösare eller åtgärds försök att försöka igen går du till logikappens körningarhistorik, väljer den körning som du vill granska och expanderar utlösaren eller åtgärden för att visa information om indata, utdata och eventuella återförsök, till exempel:
+Om du vill veta om en utlösare eller åtgärd stöder principer för återförsök kontrollerar du inställningarna för utlösaren eller åtgärden. Om du vill visa en utlösare eller åtgärds återförsök går du till din Logic Apps körnings historik, väljer den körning som du vill granska och expanderar utlösaren eller åtgärden för att visa information om indata, utdata och eventuella återförsök, till exempel:
 
-![Visa åtgärdens körningshistorik, återförsök, indata och utdata](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-retries.png)
+![Visa åtgärdens körnings historik, nya försök, indata och utdata](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-retries.png)
 
-Även om återförsökshistoriken innehåller felinformation kan det vara svårt att skilja mellan anslutningsbegränsning och [målbegränsning](#destination-throttling). I det här fallet kan du behöva granska svarets information eller utföra vissa begränsningsintervallberäkningar för att identifiera källan.
+Även om historiken för återförsök innehåller fel information kan du ha problem med att skilja mellan anslutnings begränsning och [mål begränsning](#destination-throttling). I så fall kan du behöva granska svarets information eller utföra vissa beräkningar för begränsnings intervall för att identifiera källan.
 
-För logikappar i den globala Azure Logic Apps-tjänsten med flera innehavare sker begränsning på *anslutningsnivå.* Så, till exempel, för logikappar som körs i en [integrationstjänstmiljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), strypning händer fortfarande för icke-ISE-anslutningar eftersom de körs i den globala tjänsten Logic Apps med flera innehavare. Ise-anslutningar, som skapas av ISE-kopplingar, begränsas dock inte eftersom de körs i DIN ISE.
+För Logic Apps i den globala Azure Logic Apps tjänsten för flera klient organisationer sker begränsningen på *anslutnings* nivå. Till exempel, för logi Kap par som körs i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), sker begränsningen fortfarande för icke-ISE-anslutningar eftersom de körs i den globala Logic Appss tjänsten för flera innehavare. ISE-anslutningar, som skapas av ISE-kopplingar, är dock inte begränsade eftersom de körs i din ISE.
 
-Om du vill hantera begränsning på den här nivån har du följande alternativ:
+För att kunna hantera begränsning på den här nivån har du följande alternativ:
 
-* Konfigurera flera anslutningar för en enskild åtgärd så att logikappen partitionerar data för bearbetning.
+* Konfigurera flera anslutningar för en enda åtgärd så att Logic app partitionerar data för bearbetning.
 
-  Det här alternativet bör du överväga om du kan distribuera arbetsbelastningen genom att dela en åtgärds begäranden mellan flera anslutningar till samma mål med samma autentiseringsuppgifter.
+  För det här alternativet bör du överväga om du kan distribuera arbets belastningen genom att dela upp en åtgärds begär anden över flera anslutningar till samma mål med samma autentiseringsuppgifter.
 
-  Anta till exempel att logikappen hämtar tabeller från en SQL Server-databas och sedan hämtar raderna från varje tabell. Baserat på antalet rader som du måste bearbeta kan du använda flera anslutningar och flera **för varje** loopar för att dela upp det totala antalet rader i mindre uppsättningar för bearbetning. Det här scenariot använder två **För varje** slingor för att dela det totala antalet rader på mitten. Den första **för varje** slinga använder ett uttryck som får den första halvan. Den andra **för varje** slinga använder ett annat uttryck som får den andra halvan, till exempel:<p>
+  Anta till exempel att din Logic app hämtar tabeller från en SQL Server-databas och hämtar sedan raderna från varje tabell. Baserat på antalet rader som du måste bearbeta kan du använda flera anslutningar och flera **för varje** loop för att dela upp det totala antalet rader i mindre mängder för bearbetning. I det här scenariot används två **för varje loop för** att dela upp det totala antalet rader på hälften. Det första **för varje** slinga använder ett uttryck som hämtar den första halvan. Den andra **för varje** slinga använder ett annat uttryck som hämtar den andra halvan, till exempel:<p>
 
-    * Uttryck 1: `take()` Funktionen får framsidan av en samling. Mer information finns [ **`take()`** ](workflow-definition-language-functions-reference.md#take)i funktionen .
+    * Uttryck 1: `take()` funktionen hämtar fram sidan av en samling. Mer information finns i [ **`take()`** funktionen](workflow-definition-language-functions-reference.md#take).
 
       `@take(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
-    * Uttryck 2: `skip()` Funktionen tar bort framsidan av en samling och returnerar alla andra objekt. Mer information finns [ **`skip()`** ](workflow-definition-language-functions-reference.md#skip)i funktionen .
+    * Uttryck 2: `skip()` funktionen tar bort början av en samling och returnerar alla andra objekt. Mer information finns i [ **`skip()`** funktionen](workflow-definition-language-functions-reference.md#skip).
 
       `@skip(collection-or-array-name, div(length(collection-or-array-name), 2))`
 
     Här är ett visuellt exempel som visar hur du kan använda dessa uttryck:
 
-    ![Skapa och använda flera anslutningar för en enskild åtgärd](./media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png)
+    ![Skapa och Använd flera anslutningar för en enda åtgärd](./media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png)
 
-* Ställ in en annan anslutning för varje åtgärd.
+* Konfigurera en annan anslutning för varje åtgärd.
 
-  Det här alternativet bör du överväga om du kan distribuera arbetsbelastningen genom att sprida varje åtgärds begäranden över sin egen anslutning, även när åtgärder ansluter till samma tjänst eller system och använder samma autentiseringsuppgifter.
+  För det här alternativet bör du överväga om du kan distribuera arbets belastningen genom att sprida varje åtgärds begär anden över sin egen anslutning, även när åtgärder ansluter till samma tjänst eller system och använder samma autentiseringsuppgifter.
 
-  Anta till exempel att logikappen hämtar tabellerna från en SQL Server-databas och hämtar varje rad i varje tabell. Du kan använda separata anslutningar så att tabellerna använder en anslutning, medan den nya varje rad använder en annan anslutning.
+  Anta till exempel att din Logic app hämtar tabellerna från en SQL Server-databas och hämtar varje rad i varje tabell. Du kan använda separata anslutningar så att tabellerna som hämtas använder en anslutning, medan varje rad använder en annan anslutning.
 
-  ![Skapa och använda olika anslutningar för varje åtgärd](./media/handle-throttling-problems-429-errors/create-connection-per-action.png)
+  ![Skapa och Använd olika anslutningar för varje åtgärd](./media/handle-throttling-problems-429-errors/create-connection-per-action.png)
 
-* Ändra samtidigheten eller parallellismen på en ["För varje" slinga](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+* Ändra samtidigheten eller parallellitet för en ["for each"-loop](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
 
-  Som standard körs "För varje" loopiterationer samtidigt upp till [samtidighetsgränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du har en koppling som får strypt inuti en "För varje" slinga kan du minska antalet loopiterationer som körs parallellt. Mer information finns i de här ämnena:
+  Som standard körs loopen för varje upprepning på samma tid upp till [samtidigheten](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Om du har en koppling som är begränsad i en "för varje"-slinga kan du minska antalet upprepningar som körs parallellt. Mer information finns i de här ämnena:
   
-  * ["För varje" loopar - ändra samtidighet eller kör sekventiellt](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop)
+  * ["För varje-slinga-ändra samtidighet eller kör sekventiellt](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop)
 
-  * [Språkschema för arbetsflödesdefinition - För varje loopar](../logic-apps/logic-apps-workflow-actions-triggers.md#foreach-action)
+  * [Språk schema för arbets flödes definition – för varje loop](../logic-apps/logic-apps-workflow-actions-triggers.md#foreach-action)
 
-  * [Språkschema för arbetsflödesdefinition - Ändra "För varje" loop samtidighet](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)
+  * [Språk schema för arbets flödes definition-ändra för varje upprepnings valuta](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)
 
-  * [Språkschema för arbetsflödesdefinition – Kör "För varje" loopar sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)
+  * [Språk schema för arbets flödes definition – kör "för varje" slingor i turordning](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)
 
 <a name="destination-throttling"></a>
 
-## <a name="destination-service-or-system-throttling"></a>Målservice eller systembegränsning
+## <a name="destination-service-or-system-throttling"></a>Mål tjänst eller system begränsning
 
-En koppling har sina egna begränsningsgränser, men måltjänsten eller målsystemet som anropas av kopplingen kan också ha begränsningsgränser. Vissa API:er i Microsoft Exchange Server har till exempel strängare begränsningsgränser än Office 365 Outlook-anslutningen.
+Även om en anslutning har egna begränsnings gränser kan mål tjänsten eller det system som anropas av anslutnings tjänsten också ha begränsnings gränser. Vissa API: er i Microsoft Exchange Server har till exempel striktare begränsnings gränser än Office 365 Outlook Connector.
 
-Som standard körs en logikapps instanser och eventuella loopar eller grenar inuti dessa instanser *parallellt*. Det här problemet innebär att flera instanser kan anropa samma slutpunkt samtidigt. Varje instans vet inte om den andes existens, så försök att försöka försöka misslyckade åtgärder kan skapa [konkurrensvillkor](https://en.wikipedia.org/wiki/Race_condition) där flera anrop försöker köra samtidigt, men för att lyckas måste dessa anrop komma fram till måltjänsten eller systemet innan begränsningen börjar hända.
+Som standard körs en Logic Apps-instans och alla slingor eller grenar i dessa instanser *parallellt*. Det här beteendet innebär att flera instanser kan anropa samma slut punkt på samma tidpunkt. Varje instans vet inte om den andra förekomsten, så försök att försöka utföra misslyckade åtgärder kan skapa [konkurrens villkor](https://en.wikipedia.org/wiki/Race_condition) där flera anrop försöker köras samtidigt, men för att lyckas måste dessa anrop tas emot i mål tjänsten eller systemet innan begränsningen börjar inträffa.
 
-Anta till exempel att du har en matris som har 100 objekt. Du använder en "för varje" loop för att iterera genom matrisen och aktivera loopens samtidighetskontroll så att du kan begränsa antalet parallella iterationer till 20 eller den [aktuella standardgränsen](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inuti den loopen infogar en åtgärd ett objekt från matrisen i en SQL Server-databas, vilket endast tillåter 15 anrop per sekund. Det här scenariot resulterar i ett begränsningsproblem eftersom en eftersläpning av återförsök byggs upp och aldrig får köras.
+Anta till exempel att du har en matris som har 100 objekt. Du använder en "for each"-slinga för att iterera genom matrisen och aktivera slingan ' s concurrency-kontroll så att du kan begränsa antalet parallella iterationer till 20 eller den [aktuella standard gränsen](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inuti den här slingan infogar en åtgärd ett objekt från matrisen i en SQL Server databas som endast tillåter 15 anrop per sekund. Det här scenariot resulterar i ett begränsnings problem eftersom en efter släpning av återförsök bygger upp och aldrig kommer att köras.
 
-I den här tabellen beskrivs tidslinjen för vad som händer i loopen när åtgärdens återförsöksintervall är 1 sekund:
+I den här tabellen beskrivs tids linjen för vad som händer i slingan när åtgärdens återförsöksintervall är 1 sekund:
 
-| Punkt i tiden | Antal åtgärder som körs | Antal åtgärder som misslyckas | Antal återförsök som väntar |
+| Tidpunkt | Antal åtgärder som körs | Antal åtgärder som inte fungerar | Antal försök som väntar |
 |---------------|----------------------------|-----------------------------|---------------------------|
-| T + 0 sekunder | 20 skär | 5 misslyckas, på grund av SQL-gräns | 5 nya försök |
-| T + 0,5 sekunder | 15 skär, på grund av tidigare 5 försök väntar | Alla 15 misslyckas, på grund av tidigare SQL-gräns fortfarande i kraft i ytterligare 0,5 sekunder | 20 försök <br>(tidigare 5 + 15 nya) |
-| T + 1 sekund | 20 skär | 5 misslyckas plus tidigare 20 försök, på grund av SQL-gräns | 25 försök (tidigare 20 + 5 nya)
+| T + 0 sekunder | 20 infogningar | 5 misslyckande, på grund av SQL-gräns | 5 återförsök |
+| T + 0,5 sekunder | 15 infogningar, på grund av tidigare 5 omförsök | Alla 15 misslyckanden, på grund av tidigare SQL-gräns, gäller fortfarande för ytterligare 0,5 sekunder | 20 återförsök <br>(föregående 5 + 15 nya) |
+| T + 1 sekund | 20 infogningar | 5 misslyckande plus föregående 20 försök på grund av SQL-gränsen | 25 återförsök (föregående 20 + 5 nya)
 |||||
 
-Om du vill hantera begränsning på den här nivån har du följande alternativ:
+För att kunna hantera begränsning på den här nivån har du följande alternativ:
 
-* Skapa logikappar så att var och en hanterar en enda åtgärd.
+* Skapa Logi Kap par så att varje hanterar en enda åtgärd.
 
-  * Om du fortsätter med exempelscenariot för SQL Server i det här avsnittet kan du skapa en logikapp som placerar matrisobjekt i en kö, till exempel en [Azure Service Bus-kö](../connectors/connectors-create-api-servicebus.md). Du skapar sedan en annan logikapp som bara utför infogningsåtgärden för varje objekt i den kön. På så sätt körs bara en logikappinstans vid en viss tidpunkt, som antingen slutför infogningen och går vidare till nästa objekt i kön, eller så får instansen 429 fel men inte försöker med improduktiva återförsök.
+  * Om du fortsätter med exemplet SQL Server scenario i det här avsnittet kan du skapa en logisk app som placerar mat ris objekt i en kö, till exempel en [Azure Service Bus kö](../connectors/connectors-create-api-servicebus.md). Sedan skapar du en annan Logic-app som endast utför infognings åtgärden för varje objekt i kön. På så sätt körs bara en instans av logi Kap par vid en angiven tidpunkt, som antingen Slutför infognings åtgärden och flyttar till nästa objekt i kön, eller så får instansen 429 fel men försöker inte att försöka utföra nyförsök.
 
-  * Skapa en överordnad logikapp som anropar en underordnad eller kapslad logikapp för varje åtgärd. Om den överordnade måste anropa olika underordnade appar baserat på den överordnades resultat kan du använda en villkorsåtgärd eller byta åtgärd som avgör vilken underordnad app som ska anropas. Det här mönstret kan hjälpa dig att minska antalet samtal eller åtgärder.
+  * Skapa en överordnad Logic-app som anropar en underordnad eller kapslad Logic-app för varje åtgärd. Om överordnad behöver anropa olika underordnade appar baserat på det överordnade objektets resultat kan du använda en villkors åtgärd eller växel åtgärd som avgör vilken underordnad app som ska anropas. Det här mönstret kan hjälpa dig att minska antalet anrop eller åtgärder.
 
-    Anta till exempel att du har två logikappar, var och en med en avsökningsutlösare som kontrollerar ditt e-postkonto varje minut för specifikt ämne, till exempel "Framgång" eller "Misslyckande". Den här inställningen resulterar i 120 samtal per timme. Om du skapar en ensamstående överordnad logikapp som avsöker varje minut men anropar en underordnad logikapp som körs baserat på om ämnet är "Lyckades" eller "Misslyckande", minskar du antalet avsökningskontroller till hälften, eller 60 i det här fallet.
+    Anta till exempel att du har två Logic Apps, var och en med en avsöknings utlösare som kontrollerar ditt e-postkonto varje minut för ett speciellt ämne, till exempel "lyckad" eller "Misslyckad". Den här installationen resulterar i 120 anrop per timme. Om du i stället skapar en enda överordnad Logic-app som avsöker varje minut men anropar en underordnad Logic-app som körs baserat på om ämnet är "lyckades" eller "haveri", klipper du ut antalet avsöknings kontroller till hälften eller 60 i det här fallet.
 
-* Ställ in batchbearbetning.
+* Konfigurera batchbearbetning.
 
-  Om måltjänsten stöder batchåtgärder kan du adressera begränsning genom att bearbeta artiklar i grupper eller batchar i stället för individuellt. Om du vill implementera batchbearbetningslösningen skapar du en logikapp för "batchmottagare" och en logikapp för batchavsändare. Batchavsändaren samlar in meddelanden eller objekt tills de angivna villkoren är uppfyllda och skickar sedan dessa meddelanden eller objekt i en enda grupp. Batchmottagaren accepterar den gruppen och bearbetar dessa meddelanden eller objekt. Mer information finns [i Batchprocessmeddelanden i grupper](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
+  Om mål tjänsten stöder batch-åtgärder kan du hantera begränsningar genom att bearbeta objekt i grupper eller batchar i stället för enskilda. Om du vill implementera batch-bearbetnings lösningen skapar du en "batch-mottagare" Logic app och "batch-avsändare". Batch-avsändaren samlar in meddelanden eller objekt tills dina angivna kriterier är uppfyllda och skickar sedan dessa meddelanden eller objekt i en enda grupp. Batch-mottagaren accepterar den gruppen och bearbetar dessa meddelanden eller objekt. Mer information finns i [batch-bearbeta meddelanden i grupper](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-* Använd webhook-versionerna för utlösare och åtgärder i stället för avsökningsversionerna.
+* Använd webhook-versionerna för utlösare och åtgärder i stället för avsöknings versioner.
 
-  Varför det? En avsökningsutlösare fortsätter att kontrollera måltjänsten eller målsystemet med specifika intervall. Ett mycket frekvent intervall, till exempel varje sekund, kan skapa begränsningsproblem. En webhook-utlösare eller åtgärd, till exempel [HTTP Webhook,](../connectors/connectors-native-webhook.md)skapar dock bara ett enda anrop till måltjänsten eller målsystemet, vilket sker vid prenumerationstillfället och begär att målet endast meddelar utlösaren eller åtgärden när en händelse inträffar. På så sätt behöver utlösaren eller åtgärden inte kontinuerligt kontrollera målet.
+  Varför det? En avsöknings utlösare fortsätter att kontrol lera mål tjänsten eller systemet vid angivna intervall. Ett frekvent intervall, till exempel varje sekund, kan skapa begränsnings problem. En webhook-utlösare eller åtgärd, till exempel [http-webhook](../connectors/connectors-native-webhook.md), skapar dock bara ett enda anrop till mål tjänsten eller systemet, vilket sker vid den aktuella prenumerationen och begär att målet meddelar utlösaren eller åtgärden endast när en händelse inträffar. På så sätt behöver inte utlösaren eller åtgärden kontinuerligt kontrol lera målet.
   
-  Så om måltjänsten eller systemet stöder webhooks eller tillhandahåller en anslutning som har en webhook-version, är det här alternativet bättre än att använda avsökningsversionen. Om du vill identifiera webhook-utlösare `ApiConnectionWebhook` och åtgärder bekräftar du att de har typen eller att de inte kräver att du anger en upprepning. Mer information finns i [ÅTGÄRDEN APIConnectionWebhook och](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) [ÅTGÄRDEN APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
+  Om mål tjänsten eller systemet har stöd för webhookar eller tillhandahåller en anslutning som har en webhook-version är det här alternativet bättre än att använda avsöknings versionen. Om du vill identifiera webhook-utlösare och åtgärder kontrollerar `ApiConnectionWebhook` du att de har typen eller att de inte kräver att du anger en upprepning. Mer information finns i [APIConnectionWebhook-utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) och [APIConnectionWebhook åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [begränsningar och konfiguration](../logic-apps/logic-apps-limits-and-config.md) av Logic Apps
+* Läs mer om [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md)

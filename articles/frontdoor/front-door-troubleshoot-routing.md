@@ -1,6 +1,6 @@
 ---
-title: Felsöka konfigurationsproblem för Front Door i Azure
-description: I den här självstudien får du lära dig att felsöka några av de vanliga problem som du kan ställas inför för ytterdörren.
+title: Felsöka konfigurations problem i Azure front dörr
+description: I den här självstudien får du lära dig att själv felsöka några vanliga problem som du kan använda för din front dörr.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -13,96 +13,96 @@ ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
 ms.openlocfilehash: 962c884eb8adc05e5d50b6b254d5c3f0b18af556
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471514"
 ---
-# <a name="troubleshooting-common-routing-issues"></a>Felsöka vanliga routningsproblem
+# <a name="troubleshooting-common-routing-issues"></a>Felsöka vanliga problem med Routning
 
-I den här artikeln beskrivs hur du felsöker några av de vanliga routningsproblem som du kan ställas inför för konfigurationen av Front Door i Azure.
+I den här artikeln beskrivs hur du felsöker några vanliga synkroniseringsproblem som du kan använda för att konfigurera din Azure-frontend.
 
-## <a name="503-response-from-front-door-after-a-few-seconds"></a>503 svar från ytterdörren efter några sekunder
-
-### <a name="symptom"></a>Symptom
-
-- Regelbundna förfrågningar som skickas till din serverdel utan att gå igenom ytterdörren lyckas, men att gå via Ytterdörren resulterar i 503 felsvar.
-
-- Felet från ytterdörren visar efter några sekunder (vanligtvis runt efter 30 sekunder)
-
-### <a name="cause"></a>Orsak
-
-Det här symptomet uppstår när antingen serverdelen tar längre än timeout-konfigurationen (standard är 30 sekunder) för att ta emot begäran från ytterdörren eller om det tar mer än det här timeout-värdet för att skicka ett svar på begäran från ytterdörren. 
-
-### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
-
-- Skicka begäran till din backend direkt (utan att gå igenom ytterdörren) och se vad som är den vanliga tiden det tar för din backend att svara.
-- Skicka begäran via ytterdörren och se om du ser några 503 svar. Om inte, då detta kanske inte är en timeout fråga. Vänligen kontakta supporten.
-- Om du går via ytterdörren resulterar i 503 felsvarskod konfigurerar du fältet sendReceiveTimeout för ytterdörren så att standardtidsgränsen utökas till 4 minuter (240 sekunder). Inställningen är under `backendPoolSettings` och `sendRecvTimeoutSeconds`anropas . 
-
-## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>Begäranden som skickas till den anpassade domänen returnerar 400-statuskod
+## <a name="503-response-from-front-door-after-a-few-seconds"></a>503 svar från Front dörren efter några sekunder
 
 ### <a name="symptom"></a>Symptom
 
-- Du har skapat en ytterdörr, men en begäran till domänen eller klientdelsvärden returnerar en HTTP 400-statuskod.
+- Vanliga förfrågningar som skickas till din server del utan att gå igenom front dörren lyckas, men att gå via Front dörren leder till 503 fel svar.
 
-- Du har skapat en DNS-mappning från en anpassad domän till den klientdelsvärd som du har konfigurerat. Om du skickar en begäran till det anpassade domännamnet returneras en HTTP 400-statuskod och den visas inte väg till de serverdelar som du har konfigurerat.
+- Felen från Front dörren visas efter några sekunder (vanligt vis omkring efter 30 sekunder)
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet kan inträffa om du inte har konfigurerat en routningsregel för den anpassade domänen som du har lagt till som frontend-värd. En routningsregel måste uttryckligen läggas till för den klientdelsvärden, även om en redan har konfigurerats för frontend-värden under underdomänen för ytterdörren (*.azurefd.net) som din anpassade domän har en DNS-mappning till.
+Det här problemet uppstår när antingen din server del tar längre tid än timeout-konfigurationen (Standardvärdet är 30 sekunder) för att ta emot begäran från Front dörren eller om det tar längre tid att skicka ett svar till begäran från Front dörren. 
 
 ### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-Lägg till en routningsregel från den anpassade domänen i önskad backend-pool.
+- Skicka begäran till Server delen direkt (utan att gå igenom front dörren) och se vad som är den normala tid det tar för din server del att svara.
+- Skicka begäran via Front dörren och se om du ser några 503 svar. Om inte, kan det bero på att detta inte är ett tids gräns problem. Kontakta supporten.
+- Om du fortsätter via frontend-dörren till 503-felsvars koden konfigurerar du fältet sendReceiveTimeout för din front dörr för att utöka standard tids gränsen upp till 4 minuter (240 sekunder). Inställningen är under `backendPoolSettings` och kallas `sendRecvTimeoutSeconds`. 
 
-## <a name="front-door-is-not-redirecting-http-to-https"></a>Ytterdörren omdirigerar inte HTTP till HTTPS
+## <a name="requests-sent-to-the-custom-domain-returns-400-status-code"></a>Begär Anden som skickas till den anpassade domänen returnerar 400 status kod
 
 ### <a name="symptom"></a>Symptom
 
-Ytterdörren har en routningsregel som säger omdirigera HTTP till HTTPS, men åtkomst till domänen behåller fortfarande HTTP som protokoll.
+- Du har skapat en frontend-dörr men en begäran till domänen eller klient dels värden returnerar en HTTP 400-status kod.
+
+- Du har skapat en DNS-mappning från en anpassad domän till den klient dels värd som du har konfigurerat. Att skicka en begäran till den anpassade domänens värdnamn returnerar dock en HTTP 400-statuskod och visas inte för att dirigera till den eller de Server delar som du har konfigurerat.
 
 ### <a name="cause"></a>Orsak
 
-Detta kan inträffa om du inte har konfigurerat routningsreglerna för ytterdörren korrekt. I grund och botten är din nuvarande konfiguration inte specifik och kan ha motstridiga regler.
+Det här problemet kan inträffa om du inte har konfigurerat en regel för routning för den anpassade domänen som du har lagt till som en klient dels värd. En regel för routning måste uttryckligen läggas till för den klient dels värden, även om en sådan redan har kon figurer ATS för klient dels värden under under domänen för den främre dörren (*. azurefd.net) som din anpassade domän har en DNS-mappning till.
 
 ### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-## <a name="request-to-frontend-hostname-returns-404-status-code"></a>Begäran till frontend-värdnamn returnerar 404-statuskod
+Lägg till en regel för routning från den anpassade domänen till önskad backend-pool.
+
+## <a name="front-door-is-not-redirecting-http-to-https"></a>Front dörren omdirigerar inte HTTP till HTTPS
 
 ### <a name="symptom"></a>Symptom
 
-- Du har skapat en ytterdörr och konfigurerat en klientdelsvärd, en serverdelspool med minst en serverdel i den och en routningsregel som ansluter frontend-värden till serverdelspoolen. Ditt innehåll verkar inte vara tillgängligt när du skickar en begäran till den konfigurerade klientdelsvärden eftersom en HTTP 404-statuskod returneras.
+Din front dörr har en regel för routning som anger omdirigering av HTTP till HTTPS, men åtkomst till domänen upprätthåller HTTP som protokoll.
 
 ### <a name="cause"></a>Orsak
 
-Det finns flera möjliga orsaker till detta symptom:
-
-- Backend är inte en offentlig vänd bakifrån och är inte synlig för ytterdörren.
-- Serverdelen är felkonfigurerad, vilket gör att ytterdörren skickar fel begäran (det vill säga din serverdel accepterar bara HTTP men du har inte avmarkerat tillåter HTTPS så ytterdörren försöker vidarebefordra HTTPS-begäranden).
-- Den bakre sidan avvisar värdhuvudet som vidarebefordrades med begäran till backend.
-- Konfigurationen för serveringen har ännu inte distribuerats helt.
+Det här problemet kan inträffa om du inte har konfigurerat routningsregler för din front dörr korrekt. Den aktuella konfigurationen är i princip inte särskilt speciell och kan ha motstridiga regler.
 
 ### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-1. Driftsättningstid
-   - Se till att du har väntat ~ 10 minuter för konfigurationen som ska distribueras.
+## <a name="request-to-frontend-hostname-returns-404-status-code"></a>Begäran till klient delens värdnamn returnerar 404 status kod
 
-2. Kontrollera backend-inställningarna
-    - Navigera till serverda poolen som begäran ska dirigeras till (beror på hur du har routningsregeln konfigurerad) och kontrollera att _serverdavärdens typ_ och servernamnsvärden är korrekta. Om backend är en anpassad värd, se till att du har stavat det korrekt. 
+### <a name="symptom"></a>Symptom
 
-    - Kontrollera HTTP- och HTTPS-portarna. I de flesta fall, 80 och 443 (respektive), är korrekta och inga ändringar kommer att krävas. Det finns dock en chans att din serverd inte är konfigurerad på detta sätt och lyssnar på en annan port.
+- Du har skapat en frontend-dörr och konfigurerat en klient dels värd, en backend-pool med minst en server del i den och en routningsprincip som ansluter klient dels värden till backend-poolen. Ditt innehåll verkar inte vara tillgängligt när du skickar en begäran till den konfigurerade klient dels värden eftersom en status kod för HTTP 404 returneras.
 
-        - Kontrollera _serverdelshuvudet_ som konfigurerats för de serverdelsvärden som frontend-värden ska dirigera till. I de flesta fall bör det här huvudet vara samma som _värdnamnet för backend_. Ett felaktigt värde kan dock orsaka olika HTTP 4xx-statuskoder om backend förväntar sig något annat. Om du anger IP-adressen för din backend kan du behöva ange _värdhuvudet för backend_ till värdnamnet för backend.
+### <a name="cause"></a>Orsak
+
+Det finns flera möjliga orsaker till det här problemet:
+
+- Server delen är inte en offentlig Server del och är inte synlig för front dörren.
+- Server delen är felkonfigurerad, vilket gör att front dörren kan skicka fel begäran (det vill säga att Server delen bara accepterar HTTP, men du har inte avmarkerat tillåta HTTPS, så att en front dörr försöker vidarebefordra HTTPS-begäranden).
+- Server delen avvisar värd rubriken som vidarebefordrades med begäran till Server delen.
+- Konfigurationen för Server delen har ännu inte distribuerats fullständigt.
+
+### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
+
+1. Distributions tid
+   - Se till att du har väntat ~ 10 minuter för att konfigurationen ska distribueras.
+
+2. Kontrol lera Server dels inställningarna
+    - Navigera till den backend-pool som begäran ska dirigeras till (beroende på hur du har konfigurerat Routningsprincipen) och kontrol lera att värd _typen för Server delen_ och Server delens värd namn är korrekta. Om Server delen är en anpassad värd kontrollerar du att du har stavat den korrekt. 
+
+    - Kontrol lera dina HTTP-och HTTPS-portar. I de flesta fall är 80 och 443 (respektive) korrekta och inga ändringar krävs. Det finns dock en chans att din server del inte har kon figurer ATS på det här sättet och lyssnar på en annan port.
+
+        - Kontrol lera _Server dels värd rubriken_ som kon figurer ATS för de Server delar som klient dels värden ska dirigeras till. I de flesta fall ska den här rubriken vara samma som _Server dels värd namnet_. Ett felaktigt värde kan dock orsaka olika status koder för HTTP-4xx om Server delen förväntar sig något annat. Om du anger en IP-adress för Server delen kan du behöva ange _värd rubriken för Server delen_ till Server delens värdnamn.
 
 
-3. Kontrollera inställningarna för routningsregel
-    - Navigera till routningsregeln som ska dirigeras från frontend-värdnamnet i fråga till en backend-pool. Kontrollera att de godkända protokollen är korrekt konfigurerade, eller om inte, se till att protokollets ytterdörr används när vidarebefordran av begäran är korrekt konfigurerad. Fältet _godkända protokoll_ avgör vilka begäranden som ska accepteras och _vidarebefordringsprotokollet_ bestämmer vilket protokoll ytterdörren ska använda för att vidarebefordra begäran till klientdelen.
-         - Om serveringsformuläret bara accepterar HTTP-begäranden är följande konfigurationer giltiga:
-            - _Godkända protokoll_ är HTTP och HTTPS. _Vidarebefordringsprotokoll_ är HTTP. Matchbegäran fungerar inte, eftersom HTTPS är ett tillåtet protokoll och om en begäran kom in som HTTPS, skulle Ytterdörren försöka vidarebefordra den med HTTPS.
+3. Kontrol lera inställningarna för routningsregler
+    - Navigera till regeln för routning som ska vidarebefordra från klient delens värdnamn i fråga till en backend-pool. Kontrol lera att de godkända protokollen är korrekt konfigurerade, eller om inte, se till att protokollets front dörr kommer att användas när begäran vidarebefordras. Fältet _godtagna protokoll_ avgör vilka begär Ande som front dörren ska godkänna och _vidarebefordrings protokollet_ avgör vilken protokoll klient dörren ska använda för att vidarebefordra begäran till Server delen.
+         - Exempel: om Server delen bara accepterar HTTP-förfrågningar är följande konfigurationer giltiga:
+            - _Godkända protokoll_ är http och https. _Protokoll för vidarebefordran_ är http. Matchnings förfrågan fungerar inte, eftersom HTTPS är ett tillåtet protokoll och om en begäran kom in som HTTPS, försöker front dörren vidarebefordra den med hjälp av HTTPS.
 
-            - _Godkända protokoll_ är HTTP. _Vidarebefordringsprotokollet_ är antingen matchningsbegäran eller HTTPS.
+            - _Godkända protokoll_ är http. _Vidarebefordrande protokoll_ matchar antingen Request eller https.
 
-    - _Url Skriv om_ är inaktiverad som standard och du bör bara använda det här fältet om du vill begränsa omfattningen av de resurser som du vill göra för att göra de använda backend-värdena som du vill göra tillgängliga. När den är inaktiverad vidarebefordrar ytterdörren samma sökväg som den tar emot. Det är möjligt att det här fältet är felkonfigurerat och ytterdörren begär en resurs från serverdelen som inte är tillgänglig, vilket returnerar en HTTP 404-statuskod.
+    - _URL-omskrivning_ är inaktive rad som standard och du bör endast använda det här fältet om du vill begränsa omfattningen av Server dels värd resurser som du vill göra tillgängliga. När den är inaktive rad vidarebefordrar front dörren samma sökväg för begäran som den tar emot. Det är möjligt att det här fältet är felkonfigurerat och att front dörren begär en resurs från Server delen som inte är tillgänglig, vilket returnerar en status kod för HTTP 404.
 

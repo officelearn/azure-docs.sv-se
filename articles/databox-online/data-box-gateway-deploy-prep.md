@@ -9,19 +9,19 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 74fec059bdffb91f5a7774d430e2f1897f0e863c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79474466"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Självstudiekurs: Förbereda distributionen av Azure Data Box Gateway
+# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Självstudie: förbereda för att distribuera Azure Data Box Gateway
 
 Det här är den första självstudien i serien med distributionssjälvstudier som krävs för en fullständig Azure Data Box Gateway-distribution. Den här självstudien beskriver hur du förbereder Azure-portalen för att distribuera Data Box Gateway-resursen.
 
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Portalförberedelserna tar mindre än tio minuter.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -48,13 +48,13 @@ Här hittar du konfigurationskraven för Data Box Gateway-resursen, Data Box Gat
 
 ### <a name="for-the-data-box-gateway-resource"></a>För Data Box Gateway-resursen
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
-* Din Microsoft Azure-prenumeration är aktiverad för en Azure Stack Edge-resurs. Kontrollera att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/) [CSP (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure Sponsoren](https://azure.microsoft.com/offers/ms-azr-0036p/).
-* Du har åtkomst till ägare eller deltagare på resursgruppsnivå för databoxens edge/databoxgateway, IoT Hub och Azure Storage-resurser.
-    - Om du vill skapa en databox edge/ databoxgatewayresurs bör du ha behörigheter som deltagare (eller högre) på resursgruppsnivå. Du måste också se `Microsoft.DataBoxEdge` till att leverantören är registrerad. Information om hur du registrerar dig finns [i Registrera resursprovidern](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Om du vill skapa en lagringskontoresurs behöver du återigen deltagare eller högre åtkomstomfattning på resursgruppsnivå. Azure Storage är som standard en registrerad resursprovider.
-- Du har administratörs- eller användaråtkomst till Microsoft Graph API. Mer information finns i [Microsoft Graph-behörighetsreferens](https://docs.microsoft.com/graph/permissions-reference).
+* Din Microsoft Azure prenumeration är aktive rad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Data Box Edge/Data Box Gateway, IoT Hub och Azure Storage resurser.
+    - Om du vill skapa en Data Box Edge-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. Du måste också kontrol lera att `Microsoft.DataBoxEdge` providern är registrerad. Information om hur du registrerar finns i [Registrera resurs leverantör](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Om du vill skapa en lagrings konto resurs måste du igen med deltagar-eller högre åtkomst omfång på resurs grupps nivå. Azure Storage är som standard en registrerad resurs leverantör.
+- Du har administratörs-eller användar åtkomst till Microsoft Graph API. Mer information finns i [referens för Microsoft Graph-behörigheter](https://docs.microsoft.com/graph/permissions-reference).
 - Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
 
 ### <a name="for-the-data-box-gateway-device"></a>För Data Box Gateway-enheten
@@ -72,85 +72,85 @@ Innan du distribuerar en virtuell enhet kontrollerar du att:
 
 ### <a name="for-the-datacenter-network"></a>För datacenternätverket
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
-- Nätverket i datacentret konfigureras enligt nätverkskraven för din Data Box Gateway-enhet. Mer information finns i [systemkraven för Data Box Gateway](data-box-gateway-system-requirements.md).
+- Nätverket i datacentret konfigureras enligt nätverkskraven för din Data Box Gateway-enhet. Mer information finns i [system kraven för data Box Gateway](data-box-gateway-system-requirements.md).
 
-- För normala driftsförhållanden för din Data Box Gateway bör du ha en:
+- För normala drift villkor för din Data Box Gateway bör du ha ett:
 
-    - Minst 10 Mbit/s hämtar bandbredd för att säkerställa att enheten förblir uppdaterad.
-    - Minst 20 Mbit/s dedikerad uppladdning och nedladdning av bandbredd för att överföra filer.
+    - Minst 10 Mbit/s Ladda ned bandbredd för att se till att enheten förblir uppdaterad.
+    - Minst 20 Mbit/s dedikerad överföring och nedladdning av bandbredd för överföring av filer.
 
 ## <a name="create-a-new-resource"></a>Skapa en ny resurs
 
 Om du har en befintlig Data Box Gateway-resurs för hantering av virtuella enheter hoppar du över det här steget och går till [Hämta aktiveringsnyckeln](#get-the-activation-key).
 
-Om du vill skapa en Data Box Gateway-resurs gör du följande steg i Azure-portalen.
+För att skapa en Data Box Gateway resurs, utför följande steg i Azure Portal.
 
-1. Använd dina Microsoft Azure-autentiseringsuppgifter för att logga in på:
+1. Använd dina Microsoft Azure autentiseringsuppgifter för att logga in på:
 
-    - Azure-portalen på [https://portal.azure.com](https://portal.azure.com)den här URL:en: .
-    - Eller Azure Government-portalen på [https://portal.azure.us](https://portal.azure.us)den här URL:en: . Mer information finns i [Anslut till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - Azure Portal på denna URL: [https://portal.azure.com](https://portal.azure.com).
+    - Eller, Azure Government portalen på denna URL: [https://portal.azure.us](https://portal.azure.us). Mer information finns i [ansluta till Azure Government med hjälp av portalen](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-2. Välj **+ Skapa en resurs**i den vänstra rutan . Sök efter **Data Box Edge / Data Box Gateway**. Välj Data Box Edge / Data Box Gateway. Välj **Skapa**.
-3. Välj den prenumeration som du vill använda för Data Box Gateway-enhet. Välj den region där du vill distribuera databoxgatewayresursen. En lista över alla regioner där Azure Stack Edge-resursen är tillgänglig finns i [Azure-produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Välj den plats som är närmast den geografiska region där du vill distribuera enheten. Välj **Skapa**i alternativet **DataBox gateway** .
+2. I den vänstra rutan väljer du **+ skapa en resurs**. Sök efter **data Box Edge/data Box Gateway**. Välj Data Box Edge/Data Box Gateway. Välj **Skapa**.
+3. Välj den prenumeration som du vill använda för Data Box Gateway enhet. Välj den region där du vill distribuera Data Box Gateway resursen. För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Välj den plats som är närmast den geografiska region där du vill distribuera enheten. I alternativet **data Box Gateway** väljer du **skapa**.
 
     ![Leta upp Data Box Gateway-tjänsten](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-4. Ange eller välj följande **Projektinformation**på fliken **Grunderna** .
+4. På fliken **grundläggande** anger eller väljer du följande **projekt information**.
     
     |Inställning  |Värde  |
     |---------|---------|
     |Prenumeration    |Detta fylls i automatiskt baserat på den tidigare markeringen. Prenumerationen är kopplad till ditt faktureringskonto. |
-    |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Läs mer om [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
+    |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Lär dig mer om [Azures resurs grupper](../azure-resource-manager/management/overview.md).     |
 
-5. Ange eller välj följande **instansinformation**.
+5. Ange eller Välj följande **instans information**.
 
     |Inställning  |Värde  |
     |---------|---------|
     |Namn   | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |   
-    |Region     |En lista över alla regioner där Azure Stack Edge-resursen är tillgänglig finns i [Azure-produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). För Azure Government är alla myndighetsregioner som anges i [Azure-regionerna](https://azure.microsoft.com/global-infrastructure/regions/) tillgängliga. <br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
+    |Region     |För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). För Azure Government är alla de myndigheter som anges i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/) tillgängliga. <br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
     
     ![Skapa Data Box Gateway-resursen](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
 6. Välj **Granska + skapa**.
  
-7. På fliken **Granska + skapa** läser du **prisinformationen,** **användningsvillkoren**och informationen för din resurs. Välj **Skapa**.
+7. På fliken **Granska + skapa** granskar du **pris informationen**, **användningsvillkor**och informationen för resursen. Välj **Skapa**.
 
-    ![Granska resursinformation för Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
+    ![Granska Data Box Gateway resurs information](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
 
-Det tar några minuter att skapa resursen. När resursen har skapats och distribuerats meddelas du. Välj **Gå till resurs**.
+Det tar några minuter att skapa resursen. När resursen har skapats och distribuerats får du ett meddelande. Välj **Gå till resurs**.
 
-![Granska resursinformation för Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![Granska Data Box Gateway resurs information](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## <a name="download-the-virtual-device-image"></a>Ladda ned avbildningen av den virtuella enheten
 
-När Data Box Gateway-resursen har skapats laddar du ned lämplig avbildning av den virtuella enheten för att etablera en virtuell enhet i värdsystemet. De virtuella enhetsavbildningarna är specifika för ett operativsystem.
+När Data Box Gateway-resursen har skapats laddar du ned lämplig avbildning av den virtuella enheten för att etablera en virtuell enhet i värdsystemet. De virtuella enhets avbildningarna är bara för ett operativ system.
 
 > [!IMPORTANT]
 > Programvaran som körs på Data Box Gateway kan bara användas med Data Box Gateway-resursen.
 
-Följ dessa steg i [Azure-portalen](https://portal.azure.com/) för att hämta en virtuell enhetsavbildning.
+Följ de här stegen i [Azure Portal](https://portal.azure.com/) för att ladda ned en virtuell enhets avbildning.
 
-1. I resursen som du skapade och välj sedan **Översikt**. Om du har en befintlig Azure Data Box Gateway-resurs väljer du resursen och går till **Översikt**. Välj **Enhetsinställning**.
+1. I resursen som du skapade och välj sedan **Översikt**. Om du har en befintlig Azure Data Box Gateway resurs väljer du resursen och går till **Översikt**. Välj **enhets konfiguration**.
 
     ![Ny Data Box Gateway-resurs](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
 
-2. På panelen **Hämta avbildning** väljer du den virtuella enhetsavbildning som motsvarar operativsystemet på värdservern som används för att etablera den virtuella datorn. Bildfilerna är cirka 5,6 GB.
+2. På panelen **Ladda ned avbildning** väljer du den virtuella enhets avbildning som motsvarar operativ systemet på den värd server som används för att etablera den virtuella datorn. Bildfilerna är ungefär 5,6 GB.
    
    * [VHDX för Hyper-V i Windows Server 2012 R2 och senare](https://aka.ms/dbe-vhdx-2012).
    * [VMDK för VMWare ESXi 6.0, 6.5 eller 6.7](https://aka.ms/dbe-vmdk).
 
-    ![Hämta virtuell enhetsbild för Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
+    ![Ladda ned Data Box Gateway virtuell enhets avbildning](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 
 5. Ladda ned och packa upp filen till en lokal enhet och skriv ned sökvägen till de uppackade filerna.
 
 
 ## <a name="get-the-activation-key"></a>Hämta aktiveringsnyckeln
 
-När databoxgatewayresursen är igång måste du hämta aktiveringsnyckeln. Den här nyckeln används för att aktivera och ansluta Data Box Gateway-enheten med resursen. Du kan hämta den här nyckeln nu när du befinner dig på Azure-portalen.
+När Data Box Gateway-resursen är igång måste du hämta aktiverings nyckeln. Den här nyckeln används för att aktivera och ansluta Data Box Gateway-enheten med resursen. Du kan hämta den här nyckeln nu när du befinner dig på Azure-portalen.
 
-1. Välj den resurs som du skapade och välj sedan **Översikt**. Gå till panelen Konfigurera **och aktivera** i **enhetsinställningarna.**
+1. Välj den resurs som du skapade och välj sedan **Översikt**. I **enhets konfigurationen**går du till panelen **Konfigurera och aktivera** .
 
     ![Konfigurera och aktivera panel](media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png)
 

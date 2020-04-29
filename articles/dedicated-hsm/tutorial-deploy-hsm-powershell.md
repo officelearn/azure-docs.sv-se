@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79474432"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
@@ -217,7 +217,7 @@ SSH-verktyget används för att ansluta till den virtuella datorn. Kommandot lik
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Lösenordet är det som kommer från parameterfilen.
-När du har loggat in på Linux-vm kan du logga in på HSM med den privata IP-adressen som finns i portalen för resursprefixet \<>hsm_vnic.
+När du är inloggad på den virtuella Linux-datorn kan du logga in på HSM med hjälp av den privata IP-adress \<som finns i portalen för att>hsm_vnic.
 
 ```powershell
 
@@ -245,12 +245,12 @@ I det här skedet har du allokerat alla resurser för en distribution med hög t
 
 ## <a name="delete-or-clean-up-resources"></a>Ta bort eller rensa resurser
 
-Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras till poolen. Det uppenbara problemet när du gör detta är eventuella känsliga kunddata som finns på enheten. Det bästa sättet att "nollställa" en enhet är att få HSM admin lösenord fel 3 gånger (obs: detta är inte apparaten admin, det är den faktiska HSM admin). Som en säkerhetsåtgärd för att skydda nyckelmaterial kan enheten inte tas bort som en Azure-resurs förrän den är i nollställning.
+Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras till poolen. Det uppenbara problemet när du gör detta är eventuella känsliga kunddata som finns på enheten. Det bästa sättet att "zeroize" en enhet är att få lösen ordet för HSM-administratören fel tre gånger (Obs! det här är inte enhets administratören, det är den faktiska HSM-administratören). Som säkerhets åtgärd för att skydda nyckel material kan enheten inte tas bort som en Azure-resurs förrän den är i ett nollställt tillstånd.
 
 > [!NOTE]
 > om det är problem med någon Gemalto-enhetskonfiguration bör du kontakta [Gemaltos kundsupport](https://safenet.gemalto.com/technical-support/).
 
-Om du vill ta bort HSM-resursen i Azure kan du använda följande kommando som ersätter variablerna "$" med dina unika parametrar:
+Om du vill ta bort HSM-resursen i Azure kan du använda följande kommando för att ersätta "$"-variablerna med dina unika parametrar:
 
 ```powershell
 

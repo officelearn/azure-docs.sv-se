@@ -1,6 +1,6 @@
 ---
-title: Azure Ytterdörr - backend hälsoövervakning | Microsoft-dokument
-description: Den här artikeln hjälper dig att förstå hur Azure Front Door övervakar hälsan hos dina backends
+title: Azure front dörr – hälso övervakning för Server delen | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå hur Azures front dörr övervakar hälso tillståndet för dina arbets ändar
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,65 +12,65 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471582"
 ---
 # <a name="health-probes"></a>Hälsotillståndsavsökningar
 
-För att fastställa hälsa och närhet för varje serverdel från en viss ytterdörr miljö, skickar varje ytterdörr miljö regelbundet en syntetisk HTTP / HTTPS-begäran till var och en av dina konfigurerade serverdelar. Front Door använder sedan svar från dessa avsökningar för att fastställa de ”bästa” serverdelar som verkliga klientbegäranden bör vidarebefordras till. 
+För att kunna fastställa hälsan och närhet av varje server del från en specifik front dörr miljö skickar varje front dörr-miljö regelbundet en syntetisk HTTP/HTTPS-begäran till var och en av dina konfigurerade Server delar. Front Door använder sedan svar från dessa avsökningar för att fastställa de ”bästa” serverdelar som verkliga klientbegäranden bör vidarebefordras till. 
 
 > [!WARNING]
-> Eftersom Ytterdörren har många kantmiljöer globalt, hälsa sond förfrågningar volym till dina serverdelser kan vara ganska hög - allt från 25 förfrågningar varje minut till så högt som 1200 förfrågningar per minut, beroende på hälso-sond frekvens konfigureras. Med standardavsökningsfrekvensen på 30 sekunder bör avsökningsvolymen på serveringen vara cirka 200 begäranden per minut.
+> Eftersom den första dörren har många gräns miljöer, kan hälso avsökningen begära volym till dina Server delar, vilket kan vara ganska högt från 25 förfrågningar per minut till så högt som 1200 förfrågningar per minut, beroende på den angivna hälso avsöknings frekvensen. Med standard avsöknings frekvensen på 30 sekunder bör avsöknings volymen på Server delen vara cirka 200 förfrågningar per minut.
 
 ## <a name="supported-protocols"></a>Protokoll som stöds
 
-Ytterdörren stöder att skicka avsökningar via http- eller HTTPS-protokoll. Dessa avsökningar skickas över samma TCP-portar som konfigurerats för att dirigera klientbegäranden och kan inte åsidosättas.
+Front dörr stöder sändning av avsökningar via antingen HTTP-eller HTTPS-protokoll. Dessa avsökningar skickas över samma TCP-portar som konfigurerats för att dirigera klientbegäranden och kan inte åsidosättas.
 
-## <a name="supported-http-methods-for-health-probes"></a>HTTP-metoder som stöds för hälsoavsökningar
+## <a name="supported-http-methods-for-health-probes"></a>HTTP-metoder som stöds för hälso avsökningar
 
-Ytterdörren stöder följande HTTP-metoder för att skicka hälsoavsökningar:
+Frontend-dörren stöder följande HTTP-metoder för att skicka hälso avsökningar:
 
-1. **FÅ:** GET-metoden innebär att hämta all information (i form av en entitet) identifieras av Request-URI.
-2. **HUVUD:** HEAD-metoden är identisk med GET förutom att servern INTE får returnera en meddelandetext i svaret. För nya frontdörrprofiler ställs som standard sondmetoden in som HEAD.
+1. **Hämta:** GET-metoden innebär att hämta vilken information (i form av en entitet) som identifieras av URI: n för begäran.
+2. **Huvud:** HEAD-metoden är identisk med GET, förutom att servern inte får returnera en meddelande text i svaret. För nya profiler för front dörren är avsöknings metoden som standard inställd som huvud.
 
 > [!NOTE]
-> För lägre belastning och kostnad på dina serverdelser rekommenderar Ytterdörren att du använder HEAD-begäranden om hälsosonder.
+> För att minska belastningen och kostnaden på dina Server delar rekommenderar front dörren att använda HEAD-begäranden för hälso avsökningar.
 
-## <a name="health-probe-responses"></a>Svar på hälsoavsökning
+## <a name="health-probe-responses"></a>Svar på hälso avsökning
 
 | Svar  | Beskrivning | 
 | ------------- | ------------- |
-| Bestämma hälsa  |  En 200 OK-statuskod anger att backend är felfri. Allt annat anses vara ett misslyckande. Om ett giltigt HTTP-svar av någon anledning (inklusive nätverksfel) inte tas emot för en avsökning räknas avsökningen som ett fel.|
-| Mäta latens  | Latens är väggklockan tid mätt från det ögonblick omedelbart innan vi skickar sonden begäran till det ögonblick då vi får den sista byte av svaret. Vi använder en ny TCP-anslutning för varje begäran, så denna mätning är inte partisk mot backends med befintliga varma anslutningar.  |
+| Fastställa hälsa  |  En status på 200 OK anger att Server delen är felfri. Allt annat anses vara ett haveri. Om ett giltigt HTTP-svar inte tas emot för en avsökning räknas inte avsökningen som ett fel (inklusive nätverks fel).|
+| Mäta svars tid  | Svars tiden är den tid i väggen som mäts från tiden omedelbart innan vi skickar en avsöknings förfrågan till den tidpunkt då vi får de sista byten av svaret. Vi använder en ny TCP-anslutning för varje begäran, så den här mätningen prioriteras inte mot Server delar med befintliga varma anslutningar.  |
 
-## <a name="how-front-door-determines-backend-health"></a>Hur ytterdörren avgör backend hälsa
+## <a name="how-front-door-determines-backend-health"></a>Hur front dörren avgör Server dels hälsa
 
-Azure Front Door använder samma trestegsprocess nedan för alla algoritmer för att fastställa hälsa.
+Azures front dörr använder samma tre stegs process nedan för alla algoritmer för att fastställa hälso tillståndet.
 
-1. Uteslut inaktivera inaktiverade bakåtsträvningar.
+1. Uteslut inaktiverade Server delar.
 
-2. Exkludera serverd som har hälsoavsökningar fel:
-    * Det här valet görs genom att titta på de senaste _n_ hälsoavsökningssvaren. Om minst _x_ är friska, är backend anses friska.
+2. Uteslut Server delar med hälso avsöknings fel:
+    * Valet görs genom att titta på de senaste _n_ hälso avsöknings svaren. Om minst _x_ är felfritt betraktas Server delen som felfri.
 
-    * _n_ konfigureras genom att ändra egenskapen SampleSize i belastningsutjämningsinställningar.
+    * _n_ konfigureras genom att ändra egenskapen SampleSize i inställningarna för belastnings utjämning.
 
-    * _x_ konfigureras genom att ändra egenskapen SuccessfulSamplesRequired i belastningsutjämningsinställningar.
+    * _x_ konfigureras genom att ändra egenskapen SuccessfulSamplesRequired i inställningarna för belastnings utjämning.
 
-3. Ur uppsättningen av friska backends i backend poolen, frontdörren mäter dessutom och upprätthåller latens (rundresa tid) för varje backend.
+3. Från och med en uppsättning felfria Server delar i backend-poolen, åtgärdar även front dörren och bibehåller svars tiden (fördröjnings tid) för varje server del.
 
 
-## <a name="complete-health-probe-failure"></a>Fullständigt fel på hälsoavsökningen
+## <a name="complete-health-probe-failure"></a>Slutför hälso avsöknings fel
 
-Om hälso-sonder misslyckas för varje serverdel i en serverdel pool, då Ytterdörren anser alla serverdels friska och rutter trafik i en round robin distribution över dem alla.
+Om hälso avsökningar inte kan utföras för varje server del i en backend-pool, anser front-dörren att alla backar är felfria och dirigerar trafik i en Round Robin-distribution över alla.
 
-När en backend återgår till ett felfritt tillstånd, kommer Front Door att återuppta den normala belastningsutjämningsalgoritmen.
+När en server del återgår till ett felfritt tillstånd, återupptar front dörren den normala belastnings Utjämnings algoritmen.
 
-## <a name="disabling-health-probes"></a>Inaktivera hälsoavsökningar
+## <a name="disabling-health-probes"></a>Inaktivera hälso avsökningar
 
-Om du har en enda serverningsservering i serverdapoolen kan du välja att inaktivera hälsoavsökningarna som minskar belastningen på programmets serverd. Även om du har flera serverd i serverda poolen men bara en av dem är i aktiverat tillstånd, kan du inaktivera hälsoavsökningar.
+Om du har en enda server del i din backend-pool kan du välja att inaktivera hälso avsökningar som minskar belastningen på din program Server del. Även om du har flera Server delar i backend-poolen men bara en av dem är i aktiverat läge, kan du inaktivera hälso avsökningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

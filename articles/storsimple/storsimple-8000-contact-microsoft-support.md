@@ -1,111 +1,111 @@
 ---
-title: Skapa supportbiljett eller fodral för StorSimple 8000-serien
-description: Läs om hur du loggar supportbegäran och startar en supportsession på din StorSimple 8000-serieenhet.
+title: Skapa ett support ärende eller fall för StorSimple 8000-serien
+description: Lär dig hur du loggar support förfrågan och startar en support-session på din StorSimple 8000-serie enhet.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254994"
 ---
 # <a name="contact-microsoft-support"></a>Kontakta Microsoft Support
 
-StorSimple Device Manager ger möjlighet att **logga en ny supportbegäran** i servicesammanfattningsbladet. Om du stöter på problem med din StorSimple-lösning kan du skapa en servicebegäran om teknisk support. I en onlinesession med supportteknikern kan du också behöva starta en supportsession på Din StorSimple-enhet. I den här artikeln går du igenom:
+StorSimple-Enhetshanteraren ger möjlighet att **Logga en ny supportbegäran** på bladet för tjänst Sammanfattning. Om du stöter på problem med din StorSimple-lösning kan du skapa en tjänstbegäran för teknisk support. I en online-session med support teknikern kan du också behöva starta en support-session på din StorSimple-enhet. Den här artikeln vägleder dig genom:
 
-* Så här skapar du en supportbegäran.
-* Så här hanterar du en livscykel för supportbegäran inifrån portalen.
-* Så här startar du en supportsession i Windows PowerShell-gränssnittet på Din StorSimple-enhet.
+* Så här skapar du en support förfrågan.
+* Så här hanterar du en livs cykel för support begär Anden från portalen.
+* Starta en support-session i Windows PowerShell-gränssnittet på din StorSimple-enhet.
 
-Granska [SLA-stöd- och information om StorSimple 8000-serien innan](https://msdn.microsoft.com/library/mt433077.aspx) du skapar en supportbegäran.
+Granska [StorSimple 8000-serien support service avtal och information](https://msdn.microsoft.com/library/mt433077.aspx) innan du skapar en supportbegäran.
 
 ## <a name="create-a-support-request"></a>Skapa en supportbegäran
 
-Beroende på [supportplanen](https://azure.microsoft.com/support/plans/)kan du skapa supportärenden för ett problem på Din StorSimple-enhet direkt från sammanfattningsbladet för StorSimple-tjänstens enhetshanteraren. Gör följande för att skapa en supportbegäran:
+Beroende på ditt [support](https://azure.microsoft.com/support/plans/)avtal kan du skapa support biljetter för ett problem på din StorSimple-enhet direkt från bladet StorSimple Enhetshanteraren service Summary. Utför följande steg för att skapa en support förfrågan:
 
-#### <a name="to-create-a-support-request"></a>Så här skapar du en supportbegäran
+#### <a name="to-create-a-support-request"></a>Så här skapar du en support förfrågan
 
-1. Gå till StorSimple Device Manager-tjänsten. Gå till avsnittet **SUPPORT + FELSÖKNING** i servicesammanfattningsbladsinställningarna och klicka sedan på Ny **supportbegäran**.
+1. Gå till StorSimple Device Manager-tjänsten. I bladet tjänst Sammanfattning går du till avsnittet **support + fel sökning** och klickar sedan på **ny supportbegäran**.
      
-    ![Kontakta MS Support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport1.png)
+    ![Kontakta MS support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport1.png)
    
-2. I bladet **Ny supportbegäran** väljer du **Grunderna**. Gör följande i bladet **Grunderna:**
-   1. Välj **Teknisk**i listrutan **Ärendetyp** .
-   2. Den aktuella **prenumerations-,** **tjänsttypen** och tjänsten **Resurs** (StorSimple Enhetshanteraren) väljs automatiskt. 
-   3. Välj ett **supportabonnemang** i listrutan om du har flera abonnemang kopplade till din prenumeration. Du behöver en betald supportplan för att aktivera teknisk support.
+2. I bladet **nytt support ärende** väljer du **grundläggande**. Utför följande steg på bladet **grundläggande** :
+   1. I list rutan **ärende typ** väljer du **teknisk**.
+   2. Den aktuella **prenumerationen**, **tjänst** typen och **resursen** (StorSimple Enhetshanteraren-tjänsten) väljs automatiskt. 
+   3. Välj en **Support plan** i list rutan om du har flera planer som är kopplade till din prenumeration. Du behöver ett betalt support avtal för att aktivera teknisk support.
    4. Klicka på **Nästa**.
 
-       ![Kontakta MS Support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Kontakta MS support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
-3. I bladet **Ny supportbegäran** väljer du **Steg 2-problem**. Gör följande i bladet **Problem:**
+3. På bladet **ny support ärende** väljer du **steg 2 problem**. Utför följande steg på bladet **problem** :
     
-    1. Välj **allvarlighetsgrad**.
-    2. Ange om problemet är relaterat till enheten eller Tjänsten StorSimple Device Manager.
-    3. Välj en **kategori** för det här problemet och ge mer **information** om problemet.
-    4. Ange startdatum och starttid för problemet.
-    5. I **filöverföringen**klickar du på mappikonen för att bläddra till supportpaketet.
-    6. Kontrollera **Dela diagnostikinformation**.
+    1. Välj **allvarlighets grad**.
+    2. Ange om problemet är relaterat till enheten eller tjänsten StorSimple Enhetshanteraren.
+    3. Välj en **kategori** för det här problemet och ange mer **information** om problemet.
+    4. Ange start datum och start tid för problemet.
+    5. Klicka på mappikonen i **fil överföringen**för att bläddra till ditt support paket.
+    6. Kontrol lera **delning av diagnostikinformation**.
     7. Klicka på **Nästa**.
 
-       ![Kontakta MS Support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Kontakta MS support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
-4. Klicka på **Steg 3 Kontaktinformation**i bladet **Ny supportbegäran** . Gör följande i bladet **Kontaktinformation:**
+4. Klicka på **steg 3 kontakt information**i bladet **nytt support ärende** . Utför följande steg på bladet **kontakt information** :
 
-   1. I **kontaktalternativen**anger du önskad kontaktmetod (telefon eller e-post) och språket. Svarstiden väljs automatiskt baserat på din prenumerationsplan.
-   2. Ange namn, e-post, valfri kontakt, land/region i kontaktinformationen. Markera kryssrutan **Spara kontaktändringar för framtida supportbegäranden.**
+   1. I **kontakt alternativen**anger du önskad kontakt metod (telefon eller e-post) och språket. Svars tiden väljs automatiskt baserat på prenumerations planen.
+   2. I kontakt uppgifterna anger du ditt namn, din e-postadress, valfri kontakt, land/region. Markera kryss rutan **Spara kontakt ändringar för framtida support begär Anden** .
    3. Klicka på **Skapa**.
    
-       ![Kontakta MS Support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Kontakta MS support via ny portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
-      Microsoft Support använder den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
-      När du har skickat in din begäran kontaktar en supporttekniker dig så snart som möjligt för att gå vidare med din begäran.
+      Microsoft Support kommer att använda den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
+      När du har skickat in din begäran kontaktar en support tekniker så snart som möjligt för att fortsätta med din begäran.
 
-## <a name="manage-a-support-request"></a>Hantera en supportbegäran
+## <a name="manage-a-support-request"></a>Hantera en support förfrågan
 
 När du har skapat ett supportärende kan du hantera ärendets livscykel på portalen.
 
-#### <a name="to-manage-your-support-requests"></a>Så här hanterar du dina supportförfrågningar
+#### <a name="to-manage-your-support-requests"></a>Så här hanterar du dina support ärenden
 
-1. Om du vill komma till hjälp- och supportsidan navigerar du till **Bläddra > hjälp + support**.
+1. Öppna sidan hjälp och support genom att gå till **bläddra > hjälp + support**.
 
-    ![Hantera supportförfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
+    ![Hantera support förfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
-2. En tabelllista över Alla supportbegäranden visas i **supportbladet Hjälp +.**
+2. En lista över alla support förfrågningar visas i bladet **Hjälp + Support** .
 
-    ![Hantera supportförfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Hantera support förfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
-3. Markera och klicka på en supportbegäran. Du kan visa status och information för den här begäran. Klicka på **+ Nytt meddelande** om du vill följa upp den här begäran.
+3. Välj och klicka på en support förfrågan. Du kan visa status och information för den här begäran. Klicka på **+ nytt meddelande** om du vill följa upp den här begäran.
 
-    ![Hantera supportförfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Hantera support förfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
-## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Starta en supportsession i Windows PowerShell för StorSimple
+## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Starta en support-session i Windows PowerShell för StorSimple
 
-Om du vill felsöka eventuella problem med StorSimple-enheten måste du samarbeta med Microsoft Support-teamet. Microsoft Support kan behöva använda en supportsession för att logga in på enheten.
+Om du vill felsöka eventuella problem som kan uppstå med StorSimple-enheten måste du delta i Microsoft Support-teamet. Microsoft Support kan behöva använda en support-session för att logga in på enheten.
 
-Gör följande för att starta en supportsession:
+Utför följande steg för att starta en support-session:
 
-#### <a name="to-start-a-support-session"></a>Så här startar du en supportsession
+#### <a name="to-start-a-support-session"></a>Starta en support-session
 
-1. Öppna enheten direkt med hjälp av seriekonsolen eller via en telnet-session från en fjärrdator. Det gör du genom att följa stegen i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. I sessionen som öppnas trycker du på **Retur** för att få en kommandotolk.
-3. I menyn för seriell konsol väljer du alternativ 1, **Logga in med full åtkomst**.
-4. Skriv följande lösenord vid prompten:
+1. Få åtkomst till enheten direkt med hjälp av serie konsolen eller via en Telnet-session från en fjärran sluten dator. Det gör du genom att följa stegen i [använda SparaTillFil för att ansluta till enhetens serie konsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. I sessionen som öppnas trycker du på **RETUR** -tangenten för att hämta en kommando tolk.
+3. I menyn serie konsol väljer du alternativ 1, **loggar in med fullständig åtkomst**.
+4. Skriv följande lösen ord i prompten:
    
     `Password1`
 5. Skriv följande kommando i prompten:
    
     `Enable-HcsSupportAccess`
-6. En krypterad sträng kommer att presenteras för dig. Kopiera strängen till en textredigerare, till exempel Anteckningar.
-7. Spara strängen och skicka den i ett e-postmeddelande till Microsoft Support.
+6. En krypterad sträng visas för dig. Kopiera strängen till en text redigerare, till exempel Anteckningar.
+7. Spara den här strängen och skicka den i ett e-postmeddelande till Microsoft Support.
 
 > [!IMPORTANT]
-> Du kan inaktivera supportåtkomst genom att köra `Disable-HcsSupportAccess`. StorSimple-enheten försöker också inaktivera supportåtkomst 8 timmar efter att sessionen initierades. Det är en bra idé att ändra dina StorSimple-enhetsautentiseringsuppgifter när du har initierat en supportsession.
+> Du kan inaktivera support åtkomst genom att `Disable-HcsSupportAccess`köra. StorSimple-enheten kommer också att försöka inaktivera support åtkomst 8 timmar efter att sessionen initierades. Vi rekommenderar att du ändrar dina autentiseringsuppgifter för StorSimple-enheten när du har initierat en support-session.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om hur du [diagnostiserar och löser problem relaterade till din StorSimple 8000-serieenhet](storsimple-8000-troubleshoot-deployment.md)
+Lär dig hur du [diagnostiserar och löser problem relaterade till din StorSimple 8000-serie enhet](storsimple-8000-troubleshoot-deployment.md)

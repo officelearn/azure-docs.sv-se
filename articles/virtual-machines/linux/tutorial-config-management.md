@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - Hantera Linux-konfiguration för virtuella datorer i Azure
-description: I den här självstudien får du lära dig hur du identifierar ändringar och hanterar paketuppdateringar på en virtuell Linux-dator
+title: Självstudie – hantera konfiguration av virtuella Linux-datorer i Azure
+description: I den här självstudien får du lära dig att identifiera ändringar och hantera paket uppdateringar på en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: mgoedtel
@@ -16,17 +16,17 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239296"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Självstudiekurs: Övervaka ändringar och uppdatera en virtuell Linux-dator i Azure
+# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Linux-dator i Azure
 
-Med Azure [Change Tracking](../../automation/change-tracking.md) kan du enkelt identifiera ändringar och [med uppdateringshantering](../../automation/automation-update-management.md) kan du hantera operativsystemuppdateringar för dina virtuella Azure Linux-datorer.
+Med Azure [ändringsspårning](../../automation/change-tracking.md) kan du enkelt identifiera ändringar och [uppdateringshantering](../../automation/automation-update-management.md) göra det möjligt att hantera operativ system uppdateringar för dina virtuella Azure Linux-datorer.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Hantera Windows-uppdateringar
@@ -83,15 +83,15 @@ Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppd
 
 Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med Log Analytics-agenten och Automation Hybrid Runbook Worker. Den här agenten används för att kommunicera med den virtuella datorn och hämta information om uppdateringsstatus.
 
-Välj jobbet log analytics och automatiseringskontot och välj **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
+Välj Log Analytics arbets yta och Automation-konto och välj **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 Om några av följande krav saknades under publiceringen läggs de till automatiskt:
 
-* [Log Analytics-arbetsyta](../../log-analytics/log-analytics-overview.md)
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) arbets yta
 * [Automation-konto](../../automation/automation-offering-get-started.md)
 * En [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
 
-Skärmen **Uppdateringshantering** öppnas. Konfigurera plats-, Log Analytics-arbetsytan och Automation-kontot så att de kan använda och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
+Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics arbets ytan och automation-kontot som ska användas och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
 
 ![Aktivera lösningen för hantering av uppdateringar](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -109,22 +109,22 @@ För att installera uppdateringar schemalägger du en distribution som passar di
 
 Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att klicka på **Distribution av schemauppdatering** längst upp på skärmen **Hantering av uppdateringar**. På skärmen **Ny uppdateringsdistribution** anger du följande information:
 
-Om du vill skapa en ny uppdateringsdistribution väljer du **Schemalägg uppdateringsdistribution**. **Distributionssidan för ny uppdatering** öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **Skapa:**
+Om du vill skapa en ny uppdaterings distribution väljer du **Schemalägg uppdaterings distribution**. Sidan **ny uppdaterings distribution** öppnas. Ange värden för egenskaperna som beskrivs i följande tabell och klicka sedan på **skapa**:
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
+| Name |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
-| Grupper som ska uppdateras |För Azure-datorer definierar du en fråga baserat på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp av virtuella Azure-datorer som ska inkluderas i distributionen. </br></br>För datorer som inte är Azure väljer du en befintlig sparad sökning för att välja en grupp icke-Azure-datorer som ska inkluderas i distributionen. </br></br>Mer information finns i [Dynamiska grupper](../../automation/automation-update-management-groups.md)|
-| Maskiner för att uppdatera |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |
-|Klassificering av uppdateringar|Markera alla uppdateringsklassificeringar som du behöver|
-|Inkludera/exkludera uppdateringar|Då öppnas sidan **Inkludera/Uteslut.** Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdateringsdistribution](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) |
-|Schemalägg inställningar|Välj tid att starta och välj antingen En eller återkommande för upprepningen|
-| Förskript + Postskript|Välj de skript som ska köras före och efter distributionen|
-| Fönstret Underhåll |Antal minuter som ställts in för uppdateringar. Värdet får inte vara mindre än 30 minuter och högst 6 timmar |
-| Omstartskontroll| Bestämmer hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
+| Grupper att uppdatera |För Azure-datorer definierar du en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i distributionen. </br></br>För datorer som inte är Azure-datorer väljer du en befintlig sparad sökning för att välja en grupp datorer som inte är Azure-datorer att inkludera i distributionen. </br></br>Mer information finns i [Dynamiska grupper](../../automation/automation-update-management-groups.md)|
+| Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |
+|Klassificering av uppdateringar|Välj alla uppdaterings klassificeringar som du behöver|
+|Inkludera/exkludera uppdateringar|Då öppnas sidan **Inkludera/exkludera** . Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdaterings distribution](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) |
+|Schema inställningar|Välj tid för start och välj antingen en gång eller återkommande för upprepningen|
+| Före skript + efter skript|Välj de skript som ska köras före och efter distributionen|
+| Underhålls period |Antal minuter som har angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
+| Starta om kontroll| Fastställer hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
-Uppdateringsdistributioner kan också skapas programmässigt. Mer information om hur du skapar en uppdateringsdistribution med REST API finns i [Konfigurationer för programuppdatering - Skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också ett exempel på runbook som kan användas för att skapa en veckovis uppdateringsdistribution. Mer information om den här runbooken finns i [Skapa en veckovis uppdateringsdistribution för en eller flera virtuella datorer i en resursgrupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+Uppdaterings distributioner kan också skapas program mässigt. Information om hur du skapar en uppdaterings distribution med REST API finns i [program uppdaterings konfiguration – skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-Runbook som kan användas för att skapa en veckovis uppdaterings distribution. Mer information om denna Runbook finns i [skapa en veckovis uppdaterings distribution för en eller flera virtuella datorer i en resurs grupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 När du har konfigurerat schemat klickar du på **Skapa**. Därmed återgår du till statusinstrumentpanelen.
 Observera att tabellen **Schemalagt** visar det distributionsschema som du skapade.
@@ -141,9 +141,9 @@ Välj den slutförda uppdateringsdistributionen för att visa instrumentpanelen 
 På panelen för **uppdateringsresultat** visas en sammanfattning av det totala antalet uppdateringar och distributionsresultat för den virtuella datorn.
 I tabellen till höger visas detaljer för varje uppdatering och installationsresultaten, som kan ha ett av följande värden:
 
-* **Inte försökte** - uppdateringen installerades inte eftersom det inte fanns tillräckligt med tid tillgänglig baserat på underhållsfönstrets varaktighet som definierats.
-* **Lyckades** - uppdateringen lyckades
-* **Misslyckades** - uppdateringen misslyckades
+* **Inget försök har gjorts** – uppdateringen installerades inte eftersom det inte fanns tillräckligt med tid baserat på den underhålls period som definierats.
+* **Lyckades** – uppdateringen är klar
+* **Misslyckades** -uppdateringen misslyckades
 
 Välj **Alla loggar** om du vill se alla loggposter som har skapats för distributionen.
 
@@ -163,7 +163,7 @@ Så här aktiverar du ändringsspårning och inventering för din virtuella dato
 2. Välj en virtuell dator i listan.
 3. Gå till avsnittet **Åtgärder** på VM-skärmen och klicka på **Inventering** eller **Ändringsspårning**. Skärmen **Aktivera ändringsspårning och inventering** öppnas.
 
-Konfigurera plats-, Log Analytics-arbetsytan och Automation-kontot så att de kan använda och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Trots att lösningarna är separata på menyn är de samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
+Konfigurera platsen, Log Analytics arbets ytan och automation-kontot som ska användas och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Trots att lösningarna är separata på menyn är de samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
 
 ![Aktivera Ändringsspårning och lager](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -195,14 +195,14 @@ Diagrammet visar ändringar som har skett över tid. När du har lagt till en ak
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du konfigurerat och granskat ändringsspårning och uppdateringshantering för den virtuella datorn. Du har lärt dig att:
+I den här självstudien har du konfigurerat och granskat Ändringsspårning och Uppdateringshantering för den virtuella datorn. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en resursgrupp och virtuell dator
 > * Hantera Linux-uppdateringar
 > * Övervaka ändringar och inventering
 
-Gå vidare till nästa handledning för att lära dig mer om hur du övervakar din virtuella dator.
+Gå vidare till nästa självstudie om du vill veta mer om övervakning av den virtuella datorn.
 
 > [!div class="nextstepaction"]
-> [Övervaka virtuella datorer](tutorial-monitor.md)
+> [Övervakning av virtuella datorer](tutorial-monitor.md)

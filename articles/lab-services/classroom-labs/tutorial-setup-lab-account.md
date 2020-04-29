@@ -1,6 +1,6 @@
 ---
 title: Konfigurera ett labbkonto med Azure Lab Services | Microsoft Docs
-description: Lär dig hur du konfigurerar ett labbkonto med Azure Lab Services, lägger till en labbskapare och anger Marketplace-avbildningar som ska användas av labb i labbkontot.
+description: Lär dig hur du konfigurerar ett labb konto med Azure Lab Services, lägger till en labb skapare och anger Marketplace-avbildningar som ska användas av labb i labb kontot.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,14 +15,14 @@ ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
 ms.openlocfilehash: dba6a4c07691f3d7ec88d8b889e68d6ac7116f07
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79239450"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudie: Konfigurera ett labbkonto med Azure Lab Services
-I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien får du lära dig hur du skapar ett labbkonto. 
+I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien får du lära dig hur du skapar ett labb konto. 
 
 I den här självstudien gör du följande:
 
@@ -36,27 +36,27 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto med Azure Lab Services. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. På menyn till vänster väljer du **Alla tjänster**. Välj **DevOps** från **kategorier**. Välj sedan **Lab Services**. Om du väljer`*`stjärna ( ) bredvid **Lab Services**läggs den till i avsnittet **FAVORITER** på den vänstra menyn. Från och med nästa gång väljer du **Lab Services** under **FAVORITER.**
+2. På menyn till vänster väljer du **Alla tjänster**. Välj **DevOps** från **Kategorier**. Välj sedan **labb tjänster**. Om du väljer Star (`*`) bredvid **labb tjänster**läggs den till i avsnittet **Favoriter** på den vänstra menyn. I nästa steg kan du välja **labb tjänster** under **Favoriter**.
 
-    ![Alla tjänster -> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. På sidan **Lab Services** väljer du **Lägg till** i verktygsfältet eller väljer knappen **Skapa labbkonto** på sidan. 
+    ![Alla tjänster – > Lab-tjänster](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. På sidan **labb tjänster** väljer du **Lägg till** i verktygsfältet eller så väljer du knappen **Skapa labb konto** på sidan. 
 
     ![Välj Lägg till på sidan Labbkonton](../media/tutorial-setup-lab-account/add-lab-account-button.png)
-4. Gör följande åtgärder på fliken **Grunderna** på sidan **Skapa ett labbkonto:** 
+4. På fliken **grundläggande** på sidan **skapa ett labb konto** gör du följande: 
     1. För **namnet på labbkontot** anger du ett namn. 
     2. Välj den **Azure-prenumeration** där du vill skapa labbkontot.
-    3. För **resursgrupp**väljer du en befintlig resursgrupp eller väljer **Skapa ny**och ange ett namn för resursgruppen.
-    4. För **Plats**väljer du en plats/region där du vill skapa labbkontot. 
+    3. För **resurs grupp**väljer du en befintlig resurs grupp eller väljer **Skapa ny**, och anger ett namn för resurs gruppen.
+    4. För **plats**väljer du en plats/region där du vill skapa labb kontot. 
 
-        ![Labbkonto - grunderna sida](../media/tutorial-setup-lab-account/lab-account-basics-page.png)
+        ![Labb konto – sidan grunder](../media/tutorial-setup-lab-account/lab-account-basics-page.png)
     5. Välj **Granska + skapa**.
-    6. Granska sammanfattningen och välj **Skapa**. 
+    6. Granska sammanfattningen och välj **skapa**. 
 
-        ![Granska + skapa -> Skapa](../media/tutorial-setup-lab-account/create-button.png)    
-5. När distributionen är klar expanderar du **Nästa steg**och väljer Gå **till resurs**. 
+        ![Granska + skapa – > skapa](../media/tutorial-setup-lab-account/create-button.png)    
+5. När distributionen är klar expanderar du **Nästa steg**och väljer **gå till resurs**. 
 
-    ![Gå till labbkontosidan](../media/tutorial-setup-lab-account/go-to-lab-account.png)
-6. Bekräfta att du ser sidan **Labbkonto.** 
+    ![Sidan gå till labb konto](../media/tutorial-setup-lab-account/go-to-lab-account.png)
+6. Bekräfta att du ser sidan **labb konto** . 
 
     ![Sidan Labbkonto](../media/tutorial-setup-lab-account/lab-account-page.png)
 
@@ -64,7 +64,7 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara medlem i rollen **Lab Creator** i labbkontot. Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till dem i rollen **Labbskapare**:
 
 > [!NOTE]
-> Det konto som du använde för att skapa labbkontot läggs automatiskt till i den här rollen. Om du planerar att använda samma användarkonto för att skapa ett klassrumslabb i den här självstudien hoppar du över det här steget. 
+> Det konto som du använde för att skapa labbkontot läggs automatiskt till i den här rollen. Om du planerar att använda samma användar konto för att skapa ett klass rums labb i den här självstudien hoppar du över det här steget. 
 
 1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** följt av **+ Lägg till** och sedan **+ Lägg till rolltilldelning** i verktygsfältet. 
 
@@ -75,7 +75,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara
 
 
 ## <a name="next-steps"></a>Nästa steg
-I självstudien skapade du ett labbkonto. Om du vill veta mer om hur du skapar ett klassrumslabb som professor går du vidare till nästa handledning:
+I självstudien skapade du ett labbkonto. Om du vill veta mer om hur du skapar ett klass rums labb som en lärare går du vidare till nästa självstudie:
 
 > [!div class="nextstepaction"]
 > [Konfigurera ett klassrumslabb](tutorial-setup-classroom-lab.md)

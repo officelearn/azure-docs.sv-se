@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 Series Update 4 viktig information | Microsoft-dokument
-description: Beskriver de nya funktionerna, problemen och lösningarna för Uppdatering 4 i StorSimple 8000 Series.
+title: Viktig information om StorSimple 8000-serien uppdatering 4 | Microsoft Docs
+description: Beskriver de nya funktionerna, problemen och lösningarna för StorSimple 8000-serien uppdatering 4.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,74 +15,74 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254591"
 ---
-# <a name="storsimple-8000-series-update-4-release-notes"></a>Viktig information om StorSimple 8000-serien Update 4
+# <a name="storsimple-8000-series-update-4-release-notes"></a>Viktig information om StorSimple 8000-seriens uppdatering 4
 
 ## <a name="overview"></a>Översikt
 
-Följande viktig information beskriver de nya funktionerna och identifierar de kritiska öppna problemen för StorSimple 8000 Series Update 4. De innehåller också en lista över De StorSimple-programuppdateringar som ingår i den här versionen. 
+I följande versions information beskrivs de nya funktionerna och de kritiska öppnings problemen för StorSimple 8000-serien uppdatering 4. De innehåller också en lista över de StorSimple program uppdateringar som ingår i den här versionen. 
 
-Uppdatering 4 kan tillämpas på alla StorSimple-enheter som kör Release (GA) eller Uppdatering 0.1 till uppdatering 3.1. Enhetsversionen som är associerad med uppdatering 4 är 6.3.9600.17820.
+Uppdatering 4 kan tillämpas på alla StorSimple-enheter som kör release (GA) eller uppdatering 0,1 via uppdatering 3,1. Den enhets version som är associerad med uppdatering 4 är 6.3.9600.17820.
 
-Läs informationen i viktig information innan du distribuerar uppdateringen i StorSimple-lösningen.
+Granska informationen i versions anteckningarna innan du distribuerar uppdateringen i StorSimple-lösningen.
 
 > [!IMPORTANT]
-> * Uppdatering 4 har enhetsprogramvara, USM firmware, LSI-drivrutin och firmware, disk firmware, Storport och Spaceport, säkerhet och andra OS-uppdateringar. Det tar cirka 4 timmar att installera den här uppdateringen. Uppdatering av den inbyggda programvaran för disk är en störande uppdatering och resulterar i en stilleståndstid för enheten. Vi rekommenderar att du installerar Uppdatering 4 för att hålla enheten uppdaterad. 
-> * För nya versioner kanske du inte ser uppdateringar omedelbart eftersom vi gör en stegvis distribution av uppdateringarna. Vänta några dagar och sök sedan efter uppdateringar igen eftersom dessa kommer att bli tillgängliga snart.
+> * Uppdatering 4 har enhets program vara, USM POLICYEGENSKAPER inbyggd program vara, LSI-drivrutin och inbyggd program vara, inbyggd disk-firmware, Storport och Spaceport, säkerhet och andra OS-uppdateringar. Det tar cirka 4 timmar att installera den här uppdateringen. Uppdatering av inbyggd disk program vara är en störnings uppdatering och resulterar i en stillestånds tid för enheten. Vi rekommenderar att du installerar uppdatering 4 för att hålla enheten uppdaterad. 
+> * För nya versioner kanske du inte ser uppdateringar direkt eftersom vi gör en stegvis distribution av uppdateringarna. Vänta några dagar och Sök sedan efter uppdateringar igen eftersom de blir tillgängliga snart.
 
 ## <a name="whats-new-in-update-4"></a>Nyheter i uppdatering 4
 
-Följande viktiga förbättringar och buggfixar har gjorts i uppdatering 4.
+Följande viktiga förbättringar och fel korrigeringar har gjorts i uppdatering 4.
 
-* **Smartare automatiserade utrymme återvinning algoritmer** - I uppdatering 4, de automatiserade utrymme återvinning algoritmer förbättras för att justera utrymme återvinning cykler baserat på den förväntade återvunna utrymme som finns i molnet. 
+* **Smartare utrymme för automatisk utrymmes** återtagning – i uppdatering 4 förbättras algoritmerna för automatisk utrymmes återtagning för att justera utrymmes återtagnings cyklerna baserat på det förväntade återkrävda utrymmet i molnet. 
 
-* **Prestandaförbättringar för lokalt fästa volymer** – Uppdatering 4 har förbättrat prestanda för lokalt fästa volymer i scenarier med hög datainmatning (data som är jämförbara med volymstorlek).
+* **Prestanda förbättringar för lokalt fästa volymer** – uppdatering 4 har förbättrat prestanda för lokalt fästa volymer i scenarier med hög data inmatning (data som är jämförbara med volym storleken).
 
-* **Heatmap-baserad återställning** – I de tidigare versionerna, efter en haveriberedskap (DR), återställdes data från molnet baserat på åtkomstmönstren som resulterade i en långsam prestanda. 
+* **Termisk karta-baserad återställning** – i tidigare versioner, efter en haveri beredskap (Dr), återställdes data från molnet baserat på åtkomst mönster som resulterade i långsamma prestanda. 
 
-    En ny funktion implementeras i uppdatering 4 som spårar data som ofta används för att skapa en värmekarta när enheten används före DR (De flesta använda datasegment har hög värme medan mindre använda segment har låg värme). Efter DR använder StorSimple heatmap för att automatiskt återställa och rehydrera data från molnet. 
+    En ny funktion implementeras i uppdatering 4 som spårar data som används ofta för att skapa en termisk karta när enheten används före DR (de mest använda data segmenten har hög värme medan mindre använda segment har låg värme). Efter DR använder StorSimple termisk karta för att automatiskt återställa och dehydratisera data från molnet. 
 
-    Alla återställningar är nu heatmap baserade återställningar. Mer information om hur du frågar och avbryter heatmap-baserade återställnings- och rehydreringsjobb finns i [Windows PowerShell för StorSimple cmdlet-referens](https://technet.microsoft.com/library/dn688168.aspx).
+    Alla återställningar är nu termisk karta-baserade återställningar. Mer information om hur du frågar och avbryter termisk karta-baserade återställnings-och ÅTERUPPVÄCKNING-jobb finns i [Windows PowerShell för StorSimple cmdlet-referens](https://technet.microsoft.com/library/dn688168.aspx).
 
-* **StorSimple Diagnostics tool** – I uppdatering 4 släpps ett StorSimple Diagnostics-verktyg för att möjliggöra enkel diagnos och felsökning av problem relaterade till system-, nätverks-, prestanda- och maskinvarukomponenthälsa. Det här verktyget körs via Windows PowerShell för StorSimple. Mer information finns [i felsÃ¶k med storsimplediagnostikverktyget](storsimple-8000-diagnostics.md).
+* **StorSimple Diagnostics Tool** – i uppdatering 4 släpps ett StorSimple-diagnostiktest för att möjliggöra enkel diagnostisering och fel sökning av problem som rör system-, nätverks-, prestanda-och maskin varu komponent hälsa. Verktyget körs via Windows PowerShell för StorSimple. Mer information finns i [fel sökning med verktyget StorSimple-diagnostik](storsimple-8000-diagnostics.md).
 
-* **UI-baserade StorSimple Migration tool** - Före den här versionen krävde migrering av data från 5000-7000-serien att användarna skulle köra en del av migreringsarbetsflödet med Azure PowerShell-gränssnittet. I den här versionen görs ett lättanvänt gränssnittsbaserat StorSimple-migreringsverktyg tillgängligt för support för att underlätta samma migreringsarbetsflöde. Detta verktyg skulle också möjliggöra konsolidering av återställningsgrupper. 
+* **UI-baserat StorSimple-Migreringsverktyg** – före den här versionen krävde migrering av data från 5000-7000-serien användarna att köra en del av migreringen av arbets flödet med hjälp av Azure PowerShell-gränssnittet. I den här versionen görs ett lättanvänt UI-baserat StorSimple-Migreringsverktyg för support för att under lätta samma arbets flöde för migrering. Det här verktyget möjliggör även konsolidering av återställnings buckets. 
 
-* **FIPS-relaterade ändringar** – Den här versionen och framåt, FIPS är aktiverat som standard på alla StorSimple 8000-serieenheter för både Microsoft Azure Government och Azure offentliga molnkonton.
+* **FIPS-relaterade ändringar** – den här versionen kommer sedan att aktive ras som standard på alla StorSimple 8000-serie enheter för både Microsoft Azure Government-och Azures offentliga moln konton.
 
-* **Uppdateringsändringar** - I den här versionen har fel relaterade till uppdateringsfel åtgärdats.
+* **Uppdatera ändringar** – i den här versionen har buggar som rör uppdaterings fel åtgärd ATS.
 
-* **Varning för diskfel** - En ny avisering som varnar användaren om förestående diskfel läggs till i den här versionen. Om du stöter på den här varningen kontaktar du Microsoft Support för att skicka en ersättningsdisk. Mer information finns i [maskinvaruvarningar på StorSimple-enheten](storsimple-8000-manage-alerts.md#hardware-alerts).
+* **Avisering om diskfel** – en ny avisering som varnar användaren om att de väntande disk felen läggs till i den här versionen. Om du stöter på den här aviseringen kontaktar du Microsoft Support för att leverera en ersättnings disk. Mer information finns i [maskin varu aviseringar på din StorSimple-enhet](storsimple-8000-manage-alerts.md#hardware-alerts).
 
-* **Ersättningsändringar för styrenhet** - En cmdlet som gör att användaren kan fråga status för ersättningsprocessen för styrenheten läggs till i den här versionen. Mer information finns i [cmdleten för att fråga om ersättningsstatus för styrenheten](https://technet.microsoft.com/library/dn688168.aspx).
+* **Ändringar av styrenhetens ersättning** – en cmdlet som gör det möjligt för användaren att fråga om status för kontrollantens ersättnings process läggs till i den här versionen. Mer information finns på [cmdleten för att ställa frågor om ersättnings status för kontrollanten](https://technet.microsoft.com/library/dn688168.aspx).
 
 
-## <a name="issues-fixed-in-update-4"></a>Problem som åtgärdats i uppdatering 4
+## <a name="issues-fixed-in-update-4"></a>Problem som korrigeras i uppdatering 4
 
-I följande tabell finns en sammanfattning av problem som åtgärdats i uppdatering 4.    
+Följande tabell innehåller en sammanfattning av problem som korrigerades i uppdatering 4.    
 
-| Inga | Funktion | Problem | Gäller för fysisk enhet | Gäller för virtuell enhet |
+| Nej | Funktion | Problem | Gäller fysisk enhet | Gäller för virtuell enhet |
 | --- | --- | --- | --- | --- |
-| 1 |Redundans |I den tidigare versionen, efter redundansen, uppstod ett problem som gällde rensning på kundens webbplats. Det här problemet åtgärdas i den här versionen. |Ja |Ja |
-| 2 |Lokalt fixerade volymer |I den tidigare versionen uppstod ett problem med relaterad volymgenerering för lokalt fästa volymer som skulle resultera i fel på volymgenerering. Det här problemet orsakades av root och åtgärdades i den här versionen. |Ja |Inga |
-| 3 |Supportpaket |I tidigare version fanns det problem relaterade till supportpaket som skulle resultera i ett System.OutOfMemory-undantag eller andra fel som resulterade i ett fel i skapandet av supportpaket. Dessa buggar är fasta i den här versionen. |Ja |Ja |
-| 4 |Övervakning |I föregående utgåva finns ett problem som rör övervakningsdiagram för lokalt fästa volymer där förbrukningen visades i EB. Det här felet är löst i den här versionen. |Ja |Ja |
-| 5 |Migrering |I tidigare versioner fanns det flera problem relaterade till tillförlitligheten i migreringen från 5000-7000-serien till 8000-serien enheter. Dessa problem har åtgärdats i den här versionen. |Ja |Ja |
-| 6 |Uppdatering |I tidigare versioner, om det uppstod ett uppdateringsfel, skulle styrenheterna gå in i återställningsläge och därför kunde användaren inte fortsätta med uppdateringen och skulle behöva kontakta Microsoft Support. <br> Detta har ändrats i den här versionen. Om användaren har ett uppdateringsfel efter att båda styrenheterna har samma version (uppdatering 4) går styrenheterna inte i återställningsläge. Om användaren stöter på det här felet rekommenderar vi att de väntar lite och sedan försöker igen uppdateringen. Det nya försöket kan lyckas. Om återförsöket misslyckas bör de kontakta Microsoft Support. |Ja |Ja |
+| 1 |Redundans |I den tidigare versionen, efter redundansväxlingen, uppstod ett problem med rensningen som observerats på kund webbplatsen. Det här problemet åtgärdas i den här versionen. |Ja |Ja |
+| 2 |Lokalt fixerade volymer |I den tidigare versionen fick du ett problem med att skapa en relaterad volym för lokalt fästa volymer som skulle resultera i att volymen skapas fel. Det här problemet var rot-orsakade och korrigerade i den här versionen. |Ja |Nej |
+| 3 |Support paket |I tidigare versioner fanns det problem som rör ett support paket som skulle resultera i ett system. OutOfMemory-undantag eller andra fel som resulterade i ett fel när ett support paket skapas. Dessa buggar åtgärdas i den här versionen. |Ja |Ja |
+| 4 |Övervakning |I tidigare versioner fick du ett problem som rör övervaknings diagram för lokalt fästa volymer där förbrukningen visades i EB. Den här buggen har lösts i den här versionen. |Ja |Ja |
+| 5 |Migrering |I tidigare versioner fanns det flera problem som rör tillförlitligheten vid migrering från 5000-7000-serien till 8000-seriens enheter. De här problemen har åtgärd ATS i den här versionen. |Ja |Ja |
+| 6 |Uppdatera |Om det uppstod ett uppdaterings problem i tidigare versioner skulle styrenheterna gå in i återställnings läge och användaren kan därför inte fortsätta med uppdateringen och måste kontakta Microsoft Support. <br> Detta beteende har ändrats i den här versionen. Om användaren har ett uppdaterings problem när båda styrenheterna har kört samma version (uppdatering 4), går det inte att använda kontroll enheterna i återställnings läge. Om användaren stöter på det här felet, rekommenderar vi att de väntar på en bit och försöker sedan uppdatera igen. Försöket kunde inte utföras. Om försöket Miss lyckas bör det kontaktas Microsoft Support. |Ja |Ja |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Kända problem i uppdatering 4 från tidigare versioner
 
 Det finns inga nya kända problem i uppdatering 4. En lista över problem som överförts till uppdatering 4 från tidigare versioner finns i [viktig information om uppdatering 3](storsimple-update3-release-notes.md#known-issues-in-update-3).
 
-## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-4"></a>Seriell-bifogade SCSI(SAS) styrenhet och uppdateringar av inbyggd programvara i uppdatering 4
+## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-4"></a>Serial-Attached SCSI (SAS) och uppdateringar av inbyggd program vara i uppdatering 4
 
-Den här versionen har SAS-styrenhet och LSI-drivrutins- och firmwareuppdateringar. Mer information om hur du installerar dessa uppdateringar finns i [installera uppdatering 4](storsimple-install-update-4.md) på Din StorSimple-enhet.
+Den här versionen har SAS-styrenheter och uppdateringar för inbyggd driv rutin och inbyggd program vara. Mer information om hur du installerar de här uppdateringarna finns i [installera uppdatering 4](storsimple-install-update-4.md) på din StorSimple-enhet.
 
 ## <a name="virtual-device-updates-in-update-4"></a>Uppdateringar av virtuella enheter i uppdatering 4
 
@@ -90,5 +90,5 @@ Den här uppdateringen kan inte tillämpas på StorSimple Cloud Appliance (kalla
 
 ## <a name="next-step"></a>Nästa steg
 
-Läs om hur du [installerar uppdatering 4](storsimple-install-update-4.md) på din StorSimple-enhet.
+Lär dig hur du [installerar uppdatering 4](storsimple-install-update-4.md) på din StorSimple-enhet.
 

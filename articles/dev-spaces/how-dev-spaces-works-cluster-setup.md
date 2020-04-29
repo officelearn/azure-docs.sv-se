@@ -1,98 +1,98 @@
 ---
-title: Så här konfigurerar du ett kluster för Azure Dev Spaces fungerar
+title: Så här konfigurerar du ett kluster för Azure dev Spaces
 services: azure-dev-spaces
 ms.date: 03/24/2020
 ms.topic: conceptual
-description: Beskriver hur det fungerar att konfigurera ett Azure Kubernetes-tjänstkluster för Azure Dev Spaces
-keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare
+description: Beskriver hur du konfigurerar ett Azure Kubernetes service-kluster för Azure dev Spaces
+keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: 00f8262f3008ce9ba82726960f78d18395458a2a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241730"
 ---
-# <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Så här konfigurerar du ett kluster för Azure Dev Spaces fungerar
+# <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Så här konfigurerar du ett kluster för Azure dev Spaces
 
-Azure Dev Spaces ger dig flera sätt att snabbt iterera och felsöka Kubernetes-program och samarbeta med ditt team i ett AKS-kluster (Azure Kubernetes Service). Ett sätt är att aktivera Azure Dev Spaces i AKS-klustret så att du kan [köra tjänster direkt i klustret][how-it-works-up] och använda ytterligare funktioner för nätverk och [routning][how-it-works-routing]. I den här artikeln beskrivs vad som händer när du förbereder klustret och aktiverar Azure Dev Spaces.
+Med Azure dev Spaces får du flera sätt att snabbt iterera och felsöka Kubernetes-program och samar beta med ditt team i ett Azure Kubernetes service-kluster (AKS). Ett sätt är att aktivera Azure dev Spaces på ditt AKS-kluster så att du kan [köra tjänster direkt i klustret][how-it-works-up] och använda [ytterligare funktioner för nätverk och routning][how-it-works-routing]. I den här artikeln beskrivs vad som händer när du förbereder klustret och aktiverar Azure dev Spaces.
 
-## <a name="prepare-your-aks-cluster"></a>Förbereda AKS-klustret
+## <a name="prepare-your-aks-cluster"></a>Förbereda ditt AKS-kluster
 
-Om du vill förbereda AKS-klustret för dev spaces kontrollerar du att AKS-klustret finns i en region [som stöds av Azure Dev Spaces][supported-regions] och du kör Kubernetes 1.10.3 eller senare. Om du vill aktivera Azure Dev Spaces i klustret från Azure-portalen navigerar du till klustret, klickar på *Utvecklingsutrymmen,* ändrar *Använd utvecklingsutrymmen* till *Ja*och klickar på *Spara*. Du kan också aktivera Azure Dev Spaces `az aks use-dev-spaces`från Azure CLI genom att köra .
+För att förbereda ditt AKS-kluster för dev Spaces kontrollerar du att ditt AKS-kluster finns i en region [som stöds av Azure dev Spaces][supported-regions] och du kör Kubernetes 1.10.3 eller senare. Om du vill aktivera Azure dev Spaces i klustret från Azure Portal navigerar du till klustret, klickar på *dev Spaces*, ändrar *Använd dev Spaces* till *Ja*och klickar på *Spara*. Du kan också aktivera Azure dev Spaces från Azure CLI genom att `az aks use-dev-spaces`köra.
 
-Ett exempel på hur du konfigurerar ett AKS-kluster för Dev Spaces finns i [snabbstarten][quickstart-team]för teamutveckling .
+Ett exempel på hur du konfigurerar ett AKS-kluster för dev Spaces finns i snabb starten för [team utveckling][quickstart-team].
 
-När Azure Dev Spaces är aktiverat i AKS-klustret installeras styrenheten för klustret. Styrenheten finns utanför AKS-klustret. Den driver beteendet och kommunikationen mellan verktygen på klientsidan och AKS-klustret. När den är aktiverad kan du interagera med styrenheten med hjälp av klientverktyget.
+När du har aktiverat Azure dev Spaces på ditt AKS-kluster installeras kontrollanten för klustret. Kontrollanten finns utanför ditt AKS-kluster. Det styr beteende och kommunikation mellan klient sidans verktyg och AKS-klustret. När den är aktive rad kan du interagera med kontrollanten med hjälp av verktyg på klient sidan.
 
-Styrenheten utför följande åtgärder:
+Kontrollanten utför följande åtgärder:
 
-* Hanterar skapande och val av utvecklingsutrymme.
+* Hanterar skapande och val av dev-utrymme.
 * Installerar programmets Helm-diagram och skapar Kubernetes-objekt.
-* Skapar programmets behållaravbildning.
+* Skapar programmets behållar avbildning.
 * Distribuerar ditt program till AKS.
-* Bygger inkrementellt när källkoden ändras.
-* Hanterar loggar och HTTP-spårningar.
-* Framåt stdout och stderr till klientsidan verktyg.
-* Konfigurerar routning för program inom ett utrymme samt över överordnade och underordnade utrymmen.
+* Skapar stegvisa versioner och startar om när käll koden ändras.
+* Hanterar loggar och HTTP-spår.
+* Vidarebefordrar STDOUT och stderr till verktyg på klient sidan.
+* Konfigurerar routning för program inom ett utrymme samt över över-och underordnade utrymmen.
 
-Styrenheten är en separat Azure-resurs utanför klustret och gör följande för resurser i klustret:
+Kontrollanten är en separat Azure-resurs utanför klustret och gör följande för resurser i klustret:
 
-* Skapar eller anger ett Kubernetes-namnområde som ska användas som dev space.
-* Tar bort alla Kubernetes namnområde med namnet *Azds*, om det finns, och skapar ett nytt.
+* Skapar eller anger ett Kubernetes-namnområde som ska användas som ett dev-utrymme.
+* Tar bort alla Kubernetes-namnområden med namnet *azds*, om det finns, och skapar ett nytt.
 * Distribuerar en Kubernetes webhook-konfiguration.
-* Distribuerar en webhook-åtkomstserver.
+* Distribuerar en server för webhook-åtkomstkontroll.
 
-Den använder samma tjänsthuvudnamn som AKS-klustret använder för att ringa tjänstanrop till andra Azure Dev Spaces-komponenter.
+Den använder samma tjänst huvud namn som ditt AKS-kluster använder för att skapa tjänst anrop till andra Azure dev Space-komponenter.
 
-![Azure Dev Spaces förbereder kluster](media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure dev Spaces prepare-kluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
-För att kunna använda Azure Dev Spaces måste det finnas minst ett dev-utrymme. Azure Dev Spaces använder Kubernetes namnområden i AKS-klustret för utvecklingsutrymmen. När en styrenhet installeras uppmanas du att skapa ett nytt Kubernetes-namnområde eller välja ett befintligt namnområde som ska användas som ditt första dev-utrymme. Som standard erbjuder styrenheten att uppgradera det befintliga *standardnamnområdet* Kubernetes till ditt första dev-utrymme.
+För att kunna använda Azure dev Spaces måste det finnas minst ett dev-utrymme. I Azure dev Spaces används Kubernetes-namnområden i ditt AKS-kluster för dev Spaces. När en kontrollant installeras, blir du ombedd att skapa ett nytt Kubernetes-namnområde eller välja en befintlig namnrymd som ska användas som ditt första utvecklings utrymme. Som standard erbjuder kontrollanten att uppgradera det befintliga *standard* namn området Kubernetes till ditt första utvecklings utrymme.
 
-När ett namnområde anges som ett utvecklingsutrymme lägger styrenheten till *azds.io/space=true-etiketten* i namnområdet för att identifiera den som ett utvecklingsutrymme. Det ursprungliga utvecklingsutrymme som du skapar eller anger väljs som standard när du har förberett klustret. När ett utrymme är valt används det av Azure Dev Spaces för att skapa nya arbetsbelastningar.
+När ett namn område anges som ett dev-utrymme lägger kontrollanten till *azds.io/Space=True* -etiketten i namn området för att identifiera den som ett dev-utrymme. Det inledande dev-utrymmet som du skapar eller anger är markerat som standard när du förbereder klustret. När ett blank steg är markerat används det av Azure dev Spaces för att skapa nya arbets belastningar.
 
-Du kan använda verktyget på klientsidan för att skapa nya utvecklingsutrymmen och ta bort befintliga utvecklingsutrymmen. På grund av en begränsning i Kubernetes kan *standarddest* utrymme inte tas bort. Styrenheten tar också bort alla befintliga Kubernetes-namnområden med namnet `azds` *azds* för att undvika konflikter med kommandot som används av verktyget på klientsidan.
+Du kan använda klient sidans verktyg för att skapa nya dev-Spaces och ta bort befintliga dev-sidor. Det går inte att ta bort *standard* dev-utrymmet på grund av en begränsning i Kubernetes. Kontrollanten tar också bort alla befintliga Kubernetes-namnområden med namnet *azds* för att `azds` undvika konflikter med kommandot som används av klient sidans verktyg.
 
-Kubernetes webhook-åtkomstserver används för att injicera poddar med tre behållare under distributionen för instrumentering: en devspaces-proxy-behållare, en devspaces-proxy-init-behållare och en devspaces-build-behållare. **Alla tre av dessa behållare körs med root-åtkomst i AKS-klustret.** De använder också samma tjänsthuvudnamn som AKS-klustret använder för att ringa tjänstanrop till andra Azure Dev Spaces-komponenter.
+Kubernetes webhook-åtkomstkontroll används för att injicera poddar med tre behållare under distribution för instrumentering: en devspaces-proxy-behållare, en devspaces-proxy-init-behållare och en devspaces-build-behållare. **Alla tre dessa behållare körs med rot åtkomst i ditt AKS-kluster.** De använder också samma tjänst huvud namn som ditt AKS-kluster använder för att skapa tjänst anrop till andra Azure dev Spaces-komponenter.
 
-![Azure Dev Spaces Kubernetes webhook entréserver](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
+![Azure dev Spaces Kubernetes webhook Admission Server](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
-Devspaces-proxy-behållaren är en sidovagnsbehållare som hanterar all TCP-trafik till och från programbehållaren och hjälper till att utföra routning. Behållaren devspaces-proxy omdirigerar HTTP-meddelanden om vissa blanksteg används. Det kan till exempel hjälpa till att dirigera HTTP-meddelanden mellan program i överordnade och underordnade utrymmen. All icke-HTTP-trafik passerar genom devspaces-proxy oförändrad. Behållaren devspaces-proxy loggar också alla inkommande och utgående HTTP-meddelanden och skickar dem till verktyget på klientsidan som spårningar. Dessa spår kan sedan visas av utvecklaren för att granska beteendet för programmet.
+Devspaces-proxy-behållaren är en sidvagn-behållare som hanterar all TCP-trafik till och från program behållaren och gör det möjligt att utföra routning. Devspaces-proxyn dirigerar om HTTP-meddelanden om vissa blank steg används. Det kan till exempel hjälpa att dirigera HTTP-meddelanden mellan program i överordnade och underordnade utrymmen. All icke-HTTP-trafik passerar genom devspaces-proxy oförändrad. Devspaces-proxy-behållaren loggar också alla inkommande och utgående HTTP-meddelanden och skickar dem till klient sidans verktyg som spår. Dessa spår kan sedan visas av utvecklaren för att kontrol lera programmets beteende.
 
-Devspaces-proxy-init-behållaren är en [init-behållare](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) som lägger till ytterligare routningsregler baserat på utrymmeshierarkin i programmets behållare. Den lägger till routningsregler genom att uppdatera programbehållarens */etc/resolv.conf-fil-* och iptables-konfiguration innan den startar. Uppdateringarna till */etc/resolv.conf* möjliggör DNS-lösning av tjänster i överordnade utrymmen. Iptables konfigurationsuppdateringar se till att all TCP-trafik till och från programmets behållare dirigeras genom devspaces-proxy. Alla uppdateringar från devspaces-proxy-init sker utöver de regler som Kubernetes lägger till.
+Devspaces-proxy-init-behållaren är en [init-behållare](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) som lägger till ytterligare regler för routning baserat på utrymmes-hierarkin till programmets behållare. Den lägger till regler för routning genom att uppdatera program behållarens */etc/resolv.conf* -fil och program varan iptables-konfiguration innan den startas. Uppdateringarna av */etc/resolv.conf* tillåter DNS-matchning av tjänster i överordnade utrymmen. Konfigurations uppdateringarna för program varan iptables säkerställer att all TCP-trafik till och från programmets behållare dirigeras även om devspaces-proxy. Alla uppdateringar från devspaces-proxy-init sker utöver de regler som Kubernetes lägger till.
 
-Devspaces-build-behållaren är en init-behållare och har projektets källkod och Docker-socket monterad. Projektets källkod och åtkomst till Docker gör att programbehållaren kan byggas direkt av podden.
+Devspaces-build-behållaren är en init-behållare och har projektets käll kod och Docker-socket monterad. Projekt käll koden och åtkomst till Docker gör att program behållaren kan skapas direkt av pod.
 
 > [!NOTE]
-> Azure Dev Spaces använder samma nod för att skapa programmets behållare och köra den. Därför behöver Azure Dev Spaces inte ett externt behållarregister för att skapa och köra ditt program.
+> Azure dev Spaces använder samma nod för att skapa programmets behållare och köra den. Det innebär att Azure dev Spaces inte behöver ett externt behållar register för att skapa och köra ditt program.
 
-Kubernetes webhook-åtkomstserver lyssnar efter alla nya poddar som har skapats i AKS-klustret. Om podden distribueras till ett namnområde med *etiketten azds.io/space=true* injicerar den podden med de extra behållarna. Behållaren devspaces-build injiceras endast om programmets behållare körs med hjälp av verktyg på klientsidan.
+Kubernetes webhook-åtkomstkontroll lyssnar efter nya Pod som skapats i AKS-klustret. Om Pod har distribuerats till ett namn område med *azds.io/Space=True* -etiketten injiceras Pod med ytterligare behållare. Devspaces-build-behållaren matas bara in om programmets behållare körs med klient sidans verktyg.
 
-När du har förberett AKS-klustret kan du använda verktygen på klientsidan för att förbereda och köra koden i utvecklingsutrymmet.
+När du har för berett ditt AKS-kluster kan du använda verktyg på klient sidan för att förbereda och köra din kod i ditt utvecklings utrymme.
 
-## <a name="client-side-tooling"></a>Verktyg på klientsidan
+## <a name="client-side-tooling"></a>Verktyg på klient Sidan
 
-Med verktyget på klientsidan kan användaren:
-* Generera en Dockerfile-, Helm-diagram- och Azure Dev Spaces-konfigurationsfil för programmet.
-* Skapa överordnade och underordnade utvecklingsutrymmen.
-* Tala om för handkontrollen att bygga och starta programmet.
+Med verktyg på klient sidan kan användaren:
+* Skapa ett Dockerfile-, Helm-diagram och konfigurations filen för Azure dev Spaces för programmet.
+* Skapa överordnade och underordnade dev-sidor.
+* Be kontrollanten att skapa och starta ditt program.
 
-Medan programmet körs, klientsidan verktyg också:
-* Tar emot och visar stdout och stderr från ditt program som körs i AKS.
-* Använder [port-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) för att tillåta webbåtkomst\/till ditt program med http: /localhost.
-* Kopplar en felsökare till ditt program som körs i AKS.
-* Synkroniserar källkoden till ditt utvecklingsutrymme när en ändring identifieras för inkrementella versioner, vilket möjliggör snabb iteration.
-* Gör att du kan ansluta utvecklarmaskinen direkt till AKS-klustret.
+När ditt program körs, kan verktyg på klient sidan också:
+* Tar emot och visar STDOUT och stderr från ditt program som körs i AKS.
+* Använder [Port-Forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) för att tillåta webb åtkomst till ditt program med http\/:/localhost.
+* Bifogar en fel sökare till det program som körs i AKS.
+* Synkroniserar käll koden till ditt dev-utrymme när en ändring identifieras för stegvisa versioner, vilket möjliggör snabb iteration.
+* Gör att du kan ansluta din utvecklings dator direkt till ditt AKS-kluster.
 
-Du kan använda verktyget på klientsidan från kommandoraden som en del av kommandot. `azds` Du kan också använda verktygen på klientsidan med:
+Du kan använda klient sidans verktyg från kommando raden som en del av `azds` kommandot. Du kan också använda verktyget på klient sidan med:
 
-* Visual Studio-kod med azure [dev spaces-tillägget](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio med [Visual Studio-verktyg för Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio Code med [tillägget Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
+* Visual Studio med [Visual Studio Tools för Kubernetes](https://aka.ms/get-vsk8stools).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder verktyg på klientsidan för att förbereda och köra koden i ditt utvecklingsutrymme finns i [Så här fungerar förbereda ett projekt för Azure Dev Spaces][how-it-works-prep].
+Mer information om hur du använder verktyg för klient sidan för att förbereda och köra din kod i ditt utvecklings utrymme finns i [så här förbereder du ett projekt för Azure dev Spaces][how-it-works-prep].
 
-Information om hur du kommer igång med Azure Dev Spaces för teamutveckling finns [i teamutvecklingen i snabbstarten för Azure Dev Spaces.][quickstart-team]
+För att komma igång med Azure dev Spaces för grupp utveckling, se [team utvecklingen i snabb starten för Azure dev Spaces][quickstart-team] .
 
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

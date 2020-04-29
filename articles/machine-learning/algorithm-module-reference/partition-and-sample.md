@@ -1,7 +1,7 @@
 ---
-title: 'Partition och exempel: Modulreferens'
+title: 'Partition och exempel: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder partitions- och exempelmodulen i Azure Machine Learning för att utföra sampling på en datauppsättning eller för att skapa partitioner från datauppsättningen.
+description: Lär dig hur du använder partition och exempel modul i Azure Machine Learning för att utföra sampling på en data uppsättning eller skapa partitioner från din data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,161 +10,161 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477518"
 ---
-# <a name="partition-and-sample-module"></a>Partitions- och exempelmodul
+# <a name="partition-and-sample-module"></a>Partition och exempel modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Använd partitions- och exempelmodulen för att utföra sampling på en datauppsättning eller för att skapa partitioner från datauppsättningen.
+Använd modulen partition och exempel för att utföra sampling på en data uppsättning eller skapa partitioner från din data uppsättning.
 
-Sampling är ett viktigt verktyg för maskininlärning eftersom det låter dig minska storleken på en datauppsättning samtidigt som samma värdeförhållande bibehålls. Den här modulen stöder flera relaterade uppgifter som är viktiga i maskininlärning: 
+Sampling är ett viktigt verktyg i Machine Learning eftersom det gör att du kan minska storleken på en data uppsättning samtidigt som du behåller samma förhållande mellan värden. Den här modulen stöder flera relaterade uppgifter som är viktiga i Machine Learning: 
 
-- Dela upp dina data i flera underavsnitt av samma storlek. 
+- Dela upp data i flera underavsnitt med samma storlek. 
 
-  Du kan använda partitionerna för korsvalidering eller för att tilldela ärenden till slumpmässiga grupper.
+  Du kan använda partitionerna för kors validering eller tilldela ärenden till slumpmässiga grupper.
 
-- Separera data i grupper och sedan arbeta med data från en viss grupp. 
+- Separera data i grupper och arbeta med data från en speciell grupp. 
 
-  När du slumpmässigt har tilldelat ärenden till olika grupper kan du behöva ändra de funktioner som är associerade med endast en grupp.
+  När du slumpmässigt tilldelar ärenden till olika grupper kan du behöva ändra de funktioner som är associerade med endast en grupp.
 
-- Provtagning. 
+- Ta. 
 
-  Du kan extrahera en procentandel av data, använda slumpmässiga samplingar eller välja en kolumn som ska användas för att balansera datauppsättningen och utföra stratifierad sampling på dess värden.
+  Du kan extrahera en procent andel av data, tillämpa slumpmässig sampling eller välja en kolumn som ska användas för att balansera data uppsättningen och utföra Stratified-sampling på dess värden.
 
-- Skapa en mindre datauppsättning för testning. 
+- Skapa en mindre data uppsättning för testning. 
 
-  Om du har mycket data kanske du bara *n* vill använda de första n-raderna när du konfigurerar pipelinen och sedan växla till att använda den fullständiga datauppsättningen när du skapar modellen. Du kan också använda sampling för att skapa en mindre datauppsättning som kan användas under utveckling.
+  Om du har många data kanske du bara vill använda de första *n* raderna när du konfigurerar pipelinen och sedan växlar till att använda den fullständiga data uppsättningen när du skapar din modell. Du kan också använda sampling för att skapa en mindre data uppsättning som kan användas under utveckling.
 
 ## <a name="configure-the-module"></a>Konfigurera modulen
 
-Den här modulen stöder följande metoder för att dela upp dina data i partitioner eller för sampling. Välj metoden först och ange sedan ytterligare alternativ som metoden kräver.
+Den här modulen stöder följande metoder för att dela upp data i partitioner eller för att sampla. Välj metoden först och ange sedan ytterligare alternativ som krävs för metoden.
 
 - Head
 - Samling
-- Tilldela till veck
-- Plocka luckan
+- Tilldela till vikning
+- Välj vikning
 
-### <a name="get-top-n-rows-from-a-dataset"></a>Hämta TOP N-rader från en datauppsättning
+### <a name="get-top-n-rows-from-a-dataset"></a>Hämta de översta N raderna från en data uppsättning
 
-Använd det här läget för att bara hämta de första *n* raderna. Det här alternativet är användbart om du vill testa en pipeline på ett litet antal rader och du inte behöver informationen balanseras eller samplas på något sätt.
+Använd det här läget för att bara hämta de första *n* raderna. Det här alternativet är användbart om du vill testa en pipeline på ett litet antal rader och du inte behöver de data som ska bal anse ras eller samplas på något sätt.
 
-1. Lägg till **partitions- och exempelmodulen** i pipelinen i gränssnittet och anslut datauppsättningen.  
+1. Lägg till **partition och exempel** modul i din pipeline i gränssnittet och Anslut data uppsättningen.  
 
-1. **Partitions- eller exempelläge**: Ställ in det här alternativet på **Head**.
+1. **Partition eller exempel läge**: Ange det här alternativet till **Head**.
 
-1. **Antal rader som ska väljas**: Ange antalet rader som ska returneras.
+1. **Antal rader att välja**: Ange antalet rader som ska returneras.
 
-   Antalet rader måste vara ett icke-negativt heltal. Om antalet markerade rader är större än antalet rader i datauppsättningen returneras hela datauppsättningen.
+   Antalet rader måste vara ett heltal som inte är negativt. Om antalet markerade rader är större än antalet rader i data uppsättningen returneras hela data uppsättningen.
 
 1. Skicka pipelinen.
 
-Modulen matar ut en enda datauppsättning som bara innehåller det angivna antalet rader. Raderna läss alltid uppifrån datauppsättningen.
+Modulen matar ut en enda data uppsättning som bara innehåller det angivna antalet rader. Raderna läses alltid in från data uppsättningens överkant.
 
 ### <a name="create-a-sample-of-data"></a>Skapa ett exempel på data
 
-Det här alternativet stöder enkel slumpmässig sampling eller stratifierad slumpmässig provtagning. Det är användbart om du vill skapa en mindre representativ exempeldatauppsättning för testning.
+Det här alternativet stöder enkel slumpmässig provtagning eller Stratified slumpmässig sampling. Det är användbart om du vill skapa en mindre representativ exempel data uppsättning för testning.
 
-1. Lägg till **partitions- och exempelmodulen** i pipelinen och anslut datauppsättningen.
+1. Lägg till **partition och exempel** modul i din pipeline och Anslut data uppsättningen.
 
-1. **Partitions- eller exempelläge**: Ställ in det här alternativet på **Sampling**.
+1. **Partition eller exempel läge**: Ange det här alternativet för att **Sampla**.
 
-1. **Samplingshastighet**: Ange ett värde mellan 0 och 1. Det här värdet anger procentandelen rader från källdatauppsättningen som ska inkluderas i utdatauppsättningen.
+1. **Samplings frekvens**: Ange ett värde mellan 0 och 1. Det här värdet anger procent andelen av rader från käll data uppsättningen som ska inkluderas i data uppsättningen för utdata.
 
-   Om du till exempel bara vill ha hälften `0.5` av den ursprungliga datauppsättningen anger du att samplingsfrekvensen ska vara 50 procent.
+   Om du till exempel bara vill ha hälften av den ursprungliga data uppsättningen anger `0.5` du för att indikera att samplings frekvensen ska vara 50 procent.
 
-   Raderna för indatauppsättningen blandas och placeras selektivt i utdatauppsättningen, enligt det angivna förhållandet.
+   Raderna i data uppsättningen för indata är blandade och placeras selektivt i den utgående data uppsättningen enligt det angivna förhållandet.
 
-1. **Slumpmässigt utsäde för provtagning:** Ange eventuellt ett heltal som ska användas som frövärde.
+1. **Slumpmässigt utsäde för sampling: om**du vill kan du ange ett heltal som ska användas som ett Seed-värde.
 
-   Det här alternativet är viktigt om du vill att raderna ska delas på samma sätt varje gång. Standardvärdet är **0**, vilket innebär att ett startutsäde genereras baserat på systemklockan. Det här värdet kan leda till lite olika resultat varje gång du kör pipelinen.
+   Det här alternativet är viktigt om du vill att raderna ska delas upp på samma sätt varje gång. Standardvärdet är **0**, vilket innebär att ett startutsäde genereras baserat på system klockan. Det här värdet kan leda till något annorlunda resultat varje gången du kör pipelinen.
 
-1. **Stratifierad delning för sampling**: Välj det här alternativet om det är viktigt att raderna i datauppsättningen delas jämnt med någon nyckelkolumn före sampling.
+1. **Stratified Split för sampling**: Välj det här alternativet om det är viktigt att raderna i data uppsättningen delas jämnt av en nyckel kolumn före sampling.
 
-   För **nyckelkolumn för stratifiering för sampling**väljer du en enskild *stratakolumn* som ska användas när datauppsättningen delas upp. Raderna i datauppsättningen delas sedan upp på följande sätt:
+   För **Stratification nyckel kolumn för sampling**väljer du en enda *Strata-kolumn* som ska användas vid division av data uppsättningen. Raderna i data uppsättningen delas sedan upp på följande sätt:
 
-   1. Alla indatarader grupperas (stratifieras) efter värdena i den angivna stratakolumnen.
+   1. Alla ingående rader grupperas (Stratified) med värdena i den angivna Strata-kolumnen.
 
-   1. Rader blandas inom varje grupp.
+   1. Rader flyttas i varje grupp.
 
-   1. Varje grupp läggs selektivt till i utdatauppsättningen för att uppfylla det angivna förhållandet.
+   1. Varje grupp läggs selektivt till i data uppsättningen för utdata för att uppfylla det angivna förhållandet.
 
 
 1. Skicka pipelinen.
 
-   Med det här alternativet matar modulen ut en enda datauppsättning som innehåller ett representativt urval av data. Den återstående, oförstärkt delen av datauppsättningen matas inte ut. 
+   Med det här alternativet matar modulen ut en enda data uppsättning som innehåller ett representativt urval av data. Den återstående, insamplade delen av data uppsättningen är inte utdata. 
 
 ## <a name="split-data-into-partitions"></a>Dela upp data i partitioner
 
-Använd det här alternativet när du vill dela upp datauppsättningen i delmängder av data. Det här alternativet är också användbart när du vill skapa ett anpassat antal veck för korsvalidering eller dela upp rader i flera grupper.
+Använd det här alternativet om du vill dela upp data uppsättningen i del mängder av data. Det här alternativet är också användbart när du vill skapa ett anpassat antal vikningar för kors validering eller dela rader i flera grupper.
 
-1. Lägg till **partitions- och exempelmodulen** i pipelinen och anslut datauppsättningen.
+1. Lägg till **partition och exempel** modul i din pipeline och Anslut data uppsättningen.
 
-1. För **partitions- eller exempelläge**väljer du **Tilldela till vickningar**.
+1. För **partition eller exempel läge**väljer **du tilldela till vikning**.
 
-1. **Använd ersättning i partitioneringen:** Välj det här alternativet om du vill att den samplade raden ska återföras till raden för potentiell återanvändning. Därför kan samma rad tilldelas flera veck.
+1. **Använd ersättnings i partitionering**: Välj det här alternativet om du vill att den exempel rad som ska läggas till i poolen med rader för eventuell åter användning. Därför kan samma rad tilldelas till flera vikningar.
 
-   Om du inte använder ersättning (standardalternativet) läggs den samplade raden inte tillbaka till raden för potentiell återanvändning. Därför kan varje rad tilldelas endast en vik.
+   Om du inte använder Replacement (standard alternativet) tas inte den exempel raden tillbaka till poolen med rader för eventuell åter användning. Därför kan varje rad endast tilldelas till en vikning.
 
-1. **Randomiserad split:** Välj det här alternativet om du vill att rader ska tilldelas slumpmässigt till veck.
+1. **Slumpmässig delning**: Välj det här alternativet om du vill att rader ska tilldelas slumpmässigt till vikning.
 
-   Om du inte väljer det här alternativet tilldelas rader att vikas genom round-robin-metoden.
+   Om du inte väljer det här alternativet tilldelas rader till vikning genom metoden Round-Robin.
 
-1. **Slumpmässigt frö:** Ange ett heltal som ska användas som frövärde. Det här alternativet är viktigt om du vill att raderna ska delas på samma sätt varje gång. Annars innebär standardvärdet **0** att ett slumpmässigt startfrö används.
+1. **Slumpmässigt utsäde**: Alternativt kan du ange ett heltal som ska användas som startvärdet. Det här alternativet är viktigt om du vill att raderna ska delas upp på samma sätt varje gång. Annars innebär standardvärdet **0** att ett slumpmässigt start värde används.
 
-1. **Ange partitionermetoden**: Ange hur du vill att data ska fördelas till varje partition med hjälp av följande alternativ:
+1. **Ange partitionerings metod**: Ange hur du vill att data ska fördelas till varje partition med hjälp av följande alternativ:
 
-   - **Partition jämnt:** Använd det här alternativet för att placera lika många rader i varje partition. Om du vill ange antalet utdatapartitioner anger du ett heltal i rutan **Ange antal veck som ska delas upp jämnt i.**
+   - **Jämn partition**: Använd det här alternativet om du vill placera ett lika antal rader i varje partition. Ange antalet utgående partitioner genom att ange ett heltal i rutan **Ange antalet kurvor som ska delas jämnt i** rutan.
 
    - **Partition med anpassade proportioner**: Använd det här alternativet för att ange storleken på varje partition som en kommaavgränsad lista.
 
-     Anta till exempel att du vill skapa tre partitioner. Den första partitionen innehåller 50 procent av data. De återstående två partitionerna innehåller vardera 25 procent av data. I rutan **Lista över proportioner avgränsade med kommatecken** anger du följande siffror: **0,5, 0,25, .25**.
+     Anta till exempel att du vill skapa tre partitioner. Den första partitionen kommer att innehålla 50 procent av data. De återstående två partitionerna kommer att innehålla 25 procent av datan. I **listan med proportioner avgränsade med kommatecken** anger du följande nummer: **0,5,. 25,. 25**.
 
-     Summan av alla partitionsstorlekar måste lägga till upp till exakt 1.
+     Summan av alla partition storlekar måste vara upp till exakt 1.
 
-     Om du anger tal som lägger till upp till *mindre än 1*skapas en extra partition för att hålla de återstående raderna. Om du till exempel anger värdena **0,2** och **0,3**skapas en tredje partition för att rymma de återstående 50 procenten av alla rader.
+     Om du anger siffror som lägger till upp till *mindre än 1*, skapas en extra partition som innehåller de återstående raderna. Om du till exempel anger värdena **2** och **.3**skapas en tredje partition som innehåller de återstående 50 procenten av alla rader.
      
-     Om du anger tal som lägger till upp till *fler än 1*utlöses ett fel när du kör pipelinen.
+     Om du anger siffror som lägger till upp till *fler än 1*uppstår ett fel när du kör pipelinen.
 
-1. **Stratifierad split:** Välj det här alternativet om du vill att raderna ska stratifieras när de delas och väljer sedan _stratakolumnen_.
+1. **Stratified Split**: Välj det här alternativet om du vill att raderna ska Stratified vid delning, och sedan välja _kolumnen Strata_.
 
 1. Skicka pipelinen.
 
-   Med det här alternativet matar modulen ut flera datauppsättningar. Datauppsättningarna partitioneras enligt de regler som du har angett.
+   Med det här alternativet kommer modulen att mata ut flera data uppsättningar. Data uppsättningarna partitioneras enligt de regler som du har angett.
 
 ### <a name="use-data-from-a-predefined-partition"></a>Använda data från en fördefinierad partition  
 
-Använd det här alternativet när du har delat upp en datauppsättning i flera partitioner och nu vill läsa in varje partition i sin tur för ytterligare analys eller bearbetning.
+Använd det här alternativet när du har delat upp en data uppsättning i flera partitioner och nu vill läsa in varje partition i tur och svar för vidare analys eller bearbetning.
 
-1. Lägg till **partitions- och exempelmodulen** i pipelinen.
+1. Lägg till **partitionen och modulen exempel** i pipelinen.
 
-1. Anslut modulen till utdata från en tidigare instans av **Partition och Exempel**. Den instansen måste ha använt alternativet **Tilldela till vicks** för att generera ett visst antal partitioner.
+1. Anslut modulen till utdata från en föregående instans av **partition och exempel**. Den instansen måste ha använt alternativet **tilldela till vikning** för att generera ett antal partitioner.
 
-1. **Partitions- eller exempelläge**: Välj **Välj plockvikning**.
+1. **Partition eller exempel läge**: Välj **Välj vikning**.
 
-1. **Ange vilken vikning som ska samplas från**: Välj en partition som ska användas genom att ange dess index. Partitionsindex är 1-baserade. Om du till exempel delade upp datauppsättningen i tre delar skulle partitionerna ha indexen 1, 2 och 3.
+1. **Ange vilken vikning som ska samplas från**: Välj en partition som ska användas genom att ange dess index. Partition index är 1-baserade. Om du till exempel har delat upp data uppsättningen i tre delar, skulle partitionerna ha index 1, 2 och 3.
 
-   Om du anger ett ogiltigt indexvärde utlöses ett designtidsfel: "Fel 0018: Datauppsättningen innehåller ogiltiga data."
+   Om du anger ett ogiltigt index värde genereras ett design tids fel: "Error 0018: dataset innehåller ogiltiga data".
 
-   Förutom att gruppera datauppsättningen efter veck kan du separera datauppsättningen i två grupper: en målvikning och allt annat. För att göra detta anger du indexet för en enda vikning och väljer sedan alternativet **Välj komplement till den valda luckan** för att få allt utom data i den angivna vecket.
+   Förutom att gruppera data uppsättningen efter vikning kan du separera data uppsättningen i två grupper: en mål vikning och allt annat. Det gör du genom att ange indexet för en enda vikning och sedan välja alternativet **Välj komplementet till den valda vikningen** för att hämta allt, men data i den angivna vikningen.
 
-1. Om du arbetar med flera partitioner måste du lägga till fler instanser av **partitions- och exempelmodulen** för att hantera varje partition.
+1. Om du arbetar med flera partitioner måste du lägga till fler instanser av **partition och exempel** -modulen för att hantera varje partition.
 
-   Partitions- **och exempelmodulen** på den andra raden är till exempel inställd **på Tilldela till vicks**och modulen i den tredje raden är inställd på **Plocka vikning**.   
+   Till exempel är **partition och exempel** modul på den andra raden inställd på **vikning**och modulen på den tredje raden är inställd på att **välja vikning**.   
 
    ![Partition och exempel](./media/module/partition-and-sample.png)
 
 1. Skicka pipelinen.
 
-   Med det här alternativet matar modulen ut en enda datauppsättning som bara innehåller de rader som tilldelats den vikningen.
+   Med det här alternativet matar modulen ut en enda data uppsättning som bara innehåller de rader som tilldelats den vikningen.
 
 > [!NOTE]
->  Du kan inte visa vikbeteckningarna direkt. De finns bara i metadata.
+>  Du kan inte Visa viknings designerna direkt. De finns bara i metadata.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

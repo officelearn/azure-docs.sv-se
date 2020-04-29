@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Lägga till en enskild databas i en redundansgrupp'
-description: Lägg till en enda Azure SQL-databas i en redundansgrupp med Azure-portalen, PowerShell eller Azure CLI.
+title: 'Självstudie: lägga till en enskild databas i en failover-grupp'
+description: Lägg till en Azure SQL Database enkel databas i en failover-grupp med hjälp av Azure Portal, PowerShell eller Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,87 +12,87 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
 ms.openlocfilehash: c5ce6a1c2f231d372a2a8113eb9043a236090388
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061697"
 ---
-# <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Självstudiekurs: Lägga till en en enda Azure SQL Database-databas i en redundansgrupp
+# <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Självstudie: lägga till en Azure SQL Database enkel databas i en failover-grupp
 
-En [redundansk grupp](sql-database-auto-failover-group.md) är ett deklarativt abstraktionslager som gör att du kan gruppera mulitple geo-replikerade databaser. Lär dig att konfigurera en redundansgrupp för en enda Azure SQL-databas och testa redundans med azure-portalen, PowerShell eller Azure CLI.  I den här självstudien får du lära dig hur man:
+En [failover-grupp](sql-database-auto-failover-group.md) är ett deklarativ abstraktions lager som gör att du kan gruppera flera-geo-replikerade databaser. Lär dig hur du konfigurerar en failover-grupp för en Azure SQL Database enkel databas och redundanstest med antingen Azure Portal, PowerShell eller Azure CLI.  I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
-> - Skapa en enda Azure SQL-databas.
-> - Skapa en redundansk grupp för en enskild databas mellan två logiska SQL-servrar.
-> - Testa redundans.
+> - Skapa en Azure SQL Database enskild databas.
+> - Skapa en failover-grupp för en enskild databas mellan två logiska SQL-servrar.
+> - Redundanstest.
 
 ## <a name="prerequisites"></a>Krav
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 För att kunna följa den här självstudien måste du ha: 
 
-- En Azure-prenumeration. [Skapa ett gratis konto](https://azure.microsoft.com/free/) om du inte redan har ett.
+- En Azure-prenumeration. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) om du inte redan har ett.
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
-För att slutföra självstudien, se till att du har följande objekt:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Kontrol lera att du har följande objekt för att slutföra självstudien:
 
-- En Azure-prenumeration. [Skapa ett gratis konto](https://azure.microsoft.com/free/) om du inte redan har ett.
+- En Azure-prenumeration. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) om du inte redan har ett.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-För att slutföra självstudien, se till att du har följande objekt:
+Kontrol lera att du har följande objekt för att slutföra självstudien:
 
-- En Azure-prenumeration. [Skapa ett gratis konto](https://azure.microsoft.com/free/) om du inte redan har ett.
+- En Azure-prenumeration. [Skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) om du inte redan har ett.
 - Den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 ---
 
-## <a name="1---create-a-single-database"></a>1 - Skapa en enda databas 
+## <a name="1---create-a-single-database"></a>1 – Skapa en enskild databas 
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
-## <a name="2---create-the-failover-group"></a>2 - Skapa redundansgruppen 
-I det här steget skapar du en [redundansgrupp](sql-database-auto-failover-group.md) mellan en befintlig Azure SQL-server och en ny Azure SQL-server i en annan region. Lägg sedan till exempeldatabasen i redundansgruppen. 
+## <a name="2---create-the-failover-group"></a>2 – Skapa redundans gruppen 
+I det här steget ska du skapa en [redundans grupp](sql-database-auto-failover-group.md) mellan en befintlig Azure SQL-Server och en ny Azure SQL-Server i en annan region. Lägg sedan till exempel databasen i gruppen för växling vid fel. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Skapa din redundansgrupp och lägg till din enda databas i den med Hjälp av Azure-portalen. 
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
+Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp av Azure Portal. 
 
-1. Välj **Azure SQL** i menyn till vänster i [Azure-portalen](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du Alla **tjänster**och skriver sedan Azure SQL i sökrutan. (Valfritt) Välj stjärnan bredvid **Azure SQL** för att göra den favorit och lägg till den som ett objekt i vänsternavigering. 
-1. Markera den enda databas som skapats `mySampleDatabase`i avsnitt 1, till exempel . 
-1. Redundansgrupper kan konfigureras på servernivå. Välj namnet på servern under **Servernamn** för att öppna inställningarna för servern.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj den enkla databasen som `mySampleDatabase`skapades i avsnitt 1, till exempel. 
+1. Redundansväxlingen kan konfigureras på server nivå. Välj namnet på servern under **Server namn** för att öppna inställningarna för servern.
 
-   ![Öppna server för en enda db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+   ![Öppna Server för enskild databas](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 
-1. Välj **Redundansk grupper** under fönstret **Inställningar** och välj sedan Lägg **till grupp** för att skapa en ny redundanskitetsgrupp. 
+1. Välj **grupper för växling vid fel** i fönstret **Inställningar** och välj sedan **Lägg till grupp** för att skapa en ny grupp för redundans. 
 
-    ![Lägga till ny redundansgrupp](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![Lägg till ny redundans grupp](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
-1. På sidan **Redundansk gruppera** du eller markera följande värden och välj sedan **Skapa:**
-    - **Redundansgruppnamn**: Skriv in ett unikt `failovergrouptutorial`redundansktgruppnamn, till exempel . 
-    - **Sekundär server:** Välj alternativet för att *konfigurera nödvändiga inställningar* och välj sedan att skapa en ny **server**. Du kan också välja en redan befintlig server som sekundär server. När du har angett följande värden väljer du **Välj**. 
-        - **Servernamn**: Skriv in ett unikt namn `mysqlsecondary`för den sekundära servern, till exempel . 
-        - **Server admin inloggning:** Typ`azureuser`
-        - **Lösenord**: Skriv ett komplext lösenord som uppfyller lösenordskraven.
-        - **Plats**: Välj en plats i listrutan, till exempel `East US`. Den här platsen kan inte vara samma plats som den primära servern.
+1. På sidan **redundans** anger eller väljer du följande värden och väljer sedan **skapa**:
+    - **Namn på redundans grupp**: Ange ett unikt namn på redundans grupp, till `failovergrouptutorial`exempel. 
+    - **Sekundär server**: Välj alternativet för att *Konfigurera nödvändiga inställningar* och välj sedan att **skapa en ny server**. Alternativt kan du välja en redan befintlig server som den sekundära servern. När du har angett följande värden väljer du **Välj**. 
+        - **Server namn**: Ange ett unikt namn på den sekundära servern, till exempel `mysqlsecondary`. 
+        - **Inloggning för Server administratör**: typ`azureuser`
+        - **Lösen ord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
+        - **Plats**: Välj en plats i list rutan, till exempel `East US`. Den här platsen kan inte vara samma plats som den primära servern.
 
     > [!NOTE]
-    > Serverinloggnings- och brandväggsinställningarna måste matcha den primära serverns. 
+    > Inställningarna för Server inloggning och brand vägg måste matcha den primära servern. 
     
-      ![Skapa en sekundär server för redundansgruppen](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
+      ![Skapa en sekundär server för redundans gruppen](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
 
-   - **Databaser i gruppen**: När en sekundär server har valts låses det här alternativet upp. Markera den för att **markera databaser som ska läggas till** och välj sedan den databas som du skapade i avsnitt 1. Om du lägger till databasen i redundansgruppen startas georeplikeringsprocessen automatiskt. 
+   - **Databaser i gruppen**: när du har valt en sekundär server blir det här alternativet olåst. Välj den för att **välja databaser som ska läggas till** och välj sedan den databas som du skapade i avsnitt 1. Om du lägger till databasen i gruppen för växling vid fel startas automatiskt processen för geo-replikering. 
         
-    ![Lägga till SQL DB i redundansgruppen](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Lägg till SQL DB i redundans gruppen](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
-Skapa redundansgruppen och lägg till din enda databas med PowerShell. 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+Skapa din grupp för redundans och Lägg till din databas i den med hjälp av PowerShell. 
 
    > [!NOTE]
-   > Serverinloggnings- och brandväggsinställningarna måste matcha den primära serverns. 
+   > Inställningarna för Server inloggning och brand vägg måste matcha den primära servern. 
 
    ```powershell-interactive
    # $subscriptionId = '<SubscriptionID>'
@@ -155,22 +155,22 @@ Skapa redundansgruppen och lägg till din enda databas med PowerShell.
    Write-host "Successfully added the database to the failover group..." 
    ```
 
-Den här delen av självstudien använder följande PowerShell-cmdlets:
+I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [Ny-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brandväggsregel för en logisk server. | 
-| [Ny-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en ny enda Azure SQL Database-databas. | 
-| [Nya-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Skapar en ny redundansgrupp. |
-| [Hämta AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Hämtar en eller flera SQL-databaser. |
-| [Tillägg-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera Azure SQL-databaser i en redundansgrupp. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brand Väggs regel för en logisk server. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en ny Azure SQL Database enskild databas. | 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Skapar en ny grupp för redundans. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Hämtar en eller flera SQL-databaser. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera Azure SQL-databaser i en failover-grupp. |
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Skapa din redundansk grupp och lägg till din enda databas i den med AZ CLI. 
+Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp av AZ CLI. 
 
    > [!NOTE]
-   > Serverinloggnings- och brandväggsinställningarna måste matcha den primära serverns. 
+   > Inställningarna för Server inloggning och brand vägg måste matcha den primära servern. 
 
    ```azurecli-interactive
    #!/bin/bash
@@ -186,46 +186,46 @@ Skapa din redundansk grupp och lägg till din enda databas i den med AZ CLI.
    az sql failover-group create --name $failoverGroup --partner-server $failoverServer --resource-group $resourceGroup --server $server --add-db $database --failover-policy Automatic
    ```
 
-Den här delen av självstudien använder följande Az CLI-cmdlets:
+Den här delen av självstudien använder följande AZ CLI-cmdletar:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [az sql server brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule) | Skapar en servers brandväggsregler. | 
-| [az sql failover-grupp skapa](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Skapar en redundansgrupp. | 
+| [AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule) | Skapar en servers brand Väggs regler. | 
+| [AZ SQL-redundans – grupp skapa](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Skapar en grupp för redundans. | 
 
 ---
 
-## <a name="3---test-failover"></a>3 - Testa redundans 
-I det här steget kommer du att växla över redundansgruppen till den sekundära servern och sedan växla tillbaka med Azure-portalen. 
+## <a name="3---test-failover"></a>3-testa redundans 
+I det här steget kommer du inte att kunna redundansväxla gruppen till den sekundära servern och sedan växla tillbaka med Azure Portal. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Testa redundans med Azure-portalen. 
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
+Testa redundans med Azure Portal. 
 
-1. Välj **Azure SQL** i menyn till vänster i [Azure-portalen](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du Alla **tjänster**och skriver sedan Azure SQL i sökrutan. (Valfritt) Välj stjärnan bredvid **Azure SQL** för att göra den favorit och lägg till den som ett objekt i vänsternavigering. 
-1. Markera den enda databas som skapats `mySampleDatbase`i avsnitt 2, till exempel . 
-1. Välj namnet på servern under **Servernamn** för att öppna inställningarna för servern.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
+1. Välj den enkla databasen som `mySampleDatbase`skapades i avsnitt 2, till exempel. 
+1. Välj namnet på servern under **Server namn** för att öppna inställningarna för servern.
 
-   ![Öppna server för en enda db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+   ![Öppna Server för enskild databas](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 
-1. Välj **Redundansk grupper** under fönstret **Inställningar** och välj sedan den redundansgrupp som du skapade i avsnitt 2. 
+1. Välj **grupper för växling vid fel** i fönstret **Inställningar** och välj sedan den grupp för växling vid fel som du skapade i avsnitt 2. 
   
-   ![Välj redundansgruppen från portalen](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
+   ![Välj gruppen redundans från portalen](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. Granska vilken server som är primär och vilken server som är sekundär. 
-1. Välj **Redundans** i åtgärdsfönstret om du vill redundansdrigeringsgruppen som innehåller exempeldatabasen. 
-1. Välj **Ja** på varningen som meddelar dig att TDS-sessioner kommer att kopplas från. 
+1. Välj **redundans** från åtgärds fönstret för att Redundansväxla din redundanskonfiguration som innehåller din exempel enkla databas. 
+1. Välj **Ja** i varningen som meddelar dig att TDS-sessioner kommer att kopplas bort. 
 
-   ![Växla över redundansgruppen som innehåller SQL-databasen](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
+   ![Redundansväxla din failover-grupp som innehåller din SQL-databas](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
-1. Granska vilken server som nu är primär och vilken server som är sekundär. Om fail over lyckades, bör de två servrarna ha bytt roller. 
-1. Välj **Redundans** igen om du vill att servrarna inte ska kunna återgå till sina ursprungliga roller. 
+1. Granska den server som nu är primär och vilken server som är sekundär. Om redundans har slutförts ska de två servrarna ha växlade roller. 
+1. Välj **redundans** igen för att återställa servrarna till deras ursprungliga roller. 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Testa redundans med PowerShell. 
 
 
-Kontrollera rollen för den sekundära repliken: 
+Kontrol lera den sekundära replikens roll: 
 
    ```powershell-interactive
    # Set variables
@@ -241,7 +241,7 @@ Kontrollera rollen för den sekundära repliken:
       -ServerName $drServerName).ReplicationRole
    ```
 
-Växla över till den sekundära servern: 
+Redundansväxla till den sekundära servern: 
 
    ```powershell-interactive
    # Set variables
@@ -258,7 +258,7 @@ Växla över till den sekundära servern:
    Write-host "Failed failover group successfully to" $drServerName 
    ```
 
-Återgår till redundansgruppen till den primära servern:
+Återställ redundansväxlingen tillbaka till den primära servern:
 
    ```powershell-interactive
    # Set variables
@@ -275,19 +275,19 @@ Växla över till den sekundära servern:
    Write-host "Failed failover group successfully back to" $serverName
    ```
 
-Den här delen av självstudien använder följande PowerShell-cmdlets:
+I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Redundansgrupper för Azure SQL Database. |
-| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundans för en redundansgrupp för Azure SQL Database. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Azure SQL Database redundans grupper. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundansväxling av en Azure SQL Database redundans grupp. |
 
 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Testa redundans med AZ CLI. 
 
-Kontrollera vilken server som är den sekundära:
+Verifiera vilken server som är sekundär:
 
    
    ```azurecli-interactive
@@ -295,7 +295,7 @@ Kontrollera vilken server som är den sekundära:
    az sql failover-group list --server $server --resource-group $resourceGroup
    ```
 
-Växla över till den sekundära servern: 
+Redundansväxla till den sekundära servern: 
 
    ```azurecli-interactive
    echo "Failing over group to the secondary server..."
@@ -303,7 +303,7 @@ Växla över till den sekundära servern:
    echo "Successfully failed failover group over to" $failoverServer
    ```
 
-Återgår till redundansgruppen till den primära servern:
+Återställ redundansväxlingen tillbaka till den primära servern:
 
    ```azurecli-interactive
    echo "Failing over group back to the primary server..."
@@ -311,28 +311,28 @@ Växla över till den sekundära servern:
    echo "Successfully failed failover group back to" $server
    ```
 
-Den här delen av självstudien använder följande Az CLI-cmdlets:
+Den här delen av självstudien använder följande AZ CLI-cmdletar:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [lista över redundansgrupp i AZ SQL](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Visar en lista över redundansgrupper på en server. |
-| [az sql failover-grupp set-primär](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Ange den primära för redundansgruppen genom att växla över alla databaser från den aktuella primära servern. | 
+| [AZ SQL-redundans – grupp lista](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Visar en lista över failover-grupper på en server. |
+| [AZ SQL-redundans – grupp uppsättning – primär](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Ange den primära gruppen för redundans genom att redundansväxla alla databaser från den aktuella primära servern. | 
 
 ---
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
-Rensa resurser genom att ta bort resursgruppen. 
+Rensa resurser genom att ta bort resurs gruppen. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Ta bort resursgruppen med Azure-portalen. 
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
+Ta bort resurs gruppen med hjälp av Azure Portal. 
 
-1. Navigera till din resursgrupp i [Azure-portalen](https://portal.azure.com).
-1. Välj **Ta bort resursgrupp** om du vill ta bort alla resurser i gruppen och själva resursgruppen. 
-1. Skriv namnet på resursgruppen, `myResourceGroup`i textrutan och välj sedan Ta **bort** om du vill ta bort resursgruppen.  
+1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com).
+1. Välj **ta bort resurs grupp** för att ta bort alla resurser i gruppen, samt själva resurs gruppen. 
+1. Skriv namnet på resurs gruppen `myResourceGroup`, i text rutan och välj sedan **ta bort** för att ta bort resurs gruppen.  
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Ta bort resursgruppen med PowerShell. 
+Ta bort resurs gruppen med hjälp av PowerShell. 
 
    ```powershell-interactive
    # Set variables
@@ -344,15 +344,15 @@ Ta bort resursgruppen med PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
-Den här delen av självstudien använder följande PowerShell-cmdlets:
+I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp | 
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp | 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Ta bort resursgruppen med hjälp av AZ CLI. 
+Ta bort resurs gruppen med AZ CLI. 
 
 
    ```azurecli-interactive
@@ -361,9 +361,9 @@ Ta bort resursgruppen med hjälp av AZ CLI.
    echo "Successfully removed resource group" $resourceGroup
    ```
 
-Den här delen av självstudien använder följande Az CLI-cmdlets:
+Den här delen av självstudien använder följande AZ CLI-cmdletar:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
@@ -371,29 +371,29 @@ Den här delen av självstudien använder följande Az CLI-cmdlets:
 
 
 > [!IMPORTANT]
-> Om du vill behålla resursgruppen men ta bort den sekundära databasen tar du bort den från redundansgruppen innan du tar bort den. Om du tar bort en sekundär databas innan den tas bort från redundansgruppen kan det orsaka oförutsägbart beteende. 
+> Om du vill behålla resurs gruppen men ta bort den sekundära databasen tar du bort den från gruppen växling vid fel innan du tar bort den. Om du tar bort en sekundär databas innan den tas bort från redundans gruppen kan det orsaka oförutsägbart beteende. 
 
 
 ## <a name="full-scripts"></a>Fullständiga skript
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
-| [Ny-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brandväggsregel för en logisk server. | 
-| [Ny-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en ny enda Azure SQL Database-databas. | 
-| [Nya-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Skapar en ny redundansgrupp. |
-| [Hämta AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Hämtar en eller flera SQL-databaser. |
-| [Tillägg-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera Azure SQL-databaser i en redundansgrupp. |
-| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Redundansgrupper för Azure SQL Database. |
-| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundans för en redundansgrupp för Azure SQL Database. |
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp | 
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brand Väggs regel för en logisk server. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en ny Azure SQL Database enskild databas. | 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Skapar en ny grupp för redundans. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Hämtar en eller flera SQL-databaser. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Lägger till en eller flera Azure SQL-databaser i en failover-grupp. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar eller listar Azure SQL Database redundans grupper. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Kör en redundansväxling av en Azure SQL Database redundans grupp. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp | 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -401,35 +401,35 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [az-kontouppsättning](/cli/azure/account?view=azure-cli-latest#az-account-set) | Anger att en prenumeration ska vara den aktuella aktiva prenumerationen. | 
+| [AZ-konto uppsättning](/cli/azure/account?view=azure-cli-latest#az-account-set) | Anger att en prenumeration är den aktuella aktiva prenumerationen. | 
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [az sql server brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule) | Skapar en servers brandväggsregler. | 
+| [AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule) | Skapar en servers brand Väggs regler. | 
 | [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Skapar en databas. | 
-| [az sql failover-grupp skapa](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Skapar en redundansgrupp. | 
-| [lista över redundansgrupp i AZ SQL](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Visar en lista över redundansgrupper på en server. |
-| [az sql failover-grupp set-primär](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Ange den primära för redundansgruppen genom att växla över alla databaser från den aktuella primära servern. | 
+| [AZ SQL-redundans – grupp skapa](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Skapar en grupp för redundans. | 
+| [AZ SQL-redundans – grupp lista](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Visar en lista över failover-grupper på en server. |
+| [AZ SQL-redundans – grupp uppsättning – primär](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Ange den primära gruppen för redundans genom att redundansväxla alla databaser från den aktuella primära servern. | 
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-Det finns inga skript tillgängliga för Azure-portalen. 
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
+Det finns inga tillgängliga skript för Azure Portal. 
  
 ---
 
-Du hittar andra Azure SQL Database-skript här: [Azure PowerShell](sql-database-powershell-samples.md) och [Azure CLI](sql-database-cli-samples.md). 
+Du kan hitta andra Azure SQL Database skript här: [Azure PowerShell](sql-database-powershell-samples.md) och [Azure CLI](sql-database-cli-samples.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till en enda Azure SQL Database-databas i en redundansgrupp och testade redundans. Du har lärt dig att: 
+I den här självstudien har du lagt till en Azure SQL Database enkel databas i en failover-grupp och testat redundansväxlingen. Du har lärt dig att: 
 
 > [!div class="checklist"]
-> - Skapa en enda Azure SQL-databas. 
-> - Skapa en [redundansk grupp](sql-database-auto-failover-group.md) för en enskild databas mellan två logiska SQL-servrar.
-> - Testa redundans.
+> - Skapa en Azure SQL Database enskild databas. 
+> - Skapa en [failover-grupp](sql-database-auto-failover-group.md) för en enskild databas mellan två logiska SQL-servrar.
+> - Redundanstest.
 
-Gå vidare till nästa självstudiekurs om hur du lägger till din elastiska pool i en redundansgrupp. 
+Gå vidare till nästa självstudie om hur du lägger till en elastisk pool i en failover-grupp. 
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Lägga till en elastisk Azure SQL Database-pool i en redundansgrupp](sql-database-elastic-pool-failover-group-tutorial.md)
+> [Självstudie: lägga till en Azure SQL Database elastisk pool i en failover-grupp](sql-database-elastic-pool-failover-group-tutorial.md)

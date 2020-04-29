@@ -1,51 +1,51 @@
 ---
-title: Så här förbereder du ett projekt för Azure Dev Spaces
+title: Så här förbereder du ett projekt för Azure dev Spaces
 services: azure-dev-spaces
 ms.date: 03/24/2020
 ms.topic: conceptual
-description: Beskriver hur förberedelserna av projektet med Azure Dev Spaces fungerar
-keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare
+description: Beskriver hur du förbereder ditt projekt med Azure dev Spaces
+keywords: azds. yaml, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: 24a54fffdc8e94493d2a4a9aeb1c5f02dcd192b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241639"
 ---
-# <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Så här förbereder du ett projekt för Azure Dev Spaces
+# <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Så här förbereder du ett projekt för Azure dev Spaces
 
-Azure Dev Spaces ger dig flera sätt att snabbt iterera och felsöka Kubernetes-program och samarbeta med ditt team i ett AKS-kluster (Azure Kubernetes Service). Dev Spaces kan generera Dockerfiles och Helm-diagram för ditt projekt. Dev Spaces skapar och använder också en konfigurationsfil för distribution, körning och felsökning av Kubernetes-program i AKS. Alla dessa filer finns med programmets kod och kan läggas till i versionskontrollsystemet.
+Med Azure dev Spaces får du flera sätt att snabbt iterera och felsöka Kubernetes-program och samar beta med ditt team i ett Azure Kubernetes service-kluster (AKS). Dev Spaces kan generera Dockerfiles-och Helm-diagram för ditt projekt. Dev Spaces skapar och använder också en konfigurations fil för att distribuera, köra och felsöka dina Kubernetes-program i AKS. Alla dessa filer finns i program koden och kan läggas till i versions kontroll systemet.
 
-I den här artikeln beskrivs vad som händer med att förbereda projektet för att köras i AKS med Dev Spaces.
+I den här artikeln beskrivs vad som händer när du förbereder projektet för att köras i AKS med dev Spaces.
 
-## <a name="prepare-your-code"></a>Förbered koden
+## <a name="prepare-your-code"></a>Förbered din kod
 
-För att kunna köra ditt program i ett dev-utrymme måste det behållas och du måste definiera hur det ska distribueras till Kubernetes. Om du vill behålla programmet behöver du en Dockerfile. Om du vill definiera hur programmet distribueras till Kubernetes behöver du ett [Helm-diagram](https://docs.helm.sh/). För att hjälpa till att skapa både Dockerfile- och Helm-diagrammet för ditt program, ger klientverktygen `prep` kommandot:
+För att kunna köra programmet i ett dev-utrymme måste den vara containerd och du måste definiera hur det ska distribueras till Kubernetes. För att Använd ditt program behöver du en Dockerfile. Om du vill definiera hur programmet distribueras till Kubernetes behöver du ett [Helm-diagram](https://docs.helm.sh/). För att hjälpa till med att skapa både Dockerfile-och Helm-diagrammet för ditt program innehåller verktyg på klient `prep` sidan kommandot:
 
 ```cmd
 azds prep --enable-ingress
 ```
 
-Kommandot `prep` kommer att titta på filerna i projektet och försöka skapa Dockerfile och Helm-diagrammet för att köra ditt program i Kubernetes. För närvarande `prep` genererar kommandot ett Dockerfile- och Helm-diagram med följande språk:
+`prep` Kommandot tittar på filerna i projektet och försöker skapa Dockerfile-och Helm-diagrammet för att köra programmet i Kubernetes. För närvarande kommer `prep` kommandot att generera ett Dockerfile-och Helm-diagram med följande språk:
 
 * Java
 * Node.js
 * .NET Core
 
-Du *måste* `prep` köra kommandot från en katalog som innehåller källkod. Om `prep` du kör kommandot från rätt katalog kan verktyget på klientsidan identifiera språket och skapa en lämplig Dockerfile för att behålla programmet. Du kan också `prep` köra kommandot från en katalog som innehåller en *pom.xml-fil* för Java-projekt.
+Du *måste* köra `prep` kommandot från en katalog som innehåller käll koden. Genom att `prep` köra kommandot från rätt katalog kan verktyget på klient sidan identifiera språket och skapa en lämplig Dockerfile för att Använd ditt program. Du kan också köra `prep` kommandot från en katalog som innehåller en *Pom. XML-* fil för Java-projekt.
 
-Om du `prep` kör kommandot från katalogen som inte innehåller källkod genererar verktyget på klientsidan inte en Dockerfile. Det kommer också att visa ett fel som säger: *Dockerfile kunde inte genereras på grund av språk som inte stöds*. Det här felet uppstår också om verktygen på klientsidan inte känner igen projekttypen.
+Om du kör kommandot `prep` från en katalog som inte innehåller någon käll kod genererar klient sidans verktyg inget Dockerfile. Det visar också ett fel som säger: *Dockerfile kunde inte genereras på grund*av ett språk som inte stöds. Det här felet uppstår även om verktyg på klient sidan inte känner igen projekt typen.
 
-När du `prep` kör kommandot kan du välja `--enable-ingress` att ange flaggan. Den här flaggan talar om för styrenheten att skapa en internettillgänglig slutpunkt för den här tjänsten. Om du inte anger den här flaggan är tjänsten endast tillgänglig inifrån klustret eller med hjälp av den localhost-tunnel som skapats av klientverktyget. Du kan aktivera eller inaktivera `prep` det här beteendet när du har kört kommandot genom att uppdatera det genererade Helm-diagrammet.
+När du kör `prep` kommandot har du möjlighet att ange `--enable-ingress` flaggan. Den här flaggan anger att kontrollanten ska skapa en tillgänglig slut punkt för Internet för den här tjänsten. Om du inte anger den här flaggan är tjänsten bara tillgänglig i klustret eller med hjälp av den localhost-tunnel som skapats av klient sidans verktyg. Du kan aktivera eller inaktivera det här beteendet när `prep` du har kört kommandot genom att uppdatera det genererade Helm-diagrammet.
 
-Kommandot `prep` ersätter inte befintliga Dockerfiles- eller Helm-diagram som du har i projektet. Om ett befintligt Dockerfile- eller Helm-diagram använder samma `prep` namngivningskonvention som de filer som genereras av kommandot, hoppar `prep` kommandot över att generera dessa filer. Annars genererar `prep` kommandot ett eget Dockerfile- eller Helm-diagram längs sidan av de befintliga filerna.
+`prep` Kommandot kommer inte att ersätta några befintliga Dockerfiles-eller Helm-diagram som du har i projektet. Om ett befintligt Dockerfile-eller Helm-diagram använder samma namngivnings konvention som de filer som `prep` genereras av kommandot `prep` kommer kommandot att hoppa över genereringen av filerna. Annars genererar `prep` kommandot ett eget Dockerfile-eller Helm-diagram längs de befintliga filerna.
 
 > [!IMPORTANT]
-> Azure Dev Spaces använder Dockerfile- och Helm-diagrammet för att projektet ska kunna skapa och köra koden, men du kan ändra dessa filer om du vill ändra hur projektet byggs och körs.
+> I Azure dev Spaces används Dockerfile-och Helm-diagrammet för ditt projekt för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
-Kommandot `prep` genererar också `azds.yaml` en fil i projektets rot. Azure Dev Spaces använder den här filen för att skapa, installera, konfigurera och köra ditt program. Den här konfigurationsfilen visar platsen för Dockerfile- och Helm-diagrammet och ger även ytterligare konfiguration ovanpå dessa artefakter.
+`prep` Kommandot genererar även en `azds.yaml` fil i projektets rot. Azure dev Spaces använder den här filen för att skapa, installera, konfigurera och köra ditt program. Den här konfigurations filen visar platsen för ditt Dockerfile-och Helm-diagram och ger även ytterligare konfiguration ovanpå dessa artefakter.
 
-Här är ett exempel azds.yaml fil som skapats med [.NET Core exempelprogram:](https://github.com/Azure/dev-spaces/tree/master/samples/dotnetcore/getting-started/webfrontend)
+Här är ett exempel på en azds. yaml-fil som skapats med [.net Core-exempel program](https://github.com/Azure/dev-spaces/tree/master/samples/dotnetcore/getting-started/webfrontend):
 
 ```yaml
 kind: helm-release
@@ -92,18 +92,18 @@ configurations:
         - [dotnet, build, --no-restore, -c, "${BUILD_CONFIGURATION:-Debug}"]
 ```
 
-Filen `azds.yaml` som genereras `prep` av kommandot är avsedd att fungera för enkla, enda projektutvecklingsscenario. Om ditt specifika projekt har ökat komplexiteten kan du `prep` behöva uppdatera filen efter att ha kört kommandot. Projektet kan till exempel kräva vissa ändringar i bygg- eller startprocessen baserat på dina utvecklings- eller felsökningsbehov. Du kan också ha flera program i projektet, som kräver flera byggprocesser eller ett annat bygginnehåll.
+`azds.yaml` Filen som genereras av `prep` kommandot är avsedd att fungera för ett enkelt scenario med en enda projekt utveckling. Om det aktuella projektet har ökad komplexitet kan du behöva uppdatera filen när du har kört `prep` kommandot. Ditt projekt kan till exempel kräva vissa ändringar i din build-eller start process utifrån dina utvecklings-eller fel söknings behov. Du kan också ha flera program i projektet, vilket kräver flera Bygg processer eller ett annat build-innehåll.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kör koden i ditt utvecklingsutrymme finns i [Så här fungerar du när du kör koden med Azure Dev Spaces][how-it-works-up].
+Mer information om hur du kör din kod i ditt utvecklings utrymme finns i [så här kör du din kod med Azure dev Spaces][how-it-works-up].
 
-Information om hur du kommer igång med Azure Dev Spaces för att förbereda projektet för Azure Dev Space finns i följande snabbstarter:
+För att komma igång med Azure dev Spaces för att förbereda projektet för Azure dev Space, se följande snabb starter:
 
-* [Snabbt iterera och felsöka med Visual Studio Code och Java][quickstart-java]
-* [Snabbt iterera och felsöka med Visual Studio-kod och .NET][quickstart-netcore]
-* [Snabbt iterera och felsöka med Visual Studio-kod och Node.js][quickstart-node]
-* [Snabbt iterera och felsöka med Visual Studio och .NET Core][quickstart-vs]
+* [Upprepa och Felsök snabbt med Visual Studio Code och Java][quickstart-java]
+* [Upprepa och Felsök snabbt med Visual Studio Code och .NET][quickstart-netcore]
+* [Upprepa och Felsök snabbt med Visual Studio Code och Node. js][quickstart-node]
+* [Upprepa och Felsök snabbt med Visual Studio och .NET Core][quickstart-vs]
 * [Använda CLI för att utveckla ett program på Kubernetes][quickstart-cli]
 
 [how-it-works-up]: how-dev-spaces-works-up.md

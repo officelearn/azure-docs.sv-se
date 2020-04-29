@@ -1,7 +1,7 @@
 ---
 title: Finjustera hyperparametrar för modell
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Tune Model Hyperparameters i Azure Machine Learning för att utföra ett parametersvep på en modell för att avgöra de optimala parameterinställningarna.
+description: Lär dig hur du använder modulen finjustera Modellets standardparametrar i Azure Machine Learning för att utföra en parameter rensning på en modell för att fastställa de optimala parameter inställningarna.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,144 +10,144 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: ff0ccbf201f2b83dd446859d8054d115a70f402e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064165"
 ---
 # <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
-I den här artikeln beskrivs hur du använder modulen Tune Model Hyperparameters i Azure Machine Learning designer (förhandsversion). Målet är att bestämma de optimala hyperparametrarna för en maskininlärningsmodell. Modulen bygger och testar flera modeller med hjälp av olika kombinationer av inställningar. Den jämför mått över alla modeller för att få kombinationer av inställningar. 
+I den här artikeln beskrivs hur du använder modulen finjustera modells för hands parametrar i Azure Machine Learning designer (för hands version). Målet är att fastställa de optimala egenskaperna för en maskin inlärnings modell. Modulen bygger och testar flera modeller genom att använda olika kombinationer av inställningar. Den jämför mått över alla modeller för att hämta kombinationer av inställningar. 
 
-*Termparametern* och *hyperparametern* kan vara förvirrande. Modellens *parametrar* är vad du anger i modulens högra fönsterruta. I grund och botten utför den här modulen en *parameter svepning* över de angivna parameterinställningarna. Den lär sig en optimal uppsättning _hyperparametrar_, som kan vara olika för varje specifikt beslutsträd, datauppsättning eller regressionsmetod. Processen att hitta den optimala konfigurationen kallas ibland *tuning*. 
+Villkors *parametern* och den andra *parametern* kan vara förvirrande. Modellens *parametrar* är det du anger i den högra rutan i modulen. I princip utför den här modulen en *parameter rensning* över de angivna parameter inställningarna. Den lär sig en optimal uppsättning av _grundparametrar_, som kan vara olika för varje särskilt besluts träd, data uppsättning eller Regressions metod. Processen för att hitta den optimala konfigurationen kallas ibland *justering*. 
 
-Modulen stöder följande metod för att hitta de optimala inställningarna för en modell: *integrerat tåg och melodi.* I den här metoden konfigurerar du en uppsättning parametrar som ska användas. Du låter sedan modulen iterera över flera kombinationer. Modulen mäter noggrannheten tills den hittar en "bästa" modell. Med de flesta elevmoduler kan du välja vilka parametrar som ska ändras under utbildningsprocessen och vilka som ska vara fasta.
+Modulen stöder följande metod för att hitta de optimala inställningarna för en modell: *integrerat tåg och finjustera.* I den här metoden konfigurerar du en uppsättning parametrar som ska användas. Sedan kan du låta modulen iterera över flera kombinationer. Modulen mäter precision tills den hittar en "bästa" modell. Med de flesta lärare-moduler kan du välja vilka parametrar som ska ändras under inlärnings processen och vilka som ska förbli fasta.
 
-Beroende på hur länge du vill att justeringsprocessen ska köras kan du bestämma dig för att testa alla kombinationer på ett uttömmande sätt. Du kan också förkorta processen genom att upprätta ett rutnät med parameterkombinationer och testa en randomiserad delmängd av parameterrutnätet.
+Beroende på hur länge du vill att justerings processen ska köras, kan du välja att prova alla kombinationer på ett omfattande sätt. Eller så kan du förkorta processen genom att skapa ett rutnät med parameter kombinationer och testa en slumpmässig del uppsättning av parameter rutnätet.
 
-Den här metoden genererar en tränad modell som du kan spara för återanvändning.  
+Den här metoden skapar en utbildad modell som du kan spara för åter användning.  
 
 > [!TIP] 
-> Du kan utföra en relaterad uppgift. Innan du börjar justera använder du funktionsval för att bestämma vilka kolumner eller variabler som har det högsta informationsvärdet.
+> Du kan utföra en relaterad uppgift. Innan du börjar justera ska du använda val av funktioner för att fastställa vilka kolumner eller variabler som har det högsta värdet information.
 
-## <a name="how-to-configure-tune-model-hyperparameters"></a>Konfigurera Tune Model Hyperparameters  
+## <a name="how-to-configure-tune-model-hyperparameters"></a>Så här konfigurerar du justerings modellens egenskaper  
 
-Att lära sig de optimala hyperparametrarna för en maskininlärningsmodell kräver stor användning av rörledningar.
+Inlärning av de optimala egenskaperna för en maskin inlärnings modell kräver stor användning av pipeliner.
 
-### <a name="train-a-model-by-using-a-parameter-sweep"></a>Träna en modell med hjälp av ett parametervep  
+### <a name="train-a-model-by-using-a-parameter-sweep"></a>Träna en modell genom att använda en parameter Svep  
 
-I det här avsnittet beskrivs hur du utför ett grundläggande parametervep, som tränar en modell med hjälp av modulen Tune Model Hyperparameters.
+I det här avsnittet beskrivs hur du utför en grundläggande parameter rensning, som tågen en modell med hjälp av modulen för att finjustera modellens standardparametrar.
 
-1.  Lägg till modulen Tune Model Hyperparameters i pipelinen i designern.
+1.  Lägg till modulen för att finjustera modellens standardparametrar till din pipeline i designern.
 
-2.  Anslut en otränad modell till den vänstra ingången. 
+2.  Anslut en modell som inte är tränad till intill vänster. 
 
 
 
-4.  Lägg till den datauppsättning som du vill använda för utbildning och anslut den till den mellersta inmatningen av Tune Model Hyperparametrar.  
+4.  Lägg till den data uppsättning som du vill använda för utbildning och Anslut den till den mittersta indatan för justerings modellens parametrar.  
 
-    Om du har en taggad datauppsättning kan du ansluta den till den högra indataporten (**Valfri valideringsdatauppsättning**). På så sätt kan du mäta noggrannheten under träning och justering.
+    Om du har en taggad data uppsättning kan du ansluta den till porten längst till höger (**valfri verifierings data uppsättning**). På så sätt kan du mäta noggrannhet medan du tränar och justerar.
 
-5.  På den högra panelen i Tune Model Hyperparametrar väljer du ett värde för **parametersvepningsläge**. Det här alternativet styr hur parametrarna är markerade.
+5.  Välj ett värde för **parameter rensnings läge**i den högra panelen om du vill justera modellens egenskaper. Det här alternativet styr hur parametrarna väljs.
 
-    - **Hela rutnätet**: När du väljer det här alternativet loopar modulen över ett rutnät som är fördefinierat av systemet, för att prova olika kombinationer och identifiera den bästa eleven. Det här alternativet är användbart när du inte vet vad de bästa parameterinställningarna kan vara och vill prova alla möjliga kombinationer av värden.
+    - **Hela rutnätet**: när du väljer det här alternativet upprepas modulen över ett rutnät som är fördefinierat i systemet, för att testa olika kombinationer och identifiera den bästa bättre eleven. Det här alternativet är användbart när du inte vet vad de bästa parameter inställningarna kan vara och vill testa alla möjliga kombinationer av värden.
 
-    - **Slumpmässigt svep:** När du väljer det här alternativet väljer modulen slumpmässigt parametervärden över ett systemdefinierat område. Du måste ange det maximala antalet körningar som du vill att modulen ska köra. Det här alternativet är användbart när du vill öka modellens prestanda genom att använda de mått som du väljer men ändå spara datorresurser.    
+    - **Slumpmässig svep**: när du väljer det här alternativet kommer modulen slumpmässigt att välja parameter värden över ett Systemdefinierat intervall. Du måste ange det maximala antalet körningar som du vill att modulen ska köra. Det här alternativet är användbart när du vill öka modell prestandan genom att använda de mått som du väljer, men ändå spara dator resurser.    
 
-6.  För **kolumnen Etikett**öppnar du kolumnväljaren för att välja en kolumn med en etikett.
+6.  För **kolumnen etikett**öppnar du kolumn väljaren för att välja en enskild etikett kolumn.
 
 7.  Välj antal körningar:
 
-    1. **Maximalt antal körningar på slumpmässigt svep:** Om du väljer ett slumpmässigt svep kan du ange hur många gånger modellen ska tränas genom att använda en slumpmässig kombination av parametervärden.
+    1. **Maximalt antal körningar vid slumpmässig svep**: om du väljer en slumpmässig svep kan du ange hur många gånger modellen ska tränas genom att använda en slumpmässig kombination av parameter värden.
 
-8.  För **Rankning**väljer du ett enda mått som ska användas för rangordning av modellerna.
+8.  I **rangordning**väljer du ett mått som ska användas för att rangordna modellerna.
 
-    När du kör ett parametervep beräknar modulen alla tillämpliga mått för modelltypen och returnerar dem i rapporten **Rensa resultat.** Modulen använder separata mått för regressions- och klassificeringsmodeller.
+    När du kör en parameter rensning beräknar modulen alla tillämpliga mått för modell typen och returnerar dem i rapporten **svep resultat** . Modulen använder separata mått för Regressions-och klassificerings modeller.
 
-    Det mått som du väljer avgör dock hur modellerna rangordnas. Endast den översta modellen, som rangordnas av det valda måttet, är utdata som en tränad modell som ska användas för bedömning.
+    Men det mått du väljer avgör hur modellerna rangordnas. Endast den översta modellen, som rangordnas av det valda måttet, är utdata som en utbildad modell som kan användas för poängsättning.
 
-9.  För **Slumputsäde**anger du ett tal som ska användas för att starta parametervepningen. 
+9.  För **slumpmässigt utsäde**anger du ett tal som ska användas för att starta parametern svep. 
 
 10. Skicka pipelinen.
 
-## <a name="results-of-hyperparameter-tuning"></a>Resultat av hyperparameterjustering
+## <a name="results-of-hyperparameter-tuning"></a>Resultat av inställning av min parameter
 
-När utbildningen är klar:
+När inlärningen är klar:
 
-+ Om du vill visa en uppsättning noggrannhetsmått för den bästa modellen högerklickar du på modulen och väljer sedan **Visualisera**.
++ Om du vill visa en uppsättning noggrannhets mått för den bästa modellen högerklickar du på modulen och väljer **visualisera**.
 
-    Utdata innehåller alla noggrannhetsmått som gäller för modelltypen, men måttet som du valde för rangordning avgör vilken modell som anses vara "bäst".
+    Utdata innehåller alla noggrannhets mått som gäller för modell typen, men måttet som du har valt för rangordning avgör vilken modell som betraktas som "bäst".
 
-+ Om du vill spara en ögonblicksbild av den tränade modellen väljer du fliken **Utdata** på den högra panelen i **tågmodellmodulen.** Välj ikonen **Registrera datauppsättning** om du vill spara modellen som en återanvändbar modul.
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
 
-## <a name="technical-notes"></a>Tekniska anmärkningar
+## <a name="technical-notes"></a>Tekniska anteckningar
 
-Det här avsnittet innehåller information om implementering och tips.
+Det här avsnittet innehåller implementerings information och tips.
 
-### <a name="how-a-parameter-sweep-works"></a>Så här fungerar ett parametersvep
+### <a name="how-a-parameter-sweep-works"></a>Så här fungerar en parameter Svep
 
-När du ställer in ett parametervep definierar du sökningens omfattning. Sökningen kan använda ett begränsat antal parametrar som valts slumpmässigt. Eller så kan det vara en uttömmande sökning över ett parameterutrymme som du definierar.
+När du ställer in en parameter rensning definierar du omfattningen för din sökning. Sökningen kan använda ett begränsat antal parametrar som marker ATS slumpmässigt. Eller så kan det vara en fullständig sökning över ett parameter utrymme som du definierar.
 
-+ **Slumpmässigt svep:** Det här alternativet tränar en modell med hjälp av ett fast antal iterationer. 
++ **Slumpmässig svep**: det här alternativet tränar en modell genom att använda ett angivet antal iterationer. 
 
-  Du anger ett värdeintervall som du vill iterera över och modulen använder en slumpmässigt vald delmängd av dessa värden. Värden väljs med ersättning, vilket innebär att tal som tidigare valts slumpmässigt inte tas bort från poolen med tillgängliga nummer. Så chansen att något värde väljs förblir densamma över alla pass.  
+  Du anger ett intervall med värden att iterera över och modulen använder en slumpmässigt vald delmängd av dessa värden. Värdena väljs med ersättning, vilket innebär att de siffror som tidigare valdes slumpmässigt inte tas bort från poolen med tillgängliga nummer. Det innebär att risken för alla värden som väljs förblir samma för alla pass.  
 
-+ **Hela rutnätet**: Alternativet att använda hela rutnätet innebär att varje kombination testas. Det här alternativet är det mest grundliga, men det tar mest tid. 
++ **Hela rutnätet**: alternativet att använda hela rutnätet innebär att varje kombination testas. Det här alternativet är det mest grundliga, men det kräver den mest aktuella tiden. 
 
-### <a name="controlling-the-length-and-complexity-of-training"></a>Kontrollera utbildningens längd och komplexitet
+### <a name="controlling-the-length-and-complexity-of-training"></a>Kontrol lera längden och komplexiteten för utbildningen
 
-Det kan vara tidskrävande att iterera över många kombinationer av inställningar, så modulen innehåller flera sätt att begränsa processen:
+Det kan vara tids krävande att iterera över många kombinationer av inställningar, så att modulen ger flera olika sätt att begränsa processen:
 
 + Begränsa antalet iterationer som används för att testa en modell.
-+ Begränsa parameterutrymmet.
-+ Begränsa både antalet iterationer och parameterutrymmet.
++ Begränsa parameter utrymmet.
++ Begränsa både antalet iterationer och parameter utrymmet.
 
-Vi rekommenderar att du pipeline med inställningarna för att bestämma den mest effektiva metoden för utbildning på en viss datauppsättning och modell.
+Vi rekommenderar att du förloppet med inställningarna för att fastställa den mest effektiva metoden för utbildning på en viss data uppsättning och modell.
 
-### <a name="choosing-an-evaluation-metric"></a>Välja ett utvärderingsmått
+### <a name="choosing-an-evaluation-metric"></a>Välja ett utvärderings mått
 
-I slutet av testningen presenterar modellen en rapport som innehåller noggrannheten för varje modell så att du kan granska mätresultaten:
+I slutet av testet visar modellen en rapport som innehåller precisionen för varje modell så att du kan granska mått resultatet:
 
-- En enhetlig uppsättning mått används för alla binära klassificeringsmodeller.
-- Noggrannhet används för alla klassificeringsmodeller i flera klasser.
-- En annan uppsättning mått används för regressionsmodeller. 
+- En enhetlig uppsättning mått används för alla binära klassificerings modeller.
+- Noggrannhet används för alla klassificerings modeller med flera klasser.
+- En annan uppsättning mått används för Regressions modeller. 
 
-Under träningen måste du dock välja ett *enda* mått som ska användas i rangordningen av de modeller som genereras under justeringsprocessen. Du kanske upptäcker att det bästa måttet varierar beroende på ditt affärsproblem och kostnaden för falska positiva och falska negativ.
+Under utbildningen måste du dock välja ett *enda* mått som ska användas för att rangordna de modeller som genereras under justerings processen. Du kanske upptäcker att det bästa måttet varierar, beroende på ditt företags problem och kostnaden för falska positiva identifieringar och falska negativa negativa.
 
 #### <a name="metrics-used-for-binary-classification"></a>Mått som används för binär klassificering
 
--   **Noggrannhet** är andelen verkliga resultat till totala fall.  
+-   **Noggrannhet** är den andel av sant resultat som det totala antalet fall.  
 
--   **Precision** är andelen verkliga resultat till positiva resultat.  
+-   **Precision** är proportionen för sanna resultat till positiva resultat.  
 
--   **Recall** är fraktionen av alla korrekta resultat över alla resultat.  
+-   **Åter kallelse** är del av alla korrekta resultat över alla resultat.  
 
--   **F-poäng** är ett mått som balanserar precision och återkallande.  
+-   **F-score** är ett mått som balanserar precision och återkallande.  
 
--   **AUC** är ett värde som representerar området under kurvan när falska positiva identifieringar ritas på x-axeln och sanna positiva ritas på y-axeln.  
+-   **AUC** är ett värde som representerar ytan under kurvan när falska positiva identifieringar ritas på x-axeln och sanna positiva resultat ritas på y-axeln.  
 
--   **Genomsnittlig loggförlust** är skillnaden mellan två sannolikhetsfördelningar: den sanna och den i modellen.  
+-   **Genomsnittlig logg förlust** är skillnaden mellan två sannolikhets fördelningar: den sanna och den som finns i modellen.  
 
 #### <a name="metrics-used-for-regression"></a>Mått som används för regression
 
--   **Genomsnittligt absolut fel** genomsnitt alla fel i modellen, där *fel* innebär avståndet för det förväntade värdet från det sanna värdet. Det är ofta förkortat *MAE*.  
+-   Medelvärde för **medelvärdet av absoluta fel** beräknar alla fel i modellen, där *felet* betyder avståndet från det förväntade värdet från det sanna värdet. Det är ofta förkortat som *Mae*.  
 
--   **Roten till medelvärdet för kvadratfel** mäter medelvärdet av felens rutor och tar sedan roten till det värdet. Det är ofta förkortat *RMSE*.  
+-   **Roten av medelvärdet i ett kvadratvärde** mäter medelvärdet av fel rutornas kvadrat och använder sedan roten för det värdet. Det är ofta förkortat som *rmse*.  
 
--   **Relativt absolut fel** representerar felet som en procentandel av det verkliga värdet.  
+-   Ett **relativt absolut fel** representerar felet som en procent andel av det sanna värdet.  
 
--   **Relativt fyrkantigt fel** normaliserar det totala kvadratfelet genom att dividera med det totala kvadratfelet för de förväntade värdena.  
+-   **Ett relativt kvadratvärde** normaliserar det totala antalet fel i kvadratvärdet genom att dividera med det totala antalet fel i det förväntade värdet.  
 
--   **Bestämningskoefficienten** är ett enda tal som anger hur väl data passar en modell. Ett värde på en innebär att modellen exakt matchar data. Värdet noll innebär att data är slumpmässiga eller på annat sätt inte kan passa modellen. Det kallas ofta *r<sup>2,</sup>* *R<sup>2</sup>*, eller *r-kvadrat*.  
+-   **Koefficienten för bestämning** är ett enda tal som anger hur bra data passar en modell. Värdet ett innebär att modellen exakt matchar data. Värdet noll innebär att data är slumpmässiga eller på annat sätt inte får plats i modellen. Det kallas ofta *r<sup>2</sup>*, *r<sup>2</sup>* eller *r-kvadratvärdet*.  
 
-### <a name="modules-that-dont-support-a-parameter-sweep"></a>Moduler som inte stöder ett parametersvep
+### <a name="modules-that-dont-support-a-parameter-sweep"></a>Moduler som inte stöder en parameter-Svep
 
-Nästan alla elever i Azure Machine Learning stöder korsvalidering med ett integrerat parametervep, vilket gör att du kan välja parametrarna att pipeline med. Om eleven inte stöder att ange ett värdeintervall kan du fortfarande använda det i korsvalidering. I det här fallet väljs ett intervall med tillåtna värden för svepet. 
+Nästan alla lär i Azure Machine Learning stöd för kors validering med en integrerad parameter rensning, vilket gör att du kan välja vilka parametrar som ska användas för pipeline. Om eleven inte har stöd för att ange ett värde intervall kan du fortfarande använda det vid kors validering. I det här fallet väljs ett intervall med tillåtna värden för svepet. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 

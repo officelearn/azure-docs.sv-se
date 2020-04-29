@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Foodee | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Foodee.
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med en livsmedelsingrediens | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och en livsmedelsingrediens.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,151 +17,151 @@ ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16e7c7e676737df7e755aa4e602f8ceabd8a002f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72373192"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-foodee"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Foodee
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-foodee"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med en livsmedelsingrediens
 
-I den här självstudien får du lära dig hur du integrerar Foodee med Azure Active Directory (Azure AD). När du integrerar Foodee med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar en livsmedelsingrediens med Azure Active Directory (Azure AD). När du integrerar en livsmedelsingrediens med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Foodee.
-* Gör att användarna automatiskt loggas in på Foodee med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Kontroll i Azure AD som har till gång till en livsmedelsingrediens.
+* Gör det möjligt för användarna att logga in automatiskt till en livsmedelsingrediens med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Foodee enkel inloggning (SSO) aktiverat prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* En prenumeration med enkel inloggning (SSO) för livsmedelsproducerande mat som är aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Foodee stöder **SP och IDP** initierade SSO
-* Foodee stöder **Just In Time** användare etablering
+* Livsmedelsingrediensen stöder **SP-och IDP** -INITIERAd SSO
+* Livsmedelsingrediensen stöder **just-in-Time** User-etablering
 
 > [!NOTE]
-> Identifieraren för det här programmet är ett fast strängvärde så att endast en instans kan konfigureras i en klient.
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
-## <a name="adding-foodee-from-the-gallery"></a>Lägga till Foodee från galleriet
+## <a name="adding-foodee-from-the-gallery"></a>Lägga till en livsmedelsingrediens från galleriet
 
-Om du vill konfigurera integreringen av Foodee i Azure AD måste du lägga till Foodee från galleriet i listan över hanterade SaaS-appar.
+Du måste lägga till en livsmedelsingrediens från galleriet till din lista över hanterade SaaS-appar för att konfigurera integrering av livsmedelsingrediensen i Azure AD.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Foodee** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Foodee** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Skriv en **livsmedelsingrediens** i sökrutan i avsnittet **Lägg till från galleriet** .
+1. Välj **mat** i panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-foodee"></a>Konfigurera och testa en enda Azure AD-inloggning för Foodee
+## <a name="configure-and-test-azure-ad-single-sign-on-for-foodee"></a>Konfigurera och testa enkel inloggning med Azure AD för mat man
 
-Konfigurera och testa Azure AD SSO med Foodee med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Foodee.
+Konfigurera och testa Azure AD SSO med en livsmedelsingrediens med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i en livsmedelsingrediens.
 
-Om du vill konfigurera och testa Azure AD SSO med Foodee slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med en livsmedelsingrediens slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Foodee SSO](#configure-foodee-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa Foodee-testanvändare](#create-foodee-test-user)** – om du vill ha en motsvarighet till B.Simon i Foodee som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera en livsmedelsingrediens](#configure-foodee-sso)** med enkel inloggning för att konfigurera inställningar för enkel inloggning på program sidan.
+    1. Skapa en underställnings **[test användare](#create-foodee-test-user)** – för att få en motsvarighet till B. Simon i en livsmedelsingrediens som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet **Foodee** Hantera på sidan **Hantera** i [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/), på sidan för program integrering av **foder** , letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    Skriv en URL med följande mönster i textrutan **Svara URL:**`https://concierge.food.ee/sso/saml/<INSTANCENAME>/consume`
+    Skriv en URL i text rutan **svars-URL** med följande mönster:`https://concierge.food.ee/sso/saml/<INSTANCENAME>/consume`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://concierge.food.ee/sso/saml/<INSTANCENAME>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://concierge.food.ee/sso/saml/<INSTANCENAME>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [Foodee Client supportteam](mailto:dev@food.ee) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [klient support teamet](mailto:dev@food.ee) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **XML för federationsmetadata** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera Foodee** baserat på dina krav.
+1. I avsnittet **Konfigurera en livsmedelsingrediens** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Foodee.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till en livsmedelsingrediens.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **Foodee**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **mat**man.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-### <a name="configure-foodee-sso"></a>Konfigurera Foodee SSO
+### <a name="configure-foodee-sso"></a>Konfigurera enkel inloggning för livsmedelsingredienser
 
-1. Om du vill automatisera konfigurationen i Foodee måste du installera **webbläsartillägget My Apps Secure Sign-in** genom att klicka på **Installera tillägget**.
+1. Om du vill automatisera konfigurationen i en livsmedelsingrediens måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
 
-    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
 
-2. När du har lagt till tillägget i webbläsaren, klicka på **Ställ in Foodee** kommer att leda dig till Foodee ansökan. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på Foodee. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3-4.
+2. När du har lagt till tillägget i webbläsaren, klickar du på **skapa en livsmedelsingrediens** för att dirigera dig till programmet för livsmedelsingrediensen. Därifrån anger du autentiseringsuppgifterna för inloggning för att logga in på livsmedelsingrediensen. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-4.
 
-    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
+    ![Konfigurera konfiguration](common/setup-sso.png)
 
-3. Om du vill konfigurera Foodee manuellt öppnar du ett nytt webbläsarfönster och loggar in på Foodee-företagets webbplats som administratör och utför följande steg:
+3. Om du vill konfigurera en livsmedelsingrediens manuellt öppnar du ett nytt webbläsarfönster och loggar in på företagets webbplats som administratör och utför följande steg:
 
-4. Klicka på **profillogotypen** längst upp till höger på sidan och navigera sedan till **Enkel inloggning** och utför följande steg:
+4. Klicka på **profil logo typ** i det övre högra hörnet på sidan och navigera sedan till **enkel inloggning** och utför följande steg:
 
-   ![Konfiguration av Foodee](./media/foodee-tutorial/config01.png)
+   ![Konfiguration av livsmedelsingrediensen](./media/foodee-tutorial/config01.png)
 
-   1. Skriv namnet som ex:Azure i textrutan **IDP NAME.**
-   1. Öppna XML-koden för federationsmetadata i Anteckningar, kopiera innehållet och klistra in det i **textrutan XML-XML för IDP METADATA.**
+   1. I text rutan **namn på IDP** skriver du namnet som t. ex.: Azure.
+   1. Öppna XML-metadata för federationsmetadata i anteckningar, kopiera innehållet och klistra in det i text rutan **IDP metadata-XML** .
    1. Klicka på **Spara**.
 
-### <a name="create-foodee-test-user"></a>Skapa Foodee testanvändare
+### <a name="create-foodee-test-user"></a>Skapa test användare av näring
 
-I det här avsnittet skapas en användare som heter B.Simon i Foodee. Foodee stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Foodee skapas en ny när du försöker komma åt Foodee.
+I det här avsnittet skapas en användare som heter B. Simon i en mat man. Livsmedelsingrediensen har stöd för just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i en livsmedelsingrediens skapas en ny när du försöker få åtkomst till en livsmedelsingrediens.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Foodee på åtkomstpanelen ska du automatiskt loggas in på den Foodee som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för livsmedelsingredienser på åtkomst panelen, bör du loggas in automatiskt på den livsmedelsingrediens som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -171,5 +171,5 @@ När du klickar på panelen Foodee på åtkomstpanelen ska du automatiskt loggas
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova Foodee med Azure AD](https://aad.portal.azure.com/)
+- [Prova livsmedelsingrediensen med Azure AD](https://aad.portal.azure.com/)
 

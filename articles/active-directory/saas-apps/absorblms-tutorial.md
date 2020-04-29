@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Absorb LMS | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med absorberande LMS | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Absorb LMS.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 936de76d1117c56f5a9dec48b51f33b9afa15351
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67107502"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Självstudiekurs: Azure Active Directory-integrering med Absorb LMS
+# <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Självstudie: Azure Active Directory integrering med absorberande LMS
 
 Lär dig hur du integrerar Absorb LMS med Azure Active Directory (Azure AD) i den här självstudien.
 Att integrera Absorb LMS med Azure Active Directory ger dig följande fördelar:
@@ -33,13 +33,13 @@ Att integrera Absorb LMS med Azure Active Directory ger dig följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure Active Directory-integrering med Absorb LMS, behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
 * Prenumeration med aktiverad enkel inloggning med Absorb LMS
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -108,15 +108,15 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Abs
 
     Om du använder **Absorb 5 – UI** använder du följande konfiguration:
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://company.myabsorb.com/account/saml`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://company.myabsorb.com/account/saml`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://company.myabsorb.com/account/saml`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://company.myabsorb.com/account/saml`
 
     Om du använder **Absorb 5 – New Learner Experience** använder du följande konfiguration:
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Supportteamet för Absorb LMS](https://support.absorblms.com/hc/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -167,7 +167,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Abs
 
     d. I rutan **Läge** väljer du **Identitetsprovidern initierad**.
 
-    e. I rutan **Id-egenskap** väljer du det attribut som du har konfigurerat som användaridentifierare i Azure AD. Om *namnidentifierare* till exempel har valts i Azure AD väljer du **Användarnamn**.
+    e. I rutan **Id-egenskap** väljer du det attribut som du har konfigurerat som användaridentifierare i Azure AD. Om du till exempel har valt *NameIdentifier* i Azure AD väljer du **användar namn**.
 
     f. Välj **Sha256** som en **Signaturtyp**.
 
@@ -189,7 +189,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -228,7 +228,7 @@ I det här avsnittet kommer du att göra det möjligt för Britta Simon att anv�
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -281,6 +281,6 @@ När du klickar på Absorb LMS-panelen i åtkomstpanelen bör du automatiskt log
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

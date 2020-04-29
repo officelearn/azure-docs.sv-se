@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med PerformanceCentre | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med PerformanceCentre | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PerformanceCentre.
 services: active-directory
 documentationCenter: na
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 08f0f1c1e9bbfcd27f97cd58fa6c6e40f448f9f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67094639"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Självstudiekurs: Azure Active Directory-integrering med PerformanceCentre
+# <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Självstudie: Azure Active Directory integrering med PerformanceCentre
 
 I den här självstudien får du lära dig hur du integrerar PerformanceCentre med Azure Active Directory (Azure AD).
 Genom att integrera PerformanceCentre med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till PerformanceCentre.
-* Du kan aktivera dina användare så att de automatiskt loggas in på PerformanceCentre (Enkel inloggning) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till PerformanceCentre (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med PerformanceCentre behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* PerformanceCentre enkel inloggning aktiverad prenumeration
+* PerformanceCentre-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* PerformanceCentre **SP** stöder SP-initierad SSO
+* PerformanceCentre stöder **SP** -INITIERAd SSO
 
 ## <a name="adding-performancecentre-from-the-gallery"></a>Lägga till PerformanceCentre från galleriet
 
 Om du vill konfigurera integreringen av PerformanceCentre i Azure AD måste du lägga till PerformanceCentre från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till PerformanceCentre från galleriet:**
+**Utför följande steg för att lägga till PerformanceCentre från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av PerformanceCentre i Azure AD måste du l
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **PerformanceCentre**i sökrutan och välj **PerformanceCentre** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **PerformanceCentre**, väljer **PerformanceCentre** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![PerformanceCentre i resultatlistan](common/search-new-app.png)
+     ![PerformanceCentre i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med PerformanceCentre baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i PerformanceCentre upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med PerformanceCentre baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i PerformanceCentre upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med PerformanceCentre måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med PerformanceCentre i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera PerformanceCentre Single Sign-On](#configure-performancecentre-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera PerformanceCentre-enkel inloggning](#configure-performancecentre-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa PerformanceCentre-testanvändare](#create-performancecentre-test-user)** – om du vill ha en motsvarighet till Britta Simon i PerformanceCentre som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa PerformanceCentre test User](#create-performancecentre-test-user)** – om du vill ha en motsvarighet till Britta Simon i PerformanceCentre som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med PerformanceCentre:
+Utför följande steg för att konfigurera enkel inloggning med PerformanceCentre i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **PerformanceCentre-programintegration** . **Single sign-on**
+1. Välj **enkel inloggning**på sidan **PerformanceCentre** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Så här konfigurerar du en enkel Azure AD-inloggning med PerformanceCentre:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![PerformanceCentre-domän och webbadresser med enkel inloggning](common/sp-identifier.png)
+    ![Information om enkel inloggning för PerformanceCentre-domän och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `http://<companyname>.performancecentre.com/saml/SSO`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `http://<companyname>.performancecentre.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta Supportteamet för [PerformanceCentre-klienten](https://www.performancecentre.com/contact-us/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [PerformanceCentre client support team](https://www.performancecentre.com/contact-us/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera PerformanceCentre.**
+6. I avsnittet **Konfigurera PerformanceCentre** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,29 +126,29 @@ Så här konfigurerar du en enkel Azure AD-inloggning med PerformanceCentre:
 
     c. Utloggnings-URL
 
-### <a name="configure-performancecentre-single-sign-on"></a>Konfigurera Enkel inloggning i PerformanceCentre
+### <a name="configure-performancecentre-single-sign-on"></a>Konfigurera PerformanceCentre enkel inloggning
 
-1. Logga in på **din PerformanceCentre-företagswebbplats** som administratör.
+1. Logga in på din **PerformanceCentre** företags webbplats som administratör.
 
-2. Klicka på **Konfigurera**på fliken till vänster.
+2. På fliken till vänster klickar du på **Konfigurera**.
    
-    ![Enkel azure AD-inloggning][10]
+    ![Enkel inloggning för Azure AD][10]
 
-3. Klicka på **Diverse**på fliken till vänster och klicka sedan **på Enkel inloggning**.
+3. Klicka på **Diverse**på fliken till vänster och klicka sedan på **enkel inloggning**.
    
-    ![Enkel azure AD-inloggning][11]
+    ![Enkel inloggning för Azure AD][11]
 
 4. Som **protokoll**väljer du **SAML**.
    
-    ![Enkel azure AD-inloggning][12]
+    ![Enkel inloggning för Azure AD][12]
 
-5. Öppna den nedladdade metadatafilen i anteckningar, kopiera innehållet, klistra in den i textrutan **Identitetsprovidermetadata** och klicka sedan på **Spara**.
+5. Öppna den hämtade metadatafilen i anteckningar, kopiera innehållet, klistra in det i text rutan för **identitetsprovider** och klicka sedan på **Spara**.
    
-    ![Enkel azure AD-inloggning][13]
+    ![Enkel inloggning för Azure AD][13]
 
-6. Kontrollera att värdena för **entitetsbas-URL:en** och **entitets-ID:n** är korrekta.
+6. Kontrol lera att värdena för **entitetens bas-URL** och **entitets-ID: t** är korrekta.
     
-     ![Enkel azure AD-inloggning][14]
+     ![Enkel inloggning för Azure AD][14]
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -158,7 +158,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -177,15 +177,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till PerformanceCentre.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till PerformanceCentre.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **PerformanceCentre**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **PerformanceCentre**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **PerformanceCentre**i programlistan .
+2. I listan program väljer du **PerformanceCentre**.
 
-    ![PerformanceCentre-länken i programlistan](common/all-applications.png)
+    ![PerformanceCentre-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -197,32 +197,32 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-performancecentre-test-user"></a>Skapa PerformanceCentre-testanvändare
+### <a name="create-performancecentre-test-user"></a>Skapa PerformanceCentre test användare
 
-Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i PerformanceCentre.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i PerformanceCentre.
 
-**Så här skapar du en användare som heter Britta Simon i PerformanceCentre:**
+**Utför följande steg för att skapa en användare med namnet Britta Simon i PerformanceCentre:**
 
-1. Logga in på din PerformanceCentre-företagswebbplats som administratör.
+1. Logga in på din PerformanceCentre företags webbplats som administratör.
 
-2. Klicka på **Interrelera**på menyn till vänster och klicka sedan på **Skapa deltagare**.
+2. Klicka på **relaterad**på menyn till vänster och klicka sedan på **skapa deltagare**.
    
     ![Skapa användare][400]
 
-3. I dialogrutan **Interrelate - Create Participant** utför du följande steg:
+3. I dialog rutan **interrelatera – skapa deltagare** utför du följande steg:
    
     ![Skapa användare][401]
     
-    a. Skriv de attribut som krävs för Britta Simon i relaterade textrutor.
+    a. Ange de attribut som krävs för Britta Simon i relaterade text rutor.
     
     >[!IMPORTANT]
-    >Brittas användarnamnsattribut i PerformanceCentre måste vara samma som användarnamnet i Azure AD.
+    >Britta för användar namn i PerformanceCentre måste vara samma som användar namnet i Azure AD.
     
-    b. Välj **Klientadministratör** som **Välj roll**.
+    b. Välj **klient administratör** som **rollen Välj roll**.
     
     c. Klicka på **Spara**. 
 
@@ -230,13 +230,13 @@ Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i Pe
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen PerformanceCentre på åtkomstpanelen bör du automatiskt loggas in på den PerformanceCentre som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen PerformanceCentre på åtkomst panelen, bör du loggas in automatiskt på den PerformanceCentre som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

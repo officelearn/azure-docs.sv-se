@@ -1,149 +1,149 @@
 ---
-title: Felsöka SAP HANA-databaser säkerhetskopieringsfel
-description: Beskriver felsÃ¶kning av vanliga fel som kan uppstÃ¥ nÃ¤r du ansÃ¤nder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
+title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
+description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
 ms.openlocfilehash: 6520f106011b632da2725f456aeb278c7748ddc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79459318"
 ---
-# <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhetskopiering av SAP HANA-databaser på Azure
+# <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
-Den här artikeln innehåller felsökningsinformation för säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer. Mer information om sap hana-säkerhetskopieringsscenarierna som vi för närvarande stöder finns i [scenariostöd](sap-hana-backup-support-matrix.md#scenario-support).
+Den här artikeln innehåller felsöknings information för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer. Mer information om de SAP HANA säkerhets kopierings scenarier som vi för närvarande stöder finns i [scenario support](sap-hana-backup-support-matrix.md#scenario-support).
 
-## <a name="prerequisites-and-permissions"></a>Förutsättningar och behörigheter
+## <a name="prerequisites-and-permissions"></a>Krav och behörigheter
 
-Se [förutsättningarna](tutorial-backup-sap-hana-db.md#prerequisites) och [vad förregistreringsskriptet gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) innan du konfigurerar säkerhetskopior.
+Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten innan du konfigurerar säkerhets kopieringar.
 
-## <a name="common-user-errors"></a>Vanliga användarfel
+## <a name="common-user-errors"></a>Vanliga användar fel
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Felmeddelande**      | <span style="font-weight:normal">Azure-säkerhetskopiering har inte behörighet att utföra säkerhetskopiering</span>    |
+| **Fel meddelande**      | <span style="font-weight:normal">Azure Backup har inte de roll behörigheter som krävs för att utföra säkerhets kopiering</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | Rollen kan ha skrivits över.                          |
-| **Rekommenderad åtgärd** | LÃ¶s problemet genom att kÃ¶sa skriptet **frÃ¥n fönstret Upptäck DB** eller hämta det [här](https://aka.ms/scriptforpermsonhana). Du kan också lägga till rollen "SAP_INTERNAL_HANA_SUPPORT" i AzureWLBACKUPHANAUSER (Workload Backup User). |
+| **Rekommenderad åtgärd** | Lös problemet genom att köra skriptet från rutan för att **hitta databas** eller ladda ned det [här](https://aka.ms/scriptforpermsonhana). Du kan också lägga till rollen SAP_INTERNAL_HANA_SUPPORT till säkerhets kopierings användaren för arbets belastningen (AZUREWLBACKUPHANAUSER). |
 
-### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInÖppnaHanaOdbcConnection
+### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
 | Felmeddelande      | <span style="font-weight:normal">Det gick inte att ansluta till HANA-systemet</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | SAP HANA-instansen kan vara nere.<br/>De behörigheter som krävs för Azure-säkerhetskopiering för att interagera med HANA-databasen har inte angetts. |
-| **Rekommenderad åtgärd** | Kontrollera om SAP HANA-databasen är uppe. Om databasen är igång kontrollerar du om alla nödvändiga behörigheter har angetts. Om någon av behörigheterna saknas kör [förregistreringsskriptet](https://aka.ms/scriptforpermsonhana) för att lägga till de saknade behörigheterna. |
+| **Möjliga orsaker**    | SAP HANA-instansen kan vara avstängd.<br/>De behörigheter som krävs för Azure Backup för att interagera med HANA-databasen har inte angetts. |
+| **Rekommenderad åtgärd** | Kontrol lera om SAP HANA databasen är igång. Om databasen är igång kontrollerar du om alla nödvändiga behörigheter är inställda. Om någon av behörigheterna saknas kör du för [registrerings skriptet](https://aka.ms/scriptforpermsonhana) för att lägga till de behörigheter som saknas. |
 
 ### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
 
 | Felmeddelande      | <span style="font-weight:normal">Den angivna SAP HANA-instansen är antingen ogiltig eller kan inte hittas</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | Flera SAP HANA-instanser på en enda Azure-virtuell dator kan inte säkerhetskopieras. |
-| **Rekommenderad åtgärd** | Kör [förregistreringsskriptet](https://aka.ms/scriptforpermsonhana) på DEN SAP HANA-instans som du vill säkerhetskopiera. Om problemet kvarstår kontaktar du Microsoft-supporten. |
+| **Möjliga orsaker**    | Flera SAP HANA-instanser på en enskild virtuell Azure-dator kan inte säkerhets kopie ras. |
+| **Rekommenderad åtgärd** | Kör för [registrerings skriptet](https://aka.ms/scriptforpermsonhana) på den SAP HANA-instans som du vill säkerhetskopiera. Kontakta Microsoft-supporten om problemet kvarstår. |
 
 ### <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation
 
-| Felmeddelande      | <span style="font-weight:normal">Den angivna SAP HANA-åtgärden stöds inte</span>              |
+| Felmeddelande      | <span style="font-weight:normal">Den angivna SAP HANA åtgärden stöds inte</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | Azure-säkerhetskopiering för SAP HANA stöder inte inkrementell säkerhetskopiering och åtgärder som utförs på SAP HANA-inbyggda klienter (Studio/ Cockpit/ DBA Cockpit) |
-| **Rekommenderad åtgärd** | För mer information, se [här](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Möjliga orsaker**    | Azure Backup för SAP HANA stöder inte stegvis säkerhets kopiering och åtgärder som utförs på SAP HANA ursprungliga klienter (Studio/cockpit/DBA-cockpit) |
+| **Rekommenderad åtgärd** | Mer information finns [här](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
 ### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
-| Felmeddelande      | <span style="font-weight:normal">Den här SAP HANA-databasen stöder inte den begärda säkerhetskopieringstypen</span>  |
+| Felmeddelande      | <span style="font-weight:normal">Den här SAP HANA databasen har inte stöd för den begärda säkerhets kopierings typen</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | Azure-säkerhetskopiering stöder inte inkrementell säkerhetskopiering och säkerhetskopiering med hjälp av ögonblicksbilder |
-| **Rekommenderad åtgärd** | För mer information, se [här](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Möjliga orsaker**    | Azure Backup stöder inte stegvis säkerhets kopiering och säkerhets kopiering med ögonblicks bilder |
+| **Rekommenderad åtgärd** | Mer information finns [här](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
 
-| Felmeddelande      | <span style="font-weight:normal">Reservloggkedjan är bruten</span>                                    |
+| Felmeddelande      | <span style="font-weight:normal">Logg kedjan för säkerhets kopiering är bruten</span>                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | Loggsäkerhetsplatsen kan ha uppdaterats från backint till filsystem eller så kan den körbara backinten ha ändrats |
-| **Rekommenderad åtgärd** | Utlösa en fullständig säkerhetskopiering för att lösa problemet                   |
+| **Möjliga orsaker**    | Mål platsen för säkerhets kopieringen kan ha uppdaterats från backint till fil systemet, eller så har den körbara filen backint ändrats |
+| **Rekommenderad åtgärd** | Utlös en fullständig säkerhets kopiering för att lösa problemet                   |
 
 ### <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore
 
-| Felmeddelande      | <span style="font-weight:normal">Käll- och målsystemen för återställning är oförenliga</span>    |
+| Felmeddelande      | <span style="font-weight:normal">Käll-och mål systemen för återställning är inkompatibla</span>    |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | Målsystemet för återställning är inkompatibelt med källan |
-| **Rekommenderad åtgärd** | Läs SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) om du vill veta mer om de återställningstyper som stöds idag |
+| **Möjliga orsaker**    | Mål systemet för återställning är inte kompatibelt med källan |
+| **Rekommenderad åtgärd** | Se SAP NOTE [1642148](https://launchpad.support.sap.com/#/notes/1642148) för mer information om de återställnings typer som stöds idag |
 
-### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCFörgraderad Nedtecterad
+### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected
 
-| Felmeddelande      | <span style="font-weight:normal">SDC till MDC uppgradering upptäckt</span>                                   |
+| Felmeddelande      | <span style="font-weight:normal">SDC till MDC-uppgradering upptäcktes</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | SAP HANA-instansen har uppgraderats från SDC till MDC. Säkerhetskopior misslyckas efter uppdateringen. |
-| **Rekommenderad åtgärd** | Följ stegen i [avsnittet Uppgradera från SAP HANA 1.0 till 2.0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) för att lösa problemet |
+| **Möjliga orsaker**    | SAP HANA-instansen har uppgraderats från SDC till MDC. Säkerhets kopieringar kommer att Miss lyckas efter uppdateringen. |
+| **Rekommenderad åtgärd** | Följ stegen som beskrivs i [avsnittet Uppgradera från SAP HANA 1,0 till 2,0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) för att lösa problemet |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
-| Felmeddelande      | <span style="font-weight:normal">Ogiltig bakåtsträvningskonfiguration har upptäckts</span>                       |
+| Felmeddelande      | <span style="font-weight:normal">En ogiltig backint-konfiguration upptäcktes</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | Stödparametrarna har angetts felaktigt för Azure-säkerhetskopiering |
-| **Rekommenderad åtgärd** | Kontrollera om följande (bakåtsträvbara) parametrar är inställda:<br/>\*[catalog_backup_using_backint:true]<br/>\*[enable_accumulated_catalog_backup:falskt]<br/>\*[parallel_data_backup_backint_channels:1]<br/>\*[log_backup_timeout_s:900)]<br/>\*[backint_response_timeout:7200]<br/>Om bakåtinte-baserade parametrar finns i HOST tar du bort dem. Om parametrar inte finns på VÄRD-nivå men har ändrats manuellt på databasnivå återställer du dem till lämpliga värden som beskrivits tidigare. Du kan också köra [stoppskydd och behålla säkerhetskopierade data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) från Azure-portalen och välj sedan **Återuppta säkerhetskopiering**. |
+| **Möjliga orsaker**    | De sekundära parametrarna har angetts felaktigt för Azure Backup |
+| **Rekommenderad åtgärd** | Kontrol lera om följande (backint) parametrar har angetts:<br/>\*[catalog_backup_using_backint: sant]<br/>\*[enable_accumulated_catalog_backup: falskt]<br/>\*[parallel_data_backup_backint_channels: 1]<br/>\*[log_backup_timeout_s: 900)]<br/>\*[backint_response_timeout: 7200]<br/>Om det finns backint-baserade parametrar i värden tar du bort dem. Om parametrarna inte finns på VÄRDnivå men har ändrats manuellt på en databas nivå, återställer du dem till lämpliga värden enligt beskrivningen ovan. Du kan också köra [stoppa skyddet och behålla säkerhets kopierings data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) från Azure Portal och sedan välja **återuppta säkerhets kopiering**. |
 
-## <a name="restore-checks"></a>Återställa kontroller
+## <a name="restore-checks"></a>Återställnings kontroller
 
-### <a name="single-container-database-sdc-restore"></a>SDC-återställning (Single Container Database)
+### <a name="single-container-database-sdc-restore"></a>Återställning av en SDC-databas (Single container Database)
 
-Ta hand om indata samtidigt som du återställer en enda behållardatabas (SDC) för HANA till en annan SDC-maskin. Databasnamnet ska anges med gemener och med "sdc" bifogat inom parentes. HANA-instansen visas i versaler.
+Ta hand om indata när du återställer en enda behållar databas (SDC) för HANA till en annan SDC-dator. Databas namnet måste anges med gemener och "SDC" har lagts till inom hakparenteser. HANA-instansen kommer att visas med versaler.
 
-Anta att en SDC HANA-instans "H21" säkerhetskopieras. Sidan säkerhetskopieringsobjekt visar namnet på säkerhetskopian som **"h21(sdc)".** Om du försöker återställa databasen till ett annat mål SDC, säger H11, då följande ingångar måste tillhandahållas.
+Anta att en SDC HANA-instans "H21" säkerhets kopie ras. På sidan säkerhets kopierings objekt visas namnet **"H21 (SDC)"** för säkerhets kopierings objekt. Om du försöker återställa databasen till en annan mål SDC, säg H11, måste du ange följande indata.
 
-![Återställt SDC-databasnamn](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+![Namn på återställd SDC-databas](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
 Observera följande punkter:
 
-- Som standard fylls det återställda db-namnet i med namnet på säkerhetskopieringsobjektet. I det här fallet h21(sdc).
-- Om du väljer målet som H11 ändras INTE det återställda db-namnet automatiskt. **Den ska redigeras till h11(sdc).** När det gäller SDC kommer det återställda db-namnet att vara målinstans-ID med gemener och "sdc" bifogade inom parentes.
-- Eftersom SDC bara kan ha en enda databas måste du också klicka på kryssrutan för att tillåta åsidosättning av befintliga databasdata med återställningspunktdata.
-- Linux är skiftlägeskänsligt. Så var noga med att bevara fallet.
+- Som standard fylls det återställda DB-namnet på med namnet på säkerhets kopie posten. I det här fallet H21 (SDC).
+- Om du väljer målet som H11 ändras inte det återställda databas namnet automatiskt. **Den bör redige ras till H11 (SDC)**. För SDC kommer det återställda databas namnet att vara mål instans-ID: t med gemener och "SDC" i hakparenteser.
+- Eftersom SDC bara kan ha en enda databas, måste du också klicka på kryss rutan för att tillåta åsidosättning av befintliga databas data med återställnings punkt data.
+- Linux är Skift läges känsligt. Var noga med att bevara ärendet.
 
-### <a name="multiple-container-database-mdc-restore"></a>Mdc-återställning (Multiple Container Database)
+### <a name="multiple-container-database-mdc-restore"></a>Återställning av MDC (Multiple container Database)
 
-I flera behållardatabaser för HANA är standardkonfigurationen SYSTEMDB + 1 eller fler klientDB: er. Återställa en hel SAP HANA-instans innebär att återställa både SYSTEMDB och Tenant DBs. En återställer SYSTEMDB först och fortsätter sedan för Tenant DB. System DB innebär i huvudsak att åsidosätta systeminformationen på det valda målet. Den här återställningen åsidosätter också BackInt-relaterad information i målinstansen. Så när systemet DB återställs till en målinstans, kör förregistrering skriptet igen. Först då lyckas de efterföljande klient-DB-återställningarna.
+I flera container-databaser för HANA är standard konfigurationen SYSTEMDB + 1 eller flera klient-databaser. Att återställa en hel SAP HANA instans innebär att återställa både SYSTEMDB-och klient databaser. En återställer SYSTEMDB först och fortsätter sedan för klient organisations databasen. System DB innebär i princip att åsidosätta system informationen på det valda målet. Den här återställningen åsidosätter också BackInt-relaterad information i mål instansen. Så när system databasen har återställts till en mål instans kör du skriptet för för registrering igen. Det går bara att återställa efterföljande klient databas återställningar.
 
-## <a name="upgrading-from-sap-hana-10-to-20"></a>Uppgradering från SAP HANA 1.0 till 2.0
+## <a name="upgrading-from-sap-hana-10-to-20"></a>Uppgraderar från SAP HANA 1,0 till 2,0
 
-Om du skyddar SAP HANA 1.0-databaser och vill uppgradera till 2.0 gör du följande:
+Om du skyddar SAP HANA 1,0-databaser och vill uppgradera till 2,0 utför du följande steg:
 
-- [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med lagringsdata för gamla SDC-databas.
-- Utför uppgraderingen. Efter avslutad är HANA nu MDC med ett system DB och tenant DB(s)
-- Kör [förregistrering skript](https://aka.ms/scriptforpermsonhana) med korrekta uppgifter om (sid och MDC).
-- Registrera tillägg för samma dator i Azure-portalen (Säkerhetskopiering -> visa information -> Välj relevant Azure VM -> Omregistrera dig).
-- Klicka på Återupptäck DBs för samma virtuella dator. Den här åtgärden bör visa de nya DBs i steg 2 med korrekta uppgifter (SYSTEMDB och Tenant DB, inte SDC).
-- Konfigurera säkerhetskopiering för dessa nya databaser.
+- [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med Behåll data för den gamla SDC-databasen.
+- Genomför uppgraderingen. Efter slut för ande är HANA nu MDC med en system databas och klient organisations databas (er)
+- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) med rätt information om (sid och MDC).
+- Omregistrera tillägget för samma dator i Azure Portal (säkerhets kopierings > Visa information – > Välj den relevanta Azure VM-> omregistrera).
+- Klicka på identifiera om databaser för samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 2 med rätt information (SYSTEMDB och klient organisations databasen, inte SDC).
+- Konfigurera säkerhets kopiering för dessa nya databaser.
 
-## <a name="upgrading-without-an-sid-change"></a>Uppgradera utan SID-ändring
+## <a name="upgrading-without-an-sid-change"></a>Uppgradera utan en SID-ändring
 
-Uppgraderingar till OS eller SAP HANA som inte orsakar en SID-ändring kan hanteras enligt beskrivningen nedan:
+Uppgraderingar av OS eller SAP HANA som inte orsakar en SID ändring kan hanteras enligt beskrivningen nedan:
 
-- [Stoppa skydd](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med lagringsdata för databasen
-- Utför uppgraderingen.
-- Kör [skriptet för förhandsregistrering](https://aka.ms/scriptforpermsonhana)igen . Vanligtvis har vi sett uppgraderingsprocessen tar bort de nödvändiga rollerna. Om du kör skriptet för förhandsregistrering kan du verifiera alla nödvändiga roller.
-- [Återuppta skyddet](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) för databasen igen
+- [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med Behåll data för databasen
+- Genomför uppgraderingen.
+- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana)igen. Vi har vanligt vis sett uppgraderings processen som tar bort de nödvändiga rollerna. Genom att köra skriptet för för registrering kan du kontrol lera alla nödvändiga roller.
+- [Återuppta skyddet](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) av databasen igen
 
-## <a name="re-registration-failures"></a>Fel vid omregistrering
+## <a name="re-registration-failures"></a>Försök att registrera igen
 
-Kontrollera om det finns ett eller flera av följande symptom innan du utlöser omregistreringen:
+Kontrol lera om det finns ett eller flera av följande symptom innan du utlöser omregistrerings åtgärden:
 
-- Alla åtgärder (t.ex. säkerhetskopiering, återställning och konfigurera säkerhetskopiering) misslyckas på den virtuella datorn med någon av följande felkoder: **WorkloadExtensionNotReachable, UserErrorWorkloadExtensionNotInstallerad, WorkloadExtensionNotPresent, WorkloadExtensionDidntDequeueMsg**.
-- Om området **Säkerhetskopieringsstatus** för säkerhetskopieringsobjektet inte kan **nås**utesluter du alla andra orsaker som kan resultera i samma status:
+- Alla åtgärder (till exempel säkerhets kopiering, återställning och konfigurations säkerhets kopiering) kan inte utföras på den virtuella datorn med någon av följande felkoder: **WorkloadExtensionNotReachable, UserErrorWorkloadExtensionNotInstalled, WorkloadExtensionNotPresent, WorkloadExtensionDidntDequeueMsg**.
+- Om **säkerhets kopierings status** fältet för det säkerhetskopierade objektet **visas kan du**utesluta alla andra orsaker som kan resultera i samma status:
 
-  - Brist på behörighet att utföra säkerhetskopieringsrelaterade åtgärder på den virtuella datorn
-  - Den virtuella datorn är avstängd, så säkerhetskopior kan inte äga rum
-  - Nätverksproblem
+  - Saknar behörighet att utföra säkerhetskopierade åtgärder på den virtuella datorn
+  - Den virtuella datorn har stängts av, så säkerhets kopieringen kan inte ske
+  - Nätverks problem
 
-Dessa symtom kan uppstå av en eller flera av följande skäl:
+Dessa symtom kan uppstå på grund av en eller flera av följande orsaker:
 
 - Ett tillägg har tagits bort eller avinstallerats från portalen.
-- Den virtuella datorn återställdes tillbaka i tiden genom diskåterställning på plats.
-- Den virtuella datorn stängdes av under en längre period, så förlängningskonfigurationen på den upphörde att gälla.
-- Den virtuella datorn togs bort och en annan virtuell dator skapades med samma namn och i samma resursgrupp som den borttagna virtuella datorn.
+- Den virtuella datorn återställdes i tid genom återställning av disk på plats.
+- Den virtuella datorn stängdes under en längre period, så tilläggs konfigurationen på den har upphört att gälla.
+- Den virtuella datorn har tagits bort och en annan virtuell dator har skapats med samma namn och i samma resurs grupp som den borttagna virtuella datorn.
 
-I föregående scenarier rekommenderar vi att du utlöser en omregistrerad åtgärd på den virtuella datorn.
+I föregående scenarier rekommenderar vi att du utlöser en ny registrering på den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska vanliga [frågor](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) om säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer.
+- Läs [vanliga frågor](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) om hur du säkerhetskopierar SAP HANA databaser på virtuella Azure-datorer.

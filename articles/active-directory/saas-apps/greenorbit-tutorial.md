@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med GreenOrbit | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med GreenOrbit | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GreenOrbit.
 services: active-directory
 documentationCenter: na
@@ -17,44 +17,44 @@ ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 248b5cf554b743e86f3580174190a93cca1aa8d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67101456"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>Självstudiekurs: Azure Active Directory-integrering med GreenOrbit
+# <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>Självstudie: Azure Active Directory integrering med GreenOrbit
 
 I den här självstudien får du lära dig hur du integrerar GreenOrbit med Azure Active Directory (Azure AD).
 Genom att integrera GreenOrbit med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till GreenOrbit.
-* Du kan aktivera dina användare så att de automatiskt loggas in på GreenOrbit (Enkel inloggning) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till GreenOrbit (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med GreenOrbit behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* GreenOrbit enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* GreenOrbit-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* GreenOrbit stöder **SP** initierade SSO
+* GreenOrbit stöder **SP** -INITIERAd SSO
 
-* GreenOrbit stöder just in time-användaretablering **Just In Time**
+* GreenOrbit stöder **just-in-Time** User-etablering
 
 ## <a name="adding-greenorbit-from-the-gallery"></a>Lägga till GreenOrbit från galleriet
 
 Om du vill konfigurera integreringen av GreenOrbit i Azure AD måste du lägga till GreenOrbit från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till GreenOrbit från galleriet:**
+**Utför följande steg för att lägga till GreenOrbit från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -68,31 +68,31 @@ Om du vill konfigurera integreringen av GreenOrbit i Azure AD måste du lägga t
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **GreenOrbit**i sökrutan och välj **GreenOrbit** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **GreenOrbit**, väljer **GreenOrbit** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![GreenOrbit i resultatlistan](common/search-new-app.png)
+    ![GreenOrbit i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med GreenOrbit baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i GreenOrbit upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med GreenOrbit baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i GreenOrbit upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med GreenOrbit måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med GreenOrbit i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera GreenOrbit Single Sign-On](#configure-greenorbit-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera GreenOrbit-enkel inloggning](#configure-greenorbit-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa GreenOrbit-testanvändare](#create-greenorbit-test-user)** – om du vill ha en motsvarighet till Britta Simon i GreenOrbit som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa GreenOrbit test User](#create-greenorbit-test-user)** – om du vill ha en motsvarighet till Britta Simon i GreenOrbit som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med GreenOrbit:
+Utför följande steg för att konfigurera enkel inloggning med GreenOrbit i Azure AD:
 
-1. Välj Enkel inloggning på sidan GreenOrbit-programintegrering **på Azure-portalen**. [Azure portal](https://portal.azure.com/) **GreenOrbit**
+1. Välj **enkel inloggning**på sidan **GreenOrbit** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -106,20 +106,20 @@ Så här konfigurerar du en enkel Azure AD-inloggning med GreenOrbit:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![GreenOrbit Domän och webbadresser enkel inloggningsinformation](common/sp-identifier.png)
+    ![Information om enkel inloggning för GreenOrbit-domän och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.yourcompanydomain.extension`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.yourcompanydomain.extension`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [GreenOrbit Client supportteam](mailto:support@greenorbit.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [GreenOrbit client support team](mailto:support@greenorbit.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera GreenOrbit.**
+6. I avsnittet **Konfigurera GreenOrbit** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -129,9 +129,9 @@ Så här konfigurerar du en enkel Azure AD-inloggning med GreenOrbit:
 
     c. Utloggnings-URL
 
-### <a name="configure-greenorbit-single-sign-on"></a>Konfigurera GreenOrbit Enkel inloggning
+### <a name="configure-greenorbit-single-sign-on"></a>Konfigurera GreenOrbit enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **GreenOrbit-sidan** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade url:er från Azure-portalen till [GreenOrbit-supportteamet](mailto:support@greenorbit.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **GreenOrbit** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för GreenOrbit](mailto:support@greenorbit.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -141,7 +141,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -151,7 +151,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -159,15 +159,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till GreenOrbit.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till GreenOrbit.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **GreenOrbit**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **GreenOrbit**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **GreenOrbit**i programlistan .
+2. I listan program väljer du **GreenOrbit**.
 
-    ![Länken GreenOrbit i programlistan](common/all-applications.png)
+    ![GreenOrbit-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -179,25 +179,25 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-greenorbit-test-user"></a>Skapa GreenOrbit-testanvändare
+### <a name="create-greenorbit-test-user"></a>Skapa GreenOrbit test användare
 
-I det här avsnittet skapas en användare som heter Britta Simon i GreenOrbit. GreenOrbit stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i GreenOrbit skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i GreenOrbit. GreenOrbit stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i GreenOrbit skapas en ny efter autentiseringen.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen GreenOrbit på åtkomstpanelen ska du automatiskt loggas in på den GreenOrbit som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen GreenOrbit på åtkomst panelen, bör du loggas in automatiskt på den GreenOrbit som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

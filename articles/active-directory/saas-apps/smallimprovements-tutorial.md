@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med små förbättringar | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Små förbättringar.
+title: 'Självstudie: Azure Active Directory-integrering med små förbättringar | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och små förbättringar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: d2d0bbc7a6e1c680434041d1b9d55e39a96b6f44
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67090366"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Självstudiekurs: Azure Active Directory-integrering med små förbättringar
+# <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Självstudie: Azure Active Directory integrering med små förbättringar
 
 I den här självstudien får du lära dig hur du integrerar små förbättringar med Azure Active Directory (Azure AD).
-Genom att integrera små förbättringar med Azure AD får du följande fördelar:
+Att integrera små förbättringar med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till små förbättringar.
-* Du kan aktivera dina användare så att de automatiskt loggas in på små förbättringar (enkel inloggning) med sina Azure AD-konton.
+* Du kan kontrol lera Azure AD som har till gång till små förbättringar.
+* Du kan göra det möjligt för användarna att logga in automatiskt till små förbättringar (enkel inloggning) med deras Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med små förbättringar behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Liten förbättringar enkel inloggning aktiverad prenumeration
+* Den aktiverade prenumerationen för enkel inloggning med små förbättringar
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Små förbättringar stöder **SP** initierade SSO
+* Små förbättringar stöder **SP** -INITIERAd SSO
 
 ## <a name="adding-small-improvements-from-the-gallery"></a>Lägga till små förbättringar från galleriet
 
-Om du vill konfigurera integreringen av små förbättringar i Azure AD måste du lägga till små förbättringar från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera en integrering av små förbättringar i Azure AD måste du lägga till små förbättringar från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till små förbättringar från galleriet:**
+**Utför följande steg för att lägga till små förbättringar från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av små förbättringar i Azure AD måste d
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Små förbättringar**i sökrutan och **klicka** sedan på Lägg till knappen **Lägg** till för att lägga till programmet.
+4. Skriv **små förbättringar**i sökrutan, Välj **små förbättringar** från resultat panelen och klicka sedan på **Lägg till** för att lägga till programmet.
 
-     ![Små förbättringar i resultatlistan](common/search-new-app.png)
+     ![Små förbättringar i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med små förbättringar baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i små förbättringar upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med små förbättringar baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i små förbättringar upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med små förbättringar måste du slutföra följande byggstenar:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med små förbättringar måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera små förbättringar enkel inloggning](#configure-small-improvements-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning med små förbättringar](#configure-small-improvements-single-sign-on)** – konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa små förbättringar testanvändare](#create-small-improvements-test-user)** - att ha en motsvarighet till Britta Simon i små förbättringar som är kopplad till Azure AD-representationen av användaren.
+5. **[Skapa små förbättringar testa användaren](#create-small-improvements-test-user)** – för att få en motsvarighet till Britta Simon med små förbättringar som är kopplade till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med små förbättringar:
+Utför följande steg för att konfigurera enkel inloggning med små förbättringar i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du **Enkel inloggning på**sidan Integrering av små **förbättringar.**
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering på **små förbättringar** och väljer **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Så här konfigurerar du en enkel Azure AD-inloggning med små förbättringar:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Domän- och url-url:er för små förbättringar enkel inloggningsinformation](common/sp-identifier.png)
+    ![Små förbättringar domän-och URL-information för enkel inloggning](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.small-improvements.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för små förbättringar för](mailto:support@small-improvements.com) att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [support teamet för små förbättringar](mailto:support@small-improvements.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera små förbättringar.**
+6. I avsnittet **Konfigurera små förbättringar** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,29 +126,29 @@ Så här konfigurerar du en enkel Azure AD-inloggning med små förbättringar:
 
     c. Utloggnings-URL
 
-### <a name="configure-small-improvements-single-sign-on"></a>Konfigurera en enkel inloggning för små förbättringar
+### <a name="configure-small-improvements-single-sign-on"></a>Konfigurera enkel inloggning med små förbättringar
 
-1. I ett annat webbläsarfönster loggar du in på företagets webbplats för små förbättringar som administratör.
+1. Logga in på företags webbplatsen för små förbättringar som administratör i ett annat webbläsarfönster.
 
-1. Klicka på **Knappen Administration** till vänster på huvudpanelsidan.
+1. På huvud instrument panelens sida klickar du på knappen **Administration** till vänster.
 
     ![Konfigurera enkel inloggning](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
-1. Klicka på **SAML SSO-knappen** från **avsnittet Integrationer.**
+1. Klicka på knappen **SAML SSO** i avsnittet **integrations** .
 
     ![Konfigurera enkel inloggning](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
-1. Gör följande på sidan SSO-installationsprogrammet:
+1. Utför följande steg på sidan SSO-konfiguration:
 
     ![Konfigurera enkel inloggning](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-    a. Klistra in värdet **för inloggnings-URL**i **HTTP-slutpunktstextrutan** som du har kopierat från Azure-portalen.
+    a. I text rutan **http-slutpunkt** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
-    b. Öppna det nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra sedan in det i textrutan **x509 Certifikat.** 
+    b. Öppna det hämtade certifikatet i anteckningar, kopiera innehållet och klistra in det i text rutan **x509-certifikat** . 
 
-    c. Om du vill ha SSO och inloggningsformulär autentisering alternativ tillgängligt för användare, sedan kontrollera **Alternativet Aktivera åtkomst via inloggning / lösenord också.**  
+    c. Om du vill ha ett SSO-och inloggnings formulär som är tillgängligt för användare, kontrollerar du att alternativet **Aktivera åtkomst via inloggning/lösen ord** är tillgängligt.  
 
-    d. Ange lämpligt värde för att namnge SSO-inloggningsknappen i **SMS:en i SAML-prompten.**  
+    d. Ange lämpligt värde för att namnge SSO-inloggnings knappen i text rutan för **SAML-prompten** .  
 
     e. Klicka på **Spara**.
 
@@ -160,7 +160,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -179,15 +179,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till små förbättringar.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till små förbättringar.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan Små **förbättringar**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **små förbättringar**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Små förbättringar**i programlistan .
+2. I listan program väljer du **små förbättringar**.
 
-    ![Länken Små förbättringar i listan Program](common/all-applications.png)
+    ![Länken små förbättringar i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -199,21 +199,21 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-small-improvements-test-user"></a>Testa användaren Skapa små förbättringar
+### <a name="create-small-improvements-test-user"></a>Skapa små förbättringar test användare
 
-Om du vill att Azure AD-användare ska kunna logga in på små förbättringar måste de etableras i små förbättringar. När det gäller små förbättringar är etablering en manuell aktivitet.
+Om du vill att Azure AD-användare ska kunna logga in på små förbättringar måste de tillhandahållas i små förbättringar. När det gäller små förbättringar är etableringen en manuell uppgift.
 
 **Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på företagets webbplats för små förbättringar som administratör.
+1. Logga in på företags webbplatsen för små förbättringar som administratör.
 
-1. Gå till menyn till vänster på startsidan och klicka på **Administration**.
+1. Från start sidan går du till menyn till vänster och klickar på **Administration**.
 
-1. Klicka på knappen **Användarkatalog** från avsnittet Användarhantering.
+1. Klicka på knappen **användar katalog** från avsnittet användar hantering.
 
     ![Skapa en testanvändare för Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
@@ -221,30 +221,30 @@ Om du vill att Azure AD-användare ska kunna logga in på små förbättringar m
 
     ![Skapa en testanvändare för Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
-1. Gör följande i dialogrutan **Lägg till användare:** 
+1. I dialog rutan **Lägg till användare** utför du följande steg: 
 
     ![Skapa en testanvändare för Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
-    a. Ange **förnamnet** för användare som **Britta**.
+    a. Ange det **första namnet** på användaren, t. ex. **Britta**.
 
-    b. Ange **efternamn** på användaren som **Simon**.
+    b. Ange det **senaste namnet** på användaren som **Simon**.
 
-    c. Ange **e-post** **brittasimon@contoso.com**för användare som .
+    c. Ange **e-postmeddelandet** som **brittasimon@contoso.com**användare.
 
-    d. Du kan också välja att ange det personliga meddelandet i **e-postmeddelandet Skicka meddelande.** Om du inte vill skicka meddelandet avmarkerar du den här kryssrutan.
+    d. Du kan också välja att ange det personliga meddelandet i e-postmeddelandet **Skicka meddelande** . Avmarkera den här kryss rutan om du inte vill skicka meddelandet.
 
-    e. Klicka på **Skapa användare**.
+    e. Klicka på **skapa användare**.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Små förbättringar på åtkomstpanelen bör du automatiskt loggas in på de små förbättringar som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen små förbättringar på åtkomst panelen, bör du loggas in automatiskt på de små förbättringarna för vilka du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

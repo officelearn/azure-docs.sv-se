@@ -1,5 +1,5 @@
 ---
-title: Ansluta Operations Manager till Azure Monitor | Microsoft-dokument
+title: Ansluta Operations Manager till Azure Monitor | Microsoft Docs
 description: För att underhålla din befintliga investering i System Center Operations Manager och använda utökade funktioner med Log Analytics, kan du integrera Operations Manager med ditt arbetsområde.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,43 +7,43 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274351"
 ---
-# <a name="connect-operations-manager-to-azure-monitor"></a>Ansluta Operations Manager till Azure Monitor
+# <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Om du vill behålla din befintliga investering i [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) och använda utökade funktioner med Azure Monitor kan du integrera Operations Manager med din Log Analytics-arbetsyta. På så sätt kan du utnyttja möjligheterna med loggar i Azure Monitor samtidigt som du fortsätter att använda Operations Manager för att:
+Om du vill behålla din befintliga investering i [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) och använda utökade funktioner med Azure Monitor kan du integrera Operations Manager med din Log Analytics-arbetsyta. På så sätt kan du utnyttja affärs möjligheterna för loggar i Azure Monitor samtidigt som du fortsätter att använda Operations Manager för att:
 
 * Övervaka hälsotillståndet för dina IT-tjänster med Operations Manager
 * Underhålla integrationen med dina ITSM-lösningar med stöd för hantering av incidenter och problem
 * Hantera livscykeln för agenter som distribuerats lokalt och till virtuella IaaS-datorer i det offentliga molnet som du övervakar med Operations Manager
 
-Integrering med System Center Operations Manager ger mervärde till din servicedriftstrategi genom att använda hastigheten och effektiviteten hos Azure Monitor för att samla in, lagra och analysera loggdata från Operations Manager. Azure Monitor-loggfrågor hjälper till att korrelera och arbeta för att identifiera fel på problem och ytbeläggningsfel till stöd för din befintliga problemhanteringsprocess. Flexibiliteten i frågemotorn för att undersöka prestanda, händelse- och varningsdata, med omfattande instrumentpaneler och rapporteringsfunktioner för att exponera dessa data på ett meningsfullt sätt, visar styrkan som Azure Monitor ger i att komplettera Operations Manager.
+Genom att integrera med System Center Operations Manager lägger du till värde i din strategi för service åtgärder med hjälp av hastigheten och effektiviteten i Azure Monitor när du samlar in, lagrar och analyserar loggdata från Operations Manager. Azure Monitor logg frågor hjälper dig att korrelera och arbeta med att identifiera fel och Visa upprepningar som stöd för din befintliga problem hanterings process. Den flexibilitet som används i frågemotor för att undersöka prestanda, händelse-och aviserings data, med omfattande instrument paneler och rapporterings funktioner för att visa dessa data på ett meningsfullt sätt, vilket visar styrkan Azure Monitor ger Operations Manager.
 
-De agenter som rapporterar till Hanteringsgruppen för Operations Manager samlar in data från dina servrar baserat på de [logganalysdatakällor](agent-data-sources.md) och lösningar som du har aktiverat på arbetsytan. Beroende på vilka lösningar som är aktiverade skickas deras data antingen direkt från en Hanteringsserver för Operations Manager till tjänsten eller på grund av mängden data som samlas in i det agenthanterade systemet skickas direkt från agenten till en Log Analytics-arbetsyta. Hanteringsservern vidarebefordrar data direkt till tjänsten, de skrivs aldrig till den operativa databasen eller informationslagerdatabasen. När en hanteringsserver förlorar anslutningen till Azure Monitor cachelagras data lokalt tills kommunikationen återupprättas. Om hanteringsservern är offline på grund av planerat underhåll eller oplanerade avbrott återupptar en annan hanteringsserver i hanteringsgruppen anslutningen till Azure Monitor.  
+Agenter som rapporterar till Operations Manager hanterings gruppen samlar in data från dina servrar baserat på [Log Analytics data källor](agent-data-sources.md) och lösningar som du har aktiverat i din arbets yta. Beroende på vilka lösningar som har Aktiver ATS skickas deras data antingen direkt från en Operations Manager hanterings server till tjänsten, eller på grund av data mängden som samlas in på det agentbaserade systemet, skickas direkt från agenten till en Log Analytics arbets yta. Hanteringsservern vidarebefordrar data direkt till tjänsten, de skrivs aldrig till den operativa databasen eller informationslagerdatabasen. När en hanterings server förlorar anslutningen till Azure Monitor cachelagrar den data lokalt tills kommunikationen återupprättas. Om-hanterings servern är offline på grund av planerat underhåll eller oplanerat avbrott, återupptar en annan hanterings server i hanterings gruppen anslutningen till Azure Monitor.  
 
-Följande diagram visar anslutningen mellan hanteringsservrarna och agenter i en System Center Operations Manager-hanteringsgrupp och Azure Monitor, inklusive riktning och portar.
+Följande diagram visar anslutningen mellan hanterings servrar och agenter i en System Center Operations Manager hanterings grupp och Azure Monitor, inklusive riktning och portar.
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
-Om dina IT-säkerhetsprinciper inte tillåter att datorer i nätverket ansluter till Internet kan hanteringsservrar konfigureras för att ansluta till Log Analytics-gatewayen för att ta emot konfigurationsinformation och skicka insamlade data beroende på lösningarna Aktiverat. Mer information och anvisningar om hur du konfigurerar hanteringsgruppen för Operations Manager för att kommunicera via en Log Analytics-gateway till Azure Monitor finns i [Ansluta datorer till Azure Monitor med log Analytics-gatewayen](../../azure-monitor/platform/gateway.md).  
+Om dina IT-säkerhetsprinciper inte tillåter datorer i nätverket att ansluta till Internet, kan hanterings servrar konfigureras för att ansluta till Log Analytics Gateway för att ta emot konfigurations information och skicka insamlade data beroende på vilka lösningar som är aktiverade. Mer information och anvisningar om hur du konfigurerar din Operations Manager hanterings grupp för att kommunicera via en Log Analytics Gateway till Azure Monitor finns i [ansluta datorer till Azure monitor med hjälp av Log Analytics Gateway](../../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar bör du granska följande krav.
+Läs igenom följande krav innan du börjar.
 
 * Azure Monitor stöder endast System Center Operations Manager 2016 eller senare, Operations Manager 2012 SP1 UR6 eller senare och Operations Manager 2012 R2 UR2 eller senare. Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3.
-* Integrera System Center Operations Manager 2016 med us Government moln kräver en uppdaterad Advisor management pack som ingår i Samlad uppdatering 2 eller senare. System Center Operations Manager 2012 R2 kräver ett uppdaterat Advisor-hanteringspaket som ingår i samlad uppdatering 3 eller senare.
-* Alla Operations Manager-agenter måste uppfylla minimikraven. Kontrollera att agenter är på minsta uppdatering, annars windows agent kommunikation kan misslyckas och generera fel i Operations Manager händelseloggen.
-* En Log Analytics-arbetsyta. Mer information finns i [Översikt över Logganalysarbetsyta](design-logs-deployment.md). 
+* Att integrera System Center Operations Manager 2016 med det amerikanska myndighets molnet kräver ett uppdaterat Advisor-hanterings paket som ingår i Samlad uppdatering 2 eller senare. System Center Operations Manager 2012 R2 kräver ett uppdaterat Advisor Management Pack som ingår i Samlad uppdatering 3 eller senare.
+* Alla Operations Manager-agenter måste uppfylla minimikraven. Kontrol lera att agenterna har den lägsta uppdateringen, annars kan Windows agent-kommunikation Miss lyckas och generera fel i händelse loggen för Operations Manager.
+* En Log Analytics-arbetsyta. Mer information hittar du i [Översikt över Log Analytics-arbetsyta](design-logs-deployment.md). 
 * Du autentiserar till Azure med ett konto som är medlem i [rollen Log Analytics Contributor](manage-access.md#manage-access-using-azure-permissions).
 
-* Regioner som stöds – Endast följande Azure-regioner stöds av System Center Operations Manager för att ansluta till en Log Analytics-arbetsyta:
+* Regioner som stöds – endast följande Azure-regioner stöds av System Center Operations Manager för att ansluta till en Log Analytics arbets yta:
     - USA, västra centrala
     - Sydöstra Australien
     - Europa, västra
@@ -56,18 +56,18 @@ Innan du börjar bör du granska följande krav.
     - USA, västra 2
 
 >[!NOTE]
->De senaste ändringarna i Azure-API:er förhindrar att kunder kan konfigurera integreringen mellan sin hanteringsgrupp och Azure Monitor för första gången. För kunder som redan har integrerat sin hanteringsgrupp med tjänsten påverkas du inte om du inte behöver konfigurera om din befintliga anslutning.  
->Ett nytt hanteringspaket har släppts för följande versioner av Operations Manager:
-> - För System Center Operations Manager 2019 ingår det här hanteringspaketet i källmediet och installeras under installationen av en ny hanteringsgrupp eller under en uppgradering.
->- Operations Manager 1801 management pack gäller även för Operations Manager 1807.
->- För System Center Operations Manager 1801 laddar du ned hanteringspaketet [härifrån](https://www.microsoft.com/download/details.aspx?id=57173).
->- För System Center 2016 - Operations Manager laddar du ner hanteringspaketet [härifrån](https://www.microsoft.com/download/details.aspx?id=57172).  
->- För System Center Operations Manager 2012 R2 laddar du ned hanteringspaketet [härifrån](https://www.microsoft.com/download/details.aspx?id=57171).  
+>De senaste ändringarna i Azure API: er hindrar kunder från att kunna konfigurera integration mellan hanterings gruppen och Azure Monitor för första gången. För kunder som redan har integrerat sin hanterings grupp med tjänsten påverkas du inte om du inte behöver konfigurera om den befintliga anslutningen.  
+>Ett nytt hanterings paket har släppts för följande versioner av Operations Manager:
+> - För System Center Operations Manager 2019 ingår detta hanterings paket med käll mediet och installeras under installationen av en ny hanterings grupp eller under en uppgradering.
+>- Operations Manager 1801-hanterings paketet gäller också för Operations Manager 1807.
+>- För System Center Operations Manager 1801 hämtar du hanterings paketet härifrån [.](https://www.microsoft.com/download/details.aspx?id=57173)
+>- För System Center 2016 – Operations Manager laddar du ned hanterings paketet [härifrån.](https://www.microsoft.com/download/details.aspx?id=57172)  
+>- Hämta hanterings [paketet härifrån för](https://www.microsoft.com/download/details.aspx?id=57171)System Center Operations Manager 2012 R2.  
 
 
 ### <a name="network"></a>Nätverk
 
-Informationen nedan visar den proxy- och brandväggskonfigurationsinformation som krävs för operationshanterarens agent, hanteringsservrar och driftkonsolen för att kommunicera med Azure Monitor. Trafik från varje komponent är utgående från nätverket till Azure Monitor.
+Informationen nedan visar den konfigurations information för proxy och brand vägg som krävs för att Operations Manager agent, hanterings servrar och drift konsol för att kommunicera med Azure Monitor. Trafik från varje komponent är utgående från nätverket till Azure Monitor.
 
 |Resurs | Portnummer| Kringgå HTTPS-kontroll|  
 |---------|------|-----------------------|  
@@ -81,7 +81,7 @@ Informationen nedan visar den proxy- och brandväggskonfigurationsinformation so
 |\*.blob.core.windows.net| 443| Ja|  
 |\*.ods.opinsights.azure.com| 443| Ja|  
 |*.azure-automation.net | 443| Ja|  
-|**Operations Manager-konsolen till Azure Monitor**|||  
+|**Operations Manager-konsolen för att Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 och 443||  
@@ -93,24 +93,24 @@ Informationen nedan visar den proxy- och brandväggskonfigurationsinformation so
 |api.loganalytics.io| 80 och 443||
 |docs.loganalytics.io| 80 och 443||  
 
-### <a name="tls-12-protocol"></a>TLS 1.2-protokoll
+### <a name="tls-12-protocol"></a>TLS 1,2-protokoll
 
-För att försäkra säkerheten för data under överföring till Azure Monitor rekommenderar vi starkt att du konfigurerar agent- och hanteringsgruppen så att den använder minst TLS (Transport Layer Security) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har visat sig vara sårbara och medan de fortfarande arbetar för att tillåta bakåtkompatibilitet rekommenderas de **inte**. Mer information finns i [Skicka data på ett säkert sätt med TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
+För att säkerställa säkerheten för data som överförs till Azure Monitor rekommenderar vi starkt att du konfigurerar agenten och hanterings gruppen så att de använder minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**. Mer information finns i [skicka data på ett säkert sätt med TLS 1,2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Ansluta Operations Manager till Azure Monitor
 
 Utför följande steg för att konfigurera hanteringsgruppen för Operations Manager för att ansluta till en av dina Log Analytics-arbetsytor.
 
-Vid den första registreringen av hanteringsgruppen för Operations Manager med en Log Analytics-arbetsyta är alternativet att ange proxykonfigurationen för hanteringsgruppen inte tillgängligt i driftkonsolen.  Hanteringsgruppen måste registrerats med tjänsten innan det här alternativet är tillgängligt.  För att komma runt detta måste du uppdatera systemproxykonfigurationen med Netsh på det system som körs driftkonsolen från för att konfigurera integrering och alla hanteringsservrar i hanteringsgruppen.  
+Under den inledande registreringen av din Operations Manager hanterings grupp med en Log Analytics arbets yta är alternativet för att ange proxykonfigurationen för hanterings gruppen inte tillgängligt i drift konsolen.  Hanteringsgruppen måste registrerats med tjänsten innan det här alternativet är tillgängligt.  För att undvika detta måste du uppdatera systemproxy-konfigurationen med Netsh på systemet som kör drift konsolen från för att konfigurera integrering och alla hanterings servrar i hanterings gruppen.  
 
 1. Öppna en upphöjd kommandotolk.
    a. Gå till **Start** och skriv **cmd**.
-   b. Högerklicka på **Kommandotolken** och välj Kör som administratör**.
+   b. Högerklicka på **kommando tolken** och välj Kör som administratör * *.
 1. Ange följande kommando och tryck på **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-När du har slutfört följande steg för att integrera `netsh winhttp reset proxy` med Azure Monitor kan du ta bort konfigurationen genom att köra och sedan använda alternativet **Konfigurera proxyserver** i driftkonsolen för att ange proxy- eller Logganalysgatewayservern.
+När du har slutfört följande steg för att integrera med Azure Monitor kan du ta bort konfigurationen genom `netsh winhttp reset proxy` att köra och sedan använda alternativet **Konfigurera proxyserver** i drift konsolen för att ange proxyservern eller Log Analytics Gateway-server.
 
 1. Välj arbetsytan **Administration** i Operations Manager-konsolen.
 1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
@@ -118,12 +118,12 @@ När du har slutfört följande steg för att integrera `netsh winhttp reset pro
 1. På sidan **Guiden Operations Management Suite Onboarding: Autentisering** anger du e-postadress eller telefonnummer och lösenordet för administratörskontot som är kopplat till din OMS-prenumeration och klickar på **Logga in**.
 
    >[!NOTE]
-   >Namnet på Operations Management Suite har dragits tillbaka.
+   >Operations Management Suite-namnet har dragits tillbaka.
 
-1. När du har autentiserats uppmanas du att välja arbetsytan För Azure-klientorganisation, prenumeration och Logganalys på **sidan Drifthanteringspaket.** Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
+1. När du har autentiserats går du till sidan **Operations Management Suite onboarding: Välj arbets yta** och du uppmanas att välja din Azure-klient, prenumeration och Log Analytics-arbetsyta. Om du har mer än en arbetsyta väljer du arbetsytan som du vill registrera med Operations Manager-hanteringsgruppen från listrutan och klickar på **Nästa**.
 
    > [!NOTE]
-   > Operations Manager stöder bara en Log Analytics-arbetsyta i taget. Anslutningen och datorerna som registrerades på Azure Monitor med föregående arbetsyta tas bort från Azure Monitor.
+   > Operations Manager stöder bara en Log Analytics-arbetsyta i taget. Anslutningen och datorerna som har registrerats för Azure Monitor med den föregående arbets ytan tas bort från Azure Monitor.
    >
    >
 1. På sidan **Guiden Operations Management Suite Onboarding: Sammanfattning** bekräftar du dina inställningar och om de är korrekta klickar du på **Skapa**.
@@ -131,25 +131,25 @@ När du har slutfört följande steg för att integrera `netsh winhttp reset pro
 
 ### <a name="add-agent-managed-computers"></a>Lägg till datorer som hanteras med agent
 
-När du har konfigurerat integreringen med din Log Analytics-arbetsyta upprättas bara en anslutning till tjänsten, inga data samlas in från agenterna som rapporterar till din hanteringsgrupp. Detta sker inte förrän du har konfigurerat vilka specifika agenthanterade datorer som samlar in loggdata för Azure Monitor. Du kan antingen välja datorobjekt individuellt eller välja en grupp som innehåller Windows-datorobjekt. Du kan inte välja en grupp som innehåller instanser av en annan klass, till exempel logiska diskar eller SQL-databaser.
+När du har konfigurerat integrationen med din Log Analytics-arbetsyta upprättar den bara en anslutning till tjänsten, inga data samlas in från agenter som rapporterar till hanterings gruppen. Detta sker inte förrän du har konfigurerat vilka vissa datorer som hanteras av agenten samla in loggdata för Azure Monitor. Du kan antingen välja datorobjekt individuellt eller välja en grupp som innehåller Windows-datorobjekt. Du kan inte välja en grupp som innehåller instanser av en annan klass, till exempel logiska diskar eller SQL-databaser.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Expandera noden Operations Management Suite och klicka på **Anslutning**.
 1. Klicka på länken **Lägg till en dator/grupp** under rubriken Åtgärder på höger sida av fönstret.
-1. I dialogrutan **Datorsökning** kan du söka efter datorer eller grupper som övervakas av Operations Manager. Välj datorer eller grupper, inklusive Operations Manager Management Server som ska finnas ombord på Azure Monitor, klicka på **Lägg till**och klicka sedan på **OK**.
+1. I dialogrutan **Datorsökning** kan du söka efter datorer eller grupper som övervakas av Operations Manager. Välj datorer eller grupper, inklusive den Operations Manager hanterings server som ska publiceras i Azure Monitor, klicka på **Lägg till**och sedan på **OK**.
 
 Du kan visa datorer och grupper som konfigurerats för att samla in data från noden för hanterade datorer under Operations Management Suite i arbetsytan **Administration** i Operations-konsolen. Härifrån kan du lägga till eller ta bort datorer och grupper efter behov.
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>Konfigurera proxyinställningar i Operations-konsolen
 
-Utför följande steg om en intern proxyserver finns mellan hanteringsgruppen och Azure Monitor. Dessa inställningar hanteras centralt från hanteringsgruppen och distribueras till agenthanterade system som ingår i omfånget för att samla in loggdata för Azure Monitor.  Detta är fördelaktigt när vissa lösningar förbigår hanteringsservern och skickar data direkt till tjänsten.
+Utför följande steg om en intern proxyserver är mellan hanterings gruppen och Azure Monitor. De här inställningarna hanteras centralt från hanterings gruppen och distribueras till agenter som hanteras av agenter som ingår i omfattningen för insamling av loggdata för Azure Monitor.  Detta är fördelaktigt när vissa lösningar förbigår hanteringsservern och skickar data direkt till tjänsten.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Expandera Operations Management Suite och klicka sedan på **Anslutningar**.
 1. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.
 1. På sidan med **guiden Operations Management Suite: Proxyserver** väljer du alternativet för att **använda en proxyserver för att få åtkomst till Operational Management Suite** och anger sedan webbadressen med portnumret, till exempel http://corpproxy:80 och klickar på **Slutför**.
 
-Om proxyservern kräver autentisering utför du följande steg för att konfigurera autentiseringsuppgifter och inställningar som behöver spridas till hanterade datorer som rapporterar till Azure Monitor i hanteringsgruppen.
+Om proxyservern kräver autentisering utför du följande steg för att konfigurera autentiseringsuppgifter och inställningar som måste spridas till hanterade datorer som rapporterar till Azure Monitor i hanterings gruppen.
 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Under **Kör som-konfiguration** väljer du **Profiler**.
@@ -157,43 +157,43 @@ Om proxyservern kräver autentisering utför du följande steg för att konfigur
 1. I guiden Kör som-profil klickar du på Lägg till för att använda ett Kör som-konto. Du kan skapa ett [Kör som-konto](https://technet.microsoft.com/library/hh321655.aspx) eller använda ett befintligt konto. Det här kontot måste ha tillräcklig behörighet för att kunna passera genom proxyservern.
 1. Ange vilket konto som ska hanteras genom att välja **En vald klass, grupp eller objekt**, klicka på **Välj...** och sedan klicka på **Grupp...** för att öppna **Gruppsökning**.
 1. Sök efter och välj **Övervakning av servergrupp i Microsoft System Center Advisor**. Klicka på **OK** när du har valt grupp för att stänga rutan **Gruppsökning**.
-1. Klicka på **OK** för att stänga rutan **Lägg till ett kör som-konto.**
+1. Klicka på **OK** för att stänga rutan **Lägg till ett Kör som-konto** .
 1. Klicka på **Spara** för att slutföra guiden och spara dina ändringar.
 
-När anslutningen har skapats och du konfigurerar vilka agenter som ska samla in och rapportera loggdata till Azure Monitor, tillämpas följande konfiguration i hanteringsgruppen, inte nödvändigtvis i ordning:
+När anslutningen har skapats och du konfigurerar vilka agenter som ska samla in och rapportera logg data till Azure Monitor, tillämpas följande konfiguration i hanterings gruppen, inte nödvändigt vis i ordning:
 
 * Kör som-kontot **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** skapas. Det är associerat med Kör som-profilen **Microsoft System Center Advisor Run As Profile Blob** (Microsoft System Center Advisor Kör som-profilblob) och har två klasser som mål – **insamlingsserver** och **Operations Manager-hanteringsgrupp **.
-* Två anslutningsprogram skapas.  Den första heter **Microsoft.SystemCenter.Advisor.DataConnector** och konfigureras automatiskt med en prenumeration som vidarebefordrar alla aviseringar som genereras från instanser av alla klasser i hanteringsgruppen till Azure Monitor. Den andra anslutningen är **Advisor Connector**, som ansvarar för att kommunicera med Azure Monitor och dela data.
+* Två anslutningsprogram skapas.  Det första heter **Microsoft. System Center. Advisor. DataConnector** och konfigureras automatiskt med en prenumeration som vidarebefordrar alla aviseringar som genereras från instanser av alla klasser i hanterings gruppen till Azure Monitor. Den andra kopplingen är **Advisor-koppling**, som ansvarar för att kommunicera med Azure Monitor och dela data.
 * Agenter och grupper som du har valt för att samla in data i hanteringsgruppen läggs till i **Övervakning av servergrupp i Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Uppdateringar av hanteringspaket
 
-När konfigurationen är klar upprättar Hanteringsgruppen för Operations Manager en anslutning till Azure Monitor. Hanteringsservern synkroniserar med webbtjänsten och tar emot uppdaterad konfigurationsinformation i form av hanteringspaket för de lösningar du har aktiverat som integreras med Operations Manager. Operations Manager söker efter uppdateringar av dessa hanteringspaket och hämtar och importerar dem automatiskt när de är tillgängliga. Det är särskilt två regler som styr detta:
+När konfigurationen är klar upprättar Operations Manager hanterings gruppen en anslutning med Azure Monitor. Hanteringsservern synkroniserar med webbtjänsten och tar emot uppdaterad konfigurationsinformation i form av hanteringspaket för de lösningar du har aktiverat som integreras med Operations Manager. Operations Manager söker efter uppdateringar av dessa hanterings paket och hämtar och importerar dem automatiskt när de är tillgängliga. Det är särskilt två regler som styr detta:
 
-* **Microsoft.SystemCenter.Advisor.MPUpdate** - Uppdaterar de grundläggande Azure Monitor-hanteringspaketen. Kör som standard var 12:e timme.
+* **Microsoft. System Center. Advisor. MPUpdate** – uppdaterar bas Azure Monitor hanterings paketen. Kör som standard var 12:e timme.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** – uppdaterar hanteringspaketen för lösningen som aktiverats i din arbetsyta. Körs som standard var 5:e minut.
 
-Du kan åsidosätta dessa två regler för att antingen förhindra automatisk hämtning genom att inaktivera dem, eller ändra frekvensen för hur ofta hanteringsservern synkroniseras med Azure Monitor för att avgöra om ett nytt hanteringspaket är tillgängligt och bör hämtas. Följ [de här stegen för att åsidosätta en regel eller övervakare](https://technet.microsoft.com/library/hh212869.aspx) för att ändra parametern **Frekvens** (med ett värde i sekunder) för att justera synkroniseringsschemat eller ändra parametern **Aktiverad** för att avaktivera reglerna. Rikta åsidosättningarna mot alla objekt i klassen Operations Manager Management Group.
+Du kan åsidosätta de här två reglerna för att antingen förhindra automatisk nedladdning genom att inaktivera dem eller ändra frekvensen för hur ofta hanterings servern ska synkroniseras med Azure Monitor för att avgöra om ett nytt hanterings paket är tillgängligt och ska laddas ned. Följ [de här stegen för att åsidosätta en regel eller övervakare](https://technet.microsoft.com/library/hh212869.aspx) för att ändra parametern **Frekvens** (med ett värde i sekunder) för att justera synkroniseringsschemat eller ändra parametern **Aktiverad** för att avaktivera reglerna. Rikta åsidosättningarna mot alla objekt i klassen Operations Manager Management Group.
 
-Om du vill fortsätta följa din befintliga ändringskontrollprocess för att kontrollera hanteringspaketversioner i produktionshanteringsgruppen kan du inaktivera reglerna och aktivera dem under specifika tider när uppdateringar tillåts. Om du har en utvecklings- eller kvalitetskontrollshanteringsgrupp i din miljö och den är ansluten till Internet, kan du konfigurera hanteringsgruppen med Log Analytics-arbetsytan för att stödja det här scenariot. På så sätt kan du granska och utvärdera iterativa versioner av Azure Monitor-hanteringspaketen innan du släpper dem till din produktionshanteringsgrupp.
+Om du vill fortsätta att följa den befintliga processen för ändrings kontroll för att kontrol lera hanterings paket versioner i produktions hanterings gruppen kan du inaktivera reglerna och aktivera dem vid vissa tidpunkter när uppdateringar är tillåtna. Om du har en utvecklings- eller kvalitetskontrollshanteringsgrupp i din miljö och den är ansluten till Internet, kan du konfigurera hanteringsgruppen med Log Analytics-arbetsytan för att stödja det här scenariot. På så sätt kan du granska och utvärdera de iterativa versionerna av de Azure Monitor hanterings paketen innan du släpper dem i produktions hanterings gruppen.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Växla en Operations Manager-grupp till en ny Log Analytics-arbetsyta
 
-1. Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics** och skapa en arbetsyta.  
 1. Öppna Operations Manager-konsolen med ett konto med rollen Operations Manager-administratör och välj arbetsytan **Administration**.
-1. Expandera Logganalys och välj **Anslutningar**.
+1. Expandera Log Analytics och välj **anslutningar**.
 1. Välj länken för att **konfigurera om Operation Management Suite** i mitten av fönstret.
-1. Följ **inloggningsguiden för logganalys** och ange e-postadressen eller telefonnumret och lösenordet för det administratörskonto som är kopplat till den nya logganalysarbetsytan.
+1. Följ **guiden Log Analytics onboarding** och ange e-postadressen eller telefonnumret och lösen ordet för det administratörs konto som är associerat med den nya Log Analytics-arbetsytan.
 
    > [!NOTE]
    > På sidan **Guiden Operations Management Suite Onboarding: Välj arbetsyta** visas den befintliga arbetsytan som används.
    >
    >
 
-## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Verifiera Integrering av Operations Manager med Azure Monitor
+## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Verifiera Operations Manager-integrering med Azure Monitor
 
-Det finns några olika sätt att kontrollera att Azure Monitor to Operations Manager-integreringen lyckas.
+Det finns några olika sätt som du kan kontrol lera att Azure Monitor att Operations Manager integrationen är slutförd.
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Bekräfta integrationen från Azure Portal
 
@@ -215,9 +215,9 @@ Det finns några olika sätt att kontrollera att Azure Monitor to Operations Man
 
 ## <a name="remove-integration-with-azure-monitor"></a>Ta bort integrering med Azure Monitor
 
-Flera steg måste utföras för att ta bort anslutningen och konfigurationen korrekt i hanteringsgruppen när du inte längre behöver integreringen mellan din Operations Manager-hanteringsgrupp och Log Analytics-arbetsytan. Följande procedur har du uppdaterat din Log Analytics-arbetsyta genom att ta bort referensen för din hanteringsgrupp, ta bort Azure Monitor-kopplingar och sedan ta bort hanteringspaket som stöder integrering med tjänsten.  
+Flera steg måste utföras för att ta bort anslutningen och konfigurationen korrekt i hanteringsgruppen när du inte längre behöver integreringen mellan din Operations Manager-hanteringsgrupp och Log Analytics-arbetsytan. Med följande procedur kan du uppdatera Log Analytics-arbetsytan genom att ta bort referensen för hanterings gruppen, ta bort Azure Monitor-anslutningarna och sedan ta bort hanterings paket som stöder integrering med tjänsten.  
 
-Hanteringspaket för de lösningar som du har aktiverat som integreras med Operations Manager och de hanteringspaket som krävs för att stödja integrering med Azure Monitor kan inte enkelt tas bort från hanteringsgruppen. Detta beror på att vissa av Azure Monitor-hanteringspaketen har beroenden av andra relaterade hanteringspaket. För att ta bort hanteringspaket med beroenden i andra hanteringspaket laddar du ned skriptet [ för att ta bort hanteringspaket med ett beroende](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) från TechNet Script Center.  
+Hanterings paket för de lösningar som du har aktiverat och som integreras med Operations Manager och de hanterings paket som krävs för att stödja integration med Azure Monitor kan inte enkelt tas bort från hanterings gruppen. Detta beror på att vissa av de Azure Monitor hanterings paketen är beroende av andra relaterade hanterings paket. För att ta bort hanteringspaket med beroenden i andra hanteringspaket laddar du ned skriptet [ för att ta bort hanteringspaket med ett beroende](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) från TechNet Script Center.  
 
 1. Öppna Operations Manager kommandotolken med ett konto som är medlem i rollen Operations Manager-administratörer.
 
@@ -230,7 +230,7 @@ Hanteringspaket för de lösningar som du har aktiverat som integreras med Opera
 1. För att ta bort återstående hanteringspaket med beroenden till andra System Center Advisor-hanteringspaket använder du skriptet *RecursiveRemove.ps1* som du laddade ned innan från TechNet Script Center.  
 
     > [!NOTE]
-    > Steget för att ta bort Advisor-hanteringspaketen med PowerShell tar inte automatiskt bort de interna hanteringspaketen för Microsoft System Center Advisor eller Microsoft System Center Advisor.  Försök inte ta bort dem.  
+    > Steget för att ta bort Advisor-hanterings paketen med PowerShell tar inte automatiskt bort Microsoft System Center Advisor eller Microsoft System Center Advisor Internal Management Packs.  Försök inte att ta bort dem.  
     >  
 
 1. Öppna Operations-konsolen i Operations Manager med ett konto som har rollen Operations Manager-administratör.
@@ -239,9 +239,9 @@ Hanteringspaket för de lösningar som du har aktiverat som integreras med Opera
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
-1. Klicka på panelen **Inställningar** i Azure-portalen.
-1. Välj **Anslutna källor**.
-1. I tabellen under avsnittet System Center Operations Manager bör du se namnet på den hanteringsgrupp som du vill ta bort från arbetsytan. Under kolumnen **Senaste data** klickar du på **Ta bort**.  
+1. Klicka på panelen **Inställningar** i Azure Portal.
+1. Välj **anslutna källor**.
+1. I tabellen under avsnittet System Center Operations Manager bör du se namnet på den hanterings grupp som du vill ta bort från arbets ytan. Under kolumnen **Senaste data** klickar du på **Ta bort**.  
 
     > [!NOTE]
     > Länken **Ta bort** blir inte tillgänglig förrän efter att den anslutna hanteringsgruppen känner av 14 dagar utan aktivitet.  
@@ -347,11 +347,11 @@ För att radera de två anslutningsprogrammen – Microsoft.SystemCenter.Advisor
     Remove-Connector $connectorName
 ```
 
-I framtiden om du planerar att återansluta hanteringsgruppen till en Log `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` Analytics-arbetsyta måste du importera hanteringspaketfilen igen. Beroende på vilken version av System Center Operations Manager som har distribuerats i din miljö kan du hitta filen här:
+I framtiden om du planerar att återansluta din hanterings grupp till en Log Analytics arbets yta måste du importera `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` hanterings paket filen igen. Beroende på vilken version av System Center Operations Manager som har distribuerats i din miljö kan du hitta filen här:
 
 * På källmediet under mappen `\ManagementPacks` för System Center 2016 – Operations Manager och högre.
-* Från den senaste uppdateringen som tillämpats på din hanteringsgrupp. För Operations Manager 2012 är `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` källmappen och för 2012 `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`R2 finns den i .
+* Från den senaste uppdateringen som tillämpats på din hanteringsgrupp. För Operations Manager 2012 är `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` källmappen och för 2012 R2 finns den i. `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du lägger till funktioner och samlar in data finns i [Lägga till Azure Monitor-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+Information om hur du lägger till funktioner och samlar in data finns i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).

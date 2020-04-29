@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Acadia | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Acadia | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Acadia.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d85409dc9e53c61f0f04b7ed39ec0fd8b06e297
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73154437"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Självstudiekurs: Azure Active Directory-integrering med Acadia
+# <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Självstudie: Azure Active Directory integrering med Acadia
 
 I den här självstudien lär du dig att integrera Acadia med Azure Active Directory (AD Azure).
 Integreringen av Acadia med Azure AD medför följande fördelar:
@@ -33,7 +33,7 @@ Integreringen av Acadia med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -103,19 +103,19 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ac
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
     ![Information om enkel inloggning med Acadia-domäner och -URL:er](common/idp-intiated.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/SAML2/POST`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/SAML2/POST`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Information om enkel inloggning med Acadia-domäner och -URL:er](common/metadata-upload-additional-signon.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     > [!NOTE]
     > Värdena för steg 4 och 5 kommer att anges i en metadatafil av Acadia-teamet. Den kan importeras genom att du klickar på **Ladda upp metadatafil** i avsnittet **Grundläggande SAML-konfiguration**. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen för att bekräfta att metadatavärdena är korrekta. Kontakta [kundsupporten för Acadia](mailto:support@systemsalliance.com) om de angivna värdena är felaktiga.
@@ -146,7 +146,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -156,7 +156,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -185,7 +185,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -203,6 +203,6 @@ När du klickar på Acadia-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,7 +1,7 @@
 ---
-title: 'Konvertera till datauppsättning: Modulreferens'
+title: 'Konvertera till data uppsättning: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Konvertera till datauppsättning i Azure Machine Learning för att konvertera datainmatning till det interna datauppsättningsformat som används av Microsoft Azure Machine Learning.
+description: Lär dig hur du använder modulen konvertera till data uppsättning i Azure Machine Learning för att konvertera data indata till det interna data uppsättnings formatet som används av Microsoft Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,64 +10,64 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456598"
 ---
 # <a name="convert-to-dataset"></a>Konvertera till datamängd
 
-I den här artikeln beskrivs hur du använder modulen Konvertera till datauppsättning i Azure Machine Learning designer (förhandsversion) för att konvertera data för en pipeline till designerns interna format.
+Den här artikeln beskriver hur du använder modulen konvertera till dataset i Azure Machine Learning designer (för hands version) för att konvertera data för en pipeline till designerns interna format.
   
-Konvertering krävs inte i de flesta fall. Azure Machine Learning konverterar implicit data till sitt ursprungliga datauppsättningsformat när en åtgärd utförs på data. 
+Konvertering krävs inte i de flesta fall. Azure Machine Learning implicit konverterar data till det ursprungliga data uppsättnings formatet när en åtgärd utförs på data. 
 
-Vi rekommenderar att du sparar data i datauppsättningsformatet om du har utfört någon form av normalisering eller rengöring på en uppsättning data, och du vill se till att ändringarna används i andra pipelines.  
+Vi rekommenderar att du sparar data till data uppsättnings formatet om du har utfört någon typ av normalisering eller rensning på en uppsättning data, och du vill se till att ändringarna används i andra pipeliner.  
   
 > [!NOTE]
-> Konvertera till Datauppsättning ändrar bara formatet på data. En ny kopia av data på arbetsytan sparas inte. Om du vill spara datauppsättningen dubbelklickar du på utdataporten, väljer **Spara som datauppsättning**och anger ett nytt namn.  
+> Konvertera till data uppsättning ändrar endast data formatet. En ny kopia av data sparas inte i arbets ytan. Om du vill spara data uppsättningen dubbelklickar du på utdataporten, väljer **Spara som data uppsättning**och anger ett nytt namn.  
   
-## <a name="how-to-use-convert-to-dataset"></a>Så här använder du Konvertera till datauppsättning  
+## <a name="how-to-use-convert-to-dataset"></a>Använda konvertera till data uppsättning  
 
-Vi rekommenderar att du använder modulen [Redigera metadata](edit-metadata.md) för att förbereda datauppsättningen innan du använder Konvertera till datauppsättning. Du kan lägga till eller ändra kolumnnamn, justera datatyper och göra andra ändringar efter behov.
+Vi rekommenderar att du använder modulen [Redigera metadata](edit-metadata.md) för att förbereda data uppsättningen innan du använder konvertera till data uppsättning. Du kan lägga till eller ändra kolumn namn, justera data typer och göra andra ändringar om det behövs.
 
-1.  Lägg till modulen Konvertera till datauppsättning i pipelinen. Du hittar den här modulen i kategorin **Dataomvandling** i designern. 
+1.  Lägg till modulen konvertera till data uppsättning i din pipeline. Du hittar den här modulen i kategorin **data omvandling** i designern. 
 
-2. Anslut den till alla moduler som matar ut en datauppsättning.   
+2. Anslut den till en modul som matar ut en data uppsättning.   
 
-    Så länge data är [tabellformiga](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)kan du konvertera dem till en datauppsättning. Detta inkluderar data som läses in via [importdata,](import-data.md)data som skapats via [Returdata manuellt](enter-data-manually.md)eller datauppsättningar som transformerats via [Använd omvandling](apply-transformation.md).
+    Så länge data är [tabell](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), kan du konvertera dem till en data uppsättning. Detta inkluderar data som läses in genom att [Importera data](import-data.md), data som skapats genom att [ange data manuellt](enter-data-manually.md)eller data uppsättningar omvandlas via [tillämpa omvandling](apply-transformation.md).
 
-3.  I listrutan **Åtgärd** anger du om du vill göra någon rensning av data innan du sparar datauppsättningen:  
+3.  I list rutan **åtgärd** anger du om du vill göra några rensningar av data innan du sparar data uppsättningen:  
   
-    - **Ingen**: Använd data som de är.  
+    - **Ingen**: Använd datan som de är.  
   
-    - **SetMissingValue**: Ange ett specifikt värde till ett värde som saknas i datauppsättningen. Standardplatshållaren är frågetecknet (?), men du kan använda alternativet **Anpassat värde som saknas** för att ange ett annat värde. Om du till exempel anger **Tax** for **Custom saknas värde**ändras alla instanser av **Taxi** i datauppsättningen till det saknade värdet.
+    - **SetMissingValue**: Ange ett värde för ett värde som saknas i data uppsättningen. Standard plats hållaren är frågetecknet (?), men du kan använda alternativet **anpassat värde som saknas** för att ange ett annat värde. Om du till exempel anger **taxi** för **anpassat saknat värde**, kommer alla instanser av **taxin** i data uppsättningen att ändras till det saknade värdet.
   
-    - **ReplaceValues**: Använd det här alternativet om du vill ange ett exakt värde som ska ersättas med ett annat exakt värde. Du kan ersätta saknade värden eller anpassade värden genom att ange metoden **Ersätt:**
+    - **ReplaceValues**: Använd det här alternativet för att ange ett enda exakt värde som ska ersättas med andra exakta värden. Du kan ersätta saknade värden eller anpassade värden genom att ange **ersättnings** metoden:
 
-      - **Saknas**: Välj det här alternativet om du vill ersätta saknade värden i indatauppsättningen. För **Nytt värde**anger du värdet som värdena saknas med.
-      - **Anpassad:** Välj det här alternativet om du vill ersätta anpassade värden i indatauppsättningen. För **anpassat värde**anger du det värde som du vill söka efter. Om dina data till exempel `obs` innehåller strängen som används som `obs`platshållare för saknade värden anger du . För **Nytt värde**anger du det nya värdet som den ursprungliga strängen ska ersättas med.
+      - **Saknas**: Välj det här alternativet om du vill ersätta saknade värden i indata-datauppsättningen. För **nytt värde**anger du det värde som du vill ersätta de saknade värdena med.
+      - **Anpassad**: Välj det här alternativet om du vill ersätta anpassade värden i indata-datauppsättningen. För **anpassat värde**anger du det värde som du vill söka efter. Om dina data t. ex. innehåller den `obs` sträng som används som plats hållare för värden som saknas `obs`, anger du. För **nytt värde**anger du det nya värdet som ersätter den ursprungliga strängen med.
   
-    Observera att åtgärden **ReplaceValues** endast gäller för exakta matchningar. Dessa strängar påverkas till exempel `obs.`inte: `obsolete`, .  
+    Observera att **ReplaceValues** -åtgärden endast gäller för exakta matchningar. Dessa strängar påverkas till exempel inte: `obs.`,. `obsolete`  
  
   
 5.  Skicka pipelinen.  
 
 ## <a name="results"></a>Resultat
 
-+  Om du vill spara den resulterande datauppsättningen med ett nytt namn väljer du på ikonen **Registrera datauppsättning** under fliken **Utdata** på modulens högra panel.  
++  Om du vill spara den resulterande data uppsättningen med ett nytt namn väljer du på ikonen **registrera data uppsättning** under fliken **utdata** i den högra panelen i modulen.  
   
-## <a name="technical-notes"></a>Tekniska anmärkningar  
+## <a name="technical-notes"></a>Tekniska anteckningar  
 
--   Alla moduler som tar en datauppsättning som indata kan också ta data i CSV-filen eller TSV-filen. Innan någon modulkod körs är ingångarna förbearbetade. Förbearbetning motsvarar att köra modulen Konvertera till datauppsättning på indata.  
+-   Alla moduler som tar en data uppsättning som indata kan också ta data i CSV-filen eller TSV-filen. Innan all kod körs förbehandlas indata. För bearbetning är detsamma som att köra modulen konvertera till data uppsättning i indata.  
   
--   Du kan inte konvertera från SVMLight-formatet till en datauppsättning.  
+-   Du kan inte konvertera från SVMLight-formatet till en data uppsättning.  
   
--   När du anger en anpassad ersättningsåtgärd gäller sök- och ersättningsåtgärden för fullständiga värden. Partiella matchningar är inte tillåtna. Du kan till exempel ersätta en 3 med en -1 eller med 33, men du kan inte ersätta en 3 i ett tvåsiffrigt tal som 35.  
+-   När du anger en anpassad ersättnings åtgärd, gäller åtgärden Sök och Ersätt för fullständiga värden. Partiella matchningar är inte tillåtna. Du kan till exempel ersätta en 3 med en-1 eller med 33, men du kan inte ersätta en 3 med tvåsiffriga tal som 35.  
   
--   För anpassade ersättningsåtgärder misslyckas ersättningen tyst om du använder ett tecken som inte överensstämmer med kolumnens aktuella datatyp som ersättning.  
+-   För anpassade ersättnings åtgärder, kommer ersättningen att Miss varnas tyst om du använder som ersättning för alla bokstäver som inte överensstämmer med den aktuella data typen för kolumnen.  
 
   
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

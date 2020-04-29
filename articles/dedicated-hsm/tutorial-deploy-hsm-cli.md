@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79454320"
 ---
-# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Självstudiekurs: Distribuera HSM-datorer till ett befintligt virtuellt nätverk med CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Självstudie: Distribuera HSM: er till ett befintligt virtuellt nätverk med CLI
 
 Dedikerad HSM i Azure tillhandahåller en fysisk enhet enbart för kundanvändning, med fullständig administrativ kontroll och fullständigt hanteringsansvar. Användningen av fysiska enheter skapar ett behov av att Microsoft styr enhetsallokeringen för att säkerställa att kapacitet hanteras på ett effektivt sätt. I en Azure-prenumeration syns tjänsten Dedikerad HSM därför normalt inte för resursetablering. Azure-kunder som behöver åtkomst till tjänsten Dedikerad HSM måste först kontakta sin Microsoft-kontoansvarige och begära registrering för tjänsten Dedikerad HSM. Det är först när den här processen är klar som etablering blir möjlig. 
 
@@ -47,7 +47,7 @@ Antaganden:
 - Du har skapat en resursgrupp för dessa resurser, och de nya som distribueras i den här självstudien ansluts till den gruppen.
 - Du redan har skapat nödvändiga virtuella nätverk, undernät och virtuella datorer enligt diagrammet ovan och vill nu integrera två HSM:er i den distributionen.
 
-Alla instruktioner nedan förutsätter att du redan har navigerat till Azure-portalen och du har öppnat Cloud Shell (välj "\>\_" längst upp till höger i portalen).
+Alla instruktioner nedan förutsätter att du redan har navigerat till Azure Portal och att du har öppnat Cloud Shell (Välj "\>\_" överst till höger i portalen).
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Etablera en Dedikerad HSM
 
@@ -71,13 +71,13 @@ az feature show \
    --name AllowBaremetalServers
 ```
 
-Båda kommandona ska returnera statusen "Registrerad" (som visas nedan). Om kommandona inte returnerar ”Registrerad” behöver du registrera dig för den här tjänsten. Kontakta din Microsoft-kontorepresentant.
+Båda kommandona ska returnera statusen "registrerad" (som visas nedan). Om kommandona inte returnerar ”Registrerad” behöver du registrera dig för den här tjänsten. Kontakta din Microsoft-kontorepresentant.
 
 ![prenumerationsstatus](media/tutorial-deploy-hsm-cli/subscription-status.png)
 
 ### <a name="creating-hsm-resources"></a>Skapa HSM-resurser
 
-En HSM etableras i ett kundernas virtuella nätverk så ett virtuellt nätverk och undernät krävs. Ett beroende som krävs för att HSM ska möjliggöra kommunikation mellan det virtuella nätverket och en fysisk enhet är en ExpressRoute-Gateway. Slutligen krävs en virtuell dator för att få åtkomst till HSM-enheten med hjälp av Gemalto-klientprogrammet. Dessa resurser har samlats i en mallfil med motsvarande parameterfil för enkel användning. Du kan hämta filerna genom att kontakta Microsoft direkt på HSMrequest@Microsoft.com.
+En HSM är etablerad i ett kunds virtuella nätverk så att det krävs ett virtuellt nätverk och ett undernät. Ett beroende som krävs för att HSM ska möjliggöra kommunikation mellan det virtuella nätverket och en fysisk enhet är en ExpressRoute-Gateway. Slutligen krävs en virtuell dator för att få åtkomst till HSM-enheten med hjälp av Gemalto-klientprogrammet. Dessa resurser har samlats i en mallfil med motsvarande parameterfil för enkel användning. Du kan hämta filerna genom att kontakta Microsoft direkt på HSMrequest@Microsoft.com.
 
 När du har filerna behöver du redigera parameterfilen om du vill infoga dina önskade namn för resurser. Redigera rader med "värde": "".
 
@@ -126,7 +126,7 @@ Den associerade Azure Resource Manager-mallfilen skapar 6 resurser med den här 
 - En HSM i stämpel 1
 - En HSM i stämpel 2
 
-När parametervärden har angetts måste filerna laddas upp till Azure-portalens Cloud Shell-filresurs för användning. I Azure-portalen klickar\>\_du på " " molnskalssymbolen uppe till höger och detta gör den nedre delen av skärmen till en kommandomiljö. Alternativen för detta är BASH och PowerShell, och du bör välja BASH om det inte redan har angetts.
+När parametervärden har angetts måste filerna laddas upp till Azure-portalens Cloud Shell-filresurs för användning. Klicka på\>\_"" Cloud Shell-symbolen överst till höger i Azure Portal så att den nedre delen av skärmen visas i en kommando miljö. Alternativen för detta är BASH och PowerShell, och du bör välja BASH om det inte redan har angetts.
 
 Kommandogränssnittet innehåller ett alternativ för uppladdning/nedladdning i verktygsfältet, och du bör ange det här till att ladda upp milen och parameterfilerna till din filresurs:
 
@@ -161,7 +161,7 @@ az network vnet subnet create \
 ```
 
 >[!NOTE]
->Den viktigaste konfigurationen för att notera för det virtuella nätverket är att undernätet för HSM-enheten måste ha delegeringar inställda på "Microsoft.HardwareSecurityModules/dedicatedHSM".  HSM-etableringen fungerar inte utan att det här alternativet anges.
+>Den viktigaste konfigurationen för att anteckna för det virtuella nätverket, är att under nätet för HSM-enheten måste ha delegeringarna inställt på "Microsoft. HardwareSecurityModules/dedicatedHSMs".  HSM-etableringen fungerar inte utan att det här alternativet anges.
 
 När alla förutsättningar är uppfyllda kör du följande kommando för att använda Azure Resource Manager-mallen. Se till att du har uppdaterat värdena med dina unika namn (åtminstone resursgruppens namn):
 
@@ -178,7 +178,7 @@ Den här distributionen bör ta ungefär 25 till 30 minuter att slutföra, varav
 
 ![etableringsstatus](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-När distributionen har slutförts "provisioningState": "Lyckades" kommer att visas. Du kan ansluta till den befintliga virtuella datorn och använd SSH för att säkerställa HSM-enhetens tillgänglighet.
+När distributionen har slutförts visas "provisioningState": "lyckades". Du kan ansluta till den befintliga virtuella datorn och använd SSH för att säkerställa HSM-enhetens tillgänglighet.
 
 ## <a name="verifying-the-deployment"></a>Kontrollera distributionen
 
@@ -194,7 +194,7 @@ az resource show \
 
 ![etableringsutdata](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
-Du kan nu även se resurser med hjälp av [Azure-resursutforskaren](https://resources.azure.com/).   En gång i utforskaren, expandera "prenumerationer" till vänster, expandera din specifika prenumeration för dedikerad HSM, expandera "resursgrupper", expandera resursgruppen du använde och slutligen välja "resurser" objekt.
+Du kan nu även se resurser med hjälp av [Azure-resursutforskaren](https://resources.azure.com/).   När du är i Utforskaren expanderar du "prenumerationer" till vänster, expanderar din särskilda prenumeration för dedikerad HSM, expanderar "resurs grupper", expanderar den resurs grupp som du använde och slutligen väljer du alternativet "resurser".
 
 ## <a name="testing-the-deployment"></a>Testa distributionen
 
@@ -208,9 +208,9 @@ IP-adressen för den virtuella datorn kan också användas i stället för DNS-n
 ![lista över komponenter](media/tutorial-deploy-hsm-cli/resources.png)
 
 >[!NOTE]
->Lägg märke till kryssrutan "Visa dolda typer", som när det är markerat kommer att visa HSM-resurser.
+>Lägg märke till kryss rutan Visa dolda typer, som när det här alternativet är valt visas HSM-resurser.
 
-I skärmbilden ovan, klicka på "HSM1_HSMnic" eller "HSM2_HSMnic" skulle visa lämplig privat IP-adress. Annars är kommandot `az resource show` som används ovan ett sätt att identifiera rätt IP-adress. 
+I skärm bilden ovan visas en lämplig privat IP-adress om du klickar på "HSM1_HSMnic" eller "HSM2_HSMnic". Annars är kommandot `az resource show` som används ovan ett sätt att identifiera rätt IP-adress. 
 
 När du har rätt IP-adress kör du följande kommando och ersätter den adressen:
 
@@ -233,13 +233,13 @@ I det här skedet har du allokerat alla resurser för en distribution med hög t
 
 ## <a name="delete-or-clean-up-resources"></a>Ta bort eller rensa resurser
 
-Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras till poolen. Det uppenbara problemet när du gör detta är eventuella känsliga kunddata som finns på enheten. Det bästa sättet att "nollställa" en enhet är att få HSM admin lösenord fel 3 gånger (obs: detta är inte apparaten admin, det är den faktiska HSM admin). Som en säkerhetsåtgärd för att skydda nyckelmaterial kan enheten inte tas bort som en Azure-resurs förrän den är i nollställning.
+Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras till poolen. Det uppenbara problemet när du gör detta är eventuella känsliga kunddata som finns på enheten. Det bästa sättet att "zeroize" en enhet är att få lösen ordet för HSM-administratören fel tre gånger (Obs! det här är inte enhets administratören, det är den faktiska HSM-administratören). Som säkerhets åtgärd för att skydda nyckel material kan enheten inte tas bort som en Azure-resurs förrän den är i ett nollställt tillstånd.
 
 > [!NOTE]
 > om det är problem med någon Gemalto-enhetskonfiguration bör du kontakta [Gemaltos kundsupport](https://safenet.gemalto.com/technical-support/).
 
 
-Om du är klar med alla resurser i den här resursgruppen kan du ta bort dem alla med följande kommando:
+Om du är färdig med alla resurser i den här resurs gruppen kan du ta bort dem med följande kommando:
 
 ```azurecli
 az group deployment delete \

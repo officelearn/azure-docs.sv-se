@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Ziflow | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Ziflow | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ziflow.
 services: active-directory
 documentationCenter: na
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: d9745bdb1cb6de86a96946564865958433d49732
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67086200"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Självstudiekurs: Azure Active Directory-integrering med Ziflow
+# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Självstudie: Azure Active Directory integrering med Ziflow
 
 I den här självstudien får du lära dig hur du integrerar Ziflow med Azure Active Directory (Azure AD).
 Genom att integrera Ziflow med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Ziflow.
-* Du kan aktivera dina användare så att de automatiskt loggas in på Ziflow (Enkel inloggning) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Ziflow (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-För att konfigurera Azure AD-integrering med Ziflow behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Ziflow behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Ziflow enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Ziflow-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Ziflow stödjer **SP** initierade SSO
+* Ziflow stöder **SP** -INITIERAd SSO
 
-## <a name="adding-ziflow-from-the-gallery"></a>Lägga ziflow från galleriet
+## <a name="adding-ziflow-from-the-gallery"></a>Lägga till Ziflow från galleriet
 
 Om du vill konfigurera integreringen av Ziflow i Azure AD måste du lägga till Ziflow från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till Ziflow från galleriet:**
+**Utför följande steg för att lägga till Ziflow från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Ziflow i Azure AD måste du lägga till 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Ziflow**i sökrutan och välj **Ziflow** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **Ziflow**, väljer **Ziflow** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Ziflow i resultatlistan](common/search-new-app.png)
+     ![Ziflow i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Ziflow baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Ziflow upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Ziflow baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Ziflow upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Ziflow måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Ziflow i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Ziflow Single Sign-On](#configure-ziflow-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera Ziflow-enkel inloggning](#configure-ziflow-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Ziflow-testanvändare](#create-ziflow-test-user)** - om du vill ha en motsvarighet till Britta Simon i Ziflow som är kopplad till Azure AD-representationen av användaren.
+5. **[Skapa Ziflow test User](#create-ziflow-test-user)** – om du vill ha en motsvarighet till Britta Simon i Ziflow som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Ziflow:
+Utför följande steg för att konfigurera enkel inloggning med Ziflow i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Ziflow-programintegration**. **Ziflow**
+1. Välj **enkel inloggning**på sidan **Ziflow** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Ziflow:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Ziflow Domän och webbadresser enkel inloggningsinformation](common/sp-identifier.png)
+    ![Information om enkel inloggning för Ziflow-domän och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `urn:auth0:ziflow-production:<UniqueID>`
 
     > [!NOTE]
-    > Föregående värden är inte verkliga. Du uppdaterar det unika ID-värdet i identifieraren och signerar url:en med verkligt värde, vilket förklaras senare i självstudien.
+    > Föregående värden är inte verkliga. Du kommer att uppdatera det unika ID-värdet i identifieraren och logga in URL med faktiskt värde, vilket beskrivs senare i självstudien.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Ziflow.**
+6. I avsnittet **Konfigurera Ziflow** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,31 +126,31 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Ziflow:
 
     c. Utloggnings-URL
 
-### <a name="configure-ziflow-single-sign-on"></a>Konfigurera En inloggning i Ziflow
+### <a name="configure-ziflow-single-sign-on"></a>Konfigurera Ziflow enkel inloggning
 
-1. I ett annat webbläsarfönster loggar du in på Ziflow som säkerhetsadministratör.
+1. Logga in på Ziflow som säkerhets administratör i ett annat webbläsarfönster.
 
-2. Klicka på Avatar i det övre högra hörnet och klicka sedan på **Hantera konto**.
+2. Klicka på avatar i det övre högra hörnet och klicka sedan på **Hantera konto**.
 
-    ![Hantering av Ziflow-konfiguration](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
+    ![Hantera Ziflow-konfiguration](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
 
-3. Klicka på Enkel **inloggning**längst upp till vänster .
+3. Klicka på **enkel inloggning**längst upp till vänster.
 
-    ![Konfigurationstecken för Ziflow](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
+    ![Ziflow konfigurations tecken](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
 4. På sidan **Enkel inloggning** utför du följande steg:
 
-    ![Ziflow Konfiguration Single](./media/ziflow-tutorial/tutorial_ziflow_page.png)
+    ![Ziflow konfiguration, enkel](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
-    a. Välj **Typ** som **SAML2.0**.
+    a. Välj **typ** som **SAML 2.0**.
 
-    b. Klistra in värdet för **inloggnings-URL i** textrutan Logga in, som du har kopierat från Azure-portalen. **Login URL**
+    b. I text rutan **inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
-    c. Ladda upp det kodade bas64-certifikatet som du har hämtat från Azure-portalen till **X509-signeringscertifikatet**.
+    c. Ladda upp det bas-64-kodade certifikatet som du har laddat ned från Azure Portal till **X509-signeringscertifikat**.
 
-    d. Klistra in värdet för url för **utloggning**i textrutan **Logga** ut , som du har kopierat från Azure-portalen.
+    d. I text rutan **Logga ut URL** klistrar du in värdet för **URL för utloggning**, som du har kopierat från Azure Portal.
 
-    e. Från **avsnittet Konfigurationsinställningar för identifierare providern kopierar** du det markerade unika ID-värdet och lägger till det med identifieraren och inloggnings-URL:en i **den grundläggande SAML-konfigurationen** på Azure-portalen.
+    e. I avsnittet **konfigurations inställningar för din Identifier-Provider** kopierar du det markerade unika ID-värdet och lägger till det med identifieraren och inloggnings-URL: en i den **grundläggande SAML-konfigurationen** på Azure Portal.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -160,7 +160,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -170,7 +170,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -178,15 +178,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Ziflow.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Ziflow.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Ziflow**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Ziflow**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Ziflow**i programlistan .
+2. I listan program väljer du **Ziflow**.
 
-    ![Ziflow-länken i listan Program](common/all-applications.png)
+    ![Ziflow-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -198,35 +198,35 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-ziflow-test-user"></a>Skapa Ziflow-testanvändare
+### <a name="create-ziflow-test-user"></a>Skapa Ziflow test användare
 
-Om du vill att Azure AD-användare ska kunna logga in på Ziflow måste de etableras i Ziflow. I Ziflow är etablering en manuell aktivitet.
+Om du vill att Azure AD-användare ska kunna logga in på Ziflow måste de tillhandahållas i Ziflow. I Ziflow är etableringen en manuell uppgift.
 
 Gör följande för att etablera ett användarkonto:
 
-1. Logga in på Ziflow som säkerhetsadministratör.
+1. Logga in på Ziflow som säkerhets administratör.
 
-2. Navigera till **Personer** högst upp.
+2. Navigera till **personer** överst.
 
-    ![Ziflow Konfiguration människor](./media/ziflow-tutorial/tutorial_ziflow_people.png)
+    ![Ziflow konfigurations personer](./media/ziflow-tutorial/tutorial_ziflow_people.png)
 
-3. Klicka på **Lägg till** och sedan på Lägg **till användare**.
+3. Klicka på **Lägg till** och sedan på **Lägg till användare**.
 
-    ![Ziflow-konfiguration lägger till användare](./media/ziflow-tutorial/tutorial_ziflow_add.png)
+    ![Ziflow konfiguration lägga till användare](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 
-4. Gör följande på **popup-fönstret Lägg till en användare:**
+4. Utför följande steg på popup-menyn **Lägg till en användare** :
 
-    ![Ziflow-konfiguration lägger till användare](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
+    ![Ziflow konfiguration lägga till användare](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
     a. I textrutan **E-post** anger du användarens e-postadress som brittasimon@contoso.com.
 
-    b. I textrutan **Förnamn** anger du förnamnet på användare som Britta.
+    b. I text rutan **förnamn** anger du det första namnet på användaren, t. ex. Britta.
 
-    c. I textrutan **Efternamn** anger du efternamnet för användaren som Simon.
+    c. I text rutan **efter namn** anger du det senaste namnet på användaren som Simon.
 
     d. Välj din Ziflow-roll.
 
@@ -239,13 +239,13 @@ Gör följande för att etablera ett användarkonto:
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Ziflow-panelen i åtkomstpanelen ska du automatiskt loggas in på den Ziflow som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Ziflow på åtkomst panelen, bör du loggas in automatiskt på den Ziflow som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

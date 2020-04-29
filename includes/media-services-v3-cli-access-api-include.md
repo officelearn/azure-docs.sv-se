@@ -9,19 +9,19 @@ ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: 9d8de8826fc3dfcc2360eb3b6c82b3ff8d65d845
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79461239"
 ---
 ### <a name="access-the-media-services-api"></a>Åtkomst till Media Services-API:n
 
 För att ansluta till Azure Media Services-API:er använder du autentisering av Azure AD-tjänstens huvudnamn. Följande kommando skapar ett Azure AD-program och bifogar ett huvudnamn för tjänsten till kontot. Du bör konfigurera ditt program med de värden som returneras.
 
-Innan du kör skriptet `amsaccount` bör `amsResourceGroup` du ersätta och med de namn du valde när du skapade dessa resurser. `amsaccount` är namnet på Azure Media Services-kontot där tjänstens huvudnamn ska bifogas.
+Innan du kör skriptet bör du ersätta `amsaccount` och `amsResourceGroup` med de namn som du valde när du skapade resurserna. `amsaccount` är namnet på Azure Media Services-kontot där tjänstens huvudnamn ska bifogas.
 
-Om du har åtkomst till flera prenumerationer anger du först den aktiva prenumerationen på prenumerationen där Media Services-kontot skapades.
+Om du har åtkomst till flera prenumerationer ställer du först in den aktiva prenumerationen på den prenumeration där Media Services kontot skapades.
 
 ```azurecli
 az account set --subscription subscriptionId

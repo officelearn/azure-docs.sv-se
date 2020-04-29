@@ -1,6 +1,6 @@
 ---
-title: Diskmått som har utfasning i Azure-portalen | Microsoft-dokument
-description: Ta reda på vilka diskmått som har inaktuella och hur du uppdaterar måttaviseringarna för att använda nya mått.
+title: Föråldrade disk mått i Azure Portal | Microsoft Docs
+description: Lär dig vilka disk mått som är föråldrade och hur du uppdaterar mått aviseringar för att använda nya mått.
 services: azure-monitor
 ms.subservice: metrics
 ms.topic: conceptual
@@ -8,100 +8,100 @@ author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
 ms.openlocfilehash: f2b960c2198800e04da77ad6b5be78d7b4762354
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299808"
 ---
-# <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Diskmått som har återkallats i Azure-portalen
+# <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Föråldrade disk mått i Azure Portal
 
-Inaktuella diskrelaterade mått tas snart bort från Azure-portalen. En ny version av varje inaktuellt mått är tillgänglig för dig att använda. Den här artikeln visar vilka mått som är nya och hur du uppdaterar dina måttaviseringar för att använda dem.
+Inaktuella disk-relaterade mått kommer snart att tas bort från Azure Portal. Det finns en ny version av varje föråldrat mått som du kan använda. Den här artikeln visar vilka mått som är nya och hur du uppdaterar dina mått aviseringar för att använda dem.
 
 ## <a name="list-of-new-metrics"></a>Lista över nya mått
 
-Den här tabellen mappar varje inaktuellt mått till motsvarande nya mått. 
+Den här tabellen mappar varje föråldrat mått till den motsvarar det nya måttet. 
 
-|Inaktuellt mått|Nytt (ersättnings)mått|
+|Föråldrat mått|Nytt mått (ersättnings)|
 |----|----|
-|Datadisk QD (föråldrad)|Djup för datadiskkö (förhandsgranskning)|
-|Läsbyten för datadisk/sek (inaktuellt)|Läsbyte för datadisk per sekund (förhandsgranskning)|
-|Läsåtgärder för datadiskar/sek (inaktuella)|Läsåtgärder för datadisk/sek (förhandsgranskning)|
-|Skrivbyte för datadisk/sek (inaktuellt)|Skrivbyte för datadisk/sek (förhandsgranskning)|
-|Datadiskskrivningsoperationer/sek (inaktuell)|Datadiskskrivningsåtgärder/sek (förhandsgranskning)|
-|OS QD (föråldrad)|Os-ködjup (förhandsgranskning)|
-|Os läsbyten/sek (inaktuella)|Os läs byte/sek (förhandsgranskning)|
-|Os-läsåtgärder/sek (inaktuella)|Os-läsåtgärder/sek (förhandsgranskning)|
-|OS skrivbyten/sek (inaktuella)|OS skrivbyten/sek (förhandsgranskning)|
-|OS-skrivåtgärder/sek (inaktuella)|OS-skrivåtgärder/sek (förhandsgranskning)|
+|KÖDJUP för data disk (inaktuellt)|Data disk Queue djup (för hands version)|
+|Lästa byte på datadisk/SEK (inaktuellt)|Lästa byte på datadisk/SEK (för hands version)|
+|Läs åtgärder för data disk/SEK (inaktuellt)|Läs åtgärder för data disk/SEK (för hands version)|
+|Skrivna byte på datadisk/SEK (inaktuellt)|Skrivna byte på datadisk/SEK (för hands version)|
+|Skriv åtgärder för data disk/SEK (inaktuellt)|Skriv åtgärder för data disk/SEK (för hands version)|
+|OS-KÖDJUP (inaktuellt)|OS-ködjup (förhands granskning)|
+|OS-lästa byte/SEK (inaktuellt)|OS-lästa byte/SEK (för hands version)|
+|Läs åtgärder för operativ system/SEK (inaktuellt)|Läs åtgärder för operativ system/SEK (för hands version)|
+|Skrivna byte för OS-byte/SEK (inaktuellt)|Skrivna byte för OS-byte/SEK (för hands version)|
+|Skriv åtgärder för operativ system/SEK (inaktuellt)|Skriv åtgärder för operativ system/SEK (för hands version)|
 
 <a id="update-metrics" />
 
-## <a name="migrate-metrics-in-your-metric-alerts"></a>Migrera mått i dina måttaviseringar
+## <a name="migrate-metrics-in-your-metric-alerts"></a>Migrera mått i dina mått aviseringar
 
-Uppdatera dina måttaviseringar för att använda nya mått.
+Uppdatera dina mått aviseringar för att använda nya mått.
 
-1. Sök efter **aviseringar**i Azure-portalen . Välj sedan **Aviseringar**i avsnittet **Tjänster** .
-
-   > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
-
-2. Välj knappen **Hantera aviseringsregler** på sidan **Aviseringar.** 
+1. Sök efter **aviseringar**i Azure Portal. I avsnittet **tjänster** väljer du sedan **aviseringar**.
 
    > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
 
-3. Markera kryssrutan **Virtuella datorer** i listrutan **Resursgrupp** och markera kryssrutan **Mått** i listrutan **Signaltyp.** 
-
-   > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/filter-alerts.png)
-
-4. Identifiera villkor som relaterar till diskar i listan över mått. Klicka på namnet på regeln. 
-
-   Namnet visas som en hyperlänk i kolumnen **Namn** i tabellen.
+2. På sidan **aviseringar** väljer du knappen **Hantera aviserings regler** . 
 
    > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
 
-5. Klicka på villkor för aviseringen i avsnittet **Villkor** på sidan **Regelhantering.** 
+3. Markera kryss rutan **Virtual Machines** i list rutan **resurs grupp** och markera kryss rutan **mått** i list rutan **signal typ** . 
+
+   > [!div class="mx-imgBorder"]
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/filter-alerts.png)
+
+4. Identifiera villkor som relaterar till diskar i listan över mått. Klicka på regelns namn. 
+
+   Namnet visas som en hyperlänk i kolumnen **namn** i tabellen.
+
+   > [!div class="mx-imgBorder"]
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
+
+5. I avsnittet **villkor** på sidan **regel hantering** klickar du på aviseringens villkor. 
 
    Villkoret visas som en hyperlänk.  
 
    > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/adjust-condition.png)
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/adjust-condition.png)
 
-   Sidan **Konfigurera signallogik** visas och inställningarna för villkoret visas i avsnittet **Varningslogik** på den sidan.
+   Sidan **Konfigurera signal logik** visas och inställningarna för villkoret visas i avsnittet **aviserings logik** på sidan.
 
-6. Gör en registrering av dessa inställningar när de försvinner när du tar bort det inaktuella måttet.
+6. Gör en registrering av de här inställningarna när de försvinner när du tar bort föråldrade mått.
 
    > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/condition-rules.png)
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/condition-rules.png)
 
    > [!TIP] 
-   > Överväg att fånga dessa inställningar i en skärmdump eller i en textfil. 
+   > Överväg att samla in dessa inställningar i en skärm bild eller i en textfil. 
 
-7. Klicka på länken **Tillbaka för att signalera markering.**
+7. Klicka på länken **tillbaka till signal-urvalet** .
 
    > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
 
-8. På sidan **Konfigurera signallogik** väljer du lämpligt ersättningsmått (nytt mått). Använd [tabellen](#update-metrics) som visas tidigare i den här artikeln för att identifiera namnet på det nya måttet.
+8. På sidan **Konfigurera signal logik** väljer du lämpligt ersättnings mått (nytt mått). Använd den [tabell](#update-metrics) som visas tidigare i den här artikeln för att identifiera namnet på det nya måttet.
 
    > [!TIP] 
-   > Börja skriva i sökfältet för att begränsa listan med måttnamn. 
+   > Börja skriva i Sök fältet för att begränsa listan över mått namn. 
 
    > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
 
-9. Välj knappen **Klar.** 
+9. Klicka på knappen **Slutför** . 
 
    > [!div class="mx-imgBorder"]
-   > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/set-new-metric.png)
+   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/set-new-metric.png)
 
-10. Genomför ändringarna genom att välja knappen **Spara.** 
+10. Spara ändringarna genom att välja knappen **Spara** . 
 
     > [!div class="mx-imgBorder"]
-    > ![Bildbeskrivning](./media/portal-disk-metrics-deprecation/save-new-metric.png)
+    > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/save-new-metric.png)
 
 
 

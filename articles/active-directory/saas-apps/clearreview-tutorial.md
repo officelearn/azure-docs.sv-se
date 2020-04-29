@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med tydlig granskning | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med Rensa granskning | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Clear Review.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f2a0560163f9806053f49944cbec0db2b1a9de8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67105465"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Självstudiekurs: Azure Active Directory-integrering med tydlig granskning
+# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Självstudie: Azure Active Directory integrering med tydlig granskning
 
 I den här självstudien lär du dig att integrera Clear Review med Azure Active Directory (AD Azure).
 När du integrerar Clear Review med Azure AD får du följande fördelar:
@@ -33,13 +33,13 @@ När du integrerar Clear Review med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Clear Review behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
 * Clear Review-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -102,36 +102,36 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Clear R
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
     ![Information om enkel inloggning med Clear Review-domäner och -URL:er](common/idp-intiated.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<customer name>.clearreview.com/sso/metadata/`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<customer name>.clearreview.com/sso/acs/`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<customer name>.clearreview.com/sso/acs/`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Information om enkel inloggning med Clear Review-domäner och -URL:er](common/metadata-upload-additional-signon.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<customer name>.clearreview.com`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<customer name>.clearreview.com`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för Clear Review-klienten](https://clearreview.com/contact/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Clear Review-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Clear Review-programmet förväntar sig att **namnidentifieraren** mappas med **user.mail**, så du måste redigera attributmappningen genom att klicka på **Redigera-ikonen** och ändra attributmappningen.
+6. Rensa gransknings programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Rensa gransknings programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attributet genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
     ![image](common/edit-attribute.png)
 
-7. Gör så här i dialogrutan **Användarattribut & anspråk:**
+7. Utför följande steg i dialog rutan **& anspråk** för användarattribut:
 
-    a. Klicka på **Ikonen Redigera** till höger om **namnidentifieringsvärde**.
+    a. Klicka på **ikonen Redigera** till höger om **namn identifierarens värde**.
 
     ![image](./media/clearreview-tutorial/attribute02.png)
 
     ![image](./media/clearreview-tutorial/attribute01.png)
 
-    b. Välj attributvärdet **user.mail** för den raden i attributlistan **Källa.**
+    b. Välj attributvärdet **User. mail** för raden i listan **källattribut** .
 
     c. Klicka på **Spara**.
 
@@ -157,7 +157,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Clear R
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. Klicka på knappen **Ändra** till höger om inställningar för enkel inloggning i avsnittet **Integrationer** längst ned på sidan . **Single Sign-On Settings**
+3. I avsnittet **integrering** längst ned på sidan klickar du på knappen **ändra** till höger om **Inställningar för enkel inloggning**.
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
@@ -165,7 +165,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Clear R
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. Klistra in värdet för Azure AD-identifierare som du har kopierat från Azure-portalen i textrutan **Utfärdare.In utfärdarens URL-textruta,** klistra in värdet för **Azure AD-identifierare** som du har kopierat från Azure Portal.
+    a. I text rutan **utfärdar-URL** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal.
 
     b. I textrutan **SAML-slutpunkt** klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.  
 
@@ -183,7 +183,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -193,7 +193,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -222,7 +222,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -240,7 +240,7 @@ När du klickar på Clear Review-panelen i åtkomstpanelen så bör du automatis
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

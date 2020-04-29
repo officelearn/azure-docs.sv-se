@@ -1,7 +1,7 @@
 ---
 title: Beskärningsvärden
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Klippvärden i Azure Machine Learning för att identifiera extremvärden och klippa ut eller ersätta deras värden.
+description: Lär dig hur du använder modulen Clip Values i Azure Machine Learning för att identifiera avvikande värden och klipp eller ersätta deras värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,114 +10,114 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
 ms.openlocfilehash: 6466cea9fe04bb308a670cb03fd3de5314758142
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456615"
 ---
 # <a name="clip-values"></a>Beskärningsvärden
 
-I den här artikeln beskrivs en modul med Azure Machine Learning designer (förhandsversion).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Använd modulen Klippvärden för att identifiera och eventuellt ersätta datavärden som ligger över eller under ett angivet tröskelvärde med ett medelvärde, en konstant eller annat ersättningsvärde.  
+Använd modulen Clip Values för att identifiera och ersätta data värden som är över eller under en angiven tröskel med ett medelvärde, en konstant eller något annat värde.  
 
-Du ansluter modulen till en datauppsättning som har de tal du vill klippa, väljer kolumnerna att arbeta med och anger sedan ett tröskelvärde eller värdeintervall samt en ersättningsmetod. Modulen kan mata ut antingen bara resultaten eller de ändrade värden som läggs till den ursprungliga datauppsättningen.
+Du ansluter modulen till en data uppsättning som har de siffror som du vill klippa ut, väljer de kolumner som du vill arbeta med och sedan anger du ett tröskelvärde eller ett intervall med värden och en ersättnings metod. Modulen kan antingen skriva ut enbart resultaten eller de ändrade värdena som läggs till i den ursprungliga data uppsättningen.
 
-## <a name="how-to-configure-clip-values"></a>Konfigurera klippvärden
+## <a name="how-to-configure-clip-values"></a>Så här konfigurerar du klipp värden
 
-Innan du börjar identifierar du de kolumner som du vill klippa ut och vilken metod du ska använda. Vi rekommenderar att du testar alla urklippsmetoder på en liten delmängd av data först.
+Innan du börjar identifierar du de kolumner som du vill klippa och vilken metod som ska användas. Vi rekommenderar att du testar alla urklipps metoder på en liten delmängd av data först.
 
-Modulen tillämpar samma villkor och ersättningsmetod på **alla** kolumner som du tar med i markeringen. Se därför till att utesluta kolumner som du inte vill ändra.
+Modulen använder samma villkor och ersättnings metod för **alla** kolumner som du inkluderar i urvalet. Se därför till att undanta kolumner som du inte vill ändra.
 
-Om du behöver använda urklippsmetoder eller olika villkor på vissa kolumner måste du använda en ny förekomst av **Klippvärden** för varje uppsättning liknande kolumner.
+Om du behöver tillämpa urklipps metoder eller andra villkor för vissa kolumner måste du använda en ny instans av **klipp värden** för varje uppsättning liknande kolumner.
 
-1.  Lägg till modulen **Klippvärden** i pipelinen och anslut den till den datauppsättning som du vill ändra. Du hittar den här modulen under **Dataomvandling**i kategorin **Skala och Minska.** 
+1.  Lägg till modulen **Clip Values** i din pipeline och Anslut den till den data uppsättning som du vill ändra. Du hittar den här modulen under **dataomvandling**i kategorin **skala och minska** . 
   
-1.  I **Kolumnlista**använder du kolumnväljaren för att välja de kolumner som **Klippvärden** ska användas på.  
+1.  Använd kolumn väljaren i kolumn **listan**för att välja de kolumner som **klipp värden** ska användas för.  
   
-1.  För **Ange tröskelvärden**väljer du ett av följande alternativ i listrutan. De här alternativen avgör hur du anger de övre och nedre gränserna för godtagbara värden kontra värden som måste klippas ut.  
+1.  Välj något av följande alternativ i list rutan för att **ange tröskelvärden**. De här alternativen avgör hur du ställer in de övre och nedre gränserna för acceptabla värden jämfört med värden som måste klippas.  
   
-    - **ClipPeaks**: När du klipper värden efter toppar anger du bara en övre gräns. Värden som är större än det gränsvärdet ersätts.
+    - **ClipPeaks**: när du klipper värden efter toppar kan du bara ange en övre kant. Värden som är större än det här värdet ersätts.
   
-    -  **ClipSubpeaks**: När du klipper värden efter underspråk anger du bara en nedre gräns. Värden som är mindre än det gränsvärdet ersätts.  
+    -  **ClipSubpeaks**: när du klipper värden efter toppar kan du bara ange en nedre gränser. Värden som är mindre än det aktuella värdet ersätts.  
   
-    - **ClipPeaksAndSubpeaks**: När du klipper värden efter toppar och underspråk kan du ange både de övre och nedre gränserna. Värden som ligger utanför det intervallet ersätts. Värden som matchar gränsvärdena ändras inte.
+    - **ClipPeaksAndSubpeaks**: när du klipper värden efter toppar och under toppar kan du ange både övre och nedre gränser. Värden som ligger utanför intervallet ersätts. Värden som matchar gränserna ändras inte.
   
-1.  Beroende på ditt val i föregående steg kan du ställa in följande tröskelvärden: 
+1.  Beroende på ditt val i föregående steg kan du ange följande tröskelvärden: 
 
-    + **Lägre tröskelvärde:** Visas bara om du väljer **ClipSubPeaks**
-    + **Övre tröskel:** Visas bara om du väljer **ClipPeaks**
-    + **Tröskelvärde**: Visas bara om du väljer **ClipPeaksAndSubPeaks**
+    + **Nedre tröskelvärde**: visas bara om du väljer **ClipSubPeaks**
+    + **Övre tröskelvärde**: visas bara om du väljer **ClipPeaks**
+    + **Tröskel**: visas bara om du väljer **ClipPeaksAndSubPeaks**
 
-    För varje tröskeltyp väljer du antingen **Konstant** eller **Percentil**.
+    Välj antingen **konstant** eller **percentil**för varje tröskel typ.
 
-1. Om du väljer **Konstant**skriver du det högsta eller lägsta värdet i textrutan. Anta till exempel att du vet att värdet 999 användes som platshållarvärde. Du kan välja **Konstant** för det övre tröskelvärdet och skriva 999 i **Konstant värde för övre tröskel.**
+1. Om du väljer **konstant**anger du det högsta eller lägsta värdet i text rutan. Anta till exempel att du vet att värdet 999 har använts som plats hållarens värde. Du kan välja **konstant** för det övre tröskelvärdet och ange 999 i **konstant värde för övre tröskelvärde**.
   
-1. Om du väljer **Percentil**begränsar du kolumnvärdena till ett percentilintervall. 
+1. Om du väljer **percentil**begränsar du kolumnens värden till ett percentils intervall. 
 
-    Anta till exempel att du bara vill behålla värdena i percentilområdet 10-80 och ersätta alla andra. Du väljer **Percentil**och skriver sedan 10 för **Percentilvärde för lägre tröskelvärde**och skriver 80 för **Percentil-värde för det övre tröskelvärdet**. 
+    Anta till exempel att du bara vill behålla värdena i intervallet 10-80 percentil och ersätta alla andra. Välj **percentil**och skriv sedan 10 för **percentilvärdet för nedre tröskelvärde**och skriv 80 för **percentilvärdet för övre tröskelvärdet**. 
 
-    Se avsnittet om [percentiler](#examples-for-clipping-using-percentiles) för några exempel på hur du använder percentilintervall.  
+    Se avsnittet om [percentiler](#examples-for-clipping-using-percentiles) för några exempel på hur du använder percentils intervall.  
   
-1.  Definiera ett ersättningsvärde.
+1.  Definiera ett ersättnings värde.
 
-    Siffror som exakt matchar de angivna gränserna anses vara inom det tillåtna värdeintervallet och ersätts därför inte. Alla tal som faller utanför det angivna intervallet ersätts med ersättningsvärdet. 
+    Siffror som exakt matchar de gränser som du har angett anses ligga innanför det tillåtna värde intervallet och ersätts därför inte. Alla tal som faller utanför det angivna intervallet ersätts med ersättnings värdet. 
   
-    + **Ersättningsvärde för toppar**: Definierar värdet som ersättning för alla kolumnvärden som är större än det angivna tröskelvärdet.  
-    + **Ersättningsvärde för underspråk:** Definierar det värde som ska användas som ersättning för alla kolumnvärden som är mindre än det angivna tröskelvärdet.  
-    + Om du använder alternativet **ClipPeaksAndSubpeaks** kan du ange separata ersättningsvärden för de övre och nedre klippta värdena.  
+    + **Ersättnings värde för toppar**: definierar värdet som ska ersättas för alla kolumn värden som är större än det angivna tröskelvärdet.  
+    + **Ersättnings värde för under toppar**: definierar värdet som ska användas som ersättning för alla kolumn värden som är mindre än det angivna tröskelvärdet.  
+    + Om du använder alternativet **ClipPeaksAndSubpeaks** kan du ange separata ersättnings värden för de övre och nedre urklippta värdena.  
 
-    Följande ersättningsvärden stöds:  
+    Följande ersättnings värden stöds:  
   
-    -   **Tröskelvärde**: Ersätter klippta värden med det angivna tröskelvärdet.  
+    -   **Tröskel**: ersätter urklippta värden med det angivna tröskelvärdet.  
   
-    -   **Medel:** Ersätter klippta värden med medelvärdet för kolumnvärdena. Medelvärdet beräknas innan värden klipps ut.  
+    -   **Medelvärde**: ersätter urklippta värden med medelvärdet av kolumnvärdena. Medelvärdet beräknas innan värdena klipps av.  
   
-    -   **Median**: Ersätter klippta värden med medianvärdet för kolumnvärdena. Medianen beräknas innan värden klipps.   
+    -   **Median**: ersätter urklippta värden med median värdet i kolumnvärdena. Median värdet beräknas innan värdena klipps av.   
   
-    -   **Saknas**. Ersätter klippta värden med det saknade (tomma) värdet.  
+    -   **Saknas**. Ersätter urklippta värden med värdet som saknas (tomt).  
   
-1.  **Lägg till indikatorkolumner:** Välj det här alternativet om du vill generera en ny kolumn som talar om för dig om den angivna urklippsåtgärden som tillämpas på data på den raden. Det här alternativet är användbart när du testar en ny uppsättning urklipps- och ersättningsvärden.  
+1.  **Lägg till indikator kolumner**: Välj det här alternativet om du vill generera en ny kolumn som anger om den angivna urklipps åtgärden ska tillämpas på data i den raden. Det här alternativet är användbart när du testar en ny uppsättning urklipps-och ersättnings värden.  
   
-1. **Skriv över flagga**: Ange hur du vill att de nya värdena ska genereras. Som standard skapar **Klippvärden** en ny kolumn med toppvärdena klippta till önskat tröskelvärde. Nya värden skriver över den ursprungliga kolumnen.  
+1. **Skriv över flagga**: Ange hur du vill att de nya värdena ska genereras. Som standard skapar **urklipps värden** en ny kolumn med topp-värden som är avgränsade med det önskade tröskelvärdet. Nya värden skriver över den ursprungliga kolumnen.  
   
-    Om du vill behålla den ursprungliga kolumnen och lägga till en ny kolumn med de klippta värdena avmarkerar du det här alternativet.  
+    Avmarkera det här alternativet om du vill behålla den ursprungliga kolumnen och lägga till en ny kolumn med de urklippta värdena.  
   
 1.  Skicka pipelinen.  
   
-    Högerklicka på modulen **Klippvärden** och välj **Visualisera** eller välj modulen och växla till fliken **Utdata** på den högra panelen, klicka på histogramikonen i **portutgångarna**, för att granska värdena och se till att urklippsåtgärden uppfyllde dina förväntningar.  
+    Högerklicka på modulen **Clip Values** och välj **visualisera** eller Välj modulen och växla till fliken **utdata** i den högra panelen, klicka på histogrammets ikon i **portens utdata**för att granska värdena och se till att urklipps åtgärden uppfyller dina förväntningar.  
  
-### <a name="examples-for-clipping-using-percentiles"></a>Exempel för klippning med percentiler
+### <a name="examples-for-clipping-using-percentiles"></a>Exempel på Urklipp med hjälp av percentiler
 
-För att förstå hur urklipp av percentiler fungerar, överväga en datauppsättning med 10 rader, som har en instans vardera av värdena 1-10.  
+För att förstå hur Urklipp i percentiler fungerar, bör du överväga en data uppsättning med 10 rader, som har en instans var och en av värdena 1-10.  
   
-- Om du använder percentilen som det övre tröskelvärdet måste 90 procent av alla värden i datauppsättningen vara mindre än det värdet vid värdet för den 90:e percentilen.  
+- Om du använder percentil som övre tröskelvärde måste värdet för den 90: e percentilen 90 procent av alla värden i data uppsättningen vara mindre än det värdet.  
   
-- Om du använder percentilen som det lägre tröskelvärdet måste 10 procent av alla värden i datauppsättningen vara mindre än det värdet vid värdet för den tionde percentilen.  
+- Om du använder percentilen som nedre tröskel, måste 10 procent av alla värden i data uppsättningen vara lägre än värdet för den tionde percentilen.  
   
-1.  För **Tröskelvärden**väljer du **ClipPeaksAndSubPeaks**.  
+1.  För **uppsättning tröskelvärden**väljer du **ClipPeaksAndSubPeaks**.  
   
-1.  För **övre tröskelvärde**väljer du **Percentil**och för **Percentilnummer**skriver du 90.  
+1.  För **övre tröskelvärdet**väljer du **percentil**och för **percentils nummer**skriver du 90.  
   
-1.  För **det övre ersättningsvärdet**väljer du **Saknat värde**.  
+1.  För **övre ersättnings värde**väljer du **värde som saknas**.  
   
-1.  För **lägre tröskelvärde**väljer du **Percentil**och för **Percentilnummer**skriver du 10.  
+1.  För **lägre tröskelvärde**väljer du **percentil**och för **percentils nummer**skriver du 10.  
   
-1.  För **lägre ersättningsvärde**väljer du **Saknat värde**.  
+1.  Om du vill ha ett **lägre ersättnings värde**väljer du **värde som saknas**.  
   
-1.  Avmarkera alternativet **Skriv över flagga**och välj alternativet Lägg till **indikatorkolumn**.  
+1.  Avmarkera alternativet **Skriv över flagga**och välj alternativet **Lägg till indikator kolumn**.  
   
-Försök nu med samma pipeline med 60 som den övre percentiltröskeln och 30 som den nedre percentiltröskeln och använd tröskelvärdet som ersättningsvärde. I följande tabell jämförs dessa två resultat:  
+Prova nu samma pipeline med 60 som det övre percentilvärdet och 30 som nedre percentilvärdet och Använd tröskelvärdet som ersättnings värde. I följande tabell jämförs dessa två resultat:  
   
-1.  Ersätt med saknad; Övre tröskel = 90; Lägre tröskelvärde = 20  
+1.  Ersätt med saknas; Övre tröskelvärde = 90; Lägre tröskelvärde = 20  
   
-1.  Ersätt med tröskelvärdet. Övre percentil = 60; Lägre percentil = 40  
+1.  Ersätt med tröskelvärde; Övre percentil = 60; Nedre percentil = 40  
   
-|Ursprungliga data|Ersätt med saknad|Ersätt med tröskelvärdet|  
+|Ursprungliga data|Ersätt med saknas|Ersätt med tröskelvärdet|  
 |-------------------|--------------------------|----------------------------|  
 |1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|TRUE<br /><br /> TRUE<br /><br /> 3, FALSKT<br /><br /> 4, FALSKT<br /><br /> 5, FALSKT<br /><br /> 6, FALSKT<br /><br /> 7, FALSKT<br /><br /> 8, FALSKT<br /><br /> 9, FALSKT<br /><br /> TRUE|4, SANT<br /><br /> 4, SANT<br /><br /> 4, SANT<br /><br /> 4, SANT<br /><br /> 5, FALSKT<br /><br /> 6, FALSKT<br /><br /> 7, SANT<br /><br /> 7, SANT<br /><br /> 7, SANT<br /><br /> 7, SANT| 
  
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Corptax | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Corptax | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Corptax.
 services: active-directory
 documentationCenter: na
@@ -17,42 +17,42 @@ ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7cd09a35d5796cdc4267c9d01a901b4e3b812d7c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67104386"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Självstudiekurs: Azure Active Directory-integrering med Corptax
+# <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Självstudie: Azure Active Directory integrering med Corptax
 
 I den här självstudien får du lära dig hur du integrerar Corptax med Azure Active Directory (Azure AD).
 Genom att integrera Corptax med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Corptax.
-* Du kan aktivera dina användare automatiskt inloggad på Corptax (Single Sign-On) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Corptax (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Corptax behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Corptax enda inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Corptax-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Corptax stöder **SP** initierade SSO
+* Corptax stöder **SP** -INITIERAd SSO
 
-## <a name="adding-corptax-from-the-gallery"></a>Lägga Corptax från galleriet
+## <a name="adding-corptax-from-the-gallery"></a>Lägga till Corptax från galleriet
 
 Om du vill konfigurera integreringen av Corptax i Azure AD måste du lägga till Corptax från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till Corptax från galleriet:**
+**Utför följande steg för att lägga till Corptax från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -66,31 +66,31 @@ Om du vill konfigurera integreringen av Corptax i Azure AD måste du lägga till
 
     ![Knappen Nytt program](common/add_new_app.png)
 
-4. Skriv **Corptax**i sökrutan och välj **Corptax** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **Corptax**, väljer **Corptax** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![Corptax i resultatlistan](common/search_new_app.png)
+    ![Corptax i resultat listan](common/search_new_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Corptax baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Corptax upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Corptax baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Corptax upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Corptax måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Corptax i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Corptax Single Sign-On](#configure-corptax-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera Corptax-enkel inloggning](#configure-corptax-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Corptax testanvändare](#create-corptax-test-user)** - att ha en motsvarighet till Britta Simon i Corptax som är kopplad till Azure AD-representationen av användaren.
+5. **[Skapa Corptax test User](#create-corptax-test-user)** – om du vill ha en motsvarighet till Britta Simon i Corptax som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Corptax:
+Utför följande steg för att konfigurera enkel inloggning med Corptax i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Corptax-programintegration**. **Corptax**
+1. Välj **enkel inloggning**på sidan **Corptax** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select_sso.png)
 
@@ -104,17 +104,17 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Corptax:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Corptax Domän och webbadresser enkel inloggningsinformation](common/sp_intiated.png)
+    ![Information om enkel inloggning för Corptax-domän och URL: er](common/sp_intiated.png)
 
-    Skriv en URL i textrutan **Sign-on-URL:**`https://asp.corptax.com`
+    Skriv en URL i text rutan **inloggnings-URL** :`https://asp.corptax.com`
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **XML för federationsmetadata** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-### <a name="configure-corptax-single-sign-on"></a>Konfigurera corptax enkel inloggning
+### <a name="configure-corptax-single-sign-on"></a>Konfigurera Corptax enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **Corptax-sidan** måste du skicka den nedladdade **FEDERATION Metadata XML** till [Corptax supportteam](https://connect.corptax.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Corptax** sida måste du skicka den hämtade **XML-koden för federationsmetadata** till [Corptax support team](https://connect.corptax.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -124,7 +124,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new_user.png)
 
@@ -132,9 +132,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user_properties.png)
 
-    a. Ange **BrittaSimon**i fältet **Namn** .
+    a. I fältet **namn** anger du **BrittaSimon**.
 
-    b. Skriv i fältet **Användarnamn**`brittasimon\@yourcompanydomain.extension`  
+    b. I fältet **användar namn** skriver du`brittasimon\@yourcompanydomain.extension`  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -143,15 +143,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Corptax.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Corptax.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Corptax**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Corptax**.
 
     ![Bladet Företagsprogram](common/enterprise_applications.png)
 
-2. Skriv och välj **Corptax**i programlistan .
+2. Skriv och välj **Corptax**i listan program.
 
-    ![Corptax-länken i listan Över ansökningar](common/all_applications.png)
+    ![Corptax-länken i program listan](common/all_applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -163,27 +163,27 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+7. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-### <a name="create-corptax-test-user"></a>Skapa Corptax-testanvändare
+### <a name="create-corptax-test-user"></a>Skapa Corptax test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Corptax. Arbeta med [Corptax supportteam](https://connect.corptax.com/) för att lägga till användarna i Corptax-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Corptax. Arbeta med [Corptax support team](https://connect.corptax.com/) för att lägga till användare i Corptax-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
-När du klickar på Corptax-panelen i åtkomstpanelen bör du omdirigeras till nedanstående Corptax-sida- 
+När du klickar på panelen Corptax på åtkomst panelen, bör du omdirigeras till nedanstående Corptax-sida – 
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-I textrutan **Miljö** skriver du lämplig miljö, du bör automatiskt loggas in på den Corptax som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+I rutan **miljö** skriver du lämplig miljö, du bör logga in automatiskt på den Corptax som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

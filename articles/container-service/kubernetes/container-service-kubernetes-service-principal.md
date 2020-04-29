@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 40d4dc898efe6b719ec5e1f1ec0471a9677d3c95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371128"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(INAKTUELL) Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
@@ -33,9 +33,9 @@ Du kan använda ett befintligt Azure AD-tjänstobjekt som uppfyller kraven nedan
 
 * **Omfång**: Resursgrupp
 
-* **Roll**: Deltagare
+* **Roll**: deltagare
 
-* **Klienthemlighet**: Måste vara ett lösenord. För närvarande kan du inte använda ett huvudnamn för tjänsten som konfigurerats för certifikatautentisering.
+* **Klient hemlighet**: måste vara ett lösen ord. För närvarande kan du inte använda ett huvudnamn för tjänsten som konfigurerats för certifikatautentisering.
 
 > [!IMPORTANT]
 > För att skapa ett tjänstobjekt måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Du kan kontrollera om du har nödvändig behörighet [på portalen](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
@@ -61,7 +61,7 @@ De utdata som returneras ser ut ungefär så här (redigerat i bilden):
 
 ![Skapa ett huvudnamn för tjänsten](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
 
-Markerat är **klient-ID** (`appId`) och **klienthemligheten** (`password`) som du använder som huvudparametrar för tjänsten för klusterdistribution.
+Det **klient-ID** (`appId`) och **klient hemlighet** (`password`) som du använder som parametrar för tjänstens huvud namn för kluster distribution är markerat.
 
 
 ### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Ange tjänstobjektet när du skapar Kubernetes-klustret
@@ -78,7 +78,7 @@ Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI.
 
 1. [Hämta](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) filen med mallparametrar `azuredeploy.parameters.json` från GitHub.
 
-2. För att ange tjänstens huvudnamn, anger du värden för `servicePrincipalClientId` och `servicePrincipalClientSecret` i filen. (Du måste också ange dina egna värden för `dnsNamePrefix` och `sshRSAPublicKey`. Den senare är den offentliga SSH-nyckeln för att komma åt klustret.) Spara filen.
+2. För att ange tjänstens huvudnamn, anger du värden för `servicePrincipalClientId` och `servicePrincipalClientSecret` i filen. (Du måste också ange dina egna värden för `dnsNamePrefix` och `sshRSAPublicKey`. Det sistnämnda är den offentliga SSH-nyckeln för att komma åt klustret.) Spara filen.
 
     ![Skicka parametrar för tjänstens huvudnamn](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -97,7 +97,7 @@ Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI.
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Alternativ 2: Generera ett tjänstobjekt när du skapar klustret med `az acs create`
 
-Om du [`az acs create`](/cli/azure/acs#az-acs-create) kör kommandot för att skapa Kubernetes-klustret har du möjlighet att generera ett tjänsthuvudnamn automatiskt.
+Om du kör [`az acs create`](/cli/azure/acs#az-acs-create) kommandot för att skapa Kubernetes-klustret kan du välja att generera ett huvud namn för tjänsten automatiskt.
 
 Som med andra alternativ för att skapa Kubernetes-kluster, kan du ange parametrar för en befintlig tjänsts huvudnamn när du kör `az acs create`. Om du utelämnar dessa parametrar skapar Azure CLI ett automatiskt för användning med Container Service. Detta sker transparent under distributionen.
 

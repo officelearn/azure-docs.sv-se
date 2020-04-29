@@ -1,70 +1,70 @@
 ---
-title: Dataskydd i Azure Stream Analytics
-description: I den här artikeln beskrivs hur du krypterar dina privata data som används av ett Azure Stream Analytics-jobb.
+title: Data skydd i Azure Stream Analytics
+description: Den här artikeln beskriver hur du krypterar dina privata data som används av ett Azure Stream Analytics jobb.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299404"
 ---
-# <a name="data-protection-in-azure-stream-analytics"></a>Dataskydd i Azure Stream Analytics 
+# <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
 
-Azure Stream Analytics är en fullständigt hanterad plattform som en tjänst som gör att du kan skapa analyspipelpipelar i realtid. Alla tunga lyft, till exempel klusteretablering, skalningsnoder för att hantera din användning och hantera interna kontrollpunkter, hanteras bakom kulisserna.
+Azure Stream Analytics är en fullständigt hanterad plattform som en tjänst med vilken du kan bygga real tids analys pipeliner. All tung lyftning, till exempel kluster etablering, skalning av noder för att passa din användning och hantering av interna kontroll punkter, hanteras i bakgrunden.
 
 ## <a name="encrypt-your-data"></a>Kryptera dina data
 
-Stream Analytics använder automatiskt förstklassiga krypteringsstandarder i hela sin infrastruktur för att kryptera och skydda dina data. Du kan helt enkelt lita på Stream Analytics för att lagra alla dina data på ett säkert sätt så att du inte behöver oroa dig för att hantera infrastrukturen.
+Stream Analytics använder automatiskt optimala krypterings standarder över hela infrastrukturen för att kryptera och skydda dina data. Du kan helt enkelt lita på Stream Analytics att lagra alla dina data på ett säkert sätt så att du inte behöver oroa dig för att hantera infrastrukturen.
 
-Om du vill använda kundhanterade nycklar (CMK) för att kryptera dina data kan du använda ditt eget lagringskonto (det allmänna syftet V1 eller V2) för att lagra alla privata datatillgångar som krävs enligt Stream Analytics-körningen. Ditt lagringskonto kan krypteras efter behov. Ingen av dina privata datatillgångar lagras permanent av Stream Analytics-infrastrukturen. 
+Om du vill använda Kundhanterade nycklar (CMK) för att kryptera dina data kan du använda ditt eget lagrings konto (generell användning v1 eller v2) för att lagra alla privata data till gångar som krävs av Stream Analytics Runtime. Ditt lagrings konto kan krypteras efter behov. Ingen av dina privata data till gångar lagras permanent av Stream Analytics-infrastrukturen. 
 
-Den här inställningen måste konfigureras när Stream Analytics skapas och kan inte ändras under jobbets livscykel. Det rekommenderas inte att ändra eller ta bort lagringsutrymme som används av Din Stream Analytics. Om du tar bort ditt lagringskonto tar du bort alla privata datatillgångar permanent, vilket gör att jobbet misslyckas. 
+Den här inställningen måste konfigureras när Stream Analytics jobb skapas och kan inte ändras under jobbets livs cykel. Det rekommenderas inte att ändra eller ta bort lagrings utrymme som används av din Stream Analytics. Om du tar bort ditt lagrings konto kommer du att ta bort alla privata data till gångar permanent, vilket leder till att jobbet Miss fungerar. 
 
-Det går inte att uppdatera eller rotera nycklar till ditt lagringskonto med hjälp av Stream Analytics-portalen. Du kan uppdatera nycklarna med REST-API:erna.
+Det går inte att uppdatera eller rotera nycklar till ditt lagrings konto med hjälp av Stream Analytics portalen. Du kan uppdatera nycklarna med hjälp av REST-API: er.
 
 
-## <a name="configure-storage-account-for-private-data"></a>Konfigurera lagringskonto för privata data 
+## <a name="configure-storage-account-for-private-data"></a>Konfigurera lagrings konto för privata data 
 
-Följ följande steg för att konfigurera ditt lagringskonto för privata datatillgångar. Den här konfigurationen är gjord från ditt Stream Analytics-jobb, inte från ditt lagringskonto.
+Använd följande steg för att konfigurera ditt lagrings konto för privata data till gångar. Den här konfigurationen görs från ditt Stream Analytics jobb, inte från ditt lagrings konto.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen. 
 
-1. Välj **Analytics** > **Stream Analytics-jobb** i resultatlistan. 
+1. Välj **analys** > **Stream Analytics jobb** i resultat listan. 
 
-1. Fyll i jobbsidan Stream Analytics med nödvändig information som namn, region och skala. 
+1. Fyll i sidan Stream Analytics jobb med nödvändig information, till exempel namn, region och skala. 
 
-1. Markera kryssrutan som säger *Säkra alla privata datatillgångar som behövs för det här jobbet i mitt lagringskonto*.
+1. Markera kryss rutan med texten *skydda alla privata data till gångar som krävs av det här jobbet i mitt lagrings konto*.
 
-1. Välj ett lagringskonto från din prenumeration. Observera att den här inställningen inte kan ändras under jobbets hela livscykel. 
+1. Välj ett lagrings konto från din prenumeration. Observera att den här inställningen inte kan ändras under jobbets livs cykel. 
 
-   ![Inställningar för konto för privat datalagring](./media/data-protection/storage-account-create.png)
+   ![Inställningar för lagrings konto för privata data](./media/data-protection/storage-account-create.png)
 
-## <a name="private-data-assets-that-are-stored"></a>Privata datatillgångar som lagras
+## <a name="private-data-assets-that-are-stored"></a>Privata data till gångar som lagras
 
-Alla privata data som måste sparas av Stream Analytics lagras i ditt lagringskonto. Exempel på privata datatillgångar är: 
+Alla privata data som måste behållas av Stream Analytics lagras i ditt lagrings konto. Exempel på privata data till gångar är: 
 
-* Frågor som du har skapat och deras relaterade konfigurationer  
+* Frågor som du har skapat och tillhör ande konfigurationer  
 
 * Användardefinierade funktioner 
 
-* Kontrollpunkter som behövs av Stream Analytics-körningen
+* Kontroll punkter som krävs av Stream Analytics runtime
 
-* Ögonblicksbilder av referensdata 
+* Ögonblicks bilder av referens data 
 
-Anslutningsinformation om dina resurser, som används av ditt Stream Analytics-jobb, lagras också. Kryptera ditt lagringskonto för att skydda alla dina data. 
+Anslutnings information för dina resurser, som används av ditt Stream Analytics jobb, lagras också. Kryptera ditt lagrings konto för att skydda alla dina data. 
 
-För att hjälpa dig att uppfylla dina efterlevnadsskyldigheter i en reglerad bransch eller miljö kan du läsa mer om [Microsofts efterlevnadserbjudanden](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+För att hjälpa dig att uppfylla dina krav på efterlevnad i en reglerad bransch eller miljö kan du läsa mer om [Microsofts erbjudanden för efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md)
+* [Skapa ett Azure Storage konto](../storage/common/storage-account-create.md)
 * [Förstå indata för Azure Stream Analytics](stream-analytics-add-inputs.md)
-* [Kontrollpunkts- och reprisbegrepp i Azure Stream Analytics-jobb](stream-analytics-concepts-checkpoint-replay.md)
-* [Använda referensdata för uppslag i Stream Analytics](stream-analytics-use-reference-data.md)
+* [Kontroll punkts-och repetitions begrepp i Azure Stream Analytics jobb](stream-analytics-concepts-checkpoint-replay.md)
+* [Använda referens data för sökningar i Stream Analytics](stream-analytics-use-reference-data.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Perception United States (non-UltiPro) | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Perception United States (non-UltiPro).
+title: 'Självstudie: Azure Active Directory integration med uppfattning USA (icke-UltiPro) | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och uppfattning USA (icke-UltiPro).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67094841"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Självstudiekurs: Azure Active Directory-integrering med Perception United States (icke-UltiPro)
+# <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Självstudie: Azure Active Directory integration med uppfattning USA (icke-UltiPro)
 
-I den här självstudien får du lära dig hur du integrerar Perception United States (non-UltiPro) med Azure Active Directory (Azure AD).
-Genom att integrera Perception United States (non-UltiPro) med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig att integrera uppfattning USA (icke-UltiPro) med Azure Active Directory (Azure AD).
+Genom att integrera uppfattning USA (icke-UltiPro) med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Perception UNITED States (Non-UltiPro).
-* Du kan aktivera dina användare automatiskt inloggade på Perception USA (non-UltiPro) (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra Azure AD som har till gång till uppfattning USA (icke-UltiPro).
+* Du kan göra det möjligt för användarna att logga in automatiskt för att få uppfattning om USA (icke-UltiPro) (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Perception United States (icke-UltiPro) behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med uppfattning USA (icke-UltiPro) behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Perception United States (Non-UltiPro) enkel inloggning aktiverad prenumeration
+* Uppfattning USA (icke-UltiPro) aktive rad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Perception UNITED States (Non-UltiPro) stöder **IDP** initierad SSO
+* Uppfattning USA (icke-UltiPro) stöder **IDP** INITIERAd SSO
 
-## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>Lägga Perception USA (Icke-UltiPro) från galleriet
+## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>Lägga till uppfattning USA (icke-UltiPro) från galleriet
 
-Om du vill konfigurera integreringen av Perception United States (Non-UltiPro) i Azure AD måste du lägga till Perception United States (Non-UltiPro) från galleriet i listan över hanterade SaaS-appar.
+För att konfigurera integrering av uppfattning USA (icke-UltiPro) i Azure AD måste du lägga till uppfattning USA (icke-UltiPro) från galleriet till listan över hanterade SaaS-appar.
 
-**Så här lägger du till Perception United States (Non-UltiPro) från galleriet:**
+**Gör så här om du vill lägga till uppfattning USA (icke-UltiPro) från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Perception United States (Non-UltiPro) i
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Perception USA (icke-UltiPro)** och väljer **Perception USA (icke-UltiPro)** från resultatpanelen och klickar sedan på **Lägg** till knappen för att lägga till programmet.
+4. I sökrutan skriver du **uppfattning USA (icke-UltiPro)**, väljer **uppfattning USA (icke-UltiPro)** från resultat panelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
-     ![Perception Usa (Icke-UltiPro) i resultatlistan](common/search-new-app.png)
+     ![Uppfattning USA (icke-UltiPro) i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Perception United States (Non-UltiPro) baserat på en testanvändare som heter **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Perception UNITED States (Non-UltiPro) upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med uppfattning USA (icke-UltiPro) baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i uppfattning USA (icke-UltiPro) upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Perception United States (icke-UltiPro) måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med uppfattning USA (icke-UltiPro) måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Perception United States (Non-UltiPro) Single Sign-On](#configure-perception-united-states-non-ultipro-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera USA enkel inloggning (inte UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** för enkel inloggning för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Perception United States (Non-UltiPro) testanvändare](#create-perception-united-states-non-ultipro-test-user)** - att ha en motsvarighet till Britta Simon i Perception USA (Icke-UltiPro) som är kopplad till Azure AD-representationen av användaren.
+5. **[Skapa uppfattning USA (icke-UltiPro) test användare](#create-perception-united-states-non-ultipro-test-user)** – för att få en motsvarighet till Britta Simon i uppfattning USA (icke-UltiPro) som är länkad till Azure AD-representationen av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Perception United States (icke-UltiPro) gör du följande:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med uppfattning USA (icke-UltiPro):
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du **Enkel inloggning**på sidan Perception United **States (Non-UltiPro)** programintegration .
+1. På sidan [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **uppfattning USA (icke-UltiPro)** och väljer **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,25 +103,25 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Perception United Stat
 
 4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![Perception Usa (icke-UltiPro) Domän och webbadresser enkel inloggningsinformation](common/idp-intiated.png)
+    ![Information om hur du USA (icke-UltiPro) domän och URL: er för enkel inloggning](common/idp-intiated.png)
 
-    a. Skriv en URL i textrutan **Identifierare:**`https://perception.kanjoya.com/sp`
+    a. Skriv en URL i text rutan **identifierare** :`https://perception.kanjoya.com/sp`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. **Perception-PROGRAMMET (icke-UltiPro)** kräver **azure AD-identifierare** som <entity_id>, som du får från avsnittet **Konfigurera Perception USA (non-UltiPro)** som ska kodas. Använd följande länk för att få det uri-kodade värdet: **http://www.url-encode-decode.com/**.
+    c. UltiPro-programmet **()** kräver att värdet för **Azure AD-identifieraren** är <entity_id>, som du kommer att få från avsnittet **Konfigurera uppfattande USA (icke-UltiPro)** som ska vara URI-kodat. USA Använd följande länk för att hämta URI-kodat värde: **http://www.url-encode-decode.com/**.
 
-    d. Efter att ha fått uri kodade värdet kombinera det med **svars-URL** som nämns nedan-
+    d. När du har hämtat det URI-kodade värdet kombinera det med **svars-URL: en** enligt ovan –
 
     `https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
     
-    e. Klistra in ovanstående värde i textrutan **Svara på URL.**
+    e. Klistra in ovanstående värde i text rutan **svars-URL** .
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera perception i USA (icke-UltiPro)** enligt dina krav.
+6. I avsnittet **Konfigurera uppfattning USA (icke-UltiPro)** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -131,39 +131,39 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Perception United Stat
 
     c. Utloggnings-URL   
 
-### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Konfigurera perceptions-enigt usa (icke-UltiPro) enkel inloggning
+### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Konfigurera uppfattning USA (icke-UltiPro) enkel inloggning
 
-1. I ett annat webbläsarfönster loggar du in på din webbplats för Perception United States (Non-UltiPro) som administratör.
+1. I ett annat webbläsarfönster loggar du in på din uppfattning USA-företags (icke-UltiPro) företags plats som administratör.
 
-2. Klicka på **Kontoinställningar**i huvudverktygsfältet .
+2. Klicka på **konto inställningar**i huvud verktygsfältet.
 
-    ![Perception United States (Icke-UltiPro) användare](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Uppfattning USA (icke-UltiPro) användare](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
-3. Gör följande på sidan **Kontoinställningar:**
+3. Utför följande steg på sidan **konto inställningar** :
 
-    ![Perception United States (Icke-UltiPro) användare](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
+    ![Uppfattning USA (icke-UltiPro) användare](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-    a. Skriv namnet på **företaget**i textrutan **Företagsnamn** .
+    a. I text rutan **företags namn** skriver du namnet på **företaget**.
     
-    b. Skriv namnet på **kontot**i textrutan **Kontonamn** .
+    b. Skriv namnet på **kontot**i text rutan **konto namn** .
 
-    c. I textrutan **Standardsvar-till-e-post** skriver du den giltiga **e-postadressen**.
+    c. Skriv giltig **e-postadress**i text rutan **standard svar till e-post** .
 
-    d. Välj **SSO-identitetsprovider** som **SAML 2.0**.
+    d. Välj **SSO Identity Provider** som **SAML 2,0**.
 
-4. Gör följande på sidan **SSO-konfiguration:**
+4. Utför följande steg på sidan **SSO-konfiguration** :
 
-    ![Perception USA (Icke-UltiPro) SSOConfig](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
+    ![Uppfattning USA (icke-UltiPro) SSOConfig](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
-    a. Välj **SAML-namnidtyp** som **e-post**.
+    a. Välj **SAML NameID typ** som **e-postadress**.
 
-    b. Skriv namnet på **konfigurationen**i textrutan **SSO-konfigurationsnamn** .
+    b. I text rutan **namn på SSO-konfiguration** skriver du namnet på din **konfiguration**.
     
-    c. Klistra in värdet för **Azure AD-identifierare**i textrutan **Identitetsprovidernamn** som du har kopierat från Azure-portalen. 
+    c. I text rutan **namn på identitetsprovider** , klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal. 
 
-    d. I **SMS:ar för SAML-domän**anger du domänen som @contoso.com.
+    d. I **text rutan SAML-domän**anger du domänen @contoso.comsom.
 
-    e. Klicka på **Ladda upp igen** för att ladda upp metadata **XML-filen.**
+    e. Klicka på **överför igen** för att ladda upp **metadata-XML-** filen.
 
     f. Klicka på **Uppdatera**.
 
@@ -175,7 +175,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -185,7 +185,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -193,15 +193,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure single sign-on genom att bevilja åtkomst till Perception UNITED States (Non-UltiPro).
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till uppfattning USA (icke-UltiPro).
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan Perception USA **(icke-UltiPro).**
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **uppfattning USA (icke-UltiPro)**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj Perception USA **(Icke-UltiPro)** i programlistan .
+2. I listan program väljer du **uppfattning USA (icke-UltiPro)**.
 
-    ![Länken Perception United States (Non-UltiPro) i programlistan](common/all-applications.png)
+    ![Den uppfattning USA-länken (icke-UltiPro) i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -213,25 +213,25 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure single
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-perception-united-states-non-ultipro-test-user"></a>Skapa perception usa (icke-UltiPro) testanvändare
+### <a name="create-perception-united-states-non-ultipro-test-user"></a>Skapa uppfattning USA (icke-UltiPro) test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Perception UNITED States (Non-UltiPro). Arbeta med [Perception United States (Non-UltiPro) supportteam](https://www.ultimatesoftware.com/Contact/ContactUs) för att lägga till användare i Perception UNITED States (Non-UltiPro) plattform.
+I det här avsnittet skapar du en användare med namnet Britta Simon i uppfattning USA (icke-UltiPro). Arbeta med [USA-support teamet (som inte är UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) för att lägga till användarna i den uppfattning USA-plattformen (icke-UltiPro).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Perception USA (icke-UltiPro) på åtkomstpanelen bör du automatiskt loggas in på perceptions-USA (icke-UltiPro) som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för uppfattning USA (icke-UltiPro) i åtkomst panelen, bör du loggas in automatiskt på den uppfattning USA (icke-UltiPro) som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

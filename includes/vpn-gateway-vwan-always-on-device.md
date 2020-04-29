@@ -9,26 +9,26 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371793"
 ---
-Följande krav måste uppfyllas för att en anordningstunnel ska kunna upprättas:
+Följande krav måste uppfyllas för att du ska kunna upprätta en enhets tunnel:
 
-* Enheten måste vara en domän ansluten dator som kör Windows 10 Enterprise eller Education version 1809 eller senare.
-* Tunneln kan bara konfigureras för den inbyggda VPN-lösningen i Windows och upprättas med IKEv2 med autentisering av datorcertifikat.
-* Endast en enhetstunnel kan konfigureras per enhet.
+* Enheten måste vara en domänansluten dator som kör Windows 10 Enterprise eller Education version 1809 eller senare.
+* Tunneln kan bara konfigureras för den inbyggda VPN-lösningen i Windows och upprättas med hjälp av IKEv2 med autentisering med dator certifikat.
+* Endast en enhets tunnel kan konfigureras per enhet.
 
-1. Installera klientcertifikat på Windows 10-klienten med hjälp av [punkt-till-plats-VPN-klientartikeln.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) Certifikatet måste finnas i arkivet Lokal dator.
-1. Skapa en VPN-profil och konfigurera enhetstunneln i kontexten för local system-kontot med hjälp av [dessa instruktioner](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
+1. Installera klient certifikat på Windows 10-klienten med hjälp av artikeln [punkt-till-plats-VPN-klient](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Certifikatet måste finnas i den lokala datorns Arkiv.
+1. Skapa en VPN-profil och konfigurera enhets tunneln i kontexten för det lokala SYSTEM kontot med hjälp av [de här anvisningarna](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/vpn-device-tunnel-config#vpn-device-tunnel-configuration).
 
-### <a name="configuration-example-for-device-tunnel"></a>Konfigurationsexempel för enhetstunnel
+### <a name="configuration-example-for-device-tunnel"></a>Konfigurations exempel för enhets tunnel
 
-När du har konfigurerat den virtuella nätverksgatewayen och installerat klientcertifikatet i arkivet Lokal dator på Windows 10-klienten använder du följande exempel för att konfigurera en klientenhetstunnel:
+När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient certifikatet i den lokala datorns Arkiv på Windows 10-klienten, använder du följande exempel för att konfigurera en klient enhets tunnel:
 
-1. Kopiera följande text och spara den som ***devicecert.ps1***.
+1. Kopiera följande text och spara den som ***devicecert. ps1***.
 
    ```
    Param(
@@ -80,7 +80,7 @@ När du har konfigurerat den virtuella nätverksgatewayen och installerat klient
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Kopiera följande text och spara den som ***VPNProfile.xml*** i samma mapp som **devicecert.ps1**. Redigera följande text så att den matchar din miljö.
+1. Kopiera följande text och spara den som ***VPNProfile. XML*** i samma mapp som **devicecert. ps1**. Redigera följande text för att matcha din miljö.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -115,8 +115,8 @@ När du har konfigurerat den virtuella nätverksgatewayen och installerat klient
    <RegisterDNS>true</RegisterDNS>
    </VPNProfile>
    ```
-1. Ladda ner **PsExec** från [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) och extrahera filerna till **C:\PSTools**.
-1. Starta PowerShell från en admin CMD-prompt genom att köra:
+1. Ladda ned **PsExec** från [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) och extrahera filerna till **C:\PSTools**.
+1. Starta PowerShell från en administratörs kommando tolk genom att köra:
 
    ```
    PsExec.exe Powershell for 32-bit Windows
@@ -124,17 +124,17 @@ När du har konfigurerat den virtuella nätverksgatewayen och installerat klient
    ```
 
    ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
-1. I PowerShell växlar du till mappen där **devicecert.ps1** och **VPNProfile.xml** finns och kör följande kommando:
+1. I PowerShell växlar du till den mapp där **devicecert. ps1** och **VPNProfile. XML** finns och kör följande kommando:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest (MachineCert)](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
-1. Kör **rasphone**.
+   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+1. Kör **Rasphone**.
 
-   ![Rasphone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
-1. Leta efter **MachineCertTest-posten** och klicka på **Anslut**.
+   ![RASPHONE](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+1. Leta efter **MachineCertTest** -posten och klicka på **Anslut**.
 
    ![Anslut](./media/vpn-gateway-vwan-always-on-device/connect.png)
-1. Om anslutningen lyckas startar du om datorn. Tunneln ansluts automatiskt.
+1. Om anslutningen lyckas startar du om datorn. Tunneln kommer att ansluta automatiskt.

@@ -1,6 +1,6 @@
 ---
-title: Mått för Azure NetApp-filer | Microsoft-dokument
-description: Beskriver mått för Azure NetApp-filer.
+title: Mått för Azure NetApp Files | Microsoft Docs
+description: Beskriver mått för Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,53 +15,53 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
 ms.openlocfilehash: c8e3b616dee1ab4e6bb6e77c6a8bab5661d4e20b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460440"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Mått för Azure NetApp Files
 
-Azure NetApp Files tillhandahåller mått på allokerad lagring, faktisk lagringsanvändning, volym-IOPS och svarstid. Genom att analysera dessa mått kan du få en bättre förståelse för användningsmönstret och volymprestanda för dina NetApp-konton.  
+Azure NetApp Files tillhandahåller mått för allokerat lagrings utrymme, faktisk lagrings användning, volym-IOPS och latens. Genom att analysera dessa mått kan du få en bättre förståelse för användnings mönstret och volym prestandan för dina NetApp-konton.  
 
-## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Användningsmått för kapacitetspooler
+## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Användnings statistik för kapacitets grupper
 
 <!-- 
 - *Pool Provisioned Size*  
     The logical space (GiB) the capacity pool is provisioned with.  
     This size is the size you selected during capacity pool creation. 
 --> 
-- *Pool allokerad till volymstorlek*  
-    Den totala volymkvoten (GiB) i en viss kapacitetspool (det vill än summan av volymernas etablerade storlekar i kapacitetspoolen).  
-    Den här storleken är den storlek du valde när du skapades i volym.  
-- *Förbrukad poolstorlek*  
-    Det totala logiska utrymme (GiB) som används över volymer i en kapacitetspool.  
+- *Pool allokerad till volym storlek*  
+    Summan av volym kvoten (GiB) i en specifik kapacitets grupp (det vill säga summan av volymernas etablerade storlekar i kapacitets gruppen).  
+    Den här storleken är den storlek som du valde när du skapade volymen.  
+- *Förbrukad pool storlek*  
+    Det totala logiska utrymmet (GiB) som används för volymer i en kapacitets grupp.  
 <!-- 
 - *Pool Consumed Snapshot Size*  
     The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
 -->
 
-## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Användningsmått för volymer
+## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Användnings statistik för volymer
 
 <!--
 - *Volume Quota Size*    
     The quota size (GiB) the volume is provisioned with.   
     This size is the size you selected during capacity pool creation. 
 -->
-- *Förbrukad volymstorlek*   
+- *Storlek på förbrukad volym*   
     Det totala logiska utrymmet som används i en volym (GiB).  
-    Den här storleken innehåller logiskt utrymme som används av aktiva filsystem och ögonblicksbilder.  
-- *Storlek för ögonblicksbild av volym*   
-   Det inkrementella logiska utrymme som används av ögonblicksbilder i en volym.  
+    Den här storleken inkluderar det logiska utrymmet som används av aktiva fil system och ögonblicks bilder.  
+- *Storlek på volym ögonblicks bild*   
+   Det stegvisa logiska utrymmet som används av ögonblicks bilder i en volym.  
 
-## <a name="performance-metrics-for-volumes"></a>Prestandamått för volymer
+## <a name="performance-metrics-for-volumes"></a>Prestanda mått för volymer
 
-- *Genomsnittligläsning*   
+- *AverageReadLatency*   
     Genomsnittlig tid för läsningar från volymen i millisekunder.
 - *AverageWriteLatency*   
-    Den genomsnittliga tiden för skrivningar från volymen i millisekunder.
-- *ReadIops (läs)*   
+    Genomsnittlig tid för skrivningar från volymen i millisekunder.
+- *ReadIops*   
     Antalet läsningar till volymen per sekund.
 - *WriteIops*   
     Antalet skrivningar till volymen per sekund.

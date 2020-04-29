@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med LockPath Keylight | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LockPath Keylight.
+title: 'Självstudie: Azure Active Directory-integrering med LockPath-indikering | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LockPath-indikering.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,43 +17,43 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67098782"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Självstudiekurs: Azure Active Directory-integrering med LockPath Keylight
+# <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Självstudie: Azure Active Directory integrering med LockPath-indikering
 
-I den här självstudien får du lära dig hur du integrerar LockPath Keylight med Azure Active Directory (Azure AD).
-Genom att integrera LockPath Keylight med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig att integrera LockPath-indikering med Azure Active Directory (Azure AD).
+Att integrera LockPath-indikering med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till LockPath Keylight.
-* Du kan aktivera användarna automatiskt inloggad på LockPath Keylight (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till LockPath-indikering.
+* Du kan göra det möjligt för användarna att logga in automatiskt till LockPath (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med LockPath Keylight behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med LockPath-indikering behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Enkel prenumeration med enkel inloggningsaktiverad abonnemang i LockPath Keylight
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* LockPath-aktiverad prenumeration för enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* LockPath Keylight stöder **SP** initierad SSO
-* LockPath Keylight stöder just **in time-användares** etablering
+* LockPath-ljus stöder **SP** -INITIERAd SSO
+* LockPath-indikering stöder **just-in-Time** User-etablering
 
-## <a name="adding-lockpath-keylight-from-the-gallery"></a>Lägga till LockPath-nyckelljus från galleriet
+## <a name="adding-lockpath-keylight-from-the-gallery"></a>Lägga till LockPath-ljus från galleriet
 
-Om du vill konfigurera integreringen av LockPath Keylight i Azure AD måste du lägga till LockPath-nyckelljus från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integrationen av LockPath-i Azure AD måste du lägga till LockPath-ljus från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till LockPath Keylight från galleriet:**
+**Utför följande steg för att lägga till LockPath-indikering från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -67,31 +67,31 @@ Om du vill konfigurera integreringen av LockPath Keylight i Azure AD måste du l
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **LockPath-nyckeltangentljus**i sökrutan och välj **LockPath-tangentljus** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
+4. I sökrutan skriver du **LockPath-indikering**, väljer **LockPath-indikering** från resultat panelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
-    ![LockPath-nyckelbelysning i resultatlistan](common/search-new-app.png)
+    ![LockPath-indikering i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med LockPath Keylight baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i LockPath Keylight upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med LockPath-indikering baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i LockPath-.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med LockPath Keylight måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med LockPath i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Enkel inloggning för Låspath-tangentljus](#configure-lockpath-keylight-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera LockPath för enkel inloggning med enkel inloggning](#configure-lockpath-keylight-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa LockPath Keylight-testanvändare](#create-lockpath-keylight-test-user)** – om du vill ha en motsvarighet till Britta Simon i LockPath Keylight som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa LockPath-test för att testa användaren](#create-lockpath-keylight-test-user)** – om du vill ha en motsvarighet till Britta Simon i LockPath-ljust som är länkat till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med LockPath Keylight:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med LockPath-indikering:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **LockPath Keylight-programintegration** . **Single sign-on**
+1. I [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**på LockPath-sidan för program integrering i **LockPath Keylight** .
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med LockPath Keylight:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Låspath keylight-domän och webbadresser med enkel inloggning](common/sp-identifier-reply.png)
+    ![Information om enkel inloggning för LockPath-och webb adresser](common/sp-identifier-reply.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<company name>.keylightgrc.com/`
 
@@ -114,13 +114,13 @@ Så här konfigurerar du en enkel Azure AD-inloggning med LockPath Keylight:
     c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company name>.keylightgrc.com/Login.aspx`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta Supportteamet för [LockPath Keylight Client](https://www.lockpath.com/contact/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [LockPath-support teamet](https://www.lockpath.com/contact/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera LockPath-nyckelljus.**
+6. Kopiera lämpliga URL: er enligt ditt krav i avsnittet **Konfigurera LockPath-** .
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -130,53 +130,53 @@ Så här konfigurerar du en enkel Azure AD-inloggning med LockPath Keylight:
 
     c. Utloggnings-URL
 
-### <a name="configure-lockpath-keylight-single-sign-on"></a>Konfigurera enkel inloggning för LockPath-tangentljus
+### <a name="configure-lockpath-keylight-single-sign-on"></a>Konfigurera LockPath-enkel inloggning med enkel inloggning
 
-1. Så här aktiverar du SSO i LockPath Keylight:
+1. Utför följande steg för att aktivera SSO i LockPath-ljus:
 
-    a. Logga in på ditt LockPath Keylight-konto som administratör.
+    a. Logga in på ditt LockPath-konto som administratör.
 
-    b. Klicka på **Person**högst upp och välj **Inställningar för tangentten.**
+    b. I menyn högst upp klickar du på **person**och väljer sedan inställningar för att ställa in en **indikering**.
 
     ![Konfigurera enkel inloggning](./media/keylight-tutorial/401.png)
 
-    c. Klicka på **SAML**i trädvyn till vänster .
+    c. Klicka på **SAML**i trädvyn till vänster.
 
     ![Konfigurera enkel inloggning](./media/keylight-tutorial/402.png)
 
-    d. Klicka på **Redigera**i dialogrutan **SAML-inställningar** .
+    d. I dialog rutan **SAML-inställningar** klickar du på **Redigera**.
 
     ![Konfigurera enkel inloggning](./media/keylight-tutorial/404.png)
 
-1. Gör följande på dialogrutan **Redigera SAML-inställningar:**
+1. På dialog sidan **Redigera SAML-inställningar** utför du följande steg:
 
     ![Konfigurera enkel inloggning](./media/keylight-tutorial/405.png)
 
-    a. Ange **SAML-autentisering** till **Aktiv**.
+    a. Konfigurera **SAML-autentisering** till **aktiv**.
 
-    b. Klistra in värdet **för inloggningsadressen** för **i identitetsleverantörens inloggningsadress** som du har kopierat från Azure-portalen.
+    b. I text rutan **inloggnings-URL för identitetsprovider** klistrar du in URL-värdet för **inloggning** som du har kopierat från Azure Portal.
 
-    c. I **url-textrutan för identitetsprovsprovsanloggning** klistrar du in **url-värdet för utloggning** som du har kopierat från Azure-portalen.
+    c. I text rutan **URL för identitets leverantörs utloggning** klistrar du in URL-värdet för **utloggning** som du har kopierat från Azure Portal.
 
-    d. Klicka på **Välj fil** för att välja det nedladdade LockPath Keylight-certifikatet och sedan på **Öppna** för att ladda upp certifikatet.
+    d. Klicka på **Välj fil** för att välja det hämtade LockPath-och klicka sedan på **Öppna** för att ladda upp certifikatet.
 
-    e. Ange **PLATS FÖR SAML-användar-ID** till **NameIdentifier-elementet i ämnesutdraget**.
+    e. Ange **SAML-användarens ID-plats** till **NameIdentifier-elementet för ämnes instruktionen**.
 
-    f. Ange **keylight-tjänstleverantören** med följande `https://<CompanyName>.keylightgrc.com`mönster: .
+    f. Tillhandahåll **tjänst leverantören** för en indikering med följande mönster: `https://<CompanyName>.keylightgrc.com`.
 
-    g. Ange **användare av automatisk etablering** till **Aktiv**.
+    g. Ange **användare för automatisk etablering** till **aktiv**.
 
-    h. Ange **kontotyp för automatisk etablering** till Fullständig **användare**.
+    h. Ange en **konto typ för automatisk etablering** till **fullständig användare**.
 
-    i. Ange **säkerhetsroll för automatisk etablering**väljer du **Standardanvändare med SAML**.
+    i. Ange **säkerhets roll för automatisk etablering**, Välj **Standard användare med SAML**.
 
-    j. Ange **säkerhetskonfiguration för automatisk etablering**väljer du Standard **användarkonfiguration**.
+    j. Ange **Automatisk etablering av säkerhets**konfiguration, Välj **standard användar konfiguration**.
 
-    k. Skriv `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`i textrutan **E-postattribut** .
+    k. I text rutan **email-attribut** skriver `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`du.
 
-    l. Skriv `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`i textrutan **Förnamnsattribut** .
+    l. I text rutan för det **första** namnattributet skriver `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`du.
 
-    m. Skriv `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`i textrutan **Efternamnsattribut** .
+    m. I text rutan för **senaste namnattribut** skriver `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`du.
 
     n. Klicka på **Spara**.
 
@@ -188,7 +188,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -198,7 +198,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -206,15 +206,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till LockPath Keylight.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till LockPath-ljus.
 
-1. I Azure-portalen väljer du **Företagsprogram**, väljer **Alla program**och väljer sedan **LockPath Keylight**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **LockPath-indikering**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **LockPath Keylight**i programlistan .
+2. I listan program väljer du **LockPath-indikering**.
 
-    ![Länken LockPath-nyckelbelysning i programlistan](common/all-applications.png)
+    ![LockPath-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -226,24 +226,24 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-lockpath-keylight-test-user"></a>Skapa Testanvändare för LockPath-nyckelljus
+### <a name="create-lockpath-keylight-test-user"></a>Skapa LockPath test User
 
-I det här avsnittet skapas en användare som heter Britta Simon i LockPath Keylight. LockPath Keylight stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i LockPath Keylight skapas en ny efter autentisering. Om du behöver skapa en användare manuellt måste du kontakta Supportteamet för [LockPath Keylight Client](https://www.lockpath.com/contact/).
+I det här avsnittet skapas en användare som kallas Britta Simon i LockPath-indikering. LockPath-stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i LockPath-ljuset, skapas en ny efter autentiseringen. Om du behöver skapa en användare manuellt måste du kontakta [support teamet för LockPath-](https://www.lockpath.com/contact/).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen LockPath Keylight på Åtkomstpanelen bör du automatiskt loggas in på den LockPath-nyckellampa som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för LockPath-på åtkomst panelen, bör du loggas in automatiskt på det LockPath-som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

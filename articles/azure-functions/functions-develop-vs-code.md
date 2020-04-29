@@ -4,10 +4,10 @@ description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av 
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: 2d33b7dddf29d37d174bdb7734e9048bc1658840
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277172"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
@@ -299,7 +299,7 @@ För att köra ett Functions-projekt lokalt måste du uppfylla följande ytterli
 
     | Språk | Krav |
     | -------- | --------- |
-    | **C#** | [C#-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI-verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C #** | [C#-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI-verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Fel sökare för Java-tillägg](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 eller senare](https://maven.apache.org/) |
     | **JavaScript** | [Node. js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python-3.6.8](https://www.python.org/downloads/) rekommenderas|

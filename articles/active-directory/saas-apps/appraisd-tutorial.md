@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Appraisd | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med bedömning | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Appraisd.
 services: active-directory
 documentationCenter: na
@@ -17,68 +17,68 @@ ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08453928ab000cf906c451fa6c1cd619a00ee4ca
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67561206"
 ---
-# <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Självstudiekurs: Integrera appraisd med Azure Active Directory
+# <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Självstudie: integrera med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar Appraisd med Azure Active Directory (Azure AD). När du integrerar Appraisd med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar en bedömning med Azure Active Directory (Azure AD). När du integrerar en bedömning med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Appraisd.
-* Gör att användarna automatiskt loggas in på Appraisd med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Kontroll i Azure AD som har till gång till en bedömning.
+* Gör det möjligt för användarna att logga in automatiskt för att bedöma sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Utvärderad prenumeration med enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Den uppdelade prenumerationen för enkel inloggning (SSO) har Aktiver ATS.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö. Appraisd stöder **SP och IDP** initierade SSO.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. Uppvärderad stöder **SP-och IDP** -initierad SSO.
 
 ## <a name="adding-appraisd-from-the-gallery"></a>Lägga till Appraisd från galleriet
 
 För att konfigurera integrering av Appraisd i Azure AD måste du lägga till Appraisd från galleriet i din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Appraisd** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Appraisd** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från Galleri** skriver du **bedömas** i sökrutan.
+1. Välj **bedömas** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD SSO med Appraisd med en testanvändare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Appraisd.
+Konfigurera och testa Azure AD SSO med en bedömning med hjälp av en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i en bedömning.
 
-Om du vill konfigurera och testa Azure AD SSO med Appraisd slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med en bedömning slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
-2. **[Konfigurera appraisd](#configure-appraisd)** för att konfigurera SSO-inställningarna på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning med B. Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera B. Simon för att använda Azure AD enkel inloggning.
-5. **[Skapa appraisd testanvändare](#create-appraisd-test-user)** att ha en motsvarighet till B. Simon i Appraisd som är kopplad till Azure AD-representationen av användaren.
-6. **[Testa SSO](#test-sso)** för att kontrollera om konfigurationen fungerar.
+2. **[Konfigurera bedömning](#configure-appraisd)** för att konfigurera SSO-inställningar på program sidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa enkel inloggning i Azure AD med B. Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+5. Skapa en förväntad **[test användare](#create-appraisd-test-user)** för att få en motsvarighet till B. Simon i en bedömning som är kopplad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet **Appraisd** Hantera på sidan Hantera på sidan [Azure-portalen](https://portal.azure.com/)och välj **Enkel inloggning**. **Manage**
-1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **bedömning** av program integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** är programmet förkonfigurerat och nödvändiga url:er är redan förifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen Spara och utföra följande steg:
+4. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat och de nödvändiga URL: erna är redan ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen Spara och utföra följande steg:
 
     a. Klicka på **Ange ytterligare URL:er**.
 
@@ -89,31 +89,31 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     > [!NOTE]
     > Du får det faktiska värdet för inloggnings-URL och värdet för vidarebefordransstatus på konfigurationssidan för Appraisd SSO som beskrivs senare i självstudien.
 
-1. Appraisd-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar till konfigurationen av SAML-tokenattribut. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Appraisd ansökan förväntar **namnidentifierare** som ska mappas med **user.mail**, så du måste redigera attributmappningen genom att klicka på **Redigera** ikonen och ändra attributmappningen.
+1. Ett bedömt program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Ett bedömt program förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
     ![image](common/edit-attribute.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML,** i avsnittet **SAML-signeringscertifikat,** hittar **du certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera appraisd** baserat på dina krav.
+1. I avsnittet **Konfigurera bedömning** kopierar du lämpliga URL: er baserat på ditt krav.
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-appraisd"></a>Konfigurera appraisd
+### <a name="configure-appraisd"></a>Konfigurera en bedömning
 
-1. Om du vill automatisera konfigurationen i Appraisd måste du installera **webbläsartillägget My Apps Secure Sign-in** genom att klicka på **Installera tillägget**.
+1. Om du vill automatisera konfigurationen i en bedömning måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
 
-    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
 
-2. När du har lagt till tillägget i webbläsaren, klicka på **Setup Appraisd** kommer att leda dig till Appraisd ansökan. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på Appraisd. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
+2. När du har lagt till tillägg i webbläsaren kan du klicka på den uppfyllde **installationen** som leder dig till det uppvärderade programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på en bedömning. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
 
-    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
+    ![Konfigurera konfiguration](common/setup-sso.png)
 
-3. Om du vill konfigurera Appraisd manuellt öppnar du ett nytt webbläsarfönster och loggar in på din webbplats för appraisd som administratör och utför följande steg:
+3. Om du vill konfigurera en bedömning manuellt öppnar du ett nytt webbläsarfönster och loggar in på den uppvärderade företags platsen som administratör och utför följande steg:
 
-4. Längst upp till höger på sidan klickar du på **ikonen Inställningar** och navigerar sedan till **Konfiguration**.
+4. Längst upp till höger på sidan klickar du på ikonen **Inställningar** och navigerar sedan till **konfiguration**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -125,9 +125,9 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-    a. Kopiera **värdet för standardrelätillstånd** och klistra in det i relay **state-textrutan** i grundläggande **SAML-konfiguration** på Azure-portalen.
+    a. Kopiera det **förvalda värdet för relä status** och klistra in det i text rutan i **Relay-tillstånd** i **grundläggande SAML-konfiguration** på Azure Portal.
 
-    b. Kopiera värdet **för tjänstinitierad inloggnings-URL** och klistra in det i textrutan Sign-on URL i **grundläggande SAML-konfiguration** på **Azure-portalen.**
+    b. Kopiera värdet för **inloggnings-URL för tjänsten som initieras** och klistra in det i text rutan för **inloggnings-URL** i **grundläggande SAML-konfiguration** på Azure Portal.
 
 7. Rulla nedåt på samma sida under **Identifiera användare** och utför följande steg:
 
@@ -135,39 +135,39 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
     a. I textrutan **Identity Provider Single Sign-On URL** (URL för enkel inloggning för identitetsprovider) klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen och klickar på **Spara**.
 
-    b. Klistra in värdet för **Azure AD-identifierare**i **url-textrutan för identitetsprovider** och klicka på **Spara**.
+    b. I text rutan för **identitets leverantörens URL-adress** klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal och klickar på **Spara**.
 
-    c. Öppna det bas-64-kodade certifikat som du hämtade från Azure-portalen i Anteckningar, kopiera innehållet och klistra in det sedan i rutan **X.509-certifikat** och klicka på **Spara**.
+    c. I anteckningar öppnar du det bas-64-kodade certifikatet som du laddade ned från Azure Portal, kopierar innehållet och klistrar in det i rutan **X. 509-certifikat** och klickar på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B. Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B. Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B. Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B. Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B. Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Appraisd.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till en bedömning.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
 1. I listan med program väljer **Appraisd**.
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B. Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ### <a name="create-appraisd-test-user"></a>Skapa Appraisd-testanvändare
 
@@ -177,11 +177,11 @@ För att Azure AD-användare ska kunna logga in på Appraisd måste de etableras
 
 1. Logga in på Appraisd som administratör.
 
-2. Längst upp till höger på sidan klickar du på **ikonen Inställningar** och navigerar sedan till **Administrationscenter**.
+2. Klicka på ikonen **Inställningar** längst upp till höger på sidan och gå sedan till **administrations centret**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. Klicka på **Kontakter**högst upp på sidan och navigera sedan till Lägg till **en ny användare**.
+3. I verktygsfältet högst upp på sidan klickar du på **personer**och navigerar sedan för att **lägga till en ny användare**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
@@ -189,9 +189,9 @@ För att Azure AD-användare ska kunna logga in på Appraisd måste de etableras
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
-    a. I textrutan **Förnamn** anger du förnamnet på användaren som **Britta**.
+    a. I text rutan **förnamn** anger du det första namnet på användaren, t. ex. **Britta**.
 
-    b. I textrutan **Efternamn** anger du efternamn för användare som **simon**.
+    b. I text rutan **efter namn** anger du det senaste namnet på användaren som **Simon**.
 
     c. I textrutan **E-post** anger du användarens e-postadress som `B. Simon@contoso.com`.
 
@@ -199,12 +199,12 @@ För att Azure AD-användare ska kunna logga in på Appraisd måste de etableras
 
 ### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen Appraisd på åtkomstpanelen ska du automatiskt loggas in på den appraisd som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer den uppfattade panelen i åtkomst panelen, bör du loggas in automatiskt till den som du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

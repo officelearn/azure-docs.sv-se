@@ -1,61 +1,61 @@
 ---
 title: Distributionsmodeller
-description: Beskriver hur du anger om du vill använda ett fullständigt eller inkrementellt distributionsläge med Azure Resource Manager.
+description: Beskriver hur du anger om du vill använda ett fullständigt eller stegvis distributions läge med Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460253"
 ---
-# <a name="azure-resource-manager-deployment-modes"></a>Distributionslägen för Azure Resource Manager
+# <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager distributions lägen
 
-När du distribuerar dina resurser anger du att distributionen antingen är en inkrementell uppdatering eller en fullständig uppdatering. Skillnaden mellan dessa två lägen är hur Resource Manager hanterar befintliga resurser i resursgruppen som inte finns i mallen.
+När du distribuerar dina resurser anger du att distributionen är antingen en stegvis uppdatering eller en fullständig uppdatering. Skillnaden mellan dessa två lägen är hur resurs hanteraren hanterar befintliga resurser i resurs gruppen som inte finns i mallen.
 
-För båda lägena försöker Resource Manager skapa alla resurser som anges i mallen. Om resursen redan finns i resursgruppen och dess inställningar är oförändrade, vidtas ingen åtgärd för den resursen. Om du ändrar egenskapsvärdena för en resurs uppdateras resursen med dessa nya värden. Om du försöker uppdatera platsen eller typen för en befintlig resurs misslyckas distributionen med ett fel. Distribuera i stället en ny resurs med den plats eller typ som du behöver.
+I båda lägena försöker Resource Manager att skapa alla resurser som anges i mallen. Om resursen redan finns i resurs gruppen och dess inställningar är oförändrade vidtas ingen åtgärd för resursen. Om du ändrar egenskaps värden för en resurs uppdateras resursen med de nya värdena. Om du försöker uppdatera platsen eller typen för en befintlig resurs, Miss lyckas distributionen med ett fel. Distribuera i stället en ny resurs med den plats eller typ som du behöver.
 
-Standardläget är inkrementellt.
+Standard läget är stegvist.
 
 ## <a name="complete-mode"></a>Fullständigt läge
 
-I fullständigt läge **tar** Resource Manager bort resurser som finns i resursgruppen men som inte anges i mallen.
+I fullständigt läge tar Resource Manager **bort** resurser som finns i resurs gruppen men som inte har angetts i mallen.
 
-Om mallen innehåller en resurs som inte distribueras på grund av [att villkoret](conditional-resource-deployment.md) utvärderas till false beror resultatet på vilken REST API-version du använder för att distribuera mallen. Om du använder en version tidigare än 2019-05-10 **tas resursen inte bort**. Med 2019-05-10 eller senare tas resursen **bort**. De senaste versionerna av Azure PowerShell och Azure CLI tar bort resursen.
+Om din mall innehåller en resurs som inte har distribuerats eftersom [villkoret](conditional-resource-deployment.md) utvärderas till false beror resultatet på vilken REST API version som du använder för att distribuera mallen. Om du använder en tidigare version än 2019-05-10 **tas inte resursen bort**. Med 2019-05-10 eller senare **tas resursen bort**. De senaste versionerna av Azure PowerShell och Azure CLI tar bort resursen.
 
-Var försiktig med att använda komplett läge med [kopieringsöglor](copy-resources.md). Alla resurser som inte anges i mallen när du har löst kopieringsloopen tas bort.
+Var försiktig med att använda fullständigt läge med [kopierings slingor](copy-resources.md). Alla resurser som inte är angivna i mallen när du har löst kopierings slingen tas bort.
 
-Om du distribuerar till [mer än en resursgrupp i en mall](cross-resource-group-deployment.md)kan resurser i resursgruppen som anges i distributionsåtgärden tas bort. Resurser i de sekundära resursgrupperna tas inte bort.
+Om du distribuerar till [fler än en resurs grupp i en mall](cross-resource-group-deployment.md)är resurserna i resurs gruppen som anges i distributions åtgärden tillgängliga för borttagning. Resurser i de sekundära resurs grupperna tas inte bort.
 
-Det finns vissa skillnader i hur resurstyper hanterar fullständiga lägesborttagningar. Överordnade resurser tas automatiskt bort när de inte finns i en mall som distribueras i fullständigt läge. Vissa underordnade resurser tas inte bort automatiskt när de inte finns i mallen. Dessa underordnade resurser tas dock bort om den överordnade resursen tas bort.
+Det finns vissa skillnader i hur resurs typer hanterar fullständigt läge borttagningar. Överordnade resurser tas bort automatiskt när de inte finns i en mall som distribueras i fullständigt läge. Vissa underordnade resurser tas inte bort automatiskt när de inte finns i mallen. De underordnade resurserna tas dock bort om den överordnade resursen tas bort.
 
-Om resursgruppen till exempel innehåller en DNS-zon (Microsoft.Network/dnsZones-resurstyp) och en CNAME-post (Microsoft.Network/dnsZones/CNAME-resurstyp), är DNS-zonen den överordnade resursen för CNAME-posten. Om du distribuerar med fullständigt läge och inte inkluderar DNS-zonen i mallen tas dns-zonen och CNAME-posten bort. Om du inkluderar DNS-zonen i mallen men inte tar med CNAME-posten tas CNAME-objektet inte bort.
+Om din resurs grupp till exempel innehåller en DNS-zon (Microsoft. Network/dnsZones Resource Type) och en CNAME-post (Microsoft. Network/dnsZones/CNAME resurs typ), är DNS-zonen den överordnade resursen för CNAME-posten. Om du distribuerar med slutfört läge och inte inkluderar DNS-zonen i din mall, raderas DNS-zonen och CNAME-posten båda. Om du inkluderar DNS-zonen i mallen men inte tar med CNAME-posten, raderas inte CNAME.
 
-En lista över hur resurstyper hanterar borttagning finns i [Borttagning av Azure-resurser för fullständig lägesdistribution .](complete-mode-deletion.md)
+En lista över hur resurs typer hanterar borttagning finns i [ta bort Azure-resurser för fullständiga läges distributioner](complete-mode-deletion.md).
 
-Om resursgruppen är [låst](../management/lock-resources.md)tar inte resurserna bort i fullständigt läge.
-
-> [!NOTE]
-> Endast mallar på rotnivå stöder hela distributionsläget. För [länkade eller kapslade mallar](linked-templates.md)måste du använda inkrementellt läge.
->
-> [Distributioner på prenumerationsnivå](deploy-to-subscription.md) stöder inte fullständigt läge.
->
-> För närvarande stöder portalen inte fullständigt läge.
->
-
-## <a name="incremental-mode"></a>Inkrementellt läge
-
-I inkrementellt läge lämnar Resource Manager **oförändrade** resurser som finns i resursgruppen men som inte anges i mallen. Resurser i mallen **läggs** till i resursgruppen.
+Om resurs gruppen är [låst](../management/lock-resources.md)tas inte resurserna bort om du slutför läget.
 
 > [!NOTE]
-> När du distribuerar om en befintlig resurs i inkrementellt läge tillämpas alla egenskaper på nytt. **Egenskaperna läggs inte stegvis till**. Ett vanligt missförstånd är att tro att egenskaper som inte anges i mallen lämnas oförändrade. Om du inte anger vissa egenskaper tolkar Resource Manager distributionen som att skriva över dessa värden. Egenskaper som inte ingår i mallen återställs till standardvärdena. Ange alla värden som inte är standard för resursen, inte bara de som du uppdaterar. Resursdefinitionen i mallen innehåller alltid resursens slutliga tillstånd. Det kan inte representera en partiell uppdatering till en befintlig resurs.
+> Endast mallar på rotnivå stöder hela distributions läget. För [länkade eller kapslade mallar](linked-templates.md)måste du använda stegvist läge.
+>
+> [Distributioner på prenumerations nivå](deploy-to-subscription.md) stöder inte slutfört läge.
+>
+> För närvarande stöder inte portalen slutfört läge.
+>
 
-## <a name="example-result"></a>Exempel på resultat
+## <a name="incremental-mode"></a>Stegvist läge
 
-För att illustrera skillnaden mellan inkrementella och fullständiga lägen bör du tänka på följande scenario.
+I stegvist läge lämnar Resource Manager **oförändrade** resurser som finns i resurs gruppen men som inte anges i mallen. Resurser i mallen **läggs** till i resurs gruppen.
 
-**Resursgruppen** innehåller:
+> [!NOTE]
+> När du omdistribuerar en befintlig resurs i stegvist läge tillämpas alla egenskaper igen. **Egenskaperna läggs inte till stegvis**. En vanlig förståelse är att betrakta egenskaper som inte är angivna i mallen oförändrade. Om du inte anger vissa egenskaper tolkar Resource Manager distributionen som att skriva över dessa värden. Egenskaper som inte ingår i mallen återställs till standardvärdena. Ange alla värden som inte är standardvärden för resursen, inte bara de som du uppdaterar. Resurs definitionen i mallen innehåller alltid slut tillstånd för resursen. Den kan inte representera en delvis uppdatering av en befintlig resurs.
+
+## <a name="example-result"></a>Exempel resultat
+
+För att illustrera skillnaden mellan stegvisa och fullständiga lägen, bör du tänka på följande scenario.
+
+**Resurs gruppen** innehåller:
 
 * Resurs A
 * Resurs B
@@ -67,22 +67,22 @@ För att illustrera skillnaden mellan inkrementella och fullständiga lägen bö
 * Resurs B
 * Resurs D
 
-När resursgruppen distribueras **i inkrementellt** läge har den:
+När den distribueras i **stegvist** läge har resurs gruppen:
 
 * Resurs A
 * Resurs B
 * Resurs C
 * Resurs D
 
-När resurs C distribueras i **fullständigt** läge tas den bort. Resursgruppen har:
+När det distribueras i **fullständigt** läge tas resurs C bort. Resurs gruppen har:
 
 * Resurs A
 * Resurs B
 * Resurs D
 
-## <a name="set-deployment-mode"></a>Ange distributionsläge
+## <a name="set-deployment-mode"></a>Ange distributions läge
 
-Om du vill ställa in distributionsläget `Mode` när du distribuerar med PowerShell använder du parametern.
+Använd `Mode` parametern för att ange distributions läget vid distribution med PowerShell.
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `
@@ -92,7 +92,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile c:\MyTemplates\storage.json
 ```
 
-Om du vill ange distributionsläge när `mode` du distribuerar med Azure CLI använder du parametern.
+Använd `mode` parametern för att ange distributions läget när du distribuerar med Azure CLI.
 
 ```azurecli-interactive
 az deployment group create \
@@ -103,7 +103,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-I följande exempel visas en länkad mall inställd på inkrementellt distributionsläge:
+I följande exempel visas en länkad mall som är inställd på stegvis distributions läge:
 
 ```json
 "resources": [
@@ -121,6 +121,6 @@ I följande exempel visas en länkad mall inställd på inkrementellt distributi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du skapar Resource Manager-mallar finns i [Skapa Azure Resource Manager-mallar](template-syntax.md).
-* Mer information om hur du distribuerar resurser finns i [Distribuera ett program med Azure Resource Manager-mallen](deploy-powershell.md).
-* Information om hur du visar åtgärderna för en resursprovider finns i [Azure REST API](/rest/api/).
+* Information om hur du skapar Resource Manager-mallar finns i [redigera Azure Resource Manager mallar](template-syntax.md).
+* Mer information om hur du distribuerar resurser finns i [distribuera ett program med Azure Resource Manager-mall](deploy-powershell.md).
+* Information om hur du visar åtgärder för en resurs leverantör finns i [Azure REST API](/rest/api/).

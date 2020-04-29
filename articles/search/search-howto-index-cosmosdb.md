@@ -1,7 +1,7 @@
 ---
-title: Sök över Azure Cosmos DB-data
+title: Sök i Azure Cosmos DB data
 titleSuffix: Azure Cognitive Search
-description: Importera data från Azure Cosmos DB till ett sökbart index i Azure Cognitive Search. Indexerare automatiserar datainmatning för valda datakällor som Azure Cosmos DB.
+description: Importera data från Azure Cosmos DB till ett sökbart index i Azure Kognitiv sökning. Indexerare automatiserar data inmatning för valda data källor som Azure Cosmos DB.
 author: mgottein
 manager: nitinme
 ms.author: magottei
@@ -10,36 +10,36 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283009"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB-data med hjälp av en indexerare i Azure Cognitive Search 
 
 > [!IMPORTANT] 
 > SQL API är allmänt tillgängligt.
-> MongoDB API, Gremlin API och Cassandra API-stöd finns för närvarande i offentlig förhandsversion. Förhandsversionsfunktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Du kan begära åtkomst till förhandsgranskningarna genom att fylla [i det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). [REST API-versionen 2019-05-06-Preview](search-api-preview.md) innehåller förhandsgranskningsfunktioner. Det finns för närvarande begränsat portalstöd och inget .NET SDK-stöd.
+> MongoDB API, Gremlin API och API för Cassandra support finns för närvarande i offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Du kan begära åtkomst till för hands versionerna genom att fylla i [det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
 > [!WARNING]
-> Endast Cosmos DB-samlingar med en [indexeringsprincip](https://docs.microsoft.com/azure/cosmos-db/index-policy) inställd [på Konsekvent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) stöds av Azure Cognitive Search. Det rekommenderas inte att indexera samlingar med en lazy-indexeringsprincip och kan resultera i data som saknas. Samlingar med inaktiverad indexering stöds inte.
+> Endast Cosmos DB samlingar med en [indexerings princip](https://docs.microsoft.com/azure/cosmos-db/index-policy) inställd på [konsekvent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) stöds av Azure kognitiv sökning. Indexering av samlingar med en Lazy-indexerings princip rekommenderas inte och kan leda till att data saknas. Samlingar med inaktiverade index stöds inte.
 
-Den här artikeln visar hur du konfigurerar en Azure Cosmos [DB-indexerare](search-indexer-overview.md) för att extrahera innehåll och göra det sökbart i Azure Cognitive Search. Det här arbetsflödet skapar ett Azure Cognitive Search-index och läser in det med befintlig text som extraherats från Azure Cosmos DB. 
+Den här artikeln visar hur du konfigurerar en Azure Cosmos DB [indexerare](search-indexer-overview.md) för att extrahera innehåll och göra den sökbar i Azure kognitiv sökning. Det här arbets flödet skapar ett Azure Kognitiv sökning-index och läser in det med befintlig text som extraherats från Azure Cosmos DB. 
 
-Eftersom terminologi kan vara förvirrande är det värt att notera att [Azure Cosmos DB-indexering](https://docs.microsoft.com/azure/cosmos-db/index-overview) och [Azure Cognitive Search-indexering](search-what-is-an-index.md) är olika åtgärder som är unika för varje tjänst. Innan du startar Azure Cognitive Search-indexering måste din Azure Cosmos DB-databas redan finnas och innehålla data.
+Eftersom terminologin kan vara förvirrande, är det värt att notera att [Azure Cosmos DB indexering](https://docs.microsoft.com/azure/cosmos-db/index-overview) och [Azure kognitiv sökning indexering](search-what-is-an-index.md) är distinkta åtgärder, unika för varje tjänst. Innan du startar Azure Kognitiv sökning indexering måste Azure Cosmos DB-databasen redan finnas och innehålla data.
 
-Cosmos DB-indexeraren i Azure Cognitive Search kan genomsöka [Azure Cosmos DB-objekt](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) som nås via olika protokoll. 
+Cosmos DB indexeraren i Azure Kognitiv sökning kan crawla [Azure Cosmos DB objekt](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) som nås via olika protokoll. 
 
-+ För [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), som är allmänt tillgängligt, kan du använda [portalen,](#cosmos-indexer-portal) [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) för att skapa datakällan och indexeraren.
++ För [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), som är allmänt tillgänglig, kan du använda [portalen](#cosmos-indexer-portal), [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) för att skapa data källan och indexeraren.
 
-+ För [MongoDB API (förhandsversion)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)kan du använda antingen [portalen](#cosmos-indexer-portal) eller [REST API-versionen 2019-05-06-Preview](search-api-preview.md) för att skapa datakällan och indexeraren.
++ För [MongoDB-API (för hands version)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)kan du använda antingen [portalen](#cosmos-indexer-portal) eller [REST API version 2019-05-06-Preview](search-api-preview.md) för att skapa data källan och indexeraren.
 
-+ För [Cassandra API (förhandsversion)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) och [Gremlin API (förhandsversion)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)kan du bara använda [REST API-versionen 2019-05-06-Preview](search-api-preview.md) för att skapa datakällan och indexeraren.
++ För [API för Cassandra (för hands version)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) och [Gremlin-API (för hands version)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)kan du bara använda [REST API version 2019-05-06-Preview](search-api-preview.md) för att skapa data källan och indexeraren.
 
 
 > [!Note]
-> Du kan rösta på User Voice för [tabell-API:et](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) om du vill se det stöds i Azure Cognitive Search.
+> Du kan omvandla en röst på användar rösten för [tabell-API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) om du vill se hur den stöds i Azure kognitiv sökning.
 >
 
 <a name="cosmos-indexer-portal"></a>
@@ -47,112 +47,112 @@ Cosmos DB-indexeraren i Azure Cognitive Search kan genomsöka [Azure Cosmos DB-o
 ## <a name="use-the-portal"></a>Använda portalen
 
 > [!Note]
-> Portalen stöder för närvarande SQL API och MongoDB API (preview).
+> Portalen stöder för närvarande SQL API och MongoDB-API (för hands version).
 
-Den enklaste metoden för att indexera Azure Cosmos DB-objekt är att använda en guide i [Azure-portalen](https://portal.azure.com/). Genom att samplingsdata och läsa metadata i behållaren kan guiden [**Importera data**](search-import-data-portal.md) i Azure Cognitive Search skapa ett standardindex, mappa källfält för att rikta indexfält och läsa in indexet i en enda åtgärd. Beroende på källdatas storlek och komplexitet kan du ha ett fungerande fulltextsökindex på några minuter.
+Den enklaste metoden för att indexera Azure Cosmos DB objekt är att använda en guide i [Azure Portal](https://portal.azure.com/). Genom att sampla data och läsa metadata i behållaren kan guiden [**Importera data**](search-import-data-portal.md) i Azure kognitiv sökning skapa ett standard index, mappa käll fält till mål index fält och läsa in indexet i en enda åtgärd. Beroende på storleken och komplexiteten hos källdata kan du ha ett fullständigt texts öknings index på några minuter.
 
-Vi rekommenderar att du använder samma region eller plats för både Azure Cognitive Search och Azure Cosmos DB för lägre svarstid och för att undvika bandbreddsavgifter.
+Vi rekommenderar att du använder samma region eller plats för både Azure Kognitiv sökning och Azure Cosmos DB för kortare svars tid och för att undvika bandbredds kostnader.
 
-### <a name="1---prepare-source-data"></a>1 - Förbereda källdata
+### <a name="1---prepare-source-data"></a>1 – Förbered källdata
 
-Du bör ha ett Cosmos DB-konto, en Azure Cosmos DB-databas mappad till SQL API, MongoDB API (förhandsversion) eller Gremlin API (förhandsversion) och innehåll i databasen.
+Du bör ha ett Cosmos DB-konto, en Azure Cosmos DB-databas som är mappad till SQL API, MongoDB-API (för hands version) eller Gremlin-API (för hands version) och innehåll i-databasen.
 
-Kontrollera att Cosmos DB-databasen innehåller data. [Guiden Importera data](search-import-data-portal.md) läser metadata och utför dataprovtagning för att dra slutsatsen ett indexschema, men den läser också in data från Cosmos DB. Om data saknas, slutar guiden med det här felet "Fel att identifiera indexschema från datakälla: Det gick inte att skapa en prototyp index eftersom datasource 'emptycollection' returnerade inga data".
+Kontrol lera att Cosmos DB-databasen innehåller data. [Guiden Importera data](search-import-data-portal.md) läser metadata och utför data sampling för att härleda ett index schema, men läser även in data från Cosmos dB. Om data saknas slutar guiden med det här felet "fel vid identifiering av index schema från data Källa: det gick inte att skapa ett prototyp index eftersom data källan" emptycollection "returnerade inga data".
 
-### <a name="2---start-import-data-wizard"></a>2 - Guiden Starta importera data
+### <a name="2---start-import-data-wizard"></a>2-Starta guiden Importera data
 
-Du kan [starta guiden](search-import-data-portal.md) från kommandofältet på tjänstsidan för Azure Cognitive Search, eller om du ansluter till Cosmos DB SQL API kan du klicka på Lägg till Azure **Cognitive Search** i avsnittet **Inställningar** i det vänstra navigeringsfönstret för ditt Cosmos DB-konto.
+Du kan [starta guiden](search-import-data-portal.md) från kommando fältet på sidan Azure kognitiv sökning tjänst eller om du ansluter till Cosmos DB SQL API kan du klicka på **Lägg till Azure-kognitiv sökning** i avsnittet **Inställningar** i Cosmos DB kontots vänstra navigerings fönster.
 
-   ![Kommandot Importera data i portalen](./media/search-import-data-portal/import-data-cmd2.png "Starta guiden Importera data")
+   ![Importera data kommando i portalen](./media/search-import-data-portal/import-data-cmd2.png "Starta guiden Importera data")
 
-### <a name="3---set-the-data-source"></a>3 - Ställ in datakällan
+### <a name="3---set-the-data-source"></a>3 – ange data källan
 
-På **sidan datakälla** måste källan vara **Cosmos DB**med följande specifikationer:
+På sidan **data källa** måste källan vara **Cosmos DB**, med följande specifikationer:
 
-+ **Namn** är namnet på datakällobjektet. När du har skapat det kan du välja det för andra arbetsbelastningar.
++ **Namn** är namnet på objektet i data källan. När du har skapat kan du välja den för andra arbets belastningar.
 
-+ **Cosmos DB-konto** ska vara den primära eller sekundära `AccountEndpoint` anslutningssträngen från Cosmos DB, med en och en `AccountKey`. För MongoDB-samlingar lägger du till **ApiKind=MongoDb** i slutet av anslutningssträngen och separerar den från anslutningssträngen med ett semikolon. För Gremlin API och Cassandra API använder du instruktionerna för [REST API](#cosmosdb-indexer-rest).
++ **Cosmos DB konto** ska vara den primära eller sekundära anslutnings strängen från Cosmos DB, med en `AccountEndpoint` och en `AccountKey`. För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i slutet av anslutnings strängen och avgränsar den från anslutnings strängen med ett semikolon. För Gremlin-API och API för Cassandra använder du instruktionerna för [REST API](#cosmosdb-indexer-rest).
 
 + **Databasen** är en befintlig databas från kontot. 
 
-+ **Samlingen** är en behållare med dokument. Dokument måste finnas för att importen ska lyckas. 
++ **Samlingen** är en behållare med dokument. Det måste finnas dokument för att importen ska lyckas. 
 
-+ **Frågan** kan vara tom om du vill ha alla dokument, annars kan du mata in en fråga som markerar en dokumentdelmängd. **Frågan** är endast tillgänglig för SQL API.
++ **Frågan** kan vara tom om du vill ha alla dokument, annars kan du mata in en fråga som väljer en delmängd av dokumentet. **Frågan** är bara tillgänglig för SQL-API: et.
 
-   ![Definition av datakälla för Cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Definition av datakälla för Cosmos DB")
+   ![Cosmos DB definition av data Källa](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB definition av data Källa")
 
-### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 - Hoppa över sidan "Berika innehåll" i guiden
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – hoppa över sidan "utöka innehåll" i guiden
 
-Att lägga till kognitiva färdigheter (eller anrikning) är inte ett importkrav. Om du inte har ett specifikt behov av att lägga till [AI-anrikning](cognitive-search-concept-intro.md) i din indexeringspipeline bör du hoppa över det här steget.
+Att lägga till kognitiva färdigheter (eller anrikning) är inte ett import krav. Om du inte har ett speciellt behov av att [lägga till AI-berikning](cognitive-search-concept-intro.md) till din indexerings pipeline, bör du hoppa över det här steget.
 
-Om du vill hoppa över steget klickar du på de blå knapparna längst ned på sidan för "Nästa" och "Hoppa över".
+Om du vill hoppa över steget klickar du på blå knappar längst ned på sidan för "Nästa" och "hoppa över".
 
-### <a name="5---set-index-attributes"></a>5 - Ange indexattribut
+### <a name="5---set-index-attributes"></a>5-Ange indexattribut
 
-På sidan **Index** bör du se en lista över fält med en datatyp och en serie kryssrutor för inställning av indexattribut. Guiden kan generera en fältlista baserad på metadata och genom att prova källdata. 
+På sidan **index** visas en lista med fält med data typen och en serie kryss rutor för att ställa in indexattribut. Guiden kan generera en fält lista baserat på metadata och genom att sampla data källan. 
 
-Du kan mass markera attribut genom att klicka på kryssrutan högst upp i en attributkolumn. Välj **Hämtningsbar** och **sökbar** för varje fält som ska returneras till en klientapp och vara föremål för fulltextsökningsbearbetning. Du kommer att märka att heltal inte är fulltext eller suddiga sökbara (tal utvärderas ordagrant och är ofta användbara i filter).
+Du kan massredigera attribut genom att klicka på kryss rutan överst i en Attribute-kolumn. Välj **hämtnings** **Bart och sökbart** för varje fält som ska returneras till en klient-app och för full texts öknings bearbetning. Du märker att heltal inte är full text eller fuzzy sökbar (tal utvärderas orda Grant och ofta är användbara i filter).
 
-Läs beskrivningen av [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språkanalysatorer](https://docs.microsoft.com/rest/api/searchservice/language-support) för mer information. 
+Granska beskrivningen av [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg för mer information. 
 
-Ta en stund att granska dina val. När du har kört guiden skapas fysiska datastrukturer och du kan inte redigera dessa fält utan att släppa och återskapa alla objekt.
+Ägna en stund åt att granska dina val. När du har kört guiden skapas fysiska data strukturer och du kan inte redigera dessa fält utan att släppa och återskapa alla objekt.
 
-   ![Definition av index för Kosmos DB](media/search-howto-index-cosmosdb/cosmosdb-index-schema.png "Definition av index för Kosmos DB")
+   ![Cosmos DB index definition](media/search-howto-index-cosmosdb/cosmosdb-index-schema.png "Cosmos DB index definition")
 
-### <a name="6---create-indexer"></a>6 - Skapa indexerare
+### <a name="6---create-indexer"></a>6 – skapa indexerare
 
-Guiden är helt angiven och skapar tre olika objekt i söktjänsten. Ett datakällobjekt och indexobjekt sparas som namngivna resurser i azure Cognitive Search-tjänsten. Det sista steget skapar ett indexerarobjekt. Genom att namnge indexeraren kan den finnas som en fristående resurs, som du kan schemalägga och hantera oberoende av index- och datakällobjektet, som skapas i samma guidesekvens.
+Fullständigt angivet skapar guiden tre distinkta objekt i din Sök tjänst. Ett data käll objekt och ett index objekt sparas som namngivna resurser i Azure Kognitiv sökning-tjänsten. Det sista steget skapar ett indexerare-objekt. Om du namnger indexeraren kan den finnas som en fristående resurs, som du kan schemalägga och hantera oberoende av indexet och datakällobjektet, vilket skapas i samma guide ordning.
 
-Om du inte är bekant med indexerare är en *indexerare* en resurs i Azure Cognitive Search som genomsöker en extern datakälla efter sökbart innehåll. Utdataguiden **Import data** är en indexerare som genomsöker din Cosmos DB-datakälla, extraherar sökbart innehåll och importerar det till ett index på Azure Cognitive Search.
+Om du inte är bekant med indexerare är en *indexerare* en resurs i Azure kognitiv sökning som crawlar en extern data källa för sökbart innehåll. Utdata från guiden **Importera data** är en indexerare som crawlar din Cosmos db data källa, extraherar sökbart innehåll och importerar det till ett index på Azure kognitiv sökning.
 
-Följande skärmbild visar standardindexeringskonfigurationen. Du kan växla till **En** gång om du vill köra indexeraren en gång. Klicka på **Skicka** om du vill köra guiden och skapa alla objekt. Indexeringen påbörjas omedelbart.
+Följande skärm bild visar standard indexerings konfigurationen. Du kan växla till **en gång** om du vill köra indexeraren en gång. Klicka på **Skicka** för att köra guiden och skapa alla objekt. Indexeringen börjar omedelbart.
 
-   ![Definition av Indexeringsdefinition för Cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-indexer.png "Definition av Indexeringsdefinition för Cosmos DB")
+   ![Cosmos DB indexerings definition](media/search-howto-index-cosmosdb/cosmosdb-indexer.png "Cosmos DB indexerings definition")
 
-Du kan övervaka dataimporten på portalsidorna. Förloppsmeddelanden anger indexeringsstatus och hur många dokument som överförs. 
+Du kan övervaka data import på Portal sidorna. Förlopps meddelanden indikerar indexerings status och hur många dokument som laddas upp. 
 
-När indexeringen är klar kan du använda [Sökutforskaren](search-explorer.md) för att fråga ditt index.
+När indexeringen är klar kan du använda [Sök Utforskaren](search-explorer.md) för att fråga ditt index.
 
 > [!NOTE]
-> Om du inte ser de data du förväntar dig kan du behöva ange fler attribut i fler fält. Ta bort index och indexerare som du just skapade och gå igenom guiden igen och ändra dina val för indexattribut i steg 5. 
+> Om du inte ser de data du förväntar dig kan du behöva ange fler attribut för fler fält. Ta bort indexet och indexeraren som du nyss skapade och gå igenom guiden igen och ändra dina val för indexattribut i steg 5. 
 
 <a name="cosmosdb-indexer-rest"></a>
 
 ## <a name="use-rest-apis"></a>Använda REST-API:er
 
-Du kan använda REST API för att indexera Azure Cosmos DB-data, efter ett tredeladt arbetsflöde som är gemensamt för alla indexerare i Azure Cognitive Search: skapa en datakälla, skapa ett index, skapa en indexerare. Dataextrahering från Cosmos DB inträffar när du skickar begäran Skapa indexerare. När begäran är klar har du ett frågebart index. 
+Du kan använda REST API för att indexera Azure Cosmos DB data, efter ett arbets flöde med tre delar som är gemensamt för alla indexerare i Azure Kognitiv sökning: skapa en data källa, skapa ett index, skapa en indexerare. Data extrahering från Cosmos DB sker när du skickar en begäran om att skapa indexerare. När den här begäran har avslut ATS har du ett index som kan anropas. 
 
 > [!NOTE]
-> För indexering av data från Cosmos DB Gremlin API eller Cosmos DB Cassandra API måste du först begära åtkomst till de gated förhandsvisningarna genom att fylla [i det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). När din begäran har behandlats får du instruktioner för hur du använder [REST API-versionen 2019-05-06-Preview](search-api-preview.md) för att skapa datakällan.
+> För att indexera data från Cosmos DB Gremlin API eller Cosmos DB API för Cassandra måste du först begära åtkomst till gated-förhands visningen genom att fylla i [det här formuläret](https://aka.ms/azure-cognitive-search/indexer-preview). När din begäran har bearbetats kommer du att få anvisningar om hur du använder [REST API version 2019-05-06 – för hands version](search-api-preview.md) för att skapa data källan.
 
-Tidigare i den här artikeln nämns att [Azure Cosmos DB indexering](https://docs.microsoft.com/azure/cosmos-db/index-overview) och [Azure Cognitive Search indexering indexering](search-what-is-an-index.md) är olika åtgärder. För Cosmos DB-indexering indexeras som standard alla dokument automatiskt utom med Cassandra API. Om du inaktiverar automatisk indexering kan dokument endast nås via sina självlänkar eller av frågor med hjälp av dokument-ID. Azure Cognitive Search-indexering kräver att Cosmos DB automatisk indexering aktiveras i samlingen som indexeras av Azure Cognitive Search. När du registrerar dig för förhandsversionen av Cosmos DB Cassandra API indexer får du instruktioner om hur du ställer in Cosmos DB-indexering.
+Tidigare i den här artikeln beskrivs att [Azure Cosmos DB indexering](https://docs.microsoft.com/azure/cosmos-db/index-overview) och [Azure kognitiv sökning indexerings](search-what-is-an-index.md) indexering är distinkta åtgärder. För Cosmos DB indexering indexeras som standard alla dokument automatiskt utom med API för Cassandra. Om du inaktiverar automatisk indexering kan dokument endast nås via sina egna länkar eller via frågor med hjälp av dokument-ID: t. Azure Kognitiv sökning indexering kräver att Cosmos DB automatisk indexering aktive ras i samlingen som ska indexeras av Azure-Kognitiv sökning. När du registrerar dig för för hands versionen av Cosmos DB API för Cassandra indexeraren får du instruktioner om hur du konfigurerar Cosmos DB indexering.
 
 > [!WARNING]
-> Azure Cosmos DB är nästa generation av DocumentDB. Tidigare med API-version **2017-11-11** kan du använda syntaxen. `documentdb` Detta innebar att du kunde ange `cosmosdb` `documentdb`din datakälltyp som eller . Från och med API-version **2019-05-06** stöder både Azure `cosmosdb` Cognitive Search API:er och Portal endast syntaxen enligt instruktionerna i den här artikeln. Det innebär att datakälltypen måste `cosmosdb` om du vill ansluta till en Cosmos DB-slutpunkt.
+> Azure Cosmos DB är nästa generation av DocumentDB. Tidigare med API version **2017-11-11** kan du använda `documentdb` syntaxen. Detta innebar att du kan ange typ av data källa `cosmosdb` som `documentdb`eller. Från och med API version **2019-05-06** har båda Azure kognitiv sökning-API: erna och `cosmosdb` portalen endast stöd för syntaxen enligt anvisningarna i den här artikeln. Det innebär att data källans typ måste `cosmosdb` anges om du vill ansluta till en Cosmos DB-slutpunkt.
 
-### <a name="1---assemble-inputs-for-the-request"></a>1 - Montera ingångar för begäran
+### <a name="1---assemble-inputs-for-the-request"></a>1 – Sammanställ indata för begäran
 
-För varje begäran måste du ange tjänstnamn och administratörsnyckel för Azure Cognitive Search (i POST-huvudet) och lagringskontots namn och nyckel för blob-lagring. Du kan använda [Postman](search-get-started-postman.md) för att skicka HTTP-begäranden till Azure Cognitive Search.
+För varje begäran måste du ange tjänst namnet och administratörs nyckeln för Azure Kognitiv sökning (i POST huvudet) och lagrings kontots namn och nyckel för Blob Storage. Du kan använda [Postman](search-get-started-postman.md) för att skicka HTTP-förfrågningar till Azure kognitiv sökning.
 
-Kopiera följande fyra värden till Anteckningar så att du kan klistra in dem i en begäran:
+Kopiera följande fyra värden till anteckningar så att du kan klistra in dem i en förfrågan:
 
-+ Namn på Azure Cognitive Search-tjänst
-+ Administratörsnyckel för Azure Cognitive Search
-+ Cosmos DB-anslutningssträng
++ Namn på Azure Kognitiv sökning-tjänst
++ Administratörs nyckel för Azure Kognitiv sökning
++ Cosmos DB anslutnings sträng
 
-Du hittar dessa värden i portalen:
+Du kan hitta dessa värden i portalen:
 
-1. Kopiera söktjänstens URL på portalsidorna för Azure Cognitive Search från sidan Översikt.
+1. På Portal sidorna för Azure Kognitiv sökning kopierar du URL: en för Sök tjänsten från översikts sidan.
 
-2. I det vänstra navigeringsfönstret klickar du på **Nycklar** och kopierar antingen primär- eller sekundärnyckeln (de är likvärdiga).
+2. I det vänstra navigerings fönstret klickar du på **nycklar** och kopierar antingen den primära eller sekundära nyckeln (de är motsvarande).
 
-3. Växla till portalsidorna för ditt Cosmos-lagringskonto. Klicka på **Tangenter**under **Inställningar**i det vänstra navigeringsfönstret. Den här sidan innehåller en URI, två uppsättningar anslutningssträngar och två uppsättningar nycklar. Kopiera en av anslutningssträngarna till Anteckningar.
+3. Växla till Portal sidorna för ditt Cosmos-lagrings konto. I det vänstra navigerings fönstret, under **Inställningar**, klickar du på **nycklar**. Den här sidan innehåller en URI, två uppsättningar anslutnings strängar och två uppsättningar nycklar. Kopiera en av anslutnings strängarna till anteckningar.
 
-### <a name="2---create-a-data-source"></a>2 - Skapa en datakälla
+### <a name="2---create-a-data-source"></a>2 – Skapa en data Källa
 
-En **datakälla** anger vilka data som ska indexeras, autentiseringsuppgifter och principer för att identifiera ändringar i data (till exempel ändrade eller borttagna dokument i samlingen). Datakällan definieras som en oberoende resurs så att den kan användas av flera indexerare.
+En **data källa** anger de data som ska indexeras, autentiseringsuppgifter och principer för att identifiera ändringar i data (till exempel ändrade eller borttagna dokument i din samling). Data källan definieras som en oberoende resurs så att den kan användas av flera indexerare.
 
-Om du vill skapa en datakälla formulerar du en POST-begäran:
+Formulera en POST-begäran för att skapa en data Källa:
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -171,24 +171,24 @@ Om du vill skapa en datakälla formulerar du en POST-begäran:
         }
     }
 
-Brödtexten i begäran innehåller definitionen av datakällan, som bör innehålla följande fält:
+Bröd texten i begäran innehåller definitionen av data källan, som ska innehålla följande fält:
 
 | Field   | Beskrivning |
 |---------|-------------|
-| **Namn** | Krävs. Välj ett namn som ska representera datakällobjektet. |
-|**Typ**| Krävs. Måste `cosmosdb`vara . |
-|**Autentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB-anslutningssträng.<br/>För SQL-samlingar är anslutningssträngar i det här formatet:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>För MongoDB-samlingar lägger du till **ApiKind=MongoDb** i anslutningssträngen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>För Gremlin-grafer och Cassandra-tabeller registrerar du dig för [förhandsgranskningen av gated indexeraren](https://aka.ms/azure-cognitive-search/indexer-preview) för att få tillgång till förhandsgranskningen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik portnummer i slutpunktsadressen. Om du inkluderar portnumret kan Azure Cognitive Search inte indexera din Azure Cosmos DB-databas.|
-| **Behållare** | Innehåller följande element: <br/>**namn**: Obligatoriskt. Ange ID:t för den databassamling som ska indexeras.<br/>**fråga**: Valfritt. Du kan ange en fråga om du vill förenkla ett godtyckligt JSON-dokument till ett platt schema som Azure Cognitive Search kan indexera.<br/>För MongoDB API, Gremlin API och Cassandra API stöds inte frågor. |
-| **dataChangeDetectionPolicy** | Rekommenderas. Se Avsnittet [Indexera ändrade dokument.](#DataChangeDetectionPolicy)|
-|**dataUtetionDetectionPolicy** | Valfri. Se Avsnittet [Indexera borttagna dokument.](#DataDeletionDetectionPolicy)|
+| **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
+|**bastyp**| Krävs. Måste vara `cosmosdb`. |
+|**klientautentiseringsuppgifter** | Krävs. Måste vara en Cosmos DB anslutnings sträng.<br/>För SQL-samlingar är anslutnings strängar i följande format:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>För MongoDB-samlingar lägger du till **ApiKind = MongoDB** i anslutnings strängen:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Registrera dig för för [hands versionen](https://aka.ms/azure-cognitive-search/indexer-preview) av Gremlin-diagram och Cassandra-tabeller för att få åtkomst till för hands versionen och information om hur du formaterar autentiseringsuppgifterna.<br/><br/>Undvik port nummer i slut punkts-URL: en. Om du inkluderar port numret kan Azure Kognitiv sökning inte indexera Azure Cosmos DB-databasen.|
+| **fönster** | Innehåller följande element: <br/>**namn**: obligatoriskt. Ange ID för den databas samling som ska indexeras.<br/>**fråga**: valfritt. Du kan ange en fråga för att förenkla ett godtyckligt JSON-dokument till ett plant schema som Azure Kognitiv sökning kan indexera.<br/>För API: et för MongoDB, Gremlin API och API för Cassandra, stöds inte frågor. |
+| **dataChangeDetectionPolicy** | Rekommenderas. Se avsnittet [Indexera ändrade dokument](#DataChangeDetectionPolicy) .|
+|**dataDeletionDetectionPolicy** | Valfritt. Se avsnittet [Indexera borttagna dokument](#DataDeletionDetectionPolicy) .|
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Använda frågor för att forma indexerade data
-Du kan ange en SQL-fråga om du vill förenkla kapslade egenskaper eller matriser, projicera JSON-egenskaper och filtrera de data som ska indexeras. 
+Du kan ange en SQL-fråga för att förenkla inkapslade egenskaper eller matriser, egenskaper för projekt-JSON och filtrera data som ska indexeras. 
 
 > [!WARNING]
-> Anpassade frågor stöds inte för **MongoDB API**, **Gremlin API**och **Cassandra API**: `container.query` parametern måste anges till null eller utelämnas. Om du behöver använda en anpassad fråga, vänligen meddela oss på [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> Anpassade frågor stöds inte för **MongoDB-API**, **Gremlin API**och **API för Cassandra**: `container.query` parametern måste anges till null eller utelämnat. Om du behöver använda en anpassad fråga kan du berätta för oss om [användar rösten](https://feedback.azure.com/forums/263029-azure-search).
 
-Exempeldokument:
+Exempel dokument:
 
     {
         "userId": 10001,
@@ -200,28 +200,28 @@ Exempeldokument:
         "tags": ["azure", "cosmosdb", "search"]
     }
 
-Filterfråga:
+Filter fråga:
 
     SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
 
-Förenklingsfråga:
+Förenklings fråga:
 
     SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
     
     
-Projektionsfråga:
+Projektions fråga:
 
     SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 
-Fråga om förenkling av matris:
+Fråga för mat ris förenkling:
 
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 
-### <a name="3---create-a-target-search-index"></a>3 - Skapa ett målsökindex 
+### <a name="3---create-a-target-search-index"></a>3 – skapa ett mål Sök index 
 
-[Skapa ett mål Azure Cognitive Search index](/rest/api/searchservice/create-index) om du inte redan har ett. I följande exempel skapas ett index med ett ID- och beskrivningsfält:
+[Skapa ett Azure kognitiv sökning-index](/rest/api/searchservice/create-index) om du inte redan har en. I följande exempel skapas ett index med ett ID och beskrivnings fält:
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -244,28 +244,28 @@ Fråga om förenkling av matris:
        }]
      }
 
-Kontrollera att schemat för ditt målindex är kompatibelt med schemat för källanS JSON-dokument eller utdata från din anpassade frågeprojektion.
+Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSON-dokumenten eller utdata för din anpassade fråga-projektion.
 
 > [!NOTE]
-> För partitionerade samlingar är standarddokumentnyckeln Azure `_rid` Cosmos DB:s egenskap, som `rid` Azure Cognitive Search automatiskt byter namn till eftersom fältnamn inte kan börja med ett understreck. Azure Cosmos DB-värden `_rid` innehåller också tecken som är ogiltiga i Azure Cognitive Search-nycklar. Därför är `_rid` värdena Base64 kodade.
+> För partitionerade samlingar är standard dokument nyckeln Azure Cosmos DB `_rid` egenskapen, som Azure kognitiv sökning byter namn automatiskt till `rid` eftersom fält namn inte får börja med ett under streck. Azure Cosmos DB `_rid` värden innehåller också tecken som är ogiltiga i Azure kognitiv sökning-nycklar. Därför är `_rid` värdena base64-kodade.
 > 
-> För MongoDB-samlingar byter Azure Cognitive `_id` Search `id`automatiskt namn på egenskapen till .  
+> För MongoDB-samlingar byter Azure Kognitiv sökning automatiskt namn på `_id` egenskapen till. `id`  
 
-### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mappning mellan JSON-datatyper och Azure Cognitive Search Data Types
-| JSON-datatyp | Kompatibla målindexfälttyper |
+### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mappning mellan JSON-datatyper och Azure Kognitiv sökning data typer
+| Data typen JSON | Kompatibla fält typer för mål index |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
-| Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
-| Tal som ser ut som flyttan |Edm.Double, Edm.String |
-| String |Edm.String |
-| Matriser av primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
-| Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
-| GeoJSON-objekt, till exempel { "typ": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
+| Bool |EDM. Boolean, EDM. String |
+| Siffror som ser ut som heltal |EDM. Int32, EDM. Int64, EDM. String |
+| Siffror som ser ut som svävande punkter |EDM. Double, EDM. String |
+| Sträng |Edm.String |
+| Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
+| Strängar som ser ut som datum |EDM. DateTimeOffset, EDM. String |
+| Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
 | Andra JSON-objekt |Ej tillämpligt |
 
-### <a name="4---configure-and-run-the-indexer"></a>4 - Konfigurera och kör indexeraren
+### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
 
-När indexet och datakällan har skapats är du redo att skapa indexeraren:
+När indexet och data källan har skapats är du redo att skapa indexeraren:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -278,45 +278,45 @@ När indexet och datakällan har skapats är du redo att skapa indexeraren:
       "schedule" : { "interval" : "PT2H" }
     }
 
-Den här indexeraren körs varannan timme (schemaintervallet är inställt på "PT2H"). Om du vill köra en indexerare var 30:e minut ställer du in intervallet på "PT30M". Det kortaste intervallet som stöds är 5 minuter. Schemat är valfritt - om det utelämnas körs en indexerare bara en gång när det skapas. Du kan dock köra en indexerare på begäran när som helst.   
+Indexeraren körs varannan timme (schema intervall anges till "PT2H"). Om du vill köra en indexerare var 30: e minut anger du intervallet till "PT30M". Det kortaste intervall som stöds är 5 minuter. Schemat är valfritt – om det utelämnas körs en indexerare bara en gång när den skapas. Du kan dock köra en indexerare på begäran när du vill.   
 
-Mer information om API:et skapa indexerare finns i [Skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Mer information om API för att skapa index finns i [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Mer information om hur du definierar indexeringsscheman finns i [Så här schemalägger du indexerare för Azure Cognitive Search](search-howto-schedule-indexers.md).
+Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
 ## <a name="use-net"></a>Använda .NET
 
-The generally available .NET SDK has full parity with the generally available REST API. Vi rekommenderar att du granskar det tidigare REST API-avsnittet för att lära dig begrepp, arbetsflöde och krav. Du kan sedan referera till följande .NET API-referensdokumentation för att implementera en JSON-indexerare i hanterad kod.
+Den allmänt tillgängliga .NET SDK: n har fullständig paritet med allmänt tillgängliga REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [Microsoft. Azure. search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [Microsoft. Azure. search. Models. Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="DataChangeDetectionPolicy"></a>
 
 ## <a name="indexing-changed-documents"></a>Indexera ändrade dokument
 
-Syftet med en princip för identifiering av dataändring är att effektivt identifiera ändrade dataobjekt. För närvarande är den [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) enda `_ts` principen som stöds egenskapen med hjälp av (tidsstämpel) som tillhandahålls av Azure Cosmos DB, som anges på följande sätt:
+Syftet med en princip för data ändrings identifiering är att effektivt identifiera ändrade data objekt. För närvarande är den enda princip som stöds [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) att använda `_ts` egenskapen (timestamp) som tillhandahålls av Azure Cosmos DB, vilket anges på följande sätt:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
 
-Att använda den här principen rekommenderas starkt för att säkerställa goda indexerares prestanda. 
+Att använda den här principen rekommenderas starkt för att säkerställa prestanda för bästa indexerare. 
 
-Om du använder en anpassad fråga `_ts` kontrollerar du att egenskapen projiceras av frågan.
+Om du använder en anpassad fråga ska du kontrol lera att `_ts` egenskapen har projicerats av frågan.
 
 <a name="IncrementalProgress"></a>
 
-### <a name="incremental-progress-and-custom-queries"></a>Inkrementella förlopp och anpassade frågor
+### <a name="incremental-progress-and-custom-queries"></a>Stegvisa framsteg och anpassade frågor
 
-Inkrementell förlopp under indexeringen säkerställer att om indexeringskörningen avbryts av tillfälliga fel eller körningstidsgräns, kan indexeraren fortsätta där den slutade nästa gång den körs, i stället för att behöva indexera om hela samlingen från grunden. Detta är särskilt viktigt när stora samlingar indexeras. 
+Stegvis förlopp under indexeringen säkerställer att om körningen av Indexer avbryts vid tillfälliga haverier eller körnings tids gräns, kan indexeraren Hämta var den slutade nästa gång den körs, i stället för att behöva indexera om hela samlingen från grunden. Detta är särskilt viktigt när du indexerar stora samlingar. 
 
-Om du vill aktivera inkrementella förlopp när du `_ts` använder en anpassad fråga kontrollerar du att frågan beställer resultatet efter kolumnen. Detta möjliggör periodisk kontrollpunkt som Azure Cognitive Search använder för att tillhandahålla inkrementella framsteg i närvaro av fel.   
+Om du vill aktivera stegvisa förloppet när du använder en anpassad fråga måste du se till att frågan `_ts` beställer resultatet efter kolumnen. Detta möjliggör regelbunden kontroll som pekar på att Azure Kognitiv sökning använder för att ge stegvisa framsteg i närvaro av problem.   
 
-I vissa fall, även om `ORDER BY [collection alias]._ts` frågan innehåller en sats, kan det hända `_ts`att Azure Cognitive Search inte drar slutsatsen att frågan är ordnad av . Du kan berätta för Azure Cognitive Search `assumeOrderByHighWaterMarkColumn` att resultaten ordnas med hjälp av konfigurationsegenskapen. Om du vill ange det här tipset skapar eller uppdaterar du indexeraren på följande sätt: 
+I vissa fall, även om frågan innehåller en `ORDER BY [collection alias]._ts` -sats, kanske inte Azure kognitiv sökning härleda att frågan beställs av `_ts`. Du kan berätta för Azure Kognitiv sökning att resultatet sorteras med hjälp `assumeOrderByHighWaterMarkColumn` av konfigurations egenskapen. Om du vill ange det här tipset skapar eller uppdaterar du indexeraren enligt följande: 
 
     {
      ... other indexer definition properties
@@ -328,7 +328,7 @@ I vissa fall, även om `ORDER BY [collection alias]._ts` frågan innehåller en 
 
 ## <a name="indexing-deleted-documents"></a>Indexera borttagna dokument
 
-När rader tas bort från samlingen vill du normalt ta bort dessa rader från sökindexet också. Syftet med en princip för identifiering av databorttagning är att effektivt identifiera borttagna dataobjekt. För närvarande är den `Soft Delete` enda principen som stöds principen (borttagningen är markerad med en flagga av något slag), vilket anges på följande sätt:
+När rader tas bort från samlingen vill du normalt även ta bort dessa rader från Sök indexet. Syftet med en identifierings princip för data borttagning är att effektivt identifiera borttagna data objekt. För närvarande är den enda princip som stöds `Soft Delete` principen (borttagning är markerad med en flagga för viss sortering), som anges på följande sätt:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -336,9 +336,9 @@ När rader tas bort från samlingen vill du normalt ta bort dessa rader från s�
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
-Om du använder en anpassad fråga kontrollerar du `softDeleteColumnName` att egenskapen som refereras av projiceras av frågan.
+Om du använder en anpassad fråga ser du till att den egenskap som har refererats `softDeleteColumnName` av är beräknad av frågan.
 
-I följande exempel skapas en datakälla med en princip för mjuk borttagning:
+I följande exempel skapas en data källa med en princip för mjuk borttagning:
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -364,7 +364,7 @@ I följande exempel skapas en datakälla med en princip för mjuk borttagning:
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>Nästa steg
 
-Grattis! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Cognitive Search med hjälp av en indexerare.
+Grattis! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Kognitiv sökning med hjälp av en indexerare.
 
-* Mer information om Azure Cosmos DB finns på [tjänstsidan för Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
-* Mer information om Azure Cognitive Search finns på [sidan Söktjänst](https://azure.microsoft.com/services/search/).
+* Mer information om Azure Cosmos DB finns på sidan för [Azure Cosmos DB tjänsten](https://azure.microsoft.com/services/cosmos-db/).
+* Mer information om Azure Kognitiv sökning finns på [sidan Sök tjänst](https://azure.microsoft.com/services/search/).

@@ -1,7 +1,7 @@
 ---
-title: En mot alla multiklass
+title: En-mot-alla – multiklass
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen One-vs-All Multiclass i Azure Machine Learning för att skapa en klassificeringsmodell med flera klasser från en ensemble med binära klassificeringsmodeller.
+description: Lär dig hur du använder modulen En-mot-alla – multiklass i Azure Machine Learning för att skapa en klassificerings modell med multiklasser från en ensemble av binära klassificerings modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,55 +10,55 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 29934758ab729e0fb888c10b7f834da3d0bf7fb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79456088"
 ---
-# <a name="one-vs-all-multiclass"></a>En mot alla multiklass
+# <a name="one-vs-all-multiclass"></a>En-mot-alla – multiklass
 
-I den här artikeln beskrivs hur du använder modulen One-vs-All Multiclass i Azure Machine Learning designer (förhandsversion). Målet är att skapa en klassificeringsmodell som kan förutsäga flera klasser, med hjälp av *metoden en mot alla.*
+I den här artikeln beskrivs hur du använder modulen En-mot-alla – multiklass i Azure Machine Learning designer (för hands version). Målet är att skapa en klassificerings modell som kan förutsäga flera klasser med hjälp av metoden *One-och-all* .
 
-Den här modulen är användbar för att skapa modeller som förutsäger tre eller fler möjliga resultat, när resultatet beror på kontinuerliga eller kategoriska prediktorvariabler. Med den här metoden kan du också använda binära klassificeringsmetoder för problem som kräver flera utdataklasser.
+Den här modulen är användbar för att skapa modeller som förutsäger tre eller fler möjliga resultat, när resultatet beror på kontinuerliga eller kategoriska för förutsägande variabler. Med den här metoden kan du också använda binära klassificerings metoder för problem som kräver flera utgående klasser.
 
-### <a name="more-about-one-versus-all-models"></a>Mer om modeller med en mot alla
+### <a name="more-about-one-versus-all-models"></a>Mer om en-och-alla-modeller
 
-Vissa klassificeringsalgoritmer tillåter användning av mer än två klasser avsiktligt. Andra begränsar möjliga resultat till ett av två värden (en binär eller tvåklassmodell). Men även binära klassificeringsalgoritmer kan anpassas för klassificeringsuppgifter av flera klasser genom en mängd olika strategier. 
+Vissa klassificerings algoritmer tillåter användning av fler än två klasser efter design. Andra begränsar möjliga resultat till ett av två värden (en binär eller en modell med två klasser). Men även binära klassificerings algoritmer kan anpassas för klassificerings uppgifter med flera klasser via en mängd olika strategier. 
 
-Den här modulen implementerar metoden en mot alla, där en binär modell skapas för var och en av de flera utdataklasserna. Modulen bedömer var och en av dessa binära modeller för de enskilda klasserna mot dess komplement (alla andra klasser i modellen) som om det är en binär klassificering fråga. Modulen utför sedan förutsägelse genom att köra dessa binära klassificerare och välja förutsägelse med högsta konfidenspoäng.  
+Den här modulen implementerar metoden One-och-all, där en binär modell skapas för var och en av de olika utgående klasserna. Modulen utvärderar var och en av dessa binära modeller för de enskilda klasserna mot komplementet (alla andra klasser i modellen) som om det är ett binärt klassificerings problem. Modulen utför sedan förutsägelse genom att köra dessa binära klassificerare och välja förutsägelse med högsta möjliga resultat.  
 
-I huvudsak skapar modulen en ensemble av enskilda modeller och sedan slår samman resultaten, för att skapa en enda modell som förutsäger alla klasser. Alla binära klassificerare kan användas som grund för en modell som en mot alla.  
+I grunden skapar modulen en ensemble med enskilda modeller och sammanfogar sedan resultaten för att skapa en enskild modell som förutsäger alla klasser. En binär klassificerare kan användas som grund för en modell med en-och-alla.  
 
-Anta till exempel att du konfigurerar en [Vector Machine-modell](two-class-support-vector-machine.md) i två klasser och anger den som indata till modulen One-vs-All Multiclass. Modulen skulle skapa tvåklassiga stöd vektormaskinmodeller för alla medlemmar i utdataklassen. Det skulle sedan tillämpa en-mot-alla-metoden för att kombinera resultaten för alla klasser.  
+Anta till exempel att du konfigurerar en [dubbelriktad Vector Machine-](two-class-support-vector-machine.md) modell och anger den som inmatad i en-mot-alla – multiklass-modulen. Modulen skapar dubbelriktade stöd för vektor dator modeller för alla medlemmar i klassen output. Den använder sedan metoden One-respektive-all för att kombinera resultaten för alla klasser.  
 
-## <a name="how-to-configure-the-one-vs-all-multiclass-classifier"></a>Konfigurera klassificeraren För en mot alla-multiklassificerare  
+## <a name="how-to-configure-the-one-vs-all-multiclass-classifier"></a>Så här konfigurerar du En-mot-alla – multiklass klassificeraren  
 
-Den här modulen skapar en ensemble av binära klassificeringsmodeller för att analysera flera klasser. Om du vill använda den här modulen måste du konfigurera och träna en *binär klassificeringsmodell* först. 
+Den här modulen skapar en ensemble med binära klassificerings modeller för att analysera flera klasser. Om du vill använda den här modulen måste du först konfigurera och träna en *binär klassificerings* modell. 
 
-Du ansluter den binära modellen till modulen One-vs-All Multiclass. Du tränar sedan ensemblen av modeller med hjälp av [Train Model](train-model.md) med en märkt utbildningsdatauppsättning.
+Du ansluter den binära modellen till En-mot-alla – multiklass-modulen. Sedan tränas ensemblen för modeller med hjälp av [träna modell](train-model.md) med en etikettad inlärnings data uppsättning.
 
-När du kombinerar modellerna skapar One-vs-All Multiclass flera binära klassificeringsmodeller, optimerar algoritmen för varje klass och sammanfogar sedan modellerna. Modulen utför dessa uppgifter även om träningsdatauppsättningen kan ha flera klassvärden.
+När du kombinerar modeller skapar En-mot-alla – multiklass flera binära klassificerings modeller, optimerar algoritmen för varje klass och sammanfogar sedan modellerna. Modulen utför dessa uppgifter även om träning-datauppsättningen kan ha flera klass värden.
 
-1. Lägg till modulen One-vs-All Multiclass i pipelinen i designern. Du hittar den här modulen under **Machine Learning - Initialize**, i kategorin **Klassificering.**
+1. Lägg till En-mot-alla – multiklass-modulen i din pipeline i designern. Du hittar den här modulen under **Machine Learning-Initialize**i **klassificerings** kategorin.
 
-   Klassificeraren One-vs-All Multiclass har inga egna konfigurerbara parametrar. Alla anpassningar måste göras i den binära klassificeringsmodellen som tillhandahålls som indata.
+   En-mot-alla – multiklass klassificeraren har inga parametrar som kan konfigureras. Alla anpassningar måste göras i den binära klassificerings modellen som anges som indata.
 
-2. Lägg till en binär klassificeringsmodell i pipelinen och konfigurera den modellen. Du kan till exempel använda [tvåklassstödvektordatorn](two-class-support-vector-machine.md) eller [ett tvåklassigt förstärkt beslutsträd](two-class-boosted-decision-tree.md).
+2. Lägg till en binär klassificerings modell i pipelinen och konfigurera modellen. Du kan till exempel använda [två klass stöd för en Vector-dator](two-class-support-vector-machine.md) eller ett [utökat besluts träd med två klasser](two-class-boosted-decision-tree.md).
 
-3. Lägg till [tågmodellmodulen](train-model.md) i pipelinen. Anslut den otränade klassificeraren som är utdata från One-vs-All Multiclass.
+3. Lägg till modulen [träna modell](train-model.md) i din pipeline. Anslut den intränade klassificeraren som är utdata från En-mot-alla – multiklass.
 
-4. Anslut en märkt träningsdatauppsättning som har flera klassvärden på den andra indatavärdet [i Tågmodell.](train-model.md)
+4. På den andra ingången av [träna modell](train-model.md)ansluter du en etikettad tränings uppsättning som har flera klass värden.
 
 5. Skicka pipelinen.
 
 ## <a name="results"></a>Resultat
 
-När träningen är klar kan du använda modellen för att göra förutsägelser med flera klasser.
+När utbildningen är klar kan du använda modellen för att göra förutsägelser i multiklass.
 
-Du kan också skicka den otränade klassificeraren till [Korsvalifierad modell](cross-validate-model.md) för korsvalidering mot en märkt valideringsdatauppsättning.
+Alternativt kan du skicka den ej tränade klassificeraren till [kors](cross-validate-model.md) validerings modellen för kors validering mot en etikettad verifierings data uppsättning.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

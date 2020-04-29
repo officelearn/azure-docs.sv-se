@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med SCC LifeCycle | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SCC LifeCycle.
+title: 'Självstudie: Azure Active Directory integrering med SCC-livscykel | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SCC livs cykel.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 83974a57fe080e76dee26781abaddf2b0b884839
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67091496"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Självstudiekurs: Azure Active Directory-integrering med SCC LifeCycle
+# <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Självstudie: Azure Active Directory integrering med SCC-livscykel
 
-I den här självstudien får du lära dig hur du integrerar SCC LifeCycle med Azure Active Directory (Azure AD).
-Genom att integrera SCC LifeCycle med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig att integrera SCC-livscykel med Azure Active Directory (Azure AD).
+Genom att integrera SCC-livscykel med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till SCC LifeCycle.
-* Du kan aktivera dina användare så att de automatiskt loggas in på SCC LifeCycle (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till SCC-livscykeln.
+* Du kan göra det möjligt för användarna att logga in automatiskt till SCC-livscykel (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med SCC LifeCycle behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med SCC livs cykel behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* SCC LifeCycle enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* SCC LifeCycle-prenumeration med enkel inloggning aktive rad
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* SCC LifeCycle **SP** stöder SP-initierad SSO
+* SCC-livscykel stöder **SP** -INITIERAd SSO
 
-## <a name="adding-scc-lifecycle-from-the-gallery"></a>Lägga till SCC LifeCycle från galleriet
+## <a name="adding-scc-lifecycle-from-the-gallery"></a>Lägga till SCC-livscykel från galleriet
 
-Om du vill konfigurera integreringen av SCC LifeCycle i Azure AD måste du lägga till SCC LifeCycle från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av SCC-livscykeln i Azure AD måste du lägga till SCC-livscykel från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till SCC LifeCycle från galleriet:**
+**Utför följande steg för att lägga till SCC-livscykel från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av SCC LifeCycle i Azure AD måste du lägg
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **SCC LifeCycle**i sökrutan och välj **SCC LifeCycle** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
+4. I sökrutan skriver du **SCC Lifecycle**, väljer **SCC Lifecycle** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![SCC LifeCycle i resultatlistan](common/search-new-app.png)
+    ![SCC-livscykel i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med SCC LifeCycle baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning till jobbet måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SCC LifeCycle upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med SCC-livscykel baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i SCC-livscykeln.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med SCC LifeCycle måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med SCC-livscykel måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera SCC LifeCycle Single Sign-On](#configure-scc-lifecycle-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera SCC livs cykel enkel inloggning](#configure-scc-lifecycle-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa SCC LifeCycle-testanvändare](#create-scc-lifecycle-test-user)** – om du vill ha en motsvarighet till Britta Simon i SCC LifeCycle som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa SCC Lifecycle test User](#create-scc-lifecycle-test-user)** – om du vill ha en motsvarighet till Britta Simon i SCC-livscykel som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med SCC LifeCycle:
+Utför följande steg för att konfigurera enkel inloggning med SCC-livscykel i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **SCC LifeCycle-programintegration** . **Single sign-on**
+1. I [Azure Portal](https://portal.azure.com/)på sidan **SCC Lifecycle** Application Integration väljer du **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SCC LifeCycle:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![SCC LifeCycle-domän och webbadresser med enkel inloggning](common/sp-identifier.png)
+    ![SCC-livscykel domän och URL: er enkel inloggnings information](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
@@ -115,13 +115,13 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SCC LifeCycle:
     | `https://lifecycle.scc.com/<entity>`|
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [SCC LifeCycle Client supportteam](mailto:lifecycle.support@scc.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [SCC Lifecycle support team](mailto:lifecycle.support@scc.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera SCC LifeCycle.**
+6. I avsnittet **Konfigurera SCC livs cykel** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -131,12 +131,12 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SCC LifeCycle:
 
     c. Utloggnings-URL
 
-### <a name="configure-scc-lifecycle-single-sign-on"></a>Konfigurera enkel inloggning för SCC LifeCycle
+### <a name="configure-scc-lifecycle-single-sign-on"></a>Konfigurera enkel inloggning för SCC-livscykel
 
-Om du vill konfigurera enkel inloggning på **SCC LifeCycle-sidan** måste du skicka den nedladdade **metadata-XML:n** och lämpliga kopierade URL:er från Azure-portalen till [SCC LifeCycle-supportteamet](mailto:lifecycle.support@scc.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **SCC livs cykel** sida måste du skicka XML för hämtade **metadata** och lämpliga kopierade url: er från Azure Portal till [SCC Lifecycle support team](mailto:lifecycle.support@scc.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
    > [!NOTE]
-   > Enkel inloggning måste aktiveras av [SCC LifeCycle-supportteamet](mailto:lifecycle.support@scc.com).
+   > Enkel inloggning måste aktive ras av [SCC Lifecycle support team](mailto:lifecycle.support@scc.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -146,7 +146,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -165,15 +165,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till SCC LifeCycle.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SCC-livscykel.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **SCC LifeCycle**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **SCC livs cykel**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **SCC LifeCycle**i programlistan .
+2. I listan program väljer du **SCC livs cykel**.
 
-    ![Länken SCC LifeCycle i programlistan](common/all-applications.png)
+    ![SCC livs cykel länk i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -185,15 +185,15 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-scc-lifecycle-test-user"></a>Skapa SCC LifeCycle-testanvändare
+### <a name="create-scc-lifecycle-test-user"></a>Skapa SCC LifeCycle test User
 
-För att Azure AD-användare ska kunna logga in på SCC LifeCycle måste de etableras i SCC LifeCycle. Det finns inget åtgärdsobjekt som du kan konfigurera användaretablering till SCC LifeCycle.
+För att Azure AD-användare ska kunna logga in på SCC-livscykel måste de tillhandahållas i SCC-livscykeln. Det finns inget åtgärds objekt som du kan använda för att konfigurera användar etablering till SCC-livscykel.
 
-När en tilldelad användare försöker logga in på SCC LifeCycle skapas ett SCC LifeCycle-konto automatiskt om det behövs.
+När en tilldelad användare försöker logga in i SCC-livscykeln skapas ett SCC-livscykel-konto automatiskt vid behov.
 
 > [!NOTE]
 > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.
@@ -202,12 +202,12 @@ När en tilldelad användare försöker logga in på SCC LifeCycle skapas ett SC
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen SCC LifeCycle på åtkomstpanelen bör du automatiskt loggas in på SCC LifeCycle som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen SCC livs cykel i åtkomst panelen, bör du loggas in automatiskt på den SCC-livscykel som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

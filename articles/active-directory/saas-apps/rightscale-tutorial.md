@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med högerskala | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Rightscale.
+title: 'Självstudie: Azure Active Directory integrering med RightScale | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RightScale.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 53799b62da043b7680f010e1eaaf0d9243f07dd5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67093074"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Självstudiekurs: Azure Active Directory-integrering med högerskala
+# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Självstudie: Azure Active Directory integrering med RightScale
 
-I den här självstudien får du lära dig hur du integrerar Rightscale med Azure Active Directory (Azure AD).
-Genom att integrera rättskala med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar RightScale med Azure Active Directory (Azure AD).
+Genom att integrera RightScale med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Rightscale.
-* Du kan aktivera dina användare så att de automatiskt loggas in på Rightscale (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till RightScale.
+* Du kan göra det möjligt för användarna att logga in automatiskt till RightScale (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Rightscale behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med RightScale behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Rättskala enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* RightScale-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Högerskala stöder **SP och IDP** initierad SSO
+* RightScale stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-rightscale-from-the-gallery"></a>Lägga till högerskala från galleriet
+## <a name="adding-rightscale-from-the-gallery"></a>Lägga till RightScale från galleriet
 
-Om du vill konfigurera integreringen av Rightscale i Azure AD måste du lägga till Högerskala från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av RightScale i Azure AD måste du lägga till RightScale från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till Högerskala från galleriet:**
+**Utför följande steg för att lägga till RightScale från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Rightscale i Azure AD måste du lägga t
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Högerskala**i sökrutan och välj **Högerskala** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **RightScale**, väljer **RightScale** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Högerskala i resultatlistan](common/search-new-app.png)
+     ![RightScale i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Högerskala baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Rightscale upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med RightScale baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i RightScale upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Högerskala måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med RightScale i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för högerskala](#configure-rightscale-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera RightScale-enkel inloggning](#configure-rightscale-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa rättskala testanvändare](#create-rightscale-test-user)** - att ha en motsvarighet till Britta Simon i högerskala som är kopplad till Azure AD-representationen av användaren.
+5. **[Skapa RightScale test User](#create-rightscale-test-user)** – om du vill ha en motsvarighet till Britta Simon i RightScale som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Högerskala:
+Utför följande steg för att konfigurera enkel inloggning med RightScale i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du **Enkel inloggning på**sidan Integrering av program för **högerskala** .
+1. Välj **enkel inloggning**på sidan **RightScale** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,11 +103,11 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Högerskala:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
-    ![Enkel inloggningsinformation för domäner och webbadresser som har rättskala](common/preintegrated.png)
+    ![Information om enkel inloggning för RightScale-domän och URL: er](common/preintegrated.png)
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Enkel inloggningsinformation för domäner och webbadresser som har rättskala](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning för RightScale-domän och URL: er](common/metadata-upload-additional-signon.png)
 
     I rutan **Inloggnings-URL** anger du följande URL: `https://login.rightscale.com/`
 
@@ -115,7 +115,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Högerskala:
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera rättskala.**
+7. I avsnittet **Konfigurera RightScale** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -125,35 +125,35 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Högerskala:
 
     c. Utloggnings-URL
 
-### <a name="configure-rightscale-single-sign-on"></a>Konfigurera enkel inloggning för högerskala
+### <a name="configure-rightscale-single-sign-on"></a>Konfigurera RightScale enkel inloggning
 
-1. Om du vill konfigurera SSO för ditt program måste du logga in på din RightScale-klientorganisation som administratör.
+1. För att få SSO konfigurerat för ditt program måste du logga in på RightScale-klienten som administratör.
 
-2. Klicka på fliken **Inställningar** högst upp och välj **Enkel inloggning**.
+2. I menyn högst upp klickar du på fliken **Inställningar** och väljer **enkel inloggning**.
 
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
-3. Klicka på den **nya** knappen om du vill lägga till **dina SAML-identitetsleverantörer**.
+3. Klicka på knappen **nytt** för att lägga till **dina SAML Identity providers**.
 
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
-4. Mata in företagsnamnet i textrutan **med visningsnamn.**
+4. I text rutan med **visnings namn**skriver du in företagets namn.
 
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
-5. Välj **Tillåt Högerskala initierad SSO med hjälp av en identifieringsledtråd** och mata in ditt **domännamn** i textrutan nedan.
+5. Välj **Tillåt RightScale-initierad SSO med ett identifierings tips** och ange **domän namnet** i text rutan nedan.
 
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
-6. Klistra in värdet **för inloggnings-URL** som du har kopierat från Azure-portalen till **SAML SSO-slutpunkten** i RightScale.
+6. Klistra in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal till **SAML SSO-slutpunkten** i RightScale.
 
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
-7. Klistra in värdet för **Azure AD-identifierare** som du har kopierat från Azure-portalen till **SAML EntityID** i RightScale.
+7. Klistra in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal till **SAML-EntityID** i RightScale.
 
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
-8. Klicka på **knappen Webbläsare** om du vill ladda upp certifikatet som du hämtade från Azure-portalen.
+8. Klicka på knappen **webbläsare** för att ladda upp det certifikat som du laddade ned från Azure Portal.
 
 
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_009.png)
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -187,15 +187,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Rightscale.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till RightScale.
 
-1. I Azure-portalen väljer du **Företagsprogram**, väljer **Alla program**och väljer sedan **Högerskala**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **RightScale**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Högerskala**i programlistan .
+2. I listan program väljer du **RightScale**.
 
-    ![Länken Högerskala i listan Program](common/all-applications.png)
+    ![RightScale-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -207,24 +207,24 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-rightscale-test-user"></a>Skapa testanvändare för rättskala
+### <a name="create-rightscale-test-user"></a>Skapa RightScale test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Högerskala. Arbeta med [supportteamet](mailto:support@rightscale.com) för klient i rätt skala för att lägga till användarna i högerskalans plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i RightScale. Arbeta med [RightScale-klientens support team](mailto:support@rightscale.com) för att lägga till användare i RightScale-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Högerskala på åtkomstpanelen bör du automatiskt loggas in på den högerskala som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen RightScale på åtkomst panelen, bör du loggas in automatiskt på den RightScale som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,166 +1,166 @@
 ---
-title: Aktörsdiagnostik och övervakning
-description: I den här artikeln beskrivs diagnostik- och prestandaövervakningsfunktionerna i service fabric Reliable Actors-körningen, inklusive de händelser och prestandaräknare som den avger.
+title: Aktörernas diagnostik och övervakning
+description: I den här artikeln beskrivs funktionerna för diagnostik-och prestanda övervakning i Service Fabric Reliable Actors runtime, inklusive händelser och prestanda räknare som genereras av den.
 author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282333"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
-Körningen Tillförlitliga aktörer avger [EventSource-händelser](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) och [prestandaräknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur körningen fungerar och hjälper till med felsökning och prestandaövervakning.
+Reliable Actors körningen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser och [prestanda räknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Dessa ger insikter om hur körningen fungerar och hjälper till med fel sökning och prestanda övervakning.
 
 ## <a name="eventsource-events"></a>EventSource-händelser
-EventSource-providernamnet för körningen Reliable Actors är "Microsoft-ServiceFabric-Actors". Händelser från den här händelsekällan visas i fönstret [Diagnostikhändelser](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) när aktörsprogrammet [avsöks i Visual Studio](service-fabric-debugging-your-application.md).
+EventSource Provider-namnet för Reliable Actors runtime är "Microsoft-ServiceFabric-skådespelare". Händelser från den här händelse källan visas i fönstret [diagnostik-händelser](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) när aktörs programmet [felsöks i Visual Studio](service-fabric-debugging-your-application.md).
 
-Exempel på verktyg och tekniker som hjälper till att samla in och/eller visa EventSource-händelser är [PerfView,](https://www.microsoft.com/download/details.aspx?id=28567) [Azure Diagnostics,](../cloud-services/cloud-services-dotnet-diagnostics.md) [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx)och [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Exempel på verktyg och tekniker som hjälper dig att samla in och/eller Visa EventSource-händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantisk loggning](https://msdn.microsoft.com/library/dn774980.aspx)och [Microsoft TraceEvent-biblioteket](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Nyckelord
-Alla händelser som tillhör Reliable Actors EventSource associeras med ett eller flera nyckelord. Detta möjliggör filtrering av händelser som samlas in. Följande nyckelordsbitar definieras.
+Alla händelser som tillhör Reliable Actors EventSource är associerade med ett eller flera nyckelord. Detta möjliggör filtrering av händelser som samlas in. Följande nyckelords bitar har definierats.
 
-| Bitars | Beskrivning |
+| Bitmask | Beskrivning |
 | --- | --- |
-| 0x1 (0x1) |Uppsättning viktiga händelser som sammanfattar driften av Fabric Actors runtime. |
-| 0x2 |Uppsättning händelser som beskriver aktörsmetodanrop. För mer information, se [det inledande ämnet om aktörer](service-fabric-reliable-actors-introduction.md). |
-| 0x4 (0x4) |Uppsättning händelser relaterade till aktörstillstånd. Mer information finns i avsnittet om [hantering av aktörstillstånd](service-fabric-reliable-actors-state-management.md). |
-| 0x8 (0x8) |Uppsättning händelser relaterade till tur-baserade samtidighet i aktören. Mer information finns i avsnittet om [samtidighet](service-fabric-reliable-actors-introduction.md#concurrency). |
+| 0x1 |En uppsättning viktiga händelser som sammanfattar driften av körningen av Fabric-aktörer. |
+| 0x2 |Uppsättning händelser som beskriver aktörs metod anrop. Mer information finns i [introduktions avsnittet om aktörer](service-fabric-reliable-actors-introduction.md). |
+| 0x4 |Uppsättning händelser som rör aktörs status. Mer information finns i avsnittet om hantering av [aktörs tillstånd](service-fabric-reliable-actors-state-management.md). |
+| 0x8 |Uppsättning händelser relaterade till turn samtidighet i aktören. Mer information finns i avsnittet om [samtidighet](service-fabric-reliable-actors-introduction.md#concurrency). |
 
 ## <a name="performance-counters"></a>Prestandaräknare
-Körningen Tillförlitliga aktörer definierar följande prestandaräknarekategorier.
+Reliable Actors runtime definierar följande prestanda räknar kategorier.
 
 | Kategori | Beskrivning |
 | --- | --- |
-| Service Fabric Skådespelare |Räknare som är specifika för Azure Service Fabric-aktörer, t.ex. |
-| Metod för skådespelarmetod för service fabric |Räknare som är specifika för metoder som implementerats av Service Fabric-aktörer, t.ex. |
+| Service Fabric skådespelare |Räknare som är speciella för Azure Service Fabric-aktörer, t. ex. tid för att spara aktörs tillstånd |
+| Service Fabric aktörs metod |Räknare som är speciella för metoder som implementerats av Service Fabric-aktörer, t. ex. hur ofta en aktörs metod anropas |
 
-Var och en av ovanstående kategorier har en eller flera räknare.
+Var och en av kategorierna ovan har en eller flera räknare.
 
-Windows [Performance Monitor-programmet](https://technet.microsoft.com/library/cc749249.aspx) som är tillgängligt som standard i Operativsystemet Windows kan användas för att samla in och visa prestandaräkna data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestandaräknardata och överföra dem till Azure-tabeller.
+[Windows prestanda övervaknings](https://technet.microsoft.com/library/cc749249.aspx) programmet som är tillgängligt som standard i Windows-operativsystemet kan användas för att samla in och Visa prestanda räknar data. [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestanda räknar data och ladda upp den till Azure-tabeller.
 
-### <a name="performance-counter-instance-names"></a>Namn på prestandaräknareinstans
-Ett kluster som har ett stort antal aktörstjänster eller aktörstjänstpartitioner har ett stort antal förekomster av aktörsprestandaräknare. Namn på prestandaräknareinstans kan hjälpa dig att identifiera den specifika [partitions-](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) och aktörsmetod (om tillämpligt) som prestandaräkringsinstansen är associerad med.
+### <a name="performance-counter-instance-names"></a>Instans namn för prestanda räknare
+Ett kluster som har ett stort antal aktörs tjänster eller aktörs tjänst partitioner kommer att ha ett stort antal instanser av prestanda räknaren för aktör. Instans namn för prestanda räknaren kan hjälpa till att identifiera den angivna [partitionen](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) och aktörs metoden (om tillämpligt) som prestanda räknar instansen är associerad med.
 
-#### <a name="service-fabric-actor-category"></a>Kategori Service Fabric Actor
-För kategorin `Service Fabric Actor`är räknarinstansnamnen i följande format:
+#### <a name="service-fabric-actor-category"></a>Kategorin Service Fabric aktör
+För kategorin `Service Fabric Actor`är räknar instans namnen i följande format:
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* är strängrepresentationen av partitions-ID för Tjänst fabric som prestandaräkringsinstansen är associerad med. Partitions-ID är ett GUID och dess [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) strängrepresentation genereras via metoden med formatspecificeraren "D".
+*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metoden med format specificeraren "D".
 
-*ActorRuntimeInternalID* är strängrepresentationen av ett 64-bitars heltal som genereras av Fabric Actors-körningen för internt bruk. Detta ingår i prestandaräknarens instansnamn för att säkerställa dess unika och undvika konflikt med andra namn på prestandaräknareinstans. Användare bör inte försöka tolka den här delen av prestandaräknarens förekomstnamn.
+*ActorRuntimeInternalID* är en sträng representation av ett 64-bitars heltal som genereras av Fabric-aktörernas kör tid för intern användning. Detta ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra instans namn för prestanda räknaren. Användare bör inte försöka tolka den här delen av prestanda räknarens instans namn.
 
-Följande är ett exempel på ett räknareinstansnamn `Service Fabric Actor` för en räknare som tillhör kategorin:
+Följande är ett exempel på ett räknar instans namn för en räknare som tillhör `Service Fabric Actor` kategorin:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046`
 
-I exemplet ovan `2740af29-78aa-44bc-a20b-7e60fb783264` är strängrepresentationen av partitions-ID för Service Fabric och `635650083799324046` det 64-bitars-ID som genereras för körningens interna användning.
+I exemplet ovan `2740af29-78aa-44bc-a20b-7e60fb783264` är sträng representationen av Service Fabric PARTITIONS-ID och `635650083799324046` är 64-bitars-ID som genereras för körningens interna användning.
 
-#### <a name="service-fabric-actor-method-category"></a>Kategori för service fabric-aktörsmetod
-För kategorin `Service Fabric Actor Method`är räknarinstansnamnen i följande format:
+#### <a name="service-fabric-actor-method-category"></a>Metod kategori för Service Fabric aktör
+För kategorin `Service Fabric Actor Method`är räknar instans namnen i följande format:
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*MethodName* är namnet på den aktörsmetod som prestandaräknareinstansen är associerad med. Formatet på metodnamnet bestäms baserat på viss logik i fabric actors-körningen som balanserar namnets läsbarhet med begränsningar för den maximala längden på prestandaräknareinstansnamnen i Windows.
+*MethodName* är namnet på aktörs metoden som prestanda räknar instansen är associerad med. Formatet på metod namnet bestäms utifrån en del av logiken i körnings miljön för infrastruktur resurser som balanserar läsbarheten hos namnet med begränsningar på den maximala längden för prestanda räknar instans namnen i Windows.
 
-*ActorsRuntimeMethodId* är strängrepresentationen av ett 32-bitars heltal som genereras av Fabric Actors-körningen för internt bruk. Detta ingår i prestandaräknarens instansnamn för att säkerställa dess unika och undvika konflikt med andra namn på prestandaräknareinstans. Användare bör inte försöka tolka den här delen av prestandaräknarens förekomstnamn.
+*ActorsRuntimeMethodId* är en sträng representation av ett 32-bitars heltal som genereras av Fabric-aktörernas kör tid för intern användning. Detta ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra instans namn för prestanda räknaren. Användare bör inte försöka tolka den här delen av prestanda räknarens instans namn.
 
-*ServiceFabricPartitionID* är strängrepresentationen av partitions-ID för Tjänst fabric som prestandaräkringsinstansen är associerad med. Partitions-ID är ett GUID och dess [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) strängrepresentation genereras via metoden med formatspecificeraren "D".
+*ServiceFabricPartitionID* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras genom [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metoden med format specificeraren "D".
 
-*ActorRuntimeInternalID* är strängrepresentationen av ett 64-bitars heltal som genereras av Fabric Actors-körningen för internt bruk. Detta ingår i prestandaräknarens instansnamn för att säkerställa dess unika och undvika konflikt med andra namn på prestandaräknareinstans. Användare bör inte försöka tolka den här delen av prestandaräknarens förekomstnamn.
+*ActorRuntimeInternalID* är en sträng representation av ett 64-bitars heltal som genereras av Fabric-aktörernas kör tid för intern användning. Detta ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra instans namn för prestanda räknaren. Användare bör inte försöka tolka den här delen av prestanda räknarens instans namn.
 
-Följande är ett exempel på ett räknareinstansnamn `Service Fabric Actor Method` för en räknare som tillhör kategorin:
+Följande är ett exempel på ett räknar instans namn för en räknare som tillhör `Service Fabric Actor Method` kategorin:
 
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 
-I exemplet `ivoicemailboxactor.leavemessageasync` ovan, är metodnamnet, `2` är 32-bitars-ID som genereras `89383d32-e57e-4a9b-a6ad-57c6792aa521` för körningens interna användning, är `635650083804480486` strängrepresentationen av PartitionS-ID för Service Fabric och är 64-bitars-ID som genereras för körningens interna användning.
+I `ivoicemailboxactor.leavemessageasync` exemplet ovan är metod namnet `2` , det 32-bitars ID som genereras för körningens interna användning, `89383d32-e57e-4a9b-a6ad-57c6792aa521` är sträng representationen för Service Fabric partitions-ID och `635650083804480486` är 64-bitars-ID som genereras för körningens interna användning.
 
 ## <a name="list-of-events-and-performance-counters"></a>Lista över händelser och prestandaräknare
-### <a name="actor-method-events-and-performance-counters"></a>Aktörsmetodhändelser och prestandaräknare
-Körningen Tillförlitliga aktörer avger följande händelser relaterade till [aktörsmetoder](service-fabric-reliable-actors-introduction.md).
+### <a name="actor-method-events-and-performance-counters"></a>Aktörs metod händelser och prestanda räknare
+Reliable Actors runtime genererar följande händelser som rör [aktörs metoder](service-fabric-reliable-actors-introduction.md).
 
-| Händelsenamn | Händelse-ID | Nivå | Sökord | Beskrivning |
+| Händelse namn | Händelse-ID | Nivå | Följt | Beskrivning |
 | --- | --- | --- | --- | --- |
-| SkådespelareMethodStart |7 |Verbose |0x2 |Skådespelarna runtime är på väg att anropa en aktörsmetod. |
-| SkådespelareMethodStop |8 |Verbose |0x2 |En aktörsmetod har körts klart. Det vill än så har körningens asynkrona anrop till aktörsmetoden returnerats och uppgiften som returneras av aktörsmetoden har slutförts. |
-| SkådespelareMethodThrewException |9 |Varning |0x3 (0x3) |Ett undantag skapades under körningen av en aktörsmetod, antingen under körningens asynkrona anrop till aktörsmetoden eller under körningen av aktiviteten som returnerades med aktörsmetoden. Den här händelsen indikerar någon form av fel i aktörskoden som behöver undersökas. |
+| ActorMethodStart |7 |Verbose |0x2 |Körningar av aktörer är på väg att anropa en aktörs metod. |
+| ActorMethodStop |8 |Verbose |0x2 |En aktörs metod har slutfört körningen. Det vill säga körningens asynkrona anrop till aktörs metoden har returnerat och uppgiften som returnerades av aktörs metoden har slutförts. |
+| ActorMethodThrewException |9 |Varning |0x3 |Ett undantag uppstod under körningen av en aktörs metod, antingen under körningens asynkrona anrop till aktörs metoden eller under körningen av den uppgift som returnerades av aktörs metoden. Den här händelsen indikerar viss typ av haveri i aktörs koden som behöver undersökning. |
 
-Körningen Tillförlitliga aktörer publicerar följande prestandaräknare relaterade till körningen av aktörsmetoder.
+Reliable Actors runtime publicerar följande prestanda räknare relaterade till körningen av aktörs metoder.
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Metod för skådespelarmetod för service fabric |Åkallor/sek |Antal gånger som aktörstjänsten anropas per sekund |
-| Metod för skådespelarmetod för service fabric |Genomsnittliga millisekunder per anrop |Tid det tar att utföra aktörstjänstmetoden i millisekunder |
-| Metod för skådespelarmetod för service fabric |Undantag som har genererats/Sek |Antal gånger som aktörstjänstens metod har kastat ett undantag per sekund |
+| Service Fabric aktörs metod |Anrop/SEK |Antal gånger som aktörs tjänst metoden anropas per sekund |
+| Service Fabric aktörs metod |Genomsnittligt antal millisekunder per anrop |Åtgången tid för att köra aktörs tjänst metoden i millisekunder |
+| Service Fabric aktörs metod |Genererade undantag/SEK |Antal gånger som aktörs tjänst metoden utlöste ett undantag per sekund |
 
-### <a name="concurrency-events-and-performance-counters"></a>Samtidighetshändelser och prestandaräknare
-Körningen Tillförlitliga aktörer avger följande händelser relaterade till [samtidighet](service-fabric-reliable-actors-introduction.md#concurrency).
+### <a name="concurrency-events-and-performance-counters"></a>Samtidiga händelser och prestanda räknare
+Reliable Actors runtime genererar följande händelser relaterade till [samtidighet](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Händelsenamn | Händelse-ID | Nivå | Sökord | Beskrivning |
+| Händelse namn | Händelse-ID | Nivå | Följt | Beskrivning |
 | --- | --- | --- | --- | --- |
-| SkådespelareMethodCallsWaitingForLock |12 |Verbose |0x8 (0x8) |Denna händelse är skriven i början av varje ny tur i en skådespelare. Den innehåller antalet väntande aktörsanrop som väntar på att få låset per aktör som upprätthåller turbaserad samtidighet. |
+| ActorMethodCallsWaitingForLock |12 |Verbose |0x8 |Den här händelsen skrivs i början av varje ny tur i en aktör. Det innehåller antalet väntande aktörs anrop som väntar på att erhålla lås per aktör som tillämpar fast samtidighet. |
 
-Körningen Tillförlitliga aktörer publicerar följande prestandaräknare relaterade till samtidighet.
+Reliable Actors runtime publicerar följande prestanda räknare relaterade till samtidighet.
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric Skådespelare |# av skådespelaren samtal väntar på skådespelare lås |Antal väntande aktörssamtal som väntar på att få låset per aktör som framtvingar turbaserad samtidighet |
-| Service Fabric Skådespelare |Genomsnittliga millisekunder per lås vänta |Tid det tar (i millisekunder) att förvärva det lås per aktör som framtvingar turbaserad samtidighet |
-| Service Fabric Skådespelare |Genomsnittlig millisekunder skådespelare lås hålls |Tid (i millisekunder) för vilken lyset per aktör hålls |
+| Service Fabric skådespelare |antal aktörs anrop som väntar på att aktörs låset |Antal aktörs anrop som väntar på att erhålla lås per aktör som tillämpar fast samtidighet |
+| Service Fabric skådespelare |Genomsnittlig vänte tid i millisekunder per lås |Åtgången tid (i millisekunder) för att hämta låset per aktör som framtvingar Turn-baserad samtidighet |
+| Service Fabric skådespelare |Genomsnittligt antal millisekunder för aktörs lås |Tid (i millisekunder) för vilken låset per aktör hålls |
 
-### <a name="actor-state-management-events-and-performance-counters"></a>Aktörstillståndshanteringshändelser och prestandaräknare
-Den tillförlitliga aktörer runtime avger följande händelser relaterade till [aktör state management](service-fabric-reliable-actors-state-management.md).
+### <a name="actor-state-management-events-and-performance-counters"></a>Aktörs tillstånds hanterings händelser och prestanda räknare
+Reliable Actors runtime genererar följande händelser relaterade till hantering av [aktörs tillstånd](service-fabric-reliable-actors-state-management.md).
 
-| Händelsenamn | Händelse-ID | Nivå | Sökord | Beskrivning |
+| Händelse namn | Händelse-ID | Nivå | Följt | Beskrivning |
 | --- | --- | --- | --- | --- |
-| ActorSaveStateStart |10 |Verbose |0x4 (0x4) |Aktörer runtime är på väg att rädda aktören staten. |
-| ActorSaveStateStop |11 |Verbose |0x4 (0x4) |Skådespelarna har sparat igen aktörstillståndet. |
+| ActorSaveStateStart |10 |Verbose |0x4 |Aktörernas kör tid är på väg att spara aktörs tillstånd. |
+| ActorSaveStateStop |11 |Verbose |0x4 |Aktörs körningen har slutat att aktörens status har sparats. |
 
-Körningen Tillförlitliga aktörer publicerar följande prestandaräknare relaterade till hantering av aktörstillstånd.
+Reliable Actors runtime publicerar följande prestanda räknare relaterade till hantering av aktörs tillstånd.
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric Skådespelare |Genomsnittlig millisekunder per spara tillstånd operation |Tid tar att spara aktör tillstånd i millisekunder |
-| Service Fabric Skådespelare |Genomsnittlig millisekunder per belastningslägesåtgärd |Tid det tar att ladda aktörstillstånd i millisekunder |
+| Service Fabric skådespelare |Genomsnittligt antal millisekunder per Save-tillstånd |Åtgången tid för att spara aktörs tillstånd i millisekunder |
+| Service Fabric skådespelare |Genomsnittligt antal millisekunder per inläsnings tillstånd |Åtgången tid för att läsa in aktörs tillstånd i millisekunder |
 
-### <a name="events-related-to-actor-replicas"></a>Händelser relaterade till aktörsrepliker
-Körningen Tillförlitliga aktörer avger följande händelser relaterade till [aktörsrepliker](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
+### <a name="events-related-to-actor-replicas"></a>Händelser relaterade till aktörs repliker
+Reliable Actors runtime genererar följande händelser relaterade till [aktörens repliker](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Händelsenamn | Händelse-ID | Nivå | Sökord | Beskrivning |
+| Händelse namn | Händelse-ID | Nivå | Följt | Beskrivning |
 | --- | --- | --- | --- | --- |
-| ReplikChangeRoleToPrimary |1 |Information |0x1 (0x1) |Aktörsrepliken har ändrat rollen till Primär. Detta innebär att aktörerna för den här partitionen kommer att skapas i den här repliken. |
-| ReplicaChangeRoleFrånPrimary |2 |Information |0x1 (0x1) |Aktörsrepliken ändrade rollen till icke-Primär. Detta innebär att aktörerna för den här partitionen inte längre kommer att skapas i den här repliken. Inga nya begäranden kommer att levereras till aktörer som redan har skapats i den här repliken. Aktörerna kommer att förstöras efter att alla pågående förfrågningar har slutförts. |
+| ReplicaChangeRoleToPrimary |1 |Information |0x1 |Aktörens replik ändrade rollen till primär. Detta innebär att skådespelare för den här partitionen skapas i den här repliken. |
+| ReplicaChangeRoleFromPrimary |2 |Information |0x1 |Aktörens replik ändrade rollen till icke-primär. Detta innebär att skådespelare för den här partitionen inte längre skapas i den här repliken. Inga nya förfrågningar skickas till aktörer som redan har skapats i den här repliken. Aktörerna förstörs efter att alla pågående begär Anden har slutförts. |
 
-### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Aktörsaktiverings- och avaktiveringshändelser och prestandaräknare
-Körningen Tillförlitliga aktörer avger följande händelser relaterade till [aktivering och avaktivering av aktörer](service-fabric-reliable-actors-lifecycle.md).
+### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Aktivering och inaktive ring av aktör, händelser och prestanda räknare
+Reliable Actors runtime genererar följande händelser som rör [aktivering och inaktive](service-fabric-reliable-actors-lifecycle.md)ring av aktör.
 
-| Händelsenamn | Händelse-ID | Nivå | Sökord | Beskrivning |
+| Händelse namn | Händelse-ID | Nivå | Följt | Beskrivning |
 | --- | --- | --- | --- | --- |
-| ActorAktiverad |5 |Information |0x1 (0x1) |En skådespelare har aktiverats. |
-| ActorDeactivated |6 |Information |0x1 (0x1) |En aktör har inaktiverats. |
+| ActorActivated |5 |Information |0x1 |En aktör har Aktiver ATS. |
+| ActorDeactivated |6 |Information |0x1 |En aktör har inaktiverats. |
 
-Körningen Tillförlitliga aktörer publicerar följande prestandaräknare relaterade till aktörsaktivering och inaktivering.
+Reliable Actors runtime publicerar följande prestanda räknare relaterade till aktivering och inaktive ring av aktör.
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric Skådespelare |Genomsnitt påaktiveraA-millisekunder |Tid det tar att köra OnActivateAsync-metoden i millisekunder |
+| Service Fabric skådespelare |Genomsnittlig OnActivateAsync millisekunder |Åtgången tid för att köra OnActivateAsync-metoden i millisekunder |
 
-### <a name="actor-request-processing-performance-counters"></a>Prestandaräknare för hantering av aktörsbegäran
-När en klient anropar en metod via ett aktörsproxyobjekt resulterar det i att ett begärandemeddelande skickas över nätverket till aktörstjänsten. Tjänsten bearbetar meddelandet för begäran och skickar ett svar tillbaka till klienten. Körningen Tillförlitliga aktörer publicerar följande prestandaräknare relaterade till bearbetning av aktörsbegäran.
+### <a name="actor-request-processing-performance-counters"></a>Aktör begär behandling prestanda räknare
+När en klient anropar en metod via ett aktörs objekt, resulterar det i ett meddelande som skickas via nätverket till aktörs tjänsten. Tjänsten bearbetar begär ande meddelandet och skickar tillbaka ett svar till klienten. Reliable Actors runtime publicerar följande prestanda räknare relaterade till bearbetning av aktörs förfrågningar.
 
 | Kategorinamn | Räknarens namn | Beskrivning |
 | --- | --- | --- |
-| Service Fabric Skådespelare |Antal utestående förfrågningar |Antal begäranden som behandlas i tjänsten |
-| Service Fabric Skådespelare |Genomsnittliga millisekunder per begäran |Tid (i millisekunder) av tjänsten för att behandla en begäran |
-| Service Fabric Skådespelare |Genomsnittliga millisekunder för deserialisering av begäran |Tid (i millisekunder) för att avserialisera meddelande om aktörsbegäran när det tas emot vid tjänsten |
-| Service Fabric Skådespelare |Genomsnittliga millisekunder för svarsserier |Tid det tar (i millisekunder) att serialisera aktörssvarsmeddelandet vid tjänsten innan svaret skickas till klienten |
+| Service Fabric skådespelare |antal utestående begär Anden |Antal begär Anden som bearbetas i tjänsten |
+| Service Fabric skådespelare |Genomsnittligt antal millisekunder per begäran |Åtgången tid (i millisekunder) av tjänsten för att bearbeta en begäran |
+| Service Fabric skådespelare |Genomsnittligt antal millisekunder för avserialisering av begäran |Åtgången tid (i millisekunder) för att deserialisera aktör begär ande meddelande när det tas emot på tjänsten |
+| Service Fabric skådespelare |Genomsnittligt antal millisekunder för svars serialisering |Åtgången tid (i millisekunder) för att serialisera aktörens svars meddelande vid tjänsten innan svaret skickas till klienten |
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hur reliable actors använder plattformen Service Fabric](service-fabric-reliable-actors-platform.md)
-* [Dokumentation för aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Hur Reliable Actors använder Service Fabrics plattformen](service-fabric-reliable-actors-platform.md)
+* [Dokumentation om aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [EventSource-leverantörer i PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [EventSource-providers i PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

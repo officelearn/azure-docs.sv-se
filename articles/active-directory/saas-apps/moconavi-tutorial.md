@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med moconavi | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med moconavi | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och moconavi.
 services: active-directory
 documentationCenter: na
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 038520e662a205bc173035fd19656cbaf4800239
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160519"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Självstudiekurs: Azure Active Directory-integrering med moconavi
+# <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Självstudie: Azure Active Directory integrering med moconavi
 
 I den här självstudien får du lära dig hur du integrerar moconavi med Azure Active Directory (Azure AD).
 Genom att integrera moconavi med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till moconavi.
-* Du kan aktivera dina användare så att de automatiskt loggas in på moconavi (Enkel inloggning) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till moconavi (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med moconavi behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* moconavi enkel inloggning aktiverad prenumeration
+* moconavi-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* moconavi stöder **SP** initierade SSO
+* moconavi stöder **SP** -INITIERAd SSO
 
 ## <a name="adding-moconavi-from-the-gallery"></a>Lägga till moconavi från galleriet
 
 Om du vill konfigurera integreringen av moconavi i Azure AD måste du lägga till moconavi från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till moconavi från galleriet:**
+**Utför följande steg för att lägga till moconavi från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av moconavi i Azure AD måste du lägga til
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **moconavi**i sökrutan och välj **moconavi** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **moconavi**, väljer **moconavi** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![moconavi i resultatlistan](common/search-new-app.png)
+     ![moconavi i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med moconavi baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i moconavi upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med moconavi baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i moconavi upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med moconavi måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med moconavi i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera moconavi Single Sign-On](#configure-moconavi-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera moconavi-enkel inloggning](#configure-moconavi-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa moconavi-testanvändare](#create-moconavi-test-user)** – om du vill ha en motsvarighet till Britta Simon i moconavi som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa moconavi test User](#create-moconavi-test-user)** – om du vill ha en motsvarighet till Britta Simon i moconavi som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med moconavi:
+Utför följande steg för att konfigurera enkel inloggning med moconavi i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **moconavi-programintegration** . **Single sign-on**
+1. Välj **enkel inloggning**på sidan **moconavi** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,22 +103,22 @@ Så här konfigurerar du en enkel Azure AD-inloggning med moconavi:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![moconavi Domän och webbadresser enkel inloggningsinformation](common/sp-identifier-reply.png)
+    ![information om enkel inloggning för moconavi-domän och URL: er](common/sp-identifier-reply.png)
 
-    a. Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<yourserverurl>/moconavi-saml2/saml/login`
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<yourserverurl>/moconavi-saml2/saml/login`
 
-    b. Skriv en URL med följande mönster i rutan **Identifierare:**`https://<yourserverurl>/moconavi-saml2`
+    b. I rutan **identifierare** anger du en URL med följande mönster:`https://<yourserverurl>/moconavi-saml2`
 
-    c. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<yourserverurl>/moconavi-saml2/saml/SSO`
+    c. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<yourserverurl>/moconavi-saml2/saml/SSO`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [moconavi Client support team](mailto:support@recomot.co.jp) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Moconavi client support team](mailto:support@recomot.co.jp) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera moconavi.**
+6. I avsnittet **Konfigurera moconavi** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -130,7 +130,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med moconavi:
 
 ### <a name="configure-moconavi-single-sign-on"></a>Konfigurera moconavi enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **moconavi-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [moconavi-supportteamet](mailto:support@recomot.co.jp). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **moconavi** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för moconavi](mailto:support@recomot.co.jp). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -140,7 +140,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -150,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -159,15 +159,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till moconavi.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till moconavi.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **moconavi**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **moconavi**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **moconavi**i programlistan .
+2. I listan program väljer du **moconavi**.
 
-    ![Moconavi-länken i programlistan](common/all-applications.png)
+    ![Moconavi-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -179,43 +179,43 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-moconavi-test-user"></a>Skapa moconavi-testanvändare
+### <a name="create-moconavi-test-user"></a>Skapa moconavi test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i moconavi. Arbeta med [moconavi supportteam](mailto:support@recomot.co.jp) för att lägga till användarna i moconavi-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i moconavi. Arbeta med [moconavi support team](mailto:support@recomot.co.jp) för att lägga till användare i moconavi-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 1. Installera moconavi från Microsoft Store.
 
-2. Börja moconavi.
+2. Starta moconavi.
 
-3. Klicka på **Knappen Anslut.**
+3. Klicka på knappen **Anslut inställning** .
 
     ![Testa enkel inloggning](./media/moconavi-tutorial/testing1.png)
 
-4. Skriv `https://mcs-admin.moconavi.biz/gateway` in i textrutan **Anslut till URL** och klicka sedan på Knappen **Klar.**
+4. Ange `https://mcs-admin.moconavi.biz/gateway` i text rutan **Anslut till URL** och klicka sedan på knappen **Slutför** .
 
     ![Testa enkel inloggning](./media/moconavi-tutorial/testing2.png)
 
-5. Gör följande steg på följande skärmbild:
+5. Utför följande steg på följande skärm bild:
 
     ![Testa enkel inloggning](./media/moconavi-tutorial/testing3.png)
 
-    a. Ange **indataautentiseringsnyckel:**`azureAD` i textrutan **för indataautentiseringsnyckel.**
+    a. Ange **Indataporten nyckel**:`azureAD` i text rutan för **inmatad autentiseringsnyckel** .
 
-    b. Ange **indataanvändar-ID:** `your ad account` i textrutan **För indataanvändar-ID.**
+    b. Ange **indata för användar-ID**: `your ad account` i text rutan för **indata-ID** .
 
-    c. Klicka på **LOGGA IN**.
+    c. Klicka på **Logga in**.
 
-6. Mata in ditt Azure AD-lösenord till **lösenordstextrutan** och klicka sedan på **knappen Logga in.**
+6. Mata **in lösen ords text rutan** för Azure AD-lösenord och klicka sedan på knappen **Logga in** .
 
     ![Testa enkel inloggning](./media/moconavi-tutorial/testing4.png)
 
-7. Azure AD-autentisering lyckas när menyn visas.
+7. Azure AD-autentiseringen lyckas när menyn visas.
 
     ![Testa enkel inloggning](./media/moconavi-tutorial/testing5.png)
 
@@ -223,7 +223,7 @@ I det här avsnittet skapar du en användare som heter Britta Simon i moconavi. 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

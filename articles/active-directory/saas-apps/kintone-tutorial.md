@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Kintone | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Kintone | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kintone.
 services: active-directory
 documentationCenter: na
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 6786b44aca9ceed3cec5daf0f858a51e2dd12833
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74227587"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Självstudiekurs: Azure Active Directory-integrering med Kintone
+# <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Självstudie: Azure Active Directory integrering med Kintone
 
 I den här självstudien får du lära dig hur du integrerar Kintone med Azure Active Directory (Azure AD).
 Genom att integrera Kintone med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Kintone.
-* Du kan aktivera användarna automatiskt inloggade på Kintone (Enkel inloggning) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Kintone (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Kintone behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Kintone enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Kintone-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Kintone stöder **SP** initierade SSO
+* Kintone stöder **SP** -INITIERAd SSO
 
 ## <a name="adding-kintone-from-the-gallery"></a>Lägga till Kintone från galleriet
 
 Om du vill konfigurera integreringen av Kintone i Azure AD måste du lägga till Kintone från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till Kintone från galleriet:**
+**Utför följande steg för att lägga till Kintone från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Kintone i Azure AD måste du lägga till
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Kintone**i sökrutan och välj **Kintone** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **Kintone**, väljer **Kintone** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Kintone i resultatlistan](common/search-new-app.png)
+     ![Kintone i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Kintone baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Kintone upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Kintone baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Kintone upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Kintone måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Kintone i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Kintone Single Sign-On](#configure-kintone-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera Kintone-enkel inloggning](#configure-kintone-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Kintone-testanvändare](#create-kintone-test-user)** – om du vill ha en motsvarighet till Britta Simon i Kintone som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa Kintone test User](#create-kintone-test-user)** – om du vill ha en motsvarighet till Britta Simon i Kintone som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Kintone:
+Utför följande steg för att konfigurera enkel inloggning med Kintone i Azure AD:
 
-1. Välj Enkel inloggning på sidan Kintone-programintegrering på [Azure-portalen](https://portal.azure.com/). **Kintone** **Single sign-on**
+1. Välj **enkel inloggning**på sidan **Kintone** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kintone:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Kintone-domän och webbadresser med enkel inloggning](common/sp-identifier.png)
+    ![Information om enkel inloggning för Kintone-domän och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.kintone.com`
 
@@ -115,13 +115,13 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kintone:
     | `https://<companyname>.kintone.com` |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Kintone Client supportteam](https://www.kintone.com/contact/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Kintone client support team](https://www.kintone.com/contact/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Kintone.**
+6. I avsnittet **Konfigurera Kintone** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -131,21 +131,21 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kintone:
 
     c. Utloggnings-URL
 
-### <a name="configure-kintone-single-sign-on"></a>Konfigurera Enkel inloggning i Kintone
+### <a name="configure-kintone-single-sign-on"></a>Konfigurera Kintone enkel inloggning
 
-1. Logga in på **Kintone-företagets** webbplats som administratör i ett annat webbläsarfönster.
+1. Logga in på din **Kintone** -företags webbplats som administratör i ett annat webbläsarfönster.
 
 1. Klicka på **ikonen Inställningar**.
 
     ![Inställningar](./media/kintone-tutorial/ic785879.png "Inställningar")
 
-1. Klicka på **Användare & Systemadministration**.
+1. Klicka på **användare & system administration**.
 
-    ![Användare & systemadministration](./media/kintone-tutorial/ic785880.png "Användare & systemadministration")
+    ![Användare & system administration](./media/kintone-tutorial/ic785880.png "Användare & system administration")
 
-1. Klicka på **Logga in**under ** \> Systemadministrationssäkerhet** .
+1. Under **system administrations \> säkerhet** klickar du på **Logga in**.
 
-    ![Logga in](./media/kintone-tutorial/ic785881.png "Inloggning")
+    ![Gäst](./media/kintone-tutorial/ic785881.png "Inloggning")
 
 1. Klicka på **Aktivera SAML-autentisering**.
 
@@ -159,7 +159,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kintone:
 
     b. I textrutan för **utloggnings-URL:en** klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
 
-    c. Klicka på **Bläddra** om du vill ladda upp den nedladdade certifikatfilen från Azure-portalen.
+    c. Klicka på **Bläddra** för att ladda upp den hämtade certifikat filen från Azure Portal.
 
     d. Klicka på **Spara**.
 
@@ -171,7 +171,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -190,15 +190,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Kintone.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Kintone.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Kintone**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Kintone**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Kintone**i programlistan .
+2. I listan program väljer du **Kintone**.
 
-    ![Länken Kintone i programlistan](common/all-applications.png)
+    ![Kintone-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -210,55 +210,55 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-kintone-test-user"></a>Skapa Kintone-testanvändare
+### <a name="create-kintone-test-user"></a>Skapa Kintone test användare
 
-Om du vill att Azure AD-användare ska kunna logga in på Kintone måste de etableras i Kintone. När det gäller Kintone är etablering en manuell aktivitet.
+Om du vill att Azure AD-användare ska kunna logga in på Kintone måste de tillhandahållas i Kintone. När det gäller Kintone är etableringen en manuell uppgift.
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Gör följande för att etablera ett användarkonto:
 
-1. Logga in på **Kintone-företagets** webbplats som administratör.
+1. Logga in på din **Kintone** -företags webbplats som administratör.
 
 1. Klicka på **ikonen Inställningar**.
 
     ![Inställningar](./media/kintone-tutorial/ic785879.png "Inställningar")
 
-1. Klicka på **Användare & Systemadministration**.
+1. Klicka på **användare & system administration**.
 
-    ![Användar- & systemadministration](./media/kintone-tutorial/ic785880.png "Användar- & systemadministration")
+    ![Användare & system administration](./media/kintone-tutorial/ic785880.png "Användare & system administration")
 
-1. Klicka på **Avdelningar & användare under** **Användaradministration**.
+1. Under **användar administration**klickar du på **avdelningar & användare**.
 
-    ![Avdelning & användare](./media/kintone-tutorial/ic785888.png "Avdelning & användare")
+    ![Avdelnings & användare](./media/kintone-tutorial/ic785888.png "Avdelnings & användare")
 
 1. Klicka på **Ny användare**.
 
     ![Nya användare](./media/kintone-tutorial/ic785889.png "Nya användare")
 
-1. Gör följande i avsnittet **Ny användare:**
+1. I avsnittet **ny användare** utför du följande steg:
 
     ![Nya användare](./media/kintone-tutorial/ic785890.png "Nya användare")
 
-    a. Skriv ett **visningsnamn,** **inloggningsnamn,** **nytt lösenord,** **bekräfta lösenord,** **e-postadress**och annan information om ett giltigt Azure AD-konto som du vill etablera i relaterade textrutor.
+    a. Ange ett **visnings namn**, **inloggnings namn**, **nytt lösen ord**, **Bekräfta lösen ord**, **e-postadress**och annan information om ett giltigt Azure AD-konto som du vill etablera i de relaterade text rutorna.
 
     b. Klicka på **Spara**.
 
 > [!NOTE]
-> Du kan använda andra verktyg eller API:er för att skapa Kintone för att etablera Azure AD-användarkonton.
+> Du kan använda andra verktyg för Kintone av användar konton eller API: er som tillhandahålls av Kintone för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på kintonepanelen på Åtkomstpanelen bör du automatiskt loggas in på den Kintone som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Kintone på åtkomst panelen, bör du loggas in automatiskt på den Kintone som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

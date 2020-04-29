@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med SAP Cloud Platform | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med SAP Cloud Platform | Microsoft Docs'
 description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP Cloud Platform.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89ea2c45e16dfeb63801f70fa4480c0d865a890f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160080"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Självstudiekurs: Azure Active Directory-integrering med SAP Cloud Platform
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Självstudie: Azure Active Directory integration med SAP Cloud Platform
 
 I den här självstudien får du lära dig hur du integrerar SAP Cloud Platform med Azure Active Directory (Azure AD).
 Integrering av SAP Cloud Platform med Azure AD ger dig följande fördelar:
@@ -33,7 +33,7 @@ Integrering av SAP Cloud Platform med Azure AD ger dig följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -161,7 +161,7 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
 
 3. I avsnittet förtroendehantering under **Lokal tjänstleverantör**, utför du följande steg:
 
-    ![Förtroendehantering](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Förtroendehantering")
+    ![Förtroende hantering](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Förtroende hantering")
    
     a. Klicka på **Redigera**.
 
@@ -189,7 +189,7 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
 
 5. Klicka på fliken **Betrodd identitetsprovider** och sedan på **Lägg till betrodd identitetsprovider**.
    
-    ![Förtroendehantering](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Förtroendehantering")
+    ![Förtroende hantering](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Förtroende hantering")
    
     >[!NOTE]
     >Om du vill hantera listan med betrodda identitetsprovidrar så måste du ha valt typ av anpassad konfiguration i avsnittet lokal tjänstleverantör. Som standardkonfigurationstyp har du ett icke-redigerbart och implicit förtroende till SAP-ID-tjänsten. För Ingen så har du inga förtroendeinställningar.
@@ -198,7 +198,7 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
 
 6. Klicka på **Allmänt**-fliken och sedan på **Bläddra** för att överföra den hämtade metadatafilen.
     
-    ![Förtroendehantering](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Förtroendehantering")
+    ![Förtroende hantering](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Förtroende hantering")
     
     >[!NOTE]
     >När du har överfört metadatafilen så fylls värdena för **URL för enkel inloggning**, **URL för enkel utloggning** och **Signeringscertifikat** i automatiskt.
@@ -244,7 +244,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -254,7 +254,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -283,7 +283,7 @@ I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure ge
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -301,7 +301,7 @@ För att låta Azure AD-användare logga in till SAP Cloud Platform så måste d
    
     a. Klicka på **Auktorisering**.
 
-    b. Klicka på fliken **Användare.**
+    b. Klicka på fliken **användare** .
 
     c. I textrutan **Användare** så skriver du in användarens e-postadress.
 
@@ -319,7 +319,7 @@ När du klickar på SAP Cloud Platform-panelen i åtkomstpanelen så bör du aut
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

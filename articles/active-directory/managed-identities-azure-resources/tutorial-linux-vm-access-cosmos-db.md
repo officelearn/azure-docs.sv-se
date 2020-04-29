@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs`:`Använd en hanterad identitet för att komma åt Azure Cosmos DB - Linux - Azure AD
+title: Självstudie`:`Använd en hanterad identitet för att få åtkomst till Azure Cosmos DB – Linux – Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f15a269656f205b0acb6a49740dd4c625c0bdd41
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78248285"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Cosmos DB 
@@ -67,7 +67,7 @@ Lägg till en datasamling till Cosmos DB-kontot som du kan skicka frågor mot i 
 
 ## <a name="retrieve-the-principalid-of-the-linux-vms-system-assigned-managed-identity"></a>Hämta `principalID` för den virtuella Linux-datorns systemtilldelade hanterade identitet
 
-För att få åtkomst till åtkomstnycklarna för Cosmos DB-kontot från Resource Manager i följande avsnitt måste du hämta `principalID` för den virtuella Linux-datorns systemtilldelade hanterade identitet.  Var noga med `<SUBSCRIPTION ID>` `<RESOURCE GROUP>` att ersätta , (resursgrupp där `<VM NAME>` den virtuella datorn finns) och parametervärden med dina egna värden.
+För att få åtkomst till åtkomstnycklarna för Cosmos DB-kontot från Resource Manager i följande avsnitt måste du hämta `principalID` för den virtuella Linux-datorns systemtilldelade hanterade identitet.  Se till att ersätta `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resurs gruppen där den virtuella datorn finns) och `<VM NAME>` parameter värden med dina egna värden.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01

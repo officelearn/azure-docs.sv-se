@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Bevilja användaråtkomst till Azure-resurser med RBAC och Azure-portalen '
-description: I den här självstudien kan du lära dig hur du ger en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure-portalen.
+title: 'Självstudie: bevilja användar åtkomst till Azure-resurser med RBAC och Azure Portal '
+description: I den här självstudien får du lära dig att ge en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) i Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
 ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77138096"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Självstudiekurs: Bevilja en användare åtkomst till Azure-resurser med HJÄLP AV RBAC och Azure-portalen
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal
 
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. I den här självstudien ger du en användare behörighet att skapa och hantera virtuella datorer i en resursgrupp.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Bevilja åtkomst för en användare i ett resursgruppomfång
@@ -68,7 +68,7 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar.
 
    ![Bladet Åtkomstkontroll (IAM) för resursgruppen](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Klicka på **Lägg** > **till till rolltilldelning** för att öppna fönstret Lägg till rolltilldelning.
+1. Klicka på **Lägg** > till**Lägg till roll tilldelning** för att öppna fönstret Lägg till roll tilldelning.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
@@ -115,4 +115,4 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Bevilja en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)

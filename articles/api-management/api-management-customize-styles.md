@@ -1,5 +1,5 @@
 ---
-title: Anpassa sidformat på api management äldre utvecklarportal
+title: Anpassa sid format på API Management äldre utvecklings Portal
 titleSuffix: Azure API Management
 description: Följ stegen i den här snabbstarten för att anpassa stilen för elementen i utvecklarportalen för Azure API Management.
 services: api-management
@@ -15,21 +15,21 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75430737"
 ---
-# <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklarportalsidorna
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklings portalens sidor
 
-Det finns tre vanligaste sätten att anpassa utvecklarportalen i Azure API Management:
+Det finns tre vanligaste sätt att anpassa Developer-portalen i Azure API Management:
  
 * [Redigera innehållet på statiska sidor och sidlayoutelement](api-management-modify-content-layout.md)
 * Uppdatera stilarna som används för sidelement i utvecklarportalen (förklaras i den här guiden)
 * [Ändra mallarna som används för sidor som genereras av portalen](api-management-developer-portal-templates.md) (t.ex. API-dokumentation, produkter, användarautentisering)
 
-I den här artikeln får du lära dig hur du anpassar elementens stil på sidor i den äldre **utvecklarportalen** och visar dina ändringar.
+I den här artikeln får du lära dig hur du anpassar formatet för element på sidor i den äldre **Developer** -portalen och ser dina ändringar.
 
 ![anpassa stil](./media/modify-developer-portal-style/developer_portal.png)
 
@@ -40,13 +40,13 @@ I den här artikeln får du lära dig hur du anpassar elementens stil på sidor 
 ## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
-+ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
++ Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + Slutför även följande självstudie: [Importera och publicera ditt första API](import-and-publish.md).
 
-## <a name="customize-the-developer-portal"></a>Anpassa utvecklarportalen
+## <a name="customize-the-developer-portal"></a>Anpassa Developer-portalen
 
 1. Välj **Översikt**.
-2. Klicka på knappen **Utvecklarportal (äldre)** högst upp i **översiktsfönstret.**
+2. Klicka på knappen **Developer portal (bakåtkompatibelt)** överst i **översikts** fönstret.
 3. Upptill på den vänstra sidan av skärmen visas en ikon med två penslar. Hovra över ikonen för att öppna menyn för anpassning av portalen.
 
     ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
@@ -55,11 +55,11 @@ I den här artikeln får du lära dig hur du anpassar elementens stil på sidor 
     Alla element som du kan anpassa med **stilar** visas på sidan
 5. Ange färg för rubriker i fältet **Change variable values to customize developer portal appearance:** (Anpassa variabelvärden för att anpassa utvecklarportalens utseende).
 
-    Elementet för ** \@rubriker och färg** visas på sidan. Den här variabeln anger färgen på texten.
+    Rubrik-färg-elementet visas på sidan. ** \@** Den här variabeln anger färgen på texten.
 
     ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Klicka på fältet för ** \@variabeln rubriker-färg.** 
+6. Klicka på fältet för ** \@rubrik-färg-** variabeln. 
     
     En nedrullningsbar meny för val av färg öppnas.
 7. Välj en ny färg i den nedrullningsbara menyn för val av färg.
@@ -72,7 +72,7 @@ I den här artikeln får du lära dig hur du anpassar elementens stil på sidor 
 
 ## <a name="view-your-change"></a>Visa din ändring
 
-1. Navigera till utvecklarportalen.
+1. Gå till Developer-portalen.
 2. Ändringen du gjorde visas.
 
 ## <a name="next-steps"></a>Nästa steg

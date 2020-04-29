@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med AskYourTeam | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AskYourTeam | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AskYourTeam.
 services: active-directory
 documentationCenter: na
@@ -16,177 +16,177 @@ ms.date: 02/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 403f39de1b7d226d9feeb33388c32f63271fdcd6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78968554"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med AskYourTeam
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AskYourTeam
 
 I den här självstudien får du lära dig hur du integrerar AskYourTeam med Azure Active Directory (Azure AD). När du integrerar AskYourTeam med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till AskYourTeam.
-* Gör att användarna automatiskt loggas in på AskYourTeam med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till AskYourTeam med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Fråga AourTeam enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* AskYourTeam för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* AskYourTeam stöder **SP och IDP** initierade SSO.
-* När du har konfigurerat AskYourTeam kan du framtvinga sessionskontroll, som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* AskYourTeam stöder **SP-och IDP** -initierad SSO.
+* När du har konfigurerat AskYourTeam kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-askyourteam-from-the-gallery"></a>Lägga till AskYourTeam från galleriet
 
 Om du vill konfigurera integreringen av AskYourTeam i Azure AD måste du lägga till AskYourTeam från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **AskYourTeam** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Fråga DittTeam** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **AskYourTeam** i sökrutan.
+1. Välj **AskYourTeam** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-askyourteam"></a>Konfigurera och testa en azure AD-inloggning för AskYourTeam
+## <a name="configure-and-test-azure-ad-single-sign-on-for-askyourteam"></a>Konfigurera och testa enkel inloggning med Azure AD för AskYourTeam
 
-Konfigurera och testa Azure AD SSO med AskYourTeam med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i AskYourTeam.
+Konfigurera och testa Azure AD SSO med AskYourTeam med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i AskYourTeam.
 
-Så här konfigurerar och testar du Azure AD SSO med AskYourTeam:
+Om du vill konfigurera och testa Azure AD SSO med AskYourTeam, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera AskYourTeam SSO](#configure-askyourteam-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    * **[Skapa AskYourTeam-testanvändare](#create-askyourteam-test-user)** – om du vill ha en motsvarighet till B.Simon i AskYourTeam som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera ASKYOURTEAM SSO](#configure-askyourteam-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Skapa AskYourTeam test User](#create-askyourteam-test-user)** -om du vill ha en motsvarighet till B. Simon i AskYourTeam som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet **Hantera** på sidan **AskYourTeam-programintegration** i [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **AskYourTeam** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<COMPANY>.app.askyourteam.com/users/auth/saml/callback`
+    Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<COMPANY>.app.askyourteam.com/users/auth/saml/callback`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<COMPANY>.app.askyourteam.com/login`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<COMPANY>.app.askyourteam.com/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska svars-URL:en och inloggnings-URL-värden som förklaras senare i självstudien.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska svars-URL: en och inloggnings-URL-värden som beskrivs senare i självstudien.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **Certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera AskYourTeam** baserat på dina krav.
+1. I avsnittet **Konfigurera AskYourTeam** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till AskYourTeam.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till AskYourTeam.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **AskYourTeam**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **AskYourTeam**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ## <a name="configure-askyourteam-sso"></a>Konfigurera AskYourTeam SSO
 
-1. I ett annat webbläsarfönster loggar du in på AskYourTeams webbplats som administratör.
+1. Logga in på AskYourTeam-webbplatsen som administratör i ett annat webbläsarfönster.
 
-1. Klicka på **Min organisation**.
+1. Klicka på **min organisation**.
 
-    ![Konfigurera AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/user1.png)
 
-1. Klicka på **Integrationer**.
+1. Klicka på **integreringar**.
 
-    ![Konfigurera AskYourTeam](./media/askyourteam-tutorial/configure1.png)
+    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/configure1.png)
 
 1. Klicka på **Redigera inställningar**.
 
-    ![Konfigurera AskYourTeam](./media/askyourteam-tutorial/configure2.png)
+    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/configure2.png)
 
-1. Gör följande på sidan **Redigera enkel inloggningsintegration:** 
+1. Utför följande steg på sidan **Redigera enkel inloggnings integrering** : 
 
-    ![Konfigurera AskYourTeam](./media/askyourteam-tutorial/configure3.png)
+    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/configure3.png)
 
-    a. Klistra in url-värdet **för inloggning** som du har kopierat från Azure-portalen i **SMS:en.**
+    a. I text rutan för **SAML-tjänsten för enkel inloggnings-URL** klistrar du in URL-värdet för **inloggning** som du har kopierat från Azure Portal.
 
-    b. I **SMS:ens-ID-textrutan för SAML** klistrar du in azure **AD-identifierare** som du har kopierat från Azure-portalen.
+    b. I text rutan **SAML-entitets-ID** klistrar du in det ID-värde för **Azure AD** som du har kopierat från Azure Portal.
 
-    c. I textrutan **Utloggning av URL:en** klistrar du in **url-värdet för utloggning** som du har kopierat från Azure-portalen.
+    c. I text rutan för utloggnings **-URL** klistrar du in URL-värdet för **utloggning** som du har kopierat från Azure Portal.
 
-    d. Öppna det nedladdade **certifikatet (Base64)** från Azure-portalen i Anteckningar och klistra in innehållet i **SMS-signeringscertifikatet - Base64-textrutan.**
+    d. Öppna det hämtade **certifikatet (base64)** från Azure Portal i anteckningar och klistra in innehållet i text rutan för **SAML-signerings certifikat – base64** .
 
     > [!NOTE]
-    > Du kan också ladda upp **XML-filen federationsmetadata** genom att klicka på alternativet **Välj fil.**
+    > Alternativt kan du också ladda upp **XML-** filen med federationsmetadata genom att klicka på alternativet **Välj fil** .
 
-    e. Kopiera **url-värde för svar (Kontroll konsumenttjänst),** klistra in det här värdet i textrutan **Svara URL** i avsnittet Grundläggande **SAML-konfiguration** i Azure-portalen.
+    e. Kopiera **svars-URL (intyg om mottagar tjänstens URL)** värde, klistra in det här värdet i text rutan **SVARs-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    f. Kopiera **värdet för inloggnings-URL,klistra** in det här värdet i textrutan **Logga in på URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    f. Kopiera **inloggnings-URL** -värde, klistra in det här värdet i text rutan **INLOGGNINGs-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
     g. Klicka på **Spara**.
 
-### <a name="create-askyourteam-test-user"></a>Skapa AskYourTeam-testanvändare
+### <a name="create-askyourteam-test-user"></a>Skapa AskYourTeam test användare
 
-1. I ett annat webbläsarfönster loggar du in på AskYourTeams webbplats som administratör.
+1. Logga in på AskYourTeam-webbplatsen som administratör i ett annat webbläsarfönster.
 
-1. Klicka på **Min organisation**.
+1. Klicka på **min organisation**.
 
-    ![Konfigurera AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/user1.png)
 
-1. Klicka på **Användare** och välj **Ny användare**.
+1. Klicka på **användare** och välj **ny användare**.
 
-    ![Konfigurera AskYourTeam](./media/askyourteam-tutorial/user2.png)
+    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/user2.png)
 
-1. Gör följande i avsnittet **Ny användare:**
+1. Utför följande steg i avsnittet **ny användare** :
 
-    ![Konfigurera AskYourTeam](./media/askyourteam-tutorial/user3.png)
+    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/user3.png)
 
-    1. Ange användarens förnamn i textrutan **Förnamn.**
+    1. I text rutan för det **första namnet** anger du användarens förnamn.
 
-    1. Ange användarens efternamn i textrutan **Efternamn.**
+    1. I text rutan **efter namn** anger du användarens efter namn.
 
-    1. I **textrutan E-post** anger du e-postadressen för användaren som B.Simon@contoso.com.
+    1. I text rutan för **e-post** anger du EmailAddress för den B.Simon@contoso.comanvändare som.
 
     1. Välj **rollen** för användaren enligt organisationens krav.
 
@@ -196,7 +196,7 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen AskYourTeam på åtkomstpanelen ska du automatiskt loggas in på den AskYourTeam som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen AskYourTeam på åtkomst panelen, bör du loggas in automatiskt på den AskYourTeam som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -208,4 +208,4 @@ När du klickar på panelen AskYourTeam på åtkomstpanelen ska du automatiskt l
 
 - [Prova AskYourTeam med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

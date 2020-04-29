@@ -1,29 +1,29 @@
 ---
-title: Övervaka ett service fabric-kluster i Azure
-description: I den här självstudien får du lära dig hur du övervakar ett kluster genom att visa Service Fabric-händelser, frågar eventstore-API:erna, övervakar perf-räknare och visar hälsorapporter.
+title: Övervaka ett Service Fabric kluster i Azure
+description: 'I den här självstudien får du lära dig hur du övervakar ett kluster genom att Visa Service Fabric händelser, fråga EventStore-API: er, övervaka prestanda räknare och Visa hälso rapporter.'
 author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
 ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75376638"
 ---
-# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Självstudiekurs: Övervaka ett service fabric-kluster i Azure
+# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Självstudie: övervaka ett Service Fabric kluster i Azure
 
-Övervakning och diagnostik är avgörande för att utveckla, testa och distribuera arbetsbelastningar i alla molnmiljöer. Den här självstudien är del två i en serie och visar hur du övervakar och diagnostiserar ett Service Fabric-kluster med hjälp av händelser, prestandaräknare och hälsorapporter.   Mer information finns i översikten om [klusterövervakning](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) och [övervakning av infrastruktur](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
+Övervakning och diagnostik är avgörande för att utveckla, testa och distribuera arbets belastningar i valfri moln miljö. Den här självstudien är del två i en serie och visar hur du övervakar och diagnostiserar ett Service Fabric kluster med hjälp av händelser, prestanda räknare och hälso rapporter.   Mer information finns i översikten om övervakning av [kluster](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) och [övervakning av infrastruktur](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Visa service fabric-händelser
-> * Api:er för Frågehändelseaffärer för klusterhändelser
-> * Övervaka infrastruktur/samla in perf-räknare
-> * Visa hälsorapporter för kluster
+> * Visa Service Fabric händelser
+> * Fråga EventStore-API: er för kluster händelser
+> * Övervaka infrastruktur/samla in prestanda räknare
+> * Visa kluster hälso rapporter
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
@@ -41,53 +41,53 @@ I den här självstudieserien får du lära du dig att:
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installera [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
+* Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
-* Installationsdiagnostiksamling för [klustret](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor)
+* Konfigurera [diagnostik-samling](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) för klustret
 * Aktivera [EventStore-tjänsten](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) i klustret
-* Konfigurera [Azure Monitor-loggar och Log Analytics-agenten](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureloganalytics_anchor) för klustret
+* Konfigurera [Azure Monitor loggar och Log Analytics agent](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureloganalytics_anchor) för klustret
 
-## <a name="view-service-fabric-events-using-azure-monitor-logs"></a>Visa tjänst fabric-händelser med Hjälp av Azure Monitor-loggar
+## <a name="view-service-fabric-events-using-azure-monitor-logs"></a>Visa Service Fabric händelser med hjälp av Azure Monitor loggar
 
-Azure Monitor loggar samlar in och analyserar telemetri från program och tjänster som finns i molnet och tillhandahåller analysverktyg som hjälper dig att maximera deras tillgänglighet och prestanda. Du kan köra frågor i Azure Monitor-loggar för att få insikter och felsöka vad som händer i klustret.
+Azure Monitor loggar samlar in och analyserar telemetri från program och tjänster som finns i molnet och tillhandahåller analys verktyg som hjälper dig att maximera deras tillgänglighet och prestanda. Du kan köra frågor i Azure Monitor loggar för att få insikter och felsöka vad som händer i klustret.
 
-Om du vill komma åt Service Fabric Analytics-lösningen går du till [Azure-portalen](https://portal.azure.com) och väljer den resursgrupp där du skapade Service Fabric Analytics-lösningen.
+Om du vill komma åt Service Fabric-analys-lösningen går du till [Azure Portal](https://portal.azure.com) och väljer den resurs grupp där du skapade Service Fabric-analyss lösningen.
 
-Välj **resursen ServiceFabric(mysfomsworkspace)**.
+Välj resurs **-ServiceFabric (mysfomsworkspace)**.
 
-I **Översikt** visas paneler i form av ett diagram för var och en av de lösningar som är aktiverade, inklusive en för Service Fabric. Klicka på diagrammet **Service Fabric** om du vill fortsätta till Service Fabric Analytics-lösningen.
+I **Översikt** ser du paneler i form av en graf för var och en av de lösningar som är aktiverade, inklusive en för Service Fabric. Fortsätt till Service Fabric-analys-lösningen genom att klicka på **Service Fabric** graf.
 
-![Service Fabric-lösning](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Service Fabric lösning](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
-Följande bild visar startsidan för Service Fabric Analytics-lösningen. Den här startsidan innehåller en ögonblicksbild av vad som händer i klustret.
+Följande bild visar Service Fabric-analys lösningens start sida. Den här start sidan innehåller en Snapshot-vy över vad som händer i klustret.
 
-![Service Fabric-lösning](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
+![Service Fabric lösning](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
 
- Om du har aktiverat diagnostik när du skapar kluster kan du se händelser för 
+ Om du har aktiverat diagnostik när klustret har skapats kan du se händelser för 
 
-* [Klusterhändelser för service fabric](service-fabric-diagnostics-event-generation-operational.md)
-* [Tillförlitliga aktörer programmering modell händelser](service-fabric-reliable-actors-diagnostics.md)
-* [Reliable Services programmeringsmodellhändelser](service-fabric-reliable-services-diagnostics.md)
+* [Service Fabric kluster händelser](service-fabric-diagnostics-event-generation-operational.md)
+* [Reliable Actors programmerings modell händelser](service-fabric-reliable-actors-diagnostics.md)
+* [Reliable Services programmerings modell händelser](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Förutom Service Fabric-händelserna direkt kan mer detaljerade systemhändelser samlas in genom [att uppdatera konfigurationen av diagnostiktillägget](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
+>Utöver Service Fabric-händelser i rutan kan mer detaljerade system händelser samlas in genom att [du uppdaterar konfigurationen av tillägget för diagnostik](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visa händelser för serviceinfrastruktur, inklusive åtgärder på noder
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visa Service Fabric händelser, inklusive åtgärder på noder
 
-På sidan Service Fabric Analytics klickar du på diagrammet för **klusterhändelser**.  Loggarna för alla systemhändelser som har samlats in visas. Som referens kommer dessa från **WADServiceFabricSystemEventsTable** i Azure Storage-kontot, och på samma sätt kommer de tillförlitliga tjänster och aktörer som visas härnäst från respektive tabeller.
+På sidan Service Fabric-analys klickar du på grafen för **kluster händelser**.  Loggarna för alla system händelser som har samlats in visas. För referens är dessa från **WADServiceFabricSystemEventsTable** i Azure Storage-kontot, och på samma sätt som de Reliable Services-och skådespelare-händelser som du ser härnäst kommer du från respektive tabell.
     
-![Operativ kanal för fråga](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
+![Frågans operativa kanal](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
-Frågan använder frågespråket Kusto, som du kan ändra för att förfina det du letar efter. Om du till exempel vill hitta alla åtgärder som vidtas på noder i klustret kan du använda följande fråga. Händelse-ID:erna som används nedan finns i [referensen för operativa kanalhändelser](service-fabric-diagnostics-event-generation-operational.md).
+Frågan använder Kusto-frågespråket, som du kan ändra för att förfina det du söker. Om du till exempel vill hitta alla åtgärder som vidtas på noder i klustret kan du använda följande fråga. De händelse-ID: n som används nedan finns i [referens för drift kanal händelser](service-fabric-diagnostics-event-generation-operational.md).
 
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId < 25627 and EventId > 25619 
 ```
 
-Kusto-frågespråket är kraftfullt. Här är några andra användbara frågor.
+Frågespråket för Kusto är kraftfullt. Här är några andra användbara frågor.
 
-Skapa en *ServiceFabricEvent-uppslagstabell* som användardefinierad funktion genom att spara frågan som en funktion med alias ServiceFabricEvent:
+Skapa en *ServiceFabricEvent* lookup-tabell som användardefinierad funktion genom att spara frågan som en funktion med alias ServiceFabricEvent:
 
 ```kusto
 let ServiceFabricEvent = datatable(EventId: int, EventName: string)
@@ -100,7 +100,7 @@ let ServiceFabricEvent = datatable(EventId: int, EventName: string)
 ServiceFabricEvent
 ```
 
-Operativa returhändelser som registrerats under den senaste timmen:
+Returnera drift händelser som registrerats under den senaste timmen:
 ```kusto
 ServiceFabricOperationalEvent
 | where TimeGenerated > ago(1h)
@@ -109,7 +109,7 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated
 ```
 
-Returoperationshändelser med EventId == 18604 och EventName == 'NodeDownOperational':
+Returnera drift händelser med EventId = = 18604 och EventName = = ' NodeDownOperational ':
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId == 18604
@@ -117,7 +117,7 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated 
 ```
 
-Returoperationshändelser med EventId == 18604 och EventName == 'NodeUpOperational':
+Returnera drift händelser med EventId = = 18604 och EventName = = ' NodeUpOperational ':
 ```kusto
 ServiceFabricOperationalEvent
 | where EventId == 18603
@@ -125,7 +125,7 @@ ServiceFabricOperationalEvent
 | sort by TimeGenerated 
 ``` 
  
-Returnerar hälsorapporter med HealthState == 3 (Fel) och extraherar ytterligare egenskaper från fältet EventMessage:
+Returnerar hälso rapporter med hälso tillstånd = = 3 (fel) och extraherar ytterligare egenskaper från fältet EventMessage:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -150,7 +150,7 @@ ServiceFabricOperationalEvent
          StatefulReplica = extract(@"StatefulReplica=(\S+) ", 1, EventMessage, typeof(string))
 ```
 
-Returnera ett tidsschema över händelser med EventId != 17523:
+Returnera ett tids diagram med händelser med EventId! = 17523:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -160,7 +160,7 @@ ServiceFabricOperationalEvent
 | render timechart 
 ```
 
-Hämta drifthändelser för Service Fabric som aggregeras med den specifika tjänsten och noden:
+Hämta Service Fabric operativa händelser som sammanställs med den angivna tjänsten och noden:
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -168,7 +168,7 @@ ServiceFabricOperationalEvent
 | summarize AggregatedValue = count() by ApplicationName, ServiceName, Computer 
 ```
 
-Rendera antalet Service Fabric-händelser efter EventId/EventName med hjälp av en resursfråga:
+Rendera antalet Service Fabric händelser av EventId/EventName med en kors resurs fråga:
 
 ```kusto
 app('PlunkoServiceFabricCluster').traces
@@ -181,21 +181,21 @@ app('PlunkoServiceFabricCluster').traces
 | render timechart
 ```
 
-### <a name="view-service-fabric-application-events"></a>Visa programhändelser för Service Fabric
+### <a name="view-service-fabric-application-events"></a>Visa Service Fabric program händelser
 
-Du kan visa händelser för tillförlitliga tjänster och tillförlitliga aktörsprogram som distribueras i klustret.  Klicka på diagrammet för **programhändelser**på sidan Service Fabric Analytics .
+Du kan visa händelser för de Reliable Services-och pålitliga skådespelare-program som distribueras i klustret.  På sidan Service Fabric-analys klickar du på grafen för **program händelser**.
 
-Kör följande fråga för att visa händelser från dina tillförlitliga tjänsteprogram:
+Kör följande fråga för att visa händelser från dina Reliable Services-program:
 ```kusto
 ServiceFabricReliableServiceEvent
 | sort by TimeGenerated desc
 ```
 
-Du kan se olika händelser för när tjänsten runasync startas och slutförs som vanligtvis sker på distributioner och uppgraderingar.
+Du kan se olika händelser för när tjänsten runasync har startats och slutförts, vilket vanligt vis sker vid distributioner och uppgraderingar.
 
-![Tillförlitliga tjänster för serviceinfrastruktur](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
+![Service Fabric lösning Reliable Services](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
 
-Du kan också hitta händelser för den tillförlitliga tjänsten med ServiceName == "fabric:/Watchdog/WatchdogService":
+Du kan också hitta händelser för den tillförlitliga tjänsten med ServiceName = = "Fabric:/övervaknings enhet/WatchdogService":
 
 ```kusto
 ServiceFabricReliableServiceEvent
@@ -204,13 +204,13 @@ ServiceFabricReliableServiceEvent
 | order by TimeGenerated desc  
 ```
  
-Tillförlitliga skådespelare händelser kan ses på ett liknande sätt:
+Pålitliga aktörs händelser kan visas på liknande sätt:
 
 ```kusto
 ServiceFabricReliableActorEvent
 | sort by TimeGenerated desc
 ```
-Om du vill konfigurera mer detaljerade `scheduledTransferKeywordFilter` händelser för tillförlitliga aktörer kan du ändra konfigurationen för diagnostiktillägget i klustermallen. Detaljer om värdena för dessa finns i referensen för [tillförlitliga aktörer händelser](service-fabric-reliable-actors-diagnostics.md#keywords).
+Om du vill konfigurera mer detaljerade händelser för tillförlitliga aktörer kan du ändra `scheduledTransferKeywordFilter` i konfigurationen för diagnostiskt tillägg i kluster mal len. Information om värdena för dessa finns i [händelse referens för pålitliga aktörer](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -224,25 +224,25 @@ Om du vill konfigurera mer detaljerade `scheduledTransferKeywordFilter` händels
                 },
 ```
 
-## <a name="view-performance-counters-with-azure-monitor-logs"></a>Visa prestandaräknare med Azure Monitor-loggar
-Om du vill visa prestandaräknare går du till [Azure-portalen](https://portal.azure.com) och resursgruppen där du skapade Service Fabric Analytics-lösningen. 
+## <a name="view-performance-counters-with-azure-monitor-logs"></a>Visa prestanda räknare med Azure Monitor loggar
+Om du vill visa prestanda räknare går du till [Azure Portal](https://portal.azure.com) och resurs gruppen där du skapade Service Fabric-analys-lösningen. 
 
-Välj **resurstjänsten ServiceFabric(mysfomsworkspace)** och logga sedan **analytics-arbetsytan**och sedan **avancerade inställningar**.
+Välj resurs- **ServiceFabric (mysfomsworkspace)**, sedan **Log Analytics arbets yta**och sedan **Avancerade inställningar**.
 
-Klicka på **Data**och sedan på **Windows prestandaräknare**. Det finns en lista över standardräknare som du kan välja att aktivera och du kan också ange intervallet för samlingen. Du kan också lägga till [ytterligare prestandaräknare](service-fabric-diagnostics-event-generation-perf.md) att samla in. Rätt format refereras i den här [artikeln](/windows/desktop/PerfCtrs/specifying-a-counter-path). Klicka på **Spara**och sedan på **OK**.
+Klicka på **data**och sedan på **Windows prestanda räknare**. Det finns en lista med standard räknare som du kan välja att aktivera och du kan ange intervallet för samling. Du kan också lägga till [ytterligare prestanda räknare](service-fabric-diagnostics-event-generation-perf.md) som ska samlas in. Rätt format refereras till i den här [artikeln](/windows/desktop/PerfCtrs/specifying-a-counter-path). Klicka på **Spara**och sedan på **OK**.
 
-Stäng bladet Avancerade inställningar och välj **Sammanfattning av arbetsytan** under rubriken **Allmänt.** För var och en av de lösningar som är aktiverade finns en grafisk panel, inklusive en för Service Fabric. Klicka på diagrammet **Service Fabric** om du vill fortsätta till Service Fabric Analytics-lösningen.
+Stäng bladet avancerade inställningar och välj **Sammanfattning för arbets yta** under rubriken **Allmänt** . För var och en av de lösningar som har Aktiver ATS finns det en grafisk panel, inklusive en för Service Fabric. Fortsätt till Service Fabric-analys-lösningen genom att klicka på **Service Fabric** graf.
 
-Det finns grafiska paneler för operativ kanal och tillförlitliga tjänster händelser. Den grafiska representationen av data som flödar in för de räknare som du har valt visas under **Nod Metrics**. 
+Det finns grafiska paneler för drift kanal och Reliable Services-händelser. Den grafiska åter givningen av de data som flödar in för de räknare du har valt visas under **Node-mått**. 
 
-Välj diagrammet **Behållarmått** om du vill se ytterligare information. Du kan också fråga på prestandaräknaredata på samma sätt som klusterhändelser och filtrera på noderna, perf-räknarens namn och värden med hjälp av Frågespråket Kusto.
+Välj diagrammet **container mått** om du vill visa mer information. Du kan också fråga om prestanda räknar data på liknande sätt som kluster händelser och filter på noderna, prestanda räknarens namn och värden med hjälp av Kusto-frågespråket.
 
-## <a name="query-the-eventstore-service"></a>Fråga eventstore-tjänsten
-[EventStore-tjänsten](service-fabric-diagnostics-eventstore.md) är ett sätt att förstå tillståndet för klustret eller arbetsbelastningarna vid en viss tidpunkt. EventStore är en tillståndskänslig Service Fabric-tjänst som underhåller händelser från klustret. Händelserna exponeras via [Service Fabric Explorer,](service-fabric-visualizing-your-cluster.md)REST och API:er. EventStore frågar klustret direkt för att hämta diagnostikdata på alla entiteter i klustret Om du vill se en fullständig lista över händelser som är tillgängliga i EventStore läser du [Service Fabric-händelser](service-fabric-diagnostics-event-generation-operational.md).
+## <a name="query-the-eventstore-service"></a>Fråga EventStore-tjänsten
+[EventStore-tjänsten](service-fabric-diagnostics-eventstore.md) är ett sätt att förstå tillstånd för ditt kluster eller arbets belastningar vid en viss tidpunkt. EventStore är en tillstånds känslig Service Fabric tjänst som upprätthåller händelser från klustret. Händelserna exponeras via [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), rest och API: er. EventStore frågar klustret direkt för att hämta diagnostikdata för valfri entitet i klustret för att se en fullständig lista över händelser som är tillgängliga i EventStore, se [Service Fabric händelser](service-fabric-diagnostics-event-generation-operational.md).
 
-EventStore-API:erna kan efterfrågas programmässigt med hjälp av [service fabric-klientbiblioteket](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+EventStore-API: er kan frågas program mässigt med hjälp av [Service Fabric klient biblioteket](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
-Här är en exempelbegäran för alla klusterhändelser mellan 2018-04-03T18:00:00Z och 2018-04-04T18:00:00Z, via funktionen GetClusterEventListAsync.
+Här är en exempel förfrågan för alla kluster händelser mellan 2018-04-03T18:00:00Z och 2018-04-04T18:00:00Z, via GetClusterEventListAsync-funktionen.
 
 ```csharp
 var sfhttpClient = ServiceFabricClientFactory.Create(clusterUrl, settings);
@@ -255,7 +255,7 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
     .ToList();
 ```
 
-Här är ett annat exempel som frågar efter klusterhälsan och alla nodhändelser i september 2018 och skriver ut dem.
+Här är ett annat exempel som frågar efter kluster hälsa och alla noder i september 2018 och skriver ut dem.
 
 ```csharp
 const int timeoutSecs = 60;
@@ -294,19 +294,19 @@ foreach (var nodeEvent in nodesEvents)
 ```
 
 
-## <a name="monitor-cluster-health"></a>Övervaka klusterhälsa
-Service Fabric introducerar en [hälsomodell](service-fabric-health-introduction.md) med hälsoentiteter på vilka systemkomponenter och watchdogs kan rapportera lokala förhållanden som de övervakar. [Hälsoarkivet](service-fabric-health-introduction.md#health-store) sammanställer alla hälsodata för att avgöra om entiteter är felfria.
+## <a name="monitor-cluster-health"></a>Övervaka kluster hälsa
+Service Fabric introducerar en [hälso modell](service-fabric-health-introduction.md) med hälsoentiteter där system komponenter och övervaknings enheter kan rapportera lokala villkor som de övervakar. [Hälso arkivet](service-fabric-health-introduction.md#health-store) sammanställer alla hälso data för att avgöra om entiteterna är felfria.
 
-Klustret fylls automatiskt med hälsorapporter som skickas av systemkomponenterna. Läs mer på [Använd systemhälsorapporter för felsökning](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Klustret fylls i automatiskt med hälso rapporter som skickas av system komponenterna. Felsök genom att läsa mer i [använda system hälso rapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric exponerar hälsofrågor för var och en av de [entitetstyper](service-fabric-health-introduction.md#health-entities-and-hierarchy)som stöds . De kan nås via API: et med metoder på [FabricClient.HealthManager,](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet)PowerShell-cmdlets och REST. Dessa frågor returnerar fullständig hälsoinformation om entiteten: aggregerat hälsotillstånd, entitetshälsohändelser, underordnade hälsotillstånd (i förekommande fall), felaktiga utvärderingar (när entiteten inte är felfri) och barnhälsostatistik (när tillämpliga).
+Service Fabric exponerar hälso frågor för var och en av de [typer av enheter](service-fabric-health-introduction.md#health-entities-and-hierarchy)som stöds. De kan nås via API: et med metoder på [FabricClient. HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell-cmdletar och rest. Dessa frågor returnerar fullständig hälso information om entiteten: det sammanställda hälso tillståndet, hälso tillstånds händelser för enheter, underordnade hälso tillstånd (i förekommande fall), felaktiga utvärderingar (om enheten inte är felfri) och hälso statistik för barn (i förekommande fall).
 
-### <a name="get-cluster-health"></a>Hämta klusterhälsa
-[Cmdlet Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) returnerar hälsotillståndet för klusterentiteten och innehåller hälsotillstånden för program och noder (underordnade kluster).  Anslut först till klustret med [cmdleten Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+### <a name="get-cluster-health"></a>Hämta kluster hälsa
+[Cmdleten Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) returnerar hälso tillståndet för entiteten kluster och innehåller hälso tillståndet för program och noder (underordnade kluster).  Anslut först till klustret med hjälp av [cmdleten Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
 
-Klustrets tillstånd är 11 noder, systemprogrammet och infrastruktur:/Röstning konfigurerad enligt beskrivningen.
+Klustrets tillstånd är 11 noder, system programmet och infrastruktur resursen:/röstning som kon figurer ATS enligt beskrivningen.
 
-I följande exempel får klusterhälsan genom att använda standardhälsoprinciper. 11-noderna är felfria men klustret aggregerade hälsotillstånd är Fel eftersom fabric:/voting-programmet är i fel. Observera hur de felaktiga utvärderingarna innehåller information om de villkor som utlöste den aggregerade hälsan.
+I följande exempel får du kluster hälsa genom att använda standard hälso principer. 11 noderna är felfria men det sammansatta hälso tillståndet är ett fel på grund av att programmet Fabric:/röstning är fel. Observera att utvärderings kraven ger information om de villkor som utlöste den aggregerade hälsan.
 
 ```powershell
 Get-ServiceFabricClusterHealth
@@ -381,7 +381,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 0 Warning, 1 Error
 ```
 
-Följande exempel hämtar klustrets hälsotillstånd med hjälp av en anpassad programprincip. Den filtrerar resultat för att bara få program och noder i fel eller varning. I det här exemplet returneras inga noder, eftersom de alla är felfria. Endast fabric:/röstningsprogrammet respekterar programfiltret. Eftersom den anpassade principen anger att varningar ska betraktas som fel för fabric:/voting-programmet, utvärderas programmet som ett fel och så är klustret.
+I följande exempel hämtas hälso tillståndet för klustret med hjälp av en anpassad användnings princip. Den filtrerar resultaten så att endast program och noder visas i fel eller varning. I det här exemplet returneras inga noder, eftersom de är felfria. Endast programmet Fabric:/röstning uppfyller program filtret. Eftersom den anpassade principen anger att varningar ska övervägas som fel för programmet Fabric:/röstning, utvärderas programmet som fel och så är klustret.
 
 ```powershell
 $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -453,21 +453,21 @@ ApplicationHealthStates :
 HealthEvents            : None
 ```
 
-### <a name="get-node-health"></a>Få nodhälsa
-[Cmdlet Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) returnerar hälsan för en nodentitet och innehåller hälsohändelser som rapporterats på noden. Anslut först till klustret med hjälp av [cmdleten Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). I följande exempel får du hälsotillståndet för en viss nod med hjälp av standardhälsoprinciper:
+### <a name="get-node-health"></a>Hämta nods hälsa
+Cmdlet: en [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) returnerar hälsan för en nod-entitet och innehåller de hälso händelser som rapporter ATS på noden. Anslut först till klustret med hjälp av [cmdleten Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). I följande exempel hämtas hälsan för en speciell nod med hjälp av standard hälso principer:
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3
 ```
 
-I följande exempel får du hälsotillståndet för alla noder i klustret:
+I följande exempel får du hälsan för alla noder i klustret:
 ```powershell
 Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
 ```
 
-### <a name="get-system-service-health"></a>Få hälsa på systemtjänsten 
+### <a name="get-system-service-health"></a>Hämta system tjänstens hälsa 
 
-Få den aggregerade hälsan hos systemtjänsterna:
+Hämta system tjänsternas sammanlagda hälsa:
 
 ```powershell
 Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServiceHealth | select ServiceName, AggregatedHealthState | ft -AutoSize
@@ -478,12 +478,12 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Visa service fabric-händelser
-> * Api:er för Frågehändelseaffärer för klusterhändelser
-> * Övervaka infrastruktur/samla in perf-räknare
-> * Visa hälsorapporter för kluster
+> * Visa Service Fabric händelser
+> * Fråga EventStore-API: er för kluster händelser
+> * Övervaka infrastruktur/samla in prestanda räknare
+> * Visa kluster hälso rapporter
 
-Gå sedan vidare till följande självstudie för att lära dig hur du skalar ett kluster.
+Fortsätt sedan till följande självstudie och lär dig hur du skalar ett kluster.
 > [!div class="nextstepaction"]
 > [Skala ett kluster](service-fabric-tutorial-scale-cluster.md)
 

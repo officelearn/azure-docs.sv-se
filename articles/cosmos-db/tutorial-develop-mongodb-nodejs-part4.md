@@ -1,5 +1,5 @@
 ---
-title: Skapa en vinkelapp med Azure Cosmos DB:s API för MongoDB (Part1)
+title: Skapa en vinkel-app med Azure Cosmos DB s API för MongoDB (part1)
 description: Del 4 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: d5ed706a0577423f0a95b8eb5f7a563da74a0e7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75441175"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa ett Cosmos-konto
@@ -48,7 +48,7 @@ I den här delen av självstudiekursen kan du antingen använda Azure Cloud Shel
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
-Skapa ett Azure Cosmos [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) DB-konto med kommandot.
+Skapa ett Azure Cosmos DB-konto med [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) kommandot.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

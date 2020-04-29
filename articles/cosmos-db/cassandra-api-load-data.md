@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Java-app för att läsa in exempeldata i en Cassandra API-tabell i Azure Cosmos DB'
+title: 'Självstudie: Java-app för att läsa in exempel data i en API för Cassandra tabell i Azure Cosmos DB'
 description: Den här självstudien beskriver hur du läser in exempelanvändardata till en Cassandra API-tabell i Azure Cosmos DB med hjälp av ett Java-program.
 author: kanshiG
 ms.service: cosmos-db
@@ -10,10 +10,10 @@ ms.author: govindk
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 66c292bcb02e3b2b215cabe4968fa30a45422cef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75445652"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Självstudie: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB
@@ -26,11 +26,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Läsa in data till en Cassandra-tabell
 > * Kör appen
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-* Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar med det här dokumentet måste du [skapa Cassandra API-kontot, nyckelutrymmet och tabellen](create-cassandra-api-account-java.md).   
+* Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar med det här dokumentet ska du se till att [skapa API för Cassandra konto, tecken utrymme och tabell](create-cassandra-api-account-java.md).   
 
 ## <a name="load-data-into-the-table"></a>Läsa in data i tabellen
 

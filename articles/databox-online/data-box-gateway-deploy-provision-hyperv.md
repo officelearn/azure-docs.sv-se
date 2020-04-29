@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77365318"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Självstudiekurs: Etablera Azure Data Box Gateway i Hyper-V
+# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Självstudie: etablera Azure Data Box Gateway i Hyper-V
 
 ## <a name="overview"></a>Översikt
 
@@ -23,7 +23,7 @@ Den här självstudien beskriver hur du etablerar en Data Box Gateway i ett vär
 
 Du behöver ha administratörsbehörighet för att etablera och konfigurera en virtuell enhet. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -39,7 +39,7 @@ De nödvändiga komponenterna för att etablera en virtuell enhet på ett värds
 
 ### <a name="for-the-data-box-gateway-resource"></a>För Data Box Gateway-resursen
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 * Du har slutfört alla stegen i [Förbereda portalen för Data Box Gateway](data-box-gateway-deploy-prep.md).
 * Du har laddat ned avbildningen av den virtuella enheten för Hyper-V från Azure-portalen enligt beskrivningen i [Förbereda portalen för Data Box Gateway](data-box-gateway-deploy-prep.md).
@@ -86,33 +86,33 @@ För att skapa en virtuell enhet behöver du följande:
 Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 
 1. På din Windows Server-värd kopierar du avbildningen av den virtuella enheten till en lokal disk. Du har laddat ned den här VHDX-avbildningen via Azure-portalen. Anteckna den plats dit du har kopierat avbildningen eftersom du använder den här avbildningen senare i proceduren.
-2. Öppna **Serverhanteraren**. Klicka på **Verktyg** längst upp till höger och välj **Hyper-V-hanteraren**.
+2. Öppna **Serverhanteraren**. Klicka på **verktyg** i det övre högra hörnet och välj **Hyper-V Manager**.
 
-    ![Välj Hyper-V-hanteraren i Serverhanteraren](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
+    ![Välj Hyper-V Manager i Serverhanteraren](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
   
 3. I **Hyper-V Manager** går du till fönsterrutan för omfång, högerklickar på din systemnod för att öppna snabbmenyn och klickar sedan på **Ny** > **Virtuell dator**.
 
-   ![Skapa ny virtuell dator i Hyper-V Manager](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
+   ![Skapa en ny virtuell dator i Hyper-V Manager](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. På sidan **Innan du börjar** i guiden för ny virtuell dator klickar du på **Nästa**.
 5. På sidan **Ange namn och plats** anger du ett **Namn** för din virtuella enhet. Klicka på **Nästa**.
 
-   ![Ange namn och platssida](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
+   ![Sidan Ange namn och plats](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. På sidan **Ange generation** väljer du **Generation 2** för .vhdx-enhetsavbildningstypen och klickar sedan på **Nästa**.    
 
-   ![Ange genereringssida](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
+   ![Sidan Ange generation](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
 7. På sidan **Tilldela minne** anger du ett **Startminne** på minst **8 192 MB**. Aktivera inte dynamiskt minne. Klicka sedan på **Nästa**.
 
-   ![Tilldela minnessida](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
+   ![Sidan tilldela minne](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
 8. På sidan **Konfigurera nätverk** anger du den virtuella växel som är ansluten till Internet och klickar sedan på **Nästa**.
 
-   ![Konfigurera nätverkssida](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
+   ![Sidan Konfigurera nätverk](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
 9. På sidan **Anslut virtuell hårddisk** väljer du **Använd en befintlig virtuell hårddisk**, anger platsen för den virtuella enhetsavbildningen och klickar sedan på **Nästa**.
 
-   ![Anslut virtuell hårddisksida](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
+   ![Sidan Anslut virtuell hård disk](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
 10. Granska **sammanfattningen** och klicka sedan på **Slutför** för att skapa den virtuella datorn.
 
-    ![Fylla i guidesidan för ny virtuell dator](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
-11. För att uppfylla minimikraven behöver du 4 virtuella processorer. Om du vill lägga till 4 virtuella processorer väljer du ditt värdsystem i **Hyper-V Manager**-fönstret. I den högra fönsterrutan går du till listan över **virtuella datorer** och letar upp den virtuella dator som du nyss skapade. Markera och högerklicka på datornamnet och välj **Inställningar**.
+    ![Slutför guide sidan ny virtuell dator](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
+11. För att uppfylla minimi kraven behöver du 4 virtuella processorer. Om du vill lägga till 4 virtuella processorer väljer du ditt värdsystem i **Hyper-V Manager**-fönstret. I den högra fönsterrutan går du till listan över **virtuella datorer** och letar upp den virtuella dator som du nyss skapade. Markera och högerklicka på datornamnet och välj **Inställningar**.
 
     ![Inställningar för virtuella datorer](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
 12. På sidan **Inställningar** går du till den vänstra fönsterruta och klickar på **Processor**. I den högra fönsterrutan ställer du in **antal virtuella processorer** på 4 (eller fler). Klicka på **Använd**.
@@ -123,26 +123,26 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
     1. I den vänstra fönsterrutan väljer du **SCSI Controller**.
     2. I den högra fönsterrutan väljer du **Hårddisk** och klickar på **Lägg till**.
 
-    ![Lägg till hårddisk på sidan Inställningar](./media/data-box-gateway-deploy-provision-hyperv/image11.png)
+    ![Sidan Lägg till hård disk på Inställningar](./media/data-box-gateway-deploy-provision-hyperv/image11.png)
 14. På sidan **Hårddisk** väljer du alternativet **Virtuell hårddisk** och klickar på **Ny**. **Guiden för ny virtuell hårddisk** startar.
 
-    ![Guiden Ny virtuell hårddisk](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
+    ![Guiden ny virtuell hård disk](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
 15. På sidan **Innan du börjar** i guiden för ny virtuell hårddisk klickar du på **Nästa**.
 16. På **sidan för att välja diskformat** godkänner du standardalternativet för **VHDX**-format. Klicka på **Nästa**.
 17. På **sidan för att välja disktyp** ställer du in typen av virtuell hårddisk till **Dynamiskt expanderande** (rekommenderas). En disk med **Fast storlek** skulle också fungera, men då kan du behöva vänta länge. Vi rekommenderar att du inte använder alternativet **Differentierande**. Klicka på **Nästa**.
 
-    ![Välj sida Disktyp](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
+    ![Sidan Välj disktyp](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
 18. På sidan **Ange namn och plats** anger du ett **Namn** och en **Plats** (du kan bläddra till en) för datadisken. Klicka på **Nästa**.
 
-    ![Ange sida För namn och plats](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
+    ![Sidan Ange namn och plats](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. På sidan **Konfigurera disk** väljer du alternativet **Skapa en ny tom virtuell hårddisk** och anger storleken till **2 TB** (eller mer).
     
-    2 TB är minimikravet, men du kan alltid etablera en större disk. Observera att du inte kan komprimera disken när den har etablerats. Om du försöker krympa disken går alla lokala data på enheten förlorades. Det går inte att expandera datadisken. Klicka på **Nästa**.
+    2 TB är minimikravet, men du kan alltid etablera en större disk. Observera att du inte kan komprimera disken när den har etablerats. Om du försöker minska disk resultatet försvinner alla lokala data på enheten. Det finns inte stöd för att utöka data disken. Klicka på **Nästa**.
 
-    ![Konfigurera disksida](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
+    ![Sidan Konfigurera disk](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. På sidan **Sammanfattning** läser du informationen om din virtuella datadisk, och om allt stämmer klickar du på **Slutför** för att skapa disken. Guiden stängs och en virtuell hårddisk läggs till i datorn.
 
-    ![Fylla i sidan Guiden Ny virtuell hårddisk](./media/data-box-gateway-deploy-provision-hyperv/image16.png)
+    ![Sidan guiden Ny virtuell hård disk slutförs](./media/data-box-gateway-deploy-provision-hyperv/image16.png)
 21. Gå tillbaka till sidan **Inställningar**. Klicka på **OK** för att stänga sidan **Inställningar** och gå tillbaka till Hyper-V Manager-fönstret.
 
     ![Sidan Inställningar](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
@@ -173,12 +173,12 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
    ![Banderoll för virtuell enhet med IP-adress och anslutnings-URL](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten. Ändra enhetskonfigurationen så att datorn har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se minimikraven för konfiguration i [Kontrollera att värdsystemet uppfyller minimikraven för virtuella enheter](#check-the-host-system).
+Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten. Ändra enhetskonfigurationen så att datorn har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se de lägsta konfigurations kraven i [kontrol lera att värd systemet uppfyller minimi kraven för virtuella enheter](#check-the-host-system).
 
-Om du stöter på något annat fel under den första konfigurationen med hjälp av det lokala webbgränssnittet läser du följande arbetsflöden:
+Om du möter andra fel under den inledande konfigurationen med hjälp av det lokala webb gränssnittet, se följande arbets flöden:
 
-- [Kör diagnostiska tester för att felsöka konfigurationen av webbgränssnitt .](data-box-gateway-troubleshoot.md#run-diagnostics)
-- [Generera loggpaket och visa loggfiler](data-box-gateway-troubleshoot.md#collect-support-package).
+- [Kör diagnostiska tester för att felsöka konfiguration av webb gränssnitt](data-box-gateway-troubleshoot.md#run-diagnostics).
+- [Generera logg paket och visa loggfiler](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Nästa steg
 

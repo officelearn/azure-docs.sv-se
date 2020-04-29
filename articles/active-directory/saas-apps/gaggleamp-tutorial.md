@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med GaggleAMP | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med GaggleAMP | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GaggleAMP.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 4a6dc3dc2b0580f72ffae5cb5d034b0acdb64612
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73155383"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Självstudiekurs: Azure Active Directory-integrering med GaggleAMP
+# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Självstudie: Azure Active Directory integrering med GaggleAMP
 
 I den här självstudien lär du dig att integrera GaggleAMP med Azure Active Directory (AD Azure).
 Integreringen av GaggleAMP med Azure AD medför följande fördelar:
@@ -32,7 +32,7 @@ Integreringen av GaggleAMP med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -113,7 +113,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gaggl
 
     ![image](common/both-preintegrated-signon.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://gaggleamp.com/i/<customerid>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://gaggleamp.com/i/<customerid>`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för GaggleAMP](mailto:sales@gaggleamp.com) och be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -134,7 +134,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gaggl
 
 ### <a name="configure-gaggleamp-single-sign-on"></a>Konfigurera enkel inloggning för GaggleAMP
 
-1. I en annan webbläsarinstans navigerar du till den SAML SSO-sida som skapats av Gaggle-supportteamet (till exempel: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+1. I en annan webb läsar instans navigerar du till sidan med SAML SSO som skapats åt dig av Gaggle support team *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*(till exempel:).
 
 2. På sidan **SAML SSO** (Enkel inloggning med SAML) utför du följande steg:  
    
@@ -142,7 +142,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gaggl
 
     a. Välj **Annan** i listrutan **Identitetsprovider**.
     
-    b. Klistra in värdet för **Azure Ad Identifier** som du har kopierat från Azure-portalen i textrutan **För identitetsproviderutfärdare.**
+    b. I text rutan för **identitets leverantörs utfärdare** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal.
     
     c. I textrutan **Identity Provider Single Sign-On URL** (URL för enkel inloggning för identitetsprovider) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
     
@@ -158,7 +158,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -197,7 +197,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -215,7 +215,7 @@ När du klickar på GaggleAMP-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

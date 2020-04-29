@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Kanbanize | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Kanbanize | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kanbanize.
 services: active-directory
 documentationCenter: na
@@ -17,187 +17,187 @@ ms.date: 10/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c5a3a096c5a44f681d23587837ae31fd1af33b2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72373231"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Kanbanize
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Kanbanize
 
 I den här självstudien får du lära dig hur du integrerar Kanbanize med Azure Active Directory (Azure AD). När du integrerar Kanbanize med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till Kanbanize.
-* Gör att användarna automatiskt loggas in på Kanbanize med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till Kanbanize med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Kanbanize enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Kanbanize för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Kanbanize stöder **SP och IDP** initierade SSO
-* Kanbanize stöder just in time-användaretablering **Just In Time**
+* Kanbanize stöder **SP-och IDP** -INITIERAd SSO
+* Kanbanize stöder **just-in-Time** User-etablering
 
 ## <a name="adding-kanbanize-from-the-gallery"></a>Lägga till Kanbanize från galleriet
 
 Om du vill konfigurera integreringen av Kanbanize i Azure AD måste du lägga till Kanbanize från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Kanbanize** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Kanbanize** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Kanbanize** i sökrutan.
+1. Välj **Kanbanize** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-kanbanize"></a>Konfigurera och testa en azure AD-inloggning för Kanbanize
+## <a name="configure-and-test-azure-ad-single-sign-on-for-kanbanize"></a>Konfigurera och testa enkel inloggning med Azure AD för Kanbanize
 
-Konfigurera och testa Azure AD SSO med Kanbanize med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Kanbanize.
+Konfigurera och testa Azure AD SSO med Kanbanize med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Kanbanize.
 
-Om du vill konfigurera och testa Azure AD SSO med Kanbanize slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Kanbanize, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Kanbanize SSO](#configure-kanbanize-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa Kanbanize-testanvändare](#create-kanbanize-test-user)** – om du vill ha en motsvarighet till B.Simon i Kanbanize som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera KANBANIZE SSO](#configure-kanbanize-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Kanbanize test User](#create-kanbanize-test-user)** -om du vill ha en motsvarighet till B. Simon i Kanbanize som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet **Hantera** på sidan **Hantera** i [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Kanbanize** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-     a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<subdomain>.kanbanize.com/`
+     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://<subdomain>.kanbanize.com/`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<subdomain>.kanbanize.com/saml/acs`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<subdomain>.kanbanize.com/saml/acs`
 
     c. Klicka på **Ange ytterligare URL:er**.
 
-    d. Skriv en URL i textrutan **Relay State:**`/ctrl_login/saml_login`
+    d. I text rutan för **relä tillstånd** anger du en URL:`/ctrl_login/saml_login`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<subdomain>.kanbanize.com`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<subdomain>.kanbanize.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Kanbanize Client support team](mailto:support@ms.kanbanize.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Kanbanize client support team](mailto:support@ms.kanbanize.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Kanbanize-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärmbild visar en lista över standardattribut, där nameidentifier mappas med **user.userprincipalname**. Kanbanize-programmet förväntar sig att namnidentifieraren mappas med **user.mail**, så du måste redigera attributmappningen genom att klicka på Redigera-ikonen och ändra attributmappningen.
+1. Kanbanize-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där nameidentifier mappas med **user.userprincipalname**. Kanbanize-programmet förväntar sig att NameIdentifier mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen Redigera och ändra attributet mappning.
 
     ![image](common/edit-attribute.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **Certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera Kanbanize** baserat på dina krav.
+1. I avsnittet **Konfigurera Kanbanize** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Kanbanize.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Kanbanize.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **Kanbanize**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Kanbanize**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ## <a name="configure-kanbanize-sso"></a>Konfigurera Kanbanize SSO
 
-1. Om du vill automatisera konfigurationen i Kanbanize måste du installera **webbläsartillägget My Apps Secure Sign-in** genom att klicka på **Installera tillägget**.
+1. Om du vill automatisera konfigurationen i Kanbanize måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
 
-    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
 
-2. När du har lagt till tillägget i webbläsaren, klicka på **Ställ in Kanbanize** kommer att leda dig till Kanbanize ansökan. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på Kanbanize. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
+2. När du har lagt till tillägg i webbläsaren kan du klicka på **Konfigurera Kanbanize** för att dirigera dig till Kanbanize-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Kanbanize. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
 
-    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
+    ![Konfigurera konfiguration](common/setup-sso.png)
 
-3. Om du vill konfigurera Kanbanize manuellt öppnar du ett nytt webbläsarfönster och loggar in på kanbanize-företagswebbplatsen som administratör och utför följande steg:
+3. Om du vill konfigurera Kanbanize manuellt öppnar du ett nytt webbläsarfönster och loggar in på din Kanbanize-företags webbplats som administratör och utför följande steg:
 
-4. Gå längst upp till höger på sidan, klicka på **Inställningar** logotyp.
+4. Gå till överst till höger på sidan, klicka på **Inställningar** logo typ.
 
-    ![Inställningar för Kanbanize](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
+    ![Kanbanize-inställningar](./media/kanbanize-tutorial/tutorial-kanbanize-set.png)
 
-5. Klicka på Integrationer på sidan Administrationspanelen från **menyns** vänstra sida och aktivera sedan **Enkel inloggning**.
+5. På sidan administrations panel på den vänstra sidan av menyn klickar du på **integration** och aktiverar sedan **enkel inloggning**.
 
-    ![Kanbanize integrationer](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![Kanbanize-integreringar](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
-6. Under avsnittet Integrationer klickar du på **KONFIGURERA** för att öppna sidan **Integrering av enkel inloggning.**
+6. Under avsnittet integrations klickar du på **Konfigurera** för att öppna **integrations sidan för enkel inloggning** .
 
-    ![Kanbanize config](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
+    ![Kanbanize-konfiguration](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
 
-7. På sidan **Integrering av enkel inloggning** under **Konfigurationer**utför du följande steg:
+7. Utför följande steg på **integrations sidan för enkel inloggning** under **konfigurationer**:
 
-    ![Kanbanize integrationer](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![Kanbanize-integreringar](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
-    a. Klistra in värdet för **Azure AD-identifierare**i **textrutan Idp Entity ID** , som du har kopierat från Azure-portalen.
+    a. I text rutan för **entitets-ID för IDP** klistrar du in värdet för **Azure AD-identifieraren**, som du har kopierat från Azure Portal.
 
-    b. I **textrutan Idp Login Endpoint** klistrar du in värdet **för inloggnings-URL**, som du har kopierat från Azure-portalen.
+    b. I text rutan **IDP-inloggnings slut punkt** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
-    c. Klistra in värdet **för url för utloggning för utloggning**i **Idp-utloggning** , som du har kopierat från Azure-portalen.
+    c. I text rutan **IDP-utloggnings slut punkt** klistrar du in värdet för **utloggnings-URL**, som du har kopierat från Azure Portal.
 
-    d. Ange det här värdet **i Attributnamn för textruta via e-post**`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    d. Ange det här värdet i rutan **attributnamn för e-post** .`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    e. Ange det här värdet i textrutan **Attributnamn för förnamn**`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    e. Ange det här värdet i text rutan **attribut namn för förnamn**`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
-    f. Ange det här värdet i textrutan **Attributnamn för efternamn**`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    f. Ange det här värdet i text rutan **attribut namn för efter namn**`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 
     > [!Note]
-    > Du kan hämta dessa värden genom att kombinera namnområdes- och namnvärden för respektive attribut från avsnittet Användarattribut i Azure-portalen.
+    > Du kan hämta dessa värden genom att kombinera namn rymder och namn värden för respektive attribut från avsnittet användarattribut i Azure Portal.
 
-    g. Öppna det bas-64-kodade certifikat som du hämtade från Azure-portalen i Anteckningar, kopiera dess innehåll (utan start- och slutmarkörer) och klistra sedan in det i **idp X.509-certifikatrutan.**
+    g. I anteckningar öppnar du det bas-64-kodade certifikatet som du laddade ned från Azure Portal, kopierar dess innehåll (utan start-och slut markeringar) och klistrar in det i rutan **IDP X. 509** .
 
-    h. Kontrollera **Aktivera inloggning med både SSO och Kanbanize**.
+    h. Markera **Aktivera inloggning med både SSO och Kanbanize**.
 
     i. Klicka på **Spara inställningar**.
 
-### <a name="create-kanbanize-test-user"></a>Skapa Kanbanize-testanvändare
+### <a name="create-kanbanize-test-user"></a>Skapa Kanbanize test användare
 
-I det här avsnittet skapas en användare som heter B.Simon i Kanbanize. Kanbanize stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Kanbanize skapas en ny efter autentisering. Om du behöver skapa en användare manuellt kontaktar du [Kanbanize Client support team](mailto:support@ms.kanbanize.com).
+I det här avsnittet skapas en användare som heter B. Simon i Kanbanize. Kanbanize stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Kanbanize skapas en ny efter autentiseringen. Om du behöver skapa en användare manuellt kontaktar du [Kanbanize client support team](mailto:support@ms.kanbanize.com).
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Kanbanize på åtkomstpanelen bör du automatiskt loggas in på den Kanbanize som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Kanbanize på åtkomst panelen, bör du loggas in automatiskt på den Kanbanize som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

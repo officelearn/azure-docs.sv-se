@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med BambooHR | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med BambooHR | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BambooHR.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfa7934472b512e2c884ab3f9a06728a8fb18b12
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73157742"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Självstudiekurs: Azure Active Directory-integrering med BambooHR
+# <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Självstudie: Azure Active Directory integrering med BambooHR
 
 I de här självstudierna får du lära dig hur du integrerar BambooHR med Azure Active Directory (Azure AD).
 Genom att integrera BambooHR med Azure AD får du följande fördelar:
@@ -33,7 +33,7 @@ Genom att integrera BambooHR med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -111,7 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD på Bam
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `BambooHR-SAML`
 
     > [!NOTE]
-    > Värdet **Logga in på WEBBADRESSN** är inte verkligt. Uppdatera värdet med faktiskt inloggnings-URL. Kontakta [BambooHR-klientens supportteam](https://www.bamboohr.com/contact.php) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för **inloggnings-URL** är inte verkligt. Uppdatera värdet med faktiskt inloggnings-URL. Kontakta [BambooHR-klientens supportteam](https://www.bamboohr.com/contact.php) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -133,7 +133,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD på Bam
 
 2. Gör följande på startsidan:
    
-    ![BambooHR Enkel inloggning sida](./media/bamboo-hr-tutorial/ic796691.png "för Aha!")   
+    ![Sidan för enkel inloggning med BambooHR](./media/bamboo-hr-tutorial/ic796691.png "för Aha!")   
 
     a. Välj **Appar**.
    
@@ -143,7 +143,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD på Bam
 
 3. I fönstret **Enkel inloggning med SAML** gör du följande:
    
-    ![Fönstret Saml enkel inloggning](./media/bamboo-hr-tutorial/IC796692.png "SAML Enkel inloggning")
+    ![Fönstret för enkel inloggning i SAML](./media/bamboo-hr-tutorial/IC796692.png "SAML enkel inloggning")
    
     a. I rutan för **inloggnings-Url för enkel inloggning** klistrar du in den **inloggnings-URL** som du kopierade från Azure-portalen i steg 6.
       
@@ -159,7 +159,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -169,7 +169,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -198,7 +198,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -210,11 +210,11 @@ Om du vill göra det möjligt för Azure AD-användare att logga in på BambooHR
 
 2. Välj **Inställningar** i verktygsfältet högst upp.
    
-    ![Knappen Inställningar](./media/bamboo-hr-tutorial/IC796694.png "Inställning")
+    ![Knappen Inställningar](./media/bamboo-hr-tutorial/IC796694.png "Inställningen")
 
 3. Välj **Översikt**.
 
-4. Välj > **Säkerhetsanvändare**i **Security**den vänstra rutan .
+4. I det vänstra fönstret väljer du **säkerhets** > **användare**.
 
 5. Skriv användarnamn, lösenord och e-postadress för det giltiga Azure AD-konto som du vill konfigurera.
 
@@ -233,7 +233,7 @@ När du klickar på BambooHR-panelen i åtkomstpanelen bör du automatiskt logga
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs`:` Använd en hanterad identitet för att komma åt Azure Key Vault - Linux - Azure AD
+title: Självstudie`:` Använd en hanterad identitet för att få åtkomst till Azure Key Vault – Linux – Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdccabf701d4603b8c78f7e23ec1890171603273
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74232172"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Key Vault 
@@ -44,7 +44,7 @@ Med hjälp av hanterade tjänstidentiteter för Azure-resurser kan din kod hämt
 
 Börja med att skapa ett Key Vault och bevilja den virtuella datorns systemtilldelade hanterade identitet åtkomst till Key Vault.   
 
-1. Högst upp i det vänstra navigeringsfältet väljer du **Skapa en resurssäkerhet** > +**identitetsnyckelvalv****Security + Identity** > .  
+1. Längst upp i det vänstra navigerings fältet väljer du **skapa en resurs** > **säkerhet och identitet** > **Key Vault**.  
 2. Ange ett **namn** för det nya Key Vault. 
 3. Leta upp Key Vault i samma prenumerations- och resursgrupp som den virtuella dator du skapade tidigare. 
 4. Välj **Åtkomstprinciper** och klicka på **Lägg till**. 
@@ -69,7 +69,7 @@ Lägg sedan till en hemlighet i Key Vault, så att du senare kan hämta hemlighe
 För att slutföra de här stegen behöver du en SSH-klient.Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
  
 1. I portalen går du till den virtuella Linux-datorn och i **översikten** klickar du på **Anslut**. 
-2. **Anslut** till den virtuella datorn med den SSH-klient du väljer. 
+2. **Anslut** till den virtuella datorn med valfri SSH-klient. 
 3. Använd CURL i terminalfönstret och skicka en begäran till de lokala hanterade identiteterna för Azure-resursslutpunkter för att hämta en åtkomsttoken för Azure Key Vault.  
  
     CURL-begäran för åtkomsttoken visas nedan.  

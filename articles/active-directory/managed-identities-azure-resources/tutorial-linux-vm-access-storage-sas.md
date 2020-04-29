@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Få åtkomst till Azure Storage med hjälp av en SAS-autentiseringsuppgifter – Linux - Azure AD'
+title: 'Självstudie: åtkomst Azure Storage med SAS-autentiseringsuppgift – Linux – Azure AD'
 description: En självstudie som visar hur du använder en systemtilldelad hanterad identitet för virtuell Linux-dator och kommer åt Azure Storage med hjälp av en SAS-autentiseringsuppgift, istället för en åtkomstnyckel för lagringskonto.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 670ae329943610ba16411da3782bc1da079c6490
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74183197"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Komma åt Azure Storage via en SAS-autentiseringsuppgift med en systemtilldelad hanterad identitet för virtuell Linux-dator
@@ -29,13 +29,13 @@ ms.locfileid: "74183197"
 Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator och hämtar en SAS-autentiseringsuppgift (en signatur för delad åtkomst) för lagring. Mer specifikt, en [autentiseringsuppgift för tjänst-SAS](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
-> SAS-nyckeln som genereras i den här självstudien kommer inte att begränsas/bindas till den virtuella datorn.  
+> Den SAS-nyckel som skapas i den här självstudien kommer inte att begränsas/bindas till den virtuella datorn.  
 
 En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagringskonto under en begränsad tid och för en särskild tjänst (i vårt fall blob-tjänsten) utan att göra kontots åtkomstnyckel tillgänglig. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien visar vi hur man laddar upp och ned en blob med hjälp av Azure Storage CLI. Du lär dig att göra följande:
 
 
 > [!div class="checklist"]
-> * Skapa ett lagringskonto
+> * skapar ett lagringskonto
 > * Skapa en blob-container i lagringskontot
 > * Ge den virtuella datorn åtkomst till en SAS för lagringskonton i Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använde den när du hämtar SAS:en från Resource Manager 
@@ -44,13 +44,13 @@ En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagri
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
 Nu skapar du ett lagringskonto, om du inte redan har ett.  Du kan även hoppa över det här steget och ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till nycklarna till ett befintligt lagringskonto. 
 
 1. Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
 2. Klicka på **Lagring** och sedan på **Lagringskonto**. Panelen ”Skapa lagringskonto” visas.
-3. Ange ett **namn** för lagringskontot som du kommer att använda senare.  
+3. Ange ett **namn** för lagrings kontot som du kommer att använda senare.  
 4. **Distributionsmodell** och **Typ av konto** ska vara inställda på Resurshanterare respektive Generell användning. 
 5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.
 6. Klicka på **Skapa**.

@@ -1,57 +1,57 @@
 ---
 title: Konfigurera Azure Functions
-description: Den här självstudien går igenom hur du skapar en Azure-funktionsapp och konfigurerar den så att den fungerar med Azure Custom Providers
+description: Den här självstudien går igenom hur du skapar en Azure Function-app och konfigurerar den så att den fungerar med Azure-anpassade leverantörer
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75649990"
 ---
-# <a name="set-up-azure-functions-for-azure-custom-providers"></a>Konfigurera Azure-funktioner för Azure-anpassade leverantörer
+# <a name="set-up-azure-functions-for-azure-custom-providers"></a>Konfigurera Azure Functions för Azure-anpassade leverantörer
 
-En anpassad provider är ett kontrakt mellan Azure och en slutpunkt. Med anpassade leverantörer kan du ändra arbetsflöden i Azure. Den här självstudien visar hur du konfigurerar en Azure-funktionsapp för att fungera som en anpassad providerslutpunkt.
+En anpassad Provider är ett kontrakt mellan Azure och en slut punkt. Med anpassade providers kan du ändra arbets flöden i Azure. Den här självstudien visar hur du konfigurerar en Azure Function-app så att den fungerar som en anpassad Provider-slutpunkt.
 
-## <a name="create-the-azure-function-app"></a>Skapa Azure-funktionsappen
+## <a name="create-the-azure-function-app"></a>Skapa Azure Function-appen
 
 > [!NOTE]
-> I den här självstudien skapar du en enkel tjänstslutpunkt som använder en Azure-funktionsapp. En anpassad provider kan dock använda vilken slutpunkt som helst tillgänglig för allmänheten. Alternativen inkluderar Azure Logic Apps, Azure API Management och webbappfunktionen i Azure App Service.
+> I den här självstudien skapar du en enkel tjänst slut punkt som använder en Azure Function-app. En anpassad Provider kan dock använda en offentligt tillgänglig slut punkt. Alternativen omfattar Azure Logic Apps, Azure API Management och Web Apps funktionen i Azure App Service.
 
-För att starta den här självstudien bör du först följa självstudien [Skapa din första Azure-funktionsapp i Azure-portalen](../../azure-functions/functions-create-first-azure-function.md). Den självstudien skapar en .NET core webhook-funktion som kan ändras i Azure-portalen. Det är också grunden för den nuvarande handledningen.
+För att starta den här självstudien bör du först följa självstudien [skapa din första Azure Function-app i Azure Portal](../../azure-functions/functions-create-first-azure-function.md). Den här självstudien skapar en .NET Core-webhook-funktion som kan ändras i Azure Portal. Det är även grunden för den aktuella självstudien.
 
-## <a name="install-azure-table-storage-bindings"></a>Installera Azure Table-lagringsbindningar
+## <a name="install-azure-table-storage-bindings"></a>Installera lagrings bindningar för Azure Table
 
-Så här installerar du Azure Table-lagringsbindningar:
+Så här installerar du Azure Table Storage-bindningar:
 
-1. Gå till fliken **Integrera** för HttpTrigger.
-1. Välj **+ Ny inmatning**.
-1. Välj **Azure Table Storage**.
-1. Installera tillägget Microsoft.Azure.WebJobs.Extensions.Storage om det inte redan är installerat.
-1. Ange **tabellförstoring**i rutan **Tabellparameternamn** .
-1. Ange **myCustomResources**i rutan **Tabellnamn** .
-1. Välj **Spara** om du vill spara den uppdaterade indataparametern.
+1. Gå till fliken **integrera** för HttpTrigger.
+1. Välj **+ ny Indatatyp**.
+1. Välj **Azure-Table Storage**.
+1. Installera Microsoft. Azure. WebJobs. Extensions. Storage-tillägget om det inte redan är installerat.
+1. I rutan **tabell parameter namn** anger du **tableStorage**.
+1. Skriv **myCustomResources**i rutan **tabell namn** .
+1. Välj **Spara** för att spara den uppdaterade indataparametern.
 
-![Översikt över anpassade leverantörer som visar tabellbindningar](./media/create-custom-provider/azure-functions-table-bindings.png)
+![Översikt över anpassad Provider med tabell bindningar](./media/create-custom-provider/azure-functions-table-bindings.png)
 
 ## <a name="update-restful-http-methods"></a>Uppdatera RESTful HTTP-metoder
 
-Så här konfigurerar du Azure-funktionen så att den anpassade providern innehåller RESTful-begäransmetoder för den anpassade providern:
+Konfigurera Azure-funktionen så att den inkluderar den anpassade providern RESTful förfrågnings metoder:
 
-1. Gå till fliken **Integrera** för HttpTrigger.
-1. Under **Valda HTTP-metoder**väljer du **HÄMTA**, **POST**, **TA BORT**och **LÄGG**.
+1. Gå till fliken **integrera** för HttpTrigger.
+1. Under **valda HTTP-metoder**väljer du **Hämta**, **post**, **ta bort**och **Placera**.
 
-![Översikt över anpassade provider som visar HTTP-metoder](./media/create-custom-provider/azure-functions-http-methods.png)
+![Översikt över anpassad Provider visar HTTP-metoder](./media/create-custom-provider/azure-functions-http-methods.png)
 
 ## <a name="add-azure-resource-manager-nuget-packages"></a>Lägg till Azure Resource Manager NuGet-paket
 
 > [!NOTE]
-> Om c#-projektfilen saknas i projektkatalogen kan du lägga till den manuellt. Eller så visas det när tillägget Microsoft.Azure.WebJobs.Extensions.Storage har installerats i funktionsappen.
+> Om projekt filen C# saknas i projekt katalogen kan du lägga till den manuellt. Eller så kommer det att visas efter att Microsoft. Azure. WebJobs. Extensions. Storage-tillägget har installerats i Function-appen.
 
-Uppdatera sedan C#-projektfilen så att den innehåller användbara NuGet-bibliotek. Dessa bibliotek gör det enklare att tolka inkommande begäranden från anpassade leverantörer. Följ stegen för att lägga till [tillägg från portalen](../../azure-functions/install-update-binding-extensions-manual.md) och uppdatera C#-projektfilen så att den innehåller följande paketreferenser:
+Uppdatera sedan C#-projektfilen för att inkludera användbara NuGet-bibliotek. De här biblioteken gör det lättare att parsa inkommande begär Anden från anpassade providers. Följ stegen för att [lägga till tillägg från portalen](../../azure-functions/install-update-binding-extensions-manual.md) och uppdatera C#-projekt filen så att den innehåller följande paket referenser:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -59,7 +59,7 @@ Uppdatera sedan C#-projektfilen så att den innehåller användbara NuGet-biblio
 <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.*" />
 ```
 
-Följande XML-element är ett exempel på C#-projektfil:
+Följande XML-element är ett exempel på en C#-projekt fil:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -77,7 +77,7 @@ Följande XML-element är ett exempel på C#-projektfil:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien konfigurerar du en Azure-funktionsapp för att fungera som en Azure-slutpunkt för anpassade provider.
+I den här självstudien skapar du en Azure Function-app som fungerar som en Azure-anpassad Provider-slutpunkt.
 
-Mer information om hur du skapar en SLUTPUNKT för en RESTful-anpassad provider finns i [Självstudiekurs: Skapa en SLUTPUNKT för en RESTful-anpassad provider](./tutorial-custom-providers-function-authoring.md).
+Information om hur du skapar en RESTful anpassad Provider-slutpunkt finns i [Självstudier: skapa en RESTful anpassad Provider-slutpunkt](./tutorial-custom-providers-function-authoring.md).
 

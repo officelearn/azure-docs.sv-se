@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med MobileIron | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med MobileIron | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MobileIron.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea4e997c6f2d0826c8914c671d625cc1c49bb018
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160461"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Självstudiekurs: Azure Active Directory-integrering med MobileIron
+# <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Självstudie: Azure Active Directory integrering med MobileIron
 
 I den här självstudien lär du dig att integrera MobileIron med Azure Active Directory (Azure AD).
 Genom att integrera MobileIron med Azure AD får du följande fördelar:
@@ -33,7 +33,7 @@ Genom att integrera MobileIron med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -106,15 +106,15 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
     ![Information om enkel inloggning med MobileIron-domäner och URL:er](common/idp-intiated.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://www.mobileiron.com/<key>`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://www.mobileiron.com/<key>`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Information om enkel inloggning med MobileIron-domäner och URL:er](common/metadata-upload-additional-signon.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<host>.mobileiron.com/user/login.html`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<host>.mobileiron.com/user/login.html`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du får du värdena för nyckeln och värden från den administrativa MobileIron-portalen, som beskrivs senare i självstudien.
@@ -127,7 +127,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
 1. Logga in som administratör på företagswebbplatsen för MobileIron i ett annat webbläsarfönster.
 
-2. Gå till **administratörsidentitet** > **Identity** och välj **alternativet AAD** i fältet **Info om installationsprogrammet för moln-IDP.**
+2. Gå till **Administratörs** > **identitet** och välj **AAD** -alternativ i fältet **information om Cloud IDP-inställningar** .
 
     ![Konfigurera knapp för enkel administratörsinloggning](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -147,7 +147,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -157,7 +157,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -186,7 +186,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -207,11 +207,11 @@ När det gäller MobileIron är etablering en manuell aktivitet.
 
     ![Konfigurera knapp för tillägg av användare för enkel inloggning](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. I textrutan **E-postadress** anger du e-postmeddelandet för användaren som brittasimon@contoso.com.
+    a. I text rutan e-postadress anger du e- **postadressen** till användaren brittasimon@contoso.com.
 
-    b. I textrutan **Förnamn** anger du förnamnet på användare som Britta.
+    b. I text rutan **förnamn** anger du det första namnet på användaren, t. ex. Britta.
 
-    c. I textrutan **Efternamn** anger du efternamn på användaren som Simon.
+    c. I text rutan **efter namn** anger du det senaste namnet på användaren som Simon.
 
     d. Klicka på **Klar**.
 
@@ -225,7 +225,7 @@ När du klickar på MobileIron-panelen i åtkomstpanelen så borde du automatisk
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

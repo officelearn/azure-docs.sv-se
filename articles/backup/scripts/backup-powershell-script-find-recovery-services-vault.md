@@ -1,18 +1,18 @@
 ---
-title: PowerShell Script - hitta Arkiv för lagringskonto
-description: Lär dig hur du använder ett Azure PowerShell-skript för att hitta återställningstjänstvalvet där ditt lagringskonto är registrerat.
+title: PowerShell-skript – hitta valv för lagrings konto
+description: Lär dig hur du använder ett Azure PowerShell-skript för att hitta Recovery Services-valvet där ditt lagrings konto är registrerat.
 ms.topic: sample
 ms.date: 1/28/2020
 ms.openlocfilehash: 786420ec8cef6516f7261c71b40641693efece07
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76775363"
 ---
-# <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Powershell Script för att hitta Recovery Services Vault där ett lagringskonto är registrerat
+# <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>PowerShell-skript för att hitta Recovery Services valv där ett lagrings konto registreras
 
-Det här skriptet hjälper dig att hitta valvet för återställningstjänster där ditt lagringskonto är registrerat.
+Det här skriptet hjälper dig att hitta Recovery Services-valvet där ditt lagrings konto är registrerat.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -47,16 +47,16 @@ if(!$found)
 }
 ```
 
-## <a name="how-to-execute-the-script"></a>Så här kör du skriptet
+## <a name="how-to-execute-the-script"></a>Köra skriptet
 
-1. Spara skriptet ovan på din maskin med ett namn som du väljer. I det här exemplet sparade vi den som *FindRegisteredStorageAccount.ps1*.
+1. Spara skriptet ovan på din dator med valfritt namn. I det här exemplet har vi sparat det som *FindRegisteredStorageAccount. ps1*.
 2. Kör skriptet genom att ange följande parametrar:
 
-    * **-ResourceGroupName** - Resursgruppen för lagringskontot
-    * **-StorageAccountName** - Namn på lagringskonto
-    * **-SubscriptionID** - ID för prenumeration där lagringskontot finns.
+    * **-ResourceGroupName** – resurs grupp för lagrings kontot
+    * **-StorageAccountName** – lagrings konto namn
+    * **-SubscriptionID** -ID för den prenumeration där lagrings kontot finns.
 
-I följande exempel försöker du hitta valvet för återställningstjänster där *kontot för afsaccount-lagring* är registrerat:
+Följande exempel försöker hitta Recovery Services-valvet där *afsaccount* -lagrings kontot är registrerat:
 
 ```powershell
 .\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId ef4ad5a7-c2c0-4304-af80-af49f49af3d1
@@ -64,7 +64,7 @@ I följande exempel försöker du hitta valvet för återställningstjänster d�
 
 ## <a name="output"></a>Resultat
 
-Utdata visar den fullständiga sökvägen till återställningstjänstvalvet där lagringskontot är registrerat. Här är exempel på utdata:
+I utdata visas den fullständiga sökvägen till Recovery Services-valvet där lagrings kontot är registrerat. Här är exempel på utdata:
 
 ```output
 Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c2c0-4304-af80-af49f49af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123
@@ -72,4 +72,4 @@ Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [säkerhetskopierar Azure File Shares från Azure-portalen](https://docs.microsoft.com/azure/backup/backup-afs)
+Lär dig hur du [säkerhetskopierar Azure-filresurser från Azure Portal](https://docs.microsoft.com/azure/backup/backup-afs)

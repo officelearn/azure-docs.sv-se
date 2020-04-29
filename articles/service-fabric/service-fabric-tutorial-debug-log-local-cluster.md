@@ -1,5 +1,5 @@
 ---
-title: Felsöka en Java-app i ett lokalt Service Fabric-kluster
+title: Felsöka en Java-app på ett lokalt Service Fabric-kluster
 description: I den här självstudiekursen lär du dig att felsöka och hämta loggar från en Service Fabric Java-tillämpning som körs på ett lokalt kluster.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: c664b586260957138249028e4d521c29b411d56d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75465379"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Självstudier: Felsöka en Java-tillämpning som distribuerats i ett lokalt Service Fabric-kluster
@@ -46,7 +46,7 @@ Om du inte byggde exempelprogrammet Röstning i [del ett av självstudiekursen](
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Skapa och distribuera](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) programmet till det lokala utvecklingsklustret.
+[Bygg och distribuera](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) programmet till det lokala utvecklings klustret.
 
 ## <a name="debug-java-application-using-eclipse"></a>Felsöka Java-tillämpningar med hjälp av Eclipse
 
@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. I fönstret Import Projects (Importera projekt) väljer du alternativet **Select root directory** (Välj rotkatalogen) och katalogen **Voting** (Röstning). Om du har genomgått den första delen av självstudiekursen borde katalogen **Voting** (Röstning) redan finnas i katalogen **Eclipse-workspace** (Eclipse-arbetsyta).
 
-4. Uppdatera entryPoint.sh för tjänsten som du vill felsöka så att den startar Java-processen med fjärrstyrda felsökningsparametrar. För den här självstudien används den tillståndslösa fronten: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Port 8001 är inställd för felsökning i det här exemplet.
+4. Uppdatera entryPoint.sh för tjänsten som du vill felsöka så att den startar Java-processen med fjärrstyrda felsökningsparametrar. I den här självstudien används den tillstånds lösa klient delen: *röstning/VotingApplication/VotingWebPkg/Code/entryPoint. sh*. Port 8001 har angetts för fel sökning i det här exemplet.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -82,15 +82,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. I Eclipse IDE väljer du **Run -> Debug Configurations -> Remote Java Application** (Kör -> Felsöka konfigurationer -> Fjärranslutna Java-program), klickar på konfigurationen **Voting** (Röstning) och klickar på **Debug** (Felsök).
 
-11. Gå till din webbläsare och få tillgång till **localhost:8080**. Detta kommer automatiskt att träffa brytpunkten och Eclipse kommer in i **Debug perspektiv**.
+11. Gå till webbläsaren och få åtkomst till **localhost: 8080**. Detta kommer automatiskt att nå Bryt punkten och Sol förmörkelse anger **fel söknings perspektivet**.
 
-Nu kan du använda samma steg för att felsöka alla Service Fabric-program i Eclipse.
+Nu kan du använda samma steg för att felsöka alla Service Fabric program i Sol förmörkelse.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>Omdirigera programloggar till en anpassad plats
 
 Följande steg guidar dig igenom dirigering av programloggar från standardplatsen */var/log/syslog* plats till en anpassad plats.
 
-1. För närvarande stöder program som körs i Service Fabric Linux-kluster bara att plocka upp en enda loggfil. Om du vill konfigurera ett program så att loggarna alltid går till */tmp/mysfapp0.0.log*skapar du en fil med namnet loggningsegenskaper på följande plats *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* och lägger till följande innehåll.
+1. För närvarande stöder program som körs i Service Fabric Linux-kluster bara plockning av en enda loggfil. Om du vill konfigurera ett program så att loggarna alltid går till */tmp/mysfapp0.0.log*skapar du en fil med namnet Logging. properties i följande plats *röstning/VotingApplication/VotingWebPkg/Code/Logging. Properties* och lägger till följande innehåll.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -109,7 +109,7 @@ Följande steg guidar dig igenom dirigering av programloggar från standardplats
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    I följande exempel visas en exempelkörning med felsökningskryparen bifogad, liknande körningen i föregående avsnitt.
+    I följande exempel visas ett exempel på körning med fel söknings programmet, på samma sätt som för körningen i föregående avsnitt.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

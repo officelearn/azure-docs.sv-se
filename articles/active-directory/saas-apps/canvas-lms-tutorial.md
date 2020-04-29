@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Canvas | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med arbets ytan | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbetsytor.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3ce5cff0de2939c25400d1d63138b23bc6c9822
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74232035"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Självstudiekurs: Azure Active Directory-integrering med Canvas
+# <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Självstudie: Azure Active Directory integrering med arbets yta
 
 Lär dig hur du integrerar Canvas med Azure Active Directory (AD Azure) i den här självstudien.
 Integreringen av Canvas med Azure AD medför följande fördelar:
@@ -33,7 +33,7 @@ Integreringen av Canvas med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -145,7 +145,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Canva
 
 4. Utför följande steg på sidan Aktuell integration:
 
-    ![Nuvarande integration](./media/canvas-lms-tutorial/ic775992.png "Nuvarande integration")
+    ![Aktuell integrering](./media/canvas-lms-tutorial/ic775992.png "Aktuell integrering")
 
     a. I textrutan **IdP Entity ID** (Entitets-ID för IdP) klistrar du in värdet för **Azure Ad-identifieraren**, som du har kopierat från Azure-portalen.
 
@@ -171,7 +171,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -181,7 +181,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -210,7 +210,7 @@ I det här avsnittet ska du göra så att Britta Simon kan använda enkel inlogg
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -240,16 +240,16 @@ För att Azure AD-användare ska kunna logga in i Canvas måste de vara etablera
 
    a. I textrutan **Fullständigt namn** anger du namnet på användaren, t.ex. **BrittaSimon**.
 
-   b. I **textrutan e-post** anger du e-post för användare som **brittasimon\@contoso.com**.
+   b. I text rutan **e-post** anger du e-postadressen till användaren som **\@brittasimon contoso.com**.
 
-   c. I textrutan **Logga in** anger du användarens Azure AD-e-postadress som **\@brittasimon contoso.com**.
+   c. I text rutan **inloggning** anger du användarens Azure AD-e-postadress **som\@brittasimon contoso.com**.
 
    d. Välj alternativet för att **meddela användaren via e-post när kontot skapats**.
 
    e. Klicka på **Lägg till användare**.
 
 > [!NOTE]
-> Du kan använda andra verktyg för att skapa canvas-användarkonton eller API:er som tillhandahålls av Canvas för att etablera Azure AD-användarkonton.
+> Du kan använda andra verktyg för skapande av användar konton eller API: er från arbets ytan för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
@@ -261,7 +261,7 @@ När du klickar på Canvas-panelen på åtkomstpanelen så bör du loggas in aut
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med AppBlade | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med AppBlade | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och AppBlade.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f7085841a9d2bdb0be11c62d2b19bd3a39cf4915
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73152855"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Självstudiekurs: Azure Active Directory-integrering med AppBlade
+# <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Självstudie: Azure Active Directory integrering med AppBlade
 
 I den här självstudien lär du dig att integrera AppBlade med Azure Active Directory (Azure AD).
 Genom att integrera AppBlade med Azure AD får du följande fördelar:
@@ -33,7 +33,7 @@ Genom att integrera AppBlade med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ap
 
     ![Information om enkel inloggning med AppBlade-domäner och -URL:er](common/sp-signonurl.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<companyname>.appblade.com/saml/<tenantid>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<companyname>.appblade.com/saml/<tenantid>`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för AppBlade-klienten](mailto:support@appblade.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -138,7 +138,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -177,13 +177,13 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ### <a name="create-appblade-test-user"></a>Skapa AppBlade-testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i AppBlade. AppBlade stöder just-in-time-etablering, vilket är aktiverat som standard. **Kontrollera att ditt domännamn är konfigurerat med AppBlade för användaretablering. Därefter fungerar bara just-in-time-användaretablering.**
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i AppBlade. AppBlade stöder just-in-time-etablering, vilket är aktiverat som standard. **Kontrol lera att ditt domän namn har kon figurer ATS med AppBlade för användar etablering. När bara användar etableringen just-in-Time fungerar.**
 
 Om användaren har en e-postadress som slutar med den domän som konfigurerats av AppBlade för ditt konto, ansluts användaren automatiskt till kontot som en medlem med den behörighetsnivå som du anger. Alternativen är ”Basic” (en grundläggande användare som bara kan installera program) , ”Gruppmedlem” (en användare som kan ladda upp nya programversioner och hantera projekt), eller ”Administratör” (fullständiga administratörsrättigheter till kontot). Det normala vore att välja Basic och sedan uppgradera användare manuellt via en administratörsinloggning (AppBlade måste konfigurera antingen en e-postbaserad administratörsinloggning i förväg eller uppgradera en användare för kundens räkning efter inloggning).
 
@@ -202,6 +202,6 @@ När du klickar på AppBlade-panelen i åtkomstpanelen så borde du automatiskt 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

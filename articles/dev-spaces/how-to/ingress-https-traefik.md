@@ -1,33 +1,33 @@
 ---
-title: Använda en anpassad traefik-ingress-styrenhet och konfigurera HTTPS
+title: Använd en anpassad traefik ingångs kontroll och konfigurera HTTPS
 services: azure-dev-spaces
 ms.date: 12/10/2019
 ms.topic: conceptual
-description: Lär dig hur du konfigurerar Azure Dev Spaces för att använda en anpassad traefik-ingress-styrenhet och konfigurera HTTPS med den ingående styrenheten
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
+description: Lär dig hur du konfigurerar Azure dev Spaces för att använda en anpassad traefik ingångs kontroll och konfigurera HTTPS med den här ingångs styrenheten
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.openlocfilehash: fd11b3bbd3f90b75203084ff0753c1485d57a35b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80155437"
 ---
-# <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Använda en anpassad traefik-ingress-styrenhet och konfigurera HTTPS
+# <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Använd en anpassad traefik ingångs kontroll och konfigurera HTTPS
 
-Den här artikeln visar hur du konfigurerar Azure Dev Spaces för att använda en anpassad traefik-ingående styrenhet. Den här artikeln visar också hur du konfigurerar den anpassade ingressstyrenheten för att använda HTTPS.
+Den här artikeln visar hur du konfigurerar Azure dev Spaces för att använda en anpassad traefik ingångs kontroll. Den här artikeln visar också hur du konfigurerar den anpassade ingångs styrenheten att använda HTTPS.
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto][azure-account-create].
 * [Azure CLI installerat][az-cli].
-* [Aks-kluster (Azure Kubernetes Service) med Azure Dev Spaces aktiverat][qs-cli].
-* [kubectl][kubectl] installerat.
-* [Helm 3 installerat][helm-installed].
-* [En anpassad domän][custom-domain] med en [DNS-zon][dns-zone]. Den här artikeln förutsätter att den anpassade domänen och DNS-zonen finns i samma resursgrupp som AKS-klustret, men det är möjligt att använda en anpassad domän och DNS-zon i en annan resursgrupp.
+* [Azure Kubernetes service-kluster (AKS) med Azure dev Spaces aktiverat][qs-cli].
+* [kubectl][kubectl] installerad.
+* [Helm 3 är installerat][helm-installed].
+* [En anpassad domän][custom-domain] med en [DNS-zon][dns-zone]. Den här artikeln förutsätter att den anpassade domänen och DNS-zonen finns i samma resurs grupp som ditt AKS-kluster, men det går att använda en anpassad domän och DNS-zon i en annan resurs grupp.
 
-## <a name="configure-a-custom-traefik-ingress-controller"></a>Konfigurera en anpassad traefik-ingående styrenhet
+## <a name="configure-a-custom-traefik-ingress-controller"></a>Konfigurera en anpassad traefik-kontrollant
 
-Anslut till klustret med [kubectl][kubectl], Kommandoradsklienten Kubernetes. För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][az-aks-get-credentials]. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
+Anslut till klustret med [kubectl][kubectl], Kubernetes kommando rads klient. För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][az-aks-get-credentials]. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKS
@@ -41,16 +41,16 @@ NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
 
-Lägg till den [officiella stabila Helm-arkivet][helm-stable-repo], som innehåller traefik ingress controller Helm diagram.
+Lägg till den [officiella stabila Helm-lagringsplatsen][helm-stable-repo]som innehåller Helm-diagrammet traefik ingress ingångs kontroll.
 
 ```console
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ```
 
-Skapa ett Kubernetes-namnområde för traefik-ingress-styrenheten och installera det med `helm`.
+Skapa ett Kubernetes-namnområde för traefik ingress-kontrollanten och installera den `helm`med hjälp av.
 
 > [!NOTE]
-> Om AKS-klustret inte har AKTIVERAT RBAC tar du bort parametern *--set rbac.enabled=true.*
+> Om AKS-klustret inte har RBAC aktive rad tar du bort parametern *--set RBAC. enabled = True* .
 
 ```console
 kubectl create ns traefik
@@ -58,19 +58,19 @@ helm install traefik stable/traefik --namespace traefik --set kubernetes.ingress
 ```
 
 > [!NOTE]
-> I exemplet ovan skapas en offentlig slutpunkt för inkommande styrenhet. Om du behöver använda en privat slutpunkt för inkommande styrenhet i stället lägger du till *--set service.annoteringar." tjänst\\\\.beta\\.kubernetes .io/azure-load-balancer-internal"=true* parameter till kommandot helm *install.*
+> Exemplet ovan skapar en offentlig slut punkt för din ingångs kontroll. Om du behöver använda en privat slut punkt för ingångs styrenheten i stället lägger du till *--set-tjänsten. anteckningar. service\\. beta\\. Kubernetes\\. io/Azure-Load-Balancer-Internal "= true-* parameter till kommandot *Helm install* .
 > ```console
 > helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set fullnameOverride=customtraefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
 > ```
-> Den här privata slutpunkten visas i det virtuella nätverket där du AKS-kluster distribueras.
+> Den här privata slut punkten exponeras i det virtuella nätverket där du AKS-klustret distribueras.
 
-Hämta IP-adressen för traefik-tjänsten för ingående styrenhet med [kubectl get][kubectl-get].
+Hämta IP-adressen för tjänsten traefik ingångs kontroll med hjälp av [kubectl get][kubectl-get].
 
 ```console
 kubectl get svc -n traefik --watch
 ```
 
-Exempelutdata visar IP-adresserna för alla tjänster i *traefik-namnutrymmet.*
+Exempel resultatet visar IP-adresserna för alla tjänster i *traefik* namn området.
 
 ```console
 NAME      TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
@@ -79,7 +79,7 @@ traefik   LoadBalancer   10.0.205.78   <pending>     80:32484/TCP,443:30620/TCP 
 traefik   LoadBalancer   10.0.205.78   MY_EXTERNAL_IP   80:32484/TCP,443:30620/TCP   60s
 ```
 
-Lägg till en *A-post* i DNS-zonen med den externa IP-adressen för traefik-tjänsten med [az-network dns-post som en tilläggspost][az-network-dns-record-set-a-add-record].
+Lägg till en *A* -post i DNS-zonen med den externa IP-adressen för traefik-tjänsten med [AZ Network DNS Record-set A Add-Record][az-network-dns-record-set-a-add-record].
 
 ```azurecli
 az network dns record-set a add-record \
@@ -89,20 +89,20 @@ az network dns record-set a add-record \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-I exemplet ovan läggs en *A-post* till i *den MY_CUSTOM_DOMAIN* DNS-zonen.
+Exemplet ovan lägger till en *A* -post i *MY_CUSTOM_DOMAIN* DNS-zonen.
 
-I den här artikeln använder du [exempelprogrammet Azure Dev Spaces Bike Sharing](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) för att demonstrera med Azure Dev Spaces. Klona programmet från GitHub och gå till programmets katalog:
+I den här artikeln använder du [exempel programmet Azure dev Spaces Bike sharing](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) för att demonstrera användningen av Azure dev Spaces. Klona programmet från GitHub och gå till programmets katalog:
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-Öppna [values.yaml][values-yaml] och gör följande uppdateringar:
-* Ersätt alla instanser av *<REPLACE_ME_WITH_HOST_SUFFIX>* med *traefik. MY_CUSTOM_DOMAIN* att använda domänen för *MY_CUSTOM_DOMAIN*. 
-* Ersätt *kubernetes.io/ingress.class: traefik-azds # Dev Spaces-specifika* med *kubernetes.io/ingress.class: traefik # Anpassad ingress*. 
+Öppna [Values. yaml][values-yaml] och gör följande uppdateringar:
+* Ersätt alla instanser av *<REPLACE_ME_WITH_HOST_SUFFIX>* med *traefik. MY_CUSTOM_DOMAIN* att använda din domän för *MY_CUSTOM_DOMAIN*. 
+* Ersätt *Kubernetes.io/ingress.Class: traefik-azds # dev Spaces-/regionsspecifika* med *Kubernetes.io/ingress.Class: Traefik # Custom ingress*. 
 
-Nedan följer ett exempel `values.yaml` på en uppdaterad fil:
+Nedan visas ett exempel på en uppdaterad `values.yaml` fil:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -123,29 +123,29 @@ gateway:
       - dev.gateway.traefik.MY_CUSTOM_DOMAIN  # Assumes deployment to the 'dev' space
 ```
 
-Spara ändringarna och stäng filen.
+Spara ändringarna och Stäng filen.
 
-Skapa *utvecklingsutrymmet* med exempelprogrammet med `azds space select`.
+Skapa ett *dev* -utrymme med ditt exempel program `azds space select`med hjälp av.
 
 ```console
 azds space select -n dev -y
 ```
 
-Distribuera exempelprogrammet `helm install`med .
+Distribuera exempel programmet med `helm install`.
 
 ```console
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
-I exemplet ovan distribueras exempelprogrammet till *dev-namnområdet.*
+Exemplet ovan distribuerar exempel programmet till *dev* -namnområdet.
 
-Visa url:erna för att `azds list-uris`komma åt exempelprogrammet med .
+Visa URL: erna för att komma åt exempel `azds list-uris`programmet med.
 
 ```console
 azds list-uris
 ```
 
-Nedanstående utdata visar exempeladresserna från `azds list-uris`.
+I nedanstående utdata visas exempel-URL: `azds list-uris`er från.
 
 ```console
 Uri                                                  Status
@@ -154,19 +154,19 @@ http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Navigera till *bikesharingweb-tjänsten* genom att `azds list-uris` öppna den offentliga webbadressen från kommandot. I exemplet ovan är `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`den offentliga URL:en för *bikesharingweb-tjänsten* .
+Navigera till *bikesharingweb* -tjänsten genom att öppna den offentliga URL: `azds list-uris` en från kommandot. I exemplet ovan är `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`den offentliga URL: en för *bikesharingweb* -tjänsten.
 
 > [!NOTE]
-> Om du ser en felsida i stället för *bikesharingweb-tjänsten* kontrollerar du att du har uppdaterat **både** *kubernetes.io/ingress.class-anteckningen* och värden i filen *values.yaml.*
+> Om du ser en felsida i stället för *bikesharingweb* -tjänsten kontrollerar du att du har uppdaterat **både** *Kubernetes.io/ingress.class* -anteckningen och värden i filen *Values. yaml* .
 
-Använd `azds space select` kommandot för att skapa ett underordnat utrymme under *dev* och lista webbadresserna för att komma åt det underordnade utvecklingsutrymmet.
+Använd `azds space select` kommandot för att skapa ett underordnat utrymme under *dev* och listar URL: erna för att få åtkomst till det underordnade dev-utrymmet.
 
 ```console
 azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-Nedanstående utdata visar exempeladresser från `azds list-uris` för att komma åt exempelprogrammet i *azureuser1-utrymmet* för underordnad utveckling.
+I nedanstående utdata visas exempel-URL: `azds list-uris` er från för att komma åt exempel programmet i *azureuser1* -underordnat dev-utrymme.
 
 ```console
 Uri                                                  Status
@@ -175,11 +175,11 @@ http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-Navigera till *bikesharingweb-tjänsten* i *azureuser1-utrymmet* för underordnad `azds list-uris` utveckling genom att öppna den offentliga URL:en från kommandot. I exemplet ovan är `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`den offentliga URL:en för *bikesharingweb-tjänsten* i *azureuser1-underordnade* dev-utrymmet .
+Navigera till *bikesharingweb* -tjänsten i det *azureuser1* underordnade dev-området genom att öppna den offentliga URL `azds list-uris` : en från kommandot. I exemplet ovan är `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`den offentliga URL: en för *bikesharingweb* -tjänsten i det *azureuser1* underordnade dev-utrymmet.
 
-## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>Konfigurera traefik-ingressstyrenheten för att använda HTTPS
+## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>Konfigurera traefik ingress Controller för att använda HTTPS
 
-Använd [cert-manager][cert-manager] för att automatisera hanteringen av TLS-certifikatet när du konfigurerar traefik-ingressstyrenheten för att använda HTTPS. Används `helm` för att installera *certmanager-diagrammet.*
+Använd [cert Manager][cert-manager] för att automatisera hanteringen av TLS-certifikatet när du konfigurerar din traefik-ingångs kontroll för att använda https. Använd `helm` för att installera *certmanager* -diagrammet.
 
 ```console
 kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace traefik
@@ -189,7 +189,7 @@ helm repo update
 helm install cert-manager --namespace traefik --version v0.12.0 jetstack/cert-manager --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
-Skapa `letsencrypt-clusterissuer.yaml` en fil och uppdatera e-postfältet med din e-postadress.
+Skapa en `letsencrypt-clusterissuer.yaml` fil och uppdatera e-postfältet med din e-postadress.
 
 ```yaml
 apiVersion: cert-manager.io/v1alpha2
@@ -209,18 +209,18 @@ spec:
 ```
 
 > [!NOTE]
-> För testning finns det också en [mellanlagringsserver][letsencrypt-staging-issuer] som du kan använda för *din ClusterIssuer*.
+> För testning finns det också en [fristående server][letsencrypt-staging-issuer] som du kan använda för din *ClusterIssuer*.
 
-Används `kubectl` för `letsencrypt-clusterissuer.yaml`att tillämpa .
+Använd `kubectl` för att `letsencrypt-clusterissuer.yaml`tillämpa.
 
 ```console
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-Ta bort föregående *traefik* *ClusterRole* och *ClusterRoleBinding*och uppgradera `helm`sedan traefik för att använda HTTPS med .
+Ta bort föregående *traefik* - *ClusterRole* och *ClusterRoleBinding*och uppgradera sedan traefik för att använda `helm`https med hjälp av.
 
 > [!NOTE]
-> Om AKS-klustret inte har AKTIVERAT RBAC tar du bort parametern *--set rbac.enabled=true.*
+> Om AKS-klustret inte har RBAC aktive rad tar du bort parametern *--set RBAC. enabled = True* .
 
 ```console
 kubectl delete ClusterRole traefik
@@ -228,13 +228,13 @@ kubectl delete ClusterRoleBinding traefik
 helm upgrade traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0 --set ssl.enabled=true --set ssl.enforced=true --set ssl.permanentRedirect=true
 ```
 
-Hämta den uppdaterade IP-adressen för traefik-tjänsten för ingående styrenhet med [kubectl get][kubectl-get].
+Hämta den uppdaterade IP-adressen för traefik ingress Controller-tjänsten med hjälp av [kubectl get][kubectl-get].
 
 ```console
 kubectl get svc -n traefik --watch
 ```
 
-Exempelutdata visar IP-adresserna för alla tjänster i *traefik-namnutrymmet.*
+Exempel resultatet visar IP-adresserna för alla tjänster i *traefik* namn området.
 
 ```console
 NAME      TYPE           CLUSTER-IP    EXTERNAL-IP          PORT(S)                      AGE
@@ -243,7 +243,7 @@ traefik   LoadBalancer   10.0.205.78   <pending>            80:32484/TCP,443:306
 traefik   LoadBalancer   10.0.205.78   MY_NEW_EXTERNAL_IP   80:32484/TCP,443:30620/TCP   60s
 ```
 
-Lägg till en *A-post* i DNS-zonen med den nya externa IP-adressen för traefik-tjänsten med [az-network dns-post som en tilläggspost][az-network-dns-record-set-a-add-record] och ta bort den tidigare *A-posten* med [az-nätverks-dns-post som en remove-record][az-network-dns-record-set-a-remove-record].
+Lägg till en *A* -post i DNS-zonen med den nya externa IP-adressen för traefik-tjänsten med [AZ Network DNS Record-set a Add-Record][az-network-dns-record-set-a-add-record] och ta bort den tidigare *A* -posten med [AZ Network DNS Record-set a Remove-Record][az-network-dns-record-set-a-remove-record].
 
 ```azurecli
 az network dns record-set a add-record \
@@ -259,9 +259,9 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-I exemplet ovan uppdateras *A-posten* i *zonen MY_CUSTOM_DOMAIN* DNS så att *PREVIOUS_EXTERNAL_IP*.
+Exemplet ovan uppdaterar *en* post i DNS-zonen *MY_CUSTOM_DOMAIN* att använda *PREVIOUS_EXTERNAL_IP*.
 
-Uppdatera [values.yaml][values-yaml] för att inkludera information om hur du använder *cert-manager* och HTTPS. Nedan följer ett exempel `values.yaml` på en uppdaterad fil:
+Uppdatera [Values. yaml][values-yaml] för att inkludera information om hur du använder *cert Manager* och https. Nedan visas ett exempel på en uppdaterad `values.yaml` fil:
 
 ```yaml
 # This is a YAML-formatted file.
@@ -292,24 +292,24 @@ gateway:
       secretName: dev-gateway-secret
 ```
 
-Uppgradera exempelprogrammet `helm`med :
+Uppgradera exempel programmet med `helm`:
 
 ```console
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Navigera till exempelprogrammet i det underordnade utrymmet *dev/azureuser1* och lägg märke till att du omdirigeras för att använda HTTPS.
+Navigera till exempel programmet i det underordnade området *dev/azureuser1* och Observera att du omdirigeras till att använda https.
 
 > [!IMPORTANT]
-> Det kan ta 30 minuter eller mer innan DNS-ändringarna slutförs och ditt exempelprogram är tillgängligt.
+> Det kan ta 30 minuter eller mer för DNS-ändringarna att slutföras och ditt exempel program är tillgängligt.
 
-Observera också att sidan läses in, men webbläsaren visar några fel. När du öppnar webbläsarkonsolen visas felet som relaterar till en HTTPS-sida som försöker läsa in HTTP-resurser. Ett exempel:
+Observera också att sidan läses in, men webbläsaren visar vissa fel. Om du öppnar webb läsar konsolen visas felet relaterar till en HTTPS-sida vid försök att läsa in HTTP-resurser. Ett exempel:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Lös det här felet genom att uppdatera [BikeSharingWeb/azds.yaml][azds-yaml] om du vill använda *traefik* för *kubernetes.io/ingress.class* och din anpassade domän för *$(hostSuffix).* Ett exempel:
+Åtgärda felet genom att uppdatera [BikeSharingWeb/azds. yaml][azds-yaml] för att använda *traefik* för *Kubernetes.io/ingress.class* och din anpassade domän för *$ (hostSuffix)*. Ett exempel:
 
 ```yaml
 ...
@@ -322,7 +322,7 @@ Lös det här felet genom att uppdatera [BikeSharingWeb/azds.yaml][azds-yaml] om
 ...
 ```
 
-Uppdatera [BikeSharingWeb/package.json][package-json] med ett beroende för *url-paketet.*
+Uppdatera [BikeSharingWeb/Package. JSON][package-json] med ett beroende för *URL* -paketet.
 
 ```json
 {
@@ -334,7 +334,7 @@ Uppdatera [BikeSharingWeb/package.json][package-json] med ett beroende för *url
 ...
 ```
 
-Uppdatera *metoden getApiHostAsync* i [BikeSharingWeb/lib/helpers.js][helpers-js] för att använda HTTPS:
+Uppdatera *getApiHostAsync* -metoden i [BikeSharingWeb/lib/helpers. js][helpers-js] för att använda https:
 
 ```javascript
 ...
@@ -351,21 +351,21 @@ Uppdatera *metoden getApiHostAsync* i [BikeSharingWeb/lib/helpers.js][helpers-js
 ...
 ```
 
-Navigera till `BikeSharingWeb` katalogen `azds up` och använd för att köra din uppdaterade BikeSharingWeb-tjänst.
+Navigera till `BikeSharingWeb` katalogen och Använd `azds up` för att köra din uppdaterade BikeSharingWeb-tjänst.
 
 ```console
 cd ../BikeSharingWeb/
 azds up
 ```
 
-Navigera till exempelprogrammet i det underordnade utrymmet *dev/azureuser1* och lägg märke till att du omdirigeras för att använda HTTPS utan några fel.
+Navigera till exempel programmet i det underordnade området *dev/azureuser1* och Observera att du omdirigeras till att använda https utan fel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur Azure Dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbete genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
+Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
 
 > [!div class="nextstepaction"]
-> [Teamutveckling i Azure Dev Spaces][team-development-qs]
+> [Grupp utveckling i Azure dev Spaces][team-development-qs]
 
 
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest

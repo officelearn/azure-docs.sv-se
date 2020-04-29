@@ -1,6 +1,6 @@
 ---
-title: Konfigurera tillgänglighetsgrupp i olika regioner
-description: I den här artikeln beskrivs hur du konfigurerar en SQL Server-tillgänglighetsgrupp på virtuella Azure-datorer med en replik i en annan region.
+title: Konfigurera tillgänglighets grupp i olika regioner
+description: Den här artikeln beskriver hur du konfigurerar en SQL Server tillgänglighets grupp på virtuella Azure-datorer med en replik i en annan region.
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
@@ -16,123 +16,123 @@ ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8ca871a6f525d4e68ce70060e6faddbcfc8e1f3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060119"
 ---
-# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Konfigurera en tillgänglighetsgrupp på virtuella Azure SQL Server-datorer i olika regioner
+# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Konfigurera en tillgänglighets grupp på Azure SQL Server virtuella datorer i olika regioner
 
-I den här artikeln beskrivs hur du konfigurerar en SQL Server Always On availability group replica på virtuella Azure-datorer på en fjärrplats för Azure. Använd den här konfigurationen för att stödja haveriberedskap.
+Den här artikeln beskriver hur du konfigurerar en SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer på en fjärran sluten Azure-plats. Använd den här konfigurationen för att stödja haveri beredskap.
 
-Den här artikeln gäller för virtuella Azure-datorer i resource manager-läge.
+Den här artikeln gäller för Azure Virtual Machines i Resource Manager-läge.
 
-Följande avbildning visar en gemensam distribution av en tillgänglighetsgrupp på virtuella Azure-datorer:
+Följande bild visar en gemensam distribution av en tillgänglighets grupp på virtuella Azure-datorer:
 
    ![Tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
-I den här distributionen finns alla virtuella datorer i en Azure-region. Tillgänglighetsgrupprepliker kan ha synkron commit med automatisk redundans på SQL-1 och SQL-2. Information om hur du skapar den här arkitekturen finns i [Mallen eller självstudien för tillgänglighetsgrupp](virtual-machines-windows-portal-sql-availability-group-overview.md).
+I den här distributionen finns alla virtuella datorer i en Azure-region. Tillgänglighets gruppens repliker kan ha synkront genomförande med automatisk redundans på SQL-1 och SQL-2. Information om hur du skapar den här arkitekturen finns i [mallen för tillgänglighets grupper eller självstudier](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
-Den här arkitekturen är sårbar för driftstopp om Azure-regionen blir otillgänglig. För att lösa det här säkerhetsproblemet lägger du till en replik i en annan Azure-region. Följande diagram visar hur den nya arkitekturen skulle se ut:
+Den här arkitekturen är sårbar för stillestånds tid om Azure-regionen blir oåtkomlig. Du kan lösa problemet genom att lägga till en replik i en annan Azure-region. Följande diagram visar hur den nya arkitekturen skulle se ut:
 
-   ![Tillgänglighet Grupp DR](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
+   ![Tillgänglighets grupp DR](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic-dr.png)
 
-I föregående diagram visas en ny virtuell dator som heter SQL-3. SQL-3 finns i en annan Azure-region. SQL-3 läggs till i Redundansklustret för Windows Server. SQL-3 kan vara värd för en replik för tillgänglighetsgrupper. Observera slutligen att Azure-regionen för SQL-3 har en ny Azure-belastningsutjämnare.
+Föregående diagram visar en ny virtuell dator med namnet SQL-3. SQL-3 finns i en annan Azure-region. SQL-3 har lagts till i Windows Server-redundansklustret. SQL-3 kan vara värd för en tillgänglighets grupps replik. Lägg slutligen märke till att Azure-regionen för SQL-3 har en ny Azure Load Balancer.
 
 >[!NOTE]
-> En Azure-tillgänglighetsuppsättning krävs när mer än en virtuell dator finns i samma region. Om bara en virtuell dator finns i regionen krävs inte tillgänglighetsuppsättningen. Du kan bara placera en virtuell dator i en tillgänglighetsuppsättning vid skapande. Om den virtuella datorn redan finns i en tillgänglighetsuppsättning kan du lägga till en virtuell dator för ytterligare en replik senare.
+> Det krävs en tillgänglighets uppsättning för Azure när det finns mer än en virtuell dator i samma region. Om det bara finns en virtuell dator i regionen krävs inte tillgänglighets uppsättningen. Du kan bara placera en virtuell dator i en tillgänglighets uppsättning när du skapar den. Om den virtuella datorn redan finns i en tillgänglighets uppsättning kan du lägga till en virtuell dator för ytterligare en replik senare.
 
-I den här arkitekturen är repliken i fjärrregionen normalt konfigurerad med asynkront tillgänglighetsläge och manuellt redundansläge.
+I den här arkitekturen konfigureras repliken i fjärrregionen normalt med läget för tillgänglighets läge för asynkront genomförande och manuellt växlings läge.
 
-När repliker för tillgänglighetsgrupper finns på virtuella Azure-datorer i olika Azure-regioner kräver varje region:
+När tillgänglighets grupp repliker finns på virtuella Azure-datorer i olika Azure-regioner kräver varje region:
 
 * En virtuell nätverksgateway
-* En anslutning till virtuell nätverksgateway
+* Anslutning till virtuell nätverksgateway
 
-Följande diagram visar hur nätverken kommunicerar mellan datacenter.
+Följande diagram visar hur nätverken kommunicerar mellan data Center.
 
    ![Tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
->Den här arkitekturen medför utgående dataavgifter för data som replikeras mellan Azure-regioner. Se [Bandbreddsprissättning](https://azure.microsoft.com/pricing/details/bandwidth/).  
+>Den här arkitekturen medför utgående data kostnader för data som replikeras mellan Azure-regioner. Se [prissättning för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).  
 
-## <a name="create-remote-replica"></a>Skapa fjärrreplik
+## <a name="create-remote-replica"></a>Skapa fjärran sluten replik
 
-Så här skapar du en replik i ett fjärrdatacenter:
+Gör så här om du vill skapa en replik i ett fjärranslutet Data Center:
 
 1. [Skapa ett virtuellt nätverk i den nya regionen](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
-1. [Konfigurera en VNet-till-VNet-anslutning med Azure-portalen](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+1. [Konfigurera en VNet-till-VNET-anslutning med hjälp av Azure Portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
    >[!NOTE]
-   >I vissa fall kan du behöva använda PowerShell för att skapa VNet-till-VNet-anslutningen. Om du till exempel använder olika Azure-konton kan du inte konfigurera anslutningen i portalen. I det här fallet se [konfigurera en VNet-till-VNet-anslutning med Azure-portalen](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+   >I vissa fall kan du behöva använda PowerShell för att skapa VNet-till-VNet-anslutningen. Om du till exempel använder olika Azure-konton kan du inte konfigurera anslutningen i portalen. I det här fallet kan du se [Konfigurera en VNet-till-VNET-anslutning med hjälp av Azure Portal](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
 1. [Skapa en domänkontrollant i den nya regionen](../../../active-directory/active-directory-new-forest-virtual-machine.md).
 
    Den här domänkontrollanten tillhandahåller autentisering om domänkontrollanten på den primära platsen inte är tillgänglig.
 
-1. [Skapa en virtuell SQL Server-dator i den nya regionen](virtual-machines-windows-portal-sql-server-provision.md).
+1. [Skapa en SQL Server virtuell dator i den nya regionen](virtual-machines-windows-portal-sql-server-provision.md).
 
-1. [Skapa en Azure-belastningsutjämnare i nätverket i den nya regionen](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+1. [Skapa en Azure Load Balancer i nätverket på den nya regionen](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
-   Denna belastningsutjämnare skall
+   Den här belastningsutjämnaren måste:
 
    - Vara i samma nätverk och undernät som den nya virtuella datorn.
-   - Ha en statisk IP-adress för tillgänglighetsgruppens lyssnare.
-   - Inkludera en serverdpool som endast består av virtuella datorer i samma region som belastningsutjämnaren.
-   - Använd en TCP-portavsökning som är specifik för IP-adressen.
-   - Har en belastningsutjämningsregel som är specifik för SQL Server i samma region.  
-   - Bli standardbelastningsutjämnare om de virtuella datorerna i serverdelspoolen inte ingår i en enda tillgänglighetsuppsättning eller en skalningsuppsättning för virtuella datorer. Mer information finns i [översikt över Azure Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+   - Ha en statisk IP-adress för tillgänglighets gruppens lyssnare.
+   - Inkludera en backend-pool som bara består av de virtuella datorerna i samma region som belastningsutjämnaren.
+   - Använd en TCP-port avsökning som är speciell för IP-adressen.
+   - Ha en regel för belastnings utjämning som är unik för SQL Server i samma region.  
+   - Vara en Standard Load Balancer om de virtuella datorerna i backend-poolen inte är en del av antingen en enskild tillgänglighets uppsättning eller en skalnings uppsättning för virtuella datorer. För ytterligare informations granskning [Azure Load Balancer standard översikt](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
-1. [Lägg till funktionen För redundanskluster i den nya SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Lägg till funktionen kluster för växling vid fel i den nya SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-1. [Gå med i den nya SQL Server till domänen](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
+1. [Anslut den nya SQL Server till domänen](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-1. [Ange att det nya SQL Server-tjänstkontot ska använda ett domänkonto](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
+1. [Ange det nya SQL Server tjänst kontot för att använda ett domän konto](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
 
-1. [Lägg till den nya SQL Server i Windows Server Redundanskluster](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
+1. [Lägg till den nya SQL Server i Windows Server-redundansklustret](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
 1. Lägg till en IP-adressresurs i klustret.
 
-   Du kan skapa IP-adressresursen i Redundansklusterhanteraren. Markera namnet på klustret och högerklicka sedan på klusternamnet under **Klusterkärnresurser** och välj **Egenskaper:** 
+   Du kan skapa IP-adressresursen i Klusterhanteraren för växling vid fel. Välj namnet på klustret, högerklicka sedan på kluster namnet under **kluster kärn resurser** och välj **Egenskaper**: 
 
-   ![Klusteregenskaper](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-name-properties.png)
+   ![Kluster egenskaper](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-name-properties.png)
 
-   I dialogrutan **Egenskaper** väljer du **Lägg till** under **IP-adress**och lägger sedan till IP-adressen för klusternamnet från fjärrnätverksregionen. Välj **OK** i dialogrutan **IP-adress** och välj sedan **OK** igen i dialogrutan **Klusteregenskaper** för att spara den nya IP-adressen.. 
+   I dialog rutan **Egenskaper** väljer du **Lägg till** under **IP-adress**och lägger sedan till IP-adressen för kluster namnet från den fjärranslutna nätverks regionen. Välj **OK** i dialog rutan **IP-adress** och välj sedan **OK** igen i dialog rutan **kluster egenskaper** för att spara den nya IP-adressen. 
 
    ![Lägg till kluster-IP](./media/virtual-machines-windows-portal-sql-availability-group-dr/add-cluster-ip-address.png)
 
 
-1. Lägg till IP-adressen som ett beroende för kärnklustrets namn.
+1. Lägg till IP-adressen som ett beroende för kärn kluster namnet.
 
-   Öppna klusteregenskaperna en gång till och välj fliken **Beroenden.** Konfigurera ett ELLER-beroende för de två IP-adresserna: 
+   Öppna kluster egenskaperna en gång till och välj fliken **beroenden** . Konfigurera ett eller beroende för de två IP-adresserna: 
 
-   ![Klusteregenskaper](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-ip-dependencies.png)
+   ![Kluster egenskaper](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-ip-dependencies.png)
 
-1. Lägg till en IP-adressresurs i rollen tillgänglighetsgrupp i klustret. 
+1. Lägg till en IP-adressresurs i tillgänglighets grupps rollen i klustret. 
 
-   Högerklicka på rollen tillgänglighetsgrupp i Redundansklusterhanteraren, välj **Lägg till resurs**, Fler **resurser**och välj **IP-adress**.
+   Högerklicka på rollen tillgänglighets grupp i Klusterhanteraren för växling vid fel, Välj **Lägg till resurs**, **fler resurser**och välj **IP-adress**.
 
    ![Skapa IP-adress](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
-   Konfigurera den här IP-adressen enligt följande:
+   Konfigurera IP-adressen enligt följande:
 
-   - Använd nätverket från fjärrdatacentret.
-   - Tilldela IP-adressen från den nya Azure-belastningsutjämnaren. 
+   - Använd nätverket från fjärrplatsens Data Center.
+   - Tilldela IP-adressen från den nya Azure Load Balancer. 
 
-1. Lägg till IP-adressresursen som ett beroende för lyssnarens klientåtkomstpunkt (nätverksnamn) kluster.
+1. Lägg till IP-adressresursen som ett beroende för klient åtkomst punktens kluster (nätverks namn).
 
-   Följande skärmbild visar en korrekt konfigurerad IP-adressklusterresurs:
+   Följande skärm bild visar en korrekt konfigurerad IP-adress kluster resurs:
 
    ![Tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
 
    >[!IMPORTANT]
-   >Klusterresursgruppen innehåller båda IP-adresserna. Båda IP-adresserna är beroenden för lyssnarens klientåtkomstpunkt. Använd **OPERATORN ELLER** i klusterberoendekonfigurationen.
+   >Kluster resurs gruppen innehåller båda IP-adresserna. Båda IP-adresserna är beroende av åtkomst punkten för lyssnar klienten. Använd operatorn **or** i kluster beroende konfigurationen.
 
-1. [Ange klusterparametrar i PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
+1. [Ange kluster parametrarna i PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
-Kör PowerShell-skriptet med klusternätverksnamn, IP-adress och avsökningsport som du har konfigurerat på belastningsutjämnaren i den nya regionen.
+Kör PowerShell-skriptet med klustrets nätverks namn, IP-adress och avsöknings port som du konfigurerade i belastningsutjämnaren i den nya regionen.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
@@ -145,60 +145,60 @@ Kör PowerShell-skriptet med klusternätverksnamn, IP-adress och avsökningsport
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-1. Aktivera [alltid på tillgänglighetsgrupper](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server)på den nya SQL Server i SQL Server Configuration Manager .
+1. [Aktivera Always on-tillgänglighetsgrupper](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server)på den nya SQL Server i Konfigurationshanteraren för SQL Server.
 
-1. [Öppna brandväggsportar på den nya SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
+1. [Öppna brand Väggs portar på den nya SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
-   Vilka portnummer du behöver för att öppna beror på din miljö. Öppna portar för den speglingslutpunkt och Azure belastningsutjämnare hälsa sonden.
+   De port nummer som du måste öppna beror på din miljö. Öppna portar för speglings slut punkten och hälso avsökningen för Azure Load Balancer.
 
 
-1. [Lägg till en replik i tillgänglighetsgruppen på den nya SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
+1. [Lägg till en replik i tillgänglighets gruppen på den nya SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
 
-   För en replik i en fjärrregion Azure anger du den för asynkron replikering med manuell redundans.  
+   För en replik i en fjärran sluten Azure-region ställer du in den för asynkron replikering med manuell redundans.  
 
 ## <a name="set-connection-for-multiple-subnets"></a>Ange anslutning för flera undernät
 
-Repliken i fjärrdatacentret är en del av tillgänglighetsgruppen, men den finns i ett annat undernät. Om den här repliken blir den primära repliken kan time-out för programanslutning uppstå. Det här beteendet är samma som en lokal tillgänglighetsgrupp i en distribution med flera undernät. Om du vill tillåta anslutningar från klientprogram uppdaterar du klientanslutningen eller konfigurerar cachelagring av namnmatchning på klusternätverksnamnresursen.
+Repliken i det fjärranslutna data centret är en del av tillgänglighets gruppen men finns i ett annat undernät. Om den här repliken blir den primära repliken kan det uppstå tids gränser för program anslutningen. Detta är samma sak som en lokal tillgänglighets grupp i en distribution med flera undernät. Om du vill tillåta anslutningar från klient program uppdaterar du antingen klient anslutningen eller konfigurerar cachelagring av namn matchning i kluster nätverks namn resursen.
 
-Uppdatera helst klientanslutningssträngarna `MultiSubnetFailover=Yes`så att de anger . Se [Ansluta med MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
+Du kan helst uppdatera de klient anslutnings strängar som `MultiSubnetFailover=Yes`ska anges. Se [ansluta till MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Om du inte kan ändra anslutningssträngarna kan du konfigurera cachelagring av namnmatchning. Se [Time-out-fel och du kan inte ansluta till en SQL Server 2012 AlwaysOn-tillgänglighetsgrupplyssnare i en miljö med flera undernät](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
+Om du inte kan ändra anslutnings strängarna kan du konfigurera cachelagring av namn matchning. Se [timeout-fel och du kan inte ansluta till en SQL Server 2012 AlwaysOn tillgänglighets grupps lyssnare i en miljö med flera undernät](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
-## <a name="fail-over-to-remote-region"></a>Växla över till fjärrregion
+## <a name="fail-over-to-remote-region"></a>Redundansväxla till fjärrregion
 
-Om du vill testa lyssnaranslutningen till fjärrregionen kan du växla över repliken till fjärrregionen. Repliken är asynkron, men redundans är sårbar för potentiell dataförlust. Om du vill växla över utan dataförlust ändrar du tillgänglighetsläget till synkron och ställer in redundansläget till automatiskt. Använd följande steg:
+Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över repliken till den fjärranslutna regionen. När repliken är asynkron är redundansväxlingen sårbar för potentiell data förlust. Om du vill redundansväxla utan data förlust ändrar du tillgänglighets läget till synkront och anger läget för redundans till automatisk. Använd följande steg:
 
-1. Anslut till instansen av SQL Server som är värd för den primära repliken i **Object Explorer.**
-1. Högerklicka på din tillgänglighetsgrupp under **Alltidpå tillgänglighetsgrupper**och klicka på **Egenskaper**. **Availability Groups**
-1. På sidan **Allmänt,** under **Tillgänglighetsrepliker,** anger du att den sekundära repliken på DR-platsen ska använda tillgänglighetsläge för **synkron commit** och **automatiskt** redundansläge.
-1. Om du har en sekundär replik på samma plats som den primära repliken för hög tillgänglighet ställer du in repliken på **Asynkron commit** och **manuell**.
+1. I **Object Explorer**ansluter du till den instans av SQL Server som är värd för den primära repliken.
+1. Under **AlwaysOn-tillgänglighetsgrupper**, **tillgänglighets grupper**, högerklickar du på din tillgänglighets grupp och klickar på **Egenskaper**.
+1. På sidan **Allmänt** , under **tillgänglighets repliker**, anger du den sekundära repliken på Dr-platsen så att den använder **synkront genomförande** läge för tillgänglighet och **automatiskt** växlings läge.
+1. Om du har en sekundär replik på samma plats som din primära replik för hög tillgänglighet anger du den här repliken till **asynkron incheckning** och **manuell**.
 1. Klicka på OK.
-1. Högerklicka på tillgänglighetsgruppen i **Objektutforskaren**och klicka på **Visa instrumentpanel**.
-1. Kontrollera att repliken på DR-platsen är synkroniserad på instrumentpanelen.
-1. Högerklicka på tillgänglighetsgruppen i **Objektutforskaren**och klicka på **Redundans...**. SQL Server Management Studios öppnar en guide för att växla över SQL Server.  
-1. Klicka på **Nästa**och välj SQL Server-instansen på DR-platsen. Klicka på **Nästa** igen.
+1. I **Object Explorer**högerklickar du på tillgänglighets gruppen och klickar på **Visa instrument panel**.
+1. På instrument panelen kontrollerar du att repliken på DR-platsen är synkroniserad.
+1. I **Object Explorer**högerklickar du på tillgänglighets gruppen och klickar på **redundans...**. SQL Server Management Studios öppnar en guide för att redundansväxla SQL Server.  
+1. Klicka på **Nästa**och välj SQL Server-instansen på Dr-platsen. Klicka på **Nästa** igen.
 1. Anslut till SQL Server-instansen på DR-platsen och klicka på **Nästa**.
-1. Kontrollera inställningarna på sidan **Sammanfattning** och klicka på **Slutför**.
+1. På sidan **Sammanfattning** kontrollerar du inställningarna och klickar på **Slutför**.
 
-När du har testat anslutningen flyttar du tillbaka den primära repliken till ditt primära datacenter och ställer in tillgänglighetsläget igen på sina normala driftsinställningar. I följande tabell visas de normala driftinställningarna för arkitekturen som beskrivs i det här dokumentet:
+När du har testat anslutningen flyttar du tillbaka den primära repliken till ditt primära Data Center och återställer tillgänglighets läget till sina normala drift inställningar. I följande tabell visas de normala drift inställningarna för den arkitektur som beskrivs i det här dokumentet:
 
-| Location | Serverinstans | Roll | Tillgänglighetsläge | Redundansläge
+| Plats | Server instans | Roll | Tillgänglighets läge | Växlings läge
 | ----- | ----- | ----- | ----- | -----
-| Primärt datacenter | SQL-1 | Primär | Synkron | Automatisk
-| Primärt datacenter | SQL-2 | Sekundär | Synkron | Automatisk
-| Sekundärt datacenter eller fjärrdatacenter | SQL-3 | Sekundär | Asynkron | Manuell
+| Primärt Data Center | SQL-1 | Primär | Synkron | Automatisk
+| Primärt Data Center | SQL-2 | Sekundär | Synkron | Automatisk
+| Sekundärt eller fjärranslutna Data Center | SQL-3 | Sekundär | Asynkron | Manuell
 
 
-### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mer information om planerad och påtvingad manuell redundans
+### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mer information om planerade och forced manual failover
 
 Mer information finns i följande avsnitt:
 
-- [Utföra en planerad manuell redundans för en tillgänglighetsgrupp (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
-- [Utföra en tvingad manuell redundans för en tillgänglighetsgrupp (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
+- [Utföra en planerad manuell redundansväxling av en tillgänglighets grupp (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
+- [Utföra en framtvingad manuell redundansväxling av en tillgänglighets grupp (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
 ## <a name="additional-links"></a>Ytterligare länkar
 
-* [Alltid på tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/)
-* [Azure belastningsutjämnare](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
-* [Azure-tillgänglighetsuppsättningar](../manage-availability.md)
+* [Always on-tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx)
+* [Azure-Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure Load Balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
+* [Tillgänglighets uppsättningar i Azure](../manage-availability.md)

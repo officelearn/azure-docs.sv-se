@@ -1,6 +1,6 @@
 ---
-title: Utför avancerad kodning genom att anpassa MES-förinställningar | Microsoft-dokument
-description: Det här avsnittet visar hur du utför avancerad kodning genom att anpassa aktivitetsförinställningar för Media Encoder Standard.
+title: Utför avancerad kodning genom att anpassa inställningarna för efter var | Microsoft Docs
+description: Det här avsnittet visar hur du utför avancerad kodning genom att anpassa Media Encoder Standard uppgifts för inställningar.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,49 +15,49 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 5f7611fd9df207df51fa0e51218d8a234583b1f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529791"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Utför avancerad kodning genom att anpassa MES-förinställningar 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Utför avancerad kodning genom att anpassa inställningarna för efter var 
 
 ## <a name="overview"></a>Översikt
 
-Det här avsnittet visar hur du anpassar förinställningar för Media Encoder Standard. [Kodningen med Media Encoder Standard med hjälp av anpassade förinställningar](media-services-custom-mes-presets-with-dotnet.md) visar hur du använder .NET för att skapa en kodningsuppgift och ett jobb som utför den här uppgiften. När du har anpassat en förinställning anger du de anpassade förinställningarna till kodningsuppgiften. 
+I det här avsnittet visas hur du anpassar Media Encoder Standard för inställningar. I avsnittet [kodning med Media Encoder Standard med anpassade för inställningar](media-services-custom-mes-presets-with-dotnet.md) visas hur du använder .net för att skapa en kodnings uppgift och ett jobb som kör uppgiften. När du har anpassat en för inställning anger du de anpassade för inställningarna till encoding-aktiviteten. 
 
-Om du använder en XML-förinställning måste du bevara ordningen på elementen, som visas i XML-exempel nedan (keyframeInterval bör till exempel föregå SceneChangeDetection).
+Om du använder en XML-förinställning, se till att bevara element ordningen, som visas i XML-exempel nedan (till exempel KeyFrameInterval ska föregå SceneChangeDetection).
 
 > [!NOTE] 
-> Många av de avancerade Media Services v2-funktionerna i Media Encoder Standard är för närvarande inte tillgängliga i v3. Mer information finns i [funktionsluckor](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
+> Många av de avancerade Media Services v2-funktionerna i Media Encoder Standard är för närvarande inte tillgängliga i v3. Mer information finns i [funktions luckor](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Stöd för relativa storlekar
 
-När du skapar miniatyrer behöver du inte alltid ange utdatabredd och höjd i pixlar. Du kan ange dem i procent, i intervallet [1%, ..., 100%].
+När du skapar miniatyrer behöver du inte alltid ange utgångs bredd och höjd i bild punkter. Du kan ange dem i procent, i intervallet [1%,..., 100%].
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
     "Width": "100%",
     "Height": "100%"
 
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
     <Width>100%</Width>
     <Height>100%</Height>
 
 ## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Skapa miniatyrbilder
 
-I det här avsnittet visas hur du anpassar en förinställning som genererar miniatyrer. Förinställningen som definieras nedan innehåller information om hur du vill koda filen samt information som behövs för att generera miniatyrer. Du kan ta någon av MES förinställningar dokumenteras [detta](media-services-mes-presets-overview.md) avsnitt och lägga till kod som genererar miniatyrer.  
+I det här avsnittet visas hur du anpassar en för inställning som genererar miniatyrer. Den för inställning som definierats nedan innehåller information om hur du vill koda filen samt information som behövs för att generera miniatyrer. Du kan ta något av de förvalda för inställningarna för de [här](media-services-mes-presets-overview.md) avsnitten och lägga till kod som genererar miniatyrer.  
 
 > [!NOTE]
-> **Inställningen SceneChangeDetection** i följande förinställning kan bara ställas in på true om du kodar till en enda bithastighetsvideo. Om du kodar till en multibitrat-video och ställer in **SceneChangeDetection** till true returnerar kodaren ett fel.  
+> **SceneChangeDetection** -inställningen i följande för inställning kan bara anges till sant om du kodar till en video med en bit hastighet. Om du kodar till en video med flera bit hastigheter och anger **SceneChangeDetection** till true, returnerar kodaren ett fel.  
 >
 >
 
 Information om schema finns i [det här](media-services-mes-schema.md) avsnittet.
 
-Se till att granska avsnittet [Överväganden.](#considerations)
+Se till att gå igenom avsnittet [överväganden](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>JSON förinställda
+### <a name="json-preset"></a><a id="json"></a>JSON-förinställning
     {
       "Version": 1.0,
       "Codecs": [
@@ -157,7 +157,7 @@ Se till att granska avsnittet [Överväganden.](#considerations)
     }
 
 
-### <a name="xml-preset"></a><a id="xml"></a>XML-förinställning
+### <a name="xml-preset"></a><a id="xml"></a>XML-förinställd
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -234,25 +234,25 @@ Se till att granska avsnittet [Överväganden.](#considerations)
 
 Följande gäller:
 
-* Användningen av explicita tidsstämplar för Start/Steg/Intervall förutsätter att indatakällan är minst 1 minut lång.
-* Element för jpg/png/bmpimage har strängattribut för Start, Steg och Intervall – dessa kan tolkas som:
+* Om du använder explicita tidsstämplar för start/steg/intervall antas att Indatakällan är minst 1 minut.
+* Jpg/png/BmpImage-element har Start-, steg-och intervall sträng-attribut – dessa kan tolkas som:
 
-  * Bildrutenummer om de är icke-negativa heltal, till exempel "Start": "120",
-  * I förhållande till källans varaktighet om den uttrycks som %-suffixerad, till exempel "Start": "15%", ELLER
-  * Tidsstämpel om den uttrycks som HH:MM:SS... format, till exempel "Start": "00:01:00"
+  * Ram nummer om de är icke-negativa heltal, till exempel "Start": "120",
+  * I förhållande till käll varaktigheten om den uttrycks som% suffix, till exempel "Start": "15%" eller
+  * Tidsstämpel om den uttrycks som HH: MM: SS... format, till exempel "Start": "00:01:00"
 
-    Du kan blanda och matcha notationer som du vill.
+    Du kan blanda och matcha notationer på samma sätt som du.
 
-    Dessutom stöder Start också ett speciellt makro:{Bäst}, som försöker fastställa den första "intressanta" bildrutan i innehållet OBS: (Steg och intervall ignoreras när Start är inställt på {Best})
-  * Standardvärden: Start:{Bäst}
-* Utdataformat måste uttryckligen anges för varje bildformat: Jpg/Png/BmpFormat. När det är dags matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar ett nytt bildcodec-specifikt makro: {Index}, som måste finnas (en gång och bara en gång) för bildutdataformat.
+    Dessutom stöder start också ett särskilt makro: {Best}, som försöker bestämma den första "intressanta" ramen för innehålls anteckningen: (steg och intervall ignoreras när start är inställt på {Best})
+  * Standardvärden: Start: {Best}
+* Utmatnings formatet måste anges explicit för varje bild format: jpg/png/BmpFormat. När den är tillgänglig matchar JpgVideo till JpgFormat och så vidare. OutputFormat introducerar ett nytt bild-codec-särskilt makro: {index}, som måste finnas (en gång och bara en gång) för bild format.
 
-## <a name="trim-a-video-clipping"></a><a id="trim_video"></a>Trimma en video (urklipp)
-I det här avsnittet beskrivs hur kodaren ändras för att klippa eller trimma indatavideon där indata är en så kallad mezzaninfil eller fil på begäran. Kodaren kan också användas för att klippa eller trimma en tillgång, som fångas eller arkiveras från en livestream - detaljerna för detta finns i [den här bloggen](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+## <a name="trim-a-video-clipping"></a><a id="trim_video"></a>Trimma en video (Urklipp)
+Det här avsnittet innehåller information om hur du ändrar för inställningarna för kodare till klipp eller trimmar indata-videon där indata är en så kallad mezzaninfil-fil eller fil på begäran. Kodaren kan också användas för att klippa eller rensa en till gång, som fångas in eller arkiveras från en Live-ström – informationen för detta finns i [den här bloggen](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Om du vill trimma dina videor kan du ta någon av MES-förinställningarna som dokumenterats [i det här](media-services-mes-presets-overview.md) avsnittet och ändra **källelementet** (som visas nedan). Värdet på StartTime måste matcha de absoluta tidsstämplarna för indatavideon. Om till exempel den första bildrutan i indatavideon har en tidsstämpel på 12:00:10.000, ska StartTime vara minst 12:00:10.000 och större. I exemplet nedan antar vi att indatavideon har en starttidsstämpel på noll. **Källor** bör placeras i början av förinställningen.
+Om du vill trimma dina videor kan du ta någon av de efter-och-inställningar som beskrivs i [det här](media-services-mes-presets-overview.md) avsnittet och ändra elementet **sources** (se nedan). Värdet för StartTime måste matcha de absoluta tidsstämplarna för Indataporten. Om den första bild rutan i Indataporten till exempel har en tidsstämpel på 12:00:10 000, ska StartTime vara minst 12:00:10 000 och större. I exemplet nedan antar vi att Indataporten har en start tids stämpling på noll. **Källor** ska placeras i början av förvalet.
 
-### <a name="json-preset"></a><a id="json"></a>JSON förinställda
+### <a name="json-preset"></a><a id="json"></a>JSON-förinställning
     {
       "Version": 1.0,
       "Sources": [
@@ -371,8 +371,8 @@ Om du vill trimma dina videor kan du ta någon av MES-förinställningarna som d
       ]
     }
 
-### <a name="xml-preset"></a>XML-förinställning
-Om du vill trimma dina videor kan du ta någon av MES-förinställningarna som dokumenteras [här](media-services-mes-presets-overview.md) och ändra **källelementet** (som visas nedan).
+### <a name="xml-preset"></a>XML-förinställd
+Om du vill trimma dina videor kan du ta någon av de efter-och-inställningar som beskrivs [här](media-services-mes-presets-overview.md) och ändra elementet **sources** (se nedan).
 
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -491,11 +491,11 @@ Om du vill trimma dina videor kan du ta någon av MES-förinställningarna som d
 
 ## <a name="create-an-overlay"></a><a id="overlay"></a>Skapa ett överlägg
 
-Med Media Encoder Standard kan du lägga över en bild på en befintlig video. För närvarande stöds följande format: png, jpg, gif och bmp. Den förinställda som definieras nedan är ett grundläggande exempel på ett videoöverlägg.
+Med Media Encoder Standard kan du täcka över en bild till en befintlig video. För närvarande stöds följande format: PNG, jpg, GIF och BMP. Den för inställning som definieras nedan är ett grundläggande exempel på ett video överlägg.
 
-Förutom att definiera en förinställd fil måste du också låta Media Services veta vilken fil i tillgången som är överläggsbilden och vilken fil som är källvideon som du vill lägga över bilden på. Videofilen måste vara den **primära** filen.
+Förutom att definiera en för inställnings fil måste du också låta Media Services veta vilken fil i till gången som överläggs bilden är och vilken fil som är den käll video som du vill täcka över bilden till. Video filen måste vara den **primära** filen.
 
-Om du använder .NET lägger du till följande två funktioner i .NET-exemplet som definieras i [det här](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) avsnittet. **Funktionen UploadMediaFilesFromFolder** laddar upp filer från en mapp (till exempel BigBuckBunny.mp4 och Image001.png) och anger att mp4-filen är den primära filen i tillgången. Funktionen **EncodeWithOverlay** använder den anpassade förinställda filen som skickades till den (till exempel förinställningen som följer) för att skapa kodningsuppgiften.
+Om du använder .NET lägger du till följande två funktioner i .NET-exemplet som definierats i [det här](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) avsnittet. Funktionen **UploadMediaFilesFromFolder** överför filer från en mapp (till exempel BigBuckBunny. mp4 och Image001. png) och anger att MP4-filen ska vara den primära filen i till gången. Funktionen **EncodeWithOverlay** använder den anpassade för inställnings filen som skickades till den (till exempel den för inställning som följer) för att skapa kodnings uppgiften.
 
 
     static public IAsset UploadMediaFilesFromFolder(string folderPath)
@@ -551,15 +551,15 @@ Om du använder .NET lägger du till följande två funktioner i .NET-exemplet s
 
 
 > [!NOTE]
-> Nuvarande begränsningar:
+> Aktuella begränsningar:
 >
-> Inställningen för överlagringsopacitet stöds inte.
+> Inställningen övertäcknings ogenomskinlighet stöds inte.
 >
-> Källvideofilen och överlagringsbildfilen måste finnas i samma tillgång, och videofilen måste anges som den primära filen i den här tillgången.
+> Käll video filen och bild filen för överlägget måste finnas i samma till gång, och video filen måste anges som primär fil i den här till gången.
 >
 >
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
     {
       "Version": 1.0,
       "Sources": [
@@ -635,7 +635,7 @@ Om du använder .NET lägger du till följande två funktioner i .NET-exemplet s
     }
 
 
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
@@ -696,14 +696,14 @@ Om du använder .NET lägger du till följande två funktioner i .NET-exemplet s
     </Preset>
 
 
-## <a name="insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Infoga ett tyst ljudspår när ingången inte har något ljud
-Om du skickar en indata till kodaren som bara innehåller video och inget ljud innehåller utdatatillgången som standard filer som bara innehåller videodata. Vissa spelare kanske inte kan hantera sådana utdataströmmar. Du kan använda den här inställningen för att tvinga kodaren att lägga till ett tyst ljudspår i utdata i det scenariot.
+## <a name="insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Infoga ett tyst ljud spår när indata inte har något ljud
+Om du skickar ett indata till kodare som bara innehåller video, och inget ljud, innehåller utdata-till gången filer som bara innehåller video data. Vissa spelare kanske inte kan hantera sådana utgående strömmar. Du kan använda den här inställningen för att tvinga kodare att lägga till ett tyst ljud spår till utdata i det scenariot.
 
-Om du vill tvinga kodaren att producera en tillgång som innehåller ett tyst ljudspår när ingången inte har något ljud anger du värdet "InsertSilenceIfNoAudio".
+Om du vill tvinga kodare att skapa en till gång som innehåller ett tyst ljud spår när indata inte har något ljud, anger du värdet "InsertSilenceIfNoAudio".
 
-Du kan ta någon av MES-förinställningar som dokumenteras i [det här](media-services-mes-presets-overview.md) avsnittet och göra följande ändringar:
+Du kan ta något av de förvalda för inställningarna för efterföljande som beskrivs i [det här](media-services-mes-presets-overview.md) avsnittet och göra följande ändringar:
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
     {
       "Channels": 2,
       "SamplingRate": 44100,
@@ -712,19 +712,19 @@ Du kan ta någon av MES-förinställningar som dokumenteras i [det här](media-s
       "Condition": "InsertSilenceIfNoAudio"
     }
 
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
     <AACAudio Condition="InsertSilenceIfNoAudio">
       <Channels>2</Channels>
       <SamplingRate>44100</SamplingRate>
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Inaktivera automatisk avförstöring
-Kunderna behöver inte göra något om de gillar sammanflätning innehållet att automatiskt de-sammanflätade. När den automatiska de-interlacing är på (standard) MES gör automatisk upptäckt av sammanflätade ramar och endast de-sammanflätade ramar markerade som sammanflätade.
+## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Inaktivera automatiska inflätning
+Kunderna behöver inte göra något om de som det sammanflätnings innehållet automatiskt ska vara sammanflätade. När den automatiska indelningen är aktive ras (standard) används den automatiska identifieringen av sammanflätade ramar och bara de som är sammanflätade.
 
-Du kan stänga av den automatiska avförstöringen. Det här alternativet rekommenderas inte.
+Du kan stänga av den automatiska avflätningen. Det här alternativet rekommenderas inte.
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
     "Sources": [
     {
      "Filters": {
@@ -735,7 +735,7 @@ Du kan stänga av den automatiska avförstöringen. Det här alternativet rekomm
     }
     ]
 
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
     <Sources>
     <Source>
       <Filters>
@@ -747,8 +747,8 @@ Du kan stänga av den automatiska avförstöringen. Det här alternativet rekomm
     </Sources>
 
 
-## <a name="audio-only-presets"></a><a id="audio_only"></a>Förinställningar för endast ljud
-Detta avsnitt visar två endast ljud MES förinställningar: AAC Audio och AAC God kvalitet Audio.
+## <a name="audio-only-presets"></a><a id="audio_only"></a>För inställningar för endast ljud
+I det här avsnittet visas två för hands inställningar för endast ljud: AAC Audio och AAC Audio med bra kvalitet.
 
 ### <a name="aac-audio"></a>AAC-ljud
     {
@@ -772,7 +772,7 @@ Detta avsnitt visar två endast ljud MES förinställningar: AAC Audio och AAC G
       ]
     }
 
-### <a name="aac-good-quality-audio"></a>AAC God kvalitet Audio
+### <a name="aac-good-quality-audio"></a>Ljud av AAC-bra kvalitet
     {
       "Version": 1.0,
       "Codecs": [
@@ -794,26 +794,26 @@ Detta avsnitt visar två endast ljud MES förinställningar: AAC Audio och AAC G
       ]
     }
 
-## <a name="concatenate-two-or-more-video-files"></a><a id="concatenate"></a>Sammanfoga två eller flera videofiler
+## <a name="concatenate-two-or-more-video-files"></a><a id="concatenate"></a>Sammanfoga två eller fler videofiler
 
-I följande exempel visas hur du kan skapa en förinställning för att sammanfoga två eller flera videofiler. Det vanligaste scenariot är när du vill lägga till ett sidhuvud eller en trailer i huvudvideon. Den avsedda användningen är när de videofiler som redigeras tillsammans delar egenskaper (videoupplösning, bildfrekvens, antal ljudspår, etc.). Du bör noga med att inte blanda videor med olika bildfrekvens, eller med olika antal ljudspår.
+I följande exempel visas hur du kan generera en för inställning för att sammanfoga två eller fler videofiler. Det vanligaste scenariot är när du vill lägga till ett sidhuvud eller en släpvagn i huvud videon. Den avsedda användningen är när videofilerna som redige ras tillsammans delar egenskaper (video upplösning, bild Rute hastighet, antal ljud spår osv.). Du bör inte vara försiktig med att blanda videor med olika bild Rute hastigheter eller med olika antal ljud spår.
 
 >[!NOTE]
->Den nuvarande utformningen av sammanfogning funktionen förväntar sig att indata videoklipp är konsekventa när det gäller upplösning, bildhastighet etc. 
+>Den aktuella designen av sammanfognings funktionen förväntar sig att insamlings videoklippen är konsekventa när det gäller upplösning, bild hastighet osv. 
 
 ### <a name="requirements-and-considerations"></a>Krav och överväganden
 
-* Indatavideor bör bara ha ett ljudspår.
-* Indatavideor bör alla ha samma bildhastighet.
-* Du måste ladda upp dina videor till separata tillgångar och ange videorna som den primära filen i varje tillgång.
+* Inmatade videor får bara ha ett ljud spår.
+* Inmatade videor bör ha samma bild Rute hastighet.
+* Du måste överföra dina videor till separata till gångar och ange videor som primär fil i varje till gång.
 * Du måste veta hur länge dina videor är.
-* De förinställda exemplen nedan förutsätter att alla indatavideor börjar med en tidsstämpel på noll. Du måste ändra StartTime-värdena om videorna har olika starttidsstämpel, vilket vanligtvis är fallet med livearkiv.
-* JSON-förinställningen innehåller uttryckliga hänvisningar till AssetID-värdena för indatatillgångarna.
-* Exempelkoden förutsätter att JSON-förinställningen har sparats i en lokal fil, till exempel "C:\supportFiles\preset.json". Det förutsätter också att två tillgångar har skapats genom att ladda upp två videofiler och att du känner till de resulterande AssetID-värdena.
-* Kodavsnittet och JSON-förinställningen visar ett exempel på att sammanfoga två videofiler. Du kan utöka den till fler än två videor genom att:
+* De förinställda exemplen nedan förutsätter att alla inmatade videor börjar med en tidsstämpel på noll. Du måste ändra StartTime-värdena om videoklippen har olika start tids stämpling, som vanligt vis är fallet med Live-Arkiv.
+* JSON-förvalet gör explicita referenser till AssetID-värdena för ingångs till gångarna.
+* Exempel koden förutsätter att JSON-förvalet har sparats i en lokal fil, t. ex. "C:\supportFiles\preset.json". Det förutsätter också att två till gångar har skapats genom att överföra två videofiler och att du vet de resulterande AssetID-värdena.
+* Kodfragmentet och JSON-förvalet visar ett exempel på sammanfogning av två videofiler. Du kan utöka den till fler än två videor genom att:
 
-  1. Anropar uppgift. InputAssets.Add() upprepade gånger för att lägga till fler videor, i ordning.
-  2. Göra motsvarande ändringar i "Källor" elementet i JSON, genom att lägga till fler poster, i samma ordning.
+  1. Anropar uppgift. InputAssets. Add () upprepas flera gånger för att lägga till fler videor i ordning.
+  2. Gör motsvarande ändringar i elementet "sources" i JSON, genom att lägga till fler poster i samma ordning.
 
 ### <a name="net-code"></a>.NET-kod
 
@@ -848,9 +848,9 @@ I följande exempel visas hur du kan skapa en förinställning för att sammanfo
     job.Submit();
     job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
 
-Uppdatera din anpassade förinställning med id:n för de tillgångar som du vill sammanfoga och med rätt tidssegment för varje video.
+Uppdatera din anpassade för inställning med ID: n för de till gångar som du vill sammanfoga och med lämpligt tids segment för varje video.
 
     {
       "Version": 1.0,
@@ -905,23 +905,23 @@ Uppdatera din anpassade förinställning med id:n för de tillgångar som du vil
     }
 
 ## <a name="crop-videos-with-media-encoder-standard"></a><a id="crop"></a>Beskär videoklipp med Media Encoder Standard
-Se [avsnittet Beskär videor med Media Encoder Standard.](media-services-crop-video.md)
+Se avsnittet [Beskär videor med Media Encoder Standard](media-services-crop-video.md) .
 
-## <a name="insert-a-video-track-when-input-has-no-video"></a><a id="no_video"></a>Infoga ett videospår när indata inte har någon video
+## <a name="insert-a-video-track-when-input-has-no-video"></a><a id="no_video"></a>Infoga ett video spår om inmatningen saknar video
 
-Om du skickar en indata till kodaren som bara innehåller ljud och ingen video innehåller utdatatillgången som standard filer som bara innehåller ljuddata. Vissa spelare, inklusive Azure Media Player (se [detta)](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)kanske inte kan hantera sådana strömmar. Du kan använda den här inställningen för att tvinga kodaren att lägga till ett svartvitt videospår i utdata i det scenariot.
+Om du skickar ett indata till kodare som bara innehåller ljud, och ingen video, innehåller utdata-till gången filer som bara innehåller ljud data. Vissa spelare, inklusive Azure Media Player (se [detta](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) kanske inte kan hantera sådana strömmar. Du kan använda den här inställningen för att tvinga kodare att lägga till ett monokromt video spår till utdata i det scenariot.
 
 > [!NOTE]
-> Om du tvingar kodaren att infoga ett utdatavideospår ökar storleken på utdatatillgången och därmed kostnaden för kodningsaktiviteten. Du bör köra tester för att kontrollera att denna resulterande ökning har endast en blygsam inverkan på dina månadsavgifter.
+> Att tvinga kodaren att infoga ett utdata video spår ökar storleken på utmatnings till gången och därmed kostnaden för kodnings aktiviteten. Du bör köra tester för att kontrol lera att den resulterande ökningen bara har en liten inverkan på dina månatliga avgifter.
 >
 
-### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Infoga video på endast den lägsta bithastigheten
+### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Infoga endast video med lägsta bit hastighet
 
-Anta att du använder en flerbithastighetskodningsförinställning, till exempel ["H264 Multiple Bitrate 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) för att koda hela indatakatalogen för direktuppspelning, som innehåller en blandning av videofiler och ljudfiler. I det här fallet, när ingången inte har någon video, kanske du vill tvinga kodaren att infoga ett svartvitt videospår på bara den lägsta bithastigheten, i motsats till att infoga video vid varje utdatabithastighet. För att uppnå detta måste du använda flaggan **InsertBlackIfNoVideoBottomLayerOnly.**
+Anta att du använder en kodning för flera bit hastigheter, till exempel ["H264, Multiple bit hastighet"](media-services-mes-preset-h264-multiple-bitrate-720p.md) för att koda hela indata-katalogen för strömning, som innehåller en blandning av videofiler och ljudfiler. I det här scenariot, när indatan inte har någon video, kanske du vill tvinga kodare att infoga en monokrom video spår med enbart den lägsta bit hastigheten, i stället för att infoga video vid varje bit hastighet. För att uppnå detta måste du använda flaggan **InsertBlackIfNoVideoBottomLayerOnly** .
 
-Du kan ta någon av MES-förinställningar som dokumenteras i [det här](media-services-mes-presets-overview.md) avsnittet och göra följande ändringar:
+Du kan ta något av de förvalda för inställningarna för efterföljande som beskrivs i [det här](media-services-mes-presets-overview.md) avsnittet och göra följande ändringar:
 
-#### <a name="json-preset"></a>JSON förinställda
+#### <a name="json-preset"></a>JSON-förinställning
     {
           "KeyFrameInterval": "00:00:02",
           "StretchMode": "AutoSize",
@@ -931,9 +931,9 @@ Du kan ta någon av MES-förinställningar som dokumenteras i [det här](media-s
           ]
     }
 
-#### <a name="xml-preset"></a>XML-förinställning
+#### <a name="xml-preset"></a>XML-förinställd
 
-När du använder XML använder du Condition="InsertBlackIfNoVideoBottomLayerOnly" som attribut till **H264Video-elementet** och Condition="InsertSilenceIfNoAudio" som attribut till **AACAudio**.
+När du använder XML använder du Condition = "InsertBlackIfNoVideoBottomLayerOnly" som ett attribut till **H264Video** -elementet och Condition = "InsertSilenceIfNoAudio" som ett attribut till **AACAudio**.
 
 ```
 . . .
@@ -959,12 +959,12 @@ När du använder XML använder du Condition="InsertBlackIfNoVideoBottomLayerOnl
 . . .
 ```
 
-### <a name="inserting-video-at-all-output-bitrates"></a>Infoga video vid alla utdatabithastigheter
-Anta att du använder en flerbithastighetskodningsförinställning, till exempel ["H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) för att koda hela indatakatalogen för direktuppspelning, som innehåller en blandning av videofiler och ljudfiler. I det här fallet när ingången inte har någon video, kanske du vill tvinga kodaren att infoga ett svartvitt videospår på alla utdatabithastigheter. Detta säkerställer att dina utdatatillgångar är alla homogena med avseende på antalet videospår och ljudspår. För att uppnå detta måste du ange flaggan "InsertBlackIfNoVideo".
+### <a name="inserting-video-at-all-output-bitrates"></a>Infoga video på alla bit hastigheter för utdata
+Anta att du använder en kodning för flera bit hastigheter, till exempel ["H264, Multiple bit hastighet 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) för att koda hela indata-katalogen för strömning, som innehåller en blandning av videofiler och ljudfiler. I det här scenariot, när indatan inte har någon video, kanske du vill tvinga kodaren att infoga ett monokromt video spår på alla bit hastigheter. Detta säkerställer att dina utmatnings till gångar är homogena i förhållande till antalet video spår och ljud spår. För att uppnå detta måste du ange flaggan "InsertBlackIfNoVideo".
 
-Du kan ta någon av MES-förinställningar som dokumenteras i [det här](media-services-mes-presets-overview.md) avsnittet och göra följande ändringar:
+Du kan ta något av de förvalda för inställningarna för efterföljande som beskrivs i [det här](media-services-mes-presets-overview.md) avsnittet och göra följande ändringar:
 
-#### <a name="json-preset"></a>JSON förinställda
+#### <a name="json-preset"></a>JSON-förinställning
     {
           "KeyFrameInterval": "00:00:02",
           "StretchMode": "AutoSize",
@@ -974,9 +974,9 @@ Du kan ta någon av MES-förinställningar som dokumenteras i [det här](media-s
           ]
     }
 
-#### <a name="xml-preset"></a>XML-förinställning
+#### <a name="xml-preset"></a>XML-förinställd
 
-När du använder XML använder du Condition="InsertBlackIfNoVideo" som attribut till **H264Video-elementet** och Condition="InsertSilenceIfNoAudio" som attribut till **AACAudio**.
+När du använder XML använder du Condition = "InsertBlackIfNoVideo" som ett attribut till **H264Video** -elementet och Condition = "InsertSilenceIfNoAudio" som ett attribut till **AACAudio**.
 
 ```
 . . .
@@ -1003,9 +1003,9 @@ När du använder XML använder du Condition="InsertBlackIfNoVideo" som attribut
 ```
 
 ## <a name="rotate-a-video"></a><a id="rotate_video"></a>Rotera en video
-[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) stöder rotation genom vinklar på 0/90/180/270. Standardbeteendet är "Auto", där den försöker identifiera rotationsmetadata i den inkommande videofilen och kompensera för den. Inkludera följande **källelement** i en av de förinställningar som definieras i [det här](media-services-mes-presets-overview.md) avsnittet:
+[Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) stöder rotation efter vinklar på 0/90/180/270. Standard beteendet är "Auto", där det försöker att identifiera rotations-metadata i den inkommande video filen och kompensera för den. Ta med följande **käll** element till en av de förval som definieras i [det här](media-services-mes-presets-overview.md) avsnittet:
 
-### <a name="json-preset"></a>JSON förinställda
+### <a name="json-preset"></a>JSON-förinställning
     "Sources": [
     {
       "Streams": [],
@@ -1017,7 +1017,7 @@ När du använder XML använder du Condition="InsertBlackIfNoVideo" som attribut
     "Codecs": [
 
     ...
-### <a name="xml-preset"></a>XML-förinställning
+### <a name="xml-preset"></a>XML-förinställd
     <Sources>
            <Source>
           <Streams />
@@ -1027,9 +1027,9 @@ När du använder XML använder du Condition="InsertBlackIfNoVideo" som attribut
         </Source>
     </Sources>
 
-Se även [det här](media-services-mes-schema.md#PreserveResolutionAfterRotation) avsnittet för mer information om hur kodaren tolkar inställningarna för bredd och höjd i förinställningen när rotationskompensation utlöses.
+Se även [det här](media-services-mes-schema.md#PreserveResolutionAfterRotation) avsnittet för mer information om hur kodaren tolkar inställningarna för bredd och höjd i förvalet, när rotations kompensationen utlöses.
 
-Du kan använda värdet "0" för att ange för kodaren att ignorera rotationsmetadata, om sådana finns, i indatavideon.
+Du kan använda värdet "0" för att ange att kodaren ska ignorera metadata för rotering, om den finns, i indata-videon.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -1038,4 +1038,4 @@ Du kan använda värdet "0" för att ange för kodaren att ignorera rotationsmet
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Översikt över kodning av Media Services](media-services-encode-asset.md)
+[Översikt över Media Services kodning](media-services-encode-asset.md)

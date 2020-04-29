@@ -1,6 +1,6 @@
 ---
-title: Lägga till ett polygonlager på en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du renderar en polygon och polygon på en karta i Microsoft Azure Maps Web SDK.
+title: Lägg till ett polygon-lager till en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du återger en polygon och flera polygoner på en karta i Microsoft Azure Maps-webbsdk.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -10,19 +10,19 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 9191f054ca3c7374bcbc7bec46573289a512612c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79535060"
 ---
-# <a name="add-a-polygon-layer-to-the-map"></a>Lägga till ett polygonlager på kartan
+# <a name="add-a-polygon-layer-to-the-map"></a>Lägg till ett polygon-lager till kartan
 
-Den här artikeln visar hur `Polygon` du `MultiPolygon` återger områden och funktionsgeometrier på kartan med hjälp av ett polygonlager. Azure Maps Web SDK stöder också skapandet av Circle-geometrier enligt definitionen i det [utökade GeoJSON-schemat](extend-geojson.md#circle). Dessa cirklar omvandlas till polygoner när de återges på kartan. Alla funktionsgeometrier kan enkelt uppdateras när de slås in med [atlasen. Formklass.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest)
+Den här artikeln visar hur du återger områdena i `Polygon` och `MultiPolygon` funktions Geometries på kartan med ett polygon-lager. Azure Maps Web SDK stöder även skapande av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar omvandlas till polygoner när de återges på kartan. Alla funktions Geometries kan enkelt uppdateras när de omslutits med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) -klass.
 
-## <a name="use-a-polygon-layer"></a>Använda ett polygonlager 
+## <a name="use-a-polygon-layer"></a>Använda ett polygon-lager 
 
-När ett polygonlager är anslutet till en datakälla och läses in på kartan återges området med `Polygon` och `MultiPolygon` funktioner. Om du vill skapa en polygon lägger du till den i en datakälla och återger den med ett polygonlager med klassen [PolygonLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)
+När ett polygon-lager är anslutet till en data källa och läses in på kartan, återges ytan med `Polygon` och `MultiPolygon` -funktioner. Om du vill skapa en polygon lägger du till den i en data källa och återger den med ett polygon lager med hjälp av klassen [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -47,48 +47,48 @@ map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 }), 'labels');
 ```
 
-Nedan är det fullständiga och löpande exemplet på ovanstående kod.
+Nedan visas ett komplett och löpande exempel på ovanstående kod.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägga till en polygon på en karta ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pennan <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Lägg till en polygon på en karta</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägg till en polygon till en karta ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Lägg till en polygon till en karta</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="use-a-polygon-and-line-layer-together"></a>Använda ett polygon- och linjelager tillsammans
+## <a name="use-a-polygon-and-line-layer-together"></a>Använda ett polygon-och linje lager tillsammans
 
-Ett linjelager används för att återge dispositionen av polygoner. Följande kodexempel återger en polygon som föregående exempel, men lägger nu till ett linjelager. Det här linjelagret är ett andra lager som är kopplat till datakällan.  
+Ett linje lager används för att återge konturen för polygoner. I följande kod exempel återges en polygon som i föregående exempel, men nu läggs ett linje lager till. Detta linje skikt är ett andra lager som är anslutet till data källan.  
 
-<iframe height='500' scrolling='no' title='Polygon- och linjelager för att lägga till polygon' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pen <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polygon och linjelagret för att lägga till polygon</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Polygon och linje skikt för att lägga till polygon' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Lägg till polygon med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>i Pen- <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>polygonen och linje lagret</a> .
 </iframe>
 
-## <a name="fill-a-polygon-with-a-pattern"></a>Fyll en polygon med ett mönster
+## <a name="fill-a-polygon-with-a-pattern"></a>Fylla en polygon med ett mönster
 
-Förutom att fylla en polygon med en färg kan du använda ett bildmönster för att fylla polygonen. Läs in ett bildmönster i kartornas bilder och `fillPattern` referera sedan till den här bilden med polygonlagrets egenskap.
+Förutom att fylla i en polygon med en färg kan du använda ett bild mönster för att fylla polygonen. Läs in ett bild mönster i Maps-avbildningen Sprite-resurser och referera sedan `fillPattern` till den här avbildningen med egenskapen för polygon-lagret.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Polygonfyllningsmönster" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se fyllningsmönstret för Pen <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Polygon</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Fyllnings mönster för polygon" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Fyllnings mönstret</a> för pen-polygonen<a href='https://codepen.io/azuremaps'>@azuremaps</a>genom att Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 > [!TIP]
-> Azure Maps web SDK innehåller flera anpassningsbara avbildningsmallar som du kan använda som fyllningsmönster. Mer information finns i dokumentet [Så här använder du bildmallar.](how-to-use-image-templates-web-sdk.md)
+> Azure Maps Web SDK innehåller flera anpassningsbara bildmallar som du kan använda som fyllnings mönster. Mer information finns i dokumentet om [att använda bildmallar](how-to-use-image-templates-web-sdk.md) .
 
-## <a name="customize-a-polygon-layer"></a>Anpassa ett polygonlager
+## <a name="customize-a-polygon-layer"></a>Anpassa ett polygon-lager
 
-Polygonlagret har bara några stylingalternativ. Här är ett verktyg för att prova dem.
+Polygon-lagret har bara några få format alternativ. Här är ett verktyg för att testa dem.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='LXvxpg (0, 2000)' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pen <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> by<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <a id="addACircle"></a>
 
-## <a name="add-a-circle-to-the-map"></a>Lägga till en cirkel på kartan
+## <a name="add-a-circle-to-the-map"></a>Lägg till en cirkel till kartan
 
-Azure Maps använder en utökad version av GeoJSON-schemat som ger en definition för cirklar, vilket anges [här](extend-geojson.md#circle). En cirkel återges på kartan `Point` genom att skapa en funktion. Detta `Point` har `subType` en egenskap `"Circle"` med `radius` värdet och en egenskap med ett tal som representerar radien i meter. 
+Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar, som du ser [här](extend-geojson.md#circle). En cirkel återges på kartan genom att en `Point` funktion skapas. Detta `Point` har en `subType` egenskap med värdet `"Circle"` och en `radius` egenskap med ett tal som representerar radien i meter. 
 
 ```javascript
 {
@@ -104,16 +104,16 @@ Azure Maps använder en utökad version av GeoJSON-schemat som ger en definition
 }  
 ```
 
-Azure Maps Web SDK `Point` konverterar `Polygon` dessa funktioner till funktioner. Sedan återges dessa funktioner på kartan med polygon- och linjelager som visas i följande kodexempel.
+Azure Maps Web SDK konverterar dessa `Point` funktioner till `Polygon` funktioner. Sedan återges dessa funktioner på kartan med hjälp av polygon-och linje lager enligt följande kod exempel.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägga till en cirkel på en karta' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pennan <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Lägg till en cirkel på en karta</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägga till en cirkel till en karta' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Lägg till en cirkel till en karta</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="make-a-geometry-easy-to-update"></a>Gör en geometri enkel att uppdatera
+## <a name="make-a-geometry-easy-to-update"></a>Gör en geometri lätt att uppdatera
 
-En `Shape` klass sveper in en [geometri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) eller [funktion](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) och gör det enkelt att uppdatera och underhålla dessa funktioner. Om du vill instansiera en formvariabel skickar du en geometri eller en uppsättning egenskaper till formkonstruktorn.
+En `Shape` klass radbryter en [geometri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) eller [funktion](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) och gör det enkelt att uppdatera och underhålla dessa funktioner. Om du vill instansiera en form variabel skickar du en geometri eller en uppsättning egenskaper till form-konstruktorn.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -123,11 +123,11 @@ var shape1 = new atlas.Shape(new atlas.data.Point[0,0], { myProperty: 1 });
 var shape2 = new atlas.Shape(new atlas.data.Feature(new atlas.data.Point[0,0], { myProperty: 1 });
 ```
 
-Följande kodexempel visar hur du radbryt ett geojson-objekt med en formklass. När värdet på radien ändras i formen återges cirkeln automatiskt på kartan.
+Följande kod exempel visar hur du omsluter ett cirkel-interjson-objekt med en Shape-klass. Som värdet för RADIUS-ändringar i formen återges cirkeln automatiskt på kartan.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Uppdatera formegenskaper' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>formegenskaperna</a> Pen Update<a href='https://codepen.io/azuremaps'>@azuremaps</a>av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Uppdatera form egenskaper' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se egenskaperna för Penn <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>uppdaterings formen</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -135,15 +135,15 @@ Följande kodexempel visar hur du radbryt ett geojson-objekt med en formklass. N
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)
+> [Polygonlasso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [PolygonLayer (på samma sätt)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)
+> [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
 
-Fler kodexempel att lägga till i dina kartor finns i följande artiklar:
+Fler kod exempel som kan läggas till i dina kartor finns i följande artiklar:
 
 > [!div class="nextstepaction"]
 > [Skapa en datakälla](create-data-source-web-sdk.md)
@@ -163,4 +163,4 @@ Fler kodexempel att lägga till i dina kartor finns i följande artiklar:
 Ytterligare resurser:
 
 > [!div class="nextstepaction"]
-> [Tillägg för Azure Maps GeoJSON-specifikation](extend-geojson.md#circle)
+> [Tillägg för Azure Mapsal JSON-specifikation](extend-geojson.md#circle)

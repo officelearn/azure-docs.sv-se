@@ -1,7 +1,7 @@
 ---
-title: Ange en krypteringsnyckel på en begäran till Blob-lagring
+title: Ange en krypterings nyckel för en begäran till Blob Storage
 titleSuffix: Azure Storage
-description: Klienter som gör begäranden mot Azure Blob-lagring har möjlighet att ange en krypteringsnyckel per begäran (förhandsversion). Inklusive krypteringsnyckeln på begäran ger detaljerad kontroll över krypteringsinställningar för Blob-lagringsåtgärder.
+description: Klienter som begär förfrågningar mot Azure Blob Storage har möjlighet att tillhandahålla en krypterings nyckel per begäran (för hands version). Inklusive krypterings nyckeln på begäran ger detaljerad kontroll över krypterings inställningarna för Blob Storage-åtgärder.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,70 +11,70 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: c8a5555c5c33255fdc5902a115e7e9103a4e936f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79410069"
 ---
-# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Ange en krypteringsnyckel på en begäran till Blob-lagring (förhandsversion)
+# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Ange en krypterings nyckel för en begäran till Blob Storage (för hands version)
 
-Klienter som gör begäranden mot Azure Blob-lagring har möjlighet att ange en krypteringsnyckel per begäran (förhandsversion). Inklusive krypteringsnyckeln på begäran ger detaljerad kontroll över krypteringsinställningar för Blob-lagringsåtgärder. Nycklar som tillhandahålls av kunden kan lagras i Azure Key Vault eller i en annan nyckelbutik.
+Klienter som begär förfrågningar mot Azure Blob Storage har möjlighet att tillhandahålla en krypterings nyckel per begäran (för hands version). Inklusive krypterings nyckeln på begäran ger detaljerad kontroll över krypterings inställningarna för Blob Storage-åtgärder. Kundspecifika nycklar kan lagras i Azure Key Vault eller i en annan nyckel lagrings plats.
 
-## <a name="encrypting-read-and-write-operations"></a>Kryptera läs- och skrivåtgärder
+## <a name="encrypting-read-and-write-operations"></a>Kryptera Läs-och skriv åtgärder
 
-När ett klientprogram tillhandahåller en krypteringsnyckel på begäran utför Azure Storage kryptering och dekryptering transparent när du läser och skriver blob-data. Azure Storage skriver en SHA-256-hash av krypteringsnyckeln tillsammans med blobens innehåll. Hash används för att verifiera att alla efterföljande åtgärder mot bloben använder samma krypteringsnyckel.
+När ett klient program tillhandahåller en krypterings nyckel på begäran utför Azure Storage kryptering och dekryptering transparent vid läsning och skrivning av BLOB-data. Azure Storage skriver en SHA-256-hash av krypterings nyckeln bredvid blobens innehåll. Hashen används för att kontrol lera att alla efterföljande åtgärder mot blobben använder samma krypterings nyckel.
 
-Azure Storage lagrar eller hanterar inte krypteringsnyckeln som klienten skickar med begäran. Nyckeln ignoreras på ett säkert sätt så snart krypterings- eller dekrypteringsprocessen är klar.
+Azure Storage lagrar eller hanterar inte den krypterings nyckel som klienten skickar med begäran. Nyckeln ignoreras säkert så snart krypterings-eller dekrypterings processen har slutförts.
 
-När en klient skapar eller uppdaterar en blob med hjälp av en kundad nyckel på begäran, måste efterföljande läs- och skrivbegäranden för den bloben också ange nyckeln. Om nyckeln inte tillhandahålls på en begäran om en blob som redan har krypterats med en kund-som nyckel, misslyckas begäran med felkod 409 (Konflikt).
+När en klient skapar eller uppdaterar en blob med hjälp av en kundanged nyckel på begäran, måste efterföljande Läs-och skriv förfrågningar för denna BLOB också tillhandahålla nyckeln. Om nyckeln inte anges på en begäran för en blob som redan har krypterats med en kundanged nyckel, Miss lyckas begäran med felkod 409 (konflikt).
 
-Om klientprogrammet skickar en krypteringsnyckel på begäran och lagringskontot också krypteras med en Microsoft-hanterad nyckel eller en kundhanterad nyckel, använder Azure Storage nyckeln som tillhandahålls på begäran om kryptering och dekryptering.
+Om klient programmet skickar en krypterings nyckel på begäran och lagrings kontot också krypteras med hjälp av en Microsoft-hanterad nyckel eller en kundhanterad nyckel, använder Azure Storage nyckeln som anges i begäran om kryptering och dekryptering.
 
-Om du vill skicka krypteringsnyckeln som en del av begäran måste en klient upprätta en säker anslutning till Azure Storage med HTTPS.
+För att skicka krypterings nyckeln som en del av begäran måste en klient upprätta en säker anslutning till Azure Storage med hjälp av HTTPS.
 
-Varje blob-ögonblicksbild kan ha sin egen krypteringsnyckel.
+Varje Blob-ögonblicksbild kan ha en egen krypterings nyckel.
 
-## <a name="request-headers-for-specifying-customer-provided-keys"></a>Begär rubriker för att ange nycklar som tillhandahålls av kunden
+## <a name="request-headers-for-specifying-customer-provided-keys"></a>Begärandehuvuden för att ange kundtillhandahållna nycklar
 
-För REST-anrop kan klienter använda följande rubriker för att på ett säkert sätt vidarebefordra krypteringsnyckelinformation på en begäran till Blob-lagring:
+För REST-anrop kan klienterna använda följande rubriker för att på ett säkert sätt skicka krypterings nyckel information till en begäran till Blob Storage:
 
 |Begärandehuvud | Beskrivning |
 |---------------|-------------|
-|`x-ms-encryption-key` |Krävs för både skriv- och läsbegäranden. Ett Base64-kodat AES-256-krypteringsnyckelvärde. |
-|`x-ms-encryption-key-sha256`| Krävs för både skriv- och läsbegäranden. Krypteringsnyckeln Base64-kodad SHA256. |
-|`x-ms-encryption-algorithm` | Krävs för skrivbegäranden, valfria för läsbegäranden. Anger vilken algoritm som ska användas när data krypteras med den angivna nyckeln. Måste vara AES256. |
+|`x-ms-encryption-key` |Krävs för både Skriv-och Läs begär Anden. Ett base64-kodat AES-256-krypterings nyckel värde. |
+|`x-ms-encryption-key-sha256`| Krävs för både Skriv-och Läs begär Anden. Den base64-kodade SHA256 för krypterings nyckeln. |
+|`x-ms-encryption-algorithm` | Krävs för Skriv begär Anden, valfritt för Läs begär Anden. Anger algoritmen som ska användas vid kryptering av data med den aktuella nyckeln. Måste vara AES256. |
 
-Det är valfritt att ange krypteringsnycklar på begäran. Men om du anger ett av rubrikerna som anges ovan för en skrivåtgärd måste du ange dem alla.
+Det är valfritt att ange krypterings nycklar för begäran. Men om du anger ett av de sidhuvuden som anges ovan för en Skriv åtgärd måste du ange alla.
 
-## <a name="blob-storage-operations-supporting-customer-provided-keys"></a>Blob-lagringsåtgärder som stöder nycklar som tillhandahålls av kunder
+## <a name="blob-storage-operations-supporting-customer-provided-keys"></a>Blob Storage-åtgärder som stöder kundspecifika nycklar
 
-Följande Blob-lagringsåtgärder stöder att skicka krypteringsnycklar som tillhandahålls av kunder på en begäran:
+Följande Blob Storage-åtgärder stöder sändning av kundtillhandahållna krypterings nycklar på en begäran:
 
 - [Placera blob](/rest/api/storageservices/put-blob)
-- [Placera blocklista](/rest/api/storageservices/put-block-list)
-- [Sätt block](/rest/api/storageservices/put-block)
-- [Placera Block från URL](/rest/api/storageservices/put-block-from-url)
-- [Placera sida](/rest/api/storageservices/put-page)
-- [Placera sida från URL](/rest/api/storageservices/put-page-from-url)
+- [Lista över blockerade](/rest/api/storageservices/put-block-list)
+- [Spärra block](/rest/api/storageservices/put-block)
+- [Skicka block från URL](/rest/api/storageservices/put-block-from-url)
+- [Placerings sida](/rest/api/storageservices/put-page)
+- [Lägg till sida från URL](/rest/api/storageservices/put-page-from-url)
 - [Lägg till block](/rest/api/storageservices/append-block)
-- [Ange blob-egenskaper](/rest/api/storageservices/set-blob-properties)
-- [Ange Blob-metadata](/rest/api/storageservices/set-blob-metadata)
-- [Hämta Blob](/rest/api/storageservices/get-blob)
+- [Ange BLOB-egenskaper](/rest/api/storageservices/set-blob-properties)
+- [Ange BLOB-metadata](/rest/api/storageservices/set-blob-metadata)
+- [Hämta BLOB](/rest/api/storageservices/get-blob)
 - [Hämta blobegenskaper](/rest/api/storageservices/get-blob-properties)
-- [Hämta Blob-metadata](/rest/api/storageservices/get-blob-metadata)
+- [Hämta BLOB-metadata](/rest/api/storageservices/get-blob-metadata)
 - [Ta ögonblicksbild av blob](/rest/api/storageservices/snapshot-blob)
 
-## <a name="rotate-customer-provided-keys"></a>Rotera nycklar som tillhandahålls av kunden
+## <a name="rotate-customer-provided-keys"></a>Rotera kundtillhandahållna nycklar
 
-Om du vill rotera en krypteringsnyckel som användes för att kryptera en blob hämtar du blobben och laddar sedan upp den igen med den nya krypteringsnyckeln.
+Om du vill rotera en krypterings nyckel som användes för att kryptera en BLOB, laddar du ned blobben och laddar sedan upp den igen med den nya krypterings nyckeln.
 
 > [!IMPORTANT]
-> Azure-portalen kan inte användas för att läsa från eller skriva till en behållare eller blob som är krypterad med en nyckel som tillhandahålls på begäran.
+> Azure Portal kan inte användas för att läsa från eller skriva till en behållare eller BLOB som är krypterad med en nyckel som anges i begäran.
 >
-> Var noga med att skydda krypteringsnyckeln som du anger på en begäran till Blob-lagring i ett säkert nyckelarkiv som Azure Key Vault. Om du försöker skriva en skrivåtgärd på en behållare eller blob utan krypteringsnyckeln misslyckas åtgärden och du förlorar åtkomsten till objektet.
+> Se till att skydda krypterings nyckeln som du anger på en begäran till Blob Storage i en säker nyckel lagring som Azure Key Vault. Om du försöker utföra en Skriv åtgärd på en behållare eller BLOB utan krypterings nyckeln, Miss lyckas åtgärden och du kommer att förlora åtkomsten till objektet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Ange en kundklämmen på en begäran till Blob-lagring med .NET](../blobs/storage-blob-customer-provided-key.md)
-- [Azure Storage-kryptering för data i vila](storage-service-encryption.md)
+- [Ange en kundspecifik nyckel på en begäran till Blob Storage med .NET](../blobs/storage-blob-customer-provided-key.md)
+- [Azure Storage kryptering för vilande data](storage-service-encryption.md)

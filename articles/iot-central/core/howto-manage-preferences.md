@@ -1,6 +1,6 @@
 ---
-title: Hantera dina personliga preferenser på IoT Central | Microsoft-dokument
-description: Så här hanterar du dina personliga programinställningar som att ändra språk och tema i ditt IoT Central-program.
+title: Hantera dina personliga inställningar på IoT Central | Microsoft Docs
+description: Hur du hanterar dina personliga program inställningar, till exempel att ändra språk och tema i IoT Central program.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
@@ -9,34 +9,34 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: e2b0dbe8b7738a8c4c551eccca72897bbf1594b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80157899"
 ---
-# <a name="manage-your-personal-application-preferences"></a>Hantera dina personliga programinställningar
+# <a name="manage-your-personal-application-preferences"></a>Hantera dina personliga program inställningar
 
 *Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
-IoT Central ger flexibiliteten att anpassa dina program så att de passar dina behov. Vi erbjuder också viss flexibilitet per användare för att anpassa din egen vy. I den här artikeln beskrivs de olika anpassningsalternativ som en användare kan använda för sin profil.
+IoT Central ger flexibiliteten att anpassa dina program efter behov. Vi erbjuder också viss flexibilitet per användare för att anpassa din egen vy. I den här artikeln beskrivs de olika anpassnings alternativ som en användare kan använda för sina profiler.
 
 ## <a name="changing-language"></a>Ändra språk
 
-IoT Central stöds på flera språk. Du kan byta språk genom att använda **språkväljaren** på inställningsikonen i det övre navigeringsfältet. När du har ändrat ditt språk kommer IoT Central ihåg ditt val och tillämpar det i alla dina program. Anpassning i programmet sådana instrumentpanelsavbildningar är inte lokaliserade.
+IoT Central stöds på flera språk. Du kan byta önskat språk genom att använda **språk väljaren** på inställnings ikonen i det övre navigerings fältet. När du har ändrat ditt språk kan IoT Central ändra ditt val och tillämpa det i alla dina program. Anpassningar i programmet dessa instrument panels bilder är inte lokaliserade.
 
 ## <a name="changing-theme"></a>Ändra tema
 
-Vi har stöd för både mörkt tema och ljust tema. Medan ljustemat är standard kan du ändra temat genom att välja inställningsikonen i det övre navigeringsfältet.
+Vi har stöd för både mörkt tema och ljust tema. Även om det ljusa temat är standard kan du ändra temat genom att välja inställnings ikonen i det övre navigerings fältet.
 
-![IoT Central temaväljare](media/howto-manage-preferences/settings.png)
+![IoT Central tema väljare](media/howto-manage-preferences/settings.png)
 
 > [!NOTE]
-> Alternativet att välja mellan ljusa och mörka teman är inte tillgängligt om administratören har konfigurerat ett anpassat tema för programmet.
+> Alternativet att välja mellan ljust och mörkt teman är inte tillgängligt om administratören har konfigurerat ett anpassat tema för programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du hanterar din profil i Azure IoT Central, här är det föreslagna nästa steget:
+Nu när du har lärt dig hur du hanterar din profil i Azure IoT Central, här är det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
 > [Växla livechatt](howto-show-hide-chat.md)

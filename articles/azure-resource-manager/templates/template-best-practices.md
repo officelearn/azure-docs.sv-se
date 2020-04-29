@@ -1,58 +1,58 @@
 ---
 title: Metodtips för mallar
-description: Beskriver rekommenderade metoder för att skapa Azure Resource Manager-mallar. Innehåller förslag för att undvika vanliga problem när du använder mallar.
+description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156420"
 ---
-# <a name="arm-template-best-practices"></a>Metodtips för ARM-mall
+# <a name="arm-template-best-practices"></a>Metod tips för ARM-mall
 
-Den här artikeln innehåller rekommendationer om hur du skapar din AZURE Resource Manager-mall (ARM). Dessa rekommendationer hjälper dig att undvika vanliga problem när du använder en ARM-mall för att distribuera en lösning.
+Den här artikeln ger rekommendationer om hur du skapar din Azure Resource Manager-mall (ARM). Dessa rekommendationer hjälper dig att undvika vanliga problem när du använder en ARM-mall för att distribuera en lösning.
 
-Rekommendationer om hur du styr dina Azure-prenumerationer finns i [Azure enterprise scaffold: Prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Rekommendationer om hur du styr dina Azure-prenumerationer finns i [Azure Enterprise Autogenerera: preskripte-styrning av prenumerationer](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
-Rekommendationer om hur du skapar mallar som fungerar i alla Azure-molnmiljöer finns i [Utveckla Azure Resource Manager-mallar för molnkonsekvens](templates-cloud-consistency.md).
+Rekommendationer om hur du skapar mallar som fungerar i alla moln miljöer i Azure finns i [utveckla Azure Resource Manager mallar för moln konsekvens](templates-cloud-consistency.md).
 
-## <a name="template-limits"></a>Mallgränser
+## <a name="template-limits"></a>Mall gränser
 
-Begränsa storleken på mallen till 4 MB och varje parameterfil till 64 kB. Gränsen på 4 MB gäller för mallens slutliga tillstånd när den har utökats med iterativa resursdefinitioner och värden för variabler och parametrar. 
+Begränsa storleken på din mall till 4 MB och varje parameter fil till 64 KB. Gränsen på 4 MB gäller för mallens slutliga tillstånd när den har utökats med iterativa resurs definitioner och värden för variabler och parametrar. 
 
 Du är också begränsad till:
 
 * 256 parametrar
 * 256 variabler
-* 800 resurser (inklusive antal kopior)
-* 64 utdatavärden
-* 24 576 tecken i ett malluttryck
+* 800 resurser (inklusive antal exemplar)
+* 64-utmatnings värden
+* 24 576 tecken i ett mall uttryck
 
-Du kan överskrida vissa mallgränser med hjälp av en kapslad mall. Mer information finns i [Använda länkade mallar när du distribuerar Azure-resurser](linked-templates.md). Om du vill minska antalet parametrar, variabler eller utdata kan du kombinera flera värden till ett objekt. Mer information finns i [Objekt som parametrar](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Du kan överskrida vissa begränsningar för mallar genom att använda en kapslad mall. Mer information finns i [använda länkade mallar när du distribuerar Azure-resurser](linked-templates.md). Om du vill minska antalet parametrar, variabler eller utdata kan du kombinera flera värden i ett objekt. Mer information finns i [objekt som parametrar](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 ## <a name="resource-group"></a>Resursgrupp
 
-När du distribuerar resurser till en resursgrupp lagrar resursgruppen metadata om resurserna. Metadata lagras på plats för resursgruppen.
+När du distribuerar resurser till en resurs grupp lagrar resurs gruppen metadata om resurserna. Metadata lagras i resurs gruppens plats.
 
-Om resursgruppens region inte är tillgänglig för tillfället kan du inte uppdatera resurser i resursgruppen eftersom metadata inte är tillgängliga. Resurserna i andra regioner fungerar fortfarande som förväntat, men du kan inte uppdatera dem. För att minimera risken letar du reda på resursgruppen och resurserna i samma region.
+Om resurs gruppens region är tillfälligt otillgänglig, kan du inte uppdatera resurser i resurs gruppen eftersom metadata inte är tillgängliga. Resurserna i andra regioner fungerar fortfarande som förväntat, men du kan inte uppdatera dem. Du kan minimera risken genom att leta upp resurs gruppen och resurserna i samma region.
 
 ## <a name="parameters"></a>Parametrar
 
-Informationen i det här avsnittet kan vara användbar när du arbetar med [parametrar](template-parameters.md).
+Informationen i det här avsnittet kan vara till hjälp när du arbetar med [parametrar](template-parameters.md).
 
 ### <a name="general-recommendations-for-parameters"></a>Allmänna rekommendationer för parametrar
 
 * Minimera din användning av parametrar. Använd i stället variabler eller litterala värden för egenskaper som inte behöver anges under distributionen.
 
-* Använd kamelfodral för parameternamn.
+* Använd kamel notation-fall för parameter namn.
 
-* Använd parametrar för inställningar som varierar beroende på miljö, till exempel SKU, storlek eller kapacitet.
+* Använd parametrar för inställningar som varierar beroende på miljö, t. ex. SKU, storlek eller kapacitet.
 
-* Använd parametrar för resursnamn som du vill ange för enkel identifiering.
+* Använd parametrar för resurs namn som du vill ange för enkel identifiering.
 
-* Ge en beskrivning av varje parameter i metadata:
+* Ange en beskrivning av varje parameter i metadata:
 
    ```json
    "parameters": {
@@ -65,7 +65,7 @@ Informationen i det här avsnittet kan vara användbar när du arbetar med [para
    }
    ```
 
-* Definiera standardvärden för parametrar som inte är känsliga. Genom att ange ett standardvärde är det enklare att distribuera mallen och användarna av mallen ser ett exempel på ett lämpligt värde. Alla standardvärden för en parameter måste vara giltiga för alla användare i standarddistributionskonfigurationen. 
+* Definiera standardvärden för parametrar som inte är känsliga. Genom att ange ett standardvärde är det enklare att distribuera mallen och användare av din mall ser ett exempel på ett lämpligt värde. Alla standardvärden för en parameter måste vara giltiga för alla användare i standard distributions konfigurationen. 
    
    ```json
    "parameters": {
@@ -79,7 +79,7 @@ Informationen i det här avsnittet kan vara användbar när du arbetar med [para
    }
    ```
 
-* Om du vill ange en valfri parameter ska du inte använda en tom sträng som standardvärde. Använd i stället ett litteralt värde eller ett språkuttryck för att konstruera ett värde.
+* Om du vill ange en valfri parameter ska du inte använda en tom sträng som standardvärde. Använd i stället ett litteralt värde eller ett språk uttryck för att skapa ett värde.
 
    ```json
    "storageAccountName": {
@@ -91,17 +91,17 @@ Informationen i det här avsnittet kan vara användbar när du arbetar med [para
    },
    ```
 
-* Använd inte en parameter för API-versionen för en resurstyp. Resursegenskaper och resursvärden kan variera beroende på versionsnummer. IntelliSense i en kodredigerare kan inte avgöra rätt schema när API-versionen är inställd på en parameter. I stället hårdkoda API-versionen i mallen.
+* Använd inte en parameter för API-versionen för en resurs typ. Resurs egenskaper och värden kan variera efter versions nummer. IntelliSense i en kod redigerare kan inte fastställa rätt schema när API-versionen har angetts till en parameter. Hårdkoda i stället API-versionen i mallen.
 
-* Använd `allowedValues` sparsamt. Använd den bara när du måste se till att vissa värden inte ingår i de tillåtna alternativen. Om du `allowedValues` använder för brett kan du blockera giltiga distributioner genom att inte hålla listan uppdaterad.
+* Använd `allowedValues` sparsamhet. Använd bara det när du måste se till att vissa värden inte ingår i de tillåtna alternativen. Om du använder `allowedValues` för ett för stort kan du blockera giltiga distributioner genom att inte hålla din lista uppdaterad.
 
-* När ett parameternamn i mallen matchar en parameter i PowerShell-distributionskommandot löser Resource Manager den här namngivningskonflikten genom att lägga till **postfixet FromTemplate** i mallparametern. Om du till exempel inkluderar en parameter med namnet **ResourceGroupName** i mallen står det i konflikt med parametern **ResourceGroupName** i cmdleten [New-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) Under distributionen uppmanas du att ange ett värde för **ResourceGroupNameFromTemplate**.
+* När ett parameter namn i mallen matchar en parameter i PowerShell-distributions kommandot, löser Resource Manager denna namngivnings konflikt genom att lägga till postfix- **FromTemplate** till Template-parametern. Om du till exempel inkluderar en parameter med namnet **ResourceGroupName** i din mall, står den i konflikt med parametern **ResourceGroupName** i cmdleten [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Under distributionen uppmanas du att ange ett värde för **ResourceGroupNameFromTemplate**.
 
-### <a name="security-recommendations-for-parameters"></a>Säkerhetsrekommendationer för parametrar
+### <a name="security-recommendations-for-parameters"></a>Säkerhets rekommendationer för parametrar
 
-* Använd alltid parametrar för användarnamn och lösenord (eller hemligheter).
+* Använd alltid parametrar för användar namn och lösen ord (eller hemligheter).
 
-* Använd `securestring` för alla lösenord och hemligheter. Om du skickar känsliga data i ett `secureObject` JSON-objekt använder du typen. Mallparametrar med säker sträng eller säkra objekttyper kan inte läsas efter resursdistributionen. 
+* Använd `securestring` för alla lösen ord och hemligheter. Om du skickar känsliga data i ett JSON-objekt använder du `secureObject` typen. Det går inte att läsa mallparametrar med säker sträng eller säkra objekt typer efter resurs distributionen. 
    
    ```json
    "parameters": {
@@ -114,13 +114,13 @@ Informationen i det här avsnittet kan vara användbar när du arbetar med [para
    }
    ```
 
-* Ange inte standardvärden för användarnamn, lösenord eller något värde `secureString` som kräver en typ.
+* Ange inte standardvärden för användar namn, lösen ord eller något värde som kräver `secureString` en typ.
 
-* Ange inte standardvärden för egenskaper som ökar programmets angreppsyta.
+* Ange inte standardvärden för egenskaper som ökar programmets angrepps yta.
 
-### <a name="location-recommendations-for-parameters"></a>Platsrekommendationer för parametrar
+### <a name="location-recommendations-for-parameters"></a>Plats rekommendationer för parametrar
 
-* Använd en parameter för att ange plats för `resourceGroup().location`resurser och ange standardvärdet till . Om du anger en platsparameter kan användare av mallen ange en plats som de har behörighet att distribuera till.
+* Använd en parameter för att ange plats för resurser och ange standardvärdet till `resourceGroup().location`. Genom att ange en plats parameter kan användare av mallen ange en plats som de har behörighet att distribuera till.
 
    ```json
    "parameters": {
@@ -134,49 +134,49 @@ Informationen i det här avsnittet kan vara användbar när du arbetar med [para
    },
    ```
 
-* Ange inte `allowedValues` för platsparametern. De platser du anger kanske inte är tillgängliga i alla moln.
+* Ange `allowedValues` inte för parametern location. De platser som du anger kanske inte är tillgängliga i alla moln.
 
-* Använd platsparametervärdet för resurser som sannolikt finns på samma plats. Den här metoden minimerar antalet gånger användare uppmanas att ange platsinformation.
+* Använd värdet för parametern location för resurser som troligen är på samma plats. Den här metoden minimerar antalet gånger som användarna uppmanas att ange plats information.
 
-* För resurser som inte är tillgängliga på alla platser använder du en separat parameter eller anger ett litteralt platsvärde.
+* För resurser som inte är tillgängliga på alla platser använder du en separat parameter eller anger ett värde för en literal plats.
 
 ## <a name="variables"></a>Variabler
 
-Följande information kan vara användbar när du arbetar med [variabler:](template-variables.md)
+Följande information kan vara till hjälp när du arbetar med [variabler](template-variables.md):
 
-* Använd kamelfodral för variabelnamn.
+* Använd kamel notation-fall för variabel namn.
 
-* Använd variabler för värden som du behöver använda mer än en gång i en mall. Om ett värde bara används en gång gör ett hårt kodat värde mallen lättare att läsa.
+* Använd variabler för värden som du behöver använda mer än en gång i en mall. Om ett värde bara används en gång, gör det ett hårdkodat värde att göra mallen lättare att läsa.
 
-* Använd variabler för värden som du skapar från ett komplext arrangemang av mallfunktioner. Mallen är lättare att läsa när det komplexa uttrycket bara visas i variabler.
+* Använd variabler för värden som du skapar i ett komplext arrangemang av mall-funktioner. Mallen är lättare att läsa när det komplexa uttrycket visas i variabler.
 
-* Använd inte variabler `apiVersion` för på en resurs. API-versionen bestämmer resursens schema. Ofta kan du inte ändra versionen utan att ändra egenskaperna för resursen.
+* Använd inte variabler för `apiVersion` på en resurs. API-versionen avgör resursens schema. Ofta kan du inte ändra versionen utan att ändra resursens egenskaper.
 
-* Du kan inte använda [referensfunktionen](template-functions-resource.md#reference) i **variabelavsnittet** i mallen. **Referensfunktionen** härleder sitt värde från resursens körningstillstånd. Variabler matchas dock under den första tolkningen av mallen. Konstruera värden som behöver **referensfunktionen** direkt i avsnittet **resurser** eller **utdata** i mallen.
+* Du kan inte använda funktionen [Reference](template-functions-resource.md#reference) i avsnittet **Variables** i mallen. Funktionen **Reference** härleder sitt värde från resursens körnings tillstånd. Variablerna löses dock vid den inledande parsningen av mallen. Skapa värden som behöver funktionen **referens** direkt i avsnittet **resurser** eller **utdata** i mallen.
 
-* Inkludera variabler för resursnamn som måste vara unika.
+* Inkludera variabler för resurs namn som måste vara unika.
 
-* Använd en [kopieringsloop i variabler](copy-variables.md) för att skapa ett upprepat mönster av JSON-objekt.
+* Använd en [kopierings slinga i variabler](copy-variables.md) för att skapa ett upprepat mönster av JSON-objekt.
 
 * Ta bort oanvända variabler.
 
 ## <a name="resource-dependencies"></a>Resursberoenden
 
-När du bestämmer vilka [beroenden](define-resource-dependency.md) som ska ställas in använder du följande riktlinjer:
+När du bestämmer vilka [beroenden](define-resource-dependency.md) som ska anges använder du följande rikt linjer:
 
-* Använd **referensfunktionen** och skicka resursnamnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till `dependsOn` ett explicit element när du redan har definierat ett implicit beroende. Detta tillvägagångssätt minskar risken för onödiga beroenden.
+* Använd funktionen **Reference** och skicka in resurs namnet för att ange ett implicit beroende mellan resurser som behöver dela en egenskap. Lägg inte till ett `dependsOn` explicit element när du redan har definierat ett implicit beroende. Den här metoden minskar risken för onödiga beroenden.
 
-* Ange en underordnad resurs som beroende av den överordnade resursen.
+* Ange en underordnad resurs som beroende av dess överordnade resurs.
 
-* Resurser med [villkorselementet](conditional-resource-deployment.md) inställt på false tas automatiskt bort från beroendeordningen. Ange beroenden som om resursen alltid distribueras.
+* Resurser med [villkors elementet](conditional-resource-deployment.md) inställt på false tas automatiskt bort från beroende ordningen. Ange beroenden som om resursen alltid har distribuerats.
 
-* Låt beroenden kaskad utan att ange dem uttryckligen. Den virtuella datorn är till exempel beroende av ett virtuellt nätverksgränssnitt och det virtuella nätverksgränssnittet är beroende av ett virtuellt nätverk och offentliga IP-adresser. Därför distribueras den virtuella datorn efter alla tre resurserna, men ange inte uttryckligen den virtuella datorn som beroende av alla tre resurserna. Den här metoden förtydligar beroendeordningen och gör det enklare att ändra mallen senare.
+* Låt beroenden överlappa utan att ange dem explicit. Den virtuella datorn är till exempel beroende av ett virtuellt nätverks gränssnitt och det virtuella nätverks gränssnittet är beroende av ett virtuellt nätverk och offentliga IP-adresser. Den virtuella datorn distribueras därför efter alla tre resurser, men anger inte uttryckligen den virtuella datorn som beroende av alla tre resurserna. Den här metoden klargör beroende ordningen och gör det lättare att ändra mallen senare.
 
-* Om ett värde kan fastställas före distributionen kan du prova att distribuera resursen utan beroende. Om ett konfigurationsvärde till exempel behöver namnet på en annan resurs kanske du inte behöver ett beroende. Den här vägledningen fungerar inte alltid eftersom vissa resurser verifierar att det finns en annan resurs. Om du får ett felmeddelande lägger du till ett beroende.
+* Om ett värde kan fastställas före distributionen kan du försöka distribuera resursen utan ett beroende. Om ett konfigurations värde till exempel behöver namnet på en annan resurs kanske du inte behöver ett beroende. Den här vägledningen fungerar inte alltid eftersom vissa resurser kontrollerar att den andra resursen finns. Lägg till ett beroende om du får ett fel meddelande.
 
 ## <a name="resources"></a>Resurser
 
-Följande information kan vara användbar när du arbetar med [resurser:](template-syntax.md#resources)
+Följande information kan vara till hjälp när du arbetar med [resurser](template-syntax.md#resources):
 
 * Om du vill hjälpa andra deltagare att förstå syftet med resursen anger du **kommentarer** för varje resurs i mallen:
    
@@ -193,7 +193,7 @@ Följande information kan vara användbar när du arbetar med [resurser:](templa
    ]
    ```
 
-* Om du använder en *offentlig slutpunkt* i mallen (till exempel en offentlig slutpunkt för Azure Blob *Storage) ska du inte hårdkoda* namnområdet. Använd **referensfunktionen** för att dynamiskt hämta namnområdet. Du kan använda den här metoden för att distribuera mallen till olika offentliga namnområdesmiljöer utan att manuellt ändra slutpunkten i mallen. Ange API-versionen till samma version som du använder för lagringskontot i mallen:
+* Om du använder en *offentlig slut punkt* i mallen (till exempel en offentlig Azure Blob Storage-slutpunkt) ska du *inte hårdkoda* namn området. Använd funktionen **Reference** för att dynamiskt hämta namn området. Du kan använda den här metoden för att distribuera mallen till olika miljöer för offentliga namn områden utan att manuellt ändra slut punkten i mallen. Ange API-versionen till samma version som du använder för lagrings kontot i mallen:
    
    ```json
    "diagnosticsProfile": {
@@ -204,7 +204,7 @@ Följande information kan vara användbar när du arbetar med [resurser:](templa
    }
    ```
    
-   Om lagringskontot distribueras i samma mall som du skapar och namnet på lagringskontot inte delas med en annan resurs i mallen behöver du inte ange leverantörens namnområde eller apiVersion när du refererar till resursen. I följande exempel visas den förenklade syntaxen:
+   Om lagrings kontot har distribuerats i samma mall som du skapar och namnet på lagrings kontot inte delas med en annan resurs i mallen, behöver du inte ange namn området för providern eller API version när du refererar till resursen. I följande exempel visas den förenklade syntaxen:
    
    ```json
    "diagnosticsProfile": {
@@ -215,7 +215,7 @@ Följande information kan vara användbar när du arbetar med [resurser:](templa
    }
    ```
      
-   Du kan också referera till ett befintligt lagringskonto som finns i en annan resursgrupp:
+   Du kan också referera till ett befintligt lagrings konto som finns i en annan resurs grupp:
 
    ```json
    "diagnosticsProfile": {
@@ -226,17 +226,17 @@ Följande information kan vara användbar när du arbetar med [resurser:](templa
    }
    ```
 
-* Tilldela offentliga IP-adresser till en virtuell dator endast när ett program kräver det. Om du vill ansluta till en virtuell dator (VM) för felsökning, eller för hantering eller administrativa ändamål, använder du inkommande NAT-regler, en virtuell nätverksgateway eller en jumpbox.
+* Tilldela endast offentliga IP-adresser till en virtuell dator när ett program kräver det. Om du vill ansluta till en virtuell dator (VM) för fel sökning eller för hanterings-och administrations syfte använder du inkommande NAT-regler, en virtuell nätverksgateway eller en hopp.
    
      Mer information om hur du ansluter till virtuella datorer finns i:
    
-   * [Köra virtuella datorer för en N-nivåarkitektur i Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Köra virtuella datorer för en arkitektur på N-nivå i Azure](../../guidance/guidance-compute-n-tier-vm.md)
    * [Konfigurera WinRM-åtkomst för virtuella datorer i Azure Resource Manager](../../virtual-machines/windows/winrm.md)
-   * [Tillåt extern åtkomst till den virtuella datorn med hjälp av Azure-portalen](../../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Tillåt extern åtkomst till den virtuella datorn med powershell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
+   * [Tillåt extern åtkomst till den virtuella datorn med hjälp av Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
+   * [Tillåt extern åtkomst till den virtuella datorn med hjälp av PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Tillåt extern åtkomst till din virtuella Linux-dator med hjälp av Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* Egenskapen **domainNameLabel** för offentliga IP-adresser måste vara unik. **Värdet domainNameLabel** måste vara mellan 3 och 63 tecken långt och följa `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`de regler som anges i det här reguljära uttrycket: . Eftersom funktionen **uniqueString** genererar en sträng som är 13 tecken lång, är **parametern dnsPrefixString** begränsad till 50 tecken:
+* Egenskapen **domainNameLabel** för offentliga IP-adresser måste vara unik. **DomainNameLabel** -värdet måste vara mellan 3 och 63 tecken långt och följer reglerna som anges i detta reguljära uttryck: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Eftersom **uniqueString** -funktionen genererar en sträng som är 13 tecken lång, är **dnsPrefixString** -parametern begränsad till 50 tecken:
 
    ```json
    "parameters": {
@@ -253,7 +253,7 @@ Följande information kan vara användbar när du arbetar med [resurser:](templa
    }
    ```
 
-* När du lägger till ett lösenord i ett anpassat skripttillägg använder du egenskapen **commandToExecute** i egenskapen **protectedSettings:**
+* När du lägger till ett lösen ord till ett anpassat skript tillägg, använder du egenskapen **commandToExecute** i egenskapen **protectedSettings** :
    
    ```json
    "properties": {
@@ -273,11 +273,11 @@ Följande information kan vara användbar när du arbetar med [resurser:](templa
    ```
    
    > [!NOTE]
-   > Om du vill vara säkra på att hemligheter krypteras när de skickas som parametrar till virtuella datorer och tillägg använder du egenskapen **protectedSettings** för de relevanta tilläggen.
+   > För att säkerställa att hemligheter krypteras när de skickas som parametrar till virtuella datorer och tillägg, använder du egenskapen **protectedSettings** för relevanta tillägg.
    > 
    > 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om mallfilens struktur finns i [Förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
-* Rekommendationer om hur du skapar mallar som fungerar i alla Azure-molnmiljöer finns i [Utveckla ARM-mallar för molnkonsekvens](templates-cloud-consistency.md).
+* Information om mallens struktur finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* Rekommendationer om hur du skapar mallar som fungerar i alla moln miljöer i Azure finns i [utveckla arm-mallar för moln konsekvens](templates-cloud-consistency.md).

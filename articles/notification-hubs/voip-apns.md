@@ -1,48 +1,48 @@
 ---
-title: Skicka APNS VOIP-meddelanden med Azure Notification Hubs
-description: Lär dig hur du skickar APNS VOIP-meddelanden via Azure Notification Hubs (stöds inte officiellt).
+title: Skicka APN VOIP-meddelanden med Azure Notification Hubs
+description: Lär dig hur du skickar APN VOIP-meddelanden via Azure Notification Hubs (stöds inte av officiellt).
 author: sethmanheim
 ms.author: sethm
 ms.date: 3/23/2020
 ms.topic: how-to
 ms.service: notification-hubs
 ms.openlocfilehash: c99af881b8f93b75633741c2352dc5df17dd2963
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80146893"
 ---
-# <a name="use-apns-voip-through-notification-hubs-not-officially-supported"></a>Använd APNS VOIP via Meddelandehubbar (stöds inte officiellt)
+# <a name="use-apns-voip-through-notification-hubs-not-officially-supported"></a>Använd APN VOIP via Notification Hubs (stöds inte officiellt)
 
-Det är möjligt att använda APNS VOIP-meddelanden via Azure Notification Hubs; Det finns dock inget officiellt stöd för detta scenario.
+Du kan använda APN VOIP-meddelanden via Azure Notification Hubs; Det finns dock inget statligt stöd för det här scenariot.
 
 ## <a name="considerations"></a>Överväganden
 
-Om du fortfarande väljer att skicka APNS VOIP-meddelanden via Meddelandehubbar bör du vara medveten om följande begränsningar:
+Om du fortfarande väljer att skicka APN VOIP-meddelanden via Notification Hubs bör du vara medveten om följande begränsningar:
 
-- För att skicka ett `apns-topic` VOIP-meddelande måste huvudet ställas `.voip` in på programpaket-ID + suffixet. För en exempelapp med bunt-ID `com.microsoft.nhubsample` `apns-topic` ska huvudet till exempel ställas in på`com.microsoft.nhubsample.voip.`
+- Att skicka ett VOIP-meddelande `apns-topic` kräver att sidhuvudet anges till programpaket-ID + `.voip` suffixet. Exempel: för en exempel-app med paket-ID `com.microsoft.nhubsample`: t `apns-topic` måste rubriken anges till`com.microsoft.nhubsample.voip.`
 
-   Den här metoden fungerar inte bra med Azure Notification Hubs, eftersom appens paket-ID måste konfigureras som en del av hubbens APNS-autentiseringsuppgifter och värdet kan inte ändras. Meddelandehubbar tillåter inte heller att `apns-topic` värdet för huvudet åsidosätts vid körning.
+   Den här metoden fungerar inte bra med Azure Notification Hubs eftersom appens paket-ID måste konfigureras som en del av hubbens APN-autentiseringsuppgifter och värdet kan inte ändras. Notification Hubs tillåter inte heller att värdet för `apns-topic` huvudet åsidosätts vid körning.
 
-   Om du vill skicka VOIP-meddelanden måste `.voip` du konfigurera en separat meddelandehubb med apppaket-ID:et.
+   Om du vill skicka VOIP-meddelanden måste du konfigurera en separat meddelande hubb `.voip` med ID för programpaketet.
 
-- För att skicka ett `apns-push-type` VOIP-meddelande måste `voip`huvudet anges till värdet .
+- Om du skickar ett VOIP- `apns-push-type` meddelande måste rubriken anges till värdet `voip`.
 
-   För att hjälpa kunder med övergången till iOS 13 försöker Notification Hubs att dra slutsatsen rätt värde för `apns-push-type` huvudet. Inferenslogiken är avsiktligt enkel, i ett försök att undvika att bryta standardmeddelanden. Tyvärr orsakar den här metoden problem med VOIP-meddelanden, eftersom Apple behandlar VOIP-meddelanden som ett specialfall som inte följer samma regler som standardmeddelanden.
+   För att hjälpa kunder med över gången till iOS 13 Notification Hubs försöker att härleda rätt värde för `apns-push-type` huvudet. Den normala logiken är avsiktligt enkel, vilket innebär att du slipper bryta standard meddelanden. Den här metoden orsakar tyvärr problem med VOIP-meddelanden, eftersom Apple behandlar VOIP-meddelanden som ett specialfall som inte följer samma regler som standard meddelanden.
 
-   Om du vill skicka VOIP-meddelanden måste `apns-push-type` du ange ett explicit värde för huvudet.
+   Om du vill skicka VOIP-meddelanden måste du ange ett explicit värde `apns-push-type` för rubriken.
 
-- Meddelandehubbar begränsar APNS nyttolaster till 4 KB, vilket dokumenteras av Apple. För VOIP-meddelanden tillåter Apple nyttolaster på upp till 5 kB. Meddelandehubbar skiljer inte mellan standard- och VOIP-meddelanden. Därför är alla anmälningar begränsade till 4 KB.
+- Notification Hubs begränsar APN-nyttolaster till 4 KB, som dokumenteras av Apple. För VOIP-meddelanden tillåter Apple nytto laster upp till 5 KB. Notification Hubs skiljer inte mellan vanliga och VOIP-meddelanden. Därför är alla meddelanden begränsade till 4 KB.
 
-   Om du vill skicka VOIP-meddelanden får du inte överskrida storleksgränsen för nyttolast på 4 kB.
+   Om du vill skicka VOIP-meddelanden får du inte överskrida storleks gränsen på 4 KB.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns här på följande länkar:
 
-- [Dokumentation `apns-topic` för `apns-push-type` och rubriker och värden, inklusive särskilda ärenden för VOIP-meddelanden](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns).
+- [Dokumentation för `apns-topic` och `apns-push-type` rubriker och värden, inklusive särskilda fall för VoIP-meddelanden](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns).
 
-- [Dokumentation för storleksgräns för nyttolast](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
+- [Dokumentation för begränsning av nytto Last storlek](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
 
-- [Uppdateringar av meddelandehubbar för iOS 13](push-notification-updates-ios-13.md#apns-push-type).
+- [Notification Hubs uppdateringar för iOS 13](push-notification-updates-ios-13.md#apns-push-type).

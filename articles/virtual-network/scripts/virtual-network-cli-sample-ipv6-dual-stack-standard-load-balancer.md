@@ -1,5 +1,5 @@
 ---
-title: Exempel på Azure CLI-skript – Konfigurera IPv6-klientdel - Standardbelastningsutjämning
+title: Skript exempel för Azure CLI – konfigurera IPv6-frontend-Standard Load Balancer
 titlesuffix: Azure Virtual Network
 description: Aktivera IPv6-slutpunkter med Azure CLI i Azure Virtual Network
 services: virtual-network
@@ -13,29 +13,29 @@ ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.openlocfilehash: 5f5856a89a04b58b138ee23a5f289ceff0915acf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235043"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Konfigurera IPv6-slutpunkter i exempel på virtuellt nätverksskript med standardbelastningsutjämning(förhandsgranskning)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Konfigurera IPv6-slutpunkter i skript exempel för virtuella nätverk med hjälp av Standard Load Balancer (för hands version)
 
-Den här artikeln visar hur du distribuerar ett IPv4 + IPv6-program (Dual Stack) i Azure som innehåller ett virtuellt nätverk med dubbla staplar med ett dubbelstacksundernät, en standardbelastningsbalanser med dubbla frontendkonfigurationer (IPv4 + IPv6), virtuella datorer med nätverkskort som har en dubbel IP-adress konfiguration, regler för säkerhetsgrupp för dubbla nätverk och dubbla offentliga IPs.
+Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) i Azure som innehåller ett virtuellt stack-nätverk med dubbla stackar, en Standard Load Balancer med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, dubbla regler för nätverks säkerhets grupper och dubbla offentliga IP-adresser.
 
 Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/bash) eller från en lokal installation av Azure CLI. Om du använder CLI lokalt kräver skriptet att du kör version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Krav
-Om du vill använda funktionen IPv6 för Azure virtuellt nätverk måste du konfigurera prenumerationen endast en gång enligt följande:
+Om du vill använda funktionen IPv6 för Azure Virtual Network måste du konfigurera din prenumeration bara en gång på följande sätt:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 
-Det tar upp till 30 minuter innan funktionsregistreringen är klar. Du kan kontrollera din registreringsstatus genom att köra följande Azure CLI-kommando:
+Det tar upp till 30 minuter för funktions registrering att slutföras. Du kan kontrol lera din registrerings status genom att köra följande Azure CLI-kommando:
 
 ```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
@@ -282,13 +282,13 @@ az vm create \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest 
 ```
 
-## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visa virtuellt IPv6-nätverk med dubbla stackar i Azure-portalen
-Du kan visa det virtuella nätverket IPv6 med dubbla stackar i Azure-portalen på följande sätt:
-1. Ange *dsVnet*i portalens sökfält .
-2. När **myVirtualNetwork** visas i sökresultatet väljer du det. Detta startar **översiktssidan för** det virtuella nätverket med dubbla staplar med namnet *dsVnet*. Det virtuella nätverket med dubbla staplar visar de två nätverkskort med både IPv4- och IPv6-konfigurationer i det dubbla stackundernätet med namnet *dsSubnet*. 
+## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Visa ett virtuellt IPv6-nätverk med dubbla stackar i Azure Portal
+Du kan visa det virtuella IPv6-nätverket med dubbla stackar i Azure Portal på följande sätt:
+1. Skriv *dsVnet*i portalens Sök fält.
+2. När **myVirtualNetwork** visas i sökresultatet väljer du det. Då startas **översikts** sidan för det virtuella nätverket med dubbla stackar med namnet *dsVnet*. Det virtuella nätverket med dubbla stackar visar de två nätverkskorten med både IPv4-och IPv6-konfigurationer som finns i det dubbla stack-undernätet med namnet *dsSubnet*. 
 
 > [!NOTE]
-> Det virtuella nätverket IPv6 för Azure är tillgängligt i Azure-portalen i skrivskyddad för den här förhandsversionen.
+> IPv6 för Azure Virtual Network är tillgängligt i Azure Portal i skrivskyddat läge för den här för hands versionen.
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -302,7 +302,7 @@ az group delete --name <resourcegroupname> --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | Skapar ett virtuellt Azure-nätverk och undernät. |

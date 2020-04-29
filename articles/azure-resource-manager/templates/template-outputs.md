@@ -1,22 +1,22 @@
 ---
 title: Utdata i mallar
-description: Beskriver hur du definierar utdatavärden i en Azure Resource Manager-mall.
+description: Beskriver hur du definierar utdata i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460032"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Utdata i Azure Resource Manager-mall
+# <a name="outputs-in-azure-resource-manager-template"></a>Utdata i Azure Resource Manager mall
 
-I den här artikeln beskrivs hur du definierar utdatavärden i mallen Azure Resource Manager. Du använder utdata när du behöver returnera värden från de distribuerade resurserna.
+I den här artikeln beskrivs hur du definierar utdataparametrar i Azure Resource Manager-mallen. Du använder utdata när du behöver returnera värden från de distribuerade resurserna.
 
-## <a name="define-output-values"></a>Definiera utdatavärden
+## <a name="define-output-values"></a>Definiera värden för utdata
 
-I följande exempel visas hur du returnerar resurs-ID:t för en offentlig IP-adress:
+I följande exempel visas hur du returnerar resurs-ID för en offentlig IP-adress:
 
 ```json
 "outputs": {
@@ -27,9 +27,9 @@ I följande exempel visas hur du returnerar resurs-ID:t för en offentlig IP-adr
 }
 ```
 
-## <a name="conditional-output"></a>Villkorad utdata
+## <a name="conditional-output"></a>Villkorliga utdata
 
-I avsnittet utdata kan du villkorligt returnera ett värde. Vanligtvis använder du villkor i utdata när du villkorligt har [distribuerat](conditional-resource-deployment.md) en resurs. I följande exempel visas hur du villkorligt returnerar resurs-ID:t för en offentlig IP-adress baserat på om en ny har distribuerats:
+I avsnittet utdata kan du villkorligt returnera ett värde. Normalt använder du villkor i utdata när du har [villkorligt distribuerat](conditional-resource-deployment.md) en resurs. I följande exempel visas hur du villkorligt returnerar resurs-ID: t för en offentlig IP-adress baserat på om en ny har distribuerats:
 
 ```json
 "outputs": {
@@ -41,11 +41,11 @@ I avsnittet utdata kan du villkorligt returnera ett värde. Vanligtvis använder
 }
 ```
 
-Ett enkelt exempel på villkorsstyrd utdata finns i [villkorsutdatamall .](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)
+Ett enkelt exempel på villkorliga utdata finns i [mallen för villkorsstyrda utdata](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
-## <a name="dynamic-number-of-outputs"></a>Dynamiskt antal utgångar
+## <a name="dynamic-number-of-outputs"></a>Dynamiskt antal utdata
 
-I vissa fall vet du inte hur många instanser av ett värde som du behöver returnera när du skapar mallen. Du kan returnera ett variabelt **copy** antal värden med hjälp av kopieringselementet.
+I vissa fall vet du inte hur många instanser av ett värde du behöver returnera när du skapar mallen. Du kan returnera ett variabelt antal värden med hjälp av **kopierings** elementet.
 
 ```json
 "outputs": {
@@ -59,17 +59,17 @@ I vissa fall vet du inte hur många instanser av ett värde som du behöver retu
 }
 ```
 
-Mer information finns [i Utdataiterationer i Azure Resource Manager-mallar](copy-outputs.md).
+Mer information finns i [utdata iteration i Azure Resource Manager mallar](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Länkade mallar
 
-Om du vill hämta utdatavärdet från en länkad mall använder du [referensfunktionen](template-functions-resource.md#reference) i den överordnade mallen. Syntaxen i den överordnade mallen är:
+Om du vill hämta värdet för utdata från en länkad mall använder du funktionen [Reference](template-functions-resource.md#reference) i den överordnade mallen. Syntaxen i den överordnade mallen är:
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
 ```
 
-När du hämtar en utdataegenskap från en länkad mall kan egenskapsnamnet inte innehålla ett streck.
+När du hämtar en output-egenskap från en länkad mall får egenskaps namnet inte innehålla något bindestreck.
 
 I följande exempel visas hur du ställer in IP-adressen på en belastningsutjämnare genom att hämta ett värde från en länkad mall.
 
@@ -79,15 +79,15 @@ I följande exempel visas hur du ställer in IP-adressen på en belastningsutjä
 }
 ```
 
-Du kan inte `reference` använda funktionen i utdataavsnittet i en [kapslad mall](linked-templates.md#nested-template). Om du vill returnera värdena för en distribuerad resurs i en kapslad mall konverterar du den kapslade mallen till en länkad mall.
+Du kan inte använda `reference` funktionen i avsnittet utdata i en [kapslad mall](linked-templates.md#nested-template). Om du vill returnera värdena för en distribuerad resurs i en kapslad mall konverterar du den kapslade mallen till en länkad mall.
 
-## <a name="get-output-values"></a>Hämta utdatavärden
+## <a name="get-output-values"></a>Hämta utgående värden
 
-När distributionen lyckas returneras utdatavärdena automatiskt i resultatet av distributionen.
+När distributionen lyckas returneras värdena för utdata automatiskt i resultatet av distributionen.
 
-Om du vill hämta utdatavärden från distributionshistoriken kan du använda skript.
+Du kan använda skript för att hämta utdata från distributions historiken.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment `
@@ -108,14 +108,14 @@ az deployment group show \
 
 ## <a name="example-templates"></a>Exempel på mallar
 
-Följande exempel visar scenarier för användning av utdata.
+Följande exempel visar scenarier för att använda utdata.
 
 |Mall  |Beskrivning  |
 |---------|---------|
-|[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Skapar komplexa variabler och matar ut dessa värden. Distribuerar inga resurser. |
-|[Offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Skapar en offentlig IP-adress och matar ut resurs-ID. |
-|[Lastbalanserare](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Länkar till föregående mall. Använder resurs-ID:n i utdata när belastningsutjämnaren skapas. |
+|[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Skapar komplexa variabler och matar ut dessa värden. Distribuerar inte några resurser. |
+|[Offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Skapar en offentlig IP-adress och matar ut resurs-ID: t. |
+|[Belastningsutjämnare](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Länkar till föregående mall. Använder resurs-ID i utdata när du skapar belastningsutjämnaren. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om tillgängliga egenskaper för utdata finns i [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](template-syntax.md).
+* Mer information om tillgängliga egenskaper för utdata finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).

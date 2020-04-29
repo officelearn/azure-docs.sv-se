@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera och felsöka en förhandsgranskningsmiljö – Insikter i Azure Time Series | Microsoft-dokument
-description: Lär dig hur du diagnostiserar och felsöker en förhandsversion av Azure Time Series Insights.
+title: Diagnostisera och Felsök en för hands versions miljö – Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du diagnostiserar och felsöker en Azure Time Series Insights Preview-miljö.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -11,124 +11,124 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80152676"
 ---
-# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostisera och felsöka en förhandsgranskningsmiljö
+# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostisera och Felsök en för hands versions miljö
 
-Den här artikeln sammanfattar flera vanliga problem som kan uppstå när du arbetar med din Azure Time Series Insights Preview-miljö. Artikeln beskriver också potentiella orsaker och lösningar för varje problem.
+I den här artikeln sammanfattas flera vanliga problem som kan uppstå när du arbetar med din Azure Time Series Insights för hands versions miljö. Artikeln beskriver också möjliga orsaker och lösningar för varje problem.
 
-## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problem: Jag kan inte hitta min miljö i förhandsgranskningsutforskaren
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problem: Jag kan inte hitta min miljö i Preview Explorer
 
-Det här problemet kan uppstå om du inte har behörighet att komma åt time series insights-miljön. Användarna behöver en åtkomstroll på läsaresnivå för att kunna visa sin time series insights-miljö. Om du vill verifiera de aktuella åtkomstnivåerna och bevilja ytterligare åtkomst går du till avsnittet **Dataåtkomstprinciper** på time series insights-resursen i [Azure-portalen](https://portal.azure.com/).
+Det här problemet kan inträffa om du inte har behörighet att komma åt Time Series Insightss miljön. Användare behöver en åtkomst roll på läsare-nivå för att visa sin Time Series Insightss miljö. Om du vill verifiera de aktuella åtkomst nivåerna och bevilja ytterligare åtkomst går du till avsnittet **data åtkomst principer** på Time Series Insights resursen i [Azure Portal](https://portal.azure.com/).
 
-  [![Verifiera principer för dataåtkomst.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
+  [![Kontrol lera principer för data åtkomst.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problem: Inga data visas i förhandsgranskningsutforskaren
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problem: inga data visas i förhands gransknings Utforskaren
 
-Det finns flera vanliga orsaker till att dina data kanske inte visas i [utforskaren för förhandsversionen](https://insights.timeseries.azure.com/preview)av Azure Time Series Insights .
+Det finns flera vanliga orsaker till varför dina data kanske inte visas i [Azure Time Series Insights Preview Explorer](https://insights.timeseries.azure.com/preview).
 
-- Händelsekällan kanske inte tar emot data.
+- Din händelse källa kanske inte tar emot data.
 
-    Kontrollera att händelsekällan, som är en händelsehubb eller en IoT-hubb, tar emot data från dina taggar eller instanser. Kontrollera genom att gå till översiktssidan för din resurs i Azure-portalen.
+    Kontrol lera att händelse källan, som är en händelsehubben eller IoT Hub, tar emot data från taggar eller instanser. Verifiera genom att gå till översikts sidan för resursen i Azure Portal.
 
-    [![Granska översikt över instrumentpanelsmått.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
+    [![Granska instrument panelens mått översikt.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
-- Händelsekälladata är inte i JSON-format.
+- Händelsens källdata är inte i JSON-format.
 
-    Time Series Insights stöder endast JSON-data. För JSON-exempel läser du [JSON-former som stöds](./how-to-shape-query-json.md).
+    Time Series Insights stöder endast JSON-data. För JSON-exempel kan du läsa [JSON-former som stöds](./how-to-shape-query-json.md).
 
-- Händelsekällasnyckeln saknar en nödvändig behörighet.
+- Din händelse käll nyckel saknar en nödvändig behörighet.
 
-  * För en IoT-hubb måste du ange nyckeln som har behörighet att **ansluta tjänsten.**
+  * För en IoT-hubb måste du ange den nyckel som har behörighet för **tjänst anslutning** .
 
-    [![Verifiera IoT-hubbbehörigheter.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
+    [![Verifiera IoT Hub-behörigheter.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-    * Både principer **iothubowner** och **service** arbete eftersom de har **service ansluta** behörighet.
+    * Båda principerna **iothubowner** och **service** fungerar eftersom de har behörighet för **tjänst anslutning** .
 
-  * För en händelsehubb måste du ange nyckeln som har **lyssningsbehörighet.**
+  * För en Event Hub måste du ange den nyckel som har behörigheten **Lyssna** .
   
-    [![Granska behörigheter för händelsenav.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
+    [![Granska händelse hubbens behörigheter.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    * Både **Read-** och **Manage-principerna** fungerar eftersom de har **behörigheten Lyssna.**
+    * Både **Läs** -och **hanterings** principerna fungerar eftersom de har behörigheten **Lyssna** .
 
-- Din konsumentgrupp som tillhandahålls är inte exklusiv för Time Series Insights.
+- Den angivna konsument gruppen är inte exklusiv för Time Series Insights.
 
-    Under registreringen av en IoT-hubb eller händelsehubb anger du den konsumentgrupp som används för att läsa data. Denna konsumentgrupp måste vara unik per miljö. Om konsumentgruppen delas kopplar den underliggande händelsehubben automatiskt från en av läsarna slumpmässigt. Tillhandahålla en unik konsumentgrupp för Time Series Insights att läsa från.
+    Under registreringen av en IoT-hubb eller Event Hub anger du den konsument grupp som används för att läsa data. Den här konsument gruppen måste vara unik per miljö. Om konsument gruppen delas, kopplas den underliggande händelsehubben automatiskt till en av läsarna. Ange en unik konsument grupp för Time Series Insights att läsa från.
 
-- Egenskapen Time Series ID som angavs vid etableringstillfället är felaktig, saknad eller null.
+- Din Time Series ID-egenskap som angavs vid tidpunkten för etableringen är felaktig, saknas eller är null.
 
-    Det här problemet kan uppstå om egenskapen Time Series ID har konfigurerats felaktigt vid etablering av miljön. Mer information finns i [Metodtips för att välja ett tidsserie-ID](./time-series-insights-update-how-to-id.md). För närvarande kan du inte uppdatera en befintlig Time Series Insights-miljö för att använda ett annat Tidsserie-ID.
+    Det här problemet kan inträffa om egenskapen Time Series ID är felaktigt konfigurerad vid tidpunkten för etablering av miljön. Mer information finns [i metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). För tillfället kan du inte uppdatera en befintlig Time Series Insights miljö för att använda ett annat tids serie-ID.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Problem: Vissa data visas, men vissa saknas
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Problem: vissa data visas, men vissa saknas
 
-Du kanske skickar data utan tidsserie-ID.
+Du kan skicka data utan tids serie-ID.
 
-- Det här problemet kan uppstå när du skickar händelser utan fältet Tidsserie-ID i nyttolasten. Mer information finns i [JSON-former som stöds](./how-to-shape-query-json.md).
-- Det här problemet kan uppstå eftersom din miljö begränsas.
+- Det här problemet kan uppstå när du skickar händelser utan fältet Time Series ID i nytto lasten. Mer information finns i [JSON-former som stöds](./how-to-shape-query-json.md).
+- Det här problemet kan bero på att din miljö är begränsad.
 
     > [!NOTE]
-    > För närvarande stöder Time Series Insights en maximal inmatningshastighet på 6 Mbit/s.
+    > För närvarande har Time Series Insights stöd för en maximal inmatnings hastighet på 6 Mbps.
 
-## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problem: Data visades, men nu har inmatningen stoppats
+## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problem: data visades, men nu har inmatningen stoppats
 
-- Nyckeln för händelsekällan kan ha återskapats och förhandsgranskningsmiljön behöver den nya händelsekällanyckeln.
+- Din händelse käll nyckel kan ha återskapats och din för hands versions miljö behöver den nya händelse käll nyckeln.
 
-Det här problemet uppstår när nyckeln som anges när du skapar händelsekällan inte längre är giltig. Du skulle se telemetri i din hubb men inga ingående mottagna meddelanden i Time Series Insights. Om du är osäker på om nyckeln har återskapats eller inte kan du söka i aktivitetsloggen för händelsehubbar efter "Skapa eller uppdatera namnområdesauktoriseringsregler" eller söka i "Skapa eller uppdatera IotHub-resurs" för IoT-hubb. 
+Det här problemet uppstår när den nyckel som angavs när du skapade din händelse källa inte längre är giltig. Du ser telemetri i hubben men inga ingångs meddelanden tas emot i Time Series Insights. Om du är osäker på om nyckeln har återskapats kan du söka i Event Hubs aktivitets logg för "skapa eller uppdatera namn områdes auktoriseringsregler" eller söka i "skapa eller uppdatera IotHub resurs" för IoT Hub. 
 
-Om du vill uppdatera förhandsversionen av Time Series Insights med den nya nyckeln öppnar du hubbresursen i Azure-portalen och kopierar den nya nyckeln. Navigera till din TSD-resurs och klicka på händelsekällor. 
+Om du vill uppdatera din Time Series Insights Preview-miljö med den nya nyckeln öppnar du nav resursen i Azure Portal och kopierar den nya nyckeln. Navigera till din TSD-resurs och klicka på händelse källor. 
 
    [![Uppdatera nyckel.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
-Välj de händelsekällor som har stoppats från, klistra in den nya nyckeln och klicka på Spara.
+Välj de händelse källor där inmatningen har stoppats, klistra in den nya nyckeln och klicka på Spara.
 
    [![Uppdatera nyckel.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
-## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problem: Händelsekällans tidsstämpelnamn fungerar inte
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problem: min händelse källas egenskaps namn för tidsstämpel fungerar inte
 
-Kontrollera att namn och värde överensstämmer med följande regler:
+Kontrol lera att namnet och värdet följer följande regler:
 
-* Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt.
-* Egenskapsvärdet för tidsstämpel som kommer från händelsekällan `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`som en JSON-sträng har formatet . Ett exempel på en `“2008-04-12T12:53Z”`sådan sträng är .
+* Egenskaps namnet för tidsstämpeln är Skift läges känsligt.
+* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`formatet. Ett exempel på en sådan sträng är `“2008-04-12T12:53Z”`.
 
-Det enklaste sättet att se till att ditt tidsstämpelgenskapsnamn fångas in och fungerar som det ska är att använda utforskaren för förhandsversionen av Time Series Insights. I utforskaren för förhandsversionen av Time Series Insights använder du diagrammet för att välja en tidsperiod efter att du angett egenskapsnamnet för tidsstämpel. Högerklicka på markeringen och välj alternativet **utforska händelser.** Det första kolumnhuvudet är namnet på tidsstämpelns egenskap. Det bör `($ts)` ha bredvid ordet `Timestamp`, snarare än:
+Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Preview Explorer. I Time Series Insights Preview Explorer använder du diagrammet för att välja en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj alternativet för att **utforska händelser** . Den första kolumn rubriken är namnet på Tidsstämpelns egenskap. Den bör ha `($ts)` intill ordet `Timestamp`, i stället för att:
 
-* `(abc)`, vilket anger att Time Series Insights läser datavärdena som strängar.
-* **Kalenderikonen,** som anger att Time Series Insights läser datavärdet som datetime.
-* `#`, vilket anger att Time Series Insights läser datavärdena som ett heltal.
+* `(abc)`, som anger att Time Series Insights läser data värden som strängar.
+* **Kalender** ikonen, som anger att Time Series Insights läser datavärdet som DateTime.
+* `#`, som anger att Time Series Insights läser data värden som ett heltal.
 
-Om egenskapen Tidsstämpel inte uttryckligen anges används en händelses IoT-hubb eller händelsenav Enqueued Time som standardtidsstämpel.
+Om egenskapen timestamp inte uttryckligen anges används en händelses IoT Hub-eller Event Hub-tid som standard tids stämpling.
 
-## <a name="problem-i-cant-view-data-from-my-warm-store-in-the-explorer"></a>Problem: Jag kan inte visa data från mitt varma arkiv i utforskaren
+## <a name="problem-i-cant-view-data-from-my-warm-store-in-the-explorer"></a>Problem: Jag kan inte visa data från min varma lagrings plats i Utforskaren
 
-- Du kanske har etablerat ditt varma lager nyligen och data flödar fortfarande in.
-- Du kan ha tagit bort din varma butik, i vilket fall du skulle ha förlorat data.
+- Du kanske har samlat in ditt varmt Arkiv nyligen och data flödar fortfarande.
+- Du kanske har tagit bort din varma lagrings plats, vilket innebär att du skulle ha förlorat data.
 
-## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problem: Jag kan inte visa eller redigera min Tidsseriemodell
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problem: Jag kan inte Visa eller redigera min tids serie modell
 
-- Du kanske har åtkomst till en Time Series Insights S1- eller S2-miljö.
+- Du kanske använder en Time Series Insights S1-eller S2-miljö.
 
-   Time Series-modeller stöds endast i pay-as-you-go-miljöer. Mer information om hur du kommer åt din S1- eller S2-miljö från utforskaren Förhandsgranskning av Time Series Insights finns [i Visualisera data i utforskaren](./time-series-insights-update-explorer.md).
+   Tids serie modeller stöds bara i "betala per användning"-miljöer. Mer information om hur du kommer åt din S1-eller S2-miljö från Time Series Insights Preview Explorer finns [i visualisera data i Utforskaren](./time-series-insights-update-explorer.md).
 
    [![Inga händelser i miljön.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - Du kanske inte har behörighet att visa och redigera modellen.
 
-   Användare behöver åtkomst på deltagarnivå för att redigera och visa sin Tidsseriemodell. Om du vill verifiera de aktuella åtkomstnivåerna och bevilja ytterligare åtkomst går du till avsnittet **Dataåtkomstprinciper** på time series insights-resursen i Azure-portalen.
+   Användare behöver åtkomst på deltagar nivå för att redigera och visa sin tids serie modell. Om du vill kontrol lera de aktuella åtkomst nivåerna och bevilja ytterligare åtkomst går du till avsnittet **data åtkomst principer** i Time Series Insights resursen i Azure Portal.
 
-## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problem: Alla mina instanser i förhandsgranskningsutforskaren saknar en överordnad
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problem: alla mina instanser i Preview Explorer saknar överordnad
 
-Det här problemet kan uppstå om din miljö inte har en tidsseriemodellhierarki definierad. Mer information finns i [Arbeta med tidsseriemodeller](./time-series-insights-update-how-to-tsm.md).
+Det här problemet kan inträffa om din miljö inte har en definierad tids serie modell hierarki. Mer information finns i [arbeta med tids serie modeller](./time-series-insights-update-how-to-tsm.md).
 
-  [![Oparenterade instanser visar en varning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
+  [![För inöverordnade instanser visas en varning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [arbete med time series-modeller](./time-series-insights-update-how-to-tsm.md).
+- Läs [arbeta med tids serie modeller](./time-series-insights-update-how-to-tsm.md).
 
-- Läs mer om [JSON-former som stöds](./how-to-shape-query-json.md).
+- Lär dig mer om [JSON-former som stöds](./how-to-shape-query-json.md).
 
-- Granska [planering och begränsningar](./time-series-insights-update-plan.md) i förhandsversionen av Azure Time Series Insights.
+- Granska [planering och gränser](./time-series-insights-update-plan.md) i Azure Time Series Insights för hands versionen.

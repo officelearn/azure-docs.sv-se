@@ -1,6 +1,6 @@
 ---
-title: Samförsäljning av lands- och regionkoder | Azure Marketplace
-description: Använd dessa lands-/regionkoder med två bokstäver när du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.
+title: Co-sälja land-och region koder | Azure Marketplace
+description: Använd de här lands-och region koderna med två bokstäver när du anger kontakt information på ditt erbjudandes samarbets sida.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,37 +8,37 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80277064"
 ---
-# <a name="co-sell-country-and-region-codes"></a>Samsälja lands- och regionkoder
+# <a name="co-sell-country-and-region-codes"></a>Samförsäljnings land och region koder
 
-Använd dessa lands-/regionkoder med två bokstäver när [du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.](commercial-marketplace-co-sell.md)
+Använd de här lands-och region koderna med två bokstäver när [du anger kontakt information på ditt erbjudandes samarbets sida](commercial-marketplace-co-sell.md).
 
-Om kontakten omfattar alla länder/regioner använder du trebokstavskoden "OOO".
+Om kontakten omfattar alla länder/regioner använder du den tre bokstavs koden "OOO".
 
-Om en kontakt omfattar mer än ett land/region anger du var och en av de två bokstavskoderna avgränsade med ett kommatecken (till exempel "US, CA, FR" utan citattecken).
+Om en kontakt omfattar mer än ett land/region, anger du var och en av de två bokstavs koderna avgränsade med ett kommatecken (till exempel, ange "US, CA, FR" utan citat tecken).
 
-## <a name="countryregion-table"></a>Tabell land/region
+## <a name="countryregion-table"></a>Tabellen land/region
 
-|   Namn på land/region               |   ISO-2   |
+|   Land/region namn               |   ISO-2   |
 |-------------------------------------|-----------|
-| Globala kontakter                     | Ooo       |
+| Globala kontakter                     | OOO       |
 | Afghanistan                         | AF        |
-| Åland                       | Ax        |
+| Åland                       | AX        |
 | Albanien                             | AL        |
 | Algeriet                             | DZ        |
 | Amerikanska Samoa                      | AS        |
 | Andorra                             | AD        |
 | Angola                              | AO        |
-| Antarktis                          | Aq        |
+| Antarktis                          | AQ        |
 | Antigua och Barbuda                 | AG        |
 | Argentina                           | AR        |
 | Armenien                             | AM        |
-| Aruba                               | Aw        |
+| Aruba                               | AW        |
 | Australien                           | AU        |
 | Österrike                             | AT        |
 | Azerbajdzjan                          | AZ        |
@@ -50,13 +50,13 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Belgien                             | BE        |
 | Belize                              | BZ        |
 | Benin                               | BJ        |
-| Bermuda                             | Bm        |
+| Bermuda                             | BM        |
 | Bhutan                              | BT        |
 | Bolivia                             | BO        |
-| Bonaire                             | Bq        |
+| Bonaire                             | BQ        |
 | Bosnien och Hercegovina              | BA        |
 | Botswana                            | BW        |
-| Bouvetön                       | Bv        |
+| Bouvetön                       | BV        |
 | Brasilien                              | BR        |
 | Brittiska territoriet i Indiska Oceanen      | I/O        |
 | Brittiska Jungfruöarna              | VG        |
@@ -71,59 +71,59 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Caymanöarna                      | KY        |
 | Centralafrikanska republiken            | CF        |
 | Tchad                                | TD        |
-| Tjeckien                             | CZ        |
+| Czechia                             | CZ        |
 | Chile                               | CL        |
 | Kina                               | CN        |
 | Julön                    | CX        |
 | Kokosöarna             | CC        |
 | Colombia                            | CO        |
-| Komorerna                             | Km        |
-| Kongo                               | Cg        |
+| Komorerna                             | METER        |
+| Kongo                               | 0,05        |
 | Kongo (DR)                         | CD        |
-| Cooköarna                        | Ck        |
+| Cooköarna                        | CK        |
 | Costa Rica                          | CR        |
 | Côte d'Ivoire                       | CI        |
 | Kroatien                             | HR        |
 | Kuba                                | CU        |
-| Curaçao                             | Cw        |
+| Curaçao                             | FELAKTIG        |
 | Cypern                              | CY        |
 | Danmark                             | DK        |
-| Djibouti                            | Dj        |
+| Djibouti                            | DJ        |
 | Dominica                            | DM        |
 | Dominikanska republiken                  | DO        |
 | Ecuador                             | EC        |
 | Egypten                               | EG        |
 | El Salvador                         | SV        |
-| Ekvatorialguinea                   | Gq        |
+| Ekvatorialguinea                   | GQ        |
 | Eritrea                             | ER        |
 | Estland                             | EE        |
-| eSwatini (på)                            | SZ        |
+| eSwatini                            | SZ        |
 | Etiopien                            | ET        |
-| Färöarna                       | Fo        |
+| Färöarna                       | DETALJERADE        |
 | Fiji                                | FJ        |
 | Finland                             | FI        |
 | Frankrike                              | FR        |
 | Franska Guyana                       | GF        |
-| Franska Polynesien                    | Pf        |
-| Franska sydterritorierna         | Tf        |
+| Franska Polynesien                    | VÄXLING        |
+| Franska sydterritorierna         | TF        |
 | Gabon                               | Allmän tillgänglighet (GA)        |
 | Gambia                              | GM        |
 | Georgien                             | GE        |
 | Tyskland                             | DE        |
 | Ghana                               | GH        |
-| Gibraltar                           | Gi        |
+| Gibraltar                           | ETER        |
 | Grekland                              | GR        |
-| Grönland                           | Gl        |
-| Grenada                             | GD (GD)        |
+| Grönland                           | HUVUD        |
+| Grenada                             | GD        |
 | Guadeloupe                          | GP        |
 | Guam                                | GU        |
 | Guatemala                           | GT        |
-| Guernsey                            | Gg        |
+| Guernsey                            | GG        |
 | Guinea                              | GN        |
-| Guinea-Bissau                       | Gw        |
+| Guinea-Bissau                       | GW        |
 | Guyana                              | GY        |
 | Haiti                               | HT        |
-| Heardön och McDonaldöarna   | Hm        |
+| Heard-och McDonaldöarna   | IGNERINGSALGORITM        |
 | Honduras                            | HN        |
 | Hongkong                       | HK        |
 | Ungern                             | HU        |
@@ -138,12 +138,12 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Italien                               | IT        |
 | Jamaica                             | JM        |
 | Japan                               | JP        |
-| Jersey                              | Je        |
+| Jersey                              | JE        |
 | Jordanien                              | JO        |
 | Kazakhstan                          | KZ        |
 | Kenya                               | KE        |
 | Kiribati                            | KI        |
-| Korea (Söder)                       | KR        |
+| Korea (södra)                       | KR        |
 | Kuwait                              | KW        |
 | Kirgizistan                          | KG        |
 | Laos                                | LA        |
@@ -165,7 +165,7 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Marshallöarna                    | MH        |
 | Martinique                          | MQ        |
 | Mauretanien                          | MR        |
-| Mauritius                           | Mu        |
+| Mauritius                           | MK        |
 | Mayotte                             | YT        |
 | Mexiko                              | MX        |
 | Mikronesien                          | FM        |
@@ -187,7 +187,7 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Niger                               | NE        |
 | Nigeria                             | NG        |
 | Niue                                | NU        |
-| Norfolkön                      | Nf        |
+| Norfolkön                      | NF        |
 | Nordkorea                         | KP        |
 | Nordmarianerna            | MP        |
 | Nordmakedonien                     | MK        |
@@ -197,11 +197,11 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Palau                               | PW        |
 | Palestinska myndigheten               | PS        |
 | Panama                              | PA        |
-| Papua Nya Guinea                    | Sida        |
+| Papua Nya Guinea                    | P1500        |
 | Paraguay                            | PY        |
 | Peru                                | PE        |
 | Filippinerna                         | PH        |
-| Pitcairnöarna                    | Pn        |
+| Pitcairn                    | PN        |
 | Polen                              | PL        |
 | Portugal                            | PT        |
 | Puerto Rico                         | PR        |
@@ -212,12 +212,12 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Rwanda                              | RW        |
 | Sankt Barthélemy                    | BL        |
 | Saint Kitts och Nevis               | KN        |
-| Saint Lucia                         | Lc        |
-| Saint Martin                        | Mf        |
+| Saint Lucia                         | LC        |
+| Saint Martin                        | MF        |
 | Saint Pierre och Miquelon           | PM        |
 | Saint Vincent och Grenadinerna    | VC        |
 | Samoa                               | WS        |
-| San Marino                          | Sm        |
+| San Marino                          | SM        |
 | São Tomé och Príncipe               | ST        |
 | Saudiarabien                        | SA        |
 | Senegal                             | SN        |
@@ -225,31 +225,31 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Seychellerna                          | SC        |
 | Sierra Leone                        | SL        |
 | Singapore                           | SG        |
-| Sint Maarten                        | Sx        |
+| Sint Maarten                        | NÄTVERKSANSLUTNING        |
 | Slovakien                            | SK        |
 | Slovenien                            | SI        |
-| Solomonöarna                     | Sb        |
+| Solomonöarna                     | SA        |
 | Somalia                             | SO        |
 | Sydafrika                        | ZA        |
-| Sydgeorgien och Sydsandwichöarna | Gs    |
+| Södra Georgien och Sydsandwichöarna | GS    |
 | Sydsudan                         | SS        |
 | Spanien                               | ES        |
 | Sri Lanka                           | LK        |
-| S:t Helena, Uppstigning, Tristan da Cunha | SH     |
+| Saint Helena, Ascension, Tristan da Cunha | SH     |
 | Sudan                               | SD        |
 | Surinam                            | SR        |
-| Svalbard                            | Sj        |
+| Svalbard                            | SJ        |
 | Sverige                              | SE        |
 | Schweiz                         | CH        |
 | Syrien                               | SY        |
 | Taiwan                              | TW        |
-| Tadzjikistan                          | Tj        |
+| Tadzjikistan                          | TJ        |
 | Tanzania                            | TZ        |
 | Thailand                            | TH        |
 | Timor-Leste                         | TL        |
 | Togo                                | TG        |
-| Tokelau                             | Tk        |
-| Tonga                               | Att        |
+| Tokelau                             | TK        |
+| Tonga                               | ATT        |
 | Trinidad och Tobago                 | TT        |
 | Tunisien                             | TN        |
 | Turkiet                              | TR        |
@@ -262,19 +262,19 @@ Om en kontakt omfattar mer än ett land/region anger du var och en av de två bo
 | Storbritannien                      | GB        |
 | USA                       | USA        |
 | Uruguay                             | UY        |
-| Amerikanska outlyingöarna               | UM        |
-| Amerikanska Jungfruöarna                 | VI        |
+| Amerikanska öar               | UM        |
+| Amerikanska jungfru öarna                 | VI        |
 | Uzbekistan                          | UZ        |
-| Vanuatu                             | Vu        |
+| Vanuatu                             | ANTECKNING        |
 | Vatikanstaten                        | VA        |
 | Venezuela                           | VE        |
 | Vietnam                             | VN        |
-| Wallis och Futuna                   | Wf        |
-| Jemen                               | Ni        |
+| Wallis och Futuna                   | BRANDVÄGGEN        |
+| Jemen                               | CHANSEN        |
 | Zambia                              | ZM        |
 | Zimbabwe                            | ZW        |
 |   |   |   |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [samförsäljningsalternativet i Partner Center](./commercial-marketplace-co-sell.md).
+- Lär dig mer om [alternativet Co-Sälj i Partner Center](./commercial-marketplace-co-sell.md).

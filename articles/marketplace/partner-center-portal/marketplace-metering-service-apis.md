@@ -1,6 +1,6 @@
 ---
-title: API:er för marknadstjänster för marknadsplatsmätning | Azure Marketplace
-description: Användningshändelse för SaaS-erbjudanden på Azure Marketplace.
+title: 'API: er för Marketplace-avläsning | Azure Marketplace'
+description: Användnings händelse för SaaS-erbjudanden på Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,35 +8,35 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275755"
 ---
 # <a name="marketplace-metering-service-apis"></a>API:er för Marketplace Metering Service
 
-Med API:et för användningshändelse kan du avge användningshändelser för en viss inköpt entitet. Användningshändelsebegäran refererar till den mätartjänster dimension som definierats av utgivaren när erbjudandet publiceras.
+Med API: et för användnings händelser kan du generera användnings händelser för en bestämd inköpt enhet. Begäran om användnings händelse hänvisar till den mätnings tjänst dimension som definieras av utgivaren när du publicerar erbjudandet.
 
-## <a name="usage-event"></a>Användningshändelse
+## <a name="usage-event"></a>Användnings händelse
 
-**POST**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Publicera**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |            |          |
 | ---------- | ---------------------- |
-| `ApiVersion` | Den version av åtgärden som ska användas för den här begäran. Senaste API-versionen är 2018-08-31. |
+| `ApiVersion` | Den version av åtgärden som ska användas för den här begäran. Den senaste API-versionen är 2018-08-31. |
 
-*Begär rubriker:*
+*Begärandehuvuden:*
 
-| Innehållstyp       | `application/json`    |
+| Innehålls typ       | `application/json`    |
 | ------------------ | ---------------------------- |
-| `x-ms-requestid`     | Unikt strängvärde för att spåra begäran från klienten, helst ett GUID. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna. |
-| `x-ms-correlationid` | Unikt strängvärde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna. |
-| `authorization`   | [Hämta JSON-webbtoken (JWT) innehavartoken.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) När HTTP-begäran skapas prefixet `Bearer` till den token som hämtats från den refererade länken. |
+| `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
+| `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
+| `authorization`   | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs: när du gör en HTTP-begäran `Bearer` , används prefixet till den token som hämtades från den refererade länken. |
 
-*Begäran:*
+*Anmoda*
 
 ```json
 {
@@ -67,7 +67,7 @@ OK
 ```
 
 Kod: 400 <br>
-Felaktiga uppgifter, saknade eller ogiltiga data som lämnats eller har upphört att gälla
+Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gälla
 
 ```json
 {
@@ -85,7 +85,7 @@ Felaktiga uppgifter, saknade eller ogiltiga data som lämnats eller har upphört
 ```
 
 Kod: 403<br>
-Felaktiga uppgifter, saknade eller ogiltiga data som lämnats eller har upphört att gälla
+Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gälla
 
 ```json
 {
@@ -95,7 +95,7 @@ Felaktiga uppgifter, saknade eller ogiltiga data som lämnats eller har upphört
 ```
 
 Kod: 409<br>
-Konflikt, när vi får användningsanropet för användningsresurs-ID och effektiv användning, som redan finns. Svaret innehåller `additionalInfo` ett fält som innehåller information om det accepterade meddelandet.
+När vi tar emot användnings anropet för användnings resurs-ID: t och den effektiva användningen som redan finns. Svaret innehåller `additionalInfo` fält som innehåller information om det accepterade meddelandet.
 
 ```json
 {
@@ -113,30 +113,30 @@ Konflikt, när vi får användningsanropet för användningsresurs-ID och effekt
 }
 ```
 
-## <a name="batch-usage-event"></a>Händelse för batchanvändning
+## <a name="batch-usage-event"></a>Batch-användning-händelse
 
-Med api:et för batchanvändningshändelse kan du avge användningshändelser för mer än en köpt entitet samtidigt. Händelsebegäran för batchanvändning refererar till den mätartjänster dimension som definierats av utgivaren när erbjudandet publiceras.
+Med event API för batch-användning kan du generera användnings händelser för fler än en inköpt enhet samtidigt. Händelse förfrågningen för batch-användning hänvisar till den mätnings tjänst dimension som definieras av utgivaren när du publicerar erbjudandet.
 
 >[!Note]
->Du kan registrera flera SaaS-erbjudanden på Microsofts kommersiella marknadsplats. Varje registrerat SaaS-erbjudande har ett unikt Azure AD-program som är registrerat för autentisering och auktorisering. De händelser som skickas ut i batch bör tillhöra erbjudanden med samma Azure AD-program vid tidpunkten för registrering av erbjudandet.
+>Du kan registrera flera SaaS-erbjudanden på Microsofts kommersiella marknads plats. Varje registrerat SaaS-erbjudande har ett unikt Azure AD-program som har registrerats för autentiserings-och behörighets syfte. De händelser som genereras i batch ska tillhöra erbjudanden med samma Azure AD-program vid tidpunkten för registreringen av erbjudandet.
 
-**POST:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**Publicera:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
 |            |     |
 | ---------- | -------------------- |
-| `ApiVersion` | Den version av åtgärden som ska användas för den här begäran. Senaste API-versionen är 2018-08-31. |
+| `ApiVersion` | Den version av åtgärden som ska användas för den här begäran. Den senaste API-versionen är 2018-08-31. |
 
-*Begär rubriker:*
+*Begärandehuvuden:*
 
-| Innehållstyp       | `application/json`       |
+| Innehålls typ       | `application/json`       |
 | ------------------ | ------ |
-| `x-ms-requestid`     | Unikt strängvärde för att spåra begäran från klienten, helst ett GUID. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna. |
-| `x-ms-correlationid` | Unikt strängvärde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna. |
-| `authorization`      | [Hämta JSON-webbtoken (JWT) innehavartoken.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) När HTTP-begäran skapas prefixet `Bearer` till den token som hämtats från den refererade länken.  |
+| `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |
+| `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |
+| `authorization`      | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs: när du gör en HTTP-begäran `Bearer` , används prefixet till den token som hämtades från den refererade länken.  |
 
-*Begäran:*
+*Anmoda*
 ```json
 {
   "request": [
@@ -192,22 +192,22 @@ OK
 }
 ```
 
-Beskrivning av statuskod `BatchUsageEvent` som refereras i API-svar:
+Beskrivning av status kod som refereras `BatchUsageEvent` i API-svar:
 
 | Statuskod  | Beskrivning |
 | ---------- | -------------------- |
 | `Accepted` | Godkänd kod. |
-| `Expired` | Utgångna användning. |
-| `Duplicate` | Duplicerad användning tillhandahålls. |
+| `Expired` | Användning har gått ut. |
+| `Duplicate` | Duplicerad användning har angetts. |
 | `Error` | Felkod. |
-| `ResourceNotFound` | Den angivna användningsresursen är ogiltig. |
+| `ResourceNotFound` | Den tillhandahållna användnings resursen är ogiltig. |
 | `ResourceNotAuthorized` | Du har inte behörighet att tillhandahålla användning för den här resursen. |
-| `InvalidDimension` | Den dimension som användningen skickas till är ogiltig för det här erbjudandet/planen. |
-| `InvalidQuantity` | Den passerade kvantiteten är < 0. |
-| `BadArgument` | Ingången saknas eller är felaktig. |
+| `InvalidDimension` | Dimensionen för vilken användningen skickas är ogiltig för det här erbjudandet/den här prenumerationen. |
+| `InvalidQuantity` | Den överförda kvantiteten är < 0. |
+| `BadArgument` | Inmatad information saknas eller är felaktig. |
 
 Kod: 400<br>
-Felaktig begäran, saknade eller ogiltiga data som lämnats eller Utgånget
+Felaktig begäran, data som saknas eller är ogiltiga eller har upphört att gälla
 
 ```json
 {
@@ -224,7 +224,7 @@ Felaktig begäran, saknade eller ogiltiga data som lämnats eller Utgånget
 }
 ```
 Kod: 403<br>
-Användaren är obehörig att ringa det här samtalet
+Användaren har inte behörighet att göra detta samtal
 
 ```json
 {
@@ -235,4 +235,4 @@ Användaren är obehörig att ringa det här samtalet
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Fakturering med saaS-mätning](./saas-metered-billing.md).
+Mer information finns i [SaaS-mätare för fakturering](./saas-metered-billing.md).

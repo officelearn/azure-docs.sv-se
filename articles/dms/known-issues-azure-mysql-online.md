@@ -1,7 +1,7 @@
 ---
-title: 'Kända problem: Onlinemigreringar till Azure Database för MySQL'
+title: 'Kända problem: online-migreringar till Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
-description: Lär dig mer om kända problem och migreringsbegränsningar med onlinemigreringar till Azure Database för MySQL när du använder Migreringstjänsten för Azure Database.
+description: Läs om kända problem och begränsningar för migrering med online-migrering för att Azure Database for MySQL när du använder Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -15,33 +15,33 @@ ms.custom:
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235285"
 ---
-# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problem med onlinemigrering & begränsningar för Azure DB för MySQL med Azure Database Migration Service
+# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problem med online-migrering & begränsningar för Azure DB för MySQL med Azure Database Migration Service
 
-Kända problem och begränsningar som är associerade med onlinemigreringar från MySQL till Azure Database för MySQL beskrivs i följande avsnitt.
+Kända problem och begränsningar som är kopplade till online-migreringar från MySQL till Azure Database for MySQL beskrivs i följande avsnitt.
 
-## <a name="online-migration-configuration"></a>Konfiguration av onlinemigrering
+## <a name="online-migration-configuration"></a>Konfiguration av online-migrering
 
 
-- Källan MySQL Server-versionen måste vara version 5.6.35, 5.7.18 eller senare
-- Azure Database för MySQL stöder:
-  - MySQL community edition MySQL community edition MySQL community edition MyS
+- Käll Server versionen för MySQL måste vara version 5.6.35, 5.7.18 eller senare
+- Azure Database for MySQL stöder:
+  - MySQL Community Edition
   - InnoDB-motor
-- Samma version migrering. Det går inte att migrera MySQL 5.6 till Azure Database för MySQL 5.7.
-- Aktivera binär loggning i my.ini (Windows) eller my.cnf (Unix)
-  - Ange Server_id till valfritt tal större eller lika med 1, till exempel Server_id=1 (endast för MySQL 5.6)
-  - Ange logg-lagerplats = \<sökväg> (endast för MySQL 5.6)
+- Migrering av samma version. Migrering av MySQL 5,6 till Azure Database for MySQL 5,7 stöds inte.
+- Aktivera binär loggning i My. ini (Windows) eller My. cnf (UNIX)
+  - Ange Server_id till ett tal som är större eller lika med 1, till exempel Server_id = 1 (endast för MySQL 5,6)
+  - Ange log-bin = \<sökväg> (endast för MySQL 5,6)
   - Ange binlog_format = rad
-  - Expire_logs_days = 5 (rekommenderas - endast för MySQL 5.6)
+  - Expire_logs_days = 5 (rekommenderas endast för MySQL 5,6)
 - Användaren måste ha rollen ReplicationAdmin.
-- Sorteringar som definierats för källan MySQL-databasen är desamma som de som definieras i mål Azure Database för MySQL.
-- Schemat måste matcha mellan käll-MySQL-databas och måldatabas i Azure Database for MySQL.
-- Schema i mål Azure Database för MySQL får inte ha externa nycklar. Använd följande fråga för att släppa externa nycklar:
+- Sorteringar som har definierats för käll-MySQL-databasen är desamma som de som definierats i mål Azure Database for MySQL.
+- Schemat måste matcha mellan käll-MySQL-databasen och mål databasen i Azure Database for MySQL.
+- Schemat i mål Azure Database for MySQL får inte ha sekundär nycklar. Använd följande fråga om du vill ta bort sekundär nycklar:
     ```
     SET group_concat_max_len = 8192;
     SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery
@@ -59,85 +59,85 @@ Kända problem och begränsningar som är associerade med onlinemigreringar frå
     ```
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
-- Schema i mål Azure Database för MySQL får inte ha några utlösare. Så här släpper du utlösare i måldatabasen:
+- Schemat i mål Azure Database for MySQL får inte ha några utlösare. Så här släpper du utlösare i mål databasen:
     ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
     ```
 
-## <a name="datatype-limitations"></a>Begränsningar för datatyp
+## <a name="datatype-limitations"></a>Begränsningar för data typer
 
-- **Begränsning**: Om det finns en JSON-datatyp i källan MySQL-databasen misslyckas migreringen under kontinuerlig synkronisering.
+- Begränsning: om det finns en JSON-datatype i käll databasen MySQL, kommer migreringen att Miss **fördubblas**under en kontinuerlig synkronisering.
 
-    **Lösning**: Ändra JSON-datatyp till medeltext eller långtext i mysql-databasen.
+    **Lösning**: ändra JSON-datatype till medium text eller LONGTEXT i käll-MySQL-databasen.
 
-- **Begränsning**: Om det inte finns någon primärnyckel på tabeller misslyckas kontinuerlig synkronisering.
+- **Begränsning**: om det inte finns någon primär nyckel för tabeller kommer den kontinuerliga synkroniseringen att Miss växlar.
 
-    **Lösning**: Ange tillfälligt en primärnyckel för tabellen för att migrering ska fortsätta. Du kan ta bort primärnyckeln när datamigrering har slutförts.
+    **Lösning**: temporärt ange en primär nyckel för tabellen för migrering för att fortsätta. Du kan ta bort den primära nyckeln när migreringen är klar.
 
 ## <a name="lob-limitations"></a>LOB-begränsningar
 
-Stora objektkolumner (LOB) är kolumner som kan växa sig stora i storlek. För MySQL, Medium text, Longtext, Blob, Mediumblob, Longblob, etc., är några av de datatyper av LOB.
+LOB-kolumner (Large Object) är kolumner som kan växa stora i storlek. För MySQL, är medel text, LONGTEXT, BLOB, MEDIUMBLOB, LONGBLOB osv. några av data typerna för LOB.
 
-- **Begränsning**: Om LOB-datatyper används som primärnycklar misslyckas migreringen.
+- **Begränsning**: om LOB-datatyper används som primär nycklar kommer migreringen att Miss Miss förflyttningen.
 
-    **Lösning**: Ersätt primärnyckeln med andra datatyper eller kolumner som inte är LOB.
+    **Lösning**: Ersätt primär nyckel med andra data typer eller kolumner som inte är LOB.
 
-- **Begränsning**: Om längden på kolumnen Stora objekt (LOB) är större än 32 KB kan data trunkeras vid målet. Du kan kontrollera längden på LOB-kolumnen med den här frågan:
+- **Begränsning**: om kolumnen för stora objekt (LOB) är större än 32 KB kan data trunkeras vid målet. Du kan kontrol lera längden på LOB-kolumnen med den här frågan:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Lösning**: Om du har LOB-objekt som är större än 32 KB kontaktar du teknikteamet på [Fråga Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Lösning**: om du har LOB-objekt som är större än 32 KB kan du kontakta teknik teamet på [fråga Azure Database-migreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Begränsningar vid migrering online från AWS RDS MySQL
 
-När du försöker utföra en onlinemigrering från AWS RDS MySQL till Azure Database for MySQL kan du stöta på följande fel.
+När du försöker utföra en online-migrering från AWS RDS MySQL till att Azure Database for MySQL, kan du komma över följande fel.
 
-- **Fel:** Databasen{0}' ' har sekundärnyckel på målet. Åtgärda målet och starta en ny migreringsaktivitet för data. Kör under skriptet på målet för att lista sekundärnyckeln(er)
+- **Fel:** {0}Databasen har sekundär nyckel (er) på målet. Åtgärda målet och starta en ny migreringsaktivitet för data. Kör skriptet nedan på målet för att visa en lista över sekundär nyckel (er)
 
-  **Begränsning**: Om du har externa nycklar i schemat misslyckas den första inläsningen och den kontinuerliga synkroniseringen av migreringen.
-  **Lösning:** Kör följande skript i MySQL-arbetsbänk för att extrahera skriptet släpp sekundär nyckel och lägga till skript för sekundär nyckel:
+  **Begränsning**: om du har sekundär nycklar i schemat kommer den inledande inläsningen och den kontinuerliga synkroniseringen av migreringen att Miss Miss förflyttningen.
+  **Lösning**: kör följande skript i MySQL Workbench för att extrahera skriptet för att ta bort sekundär nyckel och lägga till sekundär nyckel skript:
 
   ```
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
   ```
 
-- **Fel:** Databasen{0}' ' finns inte på servern. Den angivna MySQL-källservern är skiftlägeskänslig. Kontrollera namnet på databasen.
+- **Fel:** {0}Databasen finns inte på servern. Den angivna MySQL-källservern är skiftlägeskänslig. Kontrollera namnet på databasen.
 
-  **Begränsning:** När du migrerar en MySQL-databas till Azure med hjälp av COMMAND Line Interface (CLI) kan användare komma till det här felet. Det gick inte att hitta databasen på källservern, vilket kan bero på att du kan ha angett ett felaktigt databasnamn eller att databasen inte finns på den angivna servern. Databasnamn är skiftlägeskänsliga.
+  **Begränsning**: när du migrerar en MySQL-databas till Azure med hjälp av kommando rads gränssnittet (CLI) kan användarna nå det här felet. Tjänsten kunde inte hitta databasen på käll servern, vilket kan bero på att du har angett ett felaktigt databas namn eller att databasen inte finns på den angivna servern. Obs! databas namn är Skift läges känsliga.
 
-  **Lösning**: Ange det exakta databasnamnet och försök sedan igen.
+  **Lösning**: Ange det exakta databas namnet och försök igen.
 
-- **Fel:** Det finns tabeller med samma namn i databasen {database}. Azure Database för MySQL stöder inte skiftlägeskänsliga tabeller.
+- **Fel:** Det finns tabeller med samma namn i databasen {Database}. Azure Database för MySQL stöder inte skiftlägeskänsliga tabeller.
 
-  **Begränsning**: Det här felet inträffar när du har två tabeller med samma namn i källdatabasen. Azure Database for MySQL stöder inte skiftlägeskänsliga tabeller.
+  **Begränsning**: det här felet uppstår när du har två tabeller med samma namn i käll databasen. Azure Database for MySQL stöder inte Skift läges känsliga tabeller.
 
-  **Lösning**: Uppdatera tabellnamnen så att de är unika och försök sedan igen.
+  **Lösning**: uppdatera tabell namnen så att de blir unika och försök sedan igen.
 
-- **Fel:** Måldatabasen {database} är tom. Migrera schemat.
+- **Fel:** Mål databasen {Database} är tom. Migrera schemat.
 
-  **Begränsning**: Det här felet uppstår när mål Azure-databasen för MySQL-databasen inte har det schema som krävs. Schemamigrering krävs för att aktivera migrera data till ditt mål.
+  **Begränsning**: det här felet uppstår när mål Azure Database for MySQL databasen inte har det schema som krävs. Schema migrering krävs för att kunna migrera data till målet.
 
-  **Lösning**: [Migrera schemat](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) från källdatabasen till måldatabasen.
+  **Lösning**: [migrera schemat](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) från käll databasen till mål databasen.
 
 ## <a name="other-limitations"></a>Andra begränsningar
 
-- En lösenordssträng som har öppna och stänga klaffiga parenteser { } i början och slutet av lösenordssträngen stöds inte. Den här begränsningen gäller både anslutning till källan MySQL och mål Azure Database för MySQL.
+- En lösen ords sträng som har inledande och avslutande klammer {} i början och slutet av lösen ords strängen stöds inte. Den här begränsningen gäller både anslutning till källa MySQL och mål Azure Database for MySQL.
 - Följande DDLs stöds inte:
-  - Alla partitions-DDLs
-  - Släpp tabell
+  - Alla partition DDLs
+  - Ta bort tabell
   - Byt namn på tabell
-- Det går inte att *använda alter-tabellen <table_name> lägga till kolumn <column_name*>-satsen för att lägga till kolumner i början eller i mitten av en tabell. Ändra *tabellen <table_name> lägga till kolumn <column_name>* lägger till kolumnen i slutet av tabellen.
-- Index som skapas på endast en del av kolumndata stöds inte. Följande sats är ett exempel som skapar ett index med endast en del av kolumndata:
+- Med hjälp av *Alter table <table_name> Lägg till kolumn <column_name>* -instruktion för att lägga till kolumner i början eller i mitten av en tabell stöds inte. *Alter table <table_name> Lägg till kolumn <column_name>* lägger till kolumnen i slutet av tabellen.
+- Index som skapats endast för en del av kolumn data stöds inte. Följande instruktion är ett exempel som skapar ett index med endast en del av kolumn data:
 
     ``` 
     CREATE INDEX partial_name ON customer (name(10));
     ```
 
-- I Azure Database Migration Service är gränsen för databaser att migrera i en enda migreringsaktivitet fyra.
+- I Azure Database Migration Service är gränsen för databaser som ska migreras i en enda migrering fyra.
 
-- **Fel:** Radstorleken är för stor (> 8126). Det kan vara till hjälp att ändra vissa kolumner till TEXT eller BLOB. I aktuellt radformat lagras BLOB-prefixet på 0 byte infogad.
+- **Fel:** Rad storleken är för stor (> 8126). Att ändra vissa kolumner till TEXT eller BLOB kan hjälpa dig. I aktuellt rad format lagras BLOB-prefixet 0 byte infogat.
 
-  **Begränsning:** Det här felet inträffar när du migrerar till Azure Database for MySQL med innoDB-lagringsmotorn och alla tabellradstorlekar är för stora (>8126 byte).
+  **Begränsning**: det här felet uppstår när du migrerar till Azure Database for MySQL med InnoDB-lagrings motorn och eventuell tabell rad storlek är för stor (>8126 byte).
 
-  **Lösning**: Uppdatera schemat för tabellen som har en radstorlek som är större än 8126 byte. Vi rekommenderar inte att du ändrar det strikta läget eftersom data trunkeras. Det går inte att ändra page_size.
+  **Lösning**: uppdatera schemat för den tabell som har en rad storlek som är större än 8126 byte. Vi rekommenderar att du inte ändrar strikt läge eftersom data kommer att trunkeras. Det finns inte stöd för att ändra page_size.

@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Lär dig hur du konfigurerar dina dev Spaces-kluster för att använda Helm 3
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
 ms.openlocfilehash: dbccb2618fd5a27805261d60e7891d920e0bc372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79454303"
 ---
 # <a name="configure-your-azure-dev-spaces-cluster-to-use-helm-3-preview"></a>Konfigurera ditt Azure Dev Spaces-kluster för att använda Helm 3 (förhandsversion)
@@ -26,7 +26,7 @@ När du aktiverar Helm 3 fungerar Azure dev Spaces annorlunda när du installera
 I den här guiden får du lära dig hur du aktiverar Helm 3 för Azure dev Spaces för att installera användar tjänster i dev-utrymmen.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

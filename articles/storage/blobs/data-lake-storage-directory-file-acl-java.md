@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 Java SDK för filer & ACL:er
-description: Använd Azure Storage-bibliotek för Java för att hantera kataloger och ACL (File and Directory Access Control List) i lagringskonton som har aktiverat hierarkiskt namnområde (HNS).
+title: 'Azure Data Lake Storage Gen2 Java SDK för filer & ACL: er'
+description: Använd Azure Storage bibliotek för Java för att hantera kataloger och åtkomst kontrol listor för filer och kataloger (ACL) i lagrings konton med hierarkiskt namn område (HNS) aktiverat.
 author: normesta
 ms.service: storage
 ms.date: 03/20/2020
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: 45870dd7d3035b6b49340fd6e8016794088e775a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061565"
 ---
-# <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använda Java för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2
+# <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd Java för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
-Den här artikeln visar hur du använder Java för att skapa och hantera kataloger, filer och behörigheter i lagringskonton som har aktiverat hierarkiskt namnområde (HNS). 
+Den här artikeln visar hur du använder Java för att skapa och hantera kataloger, filer och behörigheter i lagrings konton med hierarkiskt namn område (HNS) aktiverat. 
 
-[Paket (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Prover](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API-referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html) | [Gen1 till Gen2 mappning](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Ge feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+[Package (maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API-referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html) | [gen1 till Gen2-mappning](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [ger feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Ett lagringskonto med hierarkiskt namnområde (HNS) aktiverat. Följ [dessa](data-lake-storage-quickstart-create-account.md) instruktioner för att skapa en.
+> * Ett lagrings konto med hierarkiskt namn område (HNS) aktiverat. Följ [de här](data-lake-storage-quickstart-create-account.md) anvisningarna för att skapa en.
 
 ## <a name="set-up-your-project"></a>Konfigurera projektet
 
-För att komma igång, öppna [den här sidan](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) och hitta den senaste versionen av Java-biblioteket. Öppna sedan *filen pom.xml* i textredigeraren. Lägg till ett beroendeelement som refererar till den versionen.
+Kom igång genom att öppna [den här sidan](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) och hitta den senaste versionen av Java-biblioteket. Öppna sedan filen *Pom. XML* i text redigeraren. Lägg till ett beroende element som refererar till den versionen.
 
-Om du planerar att autentisera klientprogrammet med hjälp av Azure Active Directory (AD) lägger du till ett beroende i Azure Secret Client Library. Se [Lägga till paketet för det hemliga klientbiblioteket i projektet](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
+Om du planerar att autentisera ditt klient program med hjälp av Azure Active Directory (AD) lägger du till ett beroende till klient biblioteket för Azure Secret. Se [lägga till det hemliga klient biblioteks paketet i projektet](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
 
-Lägg sedan till dessa importsatser i kodfilen.
+Lägg sedan till dessa import uttryck i din kod fil.
 
 ```java
 import com.azure.core.credential.TokenCredential;
@@ -53,13 +53,13 @@ import com.azure.storage.file.datalake.models.RolePermissions;
 
 ## <a name="connect-to-the-account"></a>Anslut till kontot 
 
-Om du vill använda kodavsnitten i den här artikeln måste du skapa en **DataLakeServiceClient-instans** som representerar lagringskontot. 
+Om du vill använda kodfragmenten i den här artikeln måste du skapa en **DataLakeServiceClient** -instans som representerar lagrings kontot. 
 
-### <a name="connect-by-using-an-account-key"></a>Ansluta med hjälp av en kontonyckel
+### <a name="connect-by-using-an-account-key"></a>Anslut med hjälp av en konto nyckel
 
-Det här är det enklaste sättet att ansluta till ett konto. 
+Detta är det enklaste sättet att ansluta till ett konto. 
 
-I det här exemplet skapas en **DataLakeServiceClient-instans** med hjälp av en kontonyckel.
+I det här exemplet skapas en **DataLakeServiceClient** -instans med hjälp av en konto nyckel.
 
 ```java
 
@@ -78,11 +78,11 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 }      
 ```
 
-### <a name="connect-by-using-azure-active-directory-azure-ad"></a>Ansluta med Hjälp av Azure Active Directory (Azure AD)
+### <a name="connect-by-using-azure-active-directory-azure-ad"></a>Anslut med hjälp av Azure Active Directory (Azure AD)
 
-Du kan använda [Azure identity-klientbiblioteket för Java för](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) att autentisera ditt program med Azure AD.
+Du kan använda [klient biblioteket för Azure Identity för Java för](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) att autentisera ditt program med Azure AD.
 
-I det här exemplet skapas en **DataLakeServiceClient-instans** med hjälp av ett klient-ID, en klienthemlighet och ett klient-ID.  Information om hur du hämtar dessa värden finns [i Hämta en token från Azure AD för att godkänna begäranden från ett klientprogram](../common/storage-auth-aad-app.md).
+I det här exemplet skapas en **DataLakeServiceClient** -instans med hjälp av ett klient-ID, en klient hemlighet och ett klient-ID.  Om du vill hämta dessa värden läser du [Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program](../common/storage-auth-aad-app.md).
 
 ```java
 static public DataLakeServiceClient GetDataLakeServiceClient
@@ -102,14 +102,14 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 ```
 
 > [!NOTE]
-> Fler exempel finns i [Azure identity-klientbiblioteket för Java-dokumentation.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity)
+> Fler exempel finns i [klient biblioteket för Azure Identity-klienten för Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) -dokumentation.
 
 
 ## <a name="create-a-file-system"></a>Skapa ett filsystem
 
-Ett filsystem fungerar som en behållare för dina filer. Du kan skapa en genom att anropa metoden **DataLakeServiceClient.createFileSystem.**
+Ett fil system fungerar som en behållare för dina filer. Du kan skapa en genom att anropa metoden **DataLakeServiceClient. createFileSystem** .
 
-I det här exemplet `my-file-system`skapas ett filsystem med namnet . 
+I det här exemplet skapas ett fil `my-file-system`system med namnet. 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -121,9 +121,9 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 ## <a name="create-a-directory"></a>Skapa en katalog
 
-Skapa en katalogreferens genom att anropa metoden **DataLakeFileSystemClient.createDirectory.**
+Skapa en katalog referens genom att anropa metoden **DataLakeFileSystemClient. createDirectory** .
 
-I det här `my-directory` exemplet läggs en katalog som heter till `my-subdirectory`i ett filsystem och sedan läggs till en underkatalog med namnet . 
+Det här exemplet lägger till en `my-directory` katalog med namnet i ett fil system och lägger sedan till en under `my-subdirectory`katalog med namnet. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -141,9 +141,9 @@ static public DataLakeDirectoryClient CreateDirectory
 
 ## <a name="rename-or-move-a-directory"></a>Byta namn på eller flytta en katalog
 
-Byt namn på eller flytta en katalog genom att anropa metoden **DataLakeDirectoryClient.rename.** Skicka sökvägen till den önskade katalogen en parameter. 
+Byt namn på eller flytta en katalog genom att anropa metoden **DataLakeDirectoryClient. Rename** . Skicka sökvägen till önskad katalog en parameter. 
 
-I det här exemplet byter du `my-subdirectory-renamed`namn på en underkatalog till namnet .
+I det här exemplet byter namn på en under katalog till namnet `my-subdirectory-renamed`.
 
 ```java
 static public DataLakeDirectoryClient
@@ -157,7 +157,7 @@ static public DataLakeDirectoryClient
 }
 ```
 
-I det här `my-subdirectory-renamed` exemplet flyttas en katalog med `my-directory-2`namnet till en underkatalog till en katalog med namnet . 
+I det här exemplet flyttas en `my-subdirectory-renamed` katalog med namnet till en under katalog till en `my-directory-2`katalog med namnet. 
 
 ```java
 static public DataLakeDirectoryClient MoveDirectory
@@ -173,9 +173,9 @@ static public DataLakeDirectoryClient MoveDirectory
 
 ## <a name="delete-a-directory"></a>Ta bort en katalog
 
-Ta bort en katalog genom att anropa metoden **DataLakeDirectoryClient.deleteWithResponse.**
+Ta bort en katalog genom att anropa metoden **DataLakeDirectoryClient. deleteWithResponse** .
 
-I det här exemplet `my-directory`tas en katalog med namnet .   
+Det här exemplet tar bort en `my-directory`katalog med namnet.   
 
 ```java
 static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -187,12 +187,12 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 }
 ```
 
-## <a name="manage-a-directory-acl"></a>Hantera en ACL för katalog
+## <a name="manage-a-directory-acl"></a>Hantera en katalog-ACL
 
-Det här exemplet hämtar och anger sedan `my-directory`åtkomstkontrollistan för en katalog med namnet . Det här exemplet ger den givande användaren läs-, skriv- och körningsbehörigheter, ger den ägande gruppen endast läs- och körningsbehörighet och ger alla andra läsbehörighet.
+Det här exemplet hämtar och anger sedan ACL för en katalog med `my-directory`namnet. Det här exemplet ger den ägande användaren Läs-, skriv-och körnings behörighet, ger den ägande gruppen endast Läs-och kör behörigheter och ger alla andra Läs behörighet.
 
 > [!NOTE]
-> Om ditt program godkänner åtkomst med hjälp av Azure Active Directory (Azure AD) kontrollerar du att säkerhetsobjektet som programmet använder för att auktorisera åtkomst har tilldelats [rollen Lagringsblobbdataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns [i Åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Om ditt program tillåter åtkomst genom att använda Azure Active Directory (Azure AD) måste du kontrol lera att det säkerhets objekt som programmet använder för att auktorisera åtkomst har tilldelats rollen som [lagrings-BLOB-dataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ```java
 static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
@@ -234,9 +234,9 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 
 ## <a name="upload-a-file-to-a-directory"></a>Ladda upp en fil till en katalog
 
-Skapa först en filreferens i målkatalogen genom att skapa en instans av klassen **DataLakeFileClient.** Ladda upp en fil genom att anropa metoden **DataLakeFileClient.addd.** Se till att slutföra överföringen genom att anropa metoden **DataLakeFileClient.FlushAsync.**
+Börja med att skapa en fil referens i mål katalogen genom att skapa en instans av klassen **DataLakeFileClient** . Ladda upp en fil genom att anropa metoden **DataLakeFileClient. append** . Se till att slutföra överföringen genom att anropa metoden **DataLakeFileClient. FlushAsync** .
 
-I det här exemplet överförs en `my-directory`textfil till en katalog med namnet .'
+I det här exemplet överförs en textfil till en katalog med namnet `my-directory`.
 
 ```java
 static public void UploadFile(DataLakeFileSystemClient fileSystemClient) 
@@ -260,13 +260,13 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 ```
 
 > [!TIP]
-> Om filstorleken är stor måste koden ringa flera samtal till metoden **DataLakeFileClient.addd.** Överväg att använda metoden **DataLakeFileClient.uploadFromFile** i stället. På så sätt kan du ladda upp hela filen i ett enda samtal. 
+> Om din fil storlek är stor måste koden göra flera anrop till metoden **DataLakeFileClient. append** . Överväg att använda metoden **DataLakeFileClient. uploadFromFile** i stället. På så sätt kan du ladda upp hela filen i ett enda anrop. 
 >
 > Se nästa avsnitt för ett exempel.
 
 ## <a name="upload-a-large-file-to-a-directory"></a>Ladda upp en stor fil till en katalog
 
-Använd metoden **DataLakeFileClient.uploadFromFile** för att ladda upp stora filer utan att behöva ringa flera samtal till metoden **DataLakeFileClient.addd.**
+Använd metoden **DataLakeFileClient. uploadFromFile** för att överföra stora filer utan att behöva göra flera anrop till **DataLakeFileClient. append** -metoden.
 
 ```java
 static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient) 
@@ -284,12 +284,12 @@ static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
 ```
 
 
-## <a name="manage-a-file-acl"></a>Hantera en ACL-fil
+## <a name="manage-a-file-acl"></a>Hantera en fil-ACL
 
-Det här exemplet hämtar och anger sedan `upload-file.txt`åtkomstkontrollistan för en fil med namnet . Det här exemplet ger den givande användaren läs-, skriv- och körningsbehörigheter, ger den ägande gruppen endast läs- och körningsbehörighet och ger alla andra läsbehörighet.
+Det här exemplet hämtar och anger sedan ACL för en fil med `upload-file.txt`namnet. Det här exemplet ger den ägande användaren Läs-, skriv-och körnings behörighet, ger den ägande gruppen endast Läs-och kör behörigheter och ger alla andra Läs behörighet.
 
 > [!NOTE]
-> Om ditt program godkänner åtkomst med hjälp av Azure Active Directory (Azure AD) kontrollerar du att säkerhetsobjektet som programmet använder för att auktorisera åtkomst har tilldelats [rollen Lagringsblobbdataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns [i Åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Om ditt program tillåter åtkomst genom att använda Azure Active Directory (Azure AD) måste du kontrol lera att det säkerhets objekt som programmet använder för att auktorisera åtkomst har tilldelats rollen som [lagrings-BLOB-dataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ```java
 static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
@@ -331,9 +331,9 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 }
 ```
 
-## <a name="download-from-a-directory"></a>Hämta från en katalog
+## <a name="download-from-a-directory"></a>Ladda ned från en katalog
 
-Skapa först en **DataLakeFileClient-instans** som representerar den fil som du vill hämta. Använd metoden **DataLakeFileClient.read** för att läsa filen. Använd valfriT .NET-filbearbetnings-API för att spara byte från dataströmmen till en fil. 
+Börja med att skapa en **DataLakeFileClient** -instans som representerar den fil som du vill ladda ned. Använd metoden **DataLakeFileClient. Read** för att läsa filen. Använd alla .NET-fil bearbetnings-API: er för att spara byte från data strömmen till en fil. 
 
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
@@ -359,7 +359,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="list-directory-contents"></a>Lista kataloginnehåll
 
-I det här exemplet skrivs namnen på varje `my-directory`fil som finns i en katalog med namnet .
+Det här exemplet skriver ut namnen på varje fil som finns i en katalog med namnet `my-directory`.
 
 ```java
 static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -393,8 +393,8 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 ## <a name="see-also"></a>Se även
 
 * [Referensdokumentation för API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)
-* [Paket (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
-* [Prover](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
-* [Gen1 till Gen2 mappning](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+* [Paket (maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
+* [Exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
+* [Gen1 till Gen2-mappning](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [Kända problem](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Ge feedback](https://github.com/Azure/azure-sdk-for-java/issues)

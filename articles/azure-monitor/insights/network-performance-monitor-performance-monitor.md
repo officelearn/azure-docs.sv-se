@@ -1,131 +1,131 @@
 ---
-title: Prestandaövervakaren i övervakare av nätverksprestanda
-description: Prestandaövervakaren i Network Performance Monitor hjälper dig att övervaka nätverksanslutningen över olika punkter i nätverket. Du kan övervaka molndistributioner och lokala platser, flera datacenter och filialkontor och verksamhetskritiska multitierprogram eller mikrotjänster.
+title: Prestanda övervakare i Övervakare av nätverksprestanda
+description: Prestanda övervaknings funktionen i Övervakare av nätverksprestanda hjälper dig att övervaka nätverks anslutningen mellan olika platser i nätverket. Du kan övervaka moln distributioner och lokala platser, flera data Center och avdelnings kontor och verksamhets kritiska program på flera nivåer eller mikrotjänster.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055696"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Lösning för nätverksprestandaövervakning: Prestandaövervakning
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Övervakare av nätverksprestanda lösning: prestanda övervakning
 
-Prestandaövervakaren i [Network Performance Monitor](network-performance-monitor.md) hjälper dig att övervaka nätverksanslutningen över olika punkter i nätverket. Du kan övervaka molndistributioner och lokala platser, flera datacenter och filialkontor och verksamhetskritiska multitierprogram eller mikrotjänster. Med Performance Monitor kan du identifiera nätverksproblem innan användarna klagar. De viktigaste fördelarna är att du kan: 
+Prestanda övervaknings funktionen i [övervakare av nätverksprestanda](network-performance-monitor.md) hjälper dig att övervaka nätverks anslutningen mellan olika platser i nätverket. Du kan övervaka moln distributioner och lokala platser, flera data Center och avdelnings kontor och verksamhets kritiska program på flera nivåer eller mikrotjänster. Med prestanda övervakaren kan du identifiera nätverks problem innan användarna klagar. Viktiga fördelar är att du kan: 
 
-- Övervaka förlust och svarstid i olika undernät och ställ in aviseringar.
+- Övervaka förlust och svars tid i olika undernät och Ställ in aviseringar.
 - Övervaka alla sökvägar (inklusive redundanta sökvägar) i nätverket.
-- Felsöka tillfälliga och punkt-i-tid nätverksproblem, som är svåra att replikera.
-- Bestäm det specifika segmentet i nätverket, som ansvarar för försämrad prestanda.
-- Övervaka nätverkets hälsa, utan att behöva SNMP.
+- Felsök tillfälliga och tidpunkts nätverks problem, som är svåra att replikera.
+- Fastställ det speciella segmentet i nätverket, vilket är ansvars för försämrade prestanda.
+- Övervaka nätverkets hälso tillstånd utan behov av SNMP.
 
 
 ![Övervakning av nätverksprestanda](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Konfiguration
-Om du vill öppna konfigurationen för Network Performance Monitor öppnar du [lösningen För nätverksprestandaövervakare](network-performance-monitor.md)och väljer **Konfigurera**.
+Öppna konfigurationen för Övervakare av nätverksprestanda genom att öppna Övervakare av nätverksprestanda- [lösningen](network-performance-monitor.md)och välja **Konfigurera**.
 
 ![Konfigurera Övervakare av nätverksprestanda](media/network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Skapa nya nätverk
 
-Ett nätverk i Network Performance Monitor är en logisk behållare för undernät. Det hjälper dig att organisera övervakningen av din nätverksinfrastruktur efter dina behov. Du kan skapa ett nätverk med ett eget namn och lägga till undernät i det enligt din affärslogik. Du kan till exempel skapa ett nätverk med namnet London och lägga till alla undernät i londondatacentret. Du kan också skapa ett nätverk med namnet *ContosoFrontEnd* och lägga till alla undernät som heter Contoso i nätverket i nätverket. Lösningen skapar automatiskt ett standardnätverk som innehåller alla undernät som har identifierats i din miljö. 
+Ett nätverk i Övervakare av nätverksprestanda är en logisk behållare för undernät. Det hjälper dig att organisera övervakningen av din nätverks infrastruktur utifrån dina behov. Du kan skapa ett nätverk med ett eget namn och lägga till undernät till det enligt din affärs logik. Du kan till exempel skapa ett nätverk med namnet London och lägga till alla undernät i ditt London Data Center. Du kan också skapa ett nätverk med namnet *ContosoFrontEnd* och lägga till det i det här nätverket alla undernät som heter Contoso och som hanterar appens klient del. Lösningen skapar automatiskt ett standard nätverk som innehåller alla undernät som identifierats i din miljö. 
 
-När du skapar ett nätverk lägger du till ett undernät i det. Sedan tas det undernätet bort från standardnätverket. Om du tar bort ett nätverk returneras alla dess undernät automatiskt till standardnätverket. Standardnätverket fungerar som en behållare för alla undernät som inte finns i något användardefinierat nätverk. Du kan inte redigera eller ta bort standardnätverket. Det finns alltid kvar i systemet. Du kan skapa så många anpassade nätverk som du behöver. I de flesta fall är undernäten i organisationen ordnade i mer än ett nätverk. Skapa ett eller flera nätverk för att gruppera undernäten efter din affärslogik.
+När du skapar ett nätverk lägger du till ett undernät i det. Sedan tas det under nätet bort från standard nätverket. Om du tar bort ett nätverk returneras alla dess undernät automatiskt till standard nätverket. Standard nätverket fungerar som en behållare för alla undernät som inte finns i något användardefinierat nätverk. Det går inte att redigera eller ta bort standard nätverket. Det finns alltid i systemet. Du kan skapa så många anpassade nätverk som du behöver. I de flesta fall ordnas under näten i din organisation i fler än ett nätverk. Skapa ett eller flera nätverk för att gruppera dina undernät för din affärs logik.
 
 Så här skapar du ett nytt nätverk:
 
 
-1. Välj fliken **Nätverk.**
-1. Välj **Lägg till nätverk**och ange sedan nätverksnamn och beskrivning. 
-2. Markera ett eller flera undernät och välj sedan **Lägg till**. 
-3. Välj **Spara** om du vill spara konfigurationen. 
+1. Välj fliken **nätverk** .
+1. Välj **Lägg till nätverk**och ange sedan nätverks namn och beskrivning. 
+2. Välj ett eller flera undernät och välj sedan **Lägg till**. 
+3. Välj **Spara** för att spara konfigurationen. 
 
 
-### <a name="create-monitoring-rules"></a>Skapa övervakningsregler 
+### <a name="create-monitoring-rules"></a>Skapa övervaknings regler 
 
-Prestandaövervakaren genererar hälsohändelser när tröskelvärdet för nätverksanslutningars prestanda mellan två undernätverk eller mellan två nätverk bryts. Systemet kan lära sig dessa tröskelvärden automatiskt. Du kan också ange anpassade tröskelvärden. Systemet skapar automatiskt en standardregel som genererar en hälsohändelse när förlust eller svarstid mellan ett par nätverks- eller undernätverkslänkar bryter mot tröskelvärdet för systeminlärd. Den här processen hjälper lösningen att övervaka nätverksinfrastrukturen tills du inte har skapat några övervakningsregler uttryckligen. Om standardregeln är aktiverad skickar alla noder syntetiska transaktioner till alla andra noder som du har aktiverat för övervakning. Standardregeln är användbar med små nätverk. Ett exempel är ett scenario där du har ett litet antal servrar som kör en mikrotjänst och du vill vara säker på att alla servrar har anslutning till varandra.
+Prestanda övervakaren genererar hälso händelser när tröskelvärdet för prestanda för nätverks anslutningar mellan två under nätverk eller mellan två nätverk bryts. Systemet kan lära sig dessa tröskelvärden automatiskt. Du kan också ange anpassade tröskelvärden. Systemet skapar automatiskt en standard regel som genererar en hälso händelse när förlust eller fördröjning mellan ett par nätverks-eller under nätverks länkar bryter mot systemet. Den här processen hjälper lösningen att övervaka din nätverks infrastruktur tills du inte har skapat några övervaknings regler explicit. Om standard regeln är aktive rad skickar alla noder syntetiska transaktioner till alla andra noder som du har aktiverat för övervakning. Standard regeln är användbar med små nätverk. Ett exempel är ett scenario där du har ett litet antal servrar som kör en mikrotjänst och du vill se till att alla servrar har anslutning till varandra.
 
 >[!NOTE]
-> Vi rekommenderar att du inaktiverar standardregeln och skapar anpassade övervakningsregler, särskilt med stora nätverk där du använder ett stort antal noder för övervakning. Anpassade övervakningsregler kan minska den trafik som genereras av lösningen och hjälpa dig att organisera övervakningen av nätverket.
+> Vi rekommenderar att du inaktiverar standard regeln och skapar anpassade övervaknings regler, särskilt i stora nätverk där du använder ett stort antal noder för övervakning. Anpassade övervaknings regler kan minska trafiken som genereras av lösningen och hjälpa dig att organisera övervakningen av nätverket.
 
-Skapa övervakningsregler enligt affärslogiken. Ett exempel är om du vill övervaka prestanda för nätverksanslutningen för två kontorsplatser till huvudkontoret. Gruppera alla undernät på kontorsplats1 i nätverk O1. Gruppera sedan alla undernät på kontorsplats2 i nätverk O2. Slutligen gruppera alla undernät i huvudkontoret i nätverk H. Skapa två övervakningsregler - ett mellan O1 och H och det andra mellan O2 och H. 
+Skapa övervaknings regler enligt din affärs logik. Ett exempel är om du vill övervaka prestanda för nätverks anslutningen för två Office-platser till huvud kontoret. Gruppera alla undernät i Office-site1 i nätverk O1. Gruppera sedan alla undernät i Office-site2 i Network O2. Slutligen kan du gruppera alla undernät i huvud kontoret i nätverk H. skapa två övervaknings regler – en mellan O1 och H och den andra mellan O2 och H. 
 
-Så här skapar du anpassade övervakningsregler:
+Skapa anpassade övervaknings regler:
 
-1. Välj **Lägg till regel** på fliken **Övervakar** och ange regelnamn och beskrivning.
-2. Välj det par av nätverks- eller undernätverkslänkar som ska övervakas i listorna. 
-3. Välj det nätverk som innehåller de undernätverk du vill använda i den nedrullningsbara nätverksrutan. Välj sedan undernätverket i motsvarande nedrullningsbara undernätslista. Om du vill övervaka alla undernätverk i en nätverkslänk väljer du **Alla undernätverk**. På samma sätt väljer du de andra undernätverken du vill använda. Om du vill utesluta övervakning för särskilda undernätslänkar från de val du har gjort väljer du **Lägg till undantag**. 
-4. Välj mellan ICMP- och TCP-protokoll för att utföra syntetiska transaktioner. 
-5. Om du inte vill skapa hälsohändelser för de objekt du har valt avmarkerar du **Aktivera hälsoövervakning på länkarna som omfattas av den här regeln**. 
-6. Välj övervakningsvillkor. Om du vill ange anpassade tröskelvärden för generering av hälsohändelseer anger du tröskelvärden. När värdet för villkoret överskrider det valda tröskelvärdet för det valda nätverket eller nätparet genereras en hälsohändelse. 
-7. Välj **Spara** om du vill spara konfigurationen. 
+1. Välj **Lägg till regel** på fliken **övervaka** och ange regel namn och beskrivning.
+2. Välj det par av nätverks-eller under nätverks länkar som ska övervakas från listorna. 
+3. Välj det nätverk som innehåller de under nätverk som du vill använda i list rutan nätverk. Välj sedan under nätverkserna i list rutan motsvarande under nätverk. Om du vill övervaka alla under nätverk i en nätverks länk väljer du **alla under nätverk**. På samma sätt väljer du de andra under nätverk som du vill använda. Om du vill undanta övervakning för specifika under nätverks länkar från de val du gjort väljer du **Lägg till undantag**. 
+4. Välj mellan ICMP-och TCP-protokoll för att köra syntetiska transaktioner. 
+5. Om du inte vill skapa hälso händelser för de objekt som du har valt avmarkerar du **Aktivera hälso övervakning på länkarna som omfattas av den här regeln**. 
+6. Välj övervaknings villkor. Ange tröskelvärden för att ange anpassade tröskelvärden för generering av hälso tillstånds händelser. När värdet för villkoret överskrider det valda tröskelvärdet för det valda nätverket eller under nätverks paret genereras en hälso händelse. 
+7. Välj **Spara** för att spara konfigurationen. 
 
-När du har sparat en övervakningsregel kan du integrera den regeln med aviseringshantering genom att välja **Skapa avisering**. En varningsregel skapas automatiskt med sökfrågan. Andra obligatoriska parametrar fylls i automatiskt. Med hjälp av en varningsregel kan du ta emot e-postbaserade aviseringar, utöver de befintliga aviseringarna i Network Performance Monitor. Aviseringar kan också utlösa avhjälpande åtgärder med runbooks, eller så kan de integreras med befintliga tjänsthanteringslösningar med hjälp av webhooks. Välj **Hantera avisering** om du vill redigera aviseringsinställningarna. 
+När du har sparat en övervaknings regel kan du integrera regeln med Aviseringshantering genom att välja **skapa avisering**. En varnings regel skapas automatiskt med Sök frågan. Andra obligatoriska parametrar fylls i automatiskt. Med hjälp av en varnings regel kan du ta emot e-postbaserade aviseringar, förutom de befintliga aviseringarna inom Övervakare av nätverksprestanda. Aviseringar kan även utlösa återställnings åtgärder med Runbooks, eller så kan de integreras med befintliga service hanterings lösningar med hjälp av Webhooks. Välj **Hantera avisering** om du vill redigera aviserings inställningarna. 
 
-Du kan nu skapa fler prestandaövervakaresregler eller gå till lösningsinstrumentpanelen för att använda funktionen.
+Nu kan du skapa fler prestanda övervaknings regler eller flytta till lösningens instrument panel för att använda funktionen.
 
-### <a name="choose-the-protocol"></a>Välj protokollet
+### <a name="choose-the-protocol"></a>Välj protokoll
 
-Network Performance Monitor använder syntetiska transaktioner för att beräkna mätvärden för nätverksprestanda som paketförlust och länkfördröjning. Om du vill förstå det här konceptet bättre bör du tänka på en Network Performance Monitor-agent som är ansluten till ena änden av en nätverkslänk. Den här Network Performance Monitor-agenten skickar avsökningspaket till en andra Network Performance Monitor-agent som är ansluten till en annan ände av nätverket. Den andra agenten svarar med svarspaket. Denna process upprepas några gånger. Genom att mäta antalet svar och den tid det tar att ta emot varje svar bedömer den första Network Performance Monitor-agenten länkfördröjning och paketdroppar. 
+Övervakare av nätverksprestanda använder syntetiska transaktioner för att beräkna nätverks prestanda mått som paket förlust och länk fördröjning. Om du vill förstå det här konceptet bättre bör du överväga en Övervakare av nätverksprestanda-agent som är ansluten till ena änden av en nätverks länk. Den här Övervakare av nätverksprestanda agenten skickar avsöknings paket till en andra Övervakare av nätverksprestanda-agent som är ansluten till en annan del av nätverket. Den andra agenten svarar med svars paket. Den här processen upprepas några gånger. Genom att mäta antalet svar och den tid det tar att ta emot varje svar, bedömer den första Övervakare av nätverksprestanda agenten länk fördröjning och paket. 
 
-Formatet, storleken och sekvensen för dessa paket bestäms av det protokoll som du väljer när du skapar övervakningsregler. Baserat på protokollet för paketen kan mellanliggande nätverksenheter, till exempel routrar och växlar, bearbeta dessa paket på ett annat sätt. Därför påverkar ditt protokollval resultatens riktighet. Ditt protokollval avgör också om du måste vidta några manuella åtgärder när du har distribuerat lösningen för nätverksprestandaövervakaren. 
+Formatet, storleken och sekvensen för dessa paket bestäms av det protokoll som du väljer när du skapar övervaknings regler. Baserat på paketets protokoll kan de mellanliggande nätverks enheterna, till exempel routrar och växlar, bearbeta paketen på olika sätt. Valet av protokoll påverkar därför precisionen för resultaten. Valet av protokoll avgör också om du måste utföra manuella steg när du har distribuerat Övervakare av nätverksprestanda-lösningen. 
 
-Network Performance Monitor ger dig möjlighet att välja mellan ICMP- och TCP-protokoll för att utföra syntetiska transaktioner. Om du väljer ICMP när du skapar en syntetisk transaktionsregel använder Network Performance Monitor-agenterna ICMP ECHO-meddelanden för att beräkna nätverksfördröjningen och paketförlusten. ICMP ECHO använder samma meddelande som skickas av det konventionella ping-verktyget. När du använder TCP som protokoll skickar Network Performance Monitor-agenter TCP SYN-paket över nätverket. Det här steget följs av en TCP-handskakning och anslutningen tas bort med hjälp av RST-paket. 
+Övervakare av nätverksprestanda erbjuder dig valet mellan ICMP-och TCP-protokoll för att köra syntetiska transaktioner. Om du väljer ICMP när du skapar en syntetisk transaktions regel använder Övervakare av nätverksprestanda agenter ICMP-EKOBEGÄRANMEDDELANDEN för att beräkna nätverks fördröjningen och paket förlusten. ICMP ECHO använder samma meddelande som skickas av det konventionella Ping-verktyget. När du använder TCP som protokoll skickar Övervakare av nätverksprestanda agenter TCP SYN-paket över nätverket. Det här steget följs av en slut för ande av TCP-handskakning och anslutningen tas bort med hjälp av de flesta paket. 
 
-Tänk på följande information innan du väljer ett protokoll: 
+Överväg följande information innan du väljer ett protokoll: 
 
-* **Identifiering av flera nätverksvägar.** TCP är mer exakt när du upptäcker flera vägar, och det behöver färre agenter i varje undernät. Ett eller två agenter som använder TCP kan till exempel identifiera alla redundanta sökvägar mellan undernäten. Du behöver flera agenter som använder ICMP för att uppnå liknande resultat. Om du använder ICMP behöver du mer än 5N-agenter i antingen ett käll- eller målundernät om du har ett antal vägar mellan två undernät.
+* **Identifiering av flera nätverks vägar.** TCP är mer korrekt vid identifiering av flera vägar och det behövs färre agenter i varje undernät. En eller två agenter som använder TCP kan till exempel identifiera alla redundanta sökvägar mellan undernät. Du behöver flera agenter som använder ICMP för att uppnå liknande resultat. Med hjälp av ICMP, om du har ett antal vägar mellan två undernät, behöver du fler än 5N agenter i antingen käll-eller mål under nät.
 
-* **Resultatens noggrannhet.** Routrar och växlar tenderar att tilldela lägre prioritet till ICMP ECHO-paket jämfört med TCP-paket. I vissa situationer, när nätverksenheter är kraftigt inlästa, återspeglar de data som erhållits av TCP närmare den förlust och latens som upplevs av program. Detta beror på att de flesta programtrafiken flödar över TCP. I sådana fall ger ICMP mindre exakta resultat jämfört med TCP. 
+* **Resultatens noggrannhet.** Routrar och växlar brukar tilldela lägre prioritet till ICMP ECHO-paket jämfört med TCP-paket. När nätverks enheter är mycket inlästa i vissa situationer återspeglar de data som erhålls av TCP mer noggrant förlust och latens för program. Detta inträffar eftersom de flesta av program trafiken flödar över TCP. I sådana fall ger ICMP mindre exakta resultat jämfört med TCP. 
 
-* **Brandväggskonfiguration.** TCP-protokollet kräver att TCP-paket skickas till en målport. Standardporten som används av Network Performance Monitor-agenter är 8084. Du kan ändra porten när du konfigurerar agenter. Kontrollera att nätverksbrandväggerna eller NSG-reglerna (Network Security Group) (i Azure) tillåter trafik i porten. Du måste också se till att den lokala brandväggen på datorerna där agenter är installerade är konfigurerad för att tillåta trafik på den här porten. Du kan använda PowerShell-skript för att konfigurera brandväggsregler på dina datorer som kör Windows, men du måste konfigurera nätverksbrandväggen manuellt. ICMP fungerar däremot inte med hjälp av en port. I de flesta företagsscenarier tillåts ICMP-trafik via brandväggarna så att du kan använda verktyg för nätverksdiagnostik som ping-verktyget. Om du kan pinga en dator från en annan kan du använda ICMP-protokollet utan att behöva konfigurera brandväggar manuellt.
+* **Brand Väggs konfiguration.** TCP-protokollet kräver att TCP-paket skickas till en mål Port. Standard porten som används av Övervakare av nätverksprestandas agenter är 8084. Du kan ändra porten när du konfigurerar agenter. Kontrol lera att nätverks brand väggarna eller reglerna för nätverks säkerhets gruppen (NSG) i Azure tillåter trafik på porten. Du måste också se till att den lokala brand väggen på datorerna där agenterna är installerade är konfigurerad för att tillåta trafik på den här porten. Du kan använda PowerShell-skript för att konfigurera brand Väggs regler på dina datorer som kör Windows, men du måste konfigurera nätverks brand väggen manuellt. ICMP fungerar däremot inte med hjälp av en port. I de flesta företags scenarier tillåts ICMP-trafik genom brand väggarna så att du kan använda verktyg för nätverksdiagnostik som Ping-verktyget. Om du kan pinga en dator från en annan kan du använda ICMP-protokollet utan att behöva konfigurera brand väggarna manuellt.
 
 >[!NOTE] 
-> Vissa brandväggar kan blockera ICMP, vilket kan leda till återsändning som resulterar i ett stort antal händelser i säkerhetsinformationen och händelsehanteringssystemet. Kontrollera att protokollet du väljer inte blockeras av en nätverksbrandvägg eller NSG. Annars kan Network Performance Monitor inte övervaka nätverkssegmentet. Vi rekommenderar att du använder TCP för övervakning. Använd ICMP i scenarier där du inte kan använda TCP, till exempel när: 
+> Vissa brand väggar kan blockera ICMP, vilket kan leda till återöverföring som resulterar i ett stort antal händelser i din säkerhets information och händelse hanterings system. Kontrol lera att det protokoll som du väljer inte blockeras av en nätverks brand vägg eller en NSG. Annars kan inte Övervakare av nätverksprestanda övervaka nätverks segmentet. Vi rekommenderar att du använder TCP för övervakning. Använd ICMP i scenarier där du inte kan använda TCP, till exempel när: 
 >
-> - Du använder Windows klientbaserade noder eftersom TCP-råa socketar inte är tillåtna i Windows-klienter.
-> - Nätverksbrandväggen eller NSG blockerar TCP.
-> - Du vet inte hur man byter protokoll.
+> - Du använder Windows-klientbaserade noder eftersom TCP RAW-socketar inte tillåts i Windows-klienter.
+> - Nätverks brand väggen eller NSG blockerar TCP.
+> - Du vet inte hur du byter protokoll.
 
-Om du väljer att använda ICMP under distributionen kan du växla till TCP när som helst genom att redigera standardövervakningsregeln.
+Om du väljer att använda ICMP under distributionen kan du när som helst växla till TCP genom att redigera standard övervaknings regeln.
 
-1. Gå till Konfigurera **Monitor** > **övervakare för** > **Monitor** **nätverksprestanda** >. Välj sedan **Standardregel**. 
-2. Bläddra till avsnittet **Protokoll** och välj det protokoll som du vill använda. 
-3. Välj **Spara** om du vill använda inställningen. 
+1. Gå till **övervakaren** >> **Configure**  **Network Performance** för nätverks prestanda konfigurera> **övervakaren**. Välj sedan **standard regel**. 
+2. Bläddra till avsnittet **protokoll** och välj det protokoll som du vill använda. 
+3. Välj **Spara** för att tillämpa inställningen. 
 
-Även om standardregeln använder ett visst protokoll kan du skapa nya regler med ett annat protokoll. Du kan även skapa en blandning av regler där vissa regler använder ICMP och andra använder TCP. 
+Även om standard regeln använder ett särskilt protokoll, kan du skapa nya regler med ett annat protokoll. Du kan även skapa en blandning av regler där vissa regler använder ICMP och andra använder TCP. 
 
 ## <a name="walkthrough"></a>Genomgång 
 
-Nu titta på en enkel undersökning av orsaken till en hälsohändelse.
+Nu ska vi titta på en enkel undersökning i rotor saken för en hälso händelse.
 
-På lösningsinstrumentpanelen visar en hälsohändelse att en nätverkslänk är felfritt. Om du vill undersöka problemet väljer du panelen **Nätverkslänkar som övervakas.**
+På instrument panelen för lösningen visar en hälso händelse att en nätverks länk inte är felfri. Om du vill undersöka problemet väljer du panelen **nätverks länkar som övervakas** .
 
-Sidan för nedrullning visar att nätverkslänken **DMZ2-DMZ1** är felaktig. Välj **Visa undernätslänkar** för den här nätverkslänken. 
+Den nedrullningsbara sidan visar att nätverks länken **DMZ2-DMZ1** inte är felfri. Välj **Visa under näts länkar** för den här nätverks länken. 
 
 
-På sidan för detaljgranskning visas alla undernätslänkar i **dmz2-DMZ1-nätverkslänken.** För båda nätlänkarna korsade svarstiden tröskelvärdet, vilket gör nätverkslänken felaktig. Du kan också se svarstidstrenderna för båda undernätverkslänkarna. Använd tidsvalskontrollen i diagrammet för att fokusera på det tidsintervall som krävs. Du kan se den tid på dagen då svarstiden nådde sin topp. Sök i loggarna senare för den här tidsperioden för att undersöka problemet. Välj **Visa nodlänkar** om du vill öka detaljnivån ytterligare. 
+På sidan öka detalj nivån visas alla under nätverks länkar i nätverks länken **DMZ2-DMZ1** . För båda under nätverks länkarna är fördröjningen överkorsade tröskelvärdet, vilket gör att nätverks länken inte är felfri. Du kan också se svars tids trender för båda under nätverks länkarna. Använd tids markerings kontrollen i diagrammet för att fokusera på det begärda tidsintervallet. Du kan se tiden på dagen då svars tiden nått sin topp. Sök igenom loggarna senare under den här tids perioden för att undersöka problemet. Välj **Visa noden länkar** om du vill öka detalj nivån ytterligare. 
  
- ![Sidan Länkar till undernät](media/network-performance-monitor-performance-monitor/subnetwork-links.png) 
+ ![Sidan under nätverks länkar](media/network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
-I likhet med föregående sida visar den nedrullningsmaskinssidan för den aktuella undernätverkslänken sina ingående nodlänkar. Du kan utföra liknande åtgärder här som du gjorde i föregående steg. Välj **Visa topologi** om du vill visa topologin mellan de två noderna. 
+På samma sätt som på föregående sida, visar den nedrullningsbara sidan för den specifika under nätverks länken dess ingående länkar. Du kan utföra liknande åtgärder på samma sätt som i föregående steg. Välj **Visa topologi** för att Visa topologin mellan de två noderna. 
  
- ![Sidan Länkar för nod](media/network-performance-monitor-performance-monitor/node-links.png) 
+ ![Sidan nod länkar](media/network-performance-monitor-performance-monitor/node-links.png) 
 
-Alla sökvägar mellan de två markerade noderna ritas i topologikartan. Du kan visualisera hopp-för-hopp-topologin för rutter mellan två noder på topologikartan. Det ger dig en tydlig bild av hur många vägar som finns mellan de två noderna och vilka sökvägar datapaketen tar. Flaskhalsar i nätverkets prestanda visas i rött. Om du vill hitta en felaktig nätverksanslutning eller en felaktig nätverksenhet tittar du på de röda elementen på topologikartan. 
+Alla sökvägar mellan de två valda noderna ritas i Topology-kartan. Du kan visualisera hopp-för-hop-topologin för vägar mellan två noder i Topology-kartan. Det ger dig en tydlig bild av hur många vägar som finns mellan de två noderna och vilka sökvägar som data paketen tar. Flask halsar i nätverks prestanda visas i rött. Om du vill hitta en felaktig nätverks anslutning eller en felaktig nätverks enhet kan du titta på de röda elementen på topologins karta. 
 
- ![Topologi instrumentpanel med topologi karta](media/network-performance-monitor-performance-monitor/topology-dashboard.png) 
+ ![Instrument panel för topologi med topologi](media/network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
-Du kan granska förlust, svarstid och antalet hopp i **Action** varje sökväg i åtgärdsfönstret. Använd rullningslisten för att visa information om de felaktiga sökvägarna. Använd filtren för att markera banorna med det felaktiga hoppet så att topologin för endast de valda banorna ritas. Om du vill zooma in eller ut från topologikartan använder du mushjulet. 
+Du kan granska förlust, svars tid och antal hopp i varje sökväg i **Åtgärds** fönstret. Använd rullnings listen för att visa information om felaktiga sökvägar. Använd filtren för att välja sökvägar med fel hopp så att topologin för endast de valda Sök vägarna ritas. Om du vill zooma in eller ut ur Topology-kartan använder du mus hjulet. 
 
-I följande bild visas orsaken till problemområdena till den specifika delen av nätverket i de röda banorna och hoppen. Välj en nod i topologikartan för att visa egenskaperna för noden, som innehåller FQDN och IP-adressen. Om du väljer ett hopp visas IP-adressen för hoppet. 
+I följande bild visas den bakomliggande orsaken till problemen med de olika delarna av nätverket i de röda Sök vägarna och hoppen. Välj en nod i topologin kartan för att visa nodens egenskaper, som innehåller FQDN och IP-adress. Om du väljer ett hopp visas hoppets IP-adress. 
  
-![Topologi karta med nod egenskaper markerade](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
+![Topologi för topologi med valda egenskaper](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Nästa steg
-[Sök loggar](../../azure-monitor/log-query/log-query-overview.md) för att visa detaljerade dataposter för nätverksprestanda.
+[Sök i loggar](../../azure-monitor/log-query/log-query-overview.md) om du vill visa detaljerade data poster för nätverks prestanda.

@@ -1,24 +1,24 @@
 ---
-title: Plats för mallresurs
-description: Beskriver hur du anger resursplats i en Azure Resource Manager-mall.
+title: Mallens resurs plats
+description: Beskriver hur du anger resurs plats i en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156437"
 ---
-# <a name="set-resource-location-in-arm-template"></a>Ange resursplats i ARM-mall
+# <a name="set-resource-location-in-arm-template"></a>Ange resurs plats i ARM-mallen
 
-När du distribuerar en ARM-mall (Azure Resource Manager) måste du ange en plats för varje resurs. Platsen behöver inte vara samma plats som resursgruppsplatsen.
+När du distribuerar en Azure Resource Manager-mall (ARM) måste du ange en plats för varje resurs. Platsen behöver inte vara samma plats som resurs gruppens plats.
 
-## <a name="get-available-locations"></a>Få tillgängliga platser
+## <a name="get-available-locations"></a>Hämta tillgängliga platser
 
-Olika resurstyper stöds på olika platser. Om du vill hämta de platser som stöds för en resurstyp använder du Azure PowerShell eller Azure CLI.
+Olika resurs typer stöds på olika platser. Använd Azure PowerShell eller Azure CLI för att hämta de platser som stöds för en resurs typ.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes `
@@ -36,11 +36,11 @@ az provider show \
 
 ---
 
-## <a name="use-location-parameter"></a>Använd platsparameter
+## <a name="use-location-parameter"></a>Använd plats parameter
 
-Om du vill ha flexibilitet när du distribuerar mallen använder du en parameter för att ange plats för resurser. Ange parameterns standardvärde `resourceGroup().location`till .
+För att ge flexibilitet när du distribuerar din mall använder du en parameter för att ange plats för resurser. Ange standardvärdet för parametern till `resourceGroup().location`.
 
-I följande exempel visas ett lagringskonto som distribueras till en plats som anges som en parameter:
+I följande exempel visas ett lagrings konto som har distribuerats till en plats som anges som en parameter:
 
 ```json
 {
@@ -95,5 +95,5 @@ I följande exempel visas ett lagringskonto som distribueras till en plats som a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Den fullständiga listan över mallfunktioner finns i [Mallfunktionerna](template-functions.md)i Azure Resource Manager .
-* Mer information om mallfiler finns [i Förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* En fullständig lista över mall funktioner finns i [Azure Resource Manager Template Functions](template-functions.md).
+* Mer information om mallfiler finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).

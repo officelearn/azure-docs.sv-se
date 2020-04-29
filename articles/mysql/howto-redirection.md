@@ -1,76 +1,76 @@
 ---
-title: Anslut med omdirigering – Azure Database för MySQL
-description: I den här artikeln beskrivs hur du kan konfigurera programmet för att ansluta till Azure Database för MySQL med omdirigering.
+title: Anslut med omdirigering – Azure Database for MySQL
+description: I den här artikeln beskrivs hur du kan konfigurera programmet för att ansluta till Azure Database for MySQL med omdirigering.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: f987d5d9640c3bfef61320df379a68eae2f4712b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246343"
 ---
-# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Ansluta till Azure Database för MySQL med omdirigering
+# <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Anslut till Azure Database for MySQL med omdirigering
 
-I det här avsnittet beskrivs hur du ansluter ett program som din Azure-databas för MySQL-server med omdirigeringsläge. Omdirigering syftar till att minska nätverksfördröjningen mellan klientprogram och MySQL-servrar genom att tillåta program att ansluta direkt till servernoder för serverdelen.
+I det här avsnittet beskrivs hur du ansluter ett program till din Azure Database for MySQL-server med omdirigeringsläge. Omdirigering syftar till att minska nätverks fördröjningen mellan klient program och MySQL-servrar genom att tillåta att program ansluter direkt till backend-serverns noder.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Logga in på [Azure-portalen](https://portal.azure.com). Skapa en Azure-databas för MySQL-server med motorversion 5.6, 5.7 eller 8.0. Mer information finns i [Så här skapar du Azure Database för MySQL-server från Portal](quickstart-create-mysql-server-database-using-azure-portal.md) eller Så här skapar du Azure Database för [MySQL-server med CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Logga in på [Azure-portalen](https://portal.azure.com). Skapa en Azure Database for MySQL-server med motor version 5,6, 5,7 eller 8,0. Mer information finns i så här [skapar du Azure Database for MySQL server från portalen](quickstart-create-mysql-server-database-using-azure-portal.md) eller [hur du skapar Azure Database for MySQL server med CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-Omdirigering stöds för närvarande endast när **SSL är aktiverat** på din Azure-databas för MySQL-server. Mer information om hur du konfigurerar SSL finns i [Använda SSL med Azure Database för MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
+Omdirigering stöds för närvarande bara när **SSL är aktiverat** på Azure Database for MySQL servern. Mer information om hur du konfigurerar SSL finns i [använda SSL med Azure Database for MySQL](howto-configure-ssl.md#step-3--enforcing-ssl-connections-in-azure).
 
 ## <a name="php"></a>PHP
 
-Stöd för omdirigering i PHP-program är tillgängligt via [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) förlängning, som utvecklats av Microsoft. 
+Stöd för omdirigering i PHP-program är tillgängligt via [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) tillägget som utvecklats av Microsoft. 
 
-Den mysqlnd_azure förlängningen är tillgänglig för att lägga till PHP-program via PECL och det rekommenderas starkt att installera och konfigurera förlängningen genom den officiellt publicerade [PECL paketet](https://pecl.php.net/package/mysqlnd_azure).
+Mysqlnd_azure-tillägget är tillgängligt för att läggas till i PHP-program via PECL och det är starkt rekommenderat att installera och konfigurera tillägget via det officiellt publicerade [PECL-paketet](https://pecl.php.net/package/mysqlnd_azure).
 
 > [!IMPORTANT]
-> Stöd för omdirigering i PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) förlängning är för närvarande i förhandsgranskning.
+> Stöd för omdirigering i PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) -tillägget är för närvarande en för hands version.
 
-### <a name="redirection-logic"></a>Omdirigeringslogik
+### <a name="redirection-logic"></a>Logik för omdirigering
 
 >[!IMPORTANT]
-> Omdirigeringslogik/-beteende som börjar version 1.1.0 uppdaterades och **det rekommenderas att version 1.1.0+ används.**
+> Den omdirigerings logik/beteende som börjar version 1.1.0 uppdaterades och **vi rekommenderar att du använder version 1.1.0 +**.
 
-Omdirigeringsbeteendet bestäms `mysqlnd_azure.enableRedirect`av värdet för . I tabellen nedan beskrivs hur omdirigeringen har uppdämt baserat på värdet för den här parametern som börjar i **version 1.1.0+**.
+Omdirigerings beteendet bestäms av värdet för `mysqlnd_azure.enableRedirect`. I tabellen nedan beskrivs beteendet för omdirigering baserat på värdet för den här parametern som börjar i **version 1.1.0 +**.
 
-Om du använder en äldre version av mysqlnd_azure-tillägget (version 1.0.0-1.0.3) bestäms omdirigeringsbeteendet av `mysqlnd_azure.enabled`värdet för . De giltiga `off` värdena är (fungerar på samma sätt som `on` det `preferred` beteende som beskrivs i tabellen nedan) och (fungerar som i tabellen nedan).  
+Om du använder en äldre version av mysqlnd_azure-tillägget (version 1.0.0-1.0.3) bestäms omdirigerings beteendet av värdet för `mysqlnd_azure.enabled`. De giltiga värdena är `off` (fungerar på samma sätt som de som beskrivs i tabellen nedan) och `on` (fungerar som `preferred` i tabellen nedan).  
 
-|**mysqlnd_azure.enableRedirect-värde**| **Beteende**|
+|**värde för mysqlnd_azure. enableRedirect**| **Beteende**|
 |----------------------------------------|-------------|
 |`off` eller `0`|Omdirigering kommer inte att användas. |
-|`on` eller `1`|- Om SSL inte är aktiverat på Azure Database för MySQL-servern görs ingen anslutning. Följande fel returneras: *"mysqlnd_azure.enableRedirect är aktiverat, men SSL-alternativet är inte inställt i anslutningssträngen. Omdirigering är endast möjlig med SSL."*<br>- Om SSL är aktiverat på MySQL-servern, men omdirigering inte stöds på servern, avbryts den första anslutningen och följande fel returneras: *"Anslutningen avbryts eftersom omdirigering inte är aktiverad på MySQL-servern eller nätverkspaketet inte uppfyller omdirigeringsprotokollet."*<br>- Om MySQL-servern stöder omdirigering, men den omdirigerade anslutningen misslyckades av någon anledning, avbryter även den första proxyanslutningen. Returnera felet för den omdirigerade anslutningen.|
-|`preferred` eller `2`<br> (standardvärde)|- mysqlnd_azure kommer att använda omdirigering om möjligt.<br>- Om anslutningen inte använder SSL stöder servern inte omdirigering, eller omdirigeringsanslutningen misslyckas med att ansluta av någon icke-dödlig orsak medan proxyanslutningen fortfarande är giltig, kommer den att falla tillbaka till den första proxyanslutningen.|
+|`on` eller `1`|-Om SSL inte är aktiverat på den Azure Database for MySQL servern görs ingen anslutning. Följande fel returneras: *"mysqlnd_azure. enableRedirect är aktiverat, men SSL-alternativet har inte angetts i anslutnings strängen. Omdirigering är bara möjlig med SSL. "*<br>-Om SSL är aktiverat på MySQL-servern, men omdirigering inte stöds på servern, avbryts den första anslutningen och följande fel returneras: *"anslutningen avbröts eftersom omdirigering inte har Aktiver ATS på MySQL-servern eller om nätverks paketet inte uppfyller omdirigerings protokollet."*<br>– Om MySQL-servern har stöd för omdirigering, men den omdirigerade anslutningen misslyckades av någon anledning, avbryts även den första proxyservern. Returnera felet för den omdirigerade anslutningen.|
+|`preferred` eller `2`<br> (standardvärde)|-mysqlnd_azure kommer att använda omdirigering om möjligt.<br>– Om anslutningen inte använder SSL, har servern inte stöd för omdirigering, eller så kan den omdirigerade anslutningen inte ansluta till någon icke-kritisk orsak, medan proxyanslutningar fortfarande är en giltig, så kommer den att återgå till den första proxyservern.|
 
-De efterföljande avsnitten i dokumentet beskriver `mysqlnd_azure` hur du installerar tillägget med PECL och anger värdet för den här parametern.
+I följande avsnitt i dokumentet får du en översikt över hur du `mysqlnd_azure` installerar tillägget med PECL och anger värdet för den här parametern.
 
 ### <a name="ubuntu-linux"></a>Ubuntu Linux
 
 #### <a name="prerequisites"></a>Krav 
-- PHP-versioner 7.2.15+ och 7.3.2+
-- PHP PEAR 
-- php-mysql
-- Azure Database för MySQL-server med SSL aktiverat
+- PHP-versioner 7.2.15 + och 7.3.2 +
+- PHP PÄRON 
+- php – mysql
+- Azure Database for MySQL server med SSL aktiverat
 
-1. Installera [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) med [PECL](https://pecl.php.net/package/mysqlnd_azure). Vi rekommenderar att du använder version 1.1.0+.
+1. Installera [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) med [PECL](https://pecl.php.net/package/mysqlnd_azure). Vi rekommenderar att du använder version 1.1.0 +.
 
     ```bash
     sudo pecl install mysqlnd_azure
     ```
 
-2. Leta reda på`extension_dir`tilläggskatalogen ( ) genom att köra nedanstående:
+2. Leta upp tilläggs katalogen (`extension_dir`) genom att köra följande:
 
     ```bash
     php -i | grep "extension_dir"
     ```
 
-3. Ändra kataloger till den returnerade mappen och se till att `mysqlnd_azure.so` den finns i den här mappen. 
+3. Ändra kataloger till den returnerade mappen och `mysqlnd_azure.so` se till att den finns i den här mappen. 
 
-4. Leta reda på mappen för .ini-filer genom att köra nedanstående: 
+4. Leta upp mappen för INI-filer genom att köra följande: 
 
     ```bash
     php -i | grep "dir for additional .ini files"
@@ -78,9 +78,9 @@ De efterföljande avsnitten i dokumentet beskriver `mysqlnd_azure` hur du instal
 
 5. Ändra kataloger till den här returnerade mappen. 
 
-6. Skapa en ny INI-fil för `mysqlnd_azure`. Se till att alfabetet ordning namnet är efter mysqnld, eftersom modulerna laddas enligt namnordningen för ini-filer. Om `mysqlnd` till exempel .ini `10-mysqlnd.ini`heter namnges mysqlnd `20-mysqlnd-azure.ini`ini som .
+6. Skapa en ny ini-fil för `mysqlnd_azure`. Se till att bokstavs ordningen för namnet är efter det att mysqnld, eftersom modulerna har lästs in enligt namn ordningen för ini-filerna. Om `mysqlnd` . ini till exempel heter `10-mysqlnd.ini`, namnger du mysqlnd-ini som. `20-mysqlnd-azure.ini`
 
-7. Lägg till följande rader i den nya INI-filen för att aktivera omdirigering.
+7. I den nya ini-filen lägger du till följande rader för att aktivera omdirigering.
 
     ```bash
     extension=mysqlnd_azure
@@ -90,42 +90,42 @@ De efterföljande avsnitten i dokumentet beskriver `mysqlnd_azure` hur du instal
 ### <a name="windows"></a>Windows
 
 #### <a name="prerequisites"></a>Krav 
-- PHP-versioner 7.2.15+ och 7.3.2+
-- php-mysql
-- Azure Database för MySQL-server med SSL aktiverat
+- PHP-versioner 7.2.15 + och 7.3.2 +
+- php – mysql
+- Azure Database for MySQL server med SSL aktiverat
 
-1. Ta reda på om du kör en x64- eller x86-version av PHP genom att köra följande kommando:
+1. Ta reda på om du kör en x64-eller x86-version av PHP genom att köra följande kommando:
 
     ```cmd
     php -i | findstr "Thread"
     ```
 
-2. Ladda ner motsvarande x64 eller x86 version av [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL från [PECL](https://pecl.php.net/package/mysqlnd_azure) som matchar din version av PHP. Vi rekommenderar att du använder version 1.1.0+.
+2. Hämta motsvarande x64-eller x86-version av [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) -DLL-filen från [PECL](https://pecl.php.net/package/mysqlnd_azure) som matchar din version av php. Vi rekommenderar att du använder version 1.1.0 +.
 
-3. Extrahera zip-filen och hitta `php_mysqlnd_azure.dll`DLL med namnet .
+3. Extrahera zip-filen och hitta DLL-filen `php_mysqlnd_azure.dll`med namnet.
 
-4. Leta reda på`extension_dir`tilläggskatalogen ( ) genom att köra kommandot nedan:
+4. Leta upp tilläggs katalogen (`extension_dir`) genom att köra nedanstående kommando:
 
     ```cmd
     php -i | find "extension_dir"
     ```
 
-5. Kopiera `php_mysqlnd_azure.dll` filen till katalogen som returneras i steg 4. 
+5. Kopiera `php_mysqlnd_azure.dll` filen till den katalog som returnerades i steg 4. 
 
-6. Leta upp PHP-mappen som innehåller `php.ini` filen med följande kommando:
+6. Leta upp PHP-mappen som `php.ini` innehåller filen med hjälp av följande kommando:
 
     ```cmd
     php -i | find "Loaded Configuration File"
     ```
 
-7. Ändra `php.ini` filen och lägg till följande extra rader för att aktivera omdirigering. 
+7. Ändra `php.ini` filen och Lägg till följande extra rader för att aktivera omdirigering. 
 
-    Under avsnittet Dynamiska tillägg: 
+    Under avsnittet dynamiska tillägg: 
     ```cmd
     extension=mysqlnd_azure
     ```
     
-    Under avsnittet Modulinställningar:     
+    Under avsnittet Modulnamn:     
     ```cmd 
     [mysqlnd_azure]
     mysqlnd_azure.enableRedirect = on/off/preferred
@@ -133,7 +133,7 @@ De efterföljande avsnitten i dokumentet beskriver `mysqlnd_azure` hur du instal
 
 ### <a name="confirm-redirection"></a>Bekräfta omdirigering
 
-Du kan också bekräfta omdirigering är konfigurerad med nedanstående exempel PHP-kod. Skapa en PHP-fil som heter `mysqlConnect.php` och klistra in nedanstående kod. Uppdatera servernamn, användarnamn och lösenord med ditt eget. 
+Du kan också bekräfta att omdirigering har kon figurer ATS med nedanstående exempel-PHP-kod. Skapa en PHP-fil `mysqlConnect.php` med namnet och klistra in nedanstående kod. Uppdatera Server namnet, användar namnet och lösen ordet med ditt eget. 
  
  ```php
 <?php
@@ -158,4 +158,4 @@ $db_name = 'testdb';
  ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om anslutningssträngar finns i [Anslutningssträngar](howto-connection-string.md).
+Mer information om anslutnings strängar finns i [anslutnings strängar](howto-connection-string.md).

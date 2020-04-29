@@ -1,6 +1,6 @@
 ---
 title: Skapa ett Azure Media Services-konto
-description: Den här självstudien går igenom stegen för att skapa ett Azure Media Services-konto.
+description: Den här självstudien vägleder dig genom stegen för att skapa ett Azure Media Services-konto.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 2f1694825319ed8b8682c044e7e2282ed4c43dcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79478804"
 ---
 # <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
@@ -27,42 +27,42 @@ För att börja kryptera, koda, analysera, hantera och strömma medieinnehåll i
 > [!NOTE]
 > Media Services-kontot och alla associerade lagringskonton måste finnas i samma Azure-prenumeration. Vi rekommenderar starkt att du använder lagringskonton på samma plats som Media Services-kontot för att undvika extra kostnader för latens och utgående datatrafik.
 
-I den här artikeln beskrivs steg för att skapa ett nytt Azure Media Services-konto. Välj bland följande flikar.
+I den här artikeln beskrivs hur du skapar ett nytt Azure Media Services-konto. Välj bland följande flikar.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Azure-portalen är ett sätt att snabbt skapa ett Azure Media Services-konto. Du kan använda ditt konto för att få åtkomst till Media Services för att lagra, kryptera, koda, hantera och strömma medieinnehåll i Azure.
+Azure Portal är ett sätt att snabbt skapa ett Azure Media Services-konto. Du kan använda ditt konto för att få åtkomst till Media Services för att lagra, kryptera, koda, hantera och strömma medieinnehåll i Azure.
 
-För närvarande kan du använda [Azure-portalen](https://portal.azure.com/) för att:
+För närvarande kan du använda [Azure Portal](https://portal.azure.com/) för att:
 
-* hantera Media Services v3 [Live Events](live-events-outputs-concept.md), 
-* visa (inte hantera) [v3-tillgångar](assets-concept.md), 
-* [få information om hur du använder API:er](access-api-portal.md). 
+* Hantera Media Services v3 [Live-händelser](live-events-outputs-concept.md), 
+* Visa (inte hantera) v3- [till gångar](assets-concept.md), 
+* [Hämta information om att komma åt API: er](access-api-portal.md). 
 
-För alla andra hanteringsuppgifter (till exempel [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection)](content-protection-overview.md)använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK:er som](media-services-apis-overview.md#sdks)stöds .
+För alla andra hanterings uppgifter (t. ex. [transformationer och jobb](transforms-jobs-concept.md) och [innehålls skydd](content-protection-overview.md)) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 I den här artikeln beskrivs hur man skapar ett Media Services-konto i Azure-portalen.
 
 ### <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-1. Klicka på **+Skapa en resurs** > **Media** > **Media Services**.
-1. I avsnittet **Skapa ett Media Services-konto** anger du obligatoriska värden.
+1. Klicka på **+ skapa en resurs** > **medie** > **Media Services**.
+1. I avsnittet **skapa ett Media Services konto** anger du de värden som krävs.
     
-    | Namn | Beskrivning |
+    | Name | Beskrivning |
     | ---|---|
-    |**Kontonamn**|Ange namnet på det nya Media Services-kontot. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.|
-    |**Prenumeration**|Om du har mer än en prenumeration väljer du en i listan över Azure-prenumerationer som du har åtkomst till.|
-    |**Resursgrupp**|Välj den nya eller befintliga resursen. En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Läs mer [här](../../azure-resource-manager/management/overview.md#resource-groups).|
-    |**Location**|Välj det geografiska område som ska användas för att lagra medie- och metadataposterna för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan. |
-    |**Lagringskonto**|Välj ett lagringskonto för att tillhandahålla blob-lagring av medieinnehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett nytt lagringskonto. Ett nytt lagringskonto skapas i samma region. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.<br/><br/>Du måste ha ett **primärt** lagringskonto och du kan ha valfritt antal **sekundära lagringskonton** kopplade till ditt Media Services-konto. Du kan använda Azure-portalen för att lägga till sekundära lagringskonton. Mer information finns i [Azure Storage-konton med Azure Media Services-konton](storage-account-concept.md).<br/><br/>Media Services-kontot och alla associerade lagringskonton måste finnas i samma Azure-prenumeration. Vi rekommenderar starkt att du använder lagringskonton på samma plats som Media Services-kontot för att undvika extra kostnader för latens och utgående datatrafik.|
+    |**Kontonamn**|Ange namnet på det nya Media Services kontot. Namnet på ett Media Services-konto består av gemena bokstäver eller siffror utan blanksteg och 3 till 24 tecken.|
+    |**Prenumeration**|Om du har mer än en prenumeration väljer du en i listan med Azure-prenumerationer som du har åtkomst till.|
+    |**Resurs grupp**|Välj en ny eller befintlig resurs. En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Läs mer [här](../../azure-resource-manager/management/overview.md#resource-groups).|
+    |**Position**|Välj den geografiska region som ska användas för att lagra media-och metadata-poster för ditt Media Services-konto. Den här regionen används för att bearbeta och strömma dina media. Endast de tillgängliga Media Services-regionerna visas i listrutan. |
+    |**Lagrings konto**|Välj ett lagrings konto för att tillhandahålla Blob Storage för medie innehållet från ditt Media Services-konto. Du kan välja ett befintligt lagringskonto i samma geografiska region som ditt Media Services-konto eller skapa ett nytt lagringskonto. Ett nytt lagringskonto skapas i samma region. Reglerna för namn på lagringskonton är desamma som för Media Services-konton.<br/><br/>Du måste ha ett **primärt** lagrings konto och du kan ha valfritt antal **sekundära** lagrings konton som är kopplade till ditt Media Services-konto. Du kan använda Azure Portal för att lägga till sekundära lagrings konton. Mer information finns i [Azure Storage konton med Azure Media Services-konton](storage-account-concept.md).<br/><br/>Media Services-kontot och alla associerade lagringskonton måste finnas i samma Azure-prenumeration. Vi rekommenderar starkt att du använder lagringskonton på samma plats som Media Services-kontot för att undvika extra kostnader för latens och utgående datatrafik.|
     
 1. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
 1. Klicka på **Skapa** längst ned i formuläret.
 
-    När ditt Media Services-konto skapas läggs en **standardslutpunkt** för direktuppspelning till ditt konto i tillståndet **Stoppad.** Om du vill börja strömma ditt innehåll och dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och [dynamisk kryptering](content-protection-overview.md)måste slutpunkten för direktuppspelning som du vill strömma innehåll från vara i **körläge.** 
+    När ditt Media Services-konto skapas, läggs en **standard** slut punkt för direkt uppspelning till på ditt konto i **stoppat** tillstånd. Om du vill börja strömma ditt innehåll och dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och [dynamisk kryptering](content-protection-overview.md), måste den strömmande slut punkten från vilken du vill strömma innehåll vara i **Kör** tillstånd. 
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
@@ -80,13 +80,13 @@ az account set --subscription mySubscriptionId
 
 Använd följande kommando för att skapa en resursgrupp. En Azure-resursgrupp är en logisk container där resurser som Azure Media Services-konton och associerade Storage-konton distribueras och hanteras.
 
-Du kan `amsResourceGroup` ersätta med ditt värde.
+Du kan ersätta `amsResourceGroup` med ditt värde.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
 ```
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. Mer information om hur lagringskonton används i Media Services finns i [Lagringskonton](storage-account-concept.md).
 
@@ -94,7 +94,7 @@ Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekund�
 
 I det här exemplet skapar vi ett General Purpose v2, Standard LRS-konto. Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du överväga `--sku Standard_RAGRS`, som ger geografisk replikering för affärskontinuitet. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-Följande kommando skapar ett lagringskonto som ska associeras med Media Services-kontot. I skriptet nedan kan du ersätta `storageaccountforams` med ditt värde. `amsResourceGroup`måste matcha värdet som du gav för resursgruppen i föregående steg. Lagringskontonamnet måste ha en längd som är mindre än 24.
+Följande kommando skapar ett lagringskonto som ska associeras med Media Services-kontot. I skriptet nedan kan du ersätta `storageaccountforams` med ditt värde. `amsResourceGroup`måste matcha det värde som du gav för resurs gruppen i föregående steg. Lagrings kontots namn får inte vara längre än 24.
 
 ```azurecli
 az storage account create --name storageaccountforams \  
@@ -106,7 +106,7 @@ az storage account create --name storageaccountforams \
 
 ### <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
-Följande Azure CLI-kommando skapar ett nytt Media Services-konto. Du kan ersätta följande `amsaccount` `storageaccountforams` värden: (måste matcha värdet du `amsResourceGroup` gav för ditt lagringskonto) och (måste matcha värdet du gav för resursgruppen).  
+Följande Azure CLI-kommando skapar ett nytt Media Services-konto. Du kan ersätta följande värden: `amsaccount` `storageaccountforams` (måste matcha det värde du angav för ditt lagrings konto) och `amsResourceGroup` (måste matcha det värde som du har gett för resurs gruppen).  
 
 ```azurecli
 az ams account create --name amsaccount \
@@ -117,7 +117,7 @@ az ams account create --name amsaccount \
 ### <a name="see-also"></a>Se även
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-* [Koppla en sekundär lagring till ett Media Services-konto](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
+* [Koppla en sekundär lagring till ett Media Services konto](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 
 ---
 

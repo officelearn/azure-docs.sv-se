@@ -1,50 +1,50 @@
 ---
 title: Importera containeravbildningar
-description: Importera behållaravbildningar till ett Azure-behållarregister med hjälp av Azure-API:er, utan att behöva köra Docker-kommandon.
+description: 'Importera behållar avbildningar till ett Azure Container Registry med hjälp av Azure API: er, utan att behöva köra Docker-kommandon.'
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80051925"
 ---
-# <a name="import-container-images-to-a-container-registry"></a>Importera behållaravbildningar till ett behållarregister
+# <a name="import-container-images-to-a-container-registry"></a>Importera behållar avbildningar till ett behållar register
 
-Du kan enkelt importera (kopiera) behållaravbildningar till ett Azure-behållarregister utan att använda Docker-kommandon. Importera till exempel avbildningar från ett utvecklingsregister till ett produktionsregister eller kopiera basavbildningar från ett offentligt register.
+Du kan enkelt importera (kopiera) behållar avbildningar till ett Azure Container Registry utan att använda Docker-kommandon. Du kan till exempel importera bilder från ett utvecklings register till ett produktions register eller kopiera bas avbildningar från ett offentligt register.
 
 Azure Container Registry hanterar ett antal vanliga scenarier för att kopiera avbildningar från ett befintligt register:
 
 * Importera från ett offentligt register
 
-* Importera från ett annat Azure-behållarregister, i samma eller en annan Azure-prenumeration
+* Importera från ett annat Azure Container Registry i samma eller en annan Azure-prenumeration
 
-* Importera från ett privat behållarregister som inte är Azure
+* Importera från ett icke-Azure privat behållar register
 
-Avbildningsimport till ett Azure-behållarregister har följande fördelar jämfört med att använda Docker CLI-kommandon:
+Avbildnings import till ett Azure Container Registry har följande fördelar jämfört med Docker CLI-kommandon:
 
-* Eftersom klientmiljön inte behöver en lokal Docker-installation importerar du en behållaravbildning, oavsett vilken os-typ som stöds.
+* Eftersom klient miljön inte behöver en lokal Docker-installation importerar du en behållar avbildning, oavsett vilken typ av operativ system som stöds.
 
-* När du importerar multiarkitekturavbildningar (till exempel officiella Docker-avbildningar) kopieras avbildningar för alla arkitekturer och plattformar som anges i manifestlistan.
+* När du importerar avbildningar med flera arkitekturer (till exempel officiella Docker-avbildningar) kopieras avbildningar för alla arkitekturer och plattformar som anges i manifest listan.
 
-Om du vill importera behållaravbildningar kräver den här artikeln att du kör Azure CLI i Azure Cloud Shell eller lokalt (version 2.0.55 eller senare rekommenderas). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
+Den här artikeln kräver att du kör Azure CLI i Azure Cloud Shell eller lokalt (version 2.0.55 eller senare rekommenderas) för att importera behållar avbildningar. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 > [!NOTE]
-> Om du behöver distribuera identiska behållaravbildningar över flera Azure-regioner stöder Azure Container Registry även [geo-replikering](container-registry-geo-replication.md). Genom att georepl igenge ett register (Premium-tjänstnivå krävs) kan du betjäna flera regioner med identiska avbildnings- och taggnamn från ett enda register.
+> Om du behöver distribuera identiska behållar avbildningar i flera Azure-regioner stöder Azure Container Registry också [geo-replikering](container-registry-geo-replication.md). Genom geo-replikering av ett register (Premium service nivå krävs) kan du hantera flera regioner med identiska bild-och taggnamn från ett enda register.
 >
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte redan har ett Azure-behållarregister skapar du ett register. Stegvis finns i [Snabbstart: Skapa ett privat behållarregister med Azure CLI](container-registry-get-started-azure-cli.md).
+Om du inte redan har ett Azure Container Registry skapar du ett register. Anvisningar finns i [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
 
-Om du vill importera en avbildning till ett Azure-behållarregister måste din identitet ha skrivbehörighet till målregistret (minst deltagarrollen). Se [Azure Container Registry roller och behörigheter](container-registry-roles.md). 
+Om du vill importera en avbildning till ett Azure Container Registry måste identiteten ha Skriv behörighet till mål registret (minst deltagar rollen). Se [Azure Container Registry roller och behörigheter](container-registry-roles.md). 
 
 ## <a name="import-from-a-public-registry"></a>Importera från ett offentligt register
 
 ### <a name="import-from-docker-hub"></a>Importera från Docker Hub
 
-Använd till exempel kommandot [az acr import][az-acr-import] för `hello-world:latest` att importera multiarkitekturavbildningen från Docker Hub till ett register med namnet *Myregistry*. Eftersom `hello-world` är en officiell bild från Docker Hub `library` finns den här bilden i standarddatabasen. Inkludera databasnamnet och eventuellt en tagg i `--source` värdet för bildparametern. (Du kan också identifiera en bild genom dess manifestsammandrag i stället för efter tagg, vilket garanterar en viss version av en bild.)
+Använd exempelvis kommandot [AZ ACR import][az-acr-import] för att importera avbildningen av flera arkitekturer `hello-world:latest` från Docker-hubb till ett register med namnet *unregistry*. Eftersom `hello-world` är en officiell avbildning från Docker Hub finns den här avbildningen i standard `library` lagrings platsen. Inkludera databas namnet och eventuellt en tagg i värdet för parametern `--source` image. (Du kan också identifiera en avbildning med dess manifest sammandrag i stället för efter tagg, som garanterar en viss version av en avbildning.)
  
 ```azurecli
 az acr import \
@@ -53,7 +53,7 @@ az acr import \
   --image hello-world:latest
 ```
 
-Du kan kontrollera att flera manifest är associerade `az acr repository show-manifests` med den här bilden genom att köra kommandot:
+Du kan kontrol lera att flera manifest är associerade med den här avbildningen genom `az acr repository show-manifests` att köra kommandot:
 
 ```azurecli
 az acr repository show-manifests \
@@ -61,7 +61,7 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-I följande exempel importeras `tensorflow` en offentlig bild från databasen i Docker Hub:
+I följande exempel importeras en offentlig avbildning från `tensorflow` lagrings platsen i Docker Hub:
 
 ```azurecli
 az acr import \
@@ -72,7 +72,7 @@ az acr import \
 
 ### <a name="import-from-microsoft-container-registry"></a>Importera från Microsoft Container Registry
 
-Importera till exempel den senaste Windows `windows` Server Core-avbildningen från databasen i Microsoft Container Registry.
+Importera till exempel den senaste Windows Server Core-avbildningen från `windows` lagrings platsen i Microsoft container Registry.
 
 ```azurecli
 az acr import \
@@ -81,17 +81,17 @@ az acr import \
 --image servercore:latest
 ```
 
-## <a name="import-from-another-azure-container-registry"></a>Importera från ett annat Azure-behållarregister
+## <a name="import-from-another-azure-container-registry"></a>Importera från ett annat Azure Container Registry
 
-Du kan importera en avbildning från ett annat Azure-behållarregister med hjälp av integrerade Azure Active Directory-behörigheter.
+Du kan importera en avbildning från ett annat Azure Container Registry med hjälp av integrerade Azure Active Directory behörigheter.
 
-* Din identitet måste ha Azure Active Directory-behörigheter för att läsa från källregistret (reader-rollen) och skriva till målregistret (deltagarrollen).
+* Din identitet måste ha Azure Active Directory behörighet att läsa från käll registret (läsar roll) och skriva till mål registret (deltagar rollen).
 
-* Registret kan finnas i samma eller en annan Azure-prenumeration i samma Active Directory-klientorganisation.
+* Registret kan finnas i samma eller en annan Azure-prenumeration i samma Active Directory klient.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importera från ett register i samma prenumeration
 
-Importera till exempel `aci-helloworld:latest` avbildningen från ett källregister *mittkälla register* till *mitt register* i samma Azure-prenumeration.
+Importera till exempel `aci-helloworld:latest` avbildningen från ett käll register *mysourceregistry* till *registret* i samma Azure-prenumeration.
 
 ```azurecli
 az acr import \
@@ -100,7 +100,7 @@ az acr import \
   --image aci-helloworld:latest
 ```
 
-I följande exempel importeras en bild efter manifestsammandrag (SHA-256 hash, representerad som `sha256:...`) i stället för efter tagg:
+I följande exempel importeras en avbildning av manifest sammandrag (SHA-256-hash, som `sha256:...`visas) i stället för taggen:
 
 ```azurecli
 az acr import \
@@ -110,7 +110,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>Importera från ett register i en annan prenumeration
 
-I följande exempel finns *mittkälla register* i en annan prenumeration än *mitt register* i samma Active Directory-klientorganisation. Ange resurs-ID för källregistret `--registry` med parametern. Observera att `--source` parametern bara anger källdatabasen och taggen, inte registrets inloggningsservernamn.
+I följande exempel finns *mysourceregistry* i en annan prenumeration än *registret* i samma Active Directory-klient. Ange resurs-ID för käll registret med `--registry` parametern. Observera att `--source` parametern endast anger käll databasen och taggen, inte namnet på inloggnings servern för registret.
 
 ```azurecli
 az acr import \
@@ -120,9 +120,9 @@ az acr import \
   --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
-### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importera från ett register med hjälp av autentiseringsuppgifter för tjänstens huvudnamn
+### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importera från ett register med autentiseringsuppgifter för tjänstens huvud namn
 
-Om du vill importera från ett register som du inte kan komma åt med Active Directory-behörigheter kan du använda autentiseringsuppgifter för tjänstens huvudnamn (om tillgängligt). Ange appID och lösenord för ett [Active Directory-tjänsthuvudnamn](container-registry-auth-service-principal.md) som har ÅTKOMST TILL källregistret. Att använda ett huvudnamn för tjänsten är användbart för att skapa system och andra obevakade system som behöver importera avbildningar till registret.
+Om du vill importera från ett register som du inte kan komma åt med Active Directory behörigheter kan du använda autentiseringsuppgifterna för tjänstens huvud namn (om de är tillgängliga). Ange appID och lösen ordet för en Active Directory [tjänstens huvud namn](container-registry-auth-service-principal.md) som har ACRPull åtkomst till käll registret. Att använda ett huvud namn för tjänsten är användbart för att bygga system och andra obevakade system som behöver importera avbildningar till registret.
 
 ```azurecli
 az acr import \
@@ -133,9 +133,9 @@ az acr import \
   –-password <SP_Passwd>
 ```
 
-## <a name="import-from-a-non-azure-private-container-registry"></a>Importera från ett privat behållarregister som inte är Azure
+## <a name="import-from-a-non-azure-private-container-registry"></a>Importera från ett icke-Azure privat behållar register
 
-Importera en avbildning från ett privat register genom att ange autentiseringsuppgifter som aktiverar pull-åtkomst till registret. Hämta till exempel en avbildning från ett privat Docker-register: 
+Importera en avbildning från ett privat register genom att ange autentiseringsuppgifter som aktiverar åtkomst till registret. Hämta till exempel en avbildning från ett privat Docker-register: 
 
 ```azurecli
 az acr import \
@@ -148,7 +148,7 @@ az acr import \
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln fick du lära dig om hur du importerar behållaravbildningar till ett Azure-behållarregister från ett offentligt register eller ett annat privat register. Ytterligare bildimportalternativ finns i kommandoreferensen [för az acr-import.][az-acr-import] 
+I den här artikeln har du lärt dig hur du importerar behållar avbildningar till ett Azure Container Registry från ett offentligt register eller ett annat privat register. Ytterligare alternativ för avbildnings import finns i kommando referens för [AZ ACR import][az-acr-import] . 
 
 
 <!-- LINKS - Internal -->

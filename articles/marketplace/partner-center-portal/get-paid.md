@@ -1,68 +1,68 @@
 ---
-title: Få betalt på kommersiell marknad | Azure Marketplace
-description: Läs mer om hur du tar emot betalningar för dina intäkter på den kommersiella marknaden.
+title: Betala på kommersiell Marketplace | Azure Marketplace
+description: Lär dig mer om att få betalningar för dina intäkter på den kommersiella marknads platsen.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275840"
 ---
 # <a name="getting-paid"></a>Få betalt
-Här är viktig information om hur du tar emot betalning för dina erbjudanden, tillägg och reklamintäkter.
+Här är några viktiga uppgifter om att erhålla betalning för dina erbjudanden, tillägg och marknadsförings intäkter.
 
 > [!IMPORTANT]
-> Innan du kan få pengar från erbjudandeförsäljning på den kommersiella marknaden måste du [skapa ditt utbetalningskonto och fylla i de skatteformulär som krävs.](set-up-your-payout-account-tax-forms.md)
+> Innan du kan ta emot pengar från erbjudandet i den kommersiella Marketplace måste du [Konfigurera ditt utbetalnings konto och fylla i de nödvändiga skatte formulären](set-up-your-payout-account-tax-forms.md).
 
-## <a name="store-fee"></a>Butiksavgift
+## <a name="store-fee"></a>Butiks avgift
 
-När du [registrerar dig för ett utvecklarkonto](https://go.microsoft.com/fwlink/p/?LinkID=615100)godkänner du Microsoft Azure Marketplace Publisher [Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560). Detta avtal förklarar förhållandet mellan dig och Microsoft när det gäller att sälja erbjudanden på den kommersiella marknaden, inklusive den Store-avgift som Microsoft tar ut för varje försäljning som görs.
+När du [registrerar dig för ett Developer-konto](https://go.microsoft.com/fwlink/p/?LinkID=615100)godkänner du [Microsoft Azure Marketplace utgivarens avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560). Det här avtalet förklarar förhållandet mellan dig och Microsoft som det gäller för sälj erbjudandet i den kommersiella Marketplace, inklusive lagrings avgiften som Microsoft debiterar för varje försäljning.
 
-Avgifter definieras officiellt i [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560). Granska alltid dokumentet om du har några frågor.
+Avgifter definieras officiellt i [Microsoft Azure Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/p/?LinkID=699560). Granska alltid dokumentet om du har några frågor.
 
-Store-avgiften tillämpas på all erbjudandeförsäljning som samlas in av den kommersiella marknadsplatsen, inklusive tillägg.
+Butiks avgiften tillämpas på alla försäljnings erbjudanden som samlas in av den kommersiella Marketplace, inklusive tillägg.
 
-## <a name="price-tiers"></a>Prisnivåer
+## <a name="price-tiers"></a>Pris nivåer
 
-De prisnivåer som du väljer anger försäljningspriset i alla länder där du väljer att distribuera ditt erbjudande. Du kan också använda ytterligare prisfunktioner som att välja olika priser för olika marknader.
+Pris nivåerna som du väljer anger försäljnings priset i alla länder där du väljer att distribuera erbjudandet. Du kan också använda ytterligare prissättnings funktioner, till exempel välja olika priser för olika marknader.
 
-Du kan erbjuda din app gratis, eller så kan du välja ett pris som kunderna måste betala för att få ditt erbjudande. Prisnivåerna börjar på 0,99 USD, med ytterligare steg (1,09 USD, 1,19 USD och så vidare). Ökningarna mellan prisnivåer ökar när priset blir högre.
+Du kan erbjuda din app kostnads fritt, eller så kan du välja ett pris som kunderna måste betala för att få ditt erbjudande. Pris nivåer börjar med. 99 USD, med ytterligare ökningar (1,09 USD, 1,19 USD och så vidare). Ökningarna mellan pris nivåerna ökar när priset blir högre.
 
 > [!NOTE] 
-> Dessa prisnivåer gäller även för alla tillägg som du erbjuder inifrån ditt erbjudande.
+> Dessa pris nivåer gäller även för alla tillägg som du erbjuder i erbjudandet.
 
-Varje prisnivå har ett motsvarande värde i var och en av de valutor som erbjuds av Store. Vi använder dessa värden för att hjälpa dig att sälja ditt erbjudande till en jämförbar prispunkt över hela världen. På grund av förändringar i valutakurser kan dock det exakta försäljningsbeloppet variera något från en valuta till en annan.
+Varje pris nivå har ett motsvarande värde i varje valuta som erbjuds av butiken. Vi använder dessa värden för att hjälpa dig att sälja ditt erbjudande till en jämförbar pris punkt över hela världen. Men på grund av ändringar i utländska växelkurser kan det exakta försäljnings beloppet variera något från en valuta till en annan.
 
-Du har också möjlighet att ange ett fritt pris som du väljer i en viss marknad lokala valuta. När du gör detta justeras inte priset (även om konverteringsfrekvensen ändras) om du inte skickar in en uppdatering med ett nytt pris. 
+Du kan också välja att ange ett kostnads fritt pris som du väljer på en bestämd marknads lokala valuta. När du gör detta kommer priset inte att justeras (även om konverterings takten ändras) om du inte skickar en uppdatering med ett nytt pris. 
 
-Tänk på att det pris du väljer kan inkludera försäljning eller mervärdesskatt som dina kunder måste betala. Se [Skatteinformation för betalt erbjudande](tax-details-paid-transactions.md) för mer info.
-
-
-## <a name="payout-reporting"></a>Rapportering av utbetalning
-
-Du kan komma åt information om din betalningsinformation och hämta rapporter i **utbetalningssammanfattningen** av [Partner Center](https://partner.microsoft.com/dashboard). Mer information om informationen som visas här och hur vi kategoriserar de pengar du tjänar finns i [sammanfattningen av utbetalningen.](payout-summary.md)
+Tänk på att det pris du väljer kan omfatta försäljning eller mervärdes skatt som kunderna måste betala. Mer information finns i [skatte information för betalat erbjudande](tax-details-paid-transactions.md) .
 
 
-## <a name="payout-timeframe"></a>Tidsram för utbetalning
+## <a name="payout-reporting"></a>Utbetalningsrapporter
 
-Betalningar görs månadsvis (förutsatt att den tillämpliga betalningströskeln har uppfyllts och du inte har placerat din utbetalning på is enligt beskrivningen nedan). Vi skickar vanligtvis alla betalningar som ska betalas under en viss månad senast den 15:e dagen i den månaden. Observera att det i allmänhet tar mellan 3 till 10 ytterligare arbetsdagar att nå ditt utbetalningskonto. Mer information finns i [Betalningströskelvärden, metoder och tidsramar](payment-thresholds-methods-timeframes.md).
+Du kan komma åt information om din betalnings information och hämta rapporter i **utbetalnings sammanfattningen** av [partner Center](https://partner.microsoft.com/dashboard). Mer information om den information som visas här och hur vi kategoriserar de pengar du får finns i [utbetalnings Sammanfattning](payout-summary.md).
 
 
-##  <a name="payout-hold-status"></a>Status för utbetalningsspärr
+## <a name="payout-timeframe"></a>Utbetalnings tidsram
 
-Som standard skickar vi betalningar månadsvis enligt beskrivningen ovan. Du har dock möjlighet att lägga dina utbetalningar för ett program på is, vilket kommer att hindra oss från att skicka betalningar till ditt konto. Om du väljer att spärra dina utbetalningar fortsätter vi att registrera eventuella intäkter som du tjänar och lämna information i din **utbetalningssammanfattning.** Vi skickar dock inga betalningar till ditt konto förrän du tar bort spärren.
+Betalningar görs varje månad (förutsatt att det tillämpliga betalnings tröskelvärdet har uppfyllts och du inte har lagt till ditt utbetalnings belopp enligt beskrivningen nedan). Vi skickar vanligt vis alla betalningar som förfaller under en månad med den 15: e dagen i den månaden. Observera att betalningar i allmänhet tar mellan 3 och 10 ytterligare arbets dagar för att uppnå ditt utbetalnings konto. Mer information finns i [betalnings trösklar, metoder och tids ramar](payment-thresholds-methods-timeframes.md).
 
-Om du vill spärra dina betalningar går du till **Utvecklarinställningarna**. Under **Utbetalning och skatt**, i avsnittet Utbetalning och **skatteprofil tilldelning,** hitta det program som du vill betalningar som innehas. Klicka på kryssrutan **Håll min betalning** om du vill behålla betalningar för det här programmet. Du kan ändra din utbetalningsspärr när som helst, men tänk på att ditt beslut kommer att påverka nästa månadsutbetalning. Om du till exempel vill hålla aprilutbetalningen måste du ställa in din utbetalningsspärr till **På** före slutet av mars.
 
-När du har ställt in din utbetalningsspärr status **på På,** alla utbetalningar för detta program kommer att vara på is tills du växlar skjutreglaget tillbaka till **Off.** När du gör det inkluderas du under nästa månatliga utbetalningscykel (förutsatt att eventuella tillämpliga betalningströsklar har uppfyllts). Om du till exempel har haft dina utbetalningar på is, men vill ha en utbetalning som genereras i juni, se till att växla utbetalningsspärrens status till **Av** före slutet av maj.
+##  <a name="payout-hold-status"></a>Status för utbetalning
+
+Som standard skickar vi betalningar varje månad enligt beskrivningen ovan. Du kan dock välja att ställa in dina utbetalningar för ett program som är spärrat, vilket hindrar oss från att skicka betalningar till ditt konto. Om du väljer att spärra dina inbetalningar kommer vi att fortsätta att registrera alla intäkter som du får och ange informationen i din **utbetalnings Sammanfattning**. Vi kommer dock inte att skicka några betalningar till ditt konto förrän du tar bort spärren.
+
+Om du vill spärra dina betalningar går du till **Inställningar för utvecklare**. Under **utbetalning och skatt**, i avsnittet **utbetalning och skatte profil tilldelning** , letar du reda på det program som du vill ha betalningar för. Klicka på kryss rutan **Behåll min betalning** för att hålla betalningarna för det här programmet. Du kan ändra din utbetalnings status när som helst, men tänk på att ditt beslut påverkar nästa månads utbetalning. Om du till exempel vill ha en utbetalning av april, se till att ställa in din utbetalnings status **till före slutet** av mars.
+
+När du har angett statusen för din utbetalnings spärr till **på**, är alla utbetalningar för det här programmet kvar tills du växlar skjutreglaget tillbaka till **av**. När du gör det kommer du att inkluderas under nästa månads utbetalnings cykel (förutsatt att alla tillämpliga betalnings trösklar har uppfyllts). Om du till exempel har haft dina utbetalningar som är spärrade, men vill ha en utbetalning som genererats i juni, **ser du till** att växla över-statusen för utbetalningen är intill innan slutet av maj.
 
 > [!NOTE]
-> Din **utbetalningsspärr** gäller för varje program individuellt (Microsoft Store, annonsering, Azure Marketplace osv.). Om du vill hålla betalningar på alla dina program, måste du hålla betalningar på varje program individuellt.
+> Din **utbetalnings status** gäller för varje program individuellt (Microsoft Store, annonsering, Azure Marketplace osv.). Om du vill lagra betalningar på alla dina program måste du hålla betalningarna på varje program individuellt.
 
 
  

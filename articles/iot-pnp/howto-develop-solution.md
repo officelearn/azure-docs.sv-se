@@ -1,6 +1,6 @@
 ---
-title: Interagera med en IoT Plug and Play Preview-enhet från en Azure IoT-lösning | Microsoft-dokument
-description: Som lösningsutvecklare kan du läsa om hur du använder tjänsten SDK för att interagera med IoT Plug and Play-enheter.
+title: Interagera med en IoT-Plug and Play förhands gransknings enhet från en Azure IoT-lösning | Microsoft Docs
+description: 'Som en lösnings utvecklare kan du läsa om hur du använder tjänst-SDK: n för att interagera med IoT Plug and Play-enheter.'
 author: Philmea
 ms.author: philmea
 ms.date: 12/26/2019
@@ -10,51 +10,51 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: e349aadfd629202b1c8cdb5c53a88e0a6c2e06de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80159225"
 ---
-# <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Ansluta till och interagera med en IoT Plug and Play Preview-enhet
+# <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Ansluta till och interagera med en IoT Plug and Play förhands gransknings enhet
 
-Den här guiden visar hur du använder exemplen i Nod-tjänsten SDK som visar hur din IoT-lösning kan interagera med IoT Plug and Play Preview-enheter.
+Den här instruktions guiden visar hur du använder exemplen i Node service SDK som visar hur din IoT-lösning kan interagera med IoT Plug and Play Preview-enheter.
 
-Om du inte har slutfört [snabbstarten Anslut en IoT Plug and Play-enhet till din lösning](quickstart-connect-pnp-device-solution-node.md) bör du göra det nu. Snabbstarten visar hur du hämtar och installerar SDK och kör några av exemplen.
+Om du inte har slutfört [Anslut en IoT plug and Play-enhet till din lösnings](quickstart-connect-pnp-device-solution-node.md) snabb start bör du göra det nu. Snabb starten visar hur du hämtar och installerar SDK och kör några av exemplen.
 
-Innan du kör tjänstexemplen öppnar du en ny terminal, går till rotmappen i den klonade databasen, navigerar till mappen **digitaltwins/quickstarts/service** och kör sedan följande kommando för att installera beroenden:
+Innan du kör tjänst exemplen öppnar du en ny terminal, går till rotmappen för den klonade lagrings platsen, navigerar till mappen **digitaltwins/snabb starter/service** och kör sedan följande kommando för att installera beroendena:
 
 ```cmd/sh
 npm install
 ```
 
-## <a name="run-the-service-samples"></a>Kör tjänstexempel
+## <a name="run-the-service-samples"></a>Kör tjänst exemplen
 
-Använd följande exempel för att utforska funktionerna i Node.js-tjänsten SDK. Kontrollera att `IOTHUB_CONNECTION_STRING` miljövariabeln är inställd i det skal du använder:
+Använd följande exempel för att utforska funktionerna i Node. js-tjänst-SDK: n. Kontrol lera att `IOTHUB_CONNECTION_STRING` miljövariabeln har angetts i gränssnittet som du använder:
 
-### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Hämta en digital tvilling och lista gränssnitten
+### <a name="retrieve-a-digital-twin-and-list-the-interfaces"></a>Hämta en digital, och visa en lista över gränssnitten
 
-**get_digital_twin.js** får den digitala tvillingen som är associerad med enheten och skriver ut komponenten på kommandoraden. Det kräver inte ett löpprov för att lyckas.
+**get_digital_twin. js** hämtar den digitala enhet som är kopplad till enheten och skriver ut dess komponent på kommando raden. Ett enhets exempel som inte körs krävs för att lyckas.
 
-**get_digital_twin_interface_instance.js** får en enda gränssnittsinstans av digital tvilling som är associerad med enheten och skriver ut den på kommandoraden. Det kräver inte att enhetsprovet körs.
+**get_digital_twin_interface_instance. js** hämtar en enda gränssnitts instans av digital, som är kopplad till enheten och skriver ut den på kommando raden. Det kräver inte att enhets exemplet körs.
 
-### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Hämta och ange egenskaper med nodtjänsten SDK
+### <a name="get-and-set-properties-using-the-node-service-sdk"></a>Hämta och ange egenskaper med hjälp av Node service SDK
 
-**update_digital_twin.js** uppdaterar en skrivbar egenskap på din digitala tvilling på enheten med en fullständig korrigeringsfil. Du kan uppdatera flera egenskaper på flera gränssnitt om du vill. För att det ska lyckas måste enhetsprovet köras samtidigt. Framgång ser ut som enheten provet är att skriva ut något om att uppdatera en egenskap tjänsten provet skriva ut en uppdaterad digital tvilling i terminalen.
+**update_digital_twin. js** uppdaterar en skrivbar egenskap på enheten digitalt med en fullständig korrigering. Du kan uppdatera flera egenskaper på flera gränssnitt om du vill. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som om enhets exemplet skriver ut något om att uppdatera en egenskap som tjänst exemplet skriver ut ett uppdaterat digitalt objekt i terminalen.
 
-### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Skicka ett kommando och hämta svaret med nodtjänsten SDK
+### <a name="send-a-command-and-retrieve-the-response-using-the-node-service-sdk"></a>Skicka ett kommando och hämta svaret med Node service SDK
 
-**invoke_command.js** anropar ett synkront kommando på enhetens digitala tvilling. För att det ska lyckas måste enhetsprovet köras samtidigt. Framgång ser ut som om enhetsprovet skriver ut något om att bekräfta ett kommando och serviceklienten skriver ut resultatet av kommandot i terminalen.
+**invoke_command. js** anropar ett synkront kommando på enheten digitalt. För att det ska fungera måste enhets exemplet köras på samma gång. Lyckad ser ut som enhets exemplet skriver ut något om att bekräfta ett kommando och tjänst klienten skriver ut resultatet av kommandot i terminalen.
 
-### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Ansluta till den offentliga databasen och hämta en modelldefinition med nodtjänsten SDK
+### <a name="connect-to-the-public-repository-and-retrieve-a-model-definition-using-the-node-service-sdk"></a>Anslut till den offentliga lagrings platsen och hämta en modell definition med hjälp av Node service SDK
 
-Med samma instruktioner som för service- och enhetsexemplen måste du ställa in följande miljövariabel:
+Med samma instruktioner som för tjänst-och enhets exemplen måste du ange följande miljö variabel:
 
 * `AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
 
-Du hittar den här anslutningssträngen i [Azure Certified for IoT-portalen](https://preview.catalog.azureiotsolutions.com) på fliken **Anslutningssträngar** för **företagsdatabasen**.
+Du hittar den här anslutnings strängen i [Azure-certifierad för IoT-portalen](https://preview.catalog.azureiotsolutions.com) på fliken **anslutnings strängar** för din **företags lagrings plats**.
 
-Anslutningssträngen ser ut som följande exempel:
+Anslutnings strängen ser ut som i följande exempel:
 
 ```text
 HostName={repo host name};RepositoryId={repo ID};SharedAccessKeyName={repo key ID};SharedAccessKey={repo key secret}
@@ -66,11 +66,11 @@ När du har angett dessa fyra miljövariabler kör du exemplet på samma sätt s
 node model_repo.js
 ```
 
-Det här exemplet hämtar **Gränssnittet ModelDiscovery** och skriver ut den här modellen i terminalen.
+Det här exemplet laddar ned **ModelDiscovery** -gränssnittet och skriver ut den här modellen i terminalen.
 
-### <a name="run-queries-in-iot-hub-based-on-capability-models-and-interfaces"></a>Kör frågor i IoT Hub baserat på kapacitetsmodeller och gränssnitt
+### <a name="run-queries-in-iot-hub-based-on-capability-models-and-interfaces"></a>Köra frågor i IoT Hub baserade på kapacitets modeller och gränssnitt
 
-IoT Hub-frågespråket stöder `HAS_INTERFACE` och `HAS_CAPABILITYMODEL` som visas i följande exempel:
+IoT Hub frågespråk stöder `HAS_INTERFACE` och `HAS_CAPABILITYMODEL` som visas i följande exempel:
 
 ```sql
 select * from devices where HAS_INTERFACE('id without version', version)
@@ -80,20 +80,20 @@ select * from devices where HAS_INTERFACE('id without version', version)
 select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 ```
 
-### <a name="creating-digital-twin-routes"></a>Skapa digitala tvillingvägar
+### <a name="creating-digital-twin-routes"></a>Skapa digitala dubbla vägar
 
-Din lösning kan få meddelanden om digitala dubbla förändringshändelser. Om du vill prenumerera på dessa meddelanden använder du [routningsfunktionen för IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md) för att skicka meddelandena till en slutpunkt, till exempel blob storage, Event Hubs eller en Service Bus-kö.
+Din lösning kan ta emot aviseringar om digitala dubbla ändrings händelser. Om du vill prenumerera på dessa meddelanden använder du [funktionen IoT Hub routning](../iot-hub/iot-hub-devguide-endpoints.md) för att skicka meddelanden till en slut punkt, till exempel Blob storage, Event Hubs eller en Service Bus kö.
 
-Så här skapar du en digital tvillingväg:
+Så här skapar du en digital, dubbel väg:
 
-1. Gå till din IoT Hub-resurs i Azure-portalen.
-1. Välj **Meddelanderoutning**.
-1. På fliken **Rutter** väljer du **Lägg till**.
-1. Ange ett värde i fältet **Namn** och välj en **slutpunkt**. Om du inte har konfigurerat en slutpunkt väljer du **Lägg till slutpunkt**.
-1. I listrutan **Datakälla** väljer du **Händelser för ändring av digital tvilling**.
+1. I Azure Portal går du till din IoT Hub-resurs.
+1. Välj **meddelanderoutning**.
+1. Välj **Lägg till**på fliken **vägar** .
+1. Ange ett värde i fältet **namn** och välj en **slut punkt**. Om du inte har konfigurerat någon slut punkt väljer du **Lägg till slut punkt**.
+1. I list rutan **data källa** väljer du **digitala dubbla ändrings händelser**.
 1. Välj **Spara**.
 
-Följande JSON visar ett exempel på en digital twin change-händelse:
+Följande JSON visar ett exempel på en digital, dubbel ändrings händelse:
 
 ```json
 {
@@ -140,4 +140,4 @@ Följande JSON visar ett exempel på en digital twin change-händelse:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om servicelösningar som interagerar med dina IoT Plug and Play-enheter är ett förslag på nästa steg att lära dig mer om [modellidentifiering.](concepts-model-discovery.md)
+Nu när du har lärt dig om tjänst lösningar som interagerar med IoT Plug and Play-enheter är ett förslag till nästa steg att lära dig mer om [modell identifiering](concepts-model-discovery.md).

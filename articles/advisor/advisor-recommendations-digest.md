@@ -1,63 +1,63 @@
 ---
-title: Rekommendationssammandrag för Azure Advisor
-description: Få regelbundna sammanfattningar för dina aktiva rekommendationer
+title: Rekommendations sammandrag för Azure Advisor
+description: Hämta periodisk Sammanfattning för dina aktiva rekommendationer
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
 ms.openlocfilehash: 98f1bfd42a486e005cd1e777a83f5b615a7c8304
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502469"
 ---
-# <a name="configure-periodic-summary-for-recommendations"></a>Konfigurera periodisk sammanfattning för rekommendationer
+# <a name="configure-periodic-summary-for-recommendations"></a>Konfigurera regelbunden Sammanfattning för rekommendationer
 
-Advisor **rekommendation sammanfattningar** ger ett enkelt och proaktivt sätt att hålla koll på dina aktiva rekommendationer, över olika kategorier. Funktionen ger möjlighet att konfigurera regelbundna meddelanden för sammanfattningen av alla dina aktiva rekommendationer, över olika kategorier. Du kan välja önskad kanal för aviseringar som e-post, sms eller andra med hjälp av åtgärdsgrupper. Den här artikeln visar hur du konfigurerar en **rekommendationssammanfattning** för advisorrekommendationerna.
+Sammandrag av Advisor- **rekommendation** ger ett enkelt och proaktivt sätt att hålla koll på dina aktiva rekommendationer, i olika kategorier. Funktionen ger möjlighet att konfigurera periodiska meddelanden för sammanfattningen av alla dina aktiva rekommendationer, i olika kategorier. Du kan välja önskad kanal för meddelanden som e-post, SMS eller andra med hjälp av åtgärds grupper. Den här artikeln visar hur du konfigurerar ett **rekommendations sammandrag** för rekommendationerna i Advisor.
 
 
-## <a name="setting-up-your-recommendation-digest"></a>Ställa in din rekommendation sammanfattning 
+## <a name="setting-up-your-recommendation-digest"></a>Konfigurera din rekommendations sammandrag 
 
-**Rekommendationen sammanfattning** skapande erfarenhet hjälper dig att konfigurera sammanfattningen. Du kan välja nedan parametrar för konfigurationer:
-1. Kategori: Vi har rekommendation kategorier som kostnad, hög tillgänglighet, prestanda och operativ excellens. Funktionen är inte tillgänglig för säkerhetsrekommendationer ännu.
-2. Frekvensen av sammandrag: Frekvens för sammanfattning anmälningar kan vara varje vecka, varannan vecka och varje månad.
-3. Åtgärdsgrupp: Du kan antingen välja en befintlig åtgärdsgrupp eller skapa en ny åtgärdsgrupp. Mer information om åtgärdsgrupper finns i [skapa och hantera åtgärdsgrupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
-4. Språk för sammandraget
-5. Rekommendation sammanfattning namn: Du kan använda en användarvänlig sträng för att bättre spåra och övervaka digests.
+**Rekommendationen** att skapa sammandrag hjälper dig att konfigurera sammanfattningen. Du kan välja följande parametrar för konfigurationer:
+1. Kategori: vi har rekommendations kategorier som kostnad, hög tillgänglighet, prestanda och drift kvalitet. Funktionen är inte tillgänglig för säkerhets rekommendationer än.
+2. Frekvensen sammandrag: frekvensen för sammanfattnings meddelanden kan vara veckovis, varannan vecka och varje månad.
+3. Åtgärds grupp: du kan antingen välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp. Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+4. Språk för sammanfattningen
+5. Namn på rekommendations sammandrag: du kan använda en användarvänlig sträng för att bättre spåra och övervaka sammanfattningarna.
 
-## <a name="steps-to-create-recommendation-digest-in-azure-portal"></a>Steg för att skapa rekommendationssammandrag i Azure-portalen
+## <a name="steps-to-create-recommendation-digest-in-azure-portal"></a>Steg för att skapa rekommendations sammandrag i Azure Portal
 
-Här är stegen för att skapa **rekommendationssammandrag:**
-* **Steg 1:** I Azure-portalen går du till **Advisor** och under **Övervakningsavsnitt** väljer du **Rekommendationssammandrag** 
+Här följer stegen för att skapa **rekommendation sammandrag:**
+* **Steg 1:** I Azure Portal går du till **Advisor** och under avsnittet **övervakning** väljer du **rekommendation sammandrag** 
 
-   ![Ingångspunkt för rekommendationssammandrag](./media/digest-0.png)
+   ![Rekommendation sammandrag post-Point](./media/digest-0.png)
 
-* **Steg 2:** Välj **Ny rekommendation sammandrag** från det övre fältet enligt nedan:
+* **Steg 2:** Välj **ny rekommendation sammandrag** från översta raden enligt nedan:
 
-   ![Skapa rekommendationssammandrag](./media/digest-5.png)
+   ![Skapa rekommendations sammandrag](./media/digest-5.png)
 
-* **Steg 3:** I **avsnittet om omfattning** väljer du **prenumerationen** för sammanfattningen
+* **Steg 3:** I avsnittet **omfattning** väljer du **prenumerationen** för din sammanfattning
 
-   ![Ge rekommendationssammandragingångar](./media/digest-1.png)
+   ![Tillhandahåll sammanfattnings indata för rekommendation](./media/digest-1.png)
 
-* **Steg 4:** I **villkorsavsnittet** väljer du konfigurationer som **kategori,** **frekvens** och **språk**
+* **Steg 4:** I avsnittet **villkor** väljer du konfigurationer som **kategori**, **frekvens** och **språk**
 
-   ![Ge inmatningsvillkor för rekommendationssammandrag](./media/digest-2.png)
+   ![Tillhandahåll ingångs villkor för rekommendations Sammanfattning](./media/digest-2.png)
 
-* **Steg 5:** Välj **åtgärdsgruppen** för sammanfattningen i **åtgärdsgruppavsnittet.** Du kan läsa mer här - [Skapa och hantera åtgärdsgrupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* **Steg 5:** I avsnittet **Åtgärds grupp** väljer du **Åtgärds gruppen** för sammanfattningen. Du kan lära dig mer här – [skapa och hantera åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 
-   ![Ange åtgärdsgrupp för indatainmatning av rekommendation](./media/digest-3.png)
+   ![Tillhandahåll åtgärds grupp för sammanfattning av rekommendation](./media/digest-3.png)
 
-* **Steg 6:** I det här sista avsnittet för **sammanfattningsinformation**kan du tilldela namn och tillstånd till din rekommendationssammandrag. Tryck **på skapa rekommendationssammandrag** för att slutföra upplägget.
-   ![Fullständig skapande av rekommendationssammandrag](./media/digest-4.png)
+* **Steg 6:** I det här sista avsnittet för **sammanfattnings information**kan du tilldela namn och tillstånd till din rekommendation sammandrag. Klicka på **skapa rekommendation sammandrag** för att slutföra inställningen.
+   ![Slutför skapande av rekommendations sammandrag](./media/digest-4.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Advisor-rekommendationer finns i:
 * [Introduktion till Azure Advisor](advisor-overview.md)
 * [Kom igång med Advisor](advisor-get-started.md)
-* [Kostnadsrekommendationer för rådgivare](advisor-cost-recommendations.md)
-* [Advisors prestandarekommendationer](advisor-performance-recommendations.md)
-* [Säkerhetsrekommendationer för rådgivare](advisor-security-recommendations.md)
-* [Advisor Operational Excellence rekommendationer](advisor-operational-excellence-recommendations.md)
-* [REST-API för rådgivare](https://docs.microsoft.com/rest/api/advisor/)
+* [Rekommendationer om Advisor-kostnader](advisor-cost-recommendations.md)
+* [Rekommendationer för Advisor-prestanda](advisor-performance-recommendations.md)
+* [Rekommendationer för Advisor-säkerhet](advisor-security-recommendations.md)
+* [Rekommendationer om operativa rekommendationer](advisor-operational-excellence-recommendations.md)
+* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)

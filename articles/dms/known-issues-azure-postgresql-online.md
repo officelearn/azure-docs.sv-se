@@ -1,7 +1,7 @@
 ---
-title: 'Kända problem: Onlinemigreringar från PostgreSQL till Azure Database för PostgreSQL'
+title: 'Kända problem: online-migreringar från PostgreSQL till Azure Database for PostgreSQL'
 titleSuffix: Azure Database Migration Service
-description: Lär dig mer om kända problem och migreringsbegränsningar med onlinemigreringar från PostgreSQL till Azure Database för PostgreSQL med hjälp av Azure Database Migration Service.
+description: Läs om kända problem och begränsningar för migrering med online-migrering från PostgreSQL till Azure Database for PostgreSQL med hjälp av Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -15,36 +15,36 @@ ms.custom:
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 3d1bc627ccb8814ab2dfb61fb0653ef0ac644038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235268"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Kända problem/migreringsbegränsningar med onlinemigreringar från PostgreSQL till Azure DB för PostgreSQL
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Kända problem/migrerings begränsningar med online-migreringar från PostgreSQL till Azure DB för PostgreSQL
 
-Kända problem och begränsningar som är associerade med onlinemigreringar från PostgreSQL till Azure Database för PostgreSQL beskrivs i följande avsnitt.
+Kända problem och begränsningar som är kopplade till online-migreringar från PostgreSQL till Azure Database for PostgreSQL beskrivs i följande avsnitt.
 
-## <a name="online-migration-configuration"></a>Konfiguration av onlinemigrering
+## <a name="online-migration-configuration"></a>Konfiguration av online-migrering
 
-- Källan PostgreSQL-servern måste köra version 9.4, 9.5, 9.6, 10 eller 11. Mer information finns i artikeln [Versioner av PostgreSQL Database som stöds](../postgresql/concepts-supported-versions.md).
-- Endast migreringar till samma eller en högre version stöds. Det stöds till exempel att migrera PostgreSQL 9.5 till Azure Database för PostgreSQL 9.6 eller 10, men det går inte att migrera från PostgreSQL 11 till PostgreSQL 9.6.
-- Om du vill aktivera logisk replikering i **källfilen PostgreSQL postgresql.conf** anger du följande parametrar:
+- Käll-PostgreSQL-servern måste köra version 9,4, 9,5, 9,6, 10 eller 11. Mer information finns i artikeln [Versioner av PostgreSQL Database som stöds](../postgresql/concepts-supported-versions.md).
+- Endast migreringar till samma eller en senare version stöds. Till exempel stöds migrering av PostgreSQL 9,5 till Azure Database for PostgreSQL 9,6 eller 10, men migrering från PostgreSQL 11 till PostgreSQL 9,6 stöds inte.
+- Om du vill aktivera logisk replikering i filen **Source postgresql postgresql. conf** anger du följande parametrar:
   - **wal_level** = logisk
-  - **max_replication_slots** = [minst maximalt antal databaser för migrering]; Om du vill migrera fyra databaser anger du värdet till minst 4.
+  - **max_replication_slots** = [minst Max antal databaser för migrering]; Om du vill migrera fyra databaser ställer du in värdet på minst 4.
   - **max_wal_senders** = [antal databaser som körs samtidigt]; det rekommenderade värdet är 10
-- Lägg till DMS-agent-IP i källan PostgreSQL pg_hba.conf
-  1. Anteckna DMS IP-adress när du har etablerat en instans av Azure Database Migration Service.
-  2. Lägg till IP-adressen i filen pg_hba.conf enligt bilden:
+- Lägg till DMS-agentens IP-adress till källan PostgreSQL pg_hba. conf
+  1. Anteckna DMS-IP-adressen när du har slutfört etableringen av en instans av Azure Database Migration Service.
+  2. Lägg till IP-adressen i filen pg_hba. conf som visas:
 
       ```
           host  all     172.16.136.18/10    md5
           host  replication postgres    172.16.136.18/10    md5
       ```
 
-- Användaren måste ha rollen REPLIKERING på servern som är värd för källdatabasen.
-- Käll- och måldatabasscheman måste matchas.
-- Schemat i målet Azure Database för PostgreSQL-Single-server får inte ha externa nycklar. Använd följande fråga för att släppa externa nycklar:
+- Användaren måste ha REPLIKERINGSPRINCIPEN på den server som är värd för käll databasen.
+- Käll-och mål databasens scheman måste vara identiska.
+- Schemat i mål Azure Database for PostgreSQL-en server får inte ha sekundär nycklar. Använd följande fråga om du vill ta bort sekundär nycklar:
 
     ```
                                 SELECT Queries.tablename
@@ -75,49 +75,49 @@ Kända problem och begränsningar som är associerade med onlinemigreringar frå
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
-- Schemat i målet Azure Database för PostgreSQL-Single-server får inte ha några utlösare. Använd följande för att inaktivera utlösare i måldatabasen:
+- Schemat i mål Azure Database for PostgreSQL-en server får inte ha några utlösare. Använd följande för att inaktivera utlösare i mål databasen:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
 
-## <a name="datatype-limitations"></a>Begränsningar för datatyp
+## <a name="datatype-limitations"></a>Begränsningar för data typer
 
-  **Begränsning**: Om det inte finns någon primärnyckel på tabeller kan det hända att ändringar inte synkroniseras med måldatabasen.
+  **Begränsning**: om det inte finns någon primär nyckel för tabeller, kanske ändringarna inte synkroniseras med mål databasen.
 
-  **Lösning**: Ange tillfälligt en primärnyckel för tabellen för att migrering ska fortsätta. Du kan ta bort primärnyckeln när datamigrering har slutförts.
+  **Lösning**: temporärt ange en primär nyckel för tabellen för migrering för att fortsätta. Du kan ta bort den primära nyckeln när migreringen är klar.
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Begränsningar vid migrering online från AWS RDS PostgreSQL
 
-NÃ¤r du fÃ¶rsÃ¶ks en onlinemigrering frÃ¶rs frÃ¶r AWS RDS PostgreSQL till Azure Database for PostgreSQL kan fÃ¶lja fÃ¶ringar av fÃ¶rsÃ¶kningar uppstÃ¶r.
+När du försöker utföra en online-migrering från AWS RDS PostgreSQL till Azure Database for PostgreSQL kan du stöta på följande fel.
 
-- **Fel:** Standardvärdet för kolumnen {column} i tabellen {table} i databasen {database} skiljer sig åt på käll- och målservrar. Det har ”{value on source}” i källan och ”{value on target}” i målet.
+- **Fel**: standardvärdet för kolumnen {Column} i tabellen {Table} i databasen {Database} är inte samma på käll-och mål servrarna. Det har ”{value on source}” i källan och ”{value on target}” i målet.
 
-  **Begränsning**: Det här felet uppstår när standardvärdet i ett kolumnschema skiljer sig mellan käll- och måldatabaserna.
-  **Lösning**: Se till att schemat på målet matchar schemat på källan. Mer information om migreringsschema finns i [azure postgresql-dokumentationen för onlinemigrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Begränsning**: det här felet uppstår när standardvärdet i ett kolumn schema skiljer sig mellan käll-och mål databaserna.
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Fel:** Måldatabasen {database} har {antal tabeller} tabeller där som källdatabasen {database} har register {antal tabeller}. Antalet tabeller i käll- och måldatabaserna måste vara lika många.
+- **Fel**: mål databasen {Database} innehåller {Number of tables}-tabeller där som käll databasen {Database} har {Number of tables} tabeller. Antalet tabeller i käll- och måldatabaserna måste vara lika många.
 
-  **Begränsning**: Det här felet uppstår när antalet tabeller skiljer sig mellan käll- och måldatabaserna.
+  **Begränsning**: det här felet uppstår när antalet tabeller skiljer sig mellan käll-och mål databaserna.
 
-  **Lösning**: Se till att schemat på målet matchar schemat på källan. Mer information om migreringsschema finns i [azure postgresql-dokumentationen för onlinemigrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Fel:** Källdatabasen {database} är tom.
+- **Fel:** Käll databasen {Database} är tom.
 
-  **Begränsning**: Det här felet uppstår när källdatabasen är tom. Det beror troligen på att du har valt fel databas som källa.
+  **Begränsning**: det här felet uppstår när käll databasen är tom. Det beror förmodligen på att du har valt fel databas som källa.
 
-  **Lösning**: Dubbelkolla källdatabasen som du har valt för migrering och försök sedan igen.
+  **Lösning**: kontrol lera den käll databas som du har valt för migrering och försök sedan igen.
 
-- **Fel:** Måldatabasen {database} är tom. Migrera schemat.
+- **Fel:** Mål databasen {Database} är tom. Migrera schemat.
 
-  **Begränsning**: Det här felet uppstår när det inte finns något schema i måldatabasen. Kontrollera att schemat för målet matchar schemat på källan.
-  **Lösning**: Se till att schemat på målet matchar schemat på källan. Mer information om migreringsschema finns i [azure postgresql-dokumentationen för onlinemigrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Begränsning**: det här felet uppstår när det inte finns något schema i mål databasen. Kontrol lera att schemat på målet matchar schemat på källan.
+  **Lösning**: kontrol lera att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Andra begränsningar
 
-- Databasnamnet får inte innehålla ett semikolon (;).
-- En infångad tabell måste ha en primärnyckel. Om en tabell inte har en primärnyckel blir resultatet av poståtgärder för DELETE och UPDATE oförutsägbara.
-- Uppdatering av ett primärnyckelsegment ignoreras. I sådana fall identifieras en sådan uppdatering av målet som en uppdatering som inte har uppdaterat några rader och resulterar i en post som skrivits till undantagstabellen.
-- Migrering av flera tabeller med samma namn men ett annat ärende (t.ex. tabell1, TABELL1 och Tabell1) kan orsaka oförutsägbart beteende och stöds därför inte.
-- Ändringsbearbetning av [CREATE | ALTER | DROP | Kort trunkera-tabell-DDLs stöds inte.
-- I Azure Database Migration Service kan en enda migreringsaktivitet endast rymma upp till fyra databaser.
+- Databas namnet får inte innehålla semikolon (;).
+- En uppfångad tabell måste ha en primär nyckel. Om en tabell inte har en primär nyckel, blir resultatet av åtgärderna ta bort och uppdatera post oförutsägbart.
+- Uppdatering av ett primär nyckel segment ignoreras. I sådana fall identifieras en sådan uppdatering av målet som en uppdatering som inte uppdaterade några rader och resulterar i att en post skrivs till tabellen undantag.
+- Migrering av flera tabeller med samma namn, men ett annat fall (t. ex. TABLE1, TABLE1 och Table1) kan orsaka oförutsägbart beteende och stöds därför inte.
+- Ändrings bearbetning av [CREATE | ÄNDRA | SLÄPP | TRUNKERA] tabellen DDLs stöds inte.
+- I Azure Database Migration Service kan en enda migrerings aktivitet bara hantera upp till fyra databaser.

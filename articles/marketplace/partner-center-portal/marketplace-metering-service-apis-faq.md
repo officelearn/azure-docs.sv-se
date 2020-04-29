@@ -1,6 +1,6 @@
 ---
-title: Api:er för marknadstjänster för marknadsplatsmätning – vanliga frågor och svar | Azure Marketplace
-description: Avge användning av ett SaaS-erbjudande på Azure Marketplace.
+title: 'API: er för Marketplace avläsning av tjänst – vanliga frågor och svar | Azure Marketplace'
+description: Generera användning av ett SaaS-erbjudande på Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,47 +8,47 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 6e5b691a41ef283449f9eeeb90e9d01a91616146
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275789"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>API:er för Marketplace Metering Service – vanliga frågor och svar
 
-När en Azure-användare prenumererar på en SaaS-tjänst som innehåller fakturering med datapriser spårar du förbrukning för varje faktureringsdimension som används av kunden. Om förbrukningen överskrider de inkluderade kvantiteter som angetts för den term som kunden har valt, kommer tjänsten att skicka ut användningshändelser till Microsoft.
+När en Azure-användare prenumererar på en SaaS-tjänst som inkluderar mätning av mätare spårar du förbrukningen för varje fakturerings dimension som används av kunden. Om förbrukningen överskrider den inkluderade mängden som har angetts för den period som kunden har valt, kommer tjänsten att generera användnings händelser till Microsoft.
 
-## <a name="emit-usage-events"></a>Avge användningshändelser
+## <a name="emit-usage-events"></a>Genererar användnings händelser
 
 >[!Note]
->Detta avsnitt gäller endast för SaaS-erbjudanden, där minst en av planerna har mättjänstdimensioner definierade vid tidpunkten för publiceringen av erbjudandet.
+>Det här avsnittet gäller endast för SaaS-erbjudanden, där minst ett av planerna har mått för tjänste dimensioner som definieras vid tidpunkten för publiceringen av erbjudandet.
 
-![Avge användningshändelser](media/isv-emits-usage-event.png)
+![Genererar användnings händelser](media/isv-emits-usage-event.png)
 
-Se [SaaS-batchanvändningshändelse-API:et](./marketplace-metering-service-apis.md#batch-usage-event) för information om API-kontraktet för avgivande av användningshändelser.
+Se [händelse-API: et för batch-SaaS](./marketplace-metering-service-apis.md#batch-usage-event) för information om API-kontraktet för sändning av användnings händelser.
 
-### <a name="how-often-is-it-expected-to-emit-usage"></a>Hur ofta förväntas det att avge användning?
+### <a name="how-often-is-it-expected-to-emit-usage"></a>Hur ofta förväntas att kunna generera användning?
 
-Helst förväntas du avge användning varje timme under den senaste timmen, endast om det finns användning i föregående timme.
+Vi rekommenderar att du genererar användning varje timme den senaste timmen, bara om det finns användning i föregående timme.
 
-### <a name="what-is-the-maximum-delay-between-the-time-an-event-occurs-and-the-time-a-usage-event-is-emitted-to-microsoft"></a>Vad är den maximala fördröjningen mellan den tidpunkt då en händelse inträffar och den tidpunkt då en användningshändelse avges till Microsoft?
+### <a name="what-is-the-maximum-delay-between-the-time-an-event-occurs-and-the-time-a-usage-event-is-emitted-to-microsoft"></a>Vad är den maximala fördröjningen mellan tiden en händelse inträffar och hur länge en användnings händelse skickas till Microsoft?
 
-Helst avges användningshändelse varje timme för händelser som inträffat under den senaste timmen. Förseningar väntas dock. Den maximala tillåtna fördröjningen är 24 timmar, varefter användningshändelser inte accepteras.
+Vi rekommenderar att användnings händelsen genereras varje timme för händelser som inträffat under den senaste timmen. Fördröjningar förväntas dock. Högsta tillåtna fördröjning är 24 timmar, efter vilken användnings händelser inte kommer att godkännas.
 
-Om till exempel en användningshändelse inträffar klockan 13.00 på en dag har du fram till 13.00 nästa dag på dig att avge en användningshändelse som är associerad med den här händelsen. Detta innebär att när det gäller systemet avger användning har en ner tid, kan det återställa och sedan skicka användningshändelsen för timintervallet där användningen inträffade, utan förlust av trohet.
+Om en användnings händelse inträffar till en dag på en dag, har du till och med 1 PM på nästa dag för att generera en användnings händelse som är associerad med den här händelsen. Det innebär att den system som avger användningen har en drifts tid, kan återställas och sedan skicka användnings händelsen för det tidsintervall då användningen skedde, utan att du förlorar åter givningen.
 
-### <a name="what-happens-when-you-send-more-than-one-usage-event-on-the-same-hour"></a>Vad händer när du skickar mer än en användningshändelse samma timme?
+### <a name="what-happens-when-you-send-more-than-one-usage-event-on-the-same-hour"></a>Vad händer när du skickar fler än en användnings händelse på samma timme?
 
-Endast en användningshändelse accepteras för timintervallet. Timintervallet börjar minut 0 och slutar minut 59.  Om mer än en användningshändelse avges för samma timintervall, tas alla efterföljande användningshändelser bort som dubbletter.
+Endast en användnings händelse godkänns för Tim intervallet. Tim intervallet börjar vid minut 0 och slutar vid minut 59.  Om fler än en användnings händelse genereras för samma Tim intervall, släpps efterföljande användnings händelser som dubbletter.
 
-### <a name="what-happens-when-you-emit-usage-for-a-saas-subscription-that-has-been-unsubscribed-already"></a>Vad händer när du avger användning för en SaaS-prenumeration som redan har avslutat prenumerationen?
+### <a name="what-happens-when-you-emit-usage-for-a-saas-subscription-that-has-been-unsubscribed-already"></a>Vad händer när du genererar användning för en SaaS-prenumeration som redan har avbrutit prenumerationen?
 
-Alla användningshändelseer som släpps ut till marknadsplatsplattformen accepteras inte när en SaaS-prenumeration har tagits bort.
+All användnings händelse som släpps till Marketplace-plattform godkänns inte efter att en SaaS-prenumeration har tagits bort.
 
-### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>Kan du få en lista över alla SaaS-prenumerationer, inklusive aktiva och avprenumerade prenumerationer?
+### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>Kan du hämta en lista över alla SaaS-prenumerationer, inklusive aktiva och avbrutna prenumerationer?
 
-Ja, när du `GET /saas/subscriptions` anropar API:et innehåller det en lista över alla SaaS-prenumerationer. Statusfältet i svaret för varje SaaS-prenumeration fångar om prenumerationen är aktiv eller avsluta prenumerationen. Anropet till listan Prenumerationer returnerar högst 100 prenumerationer vid den tidpunkten.
+Ja, när du anropar `GET /saas/subscriptions` API: et innehåller en lista över alla SaaS-prenumerationer. Fältet Status i svaret för varje SaaS-prenumeration fångar om prenumerationen är aktiv eller inte prenumererad. Anropet till List-prenumerationer returnerar högst 100 prenumerationer för tillfället.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information [finns i API:er](./marketplace-metering-service-apis.md) för tjänsten Marketplace för mer information.
+- Mer information finns i [API: er för API för avläsning av tjänst](./marketplace-metering-service-apis.md) .

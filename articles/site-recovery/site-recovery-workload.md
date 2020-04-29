@@ -4,10 +4,10 @@ description: Beskriver de arbetsbelastningar som kan skyddas med haveriberedskap
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 2b901425a0020c0ccc7b834ee36d965910028018
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062841"
 ---
 # <a name="about-disaster-recovery-for-on-premises-apps"></a>Om haveriberedskap för lokala appar
@@ -108,8 +108,8 @@ Följande tabell visar alternativen för replikering:
 
 | **Fjärrskrivbordstjänster** |**Replikera virtuella Azure-datorer till Azure** | **Replikera virtuella Hyper-V-datorer till en sekundär plats** | **Replikera Hyper-V-VM:ar till Azure** | **Replikera VMware-VM:ar till en sekundär plats** | **Replikera virtuella VMware-datorer till Azure** | **Replikera fysiska servrar till en sekundär plats** | **Replikera fysiska servrar till Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Poolat virtuellt skrivbord (ohanterat)** |Inga|Ja |Inga |Ja |Inga |Ja |Inga |
-| **Poolat virtuellt skrivbord (hanterat och utan UPD)** |Inga|Ja |Inga |Ja |Inga |Ja |Inga |
+| **Poolat virtuellt skrivbord (ohanterat)** |Nej|Ja |Nej |Ja |Nej |Ja |Nej |
+| **Poolat virtuellt skrivbord (hanterat och utan UPD)** |Nej|Ja |Nej |Ja |Nej |Ja |Nej |
 | **Fjärrprogram och skrivbordssessioner (utan UPD)** |Ja|Ja |Ja |Ja |Ja |Ja |Ja |
 
 [Läs mer](/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure) om haveri beredskap för fjärr skrivbords tjänster.

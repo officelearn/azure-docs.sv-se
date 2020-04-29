@@ -1,6 +1,6 @@
 ---
-title: Migrera Azure-brandväggskonfigurationer till Azure-brandväggsprincipen (förhandsversion) med PowerShell
-description: Lär dig hur du migrerar Azure-brandväggskonfigurationer till Azure Firewall-principen (förhandsversion)
+title: Migrera Azure Firewall-konfigurationer till Azure Firewall policy (för hands version) med PowerShell
+description: Lär dig hur du migrerar Azure Firewall-konfigurationer till en Azure Firewall-princip (för hands version)
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 498863c98f308a9fd9b47f80328d572187475901
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77443116"
 ---
-# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Migrera Azure-brandväggskonfigurationer till Azure-brandväggsprincipen (förhandsversion) med Powershell
+# <a name="migrate-azure-firewall-configurations-to-azure-firewall-policy-preview-using-powershell"></a>Migrera Azure Firewall-konfigurationer till Azure Firewall policy (för hands version) med PowerShell
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Du kan använda ett Azure PowerShell-skript för att migrera befintliga Azure-brandväggskonfigurationer till en principresurs för Azure-brandväggen. Du kan sedan använda Azure Firewall Manager för att distribuera principen.
+Du kan använda ett Azure PowerShell-skript för att migrera befintliga Azure Firewall-konfigurationer till en Azure Firewall policy-resurs. Sedan kan du använda Azure Firewall Manager för att distribuera principen.
 
-Skriptet `AZFWMigrationScript.ps1` skapar en FirewallPolicy med tre RuleCollectionGroup-objekt för ApplicationRuleCollections, NetworkRuleCollections och NatRuleCollections respektive. 
+`AZFWMigrationScript.ps1` Skriptet skapar en FirewallPolicy med tre RuleCollectionGroup-objekt för ApplicationRuleCollections, NetworkRuleCollections respektive NatRuleCollections. 
 
-En RuleCollectionGroup är en ny gruppering på den högsta nivån för regelsamlingar för framtida utökningsbarhet. Användning av ovanstående standardvärden rekommenderas och görs automatiskt från portalen.
+En RuleCollectionGroup är en ny grupp på översta nivån för regel samlingar för framtida utöknings barhet. Vi rekommenderar att du använder ovanstående standardinställningar och görs automatiskt från portalen.
 
-Början av skriptet definierar källbrandväggens namn och resursgrupp och målprincipens namn och plats. Ändra dessa värden som lämpliga för din organisation.
+Början av skriptet definierar käll brand väggens namn och resurs grupp och mål Principens namn och plats. Ändra värdena efter behov för din organisation.
 
-## <a name="migration-script"></a>Skript för migrering
+## <a name="migration-script"></a>Migrations skript
 
-Ändra följande skript för att migrera brandväggskonfigurationen.
+Ändra följande skript för att migrera brand Väggs konfigurationen.
 
 ```azurepowershell
 #Input params to be modified as needed
@@ -161,4 +161,4 @@ If ($azfw.NatRuleCollections.Count -gt 0) {
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Distribution av Azure Firewall Manager: [Förhandsversion av Azure Firewall Manager](deployment-overview.md).
+Läs mer om Azure Firewall Manager-distribution: [Översikt över Azure Firewall Manager Preview Deployment](deployment-overview.md).

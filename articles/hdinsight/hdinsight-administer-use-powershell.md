@@ -1,6 +1,6 @@
 ---
-title: Hantera Apache Hadoop-kluster med PowerShell – Azure HDInsight
-description: Lär dig hur du utför administrativa uppgifter för Apache Hadoop-kluster i HDInsight med Azure PowerShell.
+title: Hantera Apache Hadoop kluster med PowerShell – Azure HDInsight
+description: Lär dig hur du utför administrativa uppgifter för Apache Hadoop kluster i HDInsight med Azure PowerShell.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/13/2020
 ms.openlocfilehash: 104975e6424ed96d43434a588997957033c31d93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77560362"
 ---
-# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure PowerShell
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hantera Apache Hadoop kluster i HDInsight med Azure PowerShell
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbetsbelastningar i Azure. I den här artikeln får du lära dig hur du hanterar [Apache Hadoop-kluster](https://hadoop.apache.org/) i Azure HDInsight med hjälp av Azure PowerShell Az-modulen. Listan över HDInsight PowerShell-cmdlets finns i [Az.HDInsight-referensen](https://docs.microsoft.com/powershell/module/az.hdinsight).
+Azure PowerShell kan användas för att styra och automatisera distributionen och hanteringen av dina arbets belastningar i Azure. I den här artikeln får du lära dig hur du hanterar [Apache Hadoop](https://hadoop.apache.org/) kluster i Azure HDInsight med hjälp av modulen Azure PowerShell AZ. En lista med PowerShell-cmdletar för HDInsight finns i [referens för AZ. HDInsight](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-PowerShell [Az-modulen](https://docs.microsoft.com/powershell/azure/overview) är installerad.
+PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/overview) är installerad.
 
 ## <a name="create-clusters"></a>Skapa kluster
 
-Se [Skapa Linux-baserade kluster i HDInsight med Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+Se [skapa Linux-baserade kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
 ## <a name="list-clusters"></a>Lista kluster
 
@@ -43,7 +43,7 @@ Get-AzHDInsightCluster
 
 ## <a name="show-cluster"></a>Visa kluster
 
-Använd följande kommando för att visa information om ett visst kluster i den aktuella prenumerationen:
+Använd följande kommando för att visa information om ett särskilt kluster i den aktuella prenumerationen:
 
 ```powershell
 Get-AzHDInsightCluster -ClusterName <Cluster Name>
@@ -57,7 +57,7 @@ Använd följande kommando för att ta bort ett kluster:
 Remove-AzHDInsightCluster -ClusterName <Cluster Name>
 ```
 
-Du kan också ta bort ett kluster genom att ta bort resursgruppen som innehåller klustret. Om du tar bort en resursgrupp tas alla resurser i gruppen bort, inklusive standardlagringskontot.
+Du kan också ta bort ett kluster genom att ta bort resurs gruppen som innehåller klustret. Om du tar bort en resurs grupp tas alla resurser i gruppen bort, inklusive standard lagrings kontot.
 
 ```powershell
 Remove-AzResourceGroup -Name <Resource Group Name>
@@ -65,17 +65,17 @@ Remove-AzResourceGroup -Name <Resource Group Name>
 
 ## <a name="scale-clusters"></a>Skala kluster
 
-Med klusterskalningsfunktionen kan du ändra antalet arbetsnoder som används av ett kluster som körs i Azure HDInsight utan att behöva återskapa klustret. Om du vill ändra Hadoop-klusterstorleken med Hjälp av Azure PowerShell kör du följande kommando från en klientdator:
+Med funktionen för kluster skalning kan du ändra antalet arbetsnoder som används av ett kluster som körs i Azure HDInsight utan att behöva skapa klustret på nytt. Om du vill ändra kluster storleken för Hadoop genom att använda Azure PowerShell kör du följande kommando från en klient dator:
 
 ```powershell
 Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
- Mer information om skalning av kluster finns i [Skala HDInsight-kluster](./hdinsight-scaling-best-practices.md).
+ Mer information om hur du skalar kluster finns i [skala HDInsight-kluster](./hdinsight-scaling-best-practices.md).
 
-## <a name="update-http-user-credentials"></a>Uppdatera HTTP-användaruppgifter
+## <a name="update-http-user-credentials"></a>Uppdatera HTTP-användarautentiseringsuppgifter
 
-[Set-AzHDInsightGatewayCredential](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightgatewaycredential) anger HTTP-autentiseringsuppgifter för gatewayen för ett Azure HDInsight-kluster.
+[Set-AzHDInsightGatewayCredential](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightgatewaycredential) anger gatewayens http-autentiseringsuppgifter för ett Azure HDInsight-kluster.
 
 ```powershell
 $clusterName = "CLUSTERNAME"
@@ -84,9 +84,9 @@ $credential = Get-Credential -Message "Enter the HTTP username and password:" -U
 Set-AzHDInsightGatewayCredential -ClusterName $clusterName -HttpCredential $credential
 ```
 
-## <a name="find-the-default-storage-account"></a>Hitta standardlagringskontot
+## <a name="find-the-default-storage-account"></a>Hitta standard lagrings kontot
 
-Följande PowerShell-skript visar hur du hämtar standardkontonamnet för lagring och den relaterade informationen:
+Följande PowerShell-skript visar hur du hämtar standard namnet för lagrings kontot och relaterad information:
 
 ```powershell
 #Connect-AzAccount
@@ -111,9 +111,9 @@ if ($defaultStoreageType -eq "blob")
 }
 ```
 
-## <a name="find-the-resource-group"></a>Hitta resursgruppen
+## <a name="find-the-resource-group"></a>Hitta resurs gruppen
 
-I resource manager-läget tillhör varje HDInsight-kluster en Azure-resursgrupp.  Så här hittar du resursgruppen:
+I Resource Manager-läge tillhör varje HDInsight-kluster en Azure-resurs grupp.  Så här hittar du resurs gruppen:
 
 ```powershell
 $clusterName = "<HDInsight Cluster Name>"
@@ -126,29 +126,29 @@ $resourceGroupName = $cluster.ResourceGroup
 
 **Så här skickar du MapReduce-jobb**
 
-Se [Kör mapreduce-exemplen som ingår i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Se [köra MapReduce-exemplen som ingår i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Så här skickar du Apache Hive-jobb**
+**Skicka Apache Hive jobb**
 
-Se [Köra Apache Hive-frågor med PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+Se [kör Apache Hive frågor med PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Så här skickar du Apache Sqoop-jobb**
+**Skicka Apache Sqoop-jobb**
 
-Se [Använd Apache Sqoop med HDInsight](hadoop/hdinsight-use-sqoop.md).
+Se [använda Apache Sqoop med HDInsight](hadoop/hdinsight-use-sqoop.md).
 
-**Så här skickar du Apache Oozie-jobb**
+**Skicka Apache Oozie-jobb**
 
-Se [Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde i HDInsight](hdinsight-use-oozie-linux-mac.md).
+Se [använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbets flöde i HDInsight](hdinsight-use-oozie-linux-mac.md).
 
-## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure Blob-lagring
+## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure Blob Storage
 
 Mer information finns i [Överföra data till HDInsight](hdinsight-upload-data.md).
 
 ## <a name="see-also"></a>Se även
 
-* [Az.HDInsight-cmdlets](https://docs.microsoft.com/powershell/module/az.hdinsight/?view=azps-3.1.0#hdinsight)
-* [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen](hdinsight-administer-use-portal-linux.md)
-* [Administrera HDInsight med hjälp av ett kommandoradsgränssnitt](hdinsight-administer-use-command-line.md)
+* [AZ. HDInsight-cmdletar](https://docs.microsoft.com/powershell/module/az.hdinsight/?view=azps-3.1.0#hdinsight)
+* [Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal](hdinsight-administer-use-portal-linux.md)
+* [Administrera HDInsight med ett kommando rads gränssnitt](hdinsight-administer-use-command-line.md)
 * [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
-* [Skicka Apache Hadoop jobb programmässigt](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Skicka Apache Hadoop jobb program mässigt](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)

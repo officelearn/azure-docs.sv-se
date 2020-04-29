@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
 ms.openlocfilehash: 1c2196f1f834002b76dbea555b54a5162655ec1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77205734"
 ---
 ## <a name="local-settings-file"></a>Fil för lokala inställningar
@@ -37,7 +37,7 @@ Den lokala. Settings. JSON-filen lagrar inställningar för appar, anslutnings s
 
 De här inställningarna stöds när du kör projekt lokalt:
 
-| Inställning      | Beskrivning                            |
+| Inställningen      | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | När den här inställningen är inställd `true`på krypteras alla värden med en lokal dator nyckel. Används med `func settings` -kommandon. Standardvärdet `false`är. |
 | **`Values`** | Matris med program inställningar och anslutnings strängar som används när ett projekt körs lokalt. Dessa nyckel värdes par (sträng sträng) motsvarar program inställningarna i din Function-app i Azure, t. [`AzureWebJobsStorage`]ex.. Många utlösare och bindningar har en egenskap som refererar till en app-inställning för `Connection` anslutnings strängen, till exempel för [Blob Storage-utlösaren](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). För dessa egenskaper behöver du en program inställning som definierats i `Values` matrisen. <br/>[`AzureWebJobsStorage`]är en obligatorisk app-inställning för andra utlösare än HTTP. <br/>Version 2. x och högre av Functions-körningen kräver`FUNCTIONS_WORKER_RUNTIME`inställningen [], som genereras för ditt projekt med Core-verktyg. <br/> När du har installerat [Azure Storage-emulatorn](../articles/storage/common/storage-use-emulator.md) lokalt och du [`AzureWebJobsStorage`] har `UseDevelopmentStorage=true`angett, använder kärn verktygen emulatorn. Emulatorn är användbar under utvecklingen, men du bör testa med en faktisk lagrings anslutning före distributionen.<br/> Värden måste vara strängar och inte JSON-objekt eller matriser. Inställnings namn får inte innehålla kolon`:`() eller dubbel understrykning (`__`). Dessa tecken reserveras av körnings miljön.  |

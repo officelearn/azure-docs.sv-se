@@ -6,44 +6,44 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77462113"
 ---
-# <a name="azure-functions-http-triggers-and-bindings-overview"></a>Azure Functions HTTP-utlösare och bindningar översikt
+# <a name="azure-functions-http-triggers-and-bindings-overview"></a>Översikt över Azure Functions HTTP-utlösare och bindningar
 
-Azure Functions kan anropas via HTTP-begäranden om att skapa serverlösa API:er och svara på [webhooks](https://en.wikipedia.org/wiki/Webhook).
+Azure Functions kan anropas via HTTP-begäranden för att bygga Server lösa API: er och svara på [Webhooks](https://en.wikipedia.org/wiki/Webhook).
 
-| Åtgärd | Typ |
+| Action | Typ |
 |---------|---------|
 | Köra en funktion från en HTTP-begäran | [Utlösare](./functions-bindings-http-webhook-trigger.md) |
-| Returnera ett HTTP-svar från en funktion |[Utdatabindning](./functions-bindings-http-webhook-output.md) |
+| Returnera ett HTTP-svar från en funktion |[Utgående bindning](./functions-bindings-http-webhook-output.md) |
 
-Koden i den här artikeln används som standard .NET Core-syntax, som används i Functions version 2.x och senare. Information om syntaxen på 1.x finns i [1.x-funktionsmallarna](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
+Koden i den här artikeln använder .NET Core-syntaxen som standard, som används i functions version 2. x och högre. Information om syntaxen för 1. x finns i [mallarna för 1. x-funktioner](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
-## <a name="add-to-your-functions-app"></a>Lägg till i appen Funktioner
+## <a name="add-to-your-functions-app"></a>Lägg till i functions-appen
 
-### <a name="functions-2x-and-higher"></a>Funktioner 2.x och högre
+### <a name="functions-2x-and-higher"></a>Funktioner 2. x och högre
 
-Att arbeta med utlösaren och bindningarna kräver att du refererar till rätt paket. NuGet-paketet används för .NET-klassbibliotek medan tilläggspaketet används för alla andra programtyper.
+Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
 | Språk                                        | Lägg till efter...                                   | Anmärkningar 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installera [NuGet-paketet], version 3.x | |
-| C# Script, Java, JavaScript, Python, PowerShell | Registrera [tilläggspaketet]          | [Azure Tools-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) rekommenderas att använda med Visual Studio-kod. |
-| C# Script (endast online i Azure-portalen)         | Lägga till en bindning                            | Information om hur du uppdaterar befintliga bindningstillägg utan att behöva publicera om [funktionsappen]finns i Uppdatera tilläggen . |
+| C#                                              | Installera [NuGet-paketet], version 3. x | |
+| C#-skript, Java, Java Script, python, PowerShell | [Tilläggs paketet] registreras          | [Tillägget Azure-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) rekommenderas för användning med Visual Studio Code. |
+| C#-skript (endast online i Azure Portal)         | Lägga till en bindning                            | Om du vill uppdatera befintliga bindnings tillägg utan att behöva publicera om din Function-app, se [Uppdatera dina tillägg]. |
 
 [core tools]: ./functions-run-local.md
-[förlängningspaket]: ./functions-bindings-register.md#extension-bundles
+[paket för tillägg]: ./functions-bindings-register.md#extension-bundles
 [NuGet-paket]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http
 [Uppdatera dina tillägg]: ./install-update-binding-extensions-manual.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x
 
-Funktioner 1.x-appar har automatiskt en referens till [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2.x.
+Functions 1. x-appar har automatiskt en referens till [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-paketet, version 2. x.
 
 ## <a name="next-steps"></a>Nästa steg
 

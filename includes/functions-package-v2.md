@@ -10,17 +10,17 @@ ms.date: 01/28/2020
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 2eb82eb8b4a64cbbfef91539f46ba084aa73f207
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77205739"
 ---
-Lägg till stöd i du föredrog utvecklingsmiljö med hjälp av följande metoder.
+Lägg till stöd i önskad utvecklings miljö med hjälp av följande metoder.
 
-| Utvecklingsmiljö  | Programtyp      | Så här lägger du till stöd |
+| Utvecklingsmiljö  | Programtyp      | För att lägga till stöd |
 |--------------------------|-----------------------|----------------|
-| Visual Studio            | C# klassbibliotek      | [Installera NuGet-paketet](../articles/azure-functions/functions-bindings-register.md#vs) |
-| Visual Studio-koden       | Baserat på [kärnverktyg](../articles/azure-functions/functions-run-local.md) | [Registrera förlängningspaketet](../articles/azure-functions/functions-bindings-register.md#extension-bundles)<br><br>Installation av [Azure Tools-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) rekommenderas. |
-| Någon annan redaktör/IDE     | Baserat på [kärnverktyg](../articles/azure-functions/functions-run-local.md) | [Registrera förlängningspaketet](../articles/azure-functions/functions-bindings-register.md#extension-bundles) |
-| Azure Portal             | Endast online i portalen | Installeras när du lägger till en bindning<br /><br /> Se [Uppdatera dina tillägg](../articles/azure-functions/install-update-binding-extensions-manual.md) för att uppdatera befintliga bindningstillägg utan att behöva publicera om funktionsappen. |
+| Visual Studio            | C#-klass bibliotek      | [Installera NuGet-paketet](../articles/azure-functions/functions-bindings-register.md#vs) |
+| Visual Studio-koden       | Baserat på [kärn verktyg](../articles/azure-functions/functions-run-local.md) | [Registrera tilläggs paketet](../articles/azure-functions/functions-bindings-register.md#extension-bundles)<br><br>Vi rekommenderar att du installerar [tillägget Azure-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) . |
+| Andra redigerare/IDE     | Baserat på [kärn verktyg](../articles/azure-functions/functions-run-local.md) | [Registrera tilläggs paketet](../articles/azure-functions/functions-bindings-register.md#extension-bundles) |
+| Azure Portal             | Endast online i portalen | Installeras när du lägger till en bindning<br /><br /> Se [Uppdatera dina tillägg](../articles/azure-functions/install-update-binding-extensions-manual.md) för att uppdatera befintliga bindnings tillägg utan att behöva publicera om din Function-app. |

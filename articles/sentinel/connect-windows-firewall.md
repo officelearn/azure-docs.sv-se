@@ -1,6 +1,6 @@
 ---
-title: Ansluta Windows-brandväggsdata till Azure Sentinel| Microsoft-dokument
-description: Lär dig hur du ansluter Windows-brandväggsdata till Azure Sentinel.
+title: Anslut data från Windows-brandväggen till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter Windows-brandväggens data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,49 +16,49 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 5d2f68261143c3fc5bbcda0b739af17251eeee63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588067"
 ---
 # <a name="connect-windows-firewall"></a>Ansluta till Windows-brandvägg
 
 
 
-Med Windows-brandväggsappen kan du enkelt ansluta dina Windows-brandväggarsloggar om de är anslutna till din Azure Sentinel-arbetsyta. Med den här anslutningen kan du visa instrumentpaneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig mer insikt i organisationens nätverk och förbättrar dina funktioner för säkerhetsdrift. Lösningen samlar in Windows-brandväggshändelser från Windows-datorer där en Log Analytics-agent är installerad. 
+Med anslutnings programmet för Windows-brandväggen kan du enkelt ansluta dina Windows-brandväggens loggar, om de är anslutna till din Azure Sentinel-arbetsyta. Med den här anslutningen kan du Visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig bättre insikt i din organisations nätverk och förbättrar dina säkerhets åtgärder. Lösningen samlar in händelser i Windows-brandväggen från Windows-datorer där en Log Analytics-agent är installerad. 
 
 
 > [!NOTE]
-> - Data lagras på den geografiska platsen för arbetsytan där du kör Azure Sentinel.
-> - Om Azure Sentinel och Azure Security Center samlas in på samma arbetsyta behöver du inte aktivera Windows-brandväggen via den här anslutningen. Om du har aktiverat den ändå kommer det inte att orsaka duplicerade data. 
+> - Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
+> - Om Azure Sentinel och Azure Security Center samlas in i samma arbets yta behöver du inte aktivera Windows brand Väggs lösningen via den här anslutningen. Om du har aktiverat den ändå kommer det inte att orsaka dubbletter av data. 
 
-## <a name="enable-the-connector"></a>Aktivera kopplingen 
+## <a name="enable-the-connector"></a>Aktivera anslutningen 
 
-1. I Azure Sentinel-portalen väljer du **Data-kopplingar** och klickar sedan på **Windows-brandväggspanelen.** 
+1. I Azure Sentinel-portalen väljer du **data kopplingar** och klickar sedan på panelen **Windows-brandväggen** . 
 1.  Om dina Windows-datorer finns i Azure:
-    1. Klicka på **Installera agent på den virtuella Azure Windows-datorn**.
-    1. I listan **Virtuella datorer** väljer du den Windows-dator som du vill strömma till Azure Sentinel. Kontrollera att det här är en virtuell windows-dator.
-    1. Klicka på **Anslut**i fönstret som öppnas för den virtuella datorn.  
-    1. Klicka på **Aktivera** i **anslutningsfönstret för Windows-brandväggen.** 
+    1. Klicka på **Installera agent på virtuell Azure Windows-dator**.
+    1. I listan med **virtuella datorer** väljer du den Windows-dator som du vill strömma till Azure Sentinel. Se till att det här är en virtuell Windows-dator.
+    1. I fönstret som öppnas för den virtuella datorn klickar du på **Anslut**.  
+    1. Klicka på **Aktivera** i fönstret **anslutning till Windows-brandväggen** . 
 
 2. Om din Windows-dator inte är en virtuell Azure-dator:
-    1. Klicka på **Installera agent på datorer som inte är Azure.**
-    1. I fönstret **Direct-agent** väljer du antingen **Hämta Windows-agent (64 bitar)** eller **Hämta Windows-agent (32 bitar)**.
-    1. Installera agenten på din Windows-dator. Kopiera **arbetsyte-ID,** **primärnyckel**och **sekundärnyckel** och använd dem när du uppmanas att göra det under installationen.
+    1. Klicka på **Installera agent på datorer som inte är Azure-datorer**.
+    1. I fönstret **direkt agent** väljer du antingen **Ladda ned Windows-agent (64 bitar)** eller **ladda ned Windows agent (32 bitar)**.
+    1. Installera agenten på Windows-datorn. Kopiera **arbetsyte-ID**, **primär nyckel**och **sekundär nyckel** och Använd dem när du uppmanas att göra det under installationen.
 
-4. Välj vilka datatyper du vill strömma.
-5. Klicka på **Installera lösning**.
+4. Välj vilka data typer du vill strömma.
+5. Klicka på **installera lösning**.
 6. Om du vill använda det relevanta schemat i Log Analytics för Windows-brandväggen söker du efter **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Verifiera anslutning
 
-Det kan ta uppemot 20 minuter innan loggarna börjar visas i Log Analytics. 
+Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics. 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet fick du lära dig hur du ansluter Windows-brandväggen till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+I det här dokumentet har du lärt dig hur du ansluter Windows-brandväggen till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 

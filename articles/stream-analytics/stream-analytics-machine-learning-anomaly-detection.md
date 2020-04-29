@@ -1,6 +1,6 @@
 ---
-title: Avvikelseidentifiering i Azure Stream Analytics
-description: I den här artikeln beskrivs hur du använder Azure Stream Analytics och Azure Machine Learning tillsammans för att identifiera avvikelser.
+title: Avvikelse identifiering i Azure Stream Analytics
+description: Den här artikeln beskriver hur du använder Azure Stream Analytics och Azure Machine Learning tillsammans för att identifiera avvikelser.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,48 +8,48 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77525540"
 ---
-# <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelseidentifiering i Azure Stream Analytics
+# <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelse identifiering i Azure Stream Analytics
 
-Azure Stream Analytics är tillgängligt i både molnet och Azure IoT Edge och erbjuder inbyggda funktioner för identifiering av avvikelser för maskininlärning som kan användas för att övervaka de två vanligaste avvikelserna: tillfälliga och beständiga. Med **AnomalyDetection_SpikeAndDip** och **AnomalyDetection_ChangePoint** funktioner kan du utföra avvikelseidentifiering direkt i ditt Stream Analytics-jobb.
+Azure Stream Analytics finns i både molnet och Azure IoT Edge och erbjuder inbyggda Machine Learning-baserade avvikelse identifierings funktioner som kan användas för att övervaka de två vanligaste avvikelserna: temporära och permanenta. Med **AnomalyDetection_SpikeAndDip** -och **AnomalyDetection_ChangePoint** -funktionerna kan du utföra avvikelse identifiering direkt i ditt Stream Analytics jobb.
 
-Maskininlärningsmodellerna antar en enhetligt samplad tidsserie. Om tidsserien inte är enhetlig kan du infoga ett aggregeringssteg med ett tumlande fönster innan du anropar avvikelseidentifiering.
+Machine Learning-modeller förutsätter en jämnt insticks tids serie. Om tids serien inte är enhetlig kan du infoga ett agg regerings steg med ett rullande-fönster innan du anropar avvikelse identifiering.
 
-Maskininlärningsåtgärderna stöder inte säsongstrender eller multivariatkorrelationer just nu.
+Machine Learning-åtgärderna stöder inte säsongs beroende trender eller flera variate-korrelationer för tillfället.
 
-## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Avvikelseidentifiering med hjälp av maskininlärning i Azure Stream Analytics
+## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Avvikelse identifiering med Machine Learning i Azure Stream Analytics
 
-Följande video visar hur du identifierar en avvikelse i realtid med hjälp av maskininlärningsfunktioner i Azure Stream Analytics. 
+Följande videoklipp visar hur du identifierar en avvikelse i real tid med hjälp av Machine Learning-funktioner i Azure Stream Analytics. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
 
-## <a name="model-behavior"></a>Modellbeteende
+## <a name="model-behavior"></a>Modell beteende
 
-I allmänhet förbättras modellens noggrannhet med mer data i skjutfönstret. Data i det angivna skjutfönstret behandlas som en del av dess normala värdeintervall för den tidsperioden. Modellen tar bara hänsyn till händelsehistorik över skjutfönstret för att kontrollera om den aktuella händelsen är avvikande. När skjutfönstret rör sig vräks gamla värden från modellens träning.
+I allmänhet förbättras modellens precision med mer data i glidande fönster. Data i det angivna glidnings fönstret behandlas som en del av dess normala värde intervall för den tids perioden. Modellen tar endast hänsyn till händelse historik över glidande fönster för att kontrol lera om den aktuella händelsen är avvikande. När glidande fönster flyttas avlägsnas gamla värden från modellens utbildning.
 
-Funktionerna fungerar genom att fastställa en viss normal baserat på vad de har sett hittills. Extremvärden identifieras genom att jämföra med det fastställda normala, inom konfidensnivån. Fönsterstorleken bör baseras på de minsta händelser som krävs för att träna modellen för normalt beteende så att när en anomali inträffar, skulle den kunna känna igen den.
+Funktionerna fungerar genom att etablera en viss normal baserat på vad de har sett hittills. Avvikare identifieras genom att jämföra med den etablerade normala nivån inom konfidensnivå. Fönster storleken bör baseras på de minsta händelser som krävs för att träna modellen för normal beteende, så att den kan känna igen när en avvikelse inträffar.
 
-Modellens svarstid ökar med historikstorlek eftersom den måste jämföras med ett större antal tidigare händelser. Det rekommenderas att endast inkludera det nödvändiga antalet händelser för bättre prestanda.
+Modellens svars tid ökar med historik storleken eftersom den måste jämföras med ett högre antal tidigare händelser. Vi rekommenderar att du bara inkluderar det nödvändiga antalet händelser för bättre prestanda.
 
-Luckor i tidsserien kan vara ett resultat av att modellen inte tar emot händelser vid vissa tidpunkter. Den här situationen hanteras av Stream Analytics med hjälp av imputeringslogik. Historikstorleken, liksom en tidslängd, för samma skjutfönster används för att beräkna den genomsnittliga hastighet med vilken händelser förväntas komma fram.
+Luckor i tids serien kan vara ett resultat av att modellen inte tar emot händelser vid vissa tidpunkter. Den här situationen hanteras av Stream Analytics med Imputation Logic. Historikens storlek, samt varaktigheten för samma glidande fönster, används för att beräkna genomsnitts takten som händelser förväntas komma till.
 
-En avvikelsegenerator som finns [här](https://aka.ms/asaanomalygenerator) kan användas för att mata en Iot Hub med data med olika avvikelsemönster. Ett ASA-jobb kan ställas in med dessa avvikelseidentifieringsfunktioner för att läsa från den här Iot Hub och identifiera avvikelser.
+En avvikelse generator som är tillgänglig [här](https://aka.ms/asaanomalygenerator) kan användas för att mata in en IoT-hubb med data med olika avvikande mönster. Ett ASA-jobb kan ställas in med dessa avvikelse identifierings funktioner för att läsa från den här IoT-hubben och identifiera avvikelser.
 
-## <a name="spike-and-dip"></a>Spike och dip
+## <a name="spike-and-dip"></a>Insamling och DIP
 
-Tillfälliga avvikelser i en tidsseriehändelseström kallas spikar och dips. Spikar och dips kan övervakas med den Machine Learning-baserade [operatören, AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+Tillfälliga avvikelser i en tids serie händelse ström kallas för toppar och DIP. Toppar och DIP kan övervakas med hjälp av Machine Learning-baserad operator [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 ).
 
-![Exempel på spike och dip anomali](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
+![Exempel på insamling och DIP-avvikelse](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-I samma skjutfönster, om en andra spik är mindre än den första, är den beräknade poängen för den mindre spiken förmodligen inte tillräckligt betydande jämfört med poängen för den första spiken inom den angivna konfidensnivån. Du kan försöka minska modellens konfidensnivå för att upptäcka sådana avvikelser. Men om du börjar få för många aviseringar kan du använda ett högre konfidensintervall.
+Om en andra insamling är mindre än den första i samma glidande fönster är det troligt att den beräknade poängen för den mindre inökningen troligen inte är tillräckligt betydande jämfört med poängen för den första inökningen inom den angivna förtroende nivån. Du kan försöka minska modellens konfidensnivå för att upptäcka sådana avvikelser. Men om du börjar få för många aviseringar kan du använda ett högre konfidens intervall.
 
-Följande exempelfråga förutsätter en enhetlig inmatningshastighet för en händelse per sekund i ett 2-minuters skjutfönster med en historik över 120 händelser. Den slutliga SELECT-satsen extraherar och matar ut poäng- och avvikelsestatus med en konfidensnivå på 95 %.
+I följande exempel fråga förutsätter vi en enhetlig ingångs frekvens för en händelse per sekund i en glidande period på två minuter med historiken 120 händelser. Den slutgiltiga SELECT-instruktionen extraherar och matar ut poäng och avvikelse status med en konfidensnivå på 95%.
 
 ```SQL
 WITH AnomalyDetectionStep AS
@@ -72,21 +72,21 @@ INTO output
 FROM AnomalyDetectionStep
 ```
 
-## <a name="change-point"></a>Ändringspunkt
+## <a name="change-point"></a>Ändra punkt
 
-Beständiga avvikelser i en tidsseriehändelseström är ändringar i fördelningen av värden i händelseströmmen, till exempel nivåändringar och trender. I Stream Analytics identifieras sådana avvikelser med hjälp av machine learning-operatorn [AnomalyDetection_ChangePoint.](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics)
+Beständiga avvikelser i en tids serie händelse ström är ändringar i distributionen av värden i händelse strömmen, t. ex. nivå ändringar och trender. I Stream Analytics identifieras sådana avvikelser med Machine Learning-baserade [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) -operatören.
 
-Ihållande förändringar varar mycket längre än toppar och dips och kan tyda på katastrofala händelser. Beständiga förändringar är vanligtvis inte synliga för blotta ögat, men kan detekteras med **AnomalyDetection_ChangePoint** operatören.
+Beständiga ändringar de senaste mycket längre än toppar och DIP och kan tyda på oåterkalleliga händelser. Beständiga ändringar syns vanligt vis inte för blott ögat, men kan identifieras med **AnomalyDetection_ChangePoint** -operatören.
 
-Följande bild är ett exempel på en nivåändring:
+Följande bild är ett exempel på en nivå ändring:
 
-![Exempel på nivåändringsavvikelse](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-level-change.png)
+![Exempel på nivå ändrings avvikelse](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-level-change.png)
 
-Följande bild är ett exempel på en trendförändring:
+Följande bild är ett exempel på en trend ändring:
 
-![Exempel på avvikelser i trendförändring](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-trend-change.png)
+![Exempel på en avvikelse i trend förändring](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-trend-change.png)
 
-Följande exempelfråga förutsätter en enhetlig inmatningshastighet för en händelse per sekund i ett 20-minuters skjutfönster med en historikstorlek på 1 200 händelser. Den slutliga SELECT-satsen extraherar och matar ut poäng- och avvikelsestatus med en konfidensnivå på 80 %.
+Följande exempel fråga förutsätter en enhetlig ingångs frekvens för en händelse per sekund i ett glidande 20-minuters fönster med historik storleken 1200 händelser. Den slutgiltiga SELECT-instruktionen extraherar och matar ut poäng och avvikelse status med en konfidensnivå på 80%.
 
 ```SQL
 WITH AnomalyDetectionStep AS
@@ -110,49 +110,49 @@ FROM AnomalyDetectionStep
 
 ```
 
-## <a name="performance-characteristics"></a>Prestandaegenskaper
+## <a name="performance-characteristics"></a>Prestanda egenskaper
 
-Prestanda för dessa modeller beror på historikstorlek, fönstervaraktighet, händelsebelastning och om partitionering på funktionsnivå används. I det här avsnittet beskrivs dessa konfigurationer och exempel på hur du kan upprätthålla inmatningshastigheter på 1K-, 5K- och 10 000-händelser per sekund.
+Prestandan för dessa modeller beror på Historik storlek, fönster varaktighet, händelse belastning och om partitionering på funktions nivå används. I det här avsnittet beskrivs dessa konfigurationer och innehåller exempel på hur du kan upprätthålla förbruknings frekvensen på 1 KB, 5 K och 10 000 händelser per sekund.
 
-* **Historikstorlek** - Dessa modeller presterar linjärt med **historikstorlek**. Ju längre historikstorlek, desto längre tar modellerna för att få en ny händelse. Detta beror på att modellerna jämför den nya händelsen med var och en av de tidigare händelserna i historikbufferten.
-* **Fönsterlängd** - **Fönstrets varaktighet** ska återspegla hur lång tid det tar att ta emot så många händelser som anges av historikstorleken. Utan så många händelser i fönstret skulle Azure Stream Analytics tillskriva saknade värden. Därför är CPU-förbrukning en funktion av historikstorleken.
-* **Händelsebelastning** - Ju större **händelsebelastning**, desto mer arbete som utförs av modellerna, vilket påverkar CPU-förbrukningen. Jobbet kan skalas ut genom att göra det pinsamt parallellt, förutsatt att det är vettigt för affärslogik att använda fler indatapartitioner.
-* **Partitionering** - av**funktionsnivå Funktionsnivå partitionering** görs med hjälp ```PARTITION BY``` av hjälp i anropet för avvikelseidentifiering. Den här typen av partitionering lägger till en overhead, eftersom tillståndet måste underhållas för flera modeller samtidigt. Partitionering på funktionsnivå används i scenarier som partitionering på enhetsnivå.
+* **Historik storlek** – dessa modeller utför linjärt med **Historik storlek**. Om historikens storlek är längre, tar det längre tid för modeller att skapa en ny händelse. Detta beror på att modellerna jämför den nya händelsen med var och en av de tidigare händelserna i kommandobufferten.
+* **Fönster varaktighet** – **fönstrets varaktighet** ska motsvara hur lång tid det tar att ta emot så många händelser som anges i historik storleken. Utan att många händelser visas i fönstret Azure Stream Analytics skulle tillräkna saknade värden. CPU-förbrukningen är därför en funktion av historik storleken.
+* **Händelse inläsning** – den större **händelse inläsningen**, desto mer arbete som utförs av modellerna, vilket påverkar CPU-förbrukningen. Jobbet kan skalas ut genom att göra det köras parallellt, förutsatt att affärs logiken använder fler ingångs partitioner.
+* **Function level partitioning** - **Partitionering** på funktions nivå partitionering görs med hjälp ```PARTITION BY``` av funktions anropet avvikelse identifiering. Den här typen av partitionering lägger till en överordnad status som måste behållas för flera modeller på samma tidpunkt. Partitionering på funktions nivå används i scenarier som partitionering på enhets nivå.
 
 ### <a name="relationship"></a>Relation
-Historikstorlek, fönsterlängd och total händelsebelastning är relaterade på följande sätt:
+Historik storlek, fönster varaktighet och total händelse belastning är relaterade på följande sätt:
 
-fönsterVarnare (i ms) = 1000 * historikStorlek / (Totalt antal indatahändelser per sek/ antal indatapartitioner)
+windowDuration (i MS) = 1000 * historySize/(totalt antal ingångs händelser per sekund/antal startpartitioner)
 
-När du partitionerar funktionen efter deviceId lägger du till "PARTITION BY deviceId" i anropet för avvikelseidentifiering.
+När du partitionerar funktionen efter deviceId lägger du till "PARTITION BY deviceId" i anropet till funktionen för avvikelse identifiering.
 
-### <a name="observations"></a>Observationer
-Följande tabell innehåller dataflödesobservationer för en enda nod (6 SU) för det icke-partitionerade skiftet:
+### <a name="observations"></a>Anmärkningar
+Följande tabell innehåller observationer av data flödet för en nod (6 SU) för det icke-partitionerade fallet:
 
-| Historikstorlek (händelser) | Fönsterlängd (ms) | Totalt antal indatahändelser per sekund |
+| Historik storlek (händelser) | Fönster varaktighet (MS) | Totalt antal ingångs händelser per sekund |
 | --------------------- | -------------------- | -------------------------- |
 | 60 | 55 | 2200 |
-| 600 | 728 | 1,650 |
-| 6 000 | 10,910 | 1 100 |
+| 600 | 728 | 1 650 |
+| 6 000 | 10 910 | 1 100 |
 
-Följande tabell innehåller dataflödesobservationer för en enda nod (6 SU) för det partitionerade skiftet:
+Följande tabell innehåller observationer av data flödet för en nod (6 SU) för det partitionerade fallet:
 
-| Historikstorlek (händelser) | Fönsterlängd (ms) | Totalt antal indatahändelser per sekund | Antal enheter |
+| Historik storlek (händelser) | Fönster varaktighet (MS) | Totalt antal ingångs händelser per sekund | Antal enheter |
 | --------------------- | -------------------- | -------------------------- | ------------ |
-| 60 | 1,091 | 1 100 | 10 |
-| 600 | 10,910 | 1 100 | 10 |
-| 6 000 | 218,182 | <550 | 10 |
-| 60 | 21,819 | 550 | 100 |
-| 600 | 218,182 | 550 | 100 |
-| 6 000 | 2,181,819 | <550 | 100 |
+| 60 | 1 091 | 1 100 | 10 |
+| 600 | 10 910 | 1 100 | 10 |
+| 6 000 | 218 182 | <550 | 10 |
+| 60 | 21 819 | 550 | 100 |
+| 600 | 218 182 | 550 | 100 |
+| 6 000 | 2 181 819 | <550 | 100 |
 
-Exempelkod för att köra de icke-partitionerade konfigurationerna ovan finns i [delningsbaserad delning](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) av Azure-exempel. Koden skapar ett dataflödesanalysjobb utan partitionering på funktionsnivå, som använder Event Hub som indata och utdata. Indatabelastningen genereras med hjälp av testklienter. Varje indatahändelse är ett 1KB json-dokument. Händelser simulerar en IoT-enhet som skickar JSON-data (för upp till 1K-enheter). Historikstorlek, fönsterlängd och total händelsebelastning varieras över 2 indatapartitioner.
+Exempel kod för att köra icke-partitionerade konfigurationer ovan finns i [strömningen i skala lagrings platsen](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) i Azure-exempel. Koden skapar ett Stream Analytics-jobb utan partitionering på funktions nivå, som använder Händelsehubben som indata och utdata. Inläsningen av indatamängden genereras med hjälp av test klienter. Varje ingångs händelse är ett 1 KB JSON-dokument. Händelser simulerar en IoT-enhet som skickar JSON-data (för upp till 1 kB-enheter). Historik storlek, fönster varaktighet och total händelse belastning varierar över 2 partitioner.
 
 > [!Note]
-> Om du vill ha en mer exakt uppskattning anpassar du exemplen så att de passar ditt scenario.
+> Om du vill ha en mer exakt uppskattning kan du anpassa exemplen efter ditt scenario.
 
-### <a name="identifying-bottlenecks"></a>Identifiera flaskhalsar
-Använd fönstret Mått i ditt Azure Stream Analytics-jobb för att identifiera flaskhalsar i pipelinen. Granska **indata-/utdatahändelser** för dataflöde och ["Watermark Delay"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) eller **Backlogged Events** för att se om jobbet håller jämna steg med indatahastigheten. Leta efter **begränsade begäranden** för händelsehubbar och justera tröskelvärdena i enlighet med detta. För Cosmos DB-mått bör du granska **Max förbrukade RU/s per partitionsnyckelintervall** under Dataflöde för att säkerställa att dina partitionsnyckelintervall förbrukas på ett enhetligt sätt. För Azure SQL DB övervakar du **Log IO** och **CPU**.
+### <a name="identifying-bottlenecks"></a>Identifiera Flask halsar
+Använd fönstret mått i ditt Azure Stream Analytics jobb för att identifiera Flask halsar i din pipeline. Granska **indata/utdata-händelser** för data flöde och ["fördröjning av vattenstämpel"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) eller **eftersläpande händelser** för att se om jobbet hålls i takt med indata. För Event Hub-mått söker du efter **begränsade begär Anden** och justerar tröskel enheterna enligt detta. För Cosmos DB Mät värden granskar du **Max förbrukade ru/s per nyckel intervall** under genomflödet för att se till att dina partitionerings nyckel intervall är enhetligt förbrukade. Övervaka **logg-i/o** och **CPU**för Azure SQL DB.
 
 ## <a name="next-steps"></a>Nästa steg
 

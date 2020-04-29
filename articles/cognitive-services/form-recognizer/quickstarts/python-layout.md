@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Extrahera text- och layoutinformation med Python - Form Recognizer'
+title: 'Snabb start: Extrahera text-och layoutinformation med hjälp av python-formulär igenkänning'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten använder du REST-API:et för formmedkärelayout layout med Python för att läsa text- och tabelldata från formulären.
+description: I den här snabb starten ska du använda formulär tolkens layout REST API med python för att läsa text-och tabell data från formulären.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,35 +10,35 @@ ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
 ms.openlocfilehash: 342ae7e42c85ad661c04ba4ebb6629673f4af4dc
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77482284"
 ---
-# <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabbstart: Extrahera text- och layoutinformation med rest-APIn för formulärmed Python
+# <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: Extrahera text-och layoutinformation med hjälp av formulär tolken REST API med python
 
-I den här snabbstarten använder du AZURE Form Recognizer REST API med Python för att extrahera information om textlayout och tabelldata från formulärdokument.
+I den här snabb starten använder du Azures formulär tolken REST API med python för att extrahera layoutinformation och tabell data från formulär dokument.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabbstarten måste du ha:
+För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- Ett formulärdokument. Du kan hämta en bild från [exempeldatauppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten.
+- Ett formulär dokument. Du kan ladda ned en bild från [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en formulärkonformeringsresurs
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="analyze-the-form-layout"></a>Analysera formulärlayouten
 
-Om du vill börja analysera layouten anropar du **[API:et analysera layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
+Du börjar analysera layouten genom att anropa API: et för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slutpunkten som du fick med din prenumeration på Formulär recognizer.
-1. Ersätt `<path to your form>` med sökvägen till det lokala formulärdokumentet.
-1. Ersätt `<subscription key>` med prenumerationsnyckeln som du kopierade från föregående steg.
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
+1. Ersätt `<path to your form>` med sökvägen till ditt lokala formulär dokument.
+1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
     ```python
     ########### Python Form Recognizer Async Layout #############
@@ -73,19 +73,19 @@ Om du vill börja analysera layouten anropar du **[API:et analysera layout](http
         quit()
     ```
 
-1. Spara koden i en fil med ett py-tillägg. Till exempel *form-recognizer-layout.py*.
+1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-layout.py*.
 1. Öppna ett kommandotolksfönster.
 1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-layout.py`.
 
-Du får ett `202 (Success)` svar som innehåller ett **funktionsställehuvud** som skriptet skriver ut på konsolen. Det här huvudet innehåller ett åtgärds-ID som du kan använda för att fråga status för den asynkrona åtgärden och hämta resultaten. I följande exempelvärde är `operations/` strängen efter operations-ID.
+Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` åtgärds-ID: t.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-layout-results"></a>Hämta layoutresultaten
+## <a name="get-the-layout-results"></a>Hämta layout resultatet
 
-När du har **anropat API:et för analysera layout** anropar du **[API:et Hämta analyslayoutresultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** för att få status för åtgärden och extraherade data. Lägg till följande kod längst ned i Python-skriptet. Den här koden använder åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API:et med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund eller mer.
+När du har anropat API för **analys av layout** anropar du API: et för att **[analysera utdata](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** för att hämta status för åtgärden och de extraherade data. Lägg till följande kod längst ned i python-skriptet. I den här koden används åtgärds-ID-värdet i ett nytt API-anrop. Det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
 
 ```python
 n_tries = 10
@@ -115,16 +115,16 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd kommandot `python` igen för att köra exemplet. Till exempel `python form-recognizer-layout.py`.
+1. Använd `python` kommandot igen för att köra exemplet. Till exempel `python form-recognizer-layout.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Skriptet skriver ut svar på konsolen tills åtgärden **Analysera layout** är klar. Sedan kommer det att skriva ut extraherade data i JSON-format. Noden `"readResults"` innehåller varje textrad med respektive markeringsram placering på sidan. Fältet `"pageResults"` visar varje text i tabeller, var och en med sin radkolumnskoordinat.
+Skriptet skriver ut svar till konsolen tills åtgärden **analysera layout** slutförs. Sedan skrivs extraherade data i JSON-format. `"readResults"` Noden innehåller alla text rader med dess respektive placering på sidan. I `"pageResults"` fältet visas alla text delar i tabeller, var och en med dess rad-kolumn-koordinat.
 
-Se följande fakturabild och motsvarande JSON-utdata. Produktionen har förkortats för enkelhetens skull.
+Se följande faktura bild och dess motsvarande JSON-utdata. Utdatan har kort ATS för enkelhetens skull.
 
 > [!div class="mx-imgBorder"]
-> ![Contoso fakturadokument med en tabell](../media/contoso-invoice.png)
+> ![Contoso-faktura dokument med en tabell](../media/contoso-invoice.png)
 
 ```json
 { 
@@ -275,7 +275,7 @@ Se följande fakturabild och motsvarande JSON-utdata. Produktionen har förkorta
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du REST-API:et för formulärmed Python för att extrahera textlayouten för en faktura. Se sedan referensdokumentationen för att utforska API:et för formulärre recognizeer mer ingående.
+I den här snabb starten använde du formulär tolken REST API med python för att extrahera textens layout för en faktura. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
 
 > [!div class="nextstepaction"]
-> [DOKUMENTATION FÖR REST API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)
+> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)

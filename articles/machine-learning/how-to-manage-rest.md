@@ -1,7 +1,7 @@
 ---
 title: Använd REST för att hantera ML-resurser
 titleSuffix: Azure Machine Learning
-description: Så här använder du REST-API:er för att skapa, köra och ta bort Azure ML-resurser
+description: 'Använda REST-API: er för att skapa, köra och ta bort Azure ML-resurser'
 author: lobrien
 ms.author: laobri
 services: machine-learning
@@ -10,50 +10,50 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77580636"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen,](https://portal.azure.com/) [kommandoradsgränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)eller [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Eller så kan du välja REST API. REST API använder HTTP-verb på ett standardiserat sätt för att skapa, hämta, uppdatera och ta bort resurser. REST API fungerar med alla språk eller verktyg som kan göra HTTP-begäranden. REST:s enkla struktur gör det ofta till ett bra val i skriptmiljöer och för MLOps-automatisering. 
+Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen](https://portal.azure.com/), [kommando rads gränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)eller [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Alternativt kan du välja REST API. I REST API används HTTP-verb på ett standardiserat sätt för att skapa, Hämta, uppdatera och ta bort resurser. REST API fungerar med valfritt språk eller verktyg som kan göra HTTP-förfrågningar. I resten är en enkel struktur att det är ett bra val i skript miljöer och för MLOps Automation. 
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Hämta en auktoriseringstoken
-> * Skapa en korrekt formaterad REST-begäran med hjälp av autentisering av tjänstens huvudnamn
-> * Använda GET-begäranden för att hämta information om Azure ML:s hierarkiska resurser
-> * Använda PUT- och POST-begäranden för att skapa och ändra resurser
-> * Använda DELETE-begäranden för att rensa resurser 
-> * Använda nyckelbaserad auktorisering för att få inbetalade modeller
+> * Hämta en autentiseringstoken
+> * Skapa en korrekt formaterad REST-begäran med tjänstens huvud namns autentisering
+> * Använd GET-begäranden för att hämta information om Azure MLs hierarkiska resurser
+> * Använd skicka och publicera-begär Anden för att skapa och ändra resurser
+> * Rensa resurser med DELETE-begäranden 
+> * Använd nyckelbaserad auktorisering för att ange distribuerade modeller
 
 ## <a name="prerequisites"></a>Krav
 
-- En **Azure-prenumeration** som du har administrativa rättigheter för. Om du inte har en sådan prenumeration kan du prova den [kostnadsfria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
+- En **Azure-prenumeration** som du har administratörs behörighet för. Om du inte har en sådan prenumeration kan du prova den [kostnads fria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
 - En [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
-- Administrativa REST-begäranden använder tjänstens huvudautentisering. Följ stegen i [Konfigurera autentisering för Azure Machine Learning-resurser och arbetsflöden](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) för att skapa ett huvudnamn för tjänsten på arbetsytan
-- **Curl verktyget.** **Curl-programmet** finns i [Windows-delsystemet för Linux](https://aka.ms/wslinstall/) eller någon UNIX-distribution. I PowerShell är **curl** ett alias för **Invoke-WebRequest** och `curl -d "key=val" -X POST uri` blir `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
+- Administrativa REST-begäranden använder autentisering av tjänstens huvud namn. Följ stegen i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) för att skapa ett huvud namn för tjänsten på din arbets yta
+- Verktyget **vändning** . Programmet **svänga** är tillgängligt i [Windows-undersystemet för Linux](https://aka.ms/wslinstall/) eller UNIX-distribution. I PowerShell är **sväng** ett alias för **Invoke-webbegäran** och `curl -d "key=val" -X POST uri` blir `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
 
-## <a name="retrieve-a-service-principal-authentication-token"></a>Hämta en autentiseringstoken för tjänstens huvudnamn
+## <a name="retrieve-a-service-principal-authentication-token"></a>Hämta en autentiseringstoken för tjänstens huvud namn
 
-Administrativa REST-begäranden autentiseras med ett implicit flöde enligt OAuth2. Det här autentiseringsflödet använder en token som tillhandahålls av prenumerationens tjänsthuvudnamn. För att hämta den här token behöver du:
+Administrativa REST-begäranden autentiseras med ett OAuth2 implicit flöde. Det här autentiseringsschemat använder en token som tillhandahålls av prenumerationens tjänst huvud namn. Om du vill hämta denna token behöver du:
 
-- Ditt klient-ID (identifiera den organisation som din prenumeration tillhör)
-- Ditt klient-ID (som kommer att associeras med den skapade token)
+- Ditt klient-ID (identifierar organisationen som din prenumeration tillhör)
+- Ditt klient-ID (som ska associeras med den skapade token)
 - Din klient hemlighet (som du bör skydda)
 
-Du bör ha dessa värden från svaret på skapandet av tjänstens huvudnamn som beskrivs i [Konfigurera autentisering för Azure Machine Learning-resurser och arbetsflöden](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Om du använder företagsprenumerationen kanske du inte har behörighet att skapa ett huvudnamn för tjänsten. I så fall bör du använda antingen en [gratis eller betald personlig prenumeration](https://aka.ms/AMLFree).
+Du bör ha dessa värden från svaret på skapandet av tjänstens huvud namn enligt beskrivningen i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Om du använder din företags prenumeration kanske du inte har behörighet att skapa ett huvud namn för tjänsten. I så fall bör du använda antingen en [kostnads fri eller betald personlig prenumeration](https://aka.ms/AMLFree).
 
-Så här hämtar du en token:
+Hämta en token:
 
 1. Öppna ett terminalfönster
-1. Ange följande kod på kommandoraden
-1. Ersätt dina egna `{your-tenant-id}` `{your-client-id}`värden `{your-client-secret}`med , och . I hela den här artikeln är strängar omgivna av lockiga parenteser variabler som du måste ersätta med dina egna lämpliga värden.
+1. Ange följande kod på kommando raden
+1. Ersätt dina egna värden för `{your-tenant-id}`, `{your-client-id}`och `{your-client-secret}`. I den här artikeln är strängar som omges av klammerparenteser variabler som du måste ersätta med dina egna värden.
 1. Köra kommandot
 
 ```bash
@@ -61,7 +61,7 @@ curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
 -d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id={your-client-id}&client_secret={your-client-secret}" \
 ```
 
-Svaret ska ge en åtkomsttoken som är bra i en timme:
+Svaret ska ge en lämplig åtkomsttoken i en timme:
 
 ```json
 {
@@ -75,25 +75,25 @@ Svaret ska ge en åtkomsttoken som är bra i en timme:
 }
 ```
 
-Anteckna token, eftersom du använder den för att autentisera alla efterföljande administrativa begäranden. Du gör det genom att ange ett auktoriseringshuvud i alla begäranden:
+Anteckna token eftersom du använder den för att autentisera alla efterföljande administrativa förfrågningar. Du gör detta genom att ange ett Authorization-huvud i alla begär Anden:
 
 ```bash
 curl -h "Authentication: Bearer {your-access-token}" ...more args...
 ```
 
-Observera att värdet börjar med strängen "Bärare" inklusive ett enda blanksteg innan du lägger till token.
+Observera att värdet börjar med strängen "Bearer", inklusive ett enda blank steg innan du lägger till token.
 
-## <a name="get-a-list-of-resource-groups-associated-with-your-subscription"></a>Hämta en lista över resursgrupper som är associerade med din prenumeration
+## <a name="get-a-list-of-resource-groups-associated-with-your-subscription"></a>Hämta en lista över resurs grupper som är kopplade till din prenumeration
 
-Om du vill hämta listan över resursgrupper som är associerade med prenumerationen kör du:
+För att hämta listan över resurs grupper som är associerade med din prenumeration, kör:
 
 ```bash
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups?api-version=2019-11-01 -H "Authorization:Bearer {your-access-token}"
 ```
 
-I Azure publiceras många REST-API:er. Varje tjänsteleverantör uppdaterar sitt API på egen hand, men gör det utan att bryta befintliga program. Tjänsteleverantören använder `api-version` argumentet för att säkerställa kompatibilitet. Argumentet `api-version` varierar från service till service. För Machine Learning Service, till exempel, `2019-11-01`är den aktuella API-versionen . För lagringskonton är `2019-06-01`det . För nyckelvalv är `2019-09-01`det. Alla REST-anrop `api-version` bör ställa in argumentet till det förväntade värdet. Du kan lita på syntaxen och semantiken för den angivna versionen även när API:et fortsätter att utvecklas. Om du skickar en begäran `api-version` till en provider utan argumentet innehåller svaret en människoläsbar lista med värden som stöds. 
+I Azure publiceras många REST-API: er. Varje tjänst leverantör uppdaterar sitt API på sin egen takt, men gör det utan att behöva bryta befintliga program. Tjänste leverantören använder `api-version` argumentet för att säkerställa kompatibiliteten. `api-version` Argumentet varierar från tjänst till tjänst. För Machine Learning tjänst är `2019-11-01`till exempel den aktuella API-versionen. För lagrings konton är `2019-06-01`det. För nyckel valv är `2019-09-01`det. Alla REST-anrop ska ange `api-version` argumentet till det förväntade värdet. Du kan förlita dig på syntaxen och semantiken för den angivna versionen även om API: et fortsätter att utvecklas. Om du skickar en begäran till en provider utan `api-version` argumentet innehåller svaret en skrivskyddad lista med värden som stöds. 
 
-Ovanstående samtal kommer att resultera i en komprimerad JSON svar av formuläret: 
+Anropet ovan resulterar i ett komprimerat JSON-svar i formuläret: 
 
 ```json
 {
@@ -121,16 +121,16 @@ Ovanstående samtal kommer att resultera i en komprimerad JSON svar av formulär
 ```
 
 
-## <a name="drill-down-into-workspaces-and-their-resources"></a>Öka detaljnivån i arbetsytor och deras resurser
+## <a name="drill-down-into-workspaces-and-their-resources"></a>Öka detalj nivån i arbets ytor och deras resurser
 
-Om du vill hämta uppsättningen arbetsytor i en resursgrupp `{your-resource-group}`kör `{your-access-token}`du följande, ersätter `{your-subscription-id}`, och: 
+Om du vill hämta en uppsättning arbets ytor i en resurs grupp kör du följande, Ersätt `{your-subscription-id}`, `{your-resource-group}`och: `{your-access-token}` 
 
 ```
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Återigen får du en JSON-lista, den här gången som innehåller en lista, var och en objekt som innehåller en arbetsyta:
+Återigen får du en JSON-lista, den här tiden innehåller en lista, varje objekt som innehåller information om en arbets yta:
 
 ```json
 {
@@ -166,7 +166,7 @@ curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceG
 }
 ```
 
-Om du vill arbeta med resurser inom en arbetsyta växlar du från den allmänna **management.azure.com-servern** till en REST API-server som är specifik för arbetsytans plats. Notera värdet på `discoveryUrl` nyckeln i ovanstående JSON-svar. Om du får den webbadressen får du ett svar i stil med:
+Om du vill arbeta med resurser inom en arbets yta växlar du från den allmänna **Management.Azure.com** -servern till en REST API server som är speciell för arbets ytans plats. Anteckna värdet för `discoveryUrl` nyckeln i ovanstående JSON-svar. Om du får den URL: en får du ett svar något som:
 
 ```json
 {
@@ -183,7 +183,7 @@ Om du vill arbeta med resurser inom en arbetsyta växlar du från den allmänna 
 }
 ```
 
-Värdet för `api` svaret är URL:en för den server som du ska använda för ytterligare begäranden. Om du till exempel vill visa en lista över experiment skickar du följande kommando. Ersätt `regional-api-server` med svarets `api` värde (till `centralus.api.azureml.ms`exempel ). Också `your-subscription-id`ersätta `your-resource-group` `your-workspace-name`, `your-access-token` , och som vanligt:
+Värdet för `api` svaret är URL: en för den server som du ska använda för ytterligare begär Anden. Om du vill visa experiment, till exempel, skickar du följande kommando. Ersätt `regional-api-server` med värdet för `api` Response (t. ex. `centralus.api.azureml.ms`). Byt även `your-subscription-id`ut `your-resource-group`, `your-workspace-name`, och `your-access-token` som vanligt:
 
 ```bash
 curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -191,7 +191,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/exp
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Om du vill hämta registrerade modeller på arbetsytan skickar du:
+På samma sätt kan du hämta registrerade modeller i din arbets yta genom att skicka:
 
 ```bash
 curl https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -199,35 +199,35 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Observera att för att lista experiment `history/v1.0` sökvägen börjar med medan `modelmanagement/v1.0`att lista modeller, börjar sökvägen med . REST API är indelat i flera operativa grupper, var och en med en distinkt sökväg. API-referensdokumenten på länkarna nedan listar åtgärder, parametrar och svarskoder för de olika åtgärderna.
+Observera att om du vill visa en lista över `history/v1.0` experiment börjar sökvägen med när du ska lista modeller `modelmanagement/v1.0`. REST API delas upp i flera operativa grupper, var och en med en distinkt sökväg. I API Reference-dokumenten på länkarna nedan visas åtgärderna, parametrarna och svars koderna för de olika åtgärderna.
 
 |Område|Sökväg|Referens|
 |-|-|-|
-|Artefakter|artefakt/v2.0/|[Referens för REST-API](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Datalager|datastore/v1.0/|[Referens för REST-API](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Finjustering av hyperparametrar|hyperdrift/v1.0/|[Referens för REST-API](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modeller|modellmanagement/v1.0/|[Referens för REST-API](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Körningshistorik|utförande/v1.0/ och historia/v1.0/|[Referens för REST-API](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Artefakter|artefakt/v 2.0/|[Referens för REST API](https://docs.microsoft.com/rest/api/azureml/artifacts)|
+|Data lager|data lager/v 1.0/|[Referens för REST API](https://docs.microsoft.com/rest/api/azureml/datastores)|
+|Finjustering av hyperparametrar|HyperDrive/v 1.0/|[Referens för REST API](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
+|Modeller|modelmanagement/v 1.0/|[Referens för REST API](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
+|Körningshistorik|körning/v 1.0/och historik/v 1.0/|[Referens för REST API](https://docs.microsoft.com/rest/api/azureml/runs)|
 
-Du kan utforska REST API med hjälp av det allmänna mönstret för:
+Du kan utforska REST API med det allmänna mönstret för:
 
 |URL-komponent|Exempel|
 |-|-|
 | https://| |
-| regional-api-server/ | centralus.api.azureml.ms/ |
-| operationer-sökväg/ | historia/v1.0/ |
-| prenumerationer/{din prenumeration-id}/ | abonnemang/abcde123-abab-abab-1234-0123456789abc/ |
-| resourceGroups/{your-resource-group}/ | resourceGroups/MyResourceGroup/ |
-| leverantörer/driftleverantör/ | leverantörer/Microsoft.MachineLearningServices/ |
-| provider-resurs-sökväg/ | arbetsytor/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
-| drift-slutpunkt/ | artefakter/metadata/ |
+| regional-API-Server/ | centralus.api.azureml.ms/ |
+| Operations-Path/ | historik/v 1.0/ |
+| prenumerationer/{din-Subscription-ID}/ | prenumerationer/abcde123-ABAB-ABAB-1234-0123456789abc/ |
+| resourceGroups/{The-Resource-Group}/ | resourceGroups/MyResourceGroup/ |
+| providers/åtgärd-Provider/ | providers/Microsoft. MachineLearningServices/ |
+| Provider – resurs-sökväg/ | arbets ytor/MLWorkspace//min arbets yta/FirstExperiment/körs/1/ |
+| åtgärder-Endpoint/ | artefakter/metadata/ |
 
 
-## <a name="create-and-modify-resources-using-put-and-post-requests"></a>Skapa och ändra resurser med put- och post-begäranden
+## <a name="create-and-modify-resources-using-put-and-post-requests"></a>Skapa och ändra resurser med hjälp av skicka och publicera-begäranden
 
-Förutom resurshämtning med GET-verbet stöder REST API att skapa alla resurser som krävs för att träna, distribuera och övervaka ML-lösningar. 
+Förutom resurs hämtning med GET-verbet kan REST API skapa alla resurser som behövs för att träna, distribuera och övervaka ML-lösningar. 
 
-Utbildning och körning av ML-modeller kräver beräkningsresurser. Du kan lista beräkningsresurserna för en arbetsyta med: 
+För utbildning och körning av ML-modeller krävs beräknings resurser. Du kan visa en lista med beräknings resurser för en arbets yta med: 
 
 ```bash
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -235,7 +235,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Om du vill skapa eller skriva över en namngiven beräkningsresurs använder du en PUT-begäran. I det följande, förutom de nu välbekanta `your-resource-group` `your-workspace-name`ersättningarna `your-access-token`av `your-compute-name` `your-subscription-id`, , `location` `vmSize`, och , ersättning , och värden för , , `vmPriority`, `scaleSettings`, , `adminUserName`och `adminUserPassword`. Som anges i referensen vid [Machine Learning Compute - Create Or Update SDK Reference](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), skapar följande kommando en dedikerad, enkelnod Standard_D1 (en grundläggande CPU-beräkningsresurs) som skalas ned efter 30 minuter:
+Om du vill skapa eller skriva över en namngiven beräknings resurs, använder du en begäran om placering. I `your-subscription-id`följande, utöver de nu välkända ersättningarna, `your-resource-group`, `your-workspace-name`, och `your-access-token`, Substitute `your-compute-name`och värden för `location`, `vmSize` `vmPriority` `scaleSettings` `adminUserName`,,, och. `adminUserPassword` Som anges i referensen i [Machine Learning-beräkning-skapa eller uppdatera SDK-referens](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate)skapar följande kommando en dedikerad Standard_D1 för en enda nod (en grundläggande processor beräknings resurs) som kommer att skalas ned efter 30 minuter:
 
 ```bash
 curl -X PUT \
@@ -264,13 +264,13 @@ curl -X PUT \
 ```
 
 > [!Note]
-> I Windows-terminaler kan du behöva fly från dubbelcitatsymbolerna när du skickar JSON-data. Det vill än, `"location"` `\"location\"`text som blir . 
+> I Windows-terminaler kan du behöva kringgå dubbel citat tecken när du skickar JSON-data. Det vill säga text, till `"location"` exempel `\"location\"`blir. 
 
-En lyckad begäran `201 Created` kommer att få ett svar, men observera att detta svar helt enkelt innebär att etableringsprocessen har börjat. Du måste avsöka (eller använda portalen) för att bekräfta att den har slutförts.
+En lyckad begäran får ett `201 Created` svar, men Observera att det här svaret bara innebär att etablerings processen har påbörjats. Du måste avsöka (eller använda portalen) för att bekräfta att åtgärden har slutförts.
 
 ### <a name="create-an-experimental-run"></a>Skapa en experimentell körning
 
-Om du vill starta en körning i ett experiment behöver du en zip-mapp som innehåller träningsskriptet och relaterade filer och en JSON-fil med körningsdefinition. Zip-mappen måste ha Python-postfilen i sin rotkatalog. Som ett exempel, zip ett trivialt Python-program som följande i en mapp som heter **train.zip**.
+Om du vill starta en körning inom ett experiment behöver du en zip-mapp som innehåller ditt utbildnings skript och relaterade filer och en Run-definitions-JSON-fil. Zip-mappen måste ha filen python i dess rot Katalog. Du kan t. ex. skapa ett trivial python-program som följande i en mapp med namnet **Train. zip**.
 
 ```python
 # hello.py
@@ -278,7 +278,7 @@ Om du vill starta en körning i ett experiment behöver du en zip-mapp som inneh
 print("Hello, REST!")
 ```
 
-Spara nästa utdrag som **definition.json**. Bekräfta att värdet "Script" matchar namnet på Python-filen som du just zippade upp. Bekräfta värdet "Target" matchar namnet på en tillgänglig beräkningsresurs. 
+Spara nästa fragment som **definition. JSON**. Bekräfta att "script"-värdet matchar namnet på den python-fil som du precis har zippat upp. Bekräfta att "target"-värdet matchar namnet på en tillgänglig beräknings resurs. 
 
 ```json
 {
@@ -320,7 +320,7 @@ Spara nästa utdrag som **definition.json**. Bekräfta att värdet "Script" matc
 }
 ```
 
-Skicka dessa filer till `multipart/form-data` servern med innehåll:
+Publicera de här filerna på servern med `multipart/form-data` hjälp av innehåll:
 
 ```bash
 curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-name}/startrun?api-version=2019-11-01 \
@@ -331,7 +331,7 @@ curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscripti
   -F runDefinitionFile=@runDefinition.json
 ```
 
-En lyckad POST-begäran genererar en `200 OK` status med en svarstext som innehåller identifieraren för den skapade körningen:
+En lyckad POST-begäran genererar en `200 OK` status med en svars text som innehåller ID: n för den skapade körningen:
 
 ```json
 {
@@ -339,7 +339,7 @@ En lyckad POST-begäran genererar en `200 OK` status med en svarstext som inneh�
 }
 ```
 
-Du kan övervaka en körning med rest-ful mönster som nu bör vara bekant:
+Du kan övervaka en körning med hjälp av REST-full-mönstret som nu bör vara välbekant:
 
 ```bash
 curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-names}/runs/{your-run-id}?api-version=2019-11-01' \
@@ -348,7 +348,7 @@ curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscriptio
 
 ### <a name="delete-resources-you-no-longer-need"></a>Ta bort resurser som du inte längre behöver
 
-Vissa, men inte alla, resurser stöder DELETE-verbet. Kontrollera [API-referensen](https://docs.microsoft.com/rest/api/azureml/) innan du bestämmer dig för att använda REST API för borttagning av användningsfall. Om du till exempel vill ta bort en modell kan du använda:
+Vissa, men inte alla, resurser stöder DELETE-verbet. Kontrol lera [API-referensen](https://docs.microsoft.com/rest/api/azureml/) innan du genomför till REST API för borttagning av användnings fall. Om du t. ex. vill ta bort en modell kan du använda:
 
 ```bash
 curl
@@ -357,9 +357,9 @@ curl
   -H 'Authorization:Bearer {your-access-token}' 
 ```
 
-## <a name="use-rest-to-score-a-deployed-model"></a>Använd REST för att göra mål på en distribuerad modell
+## <a name="use-rest-to-score-a-deployed-model"></a>Använd REST för att räkna med en distribuerad modell
 
-Det är möjligt att distribuera en modell så att den autentiseras med ett huvudnamn för tjänsten, men de flesta klientinriktade distributioner använder nyckelbaserad autentisering. Du hittar rätt nyckel på distributionens sida på fliken **Slutpunkter** i Studio. Samma plats visar slutpunktens poäng-URI. Modellens indata måste modelleras som en `data`JSON-matris med namnet:
+Även om det är möjligt att distribuera en modell så att den autentiseras med ett huvud namn för tjänsten, använder de flesta klient-riktade distributioner nyckelbaserad autentisering. Du hittar lämplig nyckel på din distributions sida på fliken **slut punkter** i Studio. På samma plats visas din slut punkts bedömnings-URI. Modellens indata måste modelleras som en JSON-matris med `data`namnet:
 
 ```bash
 curl 'https://{scoring-uri}' \
@@ -368,11 +368,11 @@ curl 'https://{scoring-uri}' \
   -d '{ "data" : [ {model-specific-data-structure} ] }
 ```
 
-## <a name="create-a-workspace-using-rest"></a>Skapa en arbetsyta med REST 
+## <a name="create-a-workspace-using-rest"></a>Skapa en arbets yta med REST 
 
-Varje Azure ML-arbetsyta har ett beroende av fyra andra Azure-resurser: ett behållarregister med administration aktiverat, ett nyckelvalv, en Application Insights-resurs och ett lagringskonto. Du kan inte skapa en arbetsyta förrän dessa resurser finns. Mer information om hur du skapar varje sådan resurs finns i REST API-referensen.
+Varje Azure ML-arbetsyta har ett beroende på fyra andra Azure-resurser: ett behållar register med administration aktiverat, ett nyckel valv, en Application Insights resurs och ett lagrings konto. Det går inte att skapa en arbets yta förrän dessa resurser finns. Mer information om hur du skapar varje sådan resurs finns i REST API referens.
 
-Om du vill skapa en arbetsyta placerar `management.azure.com`du ett anrop som liknar följande . Även om det här anropet kräver att du anger ett stort antal variabler, är det strukturellt identiskt med andra anrop som den här artikeln har diskuterat. 
+Om du vill skapa en arbets yta sätter du ett anrop som liknar `management.azure.com`följande för. Även om det här anropet kräver att du anger ett stort antal variabler, är det strukturellt identiskt med andra anrop som denna artikel har diskuterat. 
 
 ```bash
 curl -X PUT \
@@ -400,27 +400,27 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 }'
 ```
 
-Du bör `202 Accepted` få ett svar och, i `Location` de returnerade rubrikerna, en URI. Du kan hämta den här URI:n för information om distributionen, inklusive användbar felsökningsinformation om det finns ett problem med en av dina beroende resurser (till exempel om du har glömt att aktivera administratörsåtkomst i behållarregistret). 
+Du bör få ett `202 Accepted` svar och, i de returnerade rubrikerna `Location` , en URI. Du kan hämta den här URI: n för information om distributionen, inklusive användbar fel söknings information om det uppstår problem med en av dina beroende resurser (till exempel om du har glömt att aktivera administratörs åtkomst i behållar registret). 
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="resource-provider-errors"></a>Resursproviderfel
+### <a name="resource-provider-errors"></a>Resurs leverantörs fel
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="moving-the-workspace"></a>Flytta arbetsytan
+### <a name="moving-the-workspace"></a>Flytta arbets ytan
 
 > [!WARNING]
-> Det går inte att flytta din Azure Machine Learning-arbetsyta till en annan prenumeration, eller flytta den ägande prenumerationen till en ny klientorganisation. Om du gör det kan det orsaka fel.
+> Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
-### <a name="deleting-the-azure-container-registry"></a>Ta bort Azure-behållarregistret
+### <a name="deleting-the-azure-container-registry"></a>Tar bort Azure Container Registry
 
-Arbetsytan Azure Machine Learning använder Azure Container Registry (ACR) för vissa åtgärder. Det kommer automatiskt att skapa en ACR-instans när den först behöver en.
+I arbets ytan Azure Machine Learning används Azure Container Registry (ACR) för vissa åtgärder. En ACR-instans skapas automatiskt när den först behöver en.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Utforska den fullständiga [AzureML REST API-referensen](https://docs.microsoft.com/rest/api/azureml/).
-- Lär dig hur du använder Studio & Designer för att [förutsäga bilpris med designern (förhandsgranskning).](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score)
+- Utforska den kompletta [azureml-REST API referensen](https://docs.microsoft.com/rest/api/azureml/).
+- Lär dig hur du använder Studio & designer för att [förutsäga det mobila priset med designer (för hands version)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
 - Utforska [Azure Machine Learning med Jupyter-anteckningsböcker](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

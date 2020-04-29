@@ -1,7 +1,7 @@
 ---
-title: 'Interaktiv felsökning: VS-kod & ML-beräkningsinstanser'
+title: 'Interaktiv fel sökning: VS Code & ML Compute instances'
 titleSuffix: Azure Machine Learning
-description: Konfigurera VS-kodfjärrkontroll för att interaktivt felsöka koden med Azure Machine Learning.
+description: Konfigurera VS Code Remote för att interaktivt felsöka din kod med Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,37 +10,37 @@ ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
 ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77169745"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Felsök interaktivt på en Azure Machine Learning Compute-instans med VS-kodfjärrkontroll
+# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Felsöka interaktivt på en Azure Machine Learning beräknings instans med VS Code Remote
 
-I den här artikeln får du lära dig hur du konfigurerar Visual Studio Code Remote på en Azure Machine Learning Compute-instans så att du interaktivt kan **felsöka koden** från VS-kod. 
+I den här artikeln får du lära dig hur du konfigurerar Visual Studio Code-fjärrhantering på en Azure Machine Learning beräknings instans så att du **interaktivt kan felsöka koden** från vs Code. 
 
-+ En [Azure Machine Learning Compute Instance](concept-compute-instance.md) är en fullständigt hanterad molnbaserad arbetsstation för dataexperter och tillhandahåller funktioner för hantering och företagsberedskap för IT-administratörer. 
++ En [Azure Machine Learning beräknings instans](concept-compute-instance.md) är en fullständigt hanterad molnbaserad arbets station för data forskare och innehåller funktioner för hantering och företags beredskap för IT-administratörer. 
 
 
-+ [Fjärrkontrollen Visual Studio-kod](https://code.visualstudio.com/docs/remote/remote-overview) Med utveckling kan du använda en behållare, en fjärrdator eller Windows Subsystem för Linux (WSL) som en komplett utvecklingsmiljö. 
++ [Visual Studio Code-fjärrkontroll](https://code.visualstudio.com/docs/remote/remote-overview) Med utveckling kan du använda en behållare, fjärrdator eller Windows-undersystemet för Linux (WSL) som en komplett utvecklings miljö. 
 
 ## <a name="prerequisite"></a>Krav  
 
 På Windows-plattformar måste du [installera en OpenSSH-kompatibel SSH-klient](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) om en sådan inte redan finns. 
 
 > [!Note]
-> PuTTY stöds inte i Windows eftersom kommandot ssh måste finnas i sökvägen. 
+> SparaTillFil stöds inte i Windows eftersom SSH-kommandot måste finnas i sökvägen. 
 
-## <a name="get-ip-and-ssh-port"></a>Hämta IP- och SSH-port 
+## <a name="get-ip-and-ssh-port"></a>Hämta IP-och SSH-port 
 
-1. Gå till Azure Machine https://ml.azure.com/Learning studio på .
+1. Gå till Azure Machine Learning Studio på https://ml.azure.com/.
 
-2. Välj [arbetsyta](concept-workspace.md).
-1. Klicka på fliken **Beräkningsinstanser.**
-1. I kolumnen **Program-URI** klickar du på **SSH-länken** för den beräkningsinstans som du vill använda som en fjärrberäkning. 
-1. I dialogrutan bör du ta del av IP-adressen och SSH-porten. 
-1. Spara din privata nyckel till katalogen ~/.ssh/ på den lokala datorn. Till exempel öppna en redigerare för en ny fil och klistra in nyckeln i: 
+2. Välj din [arbets yta](concept-workspace.md).
+1. Klicka på fliken **beräknings instanser** .
+1. I kolumnen **program-URI** klickar du på **SSH** -länken för den beräknings instans som du vill använda som fjärrberäkning. 
+1. Anteckna IP-adressen och SSH-porten i dialog rutan. 
+1. Spara din privata nyckel i katalogen ~/.ssh/på den lokala datorn. öppna exempelvis en redigerare för en ny fil och klistra in nyckeln i: 
 
    **Linux**: 
    ```sh
@@ -52,7 +52,7 @@ På Windows-plattformar måste du [installera en OpenSSH-kompatibel SSH-klient](
    notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa 
    ```
 
-   Den privata nyckeln kommer att se ut ungefär så här:
+   Den privata nyckeln ser ut ungefär så här:
    ```
    -----BEGIN RSA PRIVATE KEY----- 
 
@@ -63,14 +63,14 @@ På Windows-plattformar måste du [installera en OpenSSH-kompatibel SSH-klient](
    -----END RSA PRIVATE KEY----- 
    ```
 
-1. Ändra behörigheter för filen för att se till att bara du kan läsa filen.  
+1. Ändra fil behörigheter för att se till att endast du kan läsa filen.  
    ```sh
    chmod 600 ~/.ssh/id_azmlcitest_rsa   
    ```
 
-## <a name="add-instance-as-a-host"></a>Lägga till instans som värd 
+## <a name="add-instance-as-a-host"></a>Lägg till instans som värd 
 
-Öppna filen `~/.ssh/config` (Linux) `C:\Users<username>.ssh\config` eller (Windows) i en redigerare och lägg till en ny post som liknar detta:
+Öppna filen `~/.ssh/config` (Linux) eller `C:\Users<username>.ssh\config` (Windows) i en redigerare och Lägg till en ny post liknande detta:
 
 ```
 Host azmlci1 
@@ -84,34 +84,34 @@ Host azmlci1
     IdentityFile ~/.ssh/id_azmlcitest_rsa   
 ```
 
-Här några detaljer om fälten: 
+Här finns information om fälten: 
 
 |Field|Beskrivning|
 |----|---------|
-|Värd|Använd vilken stenografi du vill för beräkningsinstansen |
-|Värdnamn|Detta är IP-adressen för beräkningsinstansen |
-|Port|Det här är porten som visas i SSH-dialogrutan ovan |
-|Användare|Detta måste `azureuser` |
-|IdentityFile|Bör peka på filen där du sparade den privata nyckeln |
+|Värd|Använd den stenografiska du gillar för beräknings instansen |
+|Värdnamn|Detta är beräknings instansens IP-adress |
+|Port|Detta är porten som visas i dialog rutan SSH ovan |
+|Användare|Detta måste vara `azureuser` |
+|IdentityFile|Ska peka på filen där du sparade den privata nyckeln |
 
-Nu bör du kunna ssh till din beräkningsinstans med `ssh azmlci1`hjälp av stenografi du använde ovan, . 
+Nu bör du kunna använda SSH till din beräknings instans med hjälp av den kort skrift som du använde `ssh azmlci1`ovan. 
 
-## <a name="connect-vs-code-to-the-instance"></a>Anslut VS-kod till instansen 
+## <a name="connect-vs-code-to-the-instance"></a>Ansluta VS-kod till instansen 
 
-1. [Installera Visual Studio-kod](https://code.visualstudio.com/).
+1. [Installera Visual Studio Code](https://code.visualstudio.com/).
 
 1. [Installera fjärr-SSH-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). 
 
-1. Klicka på ikonen Remote-SSH till vänster för att visa dina SSH-konfigurationer.
+1. Klicka på fjärr-SSH-ikonen till vänster för att visa dina SSH-konfigurationer.
 
-1. Högerklicka på den SSH-värdkonfiguration som du just skapade.
+1. Högerklicka på den SSH-värd konfiguration som du nyss skapade.
 
 1. Välj **Anslut till värd i aktuellt fönster**. 
 
-Från och med nu arbetar du helt på beräkningsinstansen och du kan nu redigera, felsöka, använda git, använda tillägg etc. - precis som du kan med din lokala Visual Studio-kod. 
+Härifrån är du helt igång med beräknings instansen och nu kan du redigera, felsöka, använda Git, använda tillägg osv. – precis som du kan med din lokala Visual Studio-kod. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har konfigurerat Visual Studio Code Remote kan du använda en beräkningsinstans som fjärrberäkning från Visual Studio-kod för att interaktivt felsöka koden. 
+Nu när du har konfigurerat Visual Studio Code-fjärrhantering kan du använda en beräknings instans som fjärrberäkning från Visual Studio Code för att interaktivt felsöka din kod. 
 
-[Självstudiekurs: Träna din första ML-modell](tutorial-1st-experiment-sdk-train.md) visar hur du använder en beräkningsinstans med en integrerad anteckningsbok.
+[Självstudie: träna din första ml-modell](tutorial-1st-experiment-sdk-train.md) visar hur du använder en beräknings instans med en integrerad antecknings bok.

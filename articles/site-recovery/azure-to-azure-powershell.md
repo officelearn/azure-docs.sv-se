@@ -1,6 +1,6 @@
 ---
-title: Haveriberedskap för virtuella Azure-datorer med Azure PowerShell och Azure Site Recovery
-description: Lär dig hur du konfigurerar haveriberedskap för virtuella Azure-datorer med Azure Site Recovery med Azure PowerShell.
+title: Haveri beredskap för virtuella Azure-datorer med Azure PowerShell och Azure Site Recovery
+description: Lär dig hur du konfigurerar haveri beredskap för virtuella Azure-datorer med Azure Site Recovery som använder Azure PowerShell.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
 ms.openlocfilehash: 583511194fb100add1d5fc4ea9c06a869cf652b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77212285"
 ---
-# <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera haveriberedskap för virtuella Azure-datorer med Azure PowerShell
+# <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera katastrof återställning för virtuella Azure-datorer med hjälp av Azure PowerShell
 
-I den här artikeln ser du hur du konfigurerar och testar haveriberedskap för virtuella Azure-datorer med Azure PowerShell.
+I den här artikeln får du se hur du konfigurerar och testar haveri beredskap för virtuella Azure-datorer med hjälp av Azure PowerShell.
 
 Lär dig att:
 
 > [!div class="checklist"]
 > - Skapa ett Recovery Services-valv.
-> - Ange arkivkontexten för PowerShell-sessionen.
+> - Ange valv kontexten för PowerShell-sessionen.
 > - Förbered valvet för att börja replikera virtuella Azure-datorer.
-> - Skapa nätverksmappningar.
-> - Skapa lagringskonton för att replikera virtuella datorer till.
-> - Replikera virtuella Azure-datorer till en återställningsregion för haveriberedskap.
-> - Utför en test redundans-, validera- och rensningstest redundans.
-> - Växla över till återställningsregionen.
+> - Skapa nätverks mappningar.
+> - Skapa lagrings konton för att replikera virtuella datorer till.
+> - Replikera virtuella Azure-datorer till ett återställnings område för haveri beredskap.
+> - Utför en redundanstest, validera och rensa redundanstest.
+> - Redundansväxla till återställnings regionen.
 
 > [!NOTE]
-> Alla scenariofunktioner som är tillgängliga via portalen kan vara tillgängliga via Azure PowerShell. Några av de scenariofunktioner som för närvarande inte stöds via Azure PowerShell är:
-> - Möjligheten att ange att alla diskar i en virtuell dator ska replikeras utan att uttryckligen behöva ange varje disk på den virtuella datorn.
+> Alla scenario funktioner som är tillgängliga via portalen kan vara tillgängliga via Azure PowerShell. Några av de scenario funktioner som inte stöds för närvarande finns i Azure PowerShell:
+> - Möjlighet att ange att alla diskar på en virtuell dator ska replikeras utan att uttryckligen ange varje disk för den virtuella datorn.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,25 +41,25 @@ Lär dig att:
 Innan du börjar:
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
 - Granska [kraven för stöd](azure-to-azure-support-matrix.md) för alla komponenter.
-- Du har Azure `Az` PowerShell-modulen. Om du behöver installera eller uppgradera Azure PowerShell följer du den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
+- Du har Azure PowerShell `Az` -modulen. Om du behöver installera eller uppgradera Azure PowerShell, följ den här [guiden för att installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Logga in på din Microsoft Azure-prenumeration
+## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Logga in på din Microsoft Azure prenumeration
 
-Logga in på din `Connect-AzAccount` Azure-prenumeration med cmdleten.
+Logga in på din Azure-prenumeration med `Connect-AzAccount` cmdleten.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Välj din Azure-prenumeration. Använd `Get-AzSubscription` cmdlet för att få en lista över Azure-prenumerationer som du har åtkomst till. Välj den Azure-prenumeration som `Set-AzContext` ska fungera med cmdlet.
+Välj din Azure-prenumeration. Använd `Get-AzSubscription` cmdleten för att hämta listan över Azure-prenumerationer som du har åtkomst till. Välj den Azure-prenumeration som ska användas med `Set-AzContext` cmdleten.
 
 ```azurepowershell
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Hämta information om den virtuella datorn som ska replikeras
+## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Hämta information om den virtuella dator som ska replikeras
 
-I den här artikeln replikeras en virtuell dator i regionen östra USA till och återställs i regionen Västra USA 2. Den virtuella datorn som replikeras har en OS-disk och en enda datadisk. Namnet på den virtuella dator som `AzureDemoVM`används i exemplet är .
+I den här artikeln replikeras en virtuell dator i regionen USA, östra till och återställs i regionen USA, västra 2. Den virtuella datorn som replikeras har en operativ system disk och en enskild datadisk. Namnet på den virtuella datorn som används i exemplet är `AzureDemoVM`.
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -84,7 +84,7 @@ ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
 
-Hämta diskinformation för den virtuella datorns diskar. Diskinformation används senare när replikering för den virtuella datorn startas.
+Hämta disk information för den virtuella datorns diskar. Disk information kommer att användas senare när replikeringen för den virtuella datorn startas.
 
 ```azurepowershell
 $OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
@@ -93,14 +93,14 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-Skapa en resursgrupp där du vill skapa valvet för Återställningstjänster.
+Skapa en resurs grupp där du kan skapa Recovery Servicess valvet.
 
 > [!IMPORTANT]
-> * Valvet för återställningstjänster och de virtuella datorer som skyddas måste finnas på olika Azure-platser.
-> * Resursgruppen för valvet för återställningstjänster och de virtuella datorer som skyddas måste finnas på olika Azure-platser.
-> * Valvet för återställningstjänster och resursgruppen som det tillhör kan finnas på samma Azure-plats.
+> * Recovery Services-valvet och de virtuella datorer som skyddas måste finnas på olika Azure-platser.
+> * Resurs gruppen för Recovery Services-valvet och de virtuella datorer som skyddas måste finnas på olika Azure-platser.
+> * Recovery Services-valvet och resurs gruppen som den tillhör, kan finnas på samma Azure-plats.
 
-I exemplet i den här artikeln finns den virtuella datorn som skyddas i regionen östra USA. Den återställningsregion som valts ut för haveriberedskap är regionen Västra USA 2. Valvet för återställningstjänster och resursgruppen i valvet finns båda i återställningsregionen, västra US 2.
+I exemplet i den här artikeln är den virtuella datorn som skyddas i regionen USA, östra. Återställnings regionen som valts för haveri beredskap är regionen USA, västra 2. Recovery Services-valvet och resurs gruppen för valvet är båda i återställnings regionen USA, västra 2.
 
 ```azurepowershell
 #Create a resource group for the recovery services vault in the recovery Azure region
@@ -115,7 +115,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Skapa ett återhämtningstjänstvalv. I det här exemplet skapas ett Recovery Services-valv med namnet `a2aDemoRecoveryVault` i regionen Västra USA 2.
+Skapa ett Recovery Services-valv. I det här exemplet skapas ett Recovery Services valv `a2aDemoRecoveryVault` med namnet i regionen USA, västra 2.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -134,9 +134,9 @@ SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-## <a name="set-the-vault-context"></a>Ange valvkontext
+## <a name="set-the-vault-context"></a>Ange valv kontext
 
-Ange valvkontexten för användning i PowerShell-sessionen. När arkivkontexten har angetts utförs Azure Site Recovery-åtgärder i PowerShell-sessionen i kontexten för det valda valvet.
+Ange valv kontexten som ska användas i PowerShell-sessionen. När valv kontexten har angetts utförs Azure Site Recovery åtgärder i PowerShell-sessionen i det valda valvet.
 
 ```azurepowershell
 #Setting the vault context.
@@ -154,23 +154,23 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 
-För en Azure-to-Azure-migrering kan du ange arkivkontexten till det nyligen skapade valvet:
+För en Azure-till-Azure-migrering kan du ange valv kontexten till det nya valvet:
 
 ```azurepowershell
 #Set the vault context for the PowerShell session.
 Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 ```
 
-## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Förbered valvet för att börja replikera virtuella Azure-datorer
+## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Förbered valvet för att starta replikering av virtuella Azure-datorer
 
-### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Skapa ett infrastrukturobjekt för webbplatsåterställning för att representera den primära (källregionen)
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Skapa ett Site Recovery Fabric-objekt för att representera primär (källa) region
 
-Fabric-objektet i valvet representerar en Azure-region. Det primära fabric-objektet skapas för att representera Azure-regionen som virtuella datorer som skyddas till valvet tillhör. I exemplet i den här artikeln finns den virtuella datorn som skyddas i regionen östra USA.
+Objektet Fabric i valvet representerar en Azure-region. Det primära Fabric-objektet skapas för att representera den Azure-region som de virtuella datorer som skyddas för valvet tillhör. I exemplet i den här artikeln är den virtuella datorn som skyddas i regionen USA, östra.
 
-- Endast ett fabric-objekt kan skapas per region.
-- Om du tidigare har aktiverat Site Recovery Replication för en virtuell dator i Azure-portalen skapar Site Recovery ett fabric-objekt automatiskt. Om det finns ett fabric-objekt för en region kan du inte skapa ett nytt.
+- Det går bara att skapa ett infrastruktur objekt per region.
+- Om du tidigare har aktiverat Site Recovery replikering för en virtuell dator i Azure Portal, skapar Site Recovery ett Fabric-objekt automatiskt. Om det finns ett infrastruktur objekt för en region kan du inte skapa ett nytt.
 
-Innan du börjar bör du förstå att site recovery-åtgärder körs asynkront. När du initierar en åtgärd skickas ett Azure Site Recovery-jobb och ett jobbspårningsobjekt returneras. Använd jobbspårningsobjektet för att få`Get-AzRecoveryServicesAsrJob`den senaste statusen för jobbet ( ) och för att övervaka åtgärdens status.
+Innan du börjar är det viktigt att du förstår att Site Recovery åtgärder körs asynkront. När du startar en åtgärd skickas ett Azure Site Recovery jobb och ett jobb spårnings objekt returneras. Använd jobb spårnings objekt för att hämta den senaste statusen för jobbet (`Get-AzRecoveryServicesAsrJob`) och för att övervaka status för åtgärden.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -189,11 +189,11 @@ Write-Output $TempASRJob.State
 $PrimaryFabric = Get-AzRecoveryServicesAsrFabric -Name "A2Ademo-EastUS"
 ```
 
-Om virtuella datorer från flera Azure-regioner skyddas till samma valv skapar du ett fabric-objekt för varje azure-källregion.
+Om virtuella datorer från flera Azure-regioner skyddas till samma valv skapar du ett infrastruktur objekt för varje käll-Azure-region.
 
-### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Skapa ett infrastrukturobjekt för webbplatsåterställning för att representera återställningsregionen
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Skapa ett Site Recovery Fabric-objekt som representerar återställnings regionen
 
-Återställningsinfrastrukturobjektet representerar azure-platsen för återställning. Om det finns en redundans replikeras virtuella datorer och återställs till återställningsregionen som representeras av återställningsstrukturen. Azure-regionen för återställning som används i det här exemplet är västra US 2.
+Objektet Recovery Fabric representerar återställnings-Azure-platsen. Om det finns en redundansväxling replikeras de virtuella datorerna och återställs till återställnings regionen som representeras av återställnings infrastrukturen. Den Azure-region för återställning som används i det här exemplet är västra USA 2.
 
 ```azurepowershell
 #Create Recovery ASR fabric
@@ -211,9 +211,9 @@ Write-Output $TempASRJob.State
 $RecoveryFabric = Get-AzRecoveryServicesAsrFabric -Name "A2Ademo-WestUS"
 ```
 
-### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>Skapa en skyddsbehållare för platsåterställning i primärtyget
+### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>Skapa en Site Recovery skydds behållare i den primära infrastruktur resursen
 
-Skyddsbehållaren är en behållare som används för att gruppera replikerade objekt i ett tyg.
+Skydds behållaren är en behållare som används för att gruppera replikerade objekt i en infrastruktur resurs.
 
 ```azurepowershell
 #Create a Protection container in the primary Azure region (within the Primary fabric)
@@ -230,7 +230,7 @@ Write-Output $TempASRJob.State
 $PrimaryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
 
-### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>Skapa en behållare för skydd för platsåterställning i återställningsstrukturen
+### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>Skapa en Site Recovery skydds behållare i återställnings infrastrukturen
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -267,9 +267,9 @@ Write-Output $TempASRJob.State
 $ReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "A2APolicy"
 ```
 
-### <a name="create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>Skapa en skyddsbehållaremappning mellan den primära och återställningsskyddsbehållaren
+### <a name="create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>Skapa en skydds behållar mappning mellan den primära behållaren och återställnings skydds behållaren
 
-En kontroll av skyddsbehållare mappar den primära skyddsbehållaren med en återställningsskyddsbehållare och en replikeringsprincip. Skapa en mappning för varje replikeringsprincip som du ska använda för att replikera virtuella datorer mellan ett skyddsbehållarepar.
+En skydds container mappning mappar den primära skydds behållaren med en återställnings skydds behållare och en replikeringsprincip. Skapa en mappning för varje replikeringsprincip som du ska använda för att replikera virtuella datorer mellan ett skydds container par.
 
 ```azurepowershell
 #Create Protection container mapping between the Primary and Recovery Protection Containers with the Replication policy
@@ -287,9 +287,9 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
-### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Skapa en skyddsbehållare mappning för redundans (omvänd replikering efter en redundans)
+### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Skapa en skydds behållar mappning för återställning efter fel (omvänd replikering efter en redundansväxling)
 
-Efter en redundans, när du är redo att föra den misslyckade över den virtuella datorn tillbaka till den ursprungliga Azure-regionen, gör du en återställning. För att växla tillbaka återförs den misslyckade över den virtuella datorn från den misslyckade regionen över till den ursprungliga regionen. För omvänd replikering rollerna för den ursprungliga regionen och återställningsregionens växel. Den ursprungliga regionen blir nu den nya återställningsregionen, och det som ursprungligen var återställningsregionen blir nu den primära regionen. Skyddsbehållarens mappning för omvänd replikering representerar de växlade rollerna för de ursprungliga och återställningsregionerna.
+När du är redo att återställa den virtuella datorn till den ursprungliga Azure-regionen efter en redundansväxling gör du en återställning efter fel. Om du vill växla tillbaka replikeras den misslyckade över virtuella datorn från den felande över-regionen till den ursprungliga regionen. För omvänd replikering är rollerna för den ursprungliga regionen och växeln för återställnings regionen. Den ursprungliga regionen blir nu den nya återställnings regionen och det som ursprungligen var återställnings regionen blir den primära regionen. Skydds behållar mappningen för omvänd replikering representerar de växlade rollerna i original-och återställnings regionerna.
 
 ```azurepowershell
 #Create Protection container mapping (for fail back) between the Recovery and Primary Protection Containers with the Replication policy
@@ -307,27 +307,27 @@ Write-Output $TempASRJob.State
 $WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $RecoveryProtContainer -Name "A2ARecoveryToPrimary"
 ```
 
-## <a name="create-cache-storage-account-and-target-storage-account"></a>Skapa cachelagringskonto och mållagringskonto
+## <a name="create-cache-storage-account-and-target-storage-account"></a>Skapa cache-lagrings konto och mål lagrings konto
 
-Ett cachelagringskonto är ett standardlagringskonto i samma Azure-region som den virtuella datorn som replikeras. Cachelagringskontot används för att lagra replikeringsändringar tillfälligt innan ändringarna flyttas till Azure-regionen för återställning. Du kan välja att ange, men det är inte nödvändigt, för att ange olika cachelagringskonton för de olika diskarna på en virtuell dator.
+Ett cache Storage-konto är ett standard lagrings konto i samma Azure-region som den virtuella datorn replikeras. Lagrings kontot för cachen används för att lagra ändringar tillfälligt, innan ändringarna flyttas till Azure-regionen för återställning. Du kan välja att, men det är inte nödvändigt, för att ange olika cache-lagrings konton för de olika diskarna på en virtuell dator.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-För virtuella datorer **som inte använder hanterade diskar**är mållagringskontot lagringskontot i återställningsregionen som diskar på den virtuella datorn replikeras till. Mållagringskontot kan vara antingen ett standardlagringskonto eller ett premiumlagringskonto. Välj den typ av lagringskonto som krävs baserat på dataändringshastigheten (IO-skrivhastighet) för diskarna och Azure Site Recovery stöds churn gränser för lagringstypen.
+För virtuella datorer som **inte använder hanterade diskar**är mål lagrings kontot det lagrings konto i återställnings regionen som diskarna på den virtuella datorn replikeras till. Mål lagrings kontot kan antingen vara ett standard lagrings konto eller ett Premium Storage-konto. Välj den typ av lagrings konto som krävs baserat på data ändrings frekvensen (i/o-bildfrekvensen) för diskarna och Azure Site Recovery omsättnings gränser som stöds för lagrings typen.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
 $WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -ResourceGroupName "a2ademorecoveryrg" -Location 'West US 2' -SkuName Standard_LRS -Kind Storage
 ```
 
-## <a name="create-network-mappings"></a>Skapa nätverksmappningar
+## <a name="create-network-mappings"></a>Skapa nätverks mappningar
 
-En nätverksmappning mappar virtuella nätverk i den primära regionen till virtuella nätverk i återställningsregionen. Nätverksmappningen anger det virtuella Azure-nätverket i återställningsregionen, som en virtuell dator i det primära virtuella nätverket ska växla över till. Ett virtuellt Azure-nätverk kan mappas till endast ett virtuellt Azure-nätverk i en återställningsregion.
+En nätverks mappning mappar virtuella nätverk i den primära regionen till virtuella nätverk i återställnings regionen. Nätverks mappningen anger det virtuella Azure-nätverket i återställnings regionen, som en virtuell dator i det primära virtuella nätverket ska redundansväxla till. Ett virtuellt Azure-nätverk kan bara mappas till ett enda virtuellt Azure-nätverk i en återställnings region.
 
-- Skapa ett virtuellt Azure-nätverk i återställningsregionen för att växla över till:
+- Skapa ett virtuellt Azure-nätverk i återställnings regionen som du vill redundansväxla till:
 
    ```azurepowershell
     #Create a Recovery Network in the recovery region
@@ -362,7 +362,7 @@ En nätverksmappning mappar virtuella nätverk i den primära regionen till virt
     $EastUSPrimaryNetwork = (Split-Path(Split-Path($PrimarySubnet.Id))).Replace("\","/")
    ```
 
-- Skapa nätverksmappning mellan det primära virtuella nätverket och det virtuella återställningsnätverket:
+- Skapa nätverks mappning mellan det primära virtuella nätverket och det virtuella återställnings nätverket:
 
    ```azurepowershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
@@ -378,7 +378,7 @@ En nätverksmappning mappar virtuella nätverk i den primära regionen till virt
     Write-Output $TempASRJob.State
    ```
 
-- Skapa nätverksmappning för omvänd riktning (växla tillbaka):
+- Skapa nätverks mappning för omvänd riktning (redundansväxla):
 
     ```azurepowershell
     #Create an ASR network mapping for fail back between the recovery Azure virtual network and the primary Azure virtual network
@@ -396,7 +396,7 @@ En nätverksmappning mappar virtuella nätverk i den primära regionen till virt
 
 ## <a name="replicate-azure-virtual-machine"></a>Replikera virtuell Azure-dator
 
-Replikera den virtuella Azure-datorn med **hanterade diskar**.
+Replikera den virtuella Azure-datorn med **Managed disks**.
 
 ```azurepowershell
 #Get the resource group that the virtual machine must be created in when failed over.
@@ -430,7 +430,7 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 ```
 
-Replikera den virtuella Azure-datorn med **ohanterat diskar**.
+Replikera den virtuella Azure-datorn med **ohanterade diskar**.
 
 ```azurepowershell
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
@@ -461,13 +461,13 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 ```
 
-När startreplikeringsåtgärden lyckas replikeras data från virtuella datorer till återställningsregionen.
+När åtgärden starta replikeringen har slutförts replikeras data för virtuella datorer till återställnings regionen.
 
-Replikeringsprocessen startar genom att först så en kopia av replikerande diskar för den virtuella datorn i återställningsregionen. Den här fasen kallas den inledande replikeringsfasen.
+Replikeringen börjar genom att initiera en kopia av de replikerade diskarna för den virtuella datorn i återställnings regionen. Den här fasen kallas för fasen inledande replikering.
 
-AFter första replikeringen slutförs, replikeringen flyttas till differentialsynkroniseringsfasen. Nu är den virtuella datorn skyddad och en testväxlingsåtgärd kan utföras på den. Replikeringstillståndet för det replikerade objektet som representerar den virtuella datorn går till **skyddat** tillstånd när den första replikeringen har slutförts.
+När den inledande replikeringen har slutförts flyttas replikeringen till fasen differentiell synkronisering. Den virtuella datorn är nu skyddad och en redundanstest kan utföras på den. Replikeringstillståndet för det replikerade objektet som representerar den virtuella datorn går till **skyddat** tillstånd när den inledande replikeringen har slutförts.
 
-Övervaka replikeringstillståndet och replikeringshälsan för den virtuella datorn genom att få information om det replikeringsskyddade objektet som motsvarar det.
+Övervaka replikeringstillståndet och replikeringens hälso tillstånd för den virtuella datorn genom att hämta information om det skyddade replikerings objekt som motsvarar det.
 
 ```azurepowershell
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
@@ -479,9 +479,9 @@ FriendlyName ProtectionState ReplicationHealth
 AzureDemoVM  Protected       Normal
 ```
 
-## <a name="do-a-test-failover-validate-and-cleanup-test-failover"></a>Gör en redundans-, validera- och rensningstestväxling
+## <a name="do-a-test-failover-validate-and-cleanup-test-failover"></a>Gör ett redundanstest, verifierar och rensar redundanstest
 
-När replikeringen för den virtuella datorn har nått ett skyddat tillstånd kan en testväxlingsåtgärd utföras på den virtuella datorn (på det replikeringsskyddade objektet på den virtuella datorn).
+När replikeringen för den virtuella datorn har nått ett skyddat tillstånd kan en redundanstest utföras på den virtuella datorn (på det skyddade objektet i den virtuella datorns replikerade objekt).
 
 ```azurepowershell
 #Create a separate network for test failover (not connected to my DR network)
@@ -492,7 +492,7 @@ Add-AzVirtualNetworkSubnetConfig -Name "default" -VirtualNetwork $TFOVnet -Addre
 $TFONetwork= $TFOVnet.Id
 ```
 
-Gör en testväxling.
+Gör ett redundanstest.
 
 ```azurepowershell
 $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -FriendlyName "AzureDemoVM" -ProtectionContainer $PrimaryProtContainer
@@ -500,7 +500,7 @@ $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -F
 $TFOJob = Start-AzRecoveryServicesAsrTestFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -AzureVMNetworkId $TFONetwork -Direction PrimaryToRecovery
 ```
 
-Vänta tills testundansåtgärden har slutförts.
+Vänta tills redundanstestning har slutförts.
 
 ```azurepowershell
 Get-AzRecoveryServicesAsrJob -Job $TFOJob
@@ -526,9 +526,9 @@ Tasks            : {Prerequisites check for test failover, Create test virtual m
 Errors           : {}
 ```
 
-När testet redundans jobbet har slutförts kan du ansluta till testet misslyckades över den virtuella datorn och validera test redundans.
+När jobbet för redundanstest har slutförts kan du ansluta till testet misslyckades över den virtuella datorn och validera redundanstest.
 
-När testningen har slutförts på testet misslyckades över den virtuella datorn rensar du testkopian genom att starta redundansåtgärden för rensningstest. Den här åtgärden tar bort testkopian av den virtuella datorn som skapades av testundansen.
+När testet har slutförts på grund av att testet misslyckades på den virtuella datorn kan du rensa test kopian genom att starta redundansväxlingen av rensnings försök. Den här åtgärden tar bort test kopian av den virtuella datorn som skapades av redundanstestningen.
 
 ```azurepowershell
 $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -ReplicationProtectedItem $ReplicationProtectedItem
@@ -544,7 +544,7 @@ Succeeded
 
 ## <a name="fail-over-to-azure"></a>Redundansväxla till Azure
 
-Växla över den virtuella datorn till en specifik återställningspunkt.
+Redundansväxla den virtuella datorn till en viss återställnings punkt.
 
 ```azurepowershell
 $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicationProtectedItem
@@ -573,7 +573,7 @@ $Job_Failover.State
 Succeeded
 ```
 
-När redundansjobbet lyckas kan du utföra redundansåtgärden.
+När redundansväxlingen fungerar kan du genomföra redundansväxlingen.
 
 ```azurepowershell
 $CommitFailoverJOb = Start-AzRecoveryServicesAsrCommitFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem
@@ -601,9 +601,9 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-## <a name="reprotect-and-fail-back-to-the-source-region"></a>Reprotera och växla tillbaka till källregionen
+## <a name="reprotect-and-fail-back-to-the-source-region"></a>Återaktivera skyddet och växla tillbaka till käll regionen
 
-När du är redo att gå tillbaka till den ursprungliga regionen efter en redundansstart startar du omvänd replikering för det replikeringsskyddade objektet med hjälp av cmdleten. `Update-AzRecoveryServicesAsrProtectionDirection`
+När du är redo att gå tillbaka till den ursprungliga regionen efter en redundansväxling startar du omvänd replikering för det skyddade objektet för replikering med hjälp `Update-AzRecoveryServicesAsrProtectionDirection` av cmdleten.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -616,11 +616,11 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 -ProtectionContainerMapping $WusToEusPCMapping -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.ResourceId
 ```
 
-När återskydd har slutförts kan du växla över i motsatt riktning, västra USA till östra USA och växla tillbaka till källregionen.
+När skyddet har slutförts kan du växla över i omvänd riktning, västra USA till östra USA och växla tillbaka till käll regionen.
 
 ## <a name="disable-replication"></a>Inaktivera replikering
 
-Du kan inaktivera `Remove-AzRecoveryServicesAsrReplicationProtectedItem` replikering med cmdleten.
+Du kan inaktivera replikering med `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdleten.
 
 ```azurepowershell
 Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
@@ -628,4 +628,4 @@ Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $
 
 ## <a name="next-steps"></a>Nästa steg
 
-Visa [Azure Site Recovery PowerShell-referensen](/powershell/module/az.RecoveryServices) för att lära dig hur du kan utföra andra uppgifter, till exempel skapa återställningsplaner och testa redundans för återställningsplaner med PowerShell.
+Se [Azure Site Recovery PowerShell-referensen](/powershell/module/az.RecoveryServices) för att lära dig hur du kan utföra andra uppgifter, till exempel skapa återställnings planer och testa redundansväxling av återställnings planer med PowerShell.

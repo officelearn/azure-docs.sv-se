@@ -1,7 +1,7 @@
 ---
-title: Kognitiv färdighet för textkoppling
+title: Text sammanfogning av kognitiva kunskaper
 titleSuffix: Azure Cognitive Search
-description: Sammanfoga text från en grupp fält till ett konsoliderat fält. Använd den här kognitiva färdigheten i en AI-anrikningspipeline i Azure Cognitive Search.
+description: Sammanfoga text från en samling fält till ett konsoliderat fält. Använd den här kognitiva kunskapen i en pipeline för AI-anrikning i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,34 +9,34 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162352"
 ---
-#   <a name="text-merge-cognitive-skill"></a>Kognitiv färdighet för textkoppling
+#   <a name="text-merge-cognitive-skill"></a>Text sammanfogning av kognitiva kunskaper
 
-Med **textkoppling** konsolideras text från en samling fält till ett enda fält. 
+**Text sammanfognings** kunskapen konsoliderar text från en samling fält till ett enda fält. 
 
 > [!NOTE]
-> Den här färdigheten är inte bunden till ett Cognitive Services API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md)för att åsidosätta alternativet **Kostnadsfri** resurs som begränsar dig till ett litet antal dagliga berikningar per dag.
+> Den här kunskapen är inte kopplad till ett Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md), men för att åsidosätta det **kostnads fria** resurs alternativet som begränsar dig till ett litet antal dagliga berikare per dag.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.text.mergeSkill
+Microsoft. färdigheter. text. MergeSkill
 
-## <a name="skill-parameters"></a>Färdighetsparametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
 Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| insertPreTag  | Sträng som ska inkluderas före varje insättning. Standardvärdet är `" "`. Om du vill utelämna utrymmet `""`ställer du in värdet på .  |
-| insertPostTag | Sträng som ska inkluderas efter varje insättning. Standardvärdet är `" "`. Om du vill utelämna utrymmet `""`ställer du in värdet på .  |
+| insertPreTag  | Sträng som ska tas med före varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet `""`på.  |
+| insertPostTag | Sträng som ska tas med efter varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet `""`på.  |
 
 
-##  <a name="sample-input"></a>Exempelinmatning
-Ett JSON-dokument som ger användbara indata för den här färdigheten kan vara:
+##  <a name="sample-input"></a>Exempel på inmatade
+Ett JSON-dokument som ger användbar indatamängd för den här kunskapen kan vara:
 
 ```json
 {
@@ -55,7 +55,7 @@ Ett JSON-dokument som ger användbara indata för den här färdigheten kan vara
 ```
 
 ##  <a name="sample-output"></a>Exempel på utdata
-I det här exemplet visas utdata för föregående indata, `" "`förutsatt att *insertPreTag* är inställt på , och *insertPostTag* är inställt på `""`. 
+I det här exemplet visas resultatet av föregående indata, förutsatt att *insertPreTag* är inställt `" "`på, och *insertPostTag* är inställt på `""`. 
 
 ```json
 {
@@ -71,11 +71,11 @@ I det här exemplet visas utdata för föregående indata, `" "`förutsatt att *
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Utökad definition av exempelkompetens
+## <a name="extended-sample-skillset-definition"></a>Utökad exempel på färdigheter-definition
 
-Ett vanligt scenario för att använda Textkoppling är att koppla textrepresentationen av bilder (text från en OCR-färdighet eller bildtexten för en bild) till innehållsfältet i ett dokument. 
+Ett vanligt scenario för att använda text sammanfogning är att slå samman text representationen av bilder (text från en OCR-kunskap eller bild text) i innehålls fältet i ett dokument. 
 
-I följande exempel använder kunskaper ocr-färdigheten OCR för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas ett *merged_text* fält som innehåller både original- och OCR-text från varje bild. Du kan läsa mer om OCR skicklighet [här](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+I följande exempel färdigheter används OCR-kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas ett *merged_text* -fält som innehåller både original-och OCRed text från varje bild. Du kan lära dig mer om OCR-kunskaper [här](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {
@@ -126,7 +126,7 @@ I följande exempel använder kunskaper ocr-färdigheten OCR för att extrahera 
   ]
 }
 ```
-Exemplet ovan förutsätter att det finns ett fält med normaliserade bilder. Om du vill få fältet normaliserade bilder ställer du in *imageAction-konfigurationen* i indexeringsdefinitionen så att *den genererarNormaliserade bilder* enligt nedan:
+Exemplet ovan förutsätter att det finns ett normaliserat avbildnings fält. För att hämta normaliserade-images-fält anger du *imageAction* -konfigurationen i din Indexer-definition till *generateNormalizedImages* enligt nedan:
 
 ```json
 {
@@ -143,5 +143,5 @@ Exemplet ovan förutsätter att det finns ett fält med normaliserade bilder. Om
 ## <a name="see-also"></a>Se även
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

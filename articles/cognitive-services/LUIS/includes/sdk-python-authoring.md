@@ -11,40 +11,40 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 631185c20b816191530158fab2b7cd1ed68c3092
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77371806"
 ---
-Använd klientbiblioteket För att skapa språk understanding (LUIS) för Python för att:
+Använd det Language Understanding (LUIS) redigerings klient biblioteket för python för att:
 
 * Skapa en app.
-* Lägg till avsikter, entiteter och exempelyttranden.
-* Lägg till funktioner, till exempel en fraslista.
+* Lägg till avsikter, entiteter och exempel yttranden.
+* Lägg till funktioner, till exempel en fras lista.
 * Träna och publicera en app.
 
-[Referensdokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Ursprungskod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Redigeringspaket (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
+[Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [redigerings paket (pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
 ## <a name="prerequisites"></a>Krav
 
-* Portalkonto (Language Understanding) (LUIS) : [Skapa ett gratis](https://www.luis.ai).
+* Language Understanding (LUIS) Portal konto: [skapa ett kostnads fritt](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
 
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
-### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta startnyckeln för språkförståelse (LUIS)
+### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta din Language Understandings start nyckel (LUIS)
 
-Hämta [startnyckeln](../luis-how-to-azure-subscription.md#starter-key) genom att skapa en LUIS-redigeringsresurs. Behåll nyckeln och regionen för nyckeln för nästa steg.
+Hämta din [Start nyckel](../luis-how-to-azure-subscription.md#starter-key) genom att skapa en Luis Authoring-resurs. Behåll din nyckel och regionen för nyckeln för nästa steg.
 
-### <a name="create-an-environment-variable"></a>Skapa en miljövariabel
+### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
 
-Med hjälp av nyckeln och regionen för nyckeln skapar du två miljövariabler för autentisering:
+Med din nyckel och region för nyckeln skapar du två miljövariabler för autentisering:
 
-* `LUIS_AUTHORING_KEY`- Resursnyckeln för att autentisera dina begäranden.
-* `LUIS_REGION`- Regionen som är kopplad till din nyckel. Till exempel `westus`.
+* `LUIS_AUTHORING_KEY`– Resurs nyckeln för autentisering av dina begär Anden.
+* `LUIS_REGION`– Den region som är kopplad till din nyckel. Till exempel `westus`.
 
-Följ instruktionerna för operativsystemet.
+Följ anvisningarna för ditt operativ system.
 
 #### <a name="windows"></a>[Windows](#tab/windows)
 
@@ -53,7 +53,7 @@ setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
 setx LUIS_REGION <replace-with-your-luis-region>
 ```
 
-När du har lagt till miljövariabeln startar du om konsolfönstret.
+Starta om konsol fönstret när du har lagt till miljövariabeln.
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
@@ -64,9 +64,9 @@ export LUIS_REGION=<replace-with-your-luis-region>
 
 När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
 
-#### <a name="macos"></a>[Macos](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
-Redigera `.bash_profile`din och lägg till miljövariabeln:
+Redigera din `.bash_profile`och Lägg till miljövariabeln:
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -76,32 +76,32 @@ export LUIS_REGION=<replace-with-your-luis-region>
 När du har lagt till miljövariabeln så kör `source .bash_profile` från konsolfönstret så att ändringarna träder i kraft.
 ***
 
-### <a name="install-the-python-library-for-luis"></a>Installera Python-biblioteket för LUIS
+### <a name="install-the-python-library-for-luis"></a>Installera python-biblioteket för LUIS
 
-Installera klientbiblioteket (Language Understanding) för att skapa python i programkatalogen:
+I program katalogen installerar du klient biblioteket Language Understanding (LUIS) för python med följande kommando:
 
 ```console
 pip install azure-cognitiveservices-language-luis
 ```
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-LUIS-redigeringsklienten (Language Understanding) är ett [LUISAuthoringClient-objekt](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-python) som autentiserar till Azure, som innehåller din redigeringsnyckel.
+Redigerings klienten för Language Understanding (LUIS) är ett [LUISAuthoringClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-python) -objekt som autentiserar till Azure, som innehåller din redigerings nyckel.
 
-När klienten har skapats använder du den här klienten för att komma åt funktioner, inklusive:
+När klienten har skapats använder du den här klienten för att få åtkomst till funktioner, inklusive:
 
-* Appar - [skapa,](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#add-application-create-object--custom-headers-none--raw-false----operation-config-) [ta bort](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#delete-app-id--force-false--custom-headers-none--raw-false----operation-config-), [publicera](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#publish-app-id--version-id-none--is-staging-false--custom-headers-none--raw-false----operation-config-)
-* Exempel yttranden - [lägga till efter batch](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#batch-app-id--version-id--example-label-object-array--custom-headers-none--raw-false----operation-config-), ta bort av [ID](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#delete-app-id--version-id--example-id--custom-headers-none--raw-false----operation-config-)
-* Funktioner - hantera [fraslistor](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.featuresoperations?view=azure-python#add-phrase-list-app-id--version-id--phraselist-create-object--custom-headers-none--raw-false----operation-config-)
-* Modell - hantera [avsikter](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) och entiteter
-* Mönster - hantera [mönster](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.patternoperations?view=azure-python#add-pattern-app-id--version-id--pattern-none--intent-none--custom-headers-none--raw-false----operation-config-)
-* Tåg - [träna](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#train-version-app-id--version-id--custom-headers-none--raw-false----operation-config-) appen och enkät för [träningsstatus](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#get-status-app-id--version-id--custom-headers-none--raw-false----operation-config-)
-* [Versioner](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.versionsoperations?view=azure-python) - hantera med klon, export och ta bort
+* Appar- [skapa](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#add-application-create-object--custom-headers-none--raw-false----operation-config-), [ta bort](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#delete-app-id--force-false--custom-headers-none--raw-false----operation-config-), [publicera](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#publish-app-id--version-id-none--is-staging-false--custom-headers-none--raw-false----operation-config-)
+* Exempel yttranden – [Lägg till via batch](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#batch-app-id--version-id--example-label-object-array--custom-headers-none--raw-false----operation-config-), [ta bort efter ID](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#delete-app-id--version-id--example-id--custom-headers-none--raw-false----operation-config-)
+* Funktioner – hantera [fras listor](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.featuresoperations?view=azure-python#add-phrase-list-app-id--version-id--phraselist-create-object--custom-headers-none--raw-false----operation-config-)
+* Modell-hantera [avsikter](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) och entiteter
+* Mönster – hantera [mönster](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.patternoperations?view=azure-python#add-pattern-app-id--version-id--pattern-none--intent-none--custom-headers-none--raw-false----operation-config-)
+* Träna – [träna](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#train-version-app-id--version-id--custom-headers-none--raw-false----operation-config-) appen och avsökningen efter [kurs status](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#get-status-app-id--version-id--custom-headers-none--raw-false----operation-config-)
+* [Versioner](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.versionsoperations?view=azure-python) – hantera med klona, exportera och ta bort
 
 
 ## <a name="code-examples"></a>Kodexempel
 
-Dessa kodavsnitt visar hur du gör följande med klientbiblioteket För redigering av språk understanding (LUIS) för python:
+De här kodfragmenten visar hur du gör följande med redigerings klient biblioteket Language Understanding (LUIS) för python:
 
 * [Skapa en app](#create-a-luis-app)
 * [Lägg till entiteter](#create-entities-for-the-app)
@@ -110,79 +110,79 @@ Dessa kodavsnitt visar hur du gör följande med klientbiblioteket För redigeri
 * [Träna appen](#train-the-app)
 * [Publicera appen](#publish-a-language-understanding-app)
 
-## <a name="create-a-new-python-application"></a>Skapa ett nytt pythonprogram
+## <a name="create-a-new-python-application"></a>Skapa ett nytt python-program
 
-Skapa ett nytt Python-program i önskad redigerare eller IDE. Importera sedan följande bibliotek.
+Skapa ett nytt python-program i önskat redigerings program eller IDE. Importera sedan följande bibliotek.
 
 [!code-python[Create a new Python application in your preferred editor or IDE.](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=Dependencies)]
 
-Skapa variabler för resursens Azure-slutpunkt och -nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigeraren, IDE:t eller skalet som kör den för att komma åt variabeln.
+Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln.
 
 [!code-python[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=AuthorizationVariables)]
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Skapa ett [CognitiveServicesCredentials-objekt](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) med nyckeln och använd det med slutpunkten för att skapa ett [LUISAuthoringClient-objekt.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-python)
+Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [LUISAuthoringClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-python) -objekt.
 
 [!code-python[Create LUIS client object](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=Client)]
 
 ## <a name="create-a-luis-app"></a>Skapa en LUIS-app
 
-1. Skapa en LUIS-app som innehåller NLP-modellen (Natural Language Processing) som innehåller avsikter, entiteter och exempelyttranden.
+1. Skapa en LUIS-app som innehåller NLP-modellen (Natural Language Processing), entiteter och exempel yttranden.
 
-1. Skapa en Add-metod för Att [skapa](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#add-application-create-object--custom-headers-none--raw-false----operation-config-) appen för ett [AppsOperation-objekt.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python) Namn och språkkultur är obligatoriska egenskaper.
+1. Skapa appen genom att skapa ett [AppsOperation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python) -objekts [Add](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#add-application-create-object--custom-headers-none--raw-false----operation-config-) -metod. Namnet och språk kulturen är obligatoriska egenskaper.
 
     [!code-python[Create LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=createApp)]
 
 
 ## <a name="create-intent-for-the-app"></a>Skapa avsikt för appen
-Det primära objektet i en LUIS-apps modell är avsikten. Avsikten justerar med en gruppering av avsikter för _användarens_yttrande . En användare kan ställa en fråga eller göra ett uttalande som letar efter ett särskilt _avsett_ svar från en bot (eller annat klientprogram). Exempel på avsikter är att boka ett flyg, fråga om vädret i en destinationsstad och fråga om kontaktuppgifter för kundservice.
+Det primära objektet i en LUIS-Apps modell är avsikten. Avsikten med en gruppering av användarens _uttryck._ En användare kan ställa en fråga eller göra en instruktion som söker efter ett särskilt _avsett_ svar från en robot (eller något annat klient program). Exempel på avsikt är att boka en flygning och fråga om väder i en destinations ort och fråga om kontakt information för kund tjänst.
 
-Använd [metoden model.add_intent](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) med namnet på den unika avsikten och skicka sedan app-ID, versions-ID och nytt avsiktsnamn.
+Använd metoden [Model. add_intent](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) med namnet på den unika avsikten och skicka app-ID, VERSIONS-ID och nytt namn för avsikten.
 
 [!code-python[Create LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=addIntents)]
 
 ## <a name="create-entities-for-the-app"></a>Skapa entiteter för appen
 
-Entiteter krävs inte, men de finns i de flesta appar. Entiteten extraherar information från användarens yttrande, nödvändigt att fullfil användarens avsikt. Det finns flera typer av färdiga och anpassade [entiteter,](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-prebuilt-app-id--version-id--prebuilt-extractor-names--custom-headers-none--raw-false----operation-config-) var och en med sina egna DTO-modeller (Data Transformation Object).  Vanliga fördefinierade entiteter som ska läggas till i appen är [nummer,](../luis-reference-prebuilt-number.md) [datetimeV2](../luis-reference-prebuilt-datetimev2.md), [geographyV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md).
+Även om entiteter inte krävs finns de i de flesta appar. Entiteten extraherar information från användar uttryck, som krävs för att fullfil användarens avsikt. Det finns flera typer av [färdiga](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-prebuilt-app-id--version-id--prebuilt-extractor-names--custom-headers-none--raw-false----operation-config-) och anpassade entiteter, var och en med sina egna DTO-modeller (data Transformation Object).  Vanliga fördefinierade entiteter som ska läggas till i din app är [Number](../luis-reference-prebuilt-number.md), [datetimeV2](../luis-reference-prebuilt-datetimev2.md), [geographyV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md).
 
-Den här **add_entities** metoden `Location` skapade en enkel entitet med två roller, en `Class` enkel entitet, en `Flight` sammansatt entitet och lägger till flera fördefinierade entiteter.
+Den här **add_entities** metoden skapade `Location` en enkel entitet med två roller, `Class` en enkel entitet, `Flight` en sammansatt entitet och lägger till flera fördefinierade entiteter.
 
-Det är viktigt att veta att entiteter inte är markerade med en avsikt. De kan och brukar gälla för många avsikter. Endast exempelanvändaryttranden är markerade för en specifik, enda avsikt.
+Det är viktigt att veta att entiteter inte har marker ATS med ett avsikts syfte. De kan och används vanligt vis för många syften. Endast yttranden är markerade för ett visst, enskilt syfte.
 
-Skapa metoder för entiteter är en del av klassen [ModelOperations.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python) Varje entitetstyp har sin egen DTO-modell (Data Transformation Object).
+Skapande metoder för entiteter ingår i [ModelOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python) -klassen. Varje entitetstyp har sin egen DTO-modell (data Transformation Object).
 
 [!code-python[Create LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=addEntities)]
 
-## <a name="add-example-utterance-to-intent"></a>Lägga till exempelutseende till avsikt
+## <a name="add-example-utterance-to-intent"></a>Lägg till exempel uttryck till avsikt
 
-För att fastställa en yttrande avsikt och extrahera entiteter, behöver appen exempel på yttranden. Exemplen måste inriktas på en specifik, enda avsikt och bör markera alla anpassade entiteter. Fördefinierade entiteter behöver inte markeras.
+Appen behöver exempel på yttranden för att kunna fastställa en uttryck för avsikt och extrahering av entiteter. Exemplen måste vara riktade mot en viss, enskild avsikt och ska markera alla anpassade entiteter. Fördefinierade entiteter behöver inte markeras.
 
-Lägg till exempelyttranden genom att skapa en lista med [ExempelLabelObject-objekt,](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-python) ett objekt för varje exempelutseende. Varje exempel ska markera alla entiteter med en ordlista med namn-/värdepar med entitetsnamn och entitetsvärde. Entitetsvärdet ska vara exakt som det visas i texten i exempelutseendet.
+Lägg till exempel yttranden genom att skapa en lista över [ExampleLabelObject](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-python) -objekt, ett objekt för varje exempel uttryck. Varje exempel bör markera alla entiteter med en ord lista med namn/värde-par för enhets namn och enhets värde. Enhet svärdet bör vara exakt så som det visas i texten i exemplet uttryck.
 
-Ring [examples.batch](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#batch-app-id--version-id--example-label-object-array--custom-headers-none--raw-false----operation-config-) med app-ID, versions-ID och listan med exempel. Samtalet svarar med en lista med resultat. Du måste kontrollera varje exempels resultat för att se till att det har lagts till i modellen.
+Anropa [exempel. batch](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#batch-app-id--version-id--example-label-object-array--custom-headers-none--raw-false----operation-config-) med app-ID, VERSIONS-ID och listan med exempel. Anropet svarar med en lista över resultat. Du måste kontrol lera varje exempels resultat för att se till att det har lagts till i modellen.
 
 [!code-python[Add example utterances via a batch](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=addUtterances)]
 
 ## <a name="train-the-app"></a>Träna appen
 
-När modellen har skapats måste LUIS-appen tränas för den här versionen av modellen. En tränad modell kan användas i en [behållare](../luis-container-howto.md)eller [publiceras](../luis-how-to-publish-app.md) på mellanlagrings- eller produktplatserna.
+När modellen har skapats måste LUIS-appen tränas för den här versionen av modellen. En utbildad modell kan användas i en [behållare](../luis-container-howto.md)eller [publiceras](../luis-how-to-publish-app.md) på mellanlagrings-eller produkt platserna.
 
-Metoden [train.train_version](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#train-version-app-id--version-id--custom-headers-none--raw-false----operation-config-) behöver app-ID och versions-ID.
+Metoden [träna. train_version](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#train-version-app-id--version-id--custom-headers-none--raw-false----operation-config-) kräver app-ID och VERSIONS-ID.
 
-En mycket liten modell, som denna snabbstart visar, kommer att träna mycket snabbt. För program på produktionsnivå bör appen innehålla ett avsökningsanrop till [get_status](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#get-status-app-id--version-id--custom-headers-none--raw-false----operation-config-) metod för att avgöra när eller om utbildningen lyckades. Svaret är en lista över [ModelTrainingInfo-objekt](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.models.modeltraininginfo?view=azure-python) med en separat status för varje objekt. Alla objekt måste lyckas för att utbildningen ska anses vara fullständig.
+En mycket liten modell, till exempel den här snabb starten visar, kommer att träna mycket snabbt. Utbildning appen måste innehålla ett avsöknings anrop till [get_Status](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#get-status-app-id--version-id--custom-headers-none--raw-false----operation-config-) -metoden för att fastställa när utbildningen har genomförts för program på produktions nivå. Svaret är en lista över [ModelTrainingInfo](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.models.modeltraininginfo?view=azure-python) -objekt med separat status för varje objekt. Alla objekt måste lyckas för att träningen ska anses vara slutförd.
 
 [!code-python[Train LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=train)]
 
-## <a name="publish-a-language-understanding-app"></a>Publicera en språk understanding-app
+## <a name="publish-a-language-understanding-app"></a>Publicera en Language Understanding app
 
-Publicera LUIS-appen med metoden [app.publish.](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#publish-app-id--version-id-none--is-staging-false--custom-headers-none--raw-false----operation-config-) Detta publicerar den aktuella tränade versionen till den angivna platsen vid slutpunkten. Klientprogrammet använder den här slutpunkten för att skicka användaryttranden för förutsägelse av avsikts- och entitetsextrahering.
+Publicera LUIS-appen med metoden [app. Publish](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#publish-app-id--version-id-none--is-staging-false--custom-headers-none--raw-false----operation-config-) . Detta publicerar den aktuella utbildade versionen till den angivna platsen vid slut punkten. Klient programmet använder den här slut punkten för att skicka användarens yttranden för förutsägelse av avsikt och extrahering av enheter.
 
 [!code-python[Publish LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=publish)]
 
 ## <a name="run-the-application"></a>Köra appen
 
-Kör programmet med `python` kommandot på snabbstartsfilen.
+Kör programmet med `python` kommandot på snabb starts filen.
 
 ```console
 python quickstart-file.py
@@ -190,4 +190,4 @@ python quickstart-file.py
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med dina förutsägelser rensar du arbetet från den här snabbstarten genom att ta bort filen och dess underkataloger.
+När du är klar med dina förutsägelser kan du rensa arbetet från den här snabb starten genom att ta bort filen och dess under kataloger.

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera PureCloud by Genesys för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du automatiskt etablerar och avserar användarkonton från Azure AD till PureCloud by Genesys.
+title: 'Självstudie: Konfigurera PureCloud av gener för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig att automatiskt etablera och avetablera användar konton från Azure AD till PureCloud av gener.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -16,65 +16,65 @@ ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
 ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77370681"
 ---
-# <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera PureCloud by Genesys för automatisk användaretablering
+# <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Självstudie: Konfigurera PureCloud av gener för automatisk användar etablering
 
-I den här självstudien beskrivs de steg du behöver utföra i både PureCloud by Genesys och Azure Active Directory (Azure AD) för att konfigurera automatisk användaretablering. När azure AD är konfigurerat avsersättningar och avsersättningar avsorianderar automatiskt till [PureCloud av Genesys](https://www.genesys.com) med hjälp av Azure AD-etableringstjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+I den här självstudien beskrivs de steg du behöver utföra i båda PureCloud av gener och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD har kon figurer ATS etablerar och avetablerar Azure AD automatiskt användare och grupper till [PureCloud av gener](https://www.genesys.com) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
-> * Skapa användare i PureCloud by Genesys
-> * Ta bort användare i PureCloud by Genesys när de inte längre behöver åtkomst
-> * Synkronisera användarattribut mellan Azure AD och PureCloud by Genesys
-> * Etableringsgrupper och gruppmedlemskap i PureCloud av Genesys
-> * [Enkel inloggning till](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial) PureCloud av Genesys (rekommenderas)
+> * Skapa användare i PureCloud av gener
+> * Ta bort användare i PureCloud av gener när de inte behöver åtkomst längre
+> * Behåll användarattribut synkroniserade mellan Azure AD och PureCloud av gener
+> * Etablera grupper och grupp medlemskap i PureCloud av gener
+> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial) till PureCloud av gener (rekommenderas)
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Ett användarkonto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
-* En [PureCloud-organisation](https://help.mypurecloud.com/?p=81984).
-* En användare med [behörighet](https://help.mypurecloud.com/?p=24360) att skapa en Oauth-klient.
+* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör). 
+* En PureCloud [organisation](https://help.mypurecloud.com/?p=81984).
+* En användare med [behörighet](https://help.mypurecloud.com/?p=24360) att skapa en OAuth-klient.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera distributionen av etableringen
-1. Läs mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Bestäm vem som ska vara i [omfång för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Bestäm vilka data som ska [mappas mellan Azure AD och PureCloud by Genesys](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
+1. Läs om [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Ta reda på vem som kommer att vara inom [omfånget för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Bestäm vilka data som ska [mappas mellan Azure AD och PureCloud av gener](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-purecloud-by-genesys-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera PureCloud by Genesys så att de kan etableras med Azure AD
+## <a name="step-2-configure-purecloud-by-genesys-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera PureCloud av gener som stöder etablering med Azure AD
 
-1. Skapa en [Oauth-klient](https://help.mypurecloud.com/?p=188023) som konfigurerats i din PureCloud-organisation.
-2. Generera en token [med din oauth-klient](https://developer.mypurecloud.com/api/rest/authorization/use-client-credentials.html).
-3. Om du vill etablera gruppmedlemskap automatiskt i PureCloud måste du [skapa grupper](https://help.mypurecloud.com/?p=52397) i PureCloud med ett identiskt namn till gruppen i Azure AD.
+1. Skapa en [OAuth-klient](https://help.mypurecloud.com/?p=188023) som kon figurer ATS i din PureCloud-organisation.
+2. Generera en token [med OAuth-klienten](https://developer.mypurecloud.com/api/rest/authorization/use-client-credentials.html).
+3. Om du vill etablera grupp medlemskap automatiskt i PureCloud måste du [skapa grupper](https://help.mypurecloud.com/?p=52397) i PureCloud med ett identiskt namn för gruppen i Azure AD.
 
-## <a name="step-3-add-purecloud-by-genesys-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till PureCloud by Genesys från Azure AD-programgalleriet
+## <a name="step-3-add-purecloud-by-genesys-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till PureCloud från gener från Azure AD-programgalleriet
 
-Lägg till PureCloud by Genesys från Azure AD-programgalleriet för att börja hantera etablering till PureCloud by Genesys. Om du tidigare har konfigurerat PureCloud by Genesys för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integrationen från början. Läs mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Lägg till PureCloud från gener från Azure AD-programgalleriet för att börja hantera etablering till PureCloud av gener. Om du tidigare har konfigurerat PureCloud av gener för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen från början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska vara i utrymme för etablering 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas inom omfånget för etablering 
 
-Azure AD-etableringstjänsten gör att du kan begränsa vem som ska etableras baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att begränsa vem som ska etableras i din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att begränsa vem som ska etableras enbart baserat på attribut för användaren eller gruppen kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på attribut för användaren eller gruppen kan du använda ett omfångs filter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* När du tilldelar användare och grupper till PureCloud by Genesys måste du välja en annan roll än **Standardåtkomst**. Användare med rollen Standardåtkomst är undantagna från etablering och markeras som inte effektivt berättigade i etableringsloggarna. Om den enda roll som är tillgänglig för programmet är standardåtkomstrollen kan du [uppdatera programmanifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
+* När du tilldelar användare och grupper till PureCloud av gener måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
 
-* Börja i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När omfång för etablering är inställt på tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När scopet är inställt på alla användare och grupper kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-purecloud-by-genesys"></a>Steg 5. Konfigurera automatisk användaretablering till PureCloud by Genesys 
+## <a name="step-5-configure-automatic-user-provisioning-to-purecloud-by-genesys"></a>Steg 5. Konfigurera automatisk användar etablering till PureCloud av gener 
 
-I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar- och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-purecloud-by-genesys-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för PureCloud by Genesys i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-purecloud-by-genesys-in-azure-ad"></a>Konfigurera automatisk användar etablering för PureCloud av gener i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -82,78 +82,78 @@ I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-eta
 
     ![PureCloud by Genesys-länken i programlistan](common/all-applications.png)
 
-3. Välj fliken **Etablering.**
+3. Välj fliken **etablering** .
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **Administratörsautentiseringsuppgifter** anger du din PureCloud by Genesys API-URL och Oauth-token i fälten **Klient-URL** och **Hemlig token.** API-URL:en struktureras som `{{API Url}}/api/v2/scim/v2`med hjälp av API-URL:en för din PureCloud-region från [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till PureCloud by Genesys. Om anslutningen misslyckas kontrollerar du att ditt PureCloud by Genesys-konto har administratörsbehörighet och försök igen.
+5. Under avsnittet **admin credentials** måste du skriva in din PureCloud av generad API-URL och OAuth-token i fälten för **klient-URL** och **hemlig token** . API-URL: en är strukturerad som `{{API Url}}/api/v2/scim/v2`med hjälp av API-URL: en för din PureCloud-region från [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till PureCloud av gener. Om anslutningen Miss lyckas kontrollerar du att PureCloud-kontot har administratörs behörighet och försöker igen.
 
-    ![Etableringen](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
+    ![etablerings](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
-6. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan **Skicka ett e-postmeddelande när ett fel inträffar.**
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
 7. Välj **Spara**.
 
-8. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory Users till PureCloud by Genesys**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till PureCloud av gener**.
 
-9. Granska användarattributen som synkroniseras från Azure AD till PureCloud av Genesys i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i PureCloud by Genesys för uppdateringsåtgärder. Om du väljer att ändra [det matchande målattributet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att PureCloud by Genesys API stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+9. Granska de användarattribut som synkroniseras från Azure AD till PureCloud av gener i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i PureCloud av gener för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att PureCloud-API: n stöder filtrering av användare baserat på detta attribut. Välj knappen **Spara** för att spara ändringarna.
 
      |Attribut|Typ|
      |---|---|
-     |userName|String|
-     |aktiv|Boolean|
-     |displayName|String|
-     |e-postmeddelanden[typ eq "arbete"].värde|String|
-     |title|String|
-     |phoneNumbers[typ eq "mobil"].värde|String|
-     |phoneNumbers[typ eq "arbete"].värde|String|
-     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referens|
+     |userName|Sträng|
+     |aktiv|Boolesk|
+     |displayName|Sträng|
+     |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
+     |title|Sträng|
+     |phoneNumbers [Type EQ "Mobile"]. värde|Sträng|
+     |phoneNumbers [typ EQ "Work"]. värde|Sträng|
+     |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
+     |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Referens|
 
-10. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory Groups till PureCloud by Genesys**.
+10. Under avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper för att PureCloud av gener**.
 
-11. Granska gruppattributen som synkroniseras från Azure AD till PureCloud av Genesys i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha grupperna i PureCloud by Genesys för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar. PureCloud by Genesys stöder inte skapande eller borttagning av grupper och stöder endast uppdatering av grupper.
+11. Granska gruppattributen som synkroniseras från Azure AD till PureCloud av gener i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i PureCloud av gener för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna. PureCloud av gener stöder inte grupp skapande eller borttagning och stöder bara uppdatering av grupper.
 
       |Attribut|Typ|
       |---|---|
-      |displayName|String|
-      |externt|String|
+      |displayName|Sträng|
+      |externalId|Sträng|
       |medlemmar|Referens|
 
-12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Om du vill aktivera Azure AD-etableringstjänsten för PureCloud by Genesys ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
+13. Om du vill aktivera Azure AD Provisioning-tjänsten för PureCloud av gener ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-14. Definiera de användare och/eller grupper som du vill etablera till PureCloud by Genesys genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
+14. Definiera de användare och/eller grupper som du vill etablera till PureCloud av gener genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etableringsomfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
 15. När du är redo att etablera klickar du på **Spara**.
 
-    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den inledande synkroniseringscykeln för alla användare och grupper som **definierats** i Scope i avsnittet **Inställningar.** Den inledande cykeln tar längre tid att utföra än efterföljande cykler, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. 
+Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfånget** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40: e minut, förutsatt att Azure AD Provisioning-tjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
 
-* Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller utan framgång
-* Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är till slutförande
-* Om etableringskonfigurationen verkar vara i feltillstånd kommer programmet att placeras i karantän. Läs mer om karantäntillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+* Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
+* Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
+* Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)

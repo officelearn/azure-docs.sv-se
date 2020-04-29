@@ -1,6 +1,6 @@
 ---
 title: Komma igång med Azure Service Bus-köer | Microsoft Docs
-description: I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en servicebusskö.
+description: I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,27 +15,27 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 5718106aee0e60d111398efdb839945c2c7a8a06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77471745"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en servicebusskö.
+I den här självstudien skapar du .NET Core-konsolprogram för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö.
 
 ## <a name="prerequisites"></a>Krav
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
-- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [msdn-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Om du inte har en kö att arbeta med följer du stegen i [Azure-portalen för att skapa en](service-bus-quickstart-portal.md) köartikel för Service Bus för att skapa en kö.
+- En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
 
-  - Läs den snabba översikten över servicebussköer.
-  - Skapa ett servicebussnamnområde.
-  - Hämta anslutningssträngen.
-  - Skapa en servicebusskö.
+  - Läs snabb översikten över Service Bus köer.
+  - Skapa ett Service Bus-namnområde.
+  - Hämta anslutnings strängen.
+  - Skapa en Service Bus kö.
 
 ## <a name="send-messages-to-the-queue"></a>Skicka meddelanden till kön
 
@@ -43,19 +43,19 @@ Skriv ett C#-konsolprogram med Visual Studio för att skicka meddelanden till k�
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
-Starta Visual Studio och skapa ett nytt **Console App-projekt (.NET Core)** för C#. I det här exemplet namnges appen *CoreSenderApp*.
+Starta Visual Studio och skapa ett nytt **konsol program (.net Core)-** projekt för C#. I det här exemplet namnges appens *CoreSenderApp*.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Lägga till Service Bus-NuGet-paketet
 
 1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
-1. Välj **Bläddra**. Sök efter och välj **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**.
+1. Välj **Bläddra**. Sök efter och välj **[Microsoft. Azure. Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**.
 1. Välj **Installera** för att slutföra installationen och stäng sedan NuGet Package Manager.
 
     ![Välj ett NuGet-paket][nuget-pkg]
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Skriva kod för att skicka meddelanden till kön
 
-1. I *Program.cs*lägger du `using` till följande satser högst upp i namnområdesdefinitionen före klassdeklarationen:
+1. I *program.cs*lägger du till följande `using` -instruktioner överst i namn områdes definitionen, före klass deklarationen:
 
     ```csharp
     using System.Text;
@@ -64,7 +64,7 @@ Starta Visual Studio och skapa ett nytt **Console App-projekt (.NET Core)** för
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. Deklarera `Program` följande variabler i klassen:
+1. I- `Program` klassen deklarerar du följande variabler:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -72,9 +72,9 @@ Starta Visual Studio och skapa ett nytt **Console App-projekt (.NET Core)** för
     static IQueueClient queueClient;
     ```
 
-    Ange anslutningssträngen för namnområdet som `ServiceBusConnectionString` variabel. Ange ditt könamn.
+    Ange din anslutnings sträng för namn området som `ServiceBusConnectionString` variabel. Ange namnet på kön.
 
-1. Ersätt `Main()` metoden med följande **asynkronmetod.** `Main` Den anropar den `SendMessagesAsync()` metod som du ska lägga till i nästa steg för att skicka meddelanden till kön. 
+1. Ersätt `Main()` metoden med följande **async** `Main` -metod. Den anropar `SendMessagesAsync()` den metod som du ska lägga till i nästa steg för att skicka meddelanden till kön. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -94,7 +94,7 @@ Starta Visual Studio och skapa ett nytt **Console App-projekt (.NET Core)** för
         await queueClient.CloseAsync();
     }
     ```
-1. Direkt efter `MainAsync()` metoden lägger `SendMessagesAsync()` du till följande metod som gör arbetet `numberOfMessagesToSend` med att skicka antalet meddelanden som anges av (för närvarande inställd på 10):
+1. Direkt efter- `MainAsync()` metoden lägger du till följande `SendMessagesAsync()` metod som utför arbetet med att skicka antalet meddelanden som anges av `numberOfMessagesToSend` (för närvarande är inställt på 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -121,7 +121,7 @@ Starta Visual Studio och skapa ett nytt **Console App-projekt (.NET Core)** för
     }
     ```
 
-Så här ska din *Program.cs* fil se ut.
+Så här bör din *program.cs* -fil se ut.
 
 ```csharp
 namespace CoreSenderApp
@@ -183,25 +183,25 @@ namespace CoreSenderApp
 }
 ```
 
-Kör programmet och kontrollera Azure-portalen.
+Kör programmet och kontrol lera Azure Portal.
 
-Välj namnet på kön i fönstret **översiktsfönster** för namnområde om du vill visa kön **Essentials**.
+Välj namnet på din kö i **översikts** fönstret för namn området för att visa **grundläggande**information om kön.
 
 ![Mottagna meddelanden med antal och storlek][queue-message]
 
-Värdet **för antal aktiva meddelanden** för kön är nu **10**. Varje gång du kör den här avsänarappan utan att hämta meddelandena ökar det här värdet med 10.
+Värdet för **Antal aktiva meddelanden** för kön är nu **10**. Varje gången du kör den här avsändar appen utan att hämta meddelandena ökar värdet med 10.
 
-Den aktuella storleken på kön ökar värdet **AKTUELL** i **Essentials** varje gång appen lägger till meddelanden i kön.
+Köns aktuella storlek ökar det **aktuella** värdet i **grunderna** varje gången appen lägger till meddelanden i kön.
 
 I nästa avsnitt beskrivs hur du hämtar dessa meddelanden.
 
 ## <a name="receive-messages-from-the-queue"></a>Ta emot meddelanden från kön
 
-Om du vill ta emot de meddelanden du skickade skapar du ett annat **Console App-program (.NET Core).** Installera **paketet Microsoft.Azure.ServiceBus** NuGet, som du gjorde för avsänarprogrammet.
+Om du vill ta emot de meddelanden som du har skickat skapar du ett annat **konsol program (.net Core)** . Installera **Microsoft. Azure. Service Bus** NuGet-paketet som du gjorde för avsändar programmet.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Skriva kod för att ta emot meddelanden från kön
 
-1. I *Program.cs*lägger du `using` till följande satser högst upp i namnområdesdefinitionen före klassdeklarationen:
+1. I *program.cs*lägger du till följande `using` -instruktioner överst i namn områdes definitionen, före klass deklarationen:
 
     ```csharp
     using System;
@@ -211,7 +211,7 @@ Om du vill ta emot de meddelanden du skickade skapar du ett annat **Console App-
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. Deklarera `Program` följande variabler i klassen:
+1. I- `Program` klassen deklarerar du följande variabler:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -219,7 +219,7 @@ Om du vill ta emot de meddelanden du skickade skapar du ett annat **Console App-
     static IQueueClient queueClient;
     ```
 
-    Ange anslutningssträngen för namnområdet som `ServiceBusConnectionString` variabel. Ange ditt könamn.
+    Ange din anslutnings sträng för namn området som `ServiceBusConnectionString` variabel. Ange namnet på kön.
 
 1. Ersätt metoden `Main()` med följande kod:
 
@@ -246,7 +246,7 @@ Om du vill ta emot de meddelanden du skickade skapar du ett annat **Console App-
     }
     ```
 
-1. Direkt efter `MainAsync()` metoden lägger du till följande metod, som registrerar meddelandehanteraren och tar emot de meddelanden som skickas av avsändningsprogrammet:
+1. Direkt efter- `MainAsync()` metoden lägger du till följande metod, som registrerar meddelande hanteraren och tar emot meddelanden som skickas av avsändar programmet:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -302,7 +302,7 @@ Om du vill ta emot de meddelanden du skickade skapar du ett annat **Console App-
     }
     ```
 
-Så här ska *din Program.cs* fil se ut:
+Så här bör din *program.cs* -fil se ut:
 
 ```csharp
 namespace CoreReceiverApp
@@ -388,14 +388,14 @@ namespace CoreReceiverApp
 }
 ```
 
-Kör programmet och kontrollera portalen igen. Antalet **aktiva meddelanden** och **AKTUELLA** värden är nu **0**.
+Kör programmet och kontrollera portalen igen. **Antalet aktiva meddelanden** och **aktuella** värden är nu **0**.
 
 ![Kö efter att meddelanden har tagits emot][queue-message-receive]
 
-Grattis! Du har nu skapat en kö, skickat en uppsättning meddelanden till den kön och tagit emot dessa meddelanden från samma kö.
+Grattis! Nu har du skapat en kö, skickat en uppsättning meddelanden till kön och tagit emot dessa meddelanden från samma kö.
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Med Service Bus Explorer kan användare enkelt ansluta till ett servicebussnamnområde och administrera meddelandeentiteter. Verktyget innehåller avancerade funktioner som import-/exportfunktioner eller möjligheten att testa ämnen, köer, prenumerationer, relätjänster, meddelandehubbar och händelsehubbar.
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att enkelt ansluta till en Service Bus namnrymd och administrera meddelande enheter. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub.
 
 ## <a name="next-steps"></a>Nästa steg
 

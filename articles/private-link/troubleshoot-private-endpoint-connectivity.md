@@ -1,6 +1,6 @@
 ---
 title: Felsöka anslutningsproblem för privata slutpunkter i Azure
-description: Steg-för-steg-vägledning för att diagnostisera privat slutpunktsanslutning
+description: Steg-för-steg-anvisningar för hur du diagnostiserar privat slut punkts anslutning
 services: private-endpoint
 documentationcenter: na
 author: rdhillon
@@ -14,98 +14,98 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77538542"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Felsöka anslutningsproblem för privata slutpunkter i Azure
 
-Den här artikeln innehåller steg-för-steg-vägledning för att validera och diagnostisera din Azure Private Endpoint-anslutningskonfiguration.
+Den här artikeln innehåller steg-för-steg-anvisningar om hur du verifierar och diagnostiserar konfigurationen av anslutnings programmet för Azure privat slutpunkt.
 
-Azure Private Endpoint är ett nätverksgränssnitt som ansluter dig privat och säkert till en privat länktjänst. Den här lösningen hjälper dig att skydda dina arbetsbelastningar i Azure genom att tillhandahålla privat anslutning till dina Azure-tjänstresurser från ditt virtuella nätverk. Den här lösningen ger effektivt dessa tjänster till ditt virtuella nätverk.
+Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till en privat länk tjänst. Den här lösningen hjälper dig att skydda dina arbets belastningar i Azure genom att tillhandahålla privat anslutning till dina Azure-tjänsteresurser från det virtuella nätverket. Med den här lösningen kan du effektivt använda tjänsterna i ditt virtuella nätverk.
 
-Här är anslutningsscenarierna som är tillgängliga med Private Endpoint:
+Här är de anslutnings scenarier som är tillgängliga med privat slut punkt:
 
 - Virtuellt nätverk från samma region
-- Regionalt peered virtuella nätverk
-- Globalt peered virtuella nätverk
-- Kunder lokalt via VPN- eller Azure ExpressRoute-kretsar
+- Regionalt peer-peerade virtuella nätverk
+- Globalt peer-kopplat virtuella nätverk
+- Kund lokalt via VPN eller Azure ExpressRoute-kretsar
 
-## <a name="diagnose-connectivity-problems"></a>Diagnostisera anslutningsproblem 
+## <a name="diagnose-connectivity-problems"></a>Diagnostisera anslutnings problem 
 
-Granska de här stegen för att se till att alla vanliga konfigurationer som förväntat löser anslutningsproblem med din privata slutpunktskonfiguration.
+Granska de här stegen för att se till att alla vanliga konfigurationer är de som förväntas lösa anslutnings problem med din privata slut punkts konfiguration.
 
-1. Granska privat slutpunktskonfiguration genom att bläddra i resursen.
+1. Granska den privata slut punkts konfigurationen genom att bläddra i resursen.
 
     a. Gå till **Private Link Center**.
 
-      ![Privat länkcenter](./media/private-endpoint-tsg/private-link-center.png)
+      ![Privat länk Center](./media/private-endpoint-tsg/private-link-center.png)
 
-    b. Välj **Privata slutpunkter**i den vänstra rutan .
+    b. I det vänstra fönstret väljer du **privata slut punkter**.
     
-      ![Privata slutpunkter](./media/private-endpoint-tsg/private-endpoints.png)
+      ![Privata slut punkter](./media/private-endpoint-tsg/private-endpoints.png)
 
-    c. Filtrera och välj den privata slutpunkt som du vill diagnostisera.
+    c. Filtrera och välj den privata slut punkt som du vill diagnostisera.
 
-    d. Granska den virtuella nätverks- och DNS-informationen.
-     - Verifiera att **anslutningstillståndet**är godkänt .
-     - Kontrollera att den virtuella datorn har anslutning till det virtuella nätverket som är värd för de privata slutpunkterna.
-     - Kontrollera att FQDN-informationen (kopia) och den privata IP-adressen har tilldelats.
+    d. Granska det virtuella nätverket och DNS-informationen.
+     - Kontrol lera att anslutnings status är **godkänd**.
+     - Se till att den virtuella datorn är ansluten till det virtuella nätverket som är värd för de privata slut punkterna.
+     - Kontrol lera att FQDN-informationen (kopia) och den privata IP-adressen har tilldelats.
     
-       ![Virtuell nätverks- och DNS-konfiguration](./media/private-endpoint-tsg/vnet-dns-configuration.png)
+       ![Virtuellt nätverk och DNS-konfiguration](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
 1. Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för att se om data flödar.
 
-    a. Välj **Övervaka**på den privata slutpunktsresursen .
-     - Välj **Data in** eller data **ut**. 
-     - Se om data flödar när du försöker ansluta till den privata slutpunkten. Räkna med en fördröjning på cirka 10 minuter.
+    a. Välj **övervaka**på den privata slut punkts resursen.
+     - Välj **data i** eller **ut data**. 
+     - Se om data flödar när du försöker ansluta till den privata slut punkten. Vänta en fördröjning på ungefär 10 minuter.
     
-       ![Verifiera privat slutpunktstelemetri](./media/private-endpoint-tsg/private-endpoint-monitor.png)
+       ![Verifiera privat slut punkt för telemetri](./media/private-endpoint-tsg/private-endpoint-monitor.png)
 
-1.  Använd **felsöka för VM-anslutning** från Azure Network Watcher.
+1.  Använd **fel sökning av VM-anslutning** från Azure Network Watcher.
 
-    a. Välj klient-VM.
+    a. Välj den virtuella klient datorn.
 
-    b. Välj **Felsöka anslutning**och välj sedan fliken **Utgående anslutningar.**
+    b. Välj **fel sökning av anslutning**och välj sedan fliken **utgående anslutningar** .
     
-      ![Network Watcher - Testa utgående anslutningar](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
+      ![Network Watcher-testa utgående anslutningar](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
     
-    c. Välj **Använd Nätverksbevakare för detaljerad anslutningsspårning**.
+    c. Välj **använd Network Watcher för detaljerad anslutnings spårning**.
     
-      ![Network Watcher - Felsöka anslutning](./media/private-endpoint-tsg/network-watcher-connection-troubleshoot.png)
+      ![Network Watcher fel sökning av anslutning](./media/private-endpoint-tsg/network-watcher-connection-troubleshoot.png)
 
-    d. Välj **Testa med FQDN**.
-     - Klistra in FQDN från den privata slutpunktsresursen.
-     - Ange en port. Använd vanligtvis 443 för Azure Storage eller Azure Cosmos DB och 1336 för SQL.
+    d. Välj **Testa efter FQDN**.
+     - Klistra in det fullständiga domän namnet från resursen för den privata slut punkten.
+     - Ange en port. Använd vanligt vis 443 för Azure Storage eller Azure Cosmos DB och 1336 för SQL.
 
-    e. Välj **Testa**och validera testresultaten.
+    e. Välj **test**och verifiera test resultaten.
     
-      ![Network Watcher - Testresultat](./media/private-endpoint-tsg/network-watcher-test-results.png)
+      ![Network Watcher-test resultat](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
         
-1. DNS-matchning från testresultaten måste ha samma privata IP-adress tilldelad till den privata slutpunkten.
+1. DNS-matchning från test resultaten måste ha samma privata IP-adress som tilldelats till den privata slut punkten.
 
-    a. Om DNS-inställningarna är felaktiga gör du så här:
+    a. Följ dessa steg om DNS-inställningarna är felaktiga:
      - Om du använder en privat zon: 
-       - Kontrollera att klientens virtuella virtuella nätverk är associerat med den privata zonen.
-       - Kontrollera att den privata DNS-zonposten finns. Om den inte finns, skapa den.
+       - Se till att det virtuella klient DATORns virtuella nätverk är associerat med den privata zonen.
+       - Kontrol lera att det finns en privat DNS-zon post. Om den inte finns skapar du den.
      - Om du använder anpassad DNS:
-       - Granska dina anpassade DNS-inställningar och verifiera att DNS-konfigurationen är korrekt.
-       Vägledning finns i [Privat slutpunktsöversikt: DNS-konfiguration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       - Granska dina anpassade DNS-inställningar och kontrol lera att DNS-konfigurationen är korrekt.
+       Vägledning finns i [Översikt över privat slut punkt: DNS-konfiguration](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 
-    b. Om anslutningen misslyckas på grund av nätverkssäkerhetsgrupper (NSG) eller användardefinierade vägar:
-     - Granska NSG-utgående regler och skapa lämpliga utgående regler för att tillåta trafik.
+    b. Om anslutningen inte fungerar på grund av nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar:
+     - Granska utgående regler för NSG och skapa lämpliga utgående regler som tillåter trafik.
     
-       ![Regler för utgående NSG](./media/private-endpoint-tsg/nsg-outbound-rules.png)
+       ![NSG utgående regler](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
-1. Om anslutningen har validerat resultat kan anslutningsproblemet vara relaterat till andra aspekter som hemligheter, token och lösenord i programlagret.
-   - I det här fallet granskar du konfigurationen av den privata länkresurs som är associerad med den privata slutpunkten. Mer information finns i [felsökningsguiden för Azure Private Link](troubleshoot-private-link-connectivity.md).
+1. Om anslutningen har verifierats kan anslutnings problemet vara relaterat till andra aspekter som hemligheter, tokens och lösen ord på program nivån.
+   - I det här fallet granskar du konfigurationen av den privata länk resurs som är associerad med den privata slut punkten. Mer information finns i [fel söknings guiden för Azure privat länk](troubleshoot-private-link-connectivity.md).
 
-1. Kontakta [Azure-supportteamet](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) om problemet fortfarande är olöst och det fortfarande finns ett anslutningsproblem.
+1. Kontakta support teamet för [Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) om problemet fortfarande är olöst och det fortfarande finns anslutnings problem.
 
 ## <a name="next-steps"></a>Nästa steg
 
- * [Skapa en privat slutpunkt i det uppdaterade undernätet (Azure-portalen)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
- * [Felsökningsguide för Azure Private Link](troubleshoot-private-link-connectivity.md)
+ * [Skapa en privat slut punkt på det uppdaterade under nätet (Azure Portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Fel söknings guide för Azure privat länk](troubleshoot-private-link-connectivity.md)

@@ -1,6 +1,6 @@
 ---
-title: Ett innehållsskyddssystem med flera DRM - Azure Media Services v3
-description: I de här artiklarna beskrivs en detaljerad beskrivning av hur du utformar ett multi-DRM-innehållsskyddssystem med Azure Media Services.
+title: Ett innehålls skydds system med flera DRM-Azure Media Services v3
+description: Den här artikeln innehåller en detaljerad beskrivning av hur du utformar ett innehålls skydds system med flera DRM med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -15,225 +15,225 @@ ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77161791"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Utforma multi-DRM-innehållsskyddssystem med åtkomstkontroll 
 
-Att designa och bygga ett DRM-delsystem (Digital Rights Management) för en over-the-top (OTT) eller online streaming lösning är en komplex uppgift. Operatörer / online videoleverantörer lägger vanligtvis ut denna uppgift till specialiserade DRM-tjänsteleverantörer. Målet med det här dokumentet är att presentera en referensdesign och en referensimplementering av ett heltäckande DRM-delsystem i en OTT- eller onlinestreaminglösning.
+Att utforma och skapa ett DRM-undersystem (Digital Rights Management) för en över-och OTT-eller direkt uppspelnings lösning är en komplex uppgift. Operatörer/video leverantörer tar vanligt vis ut den här uppgiften till specialiserade DRM-tjänstleverantörer. Målet med det här dokumentet är att presentera en referens design och en referens implementering av ett DRM-undersystem från slut punkt till slut punkt i en OTT-eller direkt uppspelnings lösning.
 
-De riktade läsarna för detta dokument är ingenjörer som arbetar i DRM-delsystem av OTT eller online streaming /multiscreen-lösningar eller läsare som är intresserade av DRM-delsystem. Antagandet är att läsarna är bekanta med minst en av DRM-teknikerna på marknaden, till exempel PlayReady, Widevine, FairPlay eller Adobe Access.
+Mål läsarna för det här dokumentet är ingenjörer som arbetar i DRM-undersystem av OTT eller online streaming/Multiscreen-lösningar eller läsare som är intresserade av DRM-undersystem. Antagandet är att läsarna är bekant med minst en av DRM-teknikerna på marknaden, till exempel PlayReady, Widevine, FairPlay eller Adobe Access.
 
-I den här diskussionen, genom multi-DRM, inkluderar vi de 3 DRM som stöds av Azure Media Services: Common Encryption (CENC) för PlayReady och Widevine, FairPlay samt AES-128 tydlig nyckelkryptering. En stor trend i online streaming och OTT industrin är att använda inhemska DRMs på olika klientplattformar. Denna trend är en övergång från den tidigare som använde en enda DRM och dess klient SDK för olika klientplattformar. När du använder CENC med multi-native DRM krypteras både PlayReady och Widevine enligt specifikationen [common encryption (ISO/IEC 23001-7 CENC).](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/)
+I den här diskussionen inkluderar multi-DRM de tre DRM: er som stöds av Azure Media Services: Common Encryption (CENC) för PlayReady och Widevine, FairPlay samt AES-128-kryptering med tydlig nyckel. En större tendens i online-direktuppspelning och OTT-branschen är att använda inbyggd DRM: er på olika klient plattformar. Den här trenden är en Skift från den tidigare en som använde ett enda DRM och dess klient-SDK för olika klient plattformar. När du använder CENC med multi-Native DRM krypteras både PlayReady och Widevine enligt specifikationen [common Encryption (ISO/IEC 23001-7 Cenc)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) .
 
-Fördelarna med att använda inbyggd multi-DRM för innehållsskydd är att det:
+Fördelarna med att använda inbyggt multi-DRM för innehålls skydd är att:
 
-* Minskar krypteringskostnaden eftersom en enda krypteringsprocess används för att rikta olika plattformar med sina inbyggda DRM-moduler.
-* Minskar kostnaden för att hantera tillgångar eftersom endast en enda kopia av tillgången behövs i lagring.
-* Eliminerar DRM-klientlicensieringskostnad eftersom den inbyggda DRM-klienten vanligtvis är gratis på sin inbyggda plattform.
+* Minskar krypterings kostnaden eftersom en enda krypterings process används för att rikta in sig på olika plattformar med dess inbyggda DRM: er.
+* Minskar kostnaden för att hantera till gångar eftersom endast en enda kopia av till gången behövs i lagringen.
+* Eliminerar DRM-klientens licens kostnad eftersom den inbyggda DRM-klienten vanligt vis är kostnads fri på den ursprungliga plattformen.
 
 ### <a name="goals-of-the-article"></a>Målen för artikeln
 
-Syftet med denna artikel är att:
+Syftet med den här artikeln är att:
 
-* Tillhandahålla en referensdesign av ett DRM-undersystem som använder alla 3 DRM -moduler (CENC för DASH, FairPlay för HLS och PlayReady för smidig strömning).
-* Tillhandahålla en referensimplementering på Azure- och Azure Media Services-plattformen.
-* Diskutera några design- och implementeringsämnen.
+* Tillhandahålla en referens design för ett DRM-undersystem som använder alla tre DRM: er (CENC for bindestreck, FairPlay för HLS och PlayReady för smidig strömning).
+* Tillhandahålla en referens implementering på Azure och Azure Media Services plattform.
+* Diskutera några design-och implementerings ämnen.
 
-I följande tabell sammanfattas inbyggt DRM-stöd på olika plattformar och EME-stöd i olika webbläsare.
+I följande tabell sammanfattas inbyggda DRM-stöd på olika plattformar och EME-stöd i olika webbläsare.
 
-| **Klient plattform** | **Inbyggd DRM** | **Eme** |
+| **Klient plattform** | **Inbyggt DRM** | **EME** |
 | --- | --- | --- |
-| **Smarta TV-apparater, stb:er** | PlayReady, Widevine och/eller andra | Inbäddad webbläsare/EME för PlayReady och/eller Widevine|
+| **Smarta TV-apparater, STBs** | PlayReady, Widevine och/eller andra | Embedded Browser/EME för PlayReady och/eller Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 för PlayReady|
-| **Android-enheter (telefon, surfplatta, TV)** |Widevine |Krom för Widevine |
-| **iOS** | FairPlay | Safari för FairPlay (sedan iOS 11.2) |
-| **Macos** | FairPlay | Safari för FairPlay (sedan Safari 9 + på Mac OS X 10.11 + El Capitan)|
-| **tvOS (på ett sätt)** | FairPlay | |
+| **Android-enheter (telefon, surfplatta, TV)** |Widevine |Chrome för Widevine |
+| **iOS** | FairPlay | Safari för FairPlay (sedan iOS 11,2) |
+| **macOS** | FairPlay | Safari för FairPlay (sedan Safari 9 + på Mac OS X 10.11 + El Capitan)|
+| **tvOS** | FairPlay | |
 
-Med tanke på det aktuella tillståndet för distributionen för varje DRM, vill en tjänst vanligtvis implementera två eller tre DRM-moduler för att se till att du tar itu med alla typer av slutpunkter på bästa sätt.
+Med hänsyn till det aktuella distributions läget för varje DRM vill en tjänst normalt implementera två eller tre DRM: er för att se till att du hanterar alla typer av slut punkter på det bästa sättet.
 
-Det finns en avvägning mellan komplexiteten i tjänstlogiken och komplexiteten på klientsidan för att nå en viss nivå av användarupplevelse på de olika klienterna.
+Det finns en kompromiss mellan tjänst logikens komplexitet och komplexiteten på klient sidan för att uppnå en viss nivå av användar upplevelse på olika klienter.
 
-Tänk på ditt val:
+Tänk på följande när du väljer:
 
-* PlayReady implementeras internt i alla Windows-enheter, på vissa Android-enheter och är tillgängligt via SDK:er för programvara på praktiskt taget vilken plattform som helst.
-* Widevine implementeras internt i alla Android-enheter, i Chrome och i vissa andra enheter. Widevine stöds också i Firefox och Opera webbläsare över DASH.
+* PlayReady implementeras internt i varje Windows-enhet på vissa Android-enheter och är tillgängliga via Software SDK: er på nästan vilken plattform som helst.
+* Widevine implementeras internt i varje Android-enhet, i Chrome och i vissa andra enheter. Widevine stöds också i Firefox och Opera browsers med streck.
 * FairPlay finns på iOS, macOS och tvOS.
 
 
-## <a name="a-reference-design"></a>En referensdesign
-Det här avsnittet innehåller en referensdesign som är agnostisk för de tekniker som används för att implementera den.
+## <a name="a-reference-design"></a>En referens design
+I det här avsnittet presenteras en referens design som är oberoende till tekniken som används för att implementera den.
 
-Ett DRM-delsystem kan innehålla följande komponenter:
+Ett DRM-undersystem kan innehålla följande komponenter:
 
 * Nyckelhantering
-* DRM-krypteringsförpackning
+* Paket för DRM-kryptering
 * DRM-licensleverans
-* Kontroll/åtkomstkontroll för berättigande
+* Rättighets kontroll/åtkomst kontroll
 * Användarautentisering/auktorisering
-* Appen Spelare
-* Ursprungs-/innehållsleveransnätverk (CDN)
+* Player-app
+* Ursprung/Content Delivery Network (CDN)
 
-Följande diagram illustrerar interaktionen på hög nivå mellan komponenterna i ett DRM-delsystem:
+Följande diagram illustrerar en övergripande interaktion mellan komponenterna i ett DRM-undersystem:
 
-![DRM-delsystem med CENC](./media/design-multi-drm-system-with-access-control/media-services-generic-drm-subsystem-with-cenc.png)
+![DRM-undersystem med CENC](./media/design-multi-drm-system-with-access-control/media-services-generic-drm-subsystem-with-cenc.png)
 
 Designen har tre grundläggande lager:
 
-* Ett backoffice-lager (svart) visas inte externt.
-* Ett DMZ-lager (mörkblått) innehåller alla slutpunkter som möter allmänheten.
-* Ett offentligt internetlager (ljusblått) innehåller CDN och spelare med trafik över det offentliga internet.
+* Ett Back-Office-lager (Black) exponeras inte externt.
+* Ett DMZ-lager (mörkt blått) innehåller alla slut punkter som är riktade mot allmänheten.
+* Ett offentligt Internet lager (lätt blått) innehåller CDN och spelare med trafik över det offentliga Internet.
 
-Det bör också finnas ett verktyg för innehållshantering för att styra DRM-skydd, oavsett om det är statisk eller dynamisk kryptering. Ingångarna för DRM-kryptering inkluderar:
+Det bör också finnas ett innehålls hanterings verktyg för att kontrol lera DRM-skydd, oavsett om det är statiskt eller dynamiskt kryptering. Indata för DRM-kryptering är:
 
-* MBR-videoinnehåll
-* Innehållsnyckel
-* Url:er för licensförvärv
+* MBR video-innehåll
+* Innehålls nyckel
+* URL för licens hämtning
 
-Här är det högnivåflöde under uppspelningstiden:
+Här är ett hög nivå flöde under uppspelnings tiden:
 
-* Användaren autentiseras.
-* En auktoriseringstoken skapas för användaren.
+* Användaren är autentiserad.
+* En autentiseringstoken skapas för användaren.
 * DRM-skyddat innehåll (manifest) hämtas till spelaren.
-* Spelaren skickar en begäran om licensförvärv till licensservrar tillsammans med ett nyckel-ID och en auktoriseringstoken.
+* Spelaren skickar en begäran om licens hämtning till licens servrar tillsammans med ett nyckel-ID och en autentiseringstoken.
 
-I följande avsnitt beskrivs utformningen av nyckelhantering.
+I följande avsnitt beskrivs designen av nyckel hantering.
 
-| **ContentKey-till-tillgång** | **Scenario** |
+| **ContentKey-till-till-gång** | **Scenario** |
 | --- | --- |
-| 1-till-1 |Det enklaste fallet. Det ger den finaste kontrollen. Men detta arrangemang resulterar i allmänhet i den högsta licensleveranskostnaden. Minst krävs en licensbegäran för varje skyddad tillgång. |
-| 1-till-många |Du kan använda samma innehållsnyckel för flera tillgångar. För alla tillgångar i en logisk grupp, till exempel en genre eller delmängden av en genre (eller filmgen), kan du till exempel använda en enda innehållsnyckel. |
-| Många-till-1 |Flera innehållsnycklar behövs för varje tillgång. <br/><br/>Om du till exempel behöver använda dynamiskt CENC-skydd med multi-DRM för MPEG-DASH och dynamisk AES-128-kryptering för HLS behöver du två separata innehållsnycklar. Varje innehållsnyckel behöver sin egen ContentKeyType. (Använd ContentKeyType.CommonEncryption för innehållsnyckeln som används för dynamiskt CENC-skydd. Använd ContentKeyType.EnvelopeCryption för innehållsnyckeln som används för dynamisk AES-128-kryptering.)<br/><br/>Som ett annat exempel, i CENC-skydd av DASH-innehåll, i teorin kan du använda en innehållsnyckel för att skydda videoströmmen och en annan innehållsnyckel för att skydda ljudströmmen. |
-| Många-till-många |Kombination av de två föregående scenarierna. En uppsättning innehållsnycklar används för var och en av de flera tillgångarna i samma tillgångsgrupp. |
+| 1-till-1 |Det enklaste fallet. Den ger Finest-kontrollen. Men den här överenskommelsen resulterar i allmänhet av den högsta licens leverans kostnaden. Som minimum krävs en licens förfrågan för varje skyddad till gång. |
+| 1-till-många |Du kan använda samma innehålls nyckel för flera till gångar. Till exempel, för alla till gångar i en logisk grupp, till exempel en genre eller en delmängd av en genre (eller en film gen), kan du använda en enda innehålls nyckel. |
+| Många-till-1 |Flera innehålls nycklar krävs för varje till gång. <br/><br/>Om du till exempel behöver tillämpa dynamiskt CENC-skydd med multi-DRM för MPEG-streck och dynamisk AES-128-kryptering för HLS, behöver du två separata innehålls nycklar. Varje innehålls nyckel behöver sin egen ContentKeyType. (Använd ContentKeyType. CommonEncryption för den innehålls nyckel som används för dynamiskt CENC skydd. Använd ContentKeyType. EnvelopeEncryption för innehålls nyckeln som används för dynamisk AES-128-kryptering.)<br/><br/>Som ett annat exempel kan du i teorin använda en innehålls nyckel för att skydda video strömmen och en annan innehålls nyckel för att skydda ljud strömmen i CENC skydd av streck innehåll. |
+| Många-till-många |Kombination av föregående två scenarier. En uppsättning innehålls nycklar används för var och en av de flera till gångarna i samma till gångs grupp. |
 
-En annan viktig faktor att tänka på är användningen av beständiga och nonpersistent licenser.
+En annan viktig faktor att överväga är att använda beständiga och inte beständiga licenser.
 
-Varför är dessa överväganden viktiga?
+Varför är det viktigt att tänka på?
 
-Om du använder ett offentligt moln för licensleverans har beständiga och icke-obeständiga licenser en direkt inverkan på licensleveranskostnaden. Följande två olika designfall tjänar till att illustrera:
+Om du använder ett offentligt moln för licens leverans har beständiga och ej beständiga licenser direkt påverkan på licens leverans kostnaden. Följande två olika design ärenden är att illustrera:
 
-* Månadsprenumeration: Använd en beständig licens och 1:n-innehållsnyckel-till-tillgång-mappning. Till exempel, för alla barnens filmer, använder vi en enda innehållsnyckel för kryptering. Om så är fallet:
+* Månatlig prenumeration: Använd en beständiga licens och 1-till-många mappning av innehålls nyckel till till gång. Till exempel för alla barns filmer använder vi en enda innehålls nyckel för kryptering. Om så är fallet:
 
-    Totalt antal licenser som begärs för alla barnfilmer/enheter = 1
+    Totalt antal licenser som begärs för alla barns filmer/enhet = 1
 
-* Månadsprenumeration: Använd en icke-olicensierad licens och 1-till-1-mappning mellan innehållsnyckel och tillgång. Om så är fallet:
+* Månatlig prenumeration: Använd en ej beständiga licens och 1-till-1-mappning mellan innehålls nyckel och till gång. Om så är fallet:
 
-    Totalt antal licenser som begärs för alla barnfilmer/enheter = [antal filmer som har tittats] x [antal sessioner]
+    Totalt antal licenser som begärts för alla barns filmer/enhet = [antal filmer som bevakas] x [antal sessioner]
 
-De två olika mönster resultera i mycket olika mönster licens begäran. De olika mönstren resulterar i olika licensleveranskostnader om licensleveranstjänsten tillhandahålls av ett offentligt moln som Media Services.
+De två olika designerna resulterar i mycket olika mönster för licens förfrågningar. De olika mönstren resulterar i olika licens leverans kostnader om licens leverans tjänsten tillhandahålls av ett offentligt moln, till exempel Media Services.
 
-## <a name="map-design-to-technology-for-implementation"></a>Kartdesign till teknik för implementering
-Därefter mappas den allmänna designen till tekniker på Azure/Media Services-plattformen genom att ange vilken teknik som ska användas för varje byggblock.
+## <a name="map-design-to-technology-for-implementation"></a>Kart design till teknik för implementering
+Sedan mappas den allmänna designen till tekniker på Azure/Media Services-plattformen genom att ange vilken teknik som ska användas för varje Bygg block.
 
 I följande tabell visas mappningen.
 
-| **Byggsten** | **Teknik** |
+| **Bygg block** | **Teknik** |
 | --- | --- |
 | **Spelare** |[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/) |
-| **Identitetsprovider (IDP)** |Azure Active Directory (Azure AD) |
-| **Säker tokentjänst (STS)** |Azure AD |
-| **ARBETSFLÖDE för DRM-skydd** |Dynamiskt skydd i Azure Media Services |
-| **DRM-licensleverans** |* Media Services licens leverans (PlayReady, Widevine, FairPlay) <br/>* Axinom licensserver <br/>* Anpassad PlayReady licensserver |
-| **Ursprung** |Slutpunkt för direktuppspelning av Azure Media Services |
-| **Nyckelhantering** |Behövs inte för referensimplementering |
-| **Innehållshantering** |Ett C#-konsolprogram |
+| **Identitets leverantör (IDP)** |Azure Active Directory (Azure AD) |
+| **Secure token service (STS)** |Azure AD |
+| **Arbets flöde för DRM-skydd** |Azure Media Services dynamiskt skydd |
+| **DRM-licensleverans** |* Media Services licens leverans (PlayReady, Widevine, FairPlay) <br/>* Axinom licens Server <br/>* Anpassad PlayReady-licensserver |
+| **Ursprung** |Slut punkt för Azure Media Services strömning |
+| **Nyckelhantering** |Krävs inte för referens implementering |
+| **Innehållshantering** |Ett C#-konsol program |
 
-Med andra ord tillhandahålls både IDP och STS av Azure AD. [Azure Media Player-API:et](https://amp.azure.net/libs/amp/latest/docs/) används för spelaren. Både Azure Media Services och Azure Media Player stöder CENC över DASH, FairPlay över HLS, PlayReady över smidig streaming och AES-128-kryptering för DASH, HLS och smidig.
+Med andra ord tillhandahålls både IDP och STS av Azure AD. [Azure Media Player-API](https://amp.azure.net/libs/amp/latest/docs/) : t används för spelaren. Både Azure Media Services och Azure Media Player stöd för CENC över streck, FairPlay över HLS, PlayReady över smidig strömning och AES-128-kryptering för streck, HLS och smidighet.
 
-Följande diagram visar den övergripande strukturen och flödet med föregående teknikmappning:
+Följande diagram visar den övergripande strukturen och flödet med föregående teknik mappning:
 
-![CENC på medietjänster](./media/design-multi-drm-system-with-access-control/media-services-cenc-subsystem-on-AMS-platform.png)
+![CENC på Media Services](./media/design-multi-drm-system-with-access-control/media-services-cenc-subsystem-on-AMS-platform.png)
 
-Om du vill ställa in DRM-innehållsskydd använder innehållshanteringsverktyget följande indata:
+Innehålls hanterings verktyget använder följande indata för att konfigurera DRM-innehålls skydd:
 
 * Öppna innehåll
-* Innehållsnyckel från nyckelhantering
-* Url:er för licensförvärv
-* En lista med information från Azure AD, till exempel målgrupps-, utfärdare- och tokenanspråk
+* Innehålls nyckel från nyckel hantering
+* URL för licens hämtning
+* En lista med information från Azure AD, till exempel Audience, utfärdare och token-anspråk
 
-Här är utdata från content management-verktyget:
+Här är resultatet av verktyget för innehålls hantering:
 
-* ContentKeyPolicy beskriver DRM-licensmall för varje typ av DRM som används.
-* ContentKeyPolicyRestriction beskriver åtkomstkontrollen innan en DRM-licens utfärdas
-* Streamingpolicy beskriver de olika kombinationerna av DRM - krypteringsläge - streamingprotokoll - behållarformat, för streaming
-* StreamingLocator beskriver innehållsnyckel/IV som används för kryptering och strömmande webbadresser 
+* ContentKeyPolicy beskriver DRM-Licens mal len för varje typ av DRM som används.
+* ContentKeyPolicyRestriction beskriver åtkomst kontrollen innan en DRM-licens utfärdas
+* Streamingpolicy beskriver de olika kombinationerna av DRM-krypterings läge – strömmande protokoll-container format, för strömning
+* StreamingLocator beskriver innehålls nyckel/IV som används för kryptering och strömmande URL: er 
 
 Här är flödet under körning:
 
 * Vid användarautentisering genereras en JWT.
-* En av anspråken i JWT är ett gruppanspråk som innehåller gruppobjekt-ID EntitledUserGroup. Detta påstående används för att klara rättighetskontrollen.
-* Spelaren hämtar klientmanifestet för CENC-skyddat innehåll och identifierar följande:
+* En av de anspråk som finns i JWT är ett grupp anspråk som innehåller gruppobjekt-ID EntitledUserGroup. Detta påstående används för att skicka rättighets kontrollen.
+* Spelaren laddar ned klient manifestet för CENC innehåll och identifierar följande:
    * Nyckel-ID.
    * Innehållet är DRM-skyddat.
-   * Url:er för licensförvärv.
-* Spelaren gör en begäran om licensförvärv baserat på webbläsaren/DRM som stöds. I begäran om licensförvärv skickas även nyckel-ID och JWT. Licensleveranstjänsten verifierar JWT och anspråken innan den utfärdar den nödvändiga licensen.
+   * URL: er för licens hämtning.
+* Spelaren gör en begäran om licens hämtning baserat på webbläsare/DRM som stöds. I begäran om licens hämtning skickas även nyckel-ID: t och JWT. Licens leverans tjänsten verifierar JWT och de anspråk som finns innan den utfärdar den licens som krävs.
 
 ## <a name="implementation"></a>Implementering
-### <a name="implementation-procedures"></a>Genomförandeförfaranden
+### <a name="implementation-procedures"></a>Implementerings procedurer
 Implementeringen omfattar följande steg:
 
-1. Förbered testtillgångar. Koda/paketera en testvideo till fragmenterad MP4 med flera bithastigheter i Media Services. Den här tillgången är *inte* DRM-skyddad. DRM-skydd görs genom dynamiskt skydd senare.
+1. Förbered test till gångar. Koda/paketera en test video till en fragmenterad MP4 med flera bit hastigheter i Media Services. Den här till gången är *inte* DRM-skyddad. DRM-skydd görs med dynamiskt skydd senare.
 
-2. Skapa ett nyckel-ID och en innehållsnyckel (eventuellt från ett nyckelutsäde). I det här fallet behövs inte nyckelhanteringssystemet eftersom endast ett enda nyckel-ID och innehållsnyckel krävs för ett par testtillgångar.
+2. Skapa ett nyckel-ID och en innehålls nyckel (valfritt från ett nyckel-Seed). I den här instansen behövs inte nyckel hanterings systemet eftersom endast ett nyckel-ID och en innehålls nyckel krävs för ett par test till gångar.
 
-3. Använd API:et för Media Services för att konfigurera leveranstjänster för flera DRM-licenser för testtillgången. Om du använder anpassade licensservrar av företaget eller företagets leverantörer i stället för licenstjänster i Media Services kan du hoppa över det här steget. Du kan ange url:er för licensförvärv i steget när du konfigurerar licensleverans. Api:et för medietjänster behövs för att ange vissa detaljerade konfigurationer, till exempel begränsning av auktoriseringsprincipen och licenssvarsmallar för olika DRM-licenstjänster. För närvarande tillhandahåller Azure-portalen inte det användargränssnitt som behövs för den här konfigurationen. Information på API-nivå och exempelkod finns i [Använda PlayReady och/eller Widevine dynamisk gemensam kryptering](protect-with-drm.md).
+3. Använd Media Services API för att konfigurera tjänster för multi-DRM-licens för test till gången. Om du använder anpassade licens servrar av företaget eller företagets leverantörer i stället för licens tjänster i Media Services kan du hoppa över det här steget. Du kan ange URL: er för licens hämtning i steget när du konfigurerar licens leverans. Media Services API krävs för att ange vissa detaljerade konfigurationer, till exempel principer för begränsning av Auktoriseringsprinciper och mallar för licens svar för olika DRM-licenstjänster. För tillfället tillhandahåller Azure Portal inte det gränssnitt som krävs för den här konfigurationen. Information om API-nivå och exempel kod finns i [använda PlayReady och/eller Widevine Dynamic common Encryption](protect-with-drm.md).
 
-4. Använd API:et för mediatjänster för att konfigurera tillgångsleveransprincipen för testtillgången. Information på API-nivå och exempelkod finns i [Använda PlayReady och/eller Widevine dynamisk gemensam kryptering](protect-with-drm.md).
+4. Använd Media Services API för att konfigurera till gångs leverans principen för test till gången. Information om API-nivå och exempel kod finns i [använda PlayReady och/eller Widevine Dynamic common Encryption](protect-with-drm.md).
 
 5. Skapa och konfigurera en Azure AD-klient i Azure.
 
-6. Skapa några användarkonton och grupper i din Azure AD-klientorganisation. Skapa minst en "berättigad användare"-grupp och lägg till en användare i den här gruppen. Användare i den här gruppen klarar rättighetskontrollen i licensförvärvet. Användare som inte ingår i den här gruppen klarar inte autentiseringskontrollen och kan inte skaffa en licens. Medlemskap i den här gruppen "Berättigad användare" är ett obligatoriskt gruppanspråk i JWT som utfärdats av Azure AD. Du anger det här anspråkskravet i steget när du konfigurerar leveranstjänster för flera DRM-licenser.
+6. Skapa några användar konton och grupper i din Azure AD-klient. Skapa minst en "berättigad användare"-grupp och Lägg till en användare i den här gruppen. Användare i den här gruppen släpper rättighets kontrollen i licens förvärv. Användare som inte tillhör den här gruppen kan inte skicka verifierings kontrollen och kan inte hämta en licens. Medlemskap i den här gruppen "berättigade användare" är ett obligatoriskt grupp anspråk i JWT som utfärdats av Azure AD. Du anger detta krav för anspråk i steget när du konfigurerar leverans tjänster för multi-DRM-licenser.
 
-7. Skapa en ASP.NET MVC-app som värd för din videospelare. Den här ASP.NET-appen är skyddad med användarautentisering mot Azure AD-klienten. Korrekta anspråk ingår i åtkomsttoken som erhållits efter användarautentisering. Vi rekommenderar OpenID Connect API för det här steget. Installera följande NuGet-paket:
+7. Skapa en ASP.NET MVC-app som värd för din Videos pelare. Den här ASP.NET-appen skyddas med användarautentisering mot Azure AD-klienten. Korrekta anspråk ingår i åtkomsttoken som erhållits efter användarautentisering. Vi rekommenderar OpenID Connect API för det här steget. Installera följande NuGet-paket:
 
-   * Installationspaket Microsoft.Azure.ActiveDirectory.GraphClient
-   * Installationspaket Microsoft.Owin.Security.OpenIdConnect
-   * Installera paket Microsoft.Owin.Security.Cookies
-   * Installera-paket Microsoft.Owin.Host.SystemWeb
-   * Installera-paket Microsoft.IdentityModel.clients.ActiveDirectory
+   * Installera-Package Microsoft. Azure. ActiveDirectory. GraphClient
+   * Installera-Package Microsoft. OWIN. Security. OpenIdConnect
+   * Installera-Package Microsoft. OWIN. Security. cookies
+   * Installera-Package Microsoft. OWIN. Host. SystemWeb
+   * Installera-Package Microsoft. IdentityModel. clients. ActiveDirectory
 
-8. Skapa en spelare med hjälp av [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) för att ange vilken DRM-teknik som ska användas på olika DRM-plattformar.
+8. Skapa en spelare med hjälp av [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd [Azure Media Player ProtectionInfo-API](https://amp.azure.net/libs/amp/latest/docs/) för att ange vilken DRM-teknik som ska användas på olika DRM-plattformar.
 
-9. I följande tabell visas testmatrisen.
+9. I följande tabell visas test mat ris.
 
-    | **Drm** | **Webbläsare** | **Resultat för berättigade användare** | **Resultat för icke-adetitled användare** |
+    | **Rights** | **Webbläsare** | **Resultat för behörig användare** | **Resultat för berättigade användare** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge eller Internet Explorer 11 på Windows 10 |Lyckas |Underkänn |
-    | **Widevine** |Chrome, Firefox, Opera |Lyckas |Underkänn |
-    | **FairPlay** |Safari på macOS      |Lyckas |Underkänn |
-    | **AES-128** |De flesta moderna webbläsare  |Lyckas |Underkänn |
+    | **PlayReady** |Microsoft Edge eller Internet Explorer 11 i Windows 10 |Gå |Underkänn |
+    | **Widevine** |Chrome, Firefox, Opera |Gå |Underkänn |
+    | **FairPlay** |Safari på macOS      |Gå |Underkänn |
+    | **AES-128** |De flesta moderna webbläsare  |Gå |Underkänn |
 
-Information om hur du konfigurerar Azure AD för en ASP.NET MVC-spelarapp finns i [Integrera en OWIN MVC-baserad app för Azure Media Services med Azure Active Directory och begränsa leverans av innehållsnyckel baserat på JWT-anspråk](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+Information om hur du konfigurerar Azure AD för en ASP.NET MVC Player-app finns i [integrera en Azure Media Services OWIN MVC-baserad app med Azure Active Directory och begränsa leverans av innehålls nycklar baserat på JWT-anspråk](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-Mer information finns [i JWT-tokenautentisering i Azure Media Services och dynamisk kryptering](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
+Mer information finns i [JWT token-autentisering i Azure Media Services och dynamisk kryptering](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
-Mer information om Azure AD:
+För information om Azure AD:
 
-* Du hittar utvecklarinformation i [Azure Active Directory-utvecklarguiden](../../active-directory/develop/v2-overview.md).
-* Du hittar administratörsinformation i [Administrera din Azure AD-klientkatalog](../../active-directory/fundamentals/active-directory-administer.md).
+* Du kan hitta information om utvecklare i [Azure Active Directory Developer ' s guide](../../active-directory/develop/v2-overview.md).
+* Du kan hitta administratörs information i [administrera din Azure AD-klient katalog](../../active-directory/fundamentals/active-directory-administer.md).
 
-### <a name="some-issues-in-implementation"></a>Vissa frågor i genomförandet
+### <a name="some-issues-in-implementation"></a>Några problem i implementeringen
 
-Använd följande felsökningsinformation för hjälp med implementeringsproblem.
+Använd följande felsöknings information för att få hjälp med implementerings problem.
 
-* Utfärdarens URL måste sluta med "/". Målgruppen måste vara klient-ID för spelarprogrammet. Lägg också till "/" i slutet av utfärdarens URL.
+* Utfärdar-URL: en måste sluta med "/". Mål gruppen måste vara klient-ID för Player-programmet. Lägg också till "/" i slutet av utfärdar-URL: en.
 
         <add key="ida:audience" value="[Application Client ID GUID]" />
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
 
-    I [JWT Decoder](http://jwt.calebb.net/)ser du **aud** och **iss**, som visas i JWT:
+    I [JWT-avkodaren](http://jwt.calebb.net/)ser du **AUD** och **ISS**, som du ser i JWT:
 
-    ![Jwt](./media/design-multi-drm-system-with-access-control/media-services-1st-gotcha.png)
+    ![JWT](./media/design-multi-drm-system-with-access-control/media-services-1st-gotcha.png)
 
-* Lägg till behörigheter till programmet i Azure AD på fliken **Konfigurera** för programmet. Behörigheter krävs för varje program, både lokala och distribuerade versioner.
+* Lägg till behörigheter för programmet i Azure AD på fliken **Konfigurera** i programmet. Behörigheter krävs för varje program, både lokala och distribuerade versioner.
 
     ![Behörigheter](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
-* Använd rätt utfärdare när du ställer in dynamiskt CENC-skydd.
+* Använd rätt utfärdare när du konfigurerar dynamiskt CENC-skydd.
 
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
 
@@ -241,114 +241,114 @@ Använd följande felsökningsinformation för hjälp med implementeringsproblem
 
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
 
-    GUID är Azure AD-klient-ID. GUID finns på popup-menyn **Slutpunkter** i Azure-portalen.
+    GUID är Azure AD-klient-ID. Du hittar GUID på popup-menyn för **slut punkter** i Azure Portal.
 
-* Bevilja gruppmedlemskap anspråk privilegier. Kontrollera att följande finns i manifestfilen för Azure AD-program: 
+* Bevilja grupp medlemskap anspråk behörighet. Kontrol lera att följande är i manifest filen för Azure AD-program: 
 
-    "groupMembershipClaims": "Alla" (standardvärdet är null)
+    "groupMembershipClaims": "all" (Standardvärdet är null)
 
-* Ange rätt TokenType när du skapar begränsningskrav.
+* Ange rätt TokenType när du skapar begränsnings krav.
 
         objTokenRestrictionTemplate.TokenType = TokenType.JWT;
 
-    Eftersom du lägger till stöd för JWT (Azure AD) utöver SWT (ACS) är standard TokenType TokenType.JWT. Om du använder SWT/ACS måste du ange token till TokenType.SWT.
+    Eftersom du lägger till stöd för JWT (Azure AD) utöver SWT (ACS) är standard-TokenType TokenType. JWT. Om du använder SWT/ACS måste du ange token till TokenType. SWT.
 
-## <a name="the-completed-system-and-test"></a>Det färdiga systemet och testet
+## <a name="the-completed-system-and-test"></a>Slutfört system och test
 
-I det här avsnittet får du hjälp med följande scenarier i det färdiga end-to-end-systemet så att du kan få en grundläggande bild av beteendet innan du får ett inloggningskonto:
+Det här avsnittet vägleder dig genom följande scenarier i det slutförda slutpunkt-till-slutpunkt-systemet så att du kan få en grundläggande bild av beteendet innan du får ett inloggnings konto:
 
 * Om du behöver ett icke-integrerat scenario:
 
-    * För videotillgångar som finns i Media Services och som antingen är oskyddade eller DRM-skyddade men utan tokenautentisering (utfärdar en licens till den som begärde det) kan du testa den utan att logga in. Växla till HTTP om videostreamingen är över HTTP.
+    * För video till gångar som finns i Media Services som antingen är oskyddade eller DRM-skyddade, men utan token-autentisering (som utfärdar en licens till vem som begär det), kan du testa den utan att logga in. Växla till HTTP om din video strömning är över HTTP.
 
-* Om du behöver ett heltäckande integrerat scenario:
+* Om du behöver ett integrerat scenario från slut punkt till slut punkt:
 
-    * För videotillgångar under dynamiskt DRM-skydd i Media Services, med tokenautentisering och JWT som genereras av Azure AD, måste du logga in.
+    * För video till gångar under dynamiskt DRM-skydd i Media Services, med token-autentisering och JWT som genereras av Azure AD, måste du logga in.
 
-För spelarens webbprogram och dess inloggning, se [denna webbplats](https://openidconnectweb.azurewebsites.net/).
+För Player-webbprogrammet och dess inloggning, se [den här webbplatsen](https://openidconnectweb.azurewebsites.net/).
 
 ### <a name="user-sign-in"></a>Användarinloggning
-Om du vill testa det heltäckande integrerade DRM-systemet måste du ha ett konto skapat eller lagt till.
+Om du vill testa det integrerade DRM-systemet från slut punkt till slut punkt måste du ha ett konto som skapats eller lagts till.
 
 Vilket konto?
 
-Även om Azure ursprungligen tillät åtkomst endast av Microsoft-kontoanvändare tillåts åtkomst nu av användare från båda systemen. Alla Azure-egenskaper litar nu på Azure AD för autentisering och Azure AD autentiserar organisationsanvändare. En federationsrelation skapades där Azure AD litar på att Konsumentidentitetssystemet för Microsoft-kontot autentiserar konsumentanvändare. Därför kan Azure AD autentisera gäst-Microsoft-konton samt inbyggda Azure AD-konton.
+Även om Azure ursprungligen tillät åtkomst endast av Microsoft-konto användare tillåts åtkomst nu av användare från båda systemen. Alla Azure-egenskaper litar nu på Azure AD för autentisering och Azure AD autentiserar organisations användare. En Federations relation skapades där Azure AD litar på Microsoft-konto konsument identitets systemet för att autentisera konsument användare. Det innebär att Azure AD kan autentisera både gästa Microsoft-konton och interna Azure AD-konton.
 
-Eftersom Azure AD litar på Microsoft-kontodomänen kan du lägga till konton från någon av följande domäner till den anpassade Azure AD-klienten och använda kontot för att logga in:
+Eftersom Azure AD litar på Microsoft-konto domän kan du lägga till alla konton från någon av följande domäner till den anpassade Azure AD-klienten och använda kontot för att logga in:
 
-| **Domännamn** | **Domain** |
+| **Domän namn** | **Domain** |
 | --- | --- |
-| **Anpassad Azure AD-klientdomän** |somename.onmicrosoft.com |
-| **Företagsdomän** |microsoft.com |
-| **Microsoft-kontodomän** |outlook.com, live.com, hotmail.com |
+| **Anpassad Azure AD-klient domän** |somename.onmicrosoft.com |
+| **Företags domän** |microsoft.com |
+| **Microsoft-konto domän** |outlook.com, live.com, hotmail.com |
 
-Du kan kontakta någon av författarna för att få ett konto skapat eller lagt till åt dig.
+Du kan kontakta någon av författarna för att skapa ett konto eller lägga till ett konto.
 
-Följande skärmbilder visar olika inloggningssidor som används av olika domänkonton:
+Följande skärm bilder visar olika inloggnings sidor som används av olika domän konton:
 
-**Anpassat Azure AD-klientdomänkonto:** Den anpassade inloggningssidan för den anpassade Azure AD-klientdomänen.
+**Anpassat Azure AD-klientens domän konto**: den anpassade inloggnings sidan för den anpassade Azure AD-klient domänen.
 
-![Anpassat Azure AD-klientdomänkonto ett](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Anpassat Azure AD-klientens domän konto ett](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
-**Microsoft-domänkonto med smartkort:** Inloggningssidan anpassad av Microsofts företags-IT med tvåfaktorsautentisering.
+**Microsoft-domännamn med smartkort**: inloggnings sidan som anpassats av Microsoft Corporate IT med tvåfaktorautentisering.
 
-![Anpassat Azure AD-klientdomänkonto två](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Anpassat Azure AD-klientens domän konto två](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
-**Microsoft-konto**: Inloggningssidan för Microsoft-kontot för konsumenter.
+**Microsoft-konto**: inloggnings sidan för Microsoft-konto för konsumenter.
 
-![Anpassat Azure AD-klientdomänkonto tre](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Anpassat Azure AD-klientens domän konto tre](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
-### <a name="use-encrypted-media-extensions-for-playready"></a>Använda krypterade medietillägg för PlayReady
+### <a name="use-encrypted-media-extensions-for-playready"></a>Använd krypterade medie tillägg för PlayReady
 
-I en modern webbläsare med eme-stöd (Encrypted Media Extensions) för PlayReady, till exempel Internet Explorer 11 i Windows 8.1 eller senare och webbläsaren Microsoft Edge i Windows 10, är PlayReady den underliggande DRM för EME.
+I en modern webbläsare med EME (Encrypted Media Extensions) för PlayReady-support, till exempel Internet Explorer 11 på Windows 8,1 eller senare och Microsoft Edge-webbläsare på Windows 10, är PlayReady den underliggande DRM för EME.
 
 ![Använd EME för PlayReady](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready1.png)
 
-Det mörka spelarområdet beror på att PlayReady-skyddet hindrar dig från att göra en skärmdump av skyddad video.
+Det mörka mediet är eftersom PlayReady-skyddet förhindrar att du skapar en skärm bild av en skyddad video.
 
-Följande skärmbild visar plugin-programmen för spelare och MSE-stöd (Microsoft Security Essentials)/EME:
+Följande skärm bild visar plugin-programmen för Player och Microsoft Security Essentials (MSE)/EME-stöd:
 
-![Plugin-program för spelare för PlayReady](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready2.png)
+![Windows Media Player-plugin-program för PlayReady](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready2.png)
 
-EME i Microsoft Edge och Internet Explorer 11 på Windows 10 gör att [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) kan anropas på Windows 10-enheter som stöder det. PlayReady SL3000 låser upp flödet av förbättrat premiuminnehåll (4K, HDR) och nya innehållsleveransmodeller (för förbättrat innehåll).
+EME i Microsoft Edge och Internet Explorer 11 i Windows 10 gör att [PLAYREADY SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) kan anropas på Windows 10-enheter som har stöd för det. PlayReady SL3000 låser upp flödet av förbättrat Premium-innehåll (4K, HDR) och nya innehålls leverans modeller (för förbättrat innehåll).
 
-För att fokusera på Windows-enheter är PlayReady den enda DRM i maskinvaran som är tillgänglig på Windows-enheter (PlayReady SL3000). En streamingtjänst kan använda PlayReady via EME eller via ett universellt Windows-plattformsprogram och erbjuda en högre videokvalitet med PlayReady SL3000 än en annan DRM. Vanligtvis flödar innehåll upp till 2K via Chrome eller Firefox, och innehåll upp till 4K flödar via Microsoft Edge/Internet Explorer 11 eller ett universellt Windows-plattformsprogram på samma enhet. Beloppet beror på tjänstinställningar och implementering.
+För att fokusera på Windows-enheter är PlayReady den enda DRM i maskin varan som är tillgänglig på Windows-enheter (PlayReady SL3000). En strömmande tjänst kan använda PlayReady via EME eller via ett Universell Windows-plattform-program och erbjuda en högre video kvalitet med hjälp av PlayReady SL3000 än ett annat DRM. Vanligt vis är innehållet upp till 2 000 flöden via krom eller Firefox och innehåll upp till 4K-flöden via Microsoft Edge/Internet Explorer 11 eller ett Universell Windows-plattform program på samma enhet. Mängden är beroende av tjänst inställningar och implementering.
 
 #### <a name="use-eme-for-widevine"></a>Använd EME för Widevine
 
-I en modern webbläsare med STÖD för EME/Widevine, till exempel Chrome 41+ på Windows 10, Windows 8.1, Mac OSX Yosemite och Chrome på Android 4.4.4, är Google Widevine DRM bakom EME.
+I en modern webbläsare med stöd för EME/Widevine, till exempel krom 41 + på Windows 10, Windows 8,1, Mac OSX Yosemite och Chrome på Android 4.4.4, Google Widevine är DRM bakom EME.
 
 ![Använd EME för Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine1.png)
 
-Widevine hindrar dig inte från att göra en skärmdump av skyddad video.
+Widevine hindrar dig inte från att göra en skärm bild av skyddad video.
 
-![Plugin-program för Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine2.png)
+![Spelare-plugin-program för Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine2.png)
 
 #### <a name="use-eme-for-fairplay"></a>Använd EME för FairPlay
 
-På samma sätt kan du testa FairPlay-skyddat innehåll i den här testspelaren i Safari på macOS eller iOS 11.2 och senare.
+På samma sätt kan du testa FairPlay-skyddat innehåll i den här test spelaren i Safari på macOS eller iOS 11,2 och senare.
 
-Se till att du sätter "FairPlay" som skyddInfo.type och sätta i rätt URL för ditt programcertifikat i FPS AC Path (FairPlay Streaming Application Certificate Path).
+Kontrol lera att du har ange "FairPlay" som protectionInfo. type och Lägg till rätt URL för ditt program certifikat i FPS AC-sökväg (FairPlay Streaming Application Certificate Path).
 
-### <a name="unentitled-users"></a>Oeniterade användare
+### <a name="unentitled-users"></a>Obehöriga användare
 
-Om en användare inte är medlem i gruppen Berättigade användare klarar användaren inte rättighetskontrollen. Multi-DRM-licenstjänsten vägrar sedan att utfärda den begärda licensen som visas. Den detaljerade beskrivningen är "Licenshämtning misslyckades", vilket är som planerat.
+Om en användare inte är medlem i gruppen "berättigade användare", godkänns inte rättighets kontrollen. Tjänsten multi-DRM vägrar att utfärda den begärda licensen som visas. Den detaljerade beskrivningen är "licens hämtningen misslyckades", som är utformad.
 
-![Oeniterade användare](./media/design-multi-drm-system-with-access-control/media-services-unentitledusers.png)
+![Obehöriga användare](./media/design-multi-drm-system-with-access-control/media-services-unentitledusers.png)
 
 ### <a name="run-a-custom-security-token-service"></a>Köra en anpassad säkerhetstokentjänst
 
-Om du kör en anpassad STS utfärdas JWT av den anpassade STS med hjälp av antingen en symmetrisk eller en asymmetrisk nyckel.
+Om du kör en anpassad STS utfärdas JWT av den anpassade STS genom att antingen använda en symmetrisk eller asymmetrisk nyckel.
 
-Följande skärmbild visar ett scenario som använder en symmetrisk nyckel (med Chrome):
+Följande skärm bild visar ett scenario som använder en symmetrisk nyckel (med krom):
 
-![Anpassad STS med symmetrisk nyckel](./media/design-multi-drm-system-with-access-control/media-services-running-sts1.png)
+![Anpassad STS med en symmetrisk nyckel](./media/design-multi-drm-system-with-access-control/media-services-running-sts1.png)
 
-Följande skärmbild visar ett scenario som använder en asymmetrisk nyckel via ett X509-certifikat (med en modern Microsoft-webbläsare):
+Följande skärm bild visar ett scenario som använder en asymmetrisk nyckel via ett X509-certifikat (med hjälp av en Microsoft modern webbläsare):
 
 ![Anpassad STS med en asymmetrisk nyckel](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
 
-I båda tidigare fallen förblir användarautentiseringen densamma. Den sker via Azure AD. Den enda skillnaden är att JWTs utfärdas av anpassade STS i stället för Azure AD. När du konfigurerar dynamiskt CENC-skydd anger begränsningen av licensleveranstjänsten vilken typ av JWT, antingen en symmetrisk eller en asymmetrisk nyckel.
+I båda de föregående fallen är användarautentisering oförändrad. Det äger rum via Azure AD. Den enda skillnaden är att JWTs utfärdas av den anpassade STS i stället för Azure AD. När du konfigurerar dynamiskt CENC-skydd anger licens leverans tjänstens begränsning typen av JWT, antingen en symmetrisk eller asymmetrisk nyckel.
 
 ## <a name="next-steps"></a>Nästa steg
 

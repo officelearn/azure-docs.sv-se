@@ -1,6 +1,6 @@
 ---
-title: Skydda dina nätverksresurser i Azure Security Center
-description: Det här dokumentet innehåller rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-nätverksresurser och hålla sig i enlighet med säkerhetsprinciper.
+title: Skydda nätverks resurserna i Azure Security Center
+description: Det här dokumentet beskriver rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-nätverks resurser och hålla dig informerad om säkerhets principer.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,131 +14,131 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
 ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77431493"
 ---
-# <a name="protect-your-network-resources"></a>Skydda dina nätverksresurser
-Azure Security Center analyserar kontinuerligt säkerhetstillståndet för dina Azure-resurser för bästa praxis för nätverkssäkerhet. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som hjälper dig att konfigurera de kontroller som behövs för att härda och skydda dina resurser.
+# <a name="protect-your-network-resources"></a>Skydda dina nätverks resurser
+Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
 
-I den här artikeln **beskrivs nätverkssidan** i avsnittet resurssäkerhet i Security Center.
+I den här artikeln beskrivs sidan **nätverk** i avsnittet resurs säkerhet i Security Center.
 
-En fullständig lista över rekommendationerna för nätverk finns i [Nätverksrekommendationer](recommendations-reference.md#recs-network).
+En fullständig lista över rekommendationerna för nätverk finns i [nätverks rekommendationer](recommendations-reference.md#recs-network).
 
-Den här artikeln innehåller rekommendationer som gäller för dina Azure-resurser från ett nätverkssäkerhetsperspektiv. Nätverksrekommendationerna kretsar kring nästa generations brandväggar, nätverkssäkerhetsgrupper, åtkomst till JIT-virtuella datorer, alltför tillåtande regler för inkommande trafik med mera. En lista över nätverksrekommendationer och reparationsåtgärder finns [i Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md).
+Den här artikeln beskriver rekommendationer som gäller för dina Azure-resurser från ett nätverks säkerhets perspektiv. Nätverks rekommendationer Center kring nästa generations brand väggar, nätverks säkerhets grupper, JIT VM-åtkomst, över tillåta inkommande trafik regler med mera. En lista över nätverks rekommendationer och reparations åtgärder finns [i hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md).
 
 > [!NOTE]
-> På **nätverkssidan** kan du djupdyka din Azure-resurshälsa ur ett nätverksperspektiv. Nätverkskartan och adaptiva nätverkskontroller är endast tillgängliga för standardnivån i Azure Security Center. [Om du använder den kostnadsfria nivån kan du klicka på knappen för att **visa äldre nätverk** och få rekommendationer för nätverksresurser](#legacy-networking).
+> På sidan **nätverk** kan du ta en djupare insikt i din Azure-resurs hälsa från ett nätverks perspektiv. Kontrollerna nätverks karta och adaptiva nätverk är bara tillgängliga för den Azure Security Center standard nivån. [Om du använder den kostnads fria nivån kan du klicka på knappen för att **Visa tidigare nätverk** och få rekommendationer för nätverks resurser](#legacy-networking).
 >
 
-Sidan **Nätverk** innehåller en översikt över de avsnitt du kan fördjupa dig i för att få mer information om nätverkets hälsotillstånd:
+Sidan **nätverk** ger en översikt över de avsnitt som du kan ta del av för att få mer information om hälso tillståndet för dina nätverks resurser:
 
-- Nätverkskarta (endast Azure Security Center Standard-nivå)
+- Nätverks karta (endast Azure Security Center standard nivå)
 - Anpassningsbar nätverkshärdning
-- Säkerhetsrekommendationer för nätverk.
-- Äldre **nätverksblad** (föregående nätverksblad) 
+- Rekommendationer för nätverks säkerhet.
+- Bladet äldre **nätverk** (det tidigare nätverks bladet) 
  
-[![Fönstret Nätverk](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
+[![Fönstret nätverk](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
 
-## <a name="network-map"></a>Nätverkskarta
-Den interaktiva nätverkskartan ger en grafisk vy med säkerhetsöverlägg som ger dig rekommendationer och insikter för att härda dina nätverksresurser. Med hjälp av kartan kan du se nätverkstopologin för dina Azure-arbetsbelastningar, anslutningar mellan dina virtuella datorer och undernät och möjligheten att öka detaljnivån från kartan till specifika resurser och rekommendationerna för dessa resurser.
+## <a name="network-map"></a>Nätverks karta
+Den interaktiva nätverks kartan är en grafisk vy med säkerhets överlägg som ger dig rekommendationer och insikter för att härdning av dina nätverks resurser. Med hjälp av kartan kan du se nätverk sto pol Ogin för dina Azure-arbetsbelastningar, anslutningar mellan dina virtuella datorer och undernät och möjligheten att öka detalj nivån från kartan till vissa resurser och rekommendationerna för dessa resurser.
 
-Så här öppnar du nätverkskartan:
+Så här öppnar du nätverks kartan:
 
-1. Välj **Nätverk**under Resurssäkerhetshygien i Security Center.
-2. Klicka på **Visa topologi**under **Nätverkskarta** .
+1. I Security Center, under resurs säkerhets hygien, väljer du **nätverk**.
+2. Under **nätverks karta** klickar du på **Se topologi**.
  
-Standardvyn för topologikartan visar:
+Standard visningen av Topology-kartan visar:
 
 - Prenumerationer som du har valt i Azure. Kartan stöder flera prenumerationer.
-- Virtuella datorer, undernät och virtuella nätverk av resurstypen Resource Manager (Klassiska Azure-resurser stöds inte)
-- Peered virtuella nätverk
-- Endast resurser som har [nätverksrekommendationer](security-center-recommendations.md) med hög eller medelhög allvarlighetsgrad  
-- Internet inför resurser
-- Kartan är optimerad för de prenumerationer du valde i Azure. Om du ändrar ditt val beräknas kartan om och optimeras om baserat på dina nya inställningar.  
+- Virtuella datorer, undernät och virtuella nätverk för resurs typen Resource Manager (klassiska Azure-resurser stöds inte)
+- Peer-virtuella nätverk
+- Endast resurser som har [nätverks rekommendationer](security-center-recommendations.md) med hög eller medelhög allvarlighets grad  
+- Resurser som riktas mot Internet
+- Kartan är optimerad för de prenumerationer som du har valt i Azure. Om du ändrar ditt val, beräknas kartan om och optimeras på nytt baserat på de nya inställningarna.  
 
 [![Karta över nätverkstopologi](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
-## <a name="understanding-the-network-map"></a>Förstå nätverkskartan
+## <a name="understanding-the-network-map"></a>Förstå nätverks kartan
 
-Nätverkskartan kan visa dina Azure-resurser i en **topologivy** och en **trafikvy.** 
+Nätverks kartan kan visa dina Azure-resurser i en **Topology** -vy och i vyn **trafik** . 
 
-### <a name="the-topology-view"></a>Topologivyn
+### <a name="the-topology-view"></a>Vyn topologi
 
-I **topologivyn** för nätverkskartan kan du visa följande insikter om dina nätverksresurser:
+I vyn **topologi** i nätverks kartan kan du visa följande insikter om dina nätverks resurser:
 
 - I den inre cirkeln kan du se alla virtuella nätverk i dina valda prenumerationer, nästa cirkel är alla undernät, den yttre cirkeln är alla virtuella datorer.
-- De linjer som ansluter resurserna i kartan låter dig veta vilka resurser som är associerade med varandra och hur ditt Azure-nätverk är strukturerat. 
-- Använd allvarlighetsgradindikatorerna för att snabbt få en översikt över vilka resurser som har öppna rekommendationer från Security Center.
-- Du kan klicka på någon av resurserna för att öka detaljnivån i dem och visa information om resursen och dess rekommendationer direkt och i samband med nätverkskartan.  
-- Om det finns för många resurser som visas på kartan använder Azure Security Center sin egen algoritm för att smarta kluster dina resurser, belyser de resurser som är i det mest kritiska tillståndet och har de mest hög allvarlighetsgradiga rekommendationerna. 
+- De linjer som ansluter resurserna i kartan kan du se vilka resurser som är associerade med varandra och hur Azure-nätverket är strukturerat. 
+- Använd allvarlighets gradernas indikatorer för att snabbt få en översikt över vilka resurser som har öppna rekommendationer från Security Center.
+- Du kan klicka på någon av resurserna för att öka detalj nivån och se information om den här resursen och dess rekommendationer direkt, och i kontexten för nätverks kartan.  
+- Om det finns för många resurser som visas på kartan, Azure Security Center använda sin egen algoritm för att få ett smart kluster för dina resurser, markera de resurser som är i det mest kritiska läget och ha de mest höga rekommendationerna för allvarlighets grad. 
 
-Eftersom kartan är interaktiv och dynamisk är varje nod klickbar och vyn kan ändras baserat på filtren:
+Eftersom kartan är interaktiv och dynamisk går det att klicka på varje nod och vyn kan ändras baserat på filtren:
 
-1. Du kan ändra vad du ser på nätverkskartan med hjälp av filtren högst upp. Du kan fokusera kartan baserat på:
+1. Du kan ändra vad som visas på nätverks kartan genom att använda filtren överst. Du kan fokusera kartan baserat på:
 
-   -  **Säkerhetshälsa**: Du kan filtrera kartan baserat på allvarlighetsgrad (hög, medel, låg) för dina Azure-resurser.
-   - **Rekommendationer**: Du kan välja vilka resurser som ska visas baserat på vilka rekommendationer som är aktiva på dessa resurser. Du kan till exempel bara visa resurser som Security Center rekommenderar att du aktiverar nätverkssäkerhetsgrupper för.
-   - **Nätverkszoner**: Som standard visar kartan bara Internet-vänteresurser, du kan välja interna virtuella datorer också.
+   -  **Säkerhets hälsa**: du kan filtrera kartan baserat på allvarlighets grad (hög, medel, låg) för dina Azure-resurser.
+   - **Rekommendationer**: du kan välja vilka resurser som ska visas baserat på vilka rekommendationer som är aktiva för dessa resurser. Du kan till exempel bara visa resurser för vilka Security Center rekommenderar att du aktiverar nätverks säkerhets grupper.
+   - **Nätverks zoner**: som standard visar kartan endast Internet-riktade resurser. du kan även välja interna virtuella datorer.
  
-2. Du kan när som helst klicka på **Återställ** i det övre vänstra hörnet för att återställa kartan till standardläget.
+2. Du kan när som helst klicka på **Återställ** i det övre vänstra hörnet för att återställa kartan till dess standard tillstånd.
 
-Så här detaljgransar du till en resurs:
+För att öka detalj nivån till en resurs:
 
-1. När du väljer en viss resurs på kartan öppnas den högra rutan och ger dig allmän information om resursen, anslutna säkerhetslösningar om det finns några och de rekommendationer som är relevanta för resursen. Det är samma typ av beteende för varje typ av resurs som du väljer. 
-2. När du hovrar över en nod i kartan kan du visa allmän information om resursen, inklusive prenumeration, resurstyp och resursgrupp.
-3. Använd länken för att zooma in i verktygsspetsen och fokusera kartan på den specifika noden. 
-4. Zooma ut om du vill fokusera kartan på en viss nod.
+1. När du väljer en resurs på kartan öppnas den högra rutan och du får allmän information om resursen, anslutna säkerhetslösningar om det finns några, och de rekommendationer som är relevanta för resursen. Det är samma typ av beteende för varje typ av resurs som du väljer. 
+2. När du hovrar över en nod i kartan kan du Visa allmän information om resursen, inklusive prenumeration, resurs typ och resurs grupp.
+3. Använd länken för att zooma in i verktygs tipset och fokusera på kartan på den noden. 
+4. Om du vill fokusera på kartan bort från en speciell nod zoomar du ut.
 
-### <a name="the-traffic-view"></a>Vyn Trafik
+### <a name="the-traffic-view"></a>Vyn trafik
 
-**I trafikvyn** får du en karta över all möjlig trafik mellan dina resurser. Detta ger dig en visuell karta över alla regler som du har konfigurerat som definierar vilka resurser som kan kommunicera med vem. På så sätt kan du se den befintliga konfigurationen av nätverkssäkerhetsgrupperna samt snabbt identifiera möjliga riskfyllda konfigurationer i dina arbetsbelastningar.
+I vyn **trafik** visas en karta över all möjlig trafik mellan dina resurser. Detta ger dig en visuell karta över alla regler som du har konfigurerat som definierar vilka resurser som kan kommunicera med vem. På så sätt kan du se den befintliga konfigurationen av nätverks säkerhets grupperna samt snabbt identifiera möjliga riskfyllda konfigurationer i dina arbets belastningar.
 
-### <a name="uncover-unwanted-connections"></a>Upptäck oönskade anslutningar
+### <a name="uncover-unwanted-connections"></a>Återställ oönskade anslutningar
 
-Styrkan i den här vyn är i sin förmåga att visa dig dessa tillåtna anslutningar tillsammans med de sårbarheter som finns, så att du kan använda det här tvärsnittet av data för att utföra den nödvändiga härdningen på dina resurser. 
+Styrkan i den här vyn är att du kan visa de här tillåtna anslutningarna tillsammans med de säkerhets risker som finns, så att du kan använda det här data området för att utföra de åtgärder som krävs för dina resurser. 
 
-Du kan till exempel identifiera två datorer som du inte kände till kan kommunicera, så att du bättre kan isolera arbetsbelastningar och undernät.
+Du kan till exempel identifiera två datorer som du inte kände till kan kommunicera, så att du bättre kan isolera arbets belastningarna och under näten.
 
-### <a name="investigate-resources"></a>Undersöka resurser
+### <a name="investigate-resources"></a>Undersök resurser
 
-Så här detaljgransar du till en resurs:
+För att öka detalj nivån till en resurs:
 
-1. När du väljer en viss resurs på kartan öppnas den högra rutan och ger dig allmän information om resursen, anslutna säkerhetslösningar om det finns några och de rekommendationer som är relevanta för resursen. Det är samma typ av beteende för varje typ av resurs som du väljer. 
-2. Klicka på **Trafik** om du vill visa listan över eventuell utgående och inkommande trafik på resursen – det här är en omfattande lista över vem som kan kommunicera med resursen och vem den kan kommunicera med och genom vilka protokoll och portar. När du till exempel väljer en virtuell dator visas alla virtuella datorer som den kan kommunicera med, och när du väljer ett undernät visas alla undernät som det kan kommunicera med.
+1. När du väljer en resurs på kartan öppnas den högra rutan och du får allmän information om resursen, anslutna säkerhetslösningar om det finns några, och de rekommendationer som är relevanta för resursen. Det är samma typ av beteende för varje typ av resurs som du väljer. 
+2. Klicka på **trafik** om du vill se en lista över möjliga utgående och inkommande trafik i resursen – det här är en omfattande lista över vem som kan kommunicera med resursen och vem den kan kommunicera med, och via vilka protokoll och portar. Om du till exempel väljer en virtuell dator visas alla de virtuella datorer som den kan kommunicera med, och när du väljer ett undernät visas alla undernät som det kan kommunicera med.
 
-**Dessa data baseras på analys av nätverkssäkerhetsgrupper samt avancerade maskininlärningsalgoritmer som analyserar flera regler för att förstå deras crossovers och interaktioner.** 
+**Dessa data baseras på analyser av nätverks säkerhets grupper samt avancerade algoritmer för maskin inlärning som analyserar flera regler för att förstå deras korsning och interaktioner.** 
 
-[![Trafikkarta för nätverk](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+[![Nätverks trafik karta](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
 ## <a name="legacy-networking"></a>Äldre nätverk<a name ="legacy-networking"></a>
 
-Om du inte har Security Center Standard-nivå förklarar det här avsnittet hur du visar kostnadsfria nätverksrekommendationer.
+Om du inte har Security Center standard nivån förklarar det här avsnittet hur du kan visa de kostnads fria nätverks rekommendationerna.
 
-Om du vill komma åt den här informationen klickar du på **Visa äldre nätverk**i bladet Nätverk. 
+Du kommer åt den här informationen genom att klicka på **Visa äldre nätverk**på bladet nätverk. 
 
 [![Äldre nätverk](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
 
 ### <a name="internet-facing-endpoints-section"></a>Delen med internetuppkopplade slutpunkter
-I avsnittet **Internet-vändande slutpunkter** kan du se de virtuella datorer som för närvarande är konfigurerade med en Internet-vänd slutpunkt och dess status.
+I avsnittet **Internet-riktade slut punkter** kan du se de virtuella datorer som för närvarande är konfigurerade med en slut punkt mot Internet och dess status.
 
-Den här tabellen har slutpunktsnamnet, internetvänd IP-adressen och den aktuella allvarlighetsgraden för nätverkssäkerhetsgruppen och NGFW-rekommendationerna. Tabellen sorteras efter allvarlighetsgrad.
+Den här tabellen har slut punkts namnet, IP-adressen som riktas mot Internet och den aktuella allvarlighets graden för nätverks säkerhets gruppen och NGFW-rekommendationerna. Tabellen sorteras efter allvarlighets grad.
 
 ### <a name="networking-topology-section"></a>Delen med nätverkstopologi
-Avsnittet **Nätverkstopologi** har en hierarkisk vy över resurserna.
+Avsnittet **nätverk sto pol Ogin** innehåller en hierarkisk vy över resurserna.
 
-Den här tabellen sorteras (virtuella datorer och undernät) efter allvarlighetsgrad.
+Den här tabellen är sorterad (virtuella datorer och undernät) efter allvarlighets grad.
 
-I den här topologivyn visar den första nivån virtuella nätverk. Den andra visar undernät och den tredje nivån visar de virtuella datorer som tillhör dessa undernät. I den högra kolumnen visas den aktuella statusen för nätverkssäkerhetsgruppens rekommendationer för dessa resurser.
+I den här Topology-vyn visar den första nivån virtuella nätverk. Den andra visar undernät och den tredje nivån visar de virtuella datorer som tillhör dessa undernät. I den högra kolumnen visas den aktuella statusen för nätverks säkerhets gruppens rekommendationer för dessa resurser.
 
-Den tredje nivån visar virtuella datorer, vilket liknar vad som beskrivs tidigare. Du kan klicka på valfri resurs om du vill veta mer eller använda den nödvändiga säkerhetskontrollen eller konfigurationen.
+På den tredje nivån visas virtuella datorer, vilket liknar det som beskrivs ovan. Du kan klicka på en resurs för att lära dig mer eller använda den säkerhets kontroll eller konfiguration som krävs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om rekommendationer som gäller för andra Azure-resurstyper finns i följande:
+Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande avsnitt:
 
 * [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 * [Skydda din Azure SQL-tjänst i Azure Security Center](security-center-sql-service-recommendations.md)

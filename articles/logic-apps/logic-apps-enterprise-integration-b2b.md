@@ -1,6 +1,6 @@
 ---
-title: Exchange-meddelanden för B2B-scenarier för företagsintegrering
-description: Ta emot och skicka B2B-meddelanden mellan handelspartner i Azure Logic Apps med hjälp av Enterprise Integration Pack
+title: Exchange-meddelanden för B2B-scenarier för företags integrering
+description: Ta emot och skicka B2B-meddelanden mellan handels partner i Azure Logic Apps med hjälp av Enterprise-integrationspaket
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,178 +9,178 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: 01b2bd464db51e255930fe83a3f4321687322275
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77151198"
 ---
-# <a name="receive-and-send-b2b-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot och skicka B2B-meddelanden med hjälp av Azure Logic Apps och Enterprise Integration Pack
+# <a name="receive-and-send-b2b-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot och skicka B2B-meddelanden med hjälp av Azure Logic Apps och Enterprise-integrationspaket
 
-När du har ett integrationskonto som definierar handelspartner och avtal kan du skapa ett automatiserat arbetsflöde för företag (Business to Business) som utbyter meddelanden mellan handelspartner med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md) med Enterprise Integration [Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). Azure Logic Apps fungerar med kopplingar som stöder PROTOKOLL FRÅN AS2, X12, EDIFACT och RosettaNet. Du kan också kombinera dessa anslutningsappar med andra [anslutningsappar som är tillgängliga i Logic Apps,](../connectors/apis-list.md)till exempel Salesforce och Office 365 Outlook.
+När du har ett integrations konto som definierar handels partner och avtal, kan du skapa ett automatiserat affärs-till-arbets-arbetsflöde (B2B) som utbyter meddelanden mellan handels partner med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md) med [Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md). Azure Logic Apps fungerar med kopplingar som stöder AS2-, X12-, EDIFACT-och RosettaNet-protokoll som är bransch standard. Du kan också kombinera dessa kopplingar med andra [anslutningar som är tillgängliga i Logic Apps](../connectors/apis-list.md), till exempel Salesforce och Office 365 Outlook.
 
-Den här artikeln visar hur du skapar en logikapp som tar emot en HTTP-begäran med hjälp av en begärandeutfärd, avkodar meddelandeinnehållet med hjälp av AS2- och X12-åtgärderna och returnerar sedan ett svar med hjälp av svarsåtgärden.
+Den här artikeln visar hur du skapar en Logi Kap par som tar emot en HTTP-begäran genom att använda en begär ande utlösare, avkodar meddelande innehållet med hjälp av åtgärderna AS2 och X12 och returnerar sedan ett svar med hjälp av svars åtgärden.
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en prenumeration ännu [registrerar du dig för ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte har någon prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En tom logikapp så att du kan skapa B2B-arbetsflödet med hjälp av [utlösaren Begäran](../connectors/connectors-native-reqres.md) som följs av dessa åtgärder:
+* En tom Logic-app så att du kan skapa B2B-arbetsflödet genom att använda [begär](../connectors/connectors-native-reqres.md) ande utlösare som följs av följande åtgärder:
 
-  * [AS2 Avkoda](../logic-apps/logic-apps-enterprise-integration-as2.md)
+  * [AS2-avkodning](../logic-apps/logic-apps-enterprise-integration-as2.md)
 
-  * [Villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md), som skickar ett [svar](../connectors/connectors-native-reqres.md) baserat på om åtgärden AS2 Avkod lyckas eller misslyckas
+  * [Villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md), som skickar ett [svar](../connectors/connectors-native-reqres.md) baserat på om AS2-avkodnings åtgärden lyckas eller Miss lyckas
 
   * [Avkoda X12-meddelande](../logic-apps/logic-apps-enterprise-integration-x12.md) 
 
-  Om du inte har tidigare i logikappar läser [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+  Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Ett [integrationskonto](../logic-apps/logic-apps-enterprise-integration-accounts.md) som är kopplat till din Azure-prenumeration och som är länkat till logikappen. Både logikappen och integrationskontot måste finnas på samma plats eller Azure-region.
+* Ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-accounts.md) som är associerat med din Azure-prenumeration och länkat till din Logic app. Både din Logic app och ditt integrations konto måste finnas på samma plats eller i Azure-regionen.
 
-* Minst två [handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md) som du redan har definierat i ditt integrationskonto tillsammans med [AS2- och X12-avtal](logic-apps-enterprise-integration-agreements.md) för dessa partner.
+* Minst två [handels partner](../logic-apps/logic-apps-enterprise-integration-partners.md) som du redan har definierat i ditt integrations konto tillsammans med [AS2-och X12-avtal](logic-apps-enterprise-integration-agreements.md) för dessa partner.
 
-## <a name="add-request-trigger"></a>Lägga till utlösare för begäran
+## <a name="add-request-trigger"></a>Lägg till begär ande utlösare
 
-I det här exemplet används Logic App Designer i Azure-portalen, men du kan följa liknande steg för Logic App Designer i Visual Studio.
+I det här exemplet används Logic Apps designer i Azure Portal, men du kan följa liknande steg för Logic App Designer i Visual Studio.
 
-1. Öppna din tomma logikapp i Logic App Designer i [Azure-portalen.](https://portal.azure.com)
+1. I [Azure Portal](https://portal.azure.com)öppnar du din tomma Logic-app i Logic App Designer.
 
-1. I sökrutan anger `when a http request`du och väljer **När en HTTP-begäran tas emot** som ska användas som utlösare.
+1. I sökrutan anger `when a http request`du och väljer **när en http-begäran tas emot** att användas som utlösare.
 
-   ![Välj Begäran utlösare för att starta logikapp arbetsflöde](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
+   ![Välj begär utlösare för att starta ditt Logic app-arbetsflöde](./media/logic-apps-enterprise-integration-b2b/select-http-request-trigger.png)
 
-1. Lämna rutan **Begäran json-schema** tom eftersom X12-meddelandet är en platt fil.
+1. Lämna rutan **JSON-schema för begär ande texten** tom eftersom X12-meddelandet är en platt fil.
 
-   ![Lämna "Begäran kropp JSON Schema" tom](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
+   ![Lämna "JSON-schemat för begär ande texten" tomt](./media/logic-apps-enterprise-integration-b2b/receive-trigger-message-body-json-schema.png)
 
-1. När du är klar väljer du **Spara**i designerverktygsfältet .
+1. När du är klar väljer du **Spara**i verktygsfältet designer.
 
-   Det här steget genererar **HTTP POST-URL:en** som ska användas för att skicka begäran som utlöser logikappen. Om du vill kopiera webbadressen markerar du kopieringsikonen bredvid webbadressen.
+   Det här steget genererar **http post-URL: en** som ska användas för att skicka begäran som utlöser Logic-appen. Om du vill kopiera den här URL: en väljer du kopierings ikonen bredvid URL: en.
 
-   ![URL som genererats för begäran utlösare för att ta emot samtal](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
+   ![URL som genereras för begär ande utlösare för mottagning av anrop](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## <a name="add-as2-decode-action"></a>Lägg till AS2-avkodningsåtgärd
+## <a name="add-as2-decode-action"></a>Lägg till AS2-avkodnings åtgärd
 
-Lägg nu till de B2B-åtgärder som du vill använda. I det här exemplet används AS2- och X12-åtgärder.
+Lägg nu till de B2B-åtgärder som du vill använda. I det här exemplet används AS2-och X12-åtgärder.
 
-1. Under utlösaren väljer du **Nytt steg**. Om du vill dölja utlösarinformationen klickar du på utlösarens namnlist.
+1. Under utlösaren väljer du **nytt steg**. Om du vill dölja utlösnings informationen klickar du på Utlösarens namn List.
 
-   ![Lägga till ytterligare ett steg i logikapparbetsflödet](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
+   ![Lägg till ett annat steg i ditt Logic app-arbetsflöde](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-1. Ange **Choose an action**i sökrutan `as2 decode`under Välj en åtgärd och välj **AS2-avkodning (v2).**
+1. Under **Välj en åtgärd**i sökrutan anger `as2 decode`du och väljer **AS2 avkoda (v2)**.
 
-   ![Hitta och välj "AS2 Avkoda (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
+   ![Sök efter och välj "AS2 avkodning (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
-1. Ange **den** indata som du vill att AS2-åtgärden ska avkoda, vilket är `body` innehållet som tas emot av HTTP-begäran. Du kan ange innehållet som indata på flera sätt, antingen från listan med dynamiskt innehåll eller som ett uttryck:
+1. För egenskapen **meddelande att avkoda** anger du indatamängden som du vill att AS2-åtgärden ska avkoda, vilket är `body` det innehåll som tas emot av utlösaren för http-begäran. Det finns flera sätt att ange det här innehållet som indatatyp, antingen från listan med dynamiskt innehåll eller som ett uttryck:
 
-   * Om du vill välja från en lista som visar tillgängliga utlösarutdata klickar du i rutan **Meddelande för att avkoda.** När listan med dynamiskt innehåll visas under **När en HTTP-begäran tas emot**väljer du Egenskapsvärde för **Brödtext,** till exempel:
+   * Om du vill välja från en lista som visar tillgängliga utlösare klickar du i rutan **meddelande att avkoda** . När listan med dynamiskt innehåll visas, under **när en HTTP-begäran tas emot**, väljer du **text** egenskaps värde, till exempel:
 
-     ![Välj "Brödtext"-värde från utlösaren](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
+     ![Välj "Body"-värde från utlösaren](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Om du vill ange ett uttryck `body` som refererar till utlösarens utdata klickar du i rutan **Meddelande för att avkoda.** När listan med dynamiskt innehåll visas väljer du **Uttryck**. I uttrycksredigeraren anger du uttrycket här och väljer **OK:**
+   * Om du vill ange ett uttryck som refererar till `body` utlösaren utdata klickar du i rutan **meddelande att avkoda** . När listan med dynamiskt innehåll visas väljer du **uttryck**. I uttrycks redigeraren anger du uttrycket här och väljer **OK**:
 
      `triggerOutputs()['body']`
 
-     Eller ange det här uttrycket direkt i rutan **Meddelande att avkoda:**
+     Eller ange det här uttrycket direkt i rutan **meddelande att avkoda** :
 
      `@triggerBody()`
 
-     Uttrycket matchas **Body** till body-token.
+     Uttrycket matchar **Body** -token.
 
-     ![Löst utdata från utlösaren](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
+     ![Matchade text utdata från utlösaren](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-body-expression.png)
 
-1. För egenskapen **Meddelandehuvuden** anger du alla rubriker som krävs för `headers` AS2-åtgärden och som beskrivs av innehållet som tas emot av HTTP-begäran.
+1. För egenskapen **meddelande rubriker** anger du eventuella rubriker som krävs för åtgärden AS2, som beskrivs av det `headers` innehåll som tas emot av utlösaren för http-begäran.
 
-   Om du vill ange ett uttryck `headers` som refererar till utlösarens utdata klickar du i rutan **Meddelanderubriker.** När listan med dynamiskt innehåll visas väljer du **Uttryck**. I uttrycksredigeraren anger du uttrycket här och väljer **OK:**
+   Om du vill ange ett uttryck som refererar till `headers` utlösaren utdata klickar du i rutan **meddelande rubriker** . När listan med dynamiskt innehåll visas väljer du **uttryck**. I uttrycks redigeraren anger du uttrycket här och väljer **OK**:
 
    `triggerOutputs()['Headers']`
 
-   Om du vill att det här uttrycket ska matchas som den här token växlar du mellan designer- och kodvyn, till exempel:
+   För att få det här uttrycket att matcha som denna token växlar du mellan designer och kodvyn, till exempel:
 
-   ![Lösta rubriker från utlösaren](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+   ![Matchade meddelandehuvuden från utlösaren](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
-## <a name="add-response-action-for-message-receipt-notification"></a>Lägg till svarsåtgärd för meddelandeinleveransmeddelande
+## <a name="add-response-action-for-message-receipt-notification"></a>Lägg till svars åtgärd för meddelande kvitto
 
-Om du vill meddela handelspartnern att meddelandet togs emot kan du returnera ett svar som innehåller ett MDN -meddelande (AS2 Message Disposition Notification) med hjälp av **svarsåtgärden.** Genom att lägga till den här åtgärden omedelbart efter **ÅTGÄRDEN AS2 Avcode,** om åtgärden misslyckas, fortsätter logikappen inte bearbetningen.
+Om du vill meddela handels partnern att meddelandet har tagits emot kan du returnera ett svar som innehåller ett meddelande om dispositions meddelande för AS2 (MDN) med hjälp av **svars** åtgärden. Genom att lägga till den här åtgärden direkt efter **AS2 avkodnings** åtgärd, bör Logic app inte fortsätta bearbetningen om den åtgärden inte fungerar.
 
-1. Under åtgärden **AS2 Avkoda** väljer du **Nytt steg**.
+1. Under **AS2 avkodnings** åtgärd väljer du **nytt steg**.
 
-1. Välj **Inbyggd**under **Välj en åtgärd**. Skriv `condition` i sökrutan. Välj **Villkor**i listan **Åtgärder** .
+1. Under **Välj en åtgärd**går du till rutan Sök och väljer **inbyggd**. Skriv `condition` i sökrutan. I listan **åtgärder** väljer du **villkor**.
 
-   ![Lägg till åtgärden "Villkor"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
+   ![Lägg till åtgärden "villkor"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 
-   Nu visas villkorsformen, inklusive banorna för om villkoret är uppfyllt eller inte.
+   Nu visas villkors formen, inklusive sökvägar för om villkoret är uppfyllt eller inte.
 
-   ![Villkorsform med beslutsbanor](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Villkors form med besluts vägar](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
-1. Ange nu villkoret att utvärdera. I rutan **Välj ett värde** anger du det här uttrycket:
+1. Ange nu villkoret som ska utvärderas. I rutan **Välj ett värde** anger du det här uttrycket:
 
    `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
 
-   I mittenrutan kontrollerar du att jämförelseåtgärden är inställd på `is equal to`. Ange värdet `Expected`i rutan till höger . Om du vill att uttrycket ska matchas som den här token växlar du mellan designern och kodvyn.
+   I rutan i mitten ser du till att jämförelse åtgärden är inställd på `is equal to`. Ange värdet `Expected`i rutan till höger. Om du vill hämta uttrycket för att matcha den här token växlar du mellan designer och kodvy.
 
-   ![Villkorsform med beslutsbanor](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Villkors form med besluts vägar](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
-1. Ange nu svaren för att returnera om **ÅTGÄRDEN AS2-avkodning** lyckas eller inte.
+1. Ange Svaren för att returnera om AS2- **avkodnings** åtgärden lyckas eller inte.
 
-   1. För det fall då **åtgärden AS2 Avkod** lyckas väljer du **Lägg till en åtgärd**i formen Om **true** . Ange **Choose an action**i sökrutan `response`under Välj en åtgärd och välj **Svar**.
+   1. För det fall när **AS2-avkodningen** lyckas väljer du **Lägg till en åtgärd**i formen **om True** . Under **Välj en åtgärd**i sökrutan anger `response`du och väljer **svar**.
 
-      ![Sök efter och välj åtgärden "Svar"](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
+      ![Sök efter och Välj åtgärden "svar"](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
 
-   1. Om du vill komma åt AS2 MDN från **AS2-avkodningens** utdata anger du följande uttryck:
+   1. Om du vill komma åt AS2-MDN från utdata för **AS2-avkodaren** anger du följande uttryck:
 
-      * Ange det här uttrycket i egenskapen **Svarsåtgärd:** **Response**
+      * I egenskapen **rubrik** för **svars** åtgärd anger du följande uttryck:
 
         `@body('AS2_Decode')?['OutgoingMdn']?['OutboundHeaders']`
 
-      * Ange det här uttrycket i egenskapen **Brödtext** för svar: **Body**
+      * I egenskapen **brödtext** i **svars** åtgärd anger du följande uttryck:
 
         `@body('AS2_Decode')?['OutgoingMdn']?['Content']`
 
-   1. Om du vill att uttrycken ska matchas som token växlar du mellan designern och kodvyn:
+   1. Om du vill att uttryck ska matchas som tokens växlar du mellan designer och kodvyn:
 
-      ![Matchat uttryck för åtkomst till AS2 MDN](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
+      ![Matchat uttryck för att komma åt AS2 MDN](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
 
-   1. För det fall då **åtgärden AS2 Avkod** misslyckas väljer du **Lägg till en åtgärd**i den falska formen Om den är **falsk** . Ange **Choose an action**i sökrutan `response`under Välj en åtgärd och välj **Svar**. Ställ in åtgärden **Svar** för att returnera den status och det fel som du vill ha.
+   1. För det fall då åtgärden **AS2-avkoda** Miss lyckas väljer du **Lägg till en åtgärd**i formen **om falskt** . Under **Välj en åtgärd**i sökrutan anger `response`du och väljer **svar**. Konfigurera **svars** åtgärden för att returnera den status och det fel som du vill ha.
 
 1. Spara din logikapp.
 
-## <a name="add-decode-x12-message-action"></a>Lägg till åtgärden Avkoda X12-meddelande
+## <a name="add-decode-x12-message-action"></a>Lägg till åtgärden avkoda X12-meddelande
 
-1. Lägg nu till **meddelandeåtgärden Avkoda X12.** Under åtgärden **Svar** väljer du **Lägg till en åtgärd**.
+1. Lägg nu till åtgärden **avkoda X12-meddelande** . Under **svars** åtgärden väljer du **Lägg till en åtgärd**.
 
-1. Ange **Choose an action**i sökrutan `x12 decode`under Välj en åtgärd och välj **Avkoda X12-meddelande**.
+1. Under **Välj en åtgärd**i sökrutan anger `x12 decode`du och väljer **avkoda X12-meddelande**.
 
-   ![Sök efter och välj åtgärden "Avkoda X12-meddelande"](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
+   ![Sök efter och Välj åtgärden "avkoda X12-meddelande"](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 
-1. Om X12-åtgärden uppmanar dig att ange anslutningsinformation anger du namnet på anslutningen, väljer det integrationskonto som du vill använda och väljer sedan **Skapa**.
+1. Om X12-åtgärden efterfrågar anslutnings information anger du namnet på anslutningen, väljer det integrations konto som du vill använda och väljer sedan **skapa**.
 
-   ![Skapa X12-anslutning till integrationskonto](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection.png)
+   ![Skapa X12-anslutning till integrations konto](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection.png)
 
-1. Ange nu indata för X12-åtgärden. I det här exemplet används utdata från AS2-åtgärden, som är meddelandeinnehållet men observerar att innehållet är i JSON-objektformat och är base64 kodat. Så du måste konvertera det här innehållet till en sträng.
+1. Ange nu indatamängden för X12-åtgärden. I det här exemplet används utdata från åtgärden AS2, vilket är meddelande innehållet, men Observera att innehållet är i JSON-format och att det är Base64-kodat. Så du måste konvertera det här innehållet till en sträng.
 
-   I rutan **X12 Flat file message to decode** anger du det här uttrycket för att konvertera AS2-utdata:
+   I rutan **X12 platt fil meddelande att avkoda** anger du det här uttrycket för att konvertera AS2 utdata:
 
    `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
 
-    Om du vill att uttrycket ska matchas som den här token växlar du mellan designern och kodvyn.
+    Om du vill hämta uttrycket för att matcha den här token växlar du mellan designer och kodvy.
 
-    ![Konvertera base64-kodat innehåll till en sträng](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
+    ![Konvertera Base64-kodat innehåll till en sträng](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
 
 1. Spara din logikapp.
 
-   Om du behöver ytterligare steg för den här logikappen, till exempel för att avkoda meddelandeinnehållet och utdata som innehåll i JSON-objektformat, fortsätter du att skapa logikappen.
+   Om du behöver ytterligare anvisningar för den här Logic-appen, till exempel för att avkoda meddelande innehållet och mata ut innehållet i JSON-objekt, fortsätter du att skapa din Logic app.
 
-Du är nu klar med att konfigurera din B2B-logikapp. I en verklig app kanske du vill lagra de avkodade X12-data i en line-of-business app eller datalager. Se till exempel följande artiklar:
+Nu är du klar med att konfigurera B2B-Logic-appen. I en verklig värld kanske du vill lagra de avkodade X12-data i en affärsrelaterad app eller ett data lager. Se till exempel följande artiklar:
 
 * [Ansluta till SAP-system från Azure Logic Apps](../logic-apps/logic-apps-using-sap-connector.md)
-* [Övervaka, skapa och hantera SFTP-filer med hjälp av SSH- och Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
+* [Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
 
-Om du vill ansluta egna LOB-appar och använda dessa API:er i logikappen kan du lägga till fler åtgärder eller [skriva anpassade API:er](../logic-apps/logic-apps-create-api-app.md).
+Om du vill ansluta dina egna LOB-appar och använda dessa API: er i din Logic app kan du lägga till fler åtgärder eller [skriva anpassade API: er](../logic-apps/logic-apps-create-api-app.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ta emot och svara på inkommande HTTPS-samtal](../connectors/connectors-native-reqres.md)
-* [Exchange AS2-meddelanden för integrering av B2B-företag](../logic-apps/logic-apps-enterprise-integration-as2.md)
-* [Exchange X12-meddelanden för integrering av B2B-företag](../logic-apps/logic-apps-enterprise-integration-x12.md)
-* Läs mer om [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Ta emot och svara på inkommande HTTPS-anrop](../connectors/connectors-native-reqres.md)
+* [Exchange AS2-meddelanden för B2B Enterprise-integration](../logic-apps/logic-apps-enterprise-integration-as2.md)
+* [Exchange X12-meddelanden för B2B Enterprise-integration](../logic-apps/logic-apps-enterprise-integration-x12.md)
+* Läs mer om [Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -1,7 +1,7 @@
 ---
-title: Använda hjälpmedelsfunktioner i designern (förhandsgranskning)
+title: Använda hjälpmedels funktionerna i designern (förhands granskning)
 titleSuffix: Azure Machine Learning
-description: Läs mer om tangentbordsgenvägar och hjälpmedelsfunktioner för skärmläsare som är tillgängliga i designern.
+description: Lär dig mer om kortkommandon och skärm läsarenas hjälpmedels funktioner i designern.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,73 +10,73 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77366191"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Använda ett tangentbord för att använda Azure Machine Learning designer (förhandsversion)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Använd ett tangent bord för Azure Machine Learning designer (förhands granskning)
 
-Lär dig hur du använder en tangentbords- och skärmläsare för att använda Azure Machine Learning-designern. En lista över kortkommandon som fungerar överallt i Azure-portalen finns [i Kortkommandon i Azure-portalen](../azure-portal/azure-portal-keyboard-shortcuts.md)
+Lär dig hur du använder ett tangent bord och en skärm läsare för att använda Azure Machine Learning designer. En lista över kortkommandon som fungerar överallt i Azure Portal finns i [kortkommandon i Azure Portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
-Arbetsflödet har testats med [Skärmläsaren](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) och [JAWS](https://www.freedomscientific.com/products/software/jaws/), men det ska fungera med andra vanliga skärmläsare.
+Det här arbets flödet har testats med [skärm läsaren](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) och [JAWS](https://www.freedomscientific.com/products/software/jaws/), men det bör fungera med andra standard skärm läsare.
 
-## <a name="navigate-the-pipeline-graph"></a>Navigera i pipelinediagrammet
+## <a name="navigate-the-pipeline-graph"></a>Navigera i pipeline-diagrammet
 
-Pipelinediagrammet är ordnat som en kapslad lista. Den yttre listan är en modullista som beskriver alla moduler i pipelinediagrammet. Den inre listan är en anslutningslista som beskriver alla anslutningar för en viss modul.  
+Pipeline-diagrammet är ordnat som en kapslad lista. Den yttre listan är en modul-lista som beskriver alla moduler i pipeline-diagrammet. Den inre listan är en anslutnings lista som beskriver alla anslutningar för en speciell modul.  
 
-1. I modullistan använder du piltangenten för att byta moduler.
-1. Använd fliken för att öppna anslutningslistan för målmodulen.
-1. Använd piltangenten för att växla mellan anslutningsportarna för modulen.
-1. Använd "G" för att gå till målmodulen.
+1. I listan modul använder du piltangenten för att växla mellan moduler.
+1. Använd fliken för att öppna anslutnings listan för modulen.
+1. Använd piltangent för att växla mellan anslutnings portarna för modulen.
+1. Använd "G" för att gå till modulen mål.
 
-## <a name="edit-the-pipeline-graph"></a>Redigera pipelinediagrammet
+## <a name="edit-the-pipeline-graph"></a>Redigera pipeline-diagrammet
 
-### <a name="add-a-module-to-the-graph"></a>Lägga till en modul i diagrammet
+### <a name="add-a-module-to-the-graph"></a>Lägga till en modul i grafen
 
-1. Använd Ctrl+F6 för att växla fokus från arbetsytan till modulträdet.
-1. Hitta önskad modul i modulträdet med hjälp av standard treeview kontroll.
+1. Använd Ctrl + F6 för att växla fokus från arbets ytan till modul trädet.
+1. Hitta önskad modul i modulen modul med hjälp av standard TreeView-kontrollen.
 
 ### <a name="edit-a-module"></a>Redigera en modul
 
 Så här ansluter du en modul till en annan modul:
 
-1. Använd Ctrl + Skift + H när du riktar in en modul i modullistan för att öppna anslutningshjälparen.
-1. Redigera anslutningsportarna för modulen.
+1. Använd CTRL + SHIFT + H när du riktar en modul i listan modul för att öppna anslutnings hjälpen.
+1. Redigera anslutnings portarna för modulen.
 
-Så här justerar du modulegenskaperna:
+Så här justerar du egenskaper för modul:
 
-1. Använd Ctrl + Skift + E när du riktar in dig på en modul för att öppna modulegenskaperna.
-1. Redigera modulegenskaperna.
+1. Använd CTRL + SKIFT + E när du riktar en modul för att öppna modulens egenskaper.
+1. Redigera egenskaperna för modulen.
 
-## <a name="navigation-shortcuts"></a>Navigeringsgenvägar
+## <a name="navigation-shortcuts"></a>Navigerings gen vägar
 
-| Tangenttryckning | Beskrivning |
+| Tryck | Beskrivning |
 |-|-|
-| Ctrl + F6 | Växla fokus mellan arbetsyta och modulträd |
-| Ctrl + F1   | Öppna informationskortet när du fokuserar på en nod i modulträdet |
-| Ctrl + Skift + H | Öppna anslutningshjälparen när fokus ligger på en nod |
-| Ctrl + Skift + E | Öppna modulegenskaper när fokus ligger på en nod |
-| Ctrl + G | Flytta fokus till den första misslyckade noden om pipelinekörningen misslyckades |
+| Ctrl + F6 | Växla fokus mellan arbets ytan och modulens träd |
+| CTRL + F1   | Öppna informations kortet när du fokuserar på en nod i modul träd |
+| CTRL + SHIFT + H | Öppna anslutnings hjälpen när fokus är på en nod |
+| CTRL + SKIFT + E | Öppna modulens egenskaper när fokus är på en nod |
+| Ctrl + G | Flytta fokus till första noden som misslyckades om pipeline-körningen misslyckades |
 
-## <a name="action-shortcuts"></a>Åtgärdsgenvägar
+## <a name="action-shortcuts"></a>Åtgärds gen vägar
 
-Använd följande kortkommandon med åtkomstnyckeln. Mer information om åtkomstnycklar https://en.wikipedia.org/wiki/Access_keyfinns i .
+Använd följande kortkommandon med åtkomst nyckeln. Mer information om åtkomst nycklar finns i https://en.wikipedia.org/wiki/Access_key.
 
-| Tangenttryckning | Åtgärd |
+| Tryck | Action |
 |-|-|
-| Åtkomstnyckel + R | Kör |
-| Åtkomstnyckel + P | Publicera |
-| Åtkomstnyckel + C | Klona |
-| Åtkomstnyckel + D | Distribuera |
-| Åtkomstnyckel + I | Pipeline för inferens för att skapa/uppdatera inferens |
-| Åtkomstnyckel + B | Pipeline för inferenspipeline för att skapa/uppdatera batch |
-| Åtkomstnyckel + K | Öppna listrutan "Skapa slutledningspipeline" |
-| Åtkomstnyckel + U | Öppna listrutan "Uppdatera inferenspipeline" |
-| Åtkomstnyckel + M | Öppna listrutan Mer(...) |
+| Åtkomst nyckel + R | Kör |
+| Åtkomst nyckel + P | Publicera |
+| Åtkomst nyckel + C | Klona |
+| Åtkomst nyckel + D | Distribuera |
+| Åtkomst nyckel + I | Skapa/uppdatera en härlednings pipeline |
+| Åtkomst nyckel + B | Skapa/uppdatera pipeline för batch-härledning |
+| Åtkomst nyckel + K | Öppna List rutan skapa härlednings förlopp |
+| Åtkomst nyckel + U | Öppna List rutan uppdatera härlednings förlopp |
+| Åtkomst nyckel + M | Öppna mer (...) listruta |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Aktivera hög kontrast eller ändra tema](../azure-portal/azure-portal-change-theme-high-contrast.md)
-- [Hjälpmedelsrelaterade verktyg på Microsoft](https://www.microsoft.com/accessibility)
+- [Hjälpmedels verktyg på Microsoft](https://www.microsoft.com/accessibility)

@@ -1,6 +1,6 @@
 ---
-title: Spegla Apache Kafka-ämnen - Azure HDInsight
-description: Lär dig hur du använder Apache Kafkas speglingsfunktion för att underhålla en replik av en Kafka på HDInsight-kluster genom att spegla ämnen till ett sekundärt kluster.
+title: Spegla Apache Kafka ämnen – Azure HDInsight
+description: Lär dig hur du använder Apache Kafkas speglings funktion för att underhålla en replik av en Kafka på HDInsight-kluster genom att spegla ämnen till ett sekundärt kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,90 +9,90 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77425892"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka i HDInsight
 
-Lär dig hur du använder Apache Kafkas speglingsfunktion för att replikera ämnen till ett sekundärt kluster. Spegling kan kördes som en kontinuerlig process eller användas periodvis som en metod för att migrera data från ett kluster till ett annat.
+Lär dig hur du använder Apache Kafkas speglings funktion för att replikera ämnen till ett sekundärt kluster. Spegling kan köras som en kontinuerlig process eller användas tillfälligt som en metod för att migrera data från ett kluster till ett annat.
 
-I det här exemplet används spegling för att replikera ämnen mellan två HDInsight-kluster. Båda klustren finns i olika virtuella nätverk i olika datacenter.
+I det här exemplet används spegling för att replikera ämnen mellan två HDInsight-kluster. Båda klustren finns i olika virtuella nätverk i olika data Center.
 
 > [!WARNING]  
-> Spegling bör inte betraktas som ett sätt att uppnå feltolerans. Förskjutningen till objekt i ett ämne skiljer sig mellan de primära och sekundära klustren, så klienter kan inte använda de två omväxlande.
+> Spegling bör inte betraktas som ett sätt att uppnå fel tolerans. Förskjutningen till objekt i ett ämne skiljer sig åt mellan de primära och sekundära klustren, så att klienterna inte kan använda den två utbytbara informationen.
 >
-> Om du är orolig för feltolerans bör du ange replikering för ämnena i klustret. Mer information finns i [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md).
+> Om du är orolig över fel toleransen bör du ställa in replikering för ämnena i klustret. Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
-## <a name="how-apache-kafka-mirroring-works"></a>Hur Apache Kafka spegling fungerar
+## <a name="how-apache-kafka-mirroring-works"></a>Så här fungerar Apache Kafka spegling
 
-Spegling fungerar med verktyget [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (en del av Apache Kafka) för att använda poster från ämnen i det primära klustret och sedan skapa en lokal kopia i det sekundära klustret. MirrorMaker använder en (eller flera) *konsumenter* som läser från det primära klustret och en *producent* som skriver till det lokala (sekundära) klustret.
+Spegling fungerar med hjälp av [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) -verktyget (en del av Apache Kafka) för att använda poster från ämnen i det primära klustret och sedan skapa en lokal kopia på det sekundära klustret. MirrorMaker använder en (eller flera) *konsumenter* som läser från det primära klustret och en *tillverkare* som skriver till det lokala (sekundära) klustret.
 
-Den mest användbara speglingsinställningen för haveriberedskap använder Kafka-kluster i olika Azure-regioner. För att uppnå detta är de virtuella nätverk där klustren finns peered tillsammans.
+Den mest användbara speglings inställningen för haveri beredskap använder Kafka-kluster i olika Azure-regioner. För att uppnå detta är de virtuella nätverken där klustren finns, peer-kopplas tillsammans.
 
-Följande diagram illustrerar speglingsprocessen och hur kommunikationen flödar mellan kluster:
+Följande diagram illustrerar speglings processen och hur kommunikationen flödar mellan kluster:
 
-![Diagram över speglingsprocessen](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+![Diagram över speglings processen](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
 
-De primära och sekundära klustren kan vara olika i antalet noder och partitioner, och förskjutningar inom ämnena är olika också. Spegling upprätthåller nyckelvärdet som används för partitionering, så postordningen bevaras per nyckel.
+De primära och sekundära klustren kan vara olika i antalet noder och partitioner, och förskjutningarna i ämnena skiljer sig också. Spegling upprätthåller det nyckel värde som används för partitionering, så post ordningen bevaras per nyckel.
 
-### <a name="mirroring-across-network-boundaries"></a>Spegling över nätverksgränser
+### <a name="mirroring-across-network-boundaries"></a>Spegling över nätverks gränser
 
 Om du behöver spegla mellan Kafka-kluster i olika nätverk finns det följande ytterligare överväganden:
 
-* **Gateways**: Nätverken måste kunna kommunicera på TCP/IP-nivå.
+* **Gatewayer**: nätverken måste kunna kommunicera på TCP/IP-nivån.
 
-* **Serveradressering:** Du kan välja att adressera klusternoderna med hjälp av deras IP-adresser eller fullständigt kvalificerade domännamn.
+* **Server adressering**: du kan välja att adressera dina klusternoder med deras IP-adresser eller fullständiga domän namn.
 
-    * **IP-adresser:** Om du konfigurerar kafka-kluster för att använda IP-adressannonsering kan du fortsätta med speglingsinställningen med hjälp av IP-adresserna för mäklarenoderna och zookeepernoderna.
+    * **IP-adresser**: om du konfigurerar Kafka-kluster att använda annonsering av IP-adresser kan du fortsätta med speglings installationen med hjälp av IP-adresserna för Service Broker-noderna och Zookeeper-noderna.
     
-    * **Domännamn:** Om du inte konfigurerar Kafka-kluster för IP-adressannonsering måste klustret kunna ansluta till varandra med hjälp av fullständigt kvalificerade domännamn (FQDN). Detta kräver en DNS-server (Domain Name System) i varje nätverk som är konfigurerat för att vidarebefordra begäranden till andra nätverk. När du skapar ett virtuellt Azure-nätverk måste du ange en anpassad DNS-server och IP-adressen för servern i stället för att använda den automatiska DNS som medföljer nätverket. När det virtuella nätverket har skapats måste du sedan skapa en Virtuell Azure-dator som använder ip-adressen och sedan installera och konfigurera DNS-programvara på den.
+    * **Domän namn**: om du inte konfigurerar dina Kafka-kluster för annonsering av IP-adresser måste klustren kunna ansluta till varandra med hjälp av fullständigt kvalificerade domän namn (FQDN). Detta kräver en Domain Name System-Server (DNS) i varje nätverk som har kon figurer ATS för att vidarebefordra begär anden till andra nätverk. När du skapar en Azure-Virtual Network, i stället för att använda den automatiska DNS som medföljer nätverket, måste du ange en anpassad DNS-server och IP-adressen för servern. När Virtual Network har skapats måste du skapa en virtuell Azure-dator som använder den IP-adressen och sedan installera och konfigurera DNS-programvaran på den.
 
     > [!WARNING]  
-    > Skapa och konfigurera den anpassade DNS-servern innan du installerar HDInsight i det virtuella nätverket. Det krävs ingen ytterligare konfiguration för att HDInsight ska kunna använda DEN DNS-server som konfigurerats för det virtuella nätverket.
+    > Skapa och konfigurera den anpassade DNS-servern innan du installerar HDInsight i Virtual Network. Det krävs ingen ytterligare konfiguration för att HDInsight ska kunna använda den DNS-server som kon figurer ATS för Virtual Network.
 
-Mer information om hur du ansluter två Virtuella Azure-nätverk finns i [Konfigurera en VNet-till-VNet-anslutning](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+Mer information om hur du ansluter två virtuella Azure-nätverk finns i [Konfigurera en VNet-till-VNET-anslutning](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## <a name="mirroring-architecture"></a>Speglingsarkitektur
+## <a name="mirroring-architecture"></a>Speglings arkitektur
 
-Den här arkitekturen har två kluster i olika resursgrupper och virtuella nätverk: en **primär** och **sekundär**.
+Den här arkitekturen innehåller två kluster i olika resurs grupper och virtuella nätverk: en **primär** och en **sekundär**.
 
-### <a name="creation-steps"></a>Skapa steg
+### <a name="creation-steps"></a>Skapande steg
 
-1. Skapa två nya resursgrupper:
+1. Skapa två nya resurs grupper:
 
-    |Resursgrupp | Location |
+    |Resursgrupp | Plats |
     |---|---|
-    | kafka-primär-rg | USA, centrala |
-    | kafka-sekundär-rg | USA, norra centrala |
+    | Kafka-Primary-rg | USA, centrala |
+    | Kafka – sekundär-rg | USA, norra centrala |
 
-1. Skapa ett nytt virtuellt nätverk **kafka-primary-vnet** i **kafka-primary-rg**. Lämna standardinställningarna.
-1. Skapa ett nytt virtuellt nätverk **kafka-secondary-vnet** i **kafka-secondary-rg**, även med standardinställningar.
+1. Skapa ett nytt virtuellt nätverk **Kafka-Primary-VNet** i **Kafka-Primary-RG**. Låt standardinställningarna vara kvar.
+1. Skapa ett nytt virtuellt nätverk **Kafka-sekundärt VNet** i **Kafka-Secondary-RG**, även med standardinställningar.
 
 1. Skapa två nya Kafka-kluster:
 
     | Klusternamn | Resursgrupp | Virtual Network | Lagringskonto |
     |---|---|---|---|
-    | kafka-primär-kluster | kafka-primär-rg | kafka-primär-vnet | kafkaprimarystorage |
-    | kafka-sekundär-kluster | kafka-sekundär-rg | kafka-sekundär-vnet | kafkasecondarystorage |
+    | Kafka – primärt-kluster | Kafka-Primary-rg | Kafka – primärt VNet | kafkaprimarystorage |
+    | Kafka – sekundärt kluster | Kafka – sekundär-rg | Kafka – sekundärt VNet | kafkasecondarystorage |
 
-1. Skapa virtuella nätverks peerings. Detta steg kommer att skapa två peerings: en från **kafka-primär-vnet** till **kafka-secondary-vnet** och en tillbaka från **kafka-secondary-vnet** till **kafka-primary-vnet**.
-    1. Välj det virtuella nätverket **kafka-primary-vnet.**
-    1. Välj **Peerings** under **Inställningar**.
+1. Skapa peer-kopplingar för virtuella nätverk. Det här steget skapar två peer-kopplingar: en från **Kafka-Primary-VNet** till **Kafka-Secondary-VNet** och en tillbaka från **Kafka-Secondary-VNet** till **Kafka-Primary-VNet**.
+    1. Välj det virtuella nätverket **Kafka-VNet** .
+    1. Välj **peer** -kopplingar under **Inställningar**.
     1. Välj **Lägg till**.
-    1. På skärmen **Lägg till peering** anger du detaljerna som visas på skärmbilden nedan.
+    1. På sidan **Lägg till peering (Lägg till peering** ) anger du informationen som visas på skärm bilden nedan.
 
-        ![HDInsight Kafka lägga till vnet peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        ![HDInsight-Kafka Lägg till VNet-peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 ### <a name="configure-ip-advertising"></a>Konfigurera IP-annonsering
 
-Konfigurera IP-annonsering så att en klient kan ansluta med hjälp av mäklar-IP-adresser i stället för domännamn.
+Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adresser för Broker i stället för domän namn.
 
-1. Gå till Ambari-instrumentpanelen `https://PRIMARYCLUSTERNAME.azurehdinsight.net`för det primära klustret: .
-1. Välj **Tjänster** > **Kafka**. CliSelectck fliken **Configs.**
-1. Lägg till följande config-rader i det nedre **mallavsnittet för kafka-env.** Välj **Spara**.
+1. Gå till Ambari-instrumentpanelen för det primära klustret `https://PRIMARYCLUSTERNAME.azurehdinsight.net`:.
+1. Välj **tjänster** > **Kafka**. CliSelectck fliken **configs** .
+1. Lägg till följande konfigurations rader i det nedre **Kafka-avsnittet mall** . Välj **Spara**.
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
@@ -102,54 +102,54 @@ Konfigurera IP-annonsering så att en klient kan ansluta med hjälp av mäklar-I
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
-1. Ange en anteckning på skärmen **Spara konfiguration** och klicka på **Spara**.
-1. Om du uppmanas att ange konfigurationsvarning klickar du på **Fortsätt ändå**.
-1. Välj **Ok** på **spara konfigurationsändringar**.
-1. Välj **Starta om** > **starta om alla som påverkas** i meddelandet **Omstart.** Välj **Bekräfta starta om alla**.
+1. Skriv en anteckning på sidan **Spara konfiguration** och klicka på **Spara**.
+1. Om du uppmanas att konfigurera en konfigurations varning klickar du på **Fortsätt ändå**.
+1. Välj **OK** i **ändringarna Spara konfigurationen**.
+1. Välj **Starta** > om**omstart allt påverkat** i meddelandet **omstart krävs** . Välj **Bekräfta omstart av alla**.
 
-    ![Apache Ambari starta om alla drabbade](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    ![Apache Ambari-omstart alla påverkade](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
-### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Konfigurera Kafka för att lyssna på alla nätverksgränssnitt.
+### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Konfigurera Kafka för att lyssna på alla nätverks gränssnitt.
     
-1. Stanna på **fliken Configs** under **Tjänster** > **Kafka**. I avsnittet **Kafka Broker** ställs **lyssnare** åt `PLAINTEXT://0.0.0.0:9092`.
+1. Stanna kvar på fliken **configs** under **Services** > **Kafka**. I **Kafka Broker** -avsnittet anger du egenskapen **Listeners** till `PLAINTEXT://0.0.0.0:9092`.
 1. Välj **Spara**.
-1. Välj **Starta om**och Bekräfta Starta om **alla**.
+1. Välj **starta om**och **Bekräfta omstart av alla**.
 
-### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Registrera mäklar-IP-adresser och Zookeeper-adresser för primära kluster.
+### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Post Broker IP-adresser och Zookeeper-adresser för det primära klustret.
 
-1. Välj **Värdar** på Ambari-instrumentpanelen.
-1. Anteckna IP-adresserna för mäklare och zookeepers. Mäklarenoderna har **wn** som de två första bokstäverna i värdnamnet, och zookeeper noder har **zk** som de två första bokstäverna i värdnamnet.
+1. Välj **värdar** på Ambari-instrumentpanelen.
+1. Anteckna IP-adresserna för utjämnare och Zookeepers. Service Broker-noderna har dubbelt **så många** de två första bokstäverna i värd namnet och Zookeeper-noderna har **ZK** som de första två bokstäverna i värd namnet.
 
-    ![Apache Ambari visa nod IP-adresser](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    ![Apache Ambari View Node IP-adresser](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
-1. Upprepa de föregående tre stegen för det andra klustret **kafka-sekundär-kluster:** konfigurera IP-annonsering, ange lyssnare och anteckna mäklar- och Zookeeper IP-adresser.
+1. Upprepa föregående tre steg för det andra klustret **Kafka – sekundärt kluster**: Konfigurera IP-annonsering, ange lyssnare och anteckna IP-adresserna för Broker och Zookeeper.
 
 ## <a name="create-topics"></a>Skapa ämnen
 
-1. Anslut till det **primära** klustret med SSH:
+1. Anslut till det **primära** klustret med hjälp av SSH:
 
     ```bash
     ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Ersätt **sshuser** med det SSH-användarnamn som används när klustret skapas. Ersätt **PRIMARYCLUSTER** med det basnamn som används när klustret skapas.
+    Ersätt **sshuser** med SSH-användarnamnet som används när du skapar klustret. Ersätt **PRIMARYCLUSTER** med bas namnet som används när du skapar klustret.
 
     Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-1. Använd följande kommando för att skapa en variabel med Apache Zookeeper värdar för det primära klustret. Strängarna som `ZOOKEEPER_IP_ADDRESS1` måste ersättas med de faktiska IP-adresser som registrerats tidigare, till exempel `10.23.0.11` och `10.23.0.7`. Om du använder FQDN-upplösning med en anpassad DNS-server följer du [dessa steg](apache-kafka-get-started.md#getkafkainfo) för att få namn på mäklare och djurhållare.:
+1. Använd följande kommando för att skapa en variabel med Apache Zookeeper-värdar för det primära klustret. Strängarna som `ZOOKEEPER_IP_ADDRESS1` måste ersättas med de faktiska IP-adresser som registrerats tidigare, `10.23.0.11` till `10.23.0.7`exempel och. Om du använder FQDN-matchning med en anpassad DNS-Server följer du [dessa steg](apache-kafka-get-started.md#getkafkainfo) för att hämta Broker-och Zookeeper-namn.:
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-1. Om du vill `testtopic`skapa ett ämne med namnet använder du följande kommando:
+1. Använd följande kommando för att `testtopic`skapa ett ämne med namnet:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $PRIMARY_ZKHOSTS
     ```
 
-1. Använd följande kommando för att kontrollera att ämnet har skapats:
+1. Använd följande kommando för att kontrol lera att ämnet har skapats:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $PRIMARY_ZKHOSTS
@@ -157,7 +157,7 @@ Konfigurera IP-annonsering så att en klient kan ansluta med hjälp av mäklar-I
 
     Svaret innehåller `testtopic`.
 
-1. Använd följande om du vill visa värdinformationen för Zookeeper för det här (det **primära)** klustret:
+1. Använd följande för att Visa Zookeeper-värd information för det här (det **primära**) klustret:
 
     ```bash
     echo $PRIMARY_ZKHOSTS
@@ -167,40 +167,40 @@ Konfigurera IP-annonsering så att en klient kan ansluta med hjälp av mäklar-I
 
     `10.23.0.11:2181,10.23.0.7:2181,10.23.0.9:2181`
 
-    Spara den här informationen. Det används i nästa avsnitt.
+    Spara den här informationen. Den används i nästa avsnitt.
 
 ## <a name="configure-mirroring"></a>Konfigurera spegling
 
-1. Anslut till det **sekundära** klustret med en annan SSH-session:
+1. Ansluta till det **sekundära** klustret med en annan SSH-session:
 
     ```bash
     ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Ersätt **sshuser** med det SSH-användarnamn som används när klustret skapas. Ersätt **SECONDARYCLUSTER** med det namn som används när klustret skapas.
+    Ersätt **sshuser** med SSH-användarnamnet som används när du skapar klustret. Ersätt **SECONDARYCLUSTER** med det namn som användes när du skapade klustret.
 
     Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
-1. En `consumer.properties` fil används för att konfigurera kommunikation med det **primära** klustret. Så här skapar du filen:
+1. En `consumer.properties` fil används för att konfigurera kommunikation med det **primära** klustret. Använd följande kommando för att skapa filen:
 
     ```bash
     nano consumer.properties
     ```
 
-    Använd följande text som innehållet `consumer.properties` i filen:
+    Använd följande text som `consumer.properties` filens innehåll:
 
     ```yaml
     zookeeper.connect=PRIMARY_ZKHOSTS
     group.id=mirrorgroup
     ```
 
-    Ersätt **PRIMARY_ZKHOSTS** med Zookeeper IP-adresser från det **primära** klustret.
+    Ersätt **PRIMARY_ZKHOSTS** med IP-adresser för Zookeeper från det **primära** klustret.
 
-    Den här filen beskriver konsumentinformation som ska användas när du läser från det primära Kafka-klustret. Mer information om konsumentkonfiguration finns i [Konsumentkonfiguration på](https://kafka.apache.org/documentation#consumerconfigs) kafka.apache.org.
+    Den här filen beskriver den konsument information som ska användas vid läsning från det primära Kafka-klustret. Mer information konsument konfiguration finns i [konsument konfigurationerna](https://kafka.apache.org/documentation#consumerconfigs) på Kafka.apache.org.
 
-    Om du vill spara filen använder du **Ctrl + X**, **Y**och sedan **enter**.
+    Om du vill spara filen använder du **CTRL + X**, **Y**och **anger**sedan.
 
-1. Innan du konfigurerar producenten som kommunicerar med det sekundära klustret ställer du in en variabel för mäklar-IP-adresserna för det **sekundära** klustret. Använd följande kommandon för att skapa den här variabeln:
+1. Innan du konfigurerar producenten som kommunicerar med det sekundära klustret konfigurerar du en variabel för Service Broker-IP-adresserna för det **sekundära** klustret. Använd följande kommandon för att skapa den här variabeln:
 
     ```bash
     export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
@@ -210,35 +210,35 @@ Konfigurera IP-annonsering så att en klient kan ansluta med hjälp av mäklar-I
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-1. En `producer.properties` fil används för att kommunicera det **sekundära** klustret. Så här skapar du filen:
+1. En `producer.properties` fil används för att kommunicera det **sekundära** klustret. Använd följande kommando för att skapa filen:
 
     ```bash
     nano producer.properties
     ```
 
-    Använd följande text som innehållet `producer.properties` i filen:
+    Använd följande text som `producer.properties` filens innehåll:
 
     ```yaml
     bootstrap.servers=SECONDARY_BROKERHOSTS
     compression.type=none
     ```
 
-    Ersätt **SECONDARY_BROKERHOSTS** med de mäklar-IP-adresser som användes i föregående steg.
+    Ersätt **SECONDARY_BROKERHOSTS** med IP-adresserna för Service Broker som användes i föregående steg.
 
-    Mer information producentkonfiguration finns i [Producent configs](https://kafka.apache.org/documentation#producerconfigs) på kafka.apache.org.
+    Mer information om Producer-konfiguration finns i [Producer](https://kafka.apache.org/documentation#producerconfigs) -konfigurationer på Kafka.apache.org.
 
-1. Använd följande kommandon för att skapa en miljövariabel med IP-adresserna för Zookeeper-värdarna för det sekundära klustret:
+1. Använd följande kommandon för att skapa en miljö variabel med IP-adresserna för Zookeeper-värdarna för det sekundära klustret:
 
     ```bash
     # get the zookeeper hosts for the secondary cluster
     export SECONDARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-1. Standardkonfigurationen för Kafka på HDInsight tillåter inte automatiskt skapande av ämnen. Du måste använda något av följande alternativ innan du startar speglingsprocessen:
+1. Standard konfigurationen för Kafka i HDInsight tillåter inte att ämnen skapas automatiskt. Du måste använda något av följande alternativ innan du startar speglings processen:
 
-    * **Skapa ämnena i det sekundära klustret**: Med det här alternativet kan du också ange antalet partitioner och replikeringsfaktorn.
+    * **Skapa ämnena i det sekundära klustret**: med det här alternativet kan du också ange antalet partitioner och replikeringslänken.
 
-        Du kan skapa ämnen i förväg med följande kommando:
+        Du kan skapa ämnen i förväg genom att använda följande kommando:
 
         ```bash
         /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SECONDARY_ZKHOSTS
@@ -246,17 +246,17 @@ Konfigurera IP-annonsering så att en klient kan ansluta med hjälp av mäklar-I
 
         Ersätt `testtopic` med namnet på det ämne som ska skapas.
 
-    * **Konfigurera klustret för automatisk skapande**av ämnen: Med det här alternativet kan MirrorMaker automatiskt skapa ämnen, men det kan skapa dem med ett annat antal partitioner eller replikeringsfaktor än det primära ämnet.
+    * **Konfigurera klustret för att skapa automatiska ämnen**: med det här alternativet kan MirrorMaker automatiskt skapa ämnen, men det kan skapa dem med ett annat antal partitioner eller en annan replikeringsrelation än det primära ämnet.
 
-        Så här konfigurerar du det sekundära klustret så att de automatiskt skapar ämnen:
+        Gör så här för att konfigurera det sekundära klustret att automatiskt skapa ämnen:
 
-        1. Gå till Ambari-instrumentpanelen `https://SECONDARYCLUSTERNAME.azurehdinsight.net`för det sekundära klustret: .
-        1. Klicka på **Tjänster** > **Kafka**. Klicka på fliken **Configs.**
-        1. Ange värdet __.__ `auto.create` Detta filtrerar listan över `auto.create.topics.enable` egenskaper och visar inställningen.
-        1. Ändra värdet `auto.create.topics.enable` för till sant och välj sedan __Spara__. Lägg till en anteckning och välj sedan __Spara__ igen.
-        1. Välj __Kafka-tjänsten,__ välj __Starta om__och välj sedan __Starta om alla berörda__. När du uppmanas till det väljer du __Bekräfta omstart av alla__.
+        1. Gå till Ambari-instrumentpanelen för det sekundära klustret `https://SECONDARYCLUSTERNAME.azurehdinsight.net`:.
+        1. Klicka på **Services** > **Kafka**. Klicka på fliken **konfigurationer** .
+        1. Ange ett värde i fältet __filter__ `auto.create`. Detta filtrerar listan över egenskaper och visar `auto.create.topics.enable` inställningen.
+        1. Ändra värdet `auto.create.topics.enable` till sant och välj sedan __Spara__. Lägg till en anteckning och välj sedan __Spara__ igen.
+        1. Välj __Kafka__ -tjänsten, Välj __starta om__och välj sedan __starta om alla berörda__. När du uppmanas väljer du __Bekräfta omstart av alla__.
 
-        ![kafka aktivera automatiska skapa ämnen](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        ![Kafka aktivera automatisk skapande av ämnen](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
 ## <a name="start-mirrormaker"></a>Starta MirrorMaker
 
@@ -270,12 +270,12 @@ Konfigurera IP-annonsering så att en klient kan ansluta med hjälp av mäklar-I
 
     |Parameter |Beskrivning |
     |---|---|
-    |--consumer.config|Anger filen som innehåller konsumentegenskaper. Dessa egenskaper används för att skapa en konsument som läser från det *primära* Kafka-klustret.|
-    |--producent.config|Anger filen som innehåller producentegenskaper. Dessa egenskaper används för att skapa en producent som skriver till det *sekundära* Kafka-klustret.|
-    |--vitlista|En lista med ämnen som MirrorMaker replikerar från det primära klustret till det sekundära.|
-    |--num.streams|Antalet konsumenttrådar att skapa.|
+    |--Consumer. config|Anger den fil som innehåller konsument egenskaper. Dessa egenskaper används för att skapa en konsument som läser från det *primära* Kafka-klustret.|
+    |--Producer. config|Anger den fil som innehåller producent egenskaper. Dessa egenskaper används för att skapa en producent som skriver till det *sekundära* Kafka-klustret.|
+    |--vitlista|En lista med avsnitt som MirrorMaker replikerar från det primära klustret till den sekundära.|
+    |--antal. strömmar|Antalet konsument trådar som ska skapas.|
 
-    Konsumenten på den sekundära noden väntar nu på att få meddelanden.
+    Konsumenten på den sekundära noden väntar nu på att ta emot meddelanden.
 
 2. Från SSH-anslutningen till det **primära** klustret använder du följande kommando för att starta en producent och skicka meddelanden till ämnet:
 
@@ -284,28 +284,28 @@ Konfigurera IP-annonsering så att en klient kan ansluta med hjälp av mäklar-I
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-     När du kommer till en tom rad med en markör skriver du in några sms. Meddelandena skickas till ämnet i det **primära** klustret. När du är klar använder du **Ctrl + C** för att avsluta producentprocessen.
+     När du kommer till en tom rad med en markör skriver du några text meddelanden. Meddelandena skickas till avsnittet i det **primära** klustret. När du är klar använder du **CTRL + C** för att avsluta producent processen.
 
-3. Från SSH-anslutningen till det **sekundära** klustret använder du **Ctrl + C** för att avsluta MirrorMaker-processen. Det kan ta flera sekunder att avsluta processen. Om du vill kontrollera att meddelandena har replikerats till den sekundära använder du följande kommando:
+3. Från SSH-anslutningen till det **sekundära** klustret använder du **CTRL + C** för att avsluta MirrorMaker-processen. Det kan ta flera sekunder att avsluta processen. Använd följande kommando för att kontrol lera att meddelandena har repliker ATS till den sekundära:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Listan över ämnen `testtopic`innehåller nu , som skapas när MirrorMaster speglar ämnet från det primära klustret till det sekundära. De meddelanden som hämtas från ämnet är desamma som de som du angav i det primära klustret.
+    Listan med ämnen innehåller `testtopic`nu, som skapas när MirrorMaster speglar ämnet från det primära klustret till den sekundära. Meddelanden som hämtas från avsnittet är desamma som de som du angav i det primära klustret.
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-Stegen i det här dokumentet skapade kluster i olika Azure-resursgrupper. Om du vill ta bort alla resurser som har skapats kan du ta bort de två resursgrupper som skapats: **kafka-primary-rg** och **kafka-secondary_rg**. Om du tar bort resursgrupperna tas alla resurser som skapas bort genom att följa det här dokumentet, inklusive kluster, virtuella nätverk och lagringskonton.
+Stegen i det här dokumentet skapade kluster i olika Azure-resurs grupper. Om du vill ta bort alla resurser som har skapats kan du ta bort de två resurs grupper som skapats: **Kafka-Primary-RG** och **Kafka-secondary_rg**. Om du tar bort resurs grupperna tas alla resurser som skapats i följande dokument bort, inklusive kluster, virtuella nätverk och lagrings konton.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet lärde du dig hur du använder [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att skapa en replik av ett [Apache Kafka-kluster.](https://kafka.apache.org/) Använd följande länkar för att upptäcka andra sätt att arbeta med Kafka:
+I det här dokumentet har du lärt dig hur du använder [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att skapa en replik av ett [Apache Kafka](https://kafka.apache.org/) -kluster. Använd följande länkar för att identifiera andra sätt att arbeta med Kafka:
 
-* [Apache Kafka MirrorMaker dokumentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) på cwiki.apache.org.
-* [Kafka Mirror Maker bästa praxis](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
+* [Apache Kafka MirrorMaker-dokumentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) på cwiki.apache.org.
+* [Metod tips för Kafka Mirror Maker](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md)
-* [Använd Apache Spark med Apache Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Ansluta till Apache Kafka via ett virtuellt Azure-nätverk](apache-kafka-connect-vpn-gateway.md)
+* [Använda Apache Spark med Apache Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Ansluta till Apache Kafka via en Azure-Virtual Network](apache-kafka-connect-vpn-gateway.md)

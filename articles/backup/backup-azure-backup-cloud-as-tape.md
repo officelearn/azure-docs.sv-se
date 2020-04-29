@@ -1,68 +1,68 @@
 ---
-title: Så här byter du ut bandinfrastrukturen
-description: Lär dig hur Azure Backup tillhandahåller bandliknande semantik som gör att du kan säkerhetskopiera och återställa data i Azure
+title: Så här ersätter du band infrastrukturen
+description: Lär dig hur Azure Backup innehåller band som liknar semantik som gör att du kan säkerhetskopiera och återställa data i Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77425110"
 ---
-# <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Flytta din långtidslagring från band till Azure-molnet
+# <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Flytta långsiktig lagring från band till Azure-molnet
 
-Azure Backup och System Center Data Protection Manager kunder kan:
+Azure Backup-och System Center-Data Protection Manager kunder kan:
 
-* Säkerhetskopiera data i scheman som bäst passar organisationens behov.
-* Behåll säkerhetskopieringsdata under längre perioder.
-* Gör Azure till en del av deras långsiktiga lagringsbehov (i stället för band).
+* Säkerhetskopiera data i scheman som passar organisationens behov bäst.
+* Behåll säkerhets kopierings data under längre perioder.
+* Gör Azure till en del av deras långsiktiga behov (i stället för på band).
 
-I den här artikeln beskrivs hur kunder kan aktivera principer för säkerhetskopiering och kvarhållning. Kunder som använder band för att tillgodose sina långsiktiga lagringsbehov har nu ett kraftfullt och lönsamt alternativ med tillgängligheten av den här funktionen. Funktionen är aktiverad i den senaste versionen av Azure Backup (som finns [här).](https://aka.ms/azurebackup_agent) System Center DPM-kunder måste uppdatera till minst DPM 2012 R2 UR5 innan du använder DPM med Azure Backup-tjänsten.
+Den här artikeln förklarar hur kunder kan aktivera säkerhets kopierings-och bevarande principer. Kunder som använder band för att hantera sina långsiktiga behov har nu ett kraftfullt och livskraftigt alternativ med tillgängligheten för den här funktionen. Funktionen aktive ras i den senaste versionen av Azure Backup (som finns [här](https://aka.ms/azurebackup_agent)). System Center DPM-kunder måste uppdatera till minst DPM 2012 R2-UR5 innan DPM kan använda tjänsten Azure Backup.
 
-## <a name="what-is-the-backup-schedule"></a>Vad är säkerhetskopieringsschemat?
+## <a name="what-is-the-backup-schedule"></a>Vad är schemat för säkerhets kopiering?
 
-Säkerhetskopieringsschemat anger frekvensen för säkerhetskopieringen. Inställningarna på följande skärm anger till exempel att säkerhetskopieringar tas dagligen klockan 18.00 och vid midnatt.
+Säkerhets kopierings schemat visar frekvensen för säkerhets kopieringen. Inställningarna på följande skärm visar till exempel att säkerhets kopior tas dagligen vid. 18:00 och midnatt.
 
-![Dagligt schema](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
+![Dags schema](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
 
-Kunder kan också schemalägga en veckovis säkerhetskopiering. Inställningarna på följande skärm anger till exempel att säkerhetskopieringar tas varje alternativ söndag & onsdag klockan 9:30 och 01:00.
+Kunder kan också schemalägga en veckovis säkerhets kopiering. Inställningarna på följande skärm visar till exempel att säkerhets kopiorna tas varje alternativ söndag & onsdag vid 9:10:30 och 1:10:00.
 
-![Veckoschema](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
+![Vecko schema](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
-## <a name="what-is-the-retention-policy"></a>Vad är bevarandeprincipen?
+## <a name="what-is-the-retention-policy"></a>Vad är bevarande principen?
 
-Bevarandeprincipen anger hur länge säkerhetskopian måste lagras. I stället för att bara ange en "platt princip" för alla säkerhetskopieringspunkter kan kunder ange olika bevarandeprinciper baserat på när säkerhetskopieringen görs. Till exempel bevaras säkerhetskopieringspunkten som tas dagligen, som fungerar som en operativ återställningspunkt, i 90 dagar. Säkerhetskopieringspunkten som tas i slutet av varje kvartal för granskningsändamål bevaras under en längre tid.
+Bevarande principen anger hur länge säkerhets kopian måste lagras. I stället för att bara ange en "platt princip" för alla säkerhets kopierings punkter kan kunder ange olika bevarande principer baserat på när säkerhets kopieringen utförs. Säkerhets kopierings punkten som tas dagligen, som fungerar som en drift återställnings punkt, bevaras i 90 dagar. Säkerhets kopierings punkten som tas i slutet av varje kvartal i gransknings syfte bevaras under en längre tid.
 
 ![Loggperiod](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
-Det totala antalet "kvarhållningspoäng" som anges i denna policy är 90 (dagliga poäng) + 40 (en varje kvartal i 10 år) = 130.
+Det totala antalet "kvarhållning Points" som anges i den här principen är 90 (dagliga punkter) + 40 (ett per kvartal i 10 år) = 130.
 
-## <a name="example--putting-both-together"></a>Exempel – Att sätta ihop båda
+## <a name="example--putting-both-together"></a>Exempel – lägga både tillsammans
 
-![Exempel på skärm](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
+![Exempel skärm](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Daglig lagringsprincip**: Säkerhetskopiering som tas dagligen lagras i sju dagar.
-2. **Weekly retention policy**: Säkerhetskopior som tas vid midnatt och 18:00 lördag bevaras i fyra veckor.
-3. **Månatlig lagringspolicy:** Säkerhetskopior som tas vid midnatt och 18:00 den sista lördagen i varje månad bevaras i 12 månader.
-4. **Årlig bevarandepolicy**: Säkerhetskopior som tas vid midnatt den sista lördagen i varje mars bevaras i 10 år.
+1. **Bevarande princip per dag**: säkerhets kopior som tas dagligen lagras i sju dagar.
+2. **Bevarande princip per vecka**: säkerhets kopieringar som gjorts kl. midnatt och lördag lördag bevaras i fyra veckor.
+3. **Bevarande princip per månad**: säkerhets kopieringar som gjorts kl. midnatt och 6 PM den sista lördagen i varje månad bevaras i 12 månader.
+4. **Bevarande princip per år**: säkerhets kopieringar som gjorts vid midnatt den sista lördagen i varje mars bevaras i 10 år.
 
-Det totala antalet "kvarhållningspunkter" (punkter från vilka en kund kan återställa data) i föregående diagram beräknas på följande sätt:
+Det totala antalet "kvarhållning Points" (punkter från vilka en kund kan återställa data) i föregående diagram beräknas enligt följande:
 
-* två poäng per dag i sju dagar = 14 återställningspunkter
-* två poäng per vecka i fyra veckor = 8 återställningspunkter
-* två poäng per månad i 12 månader = 24 återställningspunkter
-* en poäng per år och 10 år = 10 återställningspunkter
+* två poäng per dag i sju dagar = 14 återställnings punkter
+* två poäng per vecka i fyra veckor = 8 återställnings punkter
+* två poäng per månad i 12 månader = 24 återställnings punkter
+* en poäng per år per 10 år = 10 återställnings punkter
 
-Det totala antalet återställningspunkter är 56.
+Det totala antalet återställnings punkter är 56.
 
 > [!NOTE]
-> Med Azure Backup kan du skapa upp till 9999 återställningspunkter per skyddad instans. En skyddad instans är en dator, server (fysisk eller virtuell) eller arbetsbelastning som säkerhetskopierar data till Azure.
+> Med Azure Backup kan du skapa upp till 9999 återställnings punkter per skyddad instans. En skyddad instans är en dator, server (fysisk eller virtuell) eller arbetsbelastning som säkerhetskopierar data till Azure.
 >
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
-Genom att klicka på **Ändra** på föregående skärm kan kunderna ha ytterligare flexibilitet när det gäller att ange kvarhållningsscheman.
+Genom att klicka på **ändra** på föregående skärm, har kunderna ytterligare möjlighet att ange bevarande scheman.
 
 ![Ändra](./media/backup-azure-backup-cloud-as-tape/modify.png)
 

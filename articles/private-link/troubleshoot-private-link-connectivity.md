@@ -1,6 +1,6 @@
 ---
 title: Felsöka anslutningsproblem för Azure Private Link
-description: Steg-för-steg-vägledning för att diagnostisera privat länkanslutning
+description: Steg-för-steg-anvisningar för att diagnostisera anslutning till privata länkar
 services: private-link
 documentationcenter: na
 author: rdhillon
@@ -14,102 +14,102 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
 ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77539475"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Felsöka anslutningsproblem för Azure Private Link
 
-Den här artikeln innehåller steg-för-steg-vägledning för att validera och diagnostisera anslutning för din Azure Private Link-konfiguration.
+Den här artikeln innehåller steg-för-steg-anvisningar för att verifiera och diagnostisera anslutning för konfigurationen av en privat Azure-länk.
 
-Med Azure Private Link kan du komma åt Azure-plattformen som en tjänst (PaaS)-tjänster, till exempel Azure Storage, Azure Cosmos DB och Azure SQL Database och Azure som är värd för kund- eller partnertjänster via en privat slutpunkt i ditt virtuella nätverk. Trafiken mellan det virtuella nätverket och tjänsten passerar över Microsofts stamnätsnätverk, vilket eliminerar exponering från det offentliga internet. Du kan också skapa din egen privata länktjänst i ditt virtuella nätverk och leverera den privat till dina kunder.
+Med Azures privata länk kan du komma åt Azure Platform as a Service (PaaS)-tjänster, till exempel Azure Storage, Azure Cosmos DB och Azure SQL Database och Azure-värdbaserade kund-eller partner tjänster via en privat slut punkt i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen privat länk-tjänst i ditt virtuella nätverk och leverera den privat för kunderna.
 
-Du kan aktivera din tjänst som körs bakom standardnivån för Azure Load Balancer för privat länk-åtkomst. Konsumenter av din tjänst kan skapa en privat slutpunkt i deras virtuella nätverk och mappa den till den här tjänsten för att komma åt den privat.
+Du kan aktivera din tjänst som körs bakom standard-nivån för Azure Load Balancer för åtkomst till privat länk. Konsumenter av din tjänst kan skapa en privat slut punkt i sitt virtuella nätverk och mappa den till den här tjänsten för att få åtkomst till den privat.
 
-Här är anslutningsscenarierna som är tillgängliga med Private Link:
+Här är de anslutnings scenarier som är tillgängliga med privat länk:
 
 - Virtuellt nätverk från samma region
-- Regionalt peered virtuella nätverk
-- Globalt peered virtuella nätverk
-- Kunder lokalt via VPN- eller Azure ExpressRoute-kretsar
+- Regionalt peer-peerade virtuella nätverk
+- Globalt peer-kopplat virtuella nätverk
+- Kund lokalt via VPN eller Azure ExpressRoute-kretsar
 
-## <a name="deployment-troubleshooting"></a>Felsökning av distribution
+## <a name="deployment-troubleshooting"></a>Distributions fel sökning
 
-Granska informationen om [Inaktivera nätverksprinciper på den privata länktjänsten](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) för felsökningsärenden där du inte kan välja käll-IP-adressen från det undernät du väljer för din privata länktjänst.
+Läs informationen om hur du [inaktiverar nätverks principer i tjänsten för privata länkar](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) för fel söknings fall där du inte kan välja käll-IP-adress från det undernät du väljer för din privata länk tjänst.
 
-Kontrollera att inställningen **privateLinkServiceNetworkPolicies** är inaktiverad för undernätet som du väljer käll-IP-adressen från.
+Kontrol lera att inställningen **privateLinkServiceNetworkPolicies** är inaktive rad för under nätet som du väljer käll-IP-adressen från.
 
-## <a name="diagnose-connectivity-problems"></a>Diagnostisera anslutningsproblem
+## <a name="diagnose-connectivity-problems"></a>Diagnostisera anslutnings problem
 
-Om du får anslutningsproblem med din privata länkkonfiguration läser du de här stegen för att se till att alla vanliga konfigurationer är som förväntat.
+Om du får anslutnings problem med konfigurationen av den privata länken kan du gå igenom de här stegen för att se till att alla vanliga konfigurationer är som förväntat.
 
-1. Granska privat länkkonfiguration genom att bläddra i resursen.
+1. Granska konfigurationen av privat länk genom att bläddra i resursen.
 
     a. Gå till **Private Link Center**.
 
-      ![Privat länkcenter](./media/private-link-tsg/private-link-center.png)
+      ![Privat länk Center](./media/private-link-tsg/private-link-center.png)
 
-    b. Välj **Privata länktjänster**i den vänstra rutan .
+    b. I det vänstra fönstret väljer du **privata länk tjänster**.
 
-      ![Privata länktjänster](./media/private-link-tsg/private-link-service.png)
+      ![Privata länk tjänster](./media/private-link-tsg/private-link-service.png)
 
-    c. Filtrera och välj den privata länktjänst som du vill diagnostisera.
+    c. Filtrera och välj den privata länk tjänst som du vill diagnostisera.
 
-    d. Granska de privata slutpunktsanslutningarna.
-     - Kontrollera att den privata slutpunkt som du söker anslutning från visas med ett **godkänt anslutningstillstånd.**
-     - Om tillståndet **väntar**markerar du det och godkänner det.
+    d. Granska de privata slut punkts anslutningarna.
+     - Se till att den privata slut punkten som du letar efter anslutning från visas med ett **godkänt** anslutnings tillstånd.
+     - Om statusen är **väntande**väljer du den och godkänner den.
 
-       ![Privata slutpunktsanslutningar](./media/private-link-tsg/pls-private-endpoint-connections.png)
+       ![Anslutningar för privata slut punkter](./media/private-link-tsg/pls-private-endpoint-connections.png)
 
-     - Gå till den privata slutpunkt som du ansluter från genom att välja namnet. Kontrollera att anslutningsstatusen visas som **Godkänd**.
+     - Gå till den privata slut punkt som du ansluter från genom att välja namnet. Kontrol lera att anslutnings statusen visas som **godkänd**.
 
-       ![Översikt över privat slutpunktsanslutning](./media/private-link-tsg/pls-private-endpoint-overview.png)
+       ![Översikt över anslutning till privat slut punkt](./media/private-link-tsg/pls-private-endpoint-overview.png)
 
-     - När båda sidor har godkänts provar du anslutningen igen.
+     - När båda sidorna har godkänts kan du försöka ansluta igen.
 
-    e. Granska **Alias** på fliken **Översikt** och **Resurs-ID** på fliken **Egenskaper.**
-     - Kontrollera att **alias-** och **resurs-ID-informationen** matchar det **alias-** och **resurs-ID** som du använder för att skapa en privat slutpunkt till den här tjänsten.
+    e. Granska **alias** på fliken **Översikt** och **resurs-ID** på fliken **Egenskaper** .
+     - Kontrol lera att **alias** **-och resurs-ID-** informationen matchar **aliaset** och **resurs-ID: t** som du använder för att skapa en privat slut punkt till den här tjänsten.
 
-       ![Verifiera aliasinformation](./media/private-link-tsg/pls-overview-pane-alias.png)
+       ![Verifiera Ali Aset information](./media/private-link-tsg/pls-overview-pane-alias.png)
 
        ![Verifiera resurs-ID-information](./media/private-link-tsg/pls-properties-pane-resourceid.png)
 
-    f. Granska **synlighetsinformation** på fliken **Översikt.**
-     - Kontrollera att din prenumeration **Visibility** omfattas av synlighetsomfånget.
+    f. Granska **Synlighets** informationen på fliken **Översikt** .
+     - Se till att din prenumeration ligger under **Synlighets** omfånget.
 
-       ![Verifiera synlighetsinformation](./media/private-link-tsg/pls-overview-pane-visibility.png)
+       ![Verifiera Synlighets information](./media/private-link-tsg/pls-overview-pane-visibility.png)
 
-    g. Granska information om **belastningsutjämnare** på fliken **Översikt.**
-     - Du kan gå till belastningsutjämnaren genom att välja länken för belastningsutjämnare.
+    g. Granska informationen om **belastningsutjämnare** på fliken **Översikt** .
+     - Du kan gå till belastningsutjämnaren genom att välja länken belastnings utjämning.
 
        ![Verifiera information om belastningsutjämnare](./media/private-link-tsg/pls-overview-pane-ilb.png)
 
-     - Se till att belastningsutjämnarens inställningar är konfigurerade enligt dina förväntningar.
-       - Granska **Frontend IP-konfiguration**.
+     - Se till att inställningarna för belastningsutjämnare är konfigurerade enligt dina förväntningar.
+       - Granska **klient delens IP-konfiguration**.
        - Granska **backend-pooler**.
-       - Granska **belastningsutjämningsregler**.
+       - Granska **regler för belastnings utjämning**.
 
        ![Verifiera egenskaper för belastningsutjämnare](./media/private-link-tsg/pls-ilb-properties.png)
 
-     - Kontrollera att belastningsutjämnaren fungerar enligt föregående inställningar.
-       - Välj en virtuell dator i ett annat undernät än undernätet där belastningsutjämnarens backend-pool är tillgänglig.
-       - Prova att komma åt belastningsutjämnarens klientdel från den tidigare virtuella datorn.
-       - Om anslutningen gör den till backend-poolen enligt belastningsutjämningsregler fungerar belastningsutjämnaren.
-       - Du kan också granska belastningsutjämnarmåttet via Azure Monitor för att se om data flödar genom belastningsutjämnaren.
+     - Se till att belastningsutjämnaren fungerar enligt de tidigare inställningarna.
+       - Välj en virtuell dator i något annat undernät än under nätet där belastningsutjämnaren backend-poolen är tillgänglig.
+       - Försök att komma åt belastningsutjämnarens klient del från den tidigare virtuella datorn.
+       - Om anslutningen gör den till backend-poolen enligt reglerna för belastnings utjämning, fungerar belastningsutjämnaren.
+       - Du kan också granska belastnings Utjämnings måttet genom Azure Monitor för att se om data flödar genom belastningsutjämnaren.
 
 1. Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för att se om data flödar.
 
-    a. Välj **Mått**på den privata länktjänstresursen .
-     - Välj **Byte in** eller Byte **Out**.
-     - Se om data flödar när du försöker ansluta till den privata länktjänsten. Räkna med en fördröjning på cirka 10 minuter.
+    a. Välj **mått**i resursen för privata länk tjänster.
+     - Välj **byte in** eller **byte ut**.
+     - Se om data flödar när du försöker ansluta till den privata länk tjänsten. Vänta en fördröjning på ungefär 10 minuter.
 
-       ![Verifiera mått för privata länktjänster](./media/private-link-tsg/pls-metrics.png)
+       ![Verifiera mått för privata länk tjänster](./media/private-link-tsg/pls-metrics.png)
 
-1. Kontakta [Azure-supportteamet](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) om problemet fortfarande är olöst och det fortfarande finns ett anslutningsproblem.
+1. Kontakta support teamet för [Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) om problemet fortfarande är olöst och det fortfarande finns anslutnings problem.
 
 ## <a name="next-steps"></a>Nästa steg
 
- * [Skapa en privat länktjänst (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
- * [Felsökningsguide för Azure Private Endpoint](troubleshoot-private-endpoint-connectivity.md)
+ * [Skapa en privat länk tjänst (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Fel söknings guide för Azure privat slut punkt](troubleshoot-private-endpoint-connectivity.md)

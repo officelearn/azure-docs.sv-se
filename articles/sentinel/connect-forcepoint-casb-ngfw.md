@@ -1,5 +1,5 @@
 ---
-title: Anslut Forcepoint-produkter till Azure Sentinel| Microsoft-dokument
+title: Ansluta Forcepoint-produkter till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter Forcepoint-produkter till Azure Sentinel.
 services: sentinel
 author: yelevin
@@ -13,38 +13,38 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: eb099a786a84f9b7d0a6f0dc6e6df9c3459af295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77588237"
 ---
-# <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Ansluta dina Forcepoint-produkter till Azure Sentinel
+# <a name="connect-your-forcepoint-products-to-azure-sentinel"></a>Anslut dina Forcepoint-produkter till Azure Sentinel
 
 > [!IMPORTANT]
-> Forcepoint-produktdataappen i Azure Sentinel är för närvarande i offentlig förhandsversion. Den här funktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Forcepoint Products data Connector i Azure Sentinel är för närvarande en offentlig för hands version. Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-I den här artikeln beskrivs hur du ansluter dina Forcepoint-produkter till Azure Sentinel. 
+Den här artikeln förklarar hur du ansluter dina Forcepoint-produkter till Azure Sentinel. 
 
-Med Powerpoint-dataanslutningarna kan du ansluta Powerpoint Cloud Access Security Broker och Forcepoint Next Generation Firewall loggar med Azure Sentinel. På så sätt kan du automatiskt exportera användardefinierade loggar till Azure Sentinel i realtid. Kopplingen ger dig berikad insyn i användaraktiviteter som registrerats av Forcepoint-produkter. Det möjliggör också ytterligare korrelation med data från Azure-arbetsbelastningar och andra feeds och förbättrar övervakningsfunktionen med arbetsböcker i Azure Sentinel.
+Med Forcepoint data Connectors kan du ansluta Forcepoint Cloud Access Security Broker och Forcepoint nästa generations brand Väggs loggar med Azure Sentinel. På så sätt kan du automatiskt exportera användardefinierade loggar till Azure Sentinel i real tid. Anslutningen ger dig bättre insyn i användar aktiviteter som registrerats av Forcepoint-produkter. Det möjliggör också ytterligare korrelation med data från Azure-arbetsbelastningar och andra feeds och förbättrar övervaknings kapaciteten med arbets böcker i Azure Sentinel.
 
 > [!NOTE]
-> Data lagras på den geografiska platsen för arbetsytan där du kör Azure Sentinel.
+> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
 
 
-## <a name="forward-forcepoint-product-logs-to-the-syslog-agent"></a>Vidarebefordra Forcepoint-produktloggar till Syslog-agenten 
+## <a name="forward-forcepoint-product-logs-to-the-syslog-agent"></a>Vidarebefordra Forcepoint produkt loggar till syslog-agenten 
 
-Konfigurera Forcepoint-produkten för att vidarebefordra Syslog-meddelanden i CEF-format till din Azure-arbetsyta via Syslog-agenten.
+Konfigurera Forcepoint-produkten för att vidarebefordra syslog-meddelanden i CEF-format till Azure-arbetsytan via syslog-agenten.
 
-1. Konfigurera Forcepoint-produkten till Azure Sentinel-integrering enligt beskrivningen i följande installationsguider:
- - [Integrationsguide för Forcepoint CASB](https://frcpnt.com/casb-sentinel)
- - [Integrationsguide för Forcepoint NGFW](https://frcpnt.com/ngfw-sentinel)
+1. Konfigurera Forcepoint-produkten till Azure Sentinel-integrering enligt beskrivningen i följande installations guider:
+ - [Forcepoint CASB-integrerings guide](https://frcpnt.com/casb-sentinel)
+ - [Forcepoint NGFW-integrerings guide](https://frcpnt.com/ngfw-sentinel)
 
-2. Sök efter CommonSecurityLog om du vill använda det relevanta schemat i Log Analytics med DeviceVendor-namnet innehåller 'Forcepoint'. 
+2. Sök efter CommonSecurityLog för att använda det relevanta schemat i Log Analytics med DeviceVendor namn innehåller ' Forcepoint '. 
 
-3. Fortsätt till [STEG 3: Validera anslutningen](connect-cef-verify.md).
+3. Fortsätt till [steg 3: verifiera anslutningen](connect-cef-verify.md).
 
 
 
@@ -52,8 +52,8 @@ Konfigurera Forcepoint-produkten för att vidarebefordra Syslog-meddelanden i CE
 
 I det här dokumentet har du lärt dig hur du ansluter Forcepoint-produkter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 
-- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 
-- [Använd arbetsböcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.

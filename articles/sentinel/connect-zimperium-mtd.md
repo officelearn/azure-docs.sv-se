@@ -1,6 +1,6 @@
 ---
-title: Anslut Zimperium Mobile Threat Defense till Azure Sentinel| Microsoft-dokument
-description: Läs om hur du ansluter Zimperium Mobile Threat Defense till Azure Sentinel.
+title: Anslut Zimperium Mobile Threat försvar till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter Zimperium Mobile Threat försvar till Azure Sentinel.
 services: sentinel
 author: yelevin
 editor: ''
@@ -13,68 +13,68 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 86854fa22a49f09e5d3d2fc5fdb53c245850fbac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77587948"
 ---
-# <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Anslut ditt Zimperium Mobile Threat Defense till Azure Sentinel
+# <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Anslut ditt Zimperium Mobile Threat försvar till Azure Sentinel
 
 
 > [!IMPORTANT]
-> Zimperium Mobile Threat Defense-dataanslutningen i Azure Sentinel är för närvarande i offentlig förhandsversion.
-> Den här funktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Zimperium Mobile Threat försvar data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
+> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Zimperium Mobile Threat Defense-anslutningsappen ger dig möjlighet att ansluta Zimperium-hotloggen med Azure Sentinel för att visa instrumentpaneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig mer insikt i organisationens mobila hotlandskap och förbättrar dina funktioner för säkerhetsdrift.
+Zimperium Mobile Threat Threat Connector ger dig möjlighet att ansluta Zimperium hot-loggen med Azure Sentinel för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Detta ger dig mer information om din organisations mobila hot landskap och förbättrar dina säkerhets åtgärder.
 
 > [!NOTE]
-> Data lagras på den geografiska platsen för arbetsytan där du kör Azure Sentinel.
+> Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
-## <a name="configure-and-connect-zimperium-mobile-threat-defense"></a>Konfigurera och anslut Zimperium Mobile Threat Defense
+## <a name="configure-and-connect-zimperium-mobile-threat-defense"></a>Konfigurera och Anslut Zimperium Mobile Threat försvar
 
-Zimperium Mobile Threat Defense kan integrera och exportera loggar direkt till **Azure Sentinel**.
+Zimperium Mobile Threat försvar kan integrera och exportera loggar direkt till **Azure Sentinel**.
 
-1. I Azure Sentinel-portalen klickar du på Datakopplingar och väljer **Zimperium Mobile Threat Defense**.
-2. Välj **Öppna kopplingssida**.
-3. Följ instruktionerna på **Zimperium Mobile Threat Defense** kontaktsida, sammanfattas enligt följande.
- 1. I zConsole klickar du på **Hantera** i navigeringsfältet.
+1. I Azure Sentinel-portalen klickar du på data kopplingar och väljer **Zimperium Mobile Threat försvar**.
+2. Välj **Öppna kopplings sida**.
+3. Följ anvisningarna på sidan **Zimperium Mobile Threat Threat** Connector som sammanfattas på följande sätt.
+ 1. I zConsole klickar du på **Hantera** i navigerings fältet.
  2. Klicka på fliken **Integreringar**.
- 3. Klicka på knappen **Hotrapportering** och sedan knappen **Lägg till integreringar.**
- 4. Skapa integreringen genom att välja **Microsoft Azure Sentinel** från tillgängliga integreringar och ange arbetsyte-ID och primärnyckel för att ansluta till Azure Sentinel.
- 5. Alternativet att välja en filternivå för hotdata som ska skickas till Azure Sentinel är också tillgängligt. 
+ 3. Klicka på knappen **hot rapportering** och sedan på knappen **Lägg till integreringar** .
+ 4. Skapa integrationen genom att välja **Microsoft Azure Sentinel** från de tillgängliga integreringarna och ange arbetsyte-ID och primär nyckel för att ansluta till Azure Sentinel.
+ 5. Möjlighet att välja en filter nivå för de hot data som push-överför till Azure Sentinel är också tillgängligt. 
 
-4. För ytterligare information, se [Zimperium kundsupport portal](https://support.zimperium.com).
+4. För ytterligare information, se [Zimperium kund support Portal](https://support.zimperium.com).
 
 
 ## <a name="find-your-data"></a>Hitta dina data
 
 När en lyckad anslutning har upprättats visas data i Log Analytics under CustomLogs ZimperiumThreatLog_CL och ZimperiumMitigationLog_CL.
 
-Om du vill använda det relevanta schemat i Log Analytics för Zimperium Mobile Threat Defense söker du efter ZimperiumThreatLog_CL och ZimperiumMitigationLog_CL.
+Om du vill använda det relevanta schemat i Log Analytics för Zimperium Mobile Threat försvar söker du efter ZimperiumThreatLog_CL och ZimperiumMitigationLog_CL.
 
 
 ## <a name="validate-connectivity"></a>Verifiera anslutning
 
-Det kan ta uppemot 20 minuter innan loggarna börjar visas i Log Analytics.
+Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig hur du ansluter Zimperium Mobile Threat Defense till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+I det här dokumentet har du lärt dig hur du ansluter Zimperium Mobile Threat försvar till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 
-- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
 
-- [Använd arbetsböcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
 
-Mer information om Zimperium finns i följande:
+Mer information om Zimperium finns i följande avsnitt:
 
 - [Zimperium](https://zimperium.com)
 
-- [Zimperium Mobil säkerhet Blogg](https://blog.zimperium.com)
+- [Zimperium Mobile Security-blogg](https://blog.zimperium.com)
 
-- [Zimperium Kundsupport Portal](https://support.zimperium.com)
+- [Zimperium kund support Portal](https://support.zimperium.com)
 

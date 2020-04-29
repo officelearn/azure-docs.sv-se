@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77192907"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
@@ -33,7 +33,7 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
 ![][B4]
 
 > [!NOTE]
-> Kontrollera att du har installerat Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) för webbplatsdistribution.
+> Kontrol lera att du har installerat Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) för webbplats distribution.
 
 1. Starta Visual Studio eller Visual Studio Express.
 
@@ -59,7 +59,7 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
 
     ![Konfigurera Microsoft Azure Web App-fönstret][B5]
 
-    Om du inte ser den här sidan för att konfigurera appserviceplanen fortsätter du med självstudien. Du kan konfigurera den när du publicerar appen senare. 
+    Om du inte ser den här sidan för att konfigurera App Service-plan fortsätter du med självstudien. Du kan konfigurera den när du publicerar appen senare. 
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autentisera klienter mot WebAPI-serverdelen
 
@@ -186,7 +186,7 @@ I det här avsnittet lägger du till en ny kontrollant till WebAPI-serverdelen s
     }
     ```
     > [!IMPORTANT]
-    > Ange **namnet** och **StandardFullSharedAccessSignature** för ditt nav innan du fortsätter vidare. 
+    > Ange **namn** och **DefaultFullSharedAccessSignature** för navet innan du fortsätter. 
     
 7. Skapa nu en ny kontrollant med namnet **RegisterController**. I Solution Explorer högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**.
 
@@ -390,7 +390,7 @@ Därefter distribuerar du appen till en Azure-webbplats så att den är tillgän
 
     ![Panelen Microsoft Azure App Service][B15]
 
-3. Välj ditt Azure-konto i fönstret **Skapa App Service**. Välj **Ändra typ** > **Web App**. Behåll **standardnamnet på webbappen** och välj sedan **Prenumeration**, **Resursgrupp** och **App Service Plan**.
+3. Välj ditt Azure-konto i fönstret **Skapa App Service**. Välj **ändra typ** > **Web App**. Behåll **standardnamnet på webbappen** och välj sedan **Prenumeration**, **Resursgrupp** och **App Service Plan**.
 
 4. Välj **Skapa**.
 

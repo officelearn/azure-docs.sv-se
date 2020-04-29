@@ -1,21 +1,21 @@
 ---
-title: SELECT-satsen i Azure Cosmos DB
-description: Läs mer om SQL SELECT-satsen för Azure Cosmos DB. Använd SQL som ett Azure Cosmos DB JSON-frågespråk.
+title: SELECT-sats i Azure Cosmos DB
+description: Läs om SQL SELECT-satsen för Azure Cosmos DB. Använd SQL som Azure Cosmos DB JSON-frågespråk.
 author: ginarobinson
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
 ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77469943"
 ---
-# <a name="select-clause-in-azure-cosmos-db"></a>SELECT-satsen i Azure Cosmos DB
+# <a name="select-clause-in-azure-cosmos-db"></a>SELECT-sats i Azure Cosmos DB
 
-Varje fråga består av en SELECT-sats och [valfria FROM-](sql-query-from.md) och [WHERE-satser,](sql-query-where.md) enligt ANSI SQL-standarder. Vanligtvis räknas källan i FROM-satsen upp och WHERE-satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. SELECT-satsen projicerar sedan de begärda JSON-värdena i urvalslistan.
+Varje fråga består av en SELECT-sats och [valfria from](sql-query-from.md) -och [WHERE](sql-query-where.md) -satser, enligt ANSI SQL-standarder. Normalt räknas källan i from-satsen och WHERE-satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. SELECT-satsen projekterar sedan de begärda JSON-värdena i SELECT-listan.
 
 ## <a name="syntax"></a>Syntax
 
@@ -36,33 +36,33 @@ SELECT <select_specification>
   
 - `<select_specification>`  
 
-  Egenskaper eller värde som ska väljas för resultatuppsättningen.  
+  Egenskaper eller värde som ska väljas för resultat uppsättningen.  
   
 - `'*'`  
 
-  Anger att värdet ska hämtas utan att göra några ändringar. Om det bearbetade värdet är ett objekt hämtas alla egenskaper.  
+  Anger att värdet ska hämtas utan att göra några ändringar. I synnerhet om det bearbetade värdet är ett objekt hämtas alla egenskaper.  
   
 - `<object_property_list>`  
   
-  Anger listan över egenskaper som ska hämtas. Varje returnerat värde kommer att vara ett objekt med de angivna egenskaperna.  
+  Anger listan över egenskaper som ska hämtas. Varje returnerat värde är ett objekt med de angivna egenskaperna.  
   
 - `VALUE`  
 
-  Anger att JSON-värdet ska hämtas i stället för det fullständiga JSON-objektet. Detta, `<property_list>` till skillnad från, inte radbryt det projicerade värdet i ett objekt.  
+  Anger att JSON-värdet ska hämtas i stället för hela JSON-objektet. Detta sker till skillnad `<property_list>` från att inte omge det beräknade värdet i ett objekt.  
  
 - `DISTINCT`
   
-  Anger att dubbletter av projicerade egenskaper ska tas bort.  
+  Anger att dubbletter av projekterade egenskaper ska tas bort.  
 
 - `<scalar_expression>`  
 
-  Uttryck som representerar det värde som ska beräknas. Mer information finns i avsnittet [Skalningsuttryck.](sql-query-scalar-expressions.md)  
+  Uttryck som representerar det värde som ska beräknas. Mer information finns i avsnittet om [skalära uttryck](sql-query-scalar-expressions.md) .  
 
 ## <a name="remarks"></a>Anmärkningar
 
-Syntaxen `SELECT *` är endast giltig om FROM-satsen har deklarerat exakt ett alias. `SELECT *`tillhandahåller en identitetsprojektion, vilket kan vara användbart om ingen projektion behövs. SELECT * är endast giltigt om FROM-satsen anges och endast introduceras en enda indatakälla.  
+`SELECT *` Syntaxen är endast giltig om from-satsen har deklarerat exakt ett alias. `SELECT *`tillhandahåller en identitets projektion, som kan vara användbar om ingen projektion behövs. SELECT * är bara giltig om FROM-satsen anges och endast en enda indatakälla har introducerats.  
   
-Båda `SELECT <select_list>` `SELECT *` och är "syntaktiskt socker" och kan alternativt uttryckas med hjälp av enkla SELECT-satser som visas nedan.  
+Både `SELECT <select_list>` och `SELECT *` är "syntaktisk socker" och kan uttryckas i enkla SELECT-uttryck som visas nedan.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -78,7 +78,7 @@ Båda `SELECT <select_list>` `SELECT *` och är "syntaktiskt socker" och kan alt
   
 ## <a name="examples"></a>Exempel
 
-Följande SELECT-frågeexempel `id` `AndersenFamily`returnerar `address` vars `Families` matchningar:
+Följande exempel på en URVALs `address` fråga `Families` returnerar `id` från `AndersenFamily`vars matchningar:
 
 ```sql
     SELECT f.address
@@ -99,7 +99,7 @@ Resultatet är:
 ```
 
 ### <a name="quoted-property-accessor"></a>Accessor med citatomsluten egenskap
-Du kan komma åt egenskaper med den citerade egenskapsoperatören []. Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbar för att komma bort från en egenskap som innehåller blanksteg, specialtecken eller har samma namn som ett SQL-nyckelord eller reserverat ord.
+Du kan komma åt egenskaper med operatorn för citerad egenskap []. Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbar för att undvika en egenskap som innehåller blank steg, specialtecken eller har samma namn som ett SQL-nyckelord eller reserverat ord.
 
 ```sql
     SELECT f["lastName"]
@@ -109,7 +109,7 @@ Du kan komma åt egenskaper med den citerade egenskapsoperatören []. Till exemp
 
 ### <a name="nested-properties"></a>Kapslade egenskaper
 
-I följande exempel projiceras `f.address.state` två `f.address.city`kapslade egenskaper och .
+I följande exempel projekterar två kapslade `f.address.state` egenskaper `f.address.city`och.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -127,7 +127,7 @@ Resultatet är:
 ```
 ### <a name="json-expressions"></a>JSON-uttryck
 
-Projektion stöder också JSON-uttryck, som visas i följande exempel:
+Projektion stöder även JSON-uttryck, som du ser i följande exempel:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -147,7 +147,7 @@ Resultatet är:
     }]
 ```
 
-I föregående exempel måste SELECT-satsen skapa ett JSON-objekt, och eftersom exemplet inte innehåller `$1`någon nyckel används det implicita argumentvariabelnamnet . Följande fråga returnerar två implicita argumentvariabler: `$1` och `$2`.
+I föregående exempel måste SELECT-satsen skapa ett JSON-objekt och eftersom exemplet inte innehåller någon nyckel använder-satsen det implicita argumentet variabel namn `$1`. Följande fråga returnerar två implicita argument-variabler `$1` : `$2`och.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -171,9 +171,9 @@ Resultatet är:
 ```
 ## <a name="reserved-keywords-and-special-characters"></a>Reserverade nyckelord och specialtecken
 
-Om dina data innehåller egenskaper med samma namn som reserverade nyckelord som "ordning" eller "Grupp" resulterar frågorna mot dessa dokument i syntaxfel. Du bör uttryckligen inkludera `[]` egenskapen som tecken för att köra frågan.
+Om dina data innehåller egenskaper med samma namn som reserverade nyckelord, till exempel "order" eller "grupp", leder frågorna till dessa dokument av syntaxfel. Du bör uttryckligen inkludera egenskapen i `[]` -tecknen för att köra frågan.
 
-Här är till exempel ett dokument `order` med en `price($)` namngiven egenskap och en egenskap som innehåller specialtecken:
+Här är till exempel ett dokument med en egenskap med namnet `order` och en egenskap `price($)` som innehåller specialtecken:
 
 ```json
 {
@@ -190,7 +190,7 @@ Här är till exempel ett dokument `order` med en `price($)` namngiven egenskap 
 }
 ```
 
-Om du kör en fråga `order` som `price($)` innehåller egenskapen eller egenskapen visas ett syntaxfel.
+Om du kör en fråga som innehåller `order` egenskapen eller `price($)` egenskapen visas ett syntaxfel.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -218,4 +218,4 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 
 - [Komma igång](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [WHERE-klausul](sql-query-where.md)
+- [WHERE-sats](sql-query-where.md)

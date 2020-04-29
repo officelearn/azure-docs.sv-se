@@ -1,6 +1,6 @@
 ---
-title: Använda ett interaktivt Spark-skal i Azure HDInsight
-description: Ett interaktivt Spark Shell ger en läs-kör-print process för att köra Spark kommandon en i taget och se resultaten.
+title: Använda ett interaktivt Spark-gränssnitt i Azure HDInsight
+description: Ett interaktivt Spark-gränssnitt ger en Read-EXECUTE-utskrift för att köra Spark-kommandon en i taget och visa resultaten.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162811"
 ---
-# <a name="run-apache-spark-from-the-spark-shell"></a>Kör Apache Spark från Spark Shell
+# <a name="run-apache-spark-from-the-spark-shell"></a>Köra Apache Spark från Spark-gränssnittet
 
-En interaktiv [Apache Spark](https://spark.apache.org/) Shell ger en REPL -miljö (läs-kör-print loop) för att köra Spark-kommandon en i taget och se resultatet. Den här processen är användbar för utveckling och felsökning. Spark ger ett skal för var och en av dess språk som stöds: Scala, Python och R.
+Ett interaktivt [Apache Spark](https://spark.apache.org/) -gränssnitt ger en repl-miljö (Read-EXECUTE-Print) för att köra Spark-kommandon en i taget och visa resultaten. Den här processen är användbar för utveckling och fel sökning. Spark tillhandahåller ett gränssnitt för vart och ett av de språk som stöds: Scala, python och R.
 
-## <a name="run-an-apache-spark-shell"></a>Kör en Apache Spark Shell
+## <a name="run-an-apache-spark-shell"></a>Köra ett Apache Spark-gränssnitt
 
-1. Använd kommandot ssh för att ansluta till [klustret.](../hdinsight-hadoop-linux-use-ssh-unix.md) Redigera kommandot nedan genom att ersätta CLUSTERNAME med namnet på klustret och ange sedan kommandot:
+1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Spark tillhandahåller skal för Scala (spark-shell) och Python (pyspark). I SSH-sessionen *anger du något* av följande kommandon:
+1. Spark tillhandahåller gränssnitt för Scala (Spark-Shell) och python (pyspark). I SSH-sessionen anger du *något* av följande kommandon:
 
     ```bash
     spark-shell
@@ -43,9 +43,9 @@ En interaktiv [Apache Spark](https://spark.apache.org/) Shell ger en REPL -milj�
     # pyspark --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
     ```
 
-    Om du tänker använda valfri konfiguration, se till att du först granska [OutOfMemoryError undantag för Apache Spark](./apache-spark-troubleshoot-outofmemory.md).
+    Om du tänker använda valfri konfiguration ser du till att du först granskar [OutOfMemoryError-undantag för Apache Spark](./apache-spark-troubleshoot-outofmemory.md).
 
-1. Några grundläggande exempelkommandon. Välj relevant språk:
+1. Några grundläggande exempel kommandon. Välj lämpligt språk:
 
     ```spark-shell
     val textFile = spark.read.textFile("/example/data/fruits.txt")
@@ -59,13 +59,13 @@ En interaktiv [Apache Spark](https://spark.apache.org/) Shell ger en REPL -milj�
     textFile.filter(textFile.value.contains("apple")).show()
     ```
 
-1. Fråga en CSV-fil. Notera språket nedan `spark-shell` fungerar `pyspark`för och .
+1. Fråga en CSV-fil. Observera att språket nedan fungerar för `spark-shell` och `pyspark`.
 
     ```scala
     spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
     ```
 
-1. Fråga en CSV-fil och lagra resultat i variabel:
+1. Fråga en CSV-fil och lagra resultat i variabeln:
 
     ```spark-shell
     var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
@@ -97,25 +97,25 @@ En interaktiv [Apache Spark](https://spark.apache.org/) Shell ger en REPL -milj�
     exit()
     ```
 
-## <a name="sparksession-and-sparkcontext-instances"></a>SparkSession- och SparkContext-instanser
+## <a name="sparksession-and-sparkcontext-instances"></a>SparkSession-och SparkContext-instanser
 
-Som standard när du kör Spark Shell instanserar förekomster av SparkSession och SparkContext automatiskt för dig.
+Som standard när du kör Spark-gränssnittet instansieras instanser av SparkSession och SparkContext automatiskt åt dig.
 
-Om du vill komma `spark`åt SparkSession-instansen anger du . Om du vill komma åt `sc`SparkContext-instansen anger du .
+För att få åtkomst till SparkSession- `spark`instansen anger du. För att få åtkomst till SparkContext- `sc`instansen anger du.
 
-## <a name="important-shell-parameters"></a>Viktiga skalparametrar
+## <a name="important-shell-parameters"></a>Viktiga Shell-parametrar
 
-Kommandot Spark Shell`spark-shell`( `pyspark`eller ) stöder många kommandoradsparametrar. Om du vill se en fullständig lista över `--help`parametrar startar du Spark Shell med växeln . Vissa av dessa parametrar `spark-submit`kan bara gälla , som Spark Shell radbryts.
+Spark Shell-kommandot (`spark-shell`, eller `pyspark`) stöder många kommando rads parametrar. Om du vill se en fullständig lista över parametrar startar du Spark-gränssnittet med `--help`växeln. En del av dessa parametrar kan endast tillämpas `spark-submit`på, vilket Spark-gränssnittet radbryts.
 
-| växla | description | Exempel |
+| växla | description | exempel |
 | --- | --- | --- |
-| --master MASTER_URL | Anger huvud-URL:en. I HDInsight är det `yarn`här värdet alltid . | `--master yarn`|
-| --burkar JAR_LIST | Kommaavgränsad lista över lokala burkar som ska inkluderas på drivrutins- och executorklassbanorna. I HDInsight består den här listan av sökvägar till standardfilsystemet i Azure Storage eller Data Lake Storage. | `--jars /path/to/examples.jar` |
-| --paket MAVEN_COORDS | Kommaavskiljad lista över maven-koordinater för burkar som ska inkluderas på föraren och körkretsklassbanorna. Söker i den lokala maven repo, sedan maven central, sedan `--repositories`några ytterligare fjärrarkiv som anges med . Formatet för koordinaterna är *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
-| --py-filer LISTA | Endast för Python visas en kommaavgränsad lista över .zip-, .egg- eller .py-filer som ska placeras på PYTHONPATH. | `--pyfiles "samples.py"` |
+| --huvud MASTER_URL | Anger huvud-URL: en. I HDInsight är det här värdet alltid `yarn`. | `--master yarn`|
+| --jar v7 JAR_LIST | Kommaavgränsad lista över lokala jar v7 som ska ingå i classpath-driv rutiner och utförar. I HDInsight består den här listan av sökvägar till standard fil systemet i Azure Storage eller Data Lake Storage. | `--jars /path/to/examples.jar` |
+| – paket MAVEN_COORDS | Kommaavgränsad lista över maven-koordinaterna för JAR v7 som ska ingå på driv rutins-och utförar-classpath. Söker i den lokala maven-lagrings platsen, sedan maven Central och sedan alla ytterligare fjärrdatabaser som anges med `--repositories`. Formatet för koordinaterna är*artifactId* *:**version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| --PY-fillista | Endast för python, en kommaavgränsad lista med zip-,. ägg-eller. py-filer som ska placeras på PYTHONPATH. | `--pyfiles "samples.py"` |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Introduktion till Apache Spark på Azure HDInsight](apache-spark-overview.md) för en översikt.
-- Se [Skapa ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md) för att arbeta med Spark-kluster och SparkSQL.
-- Se [Vad är Apache Spark Structured Streaming?](apache-spark-streaming-overview.md)
+- En översikt finns i [Introduktion till Apache Spark på Azure HDInsight](apache-spark-overview.md) .
+- Se [skapa ett Apache Spark kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md) för att arbeta med Spark-kluster och SparkSQL.
+- Se [Vad är Apache Spark strukturerad strömning?](apache-spark-streaming-overview.md) om du vill skriva program som bearbetar strömmande data med Spark.

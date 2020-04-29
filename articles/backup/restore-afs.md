@@ -1,175 +1,175 @@
 ---
 title: Återställa Azure-filresurser
-description: Lär dig hur du använder Azure-portalen för att återställa en hel filresurs eller specifika filer från en återställningspunkt som skapats av Azure Backup.
+description: Lär dig hur du använder Azure Portal för att återställa en hel fil resurs eller vissa filer från en återställnings punkt som skapats av Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: c22078ebd89f5f6f8299e1424d4d9e21edce8b92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77586959"
 ---
 # <a name="restore-azure-file-shares"></a>Återställa Azure-filresurser
 
-I den här artikeln beskrivs hur du använder Azure-portalen för att återställa en hel filresurs eller specifika filer från en återställningspunkt som skapats av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+Den här artikeln förklarar hur du använder Azure Portal för att återställa en hel fil resurs eller vissa filer från en återställnings punkt som skapats av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln får du lära dig att:
 
-* Återställ en fullständig Azure-filresurs.
-* Återställ enskilda filer eller mappar.
-* Spåra återställningsstatusen.
+* Återställa en fullständig Azure-filresurs.
+* Återställa enskilda filer eller mappar.
+* Spåra återställnings åtgärdens status.
 
-## <a name="steps-to-perform-a-restore-operation"></a>Steg för att utföra en återställningsåtgärd
+## <a name="steps-to-perform-a-restore-operation"></a>Steg för att utföra en återställnings åtgärd
 
-Gör så här om du vill utföra en återställningsåtgärd.
+Följ dessa steg om du vill utföra en återställnings åtgärd.
 
-### <a name="select-the-file-share-to-restore"></a>Markera den filresurs som ska återställas
+### <a name="select-the-file-share-to-restore"></a>Välj den fil resurs som ska återställas
 
-1. Öppna valvet för Återställningstjänster som du använde för att konfigurera säkerhetskopia för filresursen i [Azure-portalen.](https://portal.azure.com/)
+1. I [Azure Portal](https://portal.azure.com/)öppnar du Recovery Services-valvet som du använde för att konfigurera säkerhets kopieringen för fil resursen.
 
-1. Välj **Säkerhetskopierade objekt** under avsnittet **Skyddade objekt** i översiktsfönstret.
+1. I fönstret Översikt väljer du **säkerhets kopierings objekt** under avsnittet **skyddade objekt** .
 
-    ![Välj säkerhetskopieringsobjekt](./media/restore-afs/backup-items.png)
+    ![Välj säkerhets kopierings objekt](./media/restore-afs/backup-items.png)
 
-1. När du har valt **Säkerhetskopieringsobjekt**öppnas en ny ruta med alla typer av säkerhetskopieringshantering bredvid översiktsfönstret.
+1. När du har valt **säkerhets kopierings objekt**öppnas ett nytt fönster som visar alla typer av säkerhets kopierings hantering bredvid översikts fönstret.
 
-    ![Typer av säkerhetskopieringshantering](./media/restore-afs/backup-management.png)
+    ![Typer av säkerhets kopierings hantering](./media/restore-afs/backup-management.png)
 
-1. Välj **Backup Items** **Azure Storage (Azure Files)** under **Hantering av säkerhetskopieringsobjekt**under hantering av säkerhetskopiering . Du ser en lista över alla filresurser och motsvarande lagringskonton som backas upp med hjälp av det här valvet.
+1. I rutan **säkerhets kopierings objekt** under **säkerhets kopierings hanterings typ**väljer du **Azure Storage (Azure Files)**. Du ser en lista över alla fil resurser och deras motsvarande lagrings konton som har säkerhetskopierats med hjälp av det här valvet.
 
-    ![Lista över alla filresurser](./media/restore-afs/file-shares.png)
+    ![Lista över alla fil resurser](./media/restore-afs/file-shares.png)
 
-1. Välj den filresurs som du vill utföra återställningsåtgärden för i listan över Azure-filresurser.
+1. I listan över Azure-filresurser väljer du den fil resurs som du vill utföra återställnings åtgärden för.
 
-### <a name="full-share-recovery"></a>Full aktieåterhämtning
+### <a name="full-share-recovery"></a>Fullständig delnings återställning
 
-Du kan använda det här återställningsalternativet för att återställa hela filresursen på den ursprungliga platsen eller en annan plats.
+Du kan använda det här alternativet för återställning för att återställa hela fil resursen på den ursprungliga platsen eller en annan plats.
 
-1. Välj alternativet **Återställ resurs** i fönstret **Säkerhetskopieringsobjekt** som visas när du har markerat filresursen för att återställa i steg 5 i avsnittet [Välj filresursen för att återställa.](#select-the-file-share-to-restore)
+1. Välj alternativet för att **återställa delning** i rutan **säkerhets kopierings objekt** som visas när du har valt fil resursen att återställa i steg 5 i avsnittet [Välj den fil resurs som ska återställas](#select-the-file-share-to-restore) .
 
-   ![Välj Återställ resurs](./media/restore-afs/restore-share.png)
+   ![Välj återställnings resurs](./media/restore-afs/restore-share.png)
 
-1. När du har valt **Återställ resurs**öppnas fönstret **Återställ** med en **återställningspunkt-meny** som visar en lista över återställningspunkter som är tillgängliga för den markerade filresursen.
+1. När du har valt **Återställ delning**öppnas fönstret **Återställ** med en menyn återställnings **punkt** som visar en lista över återställnings punkter som är tillgängliga för den valda fil resursen.
 
-1. Markera den återställningspunkt som du vill använda för att utföra återställningen och välj **OK**.
+1. Välj den återställnings punkt som du vill använda för att utföra återställnings åtgärden och välj **OK**.
 
-    ![Välj återställningspunkt](./media/restore-afs/restore-point.png)
+    ![Välj återställnings punkt](./media/restore-afs/restore-point.png)
 
-1. När du har valt **OK**växlar menyn i fönstret **Återställ** till **Återställ plats**. Ange var eller hur data ska återställas i **Återställningsplats.** Välj ett av följande två alternativ:
+1. När du har valt **OK**växlar menyn **Återställ** panel till **återställnings plats**. I **återställnings plats**anger du var du vill återställa data. Välj något av följande två alternativ:
 
-    * **Ursprunglig plats**: Återställ hela filresursen till samma plats som den ursprungliga källan.
-    * **Alternativ plats:** Återställ hela filresursen till en alternativ plats och behåll den ursprungliga filresursen som den är.
+    * **Ursprunglig plats**: Återställ hela fil resursen till samma plats som den ursprungliga källan.
+    * **Alternativ plats**: Återställ hela fil resursen till en annan plats och behåll den ursprungliga fil resursen som den är.
 
-#### <a name="restore-to-the-original-location"></a>Återställa till den ursprungliga platsen
+#### <a name="restore-to-the-original-location"></a>Återställ till den ursprungliga platsen
 
-1. Välj **Ursprunglig plats** som **återställningsmål**och välj om du vill hoppa över eller skriva över om det finns konflikter. När du har gjort rätt val väljer du **OK**.
+1. Välj den **ursprungliga platsen** som **återställnings mål**och välj om du vill hoppa över eller skriva över om det finns konflikter. När du har gjort ett lämpligt val väljer du **OK**.
 
     ![Välj ursprunglig plats](./media/restore-afs/original-location.png)
 
-1. Välj **Återställ** om du vill starta återställningen.
+1. Starta återställnings åtgärden genom att välja **Återställ** .
 
     ![Välj Återställ för att starta](./media/restore-afs/click-restore.png)
 
 #### <a name="restore-to-an-alternate-location"></a>Återställa till en alternativ plats
 
-1. Välj **Alternativ plats** som **återställningsmål**.
-1. Välj det mållagringskonto där du vill återställa det säkerhetskopierade innehållet i listrutan **Lagringskonto.**
-1. I listrutan **Välj fildelning** visas de filresurser som finns i det lagringskonto som du valde i steg 2. Markera den filresurs där du vill återställa det säkerhetskopierade innehållet.
-1. I rutan **Mappnamn** anger du ett mappnamn som du vill skapa i målfilresursen med det återställda innehållet.
+1. Välj en **annan plats** som **återställnings mål**.
+1. Välj det mål lagrings konto där du vill återställa det säkerhetskopierade innehållet i list rutan **lagrings konto** .
+1. List rutan **Välj fil resurs** visar de fil resurser som finns i det lagrings konto som du valde i steg 2. Välj den fil resurs där du vill återställa det säkerhetskopierade innehållet.
+1. I rutan **mappnamn** anger du namnet på mappen som du vill skapa i mål fil resursen med det återställda innehållet.
 1. Välj om du vill hoppa över eller skriva över om det finns konflikter.
 1. När du har angett lämpliga värden i alla rutor väljer du **OK**.
 
     ![Välj alternativ plats](./media/restore-afs/alternate-location.png)
 
-1. Välj **Återställ** om du vill starta återställningen.
+1. Starta återställnings åtgärden genom att välja **Återställ** .
 
     ![Välj Återställ för att starta](./media/restore-afs/click-restore.png)
 
 ### <a name="item-level-recovery"></a>Återställning på objektnivå
 
-Du kan använda det här återställningsalternativet för att återställa enskilda filer eller mappar på den ursprungliga platsen eller en annan plats.
+Du kan använda det här alternativet för återställning om du vill återställa enskilda filer eller mappar på den ursprungliga platsen eller på en annan plats.
 
-1. Välj alternativet **Filåterställning** i fönstret **Säkerhetskopieringsobjekt** som visas när du har markerat filresursen för att återställa i steg 5 i avsnittet [Välj filresursen för att återställa.](#select-the-file-share-to-restore)
+1. Välj alternativet **fil återställning** i rutan **säkerhets kopierings objekt** som visas när du har valt fil resursen att återställa i steg 5 i avsnittet [Välj den fil resurs som ska återställas](#select-the-file-share-to-restore) .
 
-    ![Välj återställning av filer](./media/restore-afs/file-recovery.png)
+    ![Välj fil återställning](./media/restore-afs/file-recovery.png)
 
-1. När du har valt **Filåterställning**öppnas fönstret **Återställ** med en **återställningspunktsmeny** som visar en lista över återställningspunkter som är tillgängliga för den markerade filresursen.
+1. När du har valt **fil återställning**öppnas fönstret **Återställ** med en menyn återställnings **punkt** som visar en lista över återställnings punkter som är tillgängliga för den valda fil resursen.
 
-1. Markera den återställningspunkt som du vill använda för att utföra återställningen och välj **OK**.
+1. Välj den återställnings punkt som du vill använda för att utföra återställnings åtgärden och välj **OK**.
 
-    ![Välj återställningspunkt](./media/restore-afs/restore-point.png)
+    ![Välj återställnings punkt](./media/restore-afs/restore-point.png)
 
-1. När du har valt **OK**växlar menyn för återställningsfönstret till **Återställ plats**. Ange var eller hur data ska återställas i **Återställningsplats.** Välj ett av följande två alternativ:
+1. När du har valt **OK**växlar menyn Återställ panel till **återställnings plats**. I **återställnings plats**anger du var du vill återställa data. Välj något av följande två alternativ:
 
-    * **Ursprunglig plats**: Återställ markerade filer eller mappar till samma filresurs som den ursprungliga källan.
-    * **Alternativ plats:** Återställ markerade filer eller mappar till en annan plats och behåll innehållet i den ursprungliga filresursen som det är.
+    * **Ursprunglig plats**: Återställ valda filer eller mappar till samma fil resurs som den ursprungliga källan.
+    * **Alternativ plats**: Återställ valda filer eller mappar till en annan plats och behåll det ursprungliga fil resurs innehållet.
 
-#### <a name="restore-to-the-original-location"></a>Återställa till den ursprungliga platsen
+#### <a name="restore-to-the-original-location"></a>Återställ till den ursprungliga platsen
 
-1. Välj **Ursprunglig plats** som **återställningsmål**och välj om du vill hoppa över eller skriva över om det finns konflikter.
+1. Välj den **ursprungliga platsen** som **återställnings mål**och välj om du vill hoppa över eller skriva över om det finns konflikter.
 
-    ![Ursprunglig plats för återställning på objektnivå](./media/restore-afs/original-location-item-level.png)
+    ![Ursprunglig plats för återställning på objekt nivå](./media/restore-afs/original-location-item-level.png)
 
-1. Välj **Välj fil** för att markera de filer eller mappar som du vill återställa.
+1. Välj **Välj fil** för att välja de filer eller mappar som du vill återställa.
 
     ![Välj Välj fil](./media/restore-afs/select-file.png)
 
-1. När du har valt **Välj fil**visas innehållet i återställningspunkten för filresurs som du har valt för återställning i ett fildelningsfönster.
+1. När du har valt **Välj fil**visas innehållet i den fil resurs återställnings punkt som du har valt för återställning i ett fil resurs fönster.
 
-1. Markera kryssrutan som motsvarar den fil eller mapp som du vill återställa och välj **Markera**.
+1. Markera kryss rutan som motsvarar den fil eller mapp som du vill återställa och välj **Välj**.
 
-    ![Markera fil eller mapp](./media/restore-afs/select-file-folder.png)
+    ![Välj fil eller mapp](./media/restore-afs/select-file-folder.png)
 
-1. Upprepa steg 2 till och med 4 för att välja flera filer eller mappar för återställning.
-1. När du har markerat alla objekt som du vill återställa väljer du **OK**.
+1. Upprepa steg 2 till 4 för att välja flera filer eller mappar som ska återställas.
+1. När du har valt alla objekt som du vill återställa väljer du **OK**.
 
-    ![När du har markerat alla objekt som ska återställas väljer du OK](./media/restore-afs/after-selecting-items.png)
+    ![När du har valt alla objekt som ska återställas väljer du OK](./media/restore-afs/after-selecting-items.png)
 
-1. Välj **Återställ** om du vill starta återställningen.
+1. Starta återställnings åtgärden genom att välja **Återställ** .
 
     ![Välj Återställ för att starta](./media/restore-afs/click-restore.png)
 
 #### <a name="restore-to-an-alternate-location"></a>Återställa till en alternativ plats
 
-1. Välj **Alternativ plats** som **återställningsmål**.
-1. Välj det mållagringskonto där du vill återställa det säkerhetskopierade innehållet i listrutan **Lagringskonto.**
-1. I listrutan **Välj fildelning** visas de filresurser som finns i det lagringskonto som du valde i steg 2. Markera den filresurs där du vill återställa det säkerhetskopierade innehållet.
-1. I rutan **Mappnamn** anger du ett mappnamn som du vill skapa i målfilresursen med det återställda innehållet.
+1. Välj en **annan plats** som **återställnings mål**.
+1. Välj det mål lagrings konto där du vill återställa det säkerhetskopierade innehållet i list rutan **lagrings konto** .
+1. List rutan **Välj fil resurs** visar de fil resurser som finns i det lagrings konto som du valde i steg 2. Välj den fil resurs där du vill återställa det säkerhetskopierade innehållet.
+1. I rutan **mappnamn** anger du namnet på mappen som du vill skapa i mål fil resursen med det återställda innehållet.
 1. Välj om du vill hoppa över eller skriva över om det finns konflikter.
-1. Välj **Välj fil** för att markera de filer eller mappar som du vill återställa.
+1. Välj **Välj fil** för att välja de filer eller mappar som du vill återställa.
 
-    ![Markera objekt som ska återställas till annan plats](./media/restore-afs/restore-to-alternate-location.png)
+    ![Välj objekt som ska återställas till en annan plats](./media/restore-afs/restore-to-alternate-location.png)
 
-1. När du väljer **Välj fil**visas innehållet i återställningspunkten för filresurs som du har valt för återställning i ett fildelningsfönster.
-1. Markera kryssrutan som motsvarar den fil eller mapp som du vill återställa och välj **Markera**.
+1. När du väljer **Välj fil**visas innehållet i den fil resurs återställnings punkt som du har valt för återställning i ett fil resurs fönster.
+1. Markera kryss rutan som motsvarar den fil eller mapp som du vill återställa och välj **Välj**.
 
-    ![Välj återställningsmål](./media/restore-afs/recovery-destination.png)
+    ![Välj återställnings mål](./media/restore-afs/recovery-destination.png)
 
-1. Upprepa steg 6 till och med 8 för att välja flera filer eller mappar för återställning.
-1. När du har markerat alla objekt som du vill återställa väljer du **OK**.
+1. Upprepa steg 6 till 8 för att välja flera filer eller mappar som ska återställas.
+1. När du har valt alla objekt som du vill återställa väljer du **OK**.
 
-    ![Välj OK när du har markerat alla filer](./media/restore-afs/after-selecting-all-items.png)
+    ![Välj OK när du har valt alla filer](./media/restore-afs/after-selecting-all-items.png)
 
-1. Välj **Återställ** om du vill starta återställningen.
+1. Starta återställnings åtgärden genom att välja **Återställ** .
 
-## <a name="track-a-restore-operation"></a>Spåra en återställningsåtgärd
+## <a name="track-a-restore-operation"></a>Spåra en återställnings åtgärd
 
-När du har utlöst återställningen skapar säkerhetskopieringstjänsten ett jobb för spårning. Azure Backup visar meddelanden om jobbet i portalen. Om du vill visa åtgärder för jobbet väljer du hyperlänken för meddelanden.
+När du har utlöst återställnings åtgärden skapar säkerhets kopierings tjänsten ett jobb för spårning. Azure Backup visar meddelanden om jobbet i portalen. Om du vill visa åtgärder för jobbet väljer du hyperlänken meddelanden.
 
 ![Välj hyperlänk för meddelanden](./media/restore-afs/notifications-link.png)
 
-Du kan också övervaka återställningsstatus från recovery services-valvet:
+Du kan också övervaka återställnings förloppet från Recovery Services-valvet:
 
-1. Öppna valvet för återställningstjänster där du utlöste återställningsåtgärden.
-1. I översiktsfönstret väljer du **Säkerhetskopieringsjobb** under avsnittet **Övervakning** för att se status för åtgärder som körs mot olika arbetsbelastningar.
+1. Öppna det Recovery Services valv från vilket du utlöste återställnings åtgärden.
+1. I fönstret Översikt väljer du **säkerhets kopierings jobb** under avsnittet **övervakning** för att se statusen för åtgärder som körs mot olika arbets belastningar.
 
-    ![Välj säkerhetskopieringsjobb](./media/restore-afs/backup-jobs.png)
+    ![Välj säkerhets kopierings jobb](./media/restore-afs/backup-jobs.png)
 
-1. Välj det arbetsbelastningsnamn som motsvarar filresursen om du vill visa mer information om återställningen, till exempel **Överförda data** och **antal återställda filer**.
+1. Välj det arbets belastnings namn som motsvarar din fil resurs om du vill visa mer information om återställnings åtgärden, t. ex. **överförda data** och **antalet återställda filer**.
 
     ![Se återställd information](./media/restore-afs/restore-details.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [hanterar Azure-filresurssäkerhetskopior](manage-afs-backup.md).
+* Lär dig hur du [hanterar säkerhets kopior av Azure-filresurser](manage-afs-backup.md).

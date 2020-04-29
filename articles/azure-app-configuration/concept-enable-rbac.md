@@ -1,41 +1,41 @@
 ---
-title: Auktorisera åtkomst till Azure App-konfiguration med Azure Active Directory
-description: Aktivera RBAC för att auktorisera åtkomst till din Azure App-konfigurationsinstans
+title: Ge åtkomst till Azure App konfiguration med Azure Active Directory
+description: Aktivera RBAC för att bevilja åtkomst till din Azure App konfigurations instans
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 18fa1b60b15b7eef96efa8dcc4fbf9cd7c4dc7f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77472627"
 ---
-# <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Auktorisera åtkomst till Azure App-konfiguration med Azure Active Directory
-Azure App-konfigurationen stöder användning av Azure Active Directory (Azure AD) för att auktorisera begäranden till appkonfigurationsinstanser.  Med Azure AD kan du använda rollbaserad åtkomstkontroll (RBAC) för att bevilja behörigheter till ett säkerhetsobjekt.  Ett säkerhetsobjekt kan vara en användare eller ett [huvudnamn för programtjänsten](../active-directory/develop/app-objects-and-service-principals.md).  Mer information om roller och rolltilldelningar finns i [Förstå olika roller](../role-based-access-control/overview.md).
+# <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Ge åtkomst till Azure App konfiguration med Azure Active Directory
+Azure App konfiguration stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till konfigurations instanser för appar.  Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt.  Ett säkerhets objekt kan vara en användare eller ett [huvud namn för program tjänsten](../active-directory/develop/app-objects-and-service-principals.md).  Mer information om roller och roll tilldelningar finns i [förstå olika roller](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Översikt
-Begäranden som görs av säkerhetsobjekt (en användare eller ett program) för att komma åt en appkonfigurationsresurs måste auktoriseras.  Med Azure AD är åtkomst till en resurs en tvåstegsprocess.
-1. Säkerhetsobjektets identitet autentiseras och en OAuth 2.0-token returneras.  Resursnamnet som ska begära `https://login.microsoftonline.com/{tenantID}` `{tenantID}` en token är där matchar Azure Active Directory-klient-ID som tjänstens huvudnamn tillhör.
-2. Token skickas som en del av en begäran till tjänsten Appkonfiguration om du vill auktorisera åtkomst till den angivna resursen.
+Begär Anden som görs av säkerhets objekt (en användare eller ett program) för att få åtkomst till en app Configuration-resurs måste vara auktoriserade.  Med Azure AD är åtkomst till en resurs en två stegs process.
+1. Säkerhets objektets identitet autentiseras och en OAuth 2,0-token returneras.  Resurs namnet för att begära en token `https://login.microsoftonline.com/{tenantID}` är `{tenantID}` det som matchar Azure Active Directory klient-ID som tjänstens huvud namn tillhör.
+2. Token skickas som en del av en begäran till appens konfigurations tjänst för att ge åtkomst till den angivna resursen.
 
-Autentiseringssteget kräver att en programbegäran innehåller en OAuth 2.0-åtkomsttoken vid körning.  Om ett program körs i en Azure-enhet, till exempel en Azure Functions-app, en Azure Web App eller en Azure VM, kan den använda en hanterad identitet för att komma åt resurserna.  Mer information om hur du autentiserar begäranden som gjorts av en hanterad identitet till Azure App-konfiguration finns i [Autentisera åtkomst till Azure App-konfigurationsresurser med Azure Active Directory och hanterade identiteter för Azure-resurser](howto-integrate-azure-managed-service-identity.md).
+Autentiserings steget kräver att en programbegäran innehåller en OAuth 2,0-åtkomsttoken vid körning.  Om ett program körs i en Azure-entitet, till exempel en Azure Functions app, en Azure-webbapp eller en virtuell Azure-dator, kan den använda en hanterad identitet för att få åtkomst till resurserna.  Information om hur du autentiserar begär Anden som görs av en hanterad identitet för att Azure App konfiguration finns i [autentisera åtkomst till Azure App konfigurations resurser med Azure Active Directory och hanterade identiteter för Azure-resurser](howto-integrate-azure-managed-service-identity.md).
 
-Auktoriseringssteget kräver att en eller flera RBAC-roller tilldelas säkerhetsobjektet. Azure App Configuration tillhandahåller RBAC-roller som omfattar behörighetsgrupper för appkonfigurationsresurser. De roller som tilldelas ett säkerhetsobjekt bestämmer de behörigheter som anges till huvudmannen. Mer information om RBAC-roller finns [i Inbyggda RBAC-roller för Azure App-konfiguration](#built-in-rbac-roles-for-azure-app-configuration). 
+Auktoriserings steget kräver att en eller flera RBAC-roller tilldelas säkerhets objekt. Azure App-konfigurationen tillhandahåller RBAC-roller som omfattar uppsättningar med behörigheter för konfigurations resurser för appar. Rollerna som tilldelas ett säkerhets objekt avgör vilka behörigheter som har angetts för huvud kontot. Mer information om RBAC-roller finns i [Inbyggda RBAC-roller för Azure App konfiguration](#built-in-rbac-roles-for-azure-app-configuration). 
 
-## <a name="assign-rbac-roles-for-access-rights"></a>Tilldela RBAC-roller för åtkomsträttigheter
-Azure Active Directory (Azure AD) godkänner åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md).
+## <a name="assign-rbac-roles-for-access-rights"></a>Tilldela RBAC-roller för åtkomst rättigheter
+Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md).
 
-När en RBAC-roll tilldelas ett Azure AD-säkerhetsobjekt beviljar Azure åtkomst till dessa resurser för det säkerhetsobjektet. Åtkomsten begränsas till appkonfigurationsresursen. Ett Azure AD-säkerhetsobjekt kan vara en användare, ett programtjänsthuvudnamn eller en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
+När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomsten är begränsad till appens konfigurations resurs. Ett säkerhets objekt i Azure AD kan vara en användare eller ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Inbyggda RBAC-roller för Azure App-konfiguration
-Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till appkonfigurationsdata med Azure AD och OAuth:
+## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Inbyggda RBAC-roller för Azure App konfiguration
+Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till konfigurations data för appar med hjälp av Azure AD och OAuth:
 
-- Azure App Configuration Data Owner: Använd den här rollen för att ge läs-/skrivåtkomst till appkonfigurationsresurser.
-- Azure App Configuration Data Reader: Använd den här rollen för att ge läsbehörighet till appkonfigurationsresurser.
-- Deltagare: Använd den här rollen för att ge administratören åtkomst till tjänsten utan att bevilja åtkomst till data som lagras i appkonfigurationsinstansen.
+- Azure App konfigurations data ägare: Använd den här rollen för att ge Läs-/skriv åtkomst till konfigurations resurser för appar.
+- Azure App konfigurations data läsare: Använd den här rollen för att ge Läs åtkomst till konfigurations resurser för appar.
+- Deltagare: Använd den här rollen för att ge administratörs åtkomst till tjänsten utan att bevilja åtkomst till de data som lagras i appens konfigurations instans.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur du använder [hanterade identiteter](howto-integrate-azure-managed-service-identity.md) för att administrera tjänsten App Configuration.
+Läs mer om hur du använder [hanterade identiteter](howto-integrate-azure-managed-service-identity.md) för att administrera konfigurations tjänsten för appar.

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/22/2020
 ms.author: spelluru
 ms.openlocfilehash: d263381667319b98a28ee6168e2de75c4041b58a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77589914"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Utfasning av Azure Service Manager-stöd för Azure Service Bus, relä och Event Hubs

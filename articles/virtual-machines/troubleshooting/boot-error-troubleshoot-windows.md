@@ -1,6 +1,6 @@
 ---
-title: Avstängning av virtuella azure-datorer har fastnat vid omstart, avstängning eller stoppa tjänster | Microsoft-dokument
-description: Den här artikeln hjälper dig att felsöka tjänstfel i Virtuella Azure Windows-datorer.
+title: Azure Virtual Machines avstängning har fastnat vid omstart, avstängning eller avstängning av tjänster | Microsoft Docs
+description: Den här artikeln hjälper dig att felsöka tjänst fel i Azure Virtuella Windows-datorer.
 services: virtual-machines-windows
 documentationCenter: ''
 author: v-miegge
@@ -13,99 +13,99 @@ ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
 ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77371366"
 ---
-# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Avstängning av Azure Windows VM har fastnat på "Omstart", "Stänga av" eller "Stoppa tjänster"
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM-avstängning har fastnat på "starta om", "stänga av" eller "stoppa tjänster"
 
-Den här artikeln innehåller steg för att lösa problemen med meddelanden om omstart, "Avstängning" eller "Stoppa tjänster" som du kan stöta på när du startar om en virtuell Dator (VM) i Microsoft Azure.
+Den här artikeln innehåller steg för att lösa problemen med "starta om", "stänga av" eller "stoppa tjänster" som du kan stöta på när du startar om en virtuell Windows-dator (VM) i Microsoft Azure.
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [Boot diagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att visa skärmdumpen av den virtuella datorn, kan du se att skärmdumpen visar meddelandet "Starta om", "stänga av" eller "Stoppa tjänster".
+När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn kan det hända att skärm bilden visar meddelandet "omstart", "avstängning" eller "stoppa tjänster".
 
-![Starta om, stänga av och stoppa tjänstskärmar](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
+![Starta om, stänga av och stoppa tjänst skärmar](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
 ## <a name="cause"></a>Orsak
 
-Windows använder avstängningsprocessen för att utföra systemunderhållsåtgärder och bearbeta ändringar som uppdateringar, roller och funktioner. Det rekommenderas inte att avbryta denna kritiska process tills den är klar. Beroende på antalet uppdateringar/ändringar och den virtuella datorns storlek kan processen ta lång tid. Om processen stoppas är det möjligt för operativsystemet att bli korrupt. Avbryt bara processen om det tar för lång tid.
+Windows använder avstängnings processen för att utföra system underhålls åtgärder och bearbeta ändringar som uppdateringar, roller och funktioner. Vi rekommenderar inte att du avbryter den här kritiska processen förrän den är klar. Beroende på antalet uppdateringar/ändringar och storleken på den virtuella datorn kan processen ta lång tid. Om processen har stoppats är det möjligt att operativ systemet skadas. Avbryt bara processen om den tar för lång tid.
 
 ## <a name="solution"></a>Lösning
 
-### <a name="collect-a-process-memory-dump"></a>Samla in en processminnesdump
+### <a name="collect-a-process-memory-dump"></a>Samla in en process minnes dumpning
 
-1. Hämta [Procdump-verktyget](http://download.sysinternals.com/files/Procdump.zip) till en ny eller befintlig datadisk som är kopplad till en fungerande virtuell dator från samma region.
+1. Ladda ned [ProcDump-verktyget](http://download.sysinternals.com/files/Procdump.zip) till en ny eller befintlig datadisk som är ansluten till en fungerande virtuell dator från samma region.
 
-2. Koppla bort disken som innehåller de filer som behövs från den fungerande virtuella datorn och koppla disken till den trasiga virtuella datorn. Vi kallar den här disken **verktyget disken**.
+2. Koppla bort disken som innehåller de filer som behövs från den virtuella datorn och koppla disken till den trasiga virtuella datorn. Vi ringer den här disken till **verktygs disken**.
 
-Använd [Seriekonsolen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) för att slutföra följande steg:
+Använd [serie konsolen](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) för att utföra följande steg:
 
-1. Öppna ett administrativt Powershell och kontrollera tjänsten som hänger vid stopp.
+1. Öppna en administrativ PowerShell och kontrol lera att tjänsten är låst när den stoppas.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. På en administrativ CMD, få PID av hängde tjänsten.
+2. Hämta PID för den avstannade tjänsten i en administrativ kommando tolk.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Hämta ett exempel på minnesdump från den inhängde processen <STOPPING SERVICE>.
+3. Hämta ett exempel på en minnesdump från den avstannade processen <STOPPING SERVICE>.
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Nu döda hängde processen för att låsa upp avstängningsprocessen.
+4. Stoppa den avstannade processen för att låsa upp avstängnings processen.
 
    ``
    taskkill /PID <PID> /t /f
    ``
 
-När operativsystemet startar igen, om det startar normalt, sedan bara se till att OS konsistens är ok. Om skadan rapporteras kör du följande kommando tills disken är skadad gratis:
+När operativ systemet har startat igen, om det startar normalt, ser du till att operativ systemets konsekvens är OK. Om ett fel rapporteras kör du följande kommando tills disken är skadad.
 
 ``
 dism /online /cleanup-image /restorehealth
 ``
 
-Om du inte kan samla in en processminnesdump, eller om problemet är rekursivt och du behöver en grundorsaksanalys, fortsätt med att samla in en OS-minnesdump nedan, fortsätt att öppna en supportbegäran.
+Om du inte kan samla in en minnes dumpning av processen, eller om det här problemet är rekursivt och du behöver en rotor Saks analys, fortsätter du med att samla in en dumpning av operativ systemet nedan. Fortsätt sedan med att öppna en supportbegäran.
 
-### <a name="collect-an-os-memory-dump"></a>Samla in en os-minnesdump
+### <a name="collect-an-os-memory-dump"></a>Samla in en minnesdump för operativ system
 
-Om problemet inte löser efter att ha väntat på att ändringarna ska bearbetas måste du samla in en minnesdumpfil och kontaktsupport. Så här samlar du in dumpfilen:
+Om problemet inte löses när du väntar på att ändringarna ska bearbetas måste du samla in en minnesdumpfil och kontakta supporten. Samla in dumpfilen genom att följa dessa steg:
 
-**Koppla OS-disken till en återställnings-VM**
+**Koppla OS-disken till en virtuell dator för återställning**
 
-1. Ta en ögonblicksbild av OS-disken för den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [Ögonblicksbild en disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
 
-2. [Koppla OS-disken till en återställnings-VM](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Koppla OS-disken till en virtuell dator för återställning](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
 
-3. Fjärrskrivbord till återställningsdass.
+3. Fjärr skrivbord till den virtuella återställnings datorn.
 
-4. Om OS-disken är krypterad måste du stänga av krypteringen innan du går vidare till nästa steg. Mer information finns [i Dekryptera den krypterade OS-disken i den virtuella datorn som inte kan starta](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Om operativ system disken är krypterad måste du stänga av krypteringen innan du går vidare till nästa steg. Mer information finns i [dekryptera den krypterade OS-disken på den virtuella datorn som inte kan starta](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
 
-**Hitta dumpfil och skicka en supportbiljett**
+**Hitta en dumpfil och skicka ett support ärende**
 
-1. På återställningsdatorn går du till windowsmappen i den anslutna OS-disken. Om drivrutinsbrevet som är tilldelat till den anslutna OS-disken är F måste du gå till F:\Windows.
+1. På den virtuella datorn för återställning går du till Windows-mappen på den anslutna OS-disken. Om den driv rutins beteckning som har tilldelats till den anslutna OS-disken är F, måste du gå till F:\Windows.
 
-2. Leta reda på filen memory.dmp och skicka sedan [en supportbiljett](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen.
+2. Leta upp filen Memory. dmp och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med dumpfilen.
 
-Om du inte hittar dumpfilen flyttar du nästa steg för att aktivera dumplogg och seriekonsol.
+Om du inte hittar dumpfilen går du vidare till nästa steg för att aktivera dumpa logg och seriell konsol.
 
-**Aktivera dumplogg och seriekonsol**
+**Aktivera dumpa logg och seriell konsol**
 
-Om du vill aktivera dumplogg och seriekonsol kör du följande skript.
+Kör följande skript för att aktivera dumpa logg och seriell konsol.
 
-1. Öppna förhöjd kommandotolkssession (Kör som administratör).
+1. Öppna en upphöjd kommando tolk session (kör som administratör).
 
 2. Kör följande skript:
 
-   I det här skriptet antar vi att enhetsbeteckningen som har tilldelats den anslutna OS-disken är F. Ersätt den med rätt värde i den virtuella datorn.
+   I det här skriptet antar vi att den enhets beteckning som är kopplad till den anslutna OS-disken är F. Ersätt den med rätt värde i den virtuella datorn.
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -129,9 +129,9 @@ Om du vill aktivera dumplogg och seriekonsol kör du följande skript.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-3. Kontrollera att det finns tillräckligt med utrymme på disken för att allokera lika mycket minne som RAM-minnet, vilket beror på storleken som du väljer för den här virtuella datorn.
+3. Kontrol lera att det finns tillräckligt med utrymme på disken för att allokera så mycket minne som RAM-minnet, vilket beror på den storlek som du väljer för den här virtuella datorn.
 
-4. Om det inte finns tillräckligt med utrymme eller om den virtuella datorn är stor (G, GS eller E-serien) kan du ändra platsen där filen ska skapas och hänvisa den till någon annan datadisk som är kopplad till den virtuella datorn. Om du vill ändra platsen måste du ändra följande nyckel:
+4. Om det inte finns tillräckligt med utrymme eller om den virtuella datorn är stor (G, GS eller E-serien) kan du ändra den plats där filen kommer att skapas och se om det finns andra data diskar som är kopplade till den virtuella datorn. Om du vill ändra plats måste du ändra följande nyckel:
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -142,16 +142,16 @@ Om du vill aktivera dumplogg och seriekonsol kör du följande skript.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Koppla från OS-disken och sätt sedan tillbaka OS-disken till den berörda virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
 
-6. Starta den virtuella datorn och öppna seriekonsolen.
+6. Starta den virtuella datorn och få åtkomst till serie konsolen.
 
-7. Välj Skicka icke-maskerbart avbrott (NMI) för att utlösa minnesdumpen.
+7. Välj Skicka icke-Maskbart avbrott (NMI) för att utlösa minnesdumpen.
 
-   ![Skicka avbrott som inte kan maskeras](./media/boot-error-troubleshooting-windows/send-nonmaskable-interrupt.png)
+   ![Skicka icke-Maskbart avbrott](./media/boot-error-troubleshooting-windows/send-nonmaskable-interrupt.png)
 
-8. Bifoga OS-disken till en återställnings-VM igen, samla dumpfil.
+8. Koppla OS-disken till en återställnings-VM igen och samla in dump-filen.
 
 ## <a name="contact-microsoft-support"></a>Kontakta Microsoft-supporten
 
-När du har samlat in dumpfilen kontaktar du Microsoft-supporten för att fastställa orsaken.
+När du har samlat in dumpfilen kontaktar du Microsoft-supporten för att ta reda på rotor saken.

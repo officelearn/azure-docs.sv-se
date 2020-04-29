@@ -1,6 +1,6 @@
 ---
-title: Skapa och redigera Azure Policy-säkerhetsprinciper med REST API
-description: Lär dig mer om Azure Policy principhantering via ett REST API.
+title: Skapa och redigera Azure Policy säkerhets principer med hjälp av REST API
+description: Läs mer om hur du Azure Policy princip hantering via en REST API.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,37 +9,37 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77430949"
 ---
-# <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurera en säkerhetsprinciper i Azure-principen med REST API
+# <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Konfigurera en säkerhets princip i Azure Policy med hjälp av REST API
 
-Som en del av den inbyggda integreringen med Azure Policy kan du med Azure Security Center dra nytta av Azure Policy REST API för att skapa principtilldelningar. Följande instruktioner går igenom skapandet av principtilldelningar samt anpassning av befintliga tilldelningar. 
+Som en del av den interna integreringen med Azure Policy kan du Azure Security Center dra nytta av Azure Policy REST API för att skapa princip tilldelningar. Följande anvisningar beskriver hur du skapar princip tilldelningar, samt anpassningar av befintliga tilldelningar. 
 
 Viktiga begrepp i Azure Policy: 
 
-- En **principdefinition** är en regel 
+- En **princip definition** är en regel 
 
-- Ett **initiativ** är en samling politiska definitioner (regler) 
+- Ett **initiativ** är en samling princip definitioner (regler) 
 
-- En **tilldelning** är en tillämpning av ett initiativ eller en princip till ett visst omfång (ledningsgrupp, prenumeration, etc.) 
+- En **tilldelning** är ett program för ett initiativ eller en princip för en specifik omfattning (hanterings grupp, prenumeration osv.) 
 
-Security Center har ett inbyggt initiativ som innehåller alla dess säkerhetsprinciper. Om du vill bedöma Security Centers principer på dina Azure-resurser bör du skapa en tilldelning för hanteringsgruppen eller prenumerationen som du vill utvärdera.
+Security Center har ett inbyggt initiativ som innehåller alla säkerhets principer. Om du vill utvärdera Security Centers principer på dina Azure-resurser, bör du skapa en tilldelning i hanterings gruppen eller prenumerationen som du vill utvärdera.
 
-Det inbyggda initiativet har alla Security Centers principer aktiverade som standard. Du kan välja att inaktivera vissa principer från det inbyggda initiativet. Om du till exempel vill använda alla Security Centers principer utom **brandvägg för webbprogram**ändrar du värdet för principens effektparameter till **Inaktiverad**. 
+Det inbyggda initiativet har alla Security Centers principer som är aktiverade som standard. Du kan välja att inaktivera vissa principer från det inbyggda initiativet. Om du till exempel vill använda alla Security Centers principer utom **brand vägg för webbaserade program**, ändrar du värdet för principens gällande parameter till **inaktive rad**. 
 
 ## <a name="api-examples"></a>API-exempel
 
-I följande exempel ersätter du dessa variabler:
+Ersätt följande variabler i följande exempel:
 
-- **{scope}** anger namnet på den hanteringsgrupp eller prenumeration som du tillämpar principen på.
-- **{policyAssignmentName}** anger [namnet på den relevanta principtilldelningen](#policy-names).
-- **{name}** ange ditt namn eller namnet på administratören som godkände principändringen.
+- **{scope}** ange namnet på hanterings gruppen eller prenumerationen som du tillämpar principen på.
+- **{policyAssignmentName}** ange [namnet på den relevanta princip tilldelningen](#policy-names).
+- **{Name}** ange ditt namn eller namnet på administratören som godkände princip ändringen.
 
-I det här exemplet visas hur du tilldelar det inbyggda Security Center-initiativet till en prenumeration eller hanteringsgrupp
+Det här exemplet visar hur du tilldelar det inbyggda Security Center initiativ för en prenumeration eller hanterings grupp
  
  ```
     PUT  
@@ -68,13 +68,13 @@ I det här exemplet visas hur du tilldelar det inbyggda Security Center-initiati
     } 
  ```
 
-I det här exemplet visas hur du tilldelar det inbyggda Security Center-initiativet till en prenumeration, med följande principer inaktiverade: 
+Det här exemplet visar hur du tilldelar det inbyggda Security Center initiativ för en prenumeration, med följande principer inaktiverade: 
 
-- Systemuppdateringar ("systemUpdatesMonitoringEffect") 
+- System uppdateringar ("systemUpdatesMonitoringEffect") 
 
-- Säkerhetskonfigurationer ("systemKonfigurationerÖvervakaeffekt") 
+- Säkerhetskonfigurationer ("systemConfigurationsMonitoringEffect") 
 
-- Slutpunktsskydd ("endpointProtectionMonitoringEffect") 
+- Endpoint Protection ("endpointProtectionMonitoringEffect") 
 
  ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
@@ -109,34 +109,34 @@ I det här exemplet visas hur du tilldelar det inbyggda Security Center-initiati
     
     } 
  ```
-I det här exemplet visas hur du tar bort en tilldelning:
+Det här exemplet visar hur du tar bort en tilldelning:
  ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## <a name="policy-names-reference"></a>Referens för principnamn<a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Princip namn referens<a name="policy-names"></a>
 
-|Principnamn i Security Center|Principnamn som visas i Azure Policy |Parameternamn för principeffekt|
+|Princip namn i Security Center|Princip namn som visas i Azure Policy |Parameter namn för princip påverkan|
 |----|----|----|
-|SQL-kryptering |Övervaka okrypterad SQL-databas i Azure Security Center |sqlEncryptionMonitoringEffect| 
-|SQL-granskning |Övervaka oreviderad SQL-databas i Azure Security Center |sqlAuditingÖvervakaEffekt|
-|Systemuppdateringar |Övervaka saknade systemuppdateringar i Azure Security Center |systemUppdatesÖvervakaEffekt|
-|Lagringskryptering |Granska avsaknad av blobkryptering för lagringskonton |lagringFörflagningÖvervakaNdeEffekt|
-|ÅTKOMST TILL JIT-nätverk |Övervaka eventuell åtkomst till nätverk just-in-time (JIT) i Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Anpassningsbara programkontroller |Övervaka möjlig app vitlistning i Azure Security Center |adaptivTillämningKontrollerÖvervakaEffektEffekt|
-|Nätverkssäkerhetsgrupper |Övervaka tillåtande nätverksåtkomst i Azure Security Center |nätverkSäkerhetsgrupperÖvervakaEffektEffect| 
-|Säkerhetskonfigurationer |Övervaka os-sårbarheter i Azure Security Center |systemKonfigurationerÖvervakaEffekt| 
-|Slutpunktsskydd |Övervaka saknade slutpunktsskydd i Azure Security Center |slutpunktSkyddÖvervakaNdeEffekt |
-|Diskkryptering |Övervaka okrypterade VM-diskar i Azure Security Center |diskEncryptionÖvervakaEffektEffect|
-|Sårbarhetsbedömning |Övervaka vm-sårbarheter i Azure Security Center |sårbarhetAssessmentMonitoringEffect|
-|Brandvägg för webbaserade program |Övervaka oskyddade webbprogram i Azure Security Center |webApplicationFirewallMonitoringEffect |
-|Nästa generations brandvägg |Övervaka oskyddade nätverksslutpunkter i Azure Security Center| |
+|SQL-kryptering |Övervaka okrypterad SQL Database i Azure Security Center |sqlEncryptionMonitoringEffect| 
+|SQL-granskning |Övervaka en SQL-databas som inte har granskats i Azure Security Center |sqlAuditingMonitoringEffect|
+|Systemuppdateringar |Övervaka system uppdateringar som saknas i Azure Security Center |systemUpdatesMonitoringEffect|
+|Lagringskryptering |Granska avsaknad av blobkryptering för lagringskonton |storageEncryptionMonitoringEffect|
+|Åtkomst till JIT-nätverk |Övervaka möjliga nätverks åtkomst för just-in-Time (JIT) i Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Anpassningsbara programkontroller |Övervaka möjlig app-vit listning i Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Nätverkssäkerhetsgrupper |Övervaka tillåtad nätverks åtkomst i Azure Security Center |networkSecurityGroupsMonitoringEffect| 
+|Säkerhetskonfigurationer |Övervaka OS-sårbarheter i Azure Security Center |systemConfigurationsMonitoringEffect| 
+|Endpoint Protection |Övervaka saknade Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |
+|Diskkryptering |Övervaka okrypterade VM-diskar i Azure Security Center |diskEncryptionMonitoringEffect|
+|Sårbarhetsbedömning |Övervaka säkerhets risker i virtuella datorer i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
+|Brandvägg för webbaserade program |Övervaka oskyddat webb program i Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Nästa generations brandvägg |Övervaka oskyddade nätverks slut punkter i Azure Security Center| |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-För annat relaterat material, se följande artiklar: 
+Information om annat relaterat material finns i följande artiklar: 
 
-- [Anpassade säkerhetsprinciper](custom-security-policies.md)
-- [Översikt över säkerhetsprincip](tutorial-security-policy.md)
+- [Anpassade säkerhets principer](custom-security-policies.md)
+- [Översikt över säkerhets princip](tutorial-security-policy.md)

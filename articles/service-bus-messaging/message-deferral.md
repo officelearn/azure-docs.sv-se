@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus - meddelande uppskov
-description: I den här artikeln beskrivs hur du skjuter upp leverans av Azure Service Bus-meddelanden. Meddelandet finns kvar i kön eller prenumerationen, men det ställs åt sidan.
+title: Azure Service Bus-meddelande uppskjutande
+description: I den här artikeln förklaras hur du uppskjuta leverans av Azure Service Bus meddelanden. Meddelandet finns kvar i kön eller prenumerationen, men det ställs åt sidan.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,37 +14,37 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77538404"
 ---
 # <a name="message-deferral"></a>Skjut upp meddelanden
 
-När en kö- eller prenumerationsklient får ett meddelande som den är villig att bearbeta, men för vilken bearbetning för närvarande inte är möjlig på grund av särskilda omständigheter i programmet, har den möjlighet att "skjuta upp" hämtning av meddelandet till en senare punkt. Meddelandet finns kvar i kön eller prenumerationen, men det ställs åt sidan.
+När en kö eller en prenumerations klient får ett meddelande om att det inte är möjligt att bearbeta den, men för vilken bearbetning inte är möjlig på grund av särskilda omständigheter i programmet, har den alternativet "uppskjuta" hämtning av meddelandet till en senare punkt. Meddelandet finns kvar i kön eller prenumerationen, men det ställs åt sidan.
 
-Uppskov är en funktion som skapats speciellt för arbetsflödesbearbetningsscenarier. Arbetsflödesramverk kan kräva att vissa åtgärder bearbetas i en viss ordning och kan behöva skjuta upp bearbetningen av vissa mottagna meddelanden tills föreskrivet tidigare arbete som har informerats av andra meddelanden har slutförts.
+Uppskjutande är en funktion som specifikt skapas för arbets flödes bearbetnings scenarier. Arbets flödes ramverk kan kräva att vissa åtgärder bearbetas i en viss ordning och kan behöva skjuta upp bearbetningen av vissa mottagna meddelanden tills före skrivet tidigare arbete som informeras av andra meddelanden har slutförts.
 
-Ett enkelt belysande exempel är en orderbearbetningssekvens där ett betalningsmeddelande från en extern betalningsleverantör visas i ett system innan den matchande inköpsordern har spridits från butiksfronten till uppfyllelsesystemet. I så fall kan uppfyllelsesystemet skjuta upp behandlingen av betalningsanmälan tills det finns en order som den ska associeras med. I rendezvous scenarier, där meddelanden från olika källor driva ett arbetsflöde framåt, kan realtidskörningsordern verkligen vara korrekt, men de meddelanden som återspeglar resultaten kan komma i fel ordning.
+Ett enkelt exempel på exempel är en order bearbetnings ordning där ett betalnings meddelande från en extern betalnings leverantör visas i ett system innan den matchande inköps ordern har spridits från Store till uppfyllande system. I så fall kan uppfyllelse systemet skjuta upp bearbetningen av betalnings meddelandet tills det finns en order som associeras med. I Rendezvous-scenarier där meddelanden från olika källor driver ett arbets flöde framåt, kan körnings ordningen i real tid vara korrekt, men meddelanden som återspeglar resultatet kan komma att tas emot.
 
-I slutändan, uppskov hjälpmedel för att ordna meddelanden från ankomstordern till en ordning där de kan behandlas, samtidigt som dessa meddelanden säkert i meddelandelagret för vilka behandlingen måste skjutas upp.
+I slut ändan hjälper uppbelastningen att sortera om meddelanden från order införseln i en ordning där de kan bearbetas, samtidigt som de lämnar meddelandena på ett säkert sätt i meddelande arkivet där bearbetningen måste skjutas upp.
 
-## <a name="message-deferral-apis"></a>Api:er för att skjuta upp meddelanden
+## <a name="message-deferral-apis"></a>API: er för avstängning av meddelande
 
-API:et är [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) eller [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) i .NET Framework-klienten, [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) i .NET Standard-klienten och [IMessageReceiver.defer](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) eller [IMessageReceiver.deferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) i Java-klienten. 
+API: et är [BrokeredMessage. Överlåt](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) eller [BrokeredMessage. DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) i .NET Framework-klienten, [MessageReceiver. DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) i .net standard-klienten och [IMessageReceiver. Överlåt](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) eller [IMessageReceiver. DeferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) i Java-klienten. 
 
-Uppskjutna meddelanden finns kvar i huvudkön tillsammans med alla andra aktiva meddelanden (till skillnad från meddelanden med obeställbara meddelanden som finns i en underkö), men de kan inte längre tas emot med hjälp av de vanliga funktionerna Receive/ReceiveAsync. Uppskjutna meddelanden kan upptäckas via [meddelandebläddring](message-browsing.md) om ett program förlorar reda på dem.
+Uppskjutna meddelanden finns kvar i huvud kön tillsammans med alla andra aktiva meddelanden (till skillnad från meddelanden med obeställbara meddelanden som bor i en underkö), men de kan inte längre tas emot med hjälp av de vanliga Receive-/ReceiveAsync-funktionerna. Uppskjutna meddelanden kan upptäckas via [meddelande bläddring](message-browsing.md) om ett program förlorar sitt spår.
 
-För att hämta ett uppskjutet meddelande är dess ägare ansvarig för att komma ihåg [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) när det skjuter upp det. Alla mottagare som känner till sekvensnumret för ett uppskjutet meddelande kan senare ta emot meddelandet uttryckligen med `Receive(sequenceNumber)`.
+För att hämta ett uppskjutet meddelande ansvarar dess ägare för att komma ihåg [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) när den skjuts upp. Alla mottagare som känner till sekvensnumret i ett uppskjutet meddelande kan senare ta emot meddelandet som uttryckligen medföljer `Receive(sequenceNumber)`.
 
-Om ett meddelande inte kan bearbetas eftersom en viss resurs för hantering av meddelandet inte är tillgänglig för tillfället, men meddelandebearbetningen inte bör avbrytas summariskt, är ett sätt att placera meddelandet på sidan i några minuter att komma ihåg **SequenceNumber** i ett [schemalagt meddelande](message-sequencing.md) som ska publiceras på några minuter och hämta det uppskjutna meddelandet igen när det schemalagda meddelandet anländer. Om en meddelandehanterare är beroende av en databas för alla åtgärder och databasen inte är tillgänglig för tillfället bör den inte använda uppskov, utan i stället avbryta mottagandet av meddelanden helt och hållet tills databasen är tillgänglig igen.
+Om ett meddelande inte kan bearbetas på grund av att en viss resurs för hantering av meddelandet inte är tillgänglig för tillfället, men meddelande bearbetningen inte ska göras sammanfattas, är ett sätt att lägga till meddelandet på sidan i några minuter att komma ihåg att **SequenceNumber** i ett [schemalagt meddelande](message-sequencing.md) som ska publiceras på några minuter och sedan hämta det uppskjutna meddelandet när det schemalagda meddelandet anländer. Om en meddelande hanterare är beroende av en databas för alla åtgärder och databasen är tillfälligt otillgänglig, bör den inte använda uppskjutningen, utan att i stället pausa att ta emot meddelanden helt tills databasen är tillgänglig igen.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Service Bus-meddelanden finns i följande avsnitt:
+Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Komma igång med servicebussköer](service-bus-dotnet-get-started-with-queues.md)
+* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)

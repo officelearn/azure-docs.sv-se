@@ -1,6 +1,6 @@
 ---
-title: Tilldela azure AD-anpassad roll - PRIVILEGIErad identitetshantering (PIM)
-description: Så här tilldelar du en anpassad Azure AD-roll för PIM (Privilegierad identitetshantering)
+title: Tilldela Azure AD anpassad roll – Privileged Identity Management (PIM)
+description: Så här tilldelar du en anpassad Azure AD-roll för tilldelning Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,70 +17,70 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77499238"
 ---
-# <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Tilldela en anpassad Azure AD-roll i privilegierad identitetshantering
+# <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Tilldela en anpassad Azure AD-roll i Privileged Identity Management
 
-I den här artikeln beskrivs hur du använder PIM (Privileged Identity Management) för att skapa just-in-time och tidsbundna tilldelningar till anpassade roller som skapats för att hantera program i azure Active Directory (Azure AD) administrativ upplevelse.
+Den här artikeln beskriver hur du använder Privileged Identity Management (PIM) för att skapa just-in-Time-och Time-Bound-tilldelning till anpassade roller som skapats för att hantera program i den administrativa miljön för Azure Active Directory (Azure AD).
 
-- Mer information om hur du skapar anpassade roller för att delegera programhantering i Azure AD finns [i Anpassade administratörsroller i Azure Active Directory (förhandsversion).](../users-groups-roles/roles-custom-overview.md)
-- Om du inte har använt Privilegierad identitetshantering ännu kan du få mer information när [du börjar använda Privilegierad identitetshantering](pim-getting-started.md).
-- Information om hur du ger en annan administratör åtkomst till hantering av privilegierad identitetshantering finns i [Bevilja åtkomst till andra administratörer för att hantera privilegierad identitetshantering](pim-how-to-give-access-to-pim.md).
+- Mer information om hur du skapar anpassade roller för att delegera program hantering i Azure AD finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../users-groups-roles/roles-custom-overview.md).
+- Om du inte har använt Privileged Identity Management ännu kan du få mer information när du [börjar använda Privileged Identity Management](pim-getting-started.md).
+- Information om hur du beviljar en annan administratörs åtkomst till att hantera Privileged Identity Management finns i [bevilja åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
-> Azure AD-anpassade roller är inte integrerade med de inbyggda katalogrollerna under förhandsversionen. När kapaciteten är allmänt tillgänglig kommer rollhantering att ske i den inbyggda rollupplevelsen. Om du ser följande banner bör dessa roller hanteras [i den inbyggda rollupplevelsen](pim-how-to-activate-role.md) och den här artikeln gäller inte:
+> Anpassade Azure AD-roller är inte integrerade med de inbyggda katalog rollerna under för hands versionen. När funktionen är allmänt tillgänglig, sker roll hanteringen i den inbyggda roll upplevelsen. Om du ser följande banderoll bör dessa roller hanteras [i den inbyggda roll upplevelsen](pim-how-to-activate-role.md) och den här artikeln gäller inte:
 >
 > [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="assign-a-role"></a>Tilldela en roll
 
-Privilegierad identitetshantering kan hantera anpassade roller som du kan skapa i Azure Active Directory (Azure AD) programhantering.  Följande steg gör en kvalificerad tilldelning till en anpassad katalogroll.
+Privileged Identity Management kan hantera anpassade roller som du kan skapa i Azure Active Directory (Azure AD) program hantering.  Följande steg gör en berättigad tilldelning till en anpassad katalog roll.
 
-1. Logga in [på privilegierad identitetshantering](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) i Azure-portalen med ett användarkonto som har tilldelats rollen Privilegierad rolladministratör.
-1. Välj **anpassade Azure AD-roller (förhandsversion)**.
+1. Logga in på [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) i Azure Portal med ett användar konto som tilldelats rollen privilegie rad roll administratör.
+1. Välj **anpassade Azure AD-roller (för hands version)**.
 
-    ![Välj förhandsversion av anpassade roller för anpassade roller i Azure AD för att se kvalificerade rolltilldelningar](./media/azure-ad-custom-roles-assign/view-custom.png)
+    ![Välj för hands versionen av Azure AD-anpassade roller för att se kvalificerade roll tilldelningar](./media/azure-ad-custom-roles-assign/view-custom.png)
 
-1. Välj **Roller** om du vill visa en lista över anpassade roller för Azure AD-program.
+1. Välj **roller** om du vill visa en lista över anpassade roller för Azure AD-program.
 
-    ![Välj Roller se listan över kvalificerade rolltilldelningar](./media/azure-ad-custom-roles-assign/view-roles.png)
+    ![Välj roller se listan över kvalificerade roll tilldelningar](./media/azure-ad-custom-roles-assign/view-roles.png)
 
-1. Välj **Lägg till medlem** om du vill öppna tilldelningssidan.
-1. Om du vill begränsa omfattningen av rolltilldelningen till ett enda program väljer du **Scope** för att ange ett programomfång.
+1. Välj **Lägg till medlem** för att öppna sidan tilldelning.
+1. Om du vill begränsa omfånget för roll tilldelningen till ett enda program väljer du **omfång** för att ange en program omfattning.
 
-    ![begränsa omfattningen av kvalificerade rolltilldelningar i Azure AD](./media/azure-ad-custom-roles-assign/set-scope.png)
+    ![begränsa omfattningen av kvalificerade roll tilldelningar i Azure AD](./media/azure-ad-custom-roles-assign/set-scope.png)
 
-1. Välj **Välj en roll** om du vill öppna listan Välj en **roll.**
+1. Välj **Välj en roll** för att öppna listan **Välj en roll** .
 
-    ![välja den kvalificerade roll som ska tilldelas en användare](./media/azure-ad-custom-roles-assign/select-role.png)
+    ![Välj den kvalificerade roll som ska tilldelas en användare](./media/azure-ad-custom-roles-assign/select-role.png)
 
-1. Välj en roll som du vill tilldela och klicka sedan på **Markera**. Listan **Välj en medlem** öppnas.
+1. Välj en roll som du vill tilldela och klicka sedan på **Välj**. Listan **Välj en medlem** öppnas.
 
-    ![välja den användare som du tilldelar rollen](./media/azure-ad-custom-roles-assign/select-member.png)
+    ![Välj den användare som du tilldelar rollen](./media/azure-ad-custom-roles-assign/select-member.png)
 
-1. Markera en användare som du vill tilldela rollen och klicka sedan på **Välj**. Listan **Inställningar för medlemskap** öppnas.
+1. Välj en användare som du vill tilldela rollen och klicka sedan på **Välj**. Listan över **medlemskaps inställningar** öppnas.
 
-    ![Ange rolltilldelningstypen till kvalificerad eller aktiv](./media/azure-ad-custom-roles-assign/membership-settings.png)
+    ![Ange roll tilldelnings typen som giltig eller aktiv](./media/azure-ad-custom-roles-assign/membership-settings.png)
 
-1. På sidan **Inställningar för medlemskap** väljer du **Kvalificerad** eller **Aktiv:**
+1. På sidan **medlemskaps inställningar** väljer du **berättigade** eller **aktiva**:
 
-    - **Kvalificerade** tilldelningar kräver att användaren som tilldelats rollen utför en åtgärd innan de kan använda rollen. Åtgärder kan omfatta att skicka en multifaktorautentiseringskontroll, tillhandahålla en affärsmotivering eller begära godkännande från utsedda godkännare.
-    - **Aktiva** tilldelningar kräver inte att den tilldelade användaren utför någon åtgärd för att använda rollen. Aktiva användare har alltid de privilegier som tilldelats rollen.
+    - **Berättigade** tilldelningar kräver att användaren har tilldelats rollen för att utföra en åtgärd innan de kan använda rollen. Åtgärder kan omfatta att skicka en Multi-Factor Authentication-kontroll, tillhandahålla en affärs motivering eller begära godkännande från angivna god kännare.
+    - **Aktiva** tilldelningar kräver inte att den tilldelade användaren utför någon åtgärd för att använda rollen. Aktiva användare har alla behörigheter som tilldelats rollen.
 
-1. Om kryssrutan **Permanent** är närvarande och tillgänglig (beroende på rollinställningar) kan du ange om tilldelningen är permanent. Markera kryssrutan om du vill göra tilldelningen permanent kvalificerad eller permanent tilldelad. Avmarkera kryssrutan om du vill ange en tilldelningstid.
-1. Om du vill skapa den nya rolltilldelningen klickar du på **Spara** och sedan **lägga till**. Ett meddelande om tilldelningsprocessens status visas.
+1. Om den **permanenta** kryss rutan finns tillgänglig och tillgänglig (beroende på roll inställningar) kan du ange om tilldelningen är permanent. Markera kryss rutan om du vill göra tilldelningen permanent eller permanent tilldelad. Avmarkera kryss rutan om du vill ange en tilldelnings varaktighet.
+1. Skapa den nya roll tilldelningen genom att klicka på **Spara** och sedan på **Lägg till**. Ett meddelande om tilldelnings processens status visas.
 
-Om du vill verifiera rolltilldelningen väljer du **Tilldelningar** > **Tilldela** i en öppen roll och kontrollerar att rolltilldelningen är korrekt identifierad som kvalificerad eller aktiv.
+För att verifiera roll tilldelningen i en öppen roll väljer du **tilldelningar** > **tilldela** och kontrollerar att roll tilldelningen identifieras korrekt som giltig eller aktiv.
 
- ![Kontrollera om rolltilldelningen är synlig som kvalificerad eller aktiv](./media/azure-ad-custom-roles-assign/verify-assignments.png)
+ ![Kontrol lera om roll tilldelningen är synlig som giltig eller aktiv](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Aktivera en anpassad Azure AD-roll](azure-ad-custom-roles-assign.md)
-- [Ta bort eller uppdatera en anpassad Azure AD-rolltilldelning](azure-ad-custom-roles-update-remove.md)
-- [Konfigurera en anpassad Azure AD-rolltilldelning](azure-ad-custom-roles-configure.md)
-- [Rolldefinitioner i Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Ta bort eller uppdatera en anpassad roll tilldelning för Azure AD](azure-ad-custom-roles-update-remove.md)
+- [Konfigurera en anpassad roll tilldelning för Azure AD](azure-ad-custom-roles-configure.md)
+- [Roll definitioner i Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Konvertera textskript - Översättartext'
+title: 'Snabb start: konvertera text skript – Translator Text'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten får du lära dig att translitterera (konvertera) text från ett skript till ett annat med hjälp av Translator Text API. I det här exemplet translittereras japanska till det latinska alfabetet.
+description: I den här snabb starten får du lära dig att omvandla text från ett skript till ett annat med hjälp av Translator Text API. I det här exemplet translittereras japanska till det latinska alfabetet.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 4247983fd39cd8d9acf256d313ae10aa2002585f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77525132"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Snabbstart: Använda translator text API för att translitterera text
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Snabb start: Använd Translator Text API till translittererad till text
 
-I den här snabbstarten får du lära dig att translitterera (konvertera) text från ett skript till ett annat med hjälp av REST-API:et för översättaretext. I det angivna exemplet translittereras japanska till det latinska alfabetet.
+I den här snabb starten får du lära dig att omvandla text från ett skript till ett annat med hjälp av Translator Text REST API. I det angivna exemplet translittereras japanska till det latinska alfabetet.
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
@@ -46,7 +46,7 @@ För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://d
 
 ## <a name="see-also"></a>Se även
 
-* [Översätta text](quickstart-translate.md)
+* [Översätt text](quickstart-translate.md)
 * [Identifiera språket efter indata](quickstart-detect.md)
 * [Hämta alternativa översättningar](quickstart-dictionary.md)
 * [Hämta en lista över språk som stöds](quickstart-languages.md)

@@ -1,48 +1,48 @@
 ---
-title: Förstå funktionshantering med Azure App-konfiguration
-description: Aktivera och inaktivera funktioner med Azure App-konfiguration
+title: Förstå funktions hantering med hjälp av Azure App konfiguration
+description: Aktivera och inaktivera funktioner med Azure App konfiguration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 8227810c154078fc8424b2cadd373394d07e9730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77523738"
 ---
-# <a name="feature-management-overview"></a>Översikt över funktionshantering
+# <a name="feature-management-overview"></a>Översikt över funktions hantering
 
-Traditionellt kräver leverans av en ny programfunktion en fullständig omfördelning av själva programmet. Att testa en funktion kräver ofta flera distributioner av programmet.  Varje distribution kan ändra funktionen eller exponera funktionen för olika kunder för testning.  
+För att leverera en ny program funktion krävs en fullständig omdistribution av själva programmet. Att testa en funktion kräver ofta flera distributioner av programmet.  Varje distribution kan ändra funktionen eller exponera funktionen för olika kunder för testning.  
 
-Funktionshantering är en modern programvara utveckling praxis som frikopplar funktionen release från koddistribution och möjliggör snabba ändringar av funktionen tillgänglighet på begäran. Den använder en teknik som kallas *funktionsflaggor* (kallas även *funktionsväxlingar,* *funktionsväxlar*och så vidare) för att dynamiskt administrera en funktions livscykel.
+Funktions hantering är en modern program utvecklings metod som frigör funktions lansering från kod distribution och gör det möjligt att snabbt ändra funktionsens tillgänglighet på begäran. Den använder en teknik som kallas *funktions flaggor* (kallas även för *funktions växlingar*, *funktions växlar*och så vidare) för att dynamiskt administrera en funktions livs cykel.
 
-Funktionshantering hjälper utvecklare att lösa följande problem:
+Med funktions hantering kan utvecklare lösa följande problem:
 
-* **Kodgrenshantering**: Använd funktionsflaggor för att radbrytas nya programfunktioner som för närvarande är under utveckling. Sådana funktioner är "dolda" som standard. Du kan säkert skicka funktionen, även om det är oavslutat, och det kommer att förbli vilande i produktionen. Med den här metoden, som kallas *mörk distribution,* kan du släppa all din kod i slutet av varje utvecklingscykel. Du behöver inte längre underhålla kodgrenar över flera utvecklingscykler eftersom en viss funktion kräver mer än en cykel för att slutföra.
-* **Test i produktion**: Använd funktionsflaggor för att ge tidig åtkomst till nya funktioner i produktionen. Du kan till exempel begränsa åtkomsten till gruppmedlemmar eller till interna betatestare. Dessa användare kommer att uppleva produktionen med full återgivning i stället för en simulerad eller partiell upplevelse i en testmiljö.
-* **Flighting**: Använd funktionsflaggor för att stegvis distribuera nya funktioner till slutanvändare. Du kan rikta in dig på en liten andel av användarpopulationen först och öka den procentsatsen gradvis över tid.
-* **Instant kill switch**: Funktionsflaggor ger ett ingående skyddsnät för att frigöra nya funktioner. Du kan aktivera och inaktivera programfunktioner utan att distribuera någon kod. Om det behövs kan du snabbt inaktivera en funktion utan att återskapa och distribuera om programmet.
-* **Selektiv aktivering**: Använd funktionsflaggor för att segmentera användarna och leverera en specifik uppsättning funktioner till varje grupp. Du kanske har en funktion som bara fungerar i en viss webbläsare. Du kan definiera en funktionsflagga så att endast användare i den webbläsaren kan se och använda funktionen. Med den här metoden kan du enkelt utöka den webbläsarlista som stöds senare utan att behöva göra några kodändringar.
+* **Kod förgrenings hantering**: Använd funktions flaggor för att figursätta nya program funktioner som för närvarande är under utveckling. Sådan funktionalitet är "dold" som standard. Du kan på ett säkert sätt leverera funktionen, även om den är oavslutad och den förblir vilande i produktionen. Med den här metoden, som kallas *mörk distribution*, kan du släppa all kod i slutet av varje utvecklings cykel. Du behöver inte längre ha kod grenar i flera utvecklings cykler eftersom en specifik funktion kräver mer än en cykel att slutföras.
+* **Testa i produktion**: Använd funktions flaggor för att ge tidig åtkomst till nya funktioner i produktionen. Du kan till exempel begränsa åtkomsten till grupp medlemmar eller interna beta testare. Dessa användare kommer att uppleva hela produktions upplevelsen i stället för en simulerad eller delvis upplevelse i en test miljö.
+* **Flygning**: Använd funktions flaggor för att stegvis distribuera nya funktioner till slutanvändarna. Du kan rikta in dig på en liten procent andel av din användar population först och öka procent andelen gradvis över tid.
+* **Omedelbar Kill-växel**: funktions flaggor utgörs av ett säkerhets nät som gör det möjligt att lansera nya funktioner. Du kan aktivera och inaktivera program funktioner utan att behöva distribuera om någon kod. Om det behövs kan du snabbt inaktivera en funktion utan att behöva bygga om och omdistribuera ditt program.
+* **Selektiv aktivering**: Använd funktions flaggor för att segmentera användarna och leverera en speciell uppsättning funktioner till varje grupp. Du kan ha en funktion som bara fungerar i en viss webbläsare. Du kan definiera en funktions flagga så att endast användare av webbläsaren kan se och använda funktionen. Med den här metoden kan du enkelt expandera listan över webbläsare som stöds senare utan att behöva göra några kod ändringar.
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
 
-Här är flera nya termer relaterade till funktionshantering:
+Här följer flera nya villkor som rör funktions hantering:
 
-* **Funktionsflagga**: En funktionsflagga är en variabel med ett binärt tillstånd *för på* eller *av*. Funktionsflaggan har också ett associerat kodblock. Funktionsflaggans tillstånd utlöser om kodblocket körs.
-* **Funktionshanteraren:** En funktionshanterare är ett programpaket som hanterar livscykeln för alla funktionsflaggor i ett program. Funktionshanteraren tillhandahåller också ytterligare funktioner, inklusive cachelagringsfunktionsflaggor och uppdatering av deras tillstånd.
-* **Filter**: Ett filter är en regel för att utvärdera tillståndet för en funktionsflagga. Potentiella filter omfattar användargrupper, enhets- eller webbläsartyper, geografiska platser och tidsfönster.
+* **Funktions flagga**: en funktions flagga är en variabel med en binär status *på* eller *av*. Funktions flaggan har också ett associerat kodblock. Funktions flaggans tillstånd utlöser om kod blocket körs.
+* **Funktions hanteraren**: en funktions hanterare är ett programpaket som hanterar livs cykeln för alla funktions flaggor i ett program. Funktions hanteraren innehåller också ytterligare funktioner, inklusive cachelagring av funktions flaggor och uppdatering av deras tillstånd.
+* **Filter**: ett filter är en regel för att utvärdera status för en funktions flagga. Möjliga filter är användar grupper, enhets-eller webb läsar typer, geografiska platser och tidsfönster.
 
-Ett effektivt genomförande av funktionshantering består av minst två komponenter som arbetar i samförstånd:
+En effektiv implementering av funktions hantering består av minst två komponenter som arbetar i samförstånd:
 
-* Ett program som använder funktionsflaggor.
-* En separat databas som lagrar funktionsflaggorna och deras aktuella tillstånd.
+* Ett program som använder funktions flaggor.
+* En separat lagrings plats som lagrar funktions flaggorna och deras aktuella tillstånd.
 
-## <a name="using-feature-flags-in-your-code"></a>Använda funktionsflaggor i koden
+## <a name="using-feature-flags-in-your-code"></a>Använda funktions flaggor i din kod
 
-Det grundläggande mönstret för att implementera funktionsflaggor i ett program är enkelt. En funktionsflagga är en boolesk tillståndsvariabel som styr en villkorssats i koden:
+Det grundläggande mönstret för att implementera funktions flaggor i ett program är enkelt. En funktions flagga är en boolesk tillstånds variabel som styr en villkorlig instruktion i koden:
 
 ```csharp
 if (featureFlag) {
@@ -50,7 +50,7 @@ if (featureFlag) {
 }
 ```
 
-Du kan ställa `featureFlag` in värdet statiskt.
+Du kan ange värdet `featureFlag` statiskt.
 
 ```csharp
 bool featureFlag = true;
@@ -62,7 +62,7 @@ Du kan utvärdera flaggans tillstånd baserat på vissa regler:
 bool featureFlag = isBetaUser();
 ```
 
-Du kan utöka villkorsläget för att ange programbeteende för något av tillstånden:
+Du kan utöka villkoret för att ange program beteende för endera status:
 
 ```csharp
 if (featureFlag) {
@@ -72,15 +72,15 @@ if (featureFlag) {
 }
 ```
 
-## <a name="feature-flag-repository"></a>Databas för funktionsflagga
+## <a name="feature-flag-repository"></a>Databas för funktions flagga
 
-Om du vill använda funktionsflaggor effektivt måste du externalisera alla funktionsflaggor som används i ett program. På så sätt kan du ändra funktionsflaggans lägen utan att ändra och distribuera om själva programmet.
+Om du vill använda funktions flaggor effektivt måste du Externalize alla funktions flaggor som används i ett program. På så sätt kan du ändra funktions flagga tillstånd utan att ändra och omdistribuera själva programmet.
 
-Azure App Configuration tillhandahåller en centraliserad databas för funktionsflaggor. Du kan använda den för att definiera olika typer av funktionsflaggor och manipulera deras tillstånd snabbt och säkert. Du kan sedan använda appkonfigurationsbiblioteken för olika programmeringsspråkramverk för att enkelt komma åt dessa funktionsflaggor från ditt program.
+Azure App-konfigurationen tillhandahåller en central lagrings plats för funktions flaggor. Du kan använda den för att definiera olika typer av funktions flaggor och ändra deras tillstånd snabbt och säkert. Du kan sedan använda konfigurations biblioteken för appen för olika programmerings språk ramverk för att enkelt komma åt dessa funktions flaggor från ditt program.
 
-[Använd funktionsflaggor i en ASP.NET Core-appen](./use-feature-flags-dotnet-core.md) visar hur .NET Core App Configuration provider och Funktionshanteringsbibliotek används tillsammans för att implementera funktionsflaggor för ditt ASP.NET webbprogram.
+[Använd funktions flaggor i en ASP.net Core app](./use-feature-flags-dotnet-core.md) som visar hur biblioteken för .net Core-appens konfiguration och funktions hanterings bibliotek används tillsammans för att implementera funktions flaggor för ASP.NET-webbprogrammet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägga till funktionsflaggor i en ASP.NET Core-webbapp](./quickstart-feature-flag-aspnet-core.md)  
+> [Lägga till funktions flaggor i en ASP.NET Core-webbapp](./quickstart-feature-flag-aspnet-core.md)  

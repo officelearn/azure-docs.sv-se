@@ -1,66 +1,66 @@
 ---
-title: Använd ändringsfeedkalkylorn - Azure Cosmos DB
-description: Lär dig hur du använder ändringsflödeskalkylatorn för att analysera förloppet för ändringsflödesprocessorn
+title: Använd uppskattningen Change feed-Azure Cosmos DB
+description: Lär dig hur du använder en Change feed-uppskattning för att analysera förloppet för din ändrings flödes processor
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77585296"
 ---
-# <a name="use-the-change-feed-estimator"></a>Använd ändringsmatningsuppskattningsgivaren
+# <a name="use-the-change-feed-estimator"></a>Använd uppskattningen ändra feed
 
-I den här artikeln beskrivs hur du kan övervaka förloppet för processorinstanserna för [ändringsflödet](./change-feed-processor.md) när de läser ändringsflödet.
+I den här artikeln beskrivs hur du kan övervaka förloppet för dina [byte av Change feed processor](./change-feed-processor.md) när de läser ändrings flödet.
 
-## <a name="why-is-monitoring-progress-important"></a>Varför är det viktigt att övervaka framstegen?
+## <a name="why-is-monitoring-progress-important"></a>Varför är övervaknings förloppet viktigt?
 
-Ändringsfeedprocessorn fungerar som en pekare som går framåt i [ändringsflödet](./change-feed.md) och levererar ändringarna i en ombudsimplementering. 
+Processorn för ändrings flöden fungerar som en pekare som rör sig framåt i [ändrings flödet](./change-feed.md) och levererar ändringarna i en ombuds implementering. 
 
-Distributionen av ändringsflödesprocessorn kan bearbeta ändringar med en viss hastighet baserat på dess tillgängliga resurser som CPU, minne, nätverk och så vidare.
+Din distribution av Change feed processor kan bearbeta ändringar i en viss takt baserat på de resurser som är tillgängliga, t. ex. CPU, minne, nätverk och så vidare.
 
-Om den här hastigheten är långsammare än den hastighet med vilken dina ändringar sker i din Azure Cosmos-behållare, börjar processorn att släpa efter.
+Om den här hastigheten är långsammare än den hastighet med vilken dina ändringar sker i din Azure Cosmos-behållare börjar processorn att vänta.
 
-Identifiera det här scenariot hjälper till att förstå om vi behöver skala vår distribution av ändringsfeedprocessor.
+Att identifiera det här scenariot hjälper dig att förstå om vi behöver skala vår distribution av Change feed processor.
 
-## <a name="implement-the-change-feed-estimator"></a>Implementera ändringsmatningsuppskattningsgivaren
+## <a name="implement-the-change-feed-estimator"></a>Implementera uppskattningen ändra feed
 
-Precis som [ändringsmatningsprocessorn](./change-feed-processor.md)fungerar ändringsmatningsuppskattningen som en push-modell. Kalkylatorn mäter skillnaden mellan den senast bearbetade artikeln (definierad av lånebehållarens tillstånd) och den senaste ändringen i behållaren och skickar det här värdet till ett ombud. Det intervall med vilket mätningen görs kan också anpassas med ett standardvärde på 5 sekunder.
+Precis som med [change feed-processorn](./change-feed-processor.md)fungerar föruppskattningen ändra feed som en push-modell. Uppskattningen mäter skillnaden mellan det senast bearbetade objektet (definieras av statusen för behållaren lån) och den senaste ändringen i behållaren och push-överför värdet till ett ombud. Intervallet då mätningen utförs kan också anpassas med standardvärdet 5 sekunder.
 
-Om ändringsflödesbehandlaren till exempel definieras så här:
+Exempel: om din Change feed-processor definieras som detta:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
 
-Det korrekta sättet att initiera en skattningsgivare `GetChangeFeedEstimatorBuilder` för att mäta att processorn skulle använda så här:
+Det korrekta sättet att initiera en uppskattare för att mäta att processorn skulle `GetChangeFeedEstimatorBuilder` använda så här:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
 
-Om både processorn och kalkylatorn har samma `leaseContainer` och samma namn.
+Där både processorn och uppskattningen delar samma `leaseContainer` namn.
 
-De andra två parametrarna är ombudet, som får ett tal som representerar hur många ändringar som **väntar på att läsas** av processorn och det tidsintervall med vilket du vill att mätningen ska göras.
+De andra två parametrarna är ombudet, som kommer att få ett nummer som representerar **hur många ändringar som väntar på att läsas** av processorn och det tidsintervall som du vill att den här mätningen ska vidtas.
 
 Ett exempel på ett ombud som tar emot uppskattningen är:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=EstimationDelegate)]
 
-Du kan skicka den här uppskattningen till din övervakningslösning och använda den för att förstå hur dina framsteg beter sig över tid.
+Du kan skicka denna uppskattning till din övervaknings lösning och använda den för att förstå hur din förloppet fungerar över tid.
 
 > [!NOTE]
-> Ändringsflödesuppskattningsordningen behöver inte distribueras som en del av ändringsflödesbehandlaren och inte heller vara en del av samma projekt. Det kan vara oberoende och köras i en helt annan instans. Det behöver bara använda samma namn och lånekonfiguration.
+> Det går inte att distribuera uppskattningen för att byta feed som en del av din process för ändrings flöden, och inte heller vara en del av samma projekt. Det kan vara oberoende och köras i en helt annan instans. Du behöver bara använda samma namn och låne konfiguration.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [Användningsexempel på GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Användnings exempel på GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Ytterligare exempel på GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu fortsätta med att läsa mer om ändringsflödesbehandlare i följande artiklar:
+Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i följande artiklar:
 
-* [Översikt över ändringsmatningsprocessor](change-feed-processor.md)
+* [Översikt över ändring av flödes processor](change-feed-processor.md)
 * [Starttid för ändringsflödesprocessor](how-to-configure-change-feed-start-time.md)

@@ -1,6 +1,6 @@
 ---
-title: Apache Hive-bibliotek under klusterskapande - Azure HDInsight
-description: Lär dig hur du lägger till Apache Hive-bibliotek (jar-filer) i ett HDInsight-kluster när klustret skapas.
+title: Apache Hive bibliotek när klustret skapas – Azure HDInsight
+description: Lär dig hur du lägger till Apache Hive bibliotek (jar-filer) i ett HDInsight-kluster när klustret skapas.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77471031"
 ---
-# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägga till anpassade Apache Hive-bibliotek när du skapar ditt HDInsight-kluster
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägg till anpassade Apache Hive-bibliotek när du skapar ett HDInsight-kluster
 
-Läs om hur du förinläsningar av [Apache Hive-bibliotek](https://hive.apache.org/) på HDInsight. Det här dokumentet innehåller information om hur du använder en skriptåtgärd för att förinläsning av bibliotek under klusterskapande. Bibliotek som läggs till med hjälp av stegen i det här dokumentet är globalt tillgängliga i Hive - det finns ingen anledning att använda [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) för att läsa in dem.
+Lär dig hur du förinstallerar [Apache Hive](https://hive.apache.org/) bibliotek i HDInsight. Det här dokumentet innehåller information om hur du använder en skript åtgärd för att läsa in bibliotek när klustret skapas. Bibliotek som lagts till med hjälp av stegen i det här dokumentet är globalt tillgängliga i Hive – du behöver inte använda [Lägg till jar](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) för att läsa in dem.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-När du skapar ett kluster kan du använda en skriptåtgärd för att ändra klusternoder när de skapas. Skriptet i det här dokumentet accepterar en enda parameter, som är bibliotekens plats. Den här platsen måste finnas i ett Azure Storage-konto och biblioteken måste lagras som jar-filer.
+När du skapar ett kluster kan du använda en skript åtgärd för att ändra klusternoderna när de har skapats. Skriptet i det här dokumentet accepterar en enda parameter, som är platsen för biblioteken. Den här platsen måste vara i ett Azure Storage konto och biblioteken måste lagras som jar-filer.
 
-När klustret skapas räknar skriptet upp filerna, kopierar dem till katalogen `/usr/lib/customhivelibs/` på `hive.aux.jars.path` huvudet `core-site.xml` och arbetsnoder och lägger sedan till dem i egenskapen i filen. På Linux-baserade kluster uppdaterar den `hive-env.sh` också filen med platsen för filerna.
+När klustret skapas räknar skriptet upp filerna, kopierar dem till `/usr/lib/customhivelibs/` katalogen på Head-och Worker-noderna och lägger sedan till dem i `hive.aux.jars.path` egenskapen i `core-site.xml` filen. I Linux-baserade kluster uppdaterar det också `hive-env.sh` filen med filernas plats.
 
-Om du använder skriptåtgärden i den här artikeln blir biblioteken tillgängliga när du använder en Hive-klient för **WebHCat**och **HiveServer2**.
+Genom att använda skript åtgärden i den här artikeln blir biblioteken tillgängliga när du använder en Hive-klient för **WebHCat**och **HiveServer2**.
 
 ## <a name="the-script"></a>Skriptet
 
@@ -35,42 +35,42 @@ Om du använder skriptåtgärden i den här artikeln blir biblioteken tillgängl
 
 ### <a name="requirements"></a>Krav
 
-* Skripten måste tillämpas på både **noderna Huvud** och **Worker.**
+* Skripten måste användas både för **huvudnoderna** och **arbetsnoderna**.
 
-* Burkarna som du vill installera måste lagras i Azure Blob Storage i en **enda behållare**.
+* Jar v7 som du vill installera måste lagras i Azure Blob Storage i en **enda behållare**.
 
-* Lagringskontot som innehåller biblioteket med jar-filer **måste** vara länkat till HDInsight-klustret när det skapas. Det måste antingen vara standardlagringskontot eller ett konto som läggs till via __Lagringskontoinställningar__.
+* Lagrings kontot som innehåller biblioteket för JAR-filer **måste** länkas till HDInsight-klustret när det skapas. Det måste antingen vara ett standard lagrings konto eller ett konto som läggs till via __inställningarna för lagrings kontot__.
 
-* WASB-sökvägen till behållaren måste anges som en parameter till skriptåtgärden. Om burkarna till exempel lagras i en behållare med namnet libs på ett `wasbs://libs@mystorage.blob.core.windows.net/` **lagringskonto** med namnet **mystorage,** skulle parametern vara .
+* WASB-sökvägen till behållaren måste anges som en parameter för skript åtgärden. Om t. ex. jar v7 lagras i en behållare med namnet **libs** på ett lagrings konto med namnet **unstorage**, skulle parametern `wasbs://libs@mystorage.blob.core.windows.net/`vara.
 
   > [!NOTE]  
-  > Det här dokumentet förutsätter att du redan har skapat ett lagringskonto, blob-behållare och överfört filerna till det.
+  > Det här dokumentet förutsätter att du redan har skapat ett lagrings konto, en BLOB-behållare och överfört filerna till det.
   >
-  > Om du inte har skapat ett lagringskonto kan du göra det via [Azure-portalen](https://portal.azure.com). Du kan sedan använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/) för att skapa en behållare i kontot och överföra filer till det.
+  > Om du inte har skapat ett lagrings konto kan du göra det via [Azure Portal](https://portal.azure.com). Du kan sedan använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/) för att skapa en behållare i kontot och ladda upp filer till den.
 
-## <a name="create-a-cluster-using-the-script"></a>Skapa ett kluster med skriptet
+## <a name="create-a-cluster-using-the-script"></a>Skapa ett kluster med hjälp av skriptet
 
-1. Börja etablera ett kluster med hjälp av stegen i [Etablera HDInsight-kluster på Linux](hdinsight-hadoop-provision-linux-clusters.md), men slutför inte etableringen. Du kan också använda Azure PowerShell eller HDInsight .NET SDK för att skapa ett kluster med det här skriptet. Mer information om hur du använder dessa metoder finns i [Anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md). Välj åtgärden + Lägg till skript på fliken **Konfiguration + prissättning** för **Azure-portalen**.
+1. Starta etableringen av ett kluster med hjälp av stegen i [Etablera HDInsight-kluster på Linux](hdinsight-hadoop-provision-linux-clusters.md), men Slutför inte etablering. Du kan också använda Azure PowerShell eller HDInsight .NET SDK för att skapa ett kluster med det här skriptet. Mer information om hur du använder dessa metoder finns i [Anpassa HDInsight-kluster med skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md). För Azure Portal, på fliken **konfiguration + prissättning** , väljer du **åtgärden + Lägg till skript**.
 
-1. Om **Storage**lagringskontot som innehåller biblioteket med jar-filer skiljer sig från det konto som används för klustret slutför du **Ytterligare lagringskonton**.
+1. För **lagring**, om lagrings kontot som innehåller biblioteket för JAR-filer skiljer sig från det konto som används för klustret, slutför du **ytterligare lagrings konton**.
 
-1. För **skriptåtgärder**anger du följande information:
+1. Ange följande information för **skript åtgärder**:
 
     |Egenskap |Värde |
     |---|---|
-    |Skripttyp|- Anpassad|
-    |Namn|Bibliotek |
-    |Bash skript URI|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
-    |Nodtyper|Chef, Arbetare|
-    |Parametrar|Ange WASB-adressen till behållar- och lagringskontot som innehåller burkarna. Till exempel `wasbs://libs@mystorage.blob.core.windows.net/`.|
+    |Skript typ|– Anpassad|
+    |Name|Bibliotek |
+    |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
+    |Node-typ (er)|Head, Worker|
+    |Parametrar|Ange WASB-adressen till den behållare och det lagrings konto som innehåller jar v7. Till exempel `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
     > [!NOTE]
-    > För Apache Spark 2.1, använd detta `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`bash script URI: .
+    > Använd den här bash-skript-URI: n `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`för Apache Spark 2,1:.
 
-1. Fortsätt att etablera klustret enligt beskrivningen i [Provision HDInsight-kluster på Linux](hdinsight-hadoop-provision-linux-clusters.md).
+1. Fortsätt att etablera klustret enligt beskrivningen i [Etablera HDInsight-kluster i Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-När klusterskapandet är klart kan du använda burkarna som lagts till genom `ADD JAR` skriptet från Hive utan att behöva använda satsen.
+När klustret har skapats kan du använda jar v7 som lagts till via det här skriptet från Hive utan att behöva använda `ADD JAR` instruktionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du arbetar med Hive finns i [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
+Mer information om hur du arbetar med Hive finns i [använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)

@@ -1,6 +1,6 @@
 ---
-title: Slutpunktstyper för Trafikhanteraren | Microsoft-dokument
-description: I den här artikeln beskrivs olika typer av slutpunkter som kan användas med Azure Traffic Manager
+title: Traffic Manager slut punkts typer | Microsoft Docs
+description: I den här artikeln beskrivs olika typer av slut punkter som kan användas med Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
 ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250938"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-slutpunkter
 
-Med Microsoft Azure Traffic Manager kan du styra hur nätverkstrafik distribueras till programdistributioner som körs i olika datacenter. Du konfigurerar varje programdistribution som en ”slutpunkt” i Traffic Manager. När Traffic Manager tar emot en DNS-begäran väljer den en tillgänglig slutpunkt att returnera i DNS-svaret. Traffic Manager baserar valet på den aktuella slutpunktsstatusen och trafikroutningsmetoden. Mer information finns i [Så här fungerar Traffic Manager](traffic-manager-how-it-works.md).
+Med Microsoft Azure Traffic Manager kan du styra hur nätverks trafiken distribueras till program distributioner som körs i olika data Center. Du konfigurerar varje programdistribution som en ”slutpunkt” i Traffic Manager. När Traffic Manager tar emot en DNS-begäran väljer den en tillgänglig slutpunkt att returnera i DNS-svaret. Traffic Manager baserar valet för aktuell slut punkts status och Traffic routing-metoden. Mer information finns i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
 
 Det finns tre typer av slutpunkter som stöds av Traffic Manager:
 
@@ -31,80 +31,80 @@ Det finns tre typer av slutpunkter som stöds av Traffic Manager:
 
 Det finns ingen begränsning för hur slutpunkter av olika typer kombineras i en och samma Traffic Manager-profil. Varje profil kan innehålla valfri blandning av slutpunktstyper.
 
-I följande avsnitt beskrivs varje slutpunktstyp på större djup.
+I följande avsnitt beskrivs varje typ av slut punkt i större djup.
 
-## <a name="azure-endpoints"></a>Slutpunkter i Azure
+## <a name="azure-endpoints"></a>Azure-slutpunkter
 
-Azure-slutpunkter används för Azure-baserade tjänster i Traffic Manager. Följande Azure-resurstyper stöds:
+Azure-slutpunkter används för Azure-baserade tjänster i Traffic Manager. Följande Azure-resurs typer stöds:
 
-* PaaS molntjänster.
+* PaaS Cloud Services.
 * Web Apps
-* Platser för webbapp
-* PublicIPAdress-resurser (som kan anslutas till virtuella datorer antingen direkt eller via en Azure Load Balancer). Den offentliga Åklagaren måste ha ett DNS-namn tilldelat för att kunna användas i en Traffic Manager-profil.
+* Web App-platser
+* PublicIPAddress-resurser (som kan anslutas till virtuella datorer antingen direkt eller via en Azure Load Balancer). PublicIpAddress måste ha ett DNS-namn tilldelat för att kunna användas i en Traffic Manager-profil.
 
-PublicIPAddress-resurser är Azure Resource Manager-resurser. De finns inte i den klassiska distributionsmodellen. På så sätt stöds de bara i Traffic Manager Azure Resource Manager-upplevelser. De andra slutpunktstyperna stöds via både Resource Manager och den klassiska distributionsmodellen.
+PublicIPAddress-resurser är Azure Resource Manager resurser. De finns inte i den klassiska distributions modellen. De stöds därför bara i Traffic Manager Azure Resource Manager upplevelser. Andra slut punkts typer stöds via både Resource Manager och den klassiska distributions modellen.
 
-När du använder Azure-slutpunkter identifierar Traffic Manager när en webbapp stoppas och startas. Den här statusen återspeglas i slutpunktsstatusen. Mer information finns i [Slutpunktsövervakning](traffic-manager-monitoring.md#endpoint-and-profile-status) i Traffic Manager. När den underliggande tjänsten stoppas utför Traffic Manager inte hälsokontroller av slutpunkter eller dirigerar trafik till slutpunkten. Inga Traffic Manager-faktureringshändelser inträffar för den stoppade instansen. När tjänsten startas om återupptas faktureringen och slutpunkten kan ta emot trafik. Den här identifieringen gäller inte för PublicIpAddress-slutpunkter.
+När du använder Azure-slutpunkter identifierar Traffic Manager när en webbapp stoppas och startas. Status visas i slut punkts status. Mer information finns i [Traffic Manager slut punkts övervakning](traffic-manager-monitoring.md#endpoint-and-profile-status) . När den underliggande tjänsten stoppas utför Traffic Manager inte slut punkts hälso kontroller eller dirigera trafik till slut punkten. Inga Traffic Manager fakturerings händelser inträffar för den stoppade instansen. När tjänsten startas om fortsätter faktureringen och slut punkten är tillgänglig för att ta emot trafik. Den här identifieringen gäller inte för PublicIpAddress-slutpunkter.
 
-## <a name="external-endpoints"></a>Externa slutpunkter
+## <a name="external-endpoints"></a>Externa slut punkter
 
-Externa slutpunkter används för antingen IPv4/IPv6-adresser, FQDN:er eller för tjänster utanför Azure. Med hjälp av IPv4/IPv6-adressslutpunkter kan trafikhanteraren kontrollera slutpunkternas hälsa utan att kräva ett DNS-namn för dem. Därför kan Traffic Manager svara på frågor med A/AAAA-poster när slutpunkten returneras i ett svar. Tjänster utanför Azure kan innehålla en tjänst som finns lokalt eller med en annan leverantör. Externa slutpunkter kan användas individuellt eller kombineras med Azure-slutpunkter i samma Traffic Manager-profil förutom slutpunkter som anges som IPv4- eller IPv6-adresser som bara kan vara externa slutpunkter. Genom att kombinera Azure-slutpunkter med externa slutpunkter kan olika scenarier:
+Externa slut punkter används antingen för IPv4/IPv6-adresser, FQDN eller för tjänster utanför Azure. Med hjälp av IPv4/IPv6-adress slut punkter kan Traffic Manager kontrol lera hälso tillståndet för slut punkter utan att ett DNS-namn krävs för dem. Det innebär att Traffic Manager kan svara på frågor med A/AAAA-poster när den returnerar slut punkten i ett svar. Tjänster utanför Azure kan inkludera en tjänst som finns lokalt eller med en annan provider. Externa slut punkter kan användas individuellt eller kombineras med Azure-slutpunkter i samma Traffic Manager profil, förutom för slut punkter som anges som IPv4-eller IPv6-adresser som bara kan vara externa slut punkter. Genom att kombinera Azure-slutpunkter med externa slut punkter kan du använda olika scenarier:
 
-* Ge ökad redundans för ett befintligt lokalt program i antingen en aktiv eller aktiv-passiv redundansmodell med Azure. 
-* Dirigera trafik till slutpunkter som inte har ett DNS-namn kopplat till dem. Dessutom minskar du den totala DNS-svarstiden genom att ta bort behovet av att köra en andra DNS-fråga för att få en IP-adress för ett DNS-namn returnerat.
-* Minska programfördröjningen för användare runt om i världen, utöka ett befintligt lokalt program till ytterligare geografiska platser i Azure. Mer information finns i [Traffic Manager 'Prestanda-trafikroutning](traffic-manager-routing-methods.md#performance).
-* Ge ytterligare kapacitet för ett befintligt lokalt program, antingen kontinuerligt eller som en burst-to-cloud-lösning för att möta en ökning av efterfrågan med Azure.
+* Ge ökad redundans för ett befintligt lokalt program i antingen en aktiv-aktiv eller aktiv-passiv växlings modell med hjälp av Azure. 
+* Dirigera trafik till slut punkter som inte har ett DNS-namn som är associerat med dem. Minska dessutom den övergripande svars tiden för DNS-sökning genom att ta bort behovet av att köra en andra DNS-fråga för att hämta en IP-adress till ett DNS-namn som returneras.
+* Minska program svars tiden för användare runtom i världen, utöka ett befintligt lokalt program till ytterligare geografiska platser i Azure. Mer information finns i [Traffic Manager "prestanda" i trafik flödet](traffic-manager-routing-methods.md#performance).
+* Ge ytterligare kapacitet för ett befintligt lokalt program, antingen kontinuerligt eller som en "burst-till-moln"-lösning för att möta en insamling i efter frågan med hjälp av Azure.
 
-I vissa fall är det användbart att använda externa slutpunkter för att referera till Azure-tjänster (för exempel, se [vanliga frågor och svar](traffic-manager-faqs.md#traffic-manager-endpoints)). I det här fallet faktureras hälsokontroller med Azure-slutpunkter, inte hastigheten för externa slutpunkter. Till skillnad från Azure-slutpunkter, om du stoppar eller tar bort den underliggande tjänsten, fortsätter hälsokontrollfaktureringen tills du inaktiverar eller tar bort slutpunkten i Traffic Manager.
+I vissa fall är det bra att använda externa slut punkter för att referera till Azure-tjänster (exempel finns i [vanliga frågor och svar](traffic-manager-faqs.md#traffic-manager-endpoints)). I det här fallet debiteras hälso kontroller enligt priset för Azure-slutpunkter, inte för de externa slut punkterna. Men till skillnad från Azure-slutpunkter, om du stoppar eller tar bort den underliggande tjänsten fortsätter hälso kontrollen att fakturera tills du inaktiverar eller tar bort slut punkten i Traffic Manager.
 
-## <a name="nested-endpoints"></a>Kapslade slutpunkter
+## <a name="nested-endpoints"></a>Kapslade slut punkter
 
-Kapslade slutpunkter kombinerar flera Traffic Manager-profiler för att skapa flexibla trafikroutningsscheman och stöder behoven hos större, komplexa distributioner. Med kapslade slutpunkter läggs en "underordnad" profil till som en slutpunkt i en överordnad profil. Både de underordnade och överordnade profilerna kan innehålla andra slutpunkter av alla typer, inklusive andra kapslade profiler. Mer information finns i [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
+Kapslade slut punkter kombinerar flera Traffic Manager profiler för att skapa flexibla scheman för trafik dragning och stödja behoven hos större, komplexa distributioner. Med kapslade slut punkter läggs en "underordnad" profil till som en slut punkt till en överordnad profil. Både underordnade och överordnade profiler kan innehålla andra slut punkter av valfri typ, inklusive andra kapslade profiler. Mer information finns i [kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md).
 
-## <a name="web-apps-as-endpoints"></a>Web Apps som slutpunkter
+## <a name="web-apps-as-endpoints"></a>Web Apps som slut punkter
 
-Några ytterligare överväganden gäller när du konfigurerar Webbappar som slutpunkter i Traffic Manager:
+Vissa ytterligare överväganden gäller när du konfigurerar Web Apps som slut punkter i Traffic Manager:
 
-1. Endast Web Apps på Standard SKU eller högre är berättigade att användas med Traffic Manager. Försök att lägga till en webbapp med en lägre SKU misslyckas. Nedgradering av SKU för en befintlig webbapp resulterar i Traffic Manager inte längre skicka trafik till den Web App. Mer information om planer som stöds finns i [App Service Plans](https://azure.microsoft.com/pricing/details/app-service/plans/)
-2. När en slutpunkt tar emot en HTTP-begäran används värdhuvudet i begäran för att avgöra vilken Webbapp som ska serva begäran. Värdhuvudet innehåller DET DNS-namn som används för att initiera begäran, till exempel "contosoapp.azurewebsites.net". Om du vill använda ett annat DNS-namn med din webbapp måste DNS-namnet registreras som ett anpassat domännamn för Appen. När du lägger till en Web App-slutpunkt som en Azure-slutpunkt registreras TRAFFIC Manager-profilens DNS-namn automatiskt för appen. Den här registreringen tas automatiskt bort när slutpunkten tas bort.
-3. Varje Traffic Manager-profil kan ha högst en Web App-slutpunkt från varje Azure-region. Om du vill ta dig runt för det här villkoret kan du konfigurera en webbapp som en extern slutpunkt. Mer information finns i [vanliga frågor](traffic-manager-faqs.md#traffic-manager-endpoints)och svar .
+1. Endast Web Apps på SKU: n (standard) eller senare är berättigade att användas med Traffic Manager. Försök att lägga till en webbapp med en lägre SKU Miss lyckas. Att nedgradera SKU för en befintlig webbapp resulterar i Traffic Manager inte längre skickar trafik till webbappen. Mer information om de planer som stöds finns i [app Services planer](https://azure.microsoft.com/pricing/details/app-service/plans/)
+2. När en slut punkt tar emot en HTTP-begäran använder den "Host"-huvudet i begäran för att avgöra vilken webbapp som ska betjäna begäran. Värd huvudet innehåller det DNS-namn som används för att initiera begäran, till exempel "contosoapp.azurewebsites.net". Om du vill använda ett annat DNS-namn med din webbapp måste DNS-namnet registreras som ett anpassat domän namn för appen. När du lägger till en Web App-slutpunkt som en Azure-slutpunkt registreras DNS-namnet för Traffic Managers profilen automatiskt för appen. Registreringen tas bort automatiskt när slut punkten tas bort.
+3. Varje Traffic Manager profil får ha högst en webbapp från varje Azure-region. För att kringgå den här begränsningen kan du konfigurera en webbapp som en extern slut punkt. Mer information finns i [vanliga frågor och svar](traffic-manager-faqs.md#traffic-manager-endpoints).
 
-## <a name="enabling-and-disabling-endpoints"></a>Aktivera och inaktivera slutpunkter
+## <a name="enabling-and-disabling-endpoints"></a>Aktivera och inaktivera slut punkter
 
-Det kan vara användbart att inaktivera en slutpunkt i Traffic Manager om du tillfälligt vill ta bort trafik från en slutpunkt som är i underhållsläge eller som distribueras om. När slutpunkten körs igen kan den återaktiveras.
+Att inaktivera en slut punkt i Traffic Manager kan vara användbart för att tillfälligt ta bort trafik från en slut punkt som är i underhålls läge eller som omdistribueras. När slut punkten körs igen kan den aktive ras igen.
 
-Slutpunkter kan aktiveras och inaktiveras via Traffic Manager-portalen, PowerShell, CLI eller REST API.
-
-> [!NOTE]
-> Inaktivera en Azure-slutpunkt har ingenting att göra med dess distributionstillstånd i Azure. En Azure-tjänst (till exempel en virtuell dator eller en webbapp körs och kan ta emot trafik även när den är inaktiverad i Traffic Manager. Trafiken kan adresseras direkt till tjänstinstansen i stället för via Traffic Manager-profilens DNS-namn. Mer information finns i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
-
-Den aktuella berättigandet för varje slutpunkt för att ta emot trafik beror på följande faktorer:
-
-* Profilstatus (aktiverad/inaktiverad)
-* Slutpunktsstatus (aktiverad/inaktiverad)
-* Resultaten av hälsokontrollerna för den slutpunkten
-
-Mer information finns i [Traffic Manager-slutpunktsövervakning](traffic-manager-monitoring.md#endpoint-and-profile-status).
+Slut punkter kan aktive ras och inaktive ras via Traffic Manager Portal, PowerShell, CLI eller REST API.
 
 > [!NOTE]
-> Eftersom Traffic Manager fungerar på DNS-nivå kan den inte påverka befintliga anslutningar till någon slutpunkt. När en slutpunkt inte är tillgänglig dirigerar Traffic Manager nya anslutningar till en annan tillgänglig slutpunkt. Värden bakom den inaktiverade eller felaktiga slutpunkten kan dock fortsätta att ta emot trafik via befintliga anslutningar tills dessa sessioner avslutas. Program bör begränsa sessionens varaktighet så att trafiken kan tömmas från befintliga anslutningar.
+> Att inaktivera en Azure-slutpunkt har inget att göra med distributions statusen i Azure. En Azure-tjänst (till exempel en virtuell dator eller webbapp körs och kan ta emot trafik även om den är inaktive rad i Traffic Manager. Trafiken kan åtgärdas direkt till tjänst instansen i stället för via Traffic Manager profilens DNS-namn. Mer information finns i [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
 
-Om alla slutpunkter i en profil är inaktiverade, eller om själva profilen är inaktiverad, skickar Traffic Manager ett NXDOMAIN-svar till en ny DNS-fråga.
+Den aktuella behörigheten för varje slut punkt för att ta emot trafik beror på följande faktorer:
+
+* Profil status (aktive rad/inaktive rad)
+* Slut punkts status (aktive rad/inaktive rad)
+* Resultatet av hälso kontrollerna för den slut punkten
+
+Mer information finns i [Traffic Manager slut punkts övervakning](traffic-manager-monitoring.md#endpoint-and-profile-status).
+
+> [!NOTE]
+> Eftersom Traffic Manager fungerar på DNS-nivå, kan det inte påverka befintliga anslutningar till någon slut punkt. När en slut punkt inte är tillgänglig dirigerar Traffic Manager nya anslutningar till en annan tillgänglig slut punkt. Värden bakom den inaktiverade eller felaktiga slut punkten kan dock fortsätta att ta emot trafik via befintliga anslutningar tills dessa sessioner avslutas. Program bör begränsa sessionens varaktighet så att trafik kan tömmas från befintliga anslutningar.
+
+Om alla slut punkter i en profil är inaktiverade eller om själva profilen är inaktive rad skickar Traffic Manager ett "NXDOMAIN"-svar till en ny DNS-fråga.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
-* [Kan jag använda Traffic Manager med slutpunkter från flera prenumerationer?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+* [Kan jag använda Traffic Manager med slut punkter från flera prenumerationer?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 
-* [Kan jag använda Traffic Manager med Cloud Service 'Staging'-platser?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+* [Kan jag använda Traffic Manager med moln tjänstens mellanlagrings platser?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
 
 * [Stöder Traffic Manager IPv6-slutpunkter?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
 
 * [Kan jag använda Traffic Manager med mer än en webbapp i samma region?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [Hur flyttar jag min Traffic Manager-profils Azure-slutpunkter till en annan resursgrupp?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
+* [Hur gör jag för att flytta min Traffic Managers profils Azure-slutpunkter till en annan resurs grupp?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
-* Läs mer om [slutpunktsövervakning och automatisk redundanskontroll](traffic-manager-monitoring.md)i Traffic Manager .
-* Läs mer om [trafikstyrningsmetoder i](traffic-manager-routing-methods.md)Traffic Manager .
+* Lär dig [hur Traffic Manager fungerar](traffic-manager-how-it-works.md).
+* Lär dig mer om Traffic Manager [slut punkts övervakning och automatisk redundans](traffic-manager-monitoring.md).
+* Lär dig mer om att Traffic Manager [metoder för trafik cirkulation](traffic-manager-routing-methods.md).

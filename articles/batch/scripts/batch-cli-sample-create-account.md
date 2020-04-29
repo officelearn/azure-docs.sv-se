@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Exempel - Skapa batch-konto - Batch-tjänst
+title: Exempel på Azure CLI-skript – skapa batch-konto – batch-tjänst
 description: Det här skriptet skapar ett Azure Batch-konto i Batch-tjänstläget och visar hur du ställer frågor eller uppdaterar olika egenskaper för kontot.
 services: batch
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: labrenne
 ms.openlocfilehash: 2a11e3d7b8ba2b9f4a0d0d373367575a779eebc4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77017096"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI-exempel: Skapa ett Batch-konto i Batch-tjänstläge
@@ -45,7 +45,7 @@ az group delete --name myResourceGroup
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Skapar Batch-kontot. |

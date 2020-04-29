@@ -1,14 +1,14 @@
 ---
-title: Serverlösa behållare i Azure
+title: Server lös behållare i Azure
 description: Tjänsten Azure Container Instances är det snabbaste och enklaste sättet att köra isolerade behållare i Azure, utan att behöva hantera virtuella datorer och utan att behöva använda en initierare på högre nivå.
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79240256"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
@@ -23,12 +23,12 @@ Med containrar får du betydande startfördelar jämfört med virtuella datorer.
 
 ## <a name="container-access"></a>Åtkomst till behållare
 
-Azure Container Instances gör det möjligt att exponera dina behållargrupper direkt till internet med en IP-adress och ett fullständigt kvalificerat domännamn (FQDN). När du skapar en behållarinstans kan du ange en anpassad DNS-namnsetikett, så att programmet kan nås på *customlabel*.* azureregion*. azurecontainer.io.
+Azure Container Instances möjliggör exponera dina behållar grupper direkt till Internet med en IP-adress och ett fullständigt kvalificerat domän namn (FQDN). När du skapar en behållarinstans kan du ange en anpassad DNS-namnsetikett, så att programmet kan nås på *customlabel*.* azureregion*. azurecontainer.io.
 
-Azure Container Instances stöder också körning av ett kommando i en behållare som körs genom att tillhandahålla ett interaktivt skal för att hjälpa till med programutveckling och felsökning. Åtkomst tar plats över HTTPS med TLS för att skydda klientanslutningar.
+Azure Container Instances också stöd för att köra ett kommando i en behållare som körs genom att tillhandahålla ett interaktivt gränssnitt som hjälper dig med program utveckling och fel sökning. Åtkomsten tar platser över HTTPS och använder TLS för att skydda klient anslutningar.
 
 > [!IMPORTANT]
-> Från och med den 13 januari 2020 kräver Azure Container Instances alla säkra anslutningar från servrar och program för att använda TLS 1.2. Stöd för TLS 1.0 och 1.1 kommer att dras tillbaka.
+> Från och med 13 januari 2020 kräver Azure Container Instances alla säkra anslutningar från servrar och program för att använda TLS 1,2. Stöd för TLS 1,0 och 1,1 kommer att dras tillbaka.
 
 ## <a name="hypervisor-level-security"></a>Säkerhet på hypervisornivå
 
@@ -43,7 +43,7 @@ För beräkningsintensiva jobb, till exempel maskininlärning, kan Azure Contain
 
 ## <a name="persistent-storage"></a>Beständig lagring
 
-Om du vill hämta och bevara tillstånd med Azure Container Instances erbjuder vi direkt [montering av Azure Files-resurser som](container-instances-mounting-azure-files-volume.md) backas upp av Azure Storage.
+För att hämta och bevara tillstånd med Azure Container Instances erbjuder vi direkt [montering av Azure Filess resurser](container-instances-mounting-azure-files-volume.md) som stöds av Azure Storage.
 
 ## <a name="linux-and-windows-containers"></a>Linux- och Windows-containrar
 
@@ -52,23 +52,23 @@ Azure Container Instances kan schemalägga både Windows- och Linux-behållare m
 Vissa funktioner är för närvarande begränsade till Linux-behållare:
 
 * Flera containrar per containergrupp
-* Volymmontering ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
-* [Mätvärden för resursanvändning](container-instances-monitor.md) med Azure Monitor
-* [Distribution av virtuella nätverk](container-instances-vnet.md)
-* [GPU-resurser](container-instances-gpu.md) (förhandsgranskning)
+* Volym montering ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [Secret](container-instances-volume-secret.md))
+* [Användnings statistik för resursanvändningen](container-instances-monitor.md) med Azure Monitor
+* [Distribution av virtuellt nätverk](container-instances-vnet.md)
+* [GPU-resurser](container-instances-gpu.md) (förhands granskning)
 
-Använd avbildningar baserade på vanliga [Windows-basavbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported)för Windows-behållardistributioner.
+För distributioner av Windows-behållare använder du avbildningar baserade på vanliga [Windows Base-avbildningar](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 > [!NOTE]
-> Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är i förhandsversion.
+> Användning av Windows Server 2019-baserade avbildningar i Azure Container Instances är en för hands version.
 
 ## <a name="co-scheduled-groups"></a>Samordna schemalagda grupper
 
 Azure Container Instances stöder schemaläggning av [grupper med flera behållare](container-instances-container-groups.md) som delar en värddator, lokalt nätverk, lagring och livscykel. Det gör att du kan kombinera din huvudprogramcontainer med andra stödrollscontainrar, t.ex. sidecar-filer för loggning.
 
-## <a name="virtual-network-deployment"></a>Distribution av virtuella nätverk
+## <a name="virtual-network-deployment"></a>Distribution av virtuellt nätverk
 
-Den här funktionen i Azure Container Instances är tillgänglig för produktionsarbetsbelastningar i en delmängd av Azure-regioner och möjliggör [distribution av behållarinstanser till ett virtuellt Azure-nätverk](container-instances-vnet.md). Genom att distribuera containerinstanser till ett undernät i ditt virtuella nätverk kan de kommunicera säkert med andra resurser i det virtuella nätverket, inklusive sådana som finns lokalt (via [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
+Den här funktionen i Azure Container Instances aktiverar [distribution av behållar instanser i ett virtuellt Azure-nätverk](container-instances-vnet.md)för produktions arbets belastningar i en delmängd av Azure-regioner. Genom att distribuera containerinstanser till ett undernät i ditt virtuella nätverk kan de kommunicera säkert med andra resurser i det virtuella nätverket, inklusive sådana som finns lokalt (via [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 05/30/2017
 ms.author: iainfou
 ms.openlocfilehash: b01d8d58da5a25ca9aa3d1ac16f10495fde8fc2b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76270548"
 ---
 # <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(INAKTUELL) Skapa ett Azure Container Service DC/OS-kluster
@@ -51,7 +51,7 @@ az group delete --name myResourceGroup
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Skapar ett ACS-kluster. |

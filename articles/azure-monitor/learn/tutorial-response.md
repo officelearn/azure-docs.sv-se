@@ -8,16 +8,16 @@ ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
 ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77670380"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Svara på händelser med Azure Monitor-aviseringar
 Med aviseringar i Azure Monitor kan du identifiera viktig information på Log Analytics-lagringsplatsen. De skapas från varningsregler som automatiskt kör regelbundna loggsökningar. Om resultatet från loggsökningen matchar särskilda kriterier, skapas en aviseringspost som kan konfigureras till en automatisk åtgärd.  Den här självstudien är en fortsättning på självstudien [Skapa och dela instrumentpaneler med Log Analytics-data](tutorial-logs-dashboards.md).   
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en varningsregel
@@ -26,7 +26,7 @@ I den här självstudiekursen får du lära du dig att:
 Du måste ha en befintlig virtuell dator [som är ansluten till Log Analytics-arbetsytan](../../azure-monitor/learn/quick-collect-azurevm.md) för att kunna utföra exemplet i självstudien.  
 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com). 
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-alerts"></a>Skapa aviseringar
 Aviseringar skapas av aviseringsregler i Azure Monitor och kan automatiskt köra sparade frågor eller anpassade loggsökningar med jämna mellanrum.  Du kan skapa aviseringar baserat på specifika prestandamått, när vissa händelser skapas, om en händelse saknas, eller om flera händelser skapas inom ett visst tidsintervall.  Aviseringar kan exempelvis användas för att meddela dig när den genomsnittliga CPU-användningen överskrider ett visst tröskelvärde, när en saknad uppdatering eller när en händelse genereras när det upptäckts att en specifik Windows-tjänst eller Linux-daemon inte körs.  Om resultatet av loggsökningen matchar särskilda villkor, skapas en avisering. Regeln kan sedan automatiskt köra en eller flera åtgärder, som att t.ex. meddela dig om aviseringen eller anropa en annan process. 
@@ -38,7 +38,7 @@ I följande exempel skapar du ett måttaviseringsregel som baseras på frågan *
 3. I det första steget ska du välja din Log Analytics-arbetsyta som resurs i avsnittet **Skapa avisering** eftersom detta är en loggbaserad aviseringssignal.  Filtrera resultaten genom att välja en specifik **prenumeration** från den nedrullningsbara listan, om du har mer än en prenumeration, som innehåller den virtuella datorn och Log Analytics-arbetsytan som du skapade tidigare.  Filtrera **resurstypen** genom att välja **Log Analytics** i den nedrullningsbara listan.  Välj slutligen **resursen** **DefaultLAWorkspace** och klicka spå **Klar**.<br><br> ![Skapa en aviseringssteg 1-uppgift](./media/tutorial-response/alert-rule-03.png)<br>
 4. Välj din sparade fråga genom att klicka på **Lägg till villkor** i avsnittet **Aviseringskriterier** och ange sedan den logik som aviseringsregeln följer.  Välj *Virtuella datorer i Azure – processoranvändning* från listan i rutan **Konfigurera signallogik** .  Fönstret uppdateras och visar aviseringens konfigurationsinställningar.  Högst upp visas resultaten för den valda signalens senaste 30 minuter och själva sökfrågan.  
 5. Konfigurera aviseringen med följande information:  
-   a. Välj **Måttmätning**i listrutan **Baserat på** .  Ett metriskt mått skapar en avisering för varje objekt i frågan med ett värde som överstiger det angivna tröskelvärdet.  
+   a. Välj **mått mått**i list rutan **baserad på** .  Ett metriskt mått skapar en avisering för varje objekt i frågan med ett värde som överstiger det angivna tröskelvärdet.  
    b. Välj **Större än** som **Villkor** och ange **90** som **Tröskelvärde**.  
    c. Välj **Efterföljande överträdelser** i avsnittet Utlös avisering baserat på och välj **Större än** i listrutan och ange värdet 3.  
    d. Under Utvärdering, baserat på avsnittet, ändrar du värdet **Period** till **30** minuter. Regeln körs var femte minut och returnera poster som har skapats i det här intervallet under de senaste 30 minuterna.  Om tidsperioden ställs in på ett bredare fönster tas risken för datafördröjning med i beräkningen, och det ser till att frågan returnerar data för att undvika ett falskt negativt svar där aviseringen aldrig utlöses.  

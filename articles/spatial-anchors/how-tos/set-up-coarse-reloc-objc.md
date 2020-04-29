@@ -1,6 +1,6 @@
 ---
-title: Grov omlokalisering i Objective-C
-description: Djupgående förklaring av hur man skapar och lokaliserar ankare med grov omlokalisering i Objective-C.
+title: Grov omlokalisering i mål-C
+description: Djupgående förklaring av hur du skapar och hittar ankare med grov omlokalisering i mål-C.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -9,32 +9,32 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 251f0d8609921bd1d0222d9e30c537ecbb2a04bd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76548279"
 ---
-# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-objective-c"></a>Så här skapar och lokaliserar du ankare med grov omlokalisering i Objective-C
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-objective-c"></a>Skapa och hitta ankare med grov omlokalisering i mål-C
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
 > * [Swift](set-up-coarse-reloc-swift.md)
 > * [Android Java](set-up-coarse-reloc-java.md)
-> * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)
+> * [C++-/NDK](set-up-coarse-reloc-cpp-ndk.md)
 > * [C++/WinRT](set-up-coarse-reloc-cpp-winrt.md)
 
-Azure Spatial Anchors kan associera på enheten, positionering sensordata med ankare du skapar. Dessa data kan också användas för att snabbt avgöra om det finns några ankare i närheten av enheten. Mer information finns i [Grov omlokalisering](../concepts/coarse-reloc.md).
+Molnbaserade ankare kan associeras på enheten, placera sensor data med de ankare som du skapar. Den här informationen kan också användas för att snabbt avgöra om det finns några fäst punkter i närheten av enheten. Mer information finns i [grov omlokalisering](../concepts/coarse-reloc.md).
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här guiden, se till att du har:
+Se till att du har följande för att slutföra den här guiden:
 
-- Grundläggande kunskaper i mål C.
-- Läs igenom [översikten Azure Spatial Anchors](../overview.md).
-- Avslutade en av de [5-minuters snabbstarter](../index.yml).
-- Läs igenom hur du [hittar och lokalisera ankare](../create-locate-anchors-overview.md).
+- Grundläggande kunskaper om mål-C.
+- Läs igenom [översikten över Azures spatiala ankare](../overview.md).
+- Slutfört ett av [snabb starterna på fem minuter](../index.yml).
+- Läs igenom [instruktionen skapa och hitta ankare](../create-locate-anchors-overview.md).
 
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-provider.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - CI/CD till Virtuella Azure-datorer med Azure Pipelines
-description: I den här självstudien får du lära dig hur du konfigurerar kontinuerlig integrering (CI) och kontinuerlig distribution (CD) av en Node.js-app till Virtuella Azure-datorer med YAML-baserad Azure-pipeline.
+title: Självstudie – CI/CD till virtuella Azure-datorer med Azure-pipelines
+description: I den här självstudien får du lära dig att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) för en Node. js-app till virtuella Azure-datorer med YAML-baserad Azure-pipeline.
 author: ushan
 tags: azure-devops-pipelines
 ms.assetid: ''
@@ -12,32 +12,32 @@ ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76988336"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Självstudiekurs: Distribuera din app till virtuella Linux-datorer i Azure med Azure DevOps Services och Azure Pipelines
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Självstudie: distribuera din app till virtuella Linux-datorer i Azure med Azure DevOps Services och Azure-pipelines
 
-Kontinuerlig integrering (CI) och kontinuerlig distribution (CD) utgör en pipeline genom vilken du kan skapa, släppa och distribuera din kod efter varje kodkonset. Det här dokumentet innehåller de steg som är associerade med att konfigurera en CI/CD-pipeline för att utföra distributioner med flera datorer med Azure Pipelines.
+Kontinuerlig integrering (CI) och kontinuerlig distribution (CD) utgör en pipeline som du kan använda för att bygga, lansera och distribuera din kod efter varje kod genomförande. Det här dokumentet innehåller de steg som är kopplade till att konfigurera en CI/CD-pipeline för att utföra distributioner på flera datorer med hjälp av Azure-pipelines.
 
-Azure Pipelines tillhandahåller en komplett, komplett uppsättning CI/CD-automatiseringsverktyg för distributioner till virtuella datorer, både på prem eller i alla moln.
+Azure-pipeliner innehåller en komplett uppsättning CI/CD Automation-verktyg för distributioner till virtuella datorer, både på lokal eller i alla moln.
 
-I den här självstudien ställer du in en YAML-baserad CI/CD-pipeline för att distribuera din app till en Azure [Pipelines-miljö](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) med Virtuella Linux-datorer som resurser, som var och en fungerar som webbservrar för att köra appen.
+I den här självstudien ställer du in en YAML-baserad CI/CD-pipeline för att distribuera din app till en Azure pipeline- [miljö](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) med virtuella Linux-datorer som resurser, som var och en fungerar som webb servrar för att köra appen.
 
 Lär dig att:
 
 > [!div class="checklist"]
-> * Skaffa en exempelapp.
-> * Skapa en YAML-baserad Azure Pipelines CI-pipeline för att skapa exempelappen.
-> * Skapa en Azure Pipelines-miljö för virtuella Azure-datorer
-> * Skapa en Azure Pipelines CD-pipeline.
+> * Hämta en exempel App.
+> * Skapa en YAML-baserad Azure pipelines CI-pipeline för att skapa exempel appen.
+> * Skapa en Azure pipeline-miljö för Azure Virtual Machines
+> * Skapa en Azure pipelines CD-pipeline.
 > * Kör manuella och CI-utlösta distributioner.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Logga in på din Azure DevOps Services-organisation (**https://dev.azure.com/**). 
+* Logga in på Azure DevOps Services-organisationen (**https://dev.azure.com/**). 
   Du kan få en [kostnadsfri Azure DevOps Services-organisation](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
@@ -47,11 +47,11 @@ Lär dig att:
 
 *  Öppna inkommande port 80 för den virtuella datorn. Mer information finns i avsnittet om att [skapa nätverkssäkerhetsgrupper med hjälp av Azure Portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
 
-## <a name="get-your-sample-app-code"></a>Hämta din exempelappkod
+## <a name="get-your-sample-app-code"></a>Hämta din exempel kod för appen
 
-Om du redan har en app i GitHub som du vill distribuera kan du prova att skapa en pipeline för den koden.
+Om du redan har en app i GitHub som du vill distribuera kan du prova att skapa en pipeline för koden.
 
-Men om du är en ny användare kan du få en bättre start med hjälp av vår exempelkod. I så fall gaffel denna repo i GitHub:
+Men om du är en ny användare kan du få en bättre start genom att använda vår exempel kod. I så fall kan du förgrena denna lagrings platsen i GitHub:
 
 #### <a name="java"></a>[Java](#tab/java)
 
@@ -60,16 +60,16 @@ https://github.com/spring-projects/spring-petclinic
 ```
 
 > [!NOTE]
-> Petclinic är en [Java Spring Boot](https://spring.io/guides/gs/spring-boot) ansökan byggd med [Maven](https://spring.io/guides/gs/maven/).
+> Petclinic är ett [Java våren Boot](https://spring.io/guides/gs/spring-boot) -program som skapats med [maven](https://spring.io/guides/gs/maven/).
 
-#### <a name="javascript"></a>[Javascript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 ```
 https://github.com/azure-devops/fabrikam-node
 ```
 
 > [!NOTE]
-> Denna Node.js app byggdes genom [Yeoman](https://yeoman.io/learning/index.html). Den använder Express, Bower och Grunt. Den har även vissa npm-paket som beroenden.
+> Den här Node. js-appen byggdes med [Yeoman](https://yeoman.io/learning/index.html). Den använder Express, Bower och Grunt. Den har även vissa npm-paket som beroenden.
 > Exempelappen innehåller också ett skript som konfigurerar Nginx och distribuerar appen. Det körs på de virtuella datorerna. Vad skriptet gör:
 > 1. Installerar Node, Nginx och PM2.
 > 2. Konfigurerar Nginx och PM2.
@@ -77,73 +77,73 @@ https://github.com/azure-devops/fabrikam-node
 
 * * * 
 
-## <a name="prerequisites-for-the-linux-vm"></a>Förutsättningar för Linux-VM
+## <a name="prerequisites-for-the-linux-vm"></a>Krav för den virtuella Linux-datorn
 
-Exempelappar som nämns ovan har testats på Ubuntu 16.04, och vi rekommenderar att du använder samma version av Linux VM för den här snabbstarten.
-Följ ytterligare steg som beskrivs nedan baserat på körningsstacken som används för appen.
+Exempel appar som nämns ovan har testats på Ubuntu 16,04 och vi rekommenderar att du använder samma version av Linux VM för den här snabb starten.
+Följ de ytterligare stegen som beskrivs nedan baserat på körnings stacken som används för appen.
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Skapa en Virtuell Linux-dator i Azure med den [här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) mallen, som ger en fullständigt stödd OpenJDK-baserad körning.
-- För distribution av Java-servlets på Tomcat-servern skapar du en Virtuell Linux-dator med Java 8 med [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure-mallen och [konfigurerar Tomcat 9.x som en tjänst](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- För distribution av Java EE-baserad app använder du en Azure-mall för att skapa en [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) eller en Linux VM + Java + [WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) eller en [Linux VM +Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- För att distribuera Java våren boot och våren Cloud based Apps skapar du en virtuell Linux-dator i Azure med hjälp av [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) mallen, som tillhandahåller en openjdk-baserad körning som stöds fullt ut.
+- För att distribuera Java-servlets på Tomcat-servern skapar du en virtuell Linux-dator med Java 8 med hjälp av [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure-mallen och [konfigurerar Tomcat 9. x som en tjänst](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- För att distribuera Java EE-baserad app använder du en Azure-mall för att skapa en [virtuell Linux-dator + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) eller en [Linux VM + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) eller en [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
 
-#### <a name="javascript"></a>[Javascript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Om du vill installera en javascript-app eller en Node.js-app behöver du en virtuell Linux-dator med Nginx-webbserver för att distribuera appen.
-Om du inte redan har en Virtuell Linux-dator med Nginx skapar du en nu i Azure med hjälp av stegen i [det här exemplet](/azure/virtual-machines/linux/quick-create-cli).
+Om du vill installera en JavaScript-app eller en Node. js-app behöver du en virtuell Linux-dator med Nginx-webbservern för att distribuera appen.
+Om du inte redan har en virtuell Linux-dator med Nginx skapar du en nu i Azure med hjälp av stegen i [det här exemplet](/azure/virtual-machines/linux/quick-create-cli).
 
 * * * 
 
-## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Skapa en Azure Pipelines-miljö med virtuella Azure-datorer
+## <a name="create-an-azure-pipelines-environment-with-azure-virtual-machines"></a>Skapa en Azure pipeline-miljö med Azure Virtual Machines
 
-Virtuella datorer kan läggas till som resurser i [miljöer](https://docs.microsoft.com/azure/devops/pipelines/process/environments) och kan riktas för distributioner med flera datorer. Distributionshistorikvyer i miljön ger spårbarhet från virtuell dator till pipelinen och sedan till commit.
+Virtuella datorer kan läggas till som resurser i [miljöer](https://docs.microsoft.com/azure/devops/pipelines/process/environments) och kan riktas mot distributioner på flera datorer. Vyer för distributions historik i miljön ger spårning från virtuell dator till pipelinen och sedan till commit.
 
-Du kan skapa en miljö i hubben "**Miljöer**" i avsnittet "**Pipelines**".
+Du kan skapa en miljö i hubben "**miljöer**" i avsnittet "**pipeliner**".
 1.  Logga in på din Azure DevOps-organisation och navigera till ditt projekt.
-2.  I projektet navigerar du till sidan **Pipelines.** Välj sedan **Miljöer** och klicka på **Skapa miljö**. Ange ett **namn** (obligatoriskt) för miljön och en **beskrivning**.
-3.  Välj **Virtuella datorer** som en **resurs** som ska läggas till i miljön och klicka på **Nästa**.
-4.  Välj Operativsystem (Windows/Linux) och **kopiera PS-registreringsskript**. 
-5.  Kör nu det kopierade skriptet från en administratör PowerShell-kommandotolk på var och en av de virtuella mål-datorerna som ska registreras med den här miljön.
+2.  Gå till sidan **pipelines** i projektet. Välj sedan **miljöer** och klicka på **skapa miljö**. Ange ett **namn** (obligatoriskt) för miljön och en **Beskrivning**.
+3.  Välj **Virtual Machines** som en **resurs** som ska läggas till i miljön och klicka på **Nästa**.
+4.  Välj operativ system (Windows/Linux) och **Kopiera PS Registration-skriptet**. 
+5.  Kör nu det kopierade skriptet från en administratör PowerShell-kommandotolk på var och en av de virtuella mål datorerna som ska registreras i den här miljön.
     > [!NOTE]
-    > - Personlig åtkomsttoken för den inloggade användaren infogas i skriptet som upphör att gälla samma dag vilket gör det kopierade skriptet oanvändbart därpå.
-    > - Om din virtuella dator redan har någon agent som körs på den, ange ett unikt namn för "agent" för att registrera sig med miljön.
-6.  När den virtuella datorn har registrerats börjar den visas som en miljöresurs under fliken "resurser" i miljön.
+    > - Personlig åtkomsttoken för den inloggade användaren infogas i skriptet som förfaller samma dag, vilket gör att det kopierade skriptet inte kan användas.
+    > - Om den virtuella datorn redan har en agent som körs på den, anger du ett unikt namn för "agent" som ska registreras i miljön.
+6.  När den virtuella datorn har registrerats kommer den att visas som en miljö resurs under fliken resurser i miljön.
 
-    ![VMskapering](media/tutorial-deploy-vms-azure-pipelines/vm-creation.png)
+    ![VMcreation](media/tutorial-deploy-vms-azure-pipelines/vm-creation.png)
 
-7.  Om du vill lägga till fler virtuella datorer kan du visa och kopiera skriptet igen genom att klicka på "Lägg till resurs" och välja "Virtuella datorer" som resurs. Det här skriptet skulle förbli detsamma för alla virtuella datorer som ska läggas till i den här miljön. 
-8.  Varje dator interagerar med Azure Pipelines för att samordna distributionen av din app.
+7.  Om du vill lägga till fler virtuella datorer kan du Visa och kopiera skriptet igen genom att klicka på Lägg till resurs och välja Virtual Machines som resurs. Det här skriptet är detsamma för alla virtuella datorer som ska läggas till i den här miljön. 
+8.  Varje dator samverkar med Azure-pipelines för att samordna distributionen av din app.
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. Du kan lägga till taggar till den virtuella datorn som en del av det interaktiva PS-registreringsskriptet (eller) du kan också lägga till/ta bort samma från resursvyn genom att klicka på trippelpunkterna i slutet av varje VM-resurs i resursvyn.
+9. Du kan lägga till taggar till den virtuella datorn som en del av skriptet för interaktiv PS-registrering (eller) du kan också lägga till/ta bort samma från resursvyn genom att klicka på de tre punkterna i slutet av varje VM-resurs i vyn resurser.
 
-   Med taggarna som du tilldelar kan du begränsa distributionen till specifika virtuella datorer när miljön används i ett distributionsjobb. Taggar är begränsade till 256 tecken, men det finns ingen gräns för hur många taggar du kan använda.
+   Taggarna du tilldelar gör att du kan begränsa distributionen till vissa virtuella datorer när miljön används i ett distributions jobb. Taggarna är varje begränsat till 256 tecken, men det finns ingen gräns för antalet taggar som du kan använda.
 
-   ![VMtags (VMtags)](media/tutorial-deploy-vms-azure-pipelines/vm-tags.png)
+   ![VMtags](media/tutorial-deploy-vms-azure-pipelines/vm-tags.png)
 
 * * * 
 
-## <a name="define-your-ci-build-pipeline"></a>Definiera din CI-byggpipeline
+## <a name="define-your-ci-build-pipeline"></a>Definiera din CI build-pipeline
 
-Du behöver en pipeline för kontinuerlig integrering (CI) som publicerar webbprogrammet, samt ett distributionsskript som kan köras lokalt på Ubuntu-servern. Ställ in en CI-build-pipeline baserat på den körning som du vill använda. 
+Du behöver en pipeline för kontinuerlig integrering (CI) som publicerar ditt webb program, samt ett distributions skript som kan köras lokalt på Ubuntu-servern. Konfigurera en pipeline för CI-skapande baserat på den körning som du vill använda. 
 
 1. Logga in på din Azure DevOps-organisation och navigera till ditt projekt.
 
-1. I projektet navigerar du till sidan **Pipelines.** Välj sedan åtgärden för att skapa en ny pipeline.
+1. Gå till sidan **pipelines** i projektet. Välj sedan åtgärden för att skapa en ny pipeline.
 
-1. Gå igenom stegen i guiden genom att först välja **GitHub** som plats för källkoden.
+1. Gå igenom stegen i guiden genom att först välja **GitHub** som plats för käll koden.
 
-1. Du kan omdirigeras till GitHub för att logga in. Ange i så fall dina GitHub-autentiseringsuppgifter.
+1. Du kanske omdirigeras till GitHub för att logga in. I så fall anger du dina GitHub-autentiseringsuppgifter.
 
-1. När listan över databaser visas väljer du önskad exempelappdatabas.
+1. När listan över databaser visas väljer du den önskade exempel App-lagringsplatsen.
 
-1. Azure Pipelines analyserar din databas och rekommenderar en lämplig pipeline-mall.
+1. Azure-pipeliner analyserar din lagrings plats och rekommenderar en lämplig pipeline-mall.
 
 #### <a name="java"></a>[Java](#tab/java)
 
-Välj **startmallen** och kopiera nedanstående YAML-kodavsnitt som bygger ditt Java-projekt och kör tester med Apache Maven:
+Välj **Start** mal len och kopiera nedanstående yaml-kodfragment som skapar ditt Java-projekt och kör tester med Apache maven:
 
 ```YAML
 - job: Build
@@ -163,11 +163,11 @@ Välj **startmallen** och kopiera nedanstående YAML-kodavsnitt som bygger ditt 
     artifact: drop
 ```
 
-Om du vill ha mer vägledning följer du stegen som nämns i [Skapa java-app med Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
+Om du vill ha mer vägledning följer du stegen i [utveckla din Java-app med maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
 
-#### <a name="javascript"></a>[Javascript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Välj **startmallen** och kopiera nedanstående YAML-kodavsnitt som skapar ett allmänt Node.js-projekt med npm.
+Välj **Start** mal len och kopiera nedanstående yaml-kodfragment som skapar ett allmänt Node. js-projekt med NPM.
 
 ```YAML
 - stage: Build
@@ -196,19 +196,19 @@ Välj **startmallen** och kopiera nedanstående YAML-kodavsnitt som skapar ett a
       artifact: drop
 ```
 
-Om du vill ha mer vägledning följer du stegen i [Appen Skapa nod.js med gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
+Om du vill ha mer vägledning följer du stegen i [bygga din Node. js-app med Gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
 
-- Ta en titt på pipelinen för att se vad den gör. Kontrollera att alla standardindata är lämpliga för koden.
+- Ta en titt på pipelinen för att se vad det gör. Kontrol lera att alla standardvärden är lämpliga för din kod.
 
-- Välj **Spara och kör**och välj sedan Anslut direkt till **huvudgrenen**och välj sedan Spara och **kör** igen.
+- Välj **Spara och kör**, välj sedan **genomför direkt till huvud grenen**och välj sedan **Spara och kör** igen.
 
-- En ny körning startas. Vänta tills körningen är klar.
+- En ny körning har startats. Vänta tills körningen har slutförts.
 
 * * * 
 
-## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definiera CD-steg som ska distribueras till Virtuella Linux-datorn
+## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definiera de CD-steg som ska distribueras till den virtuella Linux-datorn
 
-1. Redigera pipelinen ovan och inkludera ett [distributionsjobb](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) genom att referera till miljön och de VM-resurser som du har tidigare med hjälp av YAML-syntaxen nedan:
+1. Redigera pipelinen ovan och inkludera ett [distributions jobb](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) genom att referera till miljön och de VM-resurser som du har tidigare med yaml-syntaxen nedan:
 
    ```YAML
    jobs:  
@@ -220,14 +220,14 @@ Om du vill ha mer vägledning följer du stegen i [Appen Skapa nod.js med gulp](
        tags: web1
      strategy:
    ```
-2. Du kan välja specifika uppsättningar virtuella datorer från miljön för att ta emot distributionen genom att ange de **taggar** som du har definierat för varje virtuell dator i miljön.
-[Här](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) är det fullständiga YAML-schemat för distributionsjobb.
+2. Du kan välja olika uppsättningar av virtuella datorer från miljön för att ta emot distributionen genom att ange de **taggar** som du har definierat för varje virtuell dator i miljön.
+[Här](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) är det fullständiga yaml-schemat för distributions jobb.
 
-3. Du kan ange `runOnce` eithor eller `rolling` som distributionsstrategi. 
+3. Du kan ange eithor `runOnce` eller `rolling` som distributions strategi. 
 
-   `runOnce`är den enklaste distributionsstrategin där alla livscykelkrokar, nämligen `preDeploy` `deploy`, `routeTraffic`och `postRouteTraffic`, utförs en gång. Sedan, `on:` `success` antingen `on:` `failure` eller utförs.
+   `runOnce`är den enklaste distributions strategin där alla livs cykel hookar `preDeploy` `deploy`, nämligen `routeTraffic`och `postRouteTraffic`, utförs en gång. `on:` `success` Sedan körs eller `on:` `failure` utförs.
 
-   Nedan visas exemplet YAML-kodavsnitt för: `runOnce`
+   Nedan visas ett exempel på YAML- `runOnce` kodfragment för:
    ```YAML
    jobs:
    - deployment: VMDeploy
@@ -244,7 +244,7 @@ Om du vill ha mer vägledning följer du stegen i [Appen Skapa nod.js med gulp](
              - script: echo my first deployment
    ```
 
-4. Nedan följer ett exempel på YAML-kodavsnittet som du kan använda för att definiera en rullande strategi för virtuella datorer som uppdaterar upp till 5 mål i varje iteration. `maxParallel`kommer att bestämma antalet mål som kan distribueras till, parallellt. Urvalet står för absolut antal eller procentandel mål som måste vara tillgängliga när som helst exklusive de mål som distribueras till. Det används också för att fastställa framgångs- och felvillkor under distributionen.
+4. Nedan visas ett exempel på YAML-kodfragmentet som du kan använda för att definiera en rullande strategi för virtuella datorer som uppdaterar upp till 5 mål i varje iteration. `maxParallel`fastställer antalet mål som kan distribueras till parallellt. Urvals kontona för det absoluta antalet eller procent andelen mål som måste vara tillgängliga när som helst exklusive de mål som distribueras till. Den används också för att fastställa lyckade och misslyckade villkor under distributionen.
 
    ```YAML
    jobs: 
@@ -285,18 +285,18 @@ Om du vill ha mer vägledning följer du stegen i [Appen Skapa nod.js med gulp](
                - script: echo Notify! This is on success
    ```
 
-   Med varje körning av det här jobbet `<environment name>` registreras distributionshistorik mot den miljö som du har skapat och registrerat de virtuella datorerna.
+   Varje jobb körning registreras distributions historiken mot den `<environment name>` miljö som du har skapat och registrerat de virtuella datorerna.
 
-## <a name="run-your-pipeline-and-get-traceability-views-in-environment"></a>Kör pipelinen och få spårbarhetsvyer i miljön
-Distributioner vy av miljön ger fullständig spårbarhet av commits och arbetsobjekt, och en cross-pipeline distribution historia per miljö / resurs.
+## <a name="run-your-pipeline-and-get-traceability-views-in-environment"></a>Kör din pipeline och få spårnings bara vyer i miljön
+Vyn distributioner av miljön ger fullständig spårning av incheckningar och arbets objekt, och en distributions historik över pipelinen per miljö/resurs.
 
 ![VMDeployments_view](media/tutorial-deploy-vms-azure-pipelines/vm-deployments.png)
   
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- Du kan fortsätta att [anpassa pipelinen](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) som du just skapade.
-- Mer information om vad du kan göra i YAML-pipelines finns i [YAML-schemareferens](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- Du kan fortsätta att [Anpassa den pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) som du nyss skapade.
+- Mer information om vad mer du kan göra i YAML-pipelines finns i [yaml schema Reference](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
 - Mer information om hur du distribuerar en LAMP-stack (Linux, Apache, MySQL och PHP) får du i nästa kurs.
 
 > [!div class="nextstepaction"]

@@ -5,12 +5,12 @@ ms.date: 09/18/2019
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.openlocfilehash: 574003a150ef294aa6a2ebc035fe48cf877dec66
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76545232"
 ---
-## <a name="configure-the-cloud-spatial-anchor-session"></a>Konfigurera molnbaserade rumsliga ankarsession
+## <a name="configure-the-cloud-spatial-anchor-session"></a>Konfigurera sessionen för moln rums ankare
 
-Vi tar hand om att konfigurera molnet rumsliga ankare session nästa. På första raden ställer vi in sensorleverantören på sessionen. Från och med nu kommer alla ankare vi skapar under sessionen att associeras med en uppsättning sensoravläsningar. Därefter instansierar vi en nära enhet hitta kriterier och initiera den för att matcha ansökan krav. Slutligen instruerar vi sessionen att använda sensordata när du hittar ankare genom att skapa en watcher från våra kriterier för nära enheter.
+Vi tar hand om konfigureringen av molnets spatiala Anchor-session härnäst. På den första raden ställer vi in sensor leverantören i sessionen. Från och med nu kommer alla ankare som vi skapar under sessionen att associeras med en uppsättning sensor avläsningar. Härnäst instansierar vi en nära enhet som letar efter kriterier och initierar den för att matcha program kraven. Slutligen instruerar vi sessionen att använda sensor data när du söker efter ankare genom att skapa en bevakare från vårt nära enhets kriterium.

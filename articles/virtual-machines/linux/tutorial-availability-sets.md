@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Hög tillgänglighet för virtuella Linux-datorer i Azure
+title: Självstudie – hög tillgänglighet för virtuella Linux-datorer i Azure
 description: I den här självstudien får du lära dig hur du använder Azure CLI för att distribuera virtuella datorer med hög tillgänglighet i tillgänglighetsuppsättningar
 documentationcenter: ''
 services: virtual-machines-linux
@@ -16,24 +16,24 @@ ms.date: 01/17/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 300b497765dd1081fbad36292c01c56da5bb5e38
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76277252"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Självstudie: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure CLI
 
 I den här självstudien får du lära dig hur du ökar tillgängligheten och tillförlitligheten för dina VM-lösningar i Azure med en funktion som heter ”Tillgänglighetsuppsättningar”. Tillgänglighetsuppsättningarna ser till att de virtuella datorer som du distribuerar i Azure distribueras över flera isolerade maskinvarukluster. Detta innebär att endast en del av de virtuella datorerna påverkas om det skulle uppstå ett maskinvaru- eller programvarufel i Azure, och att din lösning fortfarande är tillgänglig och fungerar.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en tillgänglighetsuppsättning
 > * Skapa en virtuell dator i en tillgänglighetsuppsättning
 > * Kontrollera tillgängliga VM-storlekar
 
-Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -113,8 +113,8 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa kurs vill veta mer om VM-skalningsuppsättningar.
 
 > [!div class="nextstepaction"]
-> [Skapa en skalningsuppsättning för virtuella datorer](tutorial-create-vmss.md)
+> [Skapa en skalnings uppsättning för virtuell dator](tutorial-create-vmss.md)
 
-* Mer information om tillgänglighetszoner finns i [dokumentationen för tillgänglighetszoner](../../availability-zones/az-overview.md).
-* Mer dokumentation om både tillgänglighetsuppsättningar och tillgänglighetszoner finns också [här](./manage-availability.md).
-* Om du vill prova tillgänglighetszoner besöker du [Skapa en virtuell Linux-dator i en tillgänglighetszon med Azure CLI](./create-cli-availability-zone.md)
+* Mer information om tillgänglighets zoner finns i [Tillgänglighetszoner-dokumentationen](../../availability-zones/az-overview.md).
+* Mer dokumentation om både tillgänglighets uppsättningar och tillgänglighets zoner finns också [här](./manage-availability.md).
+* Om du vill prova tillgänglighets zoner går du till [skapa en virtuell Linux-dator i en tillgänglighets zon med Azure CLI](./create-cli-availability-zone.md)

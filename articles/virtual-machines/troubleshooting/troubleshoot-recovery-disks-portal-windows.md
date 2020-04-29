@@ -1,6 +1,6 @@
 ---
-title: Använda en virtuell dator med Windows-felsökning i Azure-portalen | Microsoft-dokument
-description: Lär dig hur du felsöker problem med virtuella Windows-datorer i Azure genom att ansluta OS-disken till en virtuell återställnings-dator med Azure-portalen
+title: Använd en virtuell Windows-Felsökning i Azure Portal | Microsoft Docs
+description: Lär dig hur du felsöker problem med virtuella Windows-datorer i Azure genom att ansluta OS-disken till en virtuell återställnings dator med hjälp av Azure Portal
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,45 +13,45 @@ ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
 ms.openlocfilehash: e76fc2da8da2325a8bb0cda47c4405c9eb03c8f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250002"
 ---
-# <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en Virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings-DATOR med Azure-portalen
-Om din virtuella Windows-dator (VM) i Azure stöter på ett start- eller diskfel kan du behöva utföra felsökningssteg på själva den virtuella hårddisken. Ett vanligt exempel är en misslyckad programuppdatering som förhindrar att den virtuella datorn kan starta. I den här artikeln beskrivs hur du använder Azure-portalen för att ansluta den virtuella hårddisken till en annan Windows-virtuell dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
+# <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure Portal
+Om din virtuella Windows-dator (VM) i Azure påträffar ett start-eller diskfel kan du behöva utföra fel söknings stegen på den virtuella hård disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure Portal för att ansluta din virtuella hård disk till en annan virtuell Windows-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
 
 ## <a name="recovery-process-overview"></a>Översikt över återställningsprocessen
 Så här ser felsökningsprocessen ut:
 
-1. Stoppa den berörda virtuella datorn.
-1. Skapa en ögonblicksbild för OS-disken för den virtuella datorn.
-1. Skapa en virtuell hårddisk från ögonblicksbilden.
-1. Koppla och montera den virtuella hårddisken på en annan Virtuell Windows-dator för felsökning.
-1. Anslut till den virtuella felsökningsdatorn. Redigera filer eller kör verktyg för att åtgärda problem på den ursprungliga virtuella hårddisken.
+1. Stoppa den virtuella datorn som påverkas.
+1. Skapa en ögonblicks bild för den virtuella datorns OS-disk.
+1. Skapa en virtuell hård disk från ögonblicks bilden.
+1. Anslut och montera den virtuella hård disken till en annan virtuell Windows-dator i fel söknings syfte.
+1. Anslut till den virtuella felsökningsdatorn. Redigera filer eller kör eventuella verktyg för att åtgärda problem på den ursprungliga virtuella hård disken.
 1. Demontera och koppla från den virtuella hårddisken från den virtuella felsökningsdatorn.
-1. Byt os-disken mot den virtuella datorn.
+1. Byt OS-disk för den virtuella datorn.
 
 > [!NOTE]
-> Den här artikeln gäller inte för den virtuella datorn med ohanterat disk.
+> Den här artikeln gäller inte för den virtuella datorn med en ohanterad disk.
 
-## <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicksbild av OS-disken
-En ögonblicksbild är en fullständig, skrivskyddad kopia av en virtuell hårddisk (VHD). Vi rekommenderar att du stänger av den virtuella datorn på ett rent sätt innan du tar en ögonblicksbild för att rensa alla processer som pågår. Så här tar du en ögonblicksbild av en OS-disk:
+## <a name="take-a-snapshot-of-the-os-disk"></a>Ta en ögonblicks bild av OS-disken
+En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård disk (VHD). Vi rekommenderar att du stänger den virtuella datorn i klartext innan du tar en ögonblicks bild, för att ta bort alla processer som pågår. Följ dessa steg om du vill ta en ögonblicks bild av en OS-disk:
 
-1. Gå till [Azure Portal](https://portal.azure.com). Välj **Virtuella datorer** i sidofältet och välj sedan den virtuella datorn som har problem.
-1. Välj **Diskar**i den vänstra rutan och välj sedan namnet på OS-disken.
+1. Gå till [Azure Portal](https://portal.azure.com). Välj **virtuella datorer** på sid panelen och välj sedan den virtuella dator som har problem.
+1. Välj **diskar**i den vänstra rutan och välj sedan namnet på operativ system disken.
     ![Bild om namnet på OS-disken](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. På sidan **Översikt** på OS-disken och välj sedan **Skapa ögonblicksbild**.
-1. Skapa en ögonblicksbild på samma plats som OS-disken.
+1. På sidan **Översikt** på OS-disken och välj sedan **skapa ögonblicks bild**.
+1. Skapa en ögonblicks bild på samma plats som OS-disken.
 
-## <a name="create-a-disk-from-the-snapshot"></a>Skapa en disk från ögonblicksbilden
-Så här skapar du en disk från ögonblicksbilden:
+## <a name="create-a-disk-from-the-snapshot"></a>Skapa en disk från ögonblicks bilden
+Följ dessa steg om du vill skapa en disk från ögonblicks bilden:
 
-1. Välj **Cloud Shell** från Azure-portalen.
+1. Välj **Cloud Shell** från Azure Portal.
 
-    ![Bild om Open Cloud Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
-1. Kör följande PowerShell-kommandon för att skapa en hanterad disk från ögonblicksbilden. Du bör ersätta dessa exempelnamn med lämpliga namn.
+    ![Bild om öppen Cloud Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
+1. Kör följande PowerShell-kommandon för att skapa en hanterad disk från ögonblicks bilden. Du bör ersätta dessa exempel namn med lämpliga namn.
 
     ```powershell
     #Provide the name of your resource group
@@ -81,64 +81,64 @@ Så här skapar du en disk från ögonblicksbilden:
      
     New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
     ```
-3. Om kommandona har körts visas den nya disken i resursgruppen som du angav.
+3. Om kommandona körs utan problem visas den nya disken i den resurs grupp som du har angett.
 
-## <a name="attach-the-disk-to-another-vm"></a>Koppla disken till en annan virtuell dator
-För de följande stegen använder du en annan virtuell dator för felsökning. När du har bifogat disken till den virtuella felsökningsdatorn kan du bläddra bland och redigera diskens innehåll. Med den här processen kan du korrigera eventuella konfigurationsfel eller granska ytterligare program- eller systemloggfiler. Så här ansluter du disken till en annan virtuell dator:
+## <a name="attach-the-disk-to-another-vm"></a>Ansluta disken till en annan virtuell dator
+För kommande steg använder du en annan virtuell dator i fel söknings syfte. När du har kopplat disken till fel söknings datorn kan du bläddra och redigera diskens innehåll. Med den här processen kan du korrigera eventuella konfigurations fel eller granska ytterligare program-eller systemloggfiler. Följ dessa steg om du vill koppla disken till en annan virtuell dator:
 
-1. Välj resursgruppen från portalen och välj sedan den virtuella felsökningsdatorn. Välj **Diskar**, välj **Redigera**och klicka sedan på Lägg **till datadisk:**
+1. Välj din resurs grupp i portalen och välj sedan din fel söknings dator. Välj **diskar**, Välj **Redigera**och klicka sedan på **Lägg till data disk**:
 
-    ![Koppla befintlig disk i portalen](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
+    ![Bifoga befintlig disk i portalen](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. Välj OS-disken för den virtuella datorn som du identifierade i listan **Datadiskar.** Om os-disken inte visas kontrollerar du att felsökningen av den virtuella datorn och OS-disken finns i samma region (plats). 
-3. Välj **Spara** om du vill tillämpa ändringarna.
+2. I listan **data diskar** väljer du OS-disken för den virtuella dator som du har identifierat. Om du inte ser OS-disken måste du kontrol lera att den virtuella datorn felsöks och att operativ system disken finns i samma region (plats). 
+3. Välj **Spara** för att tillämpa ändringarna.
 
-## <a name="mount-the-attached-data-disk-to-the-vm"></a>Montera den bifogade datadisken på den virtuella datorn
+## <a name="mount-the-attached-data-disk-to-the-vm"></a>Montera den anslutna data disken på den virtuella datorn
 
-1. Öppna en anslutning till fjärrskrivbord till den virtuella felsökningsdatorn. 
-2. Öppna **Serverhanteraren**i felsÃ¶kningen av den virtuella datorn och välj sedan **Fil- och lagringstjänster**. 
+1. Öppna en fjärr skrivbords anslutning till den virtuella datorn för fel sökning. 
+2. Öppna **Serverhanteraren**i Felsöka virtuell dator och välj fil- **och lagrings tjänster**. 
 
-    ![Välj Fil- och lagringstjänster i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
+    ![Välj fil-och lagrings tjänster inom Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. Datadisken identifieras och kopplas automatiskt. Om du vill visa en lista över de anslutna diskarna väljer du **Diskar**. Du kan välja datadisken om du vill visa volyminformation, inklusive enhetsbeteckningen. I följande exempel visas den bifogade datadisken och användning av **F:**:
+3. Data disken identifieras och bifogas automatiskt. Om du vill se en lista över de anslutna diskarna väljer du **diskar**. Du kan välja din datadisk om du vill visa volym information, inklusive enhets beteckningen. I följande exempel visas data disken som är ansluten och med hjälp av **F:**
 
-    ![Diskansluten och volyminformation i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
+    ![Disk ansluten och volym information i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 
-## <a name="fix-issues-on-original-virtual-hard-disk"></a>Åtgärda problem på den ursprungliga virtuella hårddisken
-Med den befintliga virtuella hårddisken monterad kan du nu utföra alla underhålls- och felsökningssteg efter behov. När du har åtgärdat problemen fortsätter du med följande steg.
+## <a name="fix-issues-on-original-virtual-hard-disk"></a>Åtgärda problem på den ursprungliga virtuella hård disken
+Med den befintliga virtuella hård disken monterad kan du nu utföra eventuella underhålls-och fel söknings steg efter behov. När du har åtgärdat problemen fortsätter du med följande steg.
 
-## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Avmontera och koppla från den ursprungliga virtuella hårddisken
-När dina fel har lösts kopplar du bort den befintliga virtuella hårddisken från den virtuella felsökningsdatorn. Du kan inte använda den virtuella hårddisken med någon annan virtuell dator förrän lånet som kopplar den virtuella hårddisken till felsökningsdatorn släpps.
+## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Demontera och koppla från den ursprungliga virtuella hård disken
+När dina fel har åtgärd ATS kopplar du från den befintliga virtuella hård disken från den virtuella fel söknings datorn. Du kan inte använda den virtuella hård disken med någon annan virtuell dator förrän lånet som ansluter till den virtuella hård disken till den virtuella fel söknings datorn har släppts.
 
-1. Öppna **Serverhanteraren**från RDP-sessionen till den virtuella datorn och välj sedan **Fil- och lagringstjänster:**
+1. Från RDP-sessionen till den virtuella datorn öppnar du **Serverhanteraren**och väljer **fil-och lagrings tjänster**:
 
-    ![Välj Fil- och lagringstjänster i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
+    ![Välj fil-och lagrings tjänster i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-2. Välj **Diskar** och välj sedan datadisken. Högerklicka på datadisken och välj **Ta offline:**
+2. Välj **diskar** och välj sedan din datadisk. Högerklicka på din data disk och välj **ta offline**:
 
-    ![Ange datadisken som offline i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
+    ![Ange data disken som offline i Serverhanteraren](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. Nu koppla den virtuella hårddisken från den virtuella datorn. Välj din virtuella dator i Azure-portalen och klicka på **Diskar**. 
-4. Välj **Redigera**, markera den OS-disk som du har bifogat och klicka sedan på **Koppla från:**
+3. Koppla nu från den virtuella hård disken från den virtuella datorn. Välj den virtuella datorn i Azure Portal och klicka på **diskar**. 
+4. Välj **Redigera**, Välj den OS-disk som du har anslutit och klicka sedan på **Koppla från**:
 
-    ![Koppla från befintlig virtuell hårddisk](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
+    ![Koppla från befintlig virtuell hård disk](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
-    Vänta tills den virtuella datorn har kopplats bort datadisken innan du fortsätter.
+    Vänta tills den virtuella datorn har kopplats från data disken innan du fortsätter.
 
-## <a name="swap-the-os-disk-for-the-vm"></a>Byt os-disk för den virtuella datorn
+## <a name="swap-the-os-disk-for-the-vm"></a>Byt OS-disk för den virtuella datorn
 
-Azure-portalen stöder nu ändring av OS-disken för den virtuella datorn. Det gör du genom att följa dessa steg:
+Azure Portal har nu stöd för att ändra den virtuella datorns OS-disk. Det gör du genom att följa dessa steg:
 
-1. Gå till [Azure Portal](https://portal.azure.com). Välj **Virtuella datorer** i sidofältet och välj sedan den virtuella datorn som har problem.
-1. Välj **Diskar**i den vänstra rutan och välj sedan **Byta OS-disk**.
-        ![Avbildningen om Swap OS-disk i Azure Portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
+1. Gå till [Azure Portal](https://portal.azure.com). Välj **virtuella datorer** på sid panelen och välj sedan den virtuella dator som har problem.
+1. I det vänstra fönstret väljer du **diskar**och sedan **Växla OS-disk**.
+        ![Avbildningen om växling av OS-disk i Azure Portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-1. Välj den nya disken som du reparerade och skriv sedan namnet på den virtuella datorn för att bekräfta ändringen. Om du inte ser disken i listan väntar du 10 ~ 15 minuter efter att du har löst från disken från felsökningsdatorn. Kontrollera också att disken är på samma plats som den virtuella datorn.
+1. Välj den nya disken som du reparerat och skriv sedan namnet på den virtuella datorn för att bekräfta ändringen. Om du inte ser disken i listan väntar du 10 ~ 15 minuter efter att du kopplar bort disken från den virtuella fel söknings datorn. Kontrol lera också att disken finns på samma plats som den virtuella datorn.
 1. Välj OK.
 
 ## <a name="next-steps"></a>Nästa steg
-Om du har problem med att ansluta till den virtuella datorn läser [du Felsöka RDP-anslutningar till en Azure VM](troubleshoot-rdp-connection.md). Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med programanslutning på en Windows VM](troubleshoot-app-connection.md).
+Om du har problem med att ansluta till din virtuella dator kan du läsa [FELSÖKA RDP-anslutningar till en virtuell Azure-dator](troubleshoot-rdp-connection.md). Problem med att komma åt program som körs på den virtuella datorn finns i [Felsöka problem med program anslutningen på en virtuell Windows-dator](troubleshoot-app-connection.md).
 
-Mer information om hur du använder Resource Manager finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+Mer information om hur du använder Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
 
 

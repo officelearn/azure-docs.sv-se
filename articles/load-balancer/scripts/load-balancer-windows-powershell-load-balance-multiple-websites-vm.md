@@ -1,5 +1,5 @@
 ---
-title: Belastningsutjämning flera webbplatser - Azure PowerShell - Azure Load Balancer
+title: Belastningsutjämna flera webbplatser – Azure PowerShell – Azure Load Balancer
 description: Det här exemplet på Azure PowerShell-skript visar hur du belastningsutjämnar flera webbplatser på samma virtuella dator
 documentationcenter: load-balancer
 author: asudbring
@@ -10,17 +10,17 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: b7beb5186bd039d7098883915663e8a3286fb99d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76274602"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Azure PowerShell-skriptexempel: Belastningsutjämning av flera webbplatser
 
 Det här exemplet på Azure PowerShell-skript skapar ett virtuellt nätverk med två virtuella datorer som är medlemmar i en tillgänglighetsuppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure.
+Om det behövs installerar du Azure PowerShell med hjälp av den instruktion som finns i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)och `Connect-AzAccount` kör sedan för att skapa en anslutning till Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,7 +42,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuellt nätverk, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Skapar en Azure-tillgänglighetsuppsättning för att ge hög tillgänglighet. |

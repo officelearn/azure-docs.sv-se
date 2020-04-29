@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 05/30/2017
 ms.author: iainfou
 ms.openlocfilehash: 7e1136c179c5729f5ed0de189a90bbbb31412ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76270661"
 ---
 # <a name="deprecated-scale-an-azure-container-service-cluster"></a>(INAKTUELL) Skala ett Azure Container Service-kluster
@@ -45,7 +45,7 @@ az group delete --name myResourceGroup
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az acs scale](/cli/azure/acs#az-acs-scale) | Skala ett ACS-kluster. |
 

@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
 ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79249768"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines

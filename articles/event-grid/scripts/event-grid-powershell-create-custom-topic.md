@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell-skriptexempel – Skapa anpassat ämne | Microsoft Docs
-description: Den här artikeln innehåller ett exempel på Azure PowerShell-skript som visar hur du skapar ett anpassat ämne för händelserutnät.
+description: Den här artikeln innehåller ett exempel på Azure PowerShell-skript som visar hur du skapar ett Event Grid anpassat ämne.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: tomfitz
 ms.openlocfilehash: 900f31ff87e6a588fc1d1e3efd854437d2c8c1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76719950"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Skapa anpassat Event Grid-ämne med PowerShell
@@ -34,9 +34,9 @@ Det här skriptet skapar ett anpassat Event Grid-ämne.
 
 Det här skriptet använder följande kommandon för att skapa det anpassade ämnet. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [Ny-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Skapa ett Event Grid-anpassat ämne. |
+| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Skapa ett Event Grid-anpassat ämne. |
 
 ## <a name="next-steps"></a>Nästa steg
 

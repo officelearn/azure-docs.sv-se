@@ -1,6 +1,6 @@
 ---
 title: Skriptexempel för Azure CLI – Prenumerera på en Azure-prenumeration| Microsoft Docs
-description: Den här artikeln innehåller ett exempel på Azure CLI-skript som visar hur du prenumererar på Azure Event Grid-händelser med Azure CLI.
+description: Den här artikeln innehåller ett exempel på ett Azure CLI-skript som visar hur du prenumererar på Azure Event Grid händelser med hjälp av Azure CLI.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 9d40367c8d0f4f1250504c30fcd6c4846921a830
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76720902"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Prenumerera på händelser för en Azure-prenumeration med Azure CLI
@@ -40,7 +40,7 @@ Förhandsversionen av exempelskriptet kräver Event Grid-tillägget. Installera 
 
 Det här skriptet använder följande kommandon för att skapa händelseprenumerationen. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Skapa en Event Grid-prenumeration. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) – version av tillägg | Skapa en Event Grid-prenumeration. |

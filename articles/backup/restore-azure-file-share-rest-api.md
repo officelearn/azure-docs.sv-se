@@ -1,64 +1,64 @@
 ---
 title: Återställa Azure-filresurser med REST API
-description: Lär dig hur du använder REST API för att återställa Azure-filresurser eller specifika filer från en återställningspunkt som skapats av Azure Backup
+description: Lär dig hur du använder REST API för att återställa Azure-filresurser eller vissa filer från en återställnings punkt som skapats av Azure Backup
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79252511"
 ---
-# <a name="restore-azure-file-shares-using-rest-api"></a>Återställa Azure File-resurser med REST API
+# <a name="restore-azure-file-shares-using-rest-api"></a>Återställa Azure-filresurser med hjälp av REST API
 
-I den här artikeln beskrivs hur du återställer en hel filresurs eller specifika filer från en återställningspunkt som skapats av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) med hjälp av REST API.
+I den här artikeln förklaras hur du återställer en hel fil resurs eller vissa filer från en återställnings punkt som skapats av [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) med hjälp av REST API.
 
-I slutet av den här artikeln får du lära dig hur du utför följande åtgärder med REST API:
+I slutet av den här artikeln får du lära dig hur du utför följande åtgärder med hjälp av REST API:
 
-* Visa återställningspunkter för en säkerhetskopierad Azure-filresurs.
-* Återställ en fullständig Azure-filresurs.
-* Återställ enskilda filer eller mappar.
+* Visa återställnings punkter för en säkerhets kopie rad Azure-filresurs.
+* Återställa en fullständig Azure-filresurs.
+* Återställa enskilda filer eller mappar.
 
 ## <a name="prerequisites"></a>Krav
 
-Vi förutsätter att du redan har en säkerhetskopierad filresurs som du vill återställa. Om du inte gör det kan du kontrollera [Säkerhetskopiera Azure-filresurs med REST API](backup-azure-file-share-rest-api.md) för att lära dig hur du skapar en.
+Vi förutsätter att du redan har en säkerhetskopierad fil resurs som du vill återställa. Om du inte gör det kontrollerar du [säkerhets kopiering av Azure-filresurs med REST API](backup-azure-file-share-rest-api.md) för att lära dig hur du skapar en.
 
 I den här artikeln använder vi följande resurser:
 
 * **RecoveryServicesVault**: *azurefilesvault*
-* **Resursgrupp**: *azurefiles*
-* **Lagringskonto** *: afsaccount*
-* **Fildelning**: *azurefiles*
+* **Resurs grupp**: *migreringsåtgärden*
+* **Lagrings konto**: *afsaccount*
+* **Fil resurs**: *migreringsåtgärden*
 
 ## <a name="fetch-containername-and-protecteditemname"></a>Hämta ContainerName och ProtectedItemName
 
-För de flesta återställningsrelaterade API-anrop måste du skicka värden för URI-parametrarna {containerName} och {protectedItemName}. Använd ID-attributet i svarstexten för åtgärden [GET backupprotectableitems](https://docs.microsoft.com/rest/api/backup/protecteditems/get) för att hämta värden för dessa parametrar. I vårt exempel är ID för filresursen som vi vill skydda:
+För de flesta av de återställning relaterade API-anropen måste du skicka värden för URI-parametrarna {containerName} och {protectedItemName}. Använd attributet ID i svars texten för [Get backupprotectableitems](https://docs.microsoft.com/rest/api/backup/protecteditems/get) -åtgärden för att hämta värden för dessa parametrar. I vårt exempel är ID: t för den fil resurs som vi vill skydda:
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
-Så värdena översätta enligt följande:
+Det innebär att värdena översätts enligt följande:
 
-* {containername} - *storagecontainer;storage;azurefiles;afsaccount*
-* {protectedItemName} - *azurefileshare;azurefiles*
+* {ContainerName}- *storagecontainer; Storage; migreringsåtgärden; afsaccount*
+* {protectedItemName}- *azurefileshare; migreringsåtgärden*
 
-## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>Hämta återställningspunkter för säkerhetskopierad Azure-filresurs
+## <a name="fetch-recovery-points-for-backed-up-azure-file-share"></a>Hämta återställnings punkter för säkerhets kopiering av Azure-filresurs
 
-Om du vill återställa en säkerhetskopierad filresurs eller filer väljer du först en återställningspunkt för att utföra återställningen. De tillgängliga återställningspunkterna för ett säkerhetskopierat objekt kan visas med [rest-API-anropet för återställningspunktlista.](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) Det är en GET-åtgärd med alla relevanta värden.
+Om du vill återställa en säkerhets kopie rad fil resurs eller filer väljer du först en återställnings punkt för att utföra återställnings åtgärden. Tillgängliga återställnings punkter för ett säkerhetskopierat objekt kan listas med hjälp av [listan över återställnings punkts](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) REST API anrop. Det är en GET-åtgärd med alla relevanta värden.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13&$filter={$filter}
 ```
 
-Ange URI-värdena på följande sätt:
+Ange URI-värden på följande sätt:
 
 * {fabricName}: *Azure*
 * {vaultName}: *azurefilesvault*
-* {containername}: *storagecontainer;storage;azurefiles;afsaccount*
-* {protectedItemName}: *azurefileshare;azurefiles*
-* {ResourceGroupName}: *azurefiles*
+* {ContainerName}: *storagecontainer; Storage; migreringsåtgärden; afsaccount*
+* {protectedItemName}: *azurefileshare; migreringsåtgärden*
+* {ResourceGroupName}: *migreringsåtgärden*
 
-GET URI har alla nödvändiga parametrar. Det finns inget behov av en ytterligare begäran organ.
+Hämta URI har alla nödvändiga parametrar. Det behövs ingen ytterligare brödtext.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
@@ -66,7 +66,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ### <a name="example-response"></a>Exempelsvar
 
-När GET URI har skickats returneras ett 200-svar:
+När Hämta URI har skickats returneras ett 200-svar:
 
 ```http
 HTTP/1.1" 200 None
@@ -139,38 +139,38 @@ HTTP/1.1" 200 None
   },
 ```
 
-Återställningspunkten identifieras med fältet {name} i svaret ovan.
+Återställnings punkten identifieras med fältet {Name} i svaret ovan.
 
-## <a name="full-share-recovery-using-rest-api"></a>Fullständig aktieåterställning med REST API
+## <a name="full-share-recovery-using-rest-api"></a>Fullständig delnings återställning med REST API
 
-Använd det här återställningsalternativet om du vill återställa hela filresursen på den ursprungliga eller en annan plats.
-Utlösande återställning är en POST-begäran och du kan utföra den här åtgärden med hjälp av REST API för återställning av [utlösaren.](https://docs.microsoft.com/rest/api/backup/restores/trigger)
+Använd det här alternativet för återställning för att återställa hela fil resursen på den ursprungliga platsen eller en annan plats.
+Aktivering av återställning är en POST-begäran och du kan utföra den här åtgärden med hjälp av [återställnings återställnings](https://docs.microsoft.com/rest/api/backup/restores/trigger) REST API.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-Värdena {containerName} och {protectedItemName} är som anges [här](#fetch-containername-and-protecteditemname) och recoveryPointID är fältet {name} för återställningspunkten som nämns ovan.
+Värdena {containerName} och {protectedItemName} anges [här](#fetch-containername-and-protecteditemname) och recoveryPointID är {Name}-fältet för den återställnings punkt som anges ovan.
 
 ```http
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### <a name="create-request-body"></a>Skapa förfråningstext
+### <a name="create-request-body"></a>Skapa brödtext för begäran
 
-För att utlösa en återställning för en Azure-filresurs, är följande komponenter i begäran kroppen:
+För att utlösa en återställning för en Azure-filresurs är följande komponenter i begär ande texten:
 
-Namn |  Typ   |   Beskrivning
+Name |  Typ   |   Beskrivning
 --- | ---- | ----
 Egenskaper | AzureFileShareRestoreRequest | Egenskaper för RestoreRequestResource
 
-Den fullständiga listan över definitioner av begärandetexten och annan information finns i [dokumentet om återställning av REST-rest.](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body)
+En fullständig lista över definitioner av begär ande texten och annan information finns i [Återställnings REST API dokumentet](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Återställa till ursprunglig plats
+### <a name="restore-to-original-location"></a>Återställ till ursprunglig plats
 
-#### <a name="request-body-example"></a>Exempel på begärantext
+#### <a name="request-body-example"></a>Exempel på begär ande text
 
-Följande begärandetext definierar egenskaper som krävs för att utlösa en Azure-filresursåterställning:
+Följande begär ande text definierar egenskaper som krävs för att utlösa en Azure-fil resurs återställning:
 
 ```json
 {
@@ -184,17 +184,17 @@ Följande begärandetext definierar egenskaper som krävs för att utlösa en Az
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Återställa till alternativ plats
+### <a name="restore-to-alternate-location"></a>Återställ till en annan plats
 
-Ange följande parametrar för alternativ platsåterställning:
+Ange följande parametrar för alternativ plats återställning:
 
-* **targetResourceId**: Det lagringskonto som säkerhetskopierade innehållet återställs till. Mållagringskontot måste vara på samma plats som valvet.
-* **namn**: Filresursen i mållagringskontot som säkerhetskopierade innehållet återställs till.
-* **targetFolderPath**: Mappen under filresursen som data återställs till.
+* **targetResourceId**: det lagrings konto som det säkerhetskopierade innehållet återställs till. Mål lagrings kontot måste finnas på samma plats som valvet.
+* **namn**: fil resursen på mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
+* **targetFolderPath**: mappen under den fil resurs som data återställs till.
 
-#### <a name="request-body-example"></a>Exempel på begärantext
+#### <a name="request-body-example"></a>Exempel på begär ande text
 
-Följande begärandetext återställer *azurefiles-filresursen* i minneskontot för *afsaccount* till *filresursen azurefiles1* i lagringskontot *afaccount1.*
+Följande begär ande brödtext återställer fil resursen *migreringsåtgärden* i *afsaccount* Storage-kontot till *azurefiles1* -filresursen i *afaccount1* -lagrings kontot.
 
 ```json
 {
@@ -219,12 +219,12 @@ Följande begärandetext återställer *azurefiles-filresursen* i minneskontot f
 
 ### <a name="response"></a>Svar
 
-Utlösningen av en återställningsåtgärd är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Den här åtgärden skapar en annan åtgärd som måste spåras separat.
-Två svar returneras: 202 (Godkänd) när en annan åtgärd skapas och 200 (OK) när åtgärden är klar.
+Utlösaren av en återställnings åtgärd är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Den här åtgärden skapar en annan åtgärd som måste spåras separat.
+Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och 200 (OK) när åtgärden har slutförts.
 
-#### <a name="response-example"></a>Exempel på svar
+#### <a name="response-example"></a>Svars exempel
 
-När du har skickat *POST* URI för att utlösa en återställning är det första svaret 202 (accepterad) med ett platshuvud eller Azure-async-header.
+När du har skickat *post* -URI: n för att utlösa en återställning är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
 ```http
 HTTP/1.1" 202
@@ -245,13 +245,13 @@ HTTP/1.1" 202
 'Date': 'Wed, 05 Feb 2020 07:43:47 GMT'
 ```
 
-Spåra sedan den resulterande åtgärden med hjälp av platshuvudet eller Azure-AsyncOperation-huvudet med kommandot GET.
+Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett GET-kommando.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/68ccfbc1-a64f-4b29-b955-314b5790cfa9?api-version=2016-12-01
 ```
 
-När åtgärden är klar returneras 200 (OK) med ID:t för det resulterande återställningsjobbet i svarstexten.
+När åtgärden har slutförts returneras 200 (OK) med ID: t för det resulterande återställnings jobbet i svars texten.
 
 ```http
 HTTP/1.1" 200
@@ -304,7 +304,7 @@ HTTP/1.1" 200
 }
 ```
 
-För alternativ platsåterhämtning kommer svarstexten att vara så här:
+För alternativ plats återställning ser svars texten ut så här:
 
 ```http
 {
@@ -350,35 +350,35 @@ För alternativ platsåterhämtning kommer svarstexten att vara så här:
 }
 ```
 
-Eftersom säkerhetskopieringsjobbet är en tidskrävande åtgärd bör det spåras enligt beskrivningen i [övervakarjobben med REST API-dokument](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd bör det spåras som förklaras i [övervaknings jobben med REST API-dokument](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
 
-## <a name="item-level-recovery-using-rest-api"></a>Återställning på objektnivå med REST API
+## <a name="item-level-recovery-using-rest-api"></a>Återställning på objekt nivå med REST API
 
-Du kan använda det här återställningsalternativet för att återställa enskilda filer eller mappar på den ursprungliga eller en annan plats.
+Du kan använda det här alternativet för återställning för att återställa enskilda filer eller mappar på den ursprungliga platsen eller en annan plats.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-Värdena {containerName} och {protectedItemName} är som anges [här](#fetch-containername-and-protecteditemname) och recoveryPointID är fältet {name} för återställningspunkten som nämns ovan.
+Värdena {containerName} och {protectedItemName} anges [här](#fetch-containername-and-protecteditemname) och recoveryPointID är {Name}-fältet för den återställnings punkt som anges ovan.
 
 ```http
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### <a name="create-request-body"></a>Skapa förfråningstext
+### <a name="create-request-body"></a>Skapa brödtext för begäran
 
-För att utlösa en återställning för en Azure-filresurs, är följande komponenter i begäran kroppen:
+För att utlösa en återställning för en Azure-filresurs är följande komponenter i begär ande texten:
 
-Namn |  Typ   |   Beskrivning
+Name |  Typ   |   Beskrivning
 --- | ---- | ----
 Egenskaper | AzureFileShareRestoreRequest | Egenskaper för RestoreRequestResource
 
-Den fullständiga listan över definitioner av begärandetexten och annan information finns i [dokumentet om återställning av REST-rest.](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body)
+En fullständig lista över definitioner av begär ande texten och annan information finns i [Återställnings REST API dokumentet](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Återställa till ursprunglig plats
+### <a name="restore-to-original-location"></a>Återställ till ursprunglig plats
 
-Följande begärandetext är att återställa *filen Restoretest.txt* i *filresursen för azurefiles* i *lagringskontot för afsaccount.*
+Följande brödtext i begäran är att återställa filen *Restoretest. txt* i *migreringsåtgärden* -filresursen i *afsaccount* lagrings konto.
 
 Skapa brödtext för begäran
 
@@ -402,11 +402,11 @@ Skapa brödtext för begäran
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Återställa till alternativ plats
+### <a name="restore-to-alternate-location"></a>Återställ till en annan plats
 
-Följande begärandetext är att återställa *filen Restoretest.txt* i filresursen *för azurefiles* i *lagringskontot för afsaccount* till *mappen restoredata* för filresursresursen *för azurefiles1* i lagringskontot *afaccount1.*
+Följande brödtext i begäran är att återställa filen *Restoretest. txt* i *migreringsåtgärden* -filresursen i *afsaccount* lagrings konto till *restoredata* -mappen för *azurefiles1* -filresursen i *afaccount1* lagrings konto.
 
-Skapa förfråningstext
+Skapa brödtext för begäran
 
 ```json
 {
@@ -431,8 +431,8 @@ Skapa förfråningstext
 }
 ```
 
-Svaret ska hanteras på samma sätt som förklaras ovan för [fullständig återköp av aktier.](#full-share-recovery-using-rest-api)
+Svaret ska hanteras på samma sätt som förklaras ovan för [fullständiga delnings](#full-share-recovery-using-rest-api)återställningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [hanterar azure-filresurser säkerhetskopiering med Rest API](manage-azure-file-share-rest-api.md).
+* Lär dig hur du [hanterar säkerhets kopiering av Azure-filresurser med hjälp av REST API](manage-azure-file-share-rest-api.md).

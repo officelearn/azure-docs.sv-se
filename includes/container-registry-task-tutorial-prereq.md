@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
 ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67133516"
 ---
 ## <a name="prerequisites"></a>Krav
@@ -23,16 +23,16 @@ Du måste ha ett Azure-containerregister i din Azure-prenumeration för att kunn
 
 ## <a name="create-a-github-personal-access-token"></a>Skapa en personlig åtkomsttoken för GitHub
 
-För att utlösa en uppgift för att binda till en Git-databas behöver ACR-uppgifter en personlig åtkomsttoken (PAT) för att komma åt databasen. Om du inte redan har en PAT följer du dessa steg för att generera en i GitHub:
+Om du vill utlösa en aktivitet för att genomföra en git-lagringsplats behöver ACR-aktiviteter en personlig åtkomsttoken (PAT) för att få åtkomst till lagrings platsen. Om du inte redan har en PAT, följer du de här stegen för att generera en i GitHub:
 
 1. Gå till sidan där personliga åtkomsttokens skapas i GitHub på https://github.com/settings/tokens/new
 1. Ange en kort **beskrivning** för din token, till exempel ”ACR Tasks Demo”
-1. Välj scope för ACR för att komma åt repo. För att komma åt en offentlig repo som i den här självstudien, under **repo,** aktivera **repo:status** och **public_repo**
+1. Välj omfång för ACR för att få åtkomst till lagrings platsen. För att få åtkomst till en offentlig lagrings platsen som i den här självstudien, under **lagrings platsen**, aktiverar du **lagrings platsen: status** och **public_repo**
 
    ![Skärmbild av sidan Personlig åtkomsttoken i GitHub][build-task-01-new-token]
 
    > [!NOTE]
-   > Om du vill generera en PAT för att komma åt en *privat* repa väljer du omfånget för fullständig **repakontroll.**
+   > Om du vill generera en PAT för åtkomst till en *privat* lagrings platsen väljer du omfattningen för fullständig **lagrings platsen** -kontroll.
 
 1. Välj knappen **Generera token** (du kan behöva bekräfta lösenordet)
 1. Kopiera och spara din genererade token på en **säker plats** (du använder denna token när du definierar en uppgift i följande avsnitt)

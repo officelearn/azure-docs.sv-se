@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: shreshar
 ms.openlocfilehash: fbc91b2610d97fe071e6585a58d7789dca873a9a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72882304"
 ---
-Distribuera appen till din enhet. När appen startar använder du vänster- eller högerpilarna i dialogrutan **Välj en demo** för att välja alternativet **LocalShare** och tryck på **Gå!**. Följ instruktionerna i appen. Du kan välja **Skapa & Dela ankar eller** Hitta delat **ankare**.
+Distribuera appen till enheten. När appen startar går du till dialog rutan **Välj en demo** och väljer alternativet **LocalShare** genom att trycka på **gå**till. Följ instruktionerna i appen. Du kan välja **skapa & resurs ankare** eller **hitta delade ankare**.
 
-**Skapa & Dela Ankar** kan du skapa ett ankare och spara det i din delningstjänst. I gengäld får du tillbaka en identifierare för den som du kan använda för att hämta den från delningstjänsten. Därefter kan du köra det andra scenariot, **Hitta delad ankar,** från antingen enheten eller ett annat. **Leta reda på Delad ankar** kan du hitta tidigare delade ankare genom att ange identifieraren som nämndes tidigare. När du har hämtat ditt scenario guidar appen dig med ytterligare instruktioner om vad du ska göra. Du blir till exempel ombedd att flytta runt enheten för att samla in miljöinformation. Senare placerar du ett ankare i världen, väntar på att det ska sparas, starta en ny session och sedan hitta den.
+**Skapa & resurs ankare** gör att du kan skapa ett ankare och spara det i delnings tjänsten. I retur får du tillbaka en identifierare som du kan använda för att hämta den från delnings tjänsten. Sedan kan du köra det andra scenariot, **hitta delat ankare**, antingen från din enhet eller en annan. Genom att **söka efter delade fäst punkter** kan du hitta tidigare delade ankare genom att ange den identifierare som nämns ovan. När du har valt ditt scenario hjälper appen dig med ytterligare instruktioner kring vad du ska göra. Till exempel uppmanas du att flytta enheten runt till samla in miljö information. Senare kan du placera en fäst punkt i världen, vänta tills den har sparats, starta en ny session och sedan hitta den.

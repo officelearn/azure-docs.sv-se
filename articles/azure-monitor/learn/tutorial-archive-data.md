@@ -1,6 +1,6 @@
 ---
 title: Arkivera Azure mått och loggdata med hjälp av Azure Storage
-description: Arkivera logg- och måttdata som genereras av Azure-resurser till ett lagringskonto.
+description: Arkivera logg-och mått data som genererats av Azure-resurser till ett lagrings konto.
 author: johnkemnetz
 services: azure-monitor
 ms.topic: tutorial
@@ -9,10 +9,10 @@ ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
 ms.openlocfilehash: 3ed00b1c68c41bc392b09c97dd47c9cdb8fa890d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77661733"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
@@ -33,19 +33,19 @@ Här leder vi dig genom processen med att konfigurera Azure-miljön så att du k
 > * Visa övervakningsdata
 > * Rensa dina resurser
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../../storage/common/storage-account-create.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Dirigera prenumerationsloggar till lagringskontot
 
-Du kan nu börja konfigurera Azure-miljön så att du kan skicka övervakningsdata till ett lagringskonto. Vi börjar med att konfigurera data på prenumerationsnivå (i Azure-aktivitetsloggen) så att de dirigeras till lagringskontot. [**Azure-aktivitetsloggen**](../../azure-monitor/platform/platform-logs-overview.md) innehåller en historik över händelser på prenumerationsnivå i Azure. Du kan bläddra i Azure-portalen för att fastställa *vem som* skapat, uppdaterat och tagit bort *vilka* resurser och *när* de gjorde det.
+Du kan nu börja konfigurera Azure-miljön så att du kan skicka övervakningsdata till ett lagringskonto. Vi börjar med att konfigurera data på prenumerationsnivå (i Azure-aktivitetsloggen) så att de dirigeras till lagringskontot. [**Azure aktivitets loggen**](../../azure-monitor/platform/platform-logs-overview.md) innehåller en historik över händelser på prenumerations nivå i Azure. Du kan bläddra i Azure-portalen för att fastställa *vem som* skapat, uppdaterat och tagit bort *vilka* resurser och *när* de gjorde det.
 
 1. Klicka på knappen **Övervaka** i vänster navigeringslista. Klicka sedan på **Aktivitetslogg**.
 
@@ -69,7 +69,7 @@ Nu flödar övervakningsdata från prenumerationen till lagringskontot.
 
 ## <a name="route-resource-data-to-the-storage-account"></a>Dirigera resursdata till lagringskontot
 
-Nu konfigurerar vi resursnivådata (resursmått och resursloggar) som ska dirigeras till lagringskontot genom att ställa in **resursdiagnostikinställningar**.
+Nu ska vi konfigurera resurs nivå data (resurs mått och resurs loggar) som ska dirigeras till lagrings kontot genom att ställa in **diagnostiska inställningar**.
 
 1. Klicka på knappen **Övervaka** i vänster navigeringslista. Klicka sedan på **Diagnostikinställningar**. Här ser du en lista över alla resurser i prenumerationen som producerar övervakningsdata via Azure Monitor. Om du inte har några resurser i listan kan du [skapa en logikapp](../../logic-apps/quickstart-create-first-logic-app-workflow.md) innan du fortsätter, så att du har en resurs som du kan konfigurera en diagnostikinställning på.
 
@@ -161,7 +161,7 @@ Om du har följt föregående steg har data börjat flöda till lagringskontot.
 
 5. Navigera till filen PT1H.json genom att klicka på containrarna för resurs-ID, datum och tid. Klicka på filen PT1H.json och på **Hämta**. Varje PT1H.json-blob innehåller en JSON-blob med händelser som inträffade inom den angivna timmen i blob-URL (till exempel h=12). Under den aktuella timmen läggs händelser till i filen PT1H.json allt eftersom de inträffar. Minutvärdet (m=00) är alltid 00, eftersom logghändelser delas upp i enskilda blobar per timme.
 
-   Du kan nu visa JSON-händelsen som lagrats i lagringskontot. För resursresursloggar är formatet för blobbar:
+   Du kan nu visa JSON-händelsen som lagrats i lagringskontot. För resurs resurs loggar är formatet för Blobbarna:
 
    insights-logs-{namn på loggkategori}/resourceId=/{resurs-ID}/y={fyrsiffrigt årtal}/m={månad med två siffror}/d={dag med två siffror}/h={24-timmarsklocka med två siffror}/m=00/PT1H.json
 

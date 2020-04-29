@@ -1,6 +1,6 @@
 ---
 title: Azure CLI-skriptexempel – Skapa anpassat ämne | Microsoft Docs
-description: Den här artikeln innehåller ett exempel på Azure CLI-skript som visar hur du skapar ett anpassat Azure Event Grid-ämne.
+description: Den här artikeln innehåller ett exempel på ett Azure CLI-skript som visar hur du skapar ett Azure Event Grid anpassat ämne.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 2c6e027d234104d5e45c632dd73e79d8f069deb5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76720851"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Skapa anpassat Event Grid-ämne med Azure CLI
@@ -34,7 +34,7 @@ Det här skriptet skapar ett anpassat Event Grid-ämne.
 
 Det här skriptet använder följande kommandon för att skapa det anpassade ämnet. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az eventgrid topic create](https://docs.microsoft.com/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Skapa ett Event Grid-anpassat ämne. |
 

@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - Övervaka nätverkskommunikation med Azure-portalen
-description: I den här självstudien kan du lära dig hur du övervakar nätverkskommunikation mellan två virtuella datorer med Azure Network Watchers anslutningsövervakningskapacitet.
+title: Självstudie – övervaka nätverkskommunikation med hjälp av Azure Portal
+description: I den här självstudien får du lära dig hur du övervakar nätverkskommunikation mellan två virtuella datorer med Azure Network Watchers funktion för anslutnings övervakning.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -16,15 +16,15 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76834662"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
 
-Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här självstudiekursen får du lära du dig att:
+Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer
@@ -46,16 +46,16 @@ Skapa två virtuella datorer.
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Compute** och sedan ett operativsystem. I den här självstudien används **Windows Server 2016 Datacenter**.
-3. Ange, eller välj, följande information, acceptera standardinställningarna för de återstående inställningarna och välj sedan **OK:**
+3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
     |Inställning|Värde|
     |---|---|
     |Namn|myVm1|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Under **Inställningar** väljer du **Tillägg**. Välj **Lägg till tillägg** och välj **Network Watcher Agent for Windows**, så som visas i följande bild:
@@ -73,10 +73,10 @@ Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen 
 |Steg|Inställning|Värde|
 |---|---|---|
 | 1 | Välj en version av **Ubuntu Server** |                                                                         |
-| 3 | Namn                                  | myVm2                                                                   |
+| 3 | Name                                  | myVm2                                                                   |
 | 3 | Autentiseringstyp                   | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
 | 3 | Resursgrupp                        | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
-| 6 | Tillägg                            | **Network Watcher Agent för Linux**                                             |
+| 6 | Tillägg                            | **Network Watcher agent för Linux**                                             |
 
 Det tar några minuter att distribuera den virtuella datorn. Vänta tills distributionen av den virtuella datorn är klar innan du fortsätter med nästa steg.
 
@@ -149,9 +149,9 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
     | Inställning                 | Värde          |
     | ---                     | ---            |
     | Målportintervall | 22             |
-    | Åtgärd                  | Neka           |
+    | Action                  | Neka           |
     | Prioritet                | 100            |
-    | Namn                    | DenySshInbound |
+    | Name                    | DenySshInbound |
 
 5. Eftersom anslutningsövervakaren gör avsökningar var 60:e sekund ska du vänta några minuter. Välj **Network Watcher** och **Anslutningsövervakare** till vänster i portalen, och välj sedan övervakaren ** myVm1-myVm2(22)** igen. Nu blir resultatet ett annat, så som visas i följande bild:
 

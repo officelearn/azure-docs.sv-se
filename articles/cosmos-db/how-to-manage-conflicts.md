@@ -1,25 +1,25 @@
 ---
 title: Hantera konflikter mellan regioner i Azure Cosmos DB
-description: Lär dig hur du hanterar konflikter i Azure Cosmos DB genom att skapa den senaste writer-wins eller en anpassad konfliktlösningsprincip
+description: Lär dig hur du hanterar konflikter i Azure Cosmos DB genom att skapa den senaste skrivaren-WINS-eller en anpassad lösnings princip för konflikt
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: mjbrown
 ms.openlocfilehash: 6d364f1a9974d6d638bb0f824e88ed3866644c15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247415"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Hantera principer för konfliktlösning i Azure Cosmos DB
 
-Med flera regionskrivningar kan konflikter uppstå när flera klienter skriver till samma objekt. När en konflikt uppstår kan du lösa konflikten med hjälp av olika konfliktlösningsprinciper. I den här artikeln beskrivs hur du hanterar konfliktlösningsprinciper.
+Om flera regioner skrivs, när flera klienter skriver till samma objekt, kan det uppstå konflikter. När en konflikt uppstår kan du lösa konflikten genom att använda olika principer för konflikt lösning. Den här artikeln beskriver hur du hanterar principer för konflikt lösning.
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Skapa en senaste skrivning vinner-konfliktlösningsprincip
 
-De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standardsökvägen för senaste författare-wins är tidsstämpelfältet eller egenskapen. `_ts` För SQL API kan detta också anges till en användardefinierad sökväg med en numerisk typ. I en konflikt vinner det högsta värdet. Om sökvägen inte är inställd eller ogiltig är `_ts`den som standard . Konflikter som lösts med den här principen visas inte i konfliktflödet. Den här principen kan användas av alla API:er.
+De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standard Sök vägen för senaste Writer-WINS är tidsstämpel-fältet eller `_ts` egenskapen. För SQL API kan detta också anges till en användardefinierad sökväg med en numerisk typ. I en konflikt är det högsta värdet WINS. Om sökvägen inte har angetts eller är ogiltig är den standard `_ts`. Konflikter som lösts med den här principen visas inte i den motstridiga feeden. Den här principen kan användas av alla API: er.
 
 ### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -99,23 +99,23 @@ udp_collection = self.try_create_document_collection(
     create_client, database, udp_collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Skapa en anpassad konfliktlösningsprincip med hjälp av en lagrad procedur
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Skapa en anpassad lösnings princip för konflikt med en lagrad procedur
 
-De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur. När principen har skapats med behållaren måste du skapa den lagrade proceduren. Exemplet .NET SDK nedan visar ett exempel. Den här principen stöds endast på Core (SQL) Api.
+De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip med en lagrad procedur för att lösa konflikten. De här konflikterna visas inte i konfliktflödet såvida det inte finns ett fel i din lagrade procedur. När principen har skapats med behållaren måste du skapa den lagrade proceduren. I .NET SDK-exemplet nedan visas ett exempel. Den här principen stöds endast i Core-API (SQL).
 
-### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Exempel på lagrad procedur för anpassad konfliktlösning
+### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Exempel på lagrad procedur för anpassad konflikt lösning
 
-Anpassade konfliktlösningsrelaterade funktioner måste implementeras med hjälp av funktionssignaturen som visas nedan. Funktionsnamnet behöver inte matcha det namn som används när den lagrade proceduren registreras med behållaren, men det förenklar namngivning. Här är en beskrivning av de parametrar som måste implementeras för den här lagrade proceduren.
+De lagrade procedurerna för anpassad konflikt lösning måste implementeras med hjälp av funktions under skriften som visas nedan. Funktions namnet behöver inte matcha namnet som används för att registrera den lagrade proceduren med behållaren, men det fören klar namngivningen. Här följer en beskrivning av de parametrar som måste implementeras för den här lagrade proceduren.
 
-- **incomingItem**: Artikeln som infogas eller uppdateras i commit som genererar konflikterna. Är null för borttagningsåtgärder.
-- **existingItem**: Den för närvarande infästa artikeln. Det här värdet är inte null i en uppdatering och null för en infogning eller borttagning.
-- **isTombstone**: Boolean anger om inkommandeItem står i konflikt med ett tidigare borttaget objekt. När det är sant är existingItem också null.
-- **motstridigaobjekt:** Matris för den bekräftade versionen av alla objekt i behållaren som står i konflikt med incomingItem på ID eller andra unika indexegenskaper.
+- **incomingItem**: objektet som infogas eller uppdateras i commit som genererar konflikter. Är null för Delete-åtgärder.
+- **existingItem**: det för tillfället allokerade objektet. Det här värdet är inte null i en uppdatering och null för en infogning eller borttagning.
+- **isTombstone**: booleskt värde som anger om incomingItem står i konflikt med ett borttaget objekt som redan har tagits bort. När värdet är True är existingItem också null.
+- **conflictingItems**: matris för allokerad version av alla objekt i behållaren som står i konflikt med INCOMINGITEM på ID eller andra unika index egenskaper.
 
 > [!IMPORTANT]
-> Precis som med alla lagrade procedurer kan en anpassad konfliktlösningsprocedur komma åt alla data med samma partitionsnyckel och utföra alla infogningar, uppdateringar eller borttagningsåtgärder för att lösa konflikter.
+> Precis som med alla lagrade procedurer kan en anpassad lösning för konflikt lösning komma åt alla data med samma partitionsnyckel och kan utföra alla åtgärder för att infoga, uppdatera eller ta bort för att lösa konflikter.
 
-Det här exemplet som lagras löser konflikter genom `/myCustomId` att välja det lägsta värdet från sökvägen.
+Den här exempel lagrade proceduren löser konflikter genom att välja det lägsta värdet från `/myCustomId` sökvägen.
 
 ```javascript
 function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
@@ -352,7 +352,7 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 ## <a name="read-from-conflict-feed"></a>Läsa från konfliktflödet
 
-De här exemplen visar hur du läser från en containers konfliktflöde. Konflikter visas bara i konfliktflödet om de inte har lösts automatiskt eller om de använder en anpassad konfliktprincip.
+De här exemplen visar hur du läser från en containers konfliktflöde. Konflikter visas bara i konflikten om de inte löstes automatiskt eller om du använder en anpassad konflikt princip.
 
 ### <a name="net-sdk-v2"></a><a id="read-from-conflict-feed-dotnet"></a>.NET SDK V2
 
@@ -427,9 +427,9 @@ while conflict:
 Läs mer om följande Azure Cosmos DB-begrepp:
 
 - [Global distribution](global-dist-under-the-hood.md)
-- [Konfigurera multi-master i dina program](how-to-multi-master.md)
+- [Så här konfigurerar du flera huvud i dina program](how-to-multi-master.md)
 - [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
-- [Lägga till eller ta bort regioner från ditt Azure Cosmos DB-konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Lägg till eller ta bort regioner från ditt Azure Cosmos DB konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [Så här konfigurerar du flera original i dina program](how-to-multi-master.md).
 - [Partitionering och datadistribution](partition-data.md)
 - [Indexering i Azure Cosmos DB](indexing-policies.md)

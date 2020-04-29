@@ -9,10 +9,10 @@ ms.date: 02/20/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c1259584e91461865b0c7e7bbbd6aced1781827b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67708458"
 ---
 Om du vill lägga till två taggar till en resursgrupp använder du kommandot [az-gruppuppdatering](/cli/azure/group):

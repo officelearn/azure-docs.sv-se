@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76939103"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudie: Skapa DNS-poster i en anpassad domän för en webbapp 
 
-Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Du kan till exempel skapa en Azure-webbapp och\.låta användarna komma åt den med antingen www contoso.com eller contoso.com som ett fullständigt kvalificerat domännamn (FQDN).
+Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Du kan till exempel skapa en Azure-webbapp och låta användarna få åtkomst till den med hjälp av\.antingen www-contoso.com eller contoso.com som ett fullständigt domän namn (FQDN).
 
 > [!NOTE]
 > Contoso.com används som exempel i den här självstudien. Använd ditt eget domännamn i stället för contoso.com.
@@ -29,7 +29,7 @@ Om du vill göra detta måste du skapa tre poster:
 
 Tänk på att om du skapar en A-post för en webbapp i Azure måste A-posten uppdateras manuellt om den underliggande IP-adressen för webbappen ändras.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en A- och TXT-post för den anpassade domänen
@@ -39,7 +39,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Testa de anpassade domännamnen
 
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -47,7 +47,7 @@ Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Du måste ha ett domännamn tillgängligt för att testa med det som du kan vara värd för i Azure DNS . Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
+* Du måste ha ett domän namn tillgängligt för att kunna testa med att du kan vara värd för Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 * [Skapa en App Service-app](../app-service/app-service-web-get-started-html.md), eller använd en app som du har skapat för en annan kurs.
 
 * Skapa en DNS-zon i Azure DNS och delegera zonen i registratorn till Azure DNS.
@@ -84,7 +84,7 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 Den här posten används av App Services endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. Du kan ta bort den här TXT-posten när din anpassade domän har verifierats och konfigurerats i App Service.
 
 > [!NOTE]
-> Om du vill verifiera domännamnet, men inte dirigera produktionstrafik till webbappen, behöver du bara ange TXT-posten för verifieringssteget.  Verifiering kräver ingen A- eller CNAME-post utöver TXT-posten.
+> Om du vill verifiera domän namnet, men inte dirigera produktions trafik till webbappen, behöver du bara ange TXT-posten för verifierings steget.  Verifiering kräver inte en A-eller CNAME-post förutom TXT-posten.
 
 ```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
@@ -173,7 +173,7 @@ set-AzWebApp `
 Öppna en webbläsare och gå till `http://www.<your domainname>` och `http://<you domain name>`.
 
 > [!NOTE]
-> Se till att `http://` du inkluderar prefixet, annars kan din webbläsare försöka förutsäga en webbadress för dig!
+> Se till att du inkluderar `http://` prefixet, annars kan webbläsaren försöka förutsäga en URL åt dig!
 
 Du bör se samma sida för båda URL:er. Ett exempel:
 

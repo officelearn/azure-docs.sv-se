@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
 ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77670363"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använda Azure Application Insights till att förstå hur kunderna använder din app
@@ -32,7 +32,7 @@ Azure Application Insights samlar in användningsinformation för att hjälpa di
 
 För att slutföra den här kursen behöver du:
 
-- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -41,7 +41,7 @@ För att slutföra den här kursen behöver du:
 - Skicka [användarkontext](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) för att spåra vad en användare gör över tid och utnyttja användningsfunktionerna fullt ut.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="get-information-about-your-users"></a>Få information om dina användare
 På panelen **Användare** kan du få förstå viktig information om dina användare på flera olika sätt. Du kan använda den här panelen till att förstå sådan information som var dina användare ansluter från, information om deras klient och vilka områden i appen de använder. 
@@ -56,11 +56,11 @@ På panelen **Användare** kan du få förstå viktig information om dina använ
 
     ![Ändra tidsintervallet](media/tutorial-users/TimeRange.png)
 
-4. Klicka på listrutan **Dela med** för att lägga till en uppdelning av en användaregenskap i diagrammet.  Välja **land eller region**.  Diagrammet innehåller samma data men låter dig visa en uppdelning av antalet användare för varje land/region.
+4. Klicka på listrutan **Dela med** för att lägga till en uppdelning av en användaregenskap i diagrammet.  Välja **land eller region**.  Diagrammet innehåller samma data, men du kan visa en uppdelning av antalet användare för varje land/region.
 
     ![Diagram för land eller region](media/tutorial-users/CountryorRegion.png)
 
-5. Placera markören över olika staplar i diagrammet och observera att antalet för varje land/region bara återspeglar det tidsfönster som representeras av stapeln.
+5. Placera markören över olika staplar i diagrammet och Observera att antalet för varje land/region endast visar tids perioden som representeras av det fältet.
 6. Ta en titt på kolumnen **Insikter** till höger som utför analyser av dina användardata.  Det här ger information som antalet unika sessioner under tidsperioden och poster med gemensamma egenskaper som utgör en betydande del av användardata 
 
     ![Kolumnen Insikter](media/tutorial-users/insights.png)
@@ -83,7 +83,7 @@ Panelen **Sessioner** liknar panelen **Användare**.  **Användare** hjälper di
     ![Sessionstidslinje](media/tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Gruppera liknande användare
-En **kohort** är en uppsättning användare grupperade efter liknande egenskaper.  Du kan använda kohorter för att filtrera data i andra panelen, så att du kan analysera olika grupper av användare.  Till exempel kanske du bara vill analysera användare som har slutfört ett köp.
+En **kohort** är en uppsättning användare grupperade på liknande egenskaper.  Du kan använda kohorter för att filtrera data i andra panelen, så att du kan analysera olika grupper av användare.  Till exempel kanske du bara vill analysera användare som har slutfört ett köp.
 
 1.  Välj **Kohorter** på menyn.
 2.  Klicka på **Nytt** om du vill skapa en kohort.

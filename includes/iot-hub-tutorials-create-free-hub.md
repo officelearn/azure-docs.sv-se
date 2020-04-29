@@ -9,17 +9,17 @@ ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68229270"
 ---
 Använda Azure-portalen för att skapa en IoT-hubb:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj Skapa ett**resurs-Internet** >  **Create a resource** > för**saker IoT Hub**.
+1. Välj **skapa en resurs** > **Sakernas Internet** > **IoT Hub**.
 
     ![Välj för att installera IoT Hub](media/iot-hub-tutorials-create-free-hub/selectiothub.png)
 
@@ -30,7 +30,7 @@ Använda Azure-portalen för att skapa en IoT-hubb:
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
     | Resursgrupp | Skapa ny. I den här självstudiekursen används namnet **tutorial-iot-hub-rg**. |
     | Region | I den här självstudien används **USA, västra**. Du väljer normalt den region som är närmast dig. |
-    | Namn | Följande skärmbild använder namnet **tutorials-iot-hub**. Du måste välja ett eget unikt namn när du skapar din hubb. |
+    | Name | Följande skärmbild använder namnet **tutorials-iot-hub**. Du måste välja ett eget unikt namn när du skapar din hubb. |
 
     ![Inställningar för hubb 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
 

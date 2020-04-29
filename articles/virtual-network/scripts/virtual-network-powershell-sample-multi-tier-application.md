@@ -1,5 +1,5 @@
 ---
-title: Skapa ett VNet för program på flera nivåer – exempel på Azure PowerShell-skript
+title: Skapa ett VNet för program med flera nivåer – Azure PowerShell skript exempel
 description: Azure PowerShell-skriptexempel – Skapa ett virtuellt nätverk för flernivåprogram.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: 32140429d96d73100c4bd5a2ae274e508a15b7a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74091310"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Skapa ett nätverk för flernivåprogram – skriptexempel
@@ -51,7 +51,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt Azure-nätverk och klientdelsundernät. |

@@ -1,6 +1,6 @@
 ---
-title: Haveriberedskap för anpassade ämnen i Azure Event Grid
-description: Den här självstudien hjälper dig att konfigurera din eventing-arkitektur för att återställa om tjänsten Event Grid blir felaktig i en region.
+title: Haveri beredskap för anpassade ämnen i Azure Event Grid
+description: I den här självstudien får du lära dig hur du konfigurerar din händelse arkitektur för att återställa om Event Grid tjänsten blir skadad i en region.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 87f8f79e2cf125fa5735653153d8fcaa781f5200
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76511526"
 ---
-# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen katastrofåterställning för anpassade ämnen i Event Grid
+# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen haveri beredskap för anpassade ämnen i Event Grid
 Haveriberedskap handlar om att återställa från en betydande förlust av programfunktion. Den här självstudien vägleder dig genom hur du konfigurerar din händelsearkitektur för att återställa om Event Grid-tjänsten blir skadad i en viss region.
 
 I den här självstudien lär du dig att skapa aktiv-passiv redundansarkitektur för anpassade ämnen i Event Grid. Du utför redundans genom att spegla dina ämnen och prenumerationer mellan två regioner och hanterar sedan redundans när ett ämne blir skadat. Arkitekturen i den här självstudien redundansväxlar över all ny trafik. Det är viktigt att känna till att händelser som redan är på gång inte återställs i den här konfigurationen förrän den skadade regionen återställs igen.
 
 > [!NOTE]
-> Event Grid stöder automatisk geo katastrofåterställning (GeoDR) på serversidan nu. Du kan fortfarande implementera katastrofåterställningslogik på klientsidan om du vill ha en större kontroll över redundansprocessen. Mer information om automatisk GeoDR finns [i Geo disaster recovery på serversidan i Azure Event Grid](geo-disaster-recovery.md).
+> Event Grid stöder automatisk geo haveri beredskap (följande geodr) på Server sidan nu. Du kan fortfarande implementera katastrof återställnings logik på klient sidan om du vill ha en större kontroll över redundansväxlingen. Mer information om automatisk följande geodr finns i avsnittet [om geo haveri beredskap på Server sidan i Azure Event Grid](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
@@ -93,7 +93,7 @@ Nu när du har konfigurerat ett regionalt redundant par med ämnen och prenumera
 
 ### <a name="basic-client-side-implementation"></a>Grundläggande implementering på klientsidan
 
-Följande exempelkod är en enkel .NET-utgivare som alltid försöker publicera till ditt primära ämne först. Om det inte lyckas redundansväxlar den det sekundära ämnet. I båda fallen kontrollerar den även hälso-API för det andra ämnet genom att göra en GET på `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Ett felfritt ämne bör alltid svara med **200 OK** när en GET görs på slutpunkten **/api/health**.
+Följande exempel kod är en enkel .NET-utgivare som alltid kommer att försöka publicera till ditt primära ämne först. Om det inte lyckas redundansväxlar den det sekundära ämnet. I båda fallen kontrollerar den även hälso-API för det andra ämnet genom att göra en GET på `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Ett felfritt ämne bör alltid svara med **200 OK** när en GET görs på slutpunkten **/api/health**.
 
 ```csharp
 using System;
@@ -186,7 +186,7 @@ namespace EventGridFailoverPublisher
 }
 ```
 
-### <a name="try-it-out"></a>Prova det
+### <a name="try-it-out"></a>Prova nu
 
 Nu när du har alla komponenter på plats kan du testa implementeringen av redundans. Kör exemplet ovan i Visual Studio Code eller din favoritmiljö. Ersätt följande fyra värden med slutpunkterna och nycklarna från dina ämnen:
 

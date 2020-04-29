@@ -1,5 +1,5 @@
 ---
-title: Skapa en virtuell dator från en ögonblicksbild - CLI-exempel
+title: Skapa en virtuell dator från ett snapshot-CLI-exempel
 description: Azure CLI-skriptexempel – Skapa en virtuell dator från en ögonblicksbild
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,10 +17,10 @@ ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: ffc1a735f743796b73c2b58353638dba7ed60985
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75458450"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Skapa en virtuell dator från en ögonblicksbild med CLI
@@ -47,7 +47,7 @@ az group delete --name myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en hanterad disk, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Hämtar en ögonblicksbild med namnet på ögonblicksbilden och resursgruppens namn. ID-egenskapen för det returnerade objektet används för att skapa en hanterad disk.  |
 | [az disk create](https://docs.microsoft.com/cli/azure/disk) | Skapar hanterade diskar från en ögonblicksbild med hjälp av ögonblicksbild-ID, namn på disk, lagringstyp och storlek  |

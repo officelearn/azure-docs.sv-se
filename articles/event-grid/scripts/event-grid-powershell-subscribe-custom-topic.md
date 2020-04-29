@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell-skriptexempel – Prenumerera på anpassat ämne | Microsoft Docs
-description: Den här artikeln innehåller ett exempel på Azure PowerShell-skript som visar hur du prenumererar på Event Grid-händelser för ett anpassat ämne.
+description: Den här artikeln innehåller ett exempel på Azure PowerShell-skript som visar hur du prenumererar på Event Grid händelser för ett anpassat ämne.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 1c3b158a2608d63fae6eea38c7263d0614519a5e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76721531"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-powershell"></a>Prenumerera på händelser för ett anpassat ämne med PowerShell
@@ -42,9 +42,9 @@ Förhandsversionen av exempelskriptet kräver Event Grid-modulen. Installera gen
 
 Det här skriptet använder följande kommandon för att skapa händelseprenumerationen. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [Ny-AzEventGridAbonnemang](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Skapa en Event Grid-prenumeration. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Skapa en Event Grid-prenumeration. |
 
 ## <a name="next-steps"></a>Nästa steg
 

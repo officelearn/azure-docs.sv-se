@@ -1,23 +1,23 @@
 ---
-title: 'PowerShell: Ansluta till ett lagringskonto'
-description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du ansluter en app till ett lagringskonto.
+title: 'PowerShell: Anslut till ett lagrings konto'
+description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du ansluter en app till ett lagrings konto.
 tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: d1c8951445c0be6a3d4b9c4763d719fc7d79d2d5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74685338"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account"></a>Ansluta en App Service-app till ett lagringskonto
 
 I det här scenariot får du lära dig hur du skapar ett Azure Storage-konto och en App Service-app. Sedan länkar du lagringskontot till appen med hjälp av appinställningar.
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure.
+Om det behövs installerar du Azure PowerShell med hjälp av den instruktion som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och `Connect-AzAccount` kör sedan för att skapa en anslutning till Azure.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. |

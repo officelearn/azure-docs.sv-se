@@ -1,7 +1,7 @@
 ---
-title: Exempel på Azure CLI-skript – exportera från ett Azure App Configuration Store
+title: Skript exempel för Azure CLI – exportera från en Azure App konfigurations lager
 titleSuffix: Azure App Configuration
-description: Använda Azure CLI-skript för att exportera konfiguration från Azure App-konfiguration
+description: Använd Azure CLI-skript för att exportera konfigurationen från Azure App konfiguration
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: 3e014504fc1e94c3b323a49b408fa992de00d14a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77523638"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportera från ett Azure App Configuration-arkiv
@@ -39,14 +39,14 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att exportera från ett App Configuration Store. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder följande kommandon för att exportera från ett konfigurations lager för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [az appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exporterar från en appkonfigurationsbutiksresurs. |
+| [AZ appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exporterar från en app Configuration Store-resurs. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare CLI-skriptexempel för appkonfiguration finns i [CLI-exempel på Azure App Configuration CLI](../cli-samples.md).
+Ytterligare skript exempel för programkonfigurations-CLI finns i [Azure App konfigurations-CLI-exempel](../cli-samples.md).

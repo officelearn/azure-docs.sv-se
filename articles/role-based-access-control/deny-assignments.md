@@ -1,6 +1,6 @@
 ---
-title: Förstå neka tilldelningar för Azure-resurser
-description: Lär dig mer om att neka tilldelningar i rollbaserad åtkomstkontroll (RBAC) för Azure-resurser.
+title: Förstå neka-tilldelningar för Azure-resurser
+description: Lär dig mer om att neka tilldelningar i rollbaserad åtkomst kontroll (RBAC) för Azure-resurser.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,63 +16,63 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80372487"
 ---
-# <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka tilldelningar för Azure-resurser
+# <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka-tilldelningar för Azure-resurser
 
-I likhet med en rolltilldelning kopplar en *neka tilldelning* en uppsättning neka åtgärder till en användare, grupp eller tjänsthuvudnamn i ett visst scope i syfte att neka åtkomst. Neka tilldelningar blockera användare från att utföra specifika Azure-resursåtgärder även om en rolltilldelning ger dem åtkomst.
+I likhet med en roll tilldelning bifogar en *neka-tilldelning* en uppsättning neka-åtgärder till en användare, grupp eller tjänstens huvud namn i ett visst omfång för att neka åtkomst. Neka tilldelningar blockera användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger dem åtkomst.
 
-I den här artikeln beskrivs hur neka tilldelningar definieras.
+I den här artikeln beskrivs hur neka-tilldelningar definieras.
 
-## <a name="how-deny-assignments-are-created"></a>Hur neka tilldelningar skapas
+## <a name="how-deny-assignments-are-created"></a>Hur neka-tilldelningar skapas
 
-Neka tilldelningar skapas och hanteras av Azure för att skydda resurser. Azure Blueprints och Azure-hanterade appar använder neka tilldelningar för att skydda systemhanterade resurser. Azure Blueprints och Azure-hanterade appar är det enda sättet att neka tilldelningar kan skapas. Du kan inte direkt skapa dina egna neka-tilldelningar. Mer information om hur Skissar använder neka tilldelningar för att låsa resurser finns [i Förstå resurslåsning i Azure Blueprints](../governance/blueprints/concepts/resource-locking.md).
+Neka-tilldelningar skapas och hanteras av Azure för att skydda resurser. Azure-ritningar och Azure-hanterade appar använder neka-tilldelningar för att skydda systemhanterade resurser. Azure-ritningar och Azure-hanterade appar är det enda sättet som nekar tilldelningar kan skapas. Du kan inte skapa egna neka-tilldelningar direkt. Mer information om hur ritningar använder neka-tilldelningar för att låsa resurser finns i [förstå resurs låsning i Azure-ritningar](../governance/blueprints/concepts/resource-locking.md).
 
 > [!NOTE]
-> Du kan inte direkt skapa dina egna neka-tilldelningar.
+> Du kan inte skapa egna neka-tilldelningar direkt.
 
-## <a name="compare-role-assignments-and-deny-assignments"></a>Jämföra rolltilldelningar och neka tilldelningar
+## <a name="compare-role-assignments-and-deny-assignments"></a>Jämför roll tilldelningar och neka tilldelningar
 
-Neka tilldelningar följer ett liknande mönster som rolltilldelningar, men har också vissa skillnader.
+Neka tilldelningar följer ett liknande mönster som roll tilldelningar, men har också vissa skillnader.
 
 | Funktion | Rolltilldelning | Neka tilldelning |
 | --- | --- | --- |
 | Bevilja åtkomst | :heavy_check_mark: |  |
 | Neka åtkomst |  | :heavy_check_mark: |
 | Kan skapas direkt | :heavy_check_mark: |  |
-| Ansök i ett scope | :heavy_check_mark: | :heavy_check_mark: |
-| Exkludera huvudmän |  | :heavy_check_mark: |
-| Förhindra arv till underordnade scope |  | :heavy_check_mark: |
-| Använd på [klassiska prenumerationsadministratörstilldelningar](rbac-and-directory-admin-roles.md) |  | :heavy_check_mark: |
+| Tillämpa i ett omfång | :heavy_check_mark: | :heavy_check_mark: |
+| Exkludera huvud konton |  | :heavy_check_mark: |
+| Förhindra arv av underordnade omfattningar |  | :heavy_check_mark: |
+| Tillämpa på [Administratörs](rbac-and-directory-admin-roles.md) tilldelningar för klassisk prenumeration |  | :heavy_check_mark: |
 
-## <a name="deny-assignment-properties"></a>Neka tilldelningsegenskaper
+## <a name="deny-assignment-properties"></a>Egenskaper för neka tilldelning
 
- En neka tilldelning har följande egenskaper:
+ En neka-tilldelning har följande egenskaper:
 
 > [!div class="mx-tableFixed"]
 > | Egenskap | Krävs | Typ | Beskrivning |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Ja | String | Visningsnamnet för neka tilldelningen. Namn måste vara unika för ett visst scope. |
-> | `Description` | Inga | String | Beskrivningen av neka tilldelning. |
-> | `Permissions.Actions` | Minst en åtgärd eller en DataActions | Sträng[] | En matris med strängar som anger de hanteringsåtgärder som neka tilldelningen blockerar åtkomst till. |
-> | `Permissions.NotActions` | Inga | Sträng[] | En matris med strängar som anger vilka hanteringsåtgärder som ska uteslutas från neka-tilldelningen. |
-> | `Permissions.DataActions` | Minst en åtgärd eller en DataActions | Sträng[] | En matris med strängar som anger de dataåtgärder som neka tilldelningen blockerar åtkomst till. |
-> | `Permissions.NotDataActions` | Inga | Sträng[] | En matris med strängar som anger vilka dataåtgärder som ska uteslutas från neka-tilldelningen. |
-> | `Scope` | Inga | String | En sträng som anger det scope som neka tilldelningen gäller för. |
-> | `DoNotApplyToChildScopes` | Inga | Boolean | Anger om neka tilldelningen gäller för underordnade scope. Standardvärdet är falskt. |
-> | `Principals[i].Id` | Ja | Sträng[] | En matris med Azure AD-huvudobjekt-ID:er (användare, grupp, tjänsthuvudnamn eller hanterad identitet) som neka tilldelningen gäller. Ange till ett `00000000-0000-0000-0000-000000000000` tomt GUID för att representera alla huvudnamn. |
-> | `Principals[i].Type` | Inga | Sträng[] | En matris med objekttyper som representeras av Huvudnamn[i].Id. Ange att `SystemDefined` representera alla huvudnamn. |
-> | `ExcludePrincipals[i].Id` | Inga | Sträng[] | En matris med Azure AD-huvudobjekt-ID:er (användare, grupp, tjänsthuvudnamn eller hanterad identitet) som neka tilldelningen inte gäller för. |
-> | `ExcludePrincipals[i].Type` | Inga | Sträng[] | En matris med objekttyper som representeras av ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Inga | Boolean | Anger om den här neka tilldelningen har skapats av Azure och inte kan redigeras eller tas bort. För närvarande är alla neka tilldelningar systemskyddade. |
+> | `DenyAssignmentName` | Ja | Sträng | Visnings namnet för neka-tilldelningen. Namn måste vara unika för ett angivet omfång. |
+> | `Description` | Nej | Sträng | Beskrivningen av neka-tilldelningen. |
+> | `Permissions.Actions` | Minst en åtgärd eller en DataActions | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som neka tilldelning blockerar åtkomsten till. |
+> | `Permissions.NotActions` | Nej | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som ska undantas från neka-tilldelningen. |
+> | `Permissions.DataActions` | Minst en åtgärd eller en DataActions | Sträng [] | En sträng mat ris som anger de data åtgärder som neka tilldelning blockerar åtkomsten till. |
+> | `Permissions.NotDataActions` | Nej | Sträng [] | En sträng mat ris som anger de data åtgärder som ska undantas från neka-tilldelningen. |
+> | `Scope` | Nej | Sträng | En sträng som anger omfattningen som neka-tilldelningen gäller för. |
+> | `DoNotApplyToChildScopes` | Nej | Boolesk | Anger om neka-tilldelningen gäller för underordnade omfång. Standardvärdet är false. |
+> | `Principals[i].Id` | Ja | Sträng [] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen gäller. Ange ett tomt GUID `00000000-0000-0000-0000-000000000000` som representerar alla huvud konton. |
+> | `Principals[i].Type` | Nej | Sträng [] | En matris med objekt typer som representeras av huvud konton [i]. ID `SystemDefined` . anges till som representerar alla huvud konton. |
+> | `ExcludePrincipals[i].Id` | Nej | Sträng [] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen inte gäller för. |
+> | `ExcludePrincipals[i].Type` | Nej | Sträng [] | En matris med objekt typer som representeras av ExcludePrincipals [i]. ID. |
+> | `IsSystemProtected` | Nej | Boolesk | Anger om den här nekande tilldelningen skapades av Azure och inte kan redige ras eller tas bort. För närvarande är alla nekade tilldelningar skyddade av systemet. |
 
-## <a name="the-all-principals-principal"></a>De viktigaste rektorerna
+## <a name="the-all-principals-principal"></a>Huvudobjektet alla huvud konton
 
-För att stödja neka tilldelningar har ett systemdefinierat huvudnamn med namnet *Alla huvudmän introducerats.* Det här huvudobjektet representerar alla användare, grupper, tjänsthuvudnamn och hanterade identiteter i en Azure AD-katalog. Om huvud-ID:et `00000000-0000-0000-0000-000000000000` är ett noll-GUID och huvudtypen är, `SystemDefined`representerar huvudmannen alla huvudnamn. I Azure PowerShell-utdata ser alla huvudnamn ut så här:
+För att stödja neka-tilldelningar har ett Systemdefinierat objekt med namnet *alla huvud konton* introducerats. Detta huvud konto representerar alla användare, grupper, tjänstens huvud namn och hanterade identiteter i en Azure AD-katalog. Om ägar-ID: t är noll `00000000-0000-0000-0000-000000000000` GUID och huvud typen är `SystemDefined`, representerar huvudobjektet alla huvud konton. I Azure PowerShell utdata ser alla huvud konton ut så här:
 
 ```azurepowershell
 Principals              : {
@@ -82,12 +82,12 @@ Principals              : {
                           }
 ```
 
-Alla huvudmän kan `ExcludePrincipals` kombineras med för att neka alla huvudmän utom vissa användare. Alla huvudmän har följande begränsningar:
+Alla huvud konton kan kombineras med `ExcludePrincipals` för att neka alla huvud konton förutom vissa användare. Alla huvud konton har följande begränsningar:
 
-- Kan endast användas `Principals` i och `ExcludePrincipals`kan inte användas i .
-- `Principals[i].Type`måste ställas `SystemDefined`in på .
+- Kan endast användas i `Principals` och kan inte användas i. `ExcludePrincipals`
+- `Principals[i].Type`måste anges till `SystemDefined`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudiekurs: Skydda nya resurser med Azure Blueprints-resurslås](../governance/blueprints/tutorials/protect-new-resources.md)
-* [Lista neka tilldelningar för Azure-resurser med Azure-portalen](deny-assignments-portal.md)
+* [Självstudie: skydda nya resurser med resurs lås för Azure-ritningar](../governance/blueprints/tutorials/protect-new-resources.md)
+* [Visa lista över nekade tilldelningar för Azure-resurser med hjälp av Azure Portal](deny-assignments-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Web Application Firewall (WAF)
-description: Den här artikeln är en översikt över WAF-principer (Web Application Firewall) globala, per plats och per URI.This article is a overview of Web Application Firewall (WAF) global, per-site, and per-URI policies.
+title: Översikt över principer för Azure Web Application-brandvägg (WAF)
+description: Den här artikeln är en översikt över globala WAF-, per-plats-och per-URI-principer.
 services: web-application-firewall
 ms.topic: article
 author: winthrop28
@@ -8,58 +8,58 @@ ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: fff4fb5707c07098fd7fac261a36909224365cdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060274"
 ---
-# <a name="azure-web-application-firewall-waf-policy-overview"></a>Översikt över Azure Web Application Firewall (WAF)
+# <a name="azure-web-application-firewall-waf-policy-overview"></a>Översikt över principer för Azure Web Application-brandvägg (WAF)
 
-Brandväggsprinciper för webbprogram innehåller alla WAF-inställningar och konfigurationer. Detta inkluderar undantag, anpassade regler, hanterade regler och så vidare. Dessa principer associeras sedan till en programgateway (global), en lyssnare (per plats) eller en sökvägsbaserad regel (per URI) för att de ska börja gälla.
+Brand Väggs principer för webb program innehåller alla WAF-inställningar och konfigurationer. Detta omfattar undantag, anpassade regler, hanterade regler och så vidare. Dessa principer associeras sedan till en Programgateway (global), en lyssnare (per plats) eller en Sök vägs baserad regel (per URI) för att de ska börja gälla.
 
 > [!NOTE]
-> Waf-principer (Azure Web Application Firewall) per plats och per URI finns i offentlig förhandsversion.
+> Azure Web Application Firewall (WAF) per-plats-och per-URI-principer finns i offentlig för hands version.
 > 
 > Den allmänt tillgängliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Det finns ingen gräns för hur många principer du kan skapa. När du skapar en princip måste den associeras till en programgateway för att börja gälla. Den kan associeras med valfri kombination av programgateways, lyssnare och sökvägsbaserade regler.
+Det finns ingen gräns för antalet principer som du kan skapa. När du skapar en princip måste den kopplas till en Programgateway för att börja gälla. Den kan kopplas till valfri kombination av programgatewayer, lyssnare och Sök vägs regler.
 
-## <a name="global-waf-policy"></a>Global WAF-policy
+## <a name="global-waf-policy"></a>Global WAF-princip
 
-När du associerar en WAF-princip globalt skyddas alla webbplatser bakom din Application Gateway WAF med samma hanterade regler, anpassade regler, undantag och alla andra konfigurerade inställningar.
+När du associerar en WAF-princip globalt skyddas alla platser bakom din Application Gateway WAF med samma hanterade regler, anpassade regler, undantag och andra konfigurerade inställningar.
 
-Om du vill att en enskild princip ska gälla för alla platser kan du associera principen med programgatewayen. Mer information finns i [Skapa principer för brandvägg för webbprogram för Application Gateway för](create-waf-policy-ag.md) att skapa och tillämpa en WAF-princip med Azure-portalen. 
+Om du vill att en enda princip ska tillämpas på alla platser kan du associera principen med programgatewayen. Mer information finns i [skapa brand Väggs principer för webb program för Application Gateway](create-waf-policy-ag.md) skapa och tillämpa en WAF-princip med hjälp av Azure Portal. 
 
-## <a name="per-site-waf-policy"></a>WAF-princip per plats
+## <a name="per-site-waf-policy"></a>Princip för WAF per plats
 
-Med WAF-principer per plats kan du skydda flera platser med olika säkerhetsbehov bakom en enda WAF med hjälp av principer per plats. Om det till exempel finns fem platser bakom DIN WAF kan du ha fem separata WAF-principer (en för varje lyssnare) för att anpassa undantag, anpassade regler, hanterade regeluppsättningar och alla andra WAF-inställningar för varje webbplats.
+Med WAF-principer per plats kan du skydda flera platser med olika säkerhets behov bakom en enda WAF med hjälp av principer för varje webbplats. Om det till exempel finns fem platser bakom din WAF, kan du ha fem separata WAF-principer (en för varje lyssnare) för att anpassa undantag, anpassade regler, hanterade regel uppsättningar och alla andra WAF inställningar för varje plats.
 
-Anta att programgatewayen har en global princip som tillämpas på den. Sedan kan du tillämpa en annan princip på en lyssnare på den programgatewayen. Lyssnarens politik träder nu i kraft för just den lyssnaren. Programgatewayens globala princip gäller fortfarande för alla andra lyssnare och sökvägsbaserade regler som inte har en specifik princip tilldelad dem.
+Anta att din Application Gateway har en global princip som tillämpas på den. Sedan tillämpar du en annan princip på en lyssnare på programgatewayen. Profilens princip gäller nu bara för den lyssnaren. Programgatewayens globala princip gäller fortfarande alla andra lyssnare och Sök vägsbaserade regler som inte har tilldelats någon specifik princip.
 
-## <a name="per-uri-policy"></a>Per-URI-policy
+## <a name="per-uri-policy"></a>Per URI-princip
 
-Om du vill ha ännu mer anpassning ned till URI-nivån kan du associera en WAF-princip med en sökvägsbaserad regel. Om det finns vissa sidor på en enda webbplats som kräver olika principer kan du göra ändringar i WAF-principen som bara påverkar en viss URI. Detta kan gälla för en betalnings- eller inloggningssida, eller andra URI:er som behöver en ännu mer specifik WAF-policy än de andra webbplatserna bakom din WAF.
+För ännu mer anpassning till URI-nivå kan du associera en WAF-princip med en Sök vägs baserad regel. Om det finns vissa sidor på en plats som kräver olika principer, kan du göra ändringar i WAF-principen som endast påverkar en viss URI. Detta kan gälla för en betalnings-eller inloggnings sida eller andra URI: er som behöver en ännu mer speciell WAF-princip än de andra platserna bakom din WAF.
 
-Precis som med WAF-principer per plats åsidosätter mer specifika principer mindre specifika principer. Det innebär att en princip per URI på en URL-sökvägskarta åsidosätter alla per plats eller globala WAF-princip ovanför den.
+Precis som med WAF-principer per plats åsidosätter mer specifika principer mindre specifika. Det innebär att en per URI-princip på en URL-sökväg mappar åsidosätter alla principer för varje webbplats eller global WAF ovanför.
 
 ## <a name="example"></a>Exempel
 
-Anta att du har tre platser: contoso.com, fabrikam.com och adatum.com alla bakom samma programgateway. Du vill ha en WAF som tillämpas på alla tre webbplatserna, men du behöver ökad säkerhet med adatum.com eftersom det är där kunderna besöker, bläddrar och köper produkter.
+Anta att du har tre platser: contoso.com, fabrikam.com och adatum.com alla bakom samma Application Gateway. Du vill att en WAF ska tillämpas på alla tre platserna, men du behöver extra säkerhet med adatum.com eftersom det är där kunder besöker, bläddrar och köper produkter.
 
-Du kan tillämpa en global princip på WAF, med vissa grundläggande inställningar, undantag eller anpassade regler om det behövs för att stoppa vissa falska positiva identifieringar från att blockera trafik. I det här fallet finns det ingen anledning att ha globala SQL-insprutningsregler som körs eftersom fabrikam.com och contoso.com är statiska sidor utan SQL-serverning. Så du kan inaktivera dessa regler i den globala principen.
+Du kan använda en global princip för WAF, med vissa grundläggande inställningar, undantag eller anpassade regler om det behövs för att stoppa vissa falska positiva identifieringar från att blockera trafik. I det här fallet behöver du inte ha några globala SQL-inmatnings regler som körs eftersom fabrikam.com och contoso.com är statiska sidor utan SQL-backend. Så du kan inaktivera dessa regler i den globala principen.
 
-Denna globala policy är lämplig för contoso.com och fabrikam.com, men du måste vara mer försiktig med adatum.com där inloggningsinformation och betalningar hanteras. Du kan använda en princip per plats på adatum-lyssnaren och låta SQL-reglerna köras. Anta också att det finns en cookie som blockerar viss trafik, så att du kan skapa ett undantag för den cookien för att stoppa det falska positiva. 
+Den här globala principen är lämplig för contoso.com och fabrikam.com, men du måste vara mer försiktig med adatum.com där inloggnings information och betalningar hanteras. Du kan tillämpa en princip för varje-plats på Adatum-lyssnaren och lämna SQL-regler som körs. Anta också att en cookie blockerar viss trafik, så att du kan skapa ett undantag för cookien för att stoppa det falska positiva värdet. 
 
-Den adatum.com/payments URI är där du måste vara försiktig. Så tillämpa en annan princip på att URI och lämna alla regler aktiverade, och även ta bort alla undantag.
+Adatum.com/payments-URI: n är där du måste vara försiktig. Tillämpa en annan princip på denna URI och lämna alla regler aktiverade, och ta även bort alla undantag.
 
-I det här exemplet har du en global princip som gäller för två webbplatser. Du har en policy per plats som gäller för en plats och sedan en per-URI-princip som gäller för en specifik sökvägsbaserad regel. Se (infoga länk här när den finns) hur du skapar per plats och per URI-principer för motsvarande PowerShell för det här exemplet.
+I det här exemplet har du en global princip som gäller för två platser. Du har en princip för varje plats som gäller för en plats och sedan en per-URI-princip som gäller för en viss Sök vägs baserad regel. Se (Infoga länk här när det finns) så här skapar du per-plats-och per-URI-principer för motsvarande PowerShell i det här exemplet.
 
 ## <a name="existing-waf-configurations"></a>Befintliga WAF-konfigurationer
 
-Alla nya WAF-inställningar för webbprogram brandväggen (anpassade regler, hanterade regeluppsättningskonfigurationer, undantag och så vidare.) finns i en WAF-princip. Om du har en befintlig WAF kan dessa inställningar fortfarande finnas kvar i WAF-konfigurationen. Om du vill ha mer information om hur du flyttar till den nya WAF-principen [migrerar du WAF Config till en WAF-princip](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
+Alla nya WAF-inställningar för webb program brand väggen (anpassade regler, konfigurationer för hanterade regel uppsättningar, undantag och så vidare) finns i en WAF-princip. Om du har en befintlig WAF kan de här inställningarna fortfarande finnas i din WAF-konfiguration. Mer information om hur du flyttar till den nya WAF-principen genom [att MIGRERA WAF config till en WAF-princip](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa principer per plats och per URI med Azure PowerShell.
+Skapa per-plats-och per-URI-principer med hjälp av Azure PowerShell.

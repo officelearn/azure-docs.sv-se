@@ -1,6 +1,6 @@
 ---
-title: Så här köper du programvara på AppSource | Azure Marketplace
-description: Steg för en att köpa programvara på AppSource | Azure Marketplace.
+title: Så här köper du program vara på AppSource | Azure Marketplace
+description: Steg för en att köpa program vara på AppSource | Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,61 +8,61 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.openlocfilehash: bc19246354bebd1ba2a827e7718cbad95b896e14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80284984"
 ---
-# <a name="how-to-purchase-software-on-microsoft-appsource"></a>Så här köper du programvara på Microsoft AppSource
+# <a name="how-to-purchase-software-on-microsoft-appsource"></a>Så här köper du program vara på Microsoft AppSource
 
-Microsoft [AppSource](https://appsource.microsoft.com/) gör det nu möjligt för kunder att prenumerera på SaaS-program som erbjuds av Microsoft-partner. Kunder kan hitta certifierade webbprogram i butiken och hantera avgifter, uppgraderingar, nedgraderingar och avbokningar på ett enda ställe med hjälp av Microsofts administrationscenter. I den här artikeln beskrivs hur du kan köpa en app från butiken.
+Med Microsoft [AppSource](https://appsource.microsoft.com/) kan kunder prenumerera på SaaS-program som erbjuds av Microsoft-partner. Kunder kan hitta certifierade webb program i butiken och kan hantera avgifter, uppgraderingar, degradering och uppsägningar på en enda plats med hjälp av Microsofts administrations Center. I den här artikeln beskrivs hur du kan köpa en app från Store.
 
-AppSource ger dig ett urval av appar att välja mellan, inklusive kostnadsfria utvärderingsversioner och betalda prenumerationer. I den här artikeln beskrivs hur betalda prenumerationer kan köpas via AppSource.
+AppSource tillhandahåller ett urval av appar som du kan välja bland, inklusive kostnads fria, utvärderings versioner och betalda prenumerationer. Den här artikeln beskriver hur betalda prenumerationer kan köpas via AppSource.
 
 ## <a name="requirements"></a>Krav
 
 För att köpa SaaS-erbjudanden behöver du:
 
-- Ett arbets- eller skolkonto. Om du inte har ett arbets- eller skolkonto följer du länken till "Registrera dig för ett kostnadsfritt konto" under köpprocessen.
+- Ett arbets- eller skolkonto. Om du inte har något arbets-eller skol konto följer du länken till "Registrera dig för ett kostnads fritt konto" under inköps processen.
 
-- Ett giltigt kreditkort i det land/den region där du köper erbjudandet.
+- Ett giltigt kredit kort i landet/regionen där du köper erbjudandet.
 
     > [!Note]
-    > Faktureringslandet för kreditkort kan vara låst till platsen för din Azure Active Directory-instans.
+    > Kredit kortets fakturerings land kan vara låst till platsen för din Azure Active Directory-instans.
 
 ## <a name="steps-for-making-purchases-on-appsource"></a>Steg för att göra inköp på AppSource
 
-1. Välj din fakturerings-/landsregion på [AppSource](https://appsource.microsoft.com/).
-1. Hitta den ansökan du vill köpa.
-1. Välj **Hämta det nu**.
-1. Välj plan:
+1. Välj din fakturerings-/land region på [AppSource](https://appsource.microsoft.com/).
+1. Hitta det program som du vill köpa.
+1. Välj **Hämta nu**.
+1. Välj planen:
 
     1. Ange antalet platser
-    1. Ange faktureringsperiod.
+    1. Ange fakturerings perioden.
     
-1. Ange din faktureringsadress.
-1. Ange betalningsmetod:
-    * Kreditkort stöds: Visa, Master Card, American Express, Discover.
+1. Ange din fakturerings adress.
+1. Ange din betalnings metod:
+    * Kredit kort som stöds: Visa, huvud kort, American Express, Discover.
     
-1. Välj **Beställ**.
+1. Välj **Placera ordning**.
 
-## <a name="how-to-configure-software-post-purchase"></a>Konfigurera programvara efter köpet
+## <a name="how-to-configure-software-post-purchase"></a>Så här konfigurerar du program varu inköp
 
-När din beställning har tagits emot kan det ta flera sekunder att få bekräftat. Du kommer att få en länk för att konfigurera din SaaS-prenumeration på sidan, samt ett e-postmeddelande som bekräftar köpet och länken för att slutföra konfigurationen.
+När din beställning har tagits emot kan det ta flera sekunder innan den bekräftas. Du kommer att få en länk för att konfigurera din SaaS-prenumeration på sidan, samt ett e-postmeddelande som bekräftar köpet och länken för att slutföra konfigurationen.
 
-1. På sidan **Orderbekräftelse** väljer du **Konfigurera**. Alternativt kan du använda konfigurationslänken som skickas till dig i bekräftelsemeddelandet.
-1. Fullständig etablering och inställning på programvaruleverantörens webbplats.
+1. På sidan **order bekräftelse** väljer du **Konfigurera**. Du kan också använda konfigurations länken som skickas till dig i bekräftelse meddelandet.
+1. Slutför etableringen och Ställ in på program varu leverantörens webbplats.
 
     > [!Note]
     > Det här steget är obligatoriskt och kan slutföras när som helst.
 
 ## <a name="contact-support"></a>Kontakta supporten
 
-Man kan [skicka in en supportbiljett](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) via Microsoft 365 Admin Center.
+En kan [Skicka ett support ärende](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) via Microsoft 365 administrations centret.
 
-För affärsprodukter, [kontakta hjälp här](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
+För företags produkter [kontaktar du hjälp här](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns i dokumentationen till [Commercial Marketplace.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview)
+- Mer information finns i den [kommersiella Marketplace-dokumentationen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) .

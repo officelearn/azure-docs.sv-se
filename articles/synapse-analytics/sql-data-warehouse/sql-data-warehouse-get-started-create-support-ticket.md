@@ -1,6 +1,6 @@
 ---
-title: Begär kvothöjningar och få stöd
-description: Så här skapar du en supportbegäran i Azure-portalen för Azure Synapse Analytics. Begär kvot ökar eller få problemlösningsstöd.
+title: Begär ande kvot ökar och får support
+description: Så här skapar du en support förfrågan i Azure Portal för Azure Synapse Analytics. Begär ande kvot ökar eller får support för problem matchning.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -11,101 +11,101 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: eaa6ceded9893b278b28d517cbddb303f8469e10
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80350897"
 ---
-# <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Begär kvot ökar och få stöd för Azure Synapse Analytics
+# <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Begär ande kvot ökar och får support för Azure Synapse Analytics
 
-I den här artikeln beskrivs hur du skickar in en supportbiljett i Azure-portalen för Azure Synapse Analytics. Med den här processen kan du begära en kvotökning eller skicka in en teknisk supportbegäran för den tekniska supportteamet.
+Den här artikeln beskriver hur du skickar in ett support ärende i Azure Portal för Azure Synapse Analytics. Med den här processen kan du begära en kvot ökning eller skicka en begäran om teknisk support för support teamet för tekniska support.
 
 ## <a name="create-a-support-ticket"></a>Skapa ett supportärende
 
-Följ följande steg för att skapa en ny supportbegäran från Azure-portalen för Azure Synapse Analytics.
+Använd följande steg för att skapa en ny supportbegäran från Azure Portal för Azure Synapse Analytics.
 
-1. På [Portalmenyn i Azure](https://portal.azure.com) väljer du **Stöd för Hjälp +**.
+1. På [Azure Portal](https://portal.azure.com) -menyn väljer du **Hjälp + Support**.
 
-   ![Supportlänken hjälp +](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
+   ![Länken Hjälp + Support](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
 
 
-1. Välj **Ny supportbegäran i** **Hjälp + support**.
+1. I **Hjälp + Support**väljer du **ny supportbegäran**.
 
     ![Skapa en ny supportbegäran](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
 
-1. Granska din [Azure-supportplan](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
+1. Granska [support avtalet för Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
 
    * Stöd för **fakturerings-, kvot- och prenumerationhantering** finns tillgängligt på alla supportnivåer.
-   * **Support för break-fix** tillhandahålls via [supporten utvecklare,](https://azure.microsoft.com/support/plans/developer/) [standard,](https://azure.microsoft.com/support/plans/standard/) [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)eller [Premier.](https://azure.microsoft.com/support/plans/premier/) Reparationsärenden är problem som kunder upplever när de använder Azure och där det rimligen kan antas att Microsoft orsakade problemet.
+   * **Reparations** support tillhandahålls via [utvecklare](https://azure.microsoft.com/support/plans/developer/), [standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)eller [Premier](https://azure.microsoft.com/support/plans/premier/) support. Reparationsärenden är problem som kunder upplever när de använder Azure och där det rimligen kan antas att Microsoft orsakade problemet.
    * **Utvecklarhandledning** och **rådgivningstjänster** finns tillgängliga på supportnivåerna [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) och [Premier](https://azure.microsoft.com/support/plans/premier/).
 
-   Om du har en Premier-supportplan kan du också rapportera Azure Synapse Analytics-problem på [Microsoft Premier onlineportalen](https://premier.microsoft.com/). Se [Azure-supportplaner](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) om du vill veta mer om de olika supportplanerna, inklusive omfattning, svarstider, priser osv.  Vanliga frågor och svar om Azure-support finns i Vanliga frågor och svar om [Azure-support](https://azure.microsoft.com/support/faq/).
+   Om du har ett Premier support-avtal kan du även rapportera problem med Azure Synapse Analytics på [Microsoft Premier Online-portalen](https://premier.microsoft.com/). Se [support](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) avtalen för Azure om du vill veta mer om olika support avtal, inklusive omfattning, svars tider, priser osv.  Vanliga frågor och svar om support för Azure finns i vanliga frågor och [svar om support för Azure](https://azure.microsoft.com/support/faq/).
 
-1. Välj lämplig ärendetyp för **ärendetyp.** Om du vill lösa problem väljer du **Teknisk**. För begäranden om kvotökning väljer du **Tjänst- och prenumerationsgränser (kvoter)**.
+1. För **typ av problem**väljer du lämplig typ av problem. För problem med att lösa problemet väljer du **teknisk**. För förfrågningar om ökad kvot väljer du **tjänst-och prenumerations gränser (kvoter)**.
 
-   ![Välj en ärendetyp](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-issue-type.png)  
+   ![Välj en typ av problem](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-issue-type.png)  
 
    > [!NOTE]
-   > Den här resten av den här artikeln fokuserar på begäranden om kvotökning. Men du kan också välja **Teknisk** här för problemlösningssupportbegäranden. Om du väljer **Teknisk**uppmanas du att ange en sammanfattning och sedan identifiera en problemtyp genom att välja **Välj problemtyp**. Du kan se lösningar som hjälper dig att lösa problemet. Om de lösningar som presenteras inte löser problemet väljer du **Nästa:Information** och fyller i formuläret för att skicka supportbiljetten.
+   > Den här återstoden av den här artikeln fokuserar på kvot-öka förfrågningar. Men du kan också välja **teknisk** här för förfrågningar om problemlösnings support. Om du väljer **teknisk**uppmanas du att ange en sammanfattning och sedan identifiera en problem typ genom att välja **Välj typ av problem**. Du kan se lösningar som kan hjälpa dig att lösa problemet. Om lösningarna som presenteras inte löser problemet väljer du **Nästa: information** och fyller i formuläret för att skicka in support ärendet.
 
-1. För begäranden om kvotökning väljer du **Azure Synapse Analytics** för **typen Kvot**. Välj sedan **Nästa: Lösningar >>**.
+1. Välj **Azure Synapse Analytics** som **kvot typ**för förfrågningar om ökad kvot. Välj sedan **Nästa: lösningar >>**.
 
-   ![Välj en kvottyp](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
+   ![Välj en kvot typ](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
 
-1. I fönstret **Information** väljer du **Ange information** om du vill ange ytterligare information.
+1. I **informations** fönstret väljer du **Ange information** för att ange ytterligare information.
 
-   ![Länken "Ge information"](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
+   ![Länken "Tillhandahåll information"](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
 
-## <a name="quota-request-types"></a>Typer av kvotbegäranden
+## <a name="quota-request-types"></a>Typer av kvot förfrågningar
 
-Om du klickar på **Ange information** visas fönstret **Kvotinformation** som gör att du kan lägga till ytterligare information. I följande avsnitt beskrivs de olika kvotbegäranden som är tillgängliga för Azure Synapse Analytics.
+Om du klickar på **Ange information** visas fönstret **kvot Detaljer** där du kan lägga till ytterligare information. I följande avsnitt beskrivs de olika kvot begär Anden som är tillgängliga för Azure Synapse Analytics.
 
-### <a name="data-warehouse-units-dwus-per-server"></a>Data warehouseenheter (DWUs) per server
+### <a name="data-warehouse-units-dwus-per-server"></a>Informations lager enheter (DWU: er) per server
 
-Följ följande steg för att begära en ökning av DWUs per server.
+Använd följande steg för att begära en ökning av DWU: er per server.
 
-1. Välj **DTUs (Data Warehouse Units) per** serverkvottyp.
+1. Välj **data lager enheter (DTU: er) per server** kvot typ.
 
-1. Välj den resurs som ska riktas i listan **Resurs.**
+1. I listan **resurs** väljer du den resurs som ska riktas mot målet.
 
-1. I fältet **Begär kvot** anger du den nya DWU-gränsen som du begär.
+1. I fältet **begär kvot** anger du den nya DWU-gränsen som du begär.
 
    ![Information om DWU-kvot](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
 
 ### <a name="servers-per-subscription"></a>Servrar per prenumeration
 
-Följ följande steg för att begära en ökning av antalet servrar per prenumeration.
+Använd följande steg för att begära en ökning av antalet servrar per prenumeration.
 
-1. Välj **kvottypen Servrar per prenumeration.**
+1. Välj kvot typ för **servrar per prenumeration** .
 
-1. Välj den Azure-region som ska användas i listan **Plats.** Kvoten är per prenumeration i varje region.
+1. I listan **plats** väljer du den Azure-region som du vill använda. Kvoten är per prenumeration i varje region.
 
-1. I fältet **Ny kvot** anger du din begäran om det maximala antalet servrar i den regionen.
+1. I fältet **ny kvot** anger du din begäran om maximalt antal servrar i den regionen.
 
-   ![Information om kvot för servrar](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
+   ![Information om servrars kvot](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
 
-### <a name="enable-subscription-access-to-a-region"></a>Aktivera prenumerationsåtkomst till en region
+### <a name="enable-subscription-access-to-a-region"></a>Aktivera prenumerations åtkomst till en region
 
-Vissa erbjudandetyper är inte tillgängliga i alla regioner. Du kan se ett fel som följande:
+Vissa erbjudande typer är inte tillgängliga i varje region. Du kan se ett fel meddelande, till exempel följande:
 
 `This location is not available for subscription`
 
-Om din prenumeration behöver åtkomst i en viss region använder du alternativet **Annan kvotbegäran för** att begära åtkomst. I din begäran anger du den erbjudande- och SKU-information som du vill aktivera för regionen. Information om hur du utforskar alternativen för erbjudandet och SKU finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+Om din prenumeration behöver åtkomst i en viss region kan du använda alternativet **annan kvot förfrågan** för att begära åtkomst. I din begäran anger du det erbjudande och den SKU-information som du vill aktivera för regionen. Om du vill utforska erbjudande-och SKU-alternativen kan du läsa mer i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-![Övriga kvotuppgifter](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
+![Annan kvot information](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
-## <a name="submit-your-request"></a>Skicka din förfrågan
+## <a name="submit-your-request"></a>Skicka in din begäran
 
-Det sista steget är att fylla i återstående information om din SQL Database-supportbegäran. Välj sedan **Nästa: Granska + skapa>>** och när du har granskat information om begäran klickar du på **Skapa** för att skicka begäran.
+Det sista steget är att fylla i återstående information om din SQL Database support förfrågan. Välj sedan **Nästa: granska + skapa>>** och klicka på **skapa** när du har granskat förfrågnings informationen och skicka begäran.
 
 ## <a name="monitor-a-support-ticket"></a>Övervaka ett supportärende
 
-När du har skickat supportbegäran kontaktar Azure-supportteamet dig. Du kan kontrollera status och detaljer för din begäran genom att klicka på **Alla supportärenden** på instrumentpanelen.
+När du har skickat in support förfrågan kontaktar support teamet för Azure. Du kan kontrollera status och detaljer för din begäran genom att klicka på **Alla supportärenden** på instrumentpanelen.
 
 ![Kontrollera status](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
 ## <a name="other-resources"></a>Andra resurser
 
-Du kan också ansluta till Azure Synapse Analytics-communityn på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) eller via [AZURE SQL Data Warehouse MSDN-forumet](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
+Du kan också ansluta till Azure Synapse Analytics-communityn på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) eller via [Azure SQL Data Warehouse MSDN-forumet](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
 

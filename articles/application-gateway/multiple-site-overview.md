@@ -1,6 +1,6 @@
 ---
 title: Agera värd åt flera webbplatser i Azure Application Gateway
-description: Den här artikeln innehåller en översikt över azure application gateway-support för flera webbplatser.
+description: Den här artikeln innehåller en översikt över stödet för Azure Application Gateway för flera platser.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,24 +8,24 @@ ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80257418"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
 
-Med flera webbplatsvärdar kan du konfigurera mer än ett webbprogram på samma port i en programgateway. Den här funktionen låter dig konfigurera en mer effektiv topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en programgateway. Varje webbplats kan dirigeras till en egen serverdelspool. I följande exempel betjänar programgateway trafik för `contoso.com` och `fabrikam.com` från två backend-serverpooler som kallas ContosoServerPool och FabrikamServerPool.
+Med värd tjänster för flera webbplatser kan du konfigurera fler än ett webb program på samma port i en Programgateway. Den här funktionen låter dig konfigurera en mer effektiv topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en programgateway. Varje webbplats kan dirigeras till en egen serverdelspool. I följande exempel fungerar programgatewayen trafik för `contoso.com` och `fabrikam.com` från två backend-pooler med namnet ContosoServerPool och FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
 > [!IMPORTANT]
-> Regler bearbetas i den ordning de visas i portalen för v1 SKU. För v2 SKU har exakta matchningar högre prioritet. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
+> Regler bearbetas i den ordning som de visas i portalen för v1 SKU. För v2-SKU: n har exakta matchningar högre prioritet. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
 
 Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
-På samma sätt kan du vara värd för flera underdomäner för samma överordnade domän på samma programgatewaydistribution. Du kan till `http://blog.contoso.com` exempel `http://app.contoso.com` vara värd för och på en enda programgatewaydistribution.
+På samma sätt kan du vara värd för flera under domäner för samma överordnade domän på samma Application Gateway-distribution. Du kan till exempel vara värd `http://blog.contoso.com` för `http://app.contoso.com` och på en enskild Application Gateway-distribution.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Värdhuvuden och servernamnsindikator (SNI)
 
@@ -35,17 +35,17 @@ Det finns tre vanliga mekanismer för att aktivera flera platser inom samma infr
 2. Använd värdnamn för att ha flera webbprogram på samma IP-adress.
 3. Använd olika portar för att har flera webbprogram på samma IP-adress.
 
-För närvarande stöder Application Gateway en enda offentlig IP-adress där den lyssnar efter trafik. Så flera program, var och en med sin egen IP-adress stöds för närvarande inte. 
+För närvarande Application Gateway stöder en enskild offentlig IP-adress där den lyssnar efter trafik. Det finns för närvarande inte stöd för att ha flera program, var och en med sin egen IP-adress. 
 
-Application Gateway stöder flera program som alla lyssnar på olika portar, men det här scenariot kräver att programmen accepterar trafik på icke-standardportar. Detta är ofta inte en konfiguration som du vill ha.
+Application Gateway stöder flera program som var och en lyssnar på olika portar, men det här scenariot kräver att programmen accepterar trafik på portar som inte är standard. Detta är ofta inte en konfiguration som du vill använda.
 
-Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att ha mer än en webbplats på samma offentliga IP-adress och port. De platser som finns på programgatewayen kan också stödja TLS-avlastning med SNI-tillägget (Server Name Indication). Det här scenariot innebär att klientens webbläsare och serverdels-webbservergrupp måste ha stöd för HTTP/1.1 och TLS-tillägg som det definieras i RFC 6066.
+Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att ha mer än en webbplats på samma offentliga IP-adress och port. De platser som finns i Application Gateway kan också ha stöd för TLS-avlastning med Servernamnindikator (SNI) TLS-tillägg. Det här scenariot innebär att klientens webbläsare och serverdels-webbservergrupp måste ha stöd för HTTP/1.1 och TLS-tillägg som det definieras i RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Listener-konfigurationselementet
 
-Befintliga HTTPListener-konfigurationselement förbättras för att stödja värdnamn och servernamnindikeringselement. Den används av Application Gateway för att dirigera trafik till lämplig backend-pool. 
+Befintliga konfigurations element för HTTPListener har förbättrats för att ge stöd för värdnamn och Server namns indikations element. Den används av Application Gateway för att dirigera trafik till lämplig backend-pool. 
 
-Följande kodexempel är kodavsnittet för ett HttpListeners-element från en mallfil:
+Följande kod exempel är kodfragmentet för ett HttpListeners-element från en mallfil:
 
 ```json
 "httpListeners": [
@@ -87,7 +87,7 @@ Du kan besöka [Resource Manager-mallen för flera webbplatser](https://github.c
 
 ## <a name="routing-rule"></a>Routingregeln
 
-Det krävs ingen ändring i routningsregeln. Routingregeln Basic ska fortfarande väljas för att knyta rätt webbplats-lyssnare till motsvarande serverdels-adresspool.
+Ingen ändring krävs i regeln för routning. Routingregeln Basic ska fortfarande väljas för att knyta rätt webbplats-lyssnare till motsvarande serverdels-adresspool.
 
 ```json
 "requestRoutingRules": [

@@ -1,7 +1,7 @@
 ---
-title: Verktyg för maskininlärning och datavetenskap
+title: Machine Learning och data science-verktyg
 titleSuffix: Azure Data Science Virtual Machine
-description: Lär dig mer om verktyg och ramverk för maskininlärning som är förinstallerade på den virtuella datorn för datavetenskap.
+description: Lär dig mer om de maskin inlärnings verktyg och ramverk som är förinstallerade på Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: machine-learning
@@ -11,107 +11,107 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282315"
 ---
-# <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Verktyg för maskininlärning och datavetenskap på virtuella Azure Data Science-datorer
-Virtuella Azure Data Science-datorer (DSVM) har en omfattande uppsättning verktyg och bibliotek för maskininlärning som är tillgängliga på populära språk, till exempel Python, R och Julia.
+# <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Maskin inlärnings-och data vetenskaps verktyg i Azure Data Science Virtual Machines
+Azure Data Science Virtual Machines (Dsvm) har en omfattande uppsättning verktyg och bibliotek för maskin inlärning som är tillgängligt på populära språk, till exempel python, R och Julia.
 
-Här är några av verktygen och biblioteken för maskininlärning på DSVM:er.
+Här följer några av verktygen och biblioteken för maskin inlärning på Dsvm.
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>Azure Machine Learning-SDK för Python
 
-Se den fullständiga referensen för [Azure Machine Learning SDK för Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+Se den fullständiga referensen för [Azure Machine Learning SDK för python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
 
 |    |           |
 | ------------- | ------------- |
-| Vad är detta?   |   Azure Machine Learning är en molntjänst som du kan använda för att utveckla och distribuera maskininlärningsmodeller. Du kan spåra dina modeller när du bygger, tränar, skalar och hanterar dem med hjälp av Python SDK. Distribuera modeller som behållare och kör dem i molnet, lokalt eller på Azure IoT Edge.   |
-| Utgåvor som stöds     | Windows (conda-miljö: AzureML), Linux (conda-miljö: py36)    |
-| Typiska användningsområden      | Allmän maskininlärningsplattform      |
-| Hur är det konfigurerat eller installerat?      |  Installeras med GPU-stöd   |
-| Så här använder eller kör du den      | Som Python SDK och i Azure CLI. Aktivera till conda-miljön `AzureML` i Windows Edition *eller* på `py36` Linux-utgåvan.      |
-| Länk till exempel      | Exempel på jupyter-anteckningsböcker ingår i katalogen `AzureML` under anteckningsböcker.  |
-| Relaterade verktyg      | Visual Studio-kod, Jupyter   |
+| Vad är detta?   |   Azure Machine Learning är en moln tjänst som du kan använda för att utveckla och distribuera maskin inlärnings modeller. Du kan spåra dina modeller när du skapar, tränar, skalar och hanterar dem med hjälp av python SDK. Distribuera modeller som behållare och kör dem i molnet, lokalt eller på Azure IoT Edge.   |
+| Versioner som stöds     | Windows (Conda-miljö: AzureML), Linux (Conda-miljö: py36)    |
+| Vanliga användnings områden      | Allmän plattform för maskin inlärning      |
+| Hur konfigureras den eller installeras?      |  Installerat med GPU-stöd   |
+| Använda eller köra det      | Som ett python SDK och i Azure CLI. Aktivera i Conda-miljön `AzureML` i Windows- *or* versionen eller `py36` till i Linux Edition.      |
+| Länka till exempel      | Exempel på Jupyter-anteckningsböcker ingår i `AzureML` katalogen under antecknings böcker.  |
+| Relaterade verktyg      | Visual Studio Code, Jupyter   |
 
-## <a name="h2o"></a>H2o
+## <a name="h2o"></a>H2O
 
 |    |           |
 | ------------- | ------------- |
-| Vad är detta?   | En AI-plattform med öppen källkod som stöder in-memory, distribuerad, snabb och skalbar maskininlärning.  |
+| Vad är detta?   | En AI-plattform med öppen källkod som har stöd för minnes intern, distribuerad, snabb och skalbar maskin inlärning.  |
 | Versioner som stöds      | Linux   |
-| Typiska användningsområden      | Distribuerad, skalbar maskininlärning för allmänt syfte   |
-| Hur är det konfigurerat eller installerat?      | H2O är `/dsvm/tools/h2o`installerat i .      |
-| Så här använder eller kör du den      | Anslut till den virtuella datorn med hjälp av X2Go. Starta en ny terminal `java -jar /dsvm/tools/h2o/current/h2o.jar`och kör . Starta sedan en webbläsare `http://localhost:54321`och anslut till .      |
-| Länk till exempel      | Prover finns tillgängliga på den virtuella `h2o` datorn i Jupyter under katalogen.      |
-| Relaterade verktyg      | Apache Spark, MXNet, XGBoost, Kolsyrat vatten, djupt vatten    |
+| Vanliga användnings områden      | Allmänt distribuerad, skalbar maskin inlärning   |
+| Hur konfigureras den eller installeras?      | H2O installeras i `/dsvm/tools/h2o`.      |
+| Använda eller köra det      | Anslut till den virtuella datorn med hjälp av X2Go. Starta en ny terminal och kör `java -jar /dsvm/tools/h2o/current/h2o.jar`. Starta sedan en webbläsare och Anslut till `http://localhost:54321`.      |
+| Länka till exempel      | Exempel finns tillgängliga på den virtuella datorn i Jupyter under `h2o` katalogen.      |
+| Relaterade verktyg      | Apache Spark, MXNet, XGBoost, mousserande vatten, djup vatten    |
 
-Det finns flera andra maskininlärningsbibliotek på DSVM:er, till exempel det populära `scikit-learn` paketet som ingår i Anaconda Python-distributionen för DSVMs. Om du vill kolla in listan över paket som är tillgängliga i Python, R och Julia kör du respektive pakethanterare.
+Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det populära `scikit-learn` paketet som är en del av AnaConDa python-distributionen för dsvm. Ta en titt på listan över tillgängliga paket i python, R och Julia genom att köra respektive paket hanterare.
 
 ## <a name="lightgbm"></a>LightGBM
 
 |    |           |
 | ------------- | ------------- |
-| Vad är detta?   | Ett snabbt, distribuerat, högpresterande gradient-öka (GBDT, GBRT, GBM eller MART) ram baserat på beslut träd algoritmer. Den används för rangordning, klassificering och många andra maskininlärningsuppgifter.    |
+| Vad är detta?   | En snabb, distribuerad, högpresterande gradient-förstärkning (GBDT, GBRT, GBM eller MART) som baseras på algoritmer för besluts träd. Den används för rankning, klassificering och många andra uppgifter för maskin inlärning.    |
 | Versioner som stöds      | Windows, Linux    |
-| Typiska användningsområden      | Ramverket för att öka det allmänna syftet      |
-| Hur är det konfigurerat eller installerat?      | På Windows installeras LightGBM som ett Python-paket. På Linux är kommandoraden körbar i `/opt/LightGBM/lightgbm`, R-paketet är installerat och Python-paket installeras.     |
-| Länk till exempel      | [LightGBM-guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
+| Vanliga användnings områden      | Generell användnings ramverk för tonings förstärkning      |
+| Hur konfigureras den eller installeras?      | I Windows installeras LightGBM som ett python-paket. På Linux är den körbara filen i `/opt/LightGBM/lightgbm`, R-paketet installerat och python-paket installeras.     |
+| Länka till exempel      | [LightGBM-guide](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
 | Relaterade verktyg      | MXNet, XgBoost  |
 
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| Vad är detta?   |   Ett grafiskt användargränssnitt för datautvinning med hjälp av R.   |
-| Utgåvor som stöds     | Windows, Linux     |
-| Typiska användningsområden      | Allmänt verktyg för datautvinning av användargränssnitt för R    |
-| Så här använder eller kör du den      | Som ett gränssnittsverktyg. Starta en kommandotolk i Windows, kör R `rattle()`och kör sedan inuti R . På Linux, anslut med X2Go, starta en terminal, kör `rattle()`R och sedan inuti R, kör . |
-| Länk till exempel      | [Rattle](https://togaware.com/onepager/) |
-| Relaterade verktyg      |LightGBM, Weka, XGBoost   |
+| Vad är detta?   |   Ett grafiskt användar gränssnitt för Data utvinning med hjälp av R.   |
+| Versioner som stöds     | Windows, Linux     |
+| Vanliga användnings områden      | Allmänna GRÄNSSNITTs data utvinnings verktyg för R    |
+| Använda eller köra det      | Som ett UI-verktyg. Starta en kommando tolk i Windows, kör R och sedan i R, kör `rattle()`. I Linux ansluter du till X2Go, startar en Terminal, kör R och sedan i R, kör `rattle()`. |
+| Länka till exempel      | [Rattle](https://togaware.com/onepager/) |
+| Relaterade verktyg      |LightGBM, Wekas, XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| Vad är detta?   |   Ett snabbt bibliotek med ett system med ett system med öppen källkod    |
-| Utgåvor som stöds     | Windows, Linux     |
-| Typiska användningsområden      | Allmänt maskininlärningsbibliotek      |
-| Hur är det konfigurerat eller installerat?      |  Windows: msi installer<br/>Linux: apt-get |
-| Så här använder eller kör du den      | Som ett kommandoradsverktyg på`C:\Program Files\VowpalWabbit\vw.exe` väg (på Windows, `/usr/bin/vw` på Linux)    |
-| Länk till exempel      | [VoPal Wabbit prover](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
+| Vad är detta?   |   Ett snabbt och enkelt utbildnings system bibliotek med öppen källkod    |
+| Versioner som stöds     | Windows, Linux     |
+| Vanliga användnings områden      | Allmänt maskin inlärnings bibliotek      |
+| Hur konfigureras den eller installeras?      |  Windows: MSI installations program<br/>Linux: apt-get |
+| Använda eller köra det      | Som ett kommando rads verktyg på väg (`C:\Program Files\VowpalWabbit\vw.exe` i Windows, `/usr/bin/vw` på Linux)    |
+| Länka till exempel      | [VowPal Wabbit-exempel](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
 | Relaterade verktyg      |LightGBM, MXNet, XGBoost   |
 
 
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Vad är detta?   |  En samling maskininlärningsalgoritmer för datautvinningsuppgifter. Algoritmerna kan antingen tillämpas direkt på en datauppsättning eller anropas från din egen Java-kod. Weka innehåller verktyg för förbearbetning, klassificering, regression, klustring, associationsregler och visualisering. |
-| Utgåvor som stöds     | Windows, Linux     |
-| Typiska användningsområden      | Allmänt verktyg för maskininlärning     |
-| Så här använder eller kör du den      | Sök efter Weka på **Start-menyn** i Windows. På Linux loggar du in med X2Go och går sedan till **Applications** > **Development** > **Weka**. |
-| Länk till exempel      | [Weka prover](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Relaterade verktyg      |LightGBM, Skallra, XGBoost   |
+| Vad är detta?   |  En samling Machine Learning-algoritmer för data utvinnings aktiviteter. Algoritmerna kan antingen appliceras direkt på en data uppsättning eller anropas från din egen Java-kod. Wekas innehåller verktyg för för bearbetning av data, klassificering, regression, klustring, associerings regler och visualisering. |
+| Versioner som stöds     | Windows, Linux     |
+| Vanliga användnings områden      | Allmänt verktyg för maskin inlärning     |
+| Använda eller köra det      | I Windows söker du efter Wekas på **Start** menyn. Logga in med X2Go i Linux och gå sedan till **program** > **utvecklings** > **wekas**. |
+| Länka till exempel      | [Wekas-exempel](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Relaterade verktyg      |LightGBM, Rattle, XGBoost   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| Vad är detta?   |   Ett snabbt, bärbart och distribuerat gradient-öka (GBDT, GBRT eller GBM) bibliotek för Python, R, Java, Scala, C ++, med mera. Den körs på en enda maskin, och på Apache Hadoop och Spark.    |
-| Utgåvor som stöds     | Windows, Linux     |
-| Typiska användningsområden      | Allmänt maskininlärningsbibliotek      |
-| Hur är det konfigurerat eller installerat?      |  Installeras med GPU-stöd   |
-| Så här använder eller kör du den      | Som ett Python-bibliotek (2.7 och 3.5), R-paket och`C:\dsvm\tools\xgboost\bin\xgboost.exe` kommandoradsverktyg på väg (för Windows och `/dsvm/tools/xgboost/xgboost` För Linux)    |
-| Länkar till exempel      | Exempel ingår på den `/dsvm/tools/xgboost/demo` virtuella datorn, `C:\dsvm\tools\xgboost\demo` i linux och på Windows.   |
+| Vad är detta?   |   Ett snabb, portabelt och distribuerat GBDT-bibliotek (, GBRT eller GBM) för python, R, Java, Scala, C++ med mera. Den körs på en enskild dator och på Apache Hadoop och Spark.    |
+| Versioner som stöds     | Windows, Linux     |
+| Vanliga användnings områden      | Allmänt maskin inlärnings bibliotek      |
+| Hur konfigureras den eller installeras?      |  Installerat med GPU-stöd   |
+| Använda eller köra det      | Som ett Python-bibliotek (2,7 och 3,5), R-paket och kommando rads verktyget på en sökväg (`C:\dsvm\tools\xgboost\bin\xgboost.exe` för Windows och `/dsvm/tools/xgboost/xgboost` Linux)    |
+| Länkar till exempel      | Exempel finns på den virtuella datorn, i `/dsvm/tools/xgboost/demo` på Linux och `C:\dsvm\tools\xgboost\demo` i Windows.   |
 | Relaterade verktyg      | LightGBM, MXNet   |
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
 | ------------- | ------------- |
-| Vad är detta?   | SQL-frågemotor med öppen källkod på stordata    |
+| Vad är detta?   | SQL-frågemotor med öppen källkod på Big data    |
 | DSVM-versioner som stöds      | Windows 2019, Linux  |
-| Hur är det konfigurerat och installerat på DSVM?      |  Endast `/dsvm/tools/drill*` installerat i inbäddat läge   |
-| Typiska användningsområden      |  För datautforskning på plats utan att kräva extrakt, transformering, belastning (ETL). Fråga olika datakällor och format, inklusive CSV, JSON, relationstabeller och Hadoop.     |
-| Så här använder och kör du den      | Genväg till skrivbordet  <br/> [Kom igång med Drill om 10 minuter](https://drill.apache.org/docs/drill-in-10-minutes/)  |
-| Relaterade verktyg på DSVM      |   Skallra, Weka, SQL Server Management Studio      |
+| Hur konfigureras den och installeras på DSVM?      |  Endast installerat `/dsvm/tools/drill*` i inbäddat läge   |
+| Vanliga användnings områden      |  För data utforskning på plats utan att behöva extrahera, transformera, läsa in (ETL). Fråga olika data källor och format, inklusive CSV, JSON, Relations tabeller och Hadoop.     |
+| Använda och köra den      | Skriv bords gen väg  <br/> [Kom igång med att detaljgranska på 10 minuter](https://drill.apache.org/docs/drill-in-10-minutes/)  |
+| Relaterade verktyg på DSVM      |   Rattle, Wekas, SQL Server Management Studio      |
 
 

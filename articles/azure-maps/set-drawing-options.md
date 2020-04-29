@@ -1,6 +1,6 @@
 ---
-title: Modul för ritverktyg | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du anger data för ritalternativ med hjälp av Microsoft Azure Maps Web SDK
+title: Modul för rit verktyg | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du ställer in ritnings alternativ data med hjälp av Microsoft Azure Maps-webbsdk
 author: philmea
 ms.author: philmea
 ms.date: 01/29/2020
@@ -9,45 +9,45 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 711609f9382e2153cbc738d544933796dbbe2e99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334314"
 ---
 # <a name="use-the-drawing-tools-module"></a>Använda modulen för ritningsverktyg
 
-Azure Maps Web SDK tillhandahåller en *ritverktygsmodul*. Den här modulen gör det enkelt att rita och redigera former på kartan med hjälp av en inmatningsenhet, till exempel en mus eller pekskärm. Kärnklassen för den här modulen är [ritningshanteraren](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Rithanteraren innehåller alla funktioner som behövs för att rita och redigera former på kartan. Den kan användas direkt, och den är integrerad med ett anpassat verktygsfältsgränssnitt. Du kan också använda den inbyggda [ritningsverktygsklassen.](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) 
+Azure Maps Web SDK tillhandahåller en *modul för rit verktyg*. Den här modulen gör det enkelt att rita och redigera former på kartan med en indataenhet, till exempel en mus eller touch-skärm. Huvud klassen för den här modulen är [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Ritnings hanteraren innehåller alla funktioner som behövs för att rita och redigera former på kartan. Den kan användas direkt och är integrerad med ett anpassat verktygsfälts gränssnitt. Du kan också använda den inbyggda verktygs klassen [Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) . 
 
-## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Läsa in ritverktygsmodulen på en webbsida
+## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Läsa in modulen för rit verktyg på en webb sida
 
 1. Skapa en ny HTML-fil och [implementera kartan som vanligt](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
-2. Läs in ritverktygsmodulen i Azure Maps. Du kan läsa in den på ett av två sätt:
-    - Använd den globalt värdbaserade Azure Content Delivery Network-versionen av Azure Maps-tjänstmodulen. Lägg till referens till JavaScript- och `<head>` CSS-formatmallen i elementet i filen:
+2. Läs in modulen Azure Maps Drawing tools. Du kan läsa in den på ett av två sätt:
+    - Använd den globalt värdbaserade Azure Content Delivery Network-versionen av modulen Azure Maps tjänster. Lägg till referens i Java Script och CSS-formatmallar i filens `<head>` element:
 
         ```html
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
         <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
         ```
 
-    - Du kan också läsa in modulen ritverktyg för Azure Maps Web SDK-källkoden lokalt med hjälp av npm-paketet för [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) och sedan vara värd för den med din app. Det här paketet innehåller även TypeScript-definitioner. Använd det här kommandot:
+    - Du kan också läsa in modulen för rit verktyg för att Azure Maps Web SDK-källkod lokalt genom att använda NPM-paketet [Azure-Maps-Drawing tools](https://www.npmjs.com/package/azure-maps-drawing-tools) och sedan vara värd för det med din app. Det här paketet innehåller även TypeScript-definitioner. Använd det här kommandot:
     
-        > **npm installera azure-maps-drawing-tools**
+        > **NPM installera Azure-Maps-Draw-tools**
     
-        Lägg sedan till en referens till JavaScript- `<head>` och CSS-formatmallen i elementet i filen:
+        Lägg sedan till en referens till JavaScript-och CSS-formatmallar `<head>` i filens element:
 
          ```html
         <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.css" type="text/css" />
         <script src="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.js"></script>
          ```
 
-## <a name="use-the-drawing-manager-directly"></a>Använd rithanteraren direkt
+## <a name="use-the-drawing-manager-directly"></a>Använda Drawing Manager direkt
 
-När modulen för ritverktyg har lästs in i programmet kan du aktivera rit- och redigeringsfunktioner med hjälp av [rithanteraren](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Du kan ange alternativ för rithanteraren medan du `drawingManager.setOptions()` instansierar den eller alternativt använder funktionen.
+När modulen Drawing Tools har lästs in i ditt program kan du aktivera funktioner för att rita och redigera med [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Du kan ange alternativ för ritnings hanteraren när du instansierar den eller också `drawingManager.setOptions()` använder du funktionen.
 
-### <a name="set-the-drawing-mode"></a>Ställ in ritläget
+### <a name="set-the-drawing-mode"></a>Ange rit läge
 
-Följande kod skapar en instans av rithanteraren och anger alternativet för **ritläge.** 
+Följande kod skapar en instans av Drawing Manager och anger alternativet för rit **läge** . 
 
 ```Javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -56,24 +56,24 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-Koden nedan är ett komplett exempel på hur du ställer in ett ritläge för rithanteraren. Klicka på kartan för att börja rita en polygon.
+Koden nedan är ett komplett exempel på hur du ställer in ett ritläge i Drawing Manager. Klicka på kartan för att börja rita en polygon.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Rita en polygon" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Rita en polygon</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+Se pennan genom att <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Rita en polygon</a> efter Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-### <a name="set-the-interaction-type"></a>Ange interaktionstyp
+### <a name="set-the-interaction-type"></a>Ange interaktions typ
 
-Rithanteraren stöder tre olika sätt att interagera med kartan för att rita former.
+Drawing Manager har stöd för tre olika sätt att interagera med kartan för att rita former.
 
-* `click`- Koordinater läggs till när du klickar på musen eller touchen.
-* `freehand `- Koordinater läggs till när musen eller beröringen dras på kartan. 
-* `hybrid`- Koordinater läggs till när musen eller touchen klickas eller dras.
+* `click`-Koordinater läggs till när musen eller touchen klickas.
+* `freehand `-Koordinater läggs till när musen eller touchen dras på kartan. 
+* `hybrid`-Koordinater läggs till när musen eller touchen klickas eller dras.
 
-Följande kod aktiverar ritläget för polygon och anger vilken typ av `freehand`ritningsinteraktion som ritningshanteraren ska följa . 
+Följande kod aktiverar polygonens ritläge och anger vilken typ av ritnings interaktion som ritnings hanteraren ska följa `freehand`. 
 
 ```Javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -83,28 +83,28 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
- Det här kodexemplet implementerar funktionen för att rita en polygon på kartan. Håll bara ner vänster musknapp och dra runt den, fritt.
+ Det här kod exemplet implementerar funktionerna i att rita en polygon på kartan. Håll bara ned den vänstra mus knappen och dra den runt, fritt.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Frihandsritning" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Pen <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>Free hand-ritningen</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Kostnads fri ritning" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se rit <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>fri hands ritningen</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-### <a name="customizing-drawing-options"></a>Anpassa ritalternativ
+### <a name="customizing-drawing-options"></a>Anpassa ritnings alternativ
 
-De tidigare exemplen visade hur du anpassar ritningsalternativen samtidigt som du instansierar rithanteraren. Du kan också ange alternativen för `drawingManager.setOptions()` rithanteraren med hjälp av funktionen. Nedan finns ett verktyg för att testa anpassning av alla alternativ för rithanteraren med hjälp av funktionen setOptions.
+I föregående exempel visas hur du anpassar ritnings alternativ när du instansierar ritnings hanteraren. Du kan också ange alternativ för Drawing Manager med hjälp `drawingManager.setOptions()` av funktionen. Nedan finns ett verktyg för att testa anpassningen av alla alternativ för Drawing Manager med hjälp av funktionen setOptions.
 
 <br/>
 
-<iframe height="685" title="Anpassa rithanteraren" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>Hämta formdata</a> från<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="685" title="Anpassa Drawing Manager" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Se hur pennan <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>får form data</a> genom att Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder ytterligare funktioner i ritverktygsmodulen:
+Lär dig hur du använder ytterligare funktioner i modulen rit verktyg:
 
 > [!div class="nextstepaction"]
 > [Lägga till ett verktygsfält för ritning](map-add-drawing-toolbar.md)
@@ -121,10 +121,10 @@ Lär dig hur du använder ytterligare funktioner i ritverktygsmodulen:
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Rithanterare](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
 
 > [!div class="nextstepaction"]
 > [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

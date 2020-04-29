@@ -1,6 +1,6 @@
 ---
-title: Startfel – "detta är inte en startbar disk"
-description: Den här artikeln innehåller steg för att lösa problem där disken inte kan startas i en virtuell Azure-dator
+title: Startfel – "det här är inte en startbar disk"
+description: Den här artikeln innehåller steg för att lösa problem där disken inte är startbar på en virtuell Azure-dator
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
@@ -15,114 +15,114 @@ ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9f0c6350b89dcfecefcadcc166f7af35abc4b128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80300984"
 ---
-# <a name="boot-error--this-is-not-a-bootable-disk"></a>Startfel – Det här är inte en startbar disk
+# <a name="boot-error--this-is-not-a-bootable-disk"></a>Startfel – det här är inte en startbar disk
 
-Den här artikeln innehåller steg för att lösa problem där disken inte kan startas i en virtuell virtuell azure-dator (VM).
+Den här artikeln innehåller steg för att lösa problem där disken inte är startbar på en virtuell Azure-dator (VM).
 
 ## <a name="symptoms"></a>Symtom
 
-När du använder [Boot diagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att visa skärmdumpen av den virtuella datorn, ser du att skärmdumpen visar en fråga med meddelandet "Detta är inte en startbar disk. Sätt i en startbar diskett och tryck på valfri tangent för att försöka igen...'.
+När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar en prompt med meddelandet "Detta är inte en startbar disk. Sätt in en startbar diskett och tryck på valfri tangent för att försöka igen....
 
    Bild 1
 
-   ![Bild 1 visar meddelandet *"Detta är inte en startbar disk. Sätt i en startbar diskett och tryck på valfri tangent för att försöka igen..."*](media/troubleshoot-guide-not-bootable-disk/1.jpg)
+   ![Bild 1 visar meddelandet * "det här är inte en startbar disk. Sätt in en startbar diskett och tryck på valfri tangent för att försöka igen... "*](media/troubleshoot-guide-not-bootable-disk/1.jpg)
 
 ## <a name="cause"></a>Orsak
 
-Det här felmeddelandet innebär att operativsystemets startprocess inte kunde hitta en aktiv systempartition. Det här felet kan också innebära att det saknas en referens i arkivet boot configuration data (BCD), vilket hindrar den från att hitta Windows-partitionen.
+Det här fel meddelandet innebär att start processen för operativ systemet inte kunde hitta en aktiv systempartition. Det här felet kan också innebära att det finns en referens som saknas i Boot Configuration Datas arkivet (BCD), vilket förhindrar att den hittar Windows-partitionen.
 
 ## <a name="solution"></a>Lösning
 
-### <a name="process-overview"></a>Översikt över processer
+### <a name="process-overview"></a>Process översikt
 
-1. Skapa och komma åt en virtuell reparations-VM.
-2. Ange partitionsstatus till Aktiv.
+1. Skapa och få åtkomst till en reparations-VM.
+2. Ange partitionerings status till aktiv.
 3. Åtgärda diskpartitionen.
-4. **Rekommenderas:** Innan du återskapar den virtuella datorn aktiverar du seriell konsol och minnesdumpsamling.
+4. **Rekommenderas**: innan du återskapar den virtuella datorn aktiverar du serie konsolen och samling av minnes dum par.
 5. Återskapa den ursprungliga virtuella datorn.
 
    > [!NOTE]
-   > När du stöter på det här startfelet fungerar inte gästoperativsystemet. Du kommer att felsöka i offlineläge för att lösa problemet.
+   > Gäst operativ systemet fungerar inte när det här start felet påträffas. Du ska felsöka i offline-läge för att lösa problemet.
 
-### <a name="create-and-access-a-repair-vm"></a>Skapa och komma åt en virtuell reparations-VM
+### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd steg 1-3 i [VM-reparationskommandona](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en virtuell reparations-VM.
-2. Använda Anslutning till fjärrskrivbordsanslutning till den virtuella reparationsdatorn.
+1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+2. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
-### <a name="set-partition-status-to-active"></a>Ange partitionsstatus till aktiv
+### <a name="set-partition-status-to-active"></a>Ange partitionerings status till aktiv
 
-Virtuella datorer med generation 1 bör först kontrollera att OS-partitionen, som innehåller BCD-arkivet, är markerad som *aktiv*. Om du har en virtuell generation 2 går du vidare till [Fix diskpartitionen](#fix-the-disk-partition), eftersom *statusflaggan* var inaktuell i den senare generationen.
+Virtuella datorer i generation 1 bör först kontrol lera att OS-partitionen som innehåller BCD-arkivet är markerad som *aktiv*. Om du har en virtuell dator i generation 2 kan du gå vidare till [Reparera diskpartitionen](#fix-the-disk-partition), eftersom *status* flaggan var inaktuell i senare generation.
 
-1. Öppna en upphöjd kommandotolk *(cmd.exe).*
-2. Ange *diskdel* för att starta DISKPART-verktyget.
-3. Ange *listdisken* för att lista diskarna på systemet och identifiera den anslutna virtuella datorn.
-4. När den anslutna virtuella os-hårddisken finns anger du *sel disk #* för att välja disken.  Se bild 2, där disk 1 är den anslutna VIRTUELLA OS.Se Bild 2, där disk 1 är den anslutna virtuella os-hårddisken.
+1. Öppna en kommando tolk med förhöjd behörighet *(cmd. exe)*.
+2. Starta DiskPart-verktyget genom att ange *DiskPart* .
+3. Ange *list disk* för att visa en lista över diskarna i systemet och identifiera den anslutna OS-VHD: n.
+4. När den anslutna OS-VHD: n finns anger du markera disk *#* för att välja disken.  Se bild 2, där disk 1 är den anslutna OS-VHD: n.
 
    Bild 2
 
-   ![Bild 2 visar *DISKPART*-fönstret som visar utdata från listdiskkommandot, Disk 0 och Disk 1 som visas i tabellen.  Visar också utdata för sel-disk 1-kommandot, Disk 1 är den valda disken](media/troubleshoot-guide-not-bootable-disk/2.jpg)
+   ![Bild 2 visar fönstret * DISKPART * som visar utdata från list disk kommandot, disk 0 och disk 1 som visas i tabellen.  Visar även utdata från kommandot Markera disk 1, disk 1 är den valda disken](media/troubleshoot-guide-not-bootable-disk/2.jpg)
 
-5. När disken har valts anger du *listpartitionen* för att visa partitionerna för den valda disken.
-6. När startpartitionen har identifierats anger du *selpartitionen #* för att välja partitionen.  Vanligtvis boot partition kommer att vara runt 350 MB i storlek.  Se bild 3, där Partition 1 är startpartitionen.
+5. När disken har valts anger du *list partition* för att visa en lista över partitionerna för den valda disken.
+6. När startpartitionen har identifierats anger du markera *partition #* för att välja partitionen.  Vanligt vis är startpartitionen cirka 350 MB stor.  Se bild 3, där partition 1 är startpartitionen.
 
    Bild 3
 
-   ![Bild 3 visar *DISKPART*-fönstret med utdata från kommandot *list partition*. Partition 1 och Partition 2 visas i tabellen. Den visar också utdata från kommandot *sel partition 1* när partition 1 är den valda disken.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
+   ![Bild 3 visar fönstret * DISKPART * med utdata från kommandot * List partition *. Partition 1 och partition 2 visas i tabellen. Det visar även utdata för kommandot * selected partition 1 * när partition 1 är den valda disken.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
 
-7. Ange "detaljpartition" för att kontrollera partitionens status. Se bild 4, där partitionen är *Aktiv: Nej*, eller figur 5, där partitionen är "Aktiv: Ja".
+7. Ange "Detail partition" för att kontrol lera partitionens status. Se bild 4, där partitionen är *aktiv: Nej*eller bild 5, där partitionen är "aktiv: Ja".
 
    Bild 4
 
-   ![Bild 4 visar *DISKPART*-fönstret med utdata från kommandot *detaljpartition*, när partition 1 är inställd på *Aktiv: Nej*](media/troubleshoot-guide-not-bootable-disk/4.jpg)
+   ![Bild 4 visar fönstret * DISKPART * med utdata från kommandot * detail partition * när partition 1 har angetts till * Active: Nej *](media/troubleshoot-guide-not-bootable-disk/4.jpg)
 
-   Bild 5
+   Figur 5
 
-   ![Bild 5 visar *DISKPART*-fönstret med utdata från kommandot *detaljpartition*, när partition 1 är inställd på *Aktiv: Ja*.](media/troubleshoot-guide-not-bootable-disk/5.jpg)
+   ![Bild 5 visar fönstret * DISKPART * med utdata från kommandot * detail partition * när partition 1 har angetts till * Active: Yes *.](media/troubleshoot-guide-not-bootable-disk/5.jpg)
 
-8. Om partitionen inte är **aktiv**anger du *aktiv* för att ändra flaggan *Aktiv.*
-9. Kontrollera att statusändringen gjordes korrekt genom att skriva *detaljpartition*.
+8. Om partitionen inte är **aktiv**anger du *aktiv* för att ändra den *aktiva* flaggan.
+9. Kontrol lera att status ändringen har gjorts korrekt genom att skriva in *information partition*.
 
    Bild 6
 
-   ![Bild 6 visar diskdelfönstret med utdata från kommandot *detaljpartition*, när partition 1 är inställd på *Aktiv: Ja*](media/troubleshoot-guide-not-bootable-disk/6.jpg)
+   ![Bild 6 visar DiskPart-fönstret med utdata från * detail partition * kommandot när partition 1 har angetts till * Active: Yes *](media/troubleshoot-guide-not-bootable-disk/6.jpg)
 
-10. Gå *in för* att stänga DISKPART-verktyget och spara konfigurationsändringarna.
+10. Välj *Avsluta* för att stänga DiskPart-verktyget och spara konfigurations ändringarna.
 
 ### <a name="fix-the-disk-partition"></a>Åtgärda diskpartitionen
 
-1. Öppna en upphöjd kommandotolk (cmd.exe).
-2. Använd följande kommando för att köra *CHKDSK* på diskarna och åtgärda fel:
+1. Öppna en kommando tolk med förhöjd behörighet (cmd. exe).
+2. Använd följande kommando för att köra *chkdsk* på diskarna och åtgärda fel:
 
    `chkdsk <DRIVE LETTER>: /f`
 
-   Om du lägger till kommandoalternativet /f åtgärdar du eventuella fel på disken. Se till <DRIVE LETTER> att ersätta med bokstaven i den bifogade OS VHD.
+   Om du lägger till kommando alternativet/f åtgärdas eventuella fel på disken. Ersätt <DRIVE LETTER> med bokstaven för den anslutna OS-VHD: n.
 
-### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Rekommenderas: Innan du återskapar den virtuella datorn aktiverar du seriell konsol och minnesdumpsamling
+### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Rekommenderas: innan du återskapar den virtuella datorn aktiverar du serie konsolen och samling av minnes dum par
 
-Om du vill aktivera insamling av minnesdump och Seriekonsol kör du följande skript:
+Om du vill aktivera samlings-och serie konsolen för minnes dum par kör du följande skript:
 
-1. Öppna en upphöjd kommandotolkssession (Kör som administratör).
+1. Öppna en kommando tolk med förhöjd behörighet (kör som administratör).
 2. Kör följande kommandon:
 
-   Aktivera seriekonsol
+   Aktivera serie konsol
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON`
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-3. Kontrollera att det lediga utrymmet på OS-disken är lika mycket som minnesstorleken (RAM) på den virtuella datorn.
+3. Kontrol lera att det lediga utrymmet på OS-disken är så mycket som minnes storleken (RAM) på den virtuella datorn.
 
-   Om det inte finns tillräckligt med utrymme på OS-disken bör du ändra platsen där minnesdumpfilen skapas och hänvisa den till alla datadiskar som är anslutna till den virtuella datorn och som har tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du %SystemRoot%" med enhetsbeteckningen (till exempel "F:") för datadisken i kommandona nedan.
+   Om det inte finns tillräckligt med utrymme på OS-disken, bör du ändra platsen där minnesdumpen skapas och se om det finns en datadisk som är ansluten till den virtuella datorn som har tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du "% SystemRoot%" med enhets beteckningen (till exempel "F:") för data disken i följande kommandon.
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Föreslagen konfiguration för att aktivera OS-dump
 
-**Ladda broken OS Disk:**
+**Läs in trasig OS-disk**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
@@ -142,10 +142,10 @@ Om du vill aktivera insamling av minnesdump och Seriekonsol kör du följande sk
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Ta bort trasig OS-disk:**
+**Ta bort skadad OS-disk:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Återskapa den ursprungliga virtuella datorn
 
-Använd [steg 5 i vm-reparationskommandona](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att sätta ihop den virtuella datorn igen.
+Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.

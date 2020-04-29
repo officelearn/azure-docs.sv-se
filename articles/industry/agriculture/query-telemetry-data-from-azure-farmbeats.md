@@ -1,48 +1,48 @@
 ---
-title: Frågeinterade telemetridata
-description: I den här artikeln beskrivs hur du frågar inta telemetridata.
+title: Fråga inmatade telemetridata
+description: I den här artikeln beskrivs hur du frågar efter insamlade telemetridata.
 author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80349810"
 ---
-# <a name="query-ingested-telemetry-data"></a>Frågeinterade telemetridata
+# <a name="query-ingested-telemetry-data"></a>Fråga inmatade telemetridata
 
-I den här artikeln beskrivs hur du frågar intasterade sensordata från Azure FarmBeats.
+I den här artikeln beskrivs hur du frågar efter inmatade sensor data från Azure FarmBeats.
 
-Intag av data från Sakernas Internet (IoT) resurser som enheter och sensorer är ett vanligt scenario i FarmBeats. Du skapar metadata för enheter och sensorer och intar sedan historiska data till FarmBeats i ett kanoniskt format. När sensordata är tillgängliga på FarmBeats Datahub kan vi fråga samma sak för att generera användbara insikter eller byggmodeller.
+Att mata in data från Sakernas Internet-resurser (IoT) som enheter och sensorer är ett vanligt scenario i FarmBeats. Du skapar metadata för enheter och sensorer och matar sedan in historiska data till FarmBeats i kanoniskt format. När sensor data är tillgängliga på FarmBeats Datahub kan vi fråga samma för att generera användbara insikter eller skapa modeller.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du fortsätter med den här artikeln ska du se till att du har installerat FarmBeats- och intas sensortelemetridata från dina IoT-enheter till FarmBeats.
+Innan du fortsätter med den här artikeln måste du kontrol lera att du har installerat FarmBeats och matat in sensorer för telemetri från IoT-enheter till FarmBeats.
 
-Om du vill använda sensortelemetridata besöker [du intag av historiska telemetridata](ingest-historical-telemetry-data-in-azure-farmbeats.md)
+Om du vill mata in information om sensor telemetri kan du besöka Hämta [historiska telemetridata](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Innan du fortsätter måste du också se till att du är bekant med FarmBeats REST API:er eftersom du frågar intas telemetri med api:erna. Mer information om FarmBeats API:er finns i [FarmBeats REST API:er](rest-api-in-azure-farmbeats.md). **Se till att du kan göra API-begäranden till din FarmBeats Datahub-slutpunkt**.
+Innan du fortsätter måste du också se till att du är bekant med FarmBeats REST API: er eftersom du kommer att fråga inmatad telemetri med hjälp av API: erna. Mer information om FarmBeats-API: er finns i [FARMBEATS REST-API: er](rest-api-in-azure-farmbeats.md). **Se till att du kan göra API-begäranden till din FarmBeats Datahub-slutpunkt**.
 
-## <a name="query-ingested-sensor-telemetry-data"></a>Frågeinterade sensortelemetridata
+## <a name="query-ingested-sensor-telemetry-data"></a>Fråga inmatade sensorer för telemetri
 
 Det finns två sätt att komma åt och fråga telemetridata från FarmBeats:
 
 - API och
-- Time Series Insights (TSI).
+- Time Series Insights (TSD).
 
 ### <a name="query-using-rest-api"></a>Fråga med REST API
 
-Följ stegen för att fråga in de intasterade sensortelemetridata med FarmBeats REST API:er:
+Följ stegen för att fråga efter inmatade sensorer för telemetri med hjälp av FarmBeats REST API: er:
 
-1. Identifiera sensorn du är intresserad av. Du kan göra detta genom att göra en GET-begäran på /Sensor API.
+1. Identifiera den sensor som du är intresse rad av. Du kan göra detta genom att göra en GET-begäran på/sensor-API: et.
 
 > [!NOTE]
-> **Id** och **sensorModelId** av intresserade sensorobjektet.
+> **ID** och **sensorModelId** för det intresserade sensor objekt.
 
-2. Gör ett GET/{id} på /SensorModel API för **sensormodelId** som anges i steg 1. "Sensormodellen" har alla metadata och detaljer om den intjänade telemetrin från sensorn. **Sensormåttet** i **sensormodellobjektet** innehåller till exempel information om vilka åtgärder sensorn skickar och i vilka typer och enheter. Exempel:
+2. Gör ett GET/{ID} på/SensorModel-API: et för **sensorModelId** som anges i steg 1. Sensor modellen har alla metadata och information om den inmatade Telemetrin från sensorn. **Sensor mått** i objektet **sensor modell** har till exempel information om vilka åtgärder som sensorn skickar och i vilka typer och enheter. Exempel:
 
   ```json
   {
@@ -54,9 +54,9 @@ Följ stegen för att fråga in de intasterade sensortelemetridata med FarmBeats
       "description": "<Description of the measure>"
   }
   ```
-Anteckna svaret från GET/{id}-anropet för sensormodellen.
+Anteckna svaret från GET/{ID}-anropet för sensor modellen.
 
-3. Gör ett POST-anrop på /Telemetri API med följande indatanyttolast
+3. Gör ett anrop i/Telemetry-API: et med följande indata-nyttolast
 
   ```json
   {
@@ -77,7 +77,7 @@ Anteckna svaret från GET/{id}-anropet för sensormodellen.
     ]
   }
   ```
-4. Svaret från API:et /Telemetri kommer att se ut ungefär så här:
+4. Svaret från/Telemetry-API: et ser ut ungefär så här:
 
   ```json
   {
@@ -105,21 +105,21 @@ Anteckna svaret från GET/{id}-anropet för sensormodellen.
     ]
   }
   ```
-I ovanstående exempelsvar ger den efterfrågade sensortelemetrin data för två tidsstämplar tillsammans med måttnamnet ("moist_soil_last") och värden för den rapporterade telemetrin i de två tidsstämplarna. Du måste hänvisa till den tillhörande sensormodellen (enligt beskrivningen i steg 2) för att tolka typ och enhet för de rapporterade värdena.
+I ovanstående exempel svar ger den eftersökta sensorn för data för två tidsstämplar tillsammans med mått namnet ("moist_soil_last") och värden för den rapporterade Telemetrin i de två tidsstämplarna. Du måste referera till den associerade sensor modellen (enligt beskrivningen i steg 2) för att tolka typen och enheten för de rapporterade värdena.
 
-### <a name="query-using-azure-time-series-insights-tsi"></a>Fråga med Hjälp av Statistik för Azure Time Series (TSI)
+### <a name="query-using-azure-time-series-insights-tsi"></a>Fråga med Azure Time Series Insights (TSD)
 
-FarmBeats utnyttjar [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) för att inta, lagra, fråga och visualisera data på IoT-skala – data som är mycket kontextualiserade och optimerade för tidsserier.
+FarmBeats utnyttjar [Azure Time Series Insights (TSD)](https://azure.microsoft.com/services/time-series-insights/) för att mata in, lagra, fråga och visualisera data i IoT-skala – data som är mycket sammanhangsbaserade och optimerade för tids serier.
 
-Telemetridata tas emot på en EventHub och bearbetas och skjuts sedan till en TSI-miljö i FarmBeats-resursgruppen. Data kan sedan efterfrågas direkt från TSD: n. Mer information finns i [TSD-dokumentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)
+Telemetridata tas emot på en EventHub och sedan bearbetas och skickas till en TSD-miljö i FarmBeats-resurs gruppen. Data kan sedan direkt frågas från TSD. Mer information finns i [TSD-dokumentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)
 
-Följ stegen för att visualisera data på TSD:
+Följ stegen för att visualisera data i TSD:
 
-1. Gå till **Azure Portal** > **FarmBeats DataHub-resursgrupp** > välja time **series insights-miljö** (tsi-xxxx) > **dataåtkomstprinciper**. Lägg till användare med läsar- eller deltagaråtkomst.
-2. Gå till **sidan Översikt i** time series **insights-miljön** (tsi-xxxx) och välj **TIME Series Insights Explorer URL**. Du kommer nu att kunna visualisera den intjesterade telemetrin.
+1. Gå till **Azure Portal** > **FarmBeats DataHub-resurs grupp** > Välj **Time Series Insights** miljö (TSD-xxxx) > **principer för data åtkomst**. Lägg till användare med läsare eller deltagar åtkomst.
+2. Gå till sidan **Översikt** i **Time Series Insights** Environment (TSD-xxxx) och välj **URL: en för Time Series Insights Explorer**. Nu kan du visualisera den inmatade Telemetrin.
 
-Förutom lagring, frågoring och visualisering av telemetri möjliggör TSD också integrering till en Power BI-instrumentpanel. För mer information, se [här]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
+Förutom att lagra, fråga och visualisering av telemetri kan TSD också integreras med en Power BI instrument panel. Mer information finns [här]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu frågat sensordata från din Azure FarmBeats-instans. Nu lär du dig att [generera kartor](generate-maps-in-azure-farmbeats.md#generate-maps) för dina gårdar.
+Du har nu frågat sensor data från din Azure FarmBeats-instans. Nu kan du lära dig hur du [genererar kartor](generate-maps-in-azure-farmbeats.md#generate-maps) för dina grupper.

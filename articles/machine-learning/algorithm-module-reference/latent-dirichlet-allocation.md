@@ -1,7 +1,7 @@
 ---
-title: Latent Dirichlet Tilldelning
+title: Latent Dirichlet-allokering
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Latent Dirichlet Allocation för att gruppera annars oklassificerad text i ett antal kategorier.
+description: Lär dig hur du använder den latenta Dirichlet för att gruppera annan oklassificerad text till ett antal kategorier.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,196 +10,196 @@ author: likebupt
 ms.author: keli19
 ms.date: 03/11/2020
 ms.openlocfilehash: 1384491489c175ffc338f80a99aa8d5050f835d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80109230"
 ---
-# <a name="latent-dirichlet-allocation"></a>Latent Dirichlet Tilldelning
+# <a name="latent-dirichlet-allocation"></a>Latent Dirichlet-allokering
 
-I den här artikeln beskrivs hur du använder modulen **Latent Dirichlet Allocation** i Azure Machine Learning designer (förhandsversion) för att gruppera annars oklassificerad text i ett antal kategorier. 
+I den här artikeln beskrivs hur du använder den **latende Dirichlet** i Azure Machine Learning designer (för hands version) för att gruppera annars oklassificerad text till ett antal kategorier. 
 
-Latent Dirichlet Allocation (LDA) används ofta i bearbetning av naturligt språk (NLP) för att hitta liknande texter. En annan vanlig term är *ämnesmodellering*.
+Latend Dirichlet Allocation (LDA) används ofta i naturlig språk bearbetning (NLP) för att hitta texter som liknar varandra. En annan vanlig term är *ämnes modeller*.
 
 Den här modulen tar en kolumn med text och genererar dessa utdata:
 
-+ Källtexten, tillsammans med en poäng för varje kategori
++ Käll texten, tillsammans med en poäng för varje kategori
 
-+ En funktionsmatris som innehåller extraherade termer och koefficienter för varje kategori
++ En funktions mat ris som innehåller extraherade villkor och koefficienter för varje kategori
 
-+ En omvandling som du kan spara och återanvända till ny text som används som indata
++ En omvandling, som du kan spara och återanvända för ny text som används som indata
 
-Den här modulen använder biblioteket scikit-learn. Mer information om scikit-learn finns i [GitHub-databasen, som innehåller självstudier och en förklaring av algoritmen.
+I den här modulen används scikit – lär dig biblioteket. Mer information om scikit-information finns i [GitHub-lagringsplatsen, som innehåller självstudier och en förklaring av algoritmen.
 
-### <a name="more-about-latent-dirichlet-allocation-lda"></a>Mer om Latent Dirichlet Allocation (LDA)
+### <a name="more-about-latent-dirichlet-allocation-lda"></a>Mer om Latend Dirichlet-allokering (LDA)
 
-Generellt sett är LDA inte en metod för klassificering i sig, men använder en generativ metod. Vad detta innebär är att du inte behöver ange kända klassetiketter och sedan dra slutsatsen att mönstren.  Istället genererar algoritmen en probabilistisk modell som används för att identifiera grupper av ämnen. Du kan använda den probabilistiska modellen för att klassificera antingen befintliga utbildningsärenden eller nya ärenden som du tillhandahåller modellen som indata.
+LDA är i allmänhet inte en metod för klassificering per se, men använder en fullständig metod. Det innebär att du inte behöver ange kända klass etiketter och sedan Härled mönstren.  Algoritmen genererar i stället en Probabilistic modell som används för att identifiera grupper av ämnen. Du kan använda Probabilistic-modellen för att klassificera antingen befintliga inlärnings fall eller nya fall som du anger till modellen som inmatade.
 
-En generativ modell kan vara att föredra eftersom den undviker att göra några starka antaganden om förhållandet mellan text och kategorier, och använder endast fördelningen av ord till matematiskt modellämnen.
+En fullständig modell kan vara bättre eftersom den gör det möjligt att göra starka antaganden om relationen mellan texten och kategorierna, och använder bara fördelningen av ord till matematiska modell ämnen.
 
-+ Teorin diskuteras i detta dokument, tillgänglig som en PDF-nedladdning: [Latent Dirichlet Allocation: Blei, Ng och Jordanien](https://ai.stanford.edu/~ang/papers/nips01-lda.pdf)
++ Teorien beskrivs i det här dokumentet, som är tillgängligt som en PDF-nedladdning: [latend Dirichlet-allokering: Blei, naturgas och Jordanien](https://ai.stanford.edu/~ang/papers/nips01-lda.pdf)
 
-+ Implementeringen i denna modul är baserad på [scikit-learn biblioteket](https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/decomposition/_lda.py) för LDA.
++ Implementeringen i den här modulen baseras på [scikit-biblioteket](https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/decomposition/_lda.py) för LDA.
 
-Mer information finns i avsnittet [Tekniska anteckningar.](#technical-notes)
+Mer information finns i avsnittet [tekniska anteckningar](#technical-notes) .
 
-## <a name="how-to-configure-latent-dirichlet-allocation"></a>Så här konfigurerar du Latent Dirichlet Allocation
+## <a name="how-to-configure-latent-dirichlet-allocation"></a>Så här konfigurerar du latens Dirichlet-allokering
 
-Den här modulen kräver en datauppsättning som innehåller en textkolumn, antingen rå eller förbearbetad.
+Den här modulen kräver en data uppsättning som innehåller en kolumn med text, antingen RAW eller Förbearbetad.
 
-1. Lägg till modulen **Latent Dirichlet Allocation** i pipelinen.
+1. Lägg till **tilldelnings modulen för den latenta Dirichlet** i din pipeline.
 
-2. Som indata för modulen anger du en datauppsättning som innehåller en eller flera textkolumner.
+2. Som indata för modulen anger du en data uppsättning som innehåller en eller flera text kolumner.
 
-3. För **Målkolumner**väljer du en eller flera kolumner som innehåller text att analysera.
+3. För **mål kolumner**väljer du en eller flera kolumner som innehåller text att analysera.
 
-    Du kan välja flera kolumner, men de måste vara av strängdatatypen.
+    Du kan välja flera kolumner, men de måste vara av data typen String.
 
-    Eftersom LDA skapar en stor funktionsmatris från texten analyserar du i allmänhet vanligtvis en enda textkolumn.
+    I allmänhet, eftersom LDA skapar en stor funktions mat ris från texten, analyseras vanligt vis en enskild text kolumn.
 
-4. För **Antal ämnen som ska modelleras**skriver du ett heltal mellan 1 och 1000 som anger hur många kategorier eller ämnen du vill härleda från indatatexten.
+4. Ange ett heltal mellan 1 och 1000 som anger hur många kategorier eller ämnen som du vill härleda från inmatad text för **antal ämnen i modell**.
 
     Som standard skapas 5 ämnen.
 
-5. För **N-gram**anger du den maximala längden på N-gram som genereras under hashningen.
+5. För **n-gram**anger du den maximala längden för n-g som genereras under hashing.
 
-    Standard är 2, vilket innebär att både bigrams och unigrams genereras.
+    Standardvärdet är 2, vilket innebär att både 2 gram och unigrams genereras.
 
-6. Välj alternativet **Normalisera** om du vill konvertera utdatavärden till sannolikheter. I stället för att representera de transformerade värdena som heltal omvandlas därför värden i utdata- och funktionsdatauppsättningen på följande sätt:
+6. Välj alternativet **normalisera** för att konvertera utdata till sannolikhets värde. Därför, i stället för att representera transformerade värden som heltal, omvandlas värdena i data uppsättningen för utdata och funktionen enligt följande:
 
-    + Värden i datauppsättningen representeras som en `P(topic|document)`sannolikhet där .
+    + Värden i data uppsättningen visas som en sannolikhet var `P(topic|document)`.
 
-    + Värden i funktionsämnesmatrisen representeras `P(word|topic)`som en sannolikhet där .
+    + Värdena i matrisen för funktions ämnen visas som en sannolikhet var `P(word|topic)`.
 
     > [!NOTE] 
-    > I Azure Machine Learning designer (förhandsversion), eftersom biblioteket som vi baserade, scikit-learn, inte längre stöder onormaliserad *doc_topic_distr* utdata från version 0.19, därför kan **normalisera** parametern normalisera i den här modulen endast tillämpas på matrisutdata för **funktionsämne,** **Transformerad datauppsättningsutdata normaliseras** alltid.
+    > I Azure Machine Learning designer (förhands granskning), eftersom det bibliotek som vi baserade, scikit--lär sig, inte längre stöder avnormaliserade *doc_topic_distr* utdata från version 0,19, så kan **normaliserings** parametern endast tillämpas på **funktions ämnet mat ris** utdata, och transformering av **data uppsättningar** är alltid normaliserad i den här modulen.
 
-7. Välj alternativet, **Visa alla alternativ**och ställ sedan in det på SANT om du vill visa och ange sedan ytterligare avancerade parametrar.
+7. Välj alternativet, **Visa alla alternativ**och ange det som sant om du vill visa och ange ytterligare avancerade parametrar.
 
-    Dessa parametrar är specifika för scikit-learn genomförandet av LDA. Det finns några bra tutorials om LDA i scikit-lära, liksom den officiella [scikit-learn dokument](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html).
+    Dessa parametrar är speciella för scikit-lär implementeringen av LDA. Det finns några bra självstudier om LDA i scikit-och det officiella [scikit-dokumentet](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html).
 
-    + **Rho parameter**. Ge en tidigare sannolikhet för sparsamhet ämnesfördelningar. Motsvarar sklearns `topic_word_prior` parameter. Du skulle använda värdet 1 om du förväntar dig att ordfördelningen är platt. dvs alla ord antas utrustas. Om du tror att de flesta ord ska se glest ut kan du ställa in det till ett mycket lägre värde.
+    + **Rho-parameter**. Ange en tidigare sannolikhet för de glesa ämnes distributionerna. Motsvarar sklearn- `topic_word_prior` parametern. Du använder värdet 1 om du förväntar dig att fördelningen av ord är platt; det vill säga att alla ord antas vara equiprobable. Om du tror att de flesta ord ser glest ut kan du ange det till ett mycket lägre värde.
 
-    + **Alfaparameter**. Ange en tidigare sannolikhet för sparsiteten för ämnesvikter per dokument.  Motsvarar sklearns `doc_topic_prior` parameter.
+    + **Alpha-parameter**. Ange en tidigare sannolikhet för den gleshet av ämnes vikter per dokument.  Motsvarar sklearn- `doc_topic_prior` parametern.
 
-    + **Uppskattat antal dokument**. Skriv ett tal som representerar den bästa uppskattningen av antalet dokument (rader) som ska bearbetas. På så sätt kan modulen allokera en hash-tabell av tillräcklig storlek.  Motsvarar parametern `total_samples` i scikit-learn.
+    + **Uppskattat antal dokument**. Skriv ett tal som representerar din bästa uppskattning av antalet dokument (rader) som ska bearbetas. Detta gör att modulen kan allokera en hash-tabell av tillräckligt stor storlek.  Motsvarar- `total_samples` parametern i scikit-lär.
 
-    + **Partiets storlek**. Skriv ett tal som anger hur många rader som ska tas med i varje grupp med text som skickas till LDA-modellen. Motsvarar parametern `batch_size` i scikit-learn.
+    + **Storlek på batchen**. Skriv ett tal som anger hur många rader som ska tas med i varje sats med text som skickas till LDA-modellen. Motsvarar- `batch_size` parametern i scikit-lär.
 
-    + **Det första värdet av iteration som används i uppdateringsschemat**för inlärning . Ange startvärdet som minskar inlärningsfrekvensen för tidiga iterationer i onlineinlärning. Motsvarar parametern `learning_offset` i scikit-learn.
+    + **Initialt värde för iteration som används i utbildnings uppdaterings schema**. Ange start värde som downweights inlärnings pris för tidiga iterationer i online Learning. Motsvarar- `learning_offset` parametern i scikit-lär.
 
-    + **Ström som tillämpas på iterationen under uppdateringar**. Ange vilken effektnivå som tillämpas på iterationsantalet för att kontrollera inlärningsfrekvensen under onlineuppdateringar. Motsvarar parametern `learning_decay` i scikit-learn.
+    + **Effekt som tillämpas på iterationen under uppdateringar**. Ange den energi nivå som tillämpas på antalet iterationer för att kontrol lera inlärnings hastigheten under online-uppdateringar. Motsvarar- `learning_decay` parametern i scikit-lär.
 
-    + **Antal passerar över data**. Ange det maximala antalet gånger som algoritmen ska cykla över data. Motsvarar parametern `max_iter` i scikit-learn.
+    + **Antal pass över data**. Ange det maximala antalet gånger som algoritmen ska gå över data. Motsvarar- `max_iter` parametern i scikit-lär.
 
-8. Välj alternativet Skapa **ordlista med ngrams** eller **Skapa ordlista med ngram före LDA**, om du vill skapa n-gram-listan i ett första pass, innan du klassificerar text.
+8. Välj alternativet, **skapa ord lista med ngrams** eller **build-ordlista för ngrams före LDA**, om du vill skapa en n-gram-lista i ett första pass innan du klassificerar text.
 
-    Om du skapar den första ordlistan i förväg kan du senare använda ordlistan när du granskar modellen. Att kunna mappa resultat till text snarare än numeriska index är i allmänhet lättare för tolkning. Det tar dock längre tid att spara ordlistan och använda ytterligare lagringsutrymme.
+    Om du skapar den första ord listan i förväg kan du senare använda ord listan när modellen granskas. Att kunna mappa resultat till text i stället för numeriska index är vanligt vis enklare för tolkning. Det tar dock längre tid att spara ord listan att använda ytterligare lagrings utrymme.
 
-9. För **Maximal storlek på ngram-ordlista**anger du det totala antalet rader som kan skapas i ordlistan n-gram.
+9. För **maximal storlek på ngram-ordlista**anger du det totala antalet rader som kan skapas i ord listan för n-gram.
 
-    Det här alternativet är användbart för att kontrollera storleken på ordlistan. Om antalet ngram i indata överstiger denna storlek kan kollisioner dock inträffa.
+    Det här alternativet är användbart för att kontrol lera storleken på ord listan. Men om antalet ngrams i indatamängden överskrider den här storleken kan kollisioner uppstå.
 
-10. Skicka pipelinen. LDA-modulen använder Bayes sats för att avgöra vilka ämnen som kan associeras med enskilda ord. Ord är inte uteslutande associerade med några ämnen eller grupper. I stället har varje n-gram en inlärd sannolikhet att associeras med någon av de upptäckta klasserna.
+10. Skicka pipelinen. LDA-modulen använder Bayes satsen för att avgöra vilka ämnen som kan kopplas till enskilda ord. Ord är inte exklusivt kopplade till några ämnen eller grupper. i stället har varje n-gram en inlärd sannolikhet att associeras med någon av de identifierade klasserna.
 
 ## <a name="results"></a>Resultat
 
-Modulen har två utgångar:
+Modulen har två utdata:
 
-+ **Transformerad datauppsättning**: Innehåller indatatexten och ett angivet antal identifierade kategorier, tillsammans med poängen för varje textexempel för varje kategori.
++ **Transformerad data mängd**: innehåller indata och ett angivet antal identifierade kategorier, tillsammans med poängen för varje text exempel för varje kategori.
 
-+ **Funktionsämnesmatris:** Kolumnen längst till vänster innehåller den extraherade textfunktionen och det finns en kolumn för varje kategori som innehåller poängen för den funktionen i den kategorin.
++ **Mat ris för funktions ämnen**: kolumnen längst till vänster innehåller funktionen extraherad text och det finns en kolumn för varje kategori som innehåller poängen för funktionen i den kategorin.
 
 
-### <a name="lda-transformation"></a>LDA-omvandling
+### <a name="lda-transformation"></a>LDA-transformering
 
-Den här modulen matar också ut *LDA-omvandlingen* som tillämpar LDA på datauppsättningen.
+I den här modulen matas även *LDA-omvandlingen* som använder LDA till data uppsättningen.
 
-Du kan spara den här omvandlingen genom att registrera datauppsättning under fliken **Utdata+loggar** i den högra rutan i modulen och återanvända den för andra datauppsättningar. Detta kan vara användbart om du har tränat på en stor korpus och vill återanvända koefficienterna eller kategorierna.
+Du kan spara den här omvandlingen genom att registrera data uppsättning under fliken **utdata + loggar** i den högra rutan i modulen och återanvända den för andra data uppsättningar. Detta kan vara användbart om du har tränat på en stor sökkorpus och vill återanvända koefficienterna eller kategorierna.
 
-### <a name="refining-an-lda-model-or-results"></a>Förfina en LDA-modell eller -resultat
+### <a name="refining-an-lda-model-or-results"></a>Förfina en LDA modell eller resultat
 
-Vanligtvis kan du inte skapa en enda LDA-modell som uppfyller alla behov, och även en modell som utformats för en uppgift kan kräva många iterationer för att förbättra noggrannheten. Vi rekommenderar att du provar alla dessa metoder för att förbättra din modell:
+Normalt kan du inte skapa en enda LDA-modell som uppfyller alla behov, och även en modell som är utformad för en aktivitet kan kräva många iterationer för att förbättra noggrannheten. Vi rekommenderar att du provar alla dessa metoder för att förbättra din modell:
 
-+ Ändra modellparametrar
++ Ändra modell parametrarna
 + Använda visualisering för att förstå resultaten
-+ Få feedback från ämnesexperter för att ta reda på om de genererade ämnena är användbara.
++ Få feedback från ämnes experter för att fastställa om de genererade ämnena är användbara.
 
-Kvalitativa åtgärder kan också vara användbara för att bedöma resultaten. Om du vill utvärdera ämnesmodelleringsresultat bör du tänka på följande:
+Kvalitativa mått kan också vara användbara för att utvärdera resultaten. Överväg följande om du vill utvärdera ämnes modell resultaten:
 
-+ Noggrannhet - Är liknande objekt verkligen liknande?
-+ Mångfald - Kan modellen diskriminera mellan liknande objekt när det behövs för affärsproblemet?
-+ Skalbarhet - Fungerar det på ett brett spektrum av textkategorier eller bara på en smal måldomän?
++ Noggrannhet – liknar liknande saker?
++ Mångfald – kan modellen skilja mellan liknande objekt när det krävs för affärs problemet?
++ Skalbarhet – fungerar det med en mängd olika text kategorier eller bara på en begränsad mål domän?
 
-Noggrannheten i modeller baserade på LDA kan ofta förbättras genom att använda bearbetning av naturligt språk för att rengöra, sammanfatta och förenkla eller kategorisera text. Följande tekniker, alla som stöds i Azure Machine Learning, kan till exempel förbättra klassificeringsnoggrannheten:
+Precisionen för modeller som baseras på LDA kan ofta förbättras med hjälp av naturlig språk bearbetning för att rensa, sammanfatta och förenkla eller kategorisera text. Följande tekniker, som stöds i Azure Machine Learning, kan förbättra klassificerings precisionen:
 
 + Stoppa borttagning av ord
 
-+ Normalisering av skiftläge
++ Fall normalisering
 
-+ Lemmatisering eller avledning
++ Lemmatisering eller stamering
 
 + Igenkänning av namngiven enhet
 
-Mer information finns i [Förbehandlad text](preprocess-text.md).
+Mer information finns i [Förbearbeta text](preprocess-text.md).
 
-I designern kan du också använda R- eller Python-bibliotek för textbearbetning: [Kör R Script](execute-r-script.md), Kör Python [Script](execute-python-script.md)
+I designern kan du också använda R-eller Python-bibliotek för text bearbetning: [Kör R-skript](execute-r-script.md), [Kör Python-skript](execute-python-script.md)
 
 
 
-## <a name="technical-notes"></a>Tekniska anmärkningar
+## <a name="technical-notes"></a>Tekniska anteckningar
 
-Det här avsnittet innehåller implementeringsinformation, tips och svar på vanliga frågor.
+Det här avsnittet innehåller implementerings information, tips och svar på vanliga frågor.
 
-### <a name="implementation-details"></a>Information om genomförandet
+### <a name="implementation-details"></a>Implementerings information
 
-Som standard normaliseras distributionerna av utdata för transformerade datamängder och funktionsämnesmatris som sannolikheter.
+Som standard normaliseras distributioner av utdata för transformerad data uppsättning och funktions ämnes mat ris som sannolikhet.
 
-+ Den transformerade datauppsättningen normaliseras som den villkorliga sannolikheten för ämnen som får ett dokument. I det här fallet är summan av varje rad lika med 1.
++ Den transformerade data uppsättningen normaliseras som den villkorliga sannolikheten för ämnen som har fått ett dokument. I det här fallet är summan av varje rad lika med 1.
 
-+ Matrisen för funktionsämne normaliseras som den villkorliga sannolikheten för ord som får ett ämne. I det här fallet är summan av varje kolumn lika med 1.
++ Matrisen för funktions ämnen normaliseras som den villkorliga sannolikheten för ord som anges i ett ämne. I det här fallet är summan av varje kolumn lika med 1.
 
 > [!TIP]
-> Ibland kan modulen returnera ett tomt ämne, vilket oftast orsakas av pseudo-slumpmässig initiering av algoritmen.  Om detta inträffar kan du prova att ändra relaterade parametrar, till exempel den maximala storleken på N-grams ordlistan eller antalet bitar som ska användas för funktionshage.
+> Ibland kan modulen returnera ett tomt ämne, som oftast orsakas av pseudo-slumpmässig initiering av algoritmen.  Om detta inträffar kan du prova att ändra relaterade parametrar, till exempel den maximala storleken för N-gram-ordlistan eller antalet bitar som ska användas för hashing av funktioner.
 
-### <a name="lda-and-topic-modeling"></a>LDA och ämnesmodellering
+### <a name="lda-and-topic-modeling"></a>LDA-och ämnes modeller
 
-Latent Dirichlet Allocation (LDA) används ofta för *innehållsbaserad ämnesmodellering*, vilket i princip innebär att lära sig kategorier från oklassificerad text. I innehållsbaserad ämnesmodellering är ett ämne en distribution över ord.
+Latend Dirichlet Allocation (LDA) används ofta för *innehållsbaserade ämnes modeller*, vilket i princip innebär inlärnings kategorier från oklassificerad text. I Content-based ämnes modellering är ett ämne en distribution över ord.
 
-Anta till exempel att du har tillhandahållit en korpus av kundrecensioner som innehåller många, många produkter. Den recensioner som har lämnats in av många kunder över tiden skulle innehålla många termer, varav några används i flera ämnen.
+Anta till exempel att du har angett en sökkorpus av kund granskningar som innehåller många, många produkter. Texten för granskningar som har skickats av många kunder över tid skulle innehålla många villkor, varav vissa används i flera ämnen.
 
-Ett **ämne** som identifieras av LDA-processen kan representera recensioner för en enskild produkt A, eller det kan representera en grupp av produktrecensioner. För LDA är ämnet i sig bara en sannolikhetsfördelning över tiden för en uppsättning ord.
+Ett **ämne** som identifieras av LDA-processen kan representera recensioner för en enskild produkt, eller så kan den representera en grupp produkt granskningar. I LDA är själva avsnittet bara en sannolikhets fördelning över tid för en uppsättning ord.
 
-Villkor är sällan exklusiva för någon produkt, men kan hänvisa till andra produkter, eller vara allmänna villkor som gäller för allt ("bra", "hemskt"). Andra termer kan vara ljud ord.  Det är dock viktigt att förstå att LDA-metoden inte utger sig för att fånga alla ord i universum, eller att förstå hur ord är relaterade, bortsett från sannolikheter för samförekomst. Det kan bara gruppera ord som användes i måldomänen.
+Villkoren är sällan exklusiva för en produkt, men kan referera till andra produkter eller vara allmänna villkor som gäller för allt ("fantastiska", "Awful"). Andra termer kan vara skräpord.  Det är dock viktigt att förstå att metoden LDA inte avser att samla in alla ord i universum, eller att förstå hur orden är relaterade, förutom sannolikheten för samförekomster. Det kan bara gruppera ord som användes i mål domänen.
 
-När termen index har beräknats jämförs enskilda rader med text med hjälp av ett avståndsbaserat likhetsmått för att avgöra om två textstycken är som varandra.  Du kanske till exempel upptäcker att produkten har flera namn som är starkt korrelerade. Eller så kanske du upptäcker att starkt negativa termer vanligtvis är associerade med en viss produkt. Du kan använda likhetsmåttet både för att identifiera relaterade termer och för att skapa rekommendationer.
+När termen index har beräknats jämförs enskilda rader med text med hjälp av ett avstånds beroende likhets mått för att avgöra om två text delar liknar varandra.  Du kan till exempel se att produkten har flera namn som är starkt korrelerade. Eller så kanske du upptäcker att starkt negativa villkor vanligt vis är associerade med en viss produkt. Du kan använda likhets måttet för att identifiera relaterade villkor och skapa rekommendationer.
 
-###  <a name="module-parameters"></a>Modulparametrar
+###  <a name="module-parameters"></a>Parametrar för modul
 
-|Namn|Typ|Intervall|Valfri|Default|Beskrivning|  
+|Name|Typ|Intervall|Valfri|Standardvärde|Beskrivning|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
-|Målkolumnerna|Kolumnmarkering||Krävs|StringFeature (Stråk)|Namn eller index för målkolumn|  
-|Antal ämnen att modellera|Integer|[1;1000]|Krävs|5|Modellera dokumentfördelningen mot N-ämnen|  
-|N-gram|Integer|[1;10]|Krävs|2|Beställning av N-gram som genereras under hashing|  
-|Normalisera|Boolean|Sant eller falskt|Krävs|true|Normalisera produktionen till sannolikheter.  Den transformerade datauppsättningen blir P(ämne&#124;dokument) och funktionsämnesmatrisen blir P(word&#124;ämne)|  
-|Visa alla alternativ|Boolean|Sant eller falskt|Krävs|False|Presenterar ytterligare parametrar som är specifika för scikit-learn online LDA|  
-|Rho parameter|Float (Flyttal)|[0.00001;1.0]|Används när kryssrutan **Visa alla alternativ** är markerad|0,01|Föregående ämnesfördelning|  
-|Alfaparameter|Float (Flyttal)|[0.00001;1.0]|Används när kryssrutan **Visa alla alternativ** är markerad|0,01|Föregående distribution av dokumentämne|  
-|Uppskattat antal dokument|Integer|[1;int. MaxValue)|Används när kryssrutan **Visa alla alternativ** är markerad|1000|Uppskattat antal dokument (motsvarar total_samples parameter)|  
-|Partiets storlek|Integer|[1;1024]|Används när kryssrutan **Visa alla alternativ** är markerad|32|Partiets storlek|  
-|Det första värdet av iteration som används i uppdateringsschemat för inlärningshastighet|Integer|[0;int. MaxValue)|Används när kryssrutan **Visa alla alternativ** är markerad|0|Initialt värde som downweights inlärningshastighet för tidiga iterationer. Motsvarar parametern learning_offset|  
-|Ström som tillämpas på iterationen under uppdateringar|Float (Flyttal)|[0.0;1.0]|Används när kryssrutan **Visa alla alternativ** är markerad|0,5|Effekt som tillämpas på iterationsantalet för att kontrollera inlärningshastigheten. Motsvarar parametern learning_decay |  
-|Antal träningsiterationer|Integer|[1;1024]|Används när kryssrutan **Visa alla alternativ** är markerad|25|Antal träningsiterationer|  
-|Skapa ordlista med ngrams|Boolean|Sant eller falskt|Används när kryssrutan **Visa alla alternativ** *inte* är markerad|True|Bygger en ordbok med ngrams innan du beräknar LDA. Användbart för modellinspektion och tolkning|  
-|Maximal storlek på ngram-ordlista|Integer|[1;int. MaxValue)|Gäller när alternativet **Skapa ordlista för ngram är** Sant|20000|Maximal storlek på ngrams-ordlistan. Om antalet token i indata överstiger denna storlek kan kollisioner inträffa|  
-|Antal bitar som ska användas för funktionshage|Integer|[1;31]|Används när kryssrutan **Visa alla alternativ** *inte* är markerad och **Skapa ordlista för ngrams** är Falskt|12|Antal bitar som ska användas för funktionshage| 
-|Skapa ordlista med ngram före LDA|Boolean|Sant eller falskt|Används när kryssrutan **Visa alla alternativ** är markerad|True|Skapar en ordlista med ngram före LDA. Användbart för modellinspektion och tolkning|  
-|Maximalt antal ngram i ordlistan|Integer|[1;int. MaxValue)|Används när kryssrutan **Visa alla alternativ** är markerad och alternativet Skapa **ordlista för ngram är** Sant|20000|Maximal storlek på ordlistan. Om antalet token i indata överstiger denna storlek kan kollisioner inträffa|  
-|Antal hash-bitar|Integer|[1;31]|Används när kryssrutan **Visa alla alternativ** är markerad och alternativet Skapa **ordlista för ngram är** Falskt|12|Antal bitar som ska användas under funktionshage|   
+|Mål kolumn (er)|Kolumn val||Krävs|StringFeature|Mål kolumn namn eller index|  
+|Antal ämnen som ska modelleras|Integer|[1; 1000]|Krävs|5|Modellera dokument distribution mot N ämnen|  
+|N-gram|Integer|[1; 10]|Krävs|2|Ordning för N-gram som genereras under hashing|  
+|Normalisera|Boolesk|Sant eller falskt|Krävs|true|Normalisera utdata till sannolikhet.  Den transformerade data uppsättningen kommer att vara P (avsnitt&#124;-dokument) och matrisen för funktions ämnen kommer att vara P (Word&#124;-avsnittet)|  
+|Visa alla alternativ|Boolesk|Sant eller falskt|Krävs|Falskt|Visar ytterligare parametrar som är speciella för scikit – lära online-LDA|  
+|Rho-parameter|Float (Flyttal)|[0.00001; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,01|Avsnitt Word, föregående distribution|  
+|Alpha-parameter|Float (Flyttal)|[0.00001; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,01|Dokument ämne, föregående distribution|  
+|Uppskattat antal dokument|Integer|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|1000|Uppskattat antal dokument (motsvarar total_samples parameter)|  
+|Storlek på batchen|Integer|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|32|Storlek på batchen|  
+|Initialt värde för iteration som används i uppdaterings schema för inlärnings takt|Integer|[0; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad|0|Det första värdet som downweights inlärnings pris för tidiga iterationer. Motsvarar learning_offset parameter|  
+|Effekt som tillämpas på iterationen under uppdateringar|Float (Flyttal)|[0.0; 1.0]|Gäller när kryss rutan **Visa alla alternativ** är markerad|0,5|Effekt som tillämpas på antalet iterationer för att kontrol lera inlärnings takten. Motsvarar learning_decay parameter |  
+|Antal upprepningar av utbildning|Integer|[1; 1024]|Gäller när kryss rutan **Visa alla alternativ** är markerad|25|Antal upprepningar av utbildning|  
+|Versions ord lista för ngrams|Boolesk|Sant eller falskt|Gäller när kryss rutan **Visa alla alternativ** *inte* är markerad|Sant|Skapar en ord lista med ngrams innan du beräknar LDA. Användbart för modell besiktning och tolkning|  
+|Maximal storlek för ngram-ordlista|Integer|[1; int. MaxValue|Gäller när alternativet **build-ordlistan för ngrams** är sant|20000|Maximal storlek för ngrams-ordlistan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå|  
+|Antal bitar som ska användas för hashing av funktioner|Integer|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** *inte* är markerad och **build-ordlistan för ngrams** är falskt|12|Antal bitar som ska användas för hashing av funktioner| 
+|Build-ordlista av ngrams före LDA|Boolesk|Sant eller falskt|Gäller när kryss rutan **Visa alla alternativ** är markerad|Sant|Skapar en ord lista med ngrams före LDA. Användbart för modell besiktning och tolkning|  
+|Maximalt antal ngrams i ord listan|Integer|[1; int. MaxValue|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet **build-ordlista för ngrams** är sant|20000|Maximal storlek för ord listan. Om antalet tokens i indatamängden överskrider den här storleken kan kollisioner uppstå|  
+|Antal hash-bitar|Integer|[1; 31]|Gäller när kryss rutan **Visa alla alternativ** är markerad och alternativet **build-ordlista för ngrams** är falskt|12|Antal bitar som ska användas vid hashing av funktioner|   
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.   
-En lista över fel som är specifika för modulerna finns i [Undantag och felkoder för designern](designer-error-codes.md).
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.   
+En lista med fel som är speciella för modulerna finns i [undantag och felkoder för designern](designer-error-codes.md).

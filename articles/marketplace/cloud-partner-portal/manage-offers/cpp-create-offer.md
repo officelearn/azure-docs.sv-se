@@ -1,6 +1,6 @@
 ---
 title: Skapa Marketplace-erbjudanden | Azure Marketplace
-description: Skapa erbjudanden på Azure- och AppSource Marketplaces med hjälp av Cloud Partner Portal
+description: Skapa erbjudanden på Azure-och AppSource-Marketplace med hjälp av Cloud Partner Portal
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,54 +8,54 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: dsindona
 ms.openlocfilehash: d14940eff569a80759e9db0bfa2d6d1541a01377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80286480"
 ---
-# <a name="create-azure-marketplace-and-appsource-offers"></a>Skapa Azure Marketplace- och AppSource-erbjudanden
+# <a name="create-azure-marketplace-and-appsource-offers"></a>Skapa Azure Marketplace-och AppSource-erbjudanden
 
-Ett viktigt syfte med Cloud Partner Portal är att göra det möjligt för utgivare att skapa (och sedan publicera) erbjudanden till Microsoft Azure och AppSource Marketplaces.  Den här åtgärden börjar alltid med att välja önskad erbjudandetyp på [menyn Nytt erbjudande](../portal-tour/cpp-new-offer-menu.md).  Som svar visas lämplig sida **för nytt erbjudande** för den erbjudandetypen.  Följande bild visar till exempel standardsidan för **nya erbjudanden** för en Azure-programtyp.
+Ett viktigt syfte med Cloud Partner Portal är att låta utgivare skapa (och publicera) erbjudanden till Microsoft Azure-och AppSource-Marketplace.  Den här åtgärden börjar alltid med att välja önskad erbjudande typ från [menyn ny erbjudande](../portal-tour/cpp-new-offer-menu.md).  Som svar visas lämplig **ny erbjudande** sida för den erbjudande typen.  Följande bild visar till exempel standard sidan **ny erbjudande** för en typ av Azure-program.
 
-![Standardsida för nytt erbjudande](./media/new-offer-page.png)
+![Ny standard sida för erbjudande](./media/new-offer-page.png)
 
-Det finns två flikval i det vågräta menyradet som visas högst upp på den här sidan: 
-- **Fliken Redigerare** - Aktiverar inmatning av information och uppladdning av tillgångar för den nya erbjudandeinstansen.  Den här fliken visas som standard.
-- **Fliken Status** - Anger publiceringsstatus och visar eventuella validerings- och granskningsproblem. 
+Det finns två tillgängliga flikar i den vågräta meny raden som visas längst upp på sidan: 
+- Fliken **redigerare** – möjliggör inmatning av information och överföring av till gångar för den nya erbjudande instansen.  Den här fliken visas som standard.
+- Fliken **status** – visar publicerings status och listar eventuella verifierings-och gransknings problem. 
 
-När du skapar ett erbjudande använder du fliken **Redigerare** för att ange information om erbjudandet. 
+När du skapar ett erbjudande använder du fliken **redigerare** för att ange information om erbjudandet. 
 
-## <a name="editing-operations"></a>Redigera åtgärder
+## <a name="editing-operations"></a>Redigerings åtgärder
 
-Det vågräta verktygsfältet, som finns ovanför inmatningsområdet för data, visar följande knappar:
+Det vågräta verktygsfältet, som finns ovanför data inmatnings ytan, visar följande knappar:
 
 |   Button (Knapp)    |   Syfte                                                          |
 |   ------    |  --------                                                          |
-| **Spara**    | Sparar alla ändringar av den senaste informationen.  Du måste spara ändringar manuellt innan du navigerar bort från sidan eller så går ändringarna förlorade. | 
-| **Ta bort** | Ignorerar de senaste ändringarna av datainmatningen (sedan den senaste spara)             |
-| **Jämför** | Jämför tillståndet för det aktuella erbjudandet med det publicerade erbjudandet.  Aktiveras först efter att ett erbjudande har publicerats.  |
-| **Publicera** | Påbörjar publiceringsprocessen för det här erbjudandet                       |
-| **Ta bort**  | Tar bort det här erbjudandet när det har skapats men innan det har publicerats. |
+| **Spara**    | Sparar alla nya ändringar av data poster.  Du måste spara ändringarna manuellt innan du navigerar bort från sidan, annars går ändringarna förlorade. | 
+| **Ta bort** | Ignorerar de senaste data post ändringarna (sedan senaste sparande)             |
+| **Jämför** | Jämför status för det aktuella erbjudandet med det publicerade erbjudandet.  Endast aktive rad efter att ett erbjudande har publicerats.  |
+| **Publicera** | Börjar publicerings processen för det här erbjudandet                       |
+| **Ta bort**  | Tar bort det här erbjudandet när det har skapats, men innan det har publicerats. |
 |   |   |
 
 
 ## <a name="editing-tabs"></a>Redigera flikar
 
-När du skapar ett erbjudande anger du de data som krävs och valfria på varje flik som finns i den vänstra vertikala kolumnen på sidan **Nytt erbjudande.**  Standardkontroller för användargränssnitt – till exempel textrutor, nedrullningsbara menyer och kryssrutor – visas för datainsamling.  Även om den specifika samlingen redigeringsflikar beror på erbjudandetypen, visas några av de vanligaste flikarna i följande tabell.
+När du skapar ett erbjudande anger du de obligatoriska och valfria data på varje flik som finns i den vänstra lodräta kolumnen på sidan **ny erbjudande** .  Standard användar gränssnitts kontroller – till exempel text rutor, nedrullningsbara menyer och kryss rutor – visas för data insamling.  Även om den speciella samlingen av redigerings flikar är beroende av erbjudande typen visas några av de vanliga flikarna i följande tabell.
 
 |      Fliknamn       |   Syfte                                                            |
 |      --------       |   -------                                                            |
-| **Inställningar för erbjudande**  | Samlar in information om erbjudande och utgivarens identitet.                    |
-| **SKU: er**            | Definierar de tekniska och affärsmässiga egenskaperna för varje SKU-version (Stock-Keeping Unit) av erbjudandet |
-| **Test Drive**      | För de typer som stöder den här valfria funktionen definierar du en demonstration för ditt erbjudande.  Mer information finns i [Vad är Provkörning?](../test-drive/what-is-test-drive.md)  |
-| **Marknadsplats** eller **skyltfönster** | Samlar in textsträngar, dokument och bilder som används för att lista erbjudandet på marknadsplatsen |
-| **Support**         | Samlar in kontaktinformation för kund-, ingenjörs- och onlinesupport  |
+| **Erbjudande inställningar**  | Samlar in information om erbjudandet och utgivarens identitet.                    |
+| **SKU: er**            | Definierar de tekniska och affärs egenskaperna för varje lagerhållnings enhet (SKU)-version av erbjudandet |
+| **Test Drive**      | För de typer som stöder denna valfria funktion definierar en demonstration för ditt erbjudande.  Mer information finns i [Vad är Test Drive?](../test-drive/what-is-test-drive.md)  |
+| **Marketplace** eller **butik** | Samlar in text strängar, dokument och bilder som används för att Visa erbjudandet i Marketplace |
+| **Support**         | Samlar in kontakt information för kund, teknik och onlinesupport  |
 |  |  |
 
-Innehållet på de på samma sätt som namngivna flikarna kan skilja sig åt mellan olika erbjudandetyper.  Erbjudandespecifika uppgifter om dessa flikar finns i avsnittet "Skapa erbjudande" för varje erbjudandetyp.
+Innehållet i liknande namngivna flikar kan skilja sig åt mellan olika typer av erbjudanden.  Erbjudande-detaljerad information om dessa flikar finns i avsnittet "skapa erbjudande" för varje erbjudande typ.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat och sparat ett erbjudande och före eller efter publiceringen kan du [visa dess status](./cpp-view-status-offer.md).
+När du har skapat och sparat ett erbjudande och innan eller efter att du har publicerat det kan du [Visa dess status](./cpp-view-status-offer.md).

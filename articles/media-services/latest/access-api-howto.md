@@ -1,6 +1,6 @@
 ---
-title: Komma igång med Azure AD-autentisering
-description: Lär dig hur du kommer åt Azure Active Directory-autentisering (Azure AD) för att använda Azure Media Services API.
+title: Kom igång med Azure AD-autentisering
+description: Lär dig hur du kommer åt Azure Active Directory (Azure AD)-autentisering för att använda Azure Media Services API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,61 +14,61 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: juliako
 ms.openlocfilehash: 6e1ab30e8b4cf44f7d1f82fd94fb9bf854915557
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79478258"
 ---
-# <a name="get-credentials-to-access-media-services-api"></a>Hämta autentiseringsuppgifter för att komma åt Api för Media Services  
+# <a name="get-credentials-to-access-media-services-api"></a>Hämta autentiseringsuppgifter för åtkomst Media Services-API  
 
-När du använder Azure AD-autentisering för att komma åt Azure Media Services API har du två autentiseringsalternativ:
+När du använder Azure AD-autentisering för att komma åt Azure Media Services-API: et har du två autentiseringsalternativ:
 
-- **Autentisering av tjänstens huvudnamn** (rekommenderas)
+- **Autentisering av tjänstens huvud namn** (rekommenderas)
 
-    Autentisera en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som kör daemontjänster, mellannivåtjänster eller schemalagda jobb: webbappar, funktionsappar, logikappar, API:er eller en mikrotjänst.
+    Autentisera en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, tjänster på mellan nivå eller schemalagda jobb: webbappar, funktions program, Logic Apps, API: er eller en mikrotjänst.
 - **Användarautentisering**
 
-    Autentisera en person som använder appen för att interagera med Media Services-resurser. Det interaktiva programmet bör först uppmana användaren om autentiseringsuppgifter. Ett exempel är en hanteringskonsolapp som används av behöriga användare för att övervaka kodningsjobb eller livestreaming. 
+    Autentisera en person som använder appen för att interagera med Media Services resurser. Det interaktiva programmet bör först uppmana användaren att ange autentiseringsuppgifter. Ett exempel är en hanterings konsol app som används av behöriga användare för att övervaka kodnings jobb eller direktsänd strömning. 
 
-I den här artikeln beskrivs steg för att få autentiseringsuppgifter för att komma åt Api för Media Services. Välj bland följande flikar.
+I den här artikeln beskrivs steg för att få åtkomst till Media Services API. Välj bland följande flikar.
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto. Om du inte har ett konto börjar du med en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
-- Ett Media Services-konto. Mer information finns i [Skapa ett Azure Media Services-konto med hjälp av Azure-portalen](create-account-howto.md).
+- Ett Azure-konto. Om du inte har ett konto börjar du med en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto med hjälp av Azure Portal](create-account-howto.md).
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
 ### <a name="api-access"></a>API-åtkomst 
 
-Med **API-åtkomstsidan** kan du välja den autentiseringsmetod som du vill använda för att ansluta till API:et. Sidan innehåller också de värden du behöver för att ansluta till API: et.
+På sidan **API-åtkomst** kan du välja den autentiseringsmetod som du vill använda för att ansluta till API: et. Sidan innehåller också de värden som du behöver för att ansluta till API: et.
 
-1. Välj ditt Media Services-konto i [Azure-portalen.](https://portal.azure.com/)
-2. Välj hur du ansluter till API:et för medietjänster.
-3. Under **Anslut till Api för mediatjänster**väljer du den API-version för Media Services som du vill ansluta till (V3 är den senaste versionen av tjänsten).
+1. I [Azure Portal](https://portal.azure.com/)väljer du ditt Media Services-konto.
+2. Välj hur du vill ansluta till Media Services API.
+3. Under **Anslut till Media Services-API**väljer du den Media Services API-version som du vill ansluta till (v3 är den senaste versionen av tjänsten).
 
-### <a name="service-principal-authentication--recommended"></a>Autentisering av tjänstens huvudnamn (rekommenderas)
+### <a name="service-principal-authentication--recommended"></a>Autentisering av tjänstens huvud namn (rekommenderas)
 
-Autentiserar en tjänst med hjälp av en Azure Active Directory-app (Azure AD) och hemlig. Detta rekommenderas för alla mellannivåtjänster som anropar API:et för Medietjänster. Exempel är webbappar, funktioner, logikappar, API:er och mikrotjänster. Detta är den rekommenderade autentiseringsmetoden.
+Autentiserar en tjänst med hjälp av en Azure Active Directory-app (Azure AD) och hemlighet. Detta rekommenderas för alla tjänster på mellan nivå som anropar Media Services-API: et. Exempel är Web Apps, functions, Logic Apps, API: er och mikrotjänster. Detta är den rekommenderade autentiseringsmetoden.
 
-#### <a name="manage-your-azure-ad-app-and-secret"></a>Hantera din Azure AD-app och hemlighet
+#### <a name="manage-your-azure-ad-app-and-secret"></a>Hantera din Azure AD-App och hemlighet
 
-Med **avsnittet Hantera din AAD-app och hemliga** kan du välja eller skapa en ny Azure AD-app och generera en hemlighet. Av säkerhetsskäl kan hemligheten inte visas efter att bladet har stängts. Programmet använder program-ID och hemlighet för autentisering för att hämta en giltig token för medietjänster.
+I avsnittet **Hantera din AAD-app och hemlighet** kan du välja eller skapa en ny Azure AD-App och generera en hemlighet. Av säkerhets synpunkt kan inte hemligheten visas efter att bladet har stängts. Programmet använder program-ID och hemlighet för autentisering för att hämta en giltig token för Media Services.
 
-Se till att du har tillräcklig behörighet för att registrera ett program med din Azure AD-klient och tilldela programmet till en roll i din Azure-prenumeration. Mer information finns i [Krävs behörigheter](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Kontrol lera att du har behörighet att registrera ett program med din Azure AD-klient och tilldela programmet till en roll i din Azure-prenumeration. Mer information finns i [nödvändig behörighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-#### <a name="connect-to-media-services-api"></a>Ansluta till API för Medietjänster
+#### <a name="connect-to-media-services-api"></a>Anslut till Media Services API
 
-**Api:et för Ansluta till mediatjänster** ger dig värden som du använder för att ansluta tjänstens huvudprogram. Du kan hämta textvärden eller kopiera JSON- eller XML-blocken.
+Med **API: et för anslutning till Media Services** får du värden som du använder för att ansluta ditt tjänst huvud program. Du kan hämta text värden eller kopiera JSON-eller XML-blocken.
 
 ### <a name="user-authentication"></a>Användarautentisering
 
-Det här alternativet kan användas för att autentisera en anställd eller medlem i en Azure Active Directory som använder en app för att interagera med Media Services-resurser. Det interaktiva programmet bör först fråga användaren om användarens autentiseringsuppgifter. Den här autentiseringsmetoden bör endast användas för hanteringsprogram.
+Det här alternativet kan användas för att autentisera en medarbetare eller medlem av en Azure Active Directory som använder en app för att interagera med Media Services resurser. Det interaktiva programmet bör först uppmana användaren att ange användarens autentiseringsuppgifter. Den här autentiseringsmetoden bör endast användas för hanterings program.
 
-#### <a name="connect-to-media-services-api"></a>Ansluta till API för Medietjänster
+#### <a name="connect-to-media-services-api"></a>Anslut till Media Services API
 
-Kopiera dina autentiseringsuppgifter för att ansluta ditt användarprogram från **API:et anslut till mediatjänster.** Du kan hämta textvärden eller kopiera JSON- eller XML-blocken.
+Kopiera dina autentiseringsuppgifter för att ansluta ditt användar program från avsnittet **Anslut till Media Services-API** . Du kan hämta text värden eller kopiera JSON-eller XML-blocken.
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -78,4 +78,4 @@ Kopiera dina autentiseringsuppgifter för att ansluta ditt användarprogram frå
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudiekurs: Ladda upp, koda och strömma videor med Media Services v3](stream-files-tutorial-with-api.md).
+[Självstudie: Ladda upp, koda och strömma videor med Media Services v3](stream-files-tutorial-with-api.md).

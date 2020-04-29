@@ -1,111 +1,111 @@
 ---
-Description: Den beräknade tiden för överföring av betalningar, tillämpliga betalningsgränser och Microsoft-marknadsplatser som du kan ta emot betalningar från kan variera beroende på land/region och utbetalningskontotyp.
-title: Betalningströsklar, metoder och tidsramar på den kommersiella marknaden | Azure Marketplace
+Description: Den uppskattade tiden för att överföra betalningar, tillämpliga betalnings trösklar och Microsofts marknads platser från vilka du kan få betalningar kan variera beroende på land/region och konto typ för utbetalning.
+title: Betalnings trösklar, metoder och tids ramar i den kommersiella Marketplace | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.openlocfilehash: fe18fab4a2ea61f41e017704105e37f28c20e456
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80279733"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Betalningströsklar, metoder och tidsramar
 
-Den beräknade tiden för överföring av betalningar och Microsoft-marknadsplatser som du kan ta emot betalningar från kan variera beroende på land/region och utbetalningskontotyp. I det här avsnittet beskrivs de betalningsmetoder som stöds i varje land/region.
+Den uppskattade tiden för att överföra betalningar och Microsofts marknads platser där du kan få betalningar kan variera beroende på ditt land/din region och konto typen utbetalning. Det här avsnittet beskriver de betalnings metoder som stöds i varje land/region.
 
-För ett visst land/en viss region kommer vi antingen att använda ACH/SEPA eller banköverföring för att leverera våra betalningar. Dessutom stöder vissa länder/regioner PayPal som betalningsmetod.
+För alla länder/regioner använder vi antingen ACH/SEPA eller överförings överföring för att leverera våra betalningar. Dessutom stöder vissa länder/regioner PayPal som betalnings metod.
 
-## <a name="number-of-days-for-payments-to-reach-payout-account"></a>Antal dagar för betalningar för att nå utbetalningskonto
+## <a name="number-of-days-for-payments-to-reach-payout-account"></a>Antal dagar för betalningar för att uppnå utbetalnings konto
 
-Vi skickar vanligtvis alla betalningar som ska betalas under en viss månad senast den 15:e dagen i den månaden, men det tar ytterligare tid för betalningen att nå ditt konto. Antalet dagar varierar beroende på vilken betalningsmetod vi använder för ditt konto, enligt beskrivningen nedan.
+Vi skickar vanligt vis alla betalningar som förfaller under en månad med den 15: e dagen i den månaden, men det tar ytterligare tid för betalningen att komma åt ditt konto. Antalet dagar varierar beroende på den betalnings metod som vi använder för ditt konto, enligt beskrivningen nedan.
 
 > [!NOTE]
-> Dagarna nedan är ungefärliga; en viss utbetalning kan ta längre eller kortare tid.
+> De dagar som visas nedan är ungefärliga; eventuella utbetalningar kan ta en längre eller kortare tid.
 
-| Betalningsmetod     | Antal dagar för att nå utbetalningskonto     |
+| Betalningsmetod     | Antal dagar för att uppnå utbetalnings konto     |
 |--------------------|--------------------------------------------|
-| PayPal             | 1 arbetsdag                             |
-| ACH/SEPA           | 2-3 arbetsdagar                          |
-| Trådöverföring      | 7-10 arbetsdagar                         |
+| PayPal             | 1 arbets dag                             |
+| ACH/SEPA           | 2-3 arbets dagar                          |
+| Överföring av överföring      | 7-10 arbets dagar                         |
 
-Om du vill se de länder/regioner där dessa betalningsmetoder används för varje marknadsplats läser du tabellerna nedan.
+Granska tabellerna nedan om du vill se de länder/regioner där dessa betalnings metoder används för varje Marketplace.
 
-## <a name="payment-methods-in-countriesregions"></a>Betalningsmetoder i länder/regioner
+## <a name="payment-methods-in-countriesregions"></a>Betalnings metoder i länder/regioner
 
 > [!NOTE]
-> Betalningströsklar i alla regioner är 50 USD.
+> Betalnings trösklar i alla regioner är $50 USD.
 
 | Land/region                          | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Office | PayPal-betalningar |
 |----------------------------------|-------------------|------------------------------------------|--------|-----------------|
-| Afghanistan                      | Ja               | Ja                                      | Inga     | Inga              |
+| Afghanistan                      | Ja               | Ja                                      | Nej     | Nej              |
 | Albanien                          | Ja               | Ja                                      | Ja    | Ja             |
 | Algeriet                          | Ja               | Ja                                      | Ja    | Ja             |
-| Andorra                          | Inga                | Inga                                       | Ja    | Ja             |
-| Angola                           | Ja               | Ja                                      | Ja    | Inga              |
-| Antigua och Barbuda              | Ja               | Ja                                      | Inga     | Ja             |
+| Andorra                          | Nej                | Nej                                       | Ja    | Ja             |
+| Angola                           | Ja               | Ja                                      | Ja    | Nej              |
+| Antigua och Barbuda              | Ja               | Ja                                      | Nej     | Ja             |
 | Argentina                        | Ja               | Ja                                      | Ja    | Ja             |
-| Armenien                          | Ja               | Ja                                      | Inga     | Inga              |
+| Armenien                          | Ja               | Ja                                      | Nej     | Nej              |
 | Australien                        | Ja               | Ja                                      | Ja    | Ja             |
 | Österrike                          | Ja               | Ja                                      | Ja    | Ja             |
-| Azerbajdzjan                       | Ja               | Ja                                      | Ja    | Inga              |
+| Azerbajdzjan                       | Ja               | Ja                                      | Ja    | Nej              |
 | Bahrain                          | Ja               | Ja                                      | Ja    | Ja             |
-| Bangladesh                       | Ja               | Ja                                      | Ja    | Inga              |
-| Vitryssland                          | Ja               | Ja                                      | Ja    | Inga              |
+| Bangladesh                       | Ja               | Ja                                      | Ja    | Nej              |
+| Vitryssland                          | Ja               | Ja                                      | Ja    | Nej              |
 | Belgien                          | Ja               | Ja                                      | Ja    | Ja             |
-| Benin                            | Ja               | Ja                                      | Ja    | Inga              |
-| Bolivia                          | Ja               | Ja                                      | Ja    | Inga              |
+| Benin                            | Ja               | Ja                                      | Ja    | Nej              |
+| Bolivia                          | Ja               | Ja                                      | Ja    | Nej              |
 | Bosnien och Hercegovina           | Ja               | Ja                                      | Ja    | Ja             |
-| Botswana                         | Ja               | Ja                                      | Inga     | Ja             |
+| Botswana                         | Ja               | Ja                                      | Nej     | Ja             |
 | Brasilien                           | Ja               | Ja                                      | Ja    | Ja             |
 | Bulgarien                         | Ja               | Ja                                      | Ja    | Ja             |
-| Burkina Faso                     | Ja               | Ja                                      | Ja    | Inga              |
-| Burundi                          | Ja               | Ja                                      | Ja    | Inga              |
-| Kambodja                         | Ja               | Ja                                      | Ja    | Inga              |
-| Kamerun                         | Ja               | Ja                                      | Ja    | Inga              |
+| Burkina Faso                     | Ja               | Ja                                      | Ja    | Nej              |
+| Burundi                          | Ja               | Ja                                      | Ja    | Nej              |
+| Kambodja                         | Ja               | Ja                                      | Ja    | Nej              |
+| Kamerun                         | Ja               | Ja                                      | Ja    | Nej              |
 | Kanada                           | Ja               | Ja                                      | Ja    | Ja             |
-| Centralafrikanska republiken         | Ja               | Ja                                      | Ja    | Inga              |
-| Tchad                             | Ja               | Ja                                      | Ja    | Inga              |
+| Centralafrikanska republiken         | Ja               | Ja                                      | Ja    | Nej              |
+| Tchad                             | Ja               | Ja                                      | Ja    | Nej              |
 | Chile                            | Ja               | Ja                                      | Ja    | Ja             |
-| Kina                            | Inga                | Ja                                      | Ja    | Ja             |
+| Kina                            | Nej                | Ja                                      | Ja    | Ja             |
 | Colombia                         | Ja               | Ja                                      | Ja    | Ja             |
-| Komorerna                          | Ja               | Ja                                      | Inga     | Inga              |
-| Kongo (DR)                      | Ja               | Ja                                      | Ja    | Inga              |
-| Kongo, Republiken Kongo               | Ja               | Ja                                      | Ja    | Inga              |
+| Komorerna                          | Ja               | Ja                                      | Nej     | Nej              |
+| Kongo (DR)                      | Ja               | Ja                                      | Ja    | Nej              |
+| Republiken Kongo               | Ja               | Ja                                      | Ja    | Nej              |
 | Costa Rica                       | Ja               | Ja                                      | Ja    | Ja             |
-| Elfenbenskusten                    | Ja               | Ja                                      | Ja    | Inga              |
-| Kroatien                          | Ja               | Ja                                      | Ja    | Inga              |
+| Côte D' Ivoire                    | Ja               | Ja                                      | Ja    | Nej              |
+| Kroatien                          | Ja               | Ja                                      | Ja    | Nej              |
 | Cypern                           | Ja               | Ja                                      | Ja    | Ja             |
 | Tjeckien                   | Ja               | Ja                                      | Ja    | Ja             |
 | Danmark                          | Ja               | Ja                                      | Ja    | Ja             |
-| Dominica                         | Ja               | Ja                                      | Inga     | Ja             |
+| Dominica                         | Ja               | Ja                                      | Nej     | Ja             |
 | Dominikanska republiken               | Ja               | Ja                                      | Ja    | Ja             |
 | Ecuador                          | Ja               | Ja                                      | Ja    | Ja             |
 | Egypten                            | Ja               | Ja                                      | Ja    | Ja             |
 | El Salvador                      | Ja               | Ja                                      | Ja    | Ja             |
-| Eritrea                          | Ja               | Ja                                      | Ja    | Inga              |
+| Eritrea                          | Ja               | Ja                                      | Ja    | Nej              |
 | Estland                          | Ja               | Ja                                      | Ja    | Ja             |
-| Etiopien                         | Ja               | Ja                                      | Ja    | Inga              |
-| Fijiöarna                     | Ja               | Ja                                      | Inga     | Inga              |
+| Etiopien                         | Ja               | Ja                                      | Ja    | Nej              |
+| Fidji                     | Ja               | Ja                                      | Nej     | Nej              |
 | Finland                          | Ja               | Ja                                      | Ja    | Ja             |
 | Frankrike                           | Ja               | Ja                                      | Ja    | Ja             |
 | Georgien                          | Ja               | Ja                                      | Ja    | Ja             |
 | Tyskland                          | Ja               | Ja                                      | Ja    | Ja             |
-| Ghana                            | Ja               | Ja                                      | Ja    | Inga              |
+| Ghana                            | Ja               | Ja                                      | Ja    | Nej              |
 | Grekland                           | Ja               | Ja                                      | Ja    | Ja             |
 | Guatemala                        | Ja               | Ja                                      | Ja    | Ja             |
-| Guinea                           | Ja               | Ja                                      | Ja    | Inga              |
-| Haiti                            | Ja               | Ja                                      | Ja    | Inga              |
+| Guinea                           | Ja               | Ja                                      | Ja    | Nej              |
+| Haiti                            | Ja               | Ja                                      | Ja    | Nej              |
 | Honduras                         | Ja               | Ja                                      | Ja    | Ja             |
 | Hongkong                        | Ja               | Ja                                      | Ja    | Ja             |
 | Ungern                          | Ja               | Ja                                      | Ja    | Ja             |
-| Island                          | Ja               | Ja                                      | Ja    | Inga              |
+| Island                          | Ja               | Ja                                      | Ja    | Nej              |
 | Indien                            | Ja               | Ja                                      | Ja    | Ja             |
 | Indonesien                        | Ja               | Ja                                      | Ja    | Ja             |
-| Irak                             | Ja               | Ja                                      | Inga     | Inga              |
+| Irak                             | Ja               | Ja                                      | Nej     | Nej              |
 | Irland                          | Ja               | Ja                                      | Ja    | Ja             |
 | Israel                           | Ja               | Ja                                      | Ja    | Ja             |
 | Italien                            | Ja               | Ja                                      | Ja    | Ja             |
@@ -114,82 +114,82 @@ Om du vill se de länder/regioner där dessa betalningsmetoder används för var
 | Jordanien                           | Ja               | Ja                                      | Ja    | Ja             |
 | Kazakhstan                       | Ja               | Ja                                      | Ja    | Ja             |
 | Kenya                            | Ja               | Ja                                      | Ja    | Ja             |
-| Korea (Söder)                    | Ja               | Ja                                      | Ja    | Inga              |
+| Korea (södra)                    | Ja               | Ja                                      | Ja    | Nej              |
 | Kuwait                           | Ja               | Ja                                      | Ja    | Ja             |
-| Kirgizistan                       | Inga                | Inga                                       | Ja    | Inga              |
-| Laos                             | Ja               | Ja                                      | Ja    | Inga              |
-| Lettland                           | Ja               | Ja                                      | Ja    | Inga              |
-| Libanon                          | Ja               | Ja                                      | Inga     | Inga              |
-| Liberia                          | Ja               | Ja                                      | Ja    | Inga              |
+| Kirgizistan                       | Nej                | Nej                                       | Ja    | Nej              |
+| Laos                             | Ja               | Ja                                      | Ja    | Nej              |
+| Lettland                           | Ja               | Ja                                      | Ja    | Nej              |
+| Libanon                          | Ja               | Ja                                      | Nej     | Nej              |
+| Liberia                          | Ja               | Ja                                      | Ja    | Nej              |
 | Liechtenstein                    | Ja               | Ja                                      | Ja    | Ja             |
-| Litauen                        | Ja               | Ja                                      | Ja    | Inga              |
+| Litauen                        | Ja               | Ja                                      | Ja    | Nej              |
 | Luxemburg                       | Ja               | Ja                                      | Ja    | Ja             |
-| Makedonien                        | Inga                | Ja                                      | Ja    | Inga              |
-| Madagaskar                       | Ja               | Ja                                      | Ja    | Inga              |
+| Makedonien                        | Nej                | Ja                                      | Ja    | Nej              |
+| Madagaskar                       | Ja               | Ja                                      | Ja    | Nej              |
 | Malawi                           | Ja               | Ja                                      | Ja    | Ja             |
 | Malaysia                         | Ja               | Ja                                      | Ja    | Ja             |
-| Mali                             | Ja               | Ja                                      | Ja    | Inga              |
+| Mali                             | Ja               | Ja                                      | Ja    | Nej              |
 | Malta                            | Ja               | Ja                                      | Ja    | Ja             |
-| Mauritius                        | Ja               | Ja                                      | Inga     | Ja             |
+| Mauritius                        | Ja               | Ja                                      | Nej     | Ja             |
 | Mexiko                           | Ja               | Ja                                      | Ja    | Ja             |
-| Monaco                           | Ja               | Ja                                      | Inga     | Inga              |
-| Mongoliet                         | Ja               | Ja                                      | Ja    | Inga              |
-| Montenegro                       | Ja               | Ja                                      | Ja    | Inga              |
-| Marocko                          | Ja               | Ja                                      | Ja    | Inga              |
+| Monaco                           | Ja               | Ja                                      | Nej     | Nej              |
+| Mongoliet                         | Ja               | Ja                                      | Ja    | Nej              |
+| Montenegro                       | Ja               | Ja                                      | Ja    | Nej              |
+| Marocko                          | Ja               | Ja                                      | Ja    | Nej              |
 | Moçambique                       | Ja               | Ja                                      | Ja    | Ja             |
-| Nepal                            | Ja               | Ja                                      | Ja    | Inga              |
-| Nederländerna,                 | Ja               | Ja                                      | Ja    | Ja             |
+| Nepal                            | Ja               | Ja                                      | Ja    | Nej              |
+| Nederländerna                 | Ja               | Ja                                      | Ja    | Ja             |
 | Nya Zeeland                      | Ja               | Ja                                      | Ja    | Ja             |
 | Nicaragua                        | Ja               | Ja                                      | Ja    | Ja             |
-| Niger                            | Ja               | Ja                                      | Ja    | Inga              |
-| Nigeria                          | Ja               | Ja                                      | Ja    | Inga              |
+| Niger                            | Ja               | Ja                                      | Ja    | Nej              |
+| Nigeria                          | Ja               | Ja                                      | Ja    | Nej              |
 | Norge                           | Ja               | Ja                                      | Ja    | Ja             |
 | Oman                             | Ja               | Ja                                      | Ja    | Ja             |
-| Pakistan                         | Ja               | Ja                                      | Ja    | Inga              |
+| Pakistan                         | Ja               | Ja                                      | Ja    | Nej              |
 | Panama                           | Ja               | Ja                                      | Ja    | Ja             |
-| Paraguay                         | Ja               | Ja                                      | Ja    | Inga              |
+| Paraguay                         | Ja               | Ja                                      | Ja    | Nej              |
 | Peru                             | Ja               | Ja                                      | Ja    | Ja             |
 | Filippinerna                      | Ja               | Ja                                      | Ja    | Ja             |
 | Polen                           | Ja               | Ja                                      | Ja    | Ja             |
 | Portugal                         | Ja               | Ja                                      | Ja    | Ja             |
-| Puerto Rico                      | Inga                | Inga                                       | Ja    | Inga              |
+| Puerto Rico                      | Nej                | Nej                                       | Ja    | Nej              |
 | Qatar                            | Ja               | Ja                                      | Ja    | Ja             |
-| Rumänien                          | Ja               | Ja                                      | Ja    | Inga              |
-| Ryssland                           | Ja               | Ja                                      | Inga     | Ja             |
-| Rwanda                           | Ja               | Ja                                      | Ja    | Inga              |
-| Saint Vincent och Grenadinerna | Inga                | Ja                                      | Inga     | Inga              |
+| Rumänien                          | Ja               | Ja                                      | Ja    | Nej              |
+| Ryssland                           | Ja               | Ja                                      | Nej     | Ja             |
+| Rwanda                           | Ja               | Ja                                      | Ja    | Nej              |
+| Saint Vincent och Grenadinerna | Nej                | Ja                                      | Nej     | Nej              |
 | Saudiarabien                     | Ja               | Ja                                      | Ja    | Ja             |
-| Senegal                          | Ja               | Ja                                      | Ja    | Inga              |
-| Serbien                           | Ja               | Ja                                      | Ja    | Inga              |
-| Sierra Leone                     | Ja               | Ja                                      | Ja    | Inga              |
+| Senegal                          | Ja               | Ja                                      | Ja    | Nej              |
+| Serbien                           | Ja               | Ja                                      | Ja    | Nej              |
+| Sierra Leone                     | Ja               | Ja                                      | Ja    | Nej              |
 | Singapore                        | Ja               | Ja                                      | Ja    | Ja             |
 | Slovakien                         | Ja               | Ja                                      | Ja    | Ja             |
 | Slovenien                         | Ja               | Ja                                      | Ja    | Ja             |
-| Somalia                          | Ja               | Ja                                      | Ja    | Inga              |
+| Somalia                          | Ja               | Ja                                      | Ja    | Nej              |
 | Sydafrika                     | Ja               | Ja                                      | Ja    | Ja             |
 | Spanien                            | Ja               | Ja                                      | Ja    | Ja             |
-| Sri Lanka                        | Ja               | Ja                                      | Ja    | Inga              |
+| Sri Lanka                        | Ja               | Ja                                      | Ja    | Nej              |
 | Sverige                           | Ja               | Ja                                      | Ja    | Ja             |
-| Schweiz                      | Ja               | Ja                                      | Ja    | Inga              |
-| Taiwan                           | Inga                | Ja                                      | Ja    | Ja             |
-| Tadzjikistan                       | Ja               | Ja                                      | Inga     | Inga              |
-| Tanzania                         | Ja               | Ja                                      | Ja    | Inga              |
+| Schweiz                      | Ja               | Ja                                      | Ja    | Nej              |
+| Taiwan                           | Nej                | Ja                                      | Ja    | Ja             |
+| Tadzjikistan                       | Ja               | Ja                                      | Nej     | Nej              |
+| Tanzania                         | Ja               | Ja                                      | Ja    | Nej              |
 | Thailand                         | Ja               | Ja                                      | Ja    | Ja             |
-| Timor-Leste                      | Ja               | Ja                                      | Ja    | Inga              |
-| Togo                             | Ja               | Ja                                      | Ja    | Inga              |
-| Tonga                            | Ja               | Ja                                      | Inga     | Inga              |
+| Timor-Leste                      | Ja               | Ja                                      | Ja    | Nej              |
+| Togo                             | Ja               | Ja                                      | Ja    | Nej              |
+| Tonga                            | Ja               | Ja                                      | Nej     | Nej              |
 | Trinidad och Tobago              | Ja               | Ja                                      | Ja    | Ja             |
-| Tunisien                          | Ja               | Ja                                      | Ja    | Inga              |
-| Turkiet                           | Ja               | Ja                                      | Ja    | Inga              |
-| Turkmenistan                     | Ja               | Ja                                      | Inga     | Inga              |
-| Uganda                           | Ja               | Ja                                      | Ja    | Inga              |
-| Ukraina                          | Ja               | Ja                                      | Inga     | Inga              |
+| Tunisien                          | Ja               | Ja                                      | Ja    | Nej              |
+| Turkiet                           | Ja               | Ja                                      | Ja    | Nej              |
+| Turkmenistan                     | Ja               | Ja                                      | Nej     | Nej              |
+| Uganda                           | Ja               | Ja                                      | Ja    | Nej              |
+| Ukraina                          | Ja               | Ja                                      | Nej     | Nej              |
 | Förenade Arabemiraten             | Ja               | Ja                                      | Ja    | Ja             |
 | Storbritannien                   | Ja               | Ja                                      | Ja    | Ja             |
 | USA                    | Ja               | Ja                                      | Ja    | Ja             |
 | Uruguay                          | Ja               | Ja                                      | Ja    | Ja             |
-| Uzbekistan                       | Ja               | Ja                                      | Inga     | Inga              |
+| Uzbekistan                       | Ja               | Ja                                      | Nej     | Nej              |
 | Venezuela                        | Ja               | Ja                                      | Ja    | Ja             |
 | Vietnam                          | Ja               | Ja                                      | Ja    | Ja             |
-| Zambia                           | Ja               | Ja                                      | Ja    | Inga              |
-| Zimbabwe                         | Ja               | Ja                                      | Ja    | Inga              |
+| Zambia                           | Ja               | Ja                                      | Ja    | Nej              |
+| Zimbabwe                         | Ja               | Ja                                      | Ja    | Nej              |

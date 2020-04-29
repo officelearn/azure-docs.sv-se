@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Import/Export för att överföra data till och från Azure Storage | Microsoft-dokument
-description: Lär dig hur du skapar import- och exportjobb i Azure-portalen för överföring av data till och från Azure Storage.
+title: Använda Azure import/export för att överföra data till och från Azure Storage | Microsoft Docs
+description: Lär dig hur du skapar import-och export jobb i Azure Portal för att överföra data till och från Azure Storage.
 author: alkohli
 services: storage
 ms.service: storage
@@ -9,114 +9,114 @@ ms.date: 03/15/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282451"
 ---
-# <a name="what-is-azure-importexport-service"></a>Vad är Azure Import/Export-tjänst?
+# <a name="what-is-azure-importexport-service"></a>Vad är Azure import/export-tjänsten?
 
-Azure Import/Export-tjänsten används för att på ett säkert sätt importera stora mängder data till Azure Blob-lagring och Azure-filer genom att skicka diskenheter till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure Blob-lagring till hårddiskar och leverera till dina lokala platser. Data från en eller flera diskenheter kan importeras antingen till Azure Blob storage eller Azure Files.
+Azure import/export-tjänsten används för att på ett säkert sätt importera stora mängder data till Azure Blob Storage och Azure Files genom att leverera disk enheter till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure Blob Storage till disk enheter och leverera till dina lokala platser. Data från en eller flera disk enheter kan importeras antingen till Azure Blob Storage eller Azure Files.
 
-Ange egna hårddiskar och överför data med Azure Import/Export-tjänsten. Du kan också använda hårddiskar som tillhandahålls av Microsoft.
+Ange egna disk enheter och överför data med Azure import/export-tjänsten. Du kan också använda disk enheter som tillhandahålls av Microsoft.
 
-Om du vill överföra data med hjälp av diskenheter som tillhandahålls av Microsoft kan du använda [Azure Data Box Disk](../../databox/data-box-disk-overview.md) för att importera data till Azure. Microsoft levererar upp till 5 krypterade SSD-enheter (Solid State-diskenheter) med en total kapacitet på 40 TB per beställning till ditt datacenter via en regional operatör. Du kan snabbt konfigurera hårddiskar, kopiera data till hårddiskar via en USB 3.0-anslutning och skicka tillbaka diskenheterna till Azure. Mer information finns i [översikt över Azure Data Box Disk](../../databox/data-box-disk-overview.md).
+Om du vill överföra data med hjälp av disk enheter som tillhandahålls av Microsoft kan du använda [Azure Data Box disk](../../databox/data-box-disk-overview.md) för att importera data till Azure. Microsoft levererar upp till 5 krypterade solid-state disk-enheter (SSD) med 40 TB total kapacitet per beställning, till ditt data Center via en regional bärvåg. Du kan snabbt konfigurera disk enheter, kopiera data till disk enheter via en USB 3,0-anslutning och leverera disk enheterna tillbaka till Azure. Mer information finns i [Azure Data Box disk översikt](../../databox/data-box-disk-overview.md).
 
-## <a name="azure-importexport-use-cases"></a>Användningsfall för Azure Import/Export
+## <a name="azure-importexport-use-cases"></a>Användnings fall för Azure import/export
 
-Överväg att använda Azure Import/Export-tjänsten när det går för långsamt att ladda upp eller hämta data över nätverket, eller att få ytterligare nätverksbandbredd är kostnadsöverkomligt. Använd den här tjänsten i följande scenarier:
+Överväg att använda Azure import/export-tjänsten när du laddar upp eller laddar ned data över nätverket är för långsamt, eller så är det inte längre att få ytterligare nätverks bandbredd. Använd den här tjänsten i följande scenarier:
 
-* **Datamigrering till molnet**: Flytta stora mängder data till Azure snabbt och kostnadseffektivt.
-* **Innehållsdistribution:** Skicka snabbt data till dina kundwebbplatser.
-* **Säkerhetskopiering**: Ta säkerhetskopior av dina lokala data för att lagra i Azure Storage.
-* **Dataåterställning**: Återställ en stor mängd data som lagras i lagring och få dem levererade till din lokala plats.
+* **Migrering av data till molnet**: flytta stora mängder data till Azure snabbt och kostnads effektivt.
+* **Innehålls distribution**: skicka data snabbt till dina kund platser.
+* **Säkerhets kopiering**: gör säkerhets kopior av dina lokala data för lagring i Azure Storage.
+* **Data återställning**: återställa stor mängd data som lagras i lagring och som levereras till din lokala plats.
 
 ## <a name="importexport-components"></a>Importera/exportera komponenter
 
-Tjänsten Import/Export använder följande komponenter:
+Import/export-tjänsten använder följande komponenter:
 
-* **Import/exporttjänst:** Den här tjänsten som är tillgänglig i Azure-portalen hjälper användaren att skapa och spåra dataimport (ladda upp) och exportera (hämta) jobb.  
+* **Import/export-tjänst**: den här tjänsten är tillgänglig i Azure Portal hjälper användaren att skapa och spåra data import (överför) och exportera (Hämta) jobb.  
 
-* **WAImportExport-verktyg:** Det här är ett kommandoradsverktyg som gör följande:
-  * Förbereder de diskenheter som levereras för import.
-  * Gör det lättare att kopiera dina data till enheten.
-  * Krypterar data på enheten med AES 128-bitars BitLocker. Du kan använda ett externt nyckelskydd för att skydda BitLocker-tangenten.
-  * Genererar de enhetsjournalfiler som används när importen skapades.
-  * Hjälper till att identifiera antalet enheter som behövs för exportjobb.
+* **WAImportExport-verktyg**: det här är ett kommando rads verktyg som gör följande:
+  * Förbereder disk enheterna som levereras för import.
+  * Underlättar kopiering av data till enheten.
+  * Krypterar data på enheten med AES 128-bitars BitLocker. Du kan använda ett externt nyckel skydd för att skydda din BitLocker-nyckel.
+  * Genererar de enhets Journals-filer som används när importen skapas.
+  * Hjälper till att identifiera antalet enheter som krävs för export jobb.
 
 > [!NOTE]
-> Verktyget WAImportExport finns i två versioner, version 1 och 2. Vi rekommenderar att du använder:
+> WAImportExport-verktyget finns i två versioner, version 1 och 2. Vi rekommenderar att du använder:
 >
-> * Version 1 för import/export till Azure Blob-lagring.
-> * Version 2 för import av data till Azure-filer.
+> * Version 1 för import/export till Azure Blob Storage.
+> * Version 2 för att importera data till Azure Files.
 >
-> WAImportExport-verktyget är endast kompatibelt med 64-bitars Windows-operativsystem. För specifika OS-versioner som stöds går du till [Azure Import/Export-kraven](storage-import-export-requirements.md#supported-operating-systems).
+> WAImportExport-verktyget är endast kompatibelt med 64-bitars Windows-operativsystem. För särskilda OS-versioner som stöds, gå till [import/export-krav för Azure](storage-import-export-requirements.md#supported-operating-systems).
 
-* **Diskenheter:** Du kan leverera SSD-enheter (Solid State Drives) eller hårddiskar (HDDs) till Azure-datacentret. När du skapar ett importjobb skickar du diskenheter som innehåller dina data. När du skapar ett exportjobb skickar du tomma enheter till Azure-datacentret. För specifika disktyper går du till [Disktyper som stöds](storage-import-export-requirements.md#supported-hardware).
+* **Disk enheter**: du kan leverera solid state-hårddiskar (SSD) eller hård diskar (HDD) till Azure-datacentret. När du skapar ett import jobb levererar du disk enheter som innehåller dina data. När du skapar ett export jobb levererar du tomma enheter till Azure-datacentret. För vissa disk typer går du till [disk typer som stöds](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Hur fungerar Import/Export?
 
-Azure Import/Export-tjänsten tillåter dataöverföring till Azure Blobbar och Azure-filer genom att skapa jobb. Använd AZURE-portalen eller AZURE Resource Manager REST API för att skapa jobb. Varje jobb är associerat med ett enda lagringskonto.
+Azure import/export-tjänsten tillåter data överföring till Azure-blobbar och Azure Files genom att skapa jobb. Använd Azure Portal eller Azure Resource Manager REST API för att skapa jobb. Varje jobb är associerat med ett enda lagrings konto.
 
-Jobben kan vara import- eller exportjobb. Med ett importjobb kan du importera data till Azure Blobbar eller Azure-filer, medan exportjobbet gör att data kan exporteras från Azure Blobbar. För ett importjobb skickar du enheter som innehåller dina data. När du skapar ett exportjobb skickar du tomma enheter till ett Azure-datacenter. I varje fall kan du skicka upp till 10 hårddiskar per jobb.
+Jobben kan vara import-eller export jobb. Med ett import jobb kan du importera data till Azure-blobbar eller Azure-filer medan export jobbet tillåter att data exporteras från Azure-blobbar. För ett import jobb levererar du enheter som innehåller dina data. När du skapar ett export jobb levererar du tomma enheter till ett Azure-datacenter. I varje fall kan du leverera upp till 10 disk enheter per jobb.
 
-### <a name="inside-an-import-job"></a>Inuti ett importjobb
+### <a name="inside-an-import-job"></a>Inuti ett import jobb
 
-På en hög nivå innebär ett importjobb följande steg:
+På hög nivå omfattar ett import jobb följande steg:
 
-1. Bestäm data som ska importeras, antal enheter du behöver, målblobplats för dina data i Azure-lagring.
-2. Använd verktyget WAImportExport för att kopiera data till diskenheter. Kryptera diskenheterna med BitLocker.
-3. Skapa ett importjobb i ditt mållagringskonto i Azure-portalen. Ladda upp enhetsjournalfilerna.
-4. Ange avsändaradress och operatörskontonummer för att skicka tillbaka enheterna till dig.
-5. Skicka diskenheterna till den leveransadress som anges när du skapar arbetstillfällen.
-6. Uppdatera leveransspårningsnumret i importjobbinformationen och skicka importjobbet.
-7. Enheterna tas emot och bearbetas i Azure-datacentret.
-8. Enheterna levereras med ditt operatörskonto till den avsändaradress som anges i importjobbet.
+1. Avgör vilka data som ska importeras, hur många enheter du behöver, målets BLOB-plats för dina data i Azure Storage.
+2. Använd verktyget WAImportExport för att kopiera data till disk enheter. Kryptera disk enheterna med BitLocker.
+3. Skapa ett import jobb på mål lagrings kontot i Azure Portal. Ladda upp filer för enhets journalen.
+4. Ange avsändar adressen och transport företagets konto nummer för att leverera enheterna tillbaka till dig.
+5. Leverera disk enheterna till leverans adressen som angavs när jobbet skapades.
+6. Uppdatera leverans spårnings numret i import jobb informationen och skicka import jobbet.
+7. Enheterna tas emot och bearbetas i Azure Data Center.
+8. Enheterna levereras med ditt transport konto till avsändar adressen som anges i import jobbet.
 
 > [!NOTE]
-> För lokala (inom datacenterland/region) sändningar, vänligen dela ett inhemskt operatörskonto.
+> För lokala (inom land/region i Data Center) kan du dela ett inhemskt transport konto.
 >
-> För sändningar för länder/regioner utanför datacenter (utanför datacenterland/region) ska du dela ett internationellt transportföretagskonto.
+> För utgångs punkt (utanför Data Center land/region) kan du dela ett internationellt transport konto.
 
- ![Bild 1:Importera jobbflöde](./media/storage-import-export-service/importjob.png)
+ ![Bild 1: importera jobb flöde](./media/storage-import-export-service/importjob.png)
 
-Stegvisa instruktioner om dataimport finns i:
+Steg-för-steg-instruktioner om data import finns på:
 
-* [Importera data till Azure Blobbar](storage-import-export-data-to-blobs.md)
-* [Importera data till Azure-filer](storage-import-export-data-to-files.md)
+* [Importera data till Azure-blobbar](storage-import-export-data-to-blobs.md)
+* [Importera data till Azure Files](storage-import-export-data-to-files.md)
 
-### <a name="inside-an-export-job"></a>Inuti ett exportjobb
+### <a name="inside-an-export-job"></a>Inuti ett export jobb
 
 > [!IMPORTANT]
-> Tjänsten stöder endast export av Azure Blobbar. Export av Azure-filer stöds inte.
+> Tjänsten stöder endast export av Azure-blobbar. Export av Azure-filer stöds inte.
 
-På en hög nivå innebär ett exportjobb följande steg:
+Ett export jobb på hög nivå omfattar följande steg:
 
-1. Bestäm vilka data som ska exporteras, antalet enheter du behöver, källblobar eller behållarsökvägar för dina data i Blob-lagring.
-2. Skapa ett exportjobb i ditt källlagringskonto i Azure-portalen.
-3. Ange källblobar eller behållarsökvägar för de data som ska exporteras.
-4. Ange avsändaradress och operatörskontonummer för att skicka tillbaka enheterna till dig.
-5. Skicka diskenheterna till den leveransadress som anges när du skapar arbetstillfällen.
-6. Uppdatera leveransspårningsnumret i exportjobbinformationen och skicka exportjobbet.
-7. Enheterna tas emot och bearbetas i Azure-datacentret.
-8. Enheterna krypteras med BitLocker och nycklarna är tillgängliga via Azure-portalen.  
-9. Enheterna levereras med ditt operatörskonto till den avsändaradress som anges i importjobbet.
+1. Bestäm vilka data som ska exporteras, antalet enheter du behöver, käll-blobbar eller container vägar för dina data i Blob Storage.
+2. Skapa ett export jobb i ditt käll lagrings konto i Azure Portal.
+3. Ange käll-blobbar eller container Sök vägar för de data som ska exporteras.
+4. Ange avsändar adressen och transport företagets konto nummer för att leverera enheterna tillbaka till dig.
+5. Leverera disk enheterna till leverans adressen som angavs när jobbet skapades.
+6. Uppdatera leverans spårnings numret i export jobb informationen och skicka export jobbet.
+7. Enheterna tas emot och bearbetas i Azure Data Center.
+8. Enheterna är krypterade med BitLocker och nycklarna är tillgängliga via Azure Portal.  
+9. Enheterna levereras med ditt transport konto till avsändar adressen som anges i import jobbet.
 
 > [!NOTE]
-> För lokala (inom datacenterland/region) sändningar, vänligen dela ett inhemskt operatörskonto.
+> För lokala (inom land/region i Data Center) kan du dela ett inhemskt transport konto.
 >
-> För sändningar för länder/regioner utanför datacenter (utanför datacenterland/region) ska du dela ett internationellt transportföretagskonto.
+> För utgångs punkt (utanför Data Center land/region) kan du dela ett internationellt transport konto.
   
- ![Bild 2:Exportera jobbflöde](./media/storage-import-export-service/exportjob.png)
+ ![Bild 2: Exportera jobb flöde](./media/storage-import-export-service/exportjob.png)
 
-Stegvisa instruktioner om dataexport finns i [Exportera data från Azure Blobbar](storage-import-export-data-from-blobs.md).
+Steg-för-steg-instruktioner om data export finns i [Exportera data från Azure-blobar](storage-import-export-data-from-blobs.md).
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Azure Import/Export-tjänsten stöder kopiering av data till och från alla Azure-lagringskonton. Du kan skicka hårddiskar till en av de angivna platserna. Om ditt lagringskonto finns på en Azure-plats som inte anges här, tillhandahålls en alternativ leveransplats när du skapar jobbet.
+Tjänsten Azure import/export stöder kopiering av data till och från alla Azure Storage-konton. Du kan leverera disk enheter till en av de angivna platserna. Om ditt lagrings konto finns på en Azure-plats som inte anges här, anges en alternativ leverans plats när du skapar jobbet.
 
-### <a name="supported-shipping-locations"></a>Sändningsplatser som stöds
+### <a name="supported-shipping-locations"></a>Leverans platser som stöds
 
 |Land/region  |Land/region  |Land/region  |Land/region  |
 |---------|---------|---------|---------|
@@ -131,36 +131,36 @@ Azure Import/Export-tjänsten stöder kopiering av data till och från alla Azur
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Data på enheten krypteras med AES 128-bitars BitLocker-diskkryptering. Den här krypteringen skyddar dina data när den är under överföring.
+Data på enheten krypteras med AES 128-bitars BitLocker-diskkryptering. Den här krypteringen skyddar dina data när de överförs.
 
-För importjobb krypteras enheter på två sätt.  
+För import jobb krypteras enheter på två sätt.  
 
-* Ange alternativet när du använder *filen dataset.csv* när du kör verktyget WAImportExport under utarbetandet av enheten.
+* Ange alternativet när du använder *data uppsättningen. csv* -filen när du kör WAImportExport-verktyget under förberedelse av enheten.
 
-* Aktivera BitLocker-kryptering manuellt på enheten. Ange krypteringsnyckeln i *driveset.csv* när du kör VERKTYGSKOMMANDORADEN WAImportExport under förberedelse av enheten. BitLocker-krypteringsnyckeln kan skyddas ytterligare med hjälp av ett externt nyckelskydd (kallas även Microsoft-hanterad nyckel) eller en kundhanterad nyckel. Mer information finns i [hur du använder en kundhanterad nyckel för att skydda bitlockernyckeln](storage-import-export-encryption-key-portal.md).
+* Aktivera BitLocker-kryptering manuellt på enheten. Ange krypterings nyckeln i *driveset. csv* när du kör WAImportExport-verktygets kommando rad vid förberedelse av enheten. BitLocker-krypteringsnyckeln kan skyddas ytterligare med hjälp av ett externt nyckel skydd (kallas även för hanterad Microsoft-nyckel) eller en kund hanterad nyckel. Mer information finns i så här [använder du en kundhanterad nyckel för att skydda din BitLocker-nyckel](storage-import-export-encryption-key-portal.md).
 
-För exportjobb krypterar tjänsten enheten när du har kopierat dem till enheterna innan den skickas tillbaka till dig. Krypteringsnyckeln tillhandahålls till dig via Azure-portalen. Enheten måste låsas upp med hjälp av verktyget WAImporExport med hjälp av nyckeln.
+För export jobb, när dina data har kopierats till enheterna, krypterar tjänsten enheten med BitLocker innan du levererar tillbaka den till dig. Du får en krypterings nyckel via Azure Portal. Enheten måste låsas upp med WAImporExport-verktyget med hjälp av nyckeln.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ### <a name="pricing"></a>Prissättning
 
-**Avgift för drivhantering**
+**Enhets hanterings avgift**
 
-Det finns en enhetshanteringsavgift för varje enhet som bearbetas som en del av ditt import- eller exportjobb. Se information om [Azure Import/Export Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/).
+Det finns en enhets hanterings avgift för varje enhet som bearbetas som en del av ditt import-eller export jobb. Se informationen på priserna för [import/export i Azure](https://azure.microsoft.com/pricing/details/storage-import-export/).
 
-**Fraktkostnader**
+**Frakt kostnader**
 
-När du skickar enheter till Azure betalar du fraktkostnaden till transportföretaget. När Microsoft returnerar enheterna till dig debiteras fraktkostnaden till det operatörskonto som du angav när du skapades för att skapa arbetstillfällen.
+När du levererar enheter till Azure betalar du leverans kostnaden till transport företaget. När Microsoft returnerar enheterna till dig debiteras leverans kostnaden på det transport företags konto som du angav när jobbet skapades.
 
 **Transaktionskostnader**
 
-[Standardavgift för lagringstransaktioner](https://azure.microsoft.com/pricing/details/storage/) gäller vid import samt export av data. Standardutgående avgifter gäller också tillsammans med lagringstransaktionsavgifter när data exporteras från Azure Storage. Mer information om utgående kostnader finns i [Priser för dataöverföring.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Standard lagrings transaktions avgift](https://azure.microsoft.com/pricing/details/storage/) gäller vid import och export av data. Standard avgifter för utgående trafik kan också användas tillsammans med lagrings transaktions avgifter när data exporteras från Azure Storage. Mer information om utgående kostnader finns i [priser för data överföring.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder tjänsten Importera/exportera till:
+Lär dig hur du använder import/export-tjänsten för att:
 
-* [Importera data till Azure Blobbar](storage-import-export-data-to-blobs.md)
-* [Exportera data från Azure Blobbar](storage-import-export-data-from-blobs.md)
-* [Importera data till Azure-filer](storage-import-export-data-to-files.md)
+* [Importera data till Azure-blobbar](storage-import-export-data-to-blobs.md)
+* [Exportera data från Azure-blobbar](storage-import-export-data-from-blobs.md)
+* [Importera data till Azure Files](storage-import-export-data-to-files.md)

@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5f83fa040de501adf3afa523086e100244fa619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331792"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
@@ -39,8 +39,8 @@ När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valf
 
 | Valfri konfiguration | Beskrivning |
 | --- | --- |
-| Använda en befintlig SQL-server |Med det här alternativet kan du ange namnet på SQL-servern och namnet på instansen. Välj det här alternativet om du redan har en databasserver som du vill använda. Ange instansnamnet följt av ett kommatecken och portnummer i **Instansnamn** om bläddring inte är aktiverat för SQL-servern.  Ange sedan namnet på Azure AD Connect-databasen.  Dina SQL-privilegier avgör om en ny databas ska skapas eller så måste SQL-administratören skapa databasen i förväg.  Om du har SQL SA-behörigheter läser du [Så här installerar du en befintlig databas](how-to-connect-install-existing-database.md).  Om du har delegerats behörigheter (DBO) finns [i Installera Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md). |
-| Använda ett befintligt tjänstkonto |Som standard använder Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver använda ett **hanterat tjänstkonto** eller ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas.  Se [Azure AD Connect-konton och azure-behörigheter](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter.  Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md).|
+| Använda en befintlig SQL-server |Med det här alternativet kan du ange namnet på SQL-servern och namnet på instansen. Välj det här alternativet om du redan har en databasserver som du vill använda. Ange instansnamnet följt av ett kommatecken och portnummer i **Instansnamn** om bläddring inte är aktiverat för SQL-servern.  Ange sedan namnet på den Azure AD Connect databasen.  SQL-privilegierna avgör om en ny databas ska skapas eller om SQL-administratören måste skapa databasen i förväg.  Om du har SQL SA-behörigheter ser du [hur du installerar med hjälp av en befintlig databas](how-to-connect-install-existing-database.md).  Om du har delegerats behörigheter (DBO) se [installera Azure AD Connect med SQL-delegerad administratörs behörighet](how-to-connect-install-sql-delegation.md). |
+| Använda ett befintligt tjänstkonto |Som standard använder Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver använda ett **hanterat tjänstkonto** eller ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas.  Se [Azure AD Connect konton och behörigheter](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter.  Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md).|
 | Ange anpassade synkroniseringsgrupper |Som standard skapar Azure AD Connect fyra grupper som är lokala på servern när synkroniseringstjänsterna installeras. Dessa grupper är: gruppen Administratörer, gruppen Operatorer, gruppen Bläddra och gruppen Återställning av lösenord. Du kan ange dina egna grupper här. Grupperna måste vara lokala på servern och de kan inte hittas i domänen. |
 
 ### <a name="user-sign-in"></a>Användarinloggning
@@ -86,10 +86,10 @@ När du har angett det första skogsnamnet och klickat på  **Lägg till katalog
 
 ![Anslut katalog](./media/how-to-connect-install-custom/connectdir02.png)
 
-#### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>Företagsadministratör och domänadministratörskonton stöds inte
-Från och med version 1.4.18.0 stöds det inte längre att använda en företagsadministratör eller ett domänadministratörskonto som AD DS Connector-konto.  Om du försöker ange ett konto som är en företagsadministratör eller domänadministratör när du anger **att det befintliga kontot ska användas**visas följande fel:
+#### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>Konton för företags administratör och domän administratör stöds inte
+Från och med skapar 1.4.18.0 det inte längre stöd för att använda ett företags administratörs konto eller ett domän administratörs konto som AD DS-anslutnings konto.  Om du försöker ange ett konto som är företags administratör eller domän administratör när du anger **Använd befintligt konto**visas följande fel meddelande:
 
-  **"Det är inte tillåtet att använda ett företags- eller domänadministratörskonto för ditt AD-skogskonto.  Låt Azure AD Connect skapa kontot åt dig eller ange ett synkroniseringskonto med rätt behörigheter.  &lt;Läs&gt;mer "**
+  **"Det är inte tillåtet att använda ett företags-eller domän administratörs konto för ditt AD-skogs konto.  Låt Azure AD Connect skapa kontot åt dig eller ange ett konto för synkronisering med rätt behörigheter.  &lt;Läs mer&gt;"**
 
 ### <a name="azure-ad-sign-in-configuration"></a>Inloggningskonfiguration för Azure AD
 På den här sidan kan du granska de UPN-domäner som finns i lokala AD DS och som har verifierats i Azure AD. På den här sidan kan du också konfigurera attributet som ska användas för userPrincipalName.
@@ -97,7 +97,7 @@ På den här sidan kan du granska de UPN-domäner som finns i lokala AD DS och s
 ![Overifierade domäner](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Granska varje domän som markerats med **Inte tillagd** och **Inte verifierad**. Kontrollera att de domäner som du använder har verifierats i Azure AD. Klicka på symbolen Uppdatera när du har verifierat dina domäner. Mer information finns i [Lägga till och verifiera domänen](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** – Attributet userPrincipalName är det attributet som användare använder när de loggar in i Azure AD och Office 365. Domänerna som används, även kallade UPN-suffixet, bör verifieras i Azure AD innan användarna synkroniseras. Microsoft rekommenderar att du behåller standardattributet userPrincipalName. Om det här attributet är icke-dirigerbart och inte kan verifieras går det att välja ett annat attribut. Du kan till exempel välja email som attributet som ska innehålla inloggnings-ID:t. Om du använder ett annat attribut än userPrincipalName kallas det för ett **Alternativt ID**. Attributvärdet för ett alternativt ID måste följa standarden RFC822. Ett alternativt ID kan användas med lösenordshashsynkronisering, direktautentisering och federation. Attributet måste inte definieras som flera värden i Active Directory, inte ens om den bara har ett enda värde. Mer information om det alternativa ID:t finns i avsnittet [Vanliga frågor](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) och svar.
+**UserPrincipalName** – Attributet userPrincipalName är det attributet som användare använder när de loggar in i Azure AD och Office 365. Domänerna som används, även kallade UPN-suffixet, bör verifieras i Azure AD innan användarna synkroniseras. Microsoft rekommenderar att du behåller standardattributet userPrincipalName. Om det här attributet är icke-dirigerbart och inte kan verifieras går det att välja ett annat attribut. Du kan till exempel välja email som attributet som ska innehålla inloggnings-ID:t. Om du använder ett annat attribut än userPrincipalName kallas det för ett **Alternativt ID**. Attributvärdet för ett alternativt ID måste följa standarden RFC822. Ett alternativt ID kan användas med lösenordshashsynkronisering, direktautentisering och federation. Attributet måste inte definieras som flera värden i Active Directory, inte ens om den bara har ett enda värde. Mer information om alternativt ID finns i avsnittet [vanliga frågor och svar](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) .
 
 >[!NOTE]
 > När du aktiverar Direktautentisering måste du ha minst en verifierad domän för att kunna fortsätta med guiden.
@@ -127,7 +127,7 @@ Med funktionen Matchande mellan skogar kan du definiera hur användare från AD 
 
 ![Unik](./media/how-to-connect-install-custom/unique2.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 | --- | --- |
 | [Dina användare representeras endast en gång över alla skogar](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Alla användare skapas som enskilda objekt i Azure AD. Objekten är inte anslutna i metaversum. |
 | [E-postattribut](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Det här alternativet kopplar ihop användare och kontakter om e-postattributet har samma värde i olika skogar. Använd det här alternativet om dina kontakter har skapats med hjälp av GALSync. Om du väljer det här alternativet synkroniseras inte användarobjekt vars e-postattribut inte har fyllts i till Azure AD. |
@@ -138,7 +138,7 @@ Med funktionen Matchande mellan skogar kan du definiera hur användare från AD 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Välj hur användare ska identifieras med Azure AD – källfästpunkt
 Attributet sourceAnchor är ett attribut som inte kan ändras under ett användarobjekts livslängd. Det är den primära nyckeln som länkar den lokala användaren med användaren i Azure AD.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 | --- | --- |
 | Låt Azure hantera källfästpunkten | Välj det här alternativet om du vill att Azure AD ska hämta attributet. Om du väljer det här alternativet använder Azure AD Connect attributet sourceAnchor-attributvalslogiken som beskrivs i avsnittet [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) (Azure AD Connect: Designbegrepp - Använda ms-DS-ConsistencyGuid som sourceAnchor). Guiden informerar dig vilket attribut som har valts som källfästpunktsattribut när den anpassade installationen har slutförts. |
 | Ett specifikt attribut | Välj det här alternativet om du vill ange ett befintligt AD-attribut som sourceAnchor-attribut. |
@@ -161,7 +161,7 @@ I en komplett produktionsdistribution blir det svårt att underhålla en enda gr
 På den här sidan kan du välja de valfria funktionerna för dina specifika scenarier.
 
 >[!WARNING]
->Azure AD Connect version **1.0.8641.0** och äldre förlitar sig på Azure Access Control-tjänsten för tillbakaskrivning av lösenord.  Denna tjänst kommer att dras tillbaka **den 7 november 2018**.  Om du använder någon av de här versionerna av Azure AD Connect och har aktiverat tillbakaskrivning av lösenord, kanske användarna inte kan ändra eller återställa sina lösenord när tjänsten har dragits in. Tillbakaskrivning av lösenord med de här versionerna av Azure AD Connect stöds inte.
+>Azure AD Connect version **1.0.8641.0** och äldre förlitar sig på Azure Access Control-tjänsten för tillbakaskrivning av lösenord.  Den här tjänsten kommer att dras tillbaka den **7 November 2018**.  Om du använder någon av de här versionerna av Azure AD Connect och har aktiverat tillbakaskrivning av lösenord, kanske användarna inte kan ändra eller återställa sina lösenord när tjänsten har dragits in. Tillbakaskrivning av lösenord med de här versionerna av Azure AD Connect stöds inte.
 >
 >Mer information om Azure Access Control-tjänsten finns i [Migrera från Azure Access Control Service](../azuread-dev/active-directory-acs-migration.md)
 >
@@ -182,7 +182,7 @@ På den här sidan kan du välja de valfria funktionerna för dina specifika sce
 | Synkronisering av lösenordshash |Om du valde federation som inloggningslösning kan du aktivera det här alternativet. Synkronisering av lösenordshash kan sedan användas som ett reservalternativ. Mer information finns i [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md). </br></br>Om du valde Direktautentisering kan du även aktivera det här alternativet för att ge stöd för äldre klienter och som ett säkerhetskopieringsalternativ. Mer information finns i [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md).|
 | Tillbakaskrivning av lösenord |Om du aktiverar tillbakaskrivning av lösenord skrivs lösenordsändringar som kommer från Azure AD tillbaka till din lokala katalog. Mer information finns i [Komma igång med lösenordshantering](../authentication/quickstart-sspr.md). |
 | Tillbakaskrivning av grupp |Om du använder funktionen **Office 365-grupper** kan dessa grupper vara representerade i din lokala Active Directory. Det här alternativet är endast tillgänglig om Exchange finns i din lokala Active Directory. Mer information finns i [Tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback). |
-| Tillbakaskrivning av enheter |Gör att du kan skriva tillbaka enhetsobjekt i Azure AD till dina lokala Active Directory för villkorlig åtkomst-scenarier. Mer information finns i [Aktivera tillbakaskrivning av enheter i Azure AD Connect](how-to-connect-device-writeback.md). |
+| Tillbakaskrivning av enheter |Gör att du kan ångra enhets objekt i Azure AD till din lokala Active Directory för scenarier för villkorlig åtkomst. Mer information finns i [Aktivera tillbakaskrivning av enheter i Azure AD Connect](how-to-connect-device-writeback.md). |
 | Synkronisering av katalogtilläggsattribut |Om du aktiverar Synkronisering av katalogtilläggsattribut synkroniseras angivna attribut till Azure AD. Mer information finns i [Katalogtillägg](how-to-connect-sync-feature-directory-extensions.md). |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Filtrering av Azure AD-appar och -attribut
@@ -224,7 +224,7 @@ För varje skog som har lagts till i Azure AD Connect måste du ange inloggnings
 >Du kan hoppa över en viss skog om du inte vill använda enkel inloggning med den skogen.
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurera zonen Intranät för klientdatorer
-För att säkerställa att klientin logga in automatiskt i intranätzonen måste du se till att URL:en är en del av intranätzonen. Detta säkerställer att den domänanslutna datorn automatiskt skickar en Kerberos-biljett till Azure AD när den ansluter till företagsnätverket.
+För att säkerställa att klient inloggningar automatiskt i zonen Intranät måste du se till att URL: en är en del av zonen Intranät. Detta säkerställer att den domänanslutna datorn automatiskt skickar en Kerberos-biljett till Azure AD när den ansluter till företagsnätverket.
 På en dator med verktyg för grupprinciphantering.
 
 1.  Öppna verktygen för grupprinciphantering
@@ -246,16 +246,16 @@ Du kan enkelt konfigurera AD FS med Azure AD Connect med bara några klickningar
 
 * En Windows Server 2012 R2-server eller senare för federationsservern med fjärrhantering aktiverat
 * En Windows Server 2012 R2-server eller senare för webbprogramproxyservern med fjärrhantering aktiverat
-* Ett TLS/SSL-certifikat för det federationstjänstnamn som du tänker använda (till exempel sts.contoso.com)
+* Ett TLS/SSL-certifikat för Federations tjänstens namn som du tänker använda (till exempel sts.contoso.com)
 
 >[!NOTE]
->Du kan uppdatera ett TLS/SSL-certifikat för din AD FS-servergrupp med Azure AD Connect även om du inte använder det för att hantera federationsförtroende.
+>Du kan uppdatera ett TLS/SSL-certifikat för din AD FS server grupp med Azure AD Connect även om du inte använder den för att hantera Federations förtroendet.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Förutsättningar för AD FS-konfiguration
 Om du vill konfigurera din AD FS-servergrupp med hjälp av Azure AD Connect kontrollerar du att WinRM är aktiverat på fjärrservrarna. Kontrollera att du har slutfört de övriga uppgifterna i [federationskrav](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). Gå också igenom portkraven som anges i [Tabell 3 – Azure AD Connect och federationsservrar/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Skapa en ny AD FS-servergrupp eller använd en befintlig AD FS-servergrupp
-Du kan använda en befintlig AD FS-servergrupp eller välja att skapa en ny AD FS-servergrupp. Om du väljer att skapa ett nytt måste du ange TLS/SSL-certifikatet. Om TLS/SSL-certifikatet skyddas av ett lösenord uppmanas du att ange lösenordet.
+Du kan använda en befintlig AD FS-servergrupp eller välja att skapa en ny AD FS-servergrupp. Om du väljer att skapa en ny måste du ange TLS/SSL-certifikatet. Om TLS/SSL-certifikatet skyddas av ett lösen ord uppmanas du att ange lösen ordet.
 
 ![AD FS-servergrupp](./media/how-to-connect-install-custom/adfs1.png)
 
@@ -320,7 +320,7 @@ När du väljer domänen som ska vara federerad får du nödvändig information 
 ## <a name="configuring-federation-with-pingfederate"></a>Konfigurera federation med PingFederate
 Du kan enkelt konfigurera PingFederate med Azure AD Connect med bara några klickningar. Dock krävs följande villkor.
 - PingFederate 8.4 eller högre.  Mer information finns i [PingFederate-integrering med Azure Active Directory och Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
-- Ett TLS/SSL-certifikat för det federationstjänstnamn som du tänker använda (till exempel sts.contoso.com)
+- Ett TLS/SSL-certifikat för Federations tjänstens namn som du tänker använda (till exempel sts.contoso.com)
 
 ### <a name="verify-the-domain"></a>Verifiera domänen
 När du har valt Federation med PingFederate, blir du ombedd att verifiera den domän du vill federera.  Välj domän i listrutan.
@@ -397,7 +397,7 @@ För att kontrollera att autentiseringen från slutpunkt till slutpunkt lyckades
 Följande avsnitt innehåller hjälp och felsökningsinformation som du kan använda om det uppstår problem när du installerar Azure AD Connect.
 
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>”ADSync-databasen innehåller redan data och kan inte skrivas över”
-När du har anpassat installationen av Azure AD Connect och väljer alternativet **Använd en befintlig SQL-server** på sidan **Installera obligatoriska komponenter** kan det uppstå ett fel som anger att **ADSync-databasen redan innehåller data och inte kan skrivas över. Ta bort den befintliga databasen och försök igen.**
+När du har anpassat installations Azure AD Connect och väljer alternativet **Använd en befintlig SQL Server** på sidan **installera nödvändiga komponenter** kan du stöta på ett fel som anger att **ADSync-databasen redan innehåller data och inte kan skrivas över. Ta bort den befintliga databasen och försök igen.**
 
 ![Fel](./media/how-to-connect-install-custom/error1.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Metodtips för Konfiguration av Azure App | Microsoft-dokument
-description: Lär dig hur du bäst använder Azure App-konfiguration
+title: Metod tips för Azure App konfiguration | Microsoft Docs
+description: Lär dig hur du bäst använder Azure App konfiguration
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -13,38 +13,38 @@ ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
 ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80348667"
 ---
-# <a name="azure-app-configuration-best-practices"></a>Metodtips för konfiguration av Azure App
+# <a name="azure-app-configuration-best-practices"></a>Metod tips för Azure App konfiguration
 
-I den här artikeln beskrivs vanliga mönster och metodtips när du använder Azure App Configuration.
+I den här artikeln beskrivs vanliga mönster och bästa metoder när du använder Azure App konfiguration.
 
-## <a name="key-groupings"></a>Viktiga grupperingar
+## <a name="key-groupings"></a>Nyckel grupper
 
-Appkonfiguration innehåller två alternativ för att ordna nycklar:
+Konfiguration av appar innehåller två alternativ för att ordna nycklar:
 
 * Viktiga prefix
 * Etiketter
 
 Du kan använda antingen ett eller båda alternativen för att gruppera dina nycklar.
 
-*Nyckelprefix* är början delar av nycklar. Du kan logiskt gruppera en uppsättning nycklar med samma prefix i deras namn. Prefix kan innehålla flera komponenter som `/`är anslutna med en avgränsare, till exempel , liknande en URL-sökväg, för att skapa ett namnområde. Sådana hierarkier är användbara när du lagrar nycklar för många program, komponenttjänster och miljöer i ett App Configuration Store.
+*Viktiga prefix* är start delarna av nycklar. Du kan logiskt gruppera en uppsättning nycklar genom att använda samma prefix i deras namn. Prefix kan innehålla flera komponenter som är anslutna med en avgränsare, till `/`exempel liknande en URL-sökväg, för att bilda ett namn område. Sådana hierarkier är användbara när du lagrar nycklar för många program, komponent tjänster och miljöer i ett konfigurations lager för appar.
 
-En viktig sak att tänka på är att nycklar är vad din programkod refererar till för att hämta värdena för motsvarande inställningar. Nycklarna ska inte ändras, annars måste du ändra koden varje gång det händer.
+Ett viktigt att tänka på är att nycklarna är vad din program kod refererar till för att hämta värdena för motsvarande inställningar. Nycklar bör inte ändras eller så måste du ändra koden varje stund.
 
-*Etiketter* är ett attribut på tangenter. De används för att skapa varianter av en nyckel. Du kan till exempel tilldela etiketter till flera versioner av en nyckel. En version kan vara en iteration, en miljö eller annan kontextuell information. Ditt program kan begära en helt annan uppsättning nyckelvärden genom att ange en annan etikett. Därför förblir alla nyckelreferenser oförändrade i koden.
+*Etiketter* är ett attribut för nycklar. De används för att skapa varianter av en nyckel. Du kan till exempel tilldela etiketter till flera versioner av en nyckel. En version kan vara en iteration, en miljö eller någon annan sammanhangsbaserad information. Ditt program kan begära en helt annan uppsättning nyckel värden genom att ange en annan etikett. Därför förblir alla viktiga referenser oförändrade i koden.
 
-## <a name="key-value-compositions"></a>Nyckelvärdessammansättningar
+## <a name="key-value-compositions"></a>Nyckel värdes kompositioner
 
-Appkonfiguration behandlar alla nycklar som lagras med den som oberoende entiteter. Appkonfiguration försöker inte dra slutsatsen någon relation mellan nycklar eller att ärva nyckelvärden baserat på deras hierarki. Du kan dock aggregera flera uppsättningar nycklar genom att använda etiketter i kombination med korrekt konfigurationsstapling i programkoden.
+App Configuration behandlar alla nycklar som lagras med den som oberoende entiteter. App-konfigurationen försöker inte härleda någon relation mellan nycklar eller ärva nyckel värden baserat på deras hierarki. Du kan använda flera uppsättningar med nycklar, men med hjälp av etiketter tillsammans med korrekt konfigurations stack i program koden.
 
-Nu ska vi titta på ett exempel. Anta att du har en inställning med namnet **Asset1**, vars värde kan variera beroende på utvecklingsmiljön. Du skapar en nyckel med namnet "Asset1" med en tom etikett och en etikett med namnet "Utveckling". I den första etiketten sätter du standardvärdet för **Asset1**och lägger ett visst värde för "Utveckling" i den senare.
+Nu ska vi titta på ett exempel. Anta att du har en inställning med namnet **Asset1**, vars värde kan variera beroende på utvecklings miljön. Du skapar en nyckel med namnet "Asset1" med en tom etikett och en etikett med namnet "Development". I den första etiketten sätter du standardvärdet för **Asset1**och du anger ett särskilt värde för "utveckling" i den senare.
 
-I koden hämtar du först nyckelvärdena utan etiketter och hämtar sedan samma uppsättning nyckelvärden en andra gång med etiketten "Utveckling". När du hämtar värdena andra gången skrivs nycklarnas tidigare värden över. Med .NET Core-konfigurationssystemet kan du "stapla" flera uppsättningar konfigurationsdata ovanpå varandra. Om det finns en nyckel i mer än en uppsättning används den sista uppsättningen som innehåller den. Med ett modernt programmeringsramverk, till exempel .NET Core, får du den här staplingsfunktionen gratis om du använder en inbyggd konfigurationsleverantör för att komma åt App-konfigurationen. Följande kodavsnitt visar hur du kan implementera stapling i ett .NET Core-program:
+I din kod hämtar du först nyckel värden utan några etiketter, och sedan hämtar du samma uppsättning nyckel värden en andra gång med etiketten "utveckling". När du hämtar värdena den andra gången skrivs de tidigare värdena i nycklarna över. Med konfigurations systemet för .NET Core kan du "stacka" flera uppsättningar konfigurations data ovanpå varandra. Om det finns en nyckel i fler än en uppsättning används den sista uppsättningen som innehåller den. Med ett modernt programmerings ramverk, till exempel .NET Core, får du den här stack funktionen kostnads fritt om du använder en inbyggd Konfigurationsprovider för att komma åt appens konfiguration. Följande kodfragment visar hur du kan implementera stackning i ett .NET Core-program:
 
 ```csharp
 // Augment the ConfigurationBuilder with Azure App Configuration
@@ -56,36 +56,36 @@ configBuilder.AddAzureAppConfiguration(options => {
 });
 ```
 
-[Använd etiketter för att aktivera olika konfigurationer för olika miljöer](./howto-labels-aspnet-core.md) ger ett komplett exempel.
+[Använd etiketter för att aktivera olika konfigurationer för olika miljöer](./howto-labels-aspnet-core.md) , vilket är ett fullständigt exempel.
 
-## <a name="app-configuration-bootstrap"></a>Bootstrap för appkonfiguration
+## <a name="app-configuration-bootstrap"></a>Start av app-konfiguration
 
-Om du vill komma åt ett App Configuration Store kan du använda dess anslutningssträng, som är tillgänglig i Azure-portalen. Eftersom anslutningssträngar innehåller information om autentiseringsuppgifter betraktas de som hemligheter. Dessa hemligheter måste lagras i Azure Key Vault och din kod måste autentisera till Key Vault för att hämta dem.
+Om du vill komma åt ett konfigurations lager för appar kan du använda dess anslutnings sträng, som finns i Azure Portal. Eftersom anslutnings strängar innehåller autentiseringsinformation anses de vara hemligheter. Dessa hemligheter måste lagras i Azure Key Vault och din kod måste autentiseras för att Key Vault ska kunna hämta dem.
 
-Ett bättre alternativ är att använda funktionen hanterade identiteter i Azure Active Directory. Med hanterade identiteter behöver du bara slutpunkts-URL:en för appkonfiguration för att få åtkomst till appkonfigurationsarkivet. Du kan bädda in URL:en i programkoden (till exempel i *filen appsettings.json).* Mer information finns i [Integrera med Azure-hanterade identiteter.](howto-integrate-azure-managed-service-identity.md)
+Ett bättre alternativ är att använda funktionen hanterade identiteter i Azure Active Directory. Med hanterade identiteter behöver du bara slut punkts-URL: en för programmets konfiguration för att starta åtkomst till appens konfigurations lager. Du kan bädda in webb adressen i din program kod (till exempel i filen *appSettings. JSON* ). Mer information finns i [integrera med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md) .
 
-## <a name="app-or-function-access-to-app-configuration"></a>App- eller funktionsåtkomst till appkonfiguration
+## <a name="app-or-function-access-to-app-configuration"></a>App-eller funktions åtkomst till app-konfiguration
 
-Du kan ge åtkomst till appkonfiguration för webbappar eller webbfunktioner med någon av följande metoder:
+Du kan ge åtkomst till app-konfiguration för webbappar eller funktioner med någon av följande metoder:
 
-* Via Azure-portalen anger du anslutningssträngen till appkonfigurationsarkivet i programinställningarna för App-tjänsten.
-* Lagra anslutningssträngen till App Configuration Store i Key Vault och [referera till den från App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
-* Använd Azure-hanterade identiteter för att komma åt App Configuration Store. Mer information finns i [Integrera med Azure-hanterade identiteter](howto-integrate-azure-managed-service-identity.md).
-* Push-konfiguration från appkonfiguration till apptjänst. Appkonfiguration ger en exportfunktion (i Azure-portalen och Azure CLI) som skickar data direkt till App Service. Med den här metoden behöver du inte ändra programkoden alls.
+* Ange anslutnings strängen till appens konfigurations Arkiv i program inställningarna för App Service Azure Portal.
+* Lagra anslutnings strängen i appens konfigurations Arkiv i Key Vault och [referera den från App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Använd Azure Managed Identities för att få åtkomst till appens konfigurations arkiv. Mer information finns i [integrera med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md).
+* Push-konfiguration från App Configuration till App Service. App-konfigurationen tillhandahåller en export funktion (i Azure Portal och Azure CLI) som skickar data direkt till App Service. Med den här metoden behöver du inte ändra program koden alls.
 
-## <a name="reduce-requests-made-to-app-configuration"></a>Minska begäranden till appkonfiguration
+## <a name="reduce-requests-made-to-app-configuration"></a>Minska förfrågningar till app-konfiguration
 
-Överdrivna begäranden till appkonfiguration kan leda till begränsnings- eller överkörningsavgifter. Så här minskar du antalet begäranden som görs:
+För många begär anden till app-konfigurationen kan leda till begränsning eller överbelastnings kostnader. Så här minskar du antalet begär Anden som har gjorts:
 
-* Öka tidsgränsen för uppdatering, särskilt om konfigurationsvärdena inte ändras ofta. Ange en ny tidsgränsen för uppdatering med [ `SetCacheExpiration` metoden](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+* Öka tids gränsen för uppdatering, särskilt om dina konfigurations värden inte ändras ofta. Ange en ny tids gräns för uppdatering med hjälp av [ `SetCacheExpiration` metoden](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
 
-* Titta på en enda *sentinel nyckel*, snarare än att titta på enskilda nycklar. Uppdatera endast all konfiguration om indikatornyckeln ändras. Se [Använda dynamisk konfiguration i en ASP.NET Core-app](enable-dynamic-configuration-aspnet-core.md) för ett exempel.
+* Titta på en enda *kontroll nyckel*i stället för att titta på enskilda nycklar. Uppdatera all konfiguration endast om kontroll nyckeln ändras. Se [Använd dynamisk konfiguration i en ASP.net Core-app](enable-dynamic-configuration-aspnet-core.md) för ett exempel.
 
-* Använd Azure Event Grid för att ta emot meddelanden när konfigurationen ändras, i stället för att ständigt avsöka för eventuella ändringar. Mer information finns i Händelser för [konfiguration av Rout Azure-app till en webbslutpunkt](./howto-app-configuration-event.md) för mer information
+* Använd Azure Event Grid för att ta emot meddelanden när konfigurations ändringar görs, i stället för att hela tiden söka efter ändringar. Mer information finns i [dirigera Azure App konfigurations händelser till en webb slut punkt](./howto-app-configuration-event.md)
 
-## <a name="importing-configuration-data-into-app-configuration"></a>Importera konfigurationsdata till appkonfiguration
+## <a name="importing-configuration-data-into-app-configuration"></a>Importera konfigurations data till konfigurations program
 
-Appkonfiguration erbjuder möjligheten att [massimport importera](https://aka.ms/azconfig-importexport1) dina konfigurationsinställningar från dina aktuella konfigurationsfiler med antingen Azure-portalen eller CLI. Du kan också använda samma alternativ för att exportera värden från appkonfiguration, till exempel mellan relaterade butiker. Om du vill konfigurera en pågående synkronisering med din GitHub-repo kan du använda vår [GitHub-åtgärd](https://aka.ms/azconfig-gha2) så att du kan fortsätta använda dina befintliga källkontrollmetoder samtidigt som du får fördelarna med appkonfiguration.
+Med konfiguration av appar kan du välja Mass [import](https://aka.ms/azconfig-importexport1) av konfigurations inställningar från dina aktuella konfigurationsfiler med hjälp av antingen Azure Portal eller cli. Du kan också använda samma alternativ för att exportera värden från App-konfigurationen, till exempel mellan relaterade butiker. Om du vill konfigurera en pågående synkronisering med din GitHub-lagrings platsen kan du använda vår [GitHub-åtgärd](https://aka.ms/azconfig-gha2) så att du kan fortsätta att använda dina befintliga käll kontroll metoder samtidigt som du får fördelarna med app-konfigurationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,34 +1,34 @@
 ---
-title: Reparera Azure Kubernetes Service-noder (Azure Kubernetes Service) (Automatiskt)
-description: Lär dig mer om automatisk reparation av nod och hur AKS åtgärdar brutna arbetsnoder.
+title: Reparera AKS-noder (Azure Kubernetes service) automatiskt
+description: Lär dig mer om funktionen för automatisk reparation av noder och hur AKS åtgärdar brutna arbetsnoder.
 services: container-service
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 9bf9df69a0a6bfa4d9f4029278d2a146811980c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80284848"
 ---
-# <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Azure Kubernetes Service (AKS) nod automatisk reparation
+# <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Automatisk reparation av Azure Kubernetes service-noden (AKS)
 
-AKS kontrollerar kontinuerligt arbetarnodernas hälsotillstånd och utför automatisk reparation av noderna om de blir felaktiga. Den här dokumentationen beskriver hur Azure Kubernetes Service (AKS) övervakar arbetsnoder och reparerar felaktiga arbetsnoder.  Dokumentationen är att informera AKS-operatörer om hur nodreparationsfunktioner har. Det är också viktigt att notera att Azure-plattformen [utför underhåll på virtuella datorer][vm-updates] som uppstår problem. AKS och Azure arbetar tillsammans för att minimera avbrott i tjänsten för dina kluster.
+AKS kontrollerar kontinuerligt hälso tillståndet för arbetsnoder och utför automatisk reparation av noder om de blir felaktiga. I den här dokumentationen beskrivs hur Azure Kubernetes service (AKS) övervakar arbetsnoder och reparerar Felaktiga arbetsnoder.  Dokumentationen är att informera AKS-operatörer om funktions sättet för reparation av noder. Det är också viktigt att Observera att Azure-plattformen [utför underhåll på Virtual Machines][vm-updates] det uppstår problem. AKS och Azure fungerar tillsammans för att minimera tjänst avbrott i klustren.
 
 > [!Important]
-> Nod automatisk reparationsfunktioner stöds för närvarande inte för Windows Server-nodpooler.
+> Funktionen för automatisk reparation av noder stöds inte för närvarande för Windows Server-adresspooler.
 
-## <a name="how-aks-checks-for-unhealthy-nodes"></a>Så här söker AKS efter felaktiga noder
+## <a name="how-aks-checks-for-unhealthy-nodes"></a>Hur AKS söker efter felaktiga noder
 
 > [!Note]
-> AKS vidtar reparationsåtgärder för noder med användarkontot **aks-remediator**.
+> AKS tar reparations åtgärder på noder med användar kontot **AKS-remediator**.
 
-AKS använder regler för att avgöra om en nod är ett feltillstånd och behöver repareras. AKS använder följande regler för att avgöra om automatisk reparation behövs.
+AKS använder regler för att avgöra om en nod är i ett ohälsosamt tillstånd och behöver repare ras. AKS använder följande regler för att avgöra om automatisk reparation krävs.
 
-* Noden rapporterar status **för NotReady** vid på varandra följande kontroller inom en 10-minuters tidsram
-* Noden rapporterar inte status inom 10 minuter
+* Noden rapporterar status för **notrappsteg** på efterföljande kontroller inom en 10-minuters tidsram
+* Noden rapporterar ingen status inom 10 minuter
 
-Du kan manuellt kontrollera hälsotillståndet för dina noder med kubectl. 
+Du kan kontrol lera hälso tillståndet för dina noder manuellt med kubectl. 
 
 ```
 kubectl get nodes
@@ -37,20 +37,20 @@ kubectl get nodes
 ## <a name="how-automatic-repair-works"></a>Så här fungerar automatisk reparation
 
 > [!Note]
-> AKS vidtar reparationsåtgärder för noder med användarkontot **aks-remediator**.
+> AKS tar reparations åtgärder på noder med användar kontot **AKS-remediator**.
 
-Det här problemet gäller **för skalningsuppsättningar för virtuella datorer**.  Automatisk reparation tar flera steg för att reparera en trasig nod.  Om en nod bedöms vara felfritt försöker AKS flera reparationssteg.  Stegen utförs i den här ordningen:
+Det här fungerar för **Virtual Machine Scale Sets**.  Automatisk reparation tar flera steg för att reparera en bruten nod.  Om en nod bedöms vara skadad, försöker AKS utföra flera åtgärder.  Stegen utförs i följande ordning:
 
-1. När behållarkörningen inte svarar i 10 minuter startas de misslyckade körningstjänsterna om på noden.
+1. När behållar körningen slutar svara i 10 minuter startas de misslyckade körnings tjänsterna om på noden.
 2. Om noden inte är klar inom 10 minuter startas noden om.
-3. Om noden inte är klar inom 30 minuter avbildas noden på om.
+3. Om noden inte är klar inom 30 minuter, avbildas noden på nytt.
 
 > [!Note]
-> Om flera noder är felaktiga repareras de en efter en
+> Om flera noder inte är felfria reparerar de en i taget
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd [tillgänglighetszoner][availability-zones] för att öka hög tillgänglighet med aks-klusterarbetsbelastningarna.
+Använd [Tillgänglighetszoner][availability-zones] för att öka hög tillgänglighet med AKS-klustrets arbets belastningar.
 
 <!-- LINKS - External -->
 

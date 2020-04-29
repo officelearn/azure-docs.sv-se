@@ -1,6 +1,6 @@
 ---
-title: Bevilja kontroller i principen villkorlig åtkomst - Azure Active Directory
-description: Vad är bevilja kontroller i en Azure AD-princip för villkorlig åtkomst
+title: Bevilja kontroller i princip för villkorlig åtkomst – Azure Active Directory
+description: Vad är beviljande av kontroller i en princip för villkorlig åtkomst för Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,66 +12,66 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331847"
 ---
-# <a name="conditional-access-grant"></a>Villkorlig åtkomst: Bevilja
+# <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
-I en princip för villkorlig åtkomst kan en administratör använda åtkomstkontroller för att antingen bevilja eller blockera åtkomst till resurser.
+I en princip för villkorlig åtkomst kan en administratör använda åtkomst kontroller för att antingen bevilja eller blockera åtkomst till resurser.
 
-![Princip för villkorlig åtkomst med en bidragskontroll som kräver multifaktorautentisering](./media/concept-conditional-access-grant/conditional-access-grant.png)
+![Princip för villkorlig åtkomst med en beviljande kontroll som kräver Multi-Factor Authentication](./media/concept-conditional-access-grant/conditional-access-grant.png)
 
 ## <a name="block-access"></a>Blockera åtkomst
 
-Block tar hänsyn till eventuella tilldelningar och förhindrar åtkomst baserat på principkonfigurationen för villkorlig åtkomst.
+Block tar hänsyn till eventuella tilldelningar och förhindrar åtkomst baserat på konfiguration av villkorlig åtkomst princip.
 
-Block är en kraftfull kontroll som bör utövas med lämplig kunskap. Det är något administratörer bör använda [rapport-bara läge](concept-conditional-access-report-only.md) för att testa innan du aktiverar.
+Block är en kraftfull kontroll som bör vara wielded med lämplig kunskap. Det är något som administratörer kan [använda för](concept-conditional-access-report-only.md) att testa innan de aktive ras.
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
 Administratörer kan välja att tillämpa en eller flera kontroller när de beviljar åtkomst. Dessa kontroller innehåller följande alternativ: 
 
-- [Kräv multifaktorautentisering (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
-- [Kräv att enheten ska markeras som kompatibel (Microsoft Intune)](/intune/protect/device-compliance-get-started)
+- [Kräv Multi-Factor Authentication (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Kräv att enheten är markerad som kompatibel (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Kräv hybrid Azure AD-ansluten enhet](../devices/concept-azure-ad-join-hybrid.md)
 - [Kräv godkänd klientapp](app-based-conditional-access.md)
 - [Kräva appskyddsprincip](app-protection-based-conditional-access.md)
 
-När administratörer väljer att kombinera dessa alternativ kan de välja följande metoder:
+När administratörer väljer att kombinera de här alternativen kan de välja följande metoder:
 
-- Kräv alla markerade kontroller (kontroll **OCH** kontroll)
-- Kräv en av de markerade kontrollerna (kontroll **ELLER** kontroll)
+- Kräv alla markerade kontroller (kontroll **och** kontroll)
+- Kräv en av de valda kontrollerna (kontroll **eller** kontroll)
 
-Som standard kräver villkorlig åtkomst alla markerade kontroller.
+Som standard kräver villkorlig åtkomst alla valda kontroller.
 
-### <a name="require-multi-factor-authentication"></a>Kräv multifaktorautentisering
+### <a name="require-multi-factor-authentication"></a>Kräv Multi-Factor Authentication
 
-Om du markerar den här kryssrutan krävs att användarna utför Azure Multi-Factor Authentication. Mer information om hur du distribuerar Azure Multi-Factor Authentication finns i artikeln [Planera en molnbaserad Azure Multi-Factor Authentication-distribution](../authentication/howto-mfa-getstarted.md).
+Om du markerar den här kryss rutan krävs det att användarna utför Azure-Multi-Factor Authentication. Mer information om hur du distribuerar Azure Multi-Factor Authentication finns i artikeln [Planera en molnbaserad Azure-Multi-Factor Authentication distribution](../authentication/howto-mfa-getstarted.md).
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>Kräv att enheten ska markeras som kompatibel
 
-Organisationer som har distribuerat Microsoft Intune kan använda informationen som returneras från sina enheter för att identifiera enheter som uppfyller specifika efterlevnadskrav. Den här principefterlevnadsinformationen vidarebefordras från Intune till Azure AD där villkorlig åtkomst kan fatta beslut om att bevilja eller blockera åtkomst till resurser. Mer information om efterlevnadsprinciper finns i artikeln [Ange regler på enheter som ger åtkomst till resurser i organisationen med Intune](/intune/protect/device-compliance-get-started).
+Organisationer som har distribuerat Microsoft Intune kan använda den information som returneras från sina enheter för att identifiera enheter som uppfyller särskilda krav för efterlevnad. Den här policyn för efterlevnad vidarebefordras från Intune till Azure AD där villkorlig åtkomst kan fatta beslut om att bevilja eller blockera åtkomst till resurser. Mer information om efterlevnadsprinciper finns i artikeln [Ange regler på enheter för att tillåta åtkomst till resurser i din organisation med hjälp av Intune](/intune/protect/device-compliance-get-started).
 
-En enhet kan markeras som kompatibel med Intune (för alla enhetsoperativsystem) eller av MDM-system från tredje part för Windows 10-enheter. Jamf pro är det enda MDM-systemet som stöds av tredje part. Mer information om integration finns i artikeln [Integrate Jamf Pro med Intune för efterlevnad](/intune/protect/conditional-access-integrate-jamf).
+En enhet kan markeras som kompatibel av Intune (för alla enhetens operativ system) eller MDM-system från tredje part för Windows 10-enheter. JAMF Pro är det enda MDM-system som stöds av tredje part. Mer information om integrering hittar du i artikeln [integrera JAMF Pro med Intune för efterlevnad](/intune/protect/conditional-access-integrate-jamf).
 
-Enheter måste registreras i Azure AD innan de kan markeras som kompatibla. Mer information om enhetsregistrering finns i [artikeln, Vad är en enhetsidentitet](../devices/overview.md).
+Enheter måste vara registrerade i Azure AD innan de kan markeras som kompatibla. Mer information om enhets registrering finns i artikeln, [Vad är en enhets identitet](../devices/overview.md).
 
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Kräv hybrid Azure AD-ansluten enhet
 
-Organisationer kan välja att använda enhetsidentiteten som en del av principen villkorlig åtkomst. Organisationer kan kräva att enheter är hybrid Azure AD-anslutna med den här kryssrutan. Mer information om enhetsidentiteter finns i artikeln [Vad är en enhetsidentitet?](../devices/overview.md).
+Organisationer kan välja att använda enhets identiteten som en del av den villkorliga åtkomst principen. Organisationer kan kräva att enheterna är hybrid Azure AD-anslutna med den här kryss rutan. Mer information om enhets identiteter finns i artikeln [Vad är en enhets identitet?](../devices/overview.md).
 
 ### <a name="require-approved-client-app"></a>Kräv godkänd klientapp
 
-Organisationer kan kräva att ett åtkomstförsök till de valda molnapparna måste göras från en godkänd klientapp. Dessa godkända klientappar stöder [Intune-appskyddsprinciper](/intune/app-protection-policy) oberoende av mdm-lösning (Mobile Device Management).
+Organisationer kan kräva att ett åtkomst försök till de valda molnappar måste göras från en godkänd klient app. Dessa godkända klient program har stöd för [Intune App Protection-principer](/intune/app-protection-policy) oberoende av alla lösningar för hantering av mobila enheter (MDM).
 
-För att utnyttja den här bidragskontrollen kräver villkorlig åtkomst att enheten registreras i Azure Active Directory som kräver användning av en mäklarapp. Koordinatorappen kan antingen vara Microsoft Authenticator för iOS eller Microsofts företagsportal för Android-enheter. Om en mäklarapp inte är installerad på enheten när användaren försöker autentisera omdirigeras användaren till App Store för att installera mäklarappen.
+För att kunna utnyttja denna beviljande kontroll, kräver villkorlig åtkomst att enheten registreras i Azure Active Directory som kräver att en Service Broker-app används. Koordinatorappen kan antingen vara Microsoft Authenticator för iOS eller Microsofts företagsportal för Android-enheter. Om en Service Broker-app inte är installerad på enheten när användaren försöker autentisera, omdirigeras användaren till App Store för att installera Service Broker-appen.
 
-Den här inställningen gäller för följande iOS- och Android-appar:
+Den här inställningen gäller för följande iOS-och Android-appar:
 
-- Informationsskydd för Microsoft Azure
+- Microsoft Azure Information Protection
 - Microsoft Bookings
 - Microsoft Cortana
 - Microsoft Dynamics 365
@@ -83,11 +83,11 @@ Den här inställningen gäller för följande iOS- och Android-appar:
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft Office
-- Microsoft Office-hubb
+- Microsoft Office hubb
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
-- Microsoft-planerare
+- Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Power BI
 - Microsoft PowerPoint
@@ -102,45 +102,45 @@ Den här inställningen gäller för följande iOS- och Android-appar:
 - Microsoft Yammer
 - Microsoft Whiteboard
 
-**Anmärkningar**
+**!**
 
-- De godkända klientapparna stöder funktionen för hantering av Intune-mobilappar.
-- **Kravet på godkända klientappar:**
-   - Stöder endast iOS- och Android-enhetens plattformsvillkor.
-   - En mäklarapp krävs för att registrera enheten. På iOS är mäklarappen Microsoft Authenticator och på Android är det Intune Company Portal-appen.
-- Villkorlig åtkomst kan inte betrakta Microsoft Edge i InPrivate-läge som en godkänd klientapp.
+- Godkända klient program har stöd för funktionen för hantering av mobil program i Intune.
+- **Kräv godkänd klient program** krav:
+   - Stöder endast iOS och Android för enhets plattforms villkor.
+   - En Broker-app krävs för att registrera enheten. I iOS är Service Broker-appen Microsoft Authenticator och på Android är den Intune-företagsportal app.
+- Villkorlig åtkomst kan inte beakta Microsoft Edge i InPrivate-läge en godkänd klient app.
 
-Se artikeln [Så här: Kräv godkända klientappar för molnappåtkomst med villkorad åtkomst](app-based-conditional-access.md) för konfigurationsexempel.
+Se artikeln gör så [här: Kräv godkända klient program för åtkomst till Cloud App med villkorlig åtkomst](app-based-conditional-access.md) för konfigurations exempel.
 
 ### <a name="require-app-protection-policy"></a>Kräva appskyddsprincip
 
-I principen villkorlig åtkomst kan du kräva att en [Intune-appskyddsprincip](/intune/app-protection-policy) finns i klientappen innan åtkomst är tillgänglig för de valda molnapparna. 
+I din princip för villkorlig åtkomst kan du kräva att en [Intune App Protection-princip](/intune/app-protection-policy) finns i klient programmet innan åtkomst är tillgänglig för de valda molnappar. 
 
-För att utnyttja den här bidragskontrollen kräver villkorlig åtkomst att enheten registreras i Azure Active Directory som kräver användning av en mäklarapp. Koordinatorappen kan antingen vara Microsoft Authenticator för iOS eller Microsofts företagsportal för Android-enheter. Om en mäklarapp inte är installerad på enheten när användaren försöker autentisera omdirigeras användaren till App Store för att installera mäklarappen.
+För att kunna utnyttja denna beviljande kontroll, kräver villkorlig åtkomst att enheten registreras i Azure Active Directory som kräver att en Service Broker-app används. Koordinatorappen kan antingen vara Microsoft Authenticator för iOS eller Microsofts företagsportal för Android-enheter. Om en Service Broker-app inte är installerad på enheten när användaren försöker autentisera, omdirigeras användaren till App Store för att installera Service Broker-appen.
 
-Den här inställningen gäller för följande klientappar:
+Den här inställningen gäller för följande klient program:
 
 - Microsoft Cortana
 - Microsoft OneDrive
 - Microsoft Outlook
-- Microsoft-planerare
+- Microsoft Planner
 
-**Anmärkningar**
+**!**
 
-- Appar för appskyddsprincip stöder funktionen för hantering av Intune-mobilapplikationer med principskydd.
-- Kraven **för appskyddskrav:**
-    - Stöder endast iOS- och Android-enhetens plattformsvillkor.
-    - En mäklarapp krävs för att registrera enheten. På iOS är mäklarappen Microsoft Authenticator och på Android är det Intune Company Portal-appen.
+- Appar för skydds principer för appar stöder funktionen för hantering av mobil program i Intune med princip skydd.
+- **Kräv skydds princip** krav för appar:
+    - Stöder endast iOS och Android för enhets plattforms villkor.
+    - En Broker-app krävs för att registrera enheten. I iOS är Service Broker-appen Microsoft Authenticator och på Android är den Intune-företagsportal app.
 
-Se artikeln [Så här: Kräv appskyddsprincip och en godkänd klientapp för molnappåtkomst med villkorad åtkomst](app-protection-based-conditional-access.md) för konfigurationsexempel.
+Se artikeln [så här gör du: Kräv app Protection-princip och en godkänd klient app för åtkomst till Cloud App med villkorlig åtkomst](app-protection-based-conditional-access.md) för konfigurations exempel.
 
-### <a name="terms-of-use"></a>Användningsvillkor
+### <a name="terms-of-use"></a>Villkor för användning
 
-Om din organisation har skapat användningsvillkor kan ytterligare alternativ vara synliga under bidragskontroller. Dessa alternativ gör det möjligt för administratörer att kräva bekräftelse av användarvillkor som ett villkor för åtkomst till de resurser som skyddas av principen. Mer information om användarvillkor finns i artikeln, [Azure Active Directory användarvillkor](terms-of-use.md).
+Om din organisation har skapat användnings villkor kan ytterligare alternativ visas under bevilja kontroller. Med de här alternativen kan administratörer kräva bekräftelse av användnings villkoren som ett villkor för att komma åt de resurser som skyddas av principen. Mer information om användnings villkoren finns i artikeln Azure Active Directory användnings [villkor](terms-of-use.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Villkorlig åtkomst: Sessionskontroller](concept-conditional-access-session.md)
+- [Villkorlig åtkomst: kontrol lera sessioner](concept-conditional-access-session.md)
 
 - [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 

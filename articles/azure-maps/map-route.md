@@ -1,6 +1,6 @@
 ---
-title: Visa vägbeskrivningar på en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du visar vägbeskrivningar mellan två platser på en karta med Hjälp av Microsoft Azure Maps Web SDK.
+title: Visa väg riktningar på en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du visar vägvisningar mellan två platser på en karta med hjälp av Microsoft Azure Maps-webbsdk.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -10,76 +10,76 @@ services: azure-maps
 manager: timlt
 ms.custom: codepen
 ms.openlocfilehash: dde9264d0cb65726b624b918982cfa01985b63ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80371415"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visa anvisningar från A till B
 
-Den här artikeln visar hur du gör en ruttbegäran och visar rutten på kartan.
+Den här artikeln visar hur du gör en cirkulations förfrågan och visar vägen på kartan.
 
-Det finns två sätt att göra det på. Det första sättet är att fråga [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) via en tjänstmodul. Det andra sättet är att använda [Hämta API](https://fetch.spec.whatwg.org/) för att göra en sökbegäran till Azure Maps [Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Båda sätten diskuteras nedan.
+Det finns två sätt att göra detta på. Det första sättet är att fråga [Azure Maps Route-API: et](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) via en service-modul. Det andra sättet är att använda [hämtnings-API: et](https://fetch.spec.whatwg.org/) för att göra en Sök förfrågan till [Azure Maps Route-API: et](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Båda sätten beskrivs nedan.
 
-## <a name="query-the-route-via-service-module"></a>Fråga vägen via tjänstmodulen
+## <a name="query-the-route-via-service-module"></a>Fråga vägen via Service-modulen
 
-<iframe height='500' scrolling='no' title='Visa vägbeskrivningar från A till B på en karta (ServiceModul)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/RBZbep/'>pen show directions from A till B on a map (Service Module)</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Visa vägvisningar från A till B på en karta (service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se anvisningarna för <a href='https://codepen.io/azuremaps/pen/RBZbep/'>att Visa pennan från a till B på en karta (service Module)</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan konstruerar det första blocket ett kartobjekt och anger autentiseringsmekanismen för att använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
+I ovanstående kod konstruerar det första blocket ett kart objekt och anger autentiseringsmekanismen för att använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
 
-Det andra kodblocket `TokenCredential` skapar en för att autentisera HTTP-begäranden till Azure Maps med åtkomsttoken. Den skickar `TokenCredential` sedan `atlas.service.MapsURL.newPipeline()` till och skapar en [Pipeline-instans.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) Representerar `routeURL` en URL till Azure Maps [Route-åtgärder.](https://docs.microsoft.com/rest/api/maps/route)
+Det andra blocket kod skapar en `TokenCredential` för att autentisera HTTP-begäranden för att Azure Maps med åtkomsttoken. Den skickar sedan `TokenCredential` till `atlas.service.MapsURL.newPipeline()` och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) -instans. `routeURL` Representerar en URL som Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
 
-Det tredje kodblocket skapar och lägger till ett [DataSource-objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) på kartan.
+Det tredje blocket med kod skapar och lägger till ett [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) -objekt till kartan.
 
-Det fjärde kodblocket skapar start- och [slutpunktersobjekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) och lägger till dem i dataSource-objektet.
+Det fjärde blocket Code skapar start-och slut [punkts](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) objekt och lägger till dem i DataSource-objektet.
 
-En rad är en [funktion](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) för LineString. Ett [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) återger linjeobjekt som är förpackade i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som rader på kartan. Det fjärde kodblocket skapar och lägger till ett linjelager på kartan. Visa egenskaper för ett linjelager vid [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
+En linje är en [funktion](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) för lin Est ring. En [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) återger rad objekt i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som rader på kartan. Det fjärde blocket med kod skapar och lägger till ett linje skikt i kartan. Se egenskaperna för ett linje lager på [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
-Ett [symbollager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder texter eller ikoner för att återge punktbaserade data som är förpackade i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Texterna eller ikonerna återges som symboler på kartan. Det femte kodblocket skapar och lägger till ett symbollager på kartan.
+Ett [symbol lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att återge punktbaserade data i data [källan](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Texten eller ikonerna återges som symboler på kartan. Det femte blocket med kod skapar och lägger till ett symbol lager till kartan.
 
-Det sjätte kodblocket frågar routningstjänsten Azure Maps, som ingår i [tjänstmodulen](how-to-use-services-module.md). Metoden [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) för RouteURL används för att hämta en rutt mellan start- och slutpunkterna. En GeoJSON-funktionssamling från svaret extraheras sedan med `geojson.getFeatures()` hjälp av metoden och läggs till i datakällan. Det återger sedan svaret som en rutt på kartan. Mer information om hur du lägger till en linje på kartan finns [i Lägga till en rad på kartan](map-add-line-layer.md).
+Det sjätte blocket med kod frågar Azure Maps Routningstjänst, som är en del av [Service-modulen](how-to-use-services-module.md). [CalculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) -metoden för RouteURL används för att hämta en väg mellan start-och slut punkterna. En samling av en interjson-funktion från svaret extraheras sedan `geojson.getFeatures()` med hjälp av-metoden och läggs till i data källan. Sedan återges svaret som en väg på kartan. Mer information om hur du lägger till en linje till kartan finns i [lägga till en rad på kartan](map-add-line-layer.md).
 
-Det sista kodblocket anger kartans gränser med hjälp av kartans [setCamera-egenskap.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)
+Det sista blocket i koden anger gränserna för kartan med kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) -egenskap.
 
-Flödesfrågan, datakällan, symbolen, linjelagren och kamera bounds skapas inuti [händelseavlyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Den här kodstrukturen säkerställer att resultaten visas först när kartan har laddats helt.
+Route-fråga, data källa, symbol, linje lager och kamera gränser skapas i [händelse lyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Den här kod strukturen ser till att resultaten visas först när kartan har lästs in helt.
 
-## <a name="query-the-route-via-fetch-api"></a>Fråga vägen via Hämta API
+## <a name="query-the-route-via-fetch-api"></a>Fråga vägen via hämtnings-API
 
-<iframe height='500' scrolling='no' title='Visa vägbeskrivningar från A till B på en karta' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>pen show directions från A till B på en karta</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Visa vägvisningar från A till B på en karta' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Penn spetsen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>från a till B på en karta</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan konstruerar det första kodblocket ett kartobjekt och anger autentiseringsmekanismen för att använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
+I koden ovan konstruerar det första blocket kod ett kart objekt och ställer in autentiseringsmekanismen för att använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
 
-Det andra kodblocket skapar och lägger till ett [DataSource-objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) på kartan.
+Det andra blocket kod skapar och lägger till ett [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) -objekt till kartan.
 
-Det tredje kodblocket skapar start- och målpunkter för rutten. Sedan lägger den till dem i datakällan. Du kan se [lägga till en pin på kartan](map-add-pin.md) för instruktioner om hur du använder [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
+Det tredje kod blocket skapar start-och mål platserna för vägen. Sedan läggs de till i data källan. Du kan se [Lägg till en PIN-kod på kartan](map-add-pin.md) för instruktioner om hur du använder [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
-Ett [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) återger linjeobjekt som är förpackade i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som rader på kartan. Det fjärde kodblocket skapar och lägger till ett linjelager på kartan. Visa egenskaper för ett linjelager vid [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
+En [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) återger rad objekt i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som rader på kartan. Det fjärde blocket med kod skapar och lägger till ett linje skikt i kartan. Se egenskaperna för ett linje lager på [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
-Ett [symbollager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att återge punktbaserade data som är indelat i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan. Det femte kodblocket skapar och lägger till ett symbollager på kartan. Visa egenskaper för ett symbollager på [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest).
+Ett [symbol lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att återge punktbaserade data i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan. Det femte blocket med kod skapar och lägger till ett symbol lager till kartan. Se egenskaperna för ett symbol lager på [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest).
 
-Nästa kodblock skapar `SouthWest` `NorthEast` och pekar från start- och målpunkterna och anger gränserna för kartan med hjälp av kartans [setCamera-egenskap.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)
+Nästa kodblock skapar `SouthWest` och `NorthEast` pekar från start-och mål punkterna och anger kartans gränser med kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) -egenskap.
 
-Det sista kodblocket använder [Hämta API](https://fetch.spec.whatwg.org/) för att göra en sökbegäran till Azure Maps [Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Svaret tolkas sedan. Om svaret lyckades används latitud- och longitudinformationen för att skapa en matris en linje genom att ansluta dessa punkter. Raddata läggs sedan till i datakällan för att återge rutten på kartan. Du kan se [lägga till en rad på kartan](map-add-line-layer.md) för instruktioner.
+Det sista blocket i koden använder [hämtnings-API: t](https://fetch.spec.whatwg.org/) för att göra en Sök förfrågan till [Azure Maps Route-API: et](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Svaret parsas sedan. Om svaret lyckades används informationen om latitud och longitud för att skapa en matris med en linje genom att ansluta dessa punkter. Linje data läggs sedan till i data källan för att rendera vägen på kartan. Du kan se [Lägg till en rad på kartan](map-add-line-layer.md) för instruktioner.
 
-Flödesfrågan, datakällan, symbolen, linjelagren och kamera bounds skapas inuti [händelseavlyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Återigen vill vi se till att resultaten visas efter att kartan laddas helt.
+Route-fråga, data källa, symbol, linje lager och kamera gränser skapas i [händelse lyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Återigen vill vi se till att resultaten visas när kartan har lästs in helt.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Metodtips för användning av routningstjänsten](how-to-use-best-practices-for-search.md)
+> [Metod tips för att använda routningstjänsten](how-to-use-best-practices-for-search.md)
 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Se följande artiklar för fullständiga kodexempel:
+I följande artiklar finns fullständiga kod exempel:
 
 > [!div class="nextstepaction"]
 > [Visa trafik på kartan](./map-show-traffic.md)
 
 > [!div class="nextstepaction"]
-> [Interagera med kartan - mushändelser](./map-events.md)
+> [Interagera med kart mus händelser](./map-events.md)

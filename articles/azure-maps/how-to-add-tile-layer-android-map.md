@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett panellager i Android-kartor | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du återger ett panellager på en karta med Hjälp av Microsoft Azure Maps Android SDK.
+title: Lägg till ett panel lager till Android Maps | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du återger ett panel lager på en karta med hjälp av Microsoft Azure Maps Android SDK.
 author: philmea
 ms.author: philmea
 ms.date: 04/26/2019
@@ -9,46 +9,46 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: f98598bd1307bb1b46ff23814780c5f809b9ac90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335566"
 ---
-# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägga till ett panellager på en karta med Azure Maps Android SDK
+# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägg till ett panel lager till en karta med Azure Maps Android SDK
 
-Den här artikeln visar hur du renderar ett panellager på en karta med Hjälp av Azure Maps Android SDK. Med panellager kan du lägga över avbildningar ovanpå Azure Maps-baskartpaneler. Mer information om Azure Maps plattsättningssystem finns i [dokumentationen för zoomningsnivåer och panelrutnät.](zoom-levels-and-tile-grid.md)
+Den här artikeln visar hur du återger ett panel lager på en karta med hjälp av Azure Maps Android SDK. Med panel lager kan du placera bilder ovanpå Azure Maps bas kart paneler. Mer information om Azure Maps displacerings systemet finns i dokumentationen för [zoomnings nivåer och Brick rutnät](zoom-levels-and-tile-grid.md) .
 
-Ett panellager läses in i paneler från en server. Dessa bilder kan förrenas och lagras som alla andra bilder på en server, med hjälp av en namngivningskonvention som panellagret förstår. Eller så kan dessa bilder återges med en dynamisk tjänst som genererar bilderna nära realtid. Det finns tre olika namngivningskonventioner för paneltjänster som stöds av klassen Azure Maps TileLayer:
+Ett panel lager läses in i paneler från en server. Dessa bilder kan förrenderas och lagras på samma sätt som andra bilder på en server med hjälp av en namngivnings konvention som panel lagret förstår. Eller så kan de här avbildningarna återges med en dynamisk tjänst som genererar avbildningarna nära real tid. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps TileLayer-klassen:
 
-* X, Y, Zoom notation - Baserat på zoomnivån är x kolumnen och y är radens placering av panelen i panelrutnätet.
-* Quadkey notation - Kombination x, y, zooma information till ett enda strängvärde som är en unik identifierare för en panel.
-* Begränsningsram - Begränsningsramkoordinater kan användas för `{west},{south},{east},{north}` att ange en bild i det format som ofta används av [WMS (Web Mapping Services).](https://www.opengeospatial.org/standards/wms)
+* X-, Y-, zoomnings-och zoomnings nivå, x är kolumnen och Y är panelens rad position i panel rutnätet.
+* Quadkey notation – kombination x, y, zoomnings information till ett enda sträng värde som är en unik identifierare för en panel.
+* Koordinater för avgränsnings rutor kan användas för att ange en bild i formatet `{west},{south},{east},{north}` som ofta används av [webb mappnings tjänster (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> En TileLayer är ett bra sätt att visualisera stora datauppsättningar på kartan. Inte bara kan ett panellager genereras från en bild, men vektordata kan också återges som ett panellager också. Genom att återge vektordata som ett panellager behöver kartkontrollen bara läsa in panelerna som kan vara mycket mindre i filstorlek än de vektordata de representerar. Denna teknik används av många som behöver göra miljontals rader med data på kartan.
+> En TileLayer är ett bra sätt att visualisera stora data uppsättningar på kartan. Ett panel lager kan inte bara genereras från en bild, men vektor data kan även återges som ett panel lager. Genom att återge vektor data som ett panel lager behöver kart kontrollen bara läsa in panelerna som kan vara mycket mindre i fil storlek än de vektor data de representerar. Den här tekniken används av många som behöver rendera miljon tals rader med data på kartan.
 
-Panel-URL:en som skickas till ett panellager måste vara en http/https-URL till en TileJSON-resurs eller en URL-mall för panelen som använder följande parametrar: 
+Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL till en TileJSON-resurs eller en panel-URL-mall som använder följande parametrar: 
 
-* `{x}`- X-placering på plattan. Också `{y}` behov `{z}`och .
-* `{y}`- Y-position på plattan. Också `{x}` behov `{z}`och .
-* `{z}`- Zooma nivå av kakel. Också `{x}` behov `{y}`och .
-* `{quadkey}`- Tile quadkey-identifierare baserat på namngivningskonventionen för Bing Maps-panelsystemet.
-* `{bbox-epsg-3857}`- En markeringsramssträng `{west},{south},{east},{north}` med formatet i EPSG 3857 Spatial Reference System.
-* `{subdomain}`- En platshållare för underdomänvärdena, om underdomänvärdet anges.
+* `{x}`-X position i rutan. Du måste `{y}` också `{z}`ha och.
+* `{y}`-Y position i panelen. Du måste `{x}` också `{z}`ha och.
+* `{z}`-Zoomnings nivå i panelen. Du måste `{x}` också `{y}`ha och.
+* `{quadkey}`-Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
+* `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
+* `{subdomain}`– En plats hållare för under domänens värden, om värdet under domän är angivet.
 
 ## <a name="prerequisites"></a>Krav
 
 För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 
 
-## <a name="add-a-tile-layer-to-the-map"></a>Lägga till ett panellager på kartan
+## <a name="add-a-tile-layer-to-the-map"></a>Lägg till ett panel lager på kartan
 
- Det här exemplet visar hur du skapar ett panellager som pekar på en uppsättning paneler. Dessa plattor använder "x, y, zoom" plattsättningssystem. Källan till detta kakel lager är ett väder radar overlay från [Iowa Environmental Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler. Dessa paneler använder systemet "x, y, zoom". Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
-Du kan lägga till ett panellager på kartan genom att följa stegen nedan.
+Du kan lägga till ett panel lager till kartan genom att följa stegen nedan.
 
-1. Redigera **res > layout > activity_main.xml** så det ser ut som en nedan:
+1. Redigera **res > layout > activity_main. XML** så att det ser ut som på bilden nedan:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -71,7 +71,7 @@ Du kan lägga till ett panellager på kartan genom att följa stegen nedan.
     </FrameLayout>
     ```
 
-2. Kopiera följande kodavsnitt nedan till metoden **onCreate()** för klassen. `MainActivity.java`
+2. Kopiera följande kodfragment till **onCreate ()-** metoden för `MainActivity.java` klassen.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ Du kan lägga till ett panellager på kartan genom att följa stegen nedan.
     });
     ```
     
-    Kodavsnittet ovan hämtar först en Azure Maps-kartkontrollinstans med hjälp av motringningsmetoden **onReady().** Det skapar sedan `TileLayer` ett objekt och skickar en formaterad `tileUrl` **xyz** kakel URL till alternativet. Lagrets opacitet är inställd `0.8` på och eftersom panelerna från paneltjänsten som används är 256 bildpunkter skickas den `tileSize` här informationen in i alternativet. Bricklagret skickas sedan in i lagerhanteraren för kartor.
+    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans med återanrops metoden **onReady ()** . Det skapar sedan ett `TileLayer` objekt och skickar en formaterad **XYZ** -URL till `tileUrl` alternativet. Lager opaciteten är inställt på `0.8` och eftersom panelerna från panel tjänsten används är 256 pixel paneler överförs den här informationen till `tileSize` alternativet. Panel lagret skickas sedan till Maps Layer Manager.
 
-    När du har lagt till `MainActivity.java` kodavsnittet ovan bör du se ut som det nedan:
+    När du har lagt till kodfragmentet ovan `MainActivity.java` bör det se ut som det som visas nedan:
     
     ```Java
     package com.example.myapplication;
@@ -168,15 +168,15 @@ Du kan lägga till ett panellager på kartan genom att följa stegen nedan.
     }
     ```
 
-Om du kör ditt program nu bör du se en rad på kartan som visas nedan:
+Om du kör programmet nu bör du se en linje på kartan som visas nedan:
 
 <center>
 
-![Android kartlinje](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Android-kart linje](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artikel om du vill veta mer om olika sätt att ange kartformat
+I följande artikel finns mer information om hur du anger kart format
 
 > [!div class="nextstepaction"]
-> [Ändra kartstilar i Android-kartor](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Ändra kart format i Android Maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

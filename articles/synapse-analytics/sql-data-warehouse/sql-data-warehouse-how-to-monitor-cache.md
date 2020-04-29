@@ -1,6 +1,6 @@
 ---
 title: Optimera din Gen2-cache
-description: Lär dig hur du övervakar din Gen2-cache med Azure-portalen.
+description: Lär dig hur du övervakar Gen2-cachen med hjälp av Azure Portal.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,51 +12,51 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: bb5560164af2b573e6aaffd4e4c62bbe0dc24a51
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80350410"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Så här övervakar du Gen2-cachen
 
-I den här artikeln beskrivs hur du övervakar och felsöker långsamma frågeprestanda genom att avgöra om din arbetsbelastning är optimalt utnyttja Gen2-cachen.
+I den här artikeln beskrivs hur du övervakar och felsöker långsamma frågeresultat genom att fastställa om din arbets belastning optimalt utnyttjar Gen2-cachen.
 
-Gen2-lagringsarkitekturen nivåer automatiskt dina mest efterfrågade columnstore-segment i en cache som finns på NVMe-baserade SSD-enheter som utformats för Gen2-datalager. Större prestanda realiseras när dina frågor hämtar segment som finns i cacheminnet.
+Lagrings arkitekturen Gen2 använder automatiskt de mest efterfrågade columnstore-segmenten i en cache som finns på NVMe-baserade SSD som är utformade för Gen2 Data Warehouse. Bättre prestanda realiseras när dina frågor hämtar segment som finns i cacheminnet.
  
-## <a name="troubleshoot-using-the-azure-portal"></a>Felsöka med Azure-portalen
+## <a name="troubleshoot-using-the-azure-portal"></a>Felsöka med hjälp av Azure Portal
 
-Du kan använda Azure Monitor för att visa Gen2-cachemått för att felsöka frågeprestanda. Gå först till Azure-portalen och klicka på **Övervaka,** **Mått** och **+ Välj ett scope:**
+Du kan använda Azure Monitor för att Visa Gen2-cache-mått för att felsöka frågans prestanda. Gå först till Azure Portal och klicka på **övervakaren**, **mått** och **+ Välj ett omfång**:
 
 ![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
-Använd sök- och listningsfälten för att hitta ditt informationslager. Välj sedan apply.
+Använd Sök-och list fälten för att hitta ditt informations lager. Välj sedan Använd.
 
 ![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-De viktigaste måtten för felsökning av Gen2-cachen är **cachehitprocent** och **cache använd procentandel**. Välj **Cache träffprocent** och använd sedan knappen Lägg till **mått** för att lägga till cache **använd procentsats**. 
+Nyckel måtten för fel sökning av Gen2-cachen är **cache träff procent** och **cache som används i procent**. Välj **procent andels träff i procent** och Använd sedan knappen **Lägg till mått** för att lägga till **cache-använt procent**. 
 
-![Cachemått](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
+![Cache-mått](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 
-## <a name="cache-hit-and-used-percentage"></a>Cache träff och använd procent
+## <a name="cache-hit-and-used-percentage"></a>Cacheträffar och Använd procent andel
 
-Matrisen nedan beskriver scenarier baserat på värdena för cachemåtten:
+I matrisen nedan beskrivs scenarier som baseras på värdena för cache-måtten:
 
-|                                | **Hög träffprocent för cache** | **Låg träffprocent för cache** |
+|                                | **Procent andel vid hög cacheträffar** | **Procent andel låg cacheträffar** |
 | :----------------------------: | :---------------------------: | :--------------------------: |
-| **Hög cache använd procentandel** |          Scenario 1           |          Scenario 2          |
-| **Låg cache använd procentandel**  |          Scenario 3           |          Scenario 4          |
+| **Procent andel Använd hög cache** |          Scenario 1           |          Scenario 2          |
+| **Procent andel låg cache som används**  |          Scenario 3           |          Scenario 4          |
 
-**Scenario 1:** Du använder cacheminnet optimalt. [Felsöka](sql-data-warehouse-manage-monitor.md) andra områden som kan göra dina frågor långsammare.
+**Scenario 1:** Du använder din cache optimalt. [Felsöka](sql-data-warehouse-manage-monitor.md) andra områden som kan vara långsamma för dina frågor.
 
-**Scenario 2:** Den aktuella arbetsdatauppsättningen får inte plats i cacheminnet, vilket ger en låg träffprocent på grund av fysiska läsningar. Överväg att skala upp din prestandanivå och köra din arbetsbelastning igen för att fylla i cacheminnet.
+**Scenario 2:** Din aktuella arbets data uppsättning får inte plats i cachen, vilket orsakar en procent andel av cacheträffar på grund av fysiska läsningar. Överväg att skala upp prestanda nivån och kör arbets belastningen igen för att fylla i cacheminnet.
 
-**Scenario 3:** Det är troligt att frågan körs långsamt på grund av orsaker som inte är relaterade till cachen. [Felsöka](sql-data-warehouse-manage-monitor.md) andra områden som kan göra dina frågor långsammare. Du kan också överväga [att skala ner din instans](sql-data-warehouse-manage-monitor.md) för att minska cachestorleken för att spara kostnader. 
+**Scenario 3:** Det är troligt att frågan körs långsamt på grund av orsaker som inte är relaterade till cacheminnet. [Felsöka](sql-data-warehouse-manage-monitor.md) andra områden som kan vara långsamma för dina frågor. Du kan också välja att [skala ned din instans](sql-data-warehouse-manage-monitor.md) för att minska storleken på cacheminnet för att spara kostnader. 
 
-**Scenario 4:** Du hade en kall cache som kan vara orsaken till att frågan var långsam. Överväg att köra frågan igen eftersom arbetsdatauppsättningen nu ska cachelagras. 
+**Scenario 4:** Du hade ett kallt cacheminne som kan vara orsaken till att din fråga var långsam. Överväg att köra frågan igen eftersom din arbets data uppsättning nu ska cachelagras. 
 
 > [!IMPORTANT]
-> Om cacheträffprocenten eller cacheminnet inte uppdateras efter att din arbetsbelastning har körts om kan arbetsminnet redan finnas i minnet. Endast klustrade columnstore-tabeller cachelagras.
+> Om antalet träffar i procent eller i cachen som används inte uppdateras efter att du har kört om din arbets belastning, kan din arbets minne redan finnas i minnet. Endast grupperade columnstore-tabeller cachelagras.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om allmän frågeprestandajustering finns i [Övervaka körning av frågor](sql-data-warehouse-manage-monitor.md#monitor-query-execution).
+Mer information om prestanda justering för allmänna frågor finns i [övervaka frågekörningen](sql-data-warehouse-manage-monitor.md#monitor-query-execution).

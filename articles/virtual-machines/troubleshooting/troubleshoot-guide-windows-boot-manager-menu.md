@@ -1,6 +1,6 @@
 ---
-title: Windows virtuella dator kan inte starta på grund av Windows Boot Manager
-description: Den här artikeln innehåller steg för att lösa problem där Windows Boot Manager förhindrar att en virtuell Azure-dator startas.
+title: Det går inte att starta den virtuella Windows-datorn på grund av Windows Boot Manager
+description: Den här artikeln innehåller steg för att lösa problem där Windows Boot Manager förhindrar start av en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-miegge
@@ -15,120 +15,120 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 5d2fb62870e2c41af635627f5d692f08c67f8394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80373354"
 ---
-# <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Windows VM kan inte startas på grund av Windows Boot Manager
+# <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Windows VM kan inte starta på grund av Windows Boot Manager
 
-Den här artikeln innehåller steg för att lösa problem där Windows Boot Manager förhindrar att en virtuell virtuell dator (Virtuell Dator) startas.
+Den här artikeln innehåller steg för att lösa problem där Windows Boot Manager förhindrar start av en virtuell Azure-dator (VM).
 
 ## <a name="symptom"></a>Symptom
 
-Den virtuella datorn har fastnat väntar på en användare fråga och startar inte om inte manuellt instrueras till.
+Den virtuella datorn har fastnat i väntan på en användar-prompt och startar inte om du inte har fått instruktioner manuellt.
 
-NÃ¤r du [ansÃ¤nder startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) fÃ¶r att visa skärmbilden av den virtuella datorn visas att skärmbilden visar Windows Boot Manager med meddelandet *Välj ett operativsystem som ska startas eller fÃ¶r att klicka pÃ¶ r TAB fÃ¶r att välja ett verktyg:*.
+När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar Windows Boot Manager med meddelandet *Välj ett operativ system att starta eller trycker på TABB för att välja ett verktyg:*.
 
 Bild 1
  
-![Windows Boot Manager med texten "Välj ett operativsystem att starta eller tryck på TABB för att välja ett verktyg:"](media/troubleshoot-guide-windows-boot-manager-menu/1.jpg)
+![Windows Boot Manager säger "Välj ett operativ system att starta eller tryck på TAB för att välja ett verktyg:"](media/troubleshoot-guide-windows-boot-manager-menu/1.jpg)
 
 ## <a name="cause"></a>Orsak
 
-Felet beror på en BCD-flagga *displaybootmenu* i Windows Boot Manager. När flaggan är aktiverad uppmanas användaren att under uppstartsprocessen välja vilken lastare de vill köra, vilket orsakar en startfördröjning. I Azure kan den här funktionen lägga till den tid det tar att starta en virtuell dator.
+Felet beror på en BCD-flaggan *displaybootmenu* i Windows Boot Manager. När flaggan är aktive rad, ställer Windows Boot Manager till användaren, under start processen, för att välja vilken laddare de vill köra, vilket orsakar en start fördröjning. I Azure kan den här funktionen läggas till i den tid det tar att starta en virtuell dator.
 
 ## <a name="solution"></a>Lösning
 
-Processöversikt:
+Process översikt:
 
-1. Konfigurera för snabbare starttid med seriekonsolen.
-2. Skapa och komma åt en virtuell reparations-VM.
-3. Konfigurera för snabbare starttid på en reparerad virtuell dator.
-4. **Rekommenderas:** Innan du återskapar den virtuella datorn aktiverar du seriell konsol och minnesdumpsamling.
+1. Konfigurera för snabbare start tid med hjälp av en serie konsol.
+2. Skapa och få åtkomst till en reparations-VM.
+3. Konfigurera för snabbare start på en virtuell reparations dator.
+4. **Rekommenderas**: innan du återskapar den virtuella datorn aktiverar du serie konsolen och samling av minnes dum par.
 5. Återskapa den virtuella datorn.
 
-### <a name="configure-for-faster-boot-time-using-serial-console"></a>Konfigurera för snabbare starttid med seriekonsol
+### <a name="configure-for-faster-boot-time-using-serial-console"></a>Konfigurera för snabbare start tid med hjälp av en serie konsol
 
-Om du har tillgång till seriell konsol finns det två sätt att uppnå snabbare starttider. Antingen minska *displaybootmenu* väntetid, eller ta bort flaggan helt och hållet.
+Om du har åtkomst till en seriell konsol finns det två sätt att uppnå snabbare start tider. Förkorta antingen *displaybootmenu* vänte tid eller ta bort flaggan helt.
 
-1. Följ anvisningarna för att komma åt [Azure Serial Console för Windows för](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) att få tillgång till den textbaserade konsolen.
+1. Följ anvisningarna för att komma åt [Azures serie konsol för Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) för att få åtkomst till den textbaserade konsolen.
 
    > [!NOTE]
-   > Om du inte kan komma åt seriekonsolen går du vidare till [Skapa och få tillgång till en virtuell reparations-VM](#create-and-access-a-repair-vm).
+   > Om du inte kan komma åt en seriell konsol kan du gå vidare till [skapa och få åtkomst till en reparations-VM](#create-and-access-a-repair-vm).
 
-2. **Alternativ A:** Minska väntetiden
+2. **Alternativ A**: minska vänte tid
 
-   a. Väntetiden är inställd på 30 sekunder som standard men kan ändras till en snabbare tid (t.ex. 5 sekunder).
+   a. Vänte tiden anges till 30 sekunder som standard, men kan ändras till en snabbare tid (t. ex. 5 sekunder).
 
-   b. Använd följande kommando i seriekonsolen för att justera timeout-värdet:
+   b. Använd följande kommando i serie konsolen för att justera timeout-värdet:
 
       `bcdedit /set {bootmgr} timeout 5`
 
-3. **Alternativ B**: Ta bort BCD-flaggan
+3. **Alternativ B**: ta bort BCD-flaggan
 
-   a. Om du vill förhindra att frågan om startmenyn för bildskärm helt och hållet anger du följande kommando:
+   a. Ange följande kommando för att förhindra att Start menyn i skärm bilden visas:
 
       `bcdedit /deletevalue {bootmgr} displaybootmenu`
 
       > [!NOTE]
-      > Om du inte kunde använda seriekonsolen för att konfigurera en snabbare starttid i stegen ovan kan du i stället fortsätta med följande steg. Du kommer nu att felsöka i offlineläge för att lösa problemet.
+      > Om du inte kan använda serie konsolen för att konfigurera en snabbare start tid i stegen ovan, kan du i stället fortsätta med följande steg. Nu ska du felsöka i offline-läge för att lösa det här problemet.
 
-### <a name="create-and-access-a-repair-vm"></a>Skapa och komma åt en virtuell reparations-VM
+### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd [steg 1-3 i VM-reparationskommandona](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en virtuell reparations-VM.
-2. Använd Anslutning till fjärrskrivbordsanslutning till den virtuella reparationsdatorn.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+2. Använd Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
-### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Konfigurera för snabbare starttid på en reparationsdyst
+### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Konfigurera för snabbare start på en virtuell reparations dator
 
-1. Öppna en upphöjd kommandotolk.
+1. Öppna en kommando tolk med förhöjd behörighet.
 2. Ange följande för att aktivera DisplayBootMenu:
 
-   Använd det här kommandot för **virtuella generation 1-datorer:**
+   Använd det här kommandot för **virtuella datorer i generation 1**:
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes`
 
-   Använd det här kommandot för **virtuella generation 2-datorer:**
+   Använd det här kommandot för **virtuella datorer i generation 2**:
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} displaybootmenu yes`
 
-   Ersätt större än eller mindre än symboler samt texten i dem, t.> < ex.
+   Ersätt större än eller mindre än symboler samt texten i dem, t. ex. "< text här >".
 
 3. Ändra timeout-värdet till 5 sekunder:
 
-   Använd det här kommandot för **virtuella generation 1-datorer:**
+   Använd det här kommandot för **virtuella datorer i generation 1**:
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5`
 
-   Använd det här kommandot för **virtuella generation 2-datorer:**
+   Använd det här kommandot för **virtuella datorer i generation 2**:
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} timeout 5`
 
-   Ersätt större än eller mindre än symboler samt texten i dem, t.> < ex.
+   Ersätt större än eller mindre än symboler samt texten i dem, t. ex. "< text här >".
 
-### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Rekommenderas: Innan du återskapar den virtuella datorn aktiverar du seriell konsol och minnesdumpsamling
+### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Rekommenderas: innan du återskapar den virtuella datorn aktiverar du serie konsolen och samling av minnes dum par
 
-Om du vill aktivera insamling av minnesdump och Seriekonsol kör du följande skript:
+Om du vill aktivera samlings-och serie konsolen för minnes dum par kör du följande skript:
 
-1. Öppna en upphöjd kommandotolkssession (Kör som administratör).
+1. Öppna en kommando tolk med förhöjd behörighet (kör som administratör).
 2. Kör följande kommandon:
 
-   Aktivera seriekonsol
+   Aktivera serie konsol
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON`
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-   Ersätt större än eller mindre än symboler samt texten i dem, t.> < ex.
+   Ersätt större än eller mindre än symboler samt texten i dem, t. ex. "< text här >".
 
-3. Kontrollera att det lediga utrymmet på OS-disken är lika mycket som minnesstorleken (RAM) på den virtuella datorn.
+3. Kontrol lera att det lediga utrymmet på OS-disken är så mycket som minnes storleken (RAM) på den virtuella datorn.
 
-   Om det inte finns tillräckligt med utrymme på OS-disken bör du ändra platsen där minnesdumpfilen skapas och hänvisa den till alla datadiskar som är anslutna till den virtuella datorn och som har tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du %SystemRoot%" med enhetsbeteckningen (till exempel "F:") för datadisken i kommandona nedan.
+   Om det inte finns tillräckligt med utrymme på OS-disken, bör du ändra platsen där minnesdumpen skapas och se om det finns en datadisk som är ansluten till den virtuella datorn som har tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du "% SystemRoot%" med enhets beteckningen (till exempel "F:") för data disken i följande kommandon.
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Föreslagen konfiguration för att aktivera OS-dump
 
-**Ladda broken OS Disk:**
+**Läs in trasig OS-disk**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
@@ -148,10 +148,10 @@ Om du vill aktivera insamling av minnesdump och Seriekonsol kör du följande sk
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Ta bort trasig OS-disk:**
+**Ta bort skadad OS-disk:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Återskapa den ursprungliga virtuella datorn
 
-Använd [steg 5 i vm-reparationskommandona](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att sätta ihop den virtuella datorn igen.
+Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.

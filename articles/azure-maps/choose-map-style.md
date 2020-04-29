@@ -1,6 +1,6 @@
 ---
-title: Ändra stil på kartan i Azure Maps | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om formatrelaterade funktioner som är tillgängliga i Microsoft Azure Maps web SDK.
+title: Ändra kartans format i Azure Maps | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om formatmallar som är tillgängliga i Microsoft Azure Maps-webbsdk.
 author: philmea
 ms.author: philmea
 ms.date: 07/29/2019
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: b1c5d9b5cd2b6b9bfecf8a0af79699061003eec1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335692"
 ---
 # <a name="change-the-style-of-the-map"></a>Ändra formatet för kartan
 
-Kartan stöder flera olika [formatalternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) som kan ställas in när kartan `setStyle` initieras eller senare med hjälp av kartfunktionen. Den här artikeln visar hur du använder dessa formatalternativ för att anpassa kartornas utseende. Lär dig att ställa in en stil när du läser in en karta och lär dig att ställa in en ny kartstil med hjälp av stilväljaren.
+Kartan stöder flera olika [stil alternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) som kan ställas in när kartan initieras eller senare med hjälp av Maps `setStyle` -funktionen. Den här artikeln visar hur du använder de här stil alternativen för att anpassa Kartornas utseende. Lär dig hur du anger ett format vid inläsning av en karta och lär dig att ange en ny kart stil med hjälp av format väljar kontrollen.
 
-## <a name="set-the-style-options"></a>Ange formatalternativ 
+## <a name="set-the-style-options"></a>Ange format alternativ 
 
-Formatalternativ kan skickas till kartan när den initieras eller `setStyle` uppdateras senare med hjälp av kartfunktionen.
+Stil alternativ kan skickas till kartan när den initieras eller uppdateras senare med hjälp av Maps `setStyle` -funktionen.
 
 ```javascript
 //Set the style options when creating the map.
@@ -39,22 +39,22 @@ map.setStyle({
 });
 ```
 
-Följande verktyg visar hur de olika formatalternativen ändrar hur kartan återges. Om du vill se 3D-byggnaderna zoomar du in nära en större stad. 
+Följande verktyg visar hur de olika stil alternativen ändrar hur kartan återges. Om du vill se 3D-byggnaderna zoomar du in nära en större stad. 
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Alternativ för kartformat" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se alternativen för <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>pennkartan</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>från Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Alternativ för kart stil" src="https://codepen.io/azuremaps/embed/eYNMjPb?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se <a href='https://codepen.io/azuremaps/pen/eYNMjPb'>stil alternativen</a> för pen-kartor genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="choose-a-base-map-style"></a>Välj ett baskartformat
+## <a name="choose-a-base-map-style"></a>Välj en grundläggande kart stil
 
-Ett av de vanligaste alternativen för kartformat används för att ändra stilen på baskartan som är formaterad. Många av [kartformaten som stöds i Azure Maps](supported-map-styles.md) är tillgängliga i Web SDK. 
+Ett av de vanligaste alternativen för kart stil används för att ändra format mal len för bas kartan som är formaterad. Många av de [kart format som stöds i Azure Maps](supported-map-styles.md) finns i webb-SDK: n. 
 
-### <a name="set-base-map-style-on-map-load"></a>Ange baskartformat på kartbelastning
+### <a name="set-base-map-style-on-map-load"></a>Ange bas kart stil på kart inläsning
 
 
-Kartformatet kan anges när kartan initieras `style` genom att ange alternativet. I följande kod `style` är alternativet för kartan `grayscale_dark` inställt på vid initiering.
+Du kan ange kart stil när kartan initieras genom att `style` ställa in alternativet. I följande kod är `style` alternativet för kartan inställt `grayscale_dark` på vid initiering.
 
 ```javascript
 var map = new atlas.Map('map', {
@@ -66,40 +66,40 @@ var map = new atlas.Map('map', {
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ställa in formatet på kartbelastningen' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Inställning stilen på kartbelastning</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ange formatet på kart inläsning' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>anger formatet på kart inläsning</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-### <a name="update-the-base-map-style"></a>Uppdatera baskartningsformatet
+### <a name="update-the-base-map-style"></a>Uppdatera bas kart formatet
 
- Kartformatet `setStyle` kan uppdateras med hjälp `style` av funktionen och ställa in alternativet till önskad kartstil.
+ Map-formatet kan uppdateras med hjälp av `setStyle` funktionen och ställer in `style` alternativet på önskad kart stil.
 
 ```javascript
 map.setStyle({ style: 'satellite' });
 ```
 
-I följande kod, efter att en kartförekomst har `road` lästs in, uppdateras kartformatet från till att `satellite` använda funktionen [setStyle.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-)
+I följande kod, efter att en kart instans har lästs in, uppdateras kart formatet från `road` till `satellite` med hjälp av funktionen [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) .
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Uppdatera formatet' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Uppdatera formatet</a> med<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Uppdaterar formatet' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>uppdaterar formatet</a> genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-### <a name="add-the-style-picker"></a>Lägga till formatväljaren
+### <a name="add-the-style-picker"></a>Lägg till format väljare
 
-Stilväljaren ger en lättanvänd knapp med utfällbar panel som kan användas av slutanvändaren för att ändra kartstilen. Formatväljaren har två olika layoutalternativ. Som standard använder formatväljaren layouten `icons` och visar alla kartformat som en vågrät rad med ikoner. 
-
-<center>
-
-![Ikonlayout för formatväljare](media/choose-map-style/style-picker-icon-layout.png)</center>
-
-Det andra layoutalternativet anropas `list` och visar en rullningsbar lista med kartformat.  
+Format väljar kontrollen är en lätt att använda-knapp med utfällbar panel som kan användas av slutanvändaren för att ändra kart formatet. Format väljaren har två olika layoutalternativ. Som standard använder format väljaren `icons` layouten och visar alla kart format som en vågrät rad med ikoner. 
 
 <center>
 
-![Layout för formatväljare](media/choose-map-style/style-picker-list-layout.png)</center>
+![Ikon layout för format väljare](media/choose-map-style/style-picker-icon-layout.png)</center>
+
+Det andra alternativet för layout anropas `list` och visar en rullnings bar lista över kart format.  
+
+<center>
+
+![Layout för format väljare](media/choose-map-style/style-picker-list-layout.png)</center>
 
 
-Följande kod visar hur du skapar en förekomst av formatväljaren och lägger till den i det övre högra hörnet på kartan. Formatväljaren är inställd på att ha ett mörkt format och visa några markerade kartformat med listlagret.
+Följande kod visar hur du skapar en instans av format väljar kontrollen och lägger till den i det övre högra hörnet på kartan. Format väljaren är inställd på att ha en mörk stil och visar ett valt par kart format med hjälp av list skiktet.
 
 ```javascript
 map.controls.add(new atlas.control.StyleControl({
@@ -111,33 +111,33 @@ map.controls.add(new atlas.control.StyleControl({
 }); 
 ```
 
-Följande kod lägger till en stilväljare kontroll med dess standardinställningar till kartan, så att användaren enkelt kan växla mellan de olika kartformaten. Växla kartformatet med hjälp av kartans stilkontroll nära det övre högra hörnet.
+Följande kod lägger till en stil väljar kontroll med standardinställningarna till kartan, så att användaren enkelt kan byta mellan olika kart format. Växla kopplings formatet genom att använda kart stils kontrollen nära det övre högra hörnet.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägga till formatväljaren' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Lägga till stilväljaren</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägga till format väljare' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>att lägga till format väljaren</a> per<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> När du använder prisnivån S0 i Azure Maps listar formatväljarens kontroll som standard alla tillgängliga format. Om du vill minska antalet format i den här listan skickar du en matris `mapStyle` med de format som du vill ska visas i listan till alternativet för formatväljaren. Om du använder S1 och vill visa alla `mapStyles` tillgängliga format anger du `"all"`alternativet för formatväljaren till .
+> När du använder S0 pris nivå för Azure Maps visas som standard alla tillgängliga formatmallar i format väljaren. Om du vill minska antalet formatmallar i den här listan skickar du en matris med de format som du vill ska visas i listan till `mapStyle` alternativet för format väljaren. Om du använder S1 och vill visa alla tillgängliga stilar väljer du `mapStyles` alternativet för format väljare till. `"all"`
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om de klasser och metoder som används i den här artikeln:
+Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [StyleOptions (olika)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)
+> [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)
 
 > [!div class="nextstepaction"]
-> [StyleControl (format)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol)
+> [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol)
 
 > [!div class="nextstepaction"]
 > [StyleControlOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
-Lägg till kontroller på dina kartor:
+Lägg till kontroller i dina kartor:
 
 > [!div class="nextstepaction"]
 > [Lägg till kartkontroller](map-add-controls.md)

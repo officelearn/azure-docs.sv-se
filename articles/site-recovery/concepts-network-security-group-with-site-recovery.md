@@ -1,6 +1,6 @@
 ---
-title: Nätverkssäkerhetsgrupper med Azure-platsåterställning | Microsoft-dokument
-description: Beskriver hur du använder nätverkssäkerhetsgrupper med Azure Site Recovery för haveriberedskap och migrering
+title: Nätverks säkerhets grupper med Azure Site Recovery | Microsoft Docs
+description: Beskriver hur du använder nätverks säkerhets grupper med Azure Site Recovery för haveri beredskap och migrering
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,71 +8,71 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: eb5ba99133f5726c44164b0ba45b7ab5d94e292f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80292365"
 ---
-# <a name="network-security-groups-with-azure-site-recovery"></a>Nätverkssäkerhetsgrupper med Azure-webbplatsåterställning
+# <a name="network-security-groups-with-azure-site-recovery"></a>Nätverks säkerhets grupper med Azure Site Recovery
 
-Nätverkssäkerhetsgrupper används för att begränsa nätverkstrafiken till resurser i ett virtuellt nätverk. En [NSG (Network Security Group)](../virtual-network/security-overview.md#network-security-groups) innehåller en lista över säkerhetsregler som tillåter eller nekar inkommande eller utgående nätverkstrafik baserat på käll- eller mål-IP-adress, port och protokoll.
+Nätverks säkerhets grupper används för att begränsa nätverks trafiken till resurser i ett virtuellt nätverk. En [nätverks säkerhets grupp (NSG)](../virtual-network/security-overview.md#network-security-groups) innehåller en lista över säkerhets regler som tillåter eller nekar inkommande eller utgående nätverks trafik baserat på källans eller MÅLETs IP-adress, port och protokoll.
 
-Under resurshanterarens distributionsmodell kan NSG:er associeras till undernät eller enskilda nätverksgränssnitt. När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. Trafiken kan ytterligare begränsas genom att också associera en NSG till enskilda nätverksgränssnitt i ett undernät som redan har en associerad NSG.
+Under distributions modellen Resource Manager kan NSG: er associeras med undernät eller enskilda nätverks gränssnitt. När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. Trafiken kan begränsas ytterligare genom att även associera en NSG till enskilda nätverks gränssnitt i ett undernät som redan har en associerad NSG.
 
-I den här artikeln beskrivs hur du kan använda nätverkssäkerhetsgrupper med Azure Site Recovery.
+I den här artikeln beskrivs hur du kan använda nätverks säkerhets grupper med Azure Site Recovery.
 
-## <a name="using-network-security-groups"></a>Använda nätverkssäkerhetsgrupper
+## <a name="using-network-security-groups"></a>Använda nätverks säkerhets grupper
 
-Ett enskilt undernät kan ha noll, eller ett, associerat NSG. Ett enskilt nätverksgränssnitt kan också ha noll, eller ett, associerat NSG. Så kan du effektivt ha dubbla trafikbegränsningar för en virtuell dator genom att associera en NSG först till ett undernät och sedan en annan NSG till den virtuella datorns nätverksgränssnitt. Tillämpningen av NSG-regler i detta fall beror på trafikriktningen och prioriteringen av tillämpade säkerhetsregler.
+Ett enskilt undernät kan ha noll, eller ett, associerat NSG. Ett enskilt nätverks gränssnitt kan också ha noll, eller ett, associerat NSG. Därför kan du effektivt ha dubbla trafik begränsningar för en virtuell dator genom att associera en NSG till ett undernät och sedan en annan NSG till den virtuella datorns nätverks gränssnitt. Tillämpning av NSG-regler i det här fallet beror på trafikens riktning och prioritetsordningen för tillämpade säkerhets regler.
 
-Tänk dig ett enkelt exempel med en virtuell dator enligt följande:
--    Den virtuella datorn placeras i **Contoso-undernätet**.
--    **Contoso Subnet** är associerat med **Undernät NSG**.
--    Vm-nätverksgränssnittet är dessutom associerat med **VM NSG**.
+Överväg ett enkelt exempel med en virtuell dator på följande sätt:
+-    Den virtuella datorn placeras i Contoso- **undernätet**.
+-    **Contoso-undernätet** är kopplat till **Subnet NSG**.
+-    Nätverks gränssnittet för virtuella datorer är dessutom associerat med **VM-NSG**.
 
-![NSG med site recovery](./media/concepts-network-security-group-with-site-recovery/site-recovery-with-network-security-group.png)
+![NSG med Site Recovery](./media/concepts-network-security-group-with-site-recovery/site-recovery-with-network-security-group.png)
 
-I det här exemplet utvärderas undernätet NSG först för inkommande trafik. All trafik som tillåts via Undernät NSG utvärderas sedan av VM NSG. Det omvända gäller för utgående trafik, med VM NSG utvärderas först. All trafik som tillåts via VM NSG utvärderas sedan av Subnet NSG.
+I det här exemplet utvärderas NSG för inkommande trafik först. All trafik som tillåts via undernät NSG utvärderas sedan av VM-NSG. Återföringen gäller för utgående trafik, med VM-NSG som utvärderas först. All trafik som tillåts via VM-NSG utvärderas sedan av under nätets NSG.
 
-Detta möjliggör detaljerade säkerhetsregelprogram. Du kanske till exempel vill tillåta inkommande internetåtkomst till några virtuella program -datorer (till exempel virtuella start-och tv-kort för klientföretag) under ett undernät men begränsa inkommande internetåtkomst till andra virtuella datorer (till exempel databas och andra virtuella datorer med bakåtsida). I det här fallet kan du ha en mildare regel på undernätet NSG, vilket möjliggör internettrafik och begränsar åtkomsten till specifika virtuella datorer genom att neka åtkomst på VM NSG. Detsamma kan tillämpas för utgående trafik.
+Detta möjliggör detaljerade säkerhets regel program. Du kanske till exempel vill tillåta inkommande Internet åtkomst till några program-VM: ar (t. ex. virtuella klient datorer) under ett undernät, men begränsa inkommande Internet åtkomst till andra virtuella datorer (till exempel databas och andra VM-datorer). I det här fallet kan du ha en mer flexibel-regel på under nätet NSG, tillåta Internet trafik och begränsa åtkomsten till vissa virtuella datorer genom att neka åtkomst på VM-NSG. Samma kan användas för utgående trafik.
 
-När du ställer in sådana NSG-konfigurationer ska du se till att rätt prioritet tillämpas på [säkerhetsreglerna](../virtual-network/security-overview.md#security-rules). Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.
+När du konfigurerar sådana NSG-konfigurationer bör du kontrol lera att rätt prioriteter tillämpas på [säkerhets reglerna](../virtual-network/security-overview.md#security-rules). Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.
 
-Du kanske inte alltid är medveten om när nätverkssäkerhetsgrupper tillämpas för både ett nätverksgränssnitt och ett undernät. Du kan verifiera de aggregerade regler som tillämpas på ett nätverksgränssnitt genom att visa [de gällande säkerhetsreglerna](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) för ett nätverksgränssnitt. Du kan också använda [funktionen IP-flödeskontroll](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) i [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) för att avgöra om kommunikation tillåts till eller från ett nätverksgränssnitt. Verktyget visar om kommunikation tillåts, och om nätverkssäkerhetsregeln tillåter eller nekar trafik.
+Du kanske inte alltid är medveten om när nätverkssäkerhetsgrupper tillämpas för både ett nätverksgränssnitt och ett undernät. Du kan kontrol lera de sammanställda regler som tillämpas på ett nätverks gränssnitt genom att visa de [effektiva säkerhets reglerna](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) för ett nätverks gränssnitt. Du kan också använda funktionen [verifiera IP-flöde](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) i [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) för att avgöra om kommunikation tillåts till eller från ett nätverks gränssnitt. Verktyget visar om kommunikation tillåts, och om nätverkssäkerhetsregeln tillåter eller nekar trafik.
 
-## <a name="on-premises-to-azure-replication-with-nsg"></a>Lokalt till Azure-replikering med NSG
+## <a name="on-premises-to-azure-replication-with-nsg"></a>Lokal till Azure-replikering med NSG
 
-Azure Site Recovery möjliggör haveriberedskap och migrering till Azure för lokala [virtuella Hyper-V-datorer,](hyper-v-azure-architecture.md) [virtuella VMware-datorer](vmware-azure-architecture.md)och [fysiska servrar](physical-azure-architecture.md). För alla lokala till Azure-scenarier skickas replikeringsdata till och lagras i ett Azure Storage-konto. Under replikering betalar du inga avgifter för virtuella datorer. När du kör en redundans till Azure skapar Site Recovery automatiskt virtuella Azure IaaS-datorer.
+Azure Site Recovery möjliggör haveri beredskap och migrering till Azure för lokala [virtuella Hyper-V-datorer](hyper-v-azure-architecture.md), [virtuella VMware-datorer](vmware-azure-architecture.md)och [fysiska servrar](physical-azure-architecture.md). För alla lokala Azure-scenarier skickas replikeringsdata till och lagras i ett Azure Storage-konto. Under replikeringen betalar du inga avgifter för virtuella datorer. När du kör en redundansväxling till Azure skapar Site Recovery automatiskt virtuella Azure IaaS-datorer.
 
-När virtuella datorer har skapats efter redundans till Azure kan NSG användas för att begränsa nätverkstrafiken till det virtuella nätverket och virtuella datorer. Site Recovery skapar inte NSG som en del av redundansåtgärden. Vi rekommenderar att du skapar de nödvändiga Azure NSG-grupperna innan du initierar redundans. Du kan sedan associera NSGs till misslyckades över virtuella datorer automatiskt under redundans, med hjälp av automatiseringsskript med Site Recovery kraftfulla [återställningsplaner](site-recovery-create-recovery-plans.md).
+När virtuella datorer har skapats efter en redundansväxling till Azure kan NSG: er användas för att begränsa nätverks trafiken till det virtuella nätverket och virtuella datorer. Site Recovery skapar inte NSG: er som en del av redundansväxlingen. Vi rekommenderar att du skapar nödvändiga Azure-NSG: er innan du initierar redundans. Du kan sedan koppla NSG: er till misslyckade virtuella datorer automatiskt under redundansväxling, med hjälp av Automation-skript med Site Recovery kraftfulla [återställnings planer](site-recovery-create-recovery-plans.md).
 
-Om vm-konfigurationen efter redundans till exempel liknar [det exempelscenario](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) som beskrivs ovan:
--    Du kan skapa **Contoso VNet** och **Contoso Subnet** som en del av DR-planeringen för Azure-regionen för målet.
--    Du kan också skapa och konfigurera både **Undernät NSG** samt **VM NSG** som en del av samma DR-planering.
--    **Subnet NSG** kan sedan omedelbart associeras med **Contoso Subnet**, eftersom både NSG och undernätet redan är tillgängliga.
--    **VM NSG** kan associeras med virtuella datorer under redundans med hjälp av återställningsplaner.
+Till exempel, om konfigurationen för VM-redundansen liknar det [exempel scenario](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) som beskrivs ovan:
+-    Du kan skapa **contoso VNet** och **contoso-undernät** som en del av Dr-planeringen på Azure-regionen för målet.
+-    Du kan också skapa och konfigurera både **NSG för undernät** och **VM-NSG** som en del av samma Dr-planering.
+-    **Under nätets NSG** kan sedan omedelbart associeras med **contoso-undernätet**, eftersom både NSG och under nätet redan är tillgängliga.
+-    **VM-NSG** kan associeras med virtuella datorer under redundans med återställnings planer.
 
-När NSG:erna har skapats och konfigurerats rekommenderar vi att du kör en [testundanställning](site-recovery-test-failover-to-azure.md) för att verifiera skriptbaserade NSG-associationer och vm-anslutning efter redundans.
+När NSG: er har skapats och kon figurer ATS rekommenderar vi att du kör ett [redundanstest](site-recovery-test-failover-to-azure.md) för att verifiera SKRIPTade NSG-associationer och VM-anslutning efter redundans.
 
 ## <a name="azure-to-azure-replication-with-nsg"></a>Azure till Azure-replikering med NSG
 
-Azure Site Recovery möjliggör haveriberedskap för [virtuella Azure-datorer](azure-to-azure-architecture.md). När du aktiverar replikering för virtuella Azure-datorer kan Site Recovery skapa virtuella repliknätverk (inklusive undernät och gateway-undernät) i målregionen och skapa nödvändiga mappningar mellan källan och rikta virtuella nätverk. Du kan också förskapa målsidans nätverk och undernät och använda samma när du aktiverar replikering. Site Recovery skapar inga virtuella datorer i Azure-regionen för målet före [redundans](azure-to-azure-tutorial-failover-failback.md).
+Azure Site Recovery möjliggör haveri beredskap för [virtuella Azure-datorer](azure-to-azure-architecture.md). När du aktiverar replikering för virtuella Azure-datorer kan Site Recovery skapa de virtuella replik nätverken (inklusive undernät och gateway-undernät) i mål regionen och skapa nödvändiga mappningar mellan käll-och mål nätverk. Du kan också skapa mål sidans nätverk och undernät i förväg och använda samma när du aktiverar replikering. Site Recovery skapar inga virtuella datorer i Azure-regionen före [redundansväxlingen](azure-to-azure-tutorial-failover-failback.md).
 
-För Azure VM-replikering, se till att NSG-reglerna för käll azure-regionen tillåter [utgående anslutning](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) för replikeringstrafik. Du kan också testa och verifiera dessa regler via det här [exemplet NSG-konfiguration](azure-to-azure-about-networking.md#example-nsg-configuration).
+För Azure VM-replikering kontrollerar du att NSG-reglerna i Azure-regionen för Azure tillåter [utgående anslutning](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) för replikeringstrafik. Du kan också testa och verifiera de nödvändiga reglerna genom den här [exempel NSG-konfigurationen](azure-to-azure-about-networking.md#example-nsg-configuration).
 
-Site Recovery skapar eller replikerar inte NSG som en del av redundansåtgärden. Vi rekommenderar att du skapar nödvändiga NSG:er på Azure-regionen för målet innan du initierar redundans. Du kan sedan associera NSGs till misslyckades över virtuella datorer automatiskt under redundans, med hjälp av automatiseringsskript med Site Recovery kraftfulla [återställningsplaner](site-recovery-create-recovery-plans.md).
+Site Recovery skapar eller replikerar inte NSG: er som en del av redundansväxlingen. Vi rekommenderar att du skapar nödvändiga NSG: er på Azure-regionen innan du påbörjar redundans. Du kan sedan koppla NSG: er till misslyckade virtuella datorer automatiskt under redundansväxling, med hjälp av Automation-skript med Site Recovery kraftfulla [återställnings planer](site-recovery-create-recovery-plans.md).
 
-Med tanke på [det exempelscenario som](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) beskrivits tidigare:
--    Site Recovery kan skapa repliker av **Contoso VNet** och **Contoso Subnet** på azure-regionen för mål när replikering är aktiverat för den virtuella datorn.
--    Du kan skapa önskade repliker av **Undernät NSG** och **VM NSG** (namngivet, till exempel **Target Subnet NSG** och **Target VM NSG**, respektive) på azure-regionen för målet, vilket möjliggör eventuella ytterligare regler som krävs för målregionen.
--    **Målundernät NSG** kan sedan omedelbart associeras med målområdets undernät, eftersom både NSG och undernätet redan är tillgängliga.
--    **Mål-VM NSG** kan associeras med virtuella datorer under redundans med hjälp av återställningsplaner.
+Som beaktar [exempel scenariot](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) som beskrivits tidigare:
+-    Site Recovery kan skapa repliker av **contoso VNet** och **contoso-undernätet** i Azure-regionen där replikering är aktiverat för den virtuella datorn.
+-    Du kan skapa önskade repliker av **UNDERNÄT NSG** och **VM-NSG** (t. ex. **mål under nät NSG** och **mål-VM NSG**) i Azure-regionen för Azure, vilket gör det möjligt för eventuella ytterligare regler som krävs i mål regionen.
+-    **Mål under nätets NSG** kan sedan omedelbart associeras med mål regions under nätet, eftersom både NSG och under nätet redan är tillgängliga.
+-    **Virtuella NSG** kan associeras med virtuella datorer under redundans med återställnings planer.
 
-När NSG:erna har skapats och konfigurerats rekommenderar vi att du kör en [testundanställning](azure-to-azure-tutorial-dr-drill.md) för att verifiera skriptbaserade NSG-associationer och vm-anslutning efter redundans.
+När NSG: er har skapats och kon figurer ATS rekommenderar vi att du kör ett [redundanstest](azure-to-azure-tutorial-dr-drill.md) för att verifiera SKRIPTade NSG-associationer och VM-anslutning efter redundans.
 
 ## <a name="next-steps"></a>Nästa steg
--    Läs mer om [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md#network-security-groups).
--    Läs mer om [NSG:s säkerhetsregler](../virtual-network/security-overview.md#security-rules).
--    Läs mer om [effektiva säkerhetsregler](../virtual-network/diagnose-network-traffic-filter-problem.md) för en NSG.
--    Läs mer om [återställningsplaner](site-recovery-create-recovery-plans.md) för att automatisera programundans.
+-    Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md#network-security-groups).
+-    Läs mer om [säkerhets regler](../virtual-network/security-overview.md#security-rules)för NSG.
+-    Läs mer om [gällande säkerhets regler](../virtual-network/diagnose-network-traffic-filter-problem.md) för en NSG.
+-    Läs mer om [återställnings planer](site-recovery-create-recovery-plans.md) för att automatisera programredundans.

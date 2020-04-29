@@ -1,6 +1,6 @@
 ---
-title: Trafiktäckning | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om trafiktäckning i Microsoft Azure Maps.
+title: Trafik täckning | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om trafik täckning i Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 09/22/2018
@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 836a924bb371aaf2879e951501c6febbe51e182e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80333952"
 ---
-# <a name="azure-maps-traffic-coverage"></a>Azure Maps trafiktäckning
+# <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
 
-Azure Maps ger omfattande trafikinformation i form av **trafikflöde** och **incidenter**. Dessa data kan visualiseras på kartor eller användas för att generera smartare rutter som faktor i verkliga körförhållanden.
+Azure Maps ger omfattande trafik information i form av **trafikflöde** och **incidenter**. Dessa data kan visualiseras på kartor eller användas för att generera smartare vägar som faktorr i verkliga kör förhållanden.
 
-Maps har dock inte samma nivå av information och noggrannhet för alla länder eller regioner. I följande tabell finns information om vilken typ av trafikinformation du kan begära från varje land eller region: 
+Maps har dock inte samma nivå av information och noggrannhet för alla länder eller regioner. Följande tabell innehåller information om vilken typ av trafik information som du kan begära från varje land eller region: 
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
@@ -33,7 +33,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |Mexiko     |✓         |✓         |
 |Peru       |✓         |✓         | 
 |USA     |✓         |✓        |
-|+Puerto Rico     |✓         |✓         |
+|+ Puerto Rico     |✓         |✓         |
 |Uruguay |✓         |✓         |
 
 
@@ -72,7 +72,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |Danmark     |✓         |✓         |
 |Estland     |         | ✓        |
 |Finland     |✓         |✓         |
-|+Åland      |✓         |✓         |
+|+ Åland      |✓         |✓         |
 |Frankrike     |✓         |✓         |
 |Monaco     |✓         |✓         |
 |Tyskland     |✓         |✓         |
@@ -93,7 +93,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |Norge     |✓         |✓         |
 |Polen     |✓         |✓         |
 |Portugal     |✓         |✓         |
-|+Azorerna och Madeira     |✓         |✓         |
+|+ Azorerna och Madeira     |✓         |✓         |
 |Rumänien     |✓         |✓         |
 |Ryska federationen     |✓         |✓         |
 |San Marino    |✓         |✓         |
@@ -101,17 +101,17 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |Slovakien     |✓         |✓         |
 |Slovenien     |✓         |✓         |
 |Spanien     |✓         |✓         |
-|+Andorra     |✓         |✓         |
-|+Balearerna     |✓         |✓         |
-|+Kanarieöarna     |✓         |✓         |
+|+ Andorra     |✓         |✓         |
+|+ Balearic öarna     |✓         |✓         |
+|+ Kanarie öarna     |✓         |✓         |
 |Sverige     |✓         |✓         |
 |Schweiz     |✓         |✓        |
 |Turkiet     |✓         |✓         |
 |Ukraina     |✓         |✓         |
 |Storbritannien     |✓         |✓         |
-|+Gibraltar     |✓         |✓         |
-|+Guernsey & Jersey     |✓         |✓         |
-|+Isle of Man     |✓         |✓         |
+|+ Gibraltar     |✓         |✓         |
+|+ Guernseypund & Jersey     |✓         |✓         |
+|+ Isle of man     |✓         |✓         |
 |Vatikanstaten   |✓         |✓         |
 
 
@@ -135,4 +135,4 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Maps-trafikdata finns på [trafikreferenssidorna.](https://docs.microsoft.com/rest/api/maps/traffic)
+Mer information om Azure Maps trafik data finns på sidan med [trafik](https://docs.microsoft.com/rest/api/maps/traffic) referens sidor.

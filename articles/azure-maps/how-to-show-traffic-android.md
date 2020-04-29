@@ -1,6 +1,6 @@
 ---
-title: Visa trafikdata på Android Map | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du visar trafikdata på en karta med Hjälp av Microsoft Azure Maps Android SDK.
+title: Visa trafik data på Android-karta | Microsoft Azure Maps
+description: I den här artikeln lär du dig hur du visar trafik data på en karta med hjälp av Microsoft Azure Maps Android SDK.
 author: philmea
 ms.author: philmea
 ms.date: 02/27/2020
@@ -9,29 +9,29 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335381"
 ---
-# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visa trafikdata på kartan med Azure Maps Android SDK
+# <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visa trafik data på kartan med Azure Maps Android SDK
 
-Flödesdata och incidentersdata är de två typer av trafikdata som kan visas på kartan. Den här guiden visar hur du visar båda typerna av trafikdata. Uppgifter om tillbud består av punkt- och linjebaserade data för bland annat konstruktioner, avstängda vägar och olyckor. Flödesdata visar mått om trafikflödet på vägen.
+Flödes data och incident data är de två typer av trafik data som kan visas på kartan. Den här guiden visar hur du visar båda typerna av trafik data. Incident data består av punkt-och linjebaserade data för sådant som konstruktioner, väg stängningar och olyckor. Flow-data visar mått för trafik flödet på resan.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-account-with-azure-maps)och [skaffa en prenumerationsnyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) och läsa in en karta.
+Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-account-with-azure-maps)och [Skaffa en prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) och läsa in en karta.
 
-## <a name="incidents-traffic-data"></a>Trafikdata för incidenter 
+## <a name="incidents-traffic-data"></a>Incident trafik data 
 
-Du måste importera följande bibliotek för `setTraffic` att `incidents`ringa och:
+Du måste importera följande bibliotek för att kunna anropa `setTraffic` och: `incidents`
 
 ```java
 import static com.microsoft.com.azure.maps.mapcontrol.options.TrafficOptions.incidents;
 ```
 
- Följande kodavsnitt visar hur du visar trafikdata på kartan. Vi skickar ett booleskt värde till `incidents` metoden `setTraffic` och skickar det till metoden. 
+ Följande kodfragment visar hur du visar trafik data på kartan. Vi skickar ett booleskt värde till- `incidents` metoden och skickar det till- `setTraffic` metoden. 
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +42,23 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## <a name="flow-traffic-data"></a>Flödestrafikdata
+## <a name="flow-traffic-data"></a>Flöda trafik data
 
-Du måste först importera följande bibliotek för `setTraffic` `flow`att ringa och:
+Du måste först importera följande bibliotek för att kunna anropa `setTraffic` och: `flow`
 
 ```java
 import com.microsoft.azure.maps.mapcontrol.options.TrafficFlow;
 import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```
 
-Använd följande kodavsnitt för att ange trafikflödesdata. I likhet med koden i föregående avsnitt skickar `flow` vi metodens returvärde till `setTraffic` metoden. Det finns fyra värden som `flow`kan skickas till `flow` och varje värde utlöses för att returnera respektive värde. Returvärdet för `flow` skickas sedan som argument `setTraffic`till . Se tabellen nedan för dessa fyra värden:
+Använd följande kodfragment för att ställa in trafik flödes data. Precis som koden i föregående avsnitt skickar vi returvärdet för `flow` metoden till- `setTraffic` metoden. Det finns fyra värden som kan skickas till `flow`och varje värde utlöser `flow` sig för att returnera respektive värde. Returvärdet från `flow` skickas sedan som argumentet till `setTraffic`. Se tabellen nedan för följande fyra värden:
 
 | | |
 | :-- | :-- |
-| TrafficFlow.NONE | Visar inte trafikdata på kartan |
-| TrafficFlow.RELATIVE | Visar trafikdata som är i förhållande till vägens hastighet fritt flöde |
-| TrafficFlow.RELATIVE_DELAY | Visar områden som är långsammare än den genomsnittliga förväntade fördröjningen |
-| TrafficFlow.ABSOLUTE | Visar den absoluta hastigheten för alla fordon på vägen |
+| TrafficFlow. NONE | Visar inte trafik data på kartan |
+| TrafficFlow. relativ | Visar trafik data som är relativa till vägens fria flödes hastighet |
+| TrafficFlow. RELATIVE_DELAY | Visar områden som är långsammare än det genomsnittliga förväntad fördröjning |
+| TrafficFlow. absolut | Visar den absoluta hastigheten för alla fordon på väg |
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +69,11 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Visa incidenttrafikdata genom att klicka på en funktion
+## <a name="show-incident-traffic-data-by-clicking-a-feature"></a>Visa incident trafik data genom att klicka på en funktion
 
-Om du vill hämta incidenter för en viss funktion kan du använda koden nedan. När du klickar på en funktion söker kodlogiken efter incidenter och skapar ett meddelande om incidenten. Ett meddelande visas längst ned på skärmen med information.
+Du kan använda koden nedan för att få incidenter för en speciell funktion. När du klickar på en funktion söker kod logiken efter incidenter och skapar ett meddelande om incidenten. Ett meddelande visas längst ned på skärmen med information.
 
-1. Först måste du redigera **res > layout > activity_main.xml**, så att det ser ut som den nedan. Du kan `mapcontrol_centerLat`ersätta `mapcontrol_centerLng`, `mapcontrol_zoom` och med önskade värden. Kom ihåg att zoomnivån är ett värde mellan 0 och 22. På zoomnivå 0 passar hela världen på en enda bricka.
+1. Först måste du redigera **> layout för res > activity_main. XML**, så att det ser ut som på samma sätt. Du kan ersätta `mapcontrol_centerLat`, `mapcontrol_centerLng`, och `mapcontrol_zoom` med önskade värden. Åter kallelse är zoomnings nivån ett värde mellan 0 och 22. På zoomnings nivå 0 passar hela världen på en enda panel.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -96,7 +96,7 @@ Om du vill hämta incidenter för en viss funktion kan du använda koden nedan. 
    </FrameLayout>
    ```
 
-2. Lägg till följande kod i filen **MainActivity.java.** Paketet ingår som standard, så se till att du håller ditt paket högst upp.
+2. Lägg till följande kod i **MainActivity. java** -filen. Paketet ingår som standard, så se till att du behåller paketet överst.
 
    ```java
    package <yourpackagename>;
@@ -221,7 +221,7 @@ Om du vill hämta incidenter för en viss funktion kan du använda koden nedan. 
    }
    ```
 
-3. När du har införlivat ovanstående kod i ditt program kan du klicka på en funktion och se information om trafikincidenter. Beroende på latitud, longitud och de zoomnivåvärden som du använde i **filen activity_main.xml** visas resultat som liknar följande bild:
+3. När du har införlivat ovanstående kod i programmet kan du klicka på en funktion och se information om trafik incidenter. Beroende på latitud-, longitud-och zoomnings nivå värden som du använde i din **activity_main. XML-** fil ser du resultat som liknar följande bild:
 
    <center>
 
@@ -231,7 +231,7 @@ Om du vill hämta incidenter för en viss funktion kan du använda koden nedan. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Visa följande guider om du vill veta hur du lägger till mer data på kartan:
+Se följande guider för att lära dig hur du lägger till mer data i kartan:
 
 > [!div class="nextstepaction"]
 > [Lägga till ett symbolskikt](how-to-add-symbol-to-android-map.md)
@@ -240,7 +240,7 @@ Visa följande guider om du vill veta hur du lägger till mer data på kartan:
 > [Lägga till ett panelskikt](how-to-add-tile-layer-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Lägga till former i Android-kartan](how-to-add-shapes-to-android-map.md)
+> [Lägga till former i Android-kartor](how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Visa funktionsinformation](display-feature-information-android.md)

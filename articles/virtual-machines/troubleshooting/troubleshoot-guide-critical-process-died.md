@@ -1,5 +1,5 @@
 ---
-title: Windows stoppa fel -
+title: Windows Stop-fel –
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,94 +15,94 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 9e4c4b9c809a626c71b4a7e9235d917b442be160
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80373367"
 ---
-# <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Windows Stop Error - #0x000000EF "Kritisk process dog"
+# <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Windows Stop-fel-#0x000000EF "kritisk process har dött"
 
-Den här artikeln innehåller steg för att lösa problem där en kritisk process dör under start i en Virtuell Azure.This article provides steps to resolve issues where a critical process dies during boot in an Azure VM.
+Den här artikeln innehåller steg för att lösa problem där en kritisk process överlider under start i en virtuell Azure-dator.
 
 ## <a name="symptom"></a>Symptom
 
-När du använder [Boot diagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att visa skärmdumpen av den virtuella datorn, kommer du att se att skärmdumpen visar felet *#0x000000EF* med meddelandet Kritisk *process dog*.
+När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) för att Visa skärm bilden för den virtuella datorn ser du att skärm bilden visar fel *#0x000000EF* med meddelandets *kritiska process*.
 
-!["Datorn stötte på ett problem och måste starta om. Vi samlar bara in lite felinformation, och sedan kan du starta om. (##% klar) Om du vill veta mer kan du söka på nätet senare efter det här felet: 0x000000000EF"](media/troubleshoot-guide-critical-process-died/1.jpg)
+!["Datorn stötte på ett problem och måste startas om. Vi har bara samlat in fel information och sedan kan du starta om. (# #% Complete) Om du vill veta mer kan du söka online senare för det här felet: 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
 
 ## <a name="cause"></a>Orsak
 
-Vanligtvis beror detta på att en kritisk systemprocess misslyckas under uppstart. Du kan läsa mer om kritiska processproblem på "[Bug Check 0xEF: CRITICAL_PROCESS_DIED](https://docs.microsoft.com/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)".
+Detta beror vanligt vis på att en kritisk system process slutar fungera under start. Du kan läsa mer om kritiska process problem på "[bugg check 0xEF: CRITICAL_PROCESS_DIED](https://docs.microsoft.com/windows-hardware/drivers/debugger/bug-check-0xef--critical-process-died)".
 
 ## <a name="solution"></a>Lösning
 
-### <a name="process-overview"></a>Processöversikt:
+### <a name="process-overview"></a>Process översikt:
 
-1. Skapa och komma åt en virtuell reparations-VM.
-2. Åtgärda eventuella operativsystem korruption.
-3. **Rekommenderas:** Innan du återskapar den virtuella datorn aktiverar du seriell konsol och minnesdumpsamling.
+1. Skapa och få åtkomst till en reparations-VM.
+2. Åtgärda eventuella fel i operativ systemet.
+3. **Rekommenderas**: innan du återskapar den virtuella datorn aktiverar du serie konsolen och samling av minnes dum par.
 4. Återskapa den virtuella datorn.
 
 > [!NOTE]
-> När du stöter på det här startfelet fungerar inte gästoperativsystemet. Du kommer att felsöka i offlineläge för att lösa problemet.
+> Gäst operativ systemet fungerar inte när det här start felet påträffas. Du kommer att felsöka i offline-läge för att lösa det här problemet.
 
-### <a name="create-and-access-a-repair-vm"></a>Skapa och komma åt en virtuell reparations-VM
+### <a name="create-and-access-a-repair-vm"></a>Skapa och få åtkomst till en virtuell reparations dator
 
-1. Använd [steg 1-3 i VM-reparationskommandona](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en virtuell reparations-VM.
-2. Använda Anslutning till fjärrskrivbordsanslutning till den virtuella reparationsdatorn.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
+2. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
-### <a name="fix-any-os-corruption"></a>Åtgärda eventuella skador på operativsystemet
+### <a name="fix-any-os-corruption"></a>Åtgärda eventuella fel i operativ systemet
 
-1. Öppna en upphöjd kommandotolk.
-2. Kör följande SFC-kommando (System File Checker):
+1. Öppna en kommando tolk med förhöjd behörighet.
+2. Kör följande kommando för system fils kontroll (SFC):
 
    `sfc /scannow /offbootdir=<BOOT DISK DRIVE>:\ /offwindir=<BROKEN DISK DRIVE>:\windows`
 
-   * Där < BOOT DISK DRIVE > är startvolymen för reparationsdatorn (vanligtvis "C:") och < BROKEN DISK DRIVE > kommer att vara enhetsbeteckningen för den anslutna disken från den trasiga virtuella datorn. Ersätt större än / mindre än symboler samt texten i dem, t.ex > <.
+   * Där < start DISK enhet > är start volymen för den virtuella reparations datorn (vanligt vis "C:") och < trasig DISK DRIVE > blir enhets beteckningen för den anslutna disken från den skadade virtuella datorn. Ersätt större än/mindre än symboler samt texten som finns i dem, t. ex. "< text här >", med lämplig bokstav.
 
-3. Använd sedan [steg 5 i VM-reparationskommandona](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att sätta ihop den virtuella datorn igen och se om den startar.
-4. Om den virtuella datorn fortfarande inte startar fortsätter du att samla in minnesdumpfilen.
+3. Använd sedan [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att sätta samman den virtuella datorn och se om den startas.
+4. Om den virtuella datorn fortfarande inte startar kan du fortsätta att samla in minnesdumpen.
 
-### <a name="collect-the-memory-dump-file"></a>Samla in minnesdumpfilen
+### <a name="collect-the-memory-dump-file"></a>Samla in minnesdumpen
 
-Om problemet kvarstår efter att SFC har körts krävs analys av en minnesdumpfil för att fastställa orsaken till problemet. Så här samlar du in minnesdumpfilen:
+Om problemet kvarstår efter att du kört SFC, krävs analyser av en minnesdumpfil för att fastställa orsaken till problemet. Följ dessa steg om du vill samla in minnesdumpen:
 
-### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Koppla OS-disken till en ny reparerad virtuell dator
+### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Koppla OS-disken till en ny virtuell reparations dator
 
-1. Använd [steg 1-3 i VM-reparationskommandona](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en ny reparations-VM.
-2. Använda Anslutning till fjärrskrivbordsanslutning till den virtuella reparationsdatorn.
+1. Använd [steg 1-3 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en ny reparations-VM.
+2. Använda Anslutning till fjärrskrivbord ansluta till den virtuella reparations datorn.
 
-### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka en supportbiljett
+### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Leta upp dumpfilen och skicka in ett support ärende
 
-3. På den virtuella reparationsdatorn går du till windowsmappen i den anslutna OS-disken. Om drivrutinsbrevet som är tilldelat till den anslutna OS-disken är *F*måste du gå till *F:\Windows*.
-4. Leta reda på *filen memory.dmp* och skicka sedan [en supportbiljett](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med minnesdumpfilen.
+3. På den reparera virtuella datorn går du till Windows-mappen på den anslutna OS-disken. Om den driv rutins beteckning som är kopplad till den anslutna OS-disken är *F*måste du gå till *F:\Windows*.
+4. Leta upp filen *Memory. dmp* och skicka sedan [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) med minnesdumpen.
 
    > [!NOTE]
-   > Om du inte hittar dumpfilen slutför du stegen nedan för att aktivera insamling av minnesdump och seriekonsol, gå sedan tillbaka till det här avsnittet och upprepa stegen i uppgiften ovan för att samla in minnesdumpfilen.
+   > Om du inte kan hitta dumpfilen slutför du stegen nedan för att aktivera samlings-och serie konsolen för minnes dum par och går sedan tillbaka till det här avsnittet och upprepar stegen i uppgiften ovan för att samla in minnesdumpen.
 
-### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Rekommenderas: Innan du återskapar den virtuella datorn aktiverar du seriell konsol och minnesdumpsamling
+### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Rekommenderas: innan du återskapar den virtuella datorn aktiverar du serie konsolen och samling av minnes dum par
 
-Om du vill aktivera insamling av minnesdump och Seriekonsol kör du följande skript:
+Om du vill aktivera samlings-och serie konsolen för minnes dum par kör du följande skript:
 
-1. Öppna en upphöjd kommandotolkssession (Kör som administratör).
+1. Öppna en kommando tolk med förhöjd behörighet (kör som administratör).
 2. Kör följande kommandon:
 
-   Aktivera seriekonsol
+   Aktivera serie konsol
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON`
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-   Ersätt större än eller mindre än symboler samt texten i dem, t.> < ex.
+   Ersätt större än eller mindre än symboler samt texten i dem, t. ex. "< text här >".
 
-3. Kontrollera att det lediga utrymmet på OS-disken är lika mycket som minnesstorleken (RAM) på den virtuella datorn.
+3. Kontrol lera att det lediga utrymmet på OS-disken är så mycket som minnes storleken (RAM) på den virtuella datorn.
 
-Om det inte finns tillräckligt med utrymme på OS-disken bör du ändra platsen där minnesdumpfilen skapas och hänvisa den till alla datadiskar som är anslutna till den virtuella datorn och som har tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du %SystemRoot%" med enhetsbeteckningen (till exempel "F:") för datadisken i kommandona nedan.
+Om det inte finns tillräckligt med utrymme på OS-disken, bör du ändra platsen där minnesdumpen skapas och se om det finns en datadisk som är ansluten till den virtuella datorn som har tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du "% SystemRoot%" med enhets beteckningen (till exempel "F:") för data disken i följande kommandon.
 
 #### <a name="suggested-configuration-to-enable-os-dump"></a>Föreslagen konfiguration för att aktivera OS-dump
 
-**Ladda broken OS Disk:**
+**Läs in trasig OS-disk**:
 
 `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
 
@@ -122,10 +122,10 @@ Om det inte finns tillräckligt med utrymme på OS-disken bör du ändra platsen
 
 `REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f`
 
-**Ta bort trasig OS-disk:**
+**Ta bort skadad OS-disk:**
 
 `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### <a name="rebuild-the-original-vm"></a>Återskapa den ursprungliga virtuella datorn
 
-Använd [steg 5 i vm-reparationskommandona](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att sätta ihop den virtuella datorn igen.
+Använd [steg 5 i reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) för att bygga upp den virtuella datorn igen.

@@ -1,6 +1,6 @@
 ---
-title: Operativsystem som stöds, behållarmotorer - Azure IoT Edge
-description: Lär dig vilka operativsystem som kan köra Azure IoT Edge-demonen och körningen och behållarmotorer som stöds för dina produktionsenheter
+title: Operativ system som stöds, container engines-Azure IoT Edge
+description: Lär dig vilka operativ system som kan köra Azure IoT Edge daemon och körning, och vilka behållar motorer som stöds för dina produktions enheter
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,85 +9,85 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 42c0a5d0c590f8c395c2afe366a00fcb9c83ce46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536946"
 ---
-# <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge-stödda system
+# <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge system som stöds
 
-Den här artikeln innehåller information om vilka system och komponenter som stöds av IoT Edge, antingen officiellt eller i förhandsversion.
+Den här artikeln innehåller information om vilka system och komponenter som stöds av IoT Edge, oavsett om de är officiellt eller i för hands versionen.
 
-Om du får problem när du använder Azure IoT Edge-tjänsten finns det flera sätt att söka support. Prova någon av följande kanaler för support:
+Om du får problem när du använder tjänsten Azure IoT Edge kan du söka efter support på flera sätt. Prova någon av följande kanaler för support:
 
-**Rapportera fel** – Den största delen av utvecklingen som går till Azure IoT Edge-produkten sker i IoT Edge open source-projektet. Buggar kan rapporteras på [ärendesidan](https://github.com/azure/iotedge/issues) i projektet. Korrigeringar tar sig snabbt från projektet till produktuppdateringar.
+**Rapporterings buggar** – merparten av utvecklingen som ingår i Azure IoT Edge produkten sker i projektet IoT Edge projekt med öppen källkod. Buggar kan rapporteras på [sidan problem](https://github.com/azure/iotedge/issues) i projektet. Du kan snabbt göra sitt sätt från projektet i till produkt uppdateringar.
 
-**Microsofts kundtjänst** – Användare som har ett [supportabonnemang](https://azure.microsoft.com/support/plans/) kan engagera Microsofts kundtjänst genom att skapa en supportbiljett direkt från [Azure-portalen](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+**Microsofts kund support team** – användare som har ett [support](https://azure.microsoft.com/support/plans/) avtal kan engagera Microsofts kund support team genom att skapa ett Support ärende direkt från [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Funktionsförfrågningar** – Azure IoT Edge-produkten spårar funktionsförfrågningar via produktens [användarröstsida](https://feedback.azure.com/forums/907045-azure-iot-edge).
+**Funktions förfrågningar** – Azure IoT Edge produkten spårar funktions förfrågningar via produktens [röst sida](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
-## <a name="container-engines"></a>Containermotorer
+## <a name="container-engines"></a>Behållar motorer
 
-Azure IoT Edge-moduler implementeras som behållare, så IoT Edge behöver en behållarmotor för att starta dem. Microsoft tillhandahåller en containermotor, moby-motor, för att uppfylla detta krav. Denna containermotor är baserad på Moby open-source-projektet. Docker CE och Docker EE är andra populära containermotorer. De är också baserade på Moby open-source-projektet och är kompatibla med Azure IoT Edge. Microsoft ger bäst koll på system som använder dessa behållarmotorer. Microsoft kan dock inte skicka korrigeringar för problem i dem. Därför rekommenderar Microsoft att du använder moby-engine på produktionssystem.
+Azure IoT Edge moduler implementeras som behållare, så IoT Edge behöver en behållar motor för att starta dem. Microsoft tillhandahåller en behållar motor, Moby-motor, för att uppfylla det här kravet. Den här behållar motorn är baserad på Moby projekt med öppen källkod. Docker CE och Docker EE är andra populära behållar motorer. De är också baserade på Moby projekt med öppen källkod och är kompatibla med Azure IoT Edge. Microsoft tillhandahåller stöd för bästa prestanda för system som använder dessa behållar motorer. Microsoft kan dock inte leverera korrigeringar för problem i dem. Av den anledningen rekommenderar Microsoft att använda Moby-motor i produktions system.
 
 <br>
 <center>
 
-![Moby-motorn som containerkörning](./media/support/only-moby-for-production.png)
+![Moby-motorn som container runtime](./media/support/only-moby-for-production.png)
 </center>
 
 ## <a name="operating-systems"></a>Operativsystem
 
-Azure IoT Edge körs på de flesta operativsystem som kan köra behållare. Alla dessa system stöds dock inte på samma sätt. Operativsystem grupperas i nivåer som representerar nivån på supportanvändare kan förvänta sig.
+Azure IoT Edge körs på de flesta operativ system som kan köra behållare. alla dessa system stöds dock inte. Operativ system grupperas i nivåer som representerar den nivå av support användare som kan förväntas.
 
-* Nivå 1-system stöds. För nivå 1-system, Microsoft:
-  * har detta operativsystem i automatiserade tester
-  * tillhandahåller installationspaket för dem
+* Nivå 1-system stöds. För system på nivå 1 är Microsoft:
+  * har det här operativ systemet i automatiserade tester
+  * tillhandahåller installations paket för dem
 * Nivå 2-system är kompatibla med Azure IoT Edge och kan användas relativt enkelt. För nivå 2-system:
-  * Microsoft har gjort informella tester på plattformarna eller känner till en partner som framgångsrikt kör Azure IoT Edge på plattformen
-  * Installationspaket för andra plattformar kan fungera på dessa plattformar
+  * Microsoft har utfört informella tester på plattformarna eller känner av en partner som kör Azure IoT Edge på plattformen
+  * Installations paket för andra plattformar kan fungera på dessa plattformar
 
-Familjen till värdoperativsystemet måste alltid matcha familjen till gästoperativsystemet som används i en moduls behållare. Med andra ord kan du bara använda Linux-behållare på Linux- och Windows-behållare på Windows. När du använder Windows stöds endast process isolerade behållare, inte Hyper-V-isolerade behållare.  
+Värd operativ systemets familj måste alltid matcha den familj av gäst operativ systemet som används i en moduls behållare. Med andra ord kan du bara använda Linux-behållare på Linux-och Windows-behållare i Windows. När du använder Windows stöds endast process isolerade behållare, inte för Hyper-V-isolerade behållare.  
 
 <br>
 <center>
 
-![Värd-OS matchar gäst-OS](./media/support/edge-on-device.png)
+![Värd operativ system matchar gäst operativ system](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>Nivå 1
 
-De system som anges i följande tabell stöds av Microsoft, antingen allmänt tillgängliga eller i offentlig förhandsversion, och testas med varje ny utgåva. 
+De system som anges i följande tabell stöds av Microsoft, antingen allmänt tillgängliga eller i offentlig för hands version, och testas med varje ny version. 
 
-| Operativsystem | AMD64 (på andra sätt) | ARM32v7 | ARM64 |
+| Operativsystem | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Offentlig förhandsgranskning  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Offentlig förhandsgranskning |
-| [Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/windows-iot-core), bygga 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise), bygga 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19), bygg 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server IoT 2019](https://docs.microsoft.com/windows/iot-core/windows-server), bygg 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Raspbian Stretch |  | ![Raspbian-sträckning + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Offentlig för hands version  |
+| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18,04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Offentlig för hands version |
+| [Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/windows-iot-core), build 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise), build 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19), build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Windows Server IoT 2019](https://docs.microsoft.com/windows/iot-core/windows-server), build 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
-De Windows-operativsystem som anges ovan är kraven för enheter som kör Windows-behållare i Windows, vilket är den enda konfiguration som stöds för produktion. Azure IoT Edge-installationspaketen för Windows tillåter användning av Linux-behållare i Windows. Den här konfigurationen är dock endast för utveckling och testning. Mer information finns i [Använda IoT Edge i Windows för att köra Linux-behållare](how-to-install-iot-edge-windows-with-linux.md).
+De Windows-operativsystem som anges ovan är kraven för enheter som kör Windows-behållare i Windows, vilket är den enda konfiguration som stöds för produktion. Azure IoT Edge installations paket för Windows tillåter användning av Linux-behållare i Windows. den här konfigurationen är dock endast för utveckling och testning. Mer information finns i [använda IoT Edge i Windows för att köra Linux-behållare](how-to-install-iot-edge-windows-with-linux.md).
 
 ### <a name="tier-2"></a>Nivå 2
 
-De system som anges i följande tabell anses vara kompatibla med Azure IoT Edge, men testas inte aktivt eller underhålls av Microsoft.
+De system som anges i följande tabell anses vara kompatibla med Azure IoT Edge, men testas eller underhålls inte aktivt av Microsoft.
 
-| Operativsystem | AMD64 (på andra sätt) | ARM32v7 | ARM64 |
+| Operativsystem | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | [CentOS 7.5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 8](https://www.debian.org/releases/jessie/) | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 10](https://www.debian.org/releases/buster/) <sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Mentor Inbäddade Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/tutorial-c-module/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7,5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7,5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7,5 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Ubuntu 16,04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu 16,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16,04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16,04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18,04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Vind Flod 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18,04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18,04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18,04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Vind floden 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
 | Raspbian Buster <sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 
@@ -99,11 +99,11 @@ sudo apt-get install libssl1.0.2
 
 ## <a name="releases"></a>Versioner
 
-IoT Edge-versionstillgångar och versionsfakturor är tillgängliga på sidan [azure-iotedge-versioner.](https://github.com/Azure/azure-iotedge/releases) Det här avsnittet återspeglar information från dessa viktig information som hjälper dig att visualisera komponenterna i varje version enklare.
+IoT Edge release assets och viktig information finns på sidan med [Azure-iotedge-versioner](https://github.com/Azure/azure-iotedge/releases) . Det här avsnittet visar information från de viktiga anteckningarna som hjälper dig att visualisera komponenterna i varje version enklare.
 
-IoT Edge-komponenter kan installeras eller uppdateras individuellt och är bakåtkompatibla med komponenter från äldre versioner. I följande tabell visas de komponenter som ingår i varje utgåva:
+IoT Edge-komponenter kan installeras eller uppdateras individuellt och är bakåtkompatibla med komponenter från äldre versioner. I följande tabell visas de komponenter som ingår i varje version:
 
-| Frisläpp   | Säkerhetsdemon  | Edge-nav<br>Kantagent | Libiothsm (libjothsm) | Moby  |
+| Frisläpp   | Security daemon  | Edge Hub<br>Edge-agent | Libiothsm | Moby  |
 | --------- | ---------------- | ---------------------- | --------- | ----- |
 | **1.0.9** | 1.0.9            | 1.0.9                  | 1.0.9     |       |
 | **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
@@ -111,17 +111,17 @@ IoT Edge-komponenter kan installeras eller uppdateras individuellt och är bakå
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6       | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5            | 1.0.5                  | 1.0.5     | 3.0.2 |
 
-IoT Edge använder Microsoft.Azure.Device.Client SDK. Mer information finns i [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) eller [Azure SDK för .NET-referensinnehåll](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). Följande lista visar den version av klienten SDK som varje utgåva testas mot:
+IoT Edge använder Microsoft. Azure. Device. client SDK. Mer information finns i [Azure IoT C# SDK GitHub-lagrings platsen](https://github.com/Azure/azure-iot-sdk-csharp) eller [Azure SDK för .net-referens innehåll](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). I följande lista visas den version av klient-SDK: n som varje version testas mot:
 
-* **IoT Edge 1.0.9**: Klient SDK 1.21.1
-* **IoT Edge 1.0.8**: Klient SDK 1.20.3
-* **IoT Edge 1.0.7**: Klient SDK 1.20.1
-* **IoT Edge 1.0.6**: Klient SDK 1.17.1
-* **IoT Edge 1.0.5**: Klient SDK 1.17.1
+* **IoT Edge 1.0.9**: klient-SDK-1.21.1
+* **IoT Edge 1.0.8**: klient-SDK-1.20.3
+* **IoT Edge 1.0.7**: klient-SDK-1.20.1
+* **IoT Edge 1.0.6**: klient-SDK-1.17.1
+* **IoT Edge 1.0.5**: klient-SDK-1.17.1
 
 ## <a name="virtual-machines"></a>Virtuella datorer
 
-Azure IoT Edge kan köras i virtuella datorer. Det är vanligt att använda en virtuell dator som en IoT Edge-enhet när kunder vill utöka befintlig infrastruktur med kantinformation. Familjen till värd-VM-operativsystemet måste matcha familjen för gästoperativsystemet som används i en moduls behållare. Det här kravet är detsamma som när Azure IoT Edge körs direkt på en enhet. Azure IoT Edge är agnostiker för den underliggande virtualiseringstekniken och fungerar i virtuella datorer som drivs av plattformar som Hyper-V och vSphere.
+Azure IoT Edge kan köras i virtuella datorer. Att använda en virtuell dator som en IoT Edge enhet är vanligt när kunder vill utöka den befintliga infrastrukturen med Edge Intelligence. Familjen för värddatorns virtuella dator operativ system måste matcha den familj av gäst operativ systemet som används i en moduls behållare. Detta krav är detsamma som när Azure IoT Edge körs direkt på en enhet. Azure IoT Edge är oberoende av den underliggande Virtualization-tekniken och fungerar i virtuella datorer som drivs av plattformar som Hyper-V och vSphere.
 
 <br>
 <center>
@@ -129,16 +129,16 @@ Azure IoT Edge kan köras i virtuella datorer. Det är vanligt att använda en v
 ![Azure IoT Edge i en virtuell dator](./media/support/edge-on-vm.png)
 </center>
 
-## <a name="minimum-system-requirements"></a>Minimikrav på system
+## <a name="minimum-system-requirements"></a>Minsta system krav
 
-Azure IoT Edge körs utmärkt på enheter så små som en Raspberry Pi3 till server grade hårdvara. Att välja rätt maskinvara för ditt scenario beror på vilka arbetsbelastningar du vill köra. Att fatta det slutliga enhetsbeslutet kan vara komplicerat; Du kan dock enkelt börja prototypera en lösning på traditionella bärbara eller stationära datorer.
+Azure IoT Edge körs bra på enheter så litet som en Raspberry-Pi3 till maskin vara på server nivå. Att välja rätt maskin vara för ditt scenario beror på de arbets belastningar som du vill köra. Att göra det slutliga enhets beslutet kan vara komplicerat. Du kan dock enkelt starta prototyper av en lösning på traditionella bärbara och Station ära datorer.
 
-Upplev medan prototyper hjälper dig att styra ditt slutliga enhetsval. Frågor som du bör tänka på är:
+Upplevelsen under prototypen hjälper dig att hjälpa dig att hjälpa dig med din slutliga enhets val Frågor som du bör ta hänsyn till:
 
-* Hur många moduler finns i din arbetsbelastning?
-* Hur många lager delar modulernas behållare?
-* På vilket språk är dina moduler skrivna?
-* Hur mycket data kommer dina moduler att bearbeta?
-* Behöver dina moduler någon specialiserad maskinvara för att påskynda sina arbetsbelastningar?
-* Vilka är de önskade prestandaegenskaperna hos din lösning?
-* Vad är din maskinvarubudget?
+* Hur många moduler finns i arbets belastningen?
+* Hur många lager bevarar dina modulers behållare resurser?
+* I vilket språk har dina moduler skrivits?
+* Hur mycket data kommer dina moduler att bearbetas?
+* Behöver dina moduler all specialiserad maskin vara för att påskynda sina arbets belastningar?
+* Vilka är de önskade prestanda egenskaperna för din lösning?
+* Vilken är din maskin varu budget?

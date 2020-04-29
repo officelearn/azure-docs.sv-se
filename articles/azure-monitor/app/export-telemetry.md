@@ -1,134 +1,134 @@
 ---
-title: Kontinuerlig export av telemetri från Application Insights | Microsoft-dokument
-description: Exportera diagnostik- och användningsdata till lagring i Microsoft Azure och hämta dem därifrån.
+title: Kontinuerlig export av telemetri från Application Insights | Microsoft Docs
+description: Exportera diagnostik-och användnings data till lagring i Microsoft Azure och ladda ned dem därifrån.
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80298291"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
-Vill du behålla telemetrin längre än standardlagringsperioden? Eller bearbeta det på något specialiserat sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i application insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du ladda ner dina data och skriva vilken kod du behöver för att bearbeta den.  
+Vill du behålla din telemetri längre än standard kvarhållningsperioden? Eller bearbeta den på ett visst sätt? Kontinuerlig export är idealisk för detta. De händelser som visas i Application Insights-portalen kan exporteras till lagring i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriva vilken kod du behöver för att bearbeta den.  
 
-Innan du ställer in kontinuerlig export finns det några alternativ som du kanske vill överväga:
+Innan du konfigurerar kontinuerlig export finns det några alternativ som du kanske vill tänka på:
 
-* Med knappen Exportera högst upp på en mått- eller sökflik kan du överföra tabeller och diagram till ett Excel-kalkylblad.
+* Med knappen Exportera högst upp på fliken mått eller Sök kan du överföra tabeller och diagram till ett Excel-kalkylblad.
 
-* [Analytics](../../azure-monitor/app/analytics.md) ger ett kraftfullt frågespråk för telemetri. Det kan också exportera resultat.
-* Om du vill [utforska dina data i Power BI](../../azure-monitor/app/export-power-bi.md )kan du göra det utan att använda Kontinuerlig export.
-* Med [REST API:et](https://dev.applicationinsights.io/) för dataåtkomst kan du komma åt telemetrin programmässigt.
-* Du kan också komma åt kontinuerlig [export genom Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* [Analytics](../../azure-monitor/app/analytics.md) har ett kraftfullt frågespråk för telemetri. Det kan också exportera resultat.
+* Om du vill [utforska dina data i Power BI](../../azure-monitor/app/export-power-bi.md )kan du göra det utan att använda kontinuerlig export.
+* Med [data åtkomst REST API](https://dev.applicationinsights.io/) kan du komma åt telemetri program mässigt.
+* Du kan också komma åt konfigurations [kontinuerlig export via PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
-När kontinuerlig export har kopierat dina data till lagring (där de kan stanna så länge du vill) är de fortfarande tillgängliga i Application Insights för den vanliga [kvarhållningsperioden](../../azure-monitor/app/data-retention-privacy.md).
+När kontinuerlig export kopierar dina data till lagrings utrymmet (där det kan fortsätta så länge som du vill), är det fortfarande tillgängligt i Application Insights för den normala [kvarhållningsperioden](../../azure-monitor/app/data-retention-privacy.md).
 
-## <a name="continuous-export-advanced-storage-configuration"></a>Avancerad lagringskonfiguration för kontinuerlig export
+## <a name="continuous-export-advanced-storage-configuration"></a>Kontinuerlig export, avancerad lagrings konfiguration
 
-Kontinuerlig export **stöder inte** följande Azure-lagringsfunktioner/konfigurationer:
+Kontinuerlig export **stöder inte** följande funktioner/konfigurationer för Azure Storage:
 
-* Användning av [VNET/Azure Storage-brandväggar](https://docs.microsoft.com/azure/storage/common/storage-network-security) tillsammans med Azure Blob-lagring.
+* Använda [VNet/Azure Storage brand väggar](https://docs.microsoft.com/azure/storage/common/storage-network-security) tillsammans med Azure Blob Storage.
 
-* [Oföränderlig lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) för Azure Blob-lagring.
+* [Oföränderligt lagrings utrymme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) för Azure Blob Storage.
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
-## <a name="create-a-continuous-export"></a><a name="setup"></a>Skapa en kontinuerlig export
+## <a name="create-a-continuous-export"></a><a name="setup"></a>Skapa en löpande export
 
-1. Öppna Kontinuerlig export i application insights-resursen för appen under konfigurera till vänster och välj **Lägg till:**
+1. I Application Insights resurs för din app under Konfigurera till vänster öppnar du kontinuerlig export och väljer **Lägg till**:
 
-2. Välj de telemetridatatyper som du vill exportera.
+2. Välj de data typer för telemetri som du vill exportera.
 
-3. Skapa eller välj ett [Azure-lagringskonto](../../storage/common/storage-introduction.md) där du vill lagra data. Mer information om lagringspriseralternativ finns på den [officiella prissidan](https://azure.microsoft.com/pricing/details/storage/).
+3. Skapa eller Välj ett [Azure Storage-konto](../../storage/common/storage-introduction.md) där du vill lagra data. Mer information om pris alternativ för lagring finns på [sidan med officiella priser](https://azure.microsoft.com/pricing/details/storage/).
 
-     Klicka på Lägg till, Exportera mål, lagringskonto och skapa sedan en ny butik eller välj en befintlig butik.
+     Klicka på Lägg till, exportera mål, lagrings konto och skapa sedan en ny butik eller Välj en befintlig butik.
 
     > [!Warning]
-    > Som standard anges lagringsplatsen till samma geografiska region som application insights-resursen. Om du lagrar i en annan region kan du debiteras överföringsavgifter.
+    > Som standard kommer lagrings platsen att ställas in på samma geografiska region som din Application Insights-resurs. Om du lagrar i en annan region kan du debiteras överförings avgifter.
 
-4. Skapa eller markera en behållare i lagringen.
+4. Skapa eller Välj en behållare i lagrings utrymmet.
 
-När du har skapat din export börjar den gå. Du får bara data som kommer när du har skapat exporten.
+När du har skapat exporten börjar den. Du får bara data som kommer efter att du har skapat exporten.
 
-Det kan finnas en fördröjning på ungefär en timme innan data visas i lagringen.
+Det kan finnas en fördröjning på ungefär en timme innan data visas i lagrings utrymmet.
 
-När den första exporten är klar hittar du en struktur som liknar följande i din Azure Blob-lagringsbehållare: (Detta varierar beroende på vilka data du samlar in.)
+När den första exporten är klar hittar du en struktur som liknar följande i din Azure Blob Storage-behållare: (detta varierar beroende på vilka data som samlas in.)
 
-|Namn | Beskrivning |
+|Name | Beskrivning |
 |:----|:------|
-| [Tillgänglighet](export-data-model.md#availability) | Rapporterar [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Händelse](export-data-model.md#events) | Anpassade händelser som genereras av [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Tillgänglighet](export-data-model.md#availability) | Reports för [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md).  |
+| [Händelse](export-data-model.md#events) | Anpassade händelser som genererats av [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
 | [Undantag](export-data-model.md#exceptions) |Rapporterar [undantag](../../azure-monitor/app/asp-net-exceptions.md) på servern och i webbläsaren.
-| [Meddelanden](export-data-model.md#trace-messages) | Skickas av [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)och av [loggningsadaptrarna](../../azure-monitor/app/asp-net-trace-logs.md).
-| [Statistik](export-data-model.md#metrics) | Genereras av mått API-anrop.
-| [PerformanceCounters (PerformanceCounters)](export-data-model.md) | Prestandaräknare som samlas in av Application Insights.
-| [Begäranden](export-data-model.md#requests)| Skickas av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Standardmodulerna använder detta för att rapportera serverns svarstid, mätt på servern.| 
+| [Kömeddelanden](export-data-model.md#trace-messages) | Skickas av [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)och av [loggnings korten](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Mått](export-data-model.md#metrics) | Genereras av Metric API-anrop.
+| [PerformanceCounters](export-data-model.md) | Prestanda räknare som samlats in av Application Insights.
+| [Begäranden](export-data-model.md#requests)| Skickat av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Standardmodulerna använder detta för att rapportera Server svars tid, mätt på servern.| 
 
-### <a name="to-edit-continuous-export"></a>Så här redigerar du kontinuerlig export
+### <a name="to-edit-continuous-export"></a>Redigera kontinuerlig export
 
-Klicka på kontinuerlig export och välj lagringskontot att redigera.
+Klicka på löpande export och välj det lagrings konto som ska redige ras.
 
-### <a name="to-stop-continuous-export"></a>Så här stoppar du kontinuerlig export
+### <a name="to-stop-continuous-export"></a>Stoppa kontinuerlig export
 
-Om du vill stoppa exporten klickar du på Inaktivera. När du klickar på Aktivera igen startas exporten om med nya data. Du får inte de data som kom i portalen när exporten inaktiverades.
+Stoppa exporten genom att klicka på Inaktivera. När du klickar på Aktivera igen kommer exporten att starta om med nya data. Du får inte de data som kom in i portalen när export har inaktiverats.
 
-Om du vill stoppa exporten permanent tar du bort den. Om du gör det tas inte dina data bort från lagringen.
+Om du vill stoppa exporten permanent tar du bort den. Om du gör det tas inte data bort från lagrings platsen.
 
 ### <a name="cant-add-or-change-an-export"></a>Kan du inte lägga till eller ändra en export?
-* Om du vill lägga till eller ändra exporten behöver du åtkomsträttigheter för ägare, deltagare eller programinsikter. [Läs mer om roller][roles].
+* Om du vill lägga till eller ändra exporter behöver du ägare, deltagare eller Application Insights deltagar behörighet. [Lär dig mer om roller][roles].
 
 ## <a name="what-events-do-you-get"></a><a name="analyze"></a>Vilka händelser får du?
-De exporterade data är den råa telemetri vi får från ditt program, förutom att vi lägger till platsdata, som vi beräknar från klientens IP-adress.
+Exporterade data är den råa telemetri som vi tar emot från ditt program, förutom att vi lägger till plats data som vi beräknar från klientens IP-adress.
 
-Uppgifter som har kasserats genom [provtagning](../../azure-monitor/app/sampling.md) ingår inte i de exporterade uppgifterna.
+Data som har tagits bort från [sampling](../../azure-monitor/app/sampling.md) ingår inte i exporterade data.
 
-Andra beräknade mått ingår inte. Vi exporterar till exempel inte genomsnittlig CPU-användning, men vi exporterar den råa telemetri som medelvärdet beräknas från.
+Andra beräknade mått tas inte med. Vi exporterar till exempel inte genomsnittlig processor användning, men vi exporterar den obehandlade som genomsnittet beräknas från.
 
-Data innehåller också resultaten av alla [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) som du har ställt in.
+Datan innehåller även resultatet av alla [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) som du har konfigurerat.
 
 > [!NOTE]
-> **Provtagning.** Om ditt program skickar mycket data kan samplingsfunktionen fungera och skicka endast en bråkdel av den genererade telemetrin. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
+> **Ta.** Om ditt program skickar mycket data kan samplings funktionen hantera och bara skicka en bråkdel av den genererade Telemetrin. [Läs mer om sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
-## <a name="inspect-the-data"></a><a name="get"></a>Kontrollera data
-Du kan inspektera lagringen direkt i portalen. Klicka på startsidan i menyn längst till vänster, högst upp där det står "Azure-tjänster" väljer **du Lagringskonton**, väljer lagringskontonamnet, väljer **Blobbar** under tjänster på översiktssidan och väljer slutligen behållarnamnet.
+## <a name="inspect-the-data"></a><a name="get"></a>Granska data
+Du kan kontrol lera lagringen direkt i portalen. Klicka på Start i menyn längst till vänster längst upp där det står "Azure-tjänster" Välj **lagrings konton**, Välj lagrings kontots namn på sidan Översikt och välj **blobbar** under tjänster och välj sedan container namnet.
 
-Om du vill granska Azure-lagring i Visual Studio öppnar du **Visa**, **Cloud Explorer**. (Om du inte har det menykommandot måste du installera Azure SDK: Öppna dialogrutan **Nytt projekt,** expandera Visual C#/Cloud och välja **Hämta Microsoft Azure SDK för .NET**.)
+Öppna **vyn**och **Cloud Explorer**för att kontrol lera Azure Storage i Visual Studio. (Om du inte har det meny kommandot måste du installera Azure SDK: öppna dialog rutan **nytt projekt** , expandera Visual C#/Cloud och välj **Hämta Microsoft Azure SDK för .net**.)
 
-När du öppnar blob-arkivet visas en behållare med en uppsättning blob-filer. URI för varje fil som härleds från ditt Application Insights-resursnamn, dess instrumenteringsnyckel, telemetrityp/datum/tid. (Resursnamnet är gemener och instrumenteringsnyckeln utelämnar streck.)
+När du öppnar BLOB Store visas en behållare med en uppsättning BLOB-filer. URI: n för varje fil som härleds från Application Insights resurs namn, Instrumentation-nyckel, telemetri-typ/datum/tid. (Resurs namnet är bara gemener och instrument knappen utesluter bindestreck.)
 
-![Inspektera blob-förrådet med ett lämpligt verktyg](./media/export-telemetry/04-data.png)
+![Inspektera BLOB Store med ett lämpligt verktyg](./media/export-telemetry/04-data.png)
 
-Datum och tid är UTC och är när telemetrin deponerades i butiken - inte den tid det genererades. Så om du skriver kod för att ladda ner data, kan det flytta linjärt genom data.
+Datumet och tiden är UTC och när telemetri deponerades i lagret – inte den tidpunkt då den genererades. Så om du skriver kod för att ladda ned data kan den flytta linjärt genom data.
 
-Här är formen på sökvägen:
+Här är en form av sökvägen:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
 Var
 
-* `blobCreationTimeUtc`är den tid då blob skapades i den interna mellanlagringslagringen
-* `blobDeliveryTimeUtc`är den tidpunkt då blob kopieras till lagring av exportmål
+* `blobCreationTimeUtc`är tiden då blobben skapades i den interna mellanlagringen
+* `blobDeliveryTimeUtc`är tiden när blobben kopieras till export destinations lagringen
 
-## <a name="data-format"></a><a name="format"></a>Dataformat
-* Varje blob är en textfil som innehåller flera '\n'-separerade rader. Den innehåller telemetri som bearbetas under en tidsperiod på ungefär en halv minut.
-* Varje rad representerar en telemetridatapunkt, till exempel en begäran eller sidvy.
-* Varje rad är ett oformaterat JSON-dokument. Om du vill sitta och stirra på den öppnar du den i Visual Studio och väljer Redigera, Avancerad, Formatera fil:
+## <a name="data-format"></a><a name="format"></a>Data format
+* Varje BLOB är en textfil som innehåller flera ' \n '-avgränsade rader. Den innehåller Telemetrin som bearbetas under en tids period på ungefär hälften en minut.
+* Varje rad representerar en data punkt för telemetri, till exempel en begäran eller sid visning.
+* Varje rad är ett oformaterat JSON-dokument. Om du vill sitta och ta en stjärna öppnar du den i Visual Studio och väljer Redigera, Avancerat, format fil:
 
-![Visa telemetrin med ett lämpligt verktyg](./media/export-telemetry/06-json.png)
+![Visa telemetri med ett lämpligt verktyg](./media/export-telemetry/06-json.png)
 
-Tidslängder är i fästingar, där 10 000 fästingar = 1 ms. Dessa värden visar till exempel en tid på 1 ms för att skicka en begäran från webbläsaren, 3 ms för att ta emot den och 1,8 s för att bearbeta sidan i webbläsaren:
+Tids längden är i Tick, där 10 000 Tick = 1 MS. Dessa värden visar till exempel en tid på 1 ms för att skicka en begäran från webbläsaren, 3 MS för att ta emot den och 1,8 s för att bearbeta sidan i webbläsaren:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},
     "clientProcess": {"value": 17970000.0}
 
-[Detaljerad datamodellreferens för egenskapstyper och värden.](export-data-model.md)
+[Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
 
-## <a name="processing-the-data"></a>Behandling av data
-I liten skala kan du skriva en del kod för att dra isär dina data, läsa dem i ett kalkylblad och så vidare. Ett exempel:
+## <a name="processing-the-data"></a>Bearbetar data
+I en liten skala kan du skriva kod för att hämta data, läsa dem i ett kalkyl blad och så vidare. Ett exempel:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -147,57 +147,57 @@ I liten skala kan du skriva en del kod för att dra isär dina data, läsa dem i
       }
     }
 
-Ett större kodexempel finns [i använda en arbetsroll][exportasa].
+Ett större kod exempel finns i [använda en arbets roll][exportasa].
 
 ## <a name="delete-your-old-data"></a><a name="delete"></a>Ta bort dina gamla data
-Du ansvarar för att hantera din lagringskapacitet och ta bort gamla data om det behövs.
+Du ansvarar för att hantera lagrings kapaciteten och ta bort gamla data vid behov.
 
-## <a name="if-you-regenerate-your-storage-key"></a>Om du återskapar lagringsnyckeln...
-Om du ändrar nyckeln till ditt lagringsutrymme slutar kontinuerlig export att fungera. Du ser en avisering i ditt Azure-konto.
+## <a name="if-you-regenerate-your-storage-key"></a>Om du återskapar din lagrings nyckel...
+Om du ändrar nyckeln till lagringen slutar den löpande exporten att fungera. Du ser ett meddelande i ditt Azure-konto.
 
-Öppna fliken Kontinuerlig export och redigera exporten. Redigera exportmålet, men lämna bara samma lagringsutrymme markerat. Klicka på OK för att bekräfta.
+Öppna fliken kontinuerlig export och redigera exporten. Redigera export målet, men lämna bara samma lagring valt. Bekräfta genom att klicka på OK.
 
-Den kontinuerliga exporten startas om.
+Den löpande exporten startas om.
 
-## <a name="export-samples"></a>Exportera prover
+## <a name="export-samples"></a>Exportera exempel
 
 * [Exportera till SQL med Stream Analytics][exportasa]
-* [Exempel på Stream Analytics 2](export-stream-analytics.md)
+* [Stream Analytics exempel 2](export-stream-analytics.md)
 
-På större skalor bör du tänka på [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop-kluster i molnet. HDInsight tillhandahåller en mängd olika tekniker för att hantera och analysera stordata, och du kan använda den för att bearbeta data som har exporterats från Application Insights.
+På större skalor bör du överväga [HDInsight](https://azure.microsoft.com/services/hdinsight/) -Hadoop-kluster i molnet. HDInsight tillhandahåller en mängd olika tekniker för att hantera och analysera stora data och du kan använda den för att bearbeta data som har exporter ATS från Application Insights.
 
-## <a name="q--a"></a>Vanliga frågor och svar
-* *Men allt jag vill ha är en engångsnedladdning av ett diagram.*  
+## <a name="q--a"></a>Frågor och svar
+* *Men alla jag vill ha en enstaka hämtning av ett diagram.*  
 
-    Ja, det kan du göra. Klicka på **Exportera data**högst upp på fliken .
-* *Jag har ordnat en export, men det finns inga data i mitt lager.*
+    Ja, du kan göra det. Klicka på **Exportera data**överst på fliken.
+* *Jag har konfigurerat en export, men det finns inga data i mitt arkiv.*
 
-    Har Application Insights fått någon telemetri från din app sedan du konfigurerade exporten? Du får bara nya data.
-* *Jag försökte skapa en export, men nekades åtkomst*
+    Fick Application Insights ta emot telemetri från din app sedan du konfigurerade exporten? Du får bara nya data.
+* *Jag försökte konfigurera en export, men nekades åtkomst*
 
-    Om kontot ägs av din organisation måste du vara medlem i ägar- eller deltagargrupperna.
-* *Kan jag exportera direkt till min egen butik?*
+    Om kontot ägs av din organisation måste du vara medlem i gruppen ägare eller deltagare.
+* *Kan jag exportera direkt till min egen lokala lagrings plats?*
 
-    Nej, förlåt. Vår exportmotor fungerar för närvarande bara med Azure-lagring just nu.  
-* *Finns det någon gräns för hur mycket data du lägger i min butik?*
+    Nej, tyvärr. Vår export motor fungerar för närvarande bara med Azure Storage för tillfället.  
+* *Finns det någon gräns för mängden data som du lagrar i mitt arkiv?*
 
-    Nej. Vi fortsätter att skicka in data tills du tar bort exporten. Vi slutar om vi når de yttre gränserna för bloblagring, men det är ganska stort. Det är upp till dig att kontrollera hur mycket lagringsutrymme du använder.  
-* *Hur många blobbar ska jag se i lagret?*
+    Nej. Vi håller på att skicka data till tills du tar bort exporten. Vi slutar om vi träffar de yttre gränserna för Blob Storage, men det är ganska stort. Det är upp till dig att styra hur mycket lagrings utrymme du använder.  
+* *Hur många blobbar ska jag se i lagringen?*
 
-  * För varje datatyp som du har valt att exportera skapas en ny blob varje minut (om data är tillgängliga).
-  * Dessutom, för program med hög trafik, ytterligare partitionsenheter tilldelas. I det här fallet skapar varje enhet en blob varje minut.
-* *Jag återskapade nyckeln till min lagring eller ändrade namnet på behållaren, och nu fungerar inte exporten.*
+  * För alla data typer som du har valt att exportera, skapas en ny BLOB varje minut (om data är tillgängliga).
+  * Dessutom allokeras ytterligare diskpartitioner för program med hög trafik. I det här fallet skapar varje enhet en BLOB varje minut.
+* *Jag återskapade nyckeln till min lagring eller ändrat namnet på behållaren, och nu fungerar inte exporten.*
 
-    Redigera exporten och öppna exportmålfliken. Lämna samma lagringsutrymme markerat som tidigare och klicka på OK för att bekräfta. Exporten startas om. Om ändringen var inom de senaste dagarna kommer du inte att förlora data.
+    Redigera exporten och öppna fliken Exportera destination. lämna samma lagring markerat som tidigare och bekräfta genom att klicka på OK. Exporten kommer att startas om. Om ändringen var inom de senaste dagarna går det inte att förlora data.
 * *Kan jag pausa exporten?*
 
     Ja. Klicka på Inaktivera.
 
 ## <a name="code-samples"></a>Kodexempel
 
-* [Exempel på Stream Analytics](export-stream-analytics.md)
+* [Stream Analytics exempel](export-stream-analytics.md)
 * [Exportera till SQL med Stream Analytics][exportasa]
-* [Detaljerad datamodellreferens för egenskapstyper och värden.](export-data-model.md)
+* [Detaljerad data modell referens för egenskaps typerna och värdena.](export-data-model.md)
 
 <!--Link references-->
 

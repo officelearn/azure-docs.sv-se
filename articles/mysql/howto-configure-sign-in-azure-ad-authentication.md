@@ -1,69 +1,69 @@
 ---
-title: Använda Azure Active Directory - Azure Database för MySQL
-description: Lär dig mer om hur du konfigurerar Azure Active Directory (Azure AD) för autentisering med Azure Database för MySQL
+title: Använd Azure Active Directory-Azure Database for MySQL
+description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) för autentisering med Azure Database for MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79299013"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
-Den här artikeln kommer att gå igenom stegen hur du konfigurerar Azure Active Directory-åtkomst med Azure Database för MySQL och hur du ansluter med en Azure AD-token.
+I den här artikeln får du stegvisa anvisningar om hur du konfigurerar Azure Active Directory åtkomst med Azure Database for MySQL och hur du ansluter med hjälp av en Azure AD-token.
 
 > [!IMPORTANT]
-> Azure AD-autentisering för Azure Database för MySQL är för närvarande i offentlig förhandsversion.
+> Azure AD-autentisering för Azure Database for MySQL är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="setting-the-azure-ad-admin-user"></a>Ställa in Azure AD Admin-användare
+## <a name="setting-the-azure-ad-admin-user"></a>Ange Azure AD admin-användare
 
-Endast en Azure AD-administratörsanvändare kan skapa/aktivera användare för Azure AD-baserad autentisering. Så här skapar och Azure AD-administratörsanvändare följer du följande steg
+Endast en Azure AD admin-användare kan skapa/Aktivera användare för Azure AD-baserad autentisering. Följ stegen nedan om du vill skapa och Azure AD admin-användare.
 
-1. I Azure-portalen väljer du den instans av Azure Database för MySQL som du vill aktivera för Azure AD.
-2. Under Inställningar väljer du Active Directory Admin:
+1. I Azure Portal väljer du den instans av Azure Database for MySQL som du vill aktivera för Azure AD.
+2. Under Inställningar väljer du Active Directory administratör:
 
-![ange azure-annonsadministratör][2]
+![Ange Azure AD-administratör][2]
 
-3. Välj en giltig Azure AD-användare i kundklienten som azure AD-administratör.
+3. Välj en giltig Azure AD-användare i kund klienten som Azure AD-administratör.
 
 > [!IMPORTANT]
-> När du anger administratören läggs en ny användare till i Azure Database for MySQL-servern med fullständiga administratörsbehörighet.
+> När du anger administratören läggs en ny användare till i Azure Database for MySQL-servern med fullständig administratörs behörighet.
 
-Endast en Azure AD-administratör kan skapas per MySQL-server och val av en annan kommer att skriva över den befintliga Azure AD-administratören som konfigurerats för servern.
+Det går bara att skapa en Azure AD-administratör per MySQL-server och valet av en annan för att skriva över den befintliga Azure AD-administratören som kon figurer ATS för servern.
 
-I en framtida version kommer vi att stödja att ange en Azure AD-grupp i stället för en enskild användare att ha flera administratörer, men detta stöds för närvarande inte ännu.
+I en framtida version kommer vi att ha stöd för att ange en Azure AD-grupp i stället för en enskild användare som har flera administratörer, men detta stöds inte ännu.
 
 När du har konfigurerat administratören kan du nu logga in:
 
-## <a name="connecting-to-azure-database-for-mysql-using-azure-ad"></a>Ansluta till Azure Database för MySQL med Azure AD
+## <a name="connecting-to-azure-database-for-mysql-using-azure-ad"></a>Ansluta till Azure Database for MySQL med hjälp av Azure AD
 
-Följande diagram på hög nivå sammanfattar arbetsflödet för att använda Azure AD-autentisering med Azure Database for MySQL:
+Följande diagram på hög nivå sammanfattar arbets flödet för att använda Azure AD-autentisering med Azure Database for MySQL:
 
-![autentiseringsflöde][1]
+![autentiseringspaket][1]
 
-Vi har utformat Azure AD-integreringen så att den fungerar med vanliga MySQL-verktyg som mysql CLI, som inte är Azure AD-medvetna och bara stöder att ange användarnamn och lösenord när du ansluter till MySQL. Vi skickar Azure AD-token som lösenord som visas på bilden ovan.
+Vi har utformat Azure AD-integreringen så att den fungerar med vanliga MySQL-verktyg som MySQL CLI, som inte är Azure AD-medvetna och som endast stöder användar namn och lösen ord vid anslutning till MySQL. Vi skickar Azure AD-token till det lösen ord som visas i bilden ovan.
 
-Vi har för närvarande testat följande kunder:
+Vi har för närvarande testat följande klienter:
 
 - MySQLWorkbench 
-- Mysql CLI
+- MySQL CLI
 
-Vi har också testat de vanligaste programdrivrutinerna, du kan se detaljer i slutet av den här sidan.
+Vi har även testat de flesta vanliga program driv rutiner, men du kan se information i slutet av den här sidan.
 
-Det här är de steg som en användare/ett program måste autentisera med Azure AD som beskrivs nedan:
+Detta är de steg som en användare/ett program behöver för att autentisera med Azure AD som beskrivs nedan:
 
-### <a name="step-1-authenticate-with-azure-ad"></a>Steg 1: Autentisera med Azure AD
+### <a name="step-1-authenticate-with-azure-ad"></a>Steg 1: autentisera med Azure AD
 
-Kontrollera att du har [Azure CLI installerat](/cli/azure/install-azure-cli).
+Kontrol lera att du har [installerat Azure CLI](/cli/azure/install-azure-cli).
 
-Anropa Azure CLI-verktyget för att autentisera med Azure AD. Det kräver att du ger ditt Azure AD-användar-ID och lösenordet.
+Anropa Azure CLI-verktyget för att autentisera med Azure AD. Du måste ange ditt användar-ID och lösen ord för Azure AD.
 
 ```
 az login
@@ -73,11 +73,11 @@ Det här kommandot startar ett webbläsarfönster till sidan Azure AD-autentiser
 
 > [!NOTE]
 > Du kan också använda Azure Cloud Shell för att utföra dessa steg.
-> Tänk på att när du hämtar Azure AD-åtkomsttoken i Azure `az login` Cloud Shell måste du uttryckligen anropa och logga in igen (i det separata fönstret med en kod). Efter att logga `get-access-token` in kommandot kommer att fungera som förväntat.
+> Tänk på att när du hämtar Azure AD-åtkomsttoken i Azure Cloud Shell måste du explicit anropa `az login` och logga in igen (i det separata fönstret med en kod). När detta tecken i `get-access-token` kommandot fungerar som förväntat.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Steg 2: Hämta Azure AD-åtkomsttoken
 
-Anropa Azure CLI-verktyget för att hämta en åtkomsttoken för Azure AD-autentiserade användare från steg 1 för att komma åt Azure Database för MySQL.
+Anropa Azure CLI-verktyget för att hämta en åtkomsttoken för Azure AD-autentiserad användare från steg 1 för att få åtkomst till Azure Database for MySQL.
 
 Exempel (för offentligt moln):
 
@@ -85,19 +85,19 @@ Exempel (för offentligt moln):
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
-Ovanstående resursvärde måste anges exakt som visas. För andra moln kan resursvärdet sökas upp med hjälp av:
+Resurs svärdet ovan måste anges exakt som det visas. För andra moln kan resurs värdet slås upp med:
 
 ```shell
 az cloud show
 ```
 
-För Azure CLI version 2.0.71 och senare kan kommandot anges i följande bekvämare version för alla moln:
+För Azure CLI version 2.0.71 och senare kan kommandot anges i följande bekväma version för alla moln:
 
 ```shell
 az account get-access-token --resource-type oss-rdbms
 ```
 
-När autentiseringen har slutförts returnerar Azure AD en åtkomsttoken:
+När autentiseringen är klar returnerar Azure AD en åtkomsttoken:
 
 ```json
 {
@@ -109,16 +109,16 @@ När autentiseringen har slutförts returnerar Azure AD en åtkomsttoken:
 }
 ```
 
-Token är en Base 64-sträng som kodar all information om den autentiserade användaren och som är inriktad på Azure Database for MySQL-tjänsten.
+Token är en bas 64-sträng som kodar all information om den autentiserade användaren och som är avsedd för den Azure Database for MySQL tjänsten.
 
 > [!NOTE]
-> Åtkomsttokens giltighet är någonstans mellan 5 minuter och 60 minuter. Vi rekommenderar att du hämtar åtkomsttoken precis innan du initierar inloggningen till Azure Database for MySQL.
+> Giltighet för åtkomsttoken är mellan 5 minuter och 60 minuter. Vi rekommenderar att du hämtar åtkomsttoken precis innan du initierar inloggningen till Azure Database for MySQL.
 
-### <a name="step-3-use-token-as-password-for-logging-in-with-mysql"></a>Steg 3: Använd token som lösenord för att logga in med MySQL
+### <a name="step-3-use-token-as-password-for-logging-in-with-mysql"></a>Steg 3: Använd token som lösen ord för att logga in med MySQL
 
-När du ansluter måste du använda åtkomsttoken som MySQL-användarlösenord. När du använder GUI-klienter som MySQLWorkbench kan du använda metoden ovan för att hämta token. 
+När du ansluter måste du använda åtkomsttoken som MySQL-användarens lösen ord. När du använder GUI-klienter som MySQLWorkbench kan du använda metoden ovan för att hämta token. 
 
-När du använder CLI kan du använda den här korthanden för att ansluta: 
+När du använder CLI kan du använda den här kort handen för att ansluta: 
 
 **Exempel (Linux/macOS):**
 ```
@@ -128,17 +128,17 @@ mysql -h mydb.mysql.database.azure.com \
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
 
-Observera inställningen "enable-cleartext-plugin" – du måste använda en liknande konfiguration med andra klienter för att se till att token skickas till servern utan att hasheras.
+Observera inställningen Aktivera-klartext-plugin-program – du måste använda en liknande konfiguration med andra klienter för att se till att token skickas till servern utan att hashas.
 
-Du autentiseras nu till mySQL-servern med Azure AD-autentisering.
+Du autentiseras nu till MySQL-servern med Azure AD-autentisering.
 
-## <a name="creating-azure-ad-users-in-azure-database-for-mysql"></a>Skapa Azure AD-användare i Azure Database för MySQL
+## <a name="creating-azure-ad-users-in-azure-database-for-mysql"></a>Skapa Azure AD-användare i Azure Database for MySQL
 
-Om du vill lägga till en Azure AD-användare i din Azure-databas för MySQL-databas utför du följande steg efter anslutning (se senare avsnitt om hur du ansluter):
+Om du vill lägga till en Azure AD-användare till din Azure Database for MySQL databas utför du följande steg efter att du har anslutit (se senare avsnitt om hur du ansluter):
 
-1. Kontrollera först att Azure `<user>@yourtenant.onmicrosoft.com` AD-användaren är en giltig användare i Azure AD-klienten.
-2. Logga in på din Azure-databas för MySQL-instans som Azure AD-administratörsanvändare.
-3. Skapa `<user>@yourtenant.onmicrosoft.com` användare i Azure Database för MySQL.
+1. Se först till att Azure AD- `<user>@yourtenant.onmicrosoft.com` användaren är en giltig användare i Azure AD-klienten.
+2. Logga in på Azure Database for MySQL-instansen som administratörs användare för Azure AD.
+3. Skapa användare `<user>@yourtenant.onmicrosoft.com` i Azure Database for MySQL.
 
 **Exempel:**
 
@@ -146,7 +146,7 @@ Om du vill lägga till en Azure AD-användare i din Azure-databas för MySQL-dat
 CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
 ```
 
-För användarnamn som överstiger 32 tecken rekommenderar vi att du använder ett alias i stället för att användas vid anslutning: 
+För användar namn som överstiger 32 tecken rekommenderar vi att du använder ett alias i stället för att användas vid anslutning: 
 
 Exempel:
 
@@ -155,11 +155,11 @@ CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShor
 ```
 
 > [!NOTE]
-> Att autentisera en användare via Azure AD ger inte användaren några behörigheter att komma åt objekt i Azure-databasen för MySQL-databasen. Du måste ge användaren de behörigheter som krävs manuellt.
+> Att autentisera en användare via Azure AD ger inte användaren behörighet att komma åt objekt i den Azure Database for MySQL databasen. Du måste bevilja användaren de behörigheter som krävs manuellt.
 
-## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Skapa Azure AD-grupper i Azure Database för MySQL
+## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Skapa Azure AD-grupper i Azure Database for MySQL
 
-Om du vill aktivera en Azure AD-grupp för åtkomst till databasen använder du samma mekanism som för användare, men anger i stället gruppnamnet:
+Om du vill aktivera en Azure AD-grupp för åtkomst till databasen använder du samma mekanism som för användarna, men anger i stället grupp namnet:
 
 **Exempel:**
 
@@ -167,45 +167,45 @@ Om du vill aktivera en Azure AD-grupp för åtkomst till databasen använder du 
 CREATE AADUSER 'Prod_DB_Readonly';
 ```
 
-När du loggar in använder medlemmarna i gruppen sina personliga åtkomsttoken, men signerar med det gruppnamn som anges som användarnamn.
+När du loggar in kommer medlemmarna i gruppen att använda sina personliga åtkomsttoken, men signera med det grupp namn som anges som användar namn.
 
-## <a name="token-validation"></a>Tokenvalidering
+## <a name="token-validation"></a>Verifiering av token
 
-Azure AD-autentisering i Azure Database for MySQL säkerställer att användaren finns på MySQL-servern och kontrollerar tokens giltighet genom att verifiera innehållet i token. Följande tokenverifieringssteg utförs:
+Azure AD-autentisering i Azure Database for MySQL säkerställer att användaren finns i MySQL-servern och kontrollerar giltigheten för token genom att verifiera innehållet i token. Följande verifierings steg för token utförs:
 
--   Token signeras av Azure AD och har inte manipulerats
--   Token har utfärdats av Azure AD för klienten som är associerad med servern
--   Token har inte upphört att gälla
--   Token är för Azure Database for MySQL-resurs (och inte en annan Azure-resurs)
+-   Token har signerats av Azure AD och har inte manipulerats
+-   Token utfärdades av Azure AD för den klient som är associerad med servern
+-   Token har inte gått ut
+-   Token för Azure Database for MySQL resurs (och inte en annan Azure-resurs)
 
-## <a name="compatibility-with-application-drivers"></a>Kompatibilitet med programdrivrutiner
+## <a name="compatibility-with-application-drivers"></a>Kompatibilitet med program driv rutiner
 
-De flesta drivrutiner stöds, men se till att använda inställningarna för att skicka lösenordet i klartext, så att token skickas utan ändringar.
+De flesta driv rutiner stöds, men se till att använda inställningarna för att skicka lösen ordet i klartext, så att token skickas utan ändringar.
 
 * C/C++
-  * libmysqlclient: Stöds
-  * mysql-connector-c++: Stöds
+  * libmysqlclient: stöds
+  * MySQL-Connector-c + +: stöds
 * Java
-  * Anslutning/J (mysql-connector-java): Stöds, `useSSL` måste använda inställningen
+  * Connector/J (MySQL-Connector-Java): stöds, måste använda `useSSL` inställning
 * Python
-  * Anslutning/Python: Stöds
+  * Koppling/python: stöds
 * Ruby
-  * mysql2: Stöds
+  * mysql2: stöds
 * .NET
-  * mysql-connector-net: Stöds, måste lägga till plugin för mysql_clear_password
-  * mysql-net/MySqlConnector: Stöds
+  * MySQL-Connector-net: stöds, du måste lägga till plugin-programmet för mysql_clear_password
+  * MySQL-net/MySqlConnector: stöds
 * Node.js
-  * mysqljs: Stöds inte (skickar inte token i klartext utan patch)
-  * nod-mysql2: Stöds
+  * mysqljs: stöds inte (skickar inte token i klartext utan korrigering)
+  * Node-mysql2: stöds
 * Perl
-  * DBD::mysql: Stöds
-  * Net::MySQL: Stöds inte
+  * DBD:: MySQL: stöds
+  * NET:: MySQL: stöds inte
 * Go
-  * go-sql-driver: Stöds, `?tls=true&allowCleartextPasswords=true` lägg till i anslutningssträngen
+  * Go-SQL-driv rutin: stöds, `?tls=true&allowCleartextPasswords=true` Lägg till i anslutnings sträng
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska de övergripande begreppen för [Azure Active Directory-autentisering med Azure Database för MySQL](concepts-azure-ad-authentication.md)
+* Granska de övergripande begreppen för [Azure Active Directory autentisering med Azure Database for MySQL](concepts-azure-ad-authentication.md)
 
 <!--Image references-->
 

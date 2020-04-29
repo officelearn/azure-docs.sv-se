@@ -1,6 +1,6 @@
 ---
-title: 'Fjärrarbete: Nva-överväganden (Network Virtual Appliance) för fjärrarbete | Azure VPN-gateway'
-description: Den här artikeln hjälper dig att förstå de saker som du bör ta hänsyn till att arbeta med virtuella nätverksinstallationer (NVAs) i Azure under COVID-19-pandemin.
+title: 'Arbeta fjärran slutet: NVA (Network Virtual installation) för fjärran sluten arbete | Azure-VPN Gateway'
+description: Den här artikeln hjälper dig att förstå de saker som du bör tänka på när du arbetar med virtuella nätverks installationer (NVA) i Azure under COVID-19-Pandemic.
 services: vpn-gateway
 author: scottnap
 ms.service: vpn-gateway
@@ -8,38 +8,38 @@ ms.topic: conceptual
 ms.date: 03/21/2020
 ms.author: scottnap
 ms.openlocfilehash: 8a22e8f0bde2d13b4055566d96680fadc2db6e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80337097"
 ---
-# <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Arbeta på distans: NVA-överväganden (Network Virtual Appliance) för fjärrarbete
+# <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Arbeta fjärran slutet: NVA (Network Virtual installation) för fjärrarbete
 
 >[!NOTE]
->I den här artikeln beskrivs hur du kan utnyttja virtuella nätverksinstallationer, Azure, Microsoft-nätverk och Azure-partnerekosystemet för att arbeta på distans och minska nätverksproblem som du står inför på grund av COVID-19-krisen.
+>Den här artikeln beskriver hur du kan använda virtuella nätverk för virtuella datorer, Azure, Microsoft Network och Azure-partnerns eko system för att arbeta med fjärrnätverket och minimera nätverks problem som du står inför på grund av COVID-19-kris.
 >
 
-Vissa Azure-kunder använder virtuella enheter från tredje part (NVAs) från Azure Marketplace för att tillhandahålla kritiska tjänster som Point-to-site VPN för sina anställda som arbetar hemifrån under COVID-19-epidemin. I den här artikeln beskrivs några riktlinjer på hög nivå som du bör ta hänsyn till när du använder NVA:er i Azure för att tillhandahålla fjärråtkomstlösningar.
+Vissa Azure-kunder använder virtuella nätverk från tredje part (NVA) från Azure Marketplace för att tillhandahålla kritiska tjänster som punkt-till-plats-VPN för de anställda som arbetar hemifrån under COVID-19-epidemin. Den här artikeln beskriver en rad rikt linjer som du bör ta hänsyn till när du utnyttjar NVA i Azure för att tillhandahålla lösningar för fjärråtkomst.
 
-## <a name="nva-performance-considerations"></a>Nva prestanda överväganden
+## <a name="nva-performance-considerations"></a>NVA prestanda överväganden
 
-Alla större NVA-leverantörer på Azure Marketplace bör ha rekommendationer om den virtuella datorns storlek och antal instanser som ska användas när de distribuerar sina lösningar.  Även om nästan alla NVA-leverantörer låter dig välja vilken storlek som helst som är tillgänglig för dig i en viss region, är det mycket viktigt att du följer leverantörernas rekommendationer för Azure VM-instansstorlekar, eftersom dessa rekommendationer är de vm-storlekar som leverantören har utfört prestanda testa med i Azure.  
+Alla större NVA-leverantörer i Azure Marketplace bör ha rekommendationer om storleken på den virtuella datorn och antalet instanser som ska användas för att distribuera lösningar.  Även om nästan alla NVA-leverantörer låter dig välja vilken storlek som helst som är tillgänglig i en specifik region, är det mycket viktigt att du följer leverantörs rekommendationerna för storleken på Azure VM-instanser, eftersom dessa rekommendationer är de VM-storlekar som leverantören har slutfört prestanda testning med i Azure.  
 
 ### <a name="consider-the-following"></a>Tänk på följande
 
-- **Kapacitet och antal samtidiga användare** - Det här numret är särskilt viktigt för VPN-användare från point-to-site eftersom varje ansluten användare skapar en krypterad (IPSec eller SSL VPN) tunnel.  
-- **Aggregerat dataflöde** - Vilken är den sammanlagda bandbredden du behöver för att tillgodose antalet användare som du behöver för att ge fjärråtkomst.
-- **Den vm-storlek du behöver** - Du bör alltid använda VM-storlekar som rekommenderas av NVA-leverantören.  För punkt-till-plats VPN, om du kommer att ha en hel del samtidiga användaranslutningar, bör du använda större VM-storlekar som [Dv2 och DSv2-serien](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Dv2 och Dsv2-serien") virtuella datorer. Dessa virtuella datorer tenderar att ha fler virtuella processorer och kan hantera fler samtidiga VPN-sessioner.  Förutom att ha fler virtuella kärnor har större VM-storlekar i Azure mer mängdbreddskapacitet än mindre vm-storlekar.
-    > **Viktigt:** Varje leverantör använder resurser på olika sätt.  Om det inte är klart vilka instansstorlekar du ska använda för att hantera din uppskattade användarbelastning bör du kontakta programvaruleverantören direkt och be dem om en rekommendation.
-- **Antal instanser** - Om du förväntar dig att ha ett stort antal användare och anslutningar finns det gränser för vad skala upp dina NVA-instansstorlekar kan uppnå.  Överväg att distribuera flera VM-instanser.
-- **IPSec VPN vs SSL VPN** - I allmänhet IPSec VPN implementationer prestera bättre än SSL VPN implementationer.  
-- **Licensiering** - Se till att de programvarulicenser du har köpt för NVA-lösningen kommer att täcka den plötsliga tillväxt du kan uppleva under COVID-19-epidemin.  Många NVA-licensprogram begränsar antalet anslutningar eller bandbredd som lösningen klarar av.
-- **Accelererat nätverk** - Överväg en NVA-lösning som har stöd för accelererat nätverkande.  Accelererad nätverk möjliggör enkel rot-I/O-virtualisering (SR-IOV) till en virtuell dator, vilket avsevärt förbättrar dess nätverksprestanda. Den här banan med hög prestanda kringgår värden från datasökvägen, vilket minskar svarstiden, jitter- och CPU-användningen för användning med de mest krävande nätverksarbetsbelastningarna på vm-typer som stöds. Accelererade nätverk stöds på de flesta allmänna ändamål och beräkningsoptimerade instansstorlekar med två eller flera virtuella processorer.
+- **Kapacitet och antal samtidiga användare** – det här talet är särskilt viktigt för punkt-till-plats-VPN-användare som varje ansluten användare skapar en krypterad (IPSec-eller SSL VPN)-tunnel.  
+- **Sammanställd genom strömning** – vilken mängd bandbredd du behöver för att hantera antalet användare du behöver för att kunna tillhandahålla fjärråtkomst.
+- **Den VM-storlek du behöver** – du bör alltid använda VM-storlekar som rekommenderas av NVA-leverantören.  Om du har ett stort antal samtidiga användar anslutningar för punkt-till-plats-VPN bör du använda större VM-storlekar som [Dv2 och DSv2-seriens](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Dv2 och Dsv2-serien") virtuella datorer. De här virtuella datorerna tenderar att ha fler virtuella processorer och kan hantera fler samtidiga VPN-sessioner.  Förutom att ha fler virtuella kärnor har större VM-storlekar i Azure mer sammanställd bandbredds kapacitet än mindre VM-storlekar.
+    > **Viktigt:** Varje leverantör använder resurser på olika sätt.  Om det är oklart vilka instans storlekar du ska använda för att hantera den uppskattade användar belastningen bör du kontakta program leverantören direkt och be dem om en rekommendation.
+- **Antal instanser** – om du förväntar dig att ha ett stort antal användare och anslutningar, finns det gränser för hur stora NVA-instanser kan uppnå.  Överväg att distribuera flera virtuella dator instanser.
+- **IPSec VPN vs SSL VPN** -i allmänna IPSec-implementeringar av IPSec fungerar bättre än SSL VPN-implementeringar.  
+- **Licensiering** – kontrol lera att de program varu licenser som du har köpt för NVA-lösningen kommer att ta upp den plötsliga tillväxt som kan uppstå under COVID-19-epidemin.  Många NVA-licensierings program begränsar antalet anslutningar eller bandbredd som lösningen kan hantera.
+- **Accelererat nätverk** – Överväg en NVA-lösning som har stöd för accelererat nätverk.  Accelererat nätverk möjliggör SR-IOV (Single root I/O Virtualization) till en virtuell dator, vilket avsevärt förbättrar nätverkets prestanda. Den här högpresterande sökvägen kringgår värden från data Sök vägen, minskar svars tiden, Darr och processor belastningen för användning med de mest krävande nätverks belastningarna på VM-typer som stöds. Accelererat nätverk stöds i de flesta generella syftes-och beräknings optimerade instans storlekar med två eller flera virtuella processorer.
 
-## <a name="monitoring-resources"></a>Övervakning av resurser
+## <a name="monitoring-resources"></a>Övervaka resurser
 
-Varje NVA-lösning har sina egna verktyg och resurser för att övervaka prestanda för deras NVA.  Läs dokumentationen för leverantörerna för att se till att du förstår prestandabegränsningarna och kan identifiera när din NVA är nära eller når kapacitet.  Utöver detta kan du titta på Azure Monitor Network Insights och se grundläggande prestandainformation om dina virtuella nätverksinstallationer, till exempel:
+Varje NVA-lösning har sina egna verktyg och resurser för att övervaka prestanda för deras NVA.  Läs leverantörens dokumentation och se till att du förstår prestanda begränsningarna och kan upptäcka när NVA är nära eller når kapacitet.  Förutom detta kan du titta på Azure Monitor nätverks insikter och se grundläggande prestanda information om dina virtuella nätverks enheter, till exempel:
 
 - CPU-användning
 - Nätverk – inkommande
@@ -47,18 +47,18 @@ Varje NVA-lösning har sina egna verktyg och resurser för att övervaka prestan
 - Inkommande flöden
 - Utgående flöden
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-De flesta större NVA-partners har publicerat vägledning kring skalning för plötslig, oväntad tillväxt under COVID-19. Här är några användbara länkar till partnerresurser.
+De flesta större NVA-partners har publicerat vägledning kring skalning för plötslig, oväntad tillväxt under COVID-19. Här är några användbara länkar till partner resurser.
 
-[Barracuda Aktivera arbete hemifrån samtidigt som du säkrar dina data under COVID-19](https://www.barracuda.com/covid-19/work-from-home "Aktivera Arbete hemifrån samtidigt som du skyddar dina data under COVID-19")
+[Barracuda gör det möjligt att arbeta hemifrån samtidigt som du skyddar dina data under COVID-19](https://www.barracuda.com/covid-19/work-from-home "Aktivera arbete från hemmet när du skyddar dina data under COVID-19")
 
-[Cisco AnyConnect implementering och prestanda/skalningsreferens för COVID-19-förberedelse](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco AnyConnect implementering och prestanda/skalningsreferens för COVID-19-förberedelse")
+[Cisco AnyConnect-implementering och prestanda-/skalnings referens för COVID-19-förberedelse](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco AnyConnect-implementering och prestanda-/skalnings referens för COVID-19-förberedelse")
 
-[Citrix COVID-19 Svarsstödcenter](https://www.citrix.com/support/covid-19-coronavirus.html "Citrix COVID-19 Svarsstödcenter")
+[Citrix COVID-19 svars Support Center](https://www.citrix.com/support/covid-19-coronavirus.html "Citrix COVID-19 svars Support Center")
 
-[F5 Vägledning för att ta itu med den dramatiska ökningen av distansarbetare](https://www.f5.com/business-continuity "F5 Vägledning för att ta itu med den dramatiska ökningen av distansarbetare")
+[F5-vägledning för att lösa dramatisk ökningen i fjärranslutna arbetare](https://www.f5.com/business-continuity "F5-vägledning för att lösa dramatisk ökningen i fjärranslutna arbetare")
 
-[Fortinet COVID-19 Uppdateringar för kunder och partners](https://www.fortinet.com/covid-19.html "COVID-19 Uppdateringar för kunder och partners")
+[Fortinet COVID-19 uppdateringar för kunder och partner](https://www.fortinet.com/covid-19.html "COVID-19 uppdateringar för kunder och partner")
 
-[Palo Alto Nätverk COVID-19 Svarscenter](https://live.paloaltonetworks.com/t5/COVID-19-Response-Center/ct-p/COVID-19_Response_Center "Palo Alto Nätverk COVID-19 Svarscenter")
+[Palo-nätverk COVID-19-svars Center](https://live.paloaltonetworks.com/t5/COVID-19-Response-Center/ct-p/COVID-19_Response_Center "Palo-nätverk COVID-19-svars Center")

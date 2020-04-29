@@ -1,6 +1,6 @@
 ---
-title: Sidan Godkännanden för Azure Marketplace
-description: Översikt över sidan Godkännanden i Cloud Partner Portal för Azure Marketplace.
+title: Sidan godkännanden för Azure Marketplace
+description: Översikt över sidan godkännanden i Cloud Partner Portal för Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 8bd00e3b71e74775697a615152885e55703a41fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288945"
 ---
 # <a name="approvals-page"></a>Sidan med godkännanden
 
-Sidan [**Godkännanden**](https://cloudpartner.azure.com/#approvals) innehåller en lista över godkända erbjudanden, inklusive erbjudandenamn, utgivare, erbjudandetyp och aktuell åtgärd.  Godkända erbjudanden är antingen redan publicerade eller håller på att publiceras.  Resultaten kan sorteras efter kolumn eller filtreras på en angiven sträng.  Statusområdet längst ned på sidan visar aggregerade och sidantal och gör att du kan navigera mellan listsidorna.  Om du väljer ett erbjudande i den här listan visas erbjudandet i den associerade erbjudanderedigeraren. 
+Sidan [**godkännanden**](https://cloudpartner.azure.com/#approvals) innehåller en lista över godkända erbjudanden, inklusive erbjudande namn, utgivare, erbjudande typ och aktuell åtgärd.  Godkända erbjudanden är antingen redan publicerade eller håller på att publiceras.  Resultaten kan sorteras efter kolumn eller filtreras efter en angiven sträng.  Status fältet längst ned på sidan visar mängd-och sid antal och gör det möjligt att navigera mellan list sidor.  Om du väljer ett erbjudande i den här listan visas erbjudandet i den associerade erbjudande redigeraren. 
 
 
-## <a name="example-page"></a>Exempelsida
+## <a name="example-page"></a>Exempel sida
 
-Följande bild visar sidan **Godkännanden** för Contoso.
+Följande bild visar sidan **godkännanden** för contoso.
 
-![Sida för godkända erbjudanden](./media/approvals-page1.png)
+![Sidan godkända erbjudanden](./media/approvals-page1.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa menyrad i navigeringsmenyn visas en [sida alla utgivare](./cpp-all-publishers-page.md), som visar alla registrerade utgivare.
+Nästa meny objekt för navigering visar [sidan alla utgivare](./cpp-all-publishers-page.md), som visar en lista över alla registrerade utgivare.

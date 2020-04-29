@@ -1,6 +1,6 @@
 ---
-title: Om Azure ExpressRoute FastPath
-description: Lär dig mer om Azure ExpressRoute FastPath för att skicka nätverkstrafik genom att kringgå gatewayen
+title: Om Azure ExpressRoute-FastPath
+description: Lär dig om Azure ExpressRoute-FastPath för att skicka nätverks trafik genom att kringgå gatewayen
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,43 +8,43 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: cherylmc
 ms.openlocfilehash: 265004b1171d1df95b3090676d5836b951c28a28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80282859"
 ---
 # <a name="about-expressroute-fastpath"></a>Om ExpressRoute FastPath
 
-ExpressRoute virtuellt nätverk gateway är utformad för att utbyta nätverksvägar och dirigera nätverkstrafik. FastPath är utformat för att förbättra datasökvägens prestanda mellan det lokala nätverket och det virtuella nätverket. När det är aktiverat skickar FastPath nätverkstrafik direkt till virtuella datorer i det virtuella nätverket och kringgår gatewayen.
+ExpressRoute virtuella nätverksgateway är utformad för att utbyta nätverks vägar och dirigera nätverks trafik. FastPath är utformat för att förbättra data Sök vägens prestanda mellan ditt lokala nätverk och ditt virtuella nätverk. När aktive rad skickar FastPath nätverks trafik direkt till virtuella datorer i det virtuella nätverket, vilket kringgår gatewayen.
 
 ## <a name="requirements"></a>Krav
 
 ### <a name="circuits"></a>Kretsar
 
-FastPath är tillgängligt på alla ExpressRoute-kretsar.
+FastPath finns på alla ExpressRoute-kretsar.
 
 ### <a name="gateways"></a>Gateways
 
-FastPath kräver fortfarande att en virtuell nätverksgateway skapas för att utbyta vägar mellan virtuellt nätverk och lokalt nätverk. Mer information om virtuella nätverksgateways och ExpressRoute, inklusive prestandainformation och gateway-SKU:er, finns i [ExpressRoute-gateways för virtuella nätverk](expressroute-about-virtual-network-gateways.md).
+FastPath kräver fortfarande att en virtuell nätverksgateway skapas för att utväxla vägar mellan ett virtuellt nätverk och ett lokalt nätverk. Mer information om virtuella nätverks-gatewayer och ExpressRoute, inklusive prestanda information och gateway SKU: er, finns i [ExpressRoute-gatewayer för virtuella nätverk](expressroute-about-virtual-network-gateways.md).
 
-Om du vill konfigurera FastPath måste den virtuella nätverksgatewayen vara antingen:
+Om du vill konfigurera FastPath måste den virtuella Nätverksgatewayen vara antingen:
 
-* Ultra prestanda
-* ErGw3AZ (ErGw3AZ)
+* Ultra Performance
+* ErGw3AZ
 
 ## <a name="supported-features"></a>Funktioner som stöds
 
-FastPath stöder de flesta konfigurationer, men stöder inte följande funktioner:
+Även om FastPath har stöd för de flesta konfigurationer, stöder den inte följande funktioner:
 
-* UDR i gateway-undernätet: Om du använder en UDR på gateway-undernätet i det virtuella nätverket fortsätter nätverkstrafiken från det lokala nätverket att skickas till den virtuella nätverksgatewayen.
+* UDR i Gateway-undernätet: om du tillämpar en UDR på Gateway-undernätet för det virtuella nätverket, kommer nätverks trafiken från ditt lokala nätverk även att skickas till den virtuella Nätverksgatewayen.
 
-* VNet-peering: Om du har andra virtuella nätverk peered med den som är ansluten till ExpressRoute, nätverkstrafik från ditt lokala nätverk till andra virtuella nätverk (dvs. den så kallade "Spoke" virtuella nätverk) kommer att fortsätta att skickas till det virtuella nätverket Gateway. Lösningen är att ansluta alla virtuella nätverk till ExpressRoute-kretsen direkt.
+* VNet-peering: om du har andra virtuella nätverk som är peer-anslutna med det som är anslutet till ExpressRoute kommer nätverks trafiken från ditt lokala nätverk till de andra virtuella nätverken (d.v.s. det kallas "ekrar"-virtuella nätverk) att skickas vidare till den virtuella Nätverksgatewayen. Lösningen är att ansluta alla virtuella nätverk till ExpressRoute-kretsen direkt.
 
-* Grundläggande belastningsutjämning: Om du distribuerar en grundläggande intern belastningsutjämnare i ditt virtuella nätverk eller azure PaaS-tjänsten som du distribuerar i det virtuella nätverket använder en grundläggande intern belastningsutjämnare, använder nätverkstrafiken från det lokala nätverket till de virtuella IP-adresser som finns på Grundläggande belastningsutjämnare skickas till den virtuella nätverksgatewayen. Lösningen är att uppgradera den grundläggande belastningsutjämnaren till en [standardbelastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
+* Grundläggande Load Balancer: om du distribuerar en enkel intern belastningsutjämnare i det virtuella nätverket eller Azure PaaS-tjänsten som du distribuerar i ditt virtuella nätverk använder en grundläggande intern belastningsutjämnare, nätverks trafiken från ditt lokala nätverk till de virtuella IP-adresser som finns på den grundläggande belastningsutjämnaren skickas till den virtuella Nätverksgatewayen. Lösningen är att uppgradera den grundläggande belastningsutjämnaren till en [standard belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-* Privat länk: Om du ansluter till en [privat slutpunkt](../private-link/private-link-overview.md) i det virtuella nätverket från det lokala nätverket går anslutningen via den virtuella nätverksgatewayen.
+* Privat länk: om du ansluter till en [privat slut punkt](../private-link/private-link-overview.md) i ditt virtuella nätverk från ditt lokala nätverk, kommer anslutningen att gå via den virtuella Nätverksgatewayen.
  
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill aktivera FastPath finns i [Länka ett virtuellt nätverk till ExpressRoute](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
+Information om hur du aktiverar FastPath finns i [Länka ett virtuellt nätverk till ExpressRoute](expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).

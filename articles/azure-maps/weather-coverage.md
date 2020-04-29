@@ -1,6 +1,6 @@
 ---
-title: Vädertäckning | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om vädertäckning i Microsoft Azure Maps.
+title: Väder täckning | Microsoft Azure Maps
+description: I den här artikeln får du lära dig om väder täckning i Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 11/20/2019
@@ -9,28 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80333574"
 ---
-# <a name="azure-maps-weather-coverage"></a>Vädertäckning för Azure Maps
+# <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
 
-Den här artikeln innehåller täckningsinformation för Azure Maps [Weather services](https://aka.ms/AzureMapsWeatherService). Azure Maps Väderdatatjänster returnerar information som radarpaneler, aktuella väderförhållanden, väderprognoser och vädret längs en rutt.
+Den här artikeln innehåller information om disponering för Azure Maps [väder tjänster](https://aka.ms/AzureMapsWeatherService). Azure Maps väder data tjänster returnerar information som radar paneler, aktuella väder förhållanden, väder prognoser och väder längs en väg.
 
-Azure Maps har inte samma nivå av information och noggrannhet för alla länder och regioner.
+Azure Maps har inte samma nivå av information och exakthet för alla länder och regioner.
 
-I följande tabell finns information om vilken typ av väderinformation du kan begära från varje land/region.
+Följande tabell innehåller information om vilken typ av väder information som du kan begära från varje land/region.
 
 | Symbol | Betydelse |
 |--------|---------|
-|*       |Täcker väder längs rutt, aktuella förhållanden, timprognos, kvartalsprognos och dagliga prognos-API:er |
+|*       |Täcker väder utmed väg, aktuella villkor, Tim prognos, kvartals dags prognos och dagliga prognos-API: er |
 
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-| Land/region              |  Satellitplattor | Minut prognos, radar plattor | Övrigt* | 
+| Land/region              |  Satellit paneler | Minut prognos, radar paneler | Andra | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguilla                                 | ✓ |   |  ✓| 
 | Antarktis                               | ✓ |   |  ✓|
@@ -82,12 +82,12 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 | Saint Vincent och Grenadinerna         | ✓ |   |  ✓| 
 | Sint Eustatius                           | ✓ |   |  ✓|  
 | Sint Maarten                             | ✓ |   |  ✓| 
-| Sydgeorgien och Sydsandwichöarna | ✓ |   |  ✓| 
+| Södra Georgien och Sydsandwichöarna | ✓ |   |  ✓| 
 | Surinam                                 | ✓ |   |  ✓| 
 | Trinidad och Tobago                      | ✓ |   |  ✓| 
 | Turks- och Caicosöarna                 | ✓ |   |  ✓| 
-| Amerikanska outlyingöarna                    | ✓ |   |  ✓| 
-| Amerikanska Jungfruöarna                      | ✓ |   |  ✓| 
+| Amerikanska öar                    | ✓ |   |  ✓| 
+| Amerikanska jungfru öarna                      | ✓ |   |  ✓| 
 | USA                            | ✓ | ✓ |  ✓| 
 | Uruguay                                  | ✓ |   |  ✓| 
 | Venezuela                                | ✓ |   |  ✓| 
@@ -95,7 +95,7 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 
 ## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
 
-| Land/region              |  Satellitplattor | Minut prognos, radar plattor | Övrigt* | 
+| Land/region              |  Satellit paneler | Minut prognos, radar paneler | Andra | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Algeriet                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
@@ -111,12 +111,12 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 | Tchad                        | ✓               |                              |        ✓| 
 | Komorerna                     | ✓               |                              |        ✓| 
 | Kongo (DR)                 | ✓               |                              |        ✓|
-| Elfenbenskusten               | ✓               |                              |        ✓| 
+| Côte D' Ivoire               | ✓               |                              |        ✓| 
 | Djibouti                    | ✓               |                              |        ✓| 
 | Egypten                       | ✓               |                              |        ✓| 
 | Ekvatorialguinea           | ✓               |                              |        ✓| 
 | Eritrea                     | ✓               |                              |        ✓| 
-| eSwatini (på)                    | ✓               |                              |        ✓| 
+| eSwatini                    | ✓               |                              |        ✓| 
 | Etiopien                    | ✓               |                              |        ✓| 
 | Franska sydterritorierna | ✓               |                              |        ✓| 
 | Gabon                       | ✓               |                              |        ✓| 
@@ -150,7 +150,7 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 | Qatar                       | ✓               |                              |        ✓| 
 | Réunion                     | ✓               |                              |        ✓| 
 | Rwanda                      | ✓               |                              |        ✓| 
-| S:t Helena, Uppstigning, Tristan da Cunha        | ✓               |                              |        ✓| 
+| Saint Helena, Ascension, Tristan da Cunha        | ✓               |                              |        ✓| 
 | São Tomé och Príncipe       | ✓               |                              |        ✓| 
 | Saudiarabien                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
@@ -174,7 +174,7 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 
 ## <a name="asia-pacific"></a>Asien och stillahavsområdet
 
-| Land/region              |  Satellitplattor | Minut prognos, radar plattor | Övrigt* | 
+| Land/region              |  Satellit paneler | Minut prognos, radar paneler | Andra | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afghanistan                       | ✓ |   |  ✓| 
 | Amerikanska Samoa                    | ✓ |   |  ✓| 
@@ -191,7 +191,7 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 | Fiji                              | ✓ |   |  ✓| 
 | Franska Polynesien                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
-| Heardön och McDonaldöarna | ✓ |   |  ✓| 
+| Heard-och McDonaldöarna | ✓ |   |  ✓| 
 | Hongkong                     | ✓ |   |  ✓| 
 | Indien                             | ✓ |   |  ✓| 
 | Indonesien                         | ✓ |   |  ✓| 
@@ -220,7 +220,7 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 | Palau                             | ✓ |   |  ✓| 
 | Papua Nya Guinea                  | ✓ |   |  ✓| 
 | Filippinerna                       | ✓ |   |  ✓| 
-| Pitcairnöarna                  | ✓ |   |  ✓| 
+| Pitcairn                  | ✓ |   |  ✓| 
 | Samoa                             | ✓ |   |  ✓| 
 | Singapore                         | ✓ |   |  ✓| 
 | Solomonöarna                   | ✓ |   |  ✓| 
@@ -241,7 +241,7 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 
 ## <a name="europe"></a>Europa
 
-| Land/region              |  Satellitplattor | Minut prognos, radar plattor | Övrigt* | 
+| Land/region              |  Satellit paneler | Minut prognos, radar paneler | Andra | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albanien                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
@@ -254,7 +254,7 @@ I följande tabell finns information om vilken typ av väderinformation du kan b
 | Bulgarien               | ✓ |   |  ✓| 
 | Kroatien                | ✓ | ✓ |  ✓| 
 | Cypern                 | ✓ |   |  ✓| 
-| Tjeckien                | ✓ | ✓ |  ✓| 
+| Czechia                | ✓ | ✓ |  ✓| 
 | Danmark                | ✓ | ✓ |  ✓| 
 | Estland                | ✓ | ✓ |  ✓| 
 | Färöarna          | ✓ |   |  ✓| 

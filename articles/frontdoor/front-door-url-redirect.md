@@ -1,6 +1,6 @@
 ---
-title: Azure Ytterdörr - URL Redirect | Microsoft-dokument
-description: Den här artikeln hjälper dig att förstå hur Azure Front Door stöder URL-omdirigering för deras vägar, om de är konfigurerade.
+title: Azure front dörr – URL-omdirigering | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå hur Azures front dörr stöder URL-omdirigering för deras vägar, om den är konfigurerad.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,44 +12,44 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295481"
 ---
 # <a name="url-redirect"></a>URL-omdirigering
-Du kan använda Azure Front Door för att omdirigera trafik. Du kan omdirigera trafik på flera nivåer (protokoll, värdnamn, sökväg, frågesträng) och alla funktioner kan konfigureras för enskilda mikrotjänster eftersom omdirigeringen är sökvägsbaserad. Detta förenklar programkonfigurationen, optimerar resursanvändningen och stöder nya omdirigeringsscenarier, inklusive global och sökvägsbaserad omdirigering.
+Du kan använda Azures frontend-dörr för att dirigera om trafik. Du kan omdirigera trafik på flera nivåer (protokoll, värdnamn, sökväg, frågesträng) och alla funktioner kan konfigureras för enskilda mikrotjänster eftersom omdirigeringen är sökväg-baserad. Detta fören klar program konfigurationen, optimerar resursanvändningen och har stöd för nya omdirigerings scenarier, inklusive global och Sök vägs baserad omdirigering.
 </br>
 
-![Omdirigering av URL-omdirigering av Front Door][1]
+![Azure front dörr-URL omdirigering][1]
 
-## <a name="redirection-types"></a>Omdirigeringstyper
-En omdirigeringstyp anger svarsstatuskoden för klienterna för att förstå syftet med omdirigeringen. Följande typer av omdirigering stöds:
+## <a name="redirection-types"></a>Typer av omdirigering
+En typ av omdirigering anger svars status koden för klienterna för att förstå syftet med omdirigeringen. Följande typer av omdirigering stöds:
 
-- **301 (Flyttad permanent):** Anger att målresursen har tilldelats en ny permanent URI och eventuella framtida referenser till den här resursen bör använda en av de bifogade URI:erna. Använd 301-statuskod för HTTP till HTTPS-omdirigering. 
-- **302 (Hittades):** Anger att målresursen tillfälligt finns under en annan URI. Eftersom omdirigeringen kan ändras ibland, bör klienten fortsätta att använda den effektiva begäran URI för framtida begäranden.
-- **307 (Tillfällig omdirigering):** Anger att målresursen tillfälligt finns under en annan URI och att användaragenten INTE får ändra begäran om den utför en automatisk omdirigering till den URI.307 (Temporary redirect) : Indicates that the target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI. Eftersom omdirigeringen kan ändras med tiden bör klienten fortsätta att använda den ursprungliga effektiva begäranden URI för framtida begäranden.
-- **308 (Permanent omdirigering):** Anger att målresursen har tilldelats en ny permanent URI och att eventuella framtida referenser till den här resursen bör använda en av de slutna URI:erna. Klienter med länkredigeringsfunktioner, bör automatiskt länka referenser till den faktiska begäran URI till en eller flera av de nya referenser som skickas av servern, om möjligt.
+- **301 (flyttad permanent)**: visar att mål resursen har tilldelats en ny permanent URI och att eventuella framtida referenser till resursen bör använda en av de omslutna URI: erna. Använd 301 status kod för omdirigering av HTTP till HTTPS. 
+- **302 (hittades)**: anger att mål resursen finns tillfälligt under en annan URI. Eftersom omdirigeringen kan ändras på begäran bör klienten fortsätta att använda den effektiva begär ande-URI: n för framtida begär Anden.
+- **307 (tillfällig omdirigering)**: visar att mål resursen finns tillfälligt under en annan URI och att användar agenten inte får ändra metoden för begäran om den utför en automatisk omdirigering till denna URI. Eftersom omdirigeringen kan ändras med tiden bör klienten fortsätta att använda den ursprungliga effektiva begär ande-URI: n för framtida begär Anden.
+- **308 (permanent omdirigering)**: visar att mål resursen har tilldelats en ny permanent URI och att eventuella framtida referenser till den här resursen ska använda en av de omslutna URI: erna. Klienter med redigerings funktioner för länkar bör automatiskt länka om referenser till den effektiva begäran-URI: n till en eller flera av de nya referenser som skickas av servern, där det är möjligt.
 
-## <a name="redirection-protocol"></a>Omdirigeringsprotokoll
-Du kan ange det protokoll som ska användas för omdirigering. Detta möjliggör ett av de vanligaste användningsfallen för omdirigeringsfunktionen, det vill veta att HTTP ska vara https-omdirigering.
+## <a name="redirection-protocol"></a>Protokoll för omdirigering
+Du kan ange det protokoll som ska användas för omdirigering. Detta gör att en av de vanligaste användnings fallen för funktionen omdirigera är att ställa in HTTP till HTTPS-omdirigering.
 
-- **HTTPS endast:** Ställ in protokollet på HTTPS, om du vill omdirigera trafiken från HTTP till HTTPS. Azure Front Door rekommenderar att du alltid bör ställa in omdirigering till HTTPS bara.
-- **ENDAST HTTP:** Detta omdirigerar den inkommande begäran till HTTP. Använd bara det här värdet om du vill behålla din trafik HTTP som är icke-krypterad.
-- **Matchningsbegäran**: Det här alternativet behåller det protokoll som används av den inkommande begäran. Så en HTTP-begäran förblir HTTP och en HTTPS-begäran förblir HTTPS post omdirigering.
+- **Endast https**: Ange protokollet till endast https, om du vill dirigera om trafiken från http till https. Azures front dörr rekommenderar att du alltid ställer in omdirigeringen till endast HTTPS.
+- **Endast http**: detta omdirigerar inkommande begäran till http. Använd bara det här värdet om du vill behålla ditt trafik-HTTP-värde som inte är krypterat.
+- **Matchnings förfrågan**: det här alternativet behåller protokollet som används av den inkommande begäran. En HTTP-begäran är alltså fortfarande HTTP och en HTTPS-begäran är kvar som omdirigering av HTTPS-post.
 
-## <a name="destination-host"></a>Värd för mål
-Som en del av konfigurationen av en omdirigeringsroutning kan du också ändra värdnamnet eller domänen för begäran om omdirigering. Du kan ange det här fältet om du vill ändra värdnamnet i URL:en för omdirigering eller på annat sätt bevara värdnamnet från den inkommande begäran. Så med det här fältet kan `https://www.contoso.com/*` du `https://www.fabrikam.com/*`omdirigera alla begäranden som skickas vidare till .
+## <a name="destination-host"></a>Målvärd
+Som en del av konfigureringen av en Omdirigerad routning kan du också ändra värdnamn eller domän för omdirigerings förfrågan. Du kan ange det här fältet om du vill ändra värd namnet i URL: en för omdirigeringen eller på annat sätt bevara värd namnet från den inkommande begäran. Därför kan du använda det här fältet för att dirigera om `https://www.contoso.com/*` alla förfrågningar `https://www.fabrikam.com/*`som skickas till.
 
 ## <a name="destination-path"></a>Målsökväg
-För de fall där du vill ersätta sökvägssegmentet för en URL som en del av omdirigering kan du ange det här fältet med det nya sökvägsvärdet. Annars kan du välja att bevara sökvägsvärdet som en del av omdirigering. Så med det här fältet kan du `https://www.contoso.com/\*` `https://www.contoso.com/redirected-site`omdirigera alla begäranden som skickas till .
+I de fall där du vill ersätta Sök vägs segmentet för en URL som en del av omdirigeringen kan du ange det här fältet med värdet för ny sökväg. Annars kan du välja att bevara värdet för sökvägen som en del av omdirigeringen. Därför kan du använda det här fältet för att omdirigera alla begär Anden `https://www.contoso.com/\*` som `https://www.contoso.com/redirected-site`skickas till till.
 
 ## <a name="query-string-parameters"></a>Parametrar för frågesträng
-Du kan också ersätta frågesträngparametrarna i den omdirigerade URL:en. Om du vill ersätta en befintlig frågesträng från URL:en för inkommande begäran anger du det här fältet till Ersätt och anger sedan lämpligt värde. Annars kan du behålla den ursprungliga uppsättningen frågesträngar genom att ange fältet till Bevara. Med det här fältet kan du till exempel `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`omdirigera all trafik som skickas till . 
+Du kan även ersätta Frågesträngens parametrar i den omdirigerade URL: en. För att ersätta en befintlig frågesträng från URL: en för inkommande begäran anger du fältet till Ersätt och anger sedan lämpligt värde. Annars kan du behålla den ursprungliga uppsättningen frågesträngar genom att ange fältet till "Preserve". Som exempel kan du använda det här fältet för att omdirigera all trafik som skickas `https://www.contoso.com/foo/bar` till `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`till. 
 
-## <a name="destination-fragment"></a>Målfragment
-Målfragmentet är den del av webbadressen efter '#', som normalt används av webbläsare för att landa på ett visst avsnitt på en sida. Du kan ange det här fältet om du vill lägga till ett fragment i omdirigerings-URL:en.
+## <a name="destination-fragment"></a>Målcachen
+Målcachen är den del av URL: en som finns efter ' # ', som vanligt vis används av webbläsare för att landa på ett speciellt avsnitt på en sida. Du kan ange det här fältet om du vill lägga till ett fragment i omdirigerings-URL: en.
 
 ## <a name="next-steps"></a>Nästa steg
 

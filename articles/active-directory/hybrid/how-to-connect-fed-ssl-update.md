@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect – Uppdatera TLS/SSL-certifikatet för en AD FS-servergrupp | Microsoft-dokument
-description: I det här dokumentet beskrivs stegen för att uppdatera TLS/SSL-certifikatet för en AD FS-servergrupp med hjälp av Azure AD Connect.
+title: Azure AD Connect – uppdatera TLS/SSL-certifikatet för en AD FS-servergrupp | Microsoft Docs
+description: Det här dokumentet innehåller information om hur du uppdaterar TLS/SSL-certifikatet för en AD FS server grupp med hjälp av Azure AD Connect.
 services: active-directory
 manager: daveba
 editor: billmath
@@ -17,96 +17,96 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cc768162d98402fe52b52b2826a9dbf2840a581
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80331745"
 ---
-# <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Uppdatera TLS/SSL-certifikatet för en AD FS-servergrupp (Active Directory Federation Services)
+# <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Uppdatera TLS/SSL-certifikatet för en Active Directory Federation Services (AD FS)-grupp (AD FS)
 
 ## <a name="overview"></a>Översikt
-I den här artikeln beskrivs hur du kan använda Azure AD Connect för att uppdatera TLS/SSL-certifikatet för en AD FS-servergrupp (Active Directory Federation Services). Du kan använda Azure AD Connect-verktyget för att enkelt uppdatera TLS/SSL-certifikatet för AD FS-servergruppen även om den valda användarens inloggningsmetod inte är AD FS.
+Den här artikeln beskriver hur du kan använda Azure AD Connect för att uppdatera TLS/SSL-certifikatet för en Active Directory Federation Services (AD FS) (AD FS) grupp. Du kan använda verktyget Azure AD Connect för att enkelt uppdatera TLS/SSL-certifikatet för AD FS-gruppen även om den valda användar inloggnings metoden inte är AD FS.
 
-Du kan utföra hela åtgärden med att uppdatera TLS/SSL-certifikatet för AD FS-servergruppen för alla WAP-servrar (Federation and Web Application Proxy) i tre enkla steg:
+Du kan utföra hela driften av att uppdatera TLS/SSL-certifikat för AD FS server gruppen över alla Federations-och Webbprogramproxy-servrar (WAP) i tre enkla steg:
 
 ![Tre steg](./media/how-to-connect-fed-ssl-update/threesteps.png)
 
 
 >[!NOTE]
->Mer information om certifikat som används av AD FS finns i [Förstå certifikat som används av AD FS](https://technet.microsoft.com/library/cc730660.aspx).
+>Om du vill veta mer om certifikat som används av AD FS, se [förstå certifikat som används av AD FS](https://technet.microsoft.com/library/cc730660.aspx).
 
 ## <a name="prerequisites"></a>Krav
 
-* **AD FS-servergrupp:** Kontrollera att AD FS-servergruppen är Windows Server 2012 R2-baserad eller senare.
-* **Azure AD Connect**: Kontrollera att versionen av Azure AD Connect är 1.1.553.0 eller högre. Du ska använda AD **FS SSL-certifikatet för aktivitetsuppdatering**.
+* **AD FS server grupp**: kontrol lera att AD FS server gruppen är Windows Server 2012 R2-baserad eller senare.
+* **Azure AD Connect**: kontrol lera att versionen av Azure AD Connect är 1.1.553.0 eller högre. Du använder aktiviteten **uppdatera AD FS SSL-certifikat**.
 
-![Uppdatera TLS-uppgift](./media/how-to-connect-fed-ssl-update/updatessltask.png)
+![Uppdatera TLS-aktivitet](./media/how-to-connect-fed-ssl-update/updatessltask.png)
 
-## <a name="step-1-provide-ad-fs-farm-information"></a>Steg 1: Ange information om AD FS-jordbruksföretag
+## <a name="step-1-provide-ad-fs-farm-information"></a>Steg 1: Ange AD FS server grupps information
 
-Azure AD Connect försöker hämta information om AD FS-servergruppen automatiskt genom att:
-1. Frågar servergruppens information från AD FS (Windows Server 2016 eller senare).
-2. Refererar till informationen från tidigare körningar, som lagras lokalt med Azure AD Connect.
+Azure AD Connect försöker hämta information om AD FS-gruppen automatiskt av:
+1. Fråga Server grupps informationen från AD FS (Windows Server 2016 eller senare).
+2. Att referera till informationen från tidigare körningar som lagras lokalt med Azure AD Connect.
 
-Du kan ändra listan över servrar som visas genom att lägga till eller ta bort servrarna för att återspegla den aktuella konfigurationen för AD FS-servergruppen. Så snart serverinformationen tillhandahålls visar Azure AD Connect anslutnings- och aktuell TLS/SSL-certifikatstatus.
+Du kan ändra listan över servrar som visas genom att lägga till eller ta bort servrarna för att återspegla den aktuella konfigurationen av AD FS-servergruppen. Så snart som server informationen har angetts visar Azure AD Connect anslutningen och aktuell status för TLS/SSL-certifikatet.
 
-![INFORMATION om AD FS-servern](./media/how-to-connect-fed-ssl-update/adfsserverinfo.png)
+![Information om AD FS server](./media/how-to-connect-fed-ssl-update/adfsserverinfo.png)
 
-Om listan innehåller en server som inte längre ingår i AD FS-servergruppen klickar du på **Ta bort** om du vill ta bort servern från listan över servrar i AD FS-servergruppen.
+Om listan innehåller en server som inte längre är en del av AD FS server gruppen klickar du på **ta bort** för att ta bort servern från listan över servrar i AD FSS gruppen.
 
-![Offlineserver i listan](./media/how-to-connect-fed-ssl-update/offlineserverlist.png)
+![Offline-server i listan](./media/how-to-connect-fed-ssl-update/offlineserverlist.png)
 
 >[!NOTE]
-> Att ta bort en server från listan över servrar för en AD FS-servergrupp i Azure AD Connect är en lokal åtgärd och uppdaterar informationen för AD FS-servergruppen som Azure AD Connect underhåller lokalt. Azure AD Connect ändrar inte konfigurationen på AD FS för att återspegla ändringen.    
+> Att ta bort en server från listan över servrar för en AD FS-servergrupp i Azure AD Connect är en lokal åtgärd och uppdaterar informationen för AD FS-gruppen som Azure AD Connect upprätthåller lokalt. Azure AD Connect ändrar inte konfigurationen på AD FS för att avspegla ändringen.    
 
 ## <a name="step-2-provide-a-new-tlsssl-certificate"></a>Steg 2: Ange ett nytt TLS/SSL-certifikat
 
-När du har bekräftat informationen om AD FS-servergruppsservrar frågar Azure AD Connect efter det nya TLS/SSL-certifikatet. Ange ett lösenordsskyddat PFX-certifikat för att fortsätta installationen.
+När du har bekräftat informationen om AD FS server grupps servrar Azure AD Connect fråga efter det nya TLS/SSL-certifikatet. Ange ett lösenordsskyddat PFX-certifikat för att fortsätta installationen.
 
 ![TLS/SSL-certifikat](./media/how-to-connect-fed-ssl-update/certificate.png)
 
-När du har anger certifikatet går Azure AD Connect igenom en serie förutsättningar. Kontrollera certifikatet för att säkerställa att certifikatet är korrekt för AD FS-jordbruksföretagen:
+När du har angett certifikatet går Azure AD Connect igenom en serie med krav. Verifiera certifikatet för att kontrol lera att certifikatet är korrekt för AD FS server gruppen:
 
--   Certifikatets ämnesnamn/alternativa ämnesnamn är antingen samma som federationstjänstnamnet eller ett jokerteckencertifikat.
+-   Ämnes namnet/det alternativa ämnes namnet för certifikatet är antingen detsamma som Federations tjänstens namn, eller så är det ett jokertecken.
 -   Certifikatet är giltigt i mer än 30 dagar.
--   Certifikatförtroendekedjan är giltig.
+-   Certifikat förtroende kedjan är giltig.
 -   Certifikatet är lösenordsskyddat.
 
 ## <a name="step-3-select-servers-for-the-update"></a>Steg 3: Välj servrar för uppdateringen
 
-I nästa steg väljer du de servrar som behöver uppdateraS till TLS/SSL-certifikatet. Servrar som är offline kan inte väljas för uppdateringen.
+I nästa steg väljer du de servrar som ska ha TLS/SSL-certifikatet uppdaterat. Det går inte att välja frånkopplade servrar för uppdateringen.
 
-![Välj servrar som ska uppdateras](./media/how-to-connect-fed-ssl-update/selectservers.png)
+![Välj servrar att uppdatera](./media/how-to-connect-fed-ssl-update/selectservers.png)
 
-När du har slutfört konfigurationen visar Azure AD Connect meddelandet som anger uppdateringens status och ger ett alternativ för att verifiera AD FS-inloggningen.
+När du har slutfört konfigurationen visar Azure AD Connect meddelandet som anger status för uppdateringen och ger ett alternativ för att verifiera AD FS inloggning.
 
 ![Konfigurationen är klar](./media/how-to-connect-fed-ssl-update/configurecomplete.png)   
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
-* **Vilket ämnesnamn bör certifikatet för det nya AD FS TLS/SSL-certifikatet?**
+* **Vad bör vara certifikatets ämnes namn för det nya AD FS TLS/SSL-certifikatet?**
 
-    Azure AD Connect kontrollerar om certifikatets ämnesnamn/alternativa ämnesnamn innehåller federationstjänstnamnet. Om federationstjänstnamnet till exempel är fs.contoso.com måste ämnesnamnet/det alternativa ämnesnamnet vara fs.contoso.com.  Jokerteckencertifikat accepteras också.
+    Azure AD Connect kontrollerar om certifikatets ämnes namn/alternativa ämnes namn innehåller Federations tjänstens namn. Om Federations tjänstens namn till exempel är fs.contoso.com måste ämnes namnet/det alternativa ämnes namnet vara fs.contoso.com.  Jokertecken godkänns också.
 
-* **Varför bad jag om autentiseringsuppgifter igen på WAP-serversidan?**
+* **Varför uppmanas jag att ange autentiseringsuppgifter igen på WAP server-Sidan?**
 
-    Om de autentiseringsuppgifter du anger för anslutning till AD FS-servrar inte också har behörighet att hantera WAP-servrarna, frågar Azure AD Connect efter autentiseringsuppgifter som har administratörsbehörighet på WAP-servrarna.
+    Om de autentiseringsuppgifter som du anger för att ansluta till AD FS-servrar inte också har behörighet att hantera WAP-servrarna, ber Azure AD Connect efter autentiseringsuppgifter som har administratörs behörighet på WAP-servrarna.
 
 * **Servern visas som offline. Vad ska jag göra?**
 
-    Azure AD Connect kan inte utföra någon åtgärd om servern är offline. Om servern ingår i AD FS-servergruppen kontrollerar du anslutningen till servern. När du har löst problemet trycker du på uppdateringsikonen för att uppdatera statusen i guiden. Om servern var en del av servergruppen tidigare men nu inte längre finns klickar du på **Ta bort** för att ta bort den från listan över servrar som Azure AD Connect underhåller. Om du tar bort servern från listan i Azure AD Connect ändras inte själva AD FS-konfigurationen. Om du använder AD FS i Windows Server 2016 eller senare finns servern kvar i konfigurationsinställningarna och visas igen nästa gång aktiviteten körs.
+    Azure AD Connect kan inte utföra någon åtgärd om servern är offline. Om servern är en del av AD FS server gruppen kontrollerar du anslutningen till servern. När du har löst problemet, trycker du på uppdaterings ikonen för att uppdatera statusen i guiden. Om servern var en del av Server gruppen tidigare men inte längre finns, klickar du på **ta bort** för att ta bort den från listan över servrar som Azure AD Connect underhåll. Om du tar bort servern från listan i Azure AD Connect ändras inte själva AD FS själva konfigurationen. Om du använder AD FS i Windows Server 2016 eller senare finns servern kvar i konfigurations inställningarna och visas igen nästa gång uppgiften körs.
 
-* **Kan jag uppdatera en delmängd av mina servergruppsservrar med det nya TLS/SSL-certifikatet?**
+* **Kan jag uppdatera en delmängd av mina Server grupp servrar med det nya TLS/SSL-certifikatet?**
 
-    Ja. Du kan alltid köra **SSL-certifikatet för aktivitetsuppdatering** igen för att uppdatera de återstående servrarna. På sidan **Välj servrar för SSL-certifikatuppdatering** kan du sortera listan över servrar på **SSL-utgångsdatum** för att enkelt komma åt servrarna som inte har uppdaterats ännu.
+    Ja. Du kan alltid köra aktiviteten **Uppdatera SSL-certifikatet** igen för att uppdatera de återstående servrarna. På sidan **Välj servrar för uppdatering av SSL-certifikat** kan du sortera listan över servrar vid **förfallo datum för SSL** för att enkelt komma åt de servrar som inte har uppdaterats än.
 
-* **Jag tog bort servern i föregående körning, men det är fortfarande visas som offline och anges på AD FS-servrar sidan. Varför är offline-servern kvar även efter att jag tagit bort den?**
+* **Jag har tagit bort servern i föregående körning, men den visas fortfarande som offline och visas på sidan AD FS servrar. Varför finns det kvar offline-servern trots att jag har tagit bort den?**
 
-    Om du tar bort servern från listan i Azure AD Connect tas den inte bort i AD FS-konfigurationen. Azure AD Connect refererar till AD FS (Windows Server 2016 eller senare) för all information om servergruppen. Om servern fortfarande finns i AD FS-konfigurationen visas den i listan igen.  
+    Om du tar bort servern från listan i Azure AD Connect tas den inte bort i AD FS-konfigurationen. Azure AD Connect referenser AD FS (Windows Server 2016 eller senare) för all information om Server gruppen. Om servern fortfarande finns i AD FS-konfigurationen visas den i listan igen.  
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure AD Connect och federation](how-to-connect-fed-whatis.md)
-- [Hantering och anpassning av Active Directory Federation Services med Azure AD Connect](how-to-connect-fed-management.md)
+- [Active Directory Federation Services (AD FS) hantering och anpassning med Azure AD Connect](how-to-connect-fed-management.md)
 

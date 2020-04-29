@@ -1,7 +1,7 @@
 ---
-title: Bildanalys kognitiv skicklighet
+title: Inlärnings kunskap för bild analys
 titleSuffix: Azure Cognitive Search
-description: Extrahera semantisk text genom bildanalys med hjälp av bildanalys kognitiv färdighet i en AI-anrikningspipeline i Azure Cognitive Search.
+description: Extrahera semantisk text via bild analys med hjälp av funktionen för inlärning av bild analys i en AI-pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,44 +9,44 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 4ff6972e2f7ea219a1c8c8dbabbf9fe12a8fa59e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80369479"
 ---
-# <a name="image-analysis-cognitive-skill"></a>Bildanalys kognitiv skicklighet
+# <a name="image-analysis-cognitive-skill"></a>Inlärnings kunskap för bild analys
 
-Med **bildanalysen** extraheras en omfattande uppsättning visuella funktioner baserat på bildinnehållet. Du kan till exempel generera en bildtext från en bild, generera taggar eller identifiera kändisar och landmärken. Den här färdigheten använder maskininlärningsmodellerna som tillhandahålls av [Datorseende](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. 
+I **bild analysens** kunskap extraheras en omfattande uppsättning visuella funktioner baserat på avbildningens innehåll. Du kan till exempel generera en under text från en bild, generera taggar eller identifiera kändisar och landmärken. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. 
 
 > [!NOTE]
-> Små volymer (under 20 transaktioner) kan köras gratis i Azure Cognitive Search, men större arbetsbelastningar kräver [att en fakturerbar Cognitive Services-resurs kopplas](cognitive-search-attach-cognitive-services.md). Avgifter ackumuleras när du anropar API:er i Cognitive Services och för bildutvinning som en del av dokumentsprickningsfasen i Azure Cognitive Search. Det finns inga avgifter för textextrahering från dokument.
+> Små volymer (under 20 transaktioner) kan utföras kostnads fritt i Azure Kognitiv sökning, men större arbets belastningar kräver att du [kopplar en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
 >
-> Utförande av inbyggda färdigheter debiteras på den befintliga [Cognitive Services pay-as-you go pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättning för avbildningsextrahering beskrivs på [prissidan](https://go.microsoft.com/fwlink/?linkid=2042400)för Azure Cognitive Search .
+> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.vision.imageAnalysisSkill 
+Microsoft. färdigheter. vision. ImageAnalysisSkill 
 
-## <a name="skill-parameters"></a>Färdighetsparametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
 Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| standardSpråkkod   |  En sträng som anger vilket språk som ska returneras. Tjänsten returnerar igenkänning resulterar i ett angivet språk. Om den här parametern inte anges är standardvärdet "en". <br/><br/>Språk som stöds är: <br/>*sv* - Engelska (standard) <br/> *es* - spanska <br/> *ja* - Japanska <br/> *pt* - Portugisiska <br/> *zh* - Förenklad kinesiska|
-| visuellaFeatures |  En matris med strängar som anger vilka visuella funktionstyper som ska returneras. Giltiga visuella funktionstyper är:  <ul><li>*vuxen* - upptäcker om bilden är pornografisk till sin natur (skildrar nakenhet eller en sexhandling), eller är blodig (skildrar extremt våld eller blod). Sexuellt suggestivt innehåll (aka racy innehåll) upptäcks också.</li><li>*varumärken* - upptäcker olika märken inom en bild, inklusive den ungefärliga platsen. Den visuella funktionen *varumärken* är endast tillgänglig på engelska.</li><li> *kategorier* - kategoriserar bildinnehåll enligt en taxonomi som definieras i [dokumentationen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)för Cognitive Services Computer Vision . </li><li>*beskrivning* - beskriver bildinnehållet med en fullständig mening på språk som stöds.</li><li>*ansikten* - upptäcker om ansikten finns. Om det finns, genererar koordinater, kön och ålder.</li><li> *objekt* - identifierar olika objekt i en bild, inklusive den ungefärliga platsen. *Objektens* visuella funktion är endast tillgänglig på engelska.</li><li> *taggar* - taggar bilden med en detaljerad lista med ord relaterade till bildinnehållet.</li></ul> Namn på visuella funktioner är skiftlägeskänsliga. Observera att *färg-* och *imageType-visuella* funktioner har inaktuella, men den här funktionen kan fortfarande nås via en [anpassad färdighet](https://go.microsoft.com/fwlink/?linkid=2121117).|
-| Detaljer   | En matris med strängar som anger vilken domänspecifik information som ska returneras. Giltiga visuella funktionstyper är: <ul><li>*kändisar* - identifierar kändisar om det upptäcks i bilden.</li><li>*landmärken* - identifierar landmärken om det upptäcks i bilden. </li></ul> |
+| defaultLanguageCode   |  En sträng som anger det språk som ska returneras. Tjänsten returnerar igenkännings resultat på ett angivet språk. Om den här parametern inte anges är standardvärdet "en". <br/><br/>Språk som stöds: <br/>*en* – engelska (standard) <br/> *es* – spanska <br/> *Ja* – japanska <br/> *PT* -portugisiska <br/> *zh* – förenklad kinesiska|
+| visualFeatures |  En sträng mat ris som anger vilka visuella funktions typer som ska returneras. Giltiga typer av visuella funktioner är:  <ul><li>*vuxen* – identifierar om bilden är pornografiskt (visar nakenhet eller en kön Act) eller är fullständig (visar extrema våld eller blod). Sexuellt innehåll (aka vågat-innehåll) identifieras också.</li><li>*varumärken* – identifierar olika varumärken inom en avbildning, inklusive den ungefärliga platsen. Den visuella funktionen *varumärken* är endast tillgänglig på engelska.</li><li> *Kategorier* – kategoriserar bild innehåll enligt en taxonomi som definierats i Cognitive Services [visuellt innehåll-dokumentationen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li>*Beskrivning* – beskriver bild innehållet med en hel mening i språk som stöds.</li><li>*ansikten* – identifierar om det finns ansikten. Om det finns genererar koordinater, kön och ålder.</li><li> *objekt* – identifierar olika objekt i en bild, inklusive den ungefärliga platsen. Den visuella *objekt* funktionen är endast tillgänglig på engelska.</li><li> *taggar* – Taggar avbildningen med en detaljerad lista över ord relaterade till bild innehållet.</li></ul> Namn på visuella funktioner är Skift läges känsliga. Observera att de visuella funktionerna *färg* och *imageType* har föråldrats, men den här funktionen kan fortfarande nås via en [anpassad färdighet](https://go.microsoft.com/fwlink/?linkid=2121117).|
+| information   | En sträng mat ris som visar vilken datorspecifik information som ska returneras. Giltiga typer av visuella funktioner är: <ul><li>*kändisar* – identifierar kändisar om det identifierats i avbildningen.</li><li>*landmärken* – identifierar landmärken om de upptäcks i bilden. </li></ul> |
 
-## <a name="skill-inputs"></a>Indata för färdighet
+## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamn      | Beskrivning                                          |
+| Inmatat namn      | Beskrivning                                          |
 |---------------|------------------------------------------------------|
-| image         | Komplex typ. För närvarande fungerar endast med fältet "/document/normalized_images", som produceras av ```imageAction``` Azure Blob-indexeraren när den är inställd på ett annat värde än ```none```. Mer information finns i [exemplet.](#sample-output)|
+| image         | Komplex typ. För närvarande fungerar det bara med fältet "/Document/normalized_images" som skapas av Azure Blob-indexeraren när ```imageAction``` har angetts till ett annat ```none```värde än. Se [exemplet](#sample-output) för mer information.|
 
 
 
-##  <a name="sample-skill-definition"></a>Exempel på färdighetsdefinition
+##  <a name="sample-skill-definition"></a>Exempel på kunskaps definition
 
 ```json
         {
@@ -86,7 +86,7 @@ Parametrar är skiftlägeskänsliga.
             ]
         }
 ```
-### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Exempelindex (endast för kategorierna, beskrivningen, ansiktena och taggarna)
+### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Exempel index (endast för fälten kategorier, beskrivning, ansikten och taggar)
 ```json
 {
     "fields": [
@@ -298,7 +298,7 @@ Parametrar är skiftlägeskänsliga.
 }
 
 ```
-### <a name="sample-output-field-mapping-for-the-above-index"></a>Exempel på utdatafältmappning (för ovanstående index)
+### <a name="sample-output-field-mapping-for-the-above-index"></a>Exempel på fält mappning av utdata (för indexet ovan)
 ```json
     "outputFieldMappings": [
         {
@@ -322,9 +322,9 @@ Parametrar är skiftlägeskänsliga.
             "targetFieldName": "brands"
         }
 ```
-### <a name="variation-on-output-field-mappings-nested-properties"></a>Variation på utdatafältmappningar (kapslade egenskaper)
+### <a name="variation-on-output-field-mappings-nested-properties"></a>Variation av mappningar av utdatakolumner (kapslade egenskaper)
 
-Du kan definiera utdatafältmappningar till egenskaper på lägre nivå, till exempel bara landmärken eller kändisar. I det här fallet kontrollerar du att indexschemat har ett fält som innehåller landmärken specifikt.
+Du kan definiera mappningar för utdatakolumner till lågnivå egenskaper, till exempel bara landmärken eller kändisar. I det här fallet kontrollerar du att index schemat har ett fält som innehåller landmärken specifikt.
 
 ```json
     "outputFieldMappings": [
@@ -333,7 +333,7 @@ Du kan definiera utdatafältmappningar till egenskaper på lägre nivå, till ex
             "targetFieldName": "celebrities"
         }
 ```
-##  <a name="sample-input"></a>Exempelinmatning
+##  <a name="sample-input"></a>Exempel på inmatade
 
 ```json
 {
@@ -509,20 +509,20 @@ Du kan definiera utdatafältmappningar till egenskaper på lägre nivå, till ex
 ```
 
 
-## <a name="error-cases"></a>Felfall
-I följande felfall extraheras inga element.
+## <a name="error-cases"></a>Fel fall
+I följande fel fall extraheras inga element.
 
 | Felkod | Beskrivning |
 |------------|-------------|
-| Inte stödsSpråk | Det angivna språket stöds inte. |
-| OgiltigtBildurl | Bildadressen är felaktigt formaterad eller inte tillgänglig.|
-| OgiltigtBildformat | Indata är inte en giltig avbildning. |
-| Ogiltig storlek | Indatabilden är för stor. |
-| Inte stödsVisualFeature  | Den angivna funktionstypen är ogiltig. |
-| Inte stödsImage | Bild som inte stöds, till exempel barnpornografi. |
-| Ogiltigadetaljer | Domänspecifik modell som inte stöds. |
+| NotSupportedLanguage | Det tillhandahållna språket stöds inte. |
+| InvalidImageUrl | Bild-URL: en är felaktigt formaterad eller inte tillgänglig.|
+| InvalidImageFormat | Indata är inte en giltig bild. |
+| InvalidImageSize | Indata-bilden är för stor. |
+| NotSupportedVisualFeature  | Den angivna funktions typen är inte giltig. |
+| NotSupportedImage | Bild som inte stöds, t. ex. barn pornografi. |
+| InvalidDetails | En domänbaserad modell som inte stöds. |
 
-Om du får felet `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`som liknar kontrollerar du sökvägen. Både kändisar och landmärken är `detail`egenskaper under .
+Om du får det fel som `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`liknar kontrollerar du sökvägen. Både kändisar och landmärken är egenskaper under `detail`.
 
 ```json
 "categories":[  
@@ -541,5 +541,5 @@ Om du får felet `"One or more skills are invalid. Details: Error in skill #<num
 ## <a name="see-also"></a>Se även
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

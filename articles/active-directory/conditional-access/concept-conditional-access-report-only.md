@@ -1,6 +1,6 @@
 ---
-title: Vad är läge för endast villkorsåtkomstrapport? - Azure Active Directory
-description: Hur kan rapport-bara läge hjälp med villkorlig åtkomst principdistribution
+title: Vad är läget endast i rapporten för villkorlig åtkomst? -Azure Active Directory
+description: Hur kan du använda en rapport i läge med distribution av principer för villkorlig åtkomst
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,43 +12,43 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80295287"
 ---
-# <a name="what-is-conditional-access-report-only-mode"></a>Vad är läge för endast villkorsåtkomstrapport?
+# <a name="what-is-conditional-access-report-only-mode"></a>Vad är läget endast i rapporten för villkorlig åtkomst?
 
-Villkorlig åtkomst används ofta av våra kunder för att hålla sig säkra genom att tillämpa rätt åtkomstkontroller under rätt omständigheter. Men en av utmaningarna med att distribuera en princip för villkorlig åtkomst i organisationen är att avgöra effekten för slutanvändarna. Det kan vara svårt att förutse antalet användare och namn som påverkas av vanliga distributionsinitiativ, till exempel blockera äldre autentisering, kräva multifaktorautentisering för en användares population eller implementera inloggningsriskprinciper. 
+Villkorlig åtkomst används ofta av våra kunder för att skydda dig genom att använda rätt åtkomst kontroller i rätt situationer. Dock är en av utmaningarna med att distribuera en princip för villkorlig åtkomst i din organisation att fastställa konsekvenserna för slutanvändarna. Det kan vara svårt att förutse antalet och namnen på de användare som påverkas av vanliga distributions initiativ, till exempel att blockera äldre autentisering, kräva Multi-Factor Authentication för en population av användare eller implementera inloggnings risk principer. 
 
-Endast rapportläge är ett nytt principtillstånd för villkorlig åtkomst som gör det möjligt för administratörer att utvärdera effekten av principer för villkorlig åtkomst innan de aktiveras i sin miljö.  Med lanseringen av endast rapportläge:
+Endast rapport läge är ett nytt tillstånd för villkorlig åtkomst som gör att administratörer kan utvärdera effekten av principer för villkorlig åtkomst innan de aktive ras i deras miljö.  Med den här versionen av endast rapport läge:
 
-- Principer för villkorlig åtkomst kan aktiveras i endast rapportläge.
-- Under inloggningen utvärderas principer i endast rapportläge men tillämpas inte.
-- Resultaten loggas på flikarna **Endast villkorlig åtkomst** och Rapport **(Förhandsversion)** i inloggningsuppgifterna för inloggningsuppgifter.
-- Kunder med en Azure Monitor-prenumeration kan övervaka effekten av sina principer för villkorlig åtkomst med hjälp av arbetsboken för insikter om villkorlig åtkomst.
+- Principer för villkorlig åtkomst kan aktive ras i endast rapport läge.
+- Under inloggningen utvärderas principer i endast rapport läge men tillämpas inte.
+- Resultaten loggas i flikarna **villkorlig åtkomst** och **endast rapporter (för hands version)** i inloggnings logg informationen.
+- Kunder med en Azure Monitor prenumeration kan övervaka påverkan av sina principer för villkorlig åtkomst med hjälp av arbets boken för villkorlig åtkomst.
 
 > [!WARNING]
-> Principer i endast rapportläge som kräver kompatibla enheter kan uppmana användare på Mac, iOS och Android att välja ett enhetscertifikat under principutvärderingen, även om enhetsefterlevnad inte tillämpas. Dessa uppmaningar kan upprepas tills enheten har gjorts kompatibel. För att förhindra att slutanvändare får uppmaningar under inloggningen utesluter du enhetsplattformar Mac, iOS och Android från principer för endast rapporter som utför kontroller av enhetsefterlevnad.
+> Principer i läge för endast rapporter som kräver kompatibla enheter kan begära att användare på Mac, iOS och Android väljer ett enhets certifikat under princip utvärderingen, även om enhetens efterlevnad inte tillämpas. Dessa prompter kan upprepas tills enheten blir kompatibel. För att förhindra att slutanvändare får meddelanden under inloggningen utesluter du Mac-, iOS-och Android-enheter från enbart rapport principer som utför kontroll av enhetskompatibilitet.
 
-![Fliken Endast rapport i inloggningsloggen för Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
+![Fliken endast rapporter i inloggnings loggen för Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 
-## <a name="policy-results"></a>Politiska resultat
+## <a name="policy-results"></a>Princip resultat
 
-När en princip i endast rapportläge utvärderas för en viss inloggning finns det fyra nya möjliga resultatvärden:
+När en princip i endast rapport läge utvärderas för en specifik inloggning, finns det fyra nya möjliga resultat värden:
 
 | Resultat | Beskrivning |
 | --- | --- |
-| Endast rapport: Framgång | Alla konfigurerade principvillkor, obligatoriska icke-interaktiva bidragskontroller och sessionskontroller var uppfyllda. Ett multifaktorautentiseringskrav uppfylls till exempel av ett MFA-anspråk som redan finns i token, eller så uppfylls en kompatibel enhetsprincip genom att utföra en enhetskontroll på en kompatibel enhet. |
-| Endast rapport: Fel | Alla konfigurerade principvillkor var uppfyllda, men inte alla nödvändiga icke-interaktiva bidragskontroller eller sessionskontroller var uppfyllda. En princip gäller till exempel för en användare där en blockkontroll har konfigurerats eller en enhet misslyckas med en kompatibel enhetsprincip. |
-| Endast rapport: Användaråtgärd krävs | Alla konfigurerade principvillkor var uppfyllda, men användaråtgärden skulle krävas för att uppfylla de nödvändiga bidragskontrollerna eller sessionskontrollerna. Med endast rapportläge uppmanas användaren inte att uppfylla de kontroller som krävs. Användare uppmanas till exempel inte för multifaktorautentiseringsutmaningar eller användningsvillkor.   |
-| Endast rapport: Tillämpas inte | Alla konfigurerade principvillkor var inte uppfyllda. Användaren är till exempel utesluten från principen eller principen gäller endast för vissa betrodda namngivna platser. |
+| Endast rapport: lyckad | Alla konfigurerade princip villkor, obligatoriska icke-interaktiva beviljade kontroller och kontroller av sessionen var uppfyllda. Till exempel uppfylls ett Multi-Factor Authentication-krav av ett MFA-anspråk som redan finns i token eller en kompatibel enhets princip är uppfylld genom att utföra en enhets kontroll på en kompatibel enhet. |
+| Endast rapport: problem | Alla konfigurerade princip villkor uppfylldes men det var inte alla nödvändiga icke-interaktiva beviljade kontroller eller kontroll av sessionen uppfyllda. En princip gäller till exempel en användare där en blockerande kontroll har kon figurer ATS, eller en enhet som inte uppfyller en kompatibel enhets princip. |
+| Endast rapport: användar åtgärd krävs | Alla konfigurerade princip villkor uppfylldes men användar åtgärd krävs för att uppfylla de nödvändiga kontroll-eller sessions kontrollerna. Med endast rapport läge uppmanas användaren inte att uppfylla de nödvändiga kontrollerna. Användarna uppmanas till exempel inte att använda Multi-Factor Authentication-utmaningar eller användnings villkor.   |
+| Endast rapport: används inte | Alla konfigurerade princip villkor uppfylldes inte. Användaren är till exempel exkluderad från principen eller så gäller principen endast vissa betrodda namngivna platser. |
 
-## <a name="conditional-access-insights-workbook"></a>Arbetsbok för Statistik för villkorsstyrda accesser
+## <a name="conditional-access-insights-workbook"></a>Arbets bok för villkorlig åtkomst
 
-Administratörer har möjlighet att skapa flera principer i endast rapportläge, så det är nödvändigt att förstå både den individuella effekten av varje princip och den kombinerade effekten av flera principer som utvärderas tillsammans. Den nya arbetsboken Conditional Access Insights gör det möjligt för administratörer att visualisera frågor om villkorlig åtkomst och övervaka effekten av en princip för ett visst tidsintervall, uppsättning program och användare. 
+Administratörer har möjlighet att skapa flera principer i enbart rapport läge, så det är nödvändigt att förstå både den enskilda effekten av varje princip och den kombinerade effekten av flera principer som utvärderas tillsammans. Med den nya arbets boken för villkorlig åtkomst kan administratörer visualisera villkorliga åtkomst frågor och övervaka effekten av en princip för ett specifikt tidsintervall, en uppsättning program och användare. 
  
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera endast rapportläge för en princip för villkorlig åtkomst](howto-conditional-access-report-only.md)
+[Konfigurera endast rapport läge för en princip för villkorlig åtkomst](howto-conditional-access-report-only.md)

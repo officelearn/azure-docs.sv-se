@@ -1,6 +1,6 @@
 ---
-title: Aks-poddar för automatisk skalning med Azure Application Gateway-mått
-description: Den här artikeln innehåller instruktioner om hur du skalar dina AKS-backend-poddar med hjälp av mätvärden för Application Gateway och Azure Kubernetes Metric Adapter
+title: Autoskalning av AKS-poddar med Azure Application Gateway-mått
+description: Den här artikeln innehåller anvisningar om hur du skalar din AKS-backend-poddar med Application Gateway mått och Azure Kubernetes Metric adapter
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,26 +8,26 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 1169ed0e9a2b970ee0e30d73ea20c87001b62786
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80239453"
 ---
-# <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Skala aks-poddar automatiskt med hjälp av Beta (Application Gateway Metrics)
+# <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Autoskala din AKS-poddar med hjälp av Application Gateway mått (beta)
 
-När inkommande trafik ökar blir det viktigt att skala upp dina program baserat på efterfrågan.
+Allteftersom inkommande trafik ökar är det viktigt att skala upp dina program baserat på efter frågan.
 
-I följande självstudiekurs förklarar vi hur du `AvgRequestCountPerHealthyHost` kan använda Application Gateways mått för att skala upp ditt program. `AvgRequestCountPerHealthyHost`mäter genomsnittliga begäranden som skickas till en viss serverd-pool och serverda HTTP-inställningskombination.
+I följande självstudie förklarar vi hur du kan använda Application Gateways `AvgRequestCountPerHealthyHost` mått för att skala upp ditt program. `AvgRequestCountPerHealthyHost`mäter Genomsnittligt antal begär Anden som skickas till en bestämd inställnings kombination för en server del och en server del.
 
-Vi kommer att använda följande två komponenter:
+Vi ska använda följande två komponenter:
 
-* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)- Vi använder måttkortet för att exponera mätvärden för Application Gateway via måttservern. Azure Kubernetes Måttkort är ett projekt med öppen källkod under Azure, liknande programgateway-ingress-styrenheten. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)- Vi kommer att använda HPA för att använda Application Gateway-mått och rikta in dig på en distribution för skalning.
+* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)– Vi använder mått kortet för att Visa Application Gateway mått via mått servern. Azure Kubernetes Metric adapter är ett projekt med öppen källkod under Azure, som liknar Application Gateway ingångs kontroll. 
+* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)– Vi använder HPA för att använda Application Gateway mått och rikta en distribution för skalning.
 
-## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurera Azure Kubernetes-mätkort
+## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurera Azure Kubernetes Metric adapter
 
-1. Vi skapar först ett Azure AAD-tjänsthuvudnamn och tilldelar det `Monitoring Reader` åtkomst via Application Gateways resursgrupp. 
+1. Vi börjar med att skapa ett huvud namn för Azure AAD- `Monitoring Reader` tjänsten och tilldela det åtkomst över Application Gateway resurs gruppen. 
 
     ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
@@ -35,7 +35,7 @@ Vi kommer att använda följande två komponenter:
         az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId
     ```
 
-1. Nu kommer vi [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) att distribuera med hjälp av AAD-tjänstens huvudnamn som skapats ovan.
+1. Nu ska vi distribuera [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) med hjälp av AAD-tjänstens huvud namn som skapats ovan.
 
     ```bash
     kubectl create namespace custom-metrics
@@ -47,7 +47,7 @@ Vi kommer att använda följande två komponenter:
     kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/Azure/azure-k8s-metrics-adapter/master/deploy/adapter.yaml -n custom-metrics
     ```
 
-1. Vi skapar `ExternalMetric` en resurs `appgw-request-count-metric`med namn . Den här resursen instruerar `AvgRequestCountPerHealthyHost` måttkortet att visa mått för `myApplicationGateway` resurs i `myResourceGroup` resursgruppen. Du kan `filter` använda fältet för att rikta in dig på en viss backend-pool och HTTP-inställning för bakåtsträvande i programgatewayen.
+1. Vi kommer att skapa `ExternalMetric` en resurs med `appgw-request-count-metric`namnet. Den här resursen instruerar Metric-kortet att `AvgRequestCountPerHealthyHost` exponera mått `myApplicationGateway` för resursen `myResourceGroup` i resurs gruppen. Du kan använda `filter` fältet för att rikta in dig på en bestämd Server del och http-inställning för Server delen i Application Gateway.
 
     ```yaml
     apiVersion: azure.com/v1alpha2
@@ -67,7 +67,7 @@ Vi kommer att använda följande två komponenter:
             filter: BackendSettingsPool eq '<backend-pool-name>~<backend-http-setting-name>' # optional
     ```
 
-Du kan nu göra en begäran till måttservern för att se om vårt nya mått blir exponerat:
+Nu kan du göra en begäran till mått servern för att se om vårt nya mått visas:
 ```bash
 kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appgw-request-count-metric"
 # Sample Output
@@ -92,11 +92,11 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Använda det nya måttet för att skala upp distributionen
 
-När vi har `appgw-request-count-metric` möjlighet att exponera via den [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) metriska servern är vi redo att använda för att skala upp vår måldistribution.
+När vi kan exponera `appgw-request-count-metric` via mått servern är vi redo att använda [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) för att skala upp vår mål distribution.
 
-I följande exempel kommer vi `aspnet`att inrikta en exempeldistribution . Vi kommer att skala `appgw-request-count-metric` upp Pods när > 200 `10` per Pod upp till max pods.
+I följande exempel ska vi rikta in sig på en `aspnet`exempel distribution. Vi kommer att skala upp poddar `appgw-request-count-metric` när > 200 per POD upp till högst `10` poddar.
 
-Ersätt ditt måldistributionsnamn och tillämpa följande konfiguration för automatisk skalning:
+Ersätt ditt mål distributions namn och Använd följande konfiguration för automatisk skalning:
 ```yaml
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
@@ -116,10 +116,10 @@ spec:
       targetAverageValue: 200
 ```
 
-Testa din inställning med hjälp av ett verktyg belastning test som apache bänk:
+Testa installationen med hjälp av ett belastnings test verktyg som Apache bänk:
 ```bash
 ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [**Felsöka problem med ingressstyrenheten:**](ingress-controller-troubleshoot.md)Felsök eventuella problem med ingressstyrenheten.
+- [**Felsök problem med inkommande styrenheter**](ingress-controller-troubleshoot.md): Felsök eventuella problem med ingångs styrenheten.

@@ -1,6 +1,6 @@
 ---
-title: Använda enheter offline – Azure IoT Edge | Microsoft-dokument
-description: Förstå hur IoT Edge-enheter och-moduler kan fungera utan internetanslutning under längre tidsperioder och hur IoT Edge kan aktivera vanliga IoT-enheter för att fungera offline också.
+title: Använda enheter offline – Azure IoT Edge | Microsoft Docs
+description: Förstå hur IoT Edge enheter och moduler kan använda utan Internet anslutning under långa tids perioder och hur IoT Edge kan möjliggöra att vanliga IoT-enheter fungerar offline.
 author: kgremban
 ms.author: kgremban
 ms.date: 11/22/2019
@@ -8,67 +8,67 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 55512491121aee28404ab5f85b4223c67a2f0e1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80236063"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offlinefunktioner för IoT Edge-enheter, moduler och underordnade enheter
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter
 
-Azure IoT Edge stöder utökade offlineåtgärder på dina IoT Edge-enheter och aktiverar offlineåtgärder även på underordnade enheter som inte är IoT Edge. Så länge en IoT Edge-enhet har haft en möjlighet att ansluta till IoT Hub, kan den enheten och alla underordnade enheter fortsätta att fungera med intermittent eller ingen internetanslutning.
+Azure IoT Edge stöder utökade offline-åtgärder på IoT Edge enheter och aktiverar offline-åtgärder på icke-IoT Edge underordnade enheter. Så länge en IoT Edge enhet har haft en möjlighet att ansluta till IoT Hub, kan den enheten och underordnade enheter fortsätta att fungera med tillfälliga eller ingen Internet anslutning.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
-När en IoT Edge-enhet går in i offlineläge tar IoT Edge-hubben på tre roller. Först lagrar den alla meddelanden som skulle gå uppströms och sparar dem tills enheten återansluter. För det andra fungerar den på uppdrag av IoT Hub för att autentisera moduler och underordnade enheter så att de kan fortsätta att fungera. För det tredje möjliggör det kommunikation mellan underordnade enheter som normalt skulle gå igenom IoT Hub.
+När en IoT Edge enhet försätts i offlineläge, använder IoT Edge Hub tre roller. Först lagrar den alla meddelanden som skulle hamna i ström och spara dem tills enheten återansluter. För det andra fungerar det åt IoT Hub att autentisera moduler och underordnade enheter så att de kan fortsätta att fungera. Tredje, den möjliggör kommunikation mellan underordnade enheter som normalt skulle gå via IoT Hub.
 
-I följande exempel visas hur ett IoT Edge-scenario fungerar i offlineläge:
+I följande exempel visas hur ett IoT Edge scenario fungerar i offline-läge:
 
 1. **Konfigurera enheter**
 
-   IoT Edge-enheter har automatiskt offlinefunktioner aktiverade. Om du vill utöka den funktionen till andra IoT-enheter måste du deklarera en överordnad och underordnad relation mellan enheterna i IoT Hub. Sedan konfigurerar du de underordnade enheterna för att lita på deras tilldelade överordnade enhet och dirigera kommunikationen mellan enheten och molnet via den överordnade som en gateway.
+   Offline-funktioner aktive ras automatiskt för IoT Edge enheter. För att utöka den möjligheten till andra IoT-enheter måste du deklarera en överordnad-underordnad-relation mellan enheterna i IoT Hub. Sedan konfigurerar du de underordnade enheterna så att de litar på den tilldelade överordnade enheten och dirigerar enhets-till-moln-kommunikationen genom den överordnade som en gateway.
 
 2. **Synkronisera med IoT Hub**
 
-   Minst en gång efter installationen av IoT Edge-körningen måste IoT Edge-enheten vara online för att synkronisera med IoT Hub. I den här synkroniseringen får IoT Edge-enheten information om alla underordnade enheter som tilldelats den. IoT Edge-enheten uppdaterar också sin lokala cache på ett säkert sätt för att aktivera offlineåtgärder och hämtar inställningar för lokal lagring av telemetrimeddelanden.
+   Som minst en gång efter installationen av IoT Edge runtime måste IoT Edges enheten vara online för att synkronisera med IoT Hub. I den här synkroniseringen hämtar IoT Edge enheten information om eventuella underordnade enheter som tilldelats den. Den IoT Edge-enheten uppdaterar också det lokala cacheminnet för att aktivera offline-åtgärder och hämtar inställningar för lokal lagring av telemetri-meddelanden.
 
 3. **Gå offline**
 
-   När den är frånkopplad från IoT Hub kan IoT Edge-enheten, dess distribuerade moduler och alla underordnade IoT-enheter fungera på obestämd tid. Moduler och underordnade enheter kan starta och starta om genom att autentisera med IoT Edge-hubben när du är offline. Telemetri som är bunden uppströms till IoT Hub lagras lokalt. Kommunikation mellan moduler eller mellan underordnade IoT-enheter upprätthålls genom direkta metoder eller meddelanden.
+   När du är frånkopplad från IoT Hub kan IoT Edges enheten, dess distribuerade moduler och alla underordnade IoT-enheter arbeta på obestämd tid. Moduler och underordnade enheter kan starta och starta om genom att autentisera med IoT Edge hubben offline. Telemetri som binds till IoT Hub lagras lokalt. Kommunikation mellan moduler eller mellan underordnade IoT-enheter underhålls via direkta metoder eller meddelanden.
 
-4. **Återanslut och synkronisera igen med IoT Hub**
+4. **Återanslut och omsynkronisera med IoT Hub**
 
-   När anslutningen till IoT Hub har återställts synkroniseras IoT Edge-enheten igen. Lokalt lagrade meddelanden levereras till IoT Hub direkt, men är beroende av anslutningens hastighet, IoT Hub-svarstid och relaterade faktorer. De levereras i samma ordning som de förvarades i.
+   När anslutningen med IoT Hub återställs synkroniseras IoT Edge enheten igen. Lokalt lagrade meddelanden levereras till IoT Hub direkt, men är beroende av anslutnings hastigheten, IoT Hub svars tiden och relaterade faktorer. De levereras i samma ordning som de lagrades i.
 
-   Eventuella skillnader mellan de önskade och rapporterade egenskaperna för modulerna och enheterna är avstämda. IoT Edge-enheten uppdaterar alla ändringar i uppsättningen av tilldelade underordnade IoT-enheter.
+   Eventuella skillnader mellan de önskade och rapporterade egenskaperna för modulerna och enheterna är synkroniserade. Den IoT Edge enheten uppdaterar alla ändringar i sin uppsättning tilldelade underordnade IoT-enheter.
 
 ## <a name="restrictions-and-limits"></a>Begränsningar och begränsningar
 
-De utökade offlinefunktionerna som beskrivs i den här artikeln är tillgängliga i [IoT Edge version 1.0.7 eller senare](https://github.com/Azure/azure-iotedge/releases). Tidigare versioner har en delmängd av offlinefunktioner. Befintliga IoT Edge-enheter som inte har utökade offlinefunktioner kan inte uppgraderas genom att ändra körningsversionen, men måste konfigureras om med en ny IoT Edge-enhetsidentitet för att få dessa funktioner.
+De utökade offline-funktionerna som beskrivs i den här artikeln är tillgängliga i [IoT Edge version 1.0.7 eller senare](https://github.com/Azure/azure-iotedge/releases). Tidigare versioner har en delmängd offline-funktioner. Befintliga IoT Edge enheter som inte har utökade offline-funktioner kan inte uppgraderas genom att ändra körnings versionen, men måste konfigureras om med en ny IoT Edge enhets identitet för att få dessa funktioner.
 
-Endast enheter som inte är IoT Edge-enheter kan läggas till som underordnade enheter.
+Endast icke-IoT Edge enheter kan läggas till som underordnade enheter.
 
-IoT Edge-enheter och deras tilldelade underordnade enheter kan fungera på obestämd tid offline efter den första engångssynkroniseringen. Lagring av meddelanden beror dock på hur länge du ska live (TTL) och det tillgängliga diskutrymmet för lagring av meddelandena.
+IoT Edge enheter och deras tilldelade underordnade enheter kan fungera oändligt offline efter den första synkroniseringen vid ett tillfälle. Lagring av meddelanden beror dock på inställningen för TTL (Time to Live) och tillgängligt disk utrymme för att lagra meddelandena.
 
 ## <a name="set-up-parent-and-child-devices"></a>Konfigurera överordnade och underordnade enheter
 
-För att en IoT Edge-enhet ska kunna utöka sina utökade offlinefunktioner till underordnade IoT-enheter måste du slutföra två steg. Deklarera först överordnade och underordnade relationer i Azure-portalen. För det andra skapar du en förtroenderelation mellan den överordnade enheten och alla underordnade enheter och konfigurerar sedan kommunikation mellan enheter och moln för att gå igenom den överordnade som en gateway.
+För att en IoT Edge enhet ska kunna utöka sina utökade offline-funktioner till underordnade IoT-enheter måste du utföra två steg. Deklarera först de överordnade och underordnade relationerna i Azure Portal. Skapa sedan en förtroende relation mellan den överordnade enheten och eventuella underordnade enheter och konfigurera sedan enhet-till-moln-kommunikation för att gå igenom den överordnade som en gateway.
 
 ### <a name="assign-child-devices"></a>Tilldela underordnade enheter
 
-Underordnade enheter kan vara alla enheter som inte är IoT Edge-enheter registrerade på samma IoT Hub. Överordnade enheter kan ha flera underordnade enheter, men en underordnad enhet har bara en överordnad enhet. Det finns tre alternativ för att ställa in underordnade enheter till en kantenhet: via Azure-portalen, med hjälp av Azure CLI eller använda IoT Hub-tjänsten SDK.
+Underordnade enheter kan vara en icke-IoT Edge enhet som är registrerad på samma IoT Hub. Överordnade enheter kan ha flera underordnade enheter, men en underordnad enhet har bara en överordnad. Det finns tre alternativ för att ange underordnade enheter till en Edge-enhet: via Azure Portal, med hjälp av Azure CLI eller med hjälp av IoT Hub service SDK.
 
-I följande avsnitt finns exempel på hur du kan deklarera den överordnade/underordnade relationen i IoT Hub för befintliga IoT-enheter. Om du skapar nya enhetsidentiteter för dina underordnade enheter läser du [Autentisera en nedströmsenhet till Azure IoT Hub](how-to-authenticate-downstream-device.md) för mer information.
+I följande avsnitt finns exempel på hur du kan deklarera den överordnade/underordnade relationen i IoT Hub för befintliga IoT-enheter. Om du skapar nya enhets identiteter för dina underordnade enheter läser du [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md) för mer information.
 
 #### <a name="option-1-iot-hub-portal"></a>Alternativ 1: IoT Hub Portal
 
-Du kan deklarera den överordnade och underordnade relationen när du skapar en ny enhet. Eller för befintliga enheter kan du deklarera relationen från enhetsinformationssidan för antingen den överordnade IoT Edge-enheten eller den underordnade IoT-enheten.
+Du kan deklarera den överordnade-underordnade relationen när du skapar en ny enhet. Eller för befintliga enheter kan du deklarera relationen från sidan enhets information i antingen den överordnade IoT Edge-enheten eller den underordnade IoT-enheten.
 
-   ![Hantera underordnade enheter från informationssidan för IoT Edge-enheten](./media/offline-capabilities/manage-child-devices.png)
+   ![Hantera underordnade enheter från sidan IoT Edge enhets information](./media/offline-capabilities/manage-child-devices.png)
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>Alternativ 2: `az` Använd kommandoradsverktyget
+#### <a name="option-2-use-the-az-command-line-tool"></a>Alternativ 2: Använd `az` kommando rads verktyget
 
-Med hjälp av [Azure-kommandoradsgränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) med [IoT-tillägg](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 eller nyare) kan du hantera överordnade underordnade relationer med underkommandona för [enhetsidentitet.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) I exemplet nedan används en fråga för att tilldela alla enheter som inte är IoT Edge-enheter i navet för att vara underordnade enheter till en IoT Edge-enhet.
+Med hjälp av [Azures kommando rads gränssnitt](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) med [IoT-tillägget](https://github.com/azure/azure-iot-cli-extension) (v 0.7.0 eller senare) kan du hantera överordnade underordnade relationer med under kommandona [enhets identitet](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) . Exemplet nedan använder en fråga för att tilldela alla icke-IoT Edge enheter i hubben som underordnade enheter till en IoT Edge enhet.
 
 ```azurecli
 # Set IoT Edge parent device
@@ -91,36 +91,36 @@ az iot hub device-identity add-children \
   --subscription replace-with-sub-name
 ```
 
-Du kan ändra [frågan](../iot-hub/iot-hub-devguide-query-language.md) för att välja en annan delmängd av enheter. Kommandot kan ta flera sekunder om du anger en stor uppsättning enheter.
+Du kan ändra [frågan](../iot-hub/iot-hub-devguide-query-language.md) om du vill välja en annan delmängd av enheter. Kommandot kan ta flera sekunder om du anger en stor uppsättning enheter.
 
-#### <a name="option-3-use-iot-hub-service-sdk"></a>Alternativ 3: Använd IoT Hub Service SDK
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Alternativ 3: Använd IoT Hub service SDK
 
-Slutligen kan du hantera överordnade underordnade relationer programmässigt med hjälp av C#, Java eller Node.js IoT Hub Service SDK. Här är ett [exempel på att tilldela en underordnad enhet](https://aka.ms/set-child-iot-device-c-sharp) med hjälp av C# SDK.
+Slutligen kan du hantera överordnade underordnade relationer via programmering med antingen C#, Java eller Node. js IoT Hub service SDK. Här är ett [exempel på hur du tilldelar en underordnad enhet](https://aka.ms/set-child-iot-device-c-sharp) med C# SDK.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Konfigurera den överordnade enheten som en gateway
 
-Du kan se en överordnad/underordnad relation som en transparent gateway, där den underordnade enheten har sin egen identitet i IoT Hub men kommunicerar via molnet via den överordnade. För säker kommunikation måste den underordnade enheten kunna verifiera att den överordnade enheten kommer från en betrodd källa. Annars kan tredje part konfigurera skadliga enheter för att personifiera föräldrar och avlyssna kommunikation.
+Du kan tänka på en överordnad/underordnad-relation som en transparent Gateway, där den underordnade enheten har sin egen identitet i IoT Hub men kommunicerar via molnet via dess överordnade. För säker kommunikation måste den underordnade enheten kunna verifiera att den överordnade enheten kommer från en betrodd källa. I annat fall kan tredje parter konfigurera skadliga enheter för att personifiera föräldrar och avlyssna kommunikation.
 
-Ett sätt att skapa den här förtroenderelationen beskrivs i detalj i följande artiklar:
+Ett sätt att skapa den här förtroende relationen beskrivs i detalj i följande artiklar:
 
 * [Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway](how-to-create-transparent-gateway.md)
-* [Ansluta en underordnad enhet nedströms (underordnad) till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md)
+* [Ansluta en underordnad enhet (underordnad) till en Azure IoT Edge-Gateway](how-to-connect-downstream-device.md)
 
 ## <a name="specify-dns-servers"></a>Ange DNS-servrar
 
-För att förbättra robustheten rekommenderar vi starkt att du anger de DNS-serveradresser som används i din miljö. Om du vill ange DNS-servern för IoT Edge läser du upplösningen för [Edge Agent-modulen rapporterar kontinuerligt "tom konfigurationsfil" och inga moduler startar på enheten](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) i felsökningsartikeln.
+För att förbättra stabiliteten rekommenderar vi starkt att du anger de DNS-serveradresser som används i din miljö. Om du vill ställa in DNS-servern för IoT Edge kan du läsa mer i lösningen för [Edge-agenten i kontinuerlig rapport ' Tom konfigurations fil ' och inga moduler startar på enheten](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) i fel söknings artikeln.
 
-## <a name="optional-offline-settings"></a>Valfria offlineinställningar
+## <a name="optional-offline-settings"></a>Valfria offline-inställningar
 
-Om dina enheter kopplas från lagrar den överordnade IoT Edge-överordnade enheten alla meddelanden från enheten till molnet tills anslutningen återupprättas. IoT Edge-hubbmodulen hanterar lagring och vidarebefordran av offlinemeddelanden. Optimera prestanda för enheter som kan vara offline under en längre tid genom att konfigurera två IoT Edge-hubbinställningar.
+Om enheterna är offline lagrar den IoT Edge överordnade enheten alla meddelanden från enheten till molnet tills anslutningen har återupprättats. IoT Edge Hub-modulen hanterar lagring och vidarebefordran av offline-meddelanden. Optimera prestanda genom att konfigurera två IoT Edge Hub-inställningar för enheter som kan vara offline under längre tids perioder.
 
-Öka först tiden för att live-inställningen så att IoT Edge-hubben behåller meddelanden tillräckligt länge för att enheten ska kunna återansluta. Lägg sedan till ytterligare diskutrymme för meddelandelagring.
+Börja med att öka tiden till Live-inställningen så att IoT Edge hubben håller meddelandena tillräckligt länge för att enheten ska kunna ansluta igen. Lägg sedan till ytterligare disk utrymme för lagring av meddelanden.
 
 ### <a name="time-to-live"></a>Time to live
 
-Tiden till live-inställningen är den tid (i sekunder) som ett meddelande kan vänta på att levereras innan det går ut. Standardvärdet är 7200 sekunder (två timmar). Det maximala värdet begränsas endast av det maximala värdet för en heltalsvariabel, vilket är cirka 2 miljarder.
+Inställningen Time to Live är den tid (i sekunder) som ett meddelande kan vänta på att levereras innan det upphör att gälla. Standardvärdet är 7200 sekunder (två timmar). Det maximala värdet begränsas bara av det högsta värdet för en heltals variabel, som är cirka 2 000 000 000.
 
-Den här inställningen är en önskad egenskap för IoT Edge-hubben, som lagras i modultvillingen. Du kan konfigurera den i Azure-portalen eller direkt i distributionsmanifestet.
+Den här inställningen är en önskad egenskap för IoT Edge hubben, som lagras i modulernas dubbla. Du kan konfigurera den i Azure Portal eller direkt i distributions manifestet.
 
 ```json
 "$edgeHub": {
@@ -134,13 +134,13 @@ Den här inställningen är en önskad egenskap för IoT Edge-hubben, som lagras
 }
 ```
 
-### <a name="host-storage-for-system-modules"></a>Värdlagring för systemmoduler
+### <a name="host-storage-for-system-modules"></a>Värd lagring för systemmoduler
 
-Meddelanden och modultillståndsinformation lagras som standard i IoT Edge-hubbens lokala behållarfilsystem. För förbättrad tillförlitlighet, särskilt när du använder offline, kan du också ägna lagring på värd-IoT Edge-enheten. Mer information finns i [Ge moduler åtkomst till en enhets lokala lagring](how-to-access-host-storage-from-module.md)
+Information om meddelanden och modulens tillstånd lagras i IoT Edge hubbens lokala behållare som standard. För bättre tillförlitlighet, särskilt när du arbetar offline, kan du också dedikera lagring på värden IoT Edge enheten. Mer information finns i [ge moduler åtkomst till en enhets lokala lagring](how-to-access-host-storage-from-module.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du konfigurerar en transparent gateway för dina överordnade/underordnade enhetsanslutningar:
+Läs mer om hur du konfigurerar en transparent Gateway för dina överordnade/underordnade enhets anslutningar:
 
 * [Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway](how-to-create-transparent-gateway.md)
 * [Autentisera en underordnad enhet på Azure IoT Hub](how-to-authenticate-downstream-device.md)

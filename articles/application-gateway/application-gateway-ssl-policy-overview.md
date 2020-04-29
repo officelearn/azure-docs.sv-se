@@ -1,6 +1,6 @@
 ---
-title: TLS-principöversikt för Azure Application Gateway
-description: Lär dig hur du konfigurerar TLS-principen för Azure Application Gateway och minskar kryptering och dekrypteringskostnader från en servergrupp för server.
+title: Översikt över TLS-princip för Azure Application Gateway
+description: Lär dig hur du konfigurerar TLS-princip för Azure Application Gateway och minskar belastningen på kryptering och dekryptering från en Server grupp på Server sidan.
 services: application gateway
 author: amsriva
 ms.service: application-gateway
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 871cb930e867002d8af1e7755de27d4873327543
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80257384"
 ---
-# <a name="application-gateway-tls-policy-overview"></a>Översikt över TLS-princip för Programgateway
+# <a name="application-gateway-tls-policy-overview"></a>Översikt över Application Gateway TLS-policy
 
-Du kan använda Azure Application Gateway för att centralisera TLS/SSL-certifikathantering och minska kryptering och dekrypteringskostnader från en servergrupp för server. Med den här centraliserade TLS-hanteringen kan du också ange en central TLS-princip som passar dina organisationssäkerhetskrav. Detta hjälper dig att uppfylla efterlevnadskrav samt säkerhetsriktlinjer och rekommenderade metoder.
+Du kan använda Azure Application Gateway för att centralisera TLS/SSL-certifikat hantering och minska belastningen på kryptering och dekryptering från en Server grupp på Server sidan. Med den här centraliserade TLS-hanteringen kan du också ange en central TLS-princip som passar organisationens säkerhets krav. Detta hjälper dig att uppfylla kraven för efterlevnad samt säkerhets rikt linjer och rekommenderade metoder.
 
-TLS-principen omfattar kontroll av TLS-protokollversionen samt chiffersviterna och i vilken ordning chiffer används under ett TLS-handslag. Application Gateway erbjuder två mekanismer för att kontrollera TLS-principen. Du kan använda antingen en fördefinierad princip eller en anpassad princip.
+TLS-principen inkluderar kontrollen av TLS-protokollets version samt chiffersviter och i vilken ordning chiffer används under en TLS-handskakning. Application Gateway erbjuder två mekanismer för att styra TLS-principen. Du kan använda antingen en fördefinierad princip eller en anpassad princip.
 
 ## <a name="predefined-tls-policy"></a>Fördefinierad TLS-princip
 
-Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigurera din gateway med någon av dessa principer för att få rätt säkerhetsnivå. Principnamnen kommenteras av det år och den månad då de konfigurerades. Varje princip erbjuder olika TLS-protokollversioner och chiffersviter. Vi rekommenderar att du använder de senaste TLS-principerna för att säkerställa bästa TLS-säkerhet.
+Application Gateway har tre fördefinierade säkerhets principer. Du kan konfigurera din gateway med någon av dessa principer för att få rätt säkerhets nivå. Princip namnen är kommenterade efter det år och den månad då de konfigurerades. Varje princip erbjuder olika TLS-protokoll och chiffersviter. Vi rekommenderar att du använder de senaste TLS-principerna för att säkerställa den bästa TLS-säkerheten.
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -30,7 +30,7 @@ Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigur
 |---|---|
 |Namn     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
-|Default| Sant (om ingen fördefinierad princip har angetts) |
+|Standardvärde| Sant (om ingen fördefinierad princip har angetts) |
 |CipherSuites     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
@@ -39,7 +39,7 @@ Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigur
 |   ---      |  ---       |
 |Namn     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
-|Default| False |
+|Standardvärde| Falskt |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
@@ -48,22 +48,22 @@ Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigur
 |---|---|
 |Namn     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
-|Default| False |
+|Standardvärde| Falskt |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
 ## <a name="custom-tls-policy"></a>Anpassad TLS-princip
 
-Om en fördefinierad TLS-princip måste konfigureras för dina behov måste du definiera din egen anpassade TLS-princip. Med en anpassad TLS-princip har du fullständig kontroll över den minsta TLS-protokollversionen som ska stödjas, liksom de chiffersviter som stöds och deras prioritetsordning.
+Om en fördefinierad TLS-princip måste konfigureras för dina krav måste du definiera en egen anpassad TLS-princip. Med en anpassad TLS-princip har du fullständig kontroll över den lägsta TLS-protokollversion som stöds, samt de chiffersviter som stöds och deras prioritetsordning.
  
-### <a name="tlsssl-protocol-versions"></a>TLS/SSL-protokollversioner
+### <a name="tlsssl-protocol-versions"></a>TLS/SSL-protokoll versioner
 
-* SSL 2.0 och 3.0 är inaktiverade som standard för alla programgateways. Dessa protokollversioner kan inte konfigureras.
-* En anpassad TLS-princip ger dig möjlighet att välja något av följande tre protokoll som minsta TLS-protokollversion för gatewayen: TLSv1_0, TLSv1_1 och TLSv1_2.
-* Om ingen TLS-princip har definierats aktiveras alla tre protokollen (TLSv1_0, TLSv1_1 och TLSv1_2).
+* SSL 2,0 och 3,0 är inaktiverat som standard för alla programgatewayer. Dessa protokoll versioner kan inte konfigureras.
+* En anpassad TLS-princip ger dig möjlighet att välja något av följande tre protokoll som lägsta TLS-protokollversion för din Gateway: TLSv1_0, TLSv1_1 och TLSv1_2.
+* Om ingen TLS-princip har definierats är alla tre protokollen (TLSv1_0, TLSv1_1 och TLSv1_2) aktiverade.
 
-### <a name="cipher-suites"></a>Chiffer sviter
+### <a name="cipher-suites"></a>Chiffersviter
 
-Application Gateway stöder följande chiffersviter som du kan välja din anpassade princip från. Ordningen på chiffersviterna bestämmer prioritetsordningen under TLS-förhandling.
+Application Gateway stöder följande chiffersviter som du kan använda för att välja en anpassad princip. Ordningen för chiffersviter avgör prioritetsordningen under TLS-förhandlingen.
 
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -96,7 +96,7 @@ Application Gateway stöder följande chiffersviter som du kan välja din anpass
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 > [!NOTE]
-> TLS-chiffersviter som används för anslutningen baseras också på vilken typ av certifikat som används. I klient-till-programgatewayanslutningar baseras chiffersviterna på typen av servercertifikat på programgatewaylyssnaren. I programgateway till servergruppsanslutningar baseras chiffersviterna på vilken typ av servercertifikat som finns på serverservern.
+> TLS-chiffersviter som används för anslutningen baseras också på typen av certifikat som används. I klient till Application Gateway-anslutningar baseras de chiffersviter som används på typen av Server certifikat i Application Gateway-lyssnaren. De chiffersviter som används i Application Gateway till backend-anslutningspoolen baseras på typen av Server certifikat på backend-poolens servrar.
 
 ## <a name="known-issue"></a>Kända problem
 Application Gateway v2 stöder för närvarande inte följande chiffer:
@@ -111,4 +111,4 @@ Application Gateway v2 stöder för närvarande inte följande chiffer:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill lära dig att konfigurera en TLS-princip läser [du Konfigurera TLS-principversioner och chiffersviter på Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+Om du vill lära dig hur du konfigurerar en TLS-princip kan du läsa [Konfigurera versioner av TLS-principer och cipher-paket på Application Gateway](application-gateway-configure-ssl-policy-powershell.md).

@@ -1,6 +1,6 @@
 ---
-title: Lägga till ett verktygsfält för ritning på en karta | Microsoft Azure Maps
-description: Så här lägger du till ett verktygsfält för teckning i en karta med Azure Maps Web SDK
+title: Lägg till ett verktygsfält för ritning i en karta | Microsoft Azure Maps
+description: Så här lägger du till ett verktygsfält för ritning i en karta med Azure Maps Web SDK
 author: philmea
 ms.author: philmea
 ms.date: 09/04/2019
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: bebf1ddfbca3aec5a551193609381cf3510bc3ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80334487"
 ---
-# <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Lägga till ett verktygsverktygsverktyg i en karta
+# <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Lägga till ett verktygsfält för rit verktyg i en karta
 
-I den här artikeln visas hur du använder modulen Ritverktyg och visar verktygsfältet rita på kartan. [Kontrollen DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) lägger till ritarmfältet på kartan. Du får lära dig hur du skapar kartor med bara ett och alla ritverktyg och hur du anpassar återgivningen av ritningsformerna i rithanteraren.
+Den här artikeln visar hur du använder modulen för rit verktyg och hur du visar verktygsfältet Rita på kartan. [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) -kontrollen lägger till verktygsfältet Rita i kartan. Du får lära dig hur du skapar kartor med bara ett och alla rit verktyg och hur du anpassar åter givningen av ritnings formerna i Drawing Manager.
 
 ## <a name="add-drawing-toolbar"></a>Lägga till verktygsfält för ritning
 
-Följande kod skapar en förekomst av rithanteraren och visar verktygsfältet på kartan.
+Följande kod skapar en instans av Drawing Manager och visar verktygsfältet på kartan.
 
 ```javascript
 //Create an instance of the drawing manager and display the drawing toolbar.
@@ -33,18 +33,18 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-Nedan är det fullständiga kodexemplet för funktionen ovan:
+Nedan visas det fullständiga kod exemplet för funktionerna ovan:
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Lägga till verktygsfält för ritning" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>verktygsfältet Lägg till</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>ritning av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+Se <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>verktygsfältet Lägg till rit objekt</a> genom att Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-## <a name="limit-displayed-toolbar-options"></a>Begränsa alternativ i verktygsfältet
+## <a name="limit-displayed-toolbar-options"></a>Begränsa visade verktygsfälts alternativ
 
-Följande kod skapar en förekomst av rithanteraren och visar verktygsfältet med bara ett polygonritningsverktyg på kartan. 
+Följande kod skapar en instans av Drawing Manager och visar verktygsfältet med bara ett polygonverktyget rit verktyg på kartan. 
 
 ```javascript
 //Create an instance of the drawing manager and display the drawing toolbar with polygon drawing tool.
@@ -57,20 +57,20 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
     });
 ```
 
-Nedan är det fullständiga kodexemplet för funktionen ovan:
+Nedan visas det fullständiga kod exemplet för funktionerna ovan:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Lägga till ett polygonritningsverktyg" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Lägg till ett polygonritningsverktyg</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Lägg till ett rit verktyg för polygon" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se rit <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>verktyget Lägg till ett polygon-verktyg</a> för polygon<a href='https://codepen.io/azuremaps'>@azuremaps</a>genom Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-## <a name="change-drawing-rendering-style"></a>Ändra återgivningsformat för ritning
+## <a name="change-drawing-rendering-style"></a>Ändra ritnings åter givnings format
 
-Formatet på de former som ritas kan anpassas genom att hämta de underliggande lagren i ritningshanteraren med hjälp av `drawingManager.getLayers()` funktionen och sedan ange alternativ på de enskilda lagren. Draghandtagen som visas för koordinater när du redigerar en form är HTML-markörer. Stilen på draghandtagen kan anpassas genom att `dragHandleStyle` `secondaryDragHandleStyle` skicka HTML-marköralternativ till ritningshanterarens och alternativ.  
+Formatet på de former som ritas kan anpassas genom att hämta de underliggande lagren i ritnings hanteraren med hjälp av `drawingManager.getLayers()` funktionen och sedan ange alternativ på de enskilda skikten. De drag handtag som visas för koordinater när du redigerar en form är HTML-markörer. Formatet för drag handtagen kan anpassas genom att skicka alternativ för HTML-markören `dragHandleStyle` till `secondaryDragHandleStyle` alternativen och i Drawing Manager.  
 
-Följande kod hämtar renderingslagren från rithanteraren och ändrar deras alternativ för att ändra återgivningsformat för ritning. I det här fallet återges punkter med en blå markörikon. Linjerna är röda och fyra pixlar breda. Polygoner kommer att ha en grön fyllningsfärg och en orange kontur. Sedan ändras formaten för draghandtagen till fyrkantiga ikoner. 
+Följande kod hämtar åter givnings skikten från Drawing Manager och ändrar åter givnings formatet för ritningen genom att ändra deras alternativ. I det här fallet kommer punkter att återges med en blå markör ikon. Linjerna blir röda och fyra bild punkter breda. Polygoner får en grön fyllnings färg och en orange kontur. Den ändrar sedan formaten för drag handtagen så att de är fyrkantiga ikoner. 
 
 ```javascript
 //Get rendering layers of drawing manager.
@@ -117,18 +117,18 @@ drawingManager.setOptions({
 });  
 ```
 
-Nedan är det fullständiga kodexemplet för funktionen ovan:
+Nedan visas det fullständiga kod exemplet för funktionerna ovan:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Ändra återgivningsformat för ritning" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>ritåtergivningsstilen pen</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>change av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Ändra ritnings åter givnings format" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>åter givnings formatet för Penn ändrings ritning</a> efter<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder ytterligare funktioner i ritverktygsmodulen:
+Lär dig hur du använder ytterligare funktioner i modulen rit verktyg:
 
 > [!div class="nextstepaction"]
 > [Hämta formdata](map-get-shape-data.md)
@@ -142,10 +142,10 @@ Lär dig hur du använder ytterligare funktioner i ritverktygsmodulen:
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
 
 > [!div class="nextstepaction"]
-> [Rithanterare](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)

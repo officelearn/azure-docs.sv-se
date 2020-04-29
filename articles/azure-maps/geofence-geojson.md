@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7b9860908dd3bdf3dcda727f350578a97b890cac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80335624"
 ---
 # <a name="geofencing-geojson-data"></a>Polystaket, polyjson-data
@@ -30,12 +30,12 @@ Data för avgränsning eller uppsättning av `Feature` gränser representeras av
 * `expiredTime` Är förfallo datum och-tid för avgränsning av data. Om värdet för `userTime` i begäran är senare än det här värdet betraktas motsvarande avgränsnings data som utgångna data och inte efter frågas. Då kommer geometryId för dessa avgränsnings data att ingå i `expiredGeofenceGeometryId` matrisen inom ett gräns värde.
 * `validityPeriod` Är en lista över tids perioden för giltighets tiden för den här gränsen. Om värdet för `userTime` i begäran faller utanför giltighets perioden betraktas motsvarande avgränsnings information som ogiltig och kommer inte att frågas. GeometryId för dessa avgränsnings data ingår i `invalidPeriodGeofenceGeometryId` matrisen inom ett gräns värde. I följande tabell visas egenskaperna för validityPeriod-elementet.
 
-| Namn | Typ | Krävs  | Beskrivning |
+| Name | Typ | Krävs  | Beskrivning |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datumtid  | true | Start datum tiden för giltighets tids perioden. |
 | endTime   | Datumtid  | true |  Slutdatumet för giltighets tids perioden. |
-| recurrenceType | sträng | false |   Periodens upprepnings typ. `Daily`Värdet kan vara `Weekly`, `Monthly`, eller. `Yearly` Standardvärdet `Daily`är.|
-| businessDayOnly | Boolesk | false |  Ange om data endast är giltiga under arbets dagar. Standardvärdet `false`är.|
+| recurrenceType | sträng | falskt |   Periodens upprepnings typ. `Daily`Värdet kan vara `Weekly`, `Monthly`, eller. `Yearly` Standardvärdet `Daily`är.|
+| businessDayOnly | Boolesk | falskt |  Ange om data endast är giltiga under arbets dagar. Standardvärdet `false`är.|
 
 
 * Alla koordinater-värden visas som [longitud, Latitude] definierade `WGS84`i.

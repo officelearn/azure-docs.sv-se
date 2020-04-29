@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/10/2020
+ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c35f85b9ec5d86d1cd61f165b891c576c06a03db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f7beccde92030d1e01633f4e4044849d7e91d05
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "78967276"
+ms.locfileid: "82229960"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en SAML-token utfärdare i en Azure Active Directory B2C anpassad princip
 
@@ -33,7 +33,7 @@ I följande exempel visas en teknisk profil för `Saml2AssertionIssuer`:
 ```XML
 <TechnicalProfile Id="Saml2AssertionIssuer">
   <DisplayName>Token Issuer</DisplayName>
-  <Protocol Name="None"/>
+  <Protocol Name="SAML2"/>
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
@@ -44,7 +44,7 @@ I följande exempel visas en teknisk profil för `Saml2AssertionIssuer`:
   </CryptographicKeys>
   <InputClaims/>
   <OutputClaims/>
-  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-issuer"/>
 </TechnicalProfile>
 ```
 
@@ -56,7 +56,7 @@ I följande exempel visas en teknisk profil för `Saml2AssertionIssuer`:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| IssuerUri | Inga | Utfärdarens namn som visas i SAML-svaret. Värdet ska vara samma namn som det som kon figurer ATS i programmet för förlitande part. |
+| IssuerUri | Nej | Utfärdarens namn som visas i SAML-svaret. Värdet ska vara samma namn som det som kon figurer ATS i programmet för förlitande part. |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 

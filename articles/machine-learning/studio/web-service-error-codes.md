@@ -1,255 +1,255 @@
 ---
-title: REST API-felkoder - Azure Machine Learning Studio (klassisk) | Microsoft-dokument
-description: Dessa felkoder kan returneras av en åtgärd på en Azure Machine Learning-webbtjänst.
+title: REST API felkoder
+titleSuffix: ML Studio (classic) - Azure
+description: De här fel koderna kan returneras av en åtgärd på en Azure Machine Learning-webbtjänst.
 keywords: ''
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 9e25f2fbc10eb07cc71f2a7bd34247c0191f61b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a47550771180411277d21f7acf47ad0a28b6fb9e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79217758"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209527"
 ---
-# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (klassiska) REST API-felkoder
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (klassisk) REST API felkoder
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
-Följande felkoder kan returneras av en åtgärd på en azure Machine Learning Studio -webbtjänst (klassisk).
+Följande felkoder kan returneras av en åtgärd på en Azure Machine Learning Studio (klassisk)-webb tjänst.
  
-## <a name="badargument-http-status-code-400"></a>BadArgument (HTTP-statuskod 400)
+## <a name="badargument-http-status-code-400"></a>BadArgument (HTTP-status kod 400)
  
-Ogiltigt argument.
+Ogiltigt argument har angetts.
  
-Den här felklassen innebär att ett argument som angavs någonstans var ogiltigt. Detta kan vara en autentiseringsuppgifter eller plats för Azure-lagring till något som skickas till webbtjänsten. Titta på fältet "kod" i avsnittet "detaljer" för att diagnostisera vilket specifikt argument som var ogiltigt.
+Den här fel klassen innebär att ett argument som angetts någonstans var ogiltigt. Detta kan vara en autentiseringsuppgift eller en plats för Azure Storage till något som skickas till webb tjänsten. Se fel fältet "kod" i avsnittet "information" för att diagnostisera vilket särskilt argument som är ogiltigt.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| BadParameterVärde | Det angivna parametervärdet uppfyller inte parameterregeln för parametern |
-| BadSubscriptionId | Prenumerations-ID som används för att göra mål är inte det som finns i resursen |
-| BadVersionCall (Senaste900) | Ogiltig versionsparameter skickades {0}under API-anropet: . Kontrollera api-hjälpsidan för att skicka rätt version och försök igen. |
-| BatchJobInputsTerade | Följande obligatoriska indata angavs inte med begäran: {0}. Kontrollera att alla indata har angetts och försök igen. |
-| BatchJobInputsTooMany Angivet | Begäran angav fler indata än vad som definierats i tjänsten. Lista över godkända indata: {0}. Kontrollera att alla indata anges korrekt och försök igen. |
-| BlobNameTooLong | Azure blob storage path som tillhandahålls {0}för diagnostikutdata är för lång: . Förkorta banan och försök igen. |
-| BlobNotFound | Det gick inte att komma {0}åt den medföljande Azure-bloben - .  Azure-felmeddelande: {1}. |
-| ContainerIsEmpty | Inget Azure-lagringsbehållarenamn angavs. Ange ett giltigt behållarnamn och försök igen. |
-| ContainerSegmentInvalid | Ogiltigt behållarnamn. Ange ett giltigt behållarnamn och försök igen. |
-| ContainerValidationTydde | Validering av Blob-behållare {0}misslyckades med det här felet: . |
-| DataTypeDet stöds inte | Datatyp som inte stöds. Ange giltiga datatyper och försök igen. |
-| DupliceraInputInBatchCall | Batchbegäran är ogiltig. Det går inte att ange både enstaka och flera indata samtidigt. Ta bort ett av dessa objekt från begäran och försök igen. |
-| ExpiryTimeInThePast | Utgångstiden är tidigare: {0}. Ange en framtida utgångstid i UTC och försök igen. Om du aldrig upphör att gälla ställer du in förfallotiden till NULL. |
-| Ofullständigainställningar | Diagnostikinställningarna är ofullständiga. |
-| InputBlobRelativeLocationInvalid | Inget Azure-lagringsblobnamn anges. Ange ett giltigt blob-namn och försök igen. |
-| Ogiltigt | Ogiltig blob-specifikation {0}för blob: . Kontrollera att anslutningssträngen/relativ sökväg eller SAS-tokenspecifikationen är korrekt och försök igen. |
-| Ogiltigt BlusAnslutningString | Anslutningssträngen som angetts för en av indata-/utdatablobar i ogiltiga: {0}. Rätta till detta och försök igen. |
-| Ogiltig blusextension | Blob-referensen: {0} har ett ogiltigt eller saknat filnamnstillägg. Filtillägg som stöds för den{1}här utdatatypen är: " ". |
-| OgiltigainputNamn | Ogiltiga tjänstindatanamn som anges i {0}begäran: . Mappa indata till rätt tjänstindata och försök igen. |
-| OgiltigtUtutoverridenamn | Ogiltigt namn {0}på utdatasidosättning: . Tjänsten har ingen utdatanod med det här namnet. Skicka in ett korrekt utgångsnodnamn för att åsidosätta (ärendekänslighet gäller). |
-| OgiltigtQueryParameter | Ogiltig frågeparameter '{0}'. {1} |
-| SaknadInputBlobInformation | Information om Azure-lagringsblob saknas. Ange en giltig anslutningssträng och relativ sökväg eller URI och försök igen. |
-| SaknasJobId | Inget jobb-ID tillhandahålls. Ett jobb-ID returneras när ett jobb skickades för första gången. Kontrollera att jobb-ID:n är korrekt och försök igen. |
-| Saknade Tangenter | Inga nycklar tillhandahålls eller en av primär- eller sekundärnyckeln tillhandahålls inte. |
-| Saknad Modellpaket | Ingen modellpaket-ID eller modellpaket tillhandahålls. Ange ett giltigt modellpaket-ID eller modellpaket och försök igen. |
-| SaknasUtsiktÖversiktSpecifiering | Begäran saknar blob-specifikationen {0}för utdatasidosättning . Ange en giltig blob-plats med begäran eller ta bort utdataspecifikationen om ingen plats åsidosättning önskas. |
-| SaknasRequestInput | Webbtjänsten förväntar sig en indata, men ingen indata har angetts. Kontrollera att giltiga indata tillhandahålls baserat på de publicerade indataportarna i modellen och försök igen. |
-| MissingRequiredGlobalParameters MissingRequiredGlobalParameters MissingRequiredGlobalParameters MissingRe | Alla nödvändiga webbtjänstparameter anges inte. Kontrollera att de parametrar som förväntas för modulerna är korrekta och försök igen. |
-| MissingRequiredOutputOverrides | När du anropar en krypterad tjänstslutpunkt är det obligatoriskt att skicka in utdata åsidosättningar för alla tjänstens utdata. Åsidosättningar saknas just nu för dessa utdata:{0} |
-| SaknasWebServiceGroupId | Inget webbtjänstgrupp-ID tillhandahålls. Ange ett giltigt webbtjänstgrupp-ID och försök igen. |
-| SaknasWebServiceId | Inget webbtjänst-ID tillhandahålls. Ange ett giltigt webbtjänst-ID och försök igen. |
-| SaknasWebServicePackage | Inget webbtjänstpaket tillhandahålls. Ange ett giltigt webbtjänstpaket och försök igen. |
-| MissingWorkspaceId | Inget arbetsyte-ID finns. Ange ett giltigt arbetsyte-ID och försök igen. |
-| ModellkonfigurationInvalid | Ogiltig modellkonfiguration i modellpaketet. Kontrollera att modellkonfigurationen innehåller definition av utdataslutpunkter, std-felslutpunkt och std-slutpunkt och försök igen. |
-| ModelPackageIdInvalid | Ogiltig modellpaket-ID. Kontrollera att modellpaket-ID:n är korrekt och försök igen. |
-| RequestBodyInvalid | Inget begärandeorgan tillhandahålls eller fel i att deserialisera begäran kroppen. |
-| RequestIsEmpty | Ingen begäran tillhandahålls. Ange en giltig begäran och försök igen. |
-| Oväntatparameter | Oväntade parametrar tillhandahålls. Kontrollera att alla parameternamn är rättstavade, endast förväntade parametrar skickas och försök igen. |
-| Okändare | Ett okänt fel. |
-| AnvändareParameterInvalid | {0} |
-| WebServiceConcurrentRequestRequirementInvalid | Det går inte att ändra {0} krav på samtidiga begäranden för webbtjänsten. |
-| WebServiceIdInvalid | Ogiltigt webbtjänst-ID som tillhandahålls. Webbtjänst-ID ska vara ett giltigt guid. |
-| WebServiceTooManyConcurrentRequestRequirement | Det går inte att ange kravet {0}på samtidig begäran till mer än . |
-| WebServiceTypeInvalid | Ogiltig webbtjänsttyp som tillhandahålls. Kontrollera att den giltiga webbtjänsttypen är korrekt och försök igen. Giltiga webbtjänsttyper: {0}. |
+| BadParameterValue | Det angivna parametervärdet uppfyller inte parameter regeln för parametern |
+| BadSubscriptionId | Det prenumerations-ID som används för att räkna med är inte det som finns i resursen |
+| BadVersionCall | En ogiltig versions parameter skickades under API- {0}anropet:. Kontrol lera API-hjälp sidan för att skicka rätt version och försök igen. |
+| BatchJobInputsNotSpecified | Följande obligatoriska indatatyper har inte angetts med begäran: {0}. Kontrol lera att alla indata har angetts och försök igen. |
+| BatchJobInputsTooManySpecified | Begäran angav fler indata än vad som har definierats i tjänsten. Lista över godkända indatatyper: {0}. Kontrol lera att alla indata har angetts korrekt och försök igen. |
+| BlobNameTooLong | Azure Blob Storage-sökvägen som tillhandahölls för diagnostiska utdata {0}är för lång:. Förkorta sökvägen och försök igen. |
+| BlobNotFound | Det gick inte att komma åt den angivna {0}Azure-blobben.  Azure-fel meddelande {1}:. |
+| ContainerIsEmpty | Inget namn har angetts för Azure Storage-behållaren. Ange ett giltigt behållar namn och försök igen. |
+| ContainerSegmentInvalid | Ogiltigt behållar namn. Ange ett giltigt behållar namn och försök igen. |
+| ContainerValidationFailed | Det gick inte att verifiera BLOB-behållaren {0}. fel meddelande:. |
+| DataTypeNotSupported | Den angivna data typen stöds inte. Ange giltiga data typer och försök igen. |
+| DuplicateInputInBatchCall | Batch-begäran är ogiltig. Det går inte att ange både enstaka och flera inmatade samtidigt. Ta bort ett av dessa objekt från begäran och försök igen. |
+| ExpiryTimeInThePast | Den angivna förfallo tiden är i det förflutna: {0}. Ange en framtida förfallo tid i UTC och försök igen. Ange förfallo tid till NULL om du aldrig vill upphöra att gälla. |
+| IncompleteSettings | Inställningarna för diagnostik är ofullständiga. |
+| InputBlobRelativeLocationInvalid | Inget Azure Storage-BLOB-namn har angetts. Ange ett giltigt BLOB-namn och försök igen. |
+| InvalidBlob | Ogiltig BLOB-specifikation för BLOB {0}:. Kontrol lera att anslutnings strängen/relativ sökväg eller specifikationer för SAS-token är korrekta och försök igen. |
+| InvalidBlobConnectionString | Anslutnings strängen som angetts för en av blobarna för indata/utdata är ogiltig {0}:. Korrigera detta och försök igen. |
+| InvalidBlobExtension | BLOB-referensen {0} : har ett fil namns tillägg som är ogiltigt eller saknas. Fil namns tillägg som stöds för den här utdatatypen är: "{1}". |
+| InvalidInputNames | Ett eller flera ogiltiga tjänst indatatyper har angetts i begäran {0}:. Mappa indata till rätt tjänst indata och försök igen. |
+| InvalidOutputOverrideName | Ogiltigt namn på åsidosättning av {0}utdata:. Tjänsten har ingen utmatnings nod med det här namnet. Ange rätt namn på utdatafilen för att åsidosätta (Skift läges känslighet gäller). |
+| InvalidQueryParameter | Ogiltig frågeparameter{0}. {1} |
+| MissingInputBlobInformation | BLOB-information för Azure Storage saknas. Ange en giltig anslutnings sträng och relativ sökväg eller URI och försök igen. |
+| MissingJobId | Inget jobb-ID har angetts. Ett jobb-ID returneras när ett jobb skickas för första gången. Kontrol lera att jobb-ID: t är korrekt och försök igen. |
+| MissingKeys | Inga nycklar har angetts eller så har en primär eller sekundär nyckel inte angetts. |
+| MissingModelPackage | Inget modell paket-ID eller modell paket har angetts. Ange ett giltigt modell paket-ID eller modell paket och försök igen. |
+| MissingOutputOverrideSpecification | Begäran saknar BLOB-specifikationen för åsidosättning {0}av utdata. Ange en giltig BLOB-plats med begäran eller ta bort utmatnings specifikationen om Ingen åsidosättning av platsen önskas. |
+| MissingRequestInput | Webb tjänsten förväntar sig en indata, men inga indata angavs. Se till att giltiga indata tillhandahålls baserat på de publicerade indataportarna i modellen och försök igen. |
+| MissingRequiredGlobalParameters | Alla nödvändiga webb tjänst parametrar har inte angetts. Kontrol lera att parametrarna som förväntades för modulerna är korrekta och försök igen. |
+| MissingRequiredOutputOverrides | När du anropar en krypterad tjänst slut punkt är det obligatoriskt att överföra åsidosättningar av utdata för alla tjänstens utdata. Åsidosättningar som saknas för den här tiden för dessa utdata:{0} |
+| MissingWebServiceGroupId | Inget ID för webb tjänst grupp har angetts. Ange ett giltigt ID för webb tjänst gruppen och försök igen. |
+| MissingWebServiceId | Inget webb tjänst-ID har angetts. Ange ett giltigt ID för webb tjänst och försök igen. |
+| MissingWebServicePackage | Inget webb tjänst paket har tillhandahållits. Ange ett giltigt webb tjänst paket och försök igen. |
+| MissingWorkspaceId | Inget arbetsyte-ID har angetts. Ange ett giltigt arbetsyte-ID och försök igen. |
+| ModelConfigurationInvalid | Ogiltig modell konfiguration i modell paketet. Se till att modell konfigurationen innehåller utdata slut punkt (er), standard fel slut punkt och utgångs punkt för STDAV och försök igen. |
+| ModelPackageIdInvalid | Ogiltigt ID för modell paket. kontrol lera att modell paketets ID är korrekt och försök igen. |
+| RequestBodyInvalid | Ingen begär ande text har angetts eller fel vid avserialisering av begär ande texten. |
+| RequestIsEmpty | Ingen begäran har tillhandahållits. Ange en giltig begäran och försök igen. |
+| UnexpectedParameter | Oväntade parametrar har angetts. Kontrol lera att alla parameter namn är rättstavade, endast förväntade parametrar skickas och försök igen. |
+| UnknownError | Okänt fel. |
+| UserParameterInvalid | {0} |
+| WebServiceConcurrentRequestRequirementInvalid | Det går inte att ändra kraven {0} för samtidiga begär Anden för webb tjänsten. |
+| WebServiceIdInvalid | Ogiltigt webb tjänst-ID har angetts. Webb tjänst-ID ska vara ett giltigt GUID. |
+| WebServiceTooManyConcurrentRequestRequirement | Det går inte att ange krav för samtidiga begär anden till mer än {0}. |
+| WebServiceTypeInvalid | En ogiltig webb tjänst typ har angetts. Kontrol lera att den giltiga webb tjänst typen är korrekt och försök igen. Giltiga webb tjänst typer: {0}. |
  
-## <a name="baduserargument-http-status-code-400"></a>BadUserArgument (HTTP-statuskod 400)
+## <a name="baduserargument-http-status-code-400"></a>BadUserArgument (HTTP-status kod 400)
  
-Ogiltigt användarargument.
+Ogiltigt användar argument har angetts.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| InputMismatchError | Indata matchar inte indataportschemat. |
-| InputParseError | Det gick inte att tolka indatavektorn.  Kontrollera att indatavektorn har rätt antal kolumner och datatyper.  Ytterligare information: {0}. |
-| MissingRequiredGlobalParameters MissingRequiredGlobalParameters MissingRequiredGlobalParameters MissingRe | Parametrar som förväntas av webbtjänsten saknas. Kontrollera att alla nödvändiga parametrar som förväntas av webbtjänsten är korrekta och försök igen. |
-| Oväntatparameter | Kontrollera att endast de parametrar som krävs som förväntas av webbtjänsten skickas och försök igen. |
-| AnvändareParameterInvalid | {0} |
+| InputMismatchError | Indata stämmer inte överens med indata-portens schema. |
+| InputParseError | Parsning av indatamängds vektor misslyckades.  Kontrol lera att inmatnings vektorn har rätt antal kolumner och data typer.  Ytterligare information: {0}. |
+| MissingRequiredGlobalParameters | Parameter (er) som förväntas av webb tjänsten saknas. Kontrol lera att alla nödvändiga parametrar som förväntas av webb tjänsten är korrekta och försök igen. |
+| UnexpectedParameter | Kontrol lera att endast de nödvändiga parametrarna som förväntas av webb tjänsten har skickats och försök igen. |
+| UserParameterInvalid | {0} |
  
-## <a name="invalidoperation-http-status-code-400"></a>Ogiltigt funktion (HTTP-statuskod 400)
+## <a name="invalidoperation-http-status-code-400"></a>InvalidOperation (HTTP-status kod 400)
  
 Begäran är ogiltig i den aktuella kontexten.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| Det går inte att startajob | Jobbet kan inte startas {0} eftersom det är i tillstånd. |
-| Inkompatibelmodel | Modellen är inte kompatibel med begäranden. Begärandeversionen stöder endast enskilda datatable utdatamodeller. |
+| CannotStartJob | Det går inte att starta jobbet eftersom det är {0} i tillstånd. |
+| IncompatibleModel | Modellen är inte kompatibel med den begärda versionen. Begär ande versionen stöder bara DataTables-utdata. |
 | MultipleInputsNotAllowed | Modellen tillåter inte flera indata. |
  
-## <a name="libraryexecutionerror-http-status-code-400"></a>LibraryExecutionError (HTTP-statuskod 400)
+## <a name="libraryexecutionerror-http-status-code-400"></a>LibraryExecutionError (HTTP-status kod 400)
  
-Modulkörning påträffade ett internt biblioteksfel.
- 
- 
-## <a name="moduleexecutionerror-http-status-code-400"></a>ModuleExecutionError (HTTP-statuskod 400)
- 
-Modulkörning påträffade ett fel.
+Module-körningen påträffade ett internt biblioteks fel.
  
  
-## <a name="webservicepackageerror-http-status-code-400"></a>WebServicePackageError (HTTP-statuskod 400)
+## <a name="moduleexecutionerror-http-status-code-400"></a>ModuleExecutionError (HTTP-status kod 400)
  
-Ogiltigt webbtjänstpaket. Kontrollera att webbtjänstpaketet som tillhandahålls är korrekt och försök igen.
+Det uppstod ett fel i modulen.
  
-| Felkod | Meddelande om användare |
+ 
+## <a name="webservicepackageerror-http-status-code-400"></a>WebServicePackageError (HTTP-status kod 400)
+ 
+Ogiltigt webb tjänst paket. Kontrol lera att det angivna webb tjänst paketet är korrekt och försök igen.
+ 
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| FormatError | Webbtjänstpaketet är felaktigt. Detaljer:{0} |
-| KörtiderError | Webbtjänstpaketets diagram är ogiltigt. Detaljer:{0} |
-| Valideringserror | Webbtjänstpaketets diagram är ogiltigt. Detaljer:{0} |
+| FormatError | Webb tjänst paketet är felaktigt. Information{0} |
+| RuntimesError | Webb tjänst paketets diagram är ogiltigt. Information{0} |
+| ValidationError | Webb tjänst paketets diagram är ogiltigt. Information{0} |
  
 ## <a name="unauthorized-http-status-code-401"></a>Obehörig (HTTP-statuskod 401)
  
-Begäran är obehörig att komma åt resursen.
+Begäran har inte behörighet att komma åt resursen.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| AdminRequestUnauktoriserad | Behörighet saknas |
-| ManagementRequestUnauktoriserad | Behörighet saknas |
-| ScoreRequestUnauthorized | Ogiltiga autentiseringsuppgifter tillhandahålls. |
+| AdminRequestUnauthorized | Behörighet saknas |
+| ManagementRequestUnauthorized | Behörighet saknas |
+| ScoreRequestUnauthorized | Ogiltiga autentiseringsuppgifter har angetts. |
  
-## <a name="notfound-http-status-code-404"></a>NotFound (HTTP-statuskod 404)
+## <a name="notfound-http-status-code-404"></a>NotFound (HTTP-status kod 404)
  
-Det gick inte att hitta resursen.
+Resursen hittades inte.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| ModelPackageNotFound | Det gick inte att hitta modellpaketet. Kontrollera att modellpaket-ID:n är korrekt och försök igen. |
-| WebServiceIdNotFoundInWorkspace | Det gick inte att hitta webbtjänsten under den här arbetsytan. Det finns en obalans mellan webServiceId och workspaceId. Kontrollera att webbtjänsten som tillhandahålls är en del av arbetsytan och försök igen. |
-| Webbtjänster InteFound | Det gick inte att hitta webbtjänsten. Kontrollera att webbtjänst-ID:t är korrekt och försök igen. |
-| Arbetsytan Är integrundad | Det gick inte att hitta arbetsytan. Kontrollera att arbetsyte-ID:n är korrekt och försök igen. |
+| ModelPackageNotFound | Det gick inte att hitta modell paketet. Kontrol lera att modell paketets ID är korrekt och försök igen. |
+| WebServiceIdNotFoundInWorkspace | Webb tjänsten under den här arbets ytan hittades inte. Det finns ett matchnings fel mellan webServiceId och workspaceId. Kontrol lera att den angivna webb tjänsten tillhör arbets ytan och försök igen. |
+| WebServiceNotFound | Webb tjänsten hittades inte. Kontrol lera att webb tjänstens ID är korrekt och försök igen. |
+| WorkspaceNotFound | Arbets ytan hittades inte. Kontrol lera att arbetsyte-ID: t är korrekt och försök igen. |
  
-## <a name="requesttimeout-http-status-code-408"></a>RequestTimeout (HTTP-statuskod 408)
+## <a name="requesttimeout-http-status-code-408"></a>RequestTimeout (HTTP-status kod 408)
  
 Åtgärden kunde inte slutföras inom den tillåtna tiden.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| BegäranCanceled | Begäran avbröts av klienten. |
-| ScoreRequestTimeout | Time time out för körningsbegäran. |
+| RequestCanceled | Begäran avbröts av klienten. |
+| ScoreRequestTimeout | Tids gränsen nåddes för körnings förfrågan. |
  
-## <a name="conflict-http-status-code-409"></a>Konflikt (HTTP-statuskod 409)
+## <a name="conflict-http-status-code-409"></a>Konflikt (HTTP-status kod 409)
  
-Det finns redan en resurs.
+Resursen finns redan.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| ModelOutputMetadataMismatch | Ogiltigt parameternamn för utdata. Försök att använda modulen metadataredigerare för att byta namn på kolumner och försök igen. |
+| ModelOutputMetadataMismatch | Ogiltigt namn på utmatnings parameter. Prova att använda modulen metadata Editor för att byta namn på kolumner och försök igen. |
  
-## <a name="memoryquotaviolation-http-status-code-413"></a>MemoryQuotaViolation (HTTP-statuskod 413)
+## <a name="memoryquotaviolation-http-status-code-413"></a>MemoryQuotaViolation (HTTP-status kod 413)
  
-Modellen hade överskridit den minneskvot som tilldelats den.
+Modellen överskred den tilldelade minnes kvoten.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| OutOfMemoryLimit | Modellen förbrukade mer minne än vad som disponerats för den. Maximalt tillåtet minne för {0} modellen är MB. Kontrollera din modell för problem. |
+| OutOfMemoryLimit | Modellen förbrukade mer minne än vad som krävs för den. Högsta tillåtna minne för modellen är {0} MB. Kontrol lera om det finns problem i din modell. |
  
-## <a name="internalerror-http-status-code-500"></a>InternalError (HTTP-statuskod 500)
+## <a name="internalerror-http-status-code-500"></a>InternalError (HTTP-status kod 500)
  
-Körningen påträffade ett internt fel.
+Ett internt fel inträffade i körningen.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
 | AdminAuthenticationFailed |  |
 | BackendArgumentError |  |
-| BackendBadRequest (rygg) |  |
-| ClusterConfigBlobMiskonfigurerad |  |
-| ContainerProcessTerminatedWithSystemError | Behållarprocessen kraschade med systemfel |
-| ContainerProcessTerminatedWithUnknownError | Behållarprocessen kraschade med okänt fel |
-| ContainerValidationTydde | Validering av Blob-behållare {0}misslyckades med det här felet: . |
+| BackendBadRequest |  |
+| ClusterConfigBlobMisconfigured |  |
+| ContainerProcessTerminatedWithSystemError | Container processen kraschade med systemfel |
+| ContainerProcessTerminatedWithUnknownError | Container processen kraschade med ett okänt fel |
+| ContainerValidationFailed | Det gick inte att verifiera BLOB-behållaren {0}. fel meddelande:. |
 | DeleteWebServiceResourceFailed |  |
 | ExceptionDeserializationError |  |
-| MisslyckadesGettingApiDokumentet |  |
+| FailedGettingApiDocument |  |
 | FailedStoringWebService |  |
-| Ogiltigminnekonfigurering | OgiltigMinnekonfigurering, ConfigValue:{0} |
-| OgiltigResourceCacheKonfigurering |  |
-| OgiltigFörst av BorttagningstillbebyggelseKonfigurering |  |
+| InvalidMemoryConfiguration | InvalidMemoryConfiguration, ConfigValue:{0} |
+| InvalidResourceCacheConfiguration |  |
+| InvalidResourceDownloadConfiguration |  |
 | InvalidWebServiceResources |  |
-| SaknasTaskInstance | Inga argument. Kontrollera att giltiga argument skickas och försök igen. |
+| MissingTaskInstance | Inga argument har angetts. Kontrol lera att giltiga argument har angetts och försök igen. |
 | ModelPackageInvalid |  |
-| ModuleExecutionFailerad |  |
-| ModuleLoadFailerad |  |
+| ModuleExecutionFailed |  |
+| ModuleLoadFailed |  |
 | ModuleObjectCloneFailed |  |
-| OutputKonversionAvred |  |
-| PortDataTypeInte Stöds | Port id={0} har en datatyp {1}som inte stöds: . |
-| Resursinlästerladdning |  |
-| ResursbelastningFailerad |  |
+| OutputConversionFailed |  |
+| PortDataTypeNotSupported | Port-ID{0} = har en datatyp som inte stöds: {1}. |
+| ResourceDownload |  |
+| ResourceLoadFailed |  |
 | ServiceUrisNotFound |  |
-| SwaggerGeneration | Swagger generation misslyckades, Detaljer:{0} |
-| UnexpectedScoreStatus OväntadeScore |  |
-| OkändBackendErrorResponse |  |
-| Okändare |  |
-| OkändJobStatusCode | Okänd jobbstatuskod {0}. |
-| OkändModuleError |  |
+| SwaggerGeneration | Swagger-genereringen misslyckades, information:{0} |
+| UnexpectedScoreStatus |  |
+| UnknownBackendErrorResponse |  |
+| UnknownError |  |
+| UnknownJobStatusCode | Okänd jobb status kod {0}. |
+| UnknownModuleError |  |
 | UpdateWebServiceResourceFailed |  |
-| WebServiceGroupIntens |  |
-| WebServicePackageInvalid | InvalidWebServicePackage, Detaljer:{0} |
+| WebServiceGroupNotFound |  |
+| WebServicePackageInvalid | InvalidWebServicePackage, information:{0} |
 | WorkerAuthorizationFailed |  |
-| WorkerOför att gå inte att få |  |
+| WorkerUnreachable |  |
  
-## <a name="internalerrorsystemlowonmemory-http-status-code-500"></a>InternalErrorSystemLowOnMemory (HTTP-statuskod 500)
+## <a name="internalerrorsystemlowonmemory-http-status-code-500"></a>InternalErrorSystemLowOnMemory (HTTP-status kod 500)
  
-Körningen påträffade ett internt fel. Systemet har ont om minne. Försök igen.
- 
- 
-## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError (HTTP-statuskod 500)
- 
-Ogiltigt modellpaket. Kontrollera att modellpaketet är korrekt och försök igen.
+Ett internt fel inträffade i körningen. System ont om minne. Försök igen.
  
  
-## <a name="webservicepackageinternalerror-http-status-code-500"></a>WebServicePackageInternalError (HTTP-statuskod 500)
+## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError (HTTP-status kod 500)
  
-Ogiltigt webbtjänstpaket. Kontrollera att webbpaketet är korrekt och försök igen.
+Ogiltigt modell paket. Kontrol lera att det angivna modell paketet är korrekt och försök igen.
  
-| Felkod | Meddelande om användare |
+ 
+## <a name="webservicepackageinternalerror-http-status-code-500"></a>WebServicePackageInternalError (HTTP-status kod 500)
+ 
+Ogiltigt webb tjänst paket. Kontrol lera att det angivna webb paketet är korrekt och försök igen.
+ 
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| ModuleError (Moduleror) | Webbtjänstpaketets diagram är ogiltigt. Detaljer:{0} |
+| ModuleError | Webb tjänst paketets diagram är ogiltigt. Information{0} |
  
-## <a name="initializingcontainers-http-status-code-503"></a>Initieracontainers (HTTP-statuskod 503)
+## <a name="initializingcontainers-http-status-code-503"></a>InitializingContainers (HTTP-status kod 503)
  
 Begäran kan inte köras eftersom behållarna initieras.
  
  
-## <a name="serviceunavailable-http-status-code-503"></a>Serviceovailable (HTTP-statuskod 503)
+## <a name="serviceunavailable-http-status-code-503"></a>ServiceUnavailable (HTTP-status kod 503)
  
 Tjänsten är inte tillgänglig för tillfället.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| NoMoreResources | Inga resurser tillgängliga för begäran. |
-| BegäranTrottad | Begäran begränsades {0} för slutpunkten. Den maximala samtidigheten för slutpunkten {1}är . |
-| TooManyConcurrentRequests | För många samtidiga begäranden som skickas. |
-| TooManyHostsBeingInitialized | Alltför många värdar som initieras samtidigt. Överväg begränsning / återförsök. |
-| TooManyHostsBeingInitializedPerModel | Alltför många värdar som initieras samtidigt. Överväg begränsning / återförsök. |
+| NoMoreResources | Det finns inga tillgängliga resurser för begäran. |
+| RequestThrottled | Begäran begränsades för {0} slut punkten. Maximal samtidighet för slut punkten är {1}. |
+| TooManyConcurrentRequests | För många samtidiga förfrågningar har skickats. |
+| TooManyHostsBeingInitialized | För många värdar initieras på samma gång. Överväg att begränsa/försöka igen. |
+| TooManyHostsBeingInitializedPerModel | För många värdar initieras på samma gång. Överväg att begränsa/försöka igen. |
  
-## <a name="gatewaytimeout-http-status-code-504"></a>GatewayTimeout (HTTP-statuskod 504)
+## <a name="gatewaytimeout-http-status-code-504"></a>GatewayTimeout (HTTP-status kod 504)
  
 Åtgärden kunde inte slutföras inom den tillåtna tiden.
  
-| Felkod | Meddelande om användare |
+| Felkod | Användar meddelande |
 | ---------- |--------------|
-| BackendInitializationTimeout | Initieringen av webbtjänsten kunde inte slutföras inom den tillåtna tiden. |
-| BackendScoreTimeout | Körningen av webbtjänstbegäran kunde inte slutföras inom den tillåtna tiden. |
+| BackendInitializationTimeout | Det gick inte att slutföra initieringen av webb tjänsten inom den tillåtna tiden. |
+| BackendScoreTimeout | Det gick inte att utföra körningen av webb tjänst begär Anden inom den tillåtna tiden. |
  

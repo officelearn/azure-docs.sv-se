@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 60c754aeec3157abee02eb136dcf148c440d8da0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477280"
 ---
-Posterna i `deploymentconfig.json` dokumentöversikten till parametrarna för [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för metoden:
+Posterna i `deploymentconfig.json` dokument översikten till parametrarna för [LocalWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
 
-| JSON-enhet | Parametern Metod | Beskrivning |
+| JSON-entitet | Metod parameter | Beskrivning |
 | ----- | ----- | ----- |
-| `computeType` | Ej tillämpligt | Beräkningsmålet. För lokala mål måste `local`värdet vara . |
-| `port` | `port` | Den lokala port som tjänstens HTTP-slutpunkt ska exponeras på. |
+| `computeType` | Ej tillämpligt | Beräkningsmålet. För lokala mål måste värdet vara `local`. |
+| `port` | `port` | Den lokala porten där tjänstens HTTP-slutpunkt ska exponeras. |
 
-Detta JSON är ett exempel distributionskonfiguration för användning med CLI:
+Denna JSON är en exempel distributions konfiguration för användning med CLI:
 
 ```json
 {

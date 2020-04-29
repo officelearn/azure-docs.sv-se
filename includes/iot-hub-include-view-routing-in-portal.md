@@ -9,20 +9,20 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67235457"
 ---
-Nu när dina slutpunkter och meddelandevägar har konfigurerats kan du visa deras konfiguration i portalen. Logga in på [Azure-portalen](https://portal.azure.com) och gå till **Resursgrupper**. Välj sedan resursgruppen och välj sedan hubben (hubbnamnet börjar med `ContosoTestHub` i den här självstudien). Du ser fönstret IoT Hub.
+Nu när dina slut punkter och meddelande vägar har kon figurer ATS kan du visa deras konfiguration i portalen. Logga in på [Azure Portal](https://portal.azure.com) och gå till **resurs grupper**. Välj sedan din resurs grupp och välj sedan hubben (hubbens namn börjar med `ContosoTestHub` i den här självstudien). Fönstret IoT Hub visas.
 
-![Skärmen Egenskaper för IoT Hub](./media/iot-hub-include-view-routing-in-portal/01-show-hub-properties.png)
+![Skärmen IoT Hub egenskaper](./media/iot-hub-include-view-routing-in-portal/01-show-hub-properties.png)
 
-I alternativen för IoT-hubben väljer du **Meddelanderoutning**. De vägar som du har ställt in visas.
+I alternativen för **IoT Hub väljer du meddelanderoutning.** De vägar som du har konfigurerat visas.
 
-![De rutter du ställer in](./media/iot-hub-include-view-routing-in-portal/02-show-message-routes.png)
+![De vägar som du ställer in](./media/iot-hub-include-view-routing-in-portal/02-show-message-routes.png)
 
-På skärmen **Meddelanderoutning** väljer du **Anpassade slutpunkter** för att se de slutpunkter som du har definierat för rutterna.
+På skärmen **meddelanderoutning väljer du** **anpassade slut punkter** för att se de slut punkter som du har definierat för vägarna.
 
-![De slutpunkter som ställts in för flödena](./media/iot-hub-include-view-routing-in-portal/03-show-routing-endpoints.png)
+![Slut punkterna som ställts in för vägarna](./media/iot-hub-include-view-routing-in-portal/03-show-routing-endpoints.png)

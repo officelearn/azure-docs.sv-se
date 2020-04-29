@@ -8,16 +8,16 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 087530fd3834c4ec4620c087134bee0ed26bb6c9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78399775"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(INAKTUELL) Distribuera och använda Azure Container Registry
 
 > [!TIP]
-> Den uppdaterade versionen som används i den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudiekurs: Distribuera och använda Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: Distribuera och använda Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -46,7 +46,7 @@ Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-c
 az group create --name myResourceGroup --location westeurope
 ```
 
-Skapa ett Azure Container-register med kommandot [az acr create.](/cli/azure/acr#az-acr-create) Namnet på ett containerregister **måste vara unikt**.
+Skapa ett Azure Container Registry med kommandot [AZ ACR Create](/cli/azure/acr#az-acr-create) . Namnet på ett containerregister **måste vara unikt**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic

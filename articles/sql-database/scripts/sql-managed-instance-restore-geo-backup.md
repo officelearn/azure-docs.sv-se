@@ -1,6 +1,6 @@
 ---
-title: PowerShell-exempel återställa geo säkerhetskopiering - Azure SQL Database
-description: Azure PowerShell-exempelskript för att återställa en Azure SQL-hanterad instansdatabas från en geouppsagbar säkerhetskopiering.
+title: PowerShell-exempel Återställ geo-backup-Azure SQL Database
+description: Azure PowerShell exempel skript för att återställa en Azure SQL-hanterad instans databas från en Geo-redundant säkerhets kopia.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,21 +12,21 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
 ms.openlocfilehash: f1b4166df2290c1250e3807b4a7133c3afae8e44
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74304079"
 ---
-# <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Använda PowerShell för att återställa en databas med hanterad instans till en annan georegion
+# <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Använd PowerShell för att återställa en hanterad instans databas till en annan geo-region
 
-Det här PowerShell-skriptexemplet återställer en Azure SQL-hanterad instansdatabas från en fjärrgeoregion (geo-återställning).  
+Detta exempel på PowerShell-skript återställer en Azure SQL-hanterad instans databas från en fjärran sluten geo-region (geo-återställning).  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell 1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AZ PowerShell-1.4.0 eller senare. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -61,7 +61,7 @@ $backup | Restore-AzSqlInstanceDatabase -FromGeoBackup `
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $TargetResourceGroupName
@@ -71,15 +71,15 @@ Remove-AzResourceGroup -ResourceGroupName $TargetResourceGroupName
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | Skapar en resursgrupp där alla resurser lagras. |
-| [Hämta-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Skapar en geouppsagd säkerhetskopiering av hanterad instansdatabas. |
-| [Återställ-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Skapar en databas på en hanterad instans från geo-säkerhetskopiering. |
+| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Skapar en Geo-redundant säkerhets kopia av databasen för hanterade instanser. |
+| [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Skapar en databas på en hanterad instans från geo-säkerhetskopiering. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om PowerShell finns i [Azure PowerShell-dokumentation](/powershell/azure/overview).
+Mer information om PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 
 Ytterligare PowerShell-skriptexempel för SQL Database finns i [PowerShell-skript för Azure SQL Database](../sql-database-powershell-samples.md).

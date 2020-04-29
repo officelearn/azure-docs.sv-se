@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Virtuella datorer för belastningsutjämning i tillgänglighetszoner – Azure-portalen'
+title: 'Självstudie: belastningsutjämna virtuella datorer i tillgänglighets zoner – Azure Portal'
 titleSuffix: Azure Load Balancer
 description: Den här kursen visar hur du skapar en Standard Load Balancer med zonredundant klientdel för att lastbalansera virtuella datorer i flera tillgänglighetszoner med hjälp av Azure Portal
 services: load-balancer
@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78251883"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
@@ -43,23 +43,23 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Skapa en Standard Load Balancer
 
 En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en ny offentlig IP-adress medan du skapar lastbalanseraren konfigureras den automatiskt som en standard-SKU-version och blir också automatiskt zonredundant.
 
-1. Klicka på **Skapa en resurs** > **Nätverksbelastningsutjämnare****Networking** > längst upp till vänster på skärmen .
+1. Klicka på **skapa en resurs** > **nätverk** > **Load Balancer**på den övre vänstra sidan av skärmen.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
-    | Namn                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
-    | SKU           | Välj **Standard**.                          |
+    | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
     |Tillgänglighetszon| Välj **Zonredundant**.    |
@@ -75,12 +75,12 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resursgruppnamn>**  | myResourceGroupLBAZ (Välj befintlig resursgrupp) |
-| **\<>virtuellt nätverksnamn** | myVNet          |
-| **\<regionnamn>**          | Europa, västra      |
-| **\<IPv4-adress-utrymme>**   | 10.0.0.0\16          |
-| **\<>i>**          | myBackendSubnet        |
-| **\<>för>** | 10.0.0.0\24          |
+| **\<resurs grupp-namn>**  | myResourceGroupLBAZ (Välj en befintlig resurs grupp) |
+| **\<virtuell-nätverks namn>** | myVNet          |
+| **\<region namn>**          | Europa, västra      |
+| **\<IPv4-adress utrymme>**   | 10.0.0.0 \ 16          |
+| **\<under näts namn>**          | myBackendSubnet        |
+| **\<undernät-adress – intervall>** | 10.0.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -127,7 +127,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 
 Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region som kan fungera som serverdelsservrar för lastbalanseraren.
 
-1. Klicka på Skapa ett datacenter för **en resurs** > **Compute** > **Windows Server 2016** längst upp till vänster på skärmen och ange dessa värden för den virtuella datorn:
+1. Klicka på **skapa en resurs** > **Compute** > **Windows Server 2016 Data Center** på den övre vänstra sidan av skärmen och ange följande värden för den virtuella datorn:
     - *myVM1* – för den virtuella datorns namn.        
     - *azureuser* – för administratörens användarnamn.    
     - *myResourceGroupLBAZ* – för **Resursgrupp**väljer du **Använd befintlig**, och väljer sedan *myResourceGroupLBAZ*.
@@ -150,7 +150,7 @@ Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region s
 1. Klicka på **Alla resurser** på den vänstra menyn och klicka sedan i resurslistan på **myVM1** som finns i resursgruppen *myResourceGroupLBAZ*.
 2. Klicka på **Anslut** på sidan **Översikt** och anslut RDP till den virtuella datorn.
 3. Logga in på den virtuella datorn med användarnamnet *azureuser*.
-4. På serverskrivbordet navigerar du till **Windows Administrationsverktyg**>**Windows PowerShell**.
+4. Gå till **Windows administrations verktyg**>**Windows PowerShell**på server Skriv bordet.
 5. I PowerShell-fönstret kör du följande kommandon för att installera IIS.servern, ta bort standardfilen iisstart.htm och lägga till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
    ```azurepowershell-interactive
     
@@ -175,7 +175,7 @@ I det här avsnittet ska du konfigurera lastbalanseringsinställningarna för en
 
 För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. Skapa serverdelsadresspoolen *myBackendPool* så att den omfattar *VM1*, *VM2* och *VM3*.
 
-1. Klicka på **Alla resurser** på menyn till vänster och klicka sedan på **myLoadBalancer** i resurslistan.
+1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myLoadBalancer** i listan resurser.
 2. Klicka på **Serverdelspooler** under **Inställningar** och klicka sedan på **Lägg till**.
 3. Gör följande på sidan **Lägg till en serverdelspool**:
     - Ange *myBackEndPool* som namn på serverdelspoolen.
@@ -193,7 +193,7 @@ För att distribuera trafik till de virtuella datorerna finns en adresspool på 
 
 Om du vill att lastbalanseraren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning *myHealthProbe* så att du kan övervaka de virtuella datorernas hälsotillstånd.
 
-1. Klicka på **Alla resurser** på menyn till vänster och klicka sedan på **myLoadBalancer** i resurslistan.
+1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myLoadBalancer** i listan resurser.
 2. Klicka på **Hälsoavsökningar** under **Inställningar** och klicka sedan på **Lägg till**.
 3. Använd följande värden när du skapar hälsoavsökningen:
     - *myHealthProbe* – för hälsoavsökningens namn.
@@ -209,7 +209,7 @@ Om du vill att lastbalanseraren ska övervaka status för din app kan du använd
 
 En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Skapa lastbalanseringsregeln *myLoadBalancerRuleWeb* så att du kan lyssna på port 80 i klientdelen *FrontendLoadBalancer* och skicka lastbalanserad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80. 
 
-1. Klicka på **Alla resurser** på menyn till vänster och klicka sedan på **myLoadBalancer** i resurslistan.
+1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myLoadBalancer** i listan resurser.
 2. Klicka på **Belastningsutjämningsregler** under **Inställningar** och klicka sedan på **Lägg till**.
 3. Använd följande värden när du konfigurerar belastningsutjämningsregeln:
     - *myHTTPRule* – för belastningsutjämningsregelns namn.

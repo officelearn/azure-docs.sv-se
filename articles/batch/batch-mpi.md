@@ -4,12 +4,12 @@ description: Lär dig hur du kör MPI-program (Message Passing Interface) med hj
 ms.topic: article
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aad2b649c92716a807d577bb4f112d47d447545e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 39c7aff0618daafc2c02efaea229de3741804c7a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115983"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231704"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Använda aktiviteter med flera instanser för att köra MPI-program (Message Passing Interface) i batch
 
@@ -181,9 +181,7 @@ Följande miljövariabler skapas av batch-tjänsten för användning av aktivite
 Fullständig information om dessa och de andra miljövariablerna för batch Compute-noden, inklusive innehåll och synlighet, finns i [Compute Node-miljövariabler][msdn_env_var].
 
 > [!TIP]
-> Kod exemplet för batch Linux MPI innehåller ett exempel på hur flera av de här miljövariablerna kan användas. Kommandot [koordinera-cmd-][coord_cmd_example] bash hämtar vanliga program-och indatafiler från Azure Storage, aktiverar en NFS-resurs (Network File System) på huvudnoden och konfigurerar de andra noderna som allokeras till aktiviteten för flera instanser som NFS-klienter.
->
->
+> Kod exemplet för batch Linux MPI innehåller ett exempel på hur flera av de här miljövariablerna kan användas.
 
 ## <a name="resource-files"></a>Resursfiler
 Det finns två uppsättningar resursfiler att överväga för aktiviteter med flera instanser: **delade resursfiler** som *alla* aktiviteter hämtar (både primära och under aktiviteter) och **resursfiler** som anges för aktiviteten för flera instanser, och som *bara hämtas av den primära* aktiviteten.

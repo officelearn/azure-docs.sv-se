@@ -1,7 +1,7 @@
 ---
-title: 'Handledning 2: Tåg kreditriskmodeller'
+title: 'Självstudie 2: träna kredit risk modeller'
 titleSuffix: ML Studio (classic) - Azure
-description: En detaljerad självstudiekurs som visar hur du skapar en förutsägelseanalyslösning för kreditriskbedömning i Azure Machine Learning Studio (klassisk). Den här självstudien är del två i en självstudieserie i tre delar. Den visar hur du tränar och utvärderar modeller.
+description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys för kredit riskbedömning i Azure Machine Learning Studio (klassisk). Den här självstudien är del två i en självstudieserie i tre delar. Den visar hur du tränar och utvärderar modeller.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning
 author: sdgilley
 ms.author: sgilley
@@ -11,13 +11,13 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79217874"
 ---
-# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Handledning 2: Träna kreditriskmodeller - Azure Machine Learning Studio (klassisk)
+# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Självstudie 2: träna kredit risk modeller – Azure Machine Learning Studio (klassisk)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -25,11 +25,11 @@ I den här självstudien tittar vi närmare på hur du utvecklar en lösning fö
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du använder den som ett exempel på hur du kan skapa en förutsägelseanalyslösning med Microsoft Azure Machine Learning Studio (klassisk). Du använder Azure Machine Learning Studio (klassisk) och en Machine Learning-webbtjänst för den här lösningen.  
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder Azure Machine Learning Studio (klassisk) och en Machine Learning webb tjänst för den här lösningen.  
 
 I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen distribuerar du modellen som en webbtjänst.
 
-I [del ett av självstudien](tutorial-part1-credit-risk.md)skapade du en Machine Learning Studio -arbetsyta (klassisk) arbetsyta, laddade upp data och skapade ett experiment.
+I [del ett av självstudien](tutorial-part1-credit-risk.md)har du skapat en Machine Learning Studio (klassisk)-arbets yta, överfört data och skapat ett experiment.
 
 I den här delen av självstudien ska du:
  
@@ -46,14 +46,14 @@ Slutför [del ett av självstudien](tutorial-part1-credit-risk.md).
 
 ## <a name="train-multiple-models"></a><a name="train"></a>Träna flera modeller
 
-En av fördelarna med att använda Azure Machine Learning Studio (klassisk) för att skapa maskininlärningsmodeller är möjligheten att prova mer än en typ av modell i taget i ett enda experiment och jämföra resultaten. Den här typen av experimentering hjälper dig att hitta den bästa lösningen för ditt problem.
+En av fördelarna med att använda Azure Machine Learning Studio (klassisk) för att skapa maskin inlärnings modeller är möjligheten att testa mer än en typ av modell i taget i ett enda experiment och jämföra resultatet. Den här typen av experimentering hjälper dig att hitta den bästa lösningen för ditt problem.
 
 I experimentet som vi utvecklar i den här självstudien ska du skapa två olika typer av modeller och sedan jämföra deras bedömningsresultat för att avgöra vilken algoritm som du vill använda i vårt slutliga experiment.  
 
 Det finns olika modeller som du kan välja mellan. Du visar de tillgängliga modellerna genom att expandera noden **Machine Learning** på modulpaletten och sedan **Initialize Model** (Initiera modell) och noderna under den. I det här experimentet ska du välja modulerna [Tvåklassig dator för vektorstöd][two-class-support-vector-machine] (SVM) och [Tvåklassigt förbättrat beslutsträd][two-class-boosted-decision-tree].
 
 > [!TIP]
-> Information om hur du bestämmer vilken Machine Learning-algoritm som bäst passar det specifika problemet du försöker lösa finns i [Så här väljer du algoritmer för Microsoft Azure Machine Learning Studio (klassiskt).](algorithm-choice.md)
+> För att få hjälp att avgöra vilken Machine Learning algoritm som bäst motsvarar det specifika problem som du försöker lösa, se [så här väljer du algoritmer för Microsoft Azure Machine Learning Studio (klassisk)](algorithm-choice.md).
 > 
 > 
 
@@ -190,9 +190,9 @@ Till höger om diagrammet klickar du på **Scored dataset** (Poängsatt dataupps
 Genom att undersöka dessa värden kan du avgöra vilken modell som bäst kan ge dig de resultat som du letar efter. Du kan gå tillbaka och iterera ditt experiment genom att ändra parametervärden i de olika modellerna. 
 
 Vetenskapen och konsten att tolka resultaten och att finjustera modellens prestanda förklaras inte närmare i den här självstudien. Mer information finns i följande artiklar:
-- [Så här utvärderar du modellprestanda i Azure Machine Learning Studio (klassiskt)](evaluate-model-performance.md)
-- [Välj parametrar för att optimera dina algoritmer i Azure Machine Learning Studio (klassisk)](algorithm-parameters-optimize.md)
-- [Tolka modellresultat i Azure Machine Learning Studio (klassisk)](interpret-model-results.md)
+- [Utvärdera modell prestanda i Azure Machine Learning Studio (klassisk)](evaluate-model-performance.md)
+- [Välj parametrar för att optimera algoritmerna i Azure Machine Learning Studio (klassisk)](algorithm-parameters-optimize.md)
+- [Tolka modell resultat i Azure Machine Learning Studio (klassisk)](interpret-model-results.md)
 
 > [!TIP]
 > Varje gång du kör experimentet sparas en post över iterationen i körningshistoriken. Du kan visa dessa iterationer och återgå till någon av dem genom att klicka på **View run history** (Visa körningshistorik) nedanför arbetsytan. Du kan också klicka på **Prior Run** (Tidigare körning) i fönstret **Egenskaper** för att gå tillbaka till iterationen som direkt föregår den som är öppen.
@@ -200,7 +200,7 @@ Vetenskapen och konsten att tolka resultaten och att finjustera modellens presta
 > Du kan göra en kopia av valfri iteration av experimentet genom att klicka på **Spara som** nedanför arbetsytan. 
 > Använd experimentets **sammanfattning** och **beskrivning** så att du vet vad du har testat i dina iterationer av experimentet.
 > 
-> Mer information finns [i Hantera experimentiterationer i Azure Machine Learning Studio (klassiskt).](manage-experiment-iterations.md)  
+> Mer information finns i [Hantera experiment iterationer i Azure Machine Learning Studio (klassisk)](manage-experiment-iterations.md).  
 > 
 > 
 

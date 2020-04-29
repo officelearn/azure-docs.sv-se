@@ -1,5 +1,5 @@
 ---
-title: Bygg din första datafabrik (Visual Studio)
+title: Bygg din första data fabrik (Visual Studio)
 description: I den här självstudien skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av Visual Studio.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
 ms.openlocfilehash: eb9c21bf1972304da688586da9ccabe5063fa112
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75438975"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Självstudiekurs: Skapa en datafabrik med hjälp av Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-> * [Powershell](data-factory-build-your-first-pipeline-using-powershell.md)
+> * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -65,7 +65,7 @@ Här är de steg du utför i självstudiekursen:
 3. Du måste ha följande installerat på datorn:
    * Visual Studio 2013 eller Visual Studio 2015
    * Hämta Azure SDK för Visual Studio 2013 eller Visual Studio 2015. Gå till [Azures hämtningssida](https://azure.microsoft.com/downloads/) och klicka på **VS 2013** eller **VS 2015** i **.NET**-avsnittet.
-   * Hämta det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Du kan också uppdatera insticksprogrammet genom att göra följande steg: Klicka på -> **Verktygstillägg och Uppdateringar** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools för Visual Studio** -> **Update**på menyn. **Tools**
+   * Hämta det senaste Azure Data Factory-plugin-programmet för Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) eller [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Du kan också uppdatera plugin-programmet genom att göra följande: i menyn klickar du på **verktyg** -> **tillägg och uppdateringar** -> **online** -> **Visual Studio-galleriet** -> **Microsoft Azure Data Factory verktyg för Visual Studio** -> **Update**.
 
 Nu ska vi använda Visual Studio för att skapa en Azure-datafabrik.
 
@@ -92,7 +92,7 @@ Med den länkade tjänsten HDInsight på begäran skapas HDInsight-klustret auto
 1. Högerklicka på **Länkade tjänster** i Solution Explorer, peka på **Lägg till** och klicka på **Nytt objekt**.      
 2. I dialogrutan **Lägg till nytt objekt** väljer du **Länkad Azure Storage-tjänst** i listan och klickar på **Lägg till**.
     ![Länkad Azure Storage-tjänst](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
-3. Byt ut `<accountname>` och `<accountkey>` mot namnet på ditt Azure-lagringskonto och dess nyckel. Mer information om hur du hämtar åtkomstnyckeln för lagring finns i [Hantera åtkomstnycklar för lagringskonto](../../storage/common/storage-account-keys-manage.md).
+3. Byt ut `<accountname>` och `<accountkey>` mot namnet på ditt Azure-lagringskonto och dess nyckel. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
     ![Länkad Azure Storage-tjänst](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Spara filen **AzureStorageLinkedService1.json**.
 
@@ -182,7 +182,7 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
 #### <a name="create-output-dataset"></a>Skapa datauppsättning för utdata
 Nu skapar du den utdatauppsättning som representerar de utdata som lagras i Azure Blob Storage.
 
-1. Högerklicka på tabeller i **Lösningsutforskaren,** peka **på Lägg**till och klicka på **Nytt objekt**. **tables**
+1. I **Solution Explorer**högerklickar du på **tabeller**, pekar på **Lägg till**och klickar på **nytt objekt**.
 2. Välj **Azure-blobb** i listan och ändra namnet på filen till **OutputDataset.json**. Klicka på **Lägg till**.
 3. Ersätt **JSON** i redigeraren med följande JSON:
     
@@ -218,7 +218,7 @@ Du har skapat den länkade Azure Storage-tjänsten och in- och utdatauppsättnin
 
 1. I **Solution Explorer** högerklickar du på **Pipelines**, pekar på **Lägg till** och klickar på **Nytt objekt**.
 2. Välj **Pipeline för Hive-transformering** i listan och klicka på **Lägg till**.
-3. Ersätt **JSON** med följande utdrag:
+3. Ersätt **JSON** med följande kodfragment:
 
     > [!IMPORTANT]
     > Ersätt `<storageaccountname>` med namnet på ditt lagringskonto.
@@ -323,7 +323,7 @@ I det här steget publicerar du datafabriksentiteter (länkade tjänster, dataup
 
 Viktiga saker att observera:
 
-- Om felet visas: **Den här prenumerationen är inte registrerad för att använda namnområdet Microsoft.DataFactory**gör du något av följande och försök publicera igen:
+- Om du får felet: **den här prenumerationen är inte registrerad för att använda namn området Microsoft. DataFactory**, gör något av följande och försök att publicera igen:
     - I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern.
         ```powershell   
         Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -372,7 +372,7 @@ I det här steget övervakar du pipelinen med hjälp av datafabrikens diagramvy.
 9. När bearbetningen är klar visas sektorn med statusen **Klar**.
 
    > [!IMPORTANT]
-   > Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att pipelinen tar **cirka 30 minuter** att bearbeta segmentet.  
+   > Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Därför förväntar sig pipelinen att ta **cirka 30 minuter** att bearbeta sektorn.  
    
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. När sektorn har statusen **Redo**, kontrollerar du mappen `partitioneddata` i containern `adfgetstarted` i ditt Blob Storage för utdata.  
@@ -387,7 +387,7 @@ I det här steget övervakar du pipelinen med hjälp av datafabrikens diagramvy.
 
     Du kan se Hive-frågan som kördes och statusinformation i loggfilerna. Dessa loggar är användbara vid felsökning av eventuella problem.  
 
-Se [Övervaka datauppsättningar och pipeline](data-factory-monitor-manage-pipelines.md) för instruktioner om hur du använder Azure-portalen för att övervaka pipelinen och datauppsättningarna som du har skapat i den här självstudien.
+Se [övervaka data uppsättningar och pipeline](data-factory-monitor-manage-pipelines.md) för instruktioner om hur du använder Azure Portal för att övervaka pipeline och data uppsättningar som du har skapat i den här självstudien.
 
 #### <a name="monitor-pipeline-using-monitor--manage-app"></a>Övervaka pipeline med övervaknings- och hanteringsappen
 Du kan också använda övervaknings- och hanteringsprogrammet till att övervaka dina pipelines. Se [Övervaka och hantera Azure Data Factory-pipelines med övervaknings- och hanteringsappen](data-factory-monitor-manage-app.md) för mer information om att använda programmet.
@@ -555,18 +555,18 @@ I den här självstudien skapade du en Azure-datafabrik som bearbetar data genom
 3. Du skapade två **datauppsättningar** som beskriver in- och utdata för Hive-aktiviteten för HDInsight i pipelinen.
 4. Du skapade en **pipeline** med en **HDInsight Hive**-aktivitet.  
 
-## <a name="next-steps"></a>Efterföljande moment
-I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript på ett HDInsight-kluster på begäran. Mer information om hur du använder en kopieringsaktivitet för att kopiera data från en Azure Blob till Azure SQL finns i [Självstudiekurs: Kopiera data från en Azure-blob till Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+## <a name="next-steps"></a>Nästa steg
+I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript på ett HDInsight-kluster på begäran. Information om hur du använder en kopierings aktivitet för att kopiera data från en Azure-blob till Azure SQL finns i [Självstudier: kopiera data från en Azure-blob till Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 
 
 
 ## <a name="see-also"></a>Se även
 
-| Hjälpavsnitt | Beskrivning |
+| Ämne | Beskrivning |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden för ditt scenario eller ditt företag. |
-| [Datamängder](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
+| [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md) |Den här artikeln innehåller en lista med de datatransformeringsaktiviteter (till exempel HDInsight Hive-transformeringen som du använde i självstudien) som stöds av Azure Data Factory. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |

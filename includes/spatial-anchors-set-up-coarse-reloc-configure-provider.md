@@ -5,12 +5,12 @@ ms.date: 09/18/2019
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.openlocfilehash: a3db5535e65e036ab10c35b7bc066a6286a9cad7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76545233"
 ---
-## <a name="configure-the-sensor-fingerprint-provider"></a>Konfigurera sensorns fingeravtrycksleverantör
+## <a name="configure-the-sensor-fingerprint-provider"></a>Konfigurera sensorns finger avtrycks leverantör
 
-Vi börjar med att skapa och konfigurera en sensor fingeravtrycksleverantör. Sensorns fingeravtrycksleverantör tar hand om att läsa de plattformsspecifika sensorerna på enheten och omvandla avläsningarna till en gemensam representation som förbrukas av molnens rumsliga ankarsession.
+Vi börjar med att skapa och konfigurera en sensor finger avtrycks leverantör. Sensorns finger avtrycks leverantör tar hand om att läsa de plattformsspecifika sensorer på enheten och konvertera sina läsningar till en gemensam åter givning som används av sessionen för moln rums ankare.

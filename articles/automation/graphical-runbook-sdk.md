@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 21f6ff8078d5a1db88b2fde33c9063a56b3ee43a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 0058c0a0cedf2ea3f6c32f8f8368cca5b8dc6e3c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682910"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509014"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Använd Azure Automation grafisk Runbook SDK
 
@@ -18,7 +18,7 @@ ms.locfileid: "81682910"
 
 ## <a name="prerequisites"></a>Krav
 
-Importera `Microsoft.Azure.Automation.GraphicalRunbook.Model` paketet till projektet.
+Importera `Microsoft.Azure.Management.Automation.GraphicalRunbook.Model` paketet till projektet.
 
 ## <a name="create-a-runbook-object-instance"></a>Skapa en instans av en Runbook-objekt
 

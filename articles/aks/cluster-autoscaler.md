@@ -4,12 +4,12 @@ description: Lär dig hur du använder kluster autoskalning för att automatiskt
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 732c405cad20aef3485b521fa245cb504a809c40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129067"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509252"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
 
@@ -44,7 +44,7 @@ Både den automatiska skalnings tjänsten för Pod och klustret kan också minsk
 
 För mer information om hur klustrets autoskalning inte kan skalas ned, se [vilka typer av poddar kan förhindra att klustret autoskalning tar bort en nod?][autoscaler-scaledown]
 
-Klustrets autoskalning använder start parametrar för saker som tidsintervall mellan skalnings händelser och resurs trösklar. Dessa parametrar definieras av Azure-plattformen och är för närvarande inte tillgängliga för dig att justera. Mer information om vilka parametrar som används av klustret finns i [Vad är klustrets parametrar för autoskalning?][autoscaler-parameters].
+Klustrets autoskalning använder start parametrar för saker som tidsintervall mellan skalnings händelser och resurs trösklar. Mer information om vilka parametrar som används av klustret finns i [Vad är klustrets parametrar för autoskalning?][autoscaler-parameters].
 
 De automatiska skalningarna i kluster och horisontella Pod kan fungera tillsammans och båda är ofta distribuerade i ett kluster. När den här funktionen kombineras, fokuserar den horisontella Pod autoskalning på att köra antalet poddar som krävs för att uppfylla programmets krav. Klustrets autoskalning fokuserar på att köra antalet noder som krävs för att stödja den schemalagda poddar.
 

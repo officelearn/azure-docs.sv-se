@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Skapa en aliaspost för att referera till en resurspost i en zon'
+title: 'Självstudie: skapa en aliasresurspost för att referera till en resurs post i en zon'
 titleSuffix: Azure DNS
 description: Den här självstudien visar hur du konfigurerar en Azure DNS-aliaspost för att referera till en resurspost i zonen.
 services: dns
@@ -9,24 +9,24 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76939255"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Självstudie: Skapa en aliaspost för att referera till en resurspost för zonen
 
 Aliasposter kan referera till andra postuppsättningar av samma typ. Du kan till exempel låta en DNS CNAME-postuppsättning vara ett alias för en annan CNAME-postuppsättning av samma typ. Den här funktionen är användbar om du vill ha vissa postuppsättningar som alias och andra som alias när det gäller beteende.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en aliaspost för en resurspost i zonen.
 > * Testa aliasposten.
 
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
@@ -57,7 +57,7 @@ Skapa en aliaspost för som pekar mot en resurspost i zonen.
 
 ## <a name="test-the-alias-record"></a>Testa aliasposten
 
-1. Starta ditt föredragna nslookup-verktyg. Ett alternativ är [https://network-tools.com/nslook](https://network-tools.com/nslook)att bläddra till .
+1. Starta ditt föredragna nslookup-verktyg. Ett alternativ är att bläddra till [https://network-tools.com/nslook](https://network-tools.com/nslook).
 2. Ange frågetyp för A-poster och sök efter **test.\< ditt domännamn\>**. Svaret **10.10.10.10**.
 3. I Azure-portalen, ändrar du **server** A-posten till **10.11.11.11**.
 4. Vänta några minuter och använd därefter nslookup igen för att **testa** posten. Svaret **10.11.11.11**.

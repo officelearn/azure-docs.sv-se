@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs – Etablera enheter över belastningsbalanserade nav med azure IoT Hub Device Provisioning Service
-description: Den här självstudien visar hur DPS (Device Provisioning Service) möjliggör automatisk enhetsetablering över belastningsbalanserade IoT-hubbar i Azure Portal
+title: Självstudie – etablera enheter över belastningsutjämnade hubbar med hjälp av Azure IoT Hub Device Provisioning Service
+description: Den här självstudien visar hur enhets etablerings tjänsten (DPS) aktiverar automatisk enhets etablering över belastningsutjämnade IoT-hubbar i Azure Portal
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74976748"
 ---
-# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Självstudiekurs: Etablera enheter över belastningsbalanserade IoT-hubbar
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Självstudie: etablera enheter över belastningsutjämnade IoT-hubbar
 
-Den här självstudien visar hur du etablerar enheter för flera belastningsutjämnade IoT-hubbar genom att använda enhetsetableringstjänsten. I den här självstudiekursen får du lära du dig att:
+Den här självstudien visar hur du etablerar enheter för flera belastningsutjämnade IoT-hubbar genom att använda enhetsetableringstjänsten. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Använda Azure Portal till att etablera en andra enhet till en andra IoT-hubb 

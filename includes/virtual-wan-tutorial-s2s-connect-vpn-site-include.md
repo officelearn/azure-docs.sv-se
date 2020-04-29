@@ -9,37 +9,37 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75450846"
 ---
-1. Välj **Anslut VPN-platser** för att öppna sidan **Anslut webbplatser.**
+1. Välj **Anslut VPN-platser** för att öppna sidan **Anslut platser** .
 
-    ![connect](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "connect")
+    ![gå](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "connect")
 
    Fyll i följande fält:
 
-   * Ange en fördelad nyckel. Om du inte anger en nyckel genererar Azure automatiskt en åt dig.
-   * Välj inställningar för protokoll och IPsec. Se [standard-/anpassad IPSec-information] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
-   * Välj lämpligt alternativ för **Sprid standardväg**. Med alternativet **Aktivera** kan den virtuella hubben sprida en inlärd standardväg till den här anslutningen. Den här flaggan aktiverar standardrutbredning till en anslutning endast om standardvägen redan har lärts av den virtuella WAN-hubben som ett resultat av att en brandvägg distribueras i navet eller om en annan ansluten plats har aktiverat tunnel. Standardvägen kommer inte från hubben Virtuellt WAN.
+   * Ange en i förväg delad nyckel. Om du inte anger någon nyckel genererar Azure automatiskt en åt dig.
+   * Välj protokoll-och IPsec-inställningar. Se [information om standard/anpassad IPSec] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
+   * Välj lämpligt alternativ för att **sprida standard väg**. Alternativet **Aktivera** gör det möjligt för den virtuella hubben att sprida en inlärd standard väg till den här anslutningen. Den här flaggan aktiverar standard vägs spridning enbart till en anslutning om standard vägen redan har belärts av den virtuella WAN-hubben på grund av distribution av en brand vägg i hubben, eller om en annan ansluten plats har Tvingad tunnel trafik aktive rad. Standard vägen kommer inte från den virtuella WAN-hubben.
 
 2. Välj **Anslut**.
-3. Om några minuter visar platsen anslutnings- och anslutningsstatus.
+3. Om några minuter visas anslutningen och anslutnings statusen för platsen.
 
-   ![status](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![statusfältet](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
-   **Anslutningsstatus:** Det här är statusen för Azure-resursen för anslutningen som ansluter VPN-platsen till Azure-hubbens VPN-gateway. När den här kontrollplansåtgärden har slutförts fortsätter Azure VPN-gatewayen och den lokala VPN-enheten att upprätta anslutningen.
+   **Anslutnings status:** Detta är statusen för Azure-resursen för den anslutning som ansluter VPN-platsen till Azure Hub-VPN-gatewayen. När den här kontroll Plans åtgärden lyckas fortsätter Azure VPN-gatewayen och den lokala VPN-enheten att upprätta anslutningen.
 
-   **Anslutningsstatus:** Det här är den faktiska anslutningsstatusen (datasökvägen) mellan Azures VPN-gateway i navet och VPN-platsen. Det kan visa något av följande tillstånd:
+   **Anslutnings status:** Detta är den faktiska anslutnings statusen (data Sök vägen) mellan Azures VPN-gateway på NAV-och VPN-platsen. Det kan visa något av följande tillstånd:
 
-    * **Okänd**: Det här tillståndet visas vanligtvis om serverdsystemen arbetar för att övergå till en annan status.
-    * **Ansluta:** Azure VPN-gateway försöker nå ut till den faktiska lokala VPN-platsen.
-    * **Ansluten**: Anslutning upprättas mellan Azure VPN-gateway och lokal VPN-plats.
-    * **Frånkopplad**: Den här statusen visas om anslutningen av någon anledning (lokalt eller i Azure) kopplades från.
-4. Inom en vpn-plats i navet kan du dessutom göra följande: 
+    * **Okänd**: det här tillståndet visas vanligt vis om backend-systemen arbetar för att övergå till en annan status.
+    * **Ansluter**: Azure VPN-gatewayen försöker kontakta den faktiska lokala VPN-platsen.
+    * **Ansluten**: anslutningen upprättas mellan Azure VPN-gatewayen och den lokala VPN-platsen.
+    * **Frånkopplad**: den här statusen visas, oavsett orsak (lokalt eller i Azure), anslutningen kopplades från.
+4. På en hubb VPN-webbplats kan du göra följande: 
 
    * Redigera eller ta bort VPN-anslutningen.
-   * Ta bort webbplatsen i Azure-portalen.
-   * Hämta en grenspecifik konfiguration för information om Azure-sidan med hjälp av menyn kontext (...) bredvid webbplatsen. Om du vill hämta konfigurationen för alla anslutna platser i navet väljer du **Ladda ned VPN Config** på den övre menyn.
+   * Ta bort platsen i Azure Portal.
+   * Hämta en Branch-/regionsspecifika konfiguration för information om Azure-sidan med hjälp av kontexten (...) bredvid webbplatsen. Om du vill ladda ned konfigurationen för alla anslutna platser i hubben väljer du **Hämta VPN-** konfiguration på den översta menyn.

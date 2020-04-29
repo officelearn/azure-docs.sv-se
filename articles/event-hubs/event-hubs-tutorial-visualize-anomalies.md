@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs – Visualisera dataavvikelser i realtidshändelser
-description: 'Självstudiekurs: Visualisera dataavvikelser i realtidshändelser som skickas till Microsoft Azure Event Hubs'
+title: Azure Event Hubs – visualisera data avvikelser i real tids händelser
+description: 'Självstudie: visualisera data avvikelser i real tids händelser som skickas till Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,19 +10,19 @@ ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 01/15/2020
 ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77163185"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
-Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera inkommande data och extrahera avvikelser, som du sedan kan visualisera i Power BI. Anta att du har tusentals enheter som kontinuerligt skickar data i realtid till en händelsehubb. I så fall kan det röra sig om miljontals händelser per sekund. Hur kontrollerar du om det finns avvikelser, eller fel, i sådana mängder data? Vad händer till exempel om enheterna skickar kreditkortstransaktioner och du måste samla in var du än har flera transaktioner i flera länder/regioner inom ett 5-sekundersintervall? Detta kan inträffa om någon stjäl kreditkort och sedan använder dem för att köpa saker samtidigt från olika delar av världen. 
+Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera inkommande data och extrahera avvikelser, som du sedan kan visualisera i Power BI. Anta att du har tusentals enheter som kontinuerligt skickar data i realtid till en händelsehubb. I så fall kan det röra sig om miljontals händelser per sekund. Hur kontrollerar du om det finns avvikelser, eller fel, i sådana mängder data? Vad händer om enheterna skickar kredit korts transaktioner och du måste samla in var du än har flera transaktioner i flera länder/regioner inom ett intervall om 5 sekunder? Detta kan inträffa om någon stjäl kreditkort och sedan använder dem för att köpa saker samtidigt från olika delar av världen. 
 
-I den här självstudien får du simulera det här exemplet. Du kör ett program som skapar och skickar kreditkortstransaktioner till en händelsehubb. Sedan läser du dataströmmen i realtid med Azure Stream Analytics, som skiljer giltiga transaktioner från ogiltiga transaktioner och sedan använder Power BI för att visuellt identifiera de transaktioner som är taggade som ogiltiga.
+I den här självstudien får du simulera det här exemplet. Du kör ett program som skapar och skickar kreditkortstransaktioner till en händelsehubb. Sedan läser du data strömmen i real tid med Azure Stream Analytics, som avgränsar giltiga transaktioner från ogiltiga transaktioner och använder sedan Power BI för att visuellt identifiera de transaktioner som är märkta som ogiltiga.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa ett Event Hubs-namnområde
 > * Skapa en händelsehubb
@@ -47,7 +47,7 @@ För den här självstudien behöver du ett Event Hubs-namnområde och en hände
 
 Följande avsnitt beskriver hur du utför de steg som krävs. Utför följande steg genom att följa instruktionerna för CLI *eller* PowerShell:
 
-1. Skapa en [resursgrupp](../azure-resource-manager/management/overview.md). 
+1. Skapa en [resurs grupp](../azure-resource-manager/management/overview.md). 
 
 2. Skapa ett Event Hubs-namnområde. 
 
@@ -156,13 +156,13 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Kör appen för att generera testhändelsedata
 
-Exemplen Event Hubs [på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) innehåller en app för avvikelsedetektor som producerar testdata åt dig. Appen simulerar användning av kreditkort genom att skriva kreditkortstransaktioner till händelsehubben, och ibland skrivs flera transaktioner för samma kreditkort på flera platser så att de blir märkta som avvikelser. Följ dessa steg om du vill köra den här appen: 
+Event Hubs [exemplen på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) innehåller en app för avvikelse detektor som producerar test data åt dig. Appen simulerar användning av kreditkort genom att skriva kreditkortstransaktioner till händelsehubben, och ibland skrivs flera transaktioner för samma kreditkort på flera platser så att de blir märkta som avvikelser. Följ dessa steg om du vill köra den här appen: 
 
 1. Ladda ned [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) (Azure Event Hubs-exempel) från GitHub och packa upp filen lokalt.
-2. Navigera till mappen **\\ \azure-event-hubs-master\samples\DotNet-mapp.** 
-3. Växla till mappen **Azure.Messaging.EventHubs\AnomalyDetector\\ ** och dubbelklicka på **AnomalyDetector.sln** för att öppna lösningen i Visual Studio. 
+2. Navigera till mappen **\azure-Event-Hubs-master\samples\DotNet\\ ** -mappen. 
+3. Växla till **Azure. Messaging. EventHubs\AnomalyDetector\\ ** -mappen och dubbelklicka på **AnomalyDetector. SLN** för att öppna lösningen i Visual Studio. 
 
-    Om du vill använda den gamla versionen av exemplet som använder det gamla Microsoft.Azure.EventHubs-paketet öppnar du lösningen från mappen **Microsoft.Azure.EventHubs\AnomalyDetector.** 
+    Om du vill använda den gamla versionen av exemplet som använder det gamla Microsoft. Azure. EventHubs-paketet öppnar du lösningen från mappen **Microsoft. Azure. EventHubs\AnomalyDetector** . 
 3. Öppna Program.cs och ersätt **Event Hubs-anslutningssträngen** med den anslutningssträng som du sparade när du körde skriptet. 
 4. Ersätt **namnet på händelsehubben** med namnet på din händelsehubb. Klicka på F5 för att köra programmet. Därmed skickas händelser till din händelsehubb tills 1 000 händelser har skickats. I vissa fall måste appen köras för att du ska kunna hämta data. Dessa fall anges i följande instruktioner, där det behövs.
 
@@ -306,7 +306,7 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
    ![Skärmbild av hur du anger instrumentpanelens namn.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. Klicka på Lägg **till panel på**instrumentpanelen, välj **Anpassade strömmande data** i avsnittet **REALTIDSDATA** och klicka sedan på **Nästa**.
+7. På instrument panels sidan klickar du på **Lägg till panel**, väljer **anpassade strömmande data** i **real tids data** avsnittet och klickar sedan på **Nästa**.
 
    ![Skärmbild av hur du anger källa för panelen.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
@@ -386,4 +386,4 @@ Gå vidare till nästa artikel om du vill lära dig mer om Azure Event Hubs.
 > [!div class="nextstepaction"]
 > [Komma igång med att skicka meddelanden till Azure Event Hubs med .NET Standard](get-started-dotnet-standard-send-v2.md)
 
-[skapa ett kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[skapa ett kostnads fritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

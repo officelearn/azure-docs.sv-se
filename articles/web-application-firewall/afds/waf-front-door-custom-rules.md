@@ -1,6 +1,6 @@
 ---
-title: Anpassad regel för brandvägg för webbprogram för Azure Front Door
-description: Lär dig hur du använder waf-anpassade regler (Web Application Firewall) som skyddar dina webbprogram från skadliga attacker.
+title: Anpassad regel för brand vägg för webbaserade program för Azures front dörr
+description: Lär dig att använda anpassade regler för brand vägg för webbaserade program (WAF) som skyddar dina webb program mot skadliga attacker.
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
@@ -8,93 +8,93 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79475832"
 ---
-#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Anpassade regler för brandvägg för webbprogram med Azure Front Door
+#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Anpassade regler för brand vägg för webb program med Azures front dörr
 
-Med WAF (Azure Web Application Firewall) med Ytterdörren kan du styra åtkomsten till dina webbprogram baserat på de villkor du definierar. En anpassad WAF-regel består av ett prioritetsnummer, regeltyp, matchningsvillkor och en åtgärd. Det finns två typer av anpassade regler: matcha regler och regler för hastighetsbegränsning. En matchningsregel styr åtkomsten baserat på en uppsättning matchande villkor medan en hastighetsgränsregel styr åtkomsten baserat på matchningsvillkor och antalet inkommande begäranden. Du kan inaktivera en anpassad regel för att förhindra att den utvärderas, men ändå behålla konfigurationen. 
+Med hjälp av Azure WebApplication-brandväggen (WAF) med front dörr kan du styra åtkomsten till dina webb program baserat på de villkor som du definierar. En anpassad WAF-regel består av ett prioritets nummer, regel typ, matchnings villkor och en åtgärd. Det finns två typer av anpassade regler: matchnings regler och hastighets begränsnings regler. En matchnings regel styr åtkomst baserat på en uppsättning matchnings villkor medan en hastighets begränsnings regel styr åtkomst baserat på matchnings villkor och frekvensen av inkommande begär Anden. Du kan inaktivera en anpassad regel för att förhindra att den utvärderas, men behåll konfigurationen fortfarande. 
 
-## <a name="priority-match-conditions-and-action-types"></a>Prioritet, matchningsvillkor och åtgärdstyper
+## <a name="priority-match-conditions-and-action-types"></a>Prioritet, matchnings villkor och åtgärds typer
 
-Du kan styra åtkomsten med en anpassad WAf-regel som definierar ett prioritetsnummer, en regeltyp, en matris med matchningsvillkor och en åtgärd. 
+Du kan kontrol lera åtkomst med en anpassad WAf-regel som definierar ett prioritets nummer, en regeltyp, en matris med matchnings villkor och en åtgärd. 
 
-- **Prioritet:** är ett unikt heltal som beskriver ordningen för utvärdering av WAF-regler. Regler med lägre prioritetsvärden utvärderas före regler med högre värden. Prioritetsnummer måste vara unika bland alla anpassade regler.
+- **Prioritet:** är ett unikt heltal som beskriver ordningen för utvärdering av WAF-regler. Regler med lägre prioritets värden utvärderas före regler med högre värden. Prioritets nummer måste vara unika bland alla anpassade regler.
 
 - **Åtgärd:** definierar hur en begäran ska dirigeras om en WAF-regel matchas. Du kan välja en av nedanstående åtgärder som ska tillämpas när en begäran matchar en anpassad regel.
 
-    - *Tillåt* - WAF vidarebefordrar questen till backend, loggar en post i WAF loggar och utgångar.
-    - *Block* - Begäran är blockerad, WAF skickar svar till klienten utan att vidarebefordra begäran till backend. WAF loggar en post i WAF-loggar.
-    - *Log* - WAF loggar en post i WAF-loggar och fortsätter att utvärdera nästa regel.
-    - *Omdirigera* - WAF omdirigerar begäran till en angiven URI, loggar en post i WAF-loggar och utgångar.
+    - *Allow* -WAF vidarebefordrar fråge änden till Server delen och loggar en post i WAF-loggar och avslutas.
+    - *Blockering av* begäran blockeras, WAF skickar svar till klienten utan att vidarebefordra begäran till Server delen. WAF loggar en post i WAF-loggar.
+    - *Log* -WAF loggar en post i WAF-loggar och fortsätter att utvärdera nästa regel.
+    - *Redirect* -WAF omdirigerar begäran till en angiven URI, loggar en post i WAF-loggar och avslutas.
 
-- **Matchningsvillkor:** definierar en matchningsvariabel, en operator och matchningsvärde. Varje regel kan innehålla flera matchningsvillkor. Ett matchningsvillkor kan baseras på geografisk plats, klient-IP-adresser (CIDR), storlek eller strängmatchning. Strängmatchning kan vara mot en lista över matchningsvariabler.
-  - **Matchvariabel:**
-    - BegäranMethod
+- **Matchnings villkor:** definierar en match variabel, en operator och ett matchnings värde. Varje regel kan innehålla flera matchnings villkor. Ett matchnings villkor kan baseras på Geo-plats, klient-IP-adresser (CIDR), storlek eller sträng matchning. Sträng matchning kan vara mot en lista över matchande variabler.
+  - **Matcha variabel:**
+    - RequestMethod
     - QueryString
-    - PostArgs (andra)
-    - RequestUri (förfråganuri)
+    - PostArgs
+    - RequestUri
     - RequestHeader
     - RequestBody
     - Cookies
-  - **Operatör:**
-    - Alla: används ofta för att definiera standardåtgärd om inga regler matchas. Alla är en matchning alla operatör.
+  - **Operator**
+    - Any: används ofta för att definiera standard åtgärder om inga regler matchas. Alla är en match alla-operator.
     - Lika med
     - Innehåller
-    - LessThan: storleksbegränsning
-    - GreaterThan: storleksbegränsning
-    - LessThanOrEqual: storleksbegränsning
-    - GreaterThanOrEqual: storleksbegränsning
+    - LessThan: storleks begränsning
+    - GreaterThan: storleks begränsning
+    - LessThanOrEqual: storleks begränsning
+    - GreaterThanOrEqual: storleks begränsning
     - BeginsWith
     - EndsWith
-    - Regex
+    - Verifiering
   
   - **Regex** stöder inte följande åtgärder: 
-    - Bakåtreferenser och fånga underuttryck
-    - Godtyckliga nollbreddspåståenden
-    - Subrutinreferenser och rekursiva mönster
-    - Villkorliga mönster
-    - Bakåtspårande kontrollverb
-    - Direktivet \C med enkel byte
-    - Matchdirektivet \R newline
-    - Direktivet \K start av matchningsåterställning
-    - Bildtexter och inbäddad kod
-    - Atom- gruppering och possessiva kvantifierare
+    - Referens och inhämtning av under uttryck
+    - Godtyckliga kontroller med noll bredd
+    - Subrutin-referenser och rekursiva mönster
+    - Villkors mönster
+    - Bakspårning-verb
+    - Single-byte-direktivet \c
+    - Direktivet \Rs rad träff
+    - \K början av matchnings reset-direktivet
+    - Bild texter och inbäddad kod
+    - Atomiska grupperingar och possessive-kvantifierare
 
-  - **Förneka [valfritt]:** Du kan ställa in *förneka villkoret* till sant om resultatet av ett villkor ska förnekas.
+  - **Negation [valfritt]:** Du kan ställa in *negationen* på sant om resultatet av ett villkor ska vara negationt.
       
-  - **Transformera [valfritt]:** En lista med strängar med namn på omvandlingar att göra innan matchningen görs. Dessa kan vara följande omvandlingar:
-     - Versaler 
+  - **Transformering [valfritt]:** En lista med strängar med namn på omvandlingar som ska utföras innan matchningen görs. Dessa omvandlingar kan vara följande:
+     - Vers 
      - Gemener
      - Trim
-     - Ta bortUller
-     - UrlDecode (UrlDecode)
-     - UrlEncode (UrlEncode)
+     - RemoveNulls
+     - UrlDecode
+     - UrlEncode
      
-   - **Matcha värde:** Http-begärandevärden som stöds omfattar:
+   - **Matchnings värde:** Värden för HTTP-begäran som stöds är:
      - HÄMTA
      - POST
      - PUT
      - HEAD
      - DELETE
-     - Låsa
-     - Låsa upp
+     - SKRIVLÅS
+     - OLÅST
      - PROFIL
-     - Alternativ
+     - SÄTT
      - PROPFIND
-     - Proppatch
-     - Mkcol
-     - Kopiera
-     - Flytta
+     - PROPPATCH
+     - MKCOL
+     - EXEMPLAR
+     - FART
 
 ## <a name="examples"></a>Exempel
 
-### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Exempel på anpassade regler för WAF baserat på httpparametrar
+### <a name="waf-custom-rules-example-based-on-http-parameters"></a>WAF anpassade regel exempel baserat på http-parametrar
 
-Här är ett exempel som visar konfigurationen av en anpassad regel med två matchningsvillkor. Begäranden kommer från en angiven plats som definieras av referen, och frågesträngen innehåller inte "lösenord".
+Här är ett exempel som visar konfigurationen av en anpassad regel med två matchnings villkor. Begär Anden kommer från en angiven plats som definieras av referent, och frågesträngen innehåller inte "Password".
 
 ```
 # http rules example
@@ -126,7 +126,7 @@ Här är ett exempel som visar konfigurationen av en anpassad regel med två mat
 }
 
 ```
-En exempelkonfiguration för att blockera metoden "PUT" visas nedan:
+En exempel konfiguration för blockering av "placering"-metoden visas som nedan:
 
 ``` 
 # http Request Method custom rules
@@ -150,9 +150,9 @@ En exempelkonfiguration för att blockera metoden "PUT" visas nedan:
 }
 ```
 
-### <a name="size-constraint"></a>Storleksbegränsning
+### <a name="size-constraint"></a>Storleks begränsning
 
-Du kan skapa en anpassad regel som anger storleksbegränsning för en del av en inkommande begäran. Under regeln blockerar till exempel en url som är längre än 100 tecken.
+Du kan bygga en anpassad regel som anger storleks begränsningen för en del av en inkommande begäran. Till exempel blockerar regel en URL som är längre än 100 tecken.
 
 ```
 # http parameters size constraint
@@ -177,7 +177,7 @@ Du kan skapa en anpassad regel som anger storleksbegränsning för en del av en 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera en brandvägg för webbprogram med Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
-- Läs mer om [brandvägg för webbapplikationer med ytterdörr](afds-overview.md)
+- [Konfigurera en brand Väggs princip för webb program med hjälp av Azure PowerShell](waf-front-door-custom-rules-powershell.md) 
+- Lär dig mer om [brand vägg för webbaserade program med front dörr](afds-overview.md)
 - Läs hur du [skapar en Front Door](../../frontdoor/quickstart-create-front-door.md).
 

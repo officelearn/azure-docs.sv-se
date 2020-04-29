@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Skapa en MEAN-stack på en virtuell Linux-dator i Azure
+title: Självstudie – Skapa en GENOMSNITTs stack på en virtuell Linux-dator i Azure
 description: I den här självstudiekursen lär du dig hur du skapar en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 9e0ed3454f11907c5f183f08fd2ec51db3384225
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80154329"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Skapa en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure
@@ -34,7 +34,7 @@ Den här självstudiekursen beskriver hur du implementerar en stack för MongoDB
 > * Få åtkomst till vägar med AngularJS
 > * Köra appen
 
-Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -220,7 +220,7 @@ sudo apt-get install -y nodejs
 
 [AngularJS](https://angularjs.org) tillhandahåller ett webbramverk med vilket du kan skapa dynamiska vyer i dina webbprogram. I den här självstudiekursen använder vi AngularJS för att ansluta vår webbsida med Express och utföra åtgärder på vår bokdatabas.
 
-1. Ändra katalogen tillbaka *Books* upp`cd ../..`till Böcker ( ), och sedan skapa en mapp med namnet *offentlig* och lägga till en fil med namnet *script.js* med styrenheten konfigurationen definieras.
+1. Ändra katalogen tillbaka till *böcker* (`cd ../..`) och skapa sedan en mapp med namnet *Public* och Lägg till en fil med namnet *script. js* där kontroll enhets konfigurationen definieras.
 
     ```javascript
     var app = angular.module('myApp', []);
@@ -317,7 +317,7 @@ sudo apt-get install -y nodejs
 
 ##  <a name="run-the-application"></a>Köra appen
 
-1. Ändra katalogen tillbaka *Books* upp`cd ..`till Böcker ( ) och starta servern genom att köra det här kommandot:
+1. Ändra katalogen tillbaka till *böcker* (`cd ..`) och starta servern genom att köra det här kommandot:
 
     ```bash
     nodejs server.js
@@ -349,7 +349,7 @@ I den här självstudiekursen har du skapat ett webbprogram som håller koll på
 > * Få åtkomst till vägar med AngularJS
 > * Köra appen
 
-Gå vidare till nästa självstudiekurs om du vill lära dig hur du skyddar webbservrar med TLS-certifikat.
+Gå vidare till nästa självstudie och lär dig hur du skyddar webb servrar med TLS-certifikat.
 
 > [!div class="nextstepaction"]
-> [Säker webbserver med TLS](tutorial-secure-web-server.md)
+> [Säker webb server med TLS](tutorial-secure-web-server.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Virtuella datorer för belastningsutjämnare i en zon – Azure-portal'
+title: 'Självstudie: Load Balancer virtuella datorer inom en zon – Azure Portal'
 titleSuffix: Azure Load Balancer
 description: Den här kursen visar hur du skapar en Standard Load Balancer med zonindelad klientdel för att lastbalansera virtuella datorer i en tillgänglighetszon med hjälp av Azure Portal
 services: load-balancer
@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78251895"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure Portal
@@ -35,29 +35,29 @@ I den här kursen skapar du en offentlig [Azure Standard Load Balancer-instans](
 > * Skapa en enkel webbplats för Internet Information Services (IIS).
 > * Visa en lastbalanserare i praktiken.
 
-Mer information om hur du använder tillgänglighetszoner med standardbelastningsutjämning finns i [Standardbelastningsutjämnad och tillgänglighetszoner](load-balancer-standard-availability-zones.md).
+Mer information om hur du använder tillgänglighets zoner med Standard Load Balancer finns [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
 
 Om du vill kan du använda [Azure CLI](load-balancer-standard-public-zonal-cli.md) till att slutföra den här kursen.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>Skapa en offentlig Standard Load Balancer-instans
 
 Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en ny offentlig IP-adress medan du skapar lastbalanseraren konfigureras den automatiskt som en standard-SKU-version. Den är också automatiskt zonredundant.
 
-1. På den övre vänstra sidan av skärmen väljer du **Skapa en resurs** > **Nätverksbelastningsutjämningsutjämnare****Networking** > .
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **Load Balancer**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
-    | Namn                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
-    | SKU           | Välj **Standard**.                          |
+    | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
     |Tillgänglighetszon| Välj **1**.    |
@@ -73,19 +73,19 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resursgruppnamn>**  | myResourceGroupZLB (Välj befintlig resursgrupp) |
-| **\<>virtuellt nätverksnamn** | myVNet          |
-| **\<regionnamn>**          | Europa, västra      |
-| **\<IPv4-adress-utrymme>**   | 10.0.0.0\16          |
-| **\<>i>**          | myBackendSubnet        |
-| **\<>för>** | 10.0.0.0\24          |
+| **\<resurs grupp-namn>**  | myResourceGroupZLB (Välj en befintlig resurs grupp) |
+| **\<virtuell-nätverks namn>** | myVNet          |
+| **\<region namn>**          | Europa, västra      |
+| **\<IPv4-adress utrymme>**   | 10.0.0.0 \ 16          |
+| **\<under näts namn>**          | myBackendSubnet        |
+| **\<undernät-adress – intervall>** | 10.0.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
 1. Välj **Skapa en resurs** längst upp till vänster på skärmen. Ange **Nätverkssäkerhetsgrupp** i sökrutan. Välj **Skapa** på nätverkssäkerhetsgruppssidan.
-2. Ange följande värden på sidan **Skapa nätverkssäkerhetsgrupp:**
+2. Ange följande värden på sidan **skapa nätverks säkerhets grupp** :
    - **myNetworkSecurityGroup** för nätverkssäkerhetsgruppens namn.
    - **myResourceGroupLB** för den befintliga resursgruppens namn.
    
@@ -96,15 +96,15 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att inkommande anslutningar som använder HTTP och Microsoft Remote Desktop Protocol (RDP) med Azure Portal.
 
 1. Välj **Alla resurser** på menyn längst till vänster i Azure Portal. Sök sedan efter och välj **myNetworkSecurityGroup**. Det finns i resursgruppen **myResourceGroupZLB**.
-2. Under **Inställningar**väljer du **Regler för inkommande säkerhet**. Välj sedan **Lägg till**.
+2. Under **Inställningar**väljer du **inkommande säkerhets regler**. Välj sedan **Lägg till**.
 3. Ange följande värden för den inkommande säkerhetsregeln med namnet **myHTTPRule** så att den tillåter inkommande HTTP-anslutningar som använder port 80:
     - **Tjänstetagg** för **Källa**.
     - **Internet** för **Källtjänsttagg**.
     - **80** för **Målportsintervall**.
     - **TCP** för **Protokoll**.
     - **Tillåt** för **Åtgärd**.
-    - **100**, för **Prioritet**.
-    - **minHTTPRule**, för **Namn**.
+    - **100**, som **prioritet**.
+    - **myHTTPRule**, som **namn**.
     - **Tillåt HTTP** för **Beskrivning**.
 4. Välj **OK**.
  
@@ -116,15 +116,15 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     - **3389** för **Målportsintervall**.
     - **TCP** för **Protokoll**.
     - **Tillåt** för **Åtgärd**.
-    - **200**, för **prioritet**.
-    - **myRDPRule**, för **namn**.
+    - **200**, som **prioritet**.
+    - **myRDPRule**, som **namn**.
     - **Tillåt HTTP** för **Beskrivning**.
 
       ![Skapa en RDP-regel](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-1. På den övre vänstra sidan av skärmen väljer du **Skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter**. Ange följande värden för den virtuella datorn:
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **Compute** > **Windows Server 2016 Data Center**. Ange följande värden för den virtuella datorn:
     - **myVM1** för den virtuella datorns namn.        
     - **azureuser** för administratörens användarnamn.    
     - **myResourceGroupLB** för **Resursgrupp**. Välj **Använd befintlig** och sedan **myResourceGroupZLB**.
@@ -137,7 +137,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     - **myBackendSubnet**. Se till att den har markerats som undernät.
     - **myNetworkSecurityGroup** för namnet på den nätverkssäkerhetsgrupp (brandvägg) som redan finns.
 5. Inaktivera startdiagnostikinställningar genom att välja **Inaktiverad**.
-6. Välj **OK**. Granska inställningarna på sammanfattningssidan. Välj sedan **Skapa**.
+6. Välj **OK**. Granska inställningarna på sammanfattningssidan. Välj sedan **skapa**.
 7. Upprepa steg 1 till 6 om du vill skapa en andra virtuell dator med namnet **myVM2** i zon 1. Gör **myVnet** till det virtuella nätverket. Gör **myVM2PIP** till den offentliga IP-standardadressen. Gör **myBackendSubnet** till undernät. Och gör **myNetworkSecurityGroup** till nätverkssäkerhetsgrupp.
 
     ![Skapa virtuella datorer](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-machine.png) 
@@ -147,7 +147,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myVM1** i resurslistan. Det finns i resursgruppen **myResourceGroupZLB**.
 2. Välj **Anslut** på sidan **Översikt** och anslut till den virtuella datorn med RDP.
 3. Logga in till den virtuella datorn och ange det användarnamn och lösenord du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** om du vill ange autentiseringsuppgifterna som du angav när du skapade den virtuella datorn. Välj sedan **Använd ett annat konto**. Och välj sedan **OK**. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen.
-4. På serverskrivbordet navigerar du till **Windows Administrationsverktyg** > **Windows PowerShell**.
+4. Gå till **Windows administrations verktyg** > **Windows PowerShell**på server Skriv bordet.
 6. Installera IIS-servern genom att köra följande kommandon i **PowerShell**-fönstret. De här kommandona tar även bort standardfilen iisstart.htm och lägger till en ny iisstart.htm-fil som visar den virtuella datorn namn:
 
    ```azurepowershell-interactive
@@ -171,11 +171,11 @@ I det här avsnittet konfigurerar du inställningar för lastbalanseraren för e
 För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. Skapa serverdelsadresspoolen **myBackendPool** så att den omfattar **VM1** och **VM2**.
 
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar**väljer du **Backend-pooler**. Välj sedan **Lägg till**.
+2. Under **Inställningar**väljer du **backend-pooler**. Välj sedan **Lägg till**.
 3. Gör följande på sidan **Lägg till en serverdelspool**:
     - Ange **myBackEndPool** som serverdelspoolens namn.
     - Välj **myVNet** som **Virtuellt nätverk** i den nedrullningsbara menyn. 
-    - För **virtuell dator** och **IP-adress,** lägg till **myVM1** och **myVM2** och deras motsvarande offentliga IP-adresser.
+    - För **virtuell dator** och **IP-adress**lägger du till **myVM1** och **myVM2** och deras motsvarande offentliga IP-adresser.
 4. Välj **Lägg till**.
 5. Kontrollera att inställningen för serverdelspoolens lastbalanserare visar båda de virtuella datorerna: **myVM1** och **myVM2**.
  
@@ -215,7 +215,7 @@ En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtue
     ![Lägga till en belastningsutjämningsregel](./media/tutorial-load-balancer-standard-zonal-portal/load-balancing-rule.png)
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
-1. Hitta den offentliga IP-adressen för belastningsutjämnaren på **översiktsskärmen.** Välj **Alla resurser**. Välj sedan **myPublicIP**. 
+1. Hitta den offentliga IP-adressen för belastningsutjämnaren på **översikts** skärmen. Välj **Alla resurser**. Välj sedan **myPublicIP**. 
 
 2. Kopiera den offentliga IP-adressen. Klistra sedan in den i webbläsarens adressfält. Sidan som innehåller namnet på webbserversidan visas i webbläsaren.
 
@@ -229,4 +229,4 @@ Ta bort resursgruppen, lastbalanseraren och alla relaterade resurser när de int
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
-- [Virtuella datorer för belastningsutjämning över tillgänglighetszoner](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+- [Belastningsutjämna virtuella datorer i tillgänglighets zoner](tutorial-load-balancer-standard-public-zone-redundant-portal.md).

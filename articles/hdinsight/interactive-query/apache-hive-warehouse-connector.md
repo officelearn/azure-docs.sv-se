@@ -6,21 +6,22 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 77623a89e52a5e15fbb4159ff49d9377e53e7d4c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252410"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509541"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrera Apache Spark och Apache Hive med Hive-lagrets koppling
 
-Apache Hive Warehouse Connector (INSTANSEN) är ett bibliotek som gör det lättare att arbeta enklare med Apache Spark och Apache Hive genom att stödja uppgifter som att flytta data mellan Spark-DataFrames och Hive-tabeller, och även dirigera data strömnings data till Hive-tabeller. Hive-lagrets koppling fungerar som en brygga mellan Spark och Hive. Det stöder Scala, Java och python för utveckling.
+Apache Hive Warehouse Connector (INSTANSEN) är ett bibliotek som gör att du enkelt kan arbeta med Apache Spark och Apache Hive. Enklare genom att stödja uppgifter som att flytta data mellan Spark-DataFrames och Hive-tabeller. Och dirigerar Spark-strömmande data till Hive-tabeller. Hive-lagrets koppling fungerar som en brygga mellan Spark och Hive. Det stöder Scala, Java och python för utveckling.
 
-Med Hive-lagrets koppling kan du dra nytta av de unika funktionerna i Hive och Spark för att skapa kraftfulla Big data-program. Apache Hive erbjuder stöd för databas transaktioner som är atomiska, konsekventa, isolerade och varaktiga (sur). Mer information om syra och transaktioner i Hive finns i [Hive-transaktioner](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive erbjuder också detaljerade säkerhets kontroller via Apache Ranger och analytisk bearbetning med låg latens som inte är tillgängliga i Apache Spark.
+Med Hive-lagrets koppling kan du utnyttja Hive-och Spark-unika funktioner. Funktioner som används för att bygga kraftfulla stor data program. Apache Hive erbjuder stöd för databas transaktioner som är atomiska, konsekventa, isolerade och varaktiga (sur). Mer information om syra och transaktioner i Hive finns i [Hive-transaktioner](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive erbjuder också detaljerade säkerhets kontroller via Apache Ranger och analytisk bearbetning med låg latens som inte är tillgängliga i Apache Spark.
 
-Apache Spark, har ett strukturerat strömnings-API som ger direkt uppspelnings funktioner som inte är tillgängliga i Apache Hive. Från och med HDInsight 4,0 har Apache Spark 2.3.1 och Apache Hive 3.1.0 separata metastores, vilket kan göra det svårt att samverka. Hive-lager kopplingen gör det lättare att använda Spark och Hive tillsammans. INSTANSEN-biblioteket läser in data från LLAP-daemonar till Spark-körningar parallellt, vilket gör det mer effektivt och skalbart än att använda en standard JDBC-anslutning från Spark till Hive.
+Apache Spark, har ett strukturerat strömnings-API som ger direkt uppspelnings funktioner som inte är tillgängliga i Apache Hive. Från och med HDInsight 4,0 är Apache Spark 2.3.1 och Apache Hive 3.1.0 separata metastores. Dessa separata metastores kan göra det svårt att samverka. Hive-lager kopplingen gör det lättare att använda Spark och Hive tillsammans. INSTANSEN-biblioteket läser in data från LLAP (analys av låg latens Analytical Processing) till Spark-körningar parallellt. Den här åtgärden gör det effektivare och anpassningsbart än att använda en standard JDBC-anslutning från Spark till Hive.
 
 ![arkitektur för Hive-lager koppling](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -72,7 +73,7 @@ Från ditt Spark Ambari-webbgränssnitt navigerar du till **Spark2** > **configs
 
 ![Apache Ambari Spark2-konfiguration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-Välj **Lägg till egenskap...** vid behov för att lägga till/uppdatera följande:
+Välj **Lägg till egenskap...** vid behov för att lägga till/uppdatera följande värde:
 
 | Nyckel | Värde |
 |----|----|
@@ -111,7 +112,7 @@ Gör så här för att starta en spark-Shell-session:
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-    Ett välkomst meddelande visas och en `scala>` fråga där du kan ange kommandon.
+    Du ser ett välkomst meddelande och `scala>` en fråga där du kan ange kommandon.
 
 1. När du har startat Spark-Shell kan du starta en Hive-instans med hjälp av följande kommandon:
 
@@ -122,13 +123,13 @@ Gör så här för att starta en spark-Shell-session:
 
 ### <a name="connecting-and-running-queries-on-enterprise-security-package-esp-clusters"></a>Ansluta och köra frågor på Enterprise Security Package-kluster (ESP)
 
-Enterprise Security Package (ESP) tillhandahåller funktioner i företags klass som Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll för Apache Hadoop kluster i Azure HDInsight. Mer information om ESP finns i [använda Enterprise Security Package i HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+Enterprise Security Package (ESP) tillhandahåller funktioner i företags klass som Active Directory-baserad autentisering. Stöd för flera användare och rollbaserad åtkomst kontroll för Apache Hadoop kluster i Azure HDInsight. Mer information om ESP finns i [använda Enterprise Security Package i HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
-1. SSH till huvudnoden för ditt Apache Spark-kluster. Mer information om hur du ansluter till klustret med SSH finns i [ansluta till HDInsight (Apache Hadoop) med SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+1. SSH till huvudnoden för ditt Apache Spark-kluster.
 
 1. Skriv `kinit` och logga in med en domän användare.
 
-1. Starta Spark-Shell med den fullständiga listan över konfigurations parametrar som visas nedan. Alla värden i versaler mellan vinkelparenteser måste anges baserat på klustret. Om du behöver ta reda på värdena för indata för någon av parametrarna nedan kan du läsa avsnittet om [konfiguration av Hive-anslutningsprogrammet](#hive-warehouse-connector-setup).:
+1. Starta Spark-Shell med den fullständiga listan över konfigurations parametrar som visas nedan. Alla värden i versaler mellan vinkelparenteser måste anges baserat på klustret. Om du behöver ta reda på värdena för indata för någon av parametrarna nedan kan du läsa avsnittet om [konfiguration av Hive lager koppling](#hive-warehouse-connector-setup).
 
     ```bash
     spark-shell --master yarn \
@@ -181,7 +182,7 @@ Spark stöder inte internt skrivning till Hive-tabeller med hanterade syror. Med
 
 Med hjälp av Hive Warehouse Connector kan du använda Spark-direktuppspelning för att skriva data till Hive-tabeller.
 
-Följ stegen nedan för att skapa ett Hive-exempel för Hive-anslutning som matar in data från en spark-dataström på localhost-port 9999 i en Hive-tabell.
+Följ stegen nedan för att skapa en Hive-lager koppling. Exemplet matar in data från en spark-dataström på localhost-port 9999 i en Hive-tabell.
 
 1. Följ stegen för att [ansluta och köra frågor](#connecting-and-running-queries).
 
@@ -193,7 +194,7 @@ Följ stegen nedan för att skapa ett Hive-exempel för Hive-anslutning som mata
 
 1. Generera data för Spark-dataströmmen som du skapade genom att utföra följande steg:
     1. Öppna en andra SSH-session i samma Spark-kluster.
-    1. Skriv `nc -lk 9999`i kommando tolken. Det här kommandot använder verktyget netcat för att skicka data från kommando raden till den angivna porten.
+    1. Skriv `nc -lk 9999`i kommando tolken. Det här kommandot använder `netcat` verktyget för att skicka data från kommando raden till den angivna porten.
 
 1. Gå tillbaka till den första SSH-sessionen och skapa en ny Hive-tabell för att lagra strömmande data. I Spark-Shell anger du följande kommando:
 
@@ -224,7 +225,7 @@ Följ stegen nedan för att skapa ett Hive-exempel för Hive-anslutning som mata
     hive.table("stream_table").show()
     ```
 
-Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Används `:q` för att avsluta Spark-Shell på den första SSH-sessionen.
+Använd **CTRL + C** för att `netcat` stoppa den andra SSH-sessionen. Används `:q` för att avsluta Spark-Shell på den första SSH-sessionen.
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Skydda data i Spark ESP-kluster
 
@@ -253,7 +254,7 @@ Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Använd
 
         ![Hive-princip lista för Hive-lager kopplings Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. Ange ett önskat princip namn. Välj databas: **standard**, Hive-tabell: **demo**, Hive-kolumn: **namn**, användare: **Rsadmin2**, åtkomst typer: **Select**och **partiell mask: Visa sista 4** från menyn **Välj masknings alternativ** . Klicka på **Lägg till**.
+    a. Ange ett princip namn. Välj databas: **standard**, Hive-tabell: **demo**, Hive-kolumn: **namn**, användare: **Rsadmin2**, åtkomst typer: **Select**och **partiell mask: Visa sista 4** från menyn **Välj masknings alternativ** . Klicka på **Lägg till**.
                 ![Skapa princip](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Visa tabellens innehåll igen. När du har tillämpat Ranger-principen ser vi bara de sista fyra tecknen i kolumnen.
 

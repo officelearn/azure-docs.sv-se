@@ -3,29 +3,27 @@ title: Malldistribution vad-om (för hands version)
 description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 04/28/2020
 ms.author: jgao
-ms.openlocfilehash: b5b19bf9d630230fbdb8cec41cc77718bbbb4585
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192390"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509592"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM-mall för att distribuera konsekvens åtgärder (för hands version)
 
-Innan du distribuerar en Azure Resource Manager-mall (ARM) kanske du vill förhandsgranska de ändringar som ska utföras. Azure Resource Manager tillhandahåller åtgärden vad händer om du kan se hur resurser kommer att ändras om du distribuerar mallen. Konsekvens åtgärden gör inga ändringar i befintliga resurser. I stället förväntas ändringarna om den angivna mallen distribueras.
+Innan du distribuerar en Azure Resource Manager-mall (ARM) kan du förhandsgranska de ändringar som kommer att ske. Azure Resource Manager tillhandahåller åtgärden vad händer om du kan se hur resurser kommer att ändras om du distribuerar mallen. Konsekvens åtgärden gör inga ändringar i befintliga resurser. I stället förväntas ändringarna om den angivna mallen distribueras.
 
 > [!NOTE]
 > Konsekvens åtgärden är för närvarande en för hands version. Som en för hands version kan resultatet ibland visa att en resurs kommer att ändras när ingen ändring sker. Vi arbetar för att minska problemen, men vi behöver din hjälp. Rapportera de här problemen vid [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-Du kan använda åtgärden vad händer om med PowerShell-kommandon eller REST API åtgärder.
+Du kan använda åtgärden vad händer om med Azure PowerShell, Azure CLI eller REST API åtgärder.
 
 ## <a name="install-powershell-module"></a>Installera PowerShell-modul
 
-Om du vill använda konsekvens i PowerShell måste du ha PowerShell Core (6. x eller 7. x). Om du har PowerShell 5. x eller tidigare [uppdaterar du din version av PowerShell](/powershell/scripting/install/installing-powershell).
-
-När du har kontrollerat att du har rätt version av PowerShell installerar du en för hands version av modulen AZ. Resources från PowerShell-galleriet.
+Om du vill använda konsekvens i PowerShell måste du installera en för hands version av modulen AZ. Resources från PowerShell-galleriet. Men innan du installerar modulen måste du kontrol lera att du har PowerShell Core (6. x eller 7. x). Om du har PowerShell 5. x eller tidigare [uppdaterar du din version av PowerShell](/powershell/scripting/install/installing-powershell). Du kan inte installera Preview-modulen på PowerShell 5. x eller tidigare.
 
 ### <a name="install-preview-version"></a>Installera för hands version
 
@@ -60,9 +58,13 @@ Om du tidigare har installerat en Alpha-version av modulen what-if avinstallerar
 
 Du är redo att använda vad som händer.
 
+## <a name="install-azure-cli-module"></a>Installera Azure CLI-modul
+
+Om du vill använda konsekvens i Azure CLI måste du ha Azure CLI-2.5.0 eller senare. Om det behövs [installerar du den senaste versionen av Azure CLI](/cli/azure/install-azure-cli).
+
 ## <a name="see-results"></a>Visa resultat
 
-I PowerShell innehåller utdata färgkodade resultat som hjälper dig att se de olika typerna av ändringar.
+När du använder konsekvens i PowerShell eller Azure CLI innehåller utdata färgkodade resultat som hjälper dig att se de olika typerna av ändringar.
 
 ![Resource Manager-mall distribution av konsekvens åtgärder fullresourcepayload och ändrings typer](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
@@ -97,11 +99,9 @@ Resource changes: 1 to modify.
 
 ## <a name="what-if-commands"></a>Vad händer om-kommandon
 
-Du kan använda antingen Azure PowerShell eller Azure-REST API för konsekvens åtgärden.
-
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Om du vill se en förhands granskning av ändringarna innan du distribuerar `-Whatif` en mall, lägger du till parametern switch i distributions kommandot.
+Om du vill förhandsgranska ändringar innan du distribuerar en mall `-Whatif` lägger du till parametern switch i distributions kommandot.
 
 * `New-AzResourceGroupDeployment -Whatif`för resurs grupps distributioner
 * `New-AzSubscriptionDeployment -Whatif`och `New-AzDeployment -Whatif` för distributioner på prenumerations nivå
@@ -115,6 +115,23 @@ Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`för resurs grupps distributioner
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult`eller `$results = Get-AzDeploymentWhatIfResult` för distributioner på prenumerations nivå
+
+### <a name="azure-cli"></a>Azure CLI
+
+Om du vill förhandsgranska ändringar innan du distribuerar en `what-if` mall använder du med kommandot distribution.
+
+* `az deployment group what-if`för resurs grupps distributioner
+* `az deployment sub what-if`för distributioner på prenumerations nivå
+
+Eller så kan du använda- `--confirm-with-what-if` parametern för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
+
+* `az deployment group create --confirm-with-what-if`för resurs grupps distributioner
+* `az deployment sub create --confirm-with-what-if`för distributioner på prenumerations nivå
+
+Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera manuellt. Om du vill hämta ett JSON-objekt som du kan använda program mässigt för att kontrol lera ändringar använder du:
+
+* `az deployment group what-if --no-pretty-print`för resurs grupps distributioner
+* `az deployment sub what-if --no-pretty-print`för distributioner på prenumerations nivå
 
 ### <a name="azure-rest-api"></a>REST-API för Azure
 
@@ -141,10 +158,17 @@ För REST API använder du:
 
 ## <a name="result-format"></a>Resultat format
 
-Du kan styra detalj nivån som returneras om förväntade ändringar. Använd parametern **-WhatIfResultFormat** i`New-Az*Deployment`distributions kommandona (). Använd parametern ResultFormat i programmerings`Get-Az*DeploymentWhatIf`objekt kommandona ( **ResultFormat** ).
+Du styr detalj nivån som returneras om förväntade ändringar. Du kan välja mellan två alternativ:
 
-Ställ in parametern format på **FullResourcePayloads** för att hämta en lista över resurser som kommer att ändras och information om de egenskaper som kommer att ändras. Ställ in parametern format på **ResourceIdOnly** för att hämta en lista över resurser som kommer att ändras. Standardvärdet är **FullResourcePayloads**.  
+* **FullResourcePayloads** – returnerar en lista med resurser som kommer att ändras och information om de egenskaper som kommer att ändras
+* **ResourceIdOnly** – returnerar en lista med resurser som kommer att ändras
 
+Standardvärdet är **FullResourcePayloads**.
+
+Använd `-WhatIfResultFormat` parametern för PowerShell-distributions kommandon. Använd `ResultFormat` parametern i programmerings objekt kommandon.
+
+För Azure CLI använder du `--result-format` parametern.
+ 
 Följande resultat visar de två olika utdataformaten:
 
 - Fullständiga resurs nytto laster
@@ -197,6 +221,8 @@ Följande resultat visar de två olika utdataformaten:
 
 För att se hur det fungerar kan vi köra vissa tester. Distribuera först en [mall som skapar ett virtuellt nätverk](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Du använder det här virtuella nätverket för att testa hur ändringar rapporteras av vad-om.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name ExampleGroup `
@@ -206,9 +232,24 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name ExampleGroup \
+  --location "Central US"
+az deployment group create \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
+```
+
+---
+
 ### <a name="test-modification"></a>Test ändring
 
-När distributionen är klar är du redo att testa konsekvens åtgärden. Nu ska du distribuera en [mall som ändrar det virtuella nätverket](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Det saknas en ursprunglig tagg, ett undernät har tagits bort och adressprefixet har ändrats.
+När distributionen är klar är du redo att testa konsekvens åtgärden. Den här gången distribuerar du en [mall som ändrar det virtuella nätverket](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Det saknas en ursprunglig tagg, ett undernät har tagits bort och adressprefixet har ändrats.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -216,6 +257,16 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group what-if \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
+```
+
+---
 
 Vad-om-utdata ser ut ungefär så här:
 
@@ -260,6 +311,8 @@ Några av egenskaperna som visas som borttagna ändras inte. Egenskaper kan rapp
 
 Nu ska vi program mässigt utvärdera vad-om-resultatet genom att ange kommandot till en variabel.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
@@ -275,19 +328,41 @@ foreach ($change in $results.Changes)
 }
 ```
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+results=$(az deployment group what-if --resource-group ExampleGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json" --no-pretty-print)
+```
+
+---
+
 ## <a name="confirm-deletion"></a>Bekräfta borttagning
 
 Konsekvens åtgärden stöder användning av [distributions läge](deployment-modes.md). När du har angett till slutfört läge raderas inte resurser som inte finns i mallen. I följande exempel distribueras en [mall som inte har några definierade resurser](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) i komplett läge.
 
 Om du vill förhandsgranska ändringar innan du distribuerar en mall `-Confirm` använder du parametern switch med kommandot Deployment. Om ändringarna visas som du förväntade dig, bekräftar du att du vill att distributionen ska slutföras.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Confirm `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
-  -Mode Complete
+  -Mode Complete `
+  -Confirm `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
 ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --resource-group ExampleGroup \
+  --mode Complete \
+  --confirm-with-what-if \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+```
+
+---
 
 Eftersom inga resurser har definierats i mallen och distributions läget är inställt på Slutför, tas det virtuella nätverket bort.
 
@@ -326,4 +401,5 @@ Du ser de förväntade ändringarna och kan bekräfta att du vill att distributi
 
 - Om du upptäcker felaktiga resultat från för hands versionen av vad-om, kan du rapportera problemen på [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Information om hur du distribuerar mallar med Azure PowerShell finns i [distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md).
+- Information om hur du distribuerar mallar med Azure CLI finns i [distribuera resurser med ARM-mallar och Azure CLI](deploy-cli.md).
 - Information om hur du distribuerar mallar med REST finns i [distribuera resurser med ARM-mallar och Resource Manager REST API](deploy-rest.md).

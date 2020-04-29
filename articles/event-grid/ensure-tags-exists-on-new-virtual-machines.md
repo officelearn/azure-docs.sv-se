@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ms.author: eamono
 ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "65521434"
 ---
-# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Självstudiekurs: Integrera Azure Automation med Event Grid och Microsoft Teams
+# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Självstudie: integrera Azure Automation med Event Grid och Microsoft Teams
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Importera en Event Grid-exempel-runbook.
@@ -53,7 +53,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 4. Välj **Importera** och ge den namnet **Watch-VMWrite**.
 
 5. När den har importerats väljer du **Redigera** för att visa runbook-källan. 
-6. Uppdatera rad 74 i skriptet som ska användas `Tag` i stället för `Tags`.
+6. Uppdatera raden 74 i skriptet som ska användas `Tag` i stället för `Tags`.
 
     ```powershell
     Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
@@ -70,7 +70,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 
 3. Ange **AzureAutomationIntegration** som namn och välj **Skapa**.
 
-4. Kopiera webhook-URL:en till Urklipp och spara den. Webhooks-URL:en används för att skicka information till Microsoft Teams.
+4. Kopiera webhook-URL: en till Urklipp och spara den. Webhooks-URL:en används för att skicka information till Microsoft Teams.
 
 5. Välj **Klar** för att spara webhooken.
 
@@ -105,7 +105,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
     4. I listrutan **Definierade händelsetyper** avmarkerar du alla alternativ utom **Resource Write Success** (Resursskrivning lyckades).
 
         > [!NOTE] 
-        > Azure Resource Manager skiljer för närvarande inte mellan Skapa och uppdatera, så att implementera den här självstudien för alla Microsoft.Resources.ResourceWriteSuccess-händelser i din Azure-prenumeration kan resultera i en hög mängd anrop.
+        > Azure Resource Manager skiljer för närvarande inte mellan Create och Update, så implementering av den här själv studie kursen för alla Microsoft. Resources. ResourceWriteSuccess-händelser i din Azure-prenumeration kan resultera i en stor mängd samtal.
     1. Som **Typ av slutpunkt** väljer du **Webhook**.
     2. Klicka på **Välj en slutpunkt**. På sidan **Välj webhook** som öppnas klistrar du in webhook-URL:en du har skapat för Watch-VMWrite-runbooken.
     3. Under **FILTER** anger du den prenumeration och den resursgrupp där du vill leta efter de nya virtuella datorerna som skapats. Det bör se ut så här: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`

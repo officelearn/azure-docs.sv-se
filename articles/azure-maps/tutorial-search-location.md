@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Sök efter platser i närheten på en karta | Microsoft Azure Maps'
-description: I den här självstudien får du lära dig hur du söker efter intressanta platser på en karta med Hjälp av Microsoft Azure Maps.
+title: 'Självstudie: Sök efter närliggande platser på en karta | Microsoft Azure Maps'
+description: I den här självstudien får du lära dig att söka efter orienterings punkter på en karta med hjälp av Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 1/15/2020
@@ -10,15 +10,15 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 0b0cb92cd6b4918e28e143178a5cdbbbb19ac9af
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80333620"
 ---
-# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudiekurs: Sök i närheten av intressanta platser med Hjälp av Azure Maps
+# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här självstudiekursen får du lära du dig att:
+Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Maps-konto
@@ -45,31 +45,31 @@ Skapa ett nytt Maps-konto med följande steg:
     * Den *Prenumeration* som ska användas för det här kontot.
     * Namnet på *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
     * *Namn* för ditt nya konto.
-    * *Prisnivån* för det här kontot.
+    * *Pris nivån* för det här kontot.
     * Läs *licensen* och *sekretesspolicy* och markera kryssrutan för att godkänna villkoren.
     * Klicka på knappen **Skapa**.
 
-![Skapa Azure Maps-konto i Azure Portal](./media/tutorial-search-location/create-account.png)
+![Skapa Azure Maps konto i Azure Portal](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
 ## <a name="get-the-primary-key-for-your-account"></a>Hitta primärnyckeln för ditt konto
 
-När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga API:et Kartkontroll. Vi rekommenderar att du använder kontots primära nyckel som prenumerationsnyckel när du anropar Azure Maps-tjänster.
+När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga API:et Kartkontroll. Vi rekommenderar att du använder ditt kontos primär nyckel som prenumerations nyckel när du anropar Azure Maps Services.
 
 1. Öppna ditt Maps-konto i portalen.
-2. Välj **Autentisering**i inställningsavsnittet .
+2. I avsnittet Inställningar väljer du **autentisering**.
 3. Kopiera **Primärnyckel** till Urklipp. Spara den lokalt för senare användning i den här självstudien.
 
-![Hämta primärnyckel i Azure-portalen](./media/tutorial-search-location/get-key.png)
+![Hämta primär nyckel i Azure Portal](./media/tutorial-search-location/get-key.png)
 
-Mer information om autentisering i Azure Maps finns [i hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
 ## <a name="create-a-new-map"></a>Skapa en ny karta
 
-Api:et för kartkontroll är ett praktiskt klientbibliotek. Med det här API:et kan du enkelt integrera Kartor i ditt webbprogram. Det döljer komplexiteten i de nakna REST-servicesamtalen och ökar produktiviteten med anpassningsbara komponenter. Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll.
+Kartkontroll API är ett användbart klient bibliotek. Med det här API: et kan du enkelt integrera kartor i ditt webb program. Det döljer komplexiteten hos inga REST service-anrop och ökar produktiviteten med anpassningsbara komponenter. Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll.
 
 1. Skapa en ny fil på den lokala datorn och ge den namnet **MapSearch.html**.
 2. Lägg till följande HTML-komponenter i filen:
@@ -116,9 +116,9 @@ Api:et för kartkontroll är ett praktiskt klientbibliotek. Med det här API:et 
     </html>
     ```
 
-   Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Funktionen `GetMap` innehåller den infogade JavaScript-koden för att komma åt Azure Maps API:er.
+   Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. `GetMap` Funktionen kommer att innehålla den infogade JavaScript-koden för att komma åt Azure Maps-API: er.
 
-3. Lägg till följande JavaScript-kod i HTML-filens `GetMap`-funktion. Ersätt strängen `<Your Azure Maps Key>` med den primära nyckeln som du kopierade från ditt Maps-konto.
+3. Lägg till följande JavaScript-kod i HTML-filens `GetMap`-funktion. Ersätt strängen `<Your Azure Maps Key>` med den primära nyckel som du kopierade från ditt Maps-konto.
 
     ```JavaScript
     //Instantiate a map object
@@ -131,9 +131,9 @@ Api:et för kartkontroll är ett praktiskt klientbibliotek. Med det här API:et 
     });
     ```
 
-   Det här segmentet initierar API:et Kartkontroll för din Azure Maps-kontonyckel. `atlas`är namnområdet som innehåller API:et och relaterade visuella komponenter. `atlas.Map`ger kontroll för en visuell och interaktiv webbkarta.
+   Det här segmentet initierar API:et Kartkontroll för din Azure Maps-kontonyckel. `atlas`är det namn område som innehåller API: et och relaterade visuella komponenter. `atlas.Map`ger kontrollen för en visuell och interaktiv webb karta.
 
-4. Spara dina ändringar i filen och öppna HTML-sidan i en webbläsare. Kartan som visas är den mest grundläggande `atlas.Map` kartan som du kan göra genom att ringa med hjälp av din kontonyckel.
+4. Spara dina ändringar i filen och öppna HTML-sidan i en webbläsare. Kartan som visas är den mest grundläggande kartan som du kan göra genom att `atlas.Map` anropa med din konto nyckel.
 
    ![Visa kartan](./media/tutorial-search-location/basic-map.png)
 
@@ -163,17 +163,17 @@ Api:et för kartkontroll är ett praktiskt klientbibliotek. Med det här API:et 
     });
     ```
 
-   I det här `ready` kodsegmentet läggs en händelse till på kartan, som startas när kartresurserna har lästs in och kartan är klar att nås. I karthändelsehanteraren `ready` skapas en datakälla för att lagra resultatdata. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur resultatdata i datakällan ska återges. I det här fallet återges resultatet med en mörkblå rund stiftikon, centrerad över resultatkoordinaten och gör att andra ikoner överlappar varandra. Resultatlagret läggs till i kartlagren.
+   I det här kod segmentet läggs `ready` en händelse till i kartan, som aktive ras när mappnings resurserna har lästs in och kartan är klar att nås. I kartans `ready` händelse hanterare skapas en data källa för att lagra resultat data. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur resultat data i data källan ska återges. I det här fallet återges resultatet med en mörkblå, blå, runt-ikon, centrerad över resultat koordinaten och låter andra ikoner överlappa varandra. Resultat lagret läggs till i kart skikten.
 
 <a id="usesearch"></a>
 
 ## <a name="add-search-capabilities"></a>Lägga till sökfunktioner
 
-I det här avsnittet visas hur du använder [API:et för maps-sökning](https://docs.microsoft.com/rest/api/maps/search) för att hitta en intressant punkt på kartan. Det är ett RESTful-API för utvecklare för att söka efter adresser, orienteringspunkter och annan geografisk information. Search Service tilldelar en angiven adress latitud- och longitudinformation. **Tjänstemodulen** som beskrivs nedan kan användas till att söka efter en plats med hjälp av API:et för kartsökning.
+Det här avsnittet visar hur du använder [Sök-API: t](https://docs.microsoft.com/rest/api/maps/search) kartor för att hitta en orienterings punkt på kartan. Det är ett RESTful-API för utvecklare för att söka efter adresser, orienteringspunkter och annan geografisk information. Search Service tilldelar en angiven adress latitud- och longitudinformation. **Tjänstemodulen** som beskrivs nedan kan användas till att söka efter en plats med hjälp av API:et för kartsökning.
 
 ### <a name="service-module"></a>Tjänstmodul
 
-1. I karthändelsehanteraren `ready` konstruerar du söktjänstens URL genom att lägga till följande Javascript-kod.
+1. I kartans `ready` händelse hanterare skapar du URL: en för Sök tjänsten genom att lägga till följande JavaScript-kod.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -186,9 +186,9 @@ I det här avsnittet visas hur du använder [API:et för maps-sökning](https://
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   Skapar `SubscriptionKeyCredential` en `SubscriptionKeyCredentialPolicy` att autentisera HTTP-begäranden till Azure Maps med prenumerationsnyckeln. Tar `atlas.service.MapsURL.newPipeline()` i `SubscriptionKeyCredential` principen och skapar en [Pipeline-instans.](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) Representerar `searchURL` en URL till Azure Maps [Search-åtgärder.](https://docs.microsoft.com/rest/api/maps/search)
+   `SubscriptionKeyCredential` Skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. Principen tar i principen och skapar en pipeline-instans. [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) `atlas.service.MapsURL.newPipeline()` `SubscriptionKeyCredential` `searchURL` Visar en URL som Azure Maps [Sök](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
 
-2. Lägg därefter till följande skriptblock för att skapa sökfrågan. Den använder det enkla söknings-API:et i Search Service, som kallas Fuzzy Search. Fuzzy Search-tjänsten hanterar de flesta fuzzy-indata som adresser, platser och platser av intresse (POI). Denna kod söker efter närliggande bensinstationer inom den angivna radien för den angivna latitud och longitud. En GeoJSON-funktionssamling från svaret extraheras sedan med `geojson.getFeatures()` hjälp av metoden och läggs till datakällan, vilket automatiskt resulterar i att data återges på kartan via symbollagret. Den sista delen av skriptet ställer in kameravyn med hjälp av avgränsningsrektangeln för resultat med kartans [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)-egenskap.
+2. Lägg därefter till följande skriptblock för att skapa sökfrågan. Den använder det enkla söknings-API:et i Search Service, som kallas Fuzzy Search. Fuzzy Search-tjänsten hanterar de flesta fuzzy-indata som adresser, platser och platser av intresse (POI). Den här koden söker efter i närheten bensin stationer inom den angivna radien för den angivna latitud och longitud. En samling av en interjson-funktion från svaret extraheras sedan `geojson.getFeatures()` med hjälp av metoden och läggs till i data källan, vilket automatiskt resulterar i att de data som återges på kartan överförs via symbol lagret. Den sista delen av skriptet ställer in kameravyn med hjälp av avgränsningsrektangeln för resultat med kartans [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)-egenskap.
 
     ```JavaScript
     var query =  'gasoline-station';
@@ -215,7 +215,7 @@ I det här avsnittet visas hur du använder [API:et för maps-sökning](https://
     });
     ```
 
-3. Spara filen **MapSearch.html** och uppdatera webbläsaren. Du bör se kartan centrerad på Seattle med runda blå stift för platser för bensinstationer i området.
+3. Spara filen **MapSearch.html** och uppdatera webbläsaren. Du bör se kartan centrerad på Seattle med runda blå PIN-områden för platser hos bensin stationer i-ytan.
 
    ![Visa kartan med sökresultat](./media/tutorial-search-location/pins-map.png)
 
@@ -229,9 +229,9 @@ I det här läget kan MapSearch-sidan visa orienteringspunkterna som returneras 
 
 ## <a name="add-interactive-data"></a>Lägga till interaktiva data
 
-Karta som har vi gjort tittar hittills bara på longitud-/latituddata för sökresultaten. Den råa JSON som tjänsten Maps Search returnerar innehåller dock ytterligare information om varje bensinstation. Inklusive namn och gatuadress. Du kan införliva dessa data i kartan med interaktiva popup-rutor.
+Karta som har vi gjort tittar hittills bara på longitud-/latituddata för sökresultaten. Men RAW JSON som Maps Search-tjänsten returnerar innehåller ytterligare information om varje gas Station. Inklusive namn och gatuadress. Du kan införliva dessa data i kartan med interaktiva popup-rutor.
 
-1. Lägg till följande kodrader `ready` i karthändelsehanteraren efter att koden har frågat den suddiga söktjänsten. Den här koden skapar en förekomst av en Popup-händelse och lägger till en mouseover-händelse i symbollagret.
+1. Lägg till följande rader med kod i kartans `ready` händelse hanterare efter koden för att skicka frågor till fuzzy Search-tjänsten. Den här koden skapar en instans av en popup och lägger till en mouseOver-händelse i symbol skiktet.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -241,9 +241,9 @@ Karta som har vi gjort tittar hittills bara på longitud-/latituddata för sökr
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    API:et `*atlas.Popup` tillhandahåller ett informationsfönster som är förankrat på önskad position på kartan. 
+    API: `*atlas.Popup` et tillhandahåller ett informations fönster som fästs på den plats som krävs på kartan. 
 
-2. Lägg till följande `GetMap` kod i funktionen, för att visa moused över resultatinformation i popup.
+2. Lägg till följande kod i `GetMap` funktionen om du vill visa den mus visade resultat informationen i popup-fönstret.
 
     ```JavaScript
     function showPopup(e) {
@@ -286,10 +286,10 @@ I den här självstudiekursen lärde du dig att:
 > * Använda Search Service för att hitta orienteringspunkter i närheten
 
 > [!div class="nextstepaction"]
-> [Visa fullständig källkod](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
+> [Visa fullständig käll kod](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
 > [!div class="nextstepaction"]
-> [Visa direktexempel](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [Visa Live-exempel](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 Nästa självstudie demonstrerar hur du visar en väg mellan två platser.
 

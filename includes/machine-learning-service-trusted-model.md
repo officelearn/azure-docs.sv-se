@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/16/2020
 ms.author: larryfr
 ms.openlocfilehash: 202b3dc5df75af4c9075b3962fcf6e86833ecdfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477297"
 ---
 > [!IMPORTANT]
-> Du bör bara använda modeller som du skapar eller hämtar från en betrodd källa. Du bör behandla serialiserade modeller som kod, eftersom säkerhetsproblem har upptäckts i ett antal populära format. Dessutom kan modeller avsiktligt tränas med uppsåt att tillhandahålla partisk eller felaktig utdata.
+> Du bör endast använda modeller som du skapar eller hämtar från en betrodd källa. Du bör behandla serialiserade modeller som kod eftersom säkerhets problem har identifierats i ett antal populära format. Dessutom kan modeller ha avsiktligt tränas med skadlig avsikt att ge en prioriterad eller felaktig utmatning.

@@ -8,16 +8,16 @@ ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 2ea8a5428c1fabdfda4f2298c0559792537df481
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273988"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(INAKTUELL) Skala ut Kubernetes-poddar och Kubernetes-infrastrukturen
 
 > [!TIP]
-> Den uppdaterade versionen som används i den här självstudien som använder Azure Kubernetes-tjänsten finns [i Självstudiekurs: Skala program i Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: skala program i Azure Kubernetes service (AKS)](../../aks/tutorial-kubernetes-scale.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -42,7 +42,7 @@ Om du inte har gjort det här och vill följa med återgår du till [Självstudi
 
 Hittills har vi distribuerat klientdelen av Azure Vote och Redisinstansen, var och en med en enda replik. Du kan kontrollera detta genom att köra programmet [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get).
 
-Gå [https://shell.azure.com](https://shell.azure.com) till för att öppna Cloud Shell i din webbläsare.
+Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren.
 
 ```console
 kubectl get pods

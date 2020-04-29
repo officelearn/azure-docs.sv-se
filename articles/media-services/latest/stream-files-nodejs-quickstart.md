@@ -1,6 +1,6 @@
 ---
-title: Strömma videofiler med Azure Media Services - Node.js | Microsoft-dokument
-description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma den till Azure Media Player.
+title: Strömma videofiler med Azure Media Services-Node. js | Microsoft Docs
+description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services konto, koda en fil och strömma den till Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,19 +14,19 @@ ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
 ms.openlocfilehash: fa9fbf3bac55ca0b26c3644b7f6818fa96088612
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "69639397"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Självstudiekurs: Koda en fjärrfil baserat på URL och strömma videon - Node.js
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon-Node. js
 
-Den här självstudien visar hur enkelt det är att koda och börja strömma videor på en mängd olika webbläsare och enheter med Hjälp av Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
+Den här självstudien visar hur enkelt det är att koda och börja strömma videor på en rad olika webbläsare och enheter med hjälp av Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
 
-Exemplet i den här artikeln kodar innehåll som du gör tillgängligt via en HTTPS-URL. Observera att AMS v3 för närvarande inte stöder segmentvis överföringskodning över HTTPS-URL:er.
+Exemplet i den här artikeln kodar innehåll som du gör tillgängliga via en HTTPS-URL. Observera att AMS v3 för närvarande inte stöder segmentvis överföringskodning över HTTPS-URL:er.
 
-I slutet av handledningen kommer du att kunna strömma en video.  
+I slutet av självstudien kommer du att kunna strömma en video.  
 
 ![Spela upp videon](./media/stream-files-nodejs-quickstart/final-video.png)
 
@@ -34,26 +34,26 @@ I slutet av handledningen kommer du att kunna strömma en video.
 
 ## <a name="prerequisites"></a>Krav
 
-- Installera [nod.js](https://nodejs.org/en/download/)
+- Installera [Node. js](https://nodejs.org/en/download/)
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
 - Följ stegen i [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) (Få åtkomst till Azure Media Services-API med Azure CLI) och spara autentiseringsuppgifterna. Du behöver använda dem för att få åtkomst till API.
 
 ## <a name="download-and-configure-the-sample"></a>Ladda ned och konfigurera exemplet
 
-Klona en GitHub-databas som innehåller exemplet strömmande nod.js till datorn med följande kommando:  
+Klona en GitHub-lagringsplats som innehåller det strömmande Node. js-exemplet till din dator med hjälp av följande kommando:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
  ```
 
-Exemplet finns i mappen [StreamFilesSample.](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample)
+Exemplet finns i mappen [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample)
 
-Öppna [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) i du hämtade projektet. Ersätt `endpoint config` värdena med autentiseringsuppgifter som du har fått [från åtkomst till API:er](access-api-cli-how-to.md).
+Öppna [index. js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) i det nedladdade projektet. Ersätt `endpoint config` värdena med autentiseringsuppgifter som du har fått från att [komma åt API: er](access-api-cli-how-to.md).
 
 Exemplet utför följande åtgärder:
 
 1. Skapar en **transformering** (kontrollerar först om den angivna transformeringen finns). 
-2. Skapar en **utdatatillgång** som används som kodning **av jobbutdata.**
+2. Skapar en utgående **till gång** som används som kodnings **jobbets**utdata.
 3. Skapar **jobbets** indata som baseras på en HTTPS-URL.
 4. Skickar **kodningsjobbet** med de indata och utdata som skapades tidigare.
 5. Kontrollerar jobbets status.
@@ -62,15 +62,15 @@ Exemplet utför följande åtgärder:
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
-1. Appen hämtar kodade filer. Skapa en mapp där du vill att utdatafilerna ska gå och uppdatera värdet för **variabeln outputFolder** i [index.js-filen.](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L39)
-1. Öppna **kommandotolken,** bläddra till exemplets katalog och kör följande kommandon.
+1. Appen laddar ned kodade filer. Skapa en mapp där du vill att utdatafilerna ska placeras och uppdatera värdet för **outputFolder** -variabeln i filen [index. js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L39) .
+1. Öppna **kommando tolken**, bläddra till exempel katalogen och kör följande kommandon.
 
     ```
     npm install 
     node index.js
     ```
 
-När det är klart bör du se liknande utdata:
+När den är igång bör du se liknande utdata:
 
 ![Kör](./media/stream-files-nodejs-quickstart/run.png)
 
@@ -81,7 +81,7 @@ I den här artikeln används Azure Media Player till att testa strömningen.
 > [!NOTE]
 > Om en spelare finns på en HTTPS-webbplats uppdaterar du URL:en till ”HTTPS”.
 
-1. Öppna en webbläsare och [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)navigera till .
+1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. I rutan **URL:** klistrar du in ett av de strömmande URL-värden som du fick när du körde programmet. 
  
      Du kan klistra in URL:en i formatet HLS, Dash eller Smooth så växlar Azure Media Player automatiskt till ett lämpligt strömningsprotokoll för uppspelning på din enhet.
@@ -91,7 +91,7 @@ Azure Media Player kan användas vid testning, men bör inte användas i en prod
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive mediatjänster och lagringskonton som du skapade för den här självstudien, tar du bort resursgruppen.
+Ta bort resurs gruppen om du inte längre behöver någon av resurserna i resurs gruppen, inklusive Media Services-och lagrings konton som du skapade för den här självstudien.
 
 Kör följande CLI-kommando:
 
@@ -101,9 +101,9 @@ az group delete --name amsResourceGroup
 
 ## <a name="see-also"></a>Se även
 
-[Jobbfelkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+[Felkoder för jobb](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Koncept för Media Services](concepts-overview.md)
+> [Media Services begrepp](concepts-overview.md)

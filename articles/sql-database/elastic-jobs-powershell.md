@@ -12,17 +12,17 @@ ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 74a72df9d8c0bc8a578fea57ab81fb496f8e6add
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74420370"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
 [Elastiska jobb](sql-database-job-automation-overview.md#elastic-database-jobs-preview) aktiverar körning av ett eller flera Transact-SQL-skript (T-SQL) parallellt över flera databaser.
 
-I den här självstudien lär du dig vilka steg som krävs för att köra en fråga i flera databaser:
+I den här självstudien får du lära dig de steg som krävs för att köra en fråga över flera databaser:
 
 > [!div class="checklist"]
 > * Skapa en elastiskt jobbagent
@@ -36,13 +36,13 @@ I den här självstudien lär du dig vilka steg som krävs för att köra en fr�
 
 ## <a name="prerequisites"></a>Krav
 
-Den uppgraderade versionen av elastiska databasjobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdlets överför alla dina befintliga jobbautentiseringsuppgifter, mål (inklusive databaser, servrar, anpassade samlingar), jobbutlösare, jobbscheman, jobbinnehåll och jobb över till en ny elastisk jobbagent.
+Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
 
-### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installera de senaste cmdleterna Elastic Jobs
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installera de senaste elastiska jobb-cmdletarna
 
 Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Installera **Az.Sql-modulen** för att få de senaste elastiska jobb-cmdlets. Kör följande kommandon i PowerShell med administratörsbehörighet.
+Installera **AZ. SQL** -modulen för att hämta de senaste cmdletarna för elastiska jobb. Kör följande kommandon i PowerShell med administratörsbehörighet.
 
 ```powershell
 # installs the latest PackageManagement and PowerShellGet packages
@@ -58,13 +58,13 @@ Import-Module Az.Sql
 Get-Module Az.Sql
 ```
 
-Förutom **Az.Sql-modulen** kräver den här självstudien även *SqlServer* PowerShell-modulen. Mer information finns i avsnittet om att [installera SQL Server PowerShell-modulen](/sql/powershell/download-sql-server-ps-module).
+Förutom **AZ. SQL** -modulen kräver den här kursen även *SQLServer* PowerShell-modulen. Mer information finns i avsnittet om att [installera SQL Server PowerShell-modulen](/sql/powershell/download-sql-server-ps-module).
 
 ## <a name="create-required-resources"></a>Skapa nödvändiga resurser
 
 För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan användas som [jobbdatabas](sql-database-job-automation-overview.md#job-database).
 
-Skriptet nedan skapar en ny resursgrupp, server och databas som ska användas som jobbdatabas. Det andra skriptet skapar en andra server med två tomma databaser att köra jobb mot.
+Skriptet nedan skapar en ny resursgrupp, server och databas som ska användas som jobbdatabas. Det andra skriptet skapar en andra server med två tomma databaser för att köra jobb mot.
 
 Elastiska jobb har inga särskilda krav för namngivningskonventioner, så du kan använda vilken namnkonvention du vill, förutsatt att de uppfyller något av [kraven för Azure](/azure/architecture/best-practices/resource-naming).
 
@@ -124,7 +124,7 @@ $db2
 
 ## <a name="use-elastic-jobs"></a>Använda elastiska jobb
 
-Om du vill använda elastiska jobb registrerar du funktionen i din Azure-prenumeration genom att köra följande kommando. Kör det här kommandot en gång för prenumerationen där du tänker etablera den elastiska jobbagenten. Prenumerationer som bara innehåller databaser som är jobbmål behöver inte registreras.
+Om du vill använda elastiska jobb registrerar du funktionen i din Azure-prenumeration genom att köra följande kommando. Kör det här kommandot en gång för den prenumeration där du vill etablera den elastiska jobb agenten. Prenumerationer som bara innehåller databaser som är jobb mål behöver inte registreras.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
@@ -134,7 +134,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 En agent för elastiska jobb är en Azure-resurs för att skapa, köra och hantera jobb. Agenten kör jobb baserat på ett schema eller som ett engångsjobb.
 
-**Cmdleten New-AzSqlElasticJobAgent** kräver att en Azure SQL-databas redan finns, så *resourceGroupName-*, *serverName*och *databaseName-parametrarna* måste alla peka på befintliga resurser.
+Cmdlet: en **New-AzSqlElasticJobAgent** kräver att det redan finns en Azure SQL-databas, så parametrarna *resourceGroupName*, *servername*och *databasename* måste alla peka på befintliga resurser.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -143,15 +143,15 @@ $jobAgent = $jobDatabase | New-AzSqlElasticJobAgent -Name $agentName
 $jobAgent
 ```
 
-### <a name="create-the-job-credentials"></a>Skapa jobbautentiseringsuppgifterna
+### <a name="create-the-job-credentials"></a>Skapa autentiseringsuppgifter för jobb
 
-Jobb använder autentiseringsuppgifter för databasscope för att ansluta till de måldatabaser som anges av målgruppen vid körning och körning av skript. Dessa databasbegränsade autentiseringsuppgifter används också för att ansluta till huvuddatabasen för att räkna upp alla databaser i en server eller en elastisk pool när någon av dessa används som medlemstyp för målgruppen.
+Jobb använder de autentiseringsuppgifter som anges i databasen för att ansluta till mål databaserna som anges av mål gruppen vid körning och körning av skript. Dessa databasbegränsade autentiseringsuppgifter används också för att ansluta till huvuddatabasen för att räkna upp alla databaser i en server eller en elastisk pool när någon av dessa används som medlemstyp för målgruppen.
 
 Databasbegränsade autentiseringsuppgifter måste skapas i databasen för jobbet. Alla måldatabaser måste ha en inloggning med tillräcklig behörighet för att slutföra jobbet.
 
 ![Autentiseringsuppgifter för elastiska jobb](media/elastic-jobs-overview/job-credentials.png)
 
-Förutom autentiseringsuppgifterna i avbildningen, observera även tillägget av **beviljandekommando** i följande skript. Dessa behörigheter krävs för skriptet vi valde för det här exempeljobbet. Eftersom exemplet skapar en ny tabell i de riktade databaserna behöver varje mål db rätt behörighet för att köras.
+Förutom autentiseringsuppgifterna i avbildningen, observera även tillägget av **beviljandekommando** i följande skript. Dessa behörigheter krävs för skriptet vi valde för det här exempeljobbet. Eftersom exemplet skapar en ny tabell i mål databaserna, behöver varje mål databas rätt behörighet för att kunna köras.
 
 Kör följande skript för att skapa autentiseringsuppgifter för det nödvändiga jobbet (i jobbdatabasen):
 
@@ -200,11 +200,11 @@ $jobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -Arg
 $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential $jobCred
 ```
 
-### <a name="define-the-target-databases-to-run-the-job-against"></a>Definiera måldatabaserna för att köra jobbet mot
+### <a name="define-the-target-databases-to-run-the-job-against"></a>Definiera de mål databaser som jobbet ska köras mot
 
 En [målgrupp](sql-database-job-automation-overview.md#target-group) utgörs av en eller flera databaser som ett jobbsteg ska köras mot.
 
-Följande kodavsnitt skapar två målgrupper: *serverGroup*och *serverGroupExcludingDb2*. *serverGroup* riktar sig till alla databaser som finns på servern vid tidpunkten för körningen och *serverGroupExcludingDb2* riktar sig till alla databaser på servern, utom *targetDb2:*
+Följande fragment skapar två mål grupper: *serverGroup*och *serverGroupExcludingDb2*. *serverGroup* riktar alla databaser som finns på servern vid körningen och *serverGroupExcludingDb2* riktar sig mot alla databaser på servern, förutom *targetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -220,7 +220,7 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 
 ### <a name="create-a-job-and-steps"></a>Skapa ett jobb och steg
 
-Det här exemplet definierar ett jobb och två jobbsteg för jobbet som ska köras. Det första steget i jobbet (*step1*) skapar en ny tabell (*Step1Table*) i varje databas i målgruppen *ServerGroup*. Det andra steget i jobbet (*step2*) skapar en ny tabell (*Step2Table*) i varje databas utom för *TargetDb2*, eftersom målgruppen som definierades tidigare har angett att den ska undantas.
+I det här exemplet definieras ett jobb och två jobb steg för jobbet som ska köras. Det första steget i jobbet (*step1*) skapar en ny tabell (*Step1Table*) i varje databas i målgruppen *ServerGroup*. Det andra steget i jobbet (*step2*) skapar en ny tabell (*Step2Table*) i varje databas utom för *TargetDb2*, eftersom målgruppen som definierades tidigare har angett att den ska undantas.
 
 ```powershell
 Write-Output "Creating a new job..."
@@ -250,7 +250,7 @@ Efter varje steg som avslutats korrekt bör du se två nya tabeller i TargetDb1 
 
    ![verifiering av nya tabeller i SSMS](media/elastic-jobs-overview/job-execution-verification.png)
 
-Du kan också schemalägga jobbet så att det körs senare. Kör följande kommando för att schemalägga ett jobb så att det körs vid en viss tid:
+Du kan också schemalägga att jobbet ska köras senare. Kör följande kommando för att schemalägga ett jobb så att det körs vid en viss tid:
 
 ```powershell
 # run every hour starting from now
@@ -272,27 +272,27 @@ $jobExecution | Get-AzSqlElasticJobStepExecution
 $jobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
 
-I följande tabell visas möjliga jobbkörningstillstånd:
+I följande tabell visas möjliga tillstånd för jobb körning:
 
 |Status|Beskrivning|
 |:---|:---|
-|**Skapad** | Jobbkörningen skapades bara och pågår ännu inte.|
-|**InProgress (InProgress)** | Jobbkörningen pågår för närvarande.|
-|**WaitingForRetry** | Jobbkörningen kunde inte slutföra sin åtgärd och väntar på att försöka igen.|
-|**Lyckades** | Jobbkörningen har slutförts.|
-|**LyckadesMedSkipped** | Jobbkörningen har slutförts, men några av dess underordnade hoppades över.|
-|**Misslyckades** | Jobbkörningen har misslyckats och förbrukat sina återförsök.|
-|**Timeout** | Jobbkörningen har tagit time out.|
-|**Avbrutet** | Jobbkörningen avbröts.|
-|**Överhoppad** | Jobbkörningen hoppades över eftersom en annan körning av samma jobbsteg redan kördes på samma mål.|
-|**Väntar påChildJobExecutions** | Jobbkörningen väntar på att de underordnade körningarna ska slutföras.|
+|**Skapad** | Jobb körningen har precis skapats och pågår ännu inte.|
+|**Pågår** | Jobb körningen pågår just nu.|
+|**WaitingForRetry** | Det gick inte att slutföra åtgärden för jobb körningen och väntar på att försöka igen.|
+|**Lyckades** | Jobb körningen har slutförts.|
+|**SucceededWithSkipped** | Jobb körningen har slutförts men vissa av dess underordnade hoppades över.|
+|**Misslyckades** | Jobb körningen har misslyckats och förbrukat sina återförsök.|
+|**Stängningsåtgärd** | Tids gränsen nåddes för jobb körningen.|
+|**Avbrutna** | Jobb körningen avbröts.|
+|**Överhoppad** | Jobb körningen hoppades över eftersom en annan körning av samma jobb steg redan kördes på samma mål.|
+|**WaitingForChildJobExecutions** | Jobb körningen väntar på att de underordnade körningarna ska slutföras.|
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Ta bort alla resurser som du har skapat i den här självstudien genom att ta bort resursgruppen.
 
 > [!TIP]
-> Om du planerar att fortsätta att arbeta med dessa jobb rensar du inte de resurser som skapas i den här artikeln.
+> Om du planerar att fortsätta arbeta med de här jobben rensar du inte resurserna som du skapade i den här artikeln.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName

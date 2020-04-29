@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: fce60a10818943a9c6d420044d97c0c5b803de32
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 813baba37684525c336bc34a49e496f54a19288d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133321"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509745"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -25,9 +25,10 @@ Den här artikeln sammanfattar de nya funktionerna och förbättringarna i de se
 
 ## <a name="check-your-azure-synapse-version"></a>Kontrol lera din Azure Synapse-version
 
-När nya funktioner lyfts ut till alla regioner kontrollerar du vilken version som distribueras till din instans och den senaste versionen av funktions tillgänglighet. Du kontrollerar versionen genom att ansluta till SQL-poolen via SQL Server Management Studio (SSMS) och köra `SELECT @@VERSION;` för att returnera den aktuella versionen.
+När nya funktioner lyfts ut till alla regioner kontrollerar du vilken version som distribueras till din instans och den senaste versionen av funktions tillgänglighet. Du kontrollerar versionen genom att ansluta till SQL-poolen via SQL Server Management Studio (SSMS) och köra `SELECT @@VERSION;` för att returnera den aktuella versionen. Använd den här versionen för att bekräfta vilken version som har tillämpats på SQL-poolen. Datumet i utdata identifierar månaden för den version som har tillämpats på SQL-poolen. Detta gäller endast förbättringar på service nivå. 
 
-Använd den version som identifierats för att bekräfta vilken version som har tillämpats på SQL-poolen. Datumet i utdata identifierar månaden för den version som har tillämpats på SQL-poolen.
+För verktygs förbättringar kontrollerar du att rätt version är installerad i versions anteckningen. 
+
 
 > [!NOTE]
 > Produkt namnet som returneras av Välj @@VERSION kommer att ändras från Microsoft Azure SQL Data Warehouse till Azure Synapse Analytics. Vi kommer att skicka ett avancerat meddelande innan ändringen görs. Den här ändringen är relevant för kunder som tolkar produkt namn från resultatet av SELECT@VERSION @ i sin program kod. Om du vill undvika program kod ändringar på grund av produkt anpassning, använder du dessa kommandon för att fråga efter SERVERPROPERTY för databasens produkt namn och version: för att returnera versions nummer XX. X. XXXXX. X (utan produkt namn) Använd det här kommandot:
@@ -40,13 +41,20 @@ Använd den version som identifierats för att bekräfta vilken version som har 
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+
+
 ## <a name="april-2020"></a>April 2020
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
 |**Kompatibilitetsnivå för databas (för hands version)**| I den här versionen kan användarna nu ange en databas kompatibilitetsnivå för att hämta Transact-SQL-språket och fråga efter bearbetnings beteenden för en specifik version av Synapse SQL-motorn. Mer information finns i [sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [ändra databas omfattnings konfiguration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sp_describe_undeclared_parameters**| Tillåt användare att se metadata om odeklarerade parametrar i en Transact-SQL-batch. Mer information finns i [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
-|**[Visual Studio 16,6 Preview 2](/visualstudio/releases/2019/release-notes-preview) – SQL Server Data Tools (SSDT)** | Den här versionen innehåller följande förbättringar och korrigeringar för SSDT: </br> </br> – Löst ett problem där en ändring av en tabell som refereras till av en materialiserad vy (MV) gör att Alter View-instruktioner skapas som inte stöds för MVs<br/><br/> – Implementerade en ändring för att se till att jämförelsen av schema inte Miss fungerar när det finns säkerhets objekt på radnivå i databasen eller projektet. Säkerhets objekt på radnivå stöds för närvarande inte för SSDT.  <br/><br/> -Tids gränsen för SQL Server Object Explorer tids gränsen har ökat för att undvika tids gränser vid registrering av ett stort antal objekt i databasen<br/><br/> – Optimerat hur SQL Server Object Explorer hämtar listan över databas objekt för att minska instabiliteten och öka prestanda när du fyller i objekt Utforskaren |
+
+## <a name="march-2020"></a>Mars 2020
+
+| Förbättringar i verktyg                                         | Information                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **[Visual Studio 16,6 Preview 2](/visualstudio/releases/2019/release-notes-preview) – SQL Server Data Tools (SSDT)** | Den här versionen innehåller följande förbättringar och korrigeringar för SSDT: </br> </br> – Löst ett problem där en ändring av en tabell som refereras till av en materialiserad vy (MV) gör att Alter View-instruktioner skapas som inte stöds för MVs<br/><br/> – Implementerade en ändring för att se till att jämförelsen av schema inte Miss fungerar när det finns säkerhets objekt på radnivå i databasen eller projektet. Säkerhets objekt på radnivå stöds för närvarande inte för SSDT.  <br/><br/> -Tids gränsen för SQL Server Object Explorer tids gränsen har ökat för att undvika tids gränser vid registrering av ett stort antal objekt i databasen<br/><br/> – Optimerat hur SQL Server Object Explorer hämtar listan över databas objekt för att minska instabiliteten och öka prestanda när du fyller i objekt Utforskaren |
 
 ## <a name="january-2020"></a>Januari 2020
 

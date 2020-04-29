@@ -1,7 +1,7 @@
 ---
-title: 'Tilldela data till kluster: Modulreferens'
+title: 'Tilldela data till kluster: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Tilldela data till kluster i Azure Machine Learning för att få klustermodell.
+description: Lär dig hur du använder modulen tilldela data till kluster i Azure Machine Learning till Poäng kluster modell.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,42 +10,42 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ms.openlocfilehash: 207172f10277589af2b22ae2f41b07234a0925b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477722"
 ---
-# <a name="module-assign-data-to-clusters"></a>Modul: Tilldela data till kluster
+# <a name="module-assign-data-to-clusters"></a>Modul: tilldela data till kluster
 
-I den här artikeln beskrivs hur du använder modulen *Tilldela data till kluster* i Azure Machine Learning designer (förhandsversion). Modulen genererar förutsägelser via en klustermodell som har tränats med *K-betyder klusteralgoritm.*
+Den här artikeln beskriver hur du använder modulen *tilldela data till kluster* i Azure Machine Learning designer (för hands version). Modulen genererar förutsägelser genom en kluster modell som har tränats med algoritmen *K-metod* .
 
-Modulen Tilldela data till kluster returnerar en datauppsättning som innehåller de troliga tilldelningarna för varje ny datapunkt. 
+Modulen tilldela data till kluster returnerar en data uppsättning som innehåller de sannolika tilldelningarna för varje ny data punkt. 
 
-## <a name="how-to-use-assign-data-to-clusters"></a>Så här använder du Tilldela data till kluster
+## <a name="how-to-use-assign-data-to-clusters"></a>Så här använder du tilldela data till kluster
   
-1. I Azure Machine Learning-designern letar du reda på en tidigare tränad klustermodell. Du kan skapa och träna en klustermodell med någon av följande metoder:  
+1. Leta upp en tidigare tränad kluster modell i Azure Machine Learning designer. Du kan skapa och träna en kluster modell genom att använda någon av följande metoder:  
   
-    - Konfigurera K-medels klustringsalgoritmen med hjälp av [K-Means Clustering-modulen](k-means-clustering.md) och träna modellen med hjälp av en datauppsättning och modulen Train Clustering Model (den här artikeln).  
+    - Konfigurera den N:te klustrade algoritmen med hjälp av modulen [K-betyder-kluster](k-means-clustering.md) och träna modellen med hjälp av en data uppsättning och modulen träna kluster modell (den här artikeln).  
   
-    - Du kan också lägga till en befintlig tränad klustermodell från gruppen **Sparade modeller** på arbetsytan.
+    - Du kan också lägga till en befintlig tränad kluster modell från gruppen för **sparade modeller** i din arbets yta.
 
-2. Koppla den tränade modellen till den vänstra indataporten **i Tilldela data till kluster**.  
+2. Koppla den tränade modellen till den vänstra Indataporten för att **tilldela data till kluster**.  
 
-3. Koppla en ny datauppsättning som indata. 
+3. Bifoga en ny data uppsättning som indata. 
 
-   I den här datauppsättningen är etiketter valfria. I allmänhet är klustring en oövervakad inlärningsmetod. Du förväntas inte känna till kategorierna i förväg. Indatakolumnerna måste dock vara samma som de kolumner som användes för att träna klustermodellen eller ett fel inträffar.
+   I den här data uppsättningen är etiketter valfria. I allmänhet är klustring en oövervakad inlärnings metod. Du förväntas inte känna till kategorierna i förväg. Inmatade kolumner måste dock vara samma som de kolumner som användes i träna kluster modellen, eller ett fel uppstår.
 
     > [!TIP]
-    > Om du vill minska antalet kolumner som skrivs till designern från klusterprognoserna använder [du Markera kolumner i datauppsättningen](select-columns-in-dataset.md)och väljer en delmängd av kolumnerna. 
+    > Om du vill minska antalet kolumner som skrivs till designern från kluster förutsägelserna använder du [Välj kolumner i data uppsättningen](select-columns-in-dataset.md)och väljer en delmängd av kolumnerna. 
     
-4. Låt kryssrutan Kontrollera om det läggs **till eller avmarkera endast för resultat markeras** om du vill att resultaten ska innehålla den fullständiga indatauppsättningen, inklusive en kolumn som visar resultaten (klustertilldelningar).
+4. Lämna kryss rutan **Markera för Lägg till eller ta bort kontroll för endast resultat** markerad om du vill att resultatet ska innehålla den fullständiga data uppsättningen, inklusive en kolumn som visar resultatet (kluster tilldelningar).
   
-    Om du avmarkerar den här kryssrutan returneras bara resultaten. Det här alternativet kan vara användbart när du skapar förutsägelser som en del av en webbtjänst.
+    Om du avmarkerar den här kryss rutan returneras bara resultatet. Det här alternativet kan vara användbart när du skapar förutsägelser som en del av en webb tjänst.
   
 5.  Skicka pipelinen.  
   
 ### <a name="results"></a>Resultat
 
-+  Om du vill visa värdena i datauppsättningen högerklickar du på modulen och väljer sedan **Visualisera**. Eller Välj modul och växla till fliken **Utdata** på den högra panelen klickar du på histogramikonen i **portutgångarna** för att visualisera resultatet.
++  Om du vill visa värdena i data uppsättningen högerklickar du på modulen och väljer **visualisera**. Eller Välj modulen och växla till fliken **utdata** i den högra panelen, klicka på histogrammets ikon i **portens utdata** för att visualisera resultatet.
 

@@ -1,18 +1,18 @@
 ---
-title: Teamutveckling med Node.js och Visual Studio Code
+title: Grupp utveckling med Node. js och Visual Studio Code
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Den här självstudien visar hur du använder Azure Dev Spaces och Visual Studio Code för att göra grupputveckling på ett Node.js-program i Azure Kubernetes Service
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s '
+description: I den här självstudien får du lära dig hur du använder Azure dev Spaces och Visual Studio Code för att göra grupp utveckling på ett Node. js-program i Azure Kubernetes-tjänsten
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
 ms.openlocfilehash: abcf4934af056d508ac136f80758597294d40b1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78251935"
 ---
-# <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Teamutveckling med Node.js och Visual Studio Code med Azure Dev Spaces
+# <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Grupp utveckling med hjälp av Node. js och Visual Studio Code med Azure dev Spaces
 
 I den här självstudien lär du dig hur ett team med utvecklare kan samarbeta samtidigt i samma Kubernetes-kluster med hjälp av Dev Spaces.
 
@@ -40,7 +40,7 @@ Med Azure Dev Spaces kan du konfigurera en *delad* utvecklarmiljö i Azure. Varj
 När du utvecklar kod för en tjänst är koden sällan perfekt förrän du väljer att checka in den. Du arbetar ju fortfarande med den, testar den och experimenterar med lösningar. Azure Dev Spaces införlivar begreppet **utrymme**, som innebär att du kan arbeta isolerat, utan att oroa dig för att skada andra teammedlemmars kod.
 
 ## <a name="use-dev-spaces-for-team-development"></a>Använda Dev Spaces för teamutveckling
-Låt oss visa dessa idéer med ett konkret exempel med hjälp av vår *webfrontend* -> *mywebapi* prov ansökan. Vi tänker oss ett scenario där utvecklaren Scott behöver göra en ändring i tjänsten *mywebapi*, och *enbart* den tjänsten. *webfrontend* behöver inte ändras i Scotts uppdatering.
+Låt oss demonstrera dessa idéer med ett konkret exempel med vårt exempel program för *webfrontend* -> -*mywebapi* . Vi tänker oss ett scenario där utvecklaren Scott behöver göra en ändring i tjänsten *mywebapi*, och *enbart* den tjänsten. *webfrontend* behöver inte ändras i Scotts uppdatering.
 
 _Utan_ användning av Dev Spaces skulle Scott vara begränsad till vissa sätt att utveckla och testa sina uppdatering. Inget av dessa lämpar sig särskilt väl:
 * Köra ALLA komponenter lokalt. Det här kräver en kraftfullare utvecklingsdator med Docker samt potentiellt MiniKube installerat.
@@ -51,9 +51,9 @@ _Utan_ användning av Dev Spaces skulle Scott vara begränsad till vissa sätt a
 ### <a name="set-up-your-baseline"></a>Konfigurera din baslinje
 Först behöver vi distribuera en baslinje för våra tjänster. Den här distributionen representerar den ”senaste kända välfungerande” så att du enkelt kan jämföra beteendet för din lokala kod jämfört med den incheckade versionen. Sedan skapar vi ett underordnat utrymme baserat på den här baslinjen så att vi kan testa ändringarna i *mywebapi* inom ramen för det större programmet.
 
-1. Klona [exempelprogrammet Dev Spaces:](https://github.com/Azure/dev-spaces)`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. Kassa fjärrgrenen *azds_updates:*`git checkout -b azds_updates origin/azds_updates`
-1. Välj utrymmet _dev_: `azds space select --name dev`. När du uppmanas att välja _ \<ett\>_ överordnat utvecklingsutrymme väljer du ingen .
+1. Klona [dev Spaces-exempel programmet](https://github.com/Azure/dev-spaces):`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Checka ut den fjärranslutna grenen *azds_updates*:`git checkout -b azds_updates origin/azds_updates`
+1. Välj utrymmet _dev_: `azds space select --name dev`. När du uppmanas att välja ett överordnat _ \<dev\>_-utrymme väljer du inget.
 1. Navigera till katalogen _mywebapi_ och kör: `azds up -d`
 1. Navigera till katalogen _webfrontend_ och kör: `azds up -d`
 1. Kör `azds list-uris` för att se den offentliga slutpunkten för _webfrontend_
@@ -98,7 +98,7 @@ Kör kommandot `azds space list` för att se en lista över alla utrymmen i utve
 Nu ska vi se hur det fungerar i praktiken.
 
 ### <a name="make-a-code-change"></a>Göra en kodändring
-Gå till VS-kodfönstret och `mywebapi` gör en kodredigering till standard GET-hanteraren `/` i `server.js`, till exempel:
+Gå till VS Code-fönstret `mywebapi` och gör en kod redigering till standard hämtnings `/` hanteraren i `server.js`, till exempel:
 
 ```javascript
 app.get('/', function (req, res) {
@@ -108,7 +108,7 @@ app.get('/', function (req, res) {
 
 ### <a name="run-the-service"></a>Köra tjänsten
 
-Om du vill köra tjänsten trycker `azds up` du på F5 (eller skriver i terminalfönstret) för att köra tjänsten. Tjänsten körs automatiskt i det valda utrymmet _dev/scott_. Bekräfta att tjänsten körs i sitt `azds list-up`eget utrymme genom att köra:
+Tryck på F5 (eller Skriv `azds up` in terminalfönstret) för att köra tjänsten för att köra tjänsten. Tjänsten körs automatiskt i det valda utrymmet _dev/scott_. Bekräfta att tjänsten körs i sitt eget utrymme genom att köra `azds list-up`:
 
 ```cmd
 $ azds list-up
@@ -118,9 +118,9 @@ mywebapi                  scott     Service  3m ago   Running
 webfrontend               dev       Service  26m ago  Running
 ```
 
-Lägg märke till att en instans av *mywebapi* nu körs i _dev/scott-utrymmet._ Den version som körs i _dev_ körs fortfarande men det visas inte.
+Observera att en instans av *mywebapi* nu körs i _dev/Scott-_ utrymmet. Versionen som körs i _dev_ körs fortfarande, men den visas inte.
 
-Lista url:erna för det `azds list-uris`aktuella utrymmet genom att köra .
+Visa en lista med URL: er för det `azds list-uris`aktuella utrymmet genom att köra.
 
 ```cmd
 $ azds list-uris
@@ -131,9 +131,9 @@ http://localhost:53831 => mywebapi.scott:80                                Tunne
 http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
 
-Observera att webbadressen till den offentliga åtkomstpunkten för *webbfrontend* är föreskriven med *scott.s*. Den här webbadressen är unik för utrymmet _dev/scott_. Det här URL-prefixet talar om för ingress-styrenheten att dirigera begäranden till _dev/scott-versionen_ av en tjänst. När en begäran med den här URL:en hanteras av Dev Spaces försöker ingress controller först dirigera begäran till *webbfrontend-tjänsten* i _dev/scott-utrymmet._ Om det misslyckas dirigeras begäran till *webfrontend-tjänsten* i _dev-utrymmet_ som en reserv. Också märker att det finns en localhost URL för att komma åt tjänsten via localhost med kubernetes *port-forward* funktionalitet. Mer information om webbadresser och routning i Azure Dev Spaces finns i [Hur Azure Dev Spaces fungerar och är konfigurerat](how-dev-spaces-works.md).
+Observera att URL: en för den offentliga åtkomst punkten för *webfrontend* har prefixet *Scott. s*. Den här webbadressen är unik för utrymmet _dev/scott_. Detta URL-prefix instruerar ingångs styrenheten att dirigera begär anden till _dev/Scott_ -versionen av en tjänst. När en begäran med denna URL hanteras av dev-utrymmen försöker ingångs kontrollen först omdirigera begäran till *webfrontend* -tjänsten i _dev/Scott_ -utrymmet. Om detta Miss lyckas dirigeras begäran till *webfrontend* -tjänsten i _dev_ -utrymmet som en reserv. Observera också att det finns en localhost-URL för att komma åt tjänsten via localhost med hjälp av Kubernetes *-Port-Forward-* funktionen. Mer information om URL: er och routning i Azure dev Spaces finns i [så här fungerar Azure dev Spaces och har kon figurer ATS](how-dev-spaces-works.md).
 
-![Utrymme Routning](media/common/Space-Routing.png)
+![Utrymmes dirigering](media/common/Space-Routing.png)
 
 Med den här inbyggda Azure Dev Spaces-funktionen kan du testa kod i ett delat utrymme utan att varje utvecklare måste återskapa hela tjänstestacken i deras respektive utrymme. Den här typen av routning kräver att appkoden vidarebefordrar spridningshuvuden, vilket visas i föregående steg i den här guiden.
 
@@ -154,7 +154,7 @@ Du har slutfört guiden för att komma igång! Du har lärt dig att:
 > * Effektivt utvecklar och testar din kod i en teammiljö.
 > * Upprätta en baslinje med funktioner med hjälp av Dev Spaces för att enkelt testa isolerade ändringar inom ramen för ett större mikrotjänstprogram
 
-Nu när du har utforskat Azure Dev Spaces [delar du ditt utvecklingsutrymme med en gruppmedlem](how-to/share-dev-spaces.md) och börjar samarbeta.
+Nu när du har utforskat Azure dev Spaces kan du [dela ditt dev Space med en grupp medlem](how-to/share-dev-spaces.md) och börja samar beta.
 
 ## <a name="clean-up"></a>Rensa
 Om du vill ta bort en Azure Dev Spaces-instans i ett kluster fullständigt, inklusive alla utvecklarmiljöer och tjänster som körs i den, använder du kommandot `az aks remove-dev-spaces`. Kom ihåg att den här åtgärden inte kan ångras. Du kan lägga till stöd för Azure Dev Spaces på klustret igen, men det blir som om du börjar om på nytt. Dina gamla tjänster och utrymmen kommer inte att återställas.

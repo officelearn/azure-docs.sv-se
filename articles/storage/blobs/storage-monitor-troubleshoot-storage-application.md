@@ -9,10 +9,10 @@ ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68844877"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Övervaka och felsöka ett molnlagringsprogram
@@ -33,7 +33,7 @@ Loggning och mått från lagringskonton aktiveras på fliken **Diagnostik** i Az
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com)
+Logga in på [Azure Portal](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Aktivera loggning och mått
 
@@ -89,7 +89,7 @@ I det här scenariot använder du [Microsoft Message Analyzer](https://technet.m
 
 Ladda ned [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) och installera programmet.
 
-Starta programmet och välj**Öppna** >  **fil** > **från andra filkällor**.
+Starta programmet **och välj** > **Öppna** > **från andra fil källor**.
 
 I dialogrutan **File Selector** (Filväljaren) väljer du **+ Add Azure Connection** (Lägg till Azure-anslutning). Ange **namnet på ditt lagringskonto** och **kontonyckeln** och klicka sedan på **OK**.
 

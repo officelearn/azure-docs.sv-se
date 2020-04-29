@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77593384"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)
@@ -70,7 +70,7 @@ De uppdaterade värdena som anges i filen *config_file.cfg* visas i appen som k�
 
 ## <a name="tag-and-push-the-image"></a>Tagga och överföra avbildningen
 
-För att använda den uppdaterade avbildningen på rätt sätt taggar du avbildningen *azure-vote-front* med inloggningsservernamnet för ACR-registret. Hämta inloggningsserverns namn med kommandot [az acr list:](/cli/azure/acr)
+För att använda den uppdaterade avbildningen på rätt sätt taggar du avbildningen *azure-vote-front* med inloggningsservernamnet för ACR-registret. Hämta inloggnings serverns namn med kommandot [AZ ACR List](/cli/azure/acr) :
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -85,7 +85,7 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 Använd nu [docker push][docker-push] för att ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på din ACR-inloggningsserver.
 
 > [!NOTE]
-> Om du får problem med att skicka till acr-registret kontrollerar du att du fortfarande är inloggad. Kör kommandot [az acr-inloggning][az-acr-login] med namnet på azure-behållarregistret som du skapade i steget [Skapa ett Azure-behållarregister.](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) Till exempel `az acr login --name <azure container registry name>`.
+> Om du får problem med att skicka till ACR-registret kontrollerar du att du fortfarande är inloggad. Kör kommandot [AZ ACR login][az-acr-login] med namnet på din Azure Container Registry som du skapade i steget [skapa ett Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) . Till exempel `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

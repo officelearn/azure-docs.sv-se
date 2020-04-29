@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell – prenumerera på Azure-prenumeration
-description: Den här artikeln innehåller ett exempel på Azure PowerShell-skript som visar hur du prenumererar på Event Grid-händelser för en Azure-prenumeration.
+title: Azure PowerShell prenumerera på Azure-prenumerationen
+description: Den här artikeln innehåller ett exempel på Azure PowerShell-skript som visar hur du prenumererar på Event Grid händelser för en Azure-prenumeration.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 4a6539966ff2e907c4f6f942dd0c238ee35b6836
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76721463"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Prenumerera på händelser för en Azure-prenumeration med PowerShell
@@ -32,7 +32,7 @@ Det här skriptet skapar en Event Grid-prenumeration på händelser för en Azur
 
 ## <a name="sample-script---preview-module"></a>Exempelskript – modul för förhandsversion
 
-Det här exempelskriptet för förhandsgranskning kräver modulen Event Grid. Installera genom att köra `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+I exempel skriptet för för hands versionen krävs Event Grid-modulen. Installera genom att köra `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
@@ -42,9 +42,9 @@ Det här exempelskriptet för förhandsgranskning kräver modulen Event Grid. In
 
 Det här skriptet använder följande kommandon för att skapa händelseprenumerationen. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [Ny-AzEventGridAbonnemang](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Skapa en Event Grid-prenumeration. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Skapa en Event Grid-prenumeration. |
 
 ## <a name="next-steps"></a>Nästa steg
 

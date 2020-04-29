@@ -1,5 +1,5 @@
 ---
-title: Virtuella datorer för belastningsutjämning inom en zon - Azure CLI
+title: Belastningsutjämna virtuella datorer inom en zon – Azure CLI
 description: Det här CLI-skriptexemplet visar hur du belastningsutjämnar trafik till virtuella datorer inom en specifik tillgänglighetszon
 services: load-balancer
 documentationcenter: load-balancer
@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
 ms.openlocfilehash: 0ae159b57a89b4238d52d178d59cb79b452e0411
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79214541"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Azure CLI-skriptexempel: Belastningsfördelningstrafik till virtuella datorer inom en viss tillgänglighetszon
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exempel på Azure CLI-skript: belastnings Utjämnings trafik till virtuella datorer i en bestämd tillgänglighets zon
 
 Det här Azure CLI-skriptexemplet skapar allt som behövs för att köra flera virtuella Ubuntu-datorer, konfigurerade med hög tillgänglighet och belastningsutjämning inom en specifik tillgänglighetszon. När du har kört skriptet har du tre virtuella datorer i en enda tillgänglighetszon inom ett område som kan nås via en Azure Standard Load Balancer. 
 
@@ -166,7 +166,7 @@ az group delete --name myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | Skapar ett virtuellt Azure-nätverk och undernät. |

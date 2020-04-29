@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Designa en server - Azure CLI - Azure Database för MySQL'
+title: 'Självstudie: utforma en server – Azure CLI – Azure Database for MySQL'
 description: Den här självstudien beskriver hur du skapar och hanterar en Azure Database for MySQL-server och en databas med Azure CLI från kommandoraden.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
 ms.openlocfilehash: 080e4b119048f2c204e6617405c7c053c7f24cea
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80382842"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudie: Utforma Azure Database for MySQL med Azure CLI
@@ -22,19 +22,19 @@ Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som �
 > [!div class="checklist"]
 > * Skapa en Azure Database för MySQL-server
 > * Konfigurera serverbrandväggen
-> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
+> * Använd [kommando rads verktyget MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI]( /cli/azure/install-azure-cli) på din egen dator för att köra kodblocken i den här självstudien.
+Du kan använda Azure Cloud Shell i webbläsaren eller [Installera Azure CLI]( /cli/azure/install-azure-cli) på din dator för att köra kod blocken i den här självstudien.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda Azure CLI lokalt kräver den här artikeln att du kör Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln att du kör Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
@@ -53,13 +53,13 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
 Skapa en Azure Database for MySQL-server med kommandot az mysql server create. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
-I följande exempel skapas en Azure Database för MySQL-server i `westus` i resursgruppen `myresourcegroup` med namnet `mydemoserver`. Servern har en administratörsanvändare med namnet `myadmin`. Det här är 5:e generationens server för generell användning med 2 virtuella kärnor. Ersätt `<server_admin_password>` med ditt eget värde.
+I följande exempel skapas en Azure Database för MySQL-server i `westus` i resursgruppen `myresourcegroup` med namnet `mydemoserver`. Servern har en administratörs användare med `myadmin`namnet. Det här är 5:e generationens server för generell användning med 2 virtuella kärnor. Ersätt `<server_admin_password>` med ditt eget värde.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
-+ `--sku-name B_Gen5_2`kartor till Basic, Gen 5 och 2 vCores.
++ `--sku-name B_Gen5_2`mappar till Basic, gen 5 och 2 virtuella kärnor.
 + `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
 + `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
 
@@ -185,10 +185,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 Följande parametrar behövs för kommandot `az mysql server restore`:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
-| namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Välj en tidpunkt att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd datum- och tidsformatet ISO8601. Du kan använda din egen lokala tidszon som t.ex. `2017-04-13T05:59:00-08:00`, eller använda UTC Zulu-formatet `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 
@@ -201,7 +201,7 @@ I de här självstudierna lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en Azure Database för MySQL-server
 > * Konfigurera serverbrandväggen
-> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
+> * Använd [kommando rads verktyget MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data

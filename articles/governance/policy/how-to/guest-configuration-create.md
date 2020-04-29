@@ -3,12 +3,12 @@ title: Så här skapar du principer för gäst konfiguration för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f09bb543f73e37bd211a55e2238808f57585bb18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a75525b25945dd9548d7c293d5965cc67eb463dc
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024905"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509626"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du principer för gäst konfiguration för Windows
 
@@ -16,7 +16,7 @@ Innan du skapar anpassade principer är det en bra idé att läsa den konceptuel
  
 Information om hur du skapar principer för gäst konfiguration för Linux finns på sidan [hur du skapar principer för gäst konfiguration för Linux](./guest-configuration-create-linux.md)
 
-När du granskar Windows använder gäst konfigurationen en resurs modell för [önskad tillstånds konfiguration](/powershell/scripting/dsc/overview/overview) (DSC) till och konfigurations fil. DSC-konfigurationen definierar det villkor som datorn ska ha.
+När du granskar Windows använder gäst konfigurationen en resurs modell för [önskad tillstånds konfiguration](/powershell/scripting/dsc/overview/overview) (DSC) för att skapa konfigurations filen. DSC-konfigurationen definierar det villkor som datorn ska ha.
 Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel**.
 
 [Azure policy gäst konfiguration](../concepts/guest-configuration.md) kan bara användas för att granska inställningar i datorer. Reparationen av inställningar i datorer är inte tillgänglig ännu.

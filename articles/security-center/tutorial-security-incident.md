@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs för incidentsvar – Azure Security Center
-description: I den här självstudien får du lära dig hur du triage säkerhetsvarningar, fastställa orsaken & omfattningen av en incident och söka säkerhetsdata.
+title: Själv studie kurs om incident svar – Azure Security Center
+description: I den här självstudien får du lära dig hur du prioritering säkerhets aviseringar, fastställer rotor saken & omfattningen av en incident och söker efter säkerhets data.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
 ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80585771"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
@@ -32,7 +32,7 @@ Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med a
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
-Om du vill gå igenom de funktioner som beskrivs i den här självstudien måste du ha en standardprisnivå för Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
+För att gå igenom de funktioner som beskrivs i den här självstudien måste du vara på Security Center standard pris nivån. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
 ## <a name="scenario"></a>Scenario
 Contoso migrerade nyligen några av sina lokala resurser till Azure, inklusive vissa virtuella datorbaserade branschspecifika arbetsbelastningar och SQL-databaser. För närvarande har Contosos team som ansvarar för datorsäkerheten, CSIRT (Computer Security Incident Response Team) svårt att undersöka säkerhetsproblem på grund av bristande integrering av säkerhetsfunktionerna i de aktuella incidenthanteringsverktygen. Bristen på integrering utgör ett problem vid identifiering (det blir för många falska positiva resultat), samt vid utvärderings- och diagnostiseringsstegen. Som en del av den här migreringen beslutar de att välja Security Center för att lösa problemet.
@@ -48,7 +48,7 @@ Johanna, som arbetar med säkerheten. Deras ansvar omfattar:
 * Övervakning och hantering av säkerhetshot dygnet runt.
 * Eskalering till molnets arbetsbelastningsägare eller säkerhetsanalytiker vid behov.
 
-Sam är en säkerhetsanalytiker och deras ansvar inkluderar:
+Sam är en säkerhetsanalytiker och deras ansvar omfattar:
 
 * Undersöka attacker.
 * Åtgärda aviseringar.
@@ -87,7 +87,7 @@ Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. 
 
    ![Undersökning](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-   Undersökningskartan är en grafisk representation av de entiteter som är anslutna till säkerhetsvarningen eller incidenten. Om du klickar på en entitet på kartan visas information om den entiteten, som nya entiteter, och kartan expanderar. Egenskaperna för entiteten som är vald på kartan är markerade i rutan på höger sida. Informationen som är tillgänglig på varje flik varierar beroende på vald entitet. Under granskningsprocessen bör du granska all relevant information för att bättre förstå angriparens rörelse.
+   Undersökningskartan är en grafisk representation av de entiteter som är anslutna till säkerhetsvarningen eller incidenten. Om du klickar på en entitet på kartan visas information om den entiteten, som nya entiteter, och kartan expanderar. Egenskaperna för entiteten som är vald på kartan är markerade i rutan på höger sida. Informationen som är tillgänglig på varje flik varierar beroende på vald entitet. Under undersöknings processen granskar du all relevant information för att bättre förstå angriparens rörelse.
 
 2. Om du behöver mer bevis eller om du ytterligare måste undersöka entiteter som hittades vid undersökningen fortsätter du till nästa steg.
 
@@ -108,13 +108,13 @@ De andra snabbstarterna och självstudierna i den här samlingen bygger på den 
 
 Om du vill avaktivera automatisk etablering:
 
-1. Gå tillbaka till huvudmenyn för Säkerhetscenter och välj **Säkerhetsprincipen**.
+1. Gå tillbaka till Security Center huvud menyn och välj **säkerhets princip**.
 2. Välj den prenumeration du vill avaktivera automatisk etablering för.
 3. Under **Säkerhetsprincip – Datainsamling** väljer du **Av** under **Registrering** för att inaktivera automatisk etablering.
 4. Välj **Spara**.
 
 >[!NOTE]
-> Om du inaktiverar automatisk etablering tas inte Log Analytics-agenten bort från virtuella Azure-datorer där agenten har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
+> Om du inaktiverar automatisk etablering tas inte Log Analytics agenten bort från virtuella Azure-datorer där agenten har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
 >
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77670431"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
@@ -31,7 +31,7 @@ Azure Application Insights samlar in telemetri från ditt program för att ident
 
 För att slutföra den här kursen behöver du:
 
-- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+- Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
     - ASP.NET och webbutveckling
     - Azure Development
 - Ladda ned och installera [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -40,7 +40,7 @@ För att slutföra den här kursen behöver du:
 - I självstudien spåras hur du identifierar ett undantag i ditt program, så ändra koden i din miljö för utveckling eller testning så att du genererar ett undantag. 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="analyze-failures"></a>Analysera fel
@@ -72,7 +72,7 @@ Application Insights samlar in eventuella fel i programmet, och du kan se frekve
     ![Undantagsinformation](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identifiera felaktig kod
-Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. Efteråt har du möjlighet att felsöka källkoden genom att hämta ögonblicksbilden och öppna den i Visual Studio 2019 Enterprise.
+Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. Efteråt har du möjlighet att felsöka käll koden genom att hämta ögonblicks bilden och öppna den i Visual Studio 2019 Enterprise.
 
 1. Klicka på **Open debug snapshot** (Öppna ögonblicksbild för felsökning) i egenskaperna för undantaget.
 2. Panelen **Debug Snapshot** (Ögonblicksbild för felsökning) öppnas med anropsstacken för förfrågningen.  Om du klickar på en metod visas värdena för alla lokala variabler vid tidpunkten för förfrågningen.  Om du börjar med den översta metoden i det här exemplet ser vi att det finns lokala variabler som inte har något värde.

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Skapa Azure-databas för MySQL - Azure Resource Manager-mall'
+title: 'Självstudie: Skapa Azure Database for MySQL-Azure Resource Manager mall'
 description: Den här självstudien beskriver hur du etablerar och automatiserar Azure Database for MySQL-serverdistributioner med Azure Resource Manager-mallar.
 author: savjani
 ms.author: pariks
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
 ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74771108"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Självstudiekurs: Etablera en Azure-databas för MySQL-server med Azure Resource Manager-mallen
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Självstudie: etablera en Azure Database for MySQL server med Azure Resource Manager-mall
 
 [Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/) låter DevOps-tekniker automatisera och integrera etablering, konfiguration och drift för hanterade MySQL-servrar och databaser i Azure.  API:et låter dig skapa, uppräkna, hantera och ta bort MySQL-servrar och databaser på Azure Database for MySQL-tjänsten.
 
@@ -25,12 +25,12 @@ I den här självstudien ska du använda Azure Resource Manager-mallar och andra
 
 > [!div class="checklist"]
 > * Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med en Azure Resource Manager-mall
-> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
+> * Använd [kommando rads verktyget MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med en Azure Resource Manager-mall
 
@@ -87,8 +87,8 @@ I den här begäran är de värden som måste anpassas:
 +   `storageProfile/geoRedundantBackup` – Ange aktiverat/inaktiverat beroende på kraven för geohaveriberedskap.
 +   `sku/tier` – Ange nivån Basic, GeneralPurpose eller MemoryOptimized för distributionen.
 +   `sku/capacity` – Ange vCore-kapacitet. Möjliga värden är 2, 4, 8, 16, 32 eller 64.
-+   `sku/family`- Ange Gen5 för att välja maskinvarugenerering för serverdistribution.
-+   `sku/name` – Ange TierPrefix_family_capacity. Till exempel B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Se dokumentationen [prissättningsnivåer](./concepts-pricing-tiers.md) för att se giltiga värden per region och nivå.
++   `sku/family`-Ange Gen5 för att välja maskin varu generering för Server distribution.
++   `sku/name` – Ange TierPrefix_family_capacity. Till exempel B_Gen5_1 GP_Gen5_16 MO_Gen5_32. Se dokumentationen [prissättningsnivåer](./concepts-pricing-tiers.md) för att se giltiga värden per region och nivå.
 +   `resources/properties/virtualNetworkSubnetId` – Ange Azure-identifieraren för undernätet i det virtuella nätverket där Azure MySQL-servern ska placeras. 
 +   `tags(optional)` – Ange valfria taggar är nyckelvärdepar som du använder för att kategorisera resurser för fakturering osv.
 
@@ -203,7 +203,7 @@ SELECT * FROM inventory;
 I de här självstudierna lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med en Azure Resource Manager-mall
-> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
+> * Använd [kommando rads verktyget MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data

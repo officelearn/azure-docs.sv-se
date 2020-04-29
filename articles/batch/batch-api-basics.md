@@ -4,12 +4,12 @@ description: Lär dig mer om funktionerna i Batch-tjänsten och dess API:er ur e
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fdc04c49521c9d91ef836c4d1dba76091db8f16a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115388"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509201"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -429,7 +429,7 @@ En skalningsformel kan baseras på följande mått:
 * **Resursmått** baseras på processoranvändning, bandbreddsanvändning, minnesanvändning och antalet noder.
 * **Aktivitetsmått** baseras på aktivitetens tillstånd, t.ex. *Aktiv* (köad), *Körs* eller *Slutförd*.
 
-Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. I Batch kan detta kan hanteras med en *nodavallokeringsprincip* som du lägger till i formeln. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen.
+Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. Batch tillhandahåller ett [*alternativ för noden*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) som du kan inkludera i dina formler. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen. Observera att om du anger alternativet för nodens `taskcompletion` tilldelning `retaineddata` som eller kommer att förhindra åtgärder för att ändra storlek på poolen förrän alla aktiviteter har slutförts, eller om alla aktivitets bevarande perioder har förfallit.
 
 Mer information om automatisk skalning av program finns i [Skala beräkningsnoder automatiskt i en Azure Batch-pool](batch-automatic-scaling.md).
 

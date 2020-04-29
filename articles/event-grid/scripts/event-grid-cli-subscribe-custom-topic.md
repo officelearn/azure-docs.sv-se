@@ -1,6 +1,6 @@
 ---
 title: Azure CLI-skriptexempel – Prenumerera på anpassat ämne | Microsoft Docs
-description: Den här artikeln innehåller ett exempel på Azure CLI-skript som visar hur du prenumererar på Event Grid-händelser för ett anpassat ämne.
+description: Den här artikeln innehåller ett exempel på ett Azure CLI-skript som visar hur du prenumererar på Event Grid händelser för ett anpassat ämne.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 9d82a5c3d9723c26d5a98bb2f0c92a6739ffee25
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76720137"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Prenumerera på händelser för ett anpassat ämne med Azure CLI
@@ -41,7 +41,7 @@ Förhandsversionen av exempelskriptet kräver Event Grid-tillägget. Installera 
 
 Det här skriptet använder följande kommandon för att skapa händelseprenumerationen. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Skapa en Event Grid-prenumeration. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) – version av tillägg | Skapa en Event Grid-prenumeration. |

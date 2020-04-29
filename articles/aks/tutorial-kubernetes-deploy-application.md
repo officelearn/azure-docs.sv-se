@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77593282"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Köra program i Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ ms.locfileid: "77593282"
 Kubernetes tillhandahåller en distribuerad plattform för containerbaserade program. Du kan bygga och distribuera dina egna program och tjänster till ett Kubernetes-kluster och låta klustret hantera tillgänglighet och anslutningsfunktioner. I den här självstudien, som är del fyra av sju, distribuerar du ett exempelprogram till ett Kubernetes-kluster. Lär dig att:
 
 > [!div class="checklist"]
-> * Uppdatera en Kubernetes manifestfil
+> * Uppdatera en Kubernetes manifest fil
 > * Köra ett program i Kubernetes
 > * Testa programmet
 
@@ -49,7 +49,7 @@ Exempelmanifestfilen från den git-lagringsplats som klonades i den första sjä
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Ersätt *microsoft* med namnet ditt ACR-inloggningsservernamn. Bildnamnet finns på rad 51 i manifestfilen. I följande exempel visas standardnamnet för avbildning:
+Ersätt *microsoft* med namnet ditt ACR-inloggningsservernamn. Avbildningens namn finns på rad 51 i manifest filen. I följande exempel visas standardnamnet för avbildning:
 
 ```yaml
 containers:
@@ -96,7 +96,7 @@ Du kan övervaka förloppet genom att använda kommandot [kubectl get service][k
 kubectl get service azure-vote-front --watch
 ```
 
-Inledningsvis visas *EXTERNAL-IP* för *azure-vote-front-tjänsten* som *väntande:*
+Den *externa IP-adressen* för *Azure-röst-front-* tjänsten visas som *väntar*:
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
@@ -112,7 +112,7 @@ Om du vill se hur programmet fungerar i praktiken så öppnar du en webbläsare 
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Om det inte gick att läsa in programmet så kan det bero på ett auktoriseringsproblem med ditt avbildningsregister. Du kan visa statusen för dina containrar med hjälp av kommandot `kubectl get pods`. Om behållaravbildningarna inte kan hämtas läser du [Autentisera med Azure Container Registry från Azure Kubernetes Service](cluster-container-registry-integration.md).
+Om det inte gick att läsa in programmet så kan det bero på ett auktoriseringsproblem med ditt avbildningsregister. Du kan visa statusen för dina containrar med hjälp av kommandot `kubectl get pods`. Om behållar avbildningarna inte kan hämtas, se [autentisera med Azure Container Registry från Azure Kubernetes-tjänsten](cluster-container-registry-integration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

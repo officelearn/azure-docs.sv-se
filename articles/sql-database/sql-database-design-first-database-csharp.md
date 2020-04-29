@@ -1,5 +1,5 @@
 ---
-title: 'Utforma din första relationsdatabas C #'
+title: 'Utforma din första Relations databas C #'
 description: Lär dig hur du utformar din första relationsdatabas i en enskild databas i Azure SQL Database med C# med ADO.NET.
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
 ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75354947"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Självstudiekurs: Utforma en relationsdatabas i en enda databas i Azure SQL Database C&#x23; och ADO.NET
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Självstudie: utforma en Relations databas i en enda databas inom Azure SQL Database C&#x23; och ADO.NET
 
 Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och ADO.NET med Visual Studio för att:
 
@@ -29,10 +29,10 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > * Infoga, uppdatera och ta bort data med ADO.NET
 > * Fråga efter data med ADO.NET
 
-*Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 > [!TIP]
-> Följande Microsoft Learn-modul hjälper dig att lära dig kostnadsfritt hur du [utvecklar och konfigurerar ett ASP.NET program som frågar en Azure SQL-databas](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inklusive skapandet av en enkel databas.
+> Följande Microsoft Learn-modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som skickar frågor till en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inklusive skapandet av en enkel databas.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -49,27 +49,27 @@ Följ dessa steg för att skapa en enskild tom databas.
 
    ![skapa tom databas](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Fyll i **SQL Database-formuläret** med följande information, som visas på föregående bild:
+3. Fyll i **SQL Database** formuläret med följande information, som du ser på föregående bild:
 
-    | Inställning       | Föreslaget värde | Beskrivning |
+    | Inställningen       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Databasnamn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Databas namn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Prenumeration** | *yourSubscription*  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
     | **Resursgrupp** | *yourResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
     | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
 
 4. Klicka på **Server** för att använda en befintlig databasserver eller skapa och konfigurera en ny databasserver. Välj antingen en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
 
-    | Inställning       | Föreslaget värde | Beskrivning |
+    | Inställningen       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-    | **Logga in för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+    | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Position** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databas-server](./media/sql-database-design-first-database/create-database-server.png)
 
-5. Klicka på **Markera**.
+5. Klicka på **Välj**.
 6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Du kan undersöka alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå.
 
     När du har valt tjänstnivå, antalet DTU:er eller virtuella kärnor samt mängden lagring klickar du på **Använd**.
@@ -95,7 +95,7 @@ SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandv�
 
    ![servernamn](./media/sql-database-design-first-database/server-name.png)
 
-3. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas.
+3. Klicka på **Konfigurera serverns brandvägg** i verktygsfältet. Sidan **brand Väggs inställningar** för SQL Database servern öppnas.
 
    ![IP-brandväggsregel på servernivå](./media/sql-database-design-first-database/server-firewall-rule.png)
 

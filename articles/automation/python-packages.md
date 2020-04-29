@@ -1,67 +1,67 @@
 ---
-title: Hantera Python 2-paket i Azure Automation
-description: I den här artikeln beskrivs hur du hanterar Python 2-paket i Azure Automation.
+title: Hantera python 2-paket i Azure Automation
+description: Den här artikeln beskriver hur du hanterar python 2-paket i Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9f52dfd92d430abffe5857d231898dd4b0e7745e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 701a5aab7a0061f8b5abfaac1b699034db2671b9
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81679925"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508997"
 ---
-# <a name="manage-python-2-packages-in-azure-automation"></a>Hantera Python 2-paket i Azure Automation
+# <a name="manage-python-2-packages-in-azure-automation"></a>Hantera python 2-paket i Azure Automation
 
-Med Azure Automation kan du köra Python 2-runbooks på Azure och på Linux Hybrid Runbook Workers. För att förenkla runbooks kan du använda Python-paket för att importera de moduler som du behöver. I den här artikeln beskrivs hur du hanterar och använder Python-paket i Azure Automation.
+Med Azure Automation kan du köra python 2-Runbooks på Azure och på Linux hybrid Runbook Worker. För att under lätta för Runbooks kan du använda python-paket för att importera de moduler som du behöver. Den här artikeln beskriver hur du hanterar och använder python-paket i Azure Automation.
 
 ## <a name="import-packages"></a>Importera paket
 
-I ditt Automation-konto väljer du **Python 2-paket** under **Delade resurser**. Klicka på **+ Lägg till ett Python 2-paket**.
+I ditt Automation-konto väljer du **python 2-paket** under **delade resurser**. Klicka på **+ Lägg till ett python 2-paket**.
 
-![Lägg till Python-paket](media/python-packages/add-python-package.png)
+![Lägg till python-paket](media/python-packages/add-python-package.png)
 
-På sidan Lägg till Python 2-paket väljer du ett lokalt paket att ladda upp. Paketet kan vara en **WHL-** eller **.tar.gz-fil.** När paketet är markerat klickar du på **OK** för att ladda upp det.
+På sidan Lägg till python 2-paket väljer du ett lokalt paket att ladda upp. Paketet kan vara en **. WHL** -eller **. tjär. gz** -fil. När paketet är markerat klickar du på **OK** för att ladda upp det.
 
-![Lägg till Python-paket](media/python-packages/upload-package.png)
+![Lägg till python-paket](media/python-packages/upload-package.png)
 
-När ett paket har importerats visas det på sidan Python 2-paket i ditt Automation-konto. Om du behöver ta bort ett paket markerar du paketet och klickar på **Ta bort**.
+När ett paket har importer ATS visas det på sidan python 2-paket i ditt Automation-konto. Om du behöver ta bort ett paket markerar du paketet och klickar på **ta bort**.
 
-![Paketlista](media/python-packages/package-list.png)
+![Paket lista](media/python-packages/package-list.png)
 
 ## <a name="import-packages-with-dependencies"></a>Importera paket med beroenden
 
-Azure automation löser inte beroenden för python-paket under importprocessen. Det finns två sätt att importera ett paket med alla dess beroenden. Endast ett av följande steg behöver användas för att importera paketen till ditt Automation-konto.
+Azure Automation löser inte beroenden för python-paket under import processen. Det finns två sätt att importera ett paket med alla dess beroenden. Endast ett av följande steg måste användas för att importera paketen till ditt Automation-konto.
 
-### <a name="manually-download"></a>Ladda ner manuellt
+### <a name="manually-download"></a>Hämta manuellt
 
-På en Windows 64-bitarsdator med [python2.7](https://www.python.org/downloads/release/latest/python2) och [pip](https://pip.pypa.io/en/stable/) installerat kör du följande kommando för att hämta ett paket och alla dess beroenden:
+På en Windows 64-dator med [python 2.7](https://www.python.org/downloads/release/latest/python2) och [pip](https://pip.pypa.io/en/stable/) installerat kör du följande kommando för att ladda ned ett paket och alla dess beroenden:
 
 ```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 
-När paketen har hämtats kan du importera dem till ditt automationskonto.
+När paketen har hämtats kan du importera dem till ditt Automation-konto.
 
 ### <a name="runbook"></a>Runbook
 
-Importera python runbook [Import Python 2-paket från pypi till Azure Automation-konto](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) från galleriet till ditt Automation-konto. Kontrollera att körinställningarna är inställda på **Azure** och starta runbook med parametrarna. Runbook kräver ett Run As-konto för att Automation-kontot ska fungera. För varje parameter se till att du startar den med växeln som visas i följande lista och bild:
+ Om du vill hämta en Runbook [importerar du python 2-paket från pypi till Azure Automation konto](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) från galleriet till ditt Automation-konto. Se till att körnings inställningarna är inställda på **Azure** och starta runbooken med parametrarna. Runbook kräver ett Kör som-konto för att Automation-kontot ska fungera. För varje parameter måste du starta den med växeln som visas i följande lista och bild:
 
 * -s \<subscriptionId\>
-* -g \<resourceGroup\>
-* -ett \<automationskonto\>
-* -m \<modulPaket\>
+* – g \<resourceGroup\>
+* – en \<automationAccount\>
+* -m \<modulePackage\>
 
-![Paketlista](media/python-packages/import-python-runbook.png)
+![Paket lista](media/python-packages/import-python-runbook.png)
 
-Med runbooken kan du ange vilket paket som ska hämtas. Till exempel hämtar `Azure` användningen av parametern alla Azure-moduler och alla beroenden (ca 105).
+I Runbook-flödet kan du ange vilket paket som ska laddas ned. Om du `Azure` till exempel använder parametern hämtas alla Azure-moduler och alla beroenden (cirka 105).
 
-När runbooken är klar kan du kontrollera **Python 2-paketen** under **Delade resurser** i ditt Automation-konto för att kontrollera att paketet har importerats korrekt.
+När runbooken har slutförts kan du kontrol lera **python 2-paketen** under **delade resurser** i ditt Automation-konto för att kontrol lera att paketet har importer ATS korrekt.
 
-## <a name="use-a-package-in-a-runbook"></a>Använda ett paket i en runbook
+## <a name="use-a-package-in-a-runbook"></a>Använda ett paket i en Runbook
 
-Med ett paket importerat kan du använda det i en runbook. I följande exempel används [Azure Automation-verktygspaketet](https://github.com/azureautomation/azure_automation_utility). Det här paketet gör det enklare att använda Python med Azure Automation. Om du vill använda paketet följer du instruktionerna i GitHub-databasen och lägger till det i runbooken. Du kan till `from azure_automation_utility import get_automation_runas_credential` exempel använda för att importera funktionen för att hämta kontot Kör som.
+När ett paket har importer ATS kan du använda det i en Runbook. I följande exempel används [paketet Azure Automation-verktyget](https://github.com/azureautomation/azure_automation_utility). Det här paketet gör det enklare att använda python med Azure Automation. Om du vill använda paketet följer du anvisningarna i GitHub-lagringsplatsen och lägger till det i Runbook-flödet. Du kan till exempel använda `from azure_automation_utility import get_automation_runas_credential` för att importera funktionen för att hämta kör som-kontot.
 
 ```python
 import azure.mgmt.resource
@@ -83,10 +83,10 @@ for group in groups:
     print group.name
 ```
 
-## <a name="develop-and-test-runbooks-offline"></a>Utveckla och testa runbooks offline
+## <a name="develop-and-test-runbooks-offline"></a>Utveckla och testa Runbooks offline
 
-Om du vill utveckla och testa dina Python 2-runbooks offline kan du använda [Azure Automation python-modulen för emulerade tillgångar](https://github.com/azureautomation/python_emulated_assets) på GitHub. Med den här modulen kan du referera till delade resurser som autentiseringsuppgifter, variabler, anslutningar och certifikat.
+För att utveckla och testa dina python 2-Runbooks offline kan du använda modulen [Azure Automation python-emulerade resurser](https://github.com/azureautomation/python_emulated_assets) på GitHub. Med den här modulen kan du referera till dina delade resurser, till exempel autentiseringsuppgifter, variabler, anslutningar och certifikat.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med Python 2-runbooks finns i [Min första Python 2-runbook](automation-first-runbook-textual-python2.md).
+För att komma igång med python 2-Runbooks, se [min första python 2-Runbook](automation-first-runbook-textual-python2.md).

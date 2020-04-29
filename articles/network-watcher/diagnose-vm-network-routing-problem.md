@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Diagnostisera ett problem med vm-nätverksroutning – Azure-portal'
+title: 'Självstudie: diagnostisera ett problem med Routning av VM-nätverk – Azure Portal'
 titleSuffix: Azure Network Watcher
 description: I den här självstudien får du lära dig hur du diagnostiserar problem med nätverksroutning för virtuella datorer med funktionen för nästa hopp i Azure Network Watcher.
 services: network-watcher
@@ -18,15 +18,15 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76845216"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Självstudie: Diagnostisera problem med nätverksroutning i Azure Portal
 
-När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure för den. Du kan skapa egna vägar som ersätter Azures standardvägar. Ibland kan en egen väg leda till att en virtuell dator inte kan kommunicera med andra resurser. I den här självstudiekursen får du lära du dig att:
+När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure för den. Du kan skapa egna vägar som ersätter Azures standardvägar. Ibland kan en egen väg leda till att en virtuell dator inte kan kommunicera med andra resurser. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator
@@ -46,16 +46,16 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller **Ubuntu Server 17.10 VM**.
-3. Ange, eller välj, följande information, acceptera standardinställningarna för de återstående inställningarna och välj sedan **OK:**
+3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
     |Inställning|Värde|
     |---|---|
     |Namn|myVm|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -89,7 +89,7 @@ Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna väga
     | Virtuell dator         | Välj myVm                                            |
     | Nätverksgränssnitt       | myvm – namnet på ditt nätverksgränssnitt kan vara ett annat.   |
     | Källans IP-adress       | 10.0.0.4                                               |
-    | Mål-IP-adress  | 13.107.21.200 - En av adresserna för <www.bing.com>. |
+    | Mål-IP-adress  | 13.107.21.200 – en av adresserna för <www.bing.com>. |
 
     ![Nästa hopp](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa behållaravbildningar på Service Fabric i Azure
+title: Skapa behållar avbildningar på Service Fabric i Azure
 description: I den här självstudiekursen lär du dig hur du skapar containeravbildningar för ett Service Fabric-program med flera containrar.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78252788"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
@@ -78,7 +78,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 
-Kör först kommandot **az login** för att logga in på ditt Azure-konto.
+Kör först kommandot **AZ login** för att logga in på ditt Azure-konto.
 
 ```azurecli
 az login
@@ -98,7 +98,7 @@ Skapa en resursgrupp med kommandot **az group create**. I det här exemplet skap
 az group create --name <myResourceGroup> --location westus
 ```
 
-Skapa ett Azure Container-register med kommandot **az acr create.** Ersätt \<acrName&gt; med namnet på containerregistret du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unikt.
+Skapa ett Azure Container Registry med kommandot **AZ ACR Create** . Ersätt \<acrName&gt; med namnet på containerregistret du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unikt.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
@@ -106,9 +106,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 I resten av den här självstudien använder vi acrName som platshållare för det containerregisternamn du väljer. Skriv ned det här värdet.
 
-## <a name="sign-in-to-your-container-registry"></a>Logga in i behållarregistret
+## <a name="sign-in-to-your-container-registry"></a>Logga in på ditt behållar register
 
-Logga in på ACR-instansen innan du trycker bilder till den. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
+Logga in på din ACR-instans innan du skickar avbildningar till den. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 
 ```azurecli
 az acr login --name <acrName>

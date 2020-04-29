@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75438903"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Guiden Data Factory-kopia
@@ -24,9 +24,9 @@ ms.locfileid: "75438903"
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [Powershell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Azure Resource Manager mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [REST-API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
@@ -55,7 +55,7 @@ I det här steget använder du Azure Portal för att skapa en Azure-datafabrik m
        Namnet på Azure Data Factory måste vara globalt unikt. Om följande fel returneras: `Data factory name “ADFTutorialDataFactory” is not available` ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactoryÅÅÅÅMMDD) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
       
        ![Datafabriksnamnet är inte tillgängligt](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
-   2. Välj din **Azure-prenumeration**.
+   2. Välj din Azure- **prenumeration**.
    3. För resursgruppen utför du något av följande steg: 
       
       - Välj **Använd befintlig** och välj en befintlig resursgrupp.
@@ -67,7 +67,7 @@ I det här steget använder du Azure Portal för att skapa en Azure-datafabrik m
    6. Klicka på **Skapa**.
       
        ![Bladet Ny datafabrik](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
-3. När skapandet är klart visas **bladet Data Factory** som visas i följande bild:
+3. När den har skapats visas bladet **Data Factory** som du ser i följande bild:
    
    ![Datafabrikens startsida](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -91,7 +91,7 @@ I det här steget använder du Azure Portal för att skapa en Azure-datafabrik m
    
    1. Ange **AzureStorageLinkedService** som **Namn på länkad tjänst**.
    2. Kontrollera att alternativet **Från Azure-prenumerationer** har valts för **Metod för kontoval**.
-   3. Välj din **Azure-prenumeration**.  
+   3. Välj din Azure- **prenumeration**.  
    4. Välj ett **Azure-lagringskonto** i listan med Azure-lagringskonton som är tillgängliga för den prenumeration som du har valt. Du kan också välja att ange inställningar för lagringskontot manuellt genom att välja alternativet **Ange manuellt** för **Val av kontometod**. Klicka sedan på **Nästa**. 
       
       ![Verktyget Kopiera – Ange konto för Azure blobblagring](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
@@ -114,7 +114,7 @@ I det här steget använder du Azure Portal för att skapa en Azure-datafabrik m
    
    1. Ange **AzureSqlLinkedService** i fältet **Anslutningsnamn**.
    2. Kontrollera att alternativet **Från Azure-prenumerationer** har valts för **Metod för server/databasval**.
-   3. Välj din **Azure-prenumeration**.  
+   3. Välj din Azure- **prenumeration**.  
    4. Välj **Servernamn** och **Databas**.
    5. Ange **Användarnamn** och **Lösenord**.
    6. Klicka på **Nästa**.  

@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b87179c79489bf781619b70b19ca8982f2e38dff
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663138"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509490"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Inventerings-och data insamlings information för övervakning av lösningar i Azure
-[Övervaknings lösningar](solutions.md) utnyttjar tjänster i Azure för att ge ytterligare insyn i driften av ett visst program eller en viss tjänst. Övervaknings lösningar samlar normalt in loggdata och tillhandahåller frågor och vyer för att analysera insamlade data. Du kan lägga till övervaknings lösningar som Azure Monitor för alla program och tjänster som du använder. De är vanligt vis tillgängliga utan kostnad utan att samla in data som kan anropa användnings kostnader.
+[Övervaknings lösningar](solutions.md) använder tjänster i Azure för att få kunskap om driften av ett visst program eller en viss tjänst. Övervaknings lösningar samlar normalt in loggdata och tillhandahåller frågor och vyer för att analysera insamlade data. Du kan lägga till övervaknings lösningar som Azure Monitor för alla program och tjänster som du använder. De är vanligt vis tillgängliga utan kostnad utan att samla in data som kan anropa användnings kostnader.
 
-Den här artikeln innehåller en lista över [montioring-lösningar](solutions.md) som är tillgängliga från Microsoft med länkar till detaljerad dokumentation.  Den innehåller också information om deras metod och frekvens för data insamling till Azure Monitor.  Du kan använda informationen i den här artikeln för att identifiera de olika tillgängliga lösningarna och förstå data flödet och anslutnings kraven för olika övervaknings lösningar.
+Den här artikeln innehåller en lista över [övervaknings lösningar](solutions.md) som är tillgängliga från Microsoft med länkar till detaljerad dokumentation.  Den innehåller också information om deras metod och frekvens för data insamling till Azure Monitor.  Du kan använda informationen i den här artikeln för att identifiera de olika tillgängliga lösningarna och förstå data flödet och anslutnings kraven för olika övervaknings lösningar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,11 +26,11 @@ I följande tabell visas de [övervaknings lösningar](solutions.md) i Azure som
 
 Förklaringarna av kolumnerna är följande:
 
-- **Microsoft Monitoring Agent** – agent som används i Windows och Linux för att köra hanterings paket från SCOM-och Monitoring-lösningar från Azure. I den här konfigurationen är agenten direkt ansluten till Azure Monitor utan att vara ansluten till en Operations Manager hanterings grupp. 
+- **Microsoft Monitoring Agent** – agent som används i Windows och Linux för att köra hanterings paket från Microsoft System Center – Operations Manager (om) och övervaknings lösningar från Azure. I den här konfigurationen är agenten direkt ansluten till Azure Monitor utan att vara ansluten till en Operations Manager hanterings grupp. 
 - **Operations Manager** -identisk agent som Microsoft Monitoring Agent. I den här konfigurationen är den [ansluten till en Operations Manager hanterings grupp](../platform/om-agents.md) som är ansluten till Azure Monitor. 
--  **Azure Storage** lösning samlar in data från ett Azure Storage-konto. 
+-  **Azure Storage** -lösning samlar in data från ett Azure Storage-konto. 
 - **Operations Manager krävs.** – En ansluten Operations Manager hanterings grupp krävs för data insamling av övervaknings lösningen. 
-- **Operations Manager agent data som skickas via hanterings grupp** – om agenten är [ansluten till en SCOM-hanteringsserver](../platform/om-agents.md)skickas data till Azure Monitor från hanterings servern. I det här fallet behöver agenten inte ansluta direkt till Azure Monitor. Om den här rutan inte är markerad skickas data från agenten direkt till Azure Monitor även om agenten är ansluten till en SCOM-hanterings grupp. Den måste kunna kommunicera med Azure Monitor via [Log Analytics Gateway](../platform/gateway.md).
+- **Operations Manager agent data som skickas via hanterings grupp** – om agenten är [ansluten till en om-hanterings grupp](../platform/om-agents.md)skickas data till Azure Monitor från hanterings servern. I det här fallet behöver agenten inte ansluta direkt till Azure Monitor. Om den här rutan inte är markerad skickas data från agenten direkt till Azure Monitor även om agenten är ansluten till en OM-hanterings grupp. Den måste kunna kommunicera med Azure Monitor via [Log Analytics Gateway](../platform/gateway.md).
 - **Samlings frekvens** – anger den frekvens som data samlas in av övervaknings lösningen. 
 
 
@@ -53,8 +53,8 @@ Förklaringarna av kolumnerna är följande:
 | [Azure SQL-analys (för hands version)](azure-sql.md) | Windows | | | | | | 1 minut |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | vid meddelande |
 | [Kapacitet och prestanda (för hands version)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |vid ankomsten |
-| [Spårning av ändringar](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[sig](../../automation/change-tracking.md#change-tracking-data-collection-details) |
-| [Spårning av ändringar](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[sig](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [Spårning av ändringar](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[sig](../../automation/change-tracking.md#change-tracking-and-inventory-data-collection) |
+| [Spårning av ändringar](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[sig](../../automation/change-tracking.md#change-tracking-and-inventory-data-collection) |
 | [Containrar](containers.md) | Windows och Linux | &#8226; | &#8226; |  |  |  | 3 minuter |
 | [Key Vault-analys](azure-key-vault.md) |Windows | | | | | |vid meddelande |
 | [Utvärdering av skadlig kod](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |per timme |

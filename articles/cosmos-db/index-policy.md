@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar och ändrar standard indexerings princ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80292072"
+ms.locfileid: "82232078"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -97,6 +97,26 @@ Om detta inte anges kommer dessa egenskaper att ha följande standardvärden:
 
 Se [det här avsnittet](how-to-manage-indexing-policy.md#indexing-policy-examples) för indexerings princip exempel för att inkludera och exkludera sökvägar.
 
+## <a name="includeexclude-precedence"></a>Inkludera/exkludera prioritet
+
+Om dina inkluderade sökvägar och undantagna sökvägar har en konflikt, prioriteras den mer exakta sökvägen.
+
+Här är ett exempel:
+
+**Sökväg som ingår**:`/food/ingredients/nutrition/*`
+
+**Undantagen sökväg**:`/food/ingredients/*`
+
+I det här fallet har den medföljande sökvägen företräde framför den undantagna sökvägen eftersom den är mer exakt. Baserat på dessa sökvägar utesluts alla data `food/ingredients` i sökvägen eller kapslas in i indexet. Undantaget skulle vara data i den inkluderade sökvägen: `/food/ingredients/nutrition/*`, som skulle indexeras.
+
+Här följer några regler för inkluderade och undantagna Sök vägs prioriteter i Azure Cosmos DB:
+
+- Djupare sökvägar är mer exakta än smalare sökvägar. till exempel: `/a/b/?` är mer exakt än `/a/?`.
+
+- `/?` Är mer exakt än `/*`. Till exempel `/a/?` är mer exakt än `/a/*` så `/a/?` prioriteras.
+
+- Sökvägen `/*` måste antingen vara en inkluderad sökväg eller en undantagen sökväg.
+
 ## <a name="spatial-indexes"></a>Rums index
 
 När du definierar en spatial sökväg i indexerings principen bör du definiera vilket index ```type``` som ska användas för den sökvägen. Möjliga typer för rums index är:
@@ -114,6 +134,8 @@ Azure Cosmos DB kommer som standard inte att skapa några rums index. Om du vill
 ## <a name="composite-indexes"></a>Sammansatta index
 
 Frågor som har en `ORDER BY` sats med två eller flera egenskaper kräver ett sammansatt index. Du kan också definiera ett sammansatt index för att förbättra prestanda för många likhets-och intervall frågor. Som standard definieras inga sammansatta index så att du kan [lägga till sammansatta index](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) vid behov.
+
+Till skillnad från inkluderade eller exkluderade sökvägar kan du inte skapa en `/*` sökväg med jokertecken. Varje sammansatt sökväg har en implicit `/?` i slutet av den sökväg som du inte behöver ange. Sammansatta sökvägar leder till ett skalärt värde och det här är det enda värdet som ingår i det sammansatta indexet.
 
 När du definierar ett sammansatt index anger du:
 

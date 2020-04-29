@@ -1,6 +1,6 @@
 ---
-title: Skapa ett Internet Analyzer-test med Portal | Microsoft-dokument
-description: I den här artikeln kan du läsa om hur du skapar ditt första Internet Analyzer-test.
+title: Skapa ett Internet Analyzer-test med hjälp av portalen | Microsoft Docs
+description: I den här artikeln får du lära dig hur du skapar ditt första test för Internet analys.
 services: internet-analyzer
 author: megan-beatty
 ms.service: internet-analyzer
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73501773"
 ---
-# <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Skapa ett Internet Analyzer-test med Portal (Förhandsversion)
+# <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Skapa ett Internet Analyzer-test med hjälp av Portal (för hands version)
 
-Det finns två sätt att skapa en Internet Analyzer-resurs med hjälp av Azure-portalen eller med [CLI](internet-analyzer-cli.md). Det här avsnittet hjälper dig att skapa en ny Azure Internet Analyzer-resurs med hjälp av vår portalupplevelse.
+Det finns två sätt att skapa en Internet Analyzer-resurs – med hjälp av Azure Portal eller med [CLI](internet-analyzer-cli.md). Det här avsnittet hjälper dig att skapa en ny Azure Internet Analyzer-resurs med hjälp av vår portal upplevelse.
 
 > [!IMPORTANT]
 > Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -24,55 +24,55 @@ Det finns två sätt att skapa en Internet Analyzer-resurs med hjälp av Azure-p
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den offentliga förhandsversionen är tillgänglig för användning globalt. Datalagring är dock begränsad till *US West 2* under förhandsversionen.
+Den offentliga för hands versionen är tillgänglig för användning globalt; data lagring är dock begränsad till *västra USA 2* under för hands versionen.
 
 ## <a name="basics"></a>Grundläggande inställningar
 
-1. Få åtkomst till förhandsversionen av Internet [Analyzer](internet-analyzer-faq.md)genom att följa **instruktionerna för hur deltar jag i förhandsversionen?**
-2. På startsidan i [Azure-portalen](https://preview.portal.azure.com)klickar du på **+ Skapa en resurs**. Internet Analyzer är för närvarande endast tillgängligt från förhandsversionen av Azure-portalen.
-3. Sök efter "Internet Analyzer" i fältet Sök på *Marketplace* på sidan **Ny.**
-4. Klicka på **Internet Analyzer (förhandsgranskning)**. Kontrollera att utgivaren är *Microsoft* och att kategorin är *Nätverk.*
-5. På sidan **Internet Analyzer (förhandsgranskning)** klickar du på **Skapa** för att öppna sidan **Skapa en Internet Analyzer.**
-6. Ange följande konfigurationsinställningar för Internet Analyzer-resursen:
+1. Få till gång till Internet Analyzer Preview genom att följa **Hur gör jag för att delta i för hands versionen?** instruktioner från [vanliga frågor och svar om Azure Internet Analyzer](internet-analyzer-faq.md).
+2. Klicka på **+ skapa en resurs**från start sidan i [Azure Portal](https://preview.portal.azure.com). Internet Analyzer är för närvarande endast tillgängligt från för hands versionen av Azure Portal.
+3. På sidan **ny** söker du efter "Internet Analyzer" i fältet *Sök på Marketplace* .
+4. Klicka på **Internet Analyzer (för hands version)**. Kontrol lera att utgivaren är *Microsoft* och att kategorin är *nätverk*.
+5. På sidan för **Internet Analyzer (förhands granskning)** klickar du på **skapa** för att öppna sidan **skapa en Internet analys** .
+6. Ange följande konfigurations inställningar för din Internet Analyzer-resurs:
 
-    * **Prenumeration:** Azure-prenumerationen som värd för den nya Internet Analyzer-resursen. ***Använd samma prenumerations-ID som används för att begära förhandsversion.***
-    * **Resursgrupp:** Den Azure-resursgrupp som den nya Internet Analyzer-resursen skapas i. Om du inte har en befintlig resursgrupp kan du skapa en ny.
-    * **Namn:** Namnet på den nya resursprofilen För Internet Analyzer.
-    * **Region:** Den offentliga Azure-regionen som resursen kommer att skapas i. Under förhandsversionen är endast *US West 2* tillgängligt.
+    * **Prenumeration:** Azure-prenumerationen som är värd för den nya Internet Analyzer-resursen. ***Använd samma prenumerations-ID som används för att begära för hands versions åtkomst.***
+    * **Resurs grupp:** Den Azure-resurs grupp som den nya Internet Analyzer-resursen kommer att skapas i. Om du inte har en befintlig resurs grupp kan du skapa en ny.
+    * **Namn:** Namnet på den nya resurs profilen för Internet Analyzer.
+    * **Region:** Den offentliga Azure-region som resursen ska skapas i. Under för hands versionen är endast *USA, väst 2* , tillgängligt.
 
-7. När du har angett dina profilinställningar klickar du på **Granska + skapa**.
+7. När du är klar med att ange profil inställningarna klickar du på **Granska + skapa**.
 
 ## <a name="configuration"></a>Konfiguration
 
-Att slutföra de grundläggande stegen är en förutsättning för att konfigurera ett test och bädda in JavaScript-klienten. När du har skapat en profil går du till **Inställningar > konfiguration** för att konfigurera ditt första test.
+Du måste slutföra de grundläggande stegen för att konfigurera ett test och bädda in JavaScript-klienten. När du har skapat en profil går du till **inställningar > konfiguration** för att konfigurera ditt första test.
 
-1. Ge ditt test ett namn i rutan **Testnamn.**
-2. Lägg till en beskrivning för testet i fältet **Beskrivning.**
-3. Klicka på **Konfigurera slutpunkt** - en flik visas från höger sida. Välj den typ av slutpunkt som du vill konfigurera- en enda Azure-region, flera Azure-regioner eller en anpassad slutpunkt.
+1. Ge testet ett namn i rutan **testa namn** .
+2. Lägg till en beskrivning av testet i fältet **Beskrivning** .
+3. Klicka på **Konfigurera slut punkt** – en flik kommer att visas från den högra sidan. Välj den typ av slut punkt som du vill konfigurera – en enskild Azure-region, flera Azure-regioner eller en anpassad slut punkt.
 
     >
-    ***Förkonfigurerade slutpunkter: kombinationer av enstaka och flera Azure-regioner***
+    ***Förkonfigurerade slut punkter: enkla och flera kombinationer av Azure-regioner***
     * Välj en region eller uppsättning regioner från en [förkonfigurerad lista över Azure-slutpunkter](internet-analyzer-faq.md).
-    * Välj sedan den typ av program- eller innehållsleveransarkitektur som du vill utvärdera.
-        * Single Azure-region: Site acceleration ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), statisk innehållscache ( Azure[CDN för Microsoft](https://azure.microsoft.com/services/cdn/)), eller ingen.
-        * Flera Azure-regioner: Platsacceleration ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), DNS-styrning ( Azure Traffic[Manager](https://azure.microsoft.com/services/traffic-manager/))  
+    * Välj sedan den typ av program eller arkitektur för innehålls leverans som du vill utvärdera.
+        * Enskild Azure-region: webbplats acceleration ([Azure-frontend](https://azure.microsoft.com/services/frontdoor/)), statisk cachelagring av innehåll ([Azure CDN för Microsoft](https://azure.microsoft.com/services/cdn/)) eller ingen.
+        * Flera Azure-regioner: webbplats acceleration ([Azure-front dörr](https://azure.microsoft.com/services/frontdoor/)), DNS-styrning ([Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/))  
 
-    ***Anpassade slutpunkter***
-    * Följ instruktionerna på sidan [Skapa anpassad slutpunkt.](internet-analyzer-custom-endpoint.md)
-    * Klistra in HTTPS-URL-platsen för enpixelbilden i portalen.
+    ***Anpassade slut punkter***
+    * Följ instruktionerna på sidan [Skapa anpassad slut punkt](internet-analyzer-custom-endpoint.md) .
+    * Klistra in HTTPS URL-platsen för bilden med en bild punkt i portalen.
     >
 
-4. Klicka på **Lägg till** om du vill lägga till slutpunkten i testet.
-5. Upprepa steg 1-4 för att konfigurera din andra slutpunkt. Slutpunkt B mäts alltid i förhållande till slutpunkt A - när du konfigurerar slutpunkter bör du tänka på vilken slutpunkt som ska vara din testkontroll.
-6. Klicka på knappen **Spara** för att spara testet. När du har sparat ett test kan du inte längre redigera slutpunkterna för ett visst test.
-7. Markera de tester som du vill starta och klicka på **Starta test**. Detta kommer att ändra ***tillståndet*** för dina test (er) till ***Kör***. Du kan starta tester när som helst, men JavaScript-klienten måste bäddas in för att testet ska kunna börja samla in mätningar.
-8. Lägg till fler tester när som helst. Observera att den unika JavaScript-klienten inte genereras förrän ett test har skapats.
+4. Klicka på **Lägg** till för att lägga till slut punkten i testet.
+5. Upprepa steg 1-4 för att konfigurera din andra slut punkt. Slut punkten B mäts alltid i förhållande till slut punkten A – när du konfigurerar slut punkter bör du fundera över vilken slut punkt som ska vara din test kontroll.
+6. Spara testet genom att klicka på knappen **Spara** . När du har sparat ett test kan du inte längre redigera slut punkterna för ett visst test.
+7. Välj de test (er) som du vill starta och klicka på **Starta test**. Detta ändrar ***statusen*** för dina tester till att ***köra***. Du kan börja testa när som helst, men JavaScript-klienten måste vara inbäddad för att testet ska börja samla in mått.
+8. Lägg till fler tester när som helst. Observera att den unika JavaScript-klienten inte skapas förrän ett test har skapats.
 
 ## <a name="embed-client"></a>Bädda in klient
 
-För att kunna starta ett test måste JavaScript-klienten bäddas in i webbprogrammet. När du har konfigurerat minst ett test klickar du på **Granska + skapa**, går till Inställningar > **konfiguration**och kopierar JavaScript-klienten. Specifika instruktioner finns på sidan [Embed Internet Analyzer Client.](internet-analyzer-embed-client.md)  
+För att kunna påbörja ett test måste JavaScript-klienten bäddas in i ditt webb program. När du har konfigurerat minst ett test klickar du på **Granska + skapa**, går till **Inställningar > konfiguration**och kopierar JavaScript-klienten. Du hittar mer information på sidan [bädda in Internet Analyzer-klienten](internet-analyzer-embed-client.md) .  
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [vanliga frågor om Internet Analyzer](internet-analyzer-faq.md)
-* Läs mer om hur du bäddar in [Internet Analyzer-klienten](internet-analyzer-embed-client.md) och skapar en [anpassad slutpunkt](internet-analyzer-custom-endpoint.md).
+* Läs [vanliga frågor och svar om Internet Analyzer](internet-analyzer-faq.md)
+* Lär dig mer om att bädda in [Internet Analyzer-klienten](internet-analyzer-embed-client.md) och skapa en [anpassad slut punkt](internet-analyzer-custom-endpoint.md).

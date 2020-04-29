@@ -1,7 +1,7 @@
 ---
-title: C# självstudiekurs för att skapa din första app
+title: C#-självstudie för att skapa din första app
 titleSuffix: Azure Cognitive Search
-description: Läs om hur du skapar din första C#-sökapp steg för steg. Självstudien innehåller både en länk till en fungerande app på GitHub och hela processen för att skapa appen från grunden. Lär dig mer om de viktigaste komponenterna i Azure Cognitive Search.
+description: Lär dig hur du skapar ditt första C#-sökprogram steg för steg. I självstudien finns både en länk till en fungerande app på GitHub och den fullständiga processen för att bygga appen från grunden. Lär dig mer om de viktigaste komponenterna i Azure Kognitiv sökning.
 manager: nitinme
 author: tchristiani
 ms.author: terrychr
@@ -9,25 +9,25 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77121582"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C# självstudiekurs: Skapa din första app - Azure Cognitive Search
+# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C#-självstudie: skapa din första app – Azure-Kognitiv sökning
 
-Lär dig hur du skapar ett webbgränssnitt för att fråga och presentera sökresultat från ett index med Hjälp av Azure Cognitive Search. Den här självstudien börjar med ett befintligt, värdbetonat index så att du kan fokusera på att skapa en söksida. Indexet innehåller fiktiva hotelldata. När du har en grundläggande sida kan du förbättra den i efterföljande lektioner för att inkludera personsökning, aspekter och en typ-ahead-upplevelse.
+Lär dig hur du skapar ett webb gränssnitt för att fråga och presentera Sök Resultat från ett index med Azure Kognitiv sökning. Den här självstudien börjar med en befintlig, värdbaserad index så att du kan fokusera på att skapa en Sök sida. Indexet innehåller fiktiva hotell data. När du har en grundläggande sida kan du förbättra den i efterföljande lektioner för att inkludera sid indelning, ansikte och en typ i förväg-upplevelse.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Konfigurera en utvecklingsmiljö
-> * Modellera datastrukturer
-> * Skapa en webbsida
+> * Konfigurera en utvecklings miljö
+> * Modell data strukturer
+> * Skapa en webb sida
 > * Definiera metoder
 > * Testa appen
 
-Du får också lära dig hur enkelt ett söksamtal är. De viktigaste uttalandena i koden som du ska utveckla är inkapslade i följande få rader.
+Du får också lära dig hur enkelt ett Sök samtal är. Nyckel uttrycken i koden som du utvecklar kapslas in på följande rader.
 
 ```cs
 var parameters = new SearchParameters
@@ -39,49 +39,49 @@ var parameters = new SearchParameters
 DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<Hotel>("search text", parameters);
 ```
 
-Det här anropet initierar en sökning av Azure-data och returnerar resultaten.
+Det här anropet initierar en sökning i Azure-data och returnerar resultatet.
 
-![Söka efter "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
+![Söker efter "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
 ## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-[Installera Visual Studio](https://visualstudio.microsoft.com/) som ska användas som IDE.
+[Installera Visual Studio](https://visualstudio.microsoft.com/) för att använda som IDE.
 
-### <a name="install-and-run-the-project-from-github"></a>Installera och köra projektet från GitHub
+### <a name="install-and-run-the-project-from-github"></a>Installera och kör projektet från GitHub
 
-1. Leta reda på exemplet på GitHub: [Skapa den första appen](https://github.com/Azure-Samples/azure-search-dotnet-samples).
-1. Välj **Klona eller ladda ned** och gör din privata lokala kopia av projektet.
-1. Navigera till och öppna lösningen för den grundläggande söksidan med Visual Studio och välj **Start utan felsökning** (eller tryck på F5).
-1. Skriv in några ord (till exempel "wifi", "visa", "bar", "parkering" och undersöka resultaten!
+1. Leta upp exemplet på GitHub: [skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+1. Välj **klona eller ladda ned** och gör din privata lokala kopia av projektet.
+1. Använd Visual Studio, gå till och öppna lösningen för den grundläggande Sök sidan och välj **starta utan fel sökning** (eller tryck på F5).
+1. Skriv några ord (till exempel "WiFi", "View", "bar", "parkering") och granska resultaten.
 
-    ![Söka efter "wifi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
+    ![Söker efter "WiFi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
 
-Förhoppningsvis kommer det här projektet att fungera smidigt och du har Azure-appen igång. Många av de viktigaste komponenterna för mer sofistikerade sökningar ingår i den här appen, så det är en bra idé att gå igenom den och återskapa den steg för steg.
+Förhoppnings vis kommer det här projektet att köras smidigt och du har Azure-appen igång. Många av de viktigaste komponenterna för mer avancerade sökningar ingår i den här appen, så det är en bra idé att gå igenom den och återskapa den steg för steg.
 
-Om du vill skapa det här projektet från grunden och därmed bidra till att förstärka komponenterna i Azure Cognitive Search i ditt sinne går du igenom följande steg.
+Gå igenom följande steg för att skapa projektet från grunden och därmed hjälpa till att förstärka komponenterna i Azure Kognitiv sökning i åtanke.
 
-## <a name="set-up-a-development-environment"></a>Skapa en utvecklingsmiljö
+## <a name="set-up-a-development-environment"></a>Konfigurera en utvecklings miljö
 
-1. I Visual Studio 2017 eller senare väljer du **Nytt/Projekt** och **ASP.NET sedan grundläggande webbprogram**. Ge projektet ett namn som "FirstAzureSearchApp".
+1. I Visual Studio 2017 eller senare väljer du **nytt/projekt** och **ASP.net Core webb program**. Ge projektet ett namn, till exempel "FirstAzureSearchApp".
 
-    ![Skapa ett molnprojekt](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
+    ![Skapa ett moln projekt](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
 
-2. När du har klickat på **OK** för den här projekttypen får du en andra uppsättning alternativ som gäller för det här projektet. Välj **Webbprogram (Modellvy-Controller)**.
+2. När du har klickat på **OK** för den här projekt typen får du en andra uppsättning alternativ som gäller för projektet. Välj **webb program (modell-se-Controller)**.
 
     ![Skapa ett MVC-projekt](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
-3. Välj Sedan **NuGet Package Manager** på **Verktyg-menyn** och hantera **nuget-paket för lösning...**. Det finns ett paket som vi måste installera. Välj fliken **Bläddra** och skriv "Azure Cognitive Search" i sökrutan. Installera **Microsoft.Azure.Search** när det visas i listan (version 9.0.1 eller senare). Du måste klicka igenom några ytterligare dialogrutor för att slutföra installationen.
+3. Gå sedan till **verktyg** -menyn och välj **NuGet Package Manager** och sedan **Hantera NuGet-paket för lösning...**. Det finns ett paket som vi behöver installera. Välj fliken **Bläddra** och skriv sedan "Azure kognitiv sökning" i sökrutan. Installera **Microsoft. Azure. Sök** när det visas i listan (version 9.0.1 eller senare). Du kommer att behöva klicka igenom några ytterligare dialog rutor för att slutföra installationen.
 
     ![Använda NuGet för att lägga till Azure-bibliotek](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
-### <a name="initialize-azure-cognitive-search"></a>Initiera Azure Cognitive Search
+### <a name="initialize-azure-cognitive-search"></a>Initiera Azure-Kognitiv sökning
 
-För detta exempel använder vi offentligt tillgängliga hotelldata. Dessa data är en godtycklig samling av 50 fiktiva hotellnamn och beskrivningar, som skapats enbart i syfte att tillhandahålla demodata. För att komma åt dessa data måste du ange ett namn och en nyckel för dem.
+För det här exemplet använder vi offentligt tillgängliga hotell data. Dessa data är en godtycklig samling med 50 fiktiva hotell namn och beskrivningar, som skapas enbart för att tillhandahålla demo data. Du måste ange ett namn och en nyckel för att kunna komma åt dessa data.
 
-1. Öppna filen appsettings.json i det nya projektet och ersätt standardraderna med följande namn och nyckel. API-nyckeln som visas här är inte ett exempel på en nyckel, det är _precis_ nyckeln du behöver för att komma åt hotelldata. Filen appsettings.json ska nu se ut så här.
+1. Öppna filen appSettings. json i det nya projektet och ersätt standard raderna med följande namn och nyckel. API-nyckeln som visas här är inte ett exempel på en nyckel, det är _exakt_ den nyckel du behöver för att komma åt hotell data. Filen appSettings. JSON bör nu se ut så här.
 
     ```cs
     {
@@ -90,17 +90,17 @@ För detta exempel använder vi offentligt tillgängliga hotelldata. Dessa data 
     }
     ```
 
-2. Vi är inte klara med den här filen ännu, välj egenskaper för den här filen och ändra inställningen **Kopiera till utdatakatalog** till **Kopiera om nyare**.
+2. Vi är inte klar med den här filen ännu, Välj egenskaperna för den här filen och ändra inställningen **Kopiera till utdata-katalog** för att **Kopiera om nyare**.
 
-    ![Kopiera appinställningarna till utdata](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
+    ![Kopiera appens inställningar till utdata](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
 
-## <a name="model-data-structures"></a>Modellera datastrukturer
+## <a name="model-data-structures"></a>Modell data strukturer
 
-Modeller (C#-klasser) används för att kommunicera data mellan klienten (vyn), servern (styrenheten) och även Azure-molnet med MVC-arkitekturen (modell, vy, controller). Vanligtvis återspeglar dessa modeller strukturen för de data som används. Dessutom behöver vi en modell för att hantera visa / controller kommunikation.
+Modeller (C#-klasser) används för att kommunicera data mellan klienten (vyn), servern (kontrollanten) och Azure-molnet med MVC-arkitekturen (modell, View, Controller). Dessa modeller visar vanligt vis strukturen för de data som ska nås. Dessutom behöver vi en modell för att hantera kommunikationen mellan vyer och kontrollanter.
 
-1. Öppna mappen **Modeller** i projektet med Solution Explorer, så visas en standardmodell där: **ErrorViewModel.cs**.
+1. Öppna mappen **modeller** i projektet med Solution Explorer, så visas en standard modell i: **ErrorViewModel.cs**.
 
-2. Högerklicka på mappen **Modeller** och välj **Lägg till** sedan **nytt objekt**. Välj sedan **ASP.NET Core** i dialogrutan som visas och sedan det första alternativet **Klass**. Byt namn på CS-filen till Hotel.cs och klicka på **Lägg till**. Ersätt allt innehåll i Hotel.cs med följande kod. Lägg märke till **adress** och **rum** medlemmar i klassen, dessa fält är klasser själva så vi kommer att behöva modeller för dem också.
+2. Högerklicka på mappen **modeller** och välj **Lägg till** **nya objekt**. Välj **ASP.net Core** sedan den första alternativ **klassen**i dialog rutan som visas. Byt namn på. cs-filen till Hotel.cs och klicka på **Lägg till**. Ersätt allt innehåll i Hotel.cs med följande kod. Lägg märke till klassens **adress** och **rums** medlemmar, dessa fält är klasser själva så att vi behöver modeller för dem.
 
     ```cs
     using System;
@@ -154,7 +154,7 @@ Modeller (C#-klasser) används för att kommunicera data mellan klienten (vyn), 
     }
     ```
 
-3. Följ samma process för att skapa en modell för klassen **Address,** förutom att namnge filen Address.cs. Ersätt innehållet med följande.
+3. Följ samma process för att skapa en modell för **adress** klassen, förutom att namnge filen address.cs. Ersätt innehållet med följande.
 
     ```cs
     using Microsoft.Azure.Search;
@@ -181,7 +181,7 @@ Modeller (C#-klasser) används för att kommunicera data mellan klienten (vyn), 
     }
     ```
 
-4. Och återigen, följ samma process för att skapa **klassen Room** och namnge filen Room.cs. Återigen, ersätta innehållet med följande.
+4. Och återigen följer du samma process för att skapa **rums** klassen och namnger filen Room.cs. Ersätt innehållet igen med följande.
 
     ```cs
     using Microsoft.Azure.Search;
@@ -224,7 +224,7 @@ Modeller (C#-klasser) används för att kommunicera data mellan klienten (vyn), 
     }
     ```
 
-5. Uppsättningen **av klasser för hotell,** **adress**och **rum** är vad som kallas i Azure som [_komplexa typer_](search-howto-complex-data-types.md), en viktig funktion i Azure Cognitive Search. Komplexa typer kan vara många nivåer djupt av klasser och underklasser, och göra det möjligt för mycket mer komplexa datastrukturer att representeras än att använda _enkla typer_ (en klass som bara innehåller primitiva medlemmar). Vi behöver en modell till, så gå igenom processen att skapa en ny modellklass igen, men den här gången anropar klassen SearchData.cs och ersätter standardkoden med följande.
+5. Uppsättningen **hotell**-, **adress**-och **rums** klasser är vad som är känt i Azure som [_komplexa typer_](search-howto-complex-data-types.md), en viktig funktion i Azure kognitiv sökning. Komplexa typer kan vara många nivåer djup i klasser och underklasser och gör det möjligt att visa mycket mer komplexa data strukturer än att använda _enkla typer_ (en klass som bara innehåller primitiva medlemmar). Vi behöver en mer modell, så gå igenom processen för att skapa en ny modell klass igen, men den här gången anropar klassen SearchData.cs och ersätter standard koden med följande.
 
     ```cs
     using Microsoft.Azure.Search.Models;
@@ -242,25 +242,25 @@ Modeller (C#-klasser) används för att kommunicera data mellan klienten (vyn), 
     }
     ```
 
-    Den här klassen innehåller användarens indata (**searchText**) och sökningens utdata **(resultList**). Typen av utdata är kritisk, **DocumentSearchResult&lt;&gt;Hotel**, eftersom denna typ exakt matchar resultaten från sökningen, och vi måste skicka denna hänvisning till vyn.
+    Den här klassen innehåller användarens indata (**searchText**) och sökningens utdata (**resultList**). Typen av utdata är kritisk, **DocumentSearchResult&lt;hotellet&gt;**, eftersom den här typen exakt matchar resultatet från sökningen och vi måste skicka den här referensen till vyn.
 
 
 
-## <a name="create-a-web-page"></a>Skapa en webbsida
+## <a name="create-a-web-page"></a>Skapa en webb sida
 
-Projektet som du skapade skapar som standard ett antal klientvyer. De exakta vyerna beror på vilken version av Core .NET du använder (vi använder 2.1 i det här exemplet). De finns alla i mappen **Vyer** i projektet. Du behöver bara ändra filen Index.cshtml (i mappen **Vyer/Startsida).**
+Det projekt som du skapade kommer som standard att skapa ett antal klient visningar. De exakta vyerna beror på vilken version av Core .NET du använder (vi använder 2,1 i det här exemplet). De finns i mappen **vyer** i projektet. Du behöver bara ändra filen index. cshtml (i mappen **vyer/hem** ).
 
-Ta bort innehållet i Index.cshtml i sin helhet och återskapa filen i följande steg.
+Ta bort innehållet i index. cshtml i sin helhet och återskapa filen i följande steg.
 
-1. Vi använder två små bilder i vyn. Du kan använda dina egna eller kopiera över bilderna från GitHub-projektet: azure-logo.png och search.png. Dessa två bilder bör placeras i **mappen wwwroot/images.**
+1. Vi använder två små bilder i vyn. Du kan använda din egen eller kopiera över bilderna från GitHub-projektet: Azure-logo. png och search. png. De här två avbildningarna ska placeras i mappen **wwwroot/images** .
 
-2. Den första raden i Index.cshtml bör referera till den modell vi kommer att använda för att kommunicera data mellan klienten (vyn) och servern (styrenheten), som är **SearchData-modellen** vi skapade. Lägg till den här raden i filen Index.cshtml.
+2. Den första raden i index. cshtml ska referera till modellen som vi ska använda för att kommunicera data mellan klienten (vyn) och servern (kontrollanten), som är den **SearchData** -modell som vi skapade. Lägg till den här raden i filen index. cshtml.
 
     ```cs
     @model FirstAzureSearchApp.Models.SearchData
     ```
 
-3. Det är standard praxis att ange en rubrik för vyn, så nästa rader bör vara:
+3. Det är standard praxis att ange en rubrik för vyn, så att följande rader ska vara:
 
     ```cs
     @{
@@ -268,7 +268,7 @@ Ta bort innehållet i Index.cshtml i sin helhet och återskapa filen i följande
     }
     ```
 
-4. Efter rubriken anger du en referens till en HTML-formatmall, som vi kommer att skapa inom kort.
+4. Efter rubriken anger du en referens till en HTML-formatmall som vi kommer att skapa snart.
 
     ```cs
     <head>
@@ -276,7 +276,7 @@ Ta bort innehållet i Index.cshtml i sin helhet och återskapa filen i följande
     </head>
     ```
 
-5. Nu till köttet av utsikten. En viktig sak att komma ihåg är att vyn måste hantera två situationer. För det första måste den hantera visningen när appen först startas och användaren har ännu inte angett någon söktext. För det andra måste den hantera visning av resultat, förutom söktextrutan, för upprepad användning av användaren. För att hantera dessa två situationer måste vi kontrollera om modellen som anges i vyn är null eller inte. En null-modell indikerar att vi befinner oss i den första av de två situationerna (den första körningen av appen). Lägg till följande i filen Index.cshtml och läs igenom kommentarerna.
+5. Nu till köttet i vyn. En viktig sak att komma ihåg är att vyn måste hantera två situationer. För det första måste den hantera visningen när appen startas första gången, och användaren har ännu inte angett någon Sök text. För det andra måste den hantera visningen av resultat, förutom sökrutan för att användaren ska kunna använda den upprepade gånger. För att hantera dessa två situationer måste vi kontrol lera om modellen som har angetts till vyn är null eller inte. En null-modell indikerar att vi är i den första av de två situationerna (den första körningen av appen). Lägg till följande i filen index. cshtml och Läs igenom kommentarerna.
 
     ```cs
     <body>
@@ -310,7 +310,7 @@ Ta bort innehållet i Index.cshtml i sin helhet och återskapa filen i följande
     </body>
     ```
 
-6. Slutligen lägger vi till formatmallen. I Visual Studio väljer du **Ny/Arkiv-formatmall** på **Arkiv-menyn** (med **Allmänt** markerat). **Style Sheet** Ersätt standardkoden med följande. Vi kommer inte att gå in i den här filen mer i detalj, stilar är standard HTML.
+6. Slutligen lägger vi till format mal len. I Visual Studio väljer du **ny/fil** på **Arkiv** -menyn och sedan **format blad** (med **Allmänt** markerat). Ersätt standard koden med följande. Vi kommer inte att gå till den här filen i mer detalj, formatmallarna är standard-HTML.
 
     ```html
     textarea.box1 {
@@ -387,15 +387,15 @@ Ta bort innehållet i Index.cshtml i sin helhet och återskapa filen i följande
     }
     ```
 
-7. Spara formatmallsfilen som hotels.css i mappen wwwroot/css tillsammans med filen site.css.
+7. Spara format filen som Hotels. CSS, i mappen wwwroot/CSS, tillsammans med standard platsen. css-filen.
 
-Det avslutar vår åsikt. Vi gör goda framsteg. Modellerna och vyerna är klara, bara handkontrollen är kvar för att knyta ihop allt.
+Vi slutför vyn. Vi gör ett lyckat framsteg. Modellerna och vyerna har slutförts, men det är bara kontroll enheten som är kvar att knyta samman allt.
 
 ## <a name="define-methods"></a>Definiera metoder
 
-Vi måste ändra till innehållet i en controller **(Home Controller),** som skapas som standard.
+Vi måste ändra innehållet i en kontrollant (**start kontroll**) som skapas som standard.
 
-1. Öppna HomeController.cs-filen och ersätt **med hjälpsatserna** med följande.
+1. Öppna filen HomeController.cs och Ersätt **using** -instruktionerna med följande.
 
     ```cs
     using System;
@@ -408,11 +408,11 @@ Vi måste ändra till innehållet i en controller **(Home Controller),** som ska
     using Microsoft.Azure.Search.Models;
     ```
 
-### <a name="add-index-methods"></a>Lägg till indexmetoder
+### <a name="add-index-methods"></a>Lägg till index metoder
 
-Vi behöver två **indexmetoder,** en som inte tar några parametrar (för fallet när appen öppnas första gången) och en som tar en modell som parameter (för när användaren har angett söktext). Den första av dessa metoder skapas som standard. 
+Vi behöver två **index** metoder, ett som inte tar några parametrar (för det fall då appen först öppnas) och en som tar en modell som en parameter (för när användaren har angett söktext). Den första av dessa metoder skapas som standard. 
 
-1. Lägg till följande metod efter standardmetoden **Index().**
+1. Lägg till följande metod efter standard **index ()** -metoden.
 
     ```cs
         [HttpPost]
@@ -438,21 +438,21 @@ Vi behöver två **indexmetoder,** en som inte tar några parametrar (för falle
         }
     ```
 
-    Lägg märke till **metodens asynkrona** deklaration och **det väntande** anropet till **RunQueryAsync**. Dessa sökord tar hand om att göra våra samtal asynkrona, och så undvik att blockera trådar på servern.
+    Lägg märke till metodens **asynkrona** deklaration och **await** -anropet till **RunQueryAsync**. De här nyckelorden tar hand om att göra våra anrop asynkrona och Undvik att blockera trådar på servern.
 
-    **Catch-blocket** använder felmodellen som skapades för oss som standard.
+    **Catch** -blocket använder fel modellen som har skapats för oss som standard.
 
-### <a name="note-the-error-handling-and-other-default-views-and-methods"></a>Observera felhantering och andra standardvyer och metoder
+### <a name="note-the-error-handling-and-other-default-views-and-methods"></a>Observera fel hanteringen och andra standardvyer och metoder
 
-Beroende på vilken version av .NET Core du använder skapas en något annorlunda uppsättning standardvyer som standard. För .NET Core 2.1 är standardvyerna Index, Om, Kontakt, Sekretess och Fel. För .NET Core 2.2 är till exempel standardvyerna Index, Sekretess och Fel. I båda fallen kan du visa dessa standardsidor när du kör appen och undersöka hur de hanteras i handkontrollen.
+Beroende på vilken version av .NET Core som du använder skapas en något annorlunda uppsättning standardvyer som standard. För .NET Core 2,1 är standardvyerna index, om, kontakt, sekretess och fel. För .NET Core 2,2 är till exempel standardvyerna index, Privacy och Error. I båda fallen kan du visa dessa standard sidor när du kör appen och kontrol lera hur de hanteras i kontrollanten.
 
-Vi kommer att testa felvyn senare i den här självstudien.
+Vi kommer att testa fel visningen senare i den här självstudien.
 
-I GitHub-exemplet har vi tagit bort oanvända vyer och tillhörande åtgärder.
+I GitHub-exemplet har vi tagit bort oanvända vyer och deras associerade åtgärder.
 
-### <a name="add-the-runqueryasync-method"></a>Lägga till metoden RunQueryAsync
+### <a name="add-the-runqueryasync-method"></a>Lägg till RunQueryAsync-metoden
 
-Azure Cognitive Search-anropet är inkapslat i vår **RunQueryAsync-metod.**
+Azure Kognitiv sökning-anropet är inkapslat i vår **RunQueryAsync** -metod.
 
 1. Lägg först till några statiska variabler för att konfigurera Azure-tjänsten och ett anrop för att initiera dem.
 
@@ -478,7 +478,7 @@ Azure Cognitive Search-anropet är inkapslat i vår **RunQueryAsync-metod.**
         }
     ```
 
-2. Lägg nu till själva **metoden RunQueryAsync.**
+2. Lägg nu till själva **RunQueryAsync** -metoden.
 
     ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model)
@@ -500,60 +500,60 @@ Azure Cognitive Search-anropet är inkapslat i vår **RunQueryAsync-metod.**
         }
     ```
 
-    I den här metoden säkerställer vi först att vår Azure-konfiguration initieras och sedan ange några sökparametrar. Namnen på fälten i parametern **Välj** matchar exakt egenskapsnamnen i **hotellklassen.** Det är möjligt att utelämna parametern **Select,** i vilket fall alla egenskaper returneras. Att ange inga **Select-parametrar** är dock ineffektivt om vi bara är intresserade av en delmängd av data. Genom att ange de egenskaper vi är intresserade av returneras endast dessa egenskaper.
+    I den här metoden ser vi först till att vår Azure-konfiguration initieras och anger sedan vissa Sök parametrar. Namnen på fälten i **Select** -parametern matchar exakt egenskaps namnen i **hotellet** -klassen. Det går att lämna ut den **valda** parametern, i vilket fall alla egenskaper returneras. Att ange inga **val** parametrar är dock inte effektivt om vi bara är intresserade av en delmängd av data. Genom att ange de egenskaper som vi är intresse rad av returneras endast dessa egenskaper.
 
-    Den asynkrona uppmaningen att söka (**model.resultList = väntar _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parametrar);**) är vad den här guiden och appen handlar om. Klassen **DocumentSearchResult** är intressant och en bra idé (när appen körs) är att ange en brytpunkt här och använda en felsökare för att undersöka innehållet i **model.resultList**. Du bör upptäcka att det är intuitivt, ger dig de uppgifter du bad om, och inte mycket annat.
+    Det asynkrona anropet till search (**modell. resultList = await _indexClient. Documents. SearchAsync&lt;hotell&gt;(Model. searchText, Parameters);**) är vad den här själv studie kursen och appen är mer om. **DocumentSearchResult** -klassen är en intressant och en bra idé (när appen körs) är att ange en Bryt punkt här och använda en fel sökare för att undersöka innehållet i **Model. resultList**. Du bör se att det är intuitivt, som ger dig de data du bad om och inte mycket annat.
 
-Nu till sanningens ögonblick.
+För tillfället för sanningen.
 
 ### <a name="test-the-app"></a>Testa appen
 
-Nu ska vi kontrollera att appen körs korrekt.
+Nu ska vi kontrol lera att appen fungerar korrekt.
 
-1. Välj **Felsökning/Start utan felsökning** eller tryck på F5. Om du har kodat saker på rätt sätt får du den första indexvyn.
+1. Välj **Felsök/starta utan fel sökning** eller tryck på F5-tangenten. Om du har kodat saker korrekt visas den inledande index vyn.
 
-     ![Öppna appen](./media/tutorial-csharp-create-first-app/azure-search-index.png)
+     ![Öppnar appen](./media/tutorial-csharp-create-first-app/azure-search-index.png)
 
-2. Skriv text som "strand" (eller text som kommer att tänka på) och klicka på sökikonen. Du borde få lite resultat.
+2. Ange text som "strand" (eller någon text som kommer till åtanke) och klicka på Sök ikonen. Du bör få några resultat.
 
-     ![Söka efter "strand"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
+     ![Söker efter "strand"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
-3. Försök att skriva in "femstjärniga". Notera hur du inte får några resultat. En mer sofistikerad sökning skulle behandla "femstjärniga" som en synonym för "lyx" och returnera dessa resultat. Användningen av synonymer är tillgänglig i Azure Cognitive Search, men vi kommer inte att täcka det i de första självstudierna.
+3. Försök att ange "fem stjärnor". Observera att du inte får några resultat. En mer avancerad sökning skulle behandla "fem stjärnor" som synonymer för "lyxen" och returnera resultaten. Användningen av synonymer är tillgänglig i Azure Kognitiv sökning, men vi kommer inte att täcka det i de första självstudierna.
  
-4. Prova att skriva in "hot" som söktext. Det returnerar _inte_ poster med ordet "hotell" i dem. Vår sökning är bara att hitta hela ord, men några resultat returneras.
+4. Försök att ange "Het" som söktext. Det returnerar _inte_ poster med ordet "hotell" i dem. Sök funktionen söker bara hela ord, även om några resultat returneras.
 
-5. Prova med andra ord: "pool", "solsken", "visa", och vad som helst. Du kommer att se Azure Cognitive Search som arbetar på sin enklaste, men ändå övertygande nivå.
+5. Försök med andra ord: "pool", "solsken", "View" och vad som är. Du kommer att se Azure Kognitiv sökning som arbetar på det enklaste, men ändå övertygandenivå.
 
-## <a name="test-edge-conditions-and-errors"></a>Testa kantförhållanden och fel
+## <a name="test-edge-conditions-and-errors"></a>Villkor för testning och fel
 
-Det är viktigt att kontrollera att våra funktioner för felhantering fungerar som de ska, även när saker och ting fungerar perfekt. 
+Det är viktigt att kontrol lera att våra fel hanterings funktioner fungerar som de ska, även om saker fungerar perfekt. 
 
-1. Ange **Index** raden **Kasta nytt undantag()** efter försöket { anropa efter **försöket {** efter anropet { . Det här undantaget tvingar fram ett fel när vi söker på text.
+1. I **index** -metoden, efter **try {** Call, anger du raden **Throw New Exception ()**. Detta undantag innebär ett fel när vi söker efter text.
 
-2. Kör appen, skriv "bar" som söktext och klicka på sökikonen. Undantaget bör resultera i felvyn.
+2. Kör appen, ange "bar" som söktext och klicka på Sök ikonen. Undantaget bör resultera i vyn fel.
 
-     ![Tvinga fram ett fel](./media/tutorial-csharp-create-first-app/azure-search-error.png)
+     ![Framtvinga ett fel](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
     > [!Important]
-    > Det anses vara en säkerhetsrisk för att returnera interna felnummer på felsidor. Om din app är avsedd för allmänt bruk, gör en undersökning av säkra och bästa praxis för vad som ska returneras när ett fel inträffar.
+    > Det betraktas som en säkerhets risk för att returnera interna fel nummer på felsidor. Om din app är avsedd för allmän användning kan du utföra en undersökning i säkra och bästa metoder för vad som ska returneras när ett fel uppstår.
 
-3. Ta **bort Kasta nytt undantag()** när du är nöjd felhantering fungerar som det ska.
+3. Ta bort **Utlös nytt undantag ()** när du är nöjd med fel hanteringen som det ska.
 
 ## <a name="takeaways"></a>Lärdomar
 
 Tänk på följande takeaways från det här projektet:
 
-* Ett Azure Cognitive Search-anrop är koncist och det är enkelt att tolka resultaten.
-* Asynkrona anrop lägger till en liten mängd komplexitet i styrenheten, men är det bästa sättet att använda om du tänker utveckla kvalitetsappar.
-* Denna app utförde en enkel textsökning, definierad av vad som ställs in i **searchParameters**. Den här klassen kan dock fyllas med många medlemmar som lägger till förfining i en sökning. Inte mycket extra arbete behövs för att göra denna app betydligt mer kraftfull.
+* Ett Azure Kognitiv sökning-anrop är koncist och det är enkelt att tolka resultaten.
+* Asynkrona anrop lägger till en liten mängd komplexitet för kontrollanten, men är den bästa metoden om du planerar att utveckla kvalitets appar.
+* Den här appen utförde en enkel texts ökning, som definieras av vad som har ställts in i **searchParameters**. Den här en klass kan dock fyllas i med många medlemmar som lägger till riktigt ambitiös i en sökning. Inte mycket ytterligare arbete krävs för att göra den här appen avsevärt mer kraftfull.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att ge den bästa användarupplevelsen med Azure Cognitive Search måste vi lägga till fler funktioner, särskilt växling (antingen med hjälp av sidnummer eller oändlig rullning) och automatisk komplettering/förslag. Vi bör också överväga mer sofistikerade sökparametrar (till exempel geografiska sökningar på hotell inom en angiven radie från en viss punkt och sökresultatbeställning).
+För att tillhandahålla den bästa användar upplevelsen med Azure Kognitiv sökning behöver vi lägga till fler funktioner, särskilt sid indelning (antingen med sid nummer eller oändlig rullning) och Autoavsluta/förslag. Vi bör också överväga mer avancerade Sök parametrar (till exempel geografisk sökning på hotell inom en angiven radie av en given punkt och Sök Resultat ordningen).
 
-Dessa nästa steg tas upp i en serie tutorials. Låt oss börja med personsökning.
+Dessa nästa steg beskrivs i en serie självstudier. Vi börjar med växling.
 
 > [!div class="nextstepaction"]
-> [C# Självstudiekurs: Sidnumrering av sökresultat - Azure Cognitive Search](tutorial-csharp-paging.md)
+> [C#-självstudie: sid brytning för Sök Resultat – Azure Kognitiv sökning](tutorial-csharp-paging.md)
 
 

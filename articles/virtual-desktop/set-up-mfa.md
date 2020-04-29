@@ -1,97 +1,60 @@
 ---
-title: Konfigurera Azure multifaktorautentisering för Windows Virtual Desktop - Azure
-description: Konfigurera Azure multifaktorautentisering för ökad säkerhet i Windows Virtual Desktop.
+title: Konfigurera Azure-Multi-Factor Authentication för Windows Virtual Desktop – Azure
+description: Konfigurera Azure-Multi-Factor Authentication för ökad säkerhet i Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b470f9278bdca94d1fe98c64b11b070fb36cb075
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 069d2a153e307ed94032ce1d980f26521969fc56
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998477"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508351"
 ---
-# <a name="set-up-azure-multi-factor-authentication"></a>Konfigurera multifaktorautentisering i Azure
+# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för virtuellt Windows-skrivbord
 
-Windows-klienten för Windows Virtual Desktop är ett utmärkt alternativ för att integrera Windows Virtual Desktop med din lokala dator. Men när du konfigurerar ditt Windows Virtual Desktop-konto till Windows-klienten finns det vissa åtgärder som du måste vidta för att skydda dig själv och dina användare.
+Windows-klienten för virtuellt Windows-skrivbord är ett utmärkt alternativ för att integrera virtuella Windows-datorer med din lokala dator. Men när du konfigurerar ditt Windows-konto för virtuella skriv bord till Windows-klienten, finns det vissa mått som du måste vidta för att hålla dig trygg och dina användare.
 
-När du loggar in första gången frågar klienten efter ditt användarnamn, lösenord och Azure MFA. Därefter kommer klienten att komma ihåg din token från ditt Azure Active Directory -företagsprogram nästa gång du loggar in. När du väljer **Kom ihåg mig**kan användarna logga in efter att ha startat om klienten utan att behöva ange sina autentiseringsuppgifter igen.
+När du först loggar in frågar klienten efter ditt användar namn, lösen ord och Azure MFA. Efter det kommer klienten att komma ihåg din token från din Azure Active Directory (AD) företags program nästa gången du loggar in. När du väljer **kom ihåg mig**kan användarna logga in efter omstart av klienten utan att behöva ange sina autentiseringsuppgifter på annat sätt.
 
-Det är praktiskt att komma ihåg autentiseringsuppgifter, men det kan också göra distributioner på Enterprise-scenarier eller personliga enheter mindre säkra. För att skydda användarna måste du se till att klienten fortsätter att be om MFA-autentiseringsuppgifter (Azure Multi-Factor Authentication). I den här artikeln visas hur du konfigurerar principen villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
+Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare måste du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure Multi-Factor Authentication (MFA). I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
 
 ## <a name="prerequisites"></a>Krav
 
 Det här behöver du för att komma igång:
 
-- Tilldela alla användare en av följande licenser:
-  - Microsoft 365 E3 eller E5
-  - Azure Active Directory Premium P1 eller P2
-  - Enterprise Mobility + Säkerhet E3 eller E5
-- En Azure Active Directory-grupp med användarna som tilldelats som gruppmedlemmar.
-- Aktivera Azure MFA för alla dina användare. Mer information om hur du gör det finns i Så här kräver du [tvåstegsverifiering för en användare](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
+- Tilldela användare en licens som innehåller Azure Active Directory Premium P1 eller P2.
+- En Azure Active Directory grupp med dina användare tilldelade som grupp medlemmar.
+- Aktivera Azure MFA för alla dina användare. Mer information om hur du gör finns i [så här kräver du tvåstegsverifiering för en användare](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
->[!NOTE]
->Följande inställning gäller även för [webbklienten för Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> [!NOTE]
+> Följande inställning gäller även för [webb klienten för virtuella Windows-datorer](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
-## <a name="opt-in-to-the-conditional-access-policy"></a>Anmäl dig till principen villkorlig åtkomst
+## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-1. Öppna **Azure Active Directory**.
+I det här avsnittet visas hur du skapar en princip för villkorlig åtkomst som kräver Multi-Factor Authentication när du ansluter till det virtuella Windows-skrivbordet.
 
-2. Gå till fliken **Alla program.** I den nedrullningsbara menyn Programtyp väljer du **Enterprise Applications**och söker sedan efter **Windows Virtual Desktop Client**.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+1. Välj **ny princip**.
+1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
+1. Under **Tilldelningar** väljer du **Användare och grupper**.
+   1. Under **Inkludera**väljer du **Välj användare och grupper** > **användare och grupper** > väljer den grupp som skapades i förutsättnings stadiet.
+   1. Välj **Klar**.
+1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**.
+   1. Välj **Windows Virtual Desktop** och **Windows Virtual Desktop Client**och välj sedan **Välj** . **Done**
+   ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise-selected.png)
+1. Under **åtkomst kontroller** > **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
+1. Under **Access Controls** > **session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och **väljer**sedan.
+1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
+1. Välj **skapa** för att aktivera principen.
 
-    ![En skärmbild av fliken Alla program. Användaren skrev in "windows virtual desktop client" i sökfältet och appen har visats i sökresultaten.](media/all-applications-search.png)
+## <a name="next-steps"></a>Nästa steg
 
-3. Välj **Villkorlig åtkomst**.
+- [Läs mer om principer för villkorlig åtkomst](../active-directory/conditional-access/concept-conditional-access-policies.md)
 
-    ![En skärmbild som visar användaren som håller muspekaren över fliken Villkorlig åtkomst.](media/conditional-access-location.png)
-
-4. Välj **+ Ny princip**.
-
-   ![En skärmbild av sidan Villkorlig åtkomst. Användaren håller muspekaren över den nya principknappen.](media/new-policy-button.png)
-
-5. Ange ett **namn** på **regeln**och **välj** sedan *namnet på den **grupp** som du skapade i förutsättningarna.
-
-6. Välj **Välj**och välj sedan **Klar**.
-
-7. Öppna sedan **Molnappar eller -åtgärder**.
-
-8. Välj windows **Virtual Desktop** Enterprise-appen på fliken **Välj.**
-
-    ![En skärmbild av sidan Molnappar eller åtgärder. Användaren har valt windows virtual desktop-appen genom att markera markeringen bredvid den. Den valda appen är markerad i rött.](media/cloud-apps-select.png)
-    
-    >[!NOTE]
-    >Du bör också se windows virtual desktop client-appen som valts till vänster på skärmen, vilket visas i följande bild. Du behöver både Windows Virtual Desktop- och Windows Virtual Desktop Client Enterprise-apparna för att principen ska fungera.
-    >
-    > ![En skärmbild av sidan Molnappar eller åtgärder. Apparna Windows Virtual Desktop och Windows Virtual Desktop Client är markerade i rött.](media/cloud-apps-enterprise-selected.png)
-
-9. Välj **Välj**
-
-10. Öppna sedan **Grant** 
-
-11. Välj **Kräv multifaktorautentisering**och välj sedan **Kräv en av de markerade kontrollerna**.
-   
-    ![En skärmbild av sidan Bevilja. "Kräv multifaktorautentisering" har valts.](media/grant-page.png)
-
-    >[!NOTE]
-    >Om du har MDM-registrerade enheter i organisationen och inte vill att de ska visa MFA-prompten kan du också välja **Kräv att enheten ska markeras som kompatibel**.
-
-12. Välj **Session**.
-
-13. Ställ in **inloggningsfrekvensen** till **Aktiv**och ändra sedan dess värde till **1 timmar**.
-
-    ![En skärmbild av sidan Session. Sessionsmenyn visar att rullgardinsmenyn för inloggningsfrekvens har ändrats till "1" och "Timmar".](media/sign-in-frequency.png)
-   
-    >[!NOTE]
-    >Aktiva sessioner i Windows Virtual Desktop-miljö fortsätter att fungera när du ändrar principen. Men om du kopplar från eller signerar måste du ange dina autentiseringsuppgifter igen efter 60 minuter. När du ändrar inställningarna kan du förlänga timeout-perioden så mycket du vill (så länge den stämmer överens med organisationens säkerhetsprincip).
-    >
-    >Standardinställningen är ett rullande fönster på 90 dagar, vilket innebär att klienten ber användarna att logga in igen när de försöker komma åt en resurs efter att ha varit inaktiv på sin dator i 90 dagar eller längre.
-
-14. Aktivera principen.
-
-15. Välj **Skapa** för att bekräfta principen.
-
-Nu är du klar! Känn dig fri att testa principen för att se till att din tillåt lista fungerar som avsett.
+- [Läs mer om användar inloggnings frekvens](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency)

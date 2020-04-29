@@ -1,7 +1,7 @@
 ---
-title: Självstudiekurs - Diagnostisera kommunikationsproblem mellan nätverk med Azure-portalen
+title: Självstudie – diagnostisera kommunikations problem mellan nätverk med hjälp av Azure Portal
 titleSuffix: Azure Network Watcher
-description: I den här självstudien kan du lära dig hur du diagnostiserar ett kommunikationsproblem mellan ett virtuellt Azure-nätverk som är anslutet till ett lokalt eller annat virtuellt nätverk via en Azure-gateway för virtuella nätverk med hjälp av Network Watchers VPN-diagnostikkapacitet.
+description: I den här självstudien får du lära dig hur du diagnostiserar ett kommunikations problem mellan ett virtuellt Azure-nätverk som är anslutet till ett lokalt eller annat virtuellt nätverk, via en virtuell Azure-nätverksgateway med hjälp av Network Watcher funktion för VPN-diagnostik.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -15,15 +15,15 @@ ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76834696"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure Portal
 
-En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett lokalt nätverk eller till ett annat virtuellt nätverk. I den här självstudiekursen får du lära du dig att:
+En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett lokalt nätverk eller till ett annat virtuellt nätverk. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Diagnostisera problem med en virtuell nätverksgateway med funktionen VPN-diagnostik i Network Watcher
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 ## <a name="prerequisites"></a>Krav
 
 Du måste ha en befintlig, aktiv VPN-gateway för att kunna använda VPN-diagnostik. Om du inte har en befintlig VPN-gateway att diagnostisera kan du distribuera en med hjälp av ett [PowerShell-skript](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Du kan köra PowerShell-skriptet från:
-- **En lokal PowerShell-installation**: Skriptet `Az` kräver Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/install-Az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+- **En lokal PowerShell-installation**: skriptet kräver Azure PowerShell `Az` -modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/install-Az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - **Azure Cloud Shell**: Den senaste versionen av PowerShell är installerad och konfigurerad i [Azure Cloud Shell](https://shell.azure.com/powershell) och loggar in dig automatiskt i Azure.
 
 Det tar ungefär en timme att skapa en VPN-gateway med skriptet. I de återstående stegen förutsätter vi att den gateway som du diagnostiserar är den som distribuerats med det här skriptet. Om du diagnostiserar en egen befintlig gateway i stället, kan resultatet variera.
@@ -78,7 +78,7 @@ Om du redan har en aktiv nätverksbevakare i regionen USA, östra går du vidare
     Som du ser är **FELSÖKNINGSSTATUS****Ej felfri**. Du kan också se en **sammanfattning** och **information** om problemet på fliken **Status**.
 10. När du väljer fliken **Åtgärd** visar VPN-diagnostik ytterligare information. I exemplet som visas i följande bild meddelar VPN-diagnostik att du bör kontrollera hälsotillståndet för varje anslutning:
 
-    ![Åtgärd](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Action](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnostisera en gatewayanslutning
 

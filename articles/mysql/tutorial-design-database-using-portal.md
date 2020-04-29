@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Utforma en server - Azure-portal - Azure Database för MySQL'
-description: Den här självstudien förklarar hur du skapar och hanterar Azure Database för MySQL-server och databas med Azure-portalen.
+title: 'Självstudie: utforma en server – Azure Portal-Azure Database for MySQL'
+description: I den här självstudien beskrivs hur du skapar och hanterar Azure Database for MySQL server och databas med Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
 ms.openlocfilehash: c0d0e9f0994f7d4d75a67911a5191d6e4ffecaa8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80382808"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Självstudie: Utforma en Azure Database for MySQL-databas med Azure Portal
@@ -29,7 +29,7 @@ I den här självstudien använder du Azure-portalen till att:
 > * Uppdatera data
 > * Återställa data
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -41,11 +41,11 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
 
 1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
-2. Välj **Databaser** > **Azure Database för MySQL**. Om du inte hittar MySQL Server under kategorin **Databaser** klickar du på **Visa alla** för att visa alla tillgängliga databastjänster. Du kan också skriva **Azure Database for MySQL** i sökrutan för att snabbt hitta tjänsten.
+2. Välj **databaser** > **Azure Database for MySQL**. Om du inte hittar MySQL server under kategorin **databaser** klickar du på **Visa alla** för att visa alla tillgängliga databas tjänster. Du kan också skriva **Azure Database for MySQL** i sökrutan för att snabbt hitta tjänsten.
    
    ![Navigera till MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png)
 
-3. Klicka på **Azure Database för MySQL-panel.** Fyll i formuläret för Azure Database for MySQL.
+3. Klicka på **Azure Database for MySQL** panel. Fyll i formuläret för Azure Database for MySQL.
    
    ![Skapa formulär](./media/tutorial-design-database-using-portal/2-create-form.png)
 
@@ -53,21 +53,21 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
     ---|---|---
     servernamn | Unikt servernamn | Välj ett unikt namn för Azure Database för MySQL-server. Till exempel mydemoserver. Domännamnet *.mysql.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
     Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-    Resursgrupp | *myresourcegroup myresourcegroup myresourcegroup myre* | Ange ett nytt eller ett befintligt resursgruppnamn.
+    Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du kan välja *Säkerhetskopiering* om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
-    inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Administratörs-inloggningsnamnet kan inte **vara azure_superuser**, **admin**, **administratör**, **root**, **gäst**eller **offentlig**.
-    lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
+    inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Administratörens inloggnings namn får inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
+    lösenordsinställning | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
-    Location | *Regionen närmast användarna*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
+    Plats | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *Den senaste versionen*| Välj den senaste versionen (om du inte har särskilda behov som gör att du måste ha en annan version).
-    Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **prisnivå**. Välj sedan fliken Allmänt *Gen 5* **ändamål.** *2 vCores* *5 GB* *7 days* **Compute Generation** **vCore** **Storage** **Backup Retention Period** Du kan lämna dessa skjutreglage som de är. Om du vill aktivera serversäkerhetskopior i geoupptundsslorad lagring väljer du **Geografiskt redundant** i **alternativen för säkerhetsredundans.** Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **pris nivå**. Välj sedan fliken **generell användning** . *gen 5*, *2 virtuella kärnor*, *5 GB*och *7 dagar* är standardvärden för **beräknings generering**, **vCore**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna dessa skjutreglage som de är. Om du vill aktivera server säkerhets kopieringar i Geo-redundant lagring väljer du **geografiskt redundant** från **alternativen för redundans för säkerhets kopiering**. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
    ![Prisnivå](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
-   > Med **automatisk tillväxt** aktiverad ökar servern lagringsutrymmet när du närmar dig den allokerade gränsen, utan att påverka din arbetsbelastning.
+   > När den **automatiska tillväxten** är aktive rad ökar lagringen när du närmar dig den tilldelade gränsen, utan att påverka arbets belastningen.
 
-4. Klicka på **Granska + skapa**. Du kan klicka på knappen **Meddelanden** i verktygsfältet för att övervaka distributionsprocessen. Distributionen kan ta upp till 20 minuter.
+4. Klicka på **Granska + skapa**. Du kan klicka på knappen **meddelanden** i verktygsfältet för att övervaka distributions processen. Distributionen kan ta upp till 20 minuter.
 
 ## <a name="configure-firewall"></a>Konfigurera brandvägg
 
@@ -91,7 +91,7 @@ Hämta det fullständiga **servernamnet** och **inloggningsnamnet för serveradm
 2. Skriv ned **Servernamn** och **Inloggningsnamn för serveradministratör** på sidan **Översikt**. Du kan klicka på kopieringsknappen bredvid respektive fält för att kopiera till Urklipp.
    ![4-2 Serveregenskaper](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-I det här exemplet är servernamnet *mydemoserver.mysql.database.azure.com*och serveradministratörsinloggningen är *myadmin\@mydemoserver*.
+I det här exemplet är Server namnet *mydemoserver.mysql.Database.Azure.com*och inloggningen för Server administratören är *Administratörs\@mydemoserver*.
 
 ## <a name="connect-to-the-server-using-mysql"></a>Anslut till servern med mysql
 
@@ -105,7 +105,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 
 ## <a name="create-a-blank-database"></a>Skapa en tom databas
 
-När du är ansluten till servern skapar du en tom databas att arbeta med.
+När du är ansluten till servern skapar du en tom databas för att arbeta med.
 
 ```sql
 CREATE DATABASE mysampledb;
@@ -170,7 +170,7 @@ Anta att du av misstag har tagit bort en viktig databastabell och inte enkelt ka
 
    ![10-1 Återställ en databas](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
-2. Fyll i formuläret **Återställ** med nödvändig information.
+2. Fyll i formuläret **Återställ** med den information som krävs.
 
    ![10-2 Återställningsformulär](./media/tutorial-design-database-using-portal/2-restore-form.png)
 
@@ -179,7 +179,7 @@ Anta att du av misstag har tagit bort en viktig databastabell och inte enkelt ka
    - **Plats**: Regionen är samma som källservern och kan inte ändras.
    - **Prisnivå**: Prisnivån är samma som källservern och kan inte ändras.
    
-3. Klicka på **OK** om du vill återställa servern så att den [återställs till en tidpunkt](./howto-restore-server-portal.md) innan tabellen togs bort. När du återställer en server skapas en ny kopia av servern vid den tidpunkt du anger.
+3. Klicka på **OK** för att återställa servern för att [återställa till en tidpunkt](./howto-restore-server-portal.md) innan tabellen togs bort. När du återställer en server skapas en ny kopia av servern vid den tidpunkt du anger.
 
 ## <a name="next-steps"></a>Nästa steg
 

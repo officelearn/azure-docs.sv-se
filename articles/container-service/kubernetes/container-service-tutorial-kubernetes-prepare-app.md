@@ -8,16 +8,16 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b67e3008bc2ad681e222af6b9edc4a08875732e4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76275433"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(INAKTUELL) Skapa containeravbildningar som ska användas med Azure Container Service
 
 > [!TIP]
-> Den uppdaterade versionen som används i den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudiekurs: Förbered ett program för Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: förbereda ett program för Azure Kubernetes service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -85,7 +85,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Kör [kommandot docker ps](https://docs.docker.com/engine/reference/commandline/ps/) för att se de löpande behållarna.
+Kör kommandot [Docker PS](https://docs.docker.com/engine/reference/commandline/ps/) för att se de behållare som körs.
 
 ```bash
 docker ps

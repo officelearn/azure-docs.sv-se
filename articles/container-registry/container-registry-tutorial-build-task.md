@@ -1,24 +1,24 @@
 ---
-title: Självstudiekurs - Skapa bild på kod commit
+title: Självstudie – Bygg avbildning vid kod genomförande
 description: I självstudien får du lära dig att konfigurera en Azure Container Registry-uppgift till att utlösa containeravbildningsversioner i molnet automatiskt när du checkar in källkod på en Git-lagringsplats.
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78402840"
 ---
-# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudiekurs: Automatisera behållaravbildningsversioner i molnet när du genomför källkod
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudie: automatisera behållar avbildningar skapas i molnet när du allokerar käll koden
 
-Förutom en [snabb uppgift](container-registry-tutorial-quick-task.md)stöder ACR-uppgifter automatiserade Docker-behållaravbildningsversioner i molnet när du genomför källkod till en Git-databas. Git-kontexter som stöds för ACR-uppgifter inkluderar offentliga eller privata GitHub- eller Azure-repos.
+Förutom en [snabb uppgift](container-registry-tutorial-quick-task.md)har ACR-aktiviteter stöd för automatiserade Docker-behållar avbildningar som bygger i molnet när du allokerar käll koden till en git-lagringsplats. Git-kontexter som stöds för ACR-uppgifter inkluderar offentlig eller privat GitHub eller Azure databaser.
 
 > [!NOTE]
-> För närvarande stöder ACR-uppgifter inte utlösare för commit eller pull-begäran i GitHub Enterprise-repos.
+> För närvarande stöder ACR-aktiviteter inte utlösare för commit eller pull-begäranden i GitHub Enterprise databaser.
 
-I den här självstudien skapar och driver ACR-uppgiften en enskild behållaravbildning som anges i en Dockerfile när du arkiverar källkoden till en Git-repo. Information om hur du skapar en [multistegsuppgift](container-registry-tasks-multi-step.md) som använder en YAML-fil för att definiera steg för att skapa, skicka och eventuellt testa flera behållare vid kodsparing finns [i Självstudiekurs: Kör ett arbetsflöde för behållare i flera steg i molnet när du genomför källkoden](container-registry-tutorial-multistep-task.md). En översikt över ACR-uppgifter finns i [Automatisera operativsystem och ramkorrigering med ACR-uppgifter](container-registry-tasks-overview.md)
+I den här självstudien skapar din ACR-uppgift och push-överför en enda behållar avbildning som anges i en Dockerfile när du allokerar käll koden till en git-lagrings platsen. Om du vill skapa en [multi-Step-aktivitet](container-registry-tasks-multi-step.md) som använder en yaml-fil för att definiera steg för att skapa, skicka och välja att testa flera behållare på kod commit, se [Självstudier: köra ett arbets flöde för flera steg i molnet när du ska genomföra käll koden](container-registry-tutorial-multistep-task.md). En översikt över ACR-aktiviteter finns i [Automatisera OS-och Framework-korrigering med ACR-uppgifter](container-registry-tasks-overview.md)
 
 I de här självstudierna har du
 
@@ -32,7 +32,7 @@ Självstudien förutsätter att du redan har slutfört stegen i den [föregåend
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du vill använda Azure CLI lokalt måste du ha Azure CLI version **2.0.46** eller senare installerat och inloggad med [az-inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
+Om du vill använda Azure CLI lokalt måste du ha Azure CLI-version **2.0.46** eller senare installerat och loggat in med AZ- [inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -40,7 +40,7 @@ Om du vill använda Azure CLI lokalt måste du ha Azure CLI version **2.0.46** e
 
 Nu när du har slutfört de steg som krävs för att göra så att ACR Tasks kan läsa incheckningsstatus och skapa webhooks på en lagringsplats kan du skapa en uppgift som utlöser en containeravbildningsversion på incheckningar till lagringsplatsen.
 
-Fyll först i de här gränssnittsmiljövariablerna med värden som är lämpliga för din miljö. Det här steget är inte obligatoriskt, men det gör det lite enklare att köra de flerradiga Azure CLI-kommandona i den här självstudien. Om du inte fyller i dessa miljövariabler måste du manuellt ersätta varje värde var det än visas i exempelkommandona.
+Fyll först i de här gränssnittsmiljövariablerna med värden som är lämpliga för din miljö. Det här steget är inte obligatoriskt, men det gör det lite enklare att köra de flerradiga Azure CLI-kommandona i den här självstudien. Om du inte fyller i de här miljövariablerna måste du ersätta varje värde manuellt var det visas i exempel kommandona.
 
 [![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 
@@ -50,7 +50,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Skapa nu uppgiften genom att köra följande kommando för [att skapa a-aktiviteter:][az-acr-task-create]
+Skapa nu uppgiften genom att köra följande [AZ ACR uppgift Create][az-acr-task-create] -kommando:
 
 ```azurecli-interactive
 az acr task create \

@@ -7,15 +7,15 @@ ms.topic: include
 ms.author: pmorgan
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 96439479ebb007507efdd577e963532d9cdf90d4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67722935"
 ---
-## <a name="putting-everything-together"></a>Att sätta ihop allt
+## <a name="putting-everything-together"></a>Placera allt tillsammans
 
-Här är hur `AzureSpatialAnchorsScript` hela klassfilen ska se ut, efter alla olika element har satts ihop. Du kan använda den som referens för att jämföra med din egen fil och plats om du kan ha några skillnader kvar.
+Så här bör den fullständiga `AzureSpatialAnchorsScript` klass filen se ut när alla de olika elementen har samlats ihop. Du kan använda den som en referens för att jämföra med din egen fil och ange om du kan ha skillnader kvar.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;
@@ -396,7 +396,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig mer om hur du använder Azure Spatial Anchors i en ny Unity HoloLens-app. Om du vill veta mer om hur du använder Azure Spatial Anchors i en ny Android-app fortsätter du till nästa självstudiekurs.
+I den här självstudien får du lära dig mer om hur du använder Azures spatiala ankare i en ny enhet för enhets-HoloLens. Om du vill veta mer om hur du använder Azures spatiala ankare i en ny Android-app fortsätter du till nästa självstudie.
 
 > [!div class="nextstepaction"]
 > [Starta en ny Android-app](/azure/spatial-anchors/tutorials/tutorial-new-android-app)

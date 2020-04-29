@@ -1,6 +1,6 @@
 ---
 title: Migrera befintliga data till ett tabell-API-konto i Azure Cosmos DB
-description: Lär dig hur du migrerar eller importerar lokala data eller molndata till Azure Table API-konto i Azure Cosmos DB.
+description: Lär dig hur du migrerar eller importerar lokala eller molnbaserade data till Azure Tabell-API-kontot i Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,15 +9,15 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66242575"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrera data till Azure Cosmos DB Table-API-konto
 
-Den här självstudien innehåller instruktioner om hur du importerar data för användning med Azure Cosmos DB [Table API](table-introduction.md). Om du har lagrade data i Azure Table Storage kan du använda datamigreringsverktyget eller AzCopy för att importera dina data till Azure Cosmos DB Table-API:t. Om du har data som lagras i ett Azure Cosmos DB Table API-konto (förhandsversion) måste du använda datamigreringsverktyget för att migrera data. 
+Den här självstudien innehåller instruktioner om hur du importerar data för användning med Azure Cosmos DB [tabell-API](table-introduction.md). Om du har lagrade data i Azure Table Storage kan du använda datamigreringsverktyget eller AzCopy för att importera dina data till Azure Cosmos DB Table-API:t. Om du har data som lagras i ett Azure Cosmos DB Table API-konto (förhandsversion) måste du använda datamigreringsverktyget för att migrera data. 
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -28,7 +28,7 @@ Den här självstudien omfattar följande uppgifter:
 
 ## <a name="prerequisites"></a>Krav
 
-* **Öka dataflödet:** Hur länge datamigreringen är beror på hur mycket dataflöde du har ställt in för en enskild behållare eller en uppsättning behållare. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet i Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
+* **Öka data flödet:** Varaktigheten för din datamigrering beror på mängden data flöde som du har konfigurerat för en enskild behållare eller en uppsättning behållare. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet i Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
 
 * **Skapa Azure Cosmos DB-resurser:** Innan du börjar migrera data skapar du alla dina tabeller i förväg från Azure-portalen. Om du migrerar till ett Azure Cosmos DB-konto som har dataflöde på databasnivå anger du en partitionsnyckel när du skapar Azure Cosmos DB-tabellerna.
 
@@ -66,11 +66,11 @@ Använd följande alternativ för källan när du definierar Azure Table Storage
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-Om du vill hämta källanslutningssträngen när du importerar från Azure Table-lagring öppnar du Azure-portalen och klickar på **Lagringskonton** > **Kontoåtkomstnycklar****Account** > och använder sedan kopieringsknappen för att kopiera **anslutningssträngen**.
+Om du vill hämta käll anslutnings strängen när du importerar från Azure Table Storage öppnar du Azure Portal och klickar på **lagrings konton** > **konto** > **åtkomst nycklar**och använder sedan kopierings knappen för att kopiera **anslutnings strängen**.
 
 ![Skärmbild över alternativ för HBase-källor](./media/table-import/storage-table-access-key.png)
 
-Om du vill hämta källanslutningssträngen när du importerar från ett Azure Cosmos DB Table API-konto (förhandsversion) öppnar du Azure-portalen, klickar på **Azure Cosmos DB** > **Account** > **Connection String** och använder kopieringsknappen för att kopiera **anslutningssträngen**.
+Om du vill hämta käll anslutnings strängen när du importerar från ett Azure Cosmos DB tabell-API (förhands granskning), öppnar du Azure Portal, klickar på **Azure Cosmos DB** > **kontots** > **anslutnings sträng** och använder kopierings knappen för att kopiera **anslutnings strängen**.
 
 ![Skärmbild över alternativ för HBase-källor](./media/table-import/cosmos-connection-string.png)
 

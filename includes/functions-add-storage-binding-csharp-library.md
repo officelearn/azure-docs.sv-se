@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: glenga
 ms.openlocfilehash: 5e1a2622df0038141dd5cb05237f93d5e33e0bfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78190931"
 ---
-I ett C#-klassbiblioteksprojekt definieras bindningarna som bindningsattribut på funktionsmetoden. *Den function.json-fil som* krävs av Functions genereras sedan automatiskt baserat på dessa attribut.
+I ett C#-klass biblioteks projekt definieras bindningarna som binding-attribut i funktions metoden. *Function. JSON* -filen som krävs av Functions genereras sedan automatiskt baserat på dessa attribut.
 
-Öppna *HttpExample.cs* projektfilen och lägg till följande `Run` parameter i metoddefinitionen:
+Öppna projekt filen *HttpExample.cs* och Lägg till följande parameter i `Run` metod definitionen:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-Parametern `msg` är `ICollector<T>` en typ som representerar en samling meddelanden som skrivs till en utdatabindning när funktionen är klar. I det här fallet är utdata en lagringskö med namnet `outqueue`. Anslutningssträngen för lagringskontot `StorageAccountAttribute`anges av . Det här attributet anger den inställning som innehåller anslutningssträngen för lagringskonto och kan användas på klass-, metod- eller parameternivå. I det här fallet `StorageAccountAttribute` kan du utelämna eftersom du redan använder standardlagringskontot.
+`msg` Parametern är en `ICollector<T>` typ som representerar en samling meddelanden som skrivs till en utgående bindning när funktionen slutförs. I det här fallet är utdata en lagrings kö med `outqueue`namnet. Anslutnings strängen för lagrings kontot anges av `StorageAccountAttribute`. Det här attributet anger den inställning som innehåller lagrings kontots anslutnings sträng och kan tillämpas på klass-, metod-eller parameter nivå. I det här fallet kan du utelämna `StorageAccountAttribute` eftersom du redan använder standard lagrings kontot.
 
-Definitionen av körningsmetod ska nu se ut så här:  
+Definitionen av Run-metoden bör nu se ut så här:  
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18":::

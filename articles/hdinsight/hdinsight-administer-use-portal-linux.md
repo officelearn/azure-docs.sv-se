@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/23/2020
-ms.openlocfilehash: 8380cfcbf267b117108d46794153bd5a61b8ec6a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116238"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232895"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal
 
@@ -200,9 +200,9 @@ Från [klustrets start sida](#homePage):
 
 Lösen ordet har ändrats på alla noder i klustret.
 
-### <a name="change-the-ssh-user-password"></a>Ändra lösen ord för SSH-användare
+### <a name="change-the-ssh-user-password-or-public-key"></a>Ändra lösen ord för SSH-användare eller offentlig nyckel
 
-1. Använd en text redigerare och spara följande text som en fil med namnet **ChangePassword.sh**.
+1. Använd en text redigerare och spara följande text som en fil med namnet **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > Du måste använda ett redigerings program som använder LF som linje slut. Om redigeraren använder CRLF fungerar inte skriptet.
@@ -222,13 +222,13 @@ Lösen ordet har ändrats på alla noder i klustret.
    | Field | Värde |
    | --- | --- |
    | Skript typ | Välj **anpassad** i list rutan.|
-   | Namn |"Ändra SSH-lösenord" |
-   | Bash-skript-URI |URI: n till changepassword.sh-filen |
+   | Name |"Ändra SSH-autentiseringsuppgifter" |
+   | Bash-skript-URI |URI: n till changecredentials.sh-filen |
    | Nodtyp (er): (Head, Worker, Nimbus, chef eller Zookeeper.) |✓ för alla nodtyper i listan |
    | Parametrar |Ange SSH-användarnamnet och sedan det nya lösen ordet. Det måste finnas ett blank steg mellan användar namnet och lösen ordet. Följande tecken stöds inte i SSH-lösenord: "' '/\ <% ~ | $ &
    | Spara den här skript åtgärden... |Lämna fältet omarkerat. |
 
-6. Välj **skapa** för att tillämpa skriptet. När skriptet är klart kan du ansluta till klustret med hjälp av SSH med det nya lösen ordet.
+6. Välj **skapa** för att tillämpa skriptet. När skriptet är klart kan du ansluta till klustret med hjälp av SSH med de nya autentiseringsuppgifterna.
 
 ## <a name="find-the-subscription-id"></a>Hitta prenumerations-ID: t
 

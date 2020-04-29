@@ -1,6 +1,6 @@
 ---
-title: Få information om en Azure-cache för Redis - Azure CLI
-description: Det här Azure CLI-kodexemplet visar hur du hämtar information om en Azure-cache för Redis-instans, inklusive dess etableringsstatus.
+title: Hämta information om en Azure-cache för Redis – Azure CLI
+description: Detta exempel på Azure CLI-kod visar hur du hämtar information om en Azure-cache för Redis-instans, inklusive dess etablerings status.
 author: yegu-ms
 ms.author: yegu
 tags: azure-service-management
@@ -9,15 +9,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.openlocfilehash: 54920017f4a0598a74a54114e3d1e0a5392d7d2a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75411061"
 ---
-# <a name="get-details-of-an-azure-cache-for-redis"></a>Få information om en Azure-cache för Redis
+# <a name="get-details-of-an-azure-cache-for-redis"></a>Hämta information om en Azure-cache för Redis
 
-I det här fallet får du lära dig hur du hämtar information om en Azure Cache för Redis-instans, inklusive dess etableringsstatus.
+I det här scenariot får du lära dig hur du hämtar information om en Azure-cache för Redis-instansen, inklusive dess etablerings status.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -27,15 +27,15 @@ I det här fallet får du lära dig hur du hämtar information om en Azure Cache
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att hämta information om en Azure-cache för Redis-instans. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I det här skriptet används följande kommandon för att hämta information om en Azure-cache för Redis-instansen. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [az redis visa](https://docs.microsoft.com/cli/azure/redis) | Hämta information om en Azure-cache för Redis-instans. |
+| [AZ Redis show](https://docs.microsoft.com/cli/azure/redis) | Hämta information om en Azure-cache för Redis-instansen. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare Azure-cache för Redis CLI-skriptexempel finns i [Azure Cache for Redis-dokumentationen](../cli-samples.md).
+Ytterligare Azure-cache för Redis CLI-skript exempel finns i [Azure-cachen för Redis-dokumentationen](../cli-samples.md).

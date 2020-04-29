@@ -1,35 +1,35 @@
 ---
-title: 'Självstudiekurs: Felsöka med Azure Monitor'
-description: Lär dig mer om hur Azure Monitor och Log Analytics hjälper dig att övervaka din App Service-webbapp. Azure Monitor maximerar tillgängligheten genom att leverera en omfattande lösning för övervakning av dina miljöer.
+title: 'Självstudie: Felsöka med Azure Monitor'
+description: Lär dig hur Azure Monitor och Log Analytics hjälper dig att övervaka App Service-webbappen. Azure Monitor maximerar tillgängligheten genom att leverera en omfattande lösning för övervakning av dina miljöer.
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
 ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78399526"
 ---
-# <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Självstudiekurs: Felsöka en App Service-app med Azure Monitor
+# <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Självstudie: Felsöka en App Service-app med Azure Monitor
 
 > [!NOTE]
-> Azure Monitor-integrering med App Service är i [förhandsversion](https://aka.ms/appsvcblog-azmon).
+> Azure Monitor-integrering med App Service är i för [hands version](https://aka.ms/appsvcblog-azmon).
 >
 
 Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximerar tillgängligheten och prestandan för dina program och tjänster genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer.
 
-Den här självstudien visar hur du felsöker en app med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Exempelappen innehåller kod avsedd att förbruka minne och orsaka HTTP 500-fel, så att du kan diagnostisera och åtgärda problemet med Azure Monitor.
+Den här självstudien visar hur du felsöker en app med hjälp av [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Exempel appen innehåller kod som är avsedd för avgas minne och orsakar HTTP 500-fel, så att du kan diagnostisera och åtgärda problemet med hjälp av Azure Monitor.
 
-När du är klar har du en exempelapp som körs på App Service på Linux integrerat med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+När du är klar har du ett exempel på en app som körs på App Service på Linux integrerat med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera en webbapp med Azure Monitor
-> * Skicka konsolloggar till Log Analytics
-> * Använda loggfrågor för att identifiera och felsöka fel i webbappfel
+> * Skicka konsol loggar till Log Analytics
+> * Använd logg frågor för att identifiera och felsöka webb program fel
 
 Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
@@ -45,7 +45,7 @@ För att slutföra den här självstudien behöver du:
 
 ## <a name="create-azure-resources"></a>Skapa Azure-resurser
 
-Först kör du flera kommandon lokalt för att konfigurera en exempelapp som ska användas med den här självstudien. Kommandona klonar en exempelapp, skapar Azure-resurser, skapar en distributionsanvändare och distribuerar appen till Azure. Du uppmanas att ange lösenordet som en del av skapandet av distributionsanvändaren. 
+Först kör du flera kommandon lokalt för att konfigurera en exempel-app som ska användas med den här självstudien. Kommandona klonar en exempel app, skapar Azure-resurser, skapar en distributions användare och distribuerar appen till Azure. Du uppmanas att ange det lösen ord som anges som en del av att skapa distributions användaren. 
 
 ```bash
 git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
@@ -57,30 +57,30 @@ git remote add azure <url_from_previous_step>
 git push azure master
 ```
 
-## <a name="configure-azure-monitor-preview"></a>Konfigurera Azure Monitor (förhandsversion)
+## <a name="configure-azure-monitor-preview"></a>Konfigurera Azure Monitor (för hands version)
 
-### <a name="create-a-log-analytics-workspace"></a>Skapa en logganalysarbetsyta
+### <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics arbets yta
 
-Nu när du har distribuerat exempelappen till Azure App Service konfigurerar du övervakningsfunktionen för att felsöka appen när problem uppstår. Azure Monitor lagrar loggdata på en Log Analytics-arbetsyta. En arbetsyta är en behållare som innehåller data- och konfigurationsinformation.
+Nu när du har distribuerat exempel appen till Azure App Service konfigurerar du övervaknings funktioner för att felsöka appen när problem uppstår. Azure Monitor lagrar loggdata i en Log Analytics arbets yta. En arbets yta är en behållare som innehåller data och konfigurations information.
 
-I det här steget skapar du en Log Analytics-arbetsyta för att konfigurera Azure Monitor med din app.
+I det här steget skapar du en Log Analytics arbets yta för att konfigurera Azure Monitor med din app.
 
 ```bash
 az monitor log-analytics workspace create --resource-group myResourceGroup --workspace-name myMonitorWorkspace
 ```
 
 > [!NOTE]
-> [För Azure Monitor Log Analytics betalar du för datainmatning och datalagring.](https://azure.microsoft.com/pricing/details/monitor/)
+> [För Azure Monitor Log Analytics betalar du för data inmatning och data lagring.](https://azure.microsoft.com/pricing/details/monitor/)
 >
 
-### <a name="create-a-diagnostic-setting"></a>Skapa en diagnostikinställning
+### <a name="create-a-diagnostic-setting"></a>Skapa en diagnostisk inställning
 
-Diagnostikinställningar kan användas för att samla in mått för vissa Azure-tjänster i Azure Monitor Logs för analys med andra övervakningsdata med hjälp av loggfrågor. För den här självstudien aktiverar du webbservern och standardutdata-/felloggarna. Se [loggtyper som stöds](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) för en fullständig lista över loggtyper och beskrivningar.
+Diagnostiska inställningar kan användas för att samla in mått för vissa Azure-tjänster i Azure Monitor loggar för analys med andra övervaknings data med hjälp av logg frågor. I den här självstudien aktiverar du webb servern och standard-utdata-/fel loggar. Se de [logg typer som stöds](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) för en fullständig lista över logg typer och beskrivningar.
 
-Du kör följande kommandon för att skapa diagnostikinställningar för AppServiceConsoleLogs (standardutdata/fel) och AppServiceHTTPLogs (webbserverloggar). Ersätt _ \<appnamn>_ och _ \<arbetsytans namn>_ med dina värden. 
+Du kör följande kommandon för att skapa diagnostiska inställningar för AppServiceConsoleLogs (standardutdata/fel) och AppServiceHTTPLogs (webb server loggar). Ersätt _ \<App-Name->_ och _ \<arbets ytans namn>_ med dina värden. 
 
 > [!NOTE]
-> De två första `resourceID` kommandona och `workspaceID`är variabler `az monitor diagnostic-settings create` som ska användas i kommandot. Mer information om det här kommandot finns [i Skapa diagnostikinställningar med Azure CLI.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli)
+> De två första kommandona `resourceID` och `workspaceID`, är variabler som ska användas i `az monitor diagnostic-settings create` kommandot. Mer information om det här kommandot finns i [skapa diagnostiska inställningar med hjälp av Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) .
 >
 
 ```bash
@@ -101,72 +101,72 @@ az monitor diagnostic-settings create --resource $resourceID \
 
 Bläddra till `http://<app-name>.azurewebsites.net`.
 
-Exempelappen ImageConverter konverterar inkluderade `JPG` bilder `PNG`från till . Ett fel har avsiktligt placerats i koden för den här självstudien. Om du väljer tillräckligt många bilder skapar appen ett HTTP 500-fel under bildkonverteringen. Föreställ dig att det här scenariot inte beaktas under utvecklingsfasen. Du använder Azure Monitor för att felsöka felet.
+Exempel appen, ImageConverter, konverterar inkluderade bilder från `JPG` till `PNG`. En bugg har avsiktligt placerats i koden för den här själv studie kursen. Om du väljer tillräckligt många avbildningar genererar appen ett HTTP 500-fel under bild konverteringen. Tänk på att det här scenariot inte ansågs under utvecklings fasen. Du ska använda Azure Monitor för att felsöka felet.
 
-### <a name="verify-the-app-is-works"></a>Verifiera att appen fungerar
+### <a name="verify-the-app-is-works"></a>Kontrol lera att appen fungerar
 
-Om du vill `Tools` konvertera `Convert to PNG`bilder klickar du på och väljer .
+Om du vill konvertera avbildningar klickar du på `Tools` och väljer `Convert to PNG`.
 
-![Klicka på "Verktyg" och välj "Konvertera till PNG"](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
+![Klicka på verktyg och välj Konvertera till PNG](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-Markera de två första `convert`bilderna och klicka på . Detta kommer att konverteras.
+Välj de två första bilderna och klicka `convert`på. Detta kommer att konverteras.
 
-![Markera de två första bilderna](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
+![Välj de två första bilderna](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
-### <a name="break-the-app"></a>Bryta appen
+### <a name="break-the-app"></a>Bryt appen
 
-Nu när du har verifierat appen genom att konvertera två bilder framgångsrikt försöker vi konvertera de fem första bilderna.
+Nu när du har verifierat appen genom att konvertera två avbildningar, försöker vi konvertera de första fem bilderna.
 
-![Konvertera de första fem bilderna](./media/tutorial-azure-monitor/sample-monitor-app-convert-five-images.png)
+![Omvandla de första fem bilderna](./media/tutorial-azure-monitor/sample-monitor-app-convert-five-images.png)
 
-Den här åtgärden `HTTP 500` misslyckas och skapar ett fel som inte har testats under utvecklingen.
+Den här åtgärden Miss lyckas och `HTTP 500` genererar ett fel som inte har testats under utvecklingen.
 
-![Konverteringen resulterar i ett HTTP 500-fel](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
+![Konverteringen leder till ett HTTP 500-fel](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
-## <a name="use-log-query-to-view-azure-monitor-logs"></a>Använda loggfråga för att visa Azure Monitor-loggar
+## <a name="use-log-query-to-view-azure-monitor-logs"></a>Använd logg fråga för att Visa Azure Monitor loggar
 
-Nu ska vi se vilka loggar som är tillgängliga på log analytics-arbetsytan. 
+Nu ska vi se vilka loggar som är tillgängliga på arbets ytan Log Analytics. 
 
-Klicka på den här [länken för Logganalys för](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) att komma åt din arbetsyta i Azure-portalen.
+Klicka på den här [Log Analytics arbets ytans länk](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) för att komma åt din arbets yta i Azure Portal.
 
-Välj arbetsytan Log Analytics i Azure-portalen.
+I Azure Portal väljer du Log Analytics arbets ytan.
 
 ### <a name="log-queries"></a>Loggfrågor
 
-Loggfrågor hjälper dig att fullt ut utnyttja värdet på de data som samlas in i Azure Monitor Logs. Du använder loggfrågor för att identifiera loggarna i både AppServiceHTTPLogs och AppServiceConsoleLogs. Mer information om loggfrågor finns i översikten över [loggfrågor.](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Med logg frågor kan du utnyttja värdet för de data som samlas in i Azure Monitor loggar. Du använder logg frågor för att identifiera loggarna i både AppServiceHTTPLogs och AppServiceConsoleLogs. Mer information om logg frågor finns i [Översikt över logg](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) frågor.
 
-### <a name="view-appservicehttplogs-with-log-query"></a>Visa AppServiceHTTPLogs med loggfråga
+### <a name="view-appservicehttplogs-with-log-query"></a>Visa AppServiceHTTPLogs med logg fråga
 
-Nu när vi har kommit åt appen ska vi visa data som `AppServiceHTTPLogs`är associerade med HTTP-begäranden som finns i .
+Nu när vi har öppnat appen ska vi se de data som är kopplade till HTTP-begäranden, som finns i `AppServiceHTTPLogs`.
 
-1. Klicka `Logs` från vänsternavigering.
+1. Klicka `Logs` på från den vänstra navigeringen.
 
-![Logga Anlytics Worksace Loggar](./media/tutorial-azure-monitor/log-analytics-workspace-logs.png)
+![Logga Anlytics Worksace-loggar](./media/tutorial-azure-monitor/log-analytics-workspace-logs.png)
 
-2. Sök `appservice` efter och `AppServiceHTTPLogs`dubbelklicka på .
+2. Sök efter `appservice` och dubbelklicka på `AppServiceHTTPLogs`.
 
-![Logganalysarbetsytatabeller](./media/tutorial-azure-monitor/log-analytics-workspace-app-service-tables.png)
+![Tabellerna i Log Analytics-arbetsyta](./media/tutorial-azure-monitor/log-analytics-workspace-app-service-tables.png)
 
 3. Klicka på `Run`.
 
-![HTTP-loggar för logganalysarbetsyytjänst](./media/tutorial-azure-monitor/log-analytics-workspace-app-service-http-logs.png)
+![Log Analytics arbets yta App Service HTTP-loggar](./media/tutorial-azure-monitor/log-analytics-workspace-app-service-http-logs.png)
 
-Frågan `AppServiceHTTPLogs` returnerar alla begäranden under de senaste 24 timmarna. Kolumnen `ScStatus` innehåller HTTP-status. Om du `HTTP 500` vill diagnostisera `ScStatus` felen begränsar du till 500 och kör frågan, som visas nedan:
+`AppServiceHTTPLogs` Frågan returnerar alla begär Anden under de senaste 24 timmarna. Kolumnen `ScStatus` innehåller http-statusen. För att diagnosticera `HTTP 500` felen begränsar `ScStatus` du till 500 och kör frågan, enligt nedan:
 
 ```kusto
 AppServiceHTTPLogs
 | where ScStatus == 500
 ```
 
-### <a name="view-appserviceconsolelogs-with-log-query"></a>Visa AppServiceConsoleLogs med loggfråga
+### <a name="view-appserviceconsolelogs-with-log-query"></a>Visa AppServiceConsoleLogs med logg fråga
 
-Nu när du har bekräftat HTTP 500s, låt oss ta en titt på standardutdata / fel från appen. Dessa loggar finns i "AppServiceConsoleLogs".
+Nu när du har bekräftat HTTP-500 ska vi ta en titt på standardutdata/fel från appen. Dessa loggar finns i ' AppServiceConsoleLogs '.
 
-(1) `+` Klicka här om du vill skapa en ny fråga. 
+(1) klicka `+` för att skapa en ny fråga. 
 
-(2) Dubbelklicka `AppServiceConsoleLogs` på `Run`tabellen och klicka på . 
+(2) dubbelklicka på `AppServiceConsoleLogs` tabellen och klicka på `Run`. 
 
-Eftersom konvertering av fem bilder resulterar i serverfel kan du se om `ResultDescription` appen också skriver fel genom att filtrera efter fel, som visas nedan:
+Eftersom konverteringen av fem bilder resulterar i Server fel, kan du se om appen också skriver fel genom att `ResultDescription` filtrera efter fel, som visas nedan:
 
 ```kusto
 AppServiceConsoleLogs |
@@ -181,16 +181,16 @@ PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted
 referer: http://<app-name>.azurewebsites.net/
 ```
 
-### <a name="join-appservicehttplogs-and-appserviceconsolelogs"></a>Gå med i AppServiceHTTPLogs och AppServiceConsoleLogs
+### <a name="join-appservicehttplogs-and-appserviceconsolelogs"></a>Anslut AppServiceHTTPLogs och AppServiceConsoleLogs
 
-Nu när du har identifierat både HTTP 500s och standardfel måste du bekräfta om det finns ett samband mellan dessa meddelanden. Därefter sammanfogar du tabellerna tillsammans baserat `TimeGenerated`på tidsstämpeln .
+Nu när du har identifierat både HTTP-500 och standard fel måste du kontrol lera om det finns en korrelation mellan dessa meddelanden. Sedan kopplar du ihop tabellerna baserat på tidstämpeln `TimeGenerated`.
 
 > [!NOTE]
 > En fråga har förberetts för dig som gör följande:
 >
 > - Filtrerar HTTPLogs för 500-fel
-> - Konsolloggar för frågor
-> - Ansluter till tabellerna`TimeGenerated`
+> - Frågor konsol loggar
+> - Kopplar tabellerna på`TimeGenerated`
 >
 
 Kör följande fråga:
@@ -203,7 +203,7 @@ let myConsole = AppServiceConsoleLogs | project TimeGen=substring(TimeGenerated,
 myHttp | join myConsole on TimeGen | project TimeGen, CsUriStem, ScStatus, ResultDescription;
 ```
 
-I `ResultDescription` kolumnen visas följande fel samtidigt som webbserverfel:
+I `ResultDescription` kolumnen visas följande fel vid samma tidpunkt som webb server fel:
 
 ```
 PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted 
@@ -211,23 +211,23 @@ PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted
 referer: http://<app-name>.azurewebsites.net/
 ```
 
-Meddelandet anger att minnet har uttömts på rad 20 `process.php`. Du har nu bekräftat att programmet skapade ett fel under HTTP 500-felet. Låt oss ta en titt på koden för att identifiera problemet.
+Meddelande tillståndets minne har nåtts på rad 20 av `process.php`. Nu har du bekräftat att programmet genererade ett fel under HTTP 500-fel. Vi tar en titt på koden för att identifiera problemet.
 
 ## <a name="identify-the-error"></a>Identifiera felet
 
-Öppna och titta på `process.php` linje 20 i den lokala katalogen. 
+Öppna `process.php` och titta på rad 20 i den lokala katalogen. 
 
 ```php
 imagepng($imgArray[$x], $filename);
 ```
 
-Det första `$imgArray[$x]`argumentet, är en variabel som håller alla JPGs (i minnet) som behöver konvertering. Men `imagepng` behöver bara bilden konverteras och inte alla bilder. Förinläsning av bilder är inte nödvändigt och kan orsaka minnesutmattning, vilket leder till HTTP 500s. Låt oss uppdatera koden för att läsa in bilder på begäran för att se om det löser problemet. Därefter kommer du att förbättra koden för att lösa minnesproblemet.
+Det första argumentet, `$imgArray[$x]`, är en variabel som håller alla JPGs (i minnet) som behöver konverteras. Dock behöver `imagepng` bara bilden konverteras och inte alla bilder. För inläsning av avbildningar är inte nödvändigt och kan orsaka minnes överbelastning, vilket leder till HTTP-500. Vi uppdaterar koden för att läsa in avbildningar på begäran för att se om det löser problemet. Sedan kommer du att förbättra koden för att åtgärda minnes problemet.
 
 ## <a name="fix-the-app"></a>Åtgärda appen
 
 ### <a name="update-locally-and-redeploy-the-code"></a>Uppdatera lokalt och distribuera om koden
 
-Du gör följande `process.php` ändringar för att hantera minnesutmattningen:
+Du gör följande ändringar för `process.php` att hantera minnes överbelastningen:
 
 ```php
 <?php
@@ -254,13 +254,13 @@ git push azure master
 
 Bläddra till `http://<app-name>.azurewebsites.net`. 
 
-Om du konverterar bilder bör http 500-felen inte längre skapas längre.
+Att konvertera bilder bör inte längre producera HTTP 500-fel.
 
 ![PHP-app som körs i Azure App Service](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-Ta bort diagnostikinställningen med följande kommando:
+Ta bort den diagnostiska inställningen med följande kommando:
 
 ```bash
 az monitor diagnostic-settings delete --resource $resourceID -n myMonitorLogs
@@ -268,11 +268,11 @@ az monitor diagnostic-settings delete --resource $resourceID -n myMonitorLogs
 Vad du lärt dig:
 
 > [!div class="checklist"]
-> * Konfigurerade en webbapp med Azure Monitor
+> * Konfigurerat en webbapp med Azure Monitor
 > * Skickade loggar till Log Analytics
-> * Använda loggfrågor för att identifiera och felsöka webbappfel
+> * Använda logg frågor för att identifiera och felsöka webb program fel
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Nästa steg
-* [Frågeloggar med Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)
+* [Fråga efter loggar med Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)
 * [Felsöka Azure App Service i Visual Studio](../troubleshoot-dotnet-visual-studio.md)
-* [Analysera apploggar i HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analysera app-loggar i HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

@@ -1,7 +1,7 @@
 ---
-title: 'Handledning 1: Förutsäga kreditrisk'
+title: 'Självstudie 1: förutsägelse kredit risk'
 titleSuffix: ML Studio (classic) - Azure
-description: En detaljerad självstudiekurs som visar hur du skapar en förutsägelseanalyslösning för kreditriskbedömning i Azure Machine Learning Studio (klassisk). Den här självstudien är del ett i en självstudieserie i tre delar.  Den visar hur du skapar en arbetsyta, laddar upp data och skapar ett experiment.
+description: En detaljerad självstudie som visar hur du skapar en förutsägelse analys för kredit riskbedömning i Azure Machine Learning Studio (klassisk). Den här självstudien är del ett i en självstudieserie i tre delar.  Den visar hur du skapar en arbetsyta, laddar upp data och skapar ett experiment.
 keywords: kreditrisk, lösning för förutsägelseanalys, riskbedömning
 author: sdgilley
 ms.author: sgilley
@@ -11,13 +11,13 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79204281"
 ---
-# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Handledning 1: Förutsäg kreditrisk - Azure Machine Learning Studio (klassisk)
+# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Självstudie 1: förutsägelse kredit risk-Azure Machine Learning Studio (klassisk)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -27,14 +27,14 @@ I den här självstudien tittar vi närmare på hur du utvecklar en lösning fö
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du använder den som ett exempel på hur du kan skapa en förutsägelseanalyslösning med Microsoft Azure Machine Learning Studio (klassisk). Du använder Azure Machine Learning Studio (klassisk) och en Machine Learning-webbtjänst för den här lösningen.  
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du kommer att använda det som ett exempel på hur du kan skapa en förutsägelse analys lösning med hjälp av Microsoft Azure Machine Learning Studio (klassisk). Du använder Azure Machine Learning Studio (klassisk) och en Machine Learning webb tjänst för den här lösningen.  
 
 I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen distribuerar du modellen som en webbtjänst.
 
 I den här delen av självstudien ska du: 
  
 > [!div class="checklist"]
-> * Skapa en maskininlärningsstudio (klassisk) arbetsyta
+> * Skapa en Machine Learning Studio (klassisk)-arbets yta
 > * Överför befintliga data
 > * Skapa ett experiment
 
@@ -42,28 +42,28 @@ Du kan sedan använda det här experimentet till att [träna modeller i del 2](t
 
 ## <a name="prerequisites"></a>Krav
 
-Den här självstudien förutsätter att du har använt Machine Learning Studio (klassisk) minst en gång tidigare och att du har viss förståelse för maskininlärningsbegrepp. Men vi förväntar oss inte att du är en expert.
+I den här självstudien förutsätter vi att du har använt Machine Learning Studio (klassisk) minst en gång innan och att du har kunskaper om Machine Learning-koncept. Men vi förväntar oss inte att du är en expert.
 
-Om du aldrig har använt **Azure Machine Learning Studio (klassiskt)** tidigare kanske du vill börja med snabbstarten, Skapa ditt första [datavetenskapsexperiment i Azure Machine Learning Studio (klassiskt).](create-experiment.md) Snabbstarten tar dig till Machine Learning Studio (klassiskt) för första gången. Vi går vi igenom grunderna och förklarar hur du drar och släpper moduler i ett experiment, hur du kopplar ihop dem och hur du kör experimentet. Vi avslutar med att titta på resultatet.
+Om du aldrig har använt **Azure Machine Learning Studio (klassisk)** tidigare kanske du vill börja med snabb starten och [skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)](create-experiment.md). Snabb starten tar dig genom Machine Learning Studio (klassisk) för första gången. Vi går vi igenom grunderna och förklarar hur du drar och släpper moduler i ett experiment, hur du kopplar ihop dem och hur du kör experimentet. Vi avslutar med att titta på resultatet.
 
 
 > [!TIP] 
-> Du hittar en fungerande kopia av det experiment som du skapar i den här självstudien i [Azure AI Gallery](https://gallery.azure.ai). Gå till **[Handledning - Förutse kreditrisk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** och klicka på **Öppna i Studio** för att ladda ner en kopia av experimentet till din Machine Learning Studio (klassisk) arbetsyta.
+> Du hittar en fungerande kopia av det experiment som du skapar i den här självstudien i [Azure AI Gallery](https://gallery.azure.ai). Gå till **[självstudie – Förutsäg kredit risk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet i arbets ytan Machine Learning Studio (klassisk).
 > 
 
 
-## <a name="create-a-machine-learning-studio-classic-workspace"></a>Skapa en maskininlärningsstudio (klassisk) arbetsyta
+## <a name="create-a-machine-learning-studio-classic-workspace"></a>Skapa en Machine Learning Studio (klassisk)-arbets yta
 
-Om du vill använda Machine Learning Studio (klassisk) måste du ha en arbetsyta i Microsoft Azure Machine Learning Studio (klassiskt). Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.  
+Om du vill använda Machine Learning Studio (klassisk) måste du ha en Microsoft Azure Machine Learning Studio (klassisk)-arbets yta. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.  
 
-Information om hur du skapar en arbetsyta finns i [Skapa och dela en arbetsyta för Azure Machine Learning Studio (klassiskt).](create-workspace.md)
+Information om hur du skapar en arbets yta finns i [skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta](create-workspace.md).
 
-När arbetsytan har skapats öppnar du Machine[https://studio.azureml.net/Home](https://studio.azureml.net/Home)Learning Studio (klassisk) ( ). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
+När arbets ytan har skapats öppnar du Machine Learning Studio (klassisk) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
 
-![Välj arbetsyta i Studio (klassisk)](./media/tutorial-part1-credit-risk/open-workspace.png)
+![Välj arbets yta i Studio (klassisk)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Om du är arbetsytans ägare kan du dela de experiment som du arbetar med genom att bjuda in andra till arbetsytan. Du kan göra detta i Machine Learning Studio (klassisk) på **sidan INSTÄLLNINGAR.** Du behöver bara Microsoft-kontot eller organisationskontot för varje användare.
+> Om du är arbetsytans ägare kan du dela de experiment som du arbetar med genom att bjuda in andra till arbetsytan. Du kan göra detta i Machine Learning Studio (klassisk) på sidan **Inställningar** . Du behöver bara Microsoft-kontot eller organisationskontot för varje användare.
 > 
 > På sidan **SETTINGS** (Inställningar) klickar du på **USERS** (Användare) och sedan på **INVITE MORE USERS** (Bjud in fler användare) längst ned i fönstret.
 > 
@@ -79,7 +79,7 @@ Datamängden **german.data** innehåller rader med 20 variabler för 1000 tidiga
 
 UCI-webbplatsen innehåller en beskrivning av attributen för funktionsvektor för dessa data. Dessa data innehåller ekonomisk information, kredithistorik, anställningsstatus och personlig information. Varje sökande har getts en binär klassificering som anger om sökanden utgör en låg eller hög kreditrisk. 
 
-Du använder dessa data för att träna en modell för förutsägelseanalys. När du är klar bör din modell kunna acceptera en funktionsvektor för en ny individ och förutsäga om de är en låg eller hög kreditrisk.  
+Du använder dessa data för att träna en modell för förutsägelseanalys. När du är klar bör din modell kunna acceptera en funktions vektor för en ny individ och förutsäga om de är en låg eller hög kredit risk.  
 
 Här är en intressant problemvariant.
 
@@ -97,7 +97,7 @@ Om modellen sedan felklassificerar någon som en låg kreditrisk när den person
 
 ### <a name="convert-the-dataset-format"></a>Konvertera datamängdens format
 
-Den ursprungliga datamängden använder ett format med blankstegsavgränsning. Machine Learning Studio (klassisk) fungerar bättre med en CSV-fil (comma-separated value), så du konverterar datauppsättningen genom att ersätta blanksteg med kommatecken.  
+Den ursprungliga datamängden använder ett format med blankstegsavgränsning. Machine Learning Studio (klassisk) fungerar bättre med en fil med kommaavgränsade värden (CSV), så du konverterar data uppsättningen genom att ersätta blank steg med kommatecken.  
 
 Det finns många sätt att konvertera dessa data. Ett sätt är att använda följande Windows PowerShell-kommando:   
 
@@ -109,11 +109,11 @@ Ett annat sätt är att använda Unix sed-kommandot:
 
 I båda fallen skapar du en kommaavgränsad version av data i en fil med namnet **german.csv** som du kan använda i experimentet.
 
-### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Ladda upp datauppsättningen till Machine Learning Studio (klassisk)
+### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Överför data uppsättningen till Machine Learning Studio (klassisk)
 
-När data har konverterats till CSV-format måste du ladda upp dem till Machine Learning Studio (klassisk). 
+När data har konverterats till CSV-format måste du ladda upp den till Machine Learning Studio (klassisk). 
 
-1. Öppna machine learning-studion (klassisk)[https://studio.azureml.net](https://studio.azureml.net)startsida ( ). 
+1. Öppna den Machine Learning Studio (klassiska) start sidan ([https://studio.azureml.net](https://studio.azureml.net)). 
 
 2. Klicka på menyn ![Meny](./media/tutorial-part1-credit-risk/menu.png) i det övre vänstra hörnet i fönstret, klicka på **Azure Machine Learning**, välj **Studio** och logga in.
 
@@ -139,17 +139,17 @@ När data har konverterats till CSV-format måste du ladda upp dem till Machine 
 
 Detta laddar upp data till en datamängdsmodul som du kan använda i ett experiment.
 
-Du kan hantera datauppsättningar som du har laddat upp till Studio (klassisk) genom att klicka på **fliken DATASETS** till vänster om studiofönstret (klassiskt).
+Du kan hantera data uppsättningar som du har laddat upp till Studio (klassisk) genom att klicka på fliken **data uppsättningar** till vänster om Studio-fönstret (klassisk).
 
 ![Hantera datamängder](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-Mer information om hur du importerar andra typer av data till ett experiment finns i [Importera dina träningsdata till Azure Machine Learning Studio (klassiskt).](import-data.md)
+Mer information om hur du importerar andra typer av data till ett experiment finns i [Importera dina utbildnings data till Azure Machine Learning Studio (klassisk)](import-data.md).
 
 ## <a name="create-an-experiment"></a>Skapa ett experiment
 
-Nästa steg i den här självstudien är att skapa ett experiment i Machine Learning Studio (klassisk) som använder den datauppsättning du laddade upp.  
+Nästa steg i den här självstudien är att skapa ett experiment i Machine Learning Studio (klassisk) som använder den data uppsättning som du laddade upp.  
 
-1. I Studio (klassisk), klicka **på +NYTT** längst ned i fönstret.
+1. I Studio (klassisk) klickar du på **+ ny** längst ned i fönstret.
 1. Välj **EXPERIMENT** och sedan ”Blank Experiment” (Tomt experiment). 
 
     ![Skapa ett nytt experiment](./media/tutorial-part1-credit-risk/create-new-experiment.png)
@@ -173,15 +173,15 @@ Nästa steg i den här självstudien är att skapa ett experiment i Machine Lear
 
 ### <a name="prepare-the-data"></a>Förbereda data
 
-Du kan visa de första 100 raderna av data och viss statistisk information för hela datauppsättningen: Klicka på utdataporten för datauppsättningen (den lilla cirkeln längst ned) och välj **Visualisera**.  
+Du kan visa de första 100 raderna i data och viss statistisk information för hela data uppsättningen: Klicka på utdataporten för data uppsättningen (den lilla cirkeln längst ned) och välj **visualisera**.  
 
-Eftersom datafilen inte kom med kolumnrubriker har Studio (klassisk) angett allmänna rubriker (Col1, Col2 *osv.*). Bra rubriker är inte nödvändiga för skapandet av en modell, men de gör det lättare att arbeta med data i experimentet. Och när du senare publicerar den här modellen i en webbtjänst hjälper rubrikerna till att identifiera kolumnerna för användare av tjänsten.  
+Eftersom data filen inte levererades med kolumn rubriker, har Studio (klassisk) tillhandahållit allmänna rubriker (Col1, Col2 *osv.*). Bra rubriker är inte nödvändiga för skapandet av en modell, men de gör det lättare att arbeta med data i experimentet. Och när du senare publicerar den här modellen i en webbtjänst hjälper rubrikerna till att identifiera kolumnerna för användare av tjänsten.  
 
 Du kan lägga till kolumnrubriker med hjälp av modulen [Edit Metadata][edit-metadata] (Redigera metadata).
 
 Du använder modulen [Edit Metadata][edit-metadata] (Redigera metadata) för att ändra metadata som associeras med en datamängd. I det här fallet använder du den för att ge kolumnrubrikerna mer användbara namn. 
 
-Om du vill använda [Redigera metadata][edit-metadata]anger du först vilka kolumner som ska ändras (i det här fallet alla.) Därefter anger du vilken åtgärd som ska utföras på dessa kolumner (i det här fallet ändra kolumnrubriker.)
+Om du vill använda [Redigera metadata][edit-metadata]anger du först vilka kolumner som ska ändras (i det här fallet alla). Sedan anger du den åtgärd som ska utföras på dessa kolumner (i det här fallet ändra kolumn rubriker.)
 
 1. På modulpaletten skriver du ”metadata” i rutan **Search** (Sök). [Edit Metadata][edit-metadata] (Redigera metadata) visas i modullistan.
 
@@ -297,7 +297,7 @@ Mer information om hur du använder R-skript i experiment finns i [Utöka experi
 I den här självstudien har du slutfört dessa steg: 
  
 > [!div class="checklist"]
-> * Skapa en maskininlärningsstudio (klassisk) arbetsyta
+> * Skapa en Machine Learning Studio (klassisk)-arbets yta
 > * Ladda upp befintliga data till arbetsytan
 > * Skapa ett experiment
 

@@ -1,17 +1,17 @@
 ---
-title: Självstudiekurs - Snabb behållare bild bygga
+title: Självstudie – bygge för snabb behållar avbildning
 description: I den här självstudien lär du dig att skapa en avbildning av en dockercontainer i Azure med Azure Container Registry Tasks (ACR Tasks) och sedan distribuera den till Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78398508"
 ---
-# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudiekurs: Skapa och distribuera behållaravbildningar i molnet med Azure Container Registry Tasks
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudie: bygga och distribuera behållar avbildningar i molnet med Azure Container Registry uppgifter
 
 **ACR Tasks** är en uppsättning funktioner i Azure Container Registry som ger effektiva avbildningar av dockercontainrar i Azure. I den här artikeln får du lära dig att använda funktionen *Quick Build* (Snabbskapa) i ACR Tasks.
 
@@ -26,7 +26,7 @@ I den här självstudien, som är del ett i en serie:
 > * Skapa en containeravbildning i Azure
 > * Distribuera en behållare till Azure Container Instances
 
-I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar. ACR-uppgifter kan också köra [flerstegsaktiviteter](container-registry-tasks-multi-step.md)med hjälp av en YAML-fil för att definiera steg för att skapa, pusha och eventuellt testa flera behållare.
+I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar. ACR-aktiviteter kan också köra [aktiviteter med flera steg](container-registry-tasks-multi-step.md), med hjälp av en yaml-fil för att definiera steg för att skapa, skicka och välja att testa flera behållare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,7 +50,7 @@ Förgrena den här lagringsplatsen: https://github.com/Azure-Samples/acr-build-h
 
 När du har förgrenat lagringsplatsen kan du klona din förgrening och ange den katalog som innehåller din lokala klon.
 
-Klona repoen med `git`, ersätt ** \<ditt-github-användarnamn\> ** med ditt GitHub-användarnamn:
+Klona lagrings platsen med `git`, Ersätt ** \<ditt-GitHub-username\> ** med ditt GitHub-användarnamn:
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -70,7 +70,7 @@ Kommandona i den här självstudieserien är formaterade för Bash-gränssnittet
 
 Nu när du har hämtat källkoden till din dator, följer du dessa steg för att skapa ett containerregister och en containeravbildning med ACR Tasks.
 
-För att göra det enklare att köra exempelkommandona, använder självstudierna i serien gränssnittets miljövariabler. Kör följande kommando för att ange variabeln `ACR_NAME`. Ersätt ** \<registernamn\> ** med ett unikt namn för det nya behållarregistret. Registernamnet måste vara unikt i Azure, endast innehålla gemener och innehålla 5-50 alfanumeriska tecken. De andra resurser som du skapar i självstudien baseras på det här namnet, så du behöver bara ändra den första variabeln.
+För att göra det enklare att köra exempelkommandona, använder självstudierna i serien gränssnittets miljövariabler. Kör följande kommando för att ange variabeln `ACR_NAME`. Ersätt ** \<register namn\> ** med ett unikt namn för ditt nya behållar register. Register namnet måste vara unikt inom Azure, får bara innehålla gemena bokstäver och innehålla 5-50 alfanumeriska tecken. De andra resurser som du skapar i självstudien baseras på det här namnet, så du behöver bara ändra den första variabeln.
 
 [![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 

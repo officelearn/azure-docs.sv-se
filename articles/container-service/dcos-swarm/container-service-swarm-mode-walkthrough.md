@@ -1,5 +1,5 @@
 ---
-title: (FÖRÅLDRAD) Snabbstart - Azure Docker CE-kluster för Linux
+title: FÖRÅLDRAD Snabb start – Azure Docker CE-kluster för Linux
 description: Lär dig snabbt att skapa ett Docker CE-kluster på Linux-behållare i Azure Container Service med Azure CLI.
 author: iainfoulds
 ms.service: container-service
@@ -8,17 +8,17 @@ ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
 ms.openlocfilehash: d4bbd5560681aa73709019e87c6c22470a64ad78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481746"
 ---
-# <a name="deprecated-deploy-docker-ce-cluster"></a>(FÖRÅLDRAD) Distribuera Docker CE-kluster
+# <a name="deprecated-deploy-docker-ce-cluster"></a>FÖRÅLDRAD Distribuera Docker CE-kluster
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-I den här snabbstarten distribueras ett Docker CE-kluster med Azure CLI. Därefter distribuerar vi och kör ett flercontainerprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
+I den här snabb starten distribueras ett Docker CE-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flercontainerprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
 
 Docker CE på Azure Container Service är en förhandsversion och **bör inte användas för produktionsarbete**.
 
@@ -30,7 +30,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras.
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *platsen westus2.*
+I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på *westus2* -platsen.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
@@ -53,7 +53,7 @@ Resultat:
 
 ## <a name="create-docker-swarm-cluster"></a>Skapa Docker Swarm-kluster
 
-Skapa ett Docker CE-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az-acs-create). Information om hur du är i Docker CE finns i [ACS-regioner för Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Skapa ett Docker CE-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az-acs-create). Information om regions tillgänglighet för Docker CE finns i [ACS-regioner för Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 I följande exempel skapas ett kluster med namnet *mySwarmCluster* med en Linux-huvudnod och tre Linux-agentnoder.
 
@@ -67,7 +67,7 @@ Efter flera minuter slutförs kommandot och returnerar JSON-formaterad informati
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-Under hela den här snabbstarten behöver du FQDN för både Docker Swarm-hanteraren och Docker-agentpoolen. Kör följande kommando för att returnera både huvudnods- och agent-FQDN.
+I den här snabb starten behöver du FQDN för både Docker Swarm-huvudplatsen och Docker-agentens pool. Kör följande kommando för att returnera både huvudnods- och agent-FQDN.
 
 ```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
@@ -159,15 +159,15 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Hämta koden
 
-I den här snabbstarten har förskapade behållaravbildningar använts för att skapa en Docker-tjänst. Tillhörande programkod, Dockerfile och Compose-fil finns på GitHub.
+I den här snabb starten har tidigare skapade behållar avbildningar använts för att skapa en Docker-tjänst. Tillhörande programkod, Dockerfile och Compose-fil finns på GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett Docker Swarm-kluster och distribuerat ett program med flera behållare till det.
+I den här snabb starten har du distribuerat ett Docker Swarm-kluster och distribuerat ett program med flera behållare till det.
 
-Om du vill veta mer om hur du integrerar Docker-svärm med Azure DevOps fortsätter du till CI/CD med Docker Swarm och Azure DevOps.
+Om du vill lära dig att integrera Docker-Swarm med Azure DevOps kan du fortsätta till CI/CD med Docker Swarm och Azure DevOps.
 
 > [!div class="nextstepaction"]
 > [CI/CD med Docker Swarm och Azure DevOps](./container-service-docker-swarm-setup-ci-cd.md)

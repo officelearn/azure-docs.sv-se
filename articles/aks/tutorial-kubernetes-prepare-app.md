@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77593168"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)
@@ -100,7 +100,7 @@ Stoppa och ta bort containerinstanser och resurser med kommandot [docker-compose
 docker-compose down
 ```
 
-När det lokala programmet har tagits bort har du en Docker-avbildning som innehåller Azure *Vote-programmet, azure-vote-front,* för användning med nästa självstudiekurs.
+När det lokala programmet har tagits bort har du en Docker-avbildning som innehåller Azures röst program, *Azure-rösta-framtill*, för användning med nästa självstudie.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -125,7 +125,7 @@ Gå vidare till nästa självstudie och lär dig hur du lagrar containeravbildni
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 [docker-compose-down]: https://docs.docker.com/compose/reference/down
-[Git]: https://git-scm.com/downloads
+[git]: https://git-scm.com/downloads
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

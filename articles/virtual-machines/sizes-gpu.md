@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73a878d791997169b0823bb949e78bdced77cae6
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77913590"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509694"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerade storlekar på virtuella datorer
 
@@ -35,11 +35,13 @@ GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgä
 
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
-För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste du installera NVIDIA GPU-drivrutiner.
+För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste du installera NVIDIA-och AMD GPU-drivrutiner.
 
 [NVidia GPU-drivrutinen](/azure/virtual-machines/extensions/hpccompute-gpu-windows) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](/azure/virtual-machines/extensions/hpccompute-gpu-windows) . Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](/azure/virtual-machines/extensions/overview).
 
 Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [N-seriens installations program för GPU-drivrutiner för Windows](/azure/virtual-machines/windows/n-series-driver-setup) eller [N-serien GPU-drivrutin installation för Linux](/azure/virtual-machines/linux/n-series-driver-setup) för operativ system, driv rutiner, installation och verifierings steg som stöds.
+
+Om du vill installera AMD GPU-drivrutinerna manuellt, se [N-seriens installation av AMD GPU-drivrutiner för Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) för operativ system, driv rutiner, installation och verifierings steg som stöds.
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
